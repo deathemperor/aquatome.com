@@ -1,187 +1,443 @@
 import Chihiros
 import ChihirosBLE
 import SwiftUI
+import Tanks
 
-/// Find a light, then control it. The UX follows the site's Chihiros page (/vi/cong-cu/den-chihiros/).
+/// The lights screen, as the site's Chihiros page (/vi/cong-cu/den-chihiros/): the light card, then the schedule, which
+/// can be planned before any light is connected.
 struct LightsView: View {
   @Environment(LightsModel.self) private var lights
+  @Environment(\.scenePhase) private var phase
 
   var body: some View {
     NavigationStack {
-      Group {
-        if lights.isConnected { LightView() } else { FindView() }
-      }
-      .navigationTitle("Đèn Chihiros")
-      // What just happened stays in view wherever the form is scrolled.
-      .safeAreaInset(edge: .bottom) {
-        if let n = lights.notice {
-          NoticeText(notice: n)
-            .font(.callout)
-            .padding(.horizontal)
-            .padding(.vertical, 10)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(.bar)
+      ScrollView {
+        VStack(alignment: .leading, spacing: 24) {
+          LightCard()
+          ScheduleSection()
+          if lights.isConnected { ManualSection() }
+          VStack(alignment: .leading, spacing: 8) {
+            Text("Hỗ trợ các đèn Bluetooth có tên bắt đầu bằng DY: \(Model.supported.joined(separator: ", ")).")
+            AboutText()
+          }
+          .font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 4)
         }
+        .padding()
       }
+      .background(Color(.systemGroupedBackground))
+      .navigationTitle("Đèn Chihiros")
+      // What just happened stays in view wherever the screen is scrolled.
+      .safeAreaInset(edge: .bottom) { NoticeBar() }
+      .overlay { if lights.isBusy { ProgressView().controlSize(.large) } }
+      .onChange(of: phase) { if phase == .active { lights.checkBluetooth() } }
+      // What happened is said aloud too, as the site's status line is (aria-live).
+      .onChange(of: lights.notice) { if let n = lights.notice { AccessibilityNotification.Announcement(n.text).post() } }
+      #if DEBUG
+      .background {
+        // The frames sent, for the UI tests to read (debug builds only).
+        Text(verbatim: lights.sentFrames.joined(separator: " | ")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("frames")
+      }
+      #endif
     }
   }
 }
 
-private struct FindView: View {
+/// A block of the screen on its own background, like a grouped list's section.
+private struct Panel: ViewModifier {
+  func body(content: Content) -> some View {
+    content
+      .padding()
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+  }
+}
+
+// MARK: The light card
+
+private struct LightCard: View {
   @Environment(LightsModel.self) private var lights
 
   var body: some View {
-    List {
-      Section {
-        Text("Hẹn giờ bật tắt, chỉnh độ sáng từng màu và chỉnh giờ cho đèn Chihiros qua Bluetooth.")
-        Button {
-          lights.isScanning ? lights.stopScan() : lights.scan()
-        } label: {
-          HStack {
-            Text(lights.isScanning ? "Đang tìm đèn…" : "Tìm đèn")
-            if lights.isScanning { Spacer(); ProgressView() }
-          }
-        }
-        .accessibilityIdentifier("scan")
-      } footer: {
-        Text("Bật đèn, bật Bluetooth và lại gần đèn. Đóng ứng dụng My Chihiros trên các máy khác: mỗi lúc đèn chỉ nhận một kết nối.")
+    Group {
+      switch lights.card {
+      case .unsupported: UnsupportedCard()
+      case .idle: IdleCard()
+      case .connecting: BusyCard()
+      case .ready: ReadyCard()
       }
+    }
+    .modifier(Panel())
+  }
+}
 
-      if !lights.found.isEmpty {
-        Section("Đèn tìm thấy") {
-          ForEach(lights.found) { l in
-            Button {
-              Task { await lights.connect(l) }
-            } label: {
-              HStack {
-                VStack(alignment: .leading) {
-                  Text(Model.of(name: l.name)?.name ?? l.name).foregroundStyle(.primary)
-                  Text(l.name).font(.caption).foregroundStyle(.secondary)
-                }
-                Spacer()
-                if lights.connecting == l.id { ProgressView() } else { Text("Kết nối đèn") }
-              }
-            }
-            .disabled(lights.connecting != nil)
-            .accessibilityIdentifier("light")
-          }
-        }
-      }
+private struct UnsupportedCard: View {
+  @Environment(LightsModel.self) private var lights
+  @Environment(\.openURL) private var openURL
 
-      Section {
-        Text("Hỗ trợ các đèn Bluetooth có tên bắt đầu bằng DY: \(Model.supported.joined(separator: ", ")).")
-        AboutText()
+  var body: some View {
+    VStack(alignment: .leading, spacing: 8) {
+      Text("Chưa kết nối được đèn").font(.title3.weight(.semibold))
+      Text(lights.refused == .unsupported ? "Máy này không có Bluetooth." : "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
+        .accessibilityIdentifier("unsupported")
+      if lights.refused != .unsupported, let url = URL(string: UIApplication.openSettingsURLString) {
+        Button("Mở Cài đặt") { openURL(url) }.buttonStyle(.bordered).accessibilityIdentifier("settings")
       }
-      .font(.footnote)
-      .foregroundStyle(.secondary)
+      Text("Vẫn lập lịch được ở dưới: ứng dụng nhớ lịch trên máy này để ghi vào đèn sau.")
+        .font(.footnote).foregroundStyle(.secondary)
     }
   }
 }
 
-private struct LightView: View {
+private struct IdleCard: View {
+  @Environment(LightsModel.self) private var lights
+
+  var body: some View {
+    let saved = lights.savedLights
+    VStack(alignment: .leading, spacing: 12) {
+      Group {
+        if lights.isLost, let d = lights.device {
+          Text("Mất kết nối với \(LightsModel.title(d))")
+        } else if !saved.isEmpty {
+          Text("Đèn đã lưu trên máy này")
+        } else {
+          Text("Kết nối đèn của bạn")
+        }
+      }
+      .font(.title3.weight(.semibold))
+      .accessibilityIdentifier("card-title")
+
+      if saved.isEmpty || lights.isLost {
+        VStack(alignment: .leading, spacing: 4) {
+          ForEach(Array(Self.howTo.enumerated()), id: \.offset) { i, step in
+            HStack(alignment: .firstTextBaseline, spacing: 6) { Text(verbatim: "\(i + 1).").monospacedDigit(); Text(step) }
+          }
+        }
+        .font(.subheadline).foregroundStyle(.secondary)
+      }
+
+      ForEach(saved) { d in SavedLightRow(device: d) }
+
+      Button {
+        lights.isScanning ? lights.stopScan() : lights.scan()
+      } label: {
+        HStack {
+          if lights.isScanning { Text("Đang tìm đèn…"); ProgressView() } else if saved.isEmpty { Text("Kết nối đèn") } else { Text("Kết nối đèn khác") }
+        }
+        .frame(maxWidth: .infinity)
+      }
+      .buttonStyle(.bordered)
+      .tint(saved.isEmpty ? .accentColor : .primary)
+      .controlSize(.large)
+      .accessibilityIdentifier("scan")
+
+      if !lights.found.isEmpty {
+        Text("Đèn tìm thấy").font(.subheadline.weight(.semibold)).padding(.top, 4)
+        ForEach(lights.found) { l in
+          Button {
+            Task { await lights.connect(l) }
+          } label: {
+            HStack {
+              VStack(alignment: .leading) {
+                Text(Model.of(name: l.name)?.name ?? l.name).foregroundStyle(.primary)
+                Text(l.name).font(.caption).foregroundStyle(.secondary)
+              }
+              Spacer()
+              Text("Kết nối đèn")
+            }
+          }
+          .accessibilityIdentifier("light")
+        }
+      }
+    }
+  }
+
+  private static let howTo: [LocalizedStringKey] = [
+    "Cắm điện, bật đèn.",
+    "Bật Bluetooth, đứng gần đèn.",
+    "Đóng ứng dụng My Chihiros trên các điện thoại khác: đèn chỉ nhận một kết nối.",
+  ]
+}
+
+private struct SavedLightRow: View {
+  @Environment(LightsModel.self) private var lights
+  let device: Device
+
+  var body: some View {
+    let again = lights.isLost && lights.device?.id == device.id
+    HStack(alignment: .center) {
+      VStack(alignment: .leading, spacing: 2) {
+        Text(LightsModel.title(device)).font(.headline).accessibilityIdentifier("saved-name")
+        Text(verbatim: meta).font(.caption).foregroundStyle(.secondary).accessibilityIdentifier("saved-meta")
+        Button("Quên đèn này") { lights.forget(device) }
+          .font(.caption).buttonStyle(.borderless).tint(.secondary)
+          .frame(minHeight: 44).contentShape(Rectangle())
+          .accessibilityLabel(Text("Quên đèn này") + Text(verbatim: ": \(LightsModel.title(device))"))
+          .accessibilityIdentifier("forget")
+      }
+      Spacer()
+      Button {
+        Task { await lights.connect(saved: device) }
+      } label: {
+        Text(again ? "Kết nối lại" : "Kết nối")
+      }
+      .buttonStyle(.bordered)
+      .controlSize(.large)
+      .tint(again ? .accentColor : .primary)
+      .accessibilityLabel((again ? Text("Kết nối lại") : Text("Kết nối")) + Text(verbatim: ": \(LightsModel.title(device))"))
+      .accessibilityIdentifier("saved-light")
+    }
+    .padding(.vertical, 4)
+  }
+
+  /// "WRGB II Slim · lịch 13:00–19:00 · 40%".
+  private var meta: String {
+    let a = device.schedules.first { $0.id == device.activeScheduleId }
+    return [device.model, a.map { String(localized: "lịch \(label($0))") }].compactMap { $0 }.joined(separator: " · ")
+  }
+}
+
+private struct BusyCard: View {
+  @Environment(LightsModel.self) private var lights
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 12) {
+      Text(verbatim: lights.connecting ?? "").font(.title3.weight(.semibold))
+      ProgressView().frame(maxWidth: .infinity)
+      Button("Hủy") { lights.disconnect() }.buttonStyle(.bordered).controlSize(.large).accessibilityIdentifier("disconnect")
+    }
+  }
+}
+
+private struct ReadyCard: View {
+  @Environment(LightsModel.self) private var lights
+  @State private var name = ""
+  @FocusState private var naming: Bool
+
+  var body: some View {
+    let d = lights.device
+    VStack(alignment: .leading, spacing: 14) {
+      if d?.activeScheduleId == nil { SetupSteps() }
+
+      VStack(alignment: .leading, spacing: 2) {
+        TextField("Tên đèn", text: $name)
+          .font(.title3.weight(.semibold))
+          .frame(minHeight: 44)
+          .focused($naming)
+          .submitLabel(.done)
+          .onSubmit { naming = false }
+          .accessibilityIdentifier("nickname")
+        Text(verbatim: [d?.nickname == nil ? String(localized: "Bấm vào tên để đổi") : lights.model?.name, lights.firmware.map { "firmware \($0)" }]
+          .compactMap { $0 }.joined(separator: " · "))
+          .font(.caption).foregroundStyle(.secondary)
+          .accessibilityIdentifier("light-meta")
+      }
+      .onAppear { name = d?.nickname ?? lights.model?.name ?? "" }
+      .onChange(of: naming) {
+        guard !naming else { return }
+        lights.rename(name)
+        name = lights.device?.nickname ?? lights.model?.name ?? "" // emptied: the model's name again
+      }
+
+      VStack(alignment: .leading, spacing: 10) {
+        ClockFact()
+        if let m = d?.manual {
+          Fact(icon: "hand.raised", warn: true) {
+            Text(m.levels.allSatisfy { $0 == 0 } ? "Đèn đang tắt bằng tay, không chạy theo lịch." : "Đèn đang chỉnh tay (\(m.levels.max() ?? 0)%), không chạy theo lịch.")
+          }
+          .accessibilityElement(children: .combine)
+          .accessibilityIdentifier("hand")
+        }
+        ScheduleFact()
+      }
+
+      HStack(spacing: 8) {
+        quick("Tắt đèn", id: "quick-off") { await lights.quick(off: true) }
+        quick("Sáng hết", id: "quick-full") { await lights.quick(off: false) }
+        quick("Theo lịch", id: "quick-auto") { await lights.backToSchedule() }
+          .disabled(!lights.canGoBackToSchedule)
+      }
+      .disabled(lights.isBusy)
+      .accessibilityElement(children: .contain)
+      .accessibilityLabel("Bật tắt nhanh")
+
+      HStack {
+        Spacer()
+        Button("Ngắt kết nối") { lights.disconnect() }
+          .font(.footnote).buttonStyle(.borderless).tint(.secondary)
+          .frame(minHeight: 44).contentShape(Rectangle())
+          .accessibilityIdentifier("disconnect")
+      }
+    }
+  }
+
+  private func quick(_ title: LocalizedStringKey, id: String, _ action: @escaping () async -> Void) -> some View {
+    Button { Task { await action() } } label: { Text(title).frame(maxWidth: .infinity) }
+      .buttonStyle(.bordered)
+      .controlSize(.large)
+      .tint(.primary)
+      .accessibilityIdentifier(id)
+  }
+}
+
+/// A new light (nothing written to it from AquaTome yet): the four steps to set it up.
+private struct SetupSteps: View {
+  @Environment(LightsModel.self) private var lights
+
+  var body: some View {
+    let steps: [(Bool, LocalizedStringKey)] = [
+      (true, "Kết nối đèn"),
+      (lights.clock == .right, "Chỉnh giờ đèn"),
+      (lights.edited, "Chọn lịch và màu"),
+      (false, "Ghi lịch vào đèn"),
+    ]
+    VStack(alignment: .leading, spacing: 6) {
+      ForEach(Array(steps.enumerated()), id: \.offset) { _, step in
+        HStack(spacing: 8) {
+          Image(systemName: step.0 ? "checkmark.circle.fill" : "circle")
+            .foregroundStyle(step.0 ? Color.accentColor : .secondary)
+            .accessibilityHidden(true)
+          Text(step.1).foregroundStyle(step.0 ? .primary : .secondary)
+        }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(step.0 ? Text(step.1) + Text(verbatim: " ") + Text("(xong)") : Text(step.1))
+      }
+    }
+    .font(.subheadline)
+    .padding(12)
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .background(Color.accentColor.opacity(0.08), in: RoundedRectangle(cornerRadius: 8))
+    .accessibilityElement(children: .contain)
+    .accessibilityLabel("Cài đèn mới")
+    .accessibilityIdentifier("steps")
+  }
+}
+
+private struct Fact<Content: View>: View {
+  let icon: String
+  var warn = false
+  @ViewBuilder let content: Content
+
+  var body: some View {
+    HStack(alignment: .firstTextBaseline, spacing: 8) {
+      Image(systemName: icon).foregroundStyle(warn ? Color.warning : Color.accentColor).accessibilityHidden(true)
+      VStack(alignment: .leading, spacing: 6) { content }
+    }
+    .font(.subheadline)
+    .foregroundStyle(warn ? Color.warning : .primary)
+  }
+}
+
+private struct ClockFact: View {
+  @Environment(LightsModel.self) private var lights
+
+  var body: some View {
+    Group {
+      if lights.clock == .right {
+        Fact(icon: "checkmark") { Text("Đồng hồ đèn đúng giờ.").accessibilityIdentifier("clock") }
+      } else {
+        Fact(icon: "clock", warn: true) {
+          Group {
+            switch lights.clock {
+            case .lost: Text("Đèn mất giờ, có thể do mất điện: lịch sẽ chạy sai giờ.")
+            case .off(let d): Text("Đồng hồ đèn \(d > 0 ? String(localized: "nhanh") : String(localized: "chậm")) \(span(abs(d))): lịch sẽ chạy lệch.")
+            default: Text("Chưa đọc được giờ của đèn.")
+            }
+          }
+          .accessibilityIdentifier("clock")
+          Button("Chỉnh giờ đèn theo máy này") { Task { await lights.syncClock() } }
+            .buttonStyle(.bordered).controlSize(.large).tint(.primary).font(.subheadline)
+            .disabled(lights.isBusy)
+            .accessibilityIdentifier("sync-clock")
+        }
+      }
+    }
+  }
+}
+
+/// What AquaTome wrote to the light, and when: never shown as what the light runs (it may have been changed since in the
+/// My Chihiros app, and the light doesn't report it).
+private struct ScheduleFact: View {
+  @Environment(LightsModel.self) private var lights
+
+  var body: some View {
+    Fact(icon: "calendar") {
+      if let a = lights.active {
+        Text("Lịch \(label(a)), sáng dần \(a.ramp) phút")
+        Text("Ghi từ AquaTome ngày \(day(a.savedAt)).").font(.footnote).foregroundStyle(.secondary)
+      } else {
+        Text("Chưa ghi lịch nào từ AquaTome.")
+        Text("Lịch đặt bằng ứng dụng My Chihiros (nếu có) vẫn chạy; đèn không cho đọc lại lịch đó.").font(.footnote).foregroundStyle(.secondary)
+      }
+    }
+    .accessibilityElement(children: .combine)
+    .accessibilityIdentifier("saved")
+  }
+}
+
+// MARK: The schedule
+
+private struct ScheduleSection: View {
   @Environment(LightsModel.self) private var lights
   @State private var confirming = false
 
   var body: some View {
     @Bindable var lights = lights
-    Form {
-      Section("Đang chạy trên đèn") {
-        SavedScheduleRow()
-        if let p = lights.previous, p != lights.saved {
-          Button("Khôi phục lịch trước: \(p.summary)") { Task { await lights.restorePrevious() } }
-            .disabled(lights.isBusy || lights.firmware.map { $0 < 20 } ?? true)
-            .accessibilityIdentifier("restore")
-        }
-        ClockRow()
-        Button("Chỉnh giờ đèn theo máy này") { Task { await lights.syncClock() } }
-          .disabled(lights.isBusy)
-          .accessibilityIdentifier("sync-clock")
+    VStack(alignment: .leading, spacing: 12) {
+      Text("Hẹn giờ bật tắt mỗi ngày").font(.title3.weight(.semibold))
+      PresetRow()
+      TimePicker(title: "Bật lúc", time: $lights.on).accessibilityIdentifier("on")
+      TimePicker(title: "Tắt lúc", time: $lights.off).accessibilityIdentifier("off")
+      Stepper(value: $lights.ramp, in: 0...150, step: 5) {
+        LabeledContent("Sáng dần, tối dần (phút)") { Text(verbatim: "\(lights.ramp)") }
       }
-
-      Section {
-        PresetRow()
-        TimePicker(title: "Bật lúc", time: $lights.on).accessibilityIdentifier("on")
-        TimePicker(title: "Tắt lúc", time: $lights.off).accessibilityIdentifier("off")
-        Stepper(value: $lights.ramp, in: 0...150, step: 5) {
-          LabeledContent("Sáng dần, tối dần (phút)") { Text(verbatim: "\(lights.ramp)") }
+      .accessibilityIdentifier("ramp")
+      ForEach(Array(lights.channels.enumerated()), id: \.offset) { i, c in
+        Stepper(value: $lights.levels[i], in: 0...100, step: 5) {
+          LabeledContent(c.title) { Text(verbatim: "\(lights.levels[i])%") }
         }
-        .accessibilityIdentifier("ramp")
-        ForEach(Array(lights.channels.enumerated()), id: \.offset) { i, c in
-          Stepper(value: $lights.levels[i], in: 0...100, step: 5) {
-            LabeledContent(c.title) { Text(verbatim: "\(lights.levels[i])%") }
-          }
-          .accessibilityIdentifier("level-\(i)")
-        }
-        HoursText(schedule: lights.form)
-        Button("Ghi lịch vào đèn") { confirming = true }
-          .disabled(!lights.canWrite)
-          .accessibilityIdentifier("write")
-      } header: {
-        Text("Hẹn giờ bật tắt mỗi ngày")
-      } footer: {
-        Text("Ghi lịch mới sẽ xóa các lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, và chỉnh giờ đèn theo máy này. Giờ tắt phải trong cùng ngày (muộn nhất 00:00). Cần đèn có firmware từ bản 20.")
+        .accessibilityIdentifier("level-\(i)")
       }
-
-      Section {
-        ForEach(Array(lights.channels.enumerated()), id: \.offset) { i, c in
-          LevelSlider(id: "manual-\(i)", title: c.title, value: lights.manual[i]) { lights.setLevel(channel: i, level: $0) }
-        }
-      } header: {
-        Text("Chỉnh tay")
-      } footer: {
-        Text("Kéo để đổi độ sáng ngay. Đèn chuyển sang chỉnh tay và bỏ qua lịch hẹn giờ cho tới khi bạn ghi lịch lại.")
+      HoursText(schedule: lights.form)
+      Button {
+        if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
+      } label: {
+        Text(lights.formIsActive ? "Đèn đang dùng lịch này" : lights.isWriting ? "Đang ghi…" : "Ghi lịch vào đèn").frame(maxWidth: .infinity)
       }
-
-      Section {
-        AboutText().font(.footnote).foregroundStyle(.secondary)
+      .buttonStyle(.borderedProminent)
+      .controlSize(.large)
+      .disabled(!lights.canWrite)
+      .accessibilityIdentifier("write")
+      if !lights.isConnected {
+        Text("Kết nối đèn để ghi lịch. Lịch này được nhớ trên máy.").font(.footnote).foregroundStyle(.secondary)
+      } else if let fw = lights.firmware, fw < 20 {
+        Text("Firmware của đèn chưa hẹn giờ được từ ứng dụng. Cập nhật firmware bằng ứng dụng My Chihiros.").font(.footnote).foregroundStyle(Color.warning)
       }
+      Text("Ghi lịch mới sẽ xóa các lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, và chỉnh giờ đèn theo máy này. Giờ tắt phải trong cùng ngày (muộn nhất 00:00). Cần đèn có firmware từ bản 20.")
+        .font(.footnote).foregroundStyle(.secondary)
     }
-    .overlay { if lights.isBusy { ProgressView().controlSize(.large) } }
-    .toolbar {
-      Button("Ngắt kết nối") { lights.disconnect() }.accessibilityIdentifier("disconnect")
-    }
-    .alert("Lịch đang lưu trên đèn sẽ bị xóa và thay bằng lịch này. Ghi lịch?", isPresented: $confirming) {
+    .modifier(Panel())
+    .alert("Lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, sẽ bị thay bằng lịch này. Ghi lịch?", isPresented: $confirming) {
       Button("Ghi lịch") { Task { await lights.writeSchedule() } }
       Button("Hủy", role: .cancel) {}
     }
   }
 }
 
-private struct SavedScheduleRow: View {
+private struct ManualSection: View {
   @Environment(LightsModel.self) private var lights
 
   var body: some View {
-    LabeledContent("Lịch") {
-      if let s = lights.saved {
-        Text(s.summary)
-      } else if lights.snapshot?.points.isEmpty ?? true {
-        Text("Chưa có lịch")
-      } else {
-        Text("Lịch đặt bằng ứng dụng khác")
+    VStack(alignment: .leading, spacing: 8) {
+      Text("Chỉnh tay").font(.title3.weight(.semibold))
+      ForEach(Array(lights.channels.enumerated()), id: \.offset) { i, c in
+        LevelSlider(id: "manual-\(i)", title: c.title, value: lights.manual[i]) { lights.setLevel(channel: i, level: $0) }
       }
+      // Not while a write or another command runs: a level queued behind it would land after it.
+      .disabled(lights.isBusy)
+      Text("Kéo để đổi độ sáng ngay. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch” hoặc ghi lịch mới.")
+        .font(.footnote).foregroundStyle(.secondary)
     }
-    .accessibilityIdentifier("saved")
-  }
-}
-
-private struct ClockRow: View {
-  @Environment(LightsModel.self) private var lights
-
-  var body: some View {
-    if let c = lights.snapshot?.clock {
-      VStack(alignment: .leading, spacing: 4) {
-        LabeledContent("Giờ của đèn", value: c.isSet ? "\(c.time.description), \(Weekday.name(iso: c.weekday))" : String(localized: "chưa đặt"))
-        if !c.isSet {
-          Text("Đồng hồ trong đèn chưa được đặt, thường do mất điện. Đèn sẽ bật tắt sai giờ cho tới khi chỉnh lại.")
-            .font(.footnote).foregroundStyle(Color.warning)
-        } else if let off = lights.clockOff, off > 2 {
-          Text("Đồng hồ trong đèn lệch \(off) phút so với điện thoại.")
-            .font(.footnote).foregroundStyle(Color.warning)
-        }
-      }
-      .accessibilityElement(children: .combine)
-      .accessibilityIdentifier("clock")
-    }
+    .modifier(Panel())
   }
 }
 
@@ -192,24 +448,30 @@ private struct PresetRow: View {
     VStack(alignment: .leading, spacing: 8) {
       Text("Chọn một mẫu hoặc tự nhập. Đèn tự bật tắt theo đồng hồ của nó, không cần điện thoại ở gần.")
         .font(.footnote).foregroundStyle(.secondary)
-      ScrollView(.horizontal, showsIndicators: false) {
-        HStack {
-          ForEach(Preset.all) { p in
-            Button {
-              lights.applyPreset(p)
-            } label: {
-              VStack(alignment: .leading) {
-                Text(p.name).font(.subheadline.weight(.semibold))
-                HStack(spacing: 0) { Text(verbatim: "\(p.on)–\(p.off) · "); Text("\(Int(Schedule.hoursLit(on: p.on, off: p.off))) tiếng, \(p.level)%") }
-                  .font(.caption).foregroundStyle(.secondary)
-              }
-            }
-            .buttonStyle(.bordered)
-            .accessibilityIdentifier("preset-\(p.id)")
+      // A grid, not a sideways strip: every preset in view at once (and not lazy: each one is there to find).
+      Grid(horizontalSpacing: 8, verticalSpacing: 8) {
+        ForEach(Array(stride(from: 0, to: Preset.all.count, by: 2)), id: \.self) { i in
+          GridRow(alignment: .top) {
+            ForEach(Preset.all[i..<min(i + 2, Preset.all.count)]) { p in button(p) }
           }
         }
       }
     }
+  }
+
+  private func button(_ p: Preset) -> some View {
+    Button {
+      lights.applyPreset(p)
+    } label: {
+      VStack(alignment: .leading) {
+        Text(p.name).font(.subheadline.weight(.semibold))
+        HStack(spacing: 0) { Text(verbatim: "\(p.on)–\(p.off) · "); Text("\(Int(Schedule.hoursLit(on: p.on, off: p.off))) tiếng, \(p.level)%") }
+          .font(.caption).foregroundStyle(.secondary)
+      }
+      .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    .buttonStyle(.bordered)
+    .accessibilityIdentifier("preset-\(p.id)")
   }
 }
 
@@ -260,6 +522,8 @@ private struct LevelSlider: View {
     HStack {
       Text(title).frame(width: 90, alignment: .leading)
       Slider(value: Binding { Double(value ?? 70) } set: { v in if Int(v) != value { onChange(Int(v)) } }, in: 0...100, step: 1)
+        .accessibilityLabel(title)
+        .accessibilityValue(Text(verbatim: value.map { "\($0)%" } ?? "–"))
         .accessibilityIdentifier(id)
       Text(verbatim: value.map { "\($0)%" } ?? "–").monospacedDigit().frame(width: 48, alignment: .trailing)
         .accessibilityIdentifier("\(id)-level")
@@ -267,12 +531,35 @@ private struct LevelSlider: View {
   }
 }
 
-private struct NoticeText: View {
-  let notice: LightsModel.Notice
+// MARK: What just happened
+
+private struct NoticeBar: View {
+  @Environment(LightsModel.self) private var lights
+
   var body: some View {
-    Text(notice.text)
-      .foregroundStyle(notice.isError ? Color.warning : .primary)
-      .accessibilityIdentifier("notice")
+    if let n = lights.notice {
+      HStack(alignment: .firstTextBaseline, spacing: 12) {
+        Text(n.text)
+          .foregroundStyle(n.isError ? Color.warning : .primary)
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .accessibilityIdentifier("notice")
+        if let a = n.action {
+          Button {
+            Task { a == .undo ? await lights.undoWrite() : await lights.reconnect() }
+          } label: {
+            Text(a == .undo ? "Hoàn tác" : "Kết nối lại")
+          }
+          .buttonStyle(.bordered)
+          .controlSize(.large)
+          .disabled(lights.isBusy)
+          .accessibilityIdentifier("notice-action")
+        }
+      }
+      .font(.callout)
+      .padding(.horizontal)
+      .padding(.vertical, 10)
+      .background(.bar)
+    }
   }
 }
 
@@ -281,6 +568,8 @@ private struct AboutText: View {
     Text("AquaTome không liên quan tới hãng Chihiros. Các lệnh Bluetooth theo ghi chép mã nguồn mở [chihiros-led-control](https://github.com/TheMicDiet/chihiros-led-control) (giấy phép MIT).")
   }
 }
+
+// MARK: Words
 
 extension Channel {
   var title: String {
@@ -293,17 +582,17 @@ extension Channel {
   }
 }
 
-extension Schedule {
-  /// "12:00–20:00 · 70% · ramp 30 min", in the app's language.
-  var summary: String {
-    String(localized: "\(on.description)–\(off.description) · \(levels.first ?? 0)% · sáng dần \(ramp) phút")
-  }
+/// A saved schedule as the site labels it: "13:00–19:00 · 40%" (its brightest channel).
+func label(_ s: SavedSchedule) -> String { "\(s.on)–\(s.off) · \(s.levels.max() ?? 0)%" }
+
+/// A day as the reader's language writes it (1/11/2026).
+private func day(_ timestamp: String) -> String {
+  guard let ms = Timestamp.millis(timestamp) else { return "" }
+  return Date(timeIntervalSince1970: Double(ms) / 1000).formatted(.dateTime.day().month(.defaultDigits).year())
 }
 
-enum Weekday {
-  /// The weekday's name for an ISO weekday (1 Monday … 7 Sunday), in the app's language.
-  static func name(iso: Int) -> String {
-    let symbols = Calendar.current.weekdaySymbols // Sunday first
-    return (1...7).contains(iso) ? symbols[iso % 7] : "?"
-  }
+/// "40 phút", "7 tiếng", "1,5 tiếng".
+private func span(_ minutes: Int) -> String {
+  minutes < 60 ? String(localized: "\(minutes) phút")
+    : String(localized: "\((Double(minutes) / 60 * 10).rounded() / 10, format: .number.precision(.fractionLength(0...1))) tiếng")
 }

@@ -5,7 +5,12 @@
     "Cá lau kính",
     "Cá tỳ bà",
     "Leopard pleco",
-    "Sailfin pleco"
+    "Sailfin pleco",
+    "Cá dọn bể",
+    "Common pleco",
+    "Albino pleco",
+    "Common Pleco",
+    "Amazon sailfin catfish"
   ],
   "sections": {
     "quickFacts:glaser": "<ul><li>Nguồn gốc: Brazil, Peru</li><li>Kích thước: trên 40 cm</li></ul>",
@@ -13,14 +18,20 @@
     "habitat:glaser": "<p>Ngoài tự nhiên, người ta gặp loài này ở nhiều kiểu nước khác nhau.</p>",
     "maintenance:glaser": "<p>Vì sống được ở nhiều kiểu nước khác nhau ngoài tự nhiên, loài này rất dễ thích nghi khi nuôi trong bể.</p>",
     "diet:glaser": "<p>Cá dài hơn 40 cm nên ăn rất khỏe, mỗi ngày ngốn một lượng thức ăn rất lớn.</p>",
-    "beforeYouBuy:glaser": "<p>Đông Nam Á cho sinh sản loài này với số lượng lớn, nên cá bắt từ tự nhiên rất hiếm khi có trên thị trường. Cũng vì thế mà kiếm được vài con non bắt từ tự nhiên, hoa văn đẹp rực rỡ, lại càng thú vị.</p>"
+    "beforeYouBuy:glaser": "<p>Đông Nam Á cho sinh sản loài này với số lượng lớn, nên cá bắt từ tự nhiên rất hiếm khi có trên thị trường. Cũng vì thế mà kiếm được vài con non bắt từ tự nhiên, hoa văn đẹp rực rỡ, lại càng thú vị.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Common Pleco, L021, L023, Albino pleco</li><li>Sách Đỏ IUCN: Ít quan ngại (LC) (IUCN 2023)</li></ul>",
+    "distribution:scotcat": "<p>Loài này sống ở Nam Mỹ, trải khắp hạ lưu, trung lưu và thượng lưu lưu vực sông Amazon. Nó cũng đã bị du nhập vào nhiều nước nằm ngoài vùng phân bố tự nhiên.</p>",
+    "aquariumSize:scotcat": "<p>Cá lớn quá khổ so với phần lớn bể nuôi trong nhà. Bạn cần bể dài từ 180 cm trở lên. Vì cá rất khỏe và lì, bạn có thể nuôi chung nó với hầu hết các loài cá lớn.</p>",
+    "diet:scotcat": "<p>Đây là loài ăn tạp. Cá ăn cả thức ăn thực vật lẫn thức ăn thịt, và ăn luôn cám mảnh, cám viên nén và cám viên. Lúc còn nhỏ cá có ăn rêu hại, nhưng càng lớn thì nó càng ít ăn rêu.</p>",
+    "notes:scotcat": "<p>Trước đây loài này từng mang hai mã L-number là L021 và L023. Nó thuộc nhóm P. multiradiatus vì trên đầu không có cái bướu đặc trưng của nhóm P. lituratus. Nhờ công trình của J.W. Armbruster năm 2004, tên giống của loài đã được chuyển từ Liposarcus về lại Pterygoplichthys. Dù vậy, vẫn còn một số ấn phẩm dùng Liposarcus làm tên giống.</p><p>Bạn có thể phân biệt các loài Pterygoplichthys với nhóm Hypostomus qua số tia vây lưng. Pterygoplichthys có nhiều tia hơn, thường trên 10 tia. Nhiều khả năng đây là lý do loài này hay bị bán nhầm dưới tên Hypostomus plecostomus trong giới chơi cá.</p><p>Dạng bạch tạng (albino) lần đầu có mặt ở Anh vào đầu thập niên 1990, có được từ các chương trình nhân giống ở Cộng hòa Séc. Ngày nay các trại cá ở Viễn Đông và ở bang Florida (Mỹ) nhân giống loài này rất phổ biến. Loài này cũng đã du nhập vào Philippines cùng với P. disjunctivus. Nguồn gốc có lẽ là những con cá cảnh bị người nuôi đem thả ra ngoài.</p><p>Từ nguyên: tên loài pardalis bắt nguồn từ chữ párdalis, nghĩa là con báo. Cái tên này chỉ những đốm tròn hay chấm màu nâu sẫm trên nền vàng nhạt, trông giống da báo.</p>",
+    "references:scotcat": "<p>Armbruster, J.W, 2004. Phylogenetic relationships of the suckermouth armoured catfishes (Loricariidae) with emphasis on the Hypostominae and the Ancistrinae.</p><p>Chavez, J.M., R.M. de la Paz, S.K. Manohar, R.C. Pagulayan and R. Carandang VI, 2006. New Philippine record of south american sailfin catfishes (Pisces: Loricariidae). Zootaxa 1109:57-68.</p><p>Salvador, G.N. 2023. Pterygoplichthys pardalis. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.8
+    }
   }
 }

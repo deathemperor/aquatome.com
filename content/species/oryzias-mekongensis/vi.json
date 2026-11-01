@@ -1,0 +1,19 @@
+{
+  "slug": "ca-lua-mekong",
+  "name": "Cá lúa Mekong",
+  "altNames": [
+    "Cá lúa Oryzias mekongensis",
+    "Mekong ricefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Oryzias mekongensis là một trong những loài cá lúa nhỏ nhất. Cá trưởng thành chỉ dài tối đa 3 cm, nên rất hợp để nuôi trong bể nano, tức các bể có thể tích nhỏ.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

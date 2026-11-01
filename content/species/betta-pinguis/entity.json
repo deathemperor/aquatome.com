@@ -1,0 +1,213 @@
+{
+  "id": "betta-pinguis",
+  "scientificName": "Betta pinguis",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "kapuas"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<p>Betta pinguis is a paternal mouthbrooding labyrinth fish known only from the middle and upper Kapuas watershed in West Kalimantan, Indonesian Borneo. A member of the B. akarensis group, it has a relatively stocky body and dense dark markings on the opercle below the postorbital stripe. The type specimens came from a small, slightly tannin-stained stream in degraded forest, where B. dimidiata and B. enisae also occur.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<p>Type locality is given as ‘Sungai Letang near Kampung Kandung Suli (Kecamatan Jongkong), Kapuas basin, Kalimantan Barat, Borneo’, and this species is known only from the middle and upper Kapuas watershed in Kalimantan Barat province, Indonesia (Borneo).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<p>The type specimens were collected from a small stream containing slightly tannin-stained water in an area of degraded forest, and like related species it's normally found among marginal vegetation or leaf litter.</p><p>Sympatric congeners include B. dimidiata and B. enisae.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<p>An aquarium with base measurements of 80 × 30 cm (31 × 12 in) or equivalent should prove large enough for a pair or small group (about 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments.</p><p>There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally-destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. You could add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., and a few patches of floating vegetation would be useful as well.</p><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>As it naturally inhabits sluggish waters filtration should not be too strong, with an air-powered sponge filter set to turn over gently adequate.</p><p>Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<ul><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 5.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<p>Likely to feed on insects and other small invertebrates in nature.</p><p>Captive fish will normally accept dried products once they're recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimal colour and condition.</p><p>Small insects such as crickets or Drosophila fruit flies are also suitable to use; it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<p>Not recommended for the standard community set-up for reasons already touched upon.</p><p>Its requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are compatible but proper research is essential.</p><p>It can be maintained in a pair or group and will display some interesting behavioural interactions under the latter circumstances.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<p>Males grow larger, possess a greater amount of iridescent colouration in the pelvic and anal fins, a broader head shape, and more extended fins than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<p>Paternal mouthbrooder. Organise a separate tank for breeding purposes unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>The female plays the more active role in initiating courtship and defending the area against intruders.</p><p>Eggs and milt are released during an 'embrace' typical of osphronemids in which the male wraps his body around that of the female, and several 'practice' embraces may be required before any eggs are released.</p><p>Once spawning commences eggs are laid in small batches and picked up in the mouth of the female before being spat out into the water for the male to catch.</p><p>Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>The incubation period is 14–21 days at which point the male will begin to release fully-formed, free-swimming fry.</p><p>While some breeders have never had a problem with this species eating its own young others have lost entire broods through predation, but many remove the female (plus any other fishes present) a few days after spawning.</p><p>This needs to be done as carefully as possible in order to avoid disturbing the male as he may swallow or release the brood prematurely if stressed.</p><p>Once the fry are swimming and foraging freely the male can also be removed if you wish.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter.</p><p>Offer small amounts of different foods 2–3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<p>B. pinguis is included in the Betta akarensis group of closely-related species within the genus.</p><p>Members share the following set of characters: possession of pre-orbital and post-orbital stripes (the post-orbital stripe is faint or interrupted in some species); chin bar present; caudal-fin lanceolate with highly extended median rays in mature males; caudal fin usually with transverse bars; greenish or bluish iridescent scales on body of males in some species; opercle without iridescent scales except in juveniles.</p><p>The unique combination of characters distinguishing it from others in the group is as follows: opercle pigmentation 'dense', with 5-7 dark markings below the postorbital stripe; body relatively stocky, with depth 30.6-31.6 % SL; dorsal-fin origin above lateral scales 18-19.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological and behavioural characters. Molecular phylogenetic work may therefore prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "html": "<ul><li>Tan, H. H. and M. Kottelat (1998). Two new species of Betta (Teleostei: Osphronemidae) from the Kapuas Basin, Kalimantan Barat, Borneo. Raffles Bulletin of Zoology 46(1), 41-51</li><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/59b3944bd9f15860.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/59b3944bd9f15860-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0d137b6a51708cf5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0d137b6a51708cf5-480.webp",
+      "width": 600,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "caption": "Freshly-collected specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/27c5d57e1c2cf7a7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/27c5d57e1c2cf7a7-480.webp",
+      "width": 600,
+      "height": 404,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "caption": "Head detail.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/64f58cd077c7b769.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/64f58cd077c7b769-480.webp",
+      "width": 700,
+      "height": 525,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pinguis",
+      "caption": "Habitat in the Kapuas River basin, Kalimantan Barat province, Indonesia, Borneo.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể thủy sinh 80x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt khí",
+        "lọc mút sponge"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

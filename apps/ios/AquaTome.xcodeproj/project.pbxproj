@@ -12,6 +12,8 @@
 		5E1A0B7C3D2F4E6A8B9C0D1E /* Handbook in Frameworks */ = {isa = PBXBuildFile; productRef = 6F2B1C8D4E3A5F7B9C0D1E2F /* Handbook */; };
 		7A3C2D9E5F4B6A8C0D1E2F3A /* Tanks in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4D3E0F6A5C7B9D1E2F3A4B /* Tanks */; };
 		D3236292626CA47984470E87 /* AccountSync in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFDEC878C6DCB864680A92D /* AccountSync */; };
+		7A1C3E5F2B4D6A8C0E1F2A3B /* Plugs in Frameworks */ = {isa = PBXBuildFile; productRef = 8B2D4F6A3C5E7B9D1F2A3B4C /* Plugs */; };
+		C1A5E0D2B7F94A3E8D6C2B10 /* TankCheck in Frameworks */ = {isa = PBXBuildFile; productRef = C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 				5E1A0B7C3D2F4E6A8B9C0D1E /* Handbook in Frameworks */,
 				7A3C2D9E5F4B6A8C0D1E2F3A /* Tanks in Frameworks */,
 				D3236292626CA47984470E87 /* AccountSync in Frameworks */,
+				7A1C3E5F2B4D6A8C0E1F2A3B /* Plugs in Frameworks */,
+				C1A5E0D2B7F94A3E8D6C2B10 /* TankCheck in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +122,8 @@
 				6F2B1C8D4E3A5F7B9C0D1E2F /* Handbook */,
 				8B4D3E0F6A5C7B9D1E2F3A4B /* Tanks */,
 				4BFDEC878C6DCB864680A92D /* AccountSync */,
+				8B2D4F6A3C5E7B9D1F2A3B4C /* Plugs */,
+				C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */,
 			);
 			productName = AquaTome;
 			productReference = 81918909E83595C8F4212CCC /* AquaTome.app */;
@@ -274,6 +280,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -436,6 +443,14 @@
 		4BFDEC878C6DCB864680A92D /* AccountSync */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AccountSync;
+		};
+		8B2D4F6A3C5E7B9D1F2A3B4C /* Plugs */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Plugs;
+		};
+		C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TankCheck;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

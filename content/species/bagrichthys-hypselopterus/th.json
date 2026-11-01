@@ -1,25 +1,33 @@
 {
   "slug": "bagrichthys-hypselopterus",
-  "name": "ปลาแขยงหนามคด",
+  "name": "ปลาแบล็คแลนเซอร์",
   "altNames": [
+    "แบล็คแลนเซอร์",
     "Black Lancer Catfish",
-    "แบล็กแลนเซอร์"
+    "Black Lancer"
   ],
   "sections": {
-    "quickFacts:planetcatfish": "<ul><li><strong>ชื่อวิทยาศาสตร์:</strong> Bagrichthys hypselopterus (Bleeker, 1852)</li><li><strong>ชื่อสามัญ:</strong> Black Lancer Catfish</li><li><strong>แหล่งที่พบตัวอย่างต้นแบบ:</strong> ปาเล็มบัง เกาะสุมาตรา ประเทศอินโดนีเซีย</li><li><strong>ชื่อพ้อง:</strong> Bagrus hypselopterus</li><li><strong>ขนาด:</strong> 400 มม. (SL)</li><li><strong>สถานะใน IUCN Red List:</strong> ความกังวลน้อยที่สุด (Least Concern) (ประเมินล่าสุดปี 2018)</li></ul>",
-    "beforeYouBuy:planetcatfish": "<p>ปลาในสกุล Bagrichthys Bleeker, 1858 เป็นปลากดในวงศ์ Bagridae ที่มีความจำเพาะสูงและมีรูปร่างแปลกตา อาศัยอยู่ในแม่น้ำสายใหญ่ที่มีน้ำขุ่นทั่วเอเชียตะวันออกเฉียงใต้ ลักษณะเด่นคือคอดหางยาวและแบนข้าง ขอบด้านหลังของก้านครีบหลังมีหยักฟันเลื่อยที่ชี้ขึ้นด้านบน เยื่อแผ่นปิดเหงือกเชื่อมติดกันแต่ไม่ติดกับคอดเหงือก (isthmus) และมีครีบไขมันยาวที่ไม่มีขอบด้านหลังเป็นอิสระ (Roberts, 1989)</p><p>มีความเป็นไปได้น้อยมากที่ปลาชนิดนี้จะเคยมีจำหน่ายในวงการปลาสวยงาม</p>",
-    "distribution:planetcatfish": "<p>เอเชีย: ตั้งแต่ประเทศไทยถึงอินโดนีเซีย แม่น้ำในหมู่เกาะซุนดาใหญ่ บริเวณเกาะบอร์เนียว และแม่น้ำในหมู่เกาะซุนดาใหญ่ บริเวณเกาะสุมาตรา</p>",
+    "quickFacts:planetcatfish": "<ul><li><strong>ชื่อวิทยาศาสตร์:</strong> Bagrichthys hypselopterus (Bleeker, 1852)</li><li><strong>ชื่อสามัญ:</strong> Black Lancer Catfish</li><li><strong>สถานที่พบตัวอย่างต้นแบบ:</strong> ปาเล็มบัง เกาะสุมาตรา ประเทศอินโดนีเซีย</li><li><strong>ชื่อพ้อง:</strong> Bagrus hypselopterus</li><li><strong>ขนาด:</strong> 400 มม. (ความยาวมาตรฐาน SL)</li><li><strong>สถานภาพใน IUCN Red List:</strong> กังวลน้อยที่สุด (Least Concern) (ประเมินล่าสุดปี 2018)</li></ul>",
+    "beforeYouBuy:planetcatfish": "<p>ปลาในสกุล Bagrichthys Bleeker, 1858 เป็นปลากดในวงศ์ Bagridae ที่มีความเฉพาะตัวสูงและมีรูปร่างแปลกกว่าปกติ อาศัยอยู่ในแม่น้ำสายใหญ่ที่น้ำขุ่นโคลนทั่วเอเชียตะวันออกเฉียงใต้ ลักษณะเด่นคือคอดหางยาวและแบนข้าง ขอบด้านหลังของก้านครีบแข็งของครีบหลังมีหยักฟันเลื่อยที่ชี้ขึ้นด้านบน เยื่อเหงือกเชื่อมติดกันแต่ไม่ติดกับคอคอด (isthmus) และมีครีบไขมันยาวที่ไม่มีขอบด้านท้ายแยกเป็นอิสระ (Roberts, 1989)</p><p>เป็นไปได้น้อยมากที่ปลาชนิดนี้เคยมีจำหน่ายในวงการปลาสวยงาม</p>",
+    "distribution:planetcatfish": "<p>เอเชีย: ตั้งแต่ประเทศไทยถึงอินโดนีเซีย แปซิฟิก แม่น้ำในหมู่เกาะซุนดาใหญ่ น่านน้ำเกาะบอร์เนียว; แปซิฟิก แม่น้ำในหมู่เกาะซุนดาใหญ่ น่านน้ำเกาะสุมาตรา</p>",
+    "distribution:scotcat": "<p>เอเชีย: เกาะสุมาตราและเกาะบอร์เนียว สถานที่พบตัวอย่างต้นแบบ: ปาเล็มบัง, in fluviis (ในแม่น้ำ)</p><p>มีรายงานพบปลาชนิดนี้ในลุ่มแม่น้ำบาตังฮารีและแม่น้ำมูซีบนเกาะสุมาตรา รวมถึงลุ่มแม่น้ำกาปัวส์ทางตะวันตกของเกาะบอร์เนียว</p>",
+    "habitat:scotcat": "<p>อาศัยอยู่ในแม่น้ำสายหลักที่พื้นเป็นโคลน ในบริเวณน้ำลึกที่กระแสน้ำไหลแรง</p>",
     "waterConditions:planetcatfish": "<p>ค่า pH: 6.0–7.0</p>",
     "diet:planetcatfish": "<p>ในธรรมชาติ ปลาชนิดนี้กินซากอินทรีย์ (detritus) เป็นอาหาร</p>",
-    "dimorphism:planetcatfish": "<p>ตัวผู้มีติ่งเพศยาวและมีหนวดยาวกว่า</p>",
+    "diet:scotcat": "<p>กินแมลงและปลาขนาดเล็กเป็นอาหาร</p>",
+    "behaviour:scotcat": "<p>ปลา 'แบล็คแลนเซอร์' ตัวผู้อาจหวงอาณาเขตมาก จึงควรเลี้ยงตัวผู้เพียงตัวเดียวต่อตู้ ที่เหลือเป็นตัวเมีย แม้จะมีปากเล็กแต่ปากกว้าง อย่างไรก็ตามโดยทั่วไปมักไม่เป็นอันตรายต่อปลาอื่น เว้นแต่เลี้ยงร่วมกับปลาที่ตัวเล็กมาก ซึ่งอาจถูกจับกินในเวลากลางคืน เนื่องจากปลาชนิดนี้ชอบออกหากินตอนกลางคืน</p>",
+    "dimorphism:planetcatfish": "<p>ตัวผู้มีติ่งเพศ (genital papilla) ยาวและมีหนวดยาวกว่า</p>",
     "reproduction:planetcatfish": "<p>ยังไม่มีรายงาน ไม่มีรายงานการเพาะพันธุ์</p>",
-    "references:planetcatfish": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 3 (no. 4), pp 588.</p>"
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อสกุล Bagrichthys มาจากคำว่า 'bagre' ซึ่งเป็นชื่อเรียกปลาหนังในอเมริกาใต้ แต่ใช้กับปลาชนิดที่อยู่ในแอฟริกาและเอเชียเท่านั้น ส่วนชื่อชนิด hypselopterus หมายถึงครีบสูงหรือครีบยาว</p><p>IUCN Red List: ประเมินขอบเขตการกระจายพันธุ์ (Extent of Occurrence, EOO) ไว้ที่ 247000 ตร.กม. ไม่ทราบขนาดประชากรทั้งหมดและแนวโน้มประชากร ภัยคุกคามที่อาจเกิดขึ้นได้แก่ การสูญเสียป่าจากการทำไม้ การเปลี่ยนพื้นที่เพื่อการเกษตร และการจับเพื่อการประมงยังชีพ แต่ยังไม่ทราบผลกระทบ ข้อมูลการสำรวจที่มีอยู่จำกัดบ่งชี้ว่าปลาชนิดนี้พบไม่บ่อยตลอดพื้นที่การกระจายพันธุ์ แต่ประชากรดูเหมือนจะคงที่ จึงได้รับการประเมินอยู่ในสถานภาพกังวลน้อยที่สุด (Least Concern) (IUCN 2019)</p>",
+    "references:planetcatfish": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 3 (no. 4), pp 588.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 11/2014 ).</p><p>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</p><p>Ng, H.H. 2019. Bagrichthys hypselopterus. The IUCN Red List of Threatened Species 2019.</p>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.93,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.95
+      "planetcatfish": 0.93,
+      "scotcat": 0.93
     }
   }
 }

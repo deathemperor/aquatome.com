@@ -1,15 +1,27 @@
 {
  "queue": [],
  "judged": [
-  "File:Blyxa japonica 212748649.jpg"
+  "File:Blyxa japonica 212748649.jpg",
+  "inat:212748589",
+  "inat:212748649",
+  "inat:212748697"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/1ef6ab49becf8b81.webp": "3377df478b4b6bc3",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Blyxa_japonica_212748649.jpg/1280px-Blyxa_japonica_212748649.jpg": "b392ece453fbee4d"
+  "https://media.aquatome.com/commons/a77b70ecb7aecf98.webp": "b392e4e413ea6edd",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/212748589/large.jpg": "d693b4e493f366ee"
  },
  "commons": "2026-10-31",
  "gbif": {
   "key": 2865980,
   "next": null
+ },
+ "inat": {
+  "taxon": 428020,
+  "pass": "done",
+  "after": {
+   "research": 125452336,
+   "agree": 132256637
+  }
  }
 }

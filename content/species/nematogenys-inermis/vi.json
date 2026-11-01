@@ -1,0 +1,21 @@
+{
+  "slug": "ca-tre-chile",
+  "name": "Cá trê Chile",
+  "altNames": [
+    "Chilean catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<p>Nematogenys inermis (Guichenot, 1848). Họ: Nematogenyidae. Nơi thu mẫu chuẩn: Chile. Kích thước tối đa: 240 mm SL (chiều dài chuẩn, không tính vây đuôi). Danh lục đỏ IUCN: Cực kỳ nguy cấp (lần đánh giá gần nhất vào năm 2021).</p>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: Chile.</p>",
+    "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Fauna Chilena.... in Gay., pp 312, Pl. 9 (fig. 2).</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

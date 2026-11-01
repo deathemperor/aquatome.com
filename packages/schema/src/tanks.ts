@@ -37,8 +37,10 @@ const Cm = z.number().positive().max(1000)
 /** Values the site writes today. The fields are open strings: a value added later must not break an older decoder. */
 export const KNOWN = {
   substrate: ['soil', 'sand', 'gravel', 'lava', 'bare', 'other'],
-  deviceKind: ['light'],
-  brand: ['chihiros'],
+  deviceKind: ['light', 'plug'],
+  brand: ['chihiros', 'tuya', 'ewelink'],
+  /** What a plug's outlet powers (docs/smart-plugs.md). */
+  outletRole: ['light', 'co2', 'filter', 'heater', 'air', 'fan', 'other'],
 } as const
 
 
@@ -93,6 +95,15 @@ export const Device = z.looseObject({
   manual: z.looseObject({ levels: z.array(Level).min(1).max(4), at: Timestamp }).optional(),
   /** When the light's clock was last set. */
   clockSyncedAt: Timestamp.optional(),
+  /** Plugs: the maker's id for the device, in its cloud (docs/smart-plugs.md); `brand` is the maker. */
+  remoteId: z.string().min(1).max(64).optional(),
+  /** Plugs: the outlets named on this tank, by the maker's switch code. Their state is never stored. */
+  outlets: z.array(z.looseObject({
+    code: z.string().min(1).max(40),
+    /** What it powers (KNOWN.outletRole; open, like `kind`). */
+    role: z.string().min(1).max(40).optional(),
+    label: Label(40).optional(),
+  })).max(16).optional(),
   createdAt: Timestamp,
   updatedAt: Timestamp,
   deletedAt: z.never().optional(),

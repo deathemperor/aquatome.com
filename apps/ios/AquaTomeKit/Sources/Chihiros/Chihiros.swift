@@ -92,6 +92,13 @@ public struct Schedule: Sendable, Equatable {
   }
 }
 
+/// Levels for a light with `n` channels from levels planned for another: a white-only light takes the brightest, and a
+/// channel the plan didn't have takes the brightest too (the site's light page does the same).
+public func fit(_ levels: [Int], to n: Int) -> [Int] {
+  let top = levels.max() ?? 0
+  return n == 1 ? [top] : (0..<n).map { $0 < levels.count ? levels[$0] : top }
+}
+
 public enum Mode {
   public static let manual: UInt8 = 11
   public static let scene: UInt8 = 18

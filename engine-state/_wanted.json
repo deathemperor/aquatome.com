@@ -27,10 +27,10 @@
       "species/akysis-maculipinnis",
       "species/akysis-varius",
       "species/ambastaia-nigrolineata",
-      "species/barbucca-diabolica",
-      "species/mystacoleucus-obtusirostris"
+      "species/balitoropsis-zollingeri",
+      "species/barbucca-diabolica"
     ],
-    "mentions": 12
+    "mentions": 13
   },
   "hemigrammus-rhodostomus": {
     "name": "Hemigrammus rhodostomus",
@@ -103,11 +103,11 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555",
       "species/akysis-maculipinnis",
+      "species/betta-mahachaiensis",
       "species/channa-asiatica",
-      "species/dawkinsia-arulius",
-      "species/dawkinsia-assimilis"
+      "species/dawkinsia-arulius"
     ],
-    "mentions": 7
+    "mentions": 8
   },
   "pangio-fusca": {
     "name": "Pangio fusca",
@@ -301,9 +301,10 @@
       "guides/aquariumcoop-blogs-aquarium-pleco-care-guide",
       "guides/sprucepets-aquarium-catfish-breeds-5115234",
       "guides/sprucepets-large-fish-for-freshwater-aquariums-7570272",
-      "guides/sprucepets-lifespans-of-aquarium-fish-1378340"
+      "guides/sprucepets-lifespans-of-aquarium-fish-1378340",
+      "species/pterygoplichthys-pardalis"
     ],
-    "mentions": 4
+    "mentions": 5
   },
   "hyphessobrycon-bentosi": {
     "name": "Hyphessobrycon bentosi",
@@ -515,9 +516,10 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555",
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340",
-      "guides/sprucepets-small-aquarium-fish-breeds-for-freshwater-5120495"
+      "guides/sprucepets-small-aquarium-fish-breeds-for-freshwater-5120495",
+      "species/axelrodia-riesei"
     ],
-    "mentions": 3
+    "mentions": 4
   },
   "ancistrus-hoplogenys": {
     "name": "Ancistrus hoplogenys",
@@ -559,10 +561,11 @@
     "name": "Puntius sophore",
     "mentionedIn": [
       "species/badis-ferrarisi",
+      "species/barilius-vagra",
       "species/lepidocephalichthys-guntea",
       "species/pethia-didi"
     ],
-    "mentions": 3
+    "mentions": 4
   },
   "pangio-alcoides": {
     "name": "Pangio alcoides",
@@ -630,11 +633,12 @@
   "dawkinsia-singhala": {
     "name": "Dawkinsia singhala",
     "mentionedIn": [
+      "species/belontia-signata",
       "species/malpulutta-kretseri",
       "species/pethia-nigrofasciata",
       "species/rasboroides-vaterifloris"
     ],
-    "mentions": 3
+    "mentions": 4
   },
   "mystus-vittatus": {
     "name": "Mystus vittatus",
@@ -1005,9 +1009,11 @@
     "name": "Batasio convexirostrum",
     "mentionedIn": [
       "species/batasio-feruminatus",
+      "species/batasio-fluviatilis",
+      "species/batasio-tigrinus",
       "species/batasio-travancoria"
     ],
-    "mentions": 2
+    "mentions": 4
   },
   "psilorhynchus-balitora": {
     "name": "Psilorhynchus balitora",
@@ -1166,14 +1172,6 @@
     "mentionedIn": [
       "species/puntius-sahyadriensis",
       "species/schistura-denisoni"
-    ],
-    "mentions": 2
-  },
-  "acanthocobitis-rubidipinnis": {
-    "name": "Acanthocobitis rubidipinnis",
-    "mentionedIn": [
-      "species/syncrossus-beauforti",
-      "species/syncrossus-berdmorei"
     ],
     "mentions": 2
   },
@@ -1357,9 +1355,10 @@
   "garra-gotyla": {
     "name": "Garra gotyla",
     "mentionedIn": [
-      "guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world"
+      "guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world",
+      "species/barilius-vagra"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "nemacheilus-corica": {
     "name": "Nemacheilus corica",
@@ -1811,13 +1810,6 @@
   },
   "serrasalmus-serrulatus": {
     "name": "Serrasalmus serrulatus",
-    "mentionedIn": [
-      "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
-    ],
-    "mentions": 1
-  },
-  "pterygoplichthys-gibbiceps": {
-    "name": "Pterygoplichthys gibbiceps",
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
@@ -2596,16 +2588,20 @@
   "akysis-microps": {
     "name": "Akysis microps",
     "mentionedIn": [
-      "species/akysis-hendricksoni"
+      "species/akysis-hendricksoni",
+      "species/balitoropsis-zollingeri"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "nanobagrus-fuscus": {
     "name": "Nanobagrus fuscus",
     "mentionedIn": [
-      "species/akysis-hendricksoni"
+      "species/akysis-hendricksoni",
+      "species/betta-midas",
+      "species/balitoropsis-zollingeri",
+      "species/betta-lehi"
     ],
-    "mentions": 1
+    "mentions": 4
   },
   "pseudomystus-stenomus": {
     "name": "Pseudomystus stenomus",
@@ -2967,23 +2963,26 @@
   "hypancistrus-furunculus": {
     "name": "Hypancistrus furunculus",
     "mentionedIn": [
-      "species/baryancistrus-beggini"
+      "species/baryancistrus-beggini",
+      "species/baryancistrus-demantoides"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "hypancistrus-lunaorum": {
     "name": "Hypancistrus lunaorum",
     "mentionedIn": [
-      "species/baryancistrus-beggini"
+      "species/baryancistrus-beggini",
+      "species/baryancistrus-demantoides"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "lasiancistrus-schomburgkii": {
     "name": "Lasiancistrus schomburgkii",
     "mentionedIn": [
-      "species/baryancistrus-beggini"
+      "species/baryancistrus-beggini",
+      "species/baryancistrus-demantoides"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "leporacanthicus-triactis": {
     "name": "Leporacanthicus triactis",
@@ -2995,23 +2994,27 @@
   "peckoltia-vittata": {
     "name": "Peckoltia vittata",
     "mentionedIn": [
-      "species/baryancistrus-beggini"
+      "species/baryancistrus-beggini",
+      "species/baryancistrus-chrysolomus",
+      "species/baryancistrus-demantoides"
     ],
-    "mentions": 1
+    "mentions": 3
   },
   "pseudancistrus-orinoco": {
     "name": "Pseudancistrus orinoco",
     "mentionedIn": [
-      "species/baryancistrus-beggini"
+      "species/baryancistrus-beggini",
+      "species/baryancistrus-demantoides"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "pseudancistrus-pectegenitor": {
     "name": "Pseudancistrus pectegenitor",
     "mentionedIn": [
-      "species/baryancistrus-beggini"
+      "species/baryancistrus-beggini",
+      "species/baryancistrus-demantoides"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "pseudancistrus-sidereus": {
     "name": "Pseudancistrus sidereus",
@@ -3023,9 +3026,10 @@
   "pseudolithoxus-dumus": {
     "name": "Pseudolithoxus dumus",
     "mentionedIn": [
-      "species/baryancistrus-beggini"
+      "species/baryancistrus-beggini",
+      "species/baryancistrus-demantoides"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "barilius-canarensis": {
     "name": "Barilius canarensis",
@@ -3514,10 +3518,11 @@
   "macrognathus-pancalus": {
     "name": "Macrognathus pancalus",
     "mentionedIn": [
-      "species/ctenops-nobilis",
-      "species/etroplus-maculatus"
+      "species/etroplus-maculatus",
+      "species/macrognathus-maculatus",
+      "species/ctenops-nobilis"
     ],
-    "mentions": 2
+    "mentions": 3
   },
   "pethia-phutunio": {
     "name": "Pethia phutunio",
@@ -3599,9 +3604,10 @@
   "barilius-barila": {
     "name": "Barilius barila",
     "mentionedIn": [
+      "species/barilius-vagra",
       "species/devario-acuticephala"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "devario-ostreographus": {
     "name": "Devario ostreographus",
@@ -4159,9 +4165,10 @@
   "incertae-sedis": {
     "name": "incertae sedis",
     "mentionedIn": [
+      "species/axelrodia-riesei",
       "species/inpaichthys-kerri"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "rasbora-kalbarensis": {
     "name": "Rasbora kalbarensis",
@@ -4432,9 +4439,10 @@
   "kottelatlimia-pristes": {
     "name": "Kottelatlimia pristes",
     "mentionedIn": [
+      "species/betta-midas",
       "species/pangio-anguillaris"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "pangio-malayana": {
     "name": "Pangio malayana",
@@ -4865,11 +4873,6 @@
     "mentionedIn": [],
     "mentions": 0
   },
-  "poropanchax-normani": {
-    "name": "Poropanchax normani",
-    "mentionedIn": [],
-    "mentions": 0
-  },
   "cyprinus-carpio": {
     "name": "Cyprinus carpio",
     "mentionedIn": [],
@@ -4879,5 +4882,328 @@
     "name": "Pseudoplatystoma fasciatum",
     "mentionedIn": [],
     "mentions": 0
+  },
+  "barclaya-motleyi": {
+    "name": "Barclaya motleyi",
+    "mentionedIn": [
+      "species/betta-cracens",
+      "species/betta-lehi"
+    ],
+    "mentions": 2
+  },
+  "penaeus-vannamei": {
+    "name": "Penaeus vannamei",
+    "mentionedIn": [
+      "guides/aquariumbreeder-microworms-profile-and-how-to-culture-as-live-food"
+    ],
+    "mentions": 1
+  },
+  "panagrellus-nepenthicola": {
+    "name": "Panagrellus nepenthicola",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-microworms"
+    ],
+    "mentions": 1
+  },
+  "pelvicachromis-signatus": {
+    "name": "Pelvicachromis signatus",
+    "mentionedIn": [
+      "guides/glaser-en-25-perchlike-fishes-25c-perchlike-fishes-3-remaining-cichlids-from-africa-pelvicachromis-humilis-and-close-relatives-from-guinea-3-pelvicachromis-humilis-sierra-leone-p-signatus-en"
+    ],
+    "mentions": 1
+  },
+  "pimelodus-platespogon": {
+    "name": "Pimelodus platespogon",
+    "mentionedIn": [
+      "species/bagarius-bagarius"
+    ],
+    "mentions": 1
+  },
+  "pimelodus-carnaticus": {
+    "name": "Pimelodus carnaticus",
+    "mentionedIn": [
+      "species/bagarius-bagarius"
+    ],
+    "mentions": 1
+  },
+  "catlocarpio-siamensis": {
+    "name": "Catlocarpio siamensis",
+    "mentionedIn": [
+      "species/bagarius-yarrelli"
+    ],
+    "mentions": 1
+  },
+  "homalopteroides-tweediei": {
+    "name": "Homalopteroides tweediei",
+    "mentionedIn": [
+      "species/balitoropsis-zollingeri"
+    ],
+    "mentions": 1
+  },
+  "malayochela-maassi": {
+    "name": "Malayochela maassi",
+    "mentionedIn": [
+      "species/balitoropsis-zollingeri"
+    ],
+    "mentions": 1
+  },
+  "crossocheilus-langei": {
+    "name": "Crossocheilus langei",
+    "mentionedIn": [
+      "species/balitoropsis-zollingeri"
+    ],
+    "mentions": 1
+  },
+  "rasbora-dusonensis": {
+    "name": "Rasbora dusonensis",
+    "mentionedIn": [
+      "species/balitoropsis-zollingeri"
+    ],
+    "mentions": 1
+  },
+  "rhinogobius-taenigena": {
+    "name": "Rhinogobius taenigena",
+    "mentionedIn": [
+      "species/barbodes-aurotaeniatus"
+    ],
+    "mentions": 1
+  },
+  "rasbora-steineri": {
+    "name": "Rasbora steineri",
+    "mentionedIn": [
+      "species/barbodes-semifasciolatus"
+    ],
+    "mentions": 1
+  },
+  "puntius-sachsii": {
+    "name": "Puntius sachsii",
+    "mentionedIn": [
+      "species/barbodes-semifasciolatus"
+    ],
+    "mentions": 1
+  },
+  "barbodes-snyderi": {
+    "name": "Barbodes snyderi",
+    "mentionedIn": [
+      "species/barbodes-semifasciolatus"
+    ],
+    "mentions": 1
+  },
+  "nannostomus-anduzei": {
+    "name": "Nannostomus anduzei",
+    "mentionedIn": [
+      "species/barboides-gracilis"
+    ],
+    "mentions": 1
+  },
+  "neolissochilus-hexagonolepis": {
+    "name": "Neolissochilus hexagonolepis",
+    "mentionedIn": [
+      "species/barilius-vagra"
+    ],
+    "mentions": 1
+  },
+  "schistura-beavani": {
+    "name": "Schistura beavani",
+    "mentionedIn": [
+      "species/barilius-vagra"
+    ],
+    "mentions": 1
+  },
+  "glyptothorax-telchitta": {
+    "name": "Glyptothorax telchitta",
+    "mentionedIn": [
+      "species/barilius-vagra"
+    ],
+    "mentions": 1
+  },
+  "barilius-lairokensis": {
+    "name": "Barilius lairokensis",
+    "mentionedIn": [
+      "species/barilius-vagra"
+    ],
+    "mentions": 1
+  },
+  "parancistrus-aurantiacus": {
+    "name": "Parancistrus aurantiacus",
+    "mentionedIn": [
+      "species/baryancistrus-demantoides"
+    ],
+    "mentions": 1
+  },
+  "oligancistrus-punctatissimus": {
+    "name": "Oligancistrus punctatissimus",
+    "mentionedIn": [
+      "species/baryancistrus-xanthellus"
+    ],
+    "mentions": 1
+  },
+  "parancistrus-nudiventris": {
+    "name": "Parancistrus nudiventris",
+    "mentionedIn": [
+      "species/baryancistrus-xanthellus"
+    ],
+    "mentions": 1
+  },
+  "scobinancistrus-aureatus": {
+    "name": "Scobinancistrus aureatus",
+    "mentionedIn": [
+      "species/baryancistrus-xanthellus"
+    ],
+    "mentions": 1
+  },
+  "paretroplus-menarambo": {
+    "name": "Paretroplus menarambo",
+    "mentionedIn": [
+      "species/bedotia-madagascariensis"
+    ],
+    "mentions": 1
+  },
+  "devario-pathirana": {
+    "name": "Devario pathirana",
+    "mentionedIn": [
+      "species/belontia-signata"
+    ],
+    "mentions": 1
+  },
+  "systomus-pleurotaenia": {
+    "name": "Systomus pleurotaenia",
+    "mentionedIn": [
+      "species/belontia-signata"
+    ],
+    "mentions": 1
+  },
+  "rasbora-dandia": {
+    "name": "Rasbora dandia",
+    "mentionedIn": [
+      "species/belontia-signata"
+    ],
+    "mentions": 1
+  },
+  "awaous-grammepomus": {
+    "name": "Awaous grammepomus",
+    "mentionedIn": [
+      "species/belontia-signata"
+    ],
+    "mentions": 1
+  },
+  "sicyopus-jonklaasi": {
+    "name": "Sicyopus jonklaasi",
+    "mentionedIn": [
+      "species/belontia-signata"
+    ],
+    "mentions": 1
+  },
+  "ompok-ceylonensis": {
+    "name": "Ompok ceylonensis",
+    "mentionedIn": [
+      "species/belontia-signata"
+    ],
+    "mentions": 1
+  },
+  "osteochilus-jeruk": {
+    "name": "Osteochilus jeruk",
+    "mentionedIn": [
+      "species/betta-dennisyongi"
+    ],
+    "mentions": 1
+  },
+  "rasbora-jacobsoni": {
+    "name": "Rasbora jacobsoni",
+    "mentionedIn": [
+      "species/betta-dennisyongi"
+    ],
+    "mentions": 1
+  },
+  "nemacheilus-tuberigum": {
+    "name": "Nemacheilus tuberigum",
+    "mentionedIn": [
+      "species/betta-dennisyongi"
+    ],
+    "mentions": 1
+  },
+  "mystus-punctifer": {
+    "name": "Mystus punctifer",
+    "mentionedIn": [
+      "species/betta-dennisyongi"
+    ],
+    "mentions": 1
+  },
+  "ompok-brevirictus": {
+    "name": "Ompok brevirictus",
+    "mentionedIn": [
+      "species/betta-dennisyongi"
+    ],
+    "mentions": 1
+  },
+  "kryptopterus-piperatus": {
+    "name": "Kryptopterus piperatus",
+    "mentionedIn": [
+      "species/betta-dennisyongi"
+    ],
+    "mentions": 1
+  },
+  "cryptocoryne-cordata": {
+    "name": "Cryptocoryne cordata",
+    "mentionedIn": [
+      "species/betta-kuehnei"
+    ],
+    "mentions": 1
+  },
+  "doryichthys-martensii": {
+    "name": "Doryichthys martensii",
+    "mentionedIn": [
+      "species/betta-lehi"
+    ],
+    "mentions": 1
+  },
+  "eugnathogobius-siamensis": {
+    "name": "Eugnathogobius siamensis",
+    "mentionedIn": [
+      "species/betta-lehi"
+    ],
+    "mentions": 1
+  },
+  "nypa-fruticans": {
+    "name": "Nypa fruticans",
+    "mentionedIn": [
+      "species/betta-mahachaiensis"
+    ],
+    "mentions": 1
+  },
+  "oryzias-javanicus": {
+    "name": "Oryzias javanicus",
+    "mentionedIn": [
+      "species/betta-mahachaiensis"
+    ],
+    "mentions": 1
+  },
+  "ompok-weberi": {
+    "name": "Ompok weberi",
+    "mentionedIn": [
+      "species/betta-midas"
+    ],
+    "mentions": 1
+  },
+  "silurichthys-phaiosoma": {
+    "name": "Silurichthys phaiosoma",
+    "mentionedIn": [
+      "species/betta-midas"
+    ],
+    "mentions": 1
+  },
+  "hemirhamphodon-phaiosoma": {
+    "name": "Hemirhamphodon phaiosoma",
+    "mentionedIn": [
+      "species/betta-midas"
+    ],
+    "mentions": 1
+  },
+  "barilius-ornatus": {
+    "name": "Barilius ornatus",
+    "mentionedIn": [
+      "species/opsarius-bernatziki"
+    ],
+    "mentions": 1
   }
 }

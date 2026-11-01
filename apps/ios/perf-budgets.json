@@ -30,8 +30,8 @@
       "test": "bundle",
       "metric": "AquaTome.app",
       "unit": "kB",
-      "max": 1340,
-      "reason": "raised 2026-11-01 from 1150 kB for sign-in and sync on Bể của tôi (#268): +163 kB measured on both commits (Release archive on one Mac, 1058 → 1221 kB): the account client 42 kB, its model 47 kB, the account section 36 kB, Sign in with Apple 17 kB, the id/th strings 12 kB, after taking the stand-in server out of release builds (−35 kB). Worth it: it is the feature that syncs the reader's tanks with the site. Budget: 1221 kB ×1.1"
+      "max": 1978,
+      "reason": "raised 2026-11-01 from 1730 kB for the Lights tab as the site's Chihiros page, starting with the light card (#305): +115.2 kB measured on both commits (Release archive on one Mac, 1682.6 → 1797.8 kB, main with smart plugs and the tank-mates check): its views 79.3 kB, its model 34.0 kB, the id/th strings 8.0 kB, after taking the fake light and radio out of release builds (−18.6 kB). The day (#309) measures 1867.1 kB under it. Worth it: the owner asked for the site's light page in the app. Budget: 1797.8 kB ×1.1"
     }
   ]
 }

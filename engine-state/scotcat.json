@@ -517,6 +517,13 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-01T06:51:01.295Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm": {
     "entityIds": [
       "species/ageneiosus-magoi"
@@ -534,6 +541,33 @@
     "updatedAt": "2026-10-31T19:38:39.910Z",
     "hash": "be1b6d3fff18ffe8f8c6efb7098ab24097f883b997869fe44cc84b0a7bf7629e",
     "processedHash": "be1b6d3fff18ffe8f8c6efb7098ab24097f883b997869fe44cc84b0a7bf7629e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm": {
+    "entityIds": [
+      "species/brochis-multiradiatus"
+    ],
+    "updatedAt": "2026-11-01T00:30:29.045Z",
+    "hash": "e64348b77307142af3b570dc541818e1723f610456c1b16afc32dd54da753d95",
+    "processedHash": "e64348b77307142af3b570dc541818e1723f610456c1b16afc32dd54da753d95",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/doradidae/anadoras_grypus.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-01T06:50:49.879Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+  },
+  "https://www.scotcat.com/doradidae/centrochir_crocodili.htm": {
+    "entityIds": [
+      "species/centrochir-crocodili"
+    ],
+    "updatedAt": "2026-11-01T00:32:38.106Z",
+    "hash": "3c0442119b63523887c457ae73439c31e0f6f258a9de1c2e477ae24394420b9e",
+    "processedHash": "3c0442119b63523887c457ae73439c31e0f6f258a9de1c2e477ae24394420b9e",
     "status": "processed",
     "attempts": 0
   },
@@ -563,6 +597,43 @@
     "hash": "535902c54f9e53a15acc796344b15d81655a4ad944018b97bef92a61e2844283",
     "processedHash": "535902c54f9e53a15acc796344b15d81655a4ad944018b97bef92a61e2844283",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/peckoltia_compta.htm": {
+    "entityIds": [
+      "species/peckoltia-compta"
+    ],
+    "updatedAt": "2026-11-01T00:23:55.428Z",
+    "hash": "7f3e384ad1d9aadab7721ddbb79e105b5388d496669b72e08bdbd1dd293f1f6e",
+    "processedHash": "7f3e384ad1d9aadab7721ddbb79e105b5388d496669b72e08bdbd1dd293f1f6e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-01T06:50:35.291Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+  },
+  "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm": {
+    "entityIds": [
+      "species/pterygoplichthys-joselimaianus"
+    ],
+    "updatedAt": "2026-11-01T00:26:09.489Z",
+    "hash": "67367bed0ab9e34c5d5e7134ba748931bfccb5c2accfd3d3837246f826cc9bbb",
+    "processedHash": "67367bed0ab9e34c5d5e7134ba748931bfccb5c2accfd3d3837246f826cc9bbb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/pterygoplichthys_pardalis.htm": {
+    "entityIds": [
+      "species/pterygoplichthys-pardalis"
+    ],
+    "updatedAt": "2026-11-01T00:28:12.420Z",
+    "hash": "5068ce2d0fabca65d62d3a80ffa5b4008944ae970d2a12ac4168d3611ded0e63",
+    "processedHash": "5068ce2d0fabca65d62d3a80ffa5b4008944ae970d2a12ac4168d3611ded0e63",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.scotcat.com/mochokidae/synodontis_eupterus_marbled.htm": {

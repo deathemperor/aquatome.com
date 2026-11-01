@@ -57,6 +57,7 @@ const index: MateItem[] = c.species.map(s => {
   import { checkTankmates, exactMatch, rankMatches, TEMPERAMENT_LABELS, verdictOf, type MateItem, type Verdict } from '../../../scripts/tankmates'
   import { tankVolume } from '../../../scripts/calc'
   import { stocking } from '../../../scripts/stocking'
+  import { LEVEL, stockingNotes, verdictSentence, warningsOf } from '../../../scripts/tank-check'
   import { cpath, ct } from '../../../scripts/ct'
   import { initSaveToTank, withSpecies } from '../../../scripts/save-to-tank'
 
@@ -212,9 +213,9 @@ const index: MateItem[] = c.species.map(s => {
     const r = checkTankmates(chosen, ct)
     const v = verdictOf(chosen, r, ct)
     verdict.className = `verdict ${v.level}`
-    verdict.innerHTML = `${MARK[v.level]}<span><strong>${esc(v.head)}</strong>: ${v.reasons.map(esc).join('; ')}.</span>`
-    const warn = [...r.eats.map(e => ct('{big} ({bigCm} cm) có thể ăn {small} ({smallCm} cm).', { big: esc(e.big), bigCm: fmt(e.bigCm), small: esc(e.small), smallCm: fmt(e.smallCm) })),
-      ...r.notes.filter(n => n.level !== 'info').map(n => esc(n.text))]
+    // The sentence, the warnings and the meter's words come from tank-check.ts, which the iOS app runs on saved tanks.
+    verdict.innerHTML = `${MARK[v.level]}<span>${verdictSentence(v, esc, h => `<strong>${h}</strong>`)}</span>`
+    const warn = warningsOf(r, ct, fmt, esc)
     const info = [...r.notes.filter(n => n.level === 'info').map(n => esc(n.text)),
       ...(r.minTankCm ? [ct('Bể dài tối thiểu cho cả nhóm: <strong>{n} cm</strong>.', { n: fmt(r.minTankCm) })] : [])]
     const gaps = v.level === 'unsure' || !v.gaps.length ? '' : `<p class="na">${esc(cap(v.gaps.join('; ')))}.</p>`
@@ -238,10 +239,6 @@ const index: MateItem[] = c.species.map(s => {
   function render() { renderChosen(); renderResult() }
 
   // Stocking: the chosen fish against the tank size and filter above.
-  const LEVEL = {
-    light: [ct('Còn thưa'), ct('thả thêm được.')], ok: [ct('Vừa phải'), ct('bể ổn định với lọc và thay nước thường lệ.')],
-    full: [ct('Đã đầy'), ct('cần lọc tốt và thay nước đều mỗi tuần.')], over: [ct('Quá tải'), ct('bớt cá hoặc dùng bể lớn hơn.')],
-  } as const
   function renderStocking() {
     $('mat-do').hidden = !chosen.length
     save.show(chosen.length > 0)
@@ -250,11 +247,9 @@ const index: MateItem[] = c.species.map(s => {
     if (!chosen.length || !(l > 0 && w > 0 && ht > 0)) { $('st-out').innerHTML = chosen.length ? `<p class="na">${ct('Nhập đủ dài, rộng, cao.')}</p>` : ''; return }
     const vol = tankVolume(l, w, ht)
     const r = stocking(chosen.map(c => ({ name: c.name, count: count(c), sizeCm: c.sizeCm, schoolMin: c.schoolMin, tankCm: c.tankCm })), vol.water, { tankCm: l, filterLph: flow, grossLitres: vol.litres })
-    const [label, advice] = LEVEL[r.level]
+    const [label, advice] = LEVEL[r.level].map(w => ct(w))
     const notes = [
-      ...r.school.map(s => ct('{name} sống theo đàn: nên nuôi từ {min} con (đang chọn {count}).', { name: esc(s.name), min: s.min, count: s.count })),
-      ...r.tooShort.map(s => ct('{name} cần bể dài từ {n} cm.', { name: esc(s.name), n: fmt(s.tankCm) })),
-      ...(r.unknown.length ? [ct('Chưa có kích thước của {names}: chưa tính vào mật độ.', { names: r.unknown.map(esc).join(', ') })] : []),
+      ...stockingNotes(r, ct, fmt, esc),
       ...(r.turnover === undefined ? [] : r.turnover < 4 ? [ct('Lọc chạy {n} lần thể tích bể mỗi giờ: hơi yếu, nên 4–10 lần.', { n: fmt(r.turnover) })] : r.turnover > 10 ? [ct('Lọc chạy {n} lần thể tích bể mỗi giờ: dòng mạnh, cá bơi yếu như betta, cá đuôi dài dễ bị cuốn.', { n: fmt(r.turnover) })] : []),
     ]
     $('st-out').innerHTML = `<div class="meter ${r.level}" role="img" aria-label="${fmt(r.percent, 0)}%"><span style="width:${Math.min(100, r.percent / 1.5)}%"></span><i style="left:${100 / 1.5}%"></i></div>`

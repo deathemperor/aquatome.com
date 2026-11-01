@@ -81,6 +81,51 @@ func session(_ light: FakeLight) -> LightSession { LightSession(name: "DYSL30A1B
   #expect(!s.isManual)
 }
 
+@MainActor @Test func backToAKnownScheduleWritesItAgainAsItWas() async throws {
+  let light = FakeLight(schedule: owners, channels: 3)
+  let s = session(light)
+  try await s.refresh()
+  try await s.writeSchedule(newTank)
+  let written = try #require(light.sent.last { $0[0] == 0xa5 })
+  try await s.setLevel(channel: 0, level: 0)
+  let before = light.sent.count
+  let snap = try await s.backToSchedule(newTank)
+  let kinds = light.sent[before...].map { [$0[0], $0[5]] }
+  #expect(Array(kinds.prefix(4)) == [[0x5a, 0x09], [0x5a, 0x05], [0x5a, 0x05], [0xa5, 0x19]])
+  // The same schedule bytes as the first write (only the message id differs).
+  let again = try #require(light.sent[before...].last { $0[0] == 0xa5 })
+  #expect(Array(again[5..<(again.count - 1)]) == Array(written[5..<(written.count - 1)]))
+  #expect(snap?.holds(newTank, channels: 3) == true)
+  #expect(!s.isManual && !light.isManual)
+}
+
+@MainActor @Test func backToAnUnknownScheduleSendsOnlyTheSceneMode() async throws {
+  // A schedule set by the My Chihiros app: it can't be written again, so it is left as it is.
+  let light = FakeLight(schedule: owners, channels: 3)
+  let s = session(light)
+  try await s.refresh()
+  try await s.setLevel(channel: 0, level: 0)
+  let before = light.sent.count
+  #expect(try await s.backToSchedule(nil) == nil)
+  #expect(light.sent.count == before + 1)
+  #expect(light.sent.last.map { [$0[0], $0[5], $0[6]] } == [0x5a, 0x05, Mode.scene])
+  #expect(!s.isManual && !light.isManual)
+  #expect(light.points == FakeLight(schedule: owners, channels: 3).points) // its schedule kept
+  // The next level by hand switches to manual again first.
+  try await s.setLevel(channel: 1, level: 20)
+  #expect(light.sent.suffix(2).map { $0[5] } == [0x05, 0x07])
+}
+
+@MainActor @Test func oldFirmwareGoesBackToItsScheduleWithoutAWrite() async throws {
+  let light = FakeLight(firmware: 19, schedule: owners, channels: 3)
+  let s = session(light)
+  try await s.refresh()
+  try await s.setLevel(channel: 0, level: 0)
+  let before = light.sent.count
+  #expect(try await s.backToSchedule(owners) == nil)
+  #expect(light.sent[before...].map { $0[6] } == [Mode.scene])
+}
+
 @MainActor @Test func overlappingCommandsDoNotInterleave() async throws {
   let light = FakeLight(schedule: owners, channels: 3)
   light.writeDelay = .milliseconds(5)

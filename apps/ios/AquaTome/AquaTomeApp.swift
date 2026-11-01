@@ -1,6 +1,7 @@
 import AccountSync
 import Handbook
 import SwiftUI
+import WebKit
 
 @main
 struct AquaTomeApp: App {
@@ -8,6 +9,7 @@ struct AquaTomeApp: App {
   @State private var handbook = HandbookModel()
   @State private var tanks: TanksModel
   @State private var account: AccountModel
+  @State private var plugs: PlugsModel
   @State private var tab = Tab.handbook
   @State private var tanksPath = NavigationPath()
   @Environment(\.scenePhase) private var phase
@@ -16,9 +18,11 @@ struct AquaTomeApp: App {
 
   init() {
     #if DEBUG
-    // UI tests start from a clean phone (no schedule or tank kept from an earlier run).
+    // UI tests start from a clean phone (no schedule or tank kept from an earlier run), its web views too: a page keeps
+    // the tanks it was handed and sends them back to the app (PageBridge), which would bring an earlier test's tanks in.
     if ProcessInfo.processInfo.arguments.contains("-reset-defaults"), let id = Bundle.main.bundleIdentifier {
       UserDefaults.standard.removePersistentDomain(forName: id)
+      WKWebsiteDataStore.default().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: .distantPast) {}
     }
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
     #endif
@@ -27,6 +31,7 @@ struct AquaTomeApp: App {
     _tanks = State(initialValue: tanks)
     _lights = State(initialValue: LightsModel(radio: AquaTomeApp.radio(), tanks: tanks))
     _account = State(initialValue: AquaTomeApp.account(tanks))
+    _plugs = State(initialValue: AquaTomeApp.plugs())
   }
 
   var body: some Scene {
@@ -46,6 +51,7 @@ struct AquaTomeApp: App {
       .environment(handbook)
       .environment(tanks)
       .environment(account)
+      .environment(plugs)
       // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
       .environment(\.openScreen) { open($0) }
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
@@ -81,10 +87,21 @@ struct AquaTomeApp: App {
     return AccountModel(tanks: tanks)
   }
 
-  /// Bluetooth on a device; the simulator has none, so it gets a fake light (UI tests run on it too).
+  /// The reader's Tuya plugs, with their own project's keys. A debug build on the simulator (every UI test) never
+  /// reaches Tuya: it gets a stand-in cloud, as it gets a fake light; `-real-tuya` to try Tuya from the simulator.
+  @MainActor
+  private static func plugs() -> PlugsModel {
+    #if DEBUG && targetEnvironment(simulator)
+    let args = ProcessInfo.processInfo.arguments
+    if !args.contains("-real-tuya") { return PlugsModel.forSimulator(args) }
+    #endif
+    return PlugsModel()
+  }
+
+  /// Bluetooth on a device; the simulator has none, so a debug build there (every UI test) gets a fake light.
   @MainActor
   private static func radio() -> Radio {
-    #if targetEnvironment(simulator)
+    #if DEBUG && targetEnvironment(simulator)
     FakeRadio()
     #else
     BluetoothRadio()

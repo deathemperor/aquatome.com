@@ -6,32 +6,38 @@ import { fmt, isRange } from '../lib/format'
 import { smallSrc } from '../lib/img'
 import { cleanPhoto } from '../lib/home'
 import { i18n } from '../lib/i18n'
-/** `template`: every part, with stand-in figures and no picture, for the fish list's script to fill in (scripts/species-card.ts). */
-interface Props { s: Localized<SpeciesEntity>; eager?: boolean; template?: boolean }
-const { s, eager = false, template = false } = Astro.props
+import { BREED_KIND, type Breed } from '../lib/breeds'
+/**
+ * `template`: every part, with stand-in figures and no picture, for the fish list's script to fill in (scripts/species-card.ts).
+ * `breed`: a line or hybrid in the same card, its kind where the Latin name goes; its picture is the first one (the
+ * credits list that one). No figures yet: the list's water filter doesn't read a breed's, so a card showing them would
+ * contradict it. The name keeps the class `n` the fish list's search reads.
+ */
+type Props = { eager?: boolean; template?: boolean } & ({ s: Localized<SpeciesEntity>; breed?: never } | { breed: Breed; s?: never })
+const { s, breed, eager = false, template = false } = Astro.props
 // `t` below is the temperature range: the translator is `tr` here.
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
-const p = cleanPhoto(s.photos)
-const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(s.dataCard.tempC ?? [])
-const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(s.dataCard.ph ?? [])
-const diff = template ? { value: 1 } : resolveDataCard(s.dataCard.difficulty ?? [])
+const p = breed ? breed.photos[0] : cleanPhoto(s.photos)
+const card = breed ? {} : s.dataCard
+const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.tempC ?? [])
+const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.ph ?? [])
+const diff = template ? { value: 1 } : resolveDataCard(card.difficulty ?? [])
 const t = temp && isRange(temp.value) ? temp.value : undefined
 const h = ph && isRange(ph.value) ? ph.value : undefined
 ---
 <article class="sc">
-  <a href={`/vi/ca/${s.t.slug}/`}>
-    <div class="plate">{template ? <img src="" width="0" height="0" alt="" loading="lazy" /> : p && <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} />}</div>
-    <h3>{s.t.name}</h3>
-    <p class="sci">{s.scientificName}</p>
+  <a href={`/vi/ca/${(breed ?? s).t.slug}/`}>
+    <div class="plate">{template ? <img src="" width="0" height="0" alt="" loading="lazy" /> : p ? <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} /> : breed && <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{tr('Chưa có ảnh')}</span>}</div>
+    {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(BREED_KIND[breed.kind])}</p></> : <><h3>{s.t.name}</h3><p class="sci">{s.scientificName}</p></>}
   </a>
-  {(t || h || diff) && (
+  {t || h || diff ? (
     <dl class="label">
       {t && <div><dt>{tr('Nhiệt độ')}</dt><dd data-c={`${t.min},${t.max}`}>{range(t)}°C</dd><RangeBar kind="temp" min={t.min} max={t.max} /></div>}
       {h && <div><dt>pH</dt><dd>{range(h)}</dd><RangeBar kind="ph" min={h.min} max={h.max} /></div>}
       {diff && typeof diff.value === 'number' && <div class="lvl"><dt>{tr('Độ khó')}</dt><dd><Difficulty value={diff.value} /></dd></div>}
     </dl>
-  )}
+  ) : !breed && <p class="label none">{tr('Chưa có số liệu')}</p>}
 </article>
 <style>
   /* Labels sit at the card's foot so neighbouring cards' rows line up whatever the name's length. */
@@ -42,9 +48,15 @@ const h = ph && isRange(ph.value) ? ph.value : undefined
   .sc a:hover h3 { color: var(--c-moss); }
   h3 { font-size: 1.3rem; margin-top: var(--space-3); }
   .sci { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); font-style: italic; font-family: var(--f-display); }
+  .kind { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); }
+  .ph { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); aspect-ratio: 4 / 3; width: 100%; color: var(--c-ink-faint); font-size: 0.8rem; }
+  .ph svg { width: 40%; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; opacity: 0.6; }
+  .ph circle { fill: currentColor; stroke: none; }
   .label { margin: auto 0 0; padding-top: var(--space-2); border-top: 1px solid var(--c-ink); display: grid; gap: var(--space-2); font-size: 0.8rem; }
   .label > div { display: grid; grid-template-columns: 1fr auto; align-items: baseline; row-gap: 3px; }
   .label > div > :global(.rb) { grid-column: 1 / -1; }
+  /* No temperature, pH or difficulty yet: said at the card's foot, where its neighbours' figures start. */
+  .none { display: block; color: var(--c-ink-faint); }
   dt { color: var(--c-ink-faint); }
   dd { margin: 0; color: var(--c-ink); font-variant-numeric: tabular-nums; }
 </style>

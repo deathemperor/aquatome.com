@@ -1,35 +1,25 @@
 ---
-import { BREED_KIND, type Breed } from '../lib/breeds'
-import { smallSrc } from '../lib/img'
-import { i18n } from '../lib/i18n'
-/** Its pictures must be in the page's credits (each breed's first photo). `bare`: inside a container that already has margins. `eager`: cards that load at once (the list leads the page). */
+import type { Breed } from '../lib/breeds'
+import SpeciesCard from './SpeciesCard.astro'
+/**
+ * Breeds as the species list's cards, in its grid. Its pictures must be in the page's credits (each breed's first photo).
+ * `bare`: inside a container that already has margins. `eager`: cards that load at once (the list leads the page).
+ */
 interface Props { breeds: Breed[]; heading: string; bare?: boolean; eager?: number }
 const { breeds, heading, bare, eager = 0 } = Astro.props
-const { t } = i18n(Astro.url)
 ---
 {breeds.length > 0 && (
   <section class:list={["breeds", { wrap: !bare }]} aria-labelledby="breeds-h">
     <h2 id="breeds-h">{heading}</h2>
     <ul>
-      {breeds.map((x, i) => (
-        <li><a href={`/vi/ca/${x.t.slug}/`}>
-          {x.photos[0] ? <img src={smallSrc(x.photos[0])} alt="" width={x.photos[0].width} height={x.photos[0].height} loading={i < eager ? 'eager' : 'lazy'} decoding="async" /> : <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{t('Chưa có ảnh')}</span>}
-          <span class="n">{x.t.name}</span><span class="k">{t(BREED_KIND[x.kind])}</span>
-        </a></li>
-      ))}
+      {breeds.map((x, i) => <li><SpeciesCard breed={x} eager={i < eager} /></li>)}
     </ul>
   </section>
 )}
 <style>
   .breeds { padding-block: var(--space-5); }
   h2 { font-size: var(--step-2); margin: 0 0 var(--space-3); }
-  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: var(--space-3); }
-  a { display: block; text-decoration: none; color: inherit; }
-  img, .ph { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; height: auto; display: block; background: var(--c-plate); }
-  .ph { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); color: var(--c-ink-faint); font-size: 0.8rem; }
-  .ph svg { width: 40%; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; opacity: 0.6; }
-  .ph circle { fill: currentColor; stroke: none; }
-  .n { display: block; padding-top: var(--space-2); font-weight: 600; }
-  .k { display: block; font-size: 0.8rem; color: var(--c-ink-faint); }
-  a:hover .n { text-decoration: underline; }
+  /* SpeciesGrid's grid, so the two lists' cards are one size. */
+  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
+  @media (max-width: 520px) { ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); } }
 </style>

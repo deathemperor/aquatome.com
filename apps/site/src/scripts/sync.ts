@@ -38,11 +38,12 @@ export async function getNonce(f: Fetch = fetch): Promise<string | undefined> {
   return isFail(r) ? undefined : r.nonce
 }
 
-export const signInWith = (provider: 'google' | 'apple', idToken: string, nonce: string, f: Fetch = fetch) =>
-  call<{ user: User }>(f, 'POST', `/api/v1/auth/${provider}`, { idToken, nonce, client: 'web' })
+/** `link`: add this way to sign in to the account signed in here, instead of signing in with it. */
+export const signInWith = (provider: 'google' | 'apple', idToken: string, nonce: string, link = false, f: Fetch = fetch) =>
+  call<{ user: User }>(f, 'POST', `/api/v1/auth/${provider}`, { idToken, nonce, client: 'web', ...(link ? { link } : {}) })
 
-export const emailStart = (email: string, turnstile: string, lang: string, f: Fetch = fetch) =>
-  call<{ flow: string }>(f, 'POST', '/api/v1/auth/email/start', { email, turnstile, lang, client: 'web' })
+export const emailStart = (email: string, turnstile: string, lang: string, link = false, f: Fetch = fetch) =>
+  call<{ flow: string }>(f, 'POST', '/api/v1/auth/email/start', { email, turnstile, lang, client: 'web', ...(link ? { link } : {}) })
 
 export const emailVerify = (flow: string, code: string, f: Fetch = fetch) =>
   call<{ user: User }>(f, 'POST', '/api/v1/auth/email/verify', { flow, code, client: 'web' })

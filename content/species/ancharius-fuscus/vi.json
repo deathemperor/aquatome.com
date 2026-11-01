@@ -1,0 +1,16 @@
+{
+  "slug": "ca-ancharius",
+  "name": "Cá Ancharius",
+  "altNames": [],
+  "sections": {
+    "distribution:planetcatfish": "<p>Miền đông Madagascar, vùng Fianarantsoa (21.38169S, 47.89298E).</p>"
+  },
+  "quality": {
+    "score": 0.97,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.97
+    },
+    "reason": "thin"
+  }
+}

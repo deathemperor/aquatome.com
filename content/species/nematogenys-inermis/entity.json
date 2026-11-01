@@ -1,0 +1,81 @@
+{
+  "id": "nematogenys-inermis",
+  "scientificName": "Nematogenys inermis",
+  "order": "Siluriformes",
+  "family": "Nematogenyidae",
+  "genus": "Nematogenys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "chile"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 24
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1150",
+      "html": "<p>Nematogenys inermis (Guichenot, 1848). Family: Nematogenyidae. Type locality: Chile. Maximum size: 240 mm (9.4 inches) SL. IUCN Red List category: Critically Endangered (last assessed 2021).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1150",
+      "html": "<p>South America: Chile.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1150",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1150",
+      "html": "<p>Fauna Chilena.... in Gay., pp 312, Pl. 9 (fig. 2).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/de6fc3d3c3245737.webp",
+      "width": 960,
+      "height": 705,
+      "licence": "Public domain",
+      "author": "J. H. Richard",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nematogenys_inermis.jpg",
+      "caption": "Nematogenys inermis",
+      "thumb": "https://media.aquatome.com/commons/de6fc3d3c3245737-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a7875cd8204ddfd5.webp",
+      "width": 960,
+      "height": 385,
+      "licence": "Public domain",
+      "author": "Girard, Charles, 1822-1895",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Contributions_to_the_fauna_of_Chile_(Nematogenys_inermis).jpg",
+      "caption": "Nematogenys inermis",
+      "thumb": "https://media.aquatome.com/commons/a7875cd8204ddfd5-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f8120e5f9661b611.webp",
+      "width": 960,
+      "height": 591,
+      "licence": "CC0",
+      "author": "Internet Archive Book Images",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ictalurus_punctatus_pectoral_fin_first_ray.jpg",
+      "caption": "Title: Bonner zoologische Monographien Identifier: bonnerzoo202519861987bonn Year: 1971 (1970s) Authors: Subjects: Zoology Publisher: Bonn, Zoologisches Forschungsinstitut und Museum Alexander Koenig ",
+      "thumb": "https://media.aquatome.com/commons/f8120e5f9661b611-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-01"
+}

@@ -18,11 +18,25 @@
           "min": 23,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
       {
         "source": "bwaquatics",
+        "value": {
+          "min": 4,
+          "max": 6
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 4,
           "max": 6
@@ -36,12 +50,35 @@
           "min": 0,
           "max": 2
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 2.6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -53,10 +90,28 @@
       "html": "<ul><li>IUCN Red List: Endangered (very high risk of extinction in the wild)</li><li>Captive-bred</li><li>Adult size: approximately 2.5–2.6 cm (≈ 1.0″) standard length</li><li>Temperature: 23–28 °C (73–82 °F)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<p>Betta persephone is a small bubble-nesting labyrinth fish that appears to be endemic to southwestern Johor state, Peninsular Malaysia. A blackish member of the mostly red B. coccina group, it is most similar to B. miniopinna but has a deeper body and blackish to dull reddish pelvic fins. It inhabits peat swamp forests and associated streams, where the pH can be as low as 3.0 or 4.0.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<p>Appears to be endemic to forested areas around the towns of Ayer Hitam, Muar, and Kluang in southwestern Johor state, Peninsular Malaysia.</p><p>Type locality is ‘Asian highway No. 2, 1°56'20.00\"N, 103°09'40.00\"E, at road bridge about 3 kilometers north of Ayer Hitam, Malaysia’.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
       "html": "<p>Betta persephone is an exceptionally rare and striking member of the Betta coccina complex. In the wild, it inhabits shallow, darkly stained blackwater streams and pools beneath dense forest canopy where light barely penetrates, and the water is extremely soft, acidic, and tannin-rich.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<p>A stenotopic inhabitant of peat swamp forests and associated streams. The dense canopy of branches above means very little light penetrates the surface of such environments, although they are increasingly disturbed by human activity.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic material. The dissolved mineral content tends to be negligible and pH can be as low as 3.0 or 4.0.</p><p>The substrate is usually covered by fallen leaves, branches and submerged tree roots and at certain times of year the fish may be forced to survive within the moist leaf litter for several weeks since permanent water is not always available.</p><p>The majority of its original habitats have been heavily modified as much of the area has been turned over to oil palm plantations. It is now restricted to a few remaining pockets of primary peat swamp forest and has been listed as 'Critically Endangered' on the IUCN Red List of Threatened Species since 1996.</p>"
     },
     {
       "key": "aquariumSize",
@@ -65,10 +120,28 @@
       "html": "<p>Recommended 1 pair per 5 gallons (about 19 litres) minimum.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<p>An aquarium with base measurements of 45 × 30 cm (about 41 litres) should be the minimum considered, but is suitable for a pair or small group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance. Driftwood roots and branches can be used and placed such a way that a few shady spots are formed, while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter offers additional cover and brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, while tannins and other chemicals released by the decaying leaves are considered beneficial for fishes from blackwater environments. There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally-destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. Aquatic plant species that can survive under such conditions include Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation is also appreciated by the fish.</p><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness, meaning a reverse osmosis unit or other method of obtaining soft water may need to be employed. This can be further acidified using phosphoric acid or similar if necessary.</p><p>As it naturally inhabits sluggish waters filtration should not be too strong, with an air-powered sponge filter set to turn over gently adequate. Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
       "html": "<p>Tolerant of different water parameters but do best in blackwater conditions.</p><ul><li>pH 4.0–6.0</li><li>GH ≤ 2 °d</li><li>KH ≤ 1 °d</li><li>TDS &lt; 80 ppm</li><li>Temperature: 23–28 °C (73–82 °F); maintain stable conditions for optimal health and breeding behavior.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 4.0–6.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -83,10 +156,22 @@
       "html": "<p>Carnivorous. Requires a varied diet of live or frozen foods such as brine shrimp, daphnia, bloodworms, mosquito larvae, and other small invertebrates. May accept high-quality micro-pellets once fully acclimated, though live foods are essential for bringing out optimal color and condition.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<p>Likely to prey on small aquatic and terrestrial invertebrates in nature.</p><p>Captive fish will normally accept dried products once they are recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or chironomid larvae (bloodworm) regularly to ensure development of optimal colour and condition.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
       "html": "<p>Best kept as a pair in a species-only tank with ample hiding places. Males can be territorial and moderately aggressive, particularly during breeding. If housing with other fish, only select extremely peaceful, tiny soft-water species such as Boraras or small Rasboras, provided there is extensive cover, plants, roots, and botanicals. Avoid standard community aquarium setups.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<p>Not recommended for the standard community aquarium. Its care requirements and disposition mean it is best kept alone or with very peaceful species. Some small cyprinids and loaches that inhabit similar environments in nature are suitable, but proper research prior to purchase is essential and in most cases it is best maintained alone.</p><p>Provided the aquarium contains plenty of cover this species can be maintained in a group, although it is preferable to isolate pairs for breeding purposes.</p>"
     },
     {
       "key": "dimorphism",
@@ -95,28 +180,96 @@
       "html": "<p>Males display a mesmerizing blue-black body with iridescent blue-green reflections on the fins and body, accented by black pelvic fins with white filamentous tips. Females are smaller with brown to reddish tones and less vibrant coloration.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<p>Males are more intensely-coloured and develop more-extended fins than females as they mature.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
       "html": "<p>Betta persephone are bubble nesters — males construct floating nests at the water surface, typically beneath floating plants, leaves, or other debris for shelter and protection. During courtship, the male displays vibrant colors and performs elaborate fin movements to attract the female. Once the female accepts, spawning occurs beneath the bubble nest where the male collects the released eggs in his mouth and carefully places each one into the bubbles. The male then guards and maintains the nest, retrieving any fallen eggs and fanning them to prevent fungal growth. Eggs hatch in 24–48 hours, and fry become free-swimming after 3–4 days. Fry are large enough to accept newly hatched baby brine shrimp (BBS) immediately.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<p>Bubble nester. It is particularly important to provide plenty of cover for the female, and empty camera film canisters or lengths of plastic tubing can be used to offer potential nesting sites. Floating plants may be incorporated into the nest if present.</p><p>The aquarium should have the tightest-fitting cover possible (some breeders use clingfilm/plastic wrap) because the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>The pair need not be separated prior to spawning. The male might construct the nest in a tube or canister, under a broad plant leaf or among fine-leaved surface vegetation, and will not usually tolerate the female in the vicinity until it is complete.</p><p>The nuptial female becomes paler in colour and dark bars appear on the flanks. Spawning normally occurs beneath the nest in an 'embrace' typical of osphronemids, with the male wrapped around the female.</p><p>At the point of climax milt and a few eggs are released, which the female proceeds to catch between pelvic fins and body. The male then transfers these to the nest while the female recovers any loose eggs. The process is then repeated until the female is spent. This is not a particularly prolific species with less than 20 eggs being typical although bigger broods of up to 50 are not uncommon.</p><p>Post-spawning the adults can normally be left in situ, and normally both will participate in broodcare.</p><p>The eggs hatch in 24-72 hours, remaining in the nest for a further 3-4 days until the yolk sac is fully-absorbed, the male continuing to collect and return any that fall. Once the fry begin to swim freely the male will lose interest, but the adults do not usually eat their offspring.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter. Water changes should be small and regular rather than large and intermittent.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
       "html": "<p>Because Betta persephone are wild-caught and endemic to a critically threatened habitat, they are exceptionally sensitive to water parameter changes and require meticulous acclimation. Maintain extremely soft, acidic, tannin-stained water with stable temperature and minimal disturbance. This species thrives in dimly lit environments with subdued lighting. Keep the tank well-covered and do not fill to the top — like all bettas, they require access to humid air above the water surface and are excellent jumpers. Monitor behavior closely, as males can become territorial in confined spaces. Providing ample cover through driftwood, leaf litter, caves, and floating vegetation helps reduce stress and aggression while supporting natural breeding behavior.</p><p>Due to habitat loss from deforestation and oil palm cultivation, this species is rapidly declining in the wild — please consider breeding and maintaining this species to preserve it in the aquarium hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<p>This species is included in the B. coccina group of closely-related species within the genus. This assemblage mostly comprises small, red-coloured fishes with the exceptions of B. hendra, B. persephone and B. miniopinna which are greenish or darkish.</p><p>Members of the B. coccina group possess the following shared characters: small adult size (up to 40 mm SL, 4 cm); either red or black body colouration; presence of midlateral blotch in some species; 9 abdominal vertebrae (vs. 10-12 in all other Betta species); stenotopic inhabitants of forest peat swamps.</p><p>B. persephone can be told apart from other members of the group by the following characters: no lateral blotch; body blackish; lateral dorsal head profile relatively convex, sloping gently posterior to eye; no parallel vertical iridescent gold opercle bars; pelvic-fin falcate with white filamentous tip, remainder black to reddish; median fins covered diffusely with light green iridescence; dorsal fin-rays 9; anal-fin rays 24-27; subdorsal scales 6-7; lateral scales 27-29; predorsal scales 17-18.</p><p>It is most similar to B. miniopinna but can be distinguished most obviously by its less elongate body (27-29 lateral scales and 17-18 predorsal scales vs. 30-31, 20 respectively in B. miniopinna), relatively convex (vs. concave) lateral dorsal head profile, and blackish to dull reddish (vs. red) pelvic fins.</p><p>The genus Betta is the most speciose within the family Osphronemidae. Members have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is largely based on morphological and behavioural characters.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Schaller, D. (1986). Laubschlupf. Eine Überlebensstrategie in einem besonderen Biotop und die Beschreibung einer neuen Kampffischart. Aquarien und Terrarien-Zeitschrift 39(7), 297-300</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Tan, H. H. and S. H. Tan (1994). Betta miniopinna, a new species of fighting fish from Pulau Bintan, Riau Archipelago, Indonesia (Teleostei: Belontiidae). Ichthyological Exploration of Freshwaters 5(1), 41-44</li></ul>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/bwaquatics/6ce8d9d422981dd9.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/6ce8d9d422981dd9-480.webp",
       "width": 1000,
       "height": 750,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-persephone",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/6ce8d9d422981dd9-480.webp"
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4f7f1b2a76a01c9f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4f7f1b2a76a01c9f-480.webp",
+      "width": 699,
+      "height": 529,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "caption": "Male of Betta persephone collected from Pagoh, Johor state, Peninsular Malaysia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e182e72e9e54a96d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e182e72e9e54a96d-480.webp",
+      "width": 700,
+      "height": 474,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "caption": "Female of B. persephone from Pagoh.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d79cfbaa3a4f7510.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d79cfbaa3a4f7510-480.webp",
+      "width": 632,
+      "height": 435,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "caption": "10-day old fry of B. persephone.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0117a5e3db07993a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0117a5e3db07993a-480.webp",
+      "width": 700,
+      "height": 439,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-persephone",
+      "caption": "Male of B. persephone from Pagoh.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -149,5 +302,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-01"
 }

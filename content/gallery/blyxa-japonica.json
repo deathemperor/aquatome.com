@@ -2,6 +2,18 @@
   "id": "blyxa-japonica",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/212748589.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/212748589-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "何小花",
+      "sourceUrl": "https://www.inaturalist.org/photos/212748589",
+      "caption": "Bụi Blyxa Nhật mọc ngoài tự nhiên bên đá và rêu",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/a77b70ecb7aecf98.webp",
       "thumb": "https://media.aquatome.com/commons/a77b70ecb7aecf98-480.webp",
       "width": 1200,
@@ -14,7 +26,7 @@
       "kind": "scape"
     }
   ],
-  "seen": 1,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 4,
+  "updatedAt": "2026-11-01",
+  "builtAt": "2026-11-01"
 }

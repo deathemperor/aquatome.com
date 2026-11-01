@@ -1,0 +1,92 @@
+{
+  "id": "rhadinoloricaria-rhami",
+  "scientificName": "Rhadinoloricaria rhami",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rhadinoloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "huacamayo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 12.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1144",
+      "html": "<p>Rhadinoloricaria rhami (Isbrücker &amp; Nijssen, 1983). Synonym: Crossoloricaria rhami. Size: 127 mm (5 in) SL. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1144",
+      "html": "<p>South America: Upper Amazon River basin. Type locality: Río Huacamayo, about 9°S, 75°29'W, about 8 kilometres northeast of Aguaytia village, Coronel Portillo Province, Peru.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1144",
+      "html": "<p>Temperature: 25.0-28.0°C (77-82.4°F).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1144",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1144",
+      "html": "<p>Etymology: Greek rhadinos, -e, -on = soft, flexible + Latin lorica, loricare = cuirass or corslet of leather. Genus: Greek krossoi = tassel + Latin lorica, loricare = cuirass or corslet of leather.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1144",
+      "html": "<p>Revue française d'Aquariologie Herpétologie v. 10 (no. 1), pp 9, Fig.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

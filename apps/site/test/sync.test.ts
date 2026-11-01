@@ -33,9 +33,12 @@ test('busy (another sync of the account): tried again three times, then reported
 test('calls never throw: no session when offline; a sign-in sends the web client and the nonce', async () => {
   expect(await getSession(async () => { throw new TypeError('offline') })).toBeUndefined()
   let body: unknown
-  const r = await signInWith('google', 'tok', 'n1', async (_, init) => { body = JSON.parse(String(init!.body)); return Response.json({ error: 'bad_nonce' }, { status: 401 }) })
+  const r = await signInWith('google', 'tok', 'n1', false, async (_, init) => { body = JSON.parse(String(init!.body)); return Response.json({ error: 'bad_nonce' }, { status: 401 }) })
   expect(r).toEqual({ error: 'bad_nonce' })
   expect(body).toEqual({ idToken: 'tok', nonce: 'n1', client: 'web' })
+  // Adding it to the account signed in here.
+  await signInWith('apple', 'tok', 'n2', true, async (_, init) => { body = JSON.parse(String(init!.body)); return Response.json({}) })
+  expect(body).toEqual({ idToken: 'tok', nonce: 'n2', client: 'web', link: true })
 })
 
 test('the email sign-in waiting for its code: kept until it expires; the code comes from the link #ma=', () => {

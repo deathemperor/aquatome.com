@@ -12,8 +12,10 @@ public let maxDevices = 100
 /// Values the site writes today. The fields are open strings: a value added later is shown as it is and kept.
 public enum Known {
   public static let substrate = ["soil", "sand", "gravel", "lava", "bare", "other"]
-  public static let deviceKind = ["light"]
-  public static let brand = ["chihiros"]
+  public static let deviceKind = ["light", "plug"]
+  public static let brand = ["chihiros", "tuya", "ewelink"]
+  /// What a plug's outlet powers (docs/smart-plugs.md).
+  public static let outletRole = ["light", "co2", "filter", "heater", "air", "fan", "other"]
 }
 
 /// A new record id: a lowercase UUID.
@@ -311,12 +313,12 @@ public struct TankStore: Sendable, Equatable {
     return Set(ids).count != ids.count
   }
 
-  private static func check(_ problems: [Problem]) throws {
+  static func check(_ problems: [Problem]) throws {
     if !problems.isEmpty { throw TankStoreError.invalid(problems) }
   }
 
   /// As JavaScript's `trim()`.
-  private static func trim(_ s: String) -> String {
+  static func trim(_ s: String) -> String {
     let u = s.unicodeScalars
     guard let first = u.firstIndex(where: { !$0.isJavaScriptSpace }), let last = u.lastIndex(where: { !$0.isJavaScriptSpace }) else { return "" }
     return String(u[first...last])

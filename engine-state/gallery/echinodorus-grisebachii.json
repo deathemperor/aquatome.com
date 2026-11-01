@@ -1,11 +1,23 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "File:HappyCiuc.JPG",
+  "File:Echinozziodestateyeah.JPG",
+  "File:Echinodorus grisebachii - flower view 01.jpg",
+  "File:Echinodorus grisebachii (5)-flower view.jpg",
+  "File:Echinodorus grisebachii-1-jayantinagar-bengaluru-India.jpg",
+  "File:Echinodorus grisebachii-2-jayantinagar-bengaluru-India.jpg",
+  "File:Echinodorus grisebachii-2-jayanti nagar-bengaluru-India.jpg"
+ ],
  "hashes": {
   "https://media.aquatome.com/commons/8016f2e10cd4b798.webp": "dada1938634733a7",
   "https://media.aquatome.com/commons/1795c1866ce8fbb9.webp": "b2be99c9eb6a6f6d",
   "https://media.aquatome.com/commons/fb267a0e9d9dc4a9.webp": "301613b9703e6fc7",
-  "https://media.aquatome.com/commons/0e1bb25a36933b34.webp": "1b0f0f0d4d1d0d29"
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Echinozziodestateyeah.JPG/1280px-Echinozziodestateyeah.JPG": "2d1b5b0b1f57d355",
+  "https://upload.wikimedia.org/wikipedia/commons/8/81/Echinodorus_grisebachii_-_flower_view_01.jpg": "3004064e1c0c4c32",
+  "https://upload.wikimedia.org/wikipedia/commons/1/12/Echinodorus_grisebachii_%285%29-flower_view.jpg": "af0b0f2f2e67755d",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Echinodorus_grisebachii-1-jayantinagar-bengaluru-India.jpg/1280px-Echinodorus_grisebachii-1-jayantinagar-bengaluru-India.jpg": "bee3c3b8b1a5b73c",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Echinodorus_grisebachii-2-jayantinagar-bengaluru-India.jpg/1280px-Echinodorus_grisebachii-2-jayantinagar-bengaluru-India.jpg": "1e67e190b0d8541c"
  },
  "inat": {
   "taxon": 356233,
@@ -18,5 +30,6 @@
  "gbif": {
   "key": 10282035,
   "next": null
- }
+ },
+ "commons": "2026-11-01"
 }

@@ -1,0 +1,21 @@
+{
+  "slug": "ca-hong-phat-van",
+  "name": "Cá hồng phát vằn",
+  "altNames": [
+    "Cá đĩa bạc vằn",
+    "Zebra silver dollar"
+  ],
+  "sections": {
+    "dimorphism:glaser": "<p>Ở mọi loài Metynnis, phân biệt đực cái rất dễ nếu nhìn vào vây hậu môn. Cá cái có mép vây thẳng. Cá đực thì có một phần vây kéo dài ra, trông như một cái thùy.</p>",
+    "reproduction:glaser": "<p>Màu sinh sản của cá đực lần đầu tiên được ghi nhận trong một bể nuôi. Lúc lên màu, cá đực trông rất đẹp với chiếc mặt nạ đen tuyền phủ trên mặt.</p>",
+    "quickFacts:glaser": "<p>Metynnis fasciatus là một loài cá hồng phát rất hiếm khi có hàng. Điểm nhận dạng của nó là bộ sọc vằn như ngựa vằn.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

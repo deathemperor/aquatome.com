@@ -7,7 +7,8 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "indonesia"
+    "indonesia",
+    "kapuas"
   ],
   "dataCard": {
     "tempC": [
@@ -16,6 +17,13 @@
         "value": {
           "min": 24,
           "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
         }
       }
     ],
@@ -26,6 +34,13 @@
           "min": 4,
           "max": 6
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
       }
     ],
     "gh": [
@@ -35,18 +50,39 @@
           "min": 0,
           "max": 3
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 7
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ]
   },
@@ -56,6 +92,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-mandor",
       "html": "<ul><li><strong>IUCN Red List:</strong> Vulnerable (threatened by habitat loss and peat-swamp degradation)</li><li><strong>Size:</strong> adults reach approximately 4.5–5 cm (≈ 1.8–2.0″) total length</li><li><strong>Temperature:</strong> 24–28 °C (75–82 °F)</li><li><strong>pH:</strong> 4.0–6.0</li><li><strong>GH:</strong> ≤ 3 °d</li><li><strong>KH:</strong> ≤ 1 °d</li><li><strong>TDS:</strong> &lt; 100 ppm</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<p>Betta mandor is a paternal mouthbrooding labyrinth fish from near Mandor and Anjungan in the lower Kapuas basin, West Kalimantan, Borneo. Known as B. sp. 'Mandor' or B. sp. 'ninja' before its description, it belongs to the B. foerschi group. Males are black and females brown, with twin red bars on the opercle. It is sometimes traded as B. foerschi, and the two can be difficult to tell apart.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -70,16 +112,46 @@
       "html": "<p>Betta mandor occurs in the forested blackwater peat-swamps of West Kalimantan, Borneo (Indonesia).</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<p>This species was described from aquarium specimens collected in 'Mandor area, Kalimantan Barat, Borneo'.</p><p>At time of writing it has only been collected close to the villages of Mandor and Anjungan in the lower Kapuas River basin, West Kalimantan (Kalimantan Barat), Borneo, Indonesia.</p><p>Fish from the two localities are often labelled as such by collectors and enthusiasts in order to maintain accuracy and preserve pure bloodlines.</p><p>Both areas have been extensively disturbed by illegal logging activity in recent years and the fish may be under threat.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-mandor",
       "html": "<p>It inhabits shallow, shaded, leaf-littered pools and slow-moving creeks with extremely soft, acidic water rich in humic substances.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<p>Typically inhabits forest swamp streams and pools, some of which have been measured at just a few centimetres deep.</p><p>These are usually shaded from the sun, the dense canopy of branches above meaning very little light penetrates the water surface and marginal vegetation also tends to grow thickly.</p><p>The water itself is often stained with humic acids and other chemicals released by decaying organic material.</p><p>The dissolved mineral content is negligible, pH quite low and substrate composed mainly of fallen leaves, branches and submerged tree roots.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<p>An aquarium with base measurements of 60 × 30 cm (about 54 litres) or equivalent is sufficient for a single pair, with something larger required for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed in such a way that a few shady spots are formed, and clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter offers additional cover for the fish and brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments. Alder cones may also be used for the latter purpose.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally destructive.</p><p>Fairly dim lighting is preferable and you can add aquatic plant species able to survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>Filtration need not be too strong, with an air-powered sponge filter set to turn over gently adequate.</p><p>Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p><p>It is also sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-mandor",
       "html": "<p>Soft, acidic blackwater conditions are ideal: pH 4.0–6.0, GH ≤ 3 °d, KH ≤ 1 °d, TDS &lt; 100 ppm. Temperature: 24–28 °C (75–82 °F); stable temperatures promote strong coloration and breeding activity.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: at Mandor the pH values range between 4.8–5.5, but in the aquarium a range of 4.0–6.5 has proven acceptable.</li><li>Hardness: 1–5 dGH</li></ul><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p>"
     },
     {
       "key": "equipment",
@@ -94,10 +166,22 @@
       "html": "<p>Carnivorous. Offer a variety of live or frozen foods such as mosquito larvae, daphnia, grindal worms, brine shrimp, and bloodworms. They may accept some high-quality micro-pellets or soft granules once acclimated, though live foods greatly enhance condition, color, and breeding performance.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<p>Likely to prey on insects plus other small invertebrates and zooplankton in nature.</p><p>Captive fish will normally accept dried products once they are recognised as edible but should be offered plenty of small live or frozen foods such as Daphnia, Artemia, bloodworm, etc.</p><p>Small insects such as crickets or Drosophila fruit flies are also suitable; it is best to fill their stomachs by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-mandor",
       "html": "<p>Best kept as a pair or small group in a heavily structured aquarium. Males may display territorial behavior, particularly during breeding, but B. mandor is generally less aggressive than some related species when given adequate cover. Tankmates, if any, should be tiny, peaceful softwater species such as Boraras, Sundadanio, or small Pangio loaches.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<p>Not recommended for the standard community set-up for reasons already touched upon.</p><p>Its care requirements and disposition mean it is best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are compatible, but the presence of any other fishes may prove a distraction should a pair decide to spawn.</p><p>Mixed reports exist as to whether it can be maintained in multiple pairs or harem-type groups comprising a single male alongside several females.</p><p>Some reports state that although some chasing and squabbling over territory occurs, actual physical damage is rare, while others recommend keeping it in single pairs having observed sustained aggression towards conspecifics from the dominant individuals in a group.</p>"
     },
     {
       "key": "dimorphism",
@@ -106,38 +190,106 @@
       "html": "<p>Males display deep red-brown body tones, metallic blue highlights, and pronounced dark barring, while females are smaller and more subdued but still attractively patterned.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<p>Males are more colourful and develop more-extended unpaired fins than females.</p><p>The opercular bars present in both sexes are usually orange to reddish and more well-defined in males, golden to yellow in females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-mandor",
       "html": "<p>Betta mandor is a paternal mouthbrooder. Courtship involves the male wrapping around the female in a gentle embrace, after which he collects the eggs in his mouth for incubation. The male broods the eggs for 10–14 days, depending on temperature, and should not be disturbed during this period. Fry are released fully formed and can take newly hatched baby brine shrimp, microworms, or moina immediately.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<p>Paternal mouthbrooder. Ideally organise a separate tank for breeding purposes, unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Following a protracted courtship, eggs and milt are released during an 'embrace' typical of osphronemids in which the male wraps his body around that of the female.</p><p>Several 'dummy' embraces may be required before spawning commences.</p><p>However, in contrast to the majority of mouthbrooding Betta spp. the eggs are not caught in the anal fin of the male but that of the female as in bubble-nesters.</p><p>The male then collects the eggs directly in his mouth and the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>A brooding male may swallow or release the eggs prematurely if stressed or inexperienced, so it is preferable to leave the female in situ.</p><p>The incubation period is 8–14 days at the end of which the male will begin to release fully-formed, free-swimming fry.</p><p>At this point they can be removed or left to grow alongside the parents, with some reports suggesting they actually grow more quickly under such circumstances.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter.</p><p>Offer small amounts of different foods 2–3 times per day for optimal growth rate, and do not change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-mandor",
       "html": "<p>As wild-caught Betta mandor, these fish are sensitive to sudden changes in pH, hardness, and temperature. Acclimate slowly and maintain soft, acidic, tannin-rich water with minimal fluctuations. Provide abundant structure—roots, leaves, caves, and botanicals—to reduce stress and support natural behavior. Monitor male–male interactions closely, especially during breeding. A calm, dim, mature blackwater aquarium is essential for long-term success.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<p>This species was known as B. sp. 'Mandor' or B. sp. 'ninja' prior to official description.</p><p>It belongs to the Betta foerschi group of closely-related species within the genus, of which members share the following set of characters: possession of iridescent blue or green unpaired fins; rays and interradial membranes in unpaired fins not contrasting; dorsal fin with thin, bright white distal band; opercle with two reddish-yellow vertical bars.</p><p>They are regarded as being closely related to bubble-nesting Betta species since they share certain similarities in morphology, particularly in the structure of head and mouth, colour pattern, and reproductive strategy.</p><p>B. mandor can be diagnosed by the following combination of characters: twin vertical red bars on opercle in life; male with black body, female with brown body in life; 32–34 lateral scales; 25–28 anal-fin rays; 6½–8 subdorsal scales; body depth at dorsal-fin origin 21.2–24.2 % SL; interorbital distance 27.1–32.1 % HL.</p><p>B. mandor is sometimes traded as B. foerschi and these two can be difficult to tell apart. They vary in the following characters: transverse scales 8.5 in B. foerschi vs. 9.5–10 in B. mandor; lateral scales 28.5–31 vs. 32–34; caudal-fin length 127.2–133.5 % SL vs. 136.7–149.1; caudal peduncle 17.5–21.0 % SL vs. 15.9–18.3; body depth at dorsal-fin origin 24.4–28.9 % SL vs. 21.2–24.2; dorsal-fin base length 10.0–12.2 % SL vs. 12.3–16.7; interorbital distance 9.6–13.4 % SL vs. 8.4–9.5; snout length 7.3–8.0 % SL vs. 3.9–7.0.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological and behavioural characters. Molecular phylogenetic work may therefore prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface.</p><p>Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2006). Six new species of fighting fish (Teleostei: Osphronemidae: Betta) from Borneo. Ichthyological Exploration of Freshwaters 17(2), 97-114</li><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Vierke, J. (1979). Betta anabatoides und Betta foerschi spec. nov., zwei Kampffische aus Borneo. Aquarium Aqua Terra 13(123), 386-390</li><li>Schaller, D. and M. Kottelat (1989). Betta strohi sp. n., ein neuer Kampffisch aus Südborneo (Osteichthyes: Belontiidae). Aquarien und Terrarien-Zeitschrift 43(1), 31, 33-37</li></ul>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/bwaquatics/bb03767dddb5cd9d.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/bb03767dddb5cd9d-480.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-mandor",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/bb03767dddb5cd9d-480.webp"
+      "source": "bwaquatics"
     },
     {
       "url": "https://media.aquatome.com/bwaquatics/ecdc2c9ab3e28ccc.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/ecdc2c9ab3e28ccc-480.webp",
       "width": 1200,
       "height": 960,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-mandor",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/ecdc2c9ab3e28ccc-480.webp"
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/de213de8b229005b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/de213de8b229005b-480.webp",
+      "width": 628,
+      "height": 542,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "caption": "Adult male specimen; aggressive colour pattern.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/07ff218fd6648c85.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/07ff218fd6648c85-480.webp",
+      "width": 799,
+      "height": 382,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "caption": "Adult male; neutral colour pattern.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bda03b353a2c124f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bda03b353a2c124f-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "caption": "Adult male; aggressive colour pattern.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/466a9776047859c9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/466a9776047859c9-480.webp",
+      "width": 600,
+      "height": 309,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-mandor",
+      "caption": "Freshly-collected individual from Anjungan displaying stress colour pattern.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -173,5 +325,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-01"
 }

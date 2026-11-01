@@ -22,6 +22,8 @@ interface Props {
   noindex?: boolean
   jsonld?: object[]
   credits?: Credit[]
+  /** The page's script shows more photos after it loads, and adds their credits (scripts/photo-credits.ts). */
+  creditsLater?: boolean
   /** Share preview image (absolute URL). */
   image?: string
   /** This page in other languages (paths), for hreflang; the Vietnamese one is also x-default. */
@@ -29,7 +31,7 @@ interface Props {
   /** In the site search (Pagefind indexes only pages whose <main> carries data-pagefind-body). */
   search?: boolean
 }
-const { title, description, noindex = false, jsonld = [], credits, image, alternates = {}, search = true } = Astro.props
+const { title, description, noindex = false, jsonld = [], credits, creditsLater, image, alternates = {}, search = true } = Astro.props
 const { lang, t } = i18n(Astro.url)
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 // A page without address parameters is the same page in every language that has it; others pass their alternates.
@@ -82,7 +84,7 @@ Astro.locals.langs = langs
   <body>
     <slot name="header" />
     <main data-pagefind-body={search ? '' : undefined}><slot /></main>
-    <Footer credits={credits} langs={langs} />
+    <Footer credits={credits} later={creditsLater} langs={langs} />
     {/* Beacon (starts when the page is shown, not while it's only preloaded): view (+ referring site), scroll 50/90%, time 30/60/180 s, affiliate clicks → /_e (Worker → Analytics Engine). No PII; the owner's visits are dropped. */}
     <script is:inline data-beacon>(()=>{var go=function(){try{var d=document.documentElement,k='ts_sid',i=sessionStorage.getItem(k);if(!i){i=(Math.random().toString(36).slice(2)+'000000000000').slice(0,12);sessionStorage.setItem(k,i)}var p=location.pathname.slice(0,200),r='';try{var h=document.referrer&&new URL(document.referrer).hostname;if(h&&h!==location.hostname)r=h.slice(0,100)}catch(e){}var f=function(t,v){navigator.sendBeacon&&navigator.sendBeacon('/_e',JSON.stringify({p:p,t:t,v:v,sid:i,r:t==='view'?r:''}))},seen={};f('view',1);addEventListener('scroll',function(){var r=100*(scrollY+innerHeight)/d.scrollHeight;[50,90].forEach(function(m){if(r>=m&&!seen[m]){seen[m]=1;f('scroll',m)}})},{passive:true});[30,60,180].forEach(function(t){setTimeout(function(){document.visibilityState==='visible'&&f('time',t)},t*1e3)});document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[rel~=sponsored]');a&&f('aff',1)},true)}catch(e){}};document.prerendering?document.addEventListener('prerenderingchange',go,{once:true}):go()})()</script>
     {/* Cloudflare Web Analytics (cookieless; the token is public). Added by hand: Cloudflare doesn't inject it into Worker-served pages. Loaded once the page is shown. */}

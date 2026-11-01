@@ -1,0 +1,80 @@
+{
+  "id": "bangana-devdevi",
+  "scientificName": "Bangana devdevi",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Bangana",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "india",
+    "irrawaddy",
+    "myanmar",
+    "salween",
+    "thailand"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bangana-devdevi",
+      "html": "<p>Bangana devdevi is a cyprinid known with certainty from the Irrawaddy system in Manipur, India, and Myanmar, and the Salween in Myanmar and Thailand. Records from the Red River basin in Vietnam appear questionable. It presumably inhabits flowing river channels and larger tributaries and migrates seasonally, as related species do.</p><p>Max size: 250 mm SL (10 in SL). Needs a very large tank.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bangana-devdevi",
+      "html": "<p>Known with certainty from the Irrawaddy River system in Manipur state, India, and Myanmar, and the Salween watershed in eastern Myanmar and northwestern Thailand. Records from the Red River basin in Vietnam appear questionable.</p><p>Type locality is 'Burma: Myitkyina District: Mali Hka basin: Phungin Hka;'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bangana-devdevi",
+      "html": "<p>Presumably inhabits flowing river channels and larger tributaries and is migratory on a seasonal basis, as in related species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bangana-devdevi",
+      "html": "<ul><li>Hora, S. L. (1936). On a further collection of fish from the Naga Hills. Records of the Indian Museum (Calcutta) v. 38 (pt 3), 317-331</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f62596ae756c7cc8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f62596ae756c7cc8-480.webp",
+      "width": 700,
+      "height": 402,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bangana-devdevi",
+      "caption": "Specimen from the Salween basin, northwestern Thailand.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

@@ -30,7 +30,7 @@ struct TanksView: View {
             if let p = tanks.problem { Section { ProblemText(problem: p) } }
             Section {
               ForEach(tanks.tanks) { t in
-                NavigationLink(value: t.id) { TankRow(tank: t, lights: tanks.devices(in: t).count) }
+                NavigationLink(value: t.id) { TankRow(tank: t, lights: tanks.devices(in: t).filter { $0.kind == "light" }.count) }
                   .accessibilityIdentifier("tank")
               }
             } footer: {
@@ -99,35 +99,37 @@ private struct TankDetail: View {
   @Environment(\.dismiss) private var dismiss
   @State private var editing = false
   @State private var confirmDelete = false
+  @State private var lifeSheet: LifeSheet?
 
   var body: some View {
     if let t = tanks.tanks.first(where: { $0.id == id }) {
-      let lights = tanks.devices(in: t)
+      let lights = tanks.devices(in: t).filter { $0.kind == "light" }
       List {
         Section("Thông tin bể") {
           let f = facts(t)
           Text(f.isEmpty ? String(localized: "Chưa có kích thước.") : f.joined(separator: " · ")).accessibilityIdentifier("facts")
           if let n = t.notes { Text(n).accessibilityIdentifier("notes") }
         }
-        // As the site lists them: fish (with how many), then plants, each opening its page.
-        if !t.species.isEmpty {
-          Section("Cá và tép") { ForEach(Array(t.species.enumerated()), id: \.offset) { _, s in LifeRow(id: s.id, count: s.count) } }
-        }
-        if !t.plants.isEmpty {
-          Section("Cây") { ForEach(Array(t.plants.enumerated()), id: \.offset) { _, id in LifeRow(id: id, count: nil) } }
-        }
+        // As the site lists them: fish (with how many), then plants, each opening its page (TankLife.swift).
+        TankLifeSections(tank: t, sheet: $lifeSheet)
+        // Whether its fish go together and fit the tank, as the site's tank-mates tool says (TankCheckView.swift): after
+        // them, so a long answer never hides what's in the tank.
+        TankCheckSection(tank: t)
         if !lights.isEmpty {
           Section("Đèn") { ForEach(lights) { d in LightRow(device: d) } }
         }
+        PlugsSection(tank: t)
         Section {
           Button("Xóa bể", role: .destructive) { confirmDelete = true }.accessibilityIdentifier("delete")
         }
       }
+      .readsPlugs()
       .navigationTitle(t.name)
       // Fish and plants are named from the handbook's index, which may not be loaded yet if the Tìm tab wasn't opened.
       .task { if !t.species.isEmpty || !t.plants.isEmpty { await handbook.appear() } }
       .toolbar { Button("Sửa") { editing = true }.accessibilityIdentifier("edit") }
       .sheet(isPresented: $editing) { TankForm(editing: t) }
+      .sheet(item: $lifeSheet) { LifeSheetView(sheet: $0, tankId: t.id) }
       .confirmationDialog(
         lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
         isPresented: $confirmDelete, titleVisibility: .visible
@@ -139,26 +141,6 @@ private struct TankDetail: View {
       }
     } else {
       ContentUnavailableView("Bể này đã bị xóa.", systemImage: "trash")
-    }
-  }
-}
-
-/// A fish or plant on a tank: its name from the handbook (the id until the index is here), linked to its page.
-private struct LifeRow: View {
-  let id: String
-  let count: Int?
-  @Environment(HandbookModel.self) private var handbook
-
-  var body: some View {
-    let label = HStack {
-      Text(handbook.page(id)?.name ?? id)
-      Spacer()
-      if let count { Text(verbatim: "× \(count)").foregroundStyle(.secondary).monospacedDigit() }
-    }
-    if let page = handbook.page(id) {
-      NavigationLink(value: page) { label }.accessibilityIdentifier("life")
-    } else {
-      label.accessibilityIdentifier("life")
     }
   }
 }

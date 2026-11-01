@@ -5,7 +5,11 @@
   "family": "Osphronemidae",
   "genus": "Betta",
   "group": "labyrinth",
-  "places": [],
+  "places": [
+    "asia",
+    "indonesia",
+    "aceh"
+  ],
   "dataCard": {
     "tempC": [
       {
@@ -13,6 +17,13 @@
         "value": {
           "min": 24,
           "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
         }
       }
     ],
@@ -23,18 +34,48 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 5.7
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.6
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ]
   },
@@ -46,10 +87,28 @@
       "html": "<ul><li>From the Betta rubra complex</li><li>IUCN Red List: Vulnerable</li><li>Wild caught</li><li>Maximum size: 2.25 inches (about 5.7 cm)</li><li>Temperament: somewhat territorial, but can be kept in groups as long as there is enough space</li><li>Breeding: mouthbrooder</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<p>Betta dennisyongi is a small mouthbrooding labyrinth fish from the western coast of central Aceh province, northwestern Sumatra, Indonesia. It belongs to the B. rubra group and is typically exported mixed with the similar B. rubra, so the two may have been inadvertently hybridised before its description by Tan (2013). It has been collected among submerged leaf litter in lowland hill streams and acidic freshwater swamps.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k-banh7-hp7x2",
       "html": "<p>Be sure to have the habitat ready before purchase.</p><p>Betta dennisyongi and Betta rubra are some of the easiest wild bettas to start out on, as males show a lower level of aggression and they can do well in community tanks.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<p>Currently known only from the western coast of central Aceh province, northwestern Sumatra, Indonesia, between the city of Meulaboh and lowland hill streams north of the town of Singkil.</p><p>Type locality is 'Sumatra: Aceh: Kabupaten Nagan Raya: Lamie, Alue Rayeuk, stream along road Meulaboh-Blangpidie'.</p><p>Some former localities for the congener B. rubra are currently considered to refer to B. dennisyongi and it’s unclear if the two occur together naturally in some locations due to human interference (Tan, 2013).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<p>Has been collected from lowland hillstreams and acidic freshwater swamps containing clear to brownish water.</p><p>One hill stream habitat contained relatively fast flowing clear water with a pH of 7.0, a sandy substrate and steep clay banks, with the fish collected among submerged leaf litter.</p><p>The type series was collected from submerged leaf litter and marginal vegetation in slowly-moving brown water with a pH of 6.0 and a substrate of mud and clay.</p><p>Syntopic fish species include Osteochilus jeruk, Rasbora jacobsoni, R. kluetensis, Nemacheilus tuberigum, Mystus punctifer, Ompok brevirictus and Kryptopterus piperatus (Tan, 2013).</p>"
     },
     {
       "key": "aquariumSize",
@@ -58,10 +117,28 @@
       "html": "<p>We recommend a pair per 5 gallons (about 19 litres) of water.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<p>An aquarium with base measurements of 45 × 30 cm (18 × 12 in) or equivalent, about 41 litres, is sufficient for a single pair, with something larger required for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments.</p><p>There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally-destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting.</p><p>Aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp. can be added, and a few patches of floating vegetation would be useful as well.</p><p>This species should ideally be kept in conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>Filtration need not be too strong, with an air-powered sponge filter set to turn over gently adequate.</p><p>Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k-banh7-hp7x2",
       "html": "<ul><li>TDS: ~60–100 (can tolerate high TDS water but prefers low TDS water)</li><li>pH: ~6.0–7.0 (prefers softer water)</li><li>Temperature: 75–83°F (about 24–28°C); does well in cooler temperatures, but higher temperatures induce coloration and breeding behaviours</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<ul><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 5.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -70,10 +147,22 @@
       "html": "<p>Carnivorous. Currently feeding on live foods but can be trained to eat frozen and dried foods. The seller currently feeds blackworms, frozen bloodworms and pellets.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<p>Likely to feed mostly on insects and other small invertebrates in nature.</p><p>Captive fish will normally accept dried products once they're recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimal colour and condition.</p><p>Small insects such as newly-hatched crickets or Drosophila fruit flies are also suitable to use; it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k-banh7-hp7x2",
       "html": "<p>Somewhat territorial, but can be kept in groups as long as there is enough space. Males show a lower level of aggression than many bettas.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<p>Not recommended for the standard community set-up for reasons already touched upon.</p><p>Its requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are compatible, but be sure to research your choices before purchase.</p><p>Mixed reports exist as to whether it can be maintained in multiple pairs or harem-type groups comprising a single male alongside several females.</p><p>Some state that although some chasing and squabbling over territory occurs actual physical damage is rare, while others recommend keeping it in single pairs having observed sustained aggression towards conspecifics from the dominant individuals in a group.</p>"
     },
     {
       "key": "dimorphism",
@@ -82,19 +171,88 @@
       "html": "<p>Both males and females have a red-brown base body with black markings on the head and body. Fully grown adult males have longer anal and caudal fins than females. Both sexes become bright red with blue iridescence on the edge of the fins. Unlike many species in the genus, females can be as brightly coloured as the male. Males can be told apart by the more intense coloration on the fins and body, often with more iridescence, while females show egg-spots when ready to breed.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<p>Males are more colourful and develop more-extended unpaired fins than females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k-banh7-hp7x2",
       "html": "<p>Mouthbrooder. Higher temperatures induce breeding behaviours.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<p>Paternal mouthbrooder. Ideally organise a separate tank for breeding purposes unless the fish are already being maintained alone, setting this up as suggested above.</p><p>This should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Following a protracted courtship eggs and milt are released during an 'embrace' typical of osphronemids in which the male wraps his body around that of the female, and several 'dummy' embraces may be required before spawning itself commences.</p><p>In contrast to the majority of mouthbrooding Betta spp. the eggs are not caught in the anal-fin of the male but that of the female as is typical in bubble-nesting congeners.</p><p>The male then collects the eggs directly in his mouth and the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>A brooding male may swallow or release the eggs prematurely if stressed or inexperienced, so it's preferable to leave the female in situ.</p><p>The incubation period is 10-17 days at the end of which the male will begin to release fully-formed, free-swimming fry.</p><p>At this point they can be removed or left to grow alongside the parents, with some reports suggesting they actually grow more quickly under such circumstances.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter.</p><p>Offer small amounts of different foods 2-3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k-banh7-hp7x2",
       "html": "<p>B. dennisyongi is differentiated from Betta rubra by different black facial markings and less intense black bars on the body. The two are very close genetically and are only truly differentiated by location.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<p>This species is available in the aquarium hobby but is not traded in large numbers and may have been inadvertently hybridised with the similar-looking congener B. rubra prior to its description since the two are typically exported mixed together.</p><p>It's included in the B. rubra group of closely-related species within the genus, an assemblage erected by Schindler and van der Voort (2012) who also redescribed B. rubra, but both group and species were subsequently redefined by Tan (2013) who also described B. dennisyongi in the same publication.</p><p>B. dennisyongi can be told apart from B. rubra, currently the only other member of the group, by: black postorbital stripe continuous and extending to edge of opercle (vs. interrupted in B. rubra); relatively broad suborbital stripe forming a triangular black mark (4–5 scale rows wide, vs. 2–3); less intense body colouration with wider interspaces between the black body bars in males; fewer anal-fin rays (mode 25, vs. 27); more subdorsal scales (6–7, vs. 5–5½); more lateral scales (mode 31, vs. 30); more vertebrae (mode 30, vs. 29); longer dorsal-fin base (13.0–18.4, vs. 11.0–13.4% SL); smaller maximum size (35.4 vs. 42.1 mm SL).</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which allows the fish to breathe atmospheric air to a certain extent.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabantoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li><li>Schindler, I. and J. Schmidt (2006). Review of the mouthbrooding Betta (Teleostei, Osphronemidae) from Thailand, with descriptions of two new species. Zeitschrift für Fischkunde 8(1/2), 47-69</li><li>Schindler, I. and S. van der Voort (2012). Re-description of Betta rubra Perugia, 1893 (Teleostei: Osphronemidae), an enigmatic fighting fish from Sumatra. Bulletin of Fish Biology 13(1/2), 21-32</li><li>Tan, H. H. (2013). The identity of Betta rubra (Teleostei: Osphronemidae) revisited, with description of a new species from Sumatra, Indonesia. Raffles Bulletin of Zoology 61(1), 323-330</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e682f8c4eeb1c4a3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e682f8c4eeb1c4a3-480.webp",
+      "width": 800,
+      "height": 500,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "caption": "Nuptial pair, female at front.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/345e6cd7adce1030.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/345e6cd7adce1030-480.webp",
+      "width": 798,
+      "height": 481,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "caption": "Head detail of female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d0107f2d6270cc5b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d0107f2d6270cc5b-480.webp",
+      "width": 640,
+      "height": 453,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "caption": "Mouth-brooding male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a5d5d7ac2df82e19.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a5d5d7ac2df82e19-480.webp",
+      "width": 619,
+      "height": 397,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -119,5 +277,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-01"
 }

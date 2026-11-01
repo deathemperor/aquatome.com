@@ -4,9 +4,11 @@ The native app: device control (Chihiros lights first) and the handbook. SwiftUI
 
 Three tabs: **Tìm** searches and browses the handbook natively and opens each page of aquatome.com in the app (kept on
 the phone for reading offline, without ads); **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
-substrate, notes, the fish and plants on it, each opening its page) on the phone with no account, in the same store the
+substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
-schedules written to it (as the site does).
+schedules written to it (as the site does). A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
+named for what it powers, with its switch: the app calls Tuya's cloud itself, with the reader's own Tuya project keys
+kept in the Keychain, and no AquaTome account (docs/smart-plugs.md).
 
 The site's pages in the app share the reader's tanks with it (`PageBridge`): the tools' "Lưu vào Bể của tôi" saves to
 the app's tanks, merged record by record, and each page sees them. A link to "Bể của tôi" or the Chihiros page, and
@@ -17,6 +19,8 @@ Signing in (Sign in with Apple) syncs the tanks with an aquatome.com account, as
 the Keychain, on this phone only. A debug build on the simulator (every UI and performance test) gets a stand-in
 server and Apple sheet inside the app instead (`AquaTome/Account/FakeServer.swift`; accounts on with
 `-fake-accounts on`), so no test reaches aquatome.com; `-real-accounts` tries the real server from the simulator.
+Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`PlugsModel.forSimulator`;
+`-seed-tuya-keys` starts with its keys entered), so no test reaches Tuya; `-real-tuya` tries Tuya itself.
 
 ## The app
 
@@ -34,6 +38,9 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   xcodebuild test -project AquaTome.xcodeproj -scheme AquaTome -destination 'platform=iOS Simulator,name=iPhone 17'
   python3 scripts/check-strings.py ~/Library/Developer/Xcode/DerivedData/AquaTome-*   # translations
   ```
+
+  The lights flows (`AquaTomeUITests/LightFlowTests`) follow the site's Chihiros page; the fake light's launch arguments
+  (a slow or lost clock, old firmware, a drop, no Bluetooth…) are listed on `FakeRadio` (`AquaTome/Lights/Radio.swift`).
 
 - **A real iPhone:** copy `Config/Local.xcconfig.example` to `Config/Local.xcconfig` and put your team ID in it. The
   public project never holds the team ID.
@@ -70,26 +77,36 @@ costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instruct
 Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in that file rather than an Xcode
 `.xcbaseline`, which belongs to one machine model and would silently stop applying when the hosted runners change.
 
+Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
+the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
+Debug builds, so they don't see it.
+
 ## AquaTomeKit
 
 `AquaTomeKit/` is a Swift package with the device code, no UI:
 
 | Module | What |
 | --- | --- |
-| `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), `LightSession` (the order and pace the light accepts), `FakeLight` (tests, simulator) |
+| `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), `LightSession` (the order and pace the light accepts, and going back to the schedule after levels set by hand), `FakeLight` (tests, simulator) |
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
-| `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says |
-| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) and searching it: without accents, đ as d, any word order; where a link in a page goes (`PageRoute`, `AppScreen`); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
+| `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`) |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names and each guide's subject and the fish and plants it names, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), and searching it: without accents, đ as d, any word order; where a link in a page goes (`PageRoute`, `AppScreen`); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
+| `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code |
 | `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
+| `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
 
 ```sh
 cd apps/ios/AquaTomeKit
 swift test
 ```
 
-The tests read `protocols/chihiros-vectors.json` and `protocols/tanks-vectors.json`, the same vectors as the site's
-tests. A protocol or schema change updates the vectors and both implementations together.
+A read-only check of the Tuya route against a real project (the owner's): `AQUATOME_TUYA_LIVE=1` with `TUYA_ACCESS_ID`
+and `TUYA_ACCESS_SECRET` set, `swift test --filter liveListRead`. It reads the list once, switches nothing, and prints
+counts only.
+
+The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json` and `protocols/tankmates-vectors.json`,
+the same vectors as the site's tests. A protocol or schema change updates the vectors and both implementations together.
 
 ## Testing on a real light
 

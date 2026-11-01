@@ -22,6 +22,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -31,12 +38,44 @@
           "min": 5.4,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 24.9
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 24.9
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -48,10 +87,22 @@
       "html": "<p>Bagrichthys obscurus Ng, 1999. Maximum size 249 mm (9.8\") SL. Type locality: Lam Chi, 1.5 km below highway 23 bridge, 4 km west of Selaphum, Roi Et Province, Thailand.</p><p>Members of the genus Bagrichthys live in large muddy rivers throughout Southeast Asia. They are characterised by an elongate, laterally compressed caudal peduncle, dorsally-directed serrations on the posterior edge of the dorsal-fin spine, and a long adipose fin without a free posterior margin. This species has a relatively small, narrow mouth opening, extremely reduced oral dentition, a relatively short dorsal-fin spine with 15 or fewer serrae, crenulated inner and outer mandibular barbels, a slender body, a short adipose fin base, and a uniformly brown body without a pale midlateral stripe or pale blotches on the sides.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<p>This species needs dither fish to settle. It may be seen more often if maintained alongside schools of 'dither' fishes, for which good choices include larger rasboras, medium-sized barbs or perhaps the glass catfish Kryptopterus minor.</p><p>Bagrichthys obscurus is a bagrid catfish from the Chao Phraya, Bang Pakong and Mekong watersheds in Thailand, Cambodia and Vietnam. One of the lancers, named for the extended dorsal spine in several members of the genus, it has a uniformly brown body with no pale stripe or blotches, a small mouth and a relatively short dorsal spine. It inhabits large, turbid rivers with slow flow, and is shy, nocturnal and territorial towards other bottom-dwellers.</p><p>This species is rare in the aquarium trade.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
       "html": "<p>Asia: Chao Phraya, Bang Pakong and Mekong drainages in Indochina.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<p>Described from Roi Et province, northeastern Thailand and distributed throughout the Chao Phraya, Bang Pakong and Mekong watersheds. Recorded from parts of the latter in Cambodia and Vietnam and presumably also occurs in Laos.</p>"
     },
     {
       "key": "habitat",
@@ -60,10 +111,34 @@
       "html": "<p>Occurs in large muddy rivers. Feeds on small fishes, benthic invertebrates and large amounts of plant detritus.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<p>Typically inhabits large, turbid rivers with muddy substrates and slow flow and moves into flooded riparian zones to spawn during the wet season.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<p>A tank with base measurements of 120 × 45 cm (48 × 18 in) should be the smallest considered. Volume: about 243 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<p>A shy, nocturnal species so best maintained in a dimly-lit aquarium. Provide plenty of hiding places in the form of clay flowerpots, lengths of plastic piping, driftwood tangles etc. Plants are not essential but useful in reducing the amount of light hitting the bottom of the tank as well as offering cover.</p><p>If you're keeping multiple specimens or other similarly-sized catfishes try to arrange the décor in such a way as to form distinct territories.</p><p>The heater should also be placed in such a way that it doesn't allow the fish to rest behind or against it. Also note that this species doesn't appreciate strong water flow.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
       "html": "<p>pH 5.4 - 7.0. Temperature 22.0-28.0°C (71.6-82.4°F).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 5.5–7.0</li><li>Hardness: 1–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -78,10 +153,22 @@
       "html": "<p>Readily accepts prepared foods. Frozen brine shrimp appears to produce the most activity from the fish and frozen bloodworms are also relished.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<p>Apparently feeds on small, benthic animals and organic detritus in nature but will accept most aquarium foods.</p><p>Small live and frozen fare such as Artemia, Tubifex, bloodworm, etc. are particularly suitable, and high-quality, sinking dried products enriched with Spirulina or other vegetable content should also be offered regularly.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
       "html": "<p>A timid fish that does well in a sizeable aquarium inhabited by smaller fish. Although a night-time prowler, even small fish are safe enough. Conspecifics may be aggressively territorial.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<p>Peaceful with species inhabiting other areas of the tank and has a relatively small mouth so is unable to swallow anything larger than a few millimetres in length.</p><p>It may be seen more often if maintained alongside schools of 'dither' fishes, for which good choices include larger rasboras, medium-sized barbs or perhaps the glass catfish Kryptopterus minor.</p><p>It is territorial towards other benthic species, especially conspecifics, and males in particular will not often tolerate each other in all but the largest aquaria. Keep a single male alongside 3 or more females for the best chance of long-term success as this should help reduce the chance of any single individual being targeted by the dominant male.</p>"
     },
     {
       "key": "dimorphism",
@@ -90,16 +177,40 @@
       "html": "<p>Males have a prominent genital papilla in front of the anal fin and longer barbels.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<p>Males possess a pointed, externally visible genital papilla located just anterior to the anal fin and noticeably longer barbels, while sexually mature females are normally slightly larger-bodied.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
       "html": "<p>Not reported in aquaria; there is no breeding report. In the wild it spawns at the beginning of the rainy season and uses the flooded forests along the river edge. Juveniles appear in August.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<p>Unrecorded in captivity as far as is known. In nature adults move into temporarily-flooded areas at the onset of the wet season to spawn.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<p>The vernacular name 'lancer' is derived from the extended dorsal spine possessed by several members of the genus, which currently contains 7 species.</p><p>B. obscurus is diagnosable from congeners by the following combination of characters: mouth opening relatively small and narrow; oral dentition significantly reduced; dorsal-fin spine relatively short with 15 or less serrae; inner and outer mandibular barbels crenulated; relatively slender body (depth at anus 15.1 - 18.4 % SL; caudal peduncle depth 6.7 - 8.3 % SL); short adipose fin (base length 43.3 - 48.9 % SL); genital papilla in males touching the first anal-fin ray; body colour uniformly brown with no pale midlateral stripe or blotches.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1044",
       "html": "<p>Revista de Biología Tropical v. 47 (no. 3), pp 546, Figs. 1-2.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "html": "<ul><li>Ng, H. H. (1999). Bagrichthys obscurus, a new species of bagrid catfish from Indochina (Teleostei: Bagridae). Revista de Biologia Tropical 47(3), 545 - 552</li><li>Linder, R. S. and H. H. Ng (2002). Notes on the Lancers of the Genus Bagrichthys (Teleostei, Bagridae) Cat Chat: The Official Journal of The Catfish Study Group 3(3)</li></ul>"
     }
   ],
   "photos": [
@@ -112,6 +223,17 @@
       "author": "Nonn Panitvong",
       "sourceUrl": "https://fishbase.se/photos/PicturesSummary.php?pic=Baobs_u0.jpg&personnel=1825&what=collab_pic",
       "source": "panitvong"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/7e89435b889087e6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7e89435b889087e6-480.webp",
+      "width": 700,
+      "height": 341,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-obscurus",
+      "caption": "This species is rare in the aquarium trade.",
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/scotcat/662ea8c27ad2678e.webp",
@@ -147,5 +269,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-01"
 }

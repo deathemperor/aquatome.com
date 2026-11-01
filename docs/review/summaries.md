@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (40)
+# Tóm tắt chờ duyệt (41)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -367,6 +367,17 @@ Cá paro Anjungan (Parosphromenus anjunganensis) hợp với người muốn nu�
 Kiểm tra:
 - Mistake 1: "nên chỉ ghép với cá nước đen nhỏ như Boraras hoặc betta ấp trứng bằng miệng" – the page only says "Bạn có thể cho chúng ở chung với…" (a permitted option). Turning it into an exclusive rule ("chỉ") is advice the page doesn't give.
 - Mistake 1: "cá paro dễ bị lấn át" – the page never says the fish get bullied or outcompeted by other tank mates. It only says they are gentle and shy. This risk is invented.
+
+## Cá cichlid Pelvicachromis humilis (Pelvicachromis humilis)
+id: `pelvicachromis-humilis`
+
+Hồ sơ này chưa đủ để nói loài hợp với ai. Thẻ chỉ ghi kích thước trưởng thành 12 cm, còn bể tối thiểu, nhiệt độ, pH, độ cứng và độ khó đều không có. Hồ sơ cũng gộp nhiều dạng trong nhóm P. humilis nên chưa chắc thông tin áp dụng đúng cho Pelvicachromis humilis, và con cái luôn nhỏ hơn con đực nhưng có màu đẹp hơn.
+
+- Đừng chọn đực cái chỉ theo màu và độ lớn, vì ở nhóm này con cái mới là con có màu đẹp hơn và luôn nhỏ hơn; nên nhìn vùng sáng óng trên bụng để nhận con cái.
+
+Kiểm tra:
+- The mistake "Đừng chọn đực cái chỉ theo màu và độ lớn" is not on the page. The page says the sexes "luôn khác màu nhau rất rõ" and that the female is always smaller, so it does not warn against sexing by colour or size. This advice is invented and cuts against the page.
+- The fix "nên nhìn vùng sáng óng trên bụng để nhận con cái" is a sexing tip the page does not give. The page only says the group's females have this patch. It does not say to use it to tell the sexes apart.
 
 ## Cá da trơn Robocop (Physopyxis lyra)
 id: `physopyxis-lyra`

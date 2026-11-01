@@ -1,0 +1,22 @@
+{
+  "slug": "ca-map-den",
+  "name": "Cá mập đen",
+  "altNames": [
+    "Cá mập đen Đông Nam Á",
+    "Black shark"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Tên là cá mập đen nhưng dĩ nhiên nó chẳng phải cá mập. Đây là một loài cá chép thuộc họ Cyprinidae. Cá lớn rất to, có thể dài gần 1 mét và nặng tới 7 kg.</p><p>Cỡ cá thường bán: 6-8 cm.</p>",
+    "beforeYouBuy:glaser": "<p>Cũng như nhiều loài cá chép cỡ lớn khác, cá mập đen là loài cá ăn thịt rất được chuộng ở Đông Nam Á. Vì vậy người ta nuôi nó trong các trại thủy sản. Cá con đôi khi theo đường này mà lọt vào thị trường cá cảnh. Với người có bể thật lớn, đây là loài cá rất đáng nuôi.</p>",
+    "distribution:glaser": "<p>Nguồn gốc: Thái Lan.</p>",
+    "notes:glaser": "<p>Xét về phân loại thì nó không có họ hàng gì với cá mập. Dù vậy, cái tên “cá mập” vẫn rất hợp, vì cá có vây lưng lớn và hay giương vây này lên khi phô diễn. Loài này còn có dạng bạch tạng, có thể gọi là “cá mập trắng” (white shark).</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.6
+    },
+    "reason": "thin"
+  }
+}

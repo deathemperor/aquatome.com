@@ -9,17 +9,52 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-araguaia"
+    "rio-araguaia",
+    "rio-tocantins"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 40
+      },
+      {
+        "source": "scotcat",
+        "value": 40
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 180
       }
     ]
   },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "html": "<ul><li>Common names: L001, L022, Gold-flecked sailfin plec</li></ul>"
+    },
     {
       "key": "beforeYouBuy",
       "source": "glaser",
@@ -31,6 +66,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/glyptoperichthys_joselimaianus_l_1_l_22_en/",
       "html": "<p>Glyptoperichthys joselimaianus originates from the Rio Araguaia, one of the main tributaries of the Rio Tocantins in Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "html": "<p>Brazil: Pará, Rio Tocantins (at Tucurui). In Brazil, Pterygoplichthys joselimaianus occurs in the Tocantins River basin, in the states of Goiás, Pará, and Tocantins. The species is naturally infrequent and not very abundant. However, as no significant threats have been identified that endanger its population, it has been listed in the Least Concern (LC) category (IUCN 2022).</p>"
     },
     {
       "key": "habitat",
@@ -45,6 +86,18 @@
       "html": "<p>One condition for keeping adult Glycopterichthys species is a very large aquarium. With an overall length of approximately 40 cm, which can be reached in aquaria too, they are really stately catfishes.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "html": "<p>A single-species setup is recommended for aquaria over 6 ft (180 cm) long.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "html": "<p>Fine as juveniles but will get boisterous as they get older and can get quite territorial, so a single-species setup is recommended for larger aquaria over 6 ft (180 cm) long.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/glyptoperichthys_joselimaianus_l_1_l_22_en/",
@@ -57,22 +110,69 @@
       "html": "<p>Their large appetite is noteworthy; this requires a strong filtering unit.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "html": "<p>Will eat any prepared aquarium foods such as flake, tablet, live and frozen.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/glyptoperichthys_joselimaianus_l_1_l_22_en/",
       "html": "<p>It is very impressive to see such a fish sailing elegantly through the aquarium. Sail Fin Plecos are not shy compared with many other Loricariids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "html": "<p>Males have larger fins, especially the dorsal.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "html": "<p>This was the first L-Number identified by Claude Weber. The photos of this species and L022 were published in DATZ as Glyptoperichthys joselimaianus; L022 has a brown body colouration whereas L001 has a black base colour, but both are probably the same species. Bred in good numbers for the hobby in ponds in South-East Asia. Large-growing species with 12-14 rays in the dorsal fin.</p><p>Etymology: the specific name joselimaianus honours Brazilian ichthyologist José Lima de Figueiredo (b. 1943), Museu de Zoologia da Universidade de São Paulo, who drew the first author's attention to the \"peculiar\" genera now known as Leporacanthicus and Hopliancistrus.</p><p>Remarks: this species is still seen in some publications and online as Glyptoperichthys joselimaianus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "html": "<p>All L-Numbers Datz Special. Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Pterygoplichthys joselimaianus. The IUCN Red List of Threatened Species 2022. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/glaser/b04765dfad704a5d.webp",
-      "thumb": "https://media.aquatome.com/glaser/b04765dfad704a5d-480.webp",
-      "width": 640,
-      "height": 426,
+      "url": "https://media.aquatome.com/scotcat/f9e074275336b83d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f9e074275336b83d-480.webp",
+      "width": 500,
+      "height": 306,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/glyptoperichthys_joselimaianus_l_1_l_22_en/",
-      "source": "glaser"
+      "author": "Sandy Milne / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "caption": "Pterygoplichthys joselimaianus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/878be5dab8f513df.webp",
+      "thumb": "https://media.aquatome.com/scotcat/878be5dab8f513df-480.webp",
+      "width": 500,
+      "height": 321,
+      "licence": "dùng với sự cho phép",
+      "author": "Ian M. Clift / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "caption": "Glyptoperichthys joselimaianus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b893b0e1fd294de6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b893b0e1fd294de6-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm",
+      "caption": "Pterygoplichthys joselimaianus",
+      "source": "scotcat"
     }
   ],
   "videos": [],
@@ -99,5 +199,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }

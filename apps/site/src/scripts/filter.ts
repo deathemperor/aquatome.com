@@ -1,5 +1,4 @@
 import type { Range } from '@aq/schema'
-import { slugify } from '@aq/schema/slug'
 
 export type SpeciesIndexItem = {
   slug: string; name: string; scientificName: string; group: string
@@ -22,8 +21,19 @@ function checks(i: SpeciesIndexItem, q: SpeciesQuery): (boolean | undefined)[] {
     q.difficultyMax === undefined ? true : atMost(i.difficulty, q.difficultyMax),
   ]
 }
+/** Lower case, accents off (đ as d), each run of anything but letters and digits one space: "Cá đĩa" → "ca dia". */
+const fold = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[đĐ]/g, 'd').toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim()
+/**
+ * The typed words, in the name, starting where a word does: "dia" finds Cá đĩa and diabolica, "ca dia" never Barbucca
+ * diabolica. Thai writes no spaces between words, so a match may start anywhere except inside a Latin word.
+ */
+export function nameHas(name: string, text: string): boolean {
+  const h = fold(name), n = fold(text)
+  for (let at = h.indexOf(n); at !== -1; at = h.indexOf(n, at + 1)) if (at === 0 || !/[a-z0-9]/.test(h[at - 1]!)) return true
+  return false
+}
 const named = (i: SpeciesIndexItem, q: SpeciesQuery) =>
-  (!q.group || i.group === q.group) && (!q.text || slugify(`${i.name} ${i.scientificName}`).includes(slugify(q.text)))
+  (!q.group || i.group === q.group) && (!q.text || nameHas(`${i.name} ${i.scientificName}`, q.text))
 
 /** Species whose figures are all known and all fit the query. */
 export function filterSpecies(items: SpeciesIndexItem[], q: SpeciesQuery): SpeciesIndexItem[] {
@@ -39,7 +49,7 @@ export function unsureSpecies(items: SpeciesIndexItem[], q: SpeciesQuery): Speci
 export function keepBreed(name: string, q: SpeciesQuery): boolean {
   const { text, ...rest } = q
   if (Object.values(rest).some(v => v !== undefined)) return false
-  return !text || slugify(name).includes(slugify(text))
+  return !text || nameHas(name, text)
 }
 
 export function queryFromParams(p: URLSearchParams): SpeciesQuery {

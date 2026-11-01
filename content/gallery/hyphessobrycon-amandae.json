@@ -2,6 +2,18 @@
   "id": "hyphessobrycon-amandae",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/63005894.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/63005894-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "William Harmon",
+      "sourceUrl": "https://www.inaturalist.org/photos/63005894",
+      "caption": "Cá ember tetra bơi trong bể có sỏi xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/4964e4164ae15794.webp",
       "thumb": "https://media.aquatome.com/commons/4964e4164ae15794-480.webp",
       "width": 1200,
@@ -42,7 +54,7 @@
       "caption": "Cá ember tetra bơi giữa lá cây xanh trong bể"
     }
   ],
-  "seen": 14,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 17,
+  "updatedAt": "2026-11-01",
+  "builtAt": "2026-11-01"
 }

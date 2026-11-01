@@ -36,19 +36,18 @@
   "File:Ludwigia glandulosa Sandy Creek Park KG (2).jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/23ae5992bfa70693.webp": "c9193999b6929ab0",
   "https://media.aquatome.com/commons/df63d71447a3164f.webp": "f16be9d59c13b6b5",
   "https://media.aquatome.com/commons/73812bcf523fca03.webp": "f0d0d0626e2c34f3",
   "https://media.aquatome.com/commons/fef38eb1faa2676f.webp": "658d9c9c54545414",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/8935602/large.jpeg": "d34f1eb5298bd213",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/219942095/large.jpg": "cc56f1da6aa9d474",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/272588374/large.jpeg": "53cf667992d331b8",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/272605148/large.jpeg": "59e80ccb1d345f3d",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/497708173/large.jpeg": "599b0b1447932566",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/707729416/large.jpg": "6c210f46739bba23",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/707729398/large.jpg": "82c1a21149133537",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/707729493/large.jpg": "9334440a9a995527",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Ludwigia_glandulosa_Sandy_Creek_Park_KG_%282%29.jpg/1280px-Ludwigia_glandulosa_Sandy_Creek_Park_KG_%282%29.jpg": "2331526721999f9e"
+  "https://media.aquatome.com/commons/d2cd6fcbfc5adc13.webp": "23526266a59d9f9e",
+  "https://media.aquatome.com/inaturalist/497708173.webp": "595f293457932546",
+  "https://media.aquatome.com/inaturalist/8935602.webp": "d3cb1ab529cbf293",
+  "https://media.aquatome.com/inaturalist/707729398.webp": "8281a21149133537",
+  "https://media.aquatome.com/inaturalist/707729493.webp": "93344c0a5a995567",
+  "https://media.aquatome.com/inaturalist/272605148.webp": "55e80c9b4d365e3d",
+  "https://media.aquatome.com/inaturalist/219942095.webp": "cd56f15a69bbd474",
+  "https://media.aquatome.com/inaturalist/707729416.webp": "6c230f46f19bba21",
+  "https://media.aquatome.com/inaturalist/272588374.webp": "d3ce667992d331a8"
  },
  "inat": {
   "taxon": 164854,
@@ -61,6 +60,6 @@
  "commons": "2026-10-31",
  "gbif": {
   "key": 5421019,
-  "next": 0
+  "next": null
  }
 }

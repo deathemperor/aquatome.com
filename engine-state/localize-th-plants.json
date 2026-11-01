@@ -78,6 +78,14 @@
       "Item 3: \"ลำต้นสูงได้ 30–50 ซม. และกว้าง 8–15 ซม.\" makes the width belong to the stem. Consider \"ต้นสูงได้ ... และแผ่กว้าง ...\"."
     ]
   },
+  "ammannia-gracilis": {
+    "at": "2026-11-01",
+    "from": "2026-10-31",
+    "name": "แอมมาเนีย กราซิลิส",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
   "anubias-barteri": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -289,6 +297,23 @@
     "confidence": "medium",
     "score": 0.9,
     "notes": []
+  },
+  "blyxa-aubertii": {
+    "at": "2026-11-01",
+    "from": "2026-10-31",
+    "name": "บลิกซ่า ออเบอร์ติ",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 8: 'otocinclus' translated as 'ปลาแคระ (ออตโต้)' – wrong/vague; use 'ปลาอ็อตโต' / ออโตซิงกลัส (otocinclus)",
+      "Item 8: 'zebra danios' as 'ปลาม้าลาย' is ok-ish, but 'Jack Dempsey' as 'ปลาแจ็คเดมป์ซีย์' fine; 'clown loaches' translated 'ปลาหมูอินเดียน่า (ปลาโลชโคลวน์)' – wrong; use 'ปลาโคลนโลช/ปลาหมูข้างลาย (clown loach)'",
+      "Item 8: 'clown killifish' as 'ปลาคิลลี่โคลวน์' fine; 'Buenos Aires tetras' 'เตตร้าบัวโนสไอเรส' acceptable; 'rainbowfish' as 'ปลาเรนโบว์' acceptable",
+      "Item 8: 'koi' rendered 'ปลาคาร์ป (โค่ย)' – use 'ปลาคาร์พ/ปลาโคอิ' (koi is not just carp)",
+      "Item 7: 'micro and macro fertilizers' translated as 'ธาตุอาหารรองและธาตุอาหารหลัก' – ok, but 'ต้นไม้ดูดซึม' minor; 'จำเป็นต้องใช้ระบบ CO2 แบบถังแรงดัน' fine",
+      "Item 7: low-tech gloss '(ตู้ไม้น้ำที่ไม่ใช้ CO2 และแสงน้อย)' is an added explanation; acceptable but wording could be shorter",
+      "Item 5: 'Removing them may turn the annual plant into a perennial' – OK; 'ใบเปราะ หักง่าย' ok",
+      "Item 3: 'encroached mangrove land' as 'ป่าชายเลนที่ถูกบุกรุก' – ok but 'sessile' as 'ไม่มีก้าน' fine"
+    ]
   },
   "blyxa-japonica": {
     "at": "2026-10-30",
@@ -905,6 +930,30 @@
     "confidence": "high",
     "score": 0.97,
     "notes": []
+  },
+  "gratiola-viscidula": {
+    "at": "2026-11-01",
+    "from": "2026-10-30",
+    "name": "Gratiola viscidula",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ไม้ต้น (ไม้น้ำแบบมีลำต้น)\": 'stem plant' is usually called \"ไม้ก้านยาว\" or \"ไม้ลำต้น\" by Thai hobbyists; \"ไม้ต้น\" is ambiguous.",
+      "\"รูปทรงของต้นในน้ำ\": 'submersed form' is better as \"ต้นที่ปลูกใต้น้ำ\" or \"ต้นแบบใต้น้ำ\"; 'รูปทรง' is not exact.",
+      "\"พุ่มกลมๆ\": 'cushion-plant' is rendered loosely; \"ไม้พุ่มเบาะ/พุ่มหนา\" would be closer.",
+      "\"ต้นแตกกิ่งและแผ่ขยายได้ง่าย\": 'willingly' is fine, but \"แต่ละต้น\" for 'each stem' could be \"แต่ละก้าน\"."
+    ]
+  },
+  "helanthium-bolivianum": {
+    "at": "2026-11-01",
+    "from": "2026-10-30",
+    "name": "Echinodorus Quadricostatus",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Previously known as Echinodorus 'Quadricostatus'\" is repeated in the source; the Thai copies it faithfully, but \"ก่อนหน้านี้รู้จักกันในชื่อ\" reads awkwardly after the sentence about confusion. Consider linking it better, e.g. \"เดิมรู้จักในชื่อ\".",
+      "\"ใบที่ซีดจางมาก\": \"Very light leaves\" means very pale or light-coloured leaves. \"ซีดมาก\" or \"สีอ่อนมาก\" is more natural; \"จาง\" is slightly off."
+    ]
   },
   "hygrophila-polysperma": {
     "at": "2026-10-30",

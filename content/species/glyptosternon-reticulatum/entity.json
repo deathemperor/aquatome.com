@@ -1,0 +1,177 @@
+{
+  "id": "glyptosternon-reticulatum",
+  "scientificName": "Glyptosternon reticulatum",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Glyptosternon",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "afghanistan",
+    "pakistan",
+    "india",
+    "china",
+    "tibet",
+    "kyrgyzstan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 10,
+          "max": 20
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.8,
+          "max": 7.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 24
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>Glyptosternon reticulatum McClelland, 1842. Common name: Turkestan Catfish. Type locality: Sir-i-Chusma, source of the Kabul River, Afghanistan. Size: 24 cm SL. Identification: depressed head and body, enlarged paired fins without an ossified first pectoral-fin element (pectoral spine). Gill openings are relatively wide and extend to the ventral surface of the head.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>Afghanistan, Pakistan, India and Tibet. Also found in the central Asian republics of the former USSR.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>The habitat pictures were taken at approximately 1800 m above sea level in the Fergana mountain range in southern Kyrgyzstan in April 2009. The name of the river isn't recorded, but it is a tributary of the Kyzylungugir River. The species is relatively common and is eaten locally.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>pH 6.8–7.8. Temperature 10–20°C. Needs well-oxygenated water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>A gravel/rocky bottom and a strong current.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>Will feed on live and frozen food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>A peaceful species suitable for the hillstream biotope tank. Best kept in a well-oxygenated tank with strong current. Ideal tankmates include larger fast-water cyprinids such as Garra.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>Males have a larger genital papilla and also appear to be more tuberculate during the breeding season.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>Etymology: the generic name comes from the Greek glyptos, meaning carved, and sternon, meaning breast, in reference to the folds of skin comprising the thoracic adhesive apparatus. The specific epithet comes from the Latin reticulatus, meaning net-like, in reference to the color pattern.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1151",
+      "html": "<p>J. Nat. Hist. Calcutta v. 2 (no. 8) - pp584</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/640725682b038a81.webp",
+      "width": 960,
+      "height": 386,
+      "licence": "Public domain",
+      "author": "Unknown authorUnknown author",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glyptosternon_reticulatum_2021_stamp_of_Kyrgyzstan.jpg",
+      "caption": "Fish of the Red Book Of Kyrgyzstan",
+      "thumb": "https://media.aquatome.com/commons/640725682b038a81-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/bb16554602fe2fb3.webp",
+      "width": 960,
+      "height": 681,
+      "licence": "Public domain",
+      "author": "Unknown authorUnknown author",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glyptosternon_reticulatum_2021_cover_of_Kyrgyzstan.jpg",
+      "caption": "Fish of the Red Book Of Kyrgyzstan",
+      "thumb": "https://media.aquatome.com/commons/bb16554602fe2fb3-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/37edd7712555fad5.webp",
+      "width": 960,
+      "height": 485,
+      "licence": "Public domain",
+      "author": "Unknown authorUnknown author",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_2021_stampsheet_of_Kyrgyzstan.jpg",
+      "caption": "Fish of the Red Book Of Kyrgyzstan",
+      "thumb": "https://media.aquatome.com/commons/37edd7712555fad5-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5090dc6c83bc2483.webp",
+      "width": 960,
+      "height": 289,
+      "licence": "Public domain",
+      "author": "Francis Day",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Exostoma_stoliczkae_Day_117.jpg",
+      "caption": "The species names / identity need verification - original names from plate are included here. The original plates showed the fishes facing right and have been flipped here. Exostoma stoliczkae",
+      "thumb": "https://media.aquatome.com/commons/5090dc6c83bc2483-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông bể cá",
+        "đá cuội trang trí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

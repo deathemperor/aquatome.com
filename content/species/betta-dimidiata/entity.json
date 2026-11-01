@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "kalimantan"
+    "kalimantan",
+    "kapuas"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +18,13 @@
         "value": {
           "min": 24,
           "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
         }
       }
     ],
@@ -27,18 +35,33 @@
           "min": 4,
           "max": 6.2
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.2,
+          "max": 6.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 5.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 7
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ],
     "gh": [
@@ -48,6 +71,19 @@
           "min": 0,
           "max": 3
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ]
   },
@@ -57,6 +93,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
       "html": "<p>Betta dimidiata (“Two-Tone Betta”) is a distinctive and rarely seen wild betta. IUCN Red List: Vulnerable (threatened by ongoing habitat loss in lowland forest streams). Adults reach approximately 5–5.5 cm (≈ 2.0–2.2″) total length.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<p>Betta dimidiata is a small mouthbrooding labyrinth fish that appears endemic to the upper Kapuas drainage in West Kalimantan, Indonesian Borneo. It is often confused in the trade with B. krataios, formerly B. sp. 'Kapuas', but the caudal fin separates them: rounded in B. krataios, spade-shaped and more extended in adult B. dimidiata. It inhabits shaded forest swamp streams and pools, some only a few centimetres deep.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -71,16 +113,46 @@
       "html": "<p>Native to Kalimantan, Borneo (Indonesia).</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<p>Type locality is 'Kapuas basin, Sungai Seriang, 37 kilometers west of Putussibau, Indonesia'.</p><p>The Seriang is a tributary in the Kapuas River system, Kalimantan Barat (West Kalimantan) province, Borneo, Indonesia and the species appears to be endemic to the upper portion of the Kapuas drainage including the Danau Sentarum lakes region.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
       "html": "<p>Soft, acidic blackwater streams and forest pools. Its name refers to the characteristic “halved” or two-toned color pattern formed by contrasting darker and lighter zones along the body.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<p>Typically inhabits forest swamp streams and pools, some of which have been measured at just a few centimetres deep.</p><p>These are usually shaded from the sun, the dense canopy of branches above meaning very little light penetrates the water surface while riparian vegetation also tends to grow thickly.</p><p>The water itself is sometimes stained with humic acids and other chemicals released by decaying organic material.</p><p>The dissolved mineral content is negligible, pH quite low and substrate composed mainly of fallen leaves, branches and submerged tree roots.</p><p>At certain times of year the fish may be forced to survive within the moist leaf litter or in holes in the river-bed for several weeks as permanent water is not always available.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<p>An aquarium with base measurements of 45 × 30 cm (18 × 12 in), about 41 litres, could house a pair or small group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments.</p><p>There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally-destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting.</p><p>You could add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., and a few patches of floating vegetation would be useful as well.</p><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>As it naturally inhabits sluggish waters filtration should not be too strong, with an air-powered sponge filter set to turn over gently adequate.</p><p>Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
       "html": "<p>Soft, acidic blackwater is ideal.</p><ul><li>pH 4.0 – 6.2</li><li>GH ≤ 3 °d</li><li>KH ≤ 1 °d</li><li>TDS &lt; 100 ppm</li><li>Temperature: 24 – 28 °C (75 – 82 °F); steady temperatures are important for overall health and breeding stability.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 5.2–6.5 (recorded in its natural waters)</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -95,10 +167,22 @@
       "html": "<p>Carnivorous micropredator. Offer a varied diet of live or frozen foods such as mosquito larvae, daphnia, bloodworms, grindal worms, and brine shrimp. They may accept some high-quality micro-pellets once settled, but live foods consistently produce better coloration, vitality, and readiness for spawning.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<p>Likely to prey on insects and other small invertebrates in nature.</p><p>Captive fish will normally accept dried products once they’re recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimum colour and condition.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
       "html": "<p>Best kept as a pair or a carefully monitored small group with substantial cover. Generally peaceful, though males can become territorial during breeding or if space is limited. Tankmates, if any, should be tiny, calm, softwater-tolerant species such as Boraras or Sundadanio. A species-only setup is often preferable due to this betta’s sensitivity and quiet nature.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<p>Not recommended for the standard community set-up for reasons already touched upon.</p><p>Its requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are compatible, but proper research prior to purchase is essential.</p><p>It can be maintained in a pair or group and will display some interesting behavioural interactions under the latter circumstances.</p>"
     },
     {
       "key": "dimorphism",
@@ -107,19 +191,88 @@
       "html": "<p>Males typically exhibit subtle iridescence, warm earthy tones, and elegant fin extensions, while females remain smaller and more muted.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<p>Males grow larger, possess a greater amount of iridescent scaling on the head, a broader head shape, and more extended fins than females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
       "html": "<p>Betta dimidiata is a paternal mouthbrooder. The male and female perform gentle courtship embraces, after which the male collects the eggs and incubates them in his mouth. Incubation typically lasts 10–14 days, depending on temperature. The brooding male should not be disturbed, as stress may cause premature release of the eggs or fry. Newly released fry can begin eating baby brine shrimp, microworms, or moina immediately.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<p>Paternal mouthbrooder. Ideally organise a separate tank for breeding purposes, unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover possible (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Following a protracted courtship, eggs and milt are released during an 'embrace' typical of osphronemids in which the male wraps his body around that of the female.</p><p>Several 'dummy' embraces may be required before spawning commences.</p><p>Fertilised eggs are caught on the anal fin of the male then picked up in the mouth of the female before being spat out into the water for the male to catch.</p><p>Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>A brooding male may swallow or release the eggs prematurely if stressed or inexperienced, so it's preferable to leave the female and any other fishes in situ.</p><p>The incubation period is 10–14 days at the end of which the male will begin to release fully-formed, free-swimming fry.</p><p>At this point they can be removed or left to grow alongside the parents, with some reports suggesting they actually grow more quickly under such circumstances.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter.</p><p>Offer small amounts of different foods 2–3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
       "html": "<p>As wild-caught Betta dimidiata, these fish are highly sensitive to sudden changes in pH, hardness, or temperature. Acclimate slowly and maintain ultra-stable, tannin-rich, softwater conditions. Provide abundant cover—roots, botanicals, caves, and thick leaf litter—to reduce stress and encourage natural behavior. A mature blackwater aquarium with minimal disturbance is essential for long-term success. This species is vulnerable in the wild.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<p>This species is often confused with B. krataios in the aquarium trade, with the latter also having been known as B. sp. 'Kapuas' prior to description.</p><p>The two can easily be told apart as the caudal fin is rounded in B. krataios but spade-shaped and more extended in adult B. dimidiata.</p><p>B. dimidiata also differs from B. krataios in the following characters: opercular scales gold in life (vs. turquoise in B. krataios); body reddish-brown (vs. yellowish-brown); fins reddish (vs. yellowish); 29-30 lateral scales (vs. 30-32); 17-18 predorsal scales (vs. 20-21); caudal peduncle depth 11.8-14.5 % SL (vs. 15.3-17.0 %); 12-14 lateral scales below dorsal-fin origin (vs. 14-16); 6-7 lateral scales above the anal-fin origin (vs. 7-8); orbit diameter 27.2-30.6 % HL (vs. 22.6-24.6 %); interorbital width 22.2-25.0 % HL (vs. 27.5-30.7 %); snout length 14.8-19.6 % HL (vs. 20.8-22.6 %).</p><p>Together these two comprise the B. dimidiata group of closely-related species within the genus, members of which can be characterised by the following set of shared characters: elongate body-shape (body depth 21-25 % SL); pelvic and unpaired fins in males extremely extended; anal fin with iridescent, light-blue distal band reaching to caudal-fin margin; unpaired fins in females more-or-less rounded; presence of chin bar and iridescent opercular scales in both sexes; a number of broad, vertical black bars on the body extending posteriorly from behind the opercle.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological and behavioural characters.</p><p>Molecular phylogenetic work may therefore prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface.</p><p>Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Tan, H. H. and P. K. L. Ng (2006). Six new species of fighting fish (Teleostei: Osphronemidae: Betta) from Borneo. Ichthyological Exploration of Freshwaters 17(2), 97-114</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5feb9610ef01df72.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5feb9610ef01df72-480.webp",
+      "width": 802,
+      "height": 548,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "caption": "Pair about to embrace during spawning; male lower.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b143636508e3649f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b143636508e3649f-480.webp",
+      "width": 799,
+      "height": 538,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "caption": "During spawning, eggs are laid in batches and the female passes them to the male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fe8a658b0497f5fd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fe8a658b0497f5fd-480.webp",
+      "width": 798,
+      "height": 586,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "caption": "Male brooding eggs.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c437f16eabe41536.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c437f16eabe41536-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
+      "caption": "Brooding male.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -150,5 +303,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-01"
 }

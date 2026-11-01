@@ -1,0 +1,717 @@
+{
+  "$comment": "A saved tank checked as the site's tank-mates tool checks the fish chosen there (apps/site/src/scripts/tank-check.ts, from tankmates.ts, stocking.ts and calc.ts). The site's tests run that code on these cases, and the iOS app's tests run the same code bundled (apps/ios/AquaTomeKit/Sources/TankCheck/tank-check.js) in JavaScriptCore: both must answer `check` exactly. `fish`: each one's name and tank-mates figures as the app index gives them, and `count` when the tank has one. `size`: the tank's inside size (cm) and its own litres, either or both.",
+  "cases": [
+    {
+      "note": "a discus could eat harlequins and wants warmer water than neons; the tank is too short for it",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "count": 2
+        },
+        {
+          "name": "Cá neon",
+          "tempC": {
+            "min": 20,
+            "max": 26
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "sizeCm": 4,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 6,
+          "count": 12
+        },
+        {
+          "name": "Cá tam giác",
+          "tempC": {
+            "min": 22,
+            "max": 28
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "gh": {
+            "min": 2,
+            "max": 10
+          },
+          "sizeCm": 4.5,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 8,
+          "count": 8
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [
+          "Cá đĩa (15 cm) có thể ăn Cá tam giác (4,5 cm).",
+          "Cá đĩa (15 cm) có thể ăn Cá neon (4 cm)."
+        ],
+        "verdict": {
+          "level": "no",
+          "text": "Không nên nuôi chung: Cá đĩa có thể ăn Cá tam giác, Cá neon; nhiệt độ không có khoảng chung."
+        },
+        "stocking": {
+          "percent": 226,
+          "level": "over",
+          "text": "226% · Quá tải: bớt cá hoặc dùng bể lớn hơn.",
+          "notes": [
+            "Cá đĩa cần bể dài từ 120 cm."
+          ]
+        }
+      }
+    },
+    {
+      "note": "two peaceful tetras whose water overlaps, one without a hardness: nothing clashes, not enough data to be sure",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá neon",
+          "tempC": {
+            "min": 20,
+            "max": 26
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "sizeCm": 4,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 6,
+          "count": 10
+        },
+        {
+          "name": "Cá neon vua",
+          "tempC": {
+            "min": 24,
+            "max": 27
+          },
+          "ph": {
+            "min": 4,
+            "max": 6
+          },
+          "gh": {
+            "min": 1,
+            "max": 6
+          },
+          "sizeCm": 5,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 8,
+          "count": 8
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [],
+        "verdict": {
+          "level": "unsure",
+          "text": "Chưa thấy điểm xung khắc, nhưng chưa đủ dữ liệu để chắc: chưa có độ cứng của Cá neon."
+        },
+        "stocking": {
+          "percent": 85,
+          "level": "full",
+          "text": "85% · Đã đầy: cần lọc tốt và thay nước đều mỗi tuần.",
+          "notes": []
+        }
+      }
+    },
+    {
+      "note": "a semi-aggressive cichlid with peaceful tetras, every figure known: it can work, with care; the tank's own litres and no length, so the longest tank they need",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá neon vua",
+          "tempC": {
+            "min": 24,
+            "max": 27
+          },
+          "ph": {
+            "min": 4,
+            "max": 6
+          },
+          "gh": {
+            "min": 1,
+            "max": 6
+          },
+          "sizeCm": 5,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 8,
+          "count": 10
+        },
+        {
+          "name": "Cá phượng hoàng",
+          "tempC": {
+            "min": 26,
+            "max": 30
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "gh": {
+            "min": 1,
+            "max": 5
+          },
+          "sizeCm": 5,
+          "tankCm": 60,
+          "temperament": "semi-aggressive",
+          "count": 2
+        }
+      ],
+      "size": {
+        "litres": 100
+      },
+      "check": {
+        "warnings": [
+          "Cá phượng hoàng hơi dữ, có thể rượt đuổi Cá neon vua. Cần bể rộng, nhiều chỗ trốn."
+        ],
+        "verdict": {
+          "level": "care",
+          "text": "Nuôi chung được, nhưng cần để ý: Cá phượng hoàng có thể rượt đuổi Cá neon vua."
+        },
+        "stocking": {
+          "percent": 47,
+          "level": "light",
+          "text": "47% · Còn thưa: thả thêm được.",
+          "notes": []
+        },
+        "minTank": "Bể dài tối thiểu cho cả nhóm: 60 cm."
+      }
+    },
+    {
+      "note": "only litres, as the volume tool saves a round tank: the longest tank they need, even with the meter",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "count": 2
+        },
+        {
+          "name": "Cá oscar",
+          "tempC": {
+            "min": 22,
+            "max": 28
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 35,
+          "tankCm": 180,
+          "temperament": "predator",
+          "count": 1
+        }
+      ],
+      "size": {
+        "litres": 200
+      },
+      "check": {
+        "warnings": [
+          "Cá oscar là cá săn mồi: con nào vừa miệng đều có thể bị ăn."
+        ],
+        "verdict": {
+          "level": "no",
+          "text": "Không nên nuôi chung: Cá oscar là cá săn mồi."
+        },
+        "stocking": {
+          "percent": 204,
+          "level": "over",
+          "text": "204% · Quá tải: bớt cá hoặc dùng bể lớn hơn.",
+          "notes": []
+        },
+        "minTank": "Bể dài tối thiểu cho cả nhóm: 180 cm."
+      }
+    },
+    {
+      "note": "no fish with a size (a breed): no meter at 0%, only what couldn't be counted",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá la hán",
+          "count": 5
+        }
+      ],
+      "size": {
+        "litres": 60
+      },
+      "check": {
+        "warnings": [],
+        "unsized": "Chưa có kích thước của Cá la hán: chưa tính vào mật độ."
+      }
+    },
+    {
+      "note": "everything known and fitting: they can share",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá neon vua",
+          "tempC": {
+            "min": 24,
+            "max": 27
+          },
+          "ph": {
+            "min": 4,
+            "max": 6
+          },
+          "gh": {
+            "min": 1,
+            "max": 6
+          },
+          "sizeCm": 5,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 8,
+          "count": 8
+        },
+        {
+          "name": "Cá tam giác",
+          "tempC": {
+            "min": 22,
+            "max": 28
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "gh": {
+            "min": 2,
+            "max": 10
+          },
+          "sizeCm": 4.5,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 8,
+          "count": 8
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 90,
+          "w": 45,
+          "h": 45
+        }
+      },
+      "check": {
+        "warnings": [],
+        "verdict": {
+          "level": "yes",
+          "text": "Nuôi chung được: nước có khoảng chung, kích thước và tính cách hợp nhau."
+        },
+        "stocking": {
+          "percent": 31,
+          "level": "light",
+          "text": "31% · Còn thưa: thả thêm được.",
+          "notes": []
+        }
+      }
+    },
+    {
+      "note": "fewer than a school; a fish the tank doesn't count starts at its school size; a fish with no figures isn't counted and leaves gaps",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá neon",
+          "tempC": {
+            "min": 20,
+            "max": 26
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "sizeCm": 4,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 6,
+          "count": 3
+        },
+        {
+          "name": "Cá neon vua",
+          "tempC": {
+            "min": 24,
+            "max": 27
+          },
+          "ph": {
+            "min": 4,
+            "max": 6
+          },
+          "gh": {
+            "min": 1,
+            "max": 6
+          },
+          "sizeCm": 5,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 8
+        },
+        {
+          "name": "Cá la hán",
+          "count": 1
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [],
+        "verdict": {
+          "level": "unsure",
+          "text": "Chưa thấy điểm xung khắc, nhưng chưa đủ dữ liệu để chắc: chưa có độ cứng của Cá neon; chưa có nhiệt độ, pH, độ cứng, kích thước, tính cách của Cá la hán."
+        },
+        "stocking": {
+          "percent": 60,
+          "level": "ok",
+          "text": "60% · Vừa phải: bể ổn định với lọc và thay nước thường lệ.",
+          "notes": [
+            "Cá neon sống theo đàn: nên nuôi từ 6 con (đang chọn 3).",
+            "Chưa có kích thước của Cá la hán: chưa tính vào mật độ."
+          ]
+        }
+      }
+    },
+    {
+      "note": "one fish and no size: no verdict, the longest tank it needs",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "count": 1
+        }
+      ],
+      "size": {},
+      "check": {
+        "warnings": [],
+        "minTank": "Bể dài tối thiểu cho cả nhóm: 120 cm."
+      }
+    },
+    {
+      "note": "too many for the water",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "count": 10
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [],
+        "stocking": {
+          "percent": 720,
+          "level": "over",
+          "text": "720% · Quá tải: bớt cá hoặc dùng bể lớn hơn.",
+          "notes": [
+            "Cá đĩa cần bể dài từ 120 cm."
+          ]
+        }
+      }
+    },
+    {
+      "note": "the tank's own litres win over its box; its length still counts",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá neon",
+          "tempC": {
+            "min": 20,
+            "max": 26
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "sizeCm": 4,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 6,
+          "count": 12
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 45,
+          "w": 30,
+          "h": 30
+        },
+        "litres": 30
+      },
+      "check": {
+        "warnings": [],
+        "stocking": {
+          "percent": 95,
+          "level": "full",
+          "text": "95% · Đã đầy: cần lọc tốt và thay nước đều mỗi tuần.",
+          "notes": [
+            "Cá neon cần bể dài từ 60 cm."
+          ]
+        }
+      }
+    },
+    {
+      "note": "a predator and a fin nipper",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá oscar",
+          "tempC": {
+            "min": 22,
+            "max": 28
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 35,
+          "tankCm": 180,
+          "temperament": "predator",
+          "count": 1
+        },
+        {
+          "name": "Cá xăng-đá",
+          "tempC": {
+            "min": 20,
+            "max": 26
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "gh": {
+            "min": 5,
+            "max": 19
+          },
+          "sizeCm": 7,
+          "tankCm": 75,
+          "temperament": "semi-aggressive",
+          "finNipper": true,
+          "schoolMin": 6,
+          "count": 6
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 120,
+          "w": 50,
+          "h": 50
+        }
+      },
+      "check": {
+        "warnings": [
+          "Cá oscar (35 cm) có thể ăn Cá xăng-đá (7 cm).",
+          "Cá oscar là cá săn mồi: con nào vừa miệng đều có thể bị ăn.",
+          "Cá xăng-đá hay cắn vây cá khác: tránh nuôi chung với cá vây dài, bơi chậm."
+        ],
+        "verdict": {
+          "level": "no",
+          "text": "Không nên nuôi chung: Cá oscar có thể ăn Cá xăng-đá; Cá oscar là cá săn mồi."
+        },
+        "stocking": {
+          "percent": 121,
+          "level": "over",
+          "text": "121% · Quá tải: bớt cá hoặc dùng bể lớn hơn.",
+          "notes": [
+            "Cá oscar cần bể dài từ 180 cm."
+          ]
+        }
+      }
+    },
+    {
+      "note": "in Indonesian: the site's translations, a decimal comma",
+      "lang": "id",
+      "fish": [
+        {
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "count": 2
+        },
+        {
+          "name": "Cá tam giác",
+          "tempC": {
+            "min": 22,
+            "max": 28
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "gh": {
+            "min": 2,
+            "max": 10
+          },
+          "sizeCm": 4.5,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 8,
+          "count": 8
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [
+          "Cá đĩa (15 cm) bisa memangsa Cá tam giác (4,5 cm)."
+        ],
+        "verdict": {
+          "level": "no",
+          "text": "Sebaiknya tidak dipelihara bersama: Cá đĩa bisa memangsa Cá tam giác."
+        },
+        "stocking": {
+          "percent": 182,
+          "level": "over",
+          "text": "182% · Kelebihan muatan: kurangi ikan atau gunakan akuarium yang lebih besar.",
+          "notes": [
+            "Cá đĩa butuh akuarium dengan panjang minimal 120 cm."
+          ]
+        }
+      }
+    },
+    {
+      "note": "in Thai: the site's translations, a decimal point",
+      "lang": "th",
+      "fish": [
+        {
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "count": 2
+        },
+        {
+          "name": "Cá tam giác",
+          "tempC": {
+            "min": 22,
+            "max": 28
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "gh": {
+            "min": 2,
+            "max": 10
+          },
+          "sizeCm": 4.5,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 8,
+          "count": 8
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [
+          "Cá đĩa (15 cm) อาจกิน Cá tam giác (4.5 cm) ได้"
+        ],
+        "verdict": {
+          "level": "no",
+          "text": "ไม่ควรเลี้ยงรวมกัน: Cá đĩa อาจกิน Cá tam giác."
+        },
+        "stocking": {
+          "percent": 182,
+          "level": "over",
+          "text": "182% · หนาแน่นเกินไป: ลดจำนวนปลาหรือใช้ตู้ที่ใหญ่ขึ้น",
+          "notes": [
+            "Cá đĩa ต้องใช้ตู้ยาวตั้งแต่ 120 cm ขึ้นไป"
+          ]
+        }
+      }
+    }
+  ]
+}

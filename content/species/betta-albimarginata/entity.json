@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "kalimantan"
+    "kalimantan",
+    "sebuku"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +18,13 @@
         "value": {
           "min": 24,
           "max": 29
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
         }
       }
     ],
@@ -27,11 +35,43 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
+        "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
         "value": 5
       }
     ]
@@ -42,6 +82,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
       "html": "<ul><li>Wild caught Betta albimarginata collected from Sebuku, from the Betta albimarginata complex.</li><li>Size: up to 5 cm (≈ 2″) in total length.</li><li>Temperature: 24–29 °C (75–85 °F).</li><li>pH 6.0–7.0; TDS 60–100 ppm.</li><li>IUCN Red List: Endangered.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<p>Betta albimarginata is a small mouthbrooding labyrinth fish that appears endemic to the Sebuku River drainage in East Kalimantan, Indonesian Borneo. It lives among marginal plant roots and leaf litter in forest streams only 5 to 10 cm deep. With B. channoides it forms the Betta albimarginata group, and the two look very similar: in B. albimarginata the unpaired fins have a broad white distal band and a broad dark submarginal band around a plain red inner portion.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -56,10 +102,22 @@
       "html": "<p>Betta albimarginata from Sebuku is a rare mouthbrooding betta native to the forest streams of East Kalimantan, Borneo.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<p>Appears endemic to the Sebuku River drainage in Kalimantan Timur (East Kalimantan) province, Indonesia, Borneo.</p><p>Type locality is 'Sungei Sanul, tributary of Sungei Tikung, Sungei Sebuku basin'.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
       "html": "<p>Prefers soft, clean, tannin-rich water with minimal current. Provide leaf litter, botanicals, and shaded areas to mimic their natural blackwater habitat.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<p>Naturally inhabits forest streams with moderate flow where it inhabits very shallow (depth ~5–10 cm) water among marginal plants roots and leaf litter.</p>"
     },
     {
       "key": "aquariumSize",
@@ -68,10 +126,28 @@
       "html": "<p>Recommend one pair per 5 gallons (about 19 litres). Best kept as pairs or small groups in spacious, heavily structured aquaria.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<p>An aquarium with base measurements of 45 × 30 cm (about 41 litres) could house a pair or small group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed while clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments.</p><p>There is no need to use natural peat, however, the collection of which is both unsustainable and environmentally-destructive.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. You could add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., and a few patches of floating vegetation would be useful as well.</p><p>This species requires acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>As it naturally inhabits sluggish waters filtration should not be too strong, with an air-powered sponge filter set to turn over gently adequate.</p><p>Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
       "html": "<p>Soft, clean, tannin-rich water. pH 6.0–7.0; TDS 60–100 ppm. Though tolerant of higher TDS, they thrive best in softer water. Temperature: 24–29 °C (75–85 °F). Cooler water promotes longevity, while slightly warmer conditions encourage coloration and spawning behavior.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -86,10 +162,22 @@
       "html": "<p>Carnivorous. Currently feeding on live foods such as blackworms, and readily accepts frozen bloodworms and quality pellets once acclimated. Offer a varied, high-protein diet to maintain health and color.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<p>Likely to prey on insects, other small invertebrates and zooplankton in nature.</p><p>Captive fish will normally accept dried products once they're recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimal colour and condition.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
       "html": "<p>Somewhat territorial, but can coexist peacefully if visual barriers and hiding spots are available. Avoid aggressive or fast-moving species as tankmates.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<p>Not recommended for the standard community set-up for reasons already touched upon.</p><p>Its requirements and disposition mean it's best kept alone or with small, peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are compatible but proper research is essential.</p><p>It can be maintained in a pair or group and will display some interesting behavioural interactions under the latter circumstances.</p>"
     },
     {
       "key": "dimorphism",
@@ -98,22 +186,90 @@
       "html": "<p>Males develop their most vibrant colors when in breeding condition, displaying striking contrast and graceful fin extension.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<p>Adult males are more colourful and have a broader head shape than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<p>Paternal mouthbrooder. Organise a separate tank for breeding purposes unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Following a protracted courtship, eggs and milt are released during an 'embrace' typical of anabantoids in which the male wraps his body around that of the female. Several 'dummy' embraces may be required before spawning commences.</p><p>Fertilised eggs are caught on the anal fin of the male then picked up in the mouth of the female before being spat out into the water for the male to catch. Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>Brood size is quite small, with even 10 eggs being considered a good number.</p><p>A brooding male may swallow or release the eggs prematurely if stressed or inexperienced, so it's preferable to leave the female and any other fishes in situ.</p><p>The incubation period is 10–21 days at the end of which the male will begin to release fully-formed, free-swimming fry. At this point they can be removed or left to be reared alongside the adults, which will not normally harm them.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter.</p><p>Offer small amounts of different foods 2–3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
       "html": "<p>They have a maroon or burgundy colored body with black and white seams on their fins; depending on locality, some may have a more orange body. Their best colors come out when ready to breed. Wild populations are classified as Endangered on the IUCN Red List due to rapid habitat destruction from palm oil plantation development.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<p>B. albimarginata and B. channoides together comprise the Betta albimarginata group of closely-related species within the genus, these differing from all other members of the genus in colour pattern and by possession of 9-12 anal-fin spines vs. 0-4.</p><p>They look very similar to one another but B. albimarginata can be diagnosed by the following combination of characters: head blackish ventrally, greyish-yellow dorsally, with an orangish blotch on the opercle; fin patterning, except the pectoral fins, consisting of a broad white distal band, broad dark submarginal band with sharp outer margin and less sharp inner margin, and a plain red inner portion; anal-fin spines 9-11; anal-fin rays 21-23; lateral scale rows 26-27; transverse scale rows 7.5; predorsal scales 6 + 7-8; predorsal length 65.2-61.7 (mean 58.8) % SL; dorsal-fin insertion above 10-11th lateral scale row and 4-5th anal-fin spine.</p><p>Additionally, in B. channoides the dorsal-fin is almost entirely red with only a thin white distal band and the dark submarginal band in the caudal-fin does not extend into the uppermost portion of the fin.</p><p>Base body colouration also tends towards a brick-red shade in displaying male B. albimarginata, scarlet in B. channoides.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological and behavioural characters. Molecular phylogenetic work may therefore prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabantoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Tan, H. H. and P. K. L. Ng (2006). Six new species of fighting fish (Teleostei: Osphronemidae: Betta) from Borneo. Ichthyological Exploration of Freshwaters 17(2), 97-114</li><li>Kottelat, M. and P. K. L. Ng (1994). Diagnoses of five new species of fighting fishes from Banka and Borneo (Teleostei: Belontiidae). Ichthyological Exploration of Freshwaters 5(1), 65-78</li></ul>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/bwaquatics/dbedea062a9f8bb4.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/dbedea062a9f8bb4-480.webp",
       "width": 750,
       "height": 509,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/dbedea062a9f8bb4-480.webp"
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bb12e643c273b710.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bb12e643c273b710-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "caption": "Adult male in spawning condition; population unspecified.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a151fce6a79f58b3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a151fce6a79f58b3-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "caption": "Adult female; neutral mood.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bb39f3b2dcf59d95.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bb39f3b2dcf59d95-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "caption": "Adult male from ajn unspecified population; display colour pattern, aggressive mood.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9d6ac4ce411ad83d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9d6ac4ce411ad83d-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
+      "caption": "Pair initiating courtship.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -149,5 +305,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-01"
 }

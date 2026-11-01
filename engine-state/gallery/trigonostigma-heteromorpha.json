@@ -38,8 +38,6 @@
  "hashes": {
   "https://media.aquatome.com/sprucepets/58663e83a1d25277.webp": "d3e36e7777f7d3e3",
   "https://media.aquatome.com/sprucepets/b9a08ab345f5d82e.webp": "3d34143608383819",
-  "https://media.aquatome.com/glaser/0f120f07fb51a8ee.webp": "697b2783131f3e0c",
-  "https://media.aquatome.com/glaser/6c57b70f5ab4a349.webp": "4c5c4c69256de628",
   "https://media.aquatome.com/commons/bedddf878342d8a7.webp": "131c4622a163731e",
   "https://media.aquatome.com/commons/7095d9b95fdbc485.webp": "3d340c360c383819",
   "https://media.aquatome.com/commons/e1cdcb4248fdf977.webp": "6d79b44373302285",
@@ -54,9 +52,9 @@
   "https://media.aquatome.com/commons/e329ce84cfd6ee68.webp": "2f27073717c7e679",
   "https://media.aquatome.com/inaturalist/532067374.webp": "8787a3e990aa4898",
   "https://media.aquatome.com/inaturalist/545967084.webp": "4b6bcfcf9d390973",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/319701701/large.jpg": "6e7b36fc3858dbc1",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/486530990/large.jpeg": "703939956560d47c",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/552749269/large.jpg": "d219737b9bf2c2c7"
+  "https://media.aquatome.com/inaturalist/319701701.webp": "6463bcfc393dcb81",
+  "https://media.aquatome.com/inaturalist/552749269.webp": "b249733b9bf2d6c3",
+  "https://media.aquatome.com/inaturalist/486530990.webp": "703939b569e4f43c"
  },
  "inat": {
   "taxon": 188588,
@@ -69,6 +67,6 @@
  "commons": "2026-10-31",
  "gbif": {
   "key": 2367610,
-  "next": 0
+  "next": null
  }
 }
