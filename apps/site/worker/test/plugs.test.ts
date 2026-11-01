@@ -19,7 +19,7 @@ test("signs as Tuya's worked examples do (token request, then a business request
 
 const KEYS = { host: 'https://tuya.test', id: 'test-client', secret: 'test-secret' }
 let clients = 0
-type FakeDevice = { id: string; name: string; online: boolean; product_name?: string; status: { code: string; value: unknown }[]; ignores?: boolean; lags?: number }
+type FakeDevice = { id: string; name: string; online: boolean; product_name?: string; status: { code: string; value: unknown }[]; names?: { identifier: string; name: string }[]; ignores?: boolean; lags?: number }
 
 /**
  * Tuya's cloud as the docs describe it, refusing any request whose signature doesn't check out. A device that `ignores`
@@ -51,6 +51,8 @@ function fakeTuya(devices: Record<string, FakeDevice[]>) {
     let m = /^\/v1\.0\/users\/([^/]+)\/devices$/.exec(path)
     if (m) return ok(devices[decodeURIComponent(m[1]!)] ?? [])
     const all = Object.values(devices).flat()
+    m = /^\/v1\.0\/devices\/([^/]+)\/multiple-names$/.exec(path)
+    if (m) { const d = all.find(x => x.id === m![1]); return d?.names ? ok(d.names) : no(2009) }
     m = /^\/v1\.0\/iot-03\/devices\/([^/]+)\/status$/.exec(path)
     if (m) {
       const p = pending.get(m[1]!)
@@ -75,12 +77,13 @@ function fakeTuya(devices: Record<string, FakeDevice[]>) {
 const strip = (): FakeDevice => ({
   id: 'fake-strip-1', name: 'Ổ cắm bể 60', online: true, product_name: 'Ổ cắm 4 cổng',
   status: [{ code: 'switch_1', value: true }, { code: 'switch_2', value: false }, { code: 'switch_usb1', value: true }, { code: 'switch_led', value: true }, { code: 'countdown_1', value: 0 }],
+  names: [{ identifier: 'switch_1', name: 'Đèn' }, { identifier: 'switch_2', name: 'CO2' }, { identifier: 'switch_usb1', name: ' ' }, { identifier: 'main', name: 'Ổ cắm bể 60' }],
 })
 
 test("a Tuya user's plugs: outlets only (not the indicator light or a countdown), devices without outlets left out", async () => {
   const tuya = fakeTuya({ u1: [strip(), { id: 'fake-sensor', name: 'Nhiệt kế', online: true, status: [{ code: 'va_temperature', value: 260 }] }] })
   const cloud = tuyaCloud(tuya.keys, { fetch: tuya.fetch, now: () => NOW.getTime() })
-  expect(await cloud.plugs('u1')).toEqual([{ provider: 'tuya', id: 'fake-strip-1', name: 'Ổ cắm bể 60', model: 'Ổ cắm 4 cổng', online: true, outlets: [{ code: 'switch_1', on: true }, { code: 'switch_2', on: false }, { code: 'switch_usb1', on: true }] }])
+  expect(await cloud.plugs('u1')).toEqual([{ provider: 'tuya', id: 'fake-strip-1', name: 'Ổ cắm bể 60', model: 'Ổ cắm 4 cổng', online: true, outlets: [{ code: 'switch_1', on: true, name: 'Đèn' }, { code: 'switch_2', on: false, name: 'CO2' }, { code: 'switch_usb1', on: true }] }])
 })
 
 test('a token is used until a minute before it runs out, and a revoked one is replaced once', async () => {
@@ -144,14 +147,17 @@ test('the list: nothing linked yet, then the linked Smart Life account\'s plugs 
   const r = await call('GET', '/api/v1/plugs')
   expect(r.status).toBe(200)
   expect(r.json.providers[0]).toEqual({ id: 'tuya', linked: true, available: false })
-  expect(r.json.plugs).toEqual([{ provider: 'tuya', id: 'fake-strip-1', name: 'Ổ cắm bể 60', model: 'Ổ cắm 4 cổng', online: true, outlets: [{ code: 'switch_1', on: true }, { code: 'switch_2', on: false }, { code: 'switch_usb1', on: true }] }])
+  expect(r.json.plugs).toEqual([{ provider: 'tuya', id: 'fake-strip-1', name: 'Ổ cắm bể 60', model: 'Ổ cắm 4 cổng', online: true, outlets: [{ code: 'switch_1', on: true, name: 'Đèn' }, { code: 'switch_2', on: false, name: 'CO2' }, { code: 'switch_usb1', on: true }] }])
   expect(tuya.log.some(l => l.method === 'POST'), 'listing switches nothing').toBe(false)
+  // A strip whose outlet names can't be read still lists, with its codes.
+  const unnamed = await setup({ link: 'u1', devices: { u1: [{ ...strip(), names: undefined }] } })
+  expect((await unnamed.call('GET', '/api/v1/plugs')).json.plugs[0].outlets[1]).toEqual({ code: 'switch_2', on: false })
   // Within 15 seconds the list comes from the server's copy (the makers' call limits); a switch refreshes it.
   const asked = () => tuya.log.filter(l => l.path === '/v1.0/users/u1/devices').length
   await call('GET', '/api/v1/plugs')
   expect(asked()).toBe(1)
   await call('POST', SWITCH, { body: { on: true } })
-  expect((await call('GET', '/api/v1/plugs')).json.plugs[0].outlets[1]).toEqual({ code: 'switch_2', on: true })
+  expect((await call('GET', '/api/v1/plugs')).json.plugs[0].outlets[1]).toEqual({ code: 'switch_2', on: true, name: 'CO2' })
 })
 
 test("a maker that can't be reached shows its problem; the list still answers", async () => {

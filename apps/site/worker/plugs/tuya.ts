@@ -5,7 +5,7 @@
  * Nothing here logs: errors carry Tuya's code only, never a token, a body or an id.
  */
 export type TuyaKeys = { host: string; id: string; secret: string }
-export type Outlet = { code: string; on: boolean | null }
+export type Outlet = { code: string; on: boolean | null; name?: string }
 export type Plug = { provider: 'tuya'; id: string; name: string; model?: string; online: boolean; outlets: Outlet[] }
 
 /** Tuya refused or failed. `code`: Tuya's error code, or 0 when the answer wasn't Tuya's. */
@@ -96,12 +96,18 @@ export function tuyaCloud(keys: TuyaKeys, o: { fetch?: typeof fetch; now?: () =>
       const key = `${keys.id}|${uid}`, kept = lists.get(key)
       if (!o.fresh && kept && now() - kept.at < KEEP_MS) return kept.plugs
       const list = await call<Record<string, unknown>[]>('GET', `/v1.0/users/${encodeURIComponent(uid)}/devices`)
-      const plugs = (Array.isArray(list) ? list : []).flatMap(d => {
+      const plugs = await Promise.all((Array.isArray(list) ? list : []).flatMap(d => {
         const outlets = outletsOf(d.status)
         if (!outlets.length || typeof d.id !== 'string') return []
         const model = d.product_name ?? d.productName
-        return [{ provider: 'tuya' as const, id: d.id, name: String(d.name ?? ''), ...(typeof model === 'string' && model ? { model } : {}), online: Boolean(d.online ?? d.isOnline), outlets }]
-      })
+        const id = d.id
+        return [(async () => {
+          // The names the reader gave the outlets in Smart Life ("CO2", "Đèn"); a strip without them still lists.
+          const names = await call<{ identifier?: string; name?: string }[]>('GET', `/v1.0/devices/${encodeURIComponent(id)}/multiple-names`).catch(() => [])
+          const named = new Map((Array.isArray(names) ? names : []).filter(n => typeof n?.name === 'string' && n.name.trim()).map(n => [n.identifier, n.name!.trim()]))
+          return { provider: 'tuya' as const, id, name: String(d.name ?? ''), ...(typeof model === 'string' && model ? { model } : {}), online: Boolean(d.online ?? d.isOnline), outlets: outlets.map(o => (named.has(o.code) ? { ...o, name: named.get(o.code)! } : o)) }
+        })()]
+      }))
       lists.set(key, { plugs, at: now() })
       return plugs
     },
