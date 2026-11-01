@@ -32,7 +32,7 @@ function fakeTuya(devices: Record<string, FakeDevice[]>) {
   let issued = 0, expireTime = 7200
   const live = new Set<string>()
   const pending = new Map<string, { s: { value: unknown }; value: unknown; reads: number }>()
-  let failing = false, hanging = false
+  let failing = false, hanging = false, refusing = 0
   const fetch = (async (input: string, init: RequestInit = {}) => {
     const url = new URL(input), path = url.pathname + url.search, method = init.method ?? 'GET'
     const h = init.headers as Record<string, string>
@@ -46,6 +46,8 @@ function fakeTuya(devices: Record<string, FakeDevice[]>) {
     log.push({ method, path, ...(body ? { body: JSON.parse(body) } : {}) })
     if (path === '/v1.0/token?grant_type=1') { const t = `token-${++issued}`; live.add(t); return ok({ access_token: t, expire_time: expireTime, uid: 'project' }) }
     if (!live.has(h.access_token!)) return no(1010)
+    // Commands refused (e.g. 2008, the device's command failed) while everything else works.
+    if (refusing && method === 'POST' && path.endsWith('/commands')) return no(refusing)
     let m = /^\/v1\.0\/users\/([^/]+)\/devices$/.exec(path)
     if (m) return ok(devices[decodeURIComponent(m[1]!)] ?? [])
     const all = Object.values(devices).flat()
@@ -67,7 +69,7 @@ function fakeTuya(devices: Record<string, FakeDevice[]>) {
     }
     return no(1108)
   }) as typeof globalThis.fetch
-  return { keys, fetch, log, expire: (s: number) => { expireTime = s }, revoke: () => live.clear(), down: (d: boolean) => { failing = d }, hang: () => { hanging = true } }
+  return { keys, fetch, log, expire: (s: number) => { expireTime = s }, revoke: () => live.clear(), down: (d: boolean) => { failing = d }, hang: () => { hanging = true }, refuse: (code: number) => { refusing = code } }
 }
 
 const strip = (): FakeDevice => ({
@@ -190,6 +192,12 @@ test('switching is refused for a plug or outlet not the account\'s, an offline p
   const down = await setup({ link: 'u1' })
   down.tuya.down(true)
   expect(await down.call('POST', SWITCH, { body: { on: true } })).toEqual({ status: 502, json: { error: 'maker_error' } })
+  // Tuya refuses the command itself: one command sent, never again (a switch is never retried).
+  const refused = await setup({ link: 'u1' })
+  refused.tuya.refuse(2008)
+  expect(await refused.call('POST', SWITCH, { body: { on: true } })).toEqual({ status: 502, json: { error: 'maker_error' } })
+  expect(refused.tuya.log.filter(l => l.method === 'POST')).toHaveLength(1)
+  expect(await call('POST', '/api/v1/plugs/tuya/devices/%E0%A4%A/outlets/switch_1', { body: { on: true } })).toEqual({ status: 400, json: { error: 'bad_request' } })
 })
 
 test('switches are limited to 30 a minute per account', async () => {

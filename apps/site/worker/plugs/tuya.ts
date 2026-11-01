@@ -46,8 +46,8 @@ const tokens = new Map<string, { value: string; until: number }>()
 const KEEP_MS = 15_000
 const lists = new Map<string, { plugs: Plug[]; at: number }>()
 
-/** Token expired or invalid: get a new one and ask again (once). */
-const STALE_TOKEN = new Set([1010, 1011])
+/** Token expired, invalid, or in an invalid state: get a new one and ask again (once). Tuya refuses these before acting. */
+const STALE_TOKEN = new Set([1010, 1011, 1012])
 
 export function tuyaCloud(keys: TuyaKeys, o: { fetch?: typeof fetch; now?: () => number; nonce?: () => string } = {}) {
   const fetcher = o.fetch ?? fetch

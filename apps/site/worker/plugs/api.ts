@@ -29,6 +29,8 @@ const READ_EVERY_MS = 600, READ_FOR_MS = 3_000
 const PROVIDERS = ['tuya', 'ewelink'] as const
 type ProviderId = (typeof PROVIDERS)[number]
 const MINUTE_MS = 60_000
+/** A maker failed: its code only (an expired trial or wrong keys look like an outage otherwise), never ids or tokens. */
+const logFailure = (e: unknown) => console.error('plugs: tuya', e instanceof TuyaError ? e.code : (e as Error)?.name)
 const json = (data: unknown, status = 200) => Response.json(data, { status, headers: { 'cache-control': 'no-store' } })
 const fail = (error: string, status: number) => json({ error }, status)
 
@@ -68,7 +70,8 @@ export async function plugs(req: Request, url: URL, env: PlugsEnv, now: Date, de
         try {
           if (!cloud) throw new TuyaError(0)
           all.push(...(await timeLimit(cloud.plugs(link.provider_uid))))
-        } catch {
+        } catch (e) {
+          logFailure(e)
           out.problem = 'unreachable'
         }
       }
@@ -90,7 +93,8 @@ export async function plugs(req: Request, url: URL, env: PlugsEnv, now: Date, de
 
   // POST /api/v1/plugs/{provider}/devices/{device}/outlets/{code} {on}
   if (req.method === 'POST' && parts.length === 5 && parts[1] === 'devices' && parts[3] === 'outlets' && provider) {
-    const deviceId = decodeURIComponent(parts[2]!), code = decodeURIComponent(parts[4]!)
+    let deviceId = '', code = ''
+    try { deviceId = decodeURIComponent(parts[2]!); code = decodeURIComponent(parts[4]!) } catch { return fail('bad_request', 400) }
     const body = await req.json().catch(() => undefined) as { on?: unknown } | undefined
     if (typeof body?.on !== 'boolean' || !deviceId || deviceId.length > 64 || !code || code.length > 40) return fail('bad_request', 400)
     if (provider !== 'tuya' || !deps.tuya) return fail('not_configured', 503)
@@ -105,7 +109,8 @@ export async function plugs(req: Request, url: URL, env: PlugsEnv, now: Date, de
       if (!plug.outlets.some(x => x.code === code)) return fail('no_such_outlet', 404)
       if (!plug.online) return fail('offline', 409)
       await timeLimit(tuya.switchOutlet(deviceId, code, body.on))
-    } catch {
+    } catch (e) {
+      logFailure(e)
       return fail('maker_error', 502)
     } finally {
       tuya.forget(link.provider_uid)
