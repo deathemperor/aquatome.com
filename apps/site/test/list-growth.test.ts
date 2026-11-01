@@ -1,6 +1,5 @@
 import { execFileSync } from 'node:child_process'
 import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
-import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { afterAll, beforeAll, expect, test } from 'vitest'
@@ -19,7 +18,10 @@ const roots: string[] = []
 
 /** The test content plus `extra` species and plants, each with its own name, address and photo, built into a folder. */
 function buildWith(extra: number) {
-  const root = mkdtempSync(join(tmpdir(), 'aq-growth-'))
+  // Inside the site (gitignored .astro/), not the OS temp dir: Astro moves built files into OUT_DIR with rename(), which
+  // fails across filesystems (EXDEV), and some CI runners mount /tmp separately from the checkout (as public-build.test).
+  mkdirSync(join(SITE, '.astro'), { recursive: true })
+  const root = mkdtempSync(join(SITE, '.astro', 'growth-'))
   roots.push(root)
   const content = join(root, 'content')
   cpSync(FIXTURE, content, { recursive: true })
