@@ -1,7 +1,7 @@
 import { loadTurnstile, type Turnstile } from './comments'
 import { ct } from './ct'
 import * as store from './tank-store'
-import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonce, getSession, isFail, passkeyAddOptions, passkeyLoginOptions, PENDING, pendingFlow, signInWith, signInWithPasskey, signOut, syncOnce, type Fail, type Providers, type User } from './sync'
+import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonce, getSession, isFail, passkeyAddOptions, passkeyLoginOptions, PENDING, pendingFlow, signInWith, signInWithPasskey, signOut, syncOnce, type Fail, type Mode, type Pending, type Providers, type User } from './sync'
 
 /**
  * "Đồng bộ giữa các thiết bị" on "Bể của tôi": optional sign-in and sync. The section stays hidden unless the server
@@ -53,7 +53,7 @@ export function initAccount(o: { onStore: () => void }) {
   let timer: ReturnType<typeof setTimeout> | undefined
   let turnstile: { ts: Turnstile; widget: string } | undefined
   let token = ''
-  let flow: string | undefined
+  let flow: Pending | undefined
   /** The sign-in buttons are set up once; each later opening only gives them fresh nonces. */
   let wired = false
   /** Opened from "Thêm cách đăng nhập": a way pressed is added to the account signed in here. */
@@ -163,23 +163,27 @@ export function initAccount(o: { onStore: () => void }) {
     $('acc-sync').focus()
   }
 
-  /** A sign-in's answer. Signed in here already to that account: the way was added to it (the session goes on). */
-  async function got(u: User) {
-    if (!user || user.id !== u.id) { await signedIn(u); return }
-    if (reauth) {
-      // Signed in again to this account: now the ways add to it.
+  /** What pressing a way does now (a sign-in remembers it as it is sent: the ways may turn before its answer). */
+  const mode = (): Mode | undefined => (linking ? 'add' : reauth ? 'again' : undefined)
+
+  /** A sign-in's answer, and what it was for. A way added: to the account signed in here (the session goes on). */
+  async function got(u: User, m: Mode | undefined) {
+    if (!user || user.id !== u.id || !m) { await signedIn(u); return }
+    if (m === 'again') {
+      // Signed in again to this account: now the ways add to it. From the mail's link, in a tab with them closed: they open.
       user = u
       signedInAt = Date.now()
-      reauth = false
-      linking = true
       localStorage.removeItem(PENDING)
       flow = undefined
       $<HTMLFormElement>('acc-email').reset()
       $<HTMLFormElement>('acc-code').reset()
       $('acc-code').hidden = true
       show()
-      explain()
       say(ct('Đã đăng nhập lại. Giờ chọn cách muốn thêm.'))
+      if ($('acc-ways').hidden) { await openWays(true); return }
+      reauth = false
+      linking = true
+      explain()
       await Promise.all(rearm.map(f => f()))
       return
     }
@@ -218,6 +222,9 @@ export function initAccount(o: { onStore: () => void }) {
     if ($('acc-ways').hidden) { await openWays(true); return }
     reauth = true
     linking = false
+    // An address being added still adds from its mail's link; its code waits until signed in again.
+    $<HTMLFormElement>('acc-code').reset()
+    $('acc-code').hidden = true
     explain()
     say('')
     await Promise.all(rearm.map(f => f()))
@@ -247,9 +254,10 @@ export function initAccount(o: { onStore: () => void }) {
         g.accounts.id.initialize({
           client_id: clientId, nonce, ux_mode: 'popup', itp_support: true,
           callback: async ({ credential }) => {
-            const r = await signInWith('google', credential, nonce, linking)
+            const m = mode()
+            const r = await signInWith('google', credential, nonce, m === 'add')
             if (isFail(r)) { refused(r); void arm(); return }
-            await got(r.user)
+            await got(r.user, m)
           },
         })
         return true
@@ -287,9 +295,10 @@ export function initAccount(o: { onStore: () => void }) {
       btn.disabled = true
       try {
         const r = await ready.signIn()
-        const out = await signInWith('apple', r.authorization.id_token, ready.nonce, linking)
+        const m = mode()
+        const out = await signInWith('apple', r.authorization.id_token, ready.nonce, m === 'add')
         if (isFail(out)) refused(out)
-        else await got(out.user)
+        else await got(out.user, m)
       } catch { /* the popup was closed */ }
       // A nonce is used once: a new one for the next try.
       if (!$('acc-ways').hidden) ready = await appleReady(clientId)
@@ -327,13 +336,14 @@ export function initAccount(o: { onStore: () => void }) {
       }
       waiting = false
       btn.disabled = true
-      const r = await emailStart(address, token, lang, linking)
+      const m = mode()
+      const r = await emailStart(address, token, lang, m === 'add')
       btn.disabled = false
       token = ''
       turnstile?.ts.reset(turnstile.widget)
       if (isFail(r)) { refused(r); return }
-      flow = r.flow
-      localStorage.setItem(PENDING, JSON.stringify({ flow, until: new Date(Date.now() + 15 * 60_000).toISOString() }))
+      flow = { flow: r.flow, until: new Date(Date.now() + 15 * 60_000).toISOString(), ...(m ? { mode: m } : {}) }
+      localStorage.setItem(PENDING, JSON.stringify(flow))
       $('acc-code').hidden = false
       say(ct('Đã gửi mã tới {email}. Mở email và nhập mã, hoặc bấm link trong email trên trình duyệt này.', { email: address }))
       ;($('acc-code').querySelector('input') as HTMLInputElement).focus()
@@ -343,13 +353,13 @@ export function initAccount(o: { onStore: () => void }) {
       e.preventDefault()
       if (codeBtn.disabled) return
       const code = ($('acc-code').querySelector('input') as HTMLInputElement).value.trim()
-      flow ??= pendingFlow(localStorage, new Date())
-      if (!/^\d{6}$/.test(code) || !flow) { say(problem({ error: 'bad_code' }), true); return }
+      const f = (flow ??= pendingFlow(localStorage, new Date()))
+      if (!/^\d{6}$/.test(code) || !f) { say(problem({ error: 'bad_code' }), true); return }
       codeBtn.disabled = true
-      const r = await emailVerify(flow, code)
+      const r = await emailVerify(f.flow, code)
       codeBtn.disabled = false
       if (isFail(r)) { say(problem(r), true); return }
-      await got(r.user)
+      await got(r.user, f.mode)
     })
   }
 
@@ -365,9 +375,10 @@ export function initAccount(o: { onStore: () => void }) {
         const { startAuthentication } = await webauthn()
         const options = await passkeyLoginOptions()
         if (isFail(options)) { say(problem(options), true); return }
+        const m = reauth ? 'again' : undefined
         const r = await signInWithPasskey(await startAuthentication({ optionsJSON: options }))
         if (isFail(r)) say(problem(r), true)
-        else await got(r.user)
+        else await got(r.user, m)
       } catch (e) {
         if (!closed(e)) say(problem({ error: 'failed' }), true)
       } finally {
@@ -507,10 +518,10 @@ export function initAccount(o: { onStore: () => void }) {
     if (!code) return
     if (!f) { section.scrollIntoView(); say(ct('Link này cần mở trên đúng trình duyệt đã gửi mã. Hoặc nhập mã 6 số ở đó.'), true); return }
     flow = f
-    const r = await emailVerify(f, code)
+    const r = await emailVerify(f.flow, code)
     section.scrollIntoView()
     if (isFail(r)) { say(problem(r), true); return }
-    await got(r.user)
+    await got(r.user, f.mode)
   })()
 
   return { changed }
