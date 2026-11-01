@@ -3,7 +3,7 @@
   "info": {
     "title": "AquaTome smart plugs",
     "version": "1.0.0",
-    "description": "Smart plugs on a reader's tanks: Tuya (Smart Life) and eWeLink (Sonoff) power strips, reached through each maker's cloud with keys only the server holds. Design, linking and safety rules: docs/smart-plugs.md. A plug on a tank is a device record with kind \"plug\" (protocols/tanks.schema.json).\n\nEvery path needs a signed-in AquaTome account, as protocols/accounts.openapi.json describes: the app sends Authorization: Bearer <token>, the site its session cookie; changes from a browser must come from https://aquatome.com pages. With accounts off, every path is 404 accounts_off.\n\nWithout a maker's keys on the server, its paths are 503 not_configured and GET /api/v1/plugs lists it as not available; the other maker is unaffected.\n\nErrors are {\"error\": \"<code>\"} with the status listed. The server switches an outlet only when asked to by this API: nothing switches on its own."
+    "description": "Smart plugs on a reader's tanks: Tuya (Smart Life) and eWeLink (Sonoff) power strips, reached through each maker's cloud with keys only the server holds. Design, linking and safety rules: docs/smart-plugs.md. A plug on a tank is a device record with kind \"plug\" (protocols/tanks.schema.json).\n\nEvery path but the callback needs a signed-in AquaTome account, as protocols/accounts.openapi.json describes: the app sends Authorization: Bearer <token>, the site its session cookie; changes from a browser must come from https://aquatome.com pages (403 cross_site otherwise). With accounts off, every path is 404 accounts_off.\n\nWithout a maker's keys on the server, its paths are 503 not_configured and GET /api/v1/plugs lists it as not available; the other maker is unaffected.\n\nErrors are {\"error\": \"<code>\"} with the status listed. The server switches an outlet only when asked to by this API, and clients ask only on a reader's tap (docs/smart-plugs.md): nothing switches on its own, nothing is queued or retried. `on` sets an outlet's state; it never toggles, so the same request twice does no harm."
   },
   "servers": [
     {
@@ -14,7 +14,7 @@
     "/api/v1/plugs": {
       "get": {
         "summary": "The makers this account can link or has linked, and the linked plugs as they are now",
-        "description": "Each maker is listed with its state; a maker that can't be reached shows its problem and no plugs, and the others still list theirs. The live state (online, on) comes from the maker's cloud on each request and is never stored. 60 requests a minute per account.",
+        "description": "Each maker is listed with its state; a maker that can't be reached (or doesn't answer within 8 seconds) shows its problem and no plugs, and the others still list theirs. The state (online, on) comes from the maker's cloud, at most 15 seconds old (the server keeps a link's list that long, to stay within the makers' call limits; a switch through this API refreshes it). Clients ask when the reader opens or refreshes a screen, never on a timer. 60 requests a minute per account.",
         "security": [
           {
             "bearer": []
@@ -69,8 +69,8 @@
     },
     "/api/v1/plugs/{provider}/link": {
       "post": {
-        "summary": "Start linking a maker's account: the maker's sign-in page to open",
-        "description": "The app opens `url` in an authentication session (ASWebAuthenticationSession) with callback scheme `aquatome`; the site in the same tab. The page is good for 10 minutes and one use. After the reader approves (or cancels), the maker sends them to /api/v1/plugs/{provider}/callback.",
+        "summary": "Start linking (or linking again) a maker's account: the maker's sign-in page to open",
+        "description": "The app sends `verifier`'s SHA-256 (hex) as `challenge`; it opens `url` in an authentication session (ASWebAuthenticationSession) with callback scheme `aquatome`. The site sends no challenge and opens `url` in the same tab. The sign-in page is good for 10 minutes and one use.\n\nLinking again (tokens expired: the list's `relink`, or a switch's 409 relink) is the same request; the new tokens replace the old ones only once the link is finished.",
         "security": [
           {
             "bearer": []
@@ -113,8 +113,28 @@
               }
             }
           },
+          "400": {
+            "description": "Error: bad_request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "401": {
             "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site, not_available (the maker doesn't yet let every account link: docs/smart-plugs.md)",
             "content": {
               "application/json": {
                 "schema": {
@@ -143,26 +163,6 @@
               }
             }
           },
-          "403": {
-            "description": "Error: not_available (the maker doesn't yet let every account link: docs/smart-plugs.md)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Error: already_linked",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
           "503": {
             "description": "Error: not_configured",
             "content": {
@@ -173,11 +173,28 @@
               }
             }
           }
+        },
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "challenge": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$",
+                    "description": "The app: SHA-256 (lowercase hex) of a random verifier it keeps until it finishes the link."
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "delete": {
         "summary": "Unlink a maker's account: its tokens are deleted and its plugs no longer listed",
-        "description": "Plug records on tanks stay (they sync with the tanks); they show as not linked until the maker is linked again. Also done when the AquaTome account is deleted.",
+        "description": "Plug records on tanks stay (they sync with the tanks); they show as not linked until the maker is linked again. Where the maker can, AquaTome's access is revoked there too (eWeLink: DELETE /v2/user/oauth/token). Also done when the AquaTome account is deleted.",
         "security": [
           {
             "bearer": []
@@ -203,6 +220,110 @@
         "responses": {
           "204": {
             "description": "Unlinked (or wasn't linked)."
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: accounts_off, unknown_provider",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/plugs/{provider}/link/complete": {
+      "post": {
+        "summary": "The app finishes a link: the tokens the callback holds go to this account",
+        "description": "With the callback's `ticket` (one use, 5 minutes) and the `verifier` whose SHA-256 the app sent to start the link, from the account that started it. Replaces an earlier link's tokens (linking again).",
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "tuya",
+                "ewelink"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "ticket",
+                  "verifier"
+                ],
+                "properties": {
+                  "ticket": {
+                    "type": "string"
+                  },
+                  "verifier": {
+                    "type": "string",
+                    "minLength": 43,
+                    "maxLength": 128
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Linked."
+          },
+          "400": {
+            "description": "Error: bad_request, bad_ticket (unknown, used, expired, another account's, or the verifier doesn't match)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           },
           "401": {
             "description": "Error: signed_out",
@@ -240,7 +361,7 @@
     "/api/v1/plugs/{provider}/callback": {
       "get": {
         "summary": "Where the maker's sign-in page sends the reader back (not called by clients)",
-        "description": "Checks `state` (one use, 10 minutes, tied to the account that started the link), exchanges the maker's code for tokens and stores them encrypted. Then redirects: the app to aquatome://plugs?provider=<provider>&result=<linked|cancelled|failed>, the site to its \"Bể của tôi\" page with the same query.",
+        "description": "`state` is the server's, signed: it names the account that started the link, whether the app or the site did, and expires after 10 minutes. The callback always redirects, even for a bad state, an error or a cancel, so the app's sheet closes and the site's tab doesn't end on raw JSON: the app to aquatome://plugs?provider=<provider>&result=<linked|cancelled|failed>[&ticket=<ticket>], the site to its \"Bể của tôi\" page with the same query (no ticket).\n\nNothing is linked to an account the reader didn't sign in to here, so a sign-in link sent by someone else can't attach the reader's maker account to theirs:\n\n- The site: the callback links only if the session cookie (sent on this top-level request) is the account in `state`; otherwise result=failed.\n\n- The app: the callback exchanges the maker's code (eWeLink's lasts 30 seconds) and holds the tokens for 5 minutes, unlinked; it redirects with result=linked and a one-time `ticket`. The link is made only by POST …/link/complete from the account in `state`, with the verifier whose SHA-256 started the link.\n\neWeLink sends the reader back only after a successful sign-in: a reader who gives up just closes the sheet (the app's cancel) or the tab.",
         "parameters": [
           {
             "name": "provider",
@@ -284,24 +405,14 @@
         "responses": {
           "302": {
             "description": "Back to the app or the site, with the result."
-          },
-          "400": {
-            "description": "Error: bad_state (unknown, used or expired)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
           }
         }
       }
     },
     "/api/v1/plugs/{provider}/devices/{device}/outlets/{code}": {
       "post": {
-        "summary": "Switch one outlet on or off; the outlet as the plug then reports it",
-        "description": "Sent once to the maker's cloud, then the outlet is read back. `on` in the reply is what the plug reports, which can still be the old state if it hasn't caught up, or null if it couldn't be read: clients show the switch as the reply says, never as asked. 30 switches a minute per account. Not retried by the server.",
+        "summary": "Set one outlet on or off; the outlet as the plug then reports it",
+        "description": "Sent once to the maker's cloud. Then the server reads the outlet back, at most every 600 ms (eWeLink allows a call per 500 ms) for up to 3 seconds, until the plug reports the state asked for. `confirmed` says whether it did; `on` is what the plug reported last (null if it couldn't be read). Clients show the switch as `on` says, never as asked; unconfirmed, they read the list again once (GET /api/v1/plugs) and never send the switch again on their own. 30 switches a minute per account. Not retried by the server.",
         "security": [
           {
             "bearer": []
@@ -372,11 +483,16 @@
                 "schema": {
                   "type": "object",
                   "required": [
-                    "outlet"
+                    "outlet",
+                    "confirmed"
                   ],
                   "properties": {
                     "outlet": {
                       "$ref": "#/components/schemas/Outlet"
+                    },
+                    "confirmed": {
+                      "type": "boolean",
+                      "description": "The plug reported the state asked for within 3 seconds."
                     }
                   }
                 }
@@ -395,6 +511,16 @@
           },
           "401": {
             "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
             "content": {
               "application/json": {
                 "schema": {
@@ -434,7 +560,7 @@
             }
           },
           "502": {
-            "description": "Error: maker_error (the maker's cloud refused or failed; nothing is known to have switched)",
+            "description": "Error: maker_error (the maker's cloud refused, failed or didn't answer: the outlet's state is unknown, and it may have switched. Read the list again before switching again)",
             "content": {
               "application/json": {
                 "schema": {
@@ -506,9 +632,10 @@
             "type": "string",
             "enum": [
               "relink",
-              "unreachable"
+              "unreachable",
+              "quota"
             ],
-            "description": "Linked, but its plugs couldn't be listed: relink (tokens expired) or unreachable (the maker's cloud failed)."
+            "description": "Linked, but its plugs couldn't be listed: relink (tokens expired: link again), unreachable (the maker's cloud failed or didn't answer), quota (AquaTome's calls to this maker are used up for now)."
           }
         }
       },
@@ -521,7 +648,7 @@
         "properties": {
           "code": {
             "type": "string",
-            "description": "The maker's switch code (Tuya: switch_1, switch_usb1…; eWeLink: the outlet number). Stable for the plug."
+            "description": "The maker's switch code, stable for the plug and kept in plug records on tanks. Tuya: the switch's code (switch, switch_1…, switch_usb1…). eWeLink: \"switch\" for a single-outlet switch (params.switch); for one with several outlets, the outlet's number from 0, as text (\"0\", \"1\"…; params.switches[].outlet)."
           },
           "name": {
             "type": "string",

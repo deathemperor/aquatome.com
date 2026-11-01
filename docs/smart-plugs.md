@@ -24,10 +24,16 @@ What each maker allows today:
 Until a maker opens linking to everyone, `POST /api/v1/plugs/{provider}/link` answers `not_available`, and the app says
 plugs are coming. Nothing else changes when it opens.
 
+A link goes only to the account that signed in to make it. A maker's sign-in page sent by someone else can't attach the
+reader's maker account to theirs: the site links only if the callback's session is the account that started the link,
+and the app finishes the link itself (`POST …/link/complete`), with a one-time ticket and the verifier whose hash started
+it (the contract has the details). Linking again, when a maker's tokens expire, is the same flow.
+
 ## What the server keeps
 
-- `plug_links` (D1): AquaTome user id, maker, the maker's user id, and the maker's tokens **encrypted at rest** (AES-GCM,
-  keyed by a worker secret). Deleting the link or the account deletes the row.
+- `plug_links` (D1): AquaTome user id, maker, the maker's user id, and, for a link made through the maker's sign-in page,
+  its tokens **encrypted at rest** (AES-GCM, keyed by a worker secret) and its region (eWeLink: which API host). Deleting
+  the link or the account deletes the row; unlinking also revokes AquaTome's access where the maker can (eWeLink).
 - Makers' keys (Tuya access id and secret; eWeLink app id and secret) are worker secrets. Without them the plug routes
   answer `not_configured`, and everything else works.
 - No device ids, maker user ids or tokens in the repository (it is public), in logs, or in analytics. The owner's own
@@ -37,17 +43,30 @@ plugs are coming. Nothing else changes when it opens.
 
 A plug switches mains power to a CO2 solenoid, a heater or a filter. So:
 
-- **Only on a reader's tap.** Nothing switches on its own in this first version: no schedules, no rules.
-- **What the plug reports, not what was asked.** After a command the server reads the outlet back and returns its
-  state; the app never shows a switch as changed before the plug says so, and says when the plug hasn't confirmed.
+- **Only on a reader's tap.** Nothing switches on its own in this first version: no schedules, no rules. Clients send a
+  switch only while the reader taps it, online: never through the tanks' save-then-sync path, no outbox, no retry, nothing
+  queued while offline.
+- **A switch sets a state; it never toggles.** `{on: true}` twice leaves the outlet on, so a double tap or a repeated
+  request does no harm.
+- **What the plug reports, not what was asked.** After a command the server reads the outlet back until the plug reports
+  the state asked for (up to 3 seconds) and says whether it did; the app never shows a switch as changed before the plug
+  says so. Unconfirmed, it reads the list again once, and doesn't send the switch again.
 - **The strips' own timers are left alone.** They keep running when AquaTome, the server or the maker's cloud is down,
   which is the failure to want. AquaTome doesn't read or write them yet.
 - Offline plugs are shown as offline; a command to one is refused (`offline`), not queued.
 
+## Staying within the makers' limits
+
+eWeLink's free tier allows 50,000 calls a month per region for all of AquaTome's readers together, at most one call per
+500 ms; Tuya's trial has limits too. So the server keeps each link's list for 15 seconds (a switch refreshes it), gives
+each maker 8 seconds before calling it unreachable, and clients ask for the list when a screen opens or is refreshed,
+never on a timer. A maker whose calls are used up shows as `quota`, not as broken.
+
 ## Plugs on a tank
 
 A plug's device record: `kind: "plug"`, `brand` the maker (`tuya`, `ewelink`), `remoteId` the maker's device id, and
-`outlets`, each with its `code` (the maker's switch code), what it powers (`role`: `light`, `co2`, `filter`, `heater`,
+`outlets`, each with its `code` (the maker's switch code: Tuya's `switch_1`…; eWeLink's `switch` for a single outlet, else
+the outlet's number from 0), what it powers (`role`: `light`, `co2`, `filter`, `heater`,
 `air`, `fan`, `other`; open, like `kind`) and an optional `label`. A strip is on one tank; its outlets are named there.
 The live state (on, off, online) is never stored: it comes from the server each time.
 
