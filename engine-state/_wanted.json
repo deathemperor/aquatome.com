@@ -65,8 +65,18 @@
       "species/baryancistrus-demantoides",
       "species/biotodoma-wavrini"
     ],
-    "mentions": 9,
-    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
+    "mentions": 9
+  },
+  "crossocheilus-oblongus": {
+    "name": "Crossocheilus oblongus",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-algae-eaters",
+      "guides/youtube-8EelCQTnsQ0",
+      "guides/youtube-O5kuU_-xMzo",
+      "guides/youtube-YXhZnSTaUW0",
+      "guides/youtube-dTkvCEn1xHA"
+    ],
+    "mentions": 10
   },
   "channa-striata": {
     "name": "Channa striata",
@@ -100,17 +110,6 @@
       "guides/sprucepets-low-maintenance-freshwater-fish-4770223"
     ],
     "mentions": 8
-  },
-  "crossocheilus-oblongus": {
-    "name": "Crossocheilus oblongus",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-algae-eaters",
-      "guides/youtube-O5kuU_-xMzo",
-      "guides/youtube-YXhZnSTaUW0",
-      "guides/youtube-dTkvCEn1xHA",
-      "species/rasbora-caudimaculata"
-    ],
-    "mentions": 9
   },
   "pangio-fusca": {
     "name": "Pangio fusca",
@@ -198,6 +197,17 @@
       "guides/sprucepets-large-fish-for-freshwater-aquariums-7570272",
       "guides/sprucepets-lifespans-of-aquarium-fish-1378340",
       "species/pterygoplichthys-pardalis"
+    ],
+    "mentions": 5
+  },
+  "epipremnum-aureum": {
+    "name": "Epipremnum aureum",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-pothos",
+      "guides/youtube-B1T0GU56ETo",
+      "guides/youtube-FaGycOl_GyA",
+      "guides/youtube-PVRlXXhdD7U",
+      "guides/youtube-zYfpvGHYlxQ"
     ],
     "mentions": 5
   },
@@ -510,15 +520,6 @@
     ],
     "mentions": 3
   },
-  "epipremnum-aureum": {
-    "name": "Epipremnum aureum",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-pothos",
-      "guides/youtube-FaGycOl_GyA",
-      "guides/youtube-PVRlXXhdD7U"
-    ],
-    "mentions": 3
-  },
   "aeromonas-hydrophila": {
     "name": "Aeromonas hydrophila",
     "mentionedIn": [
@@ -768,6 +769,15 @@
     "mentions": 2,
     "onSource": "https://www.seriouslyfish.com/species/aphanius-mento"
   },
+  "pterophyllum-altum": {
+    "name": "Pterophyllum altum",
+    "mentionedIn": [
+      "guides/sprucepets-angelfish-gallery-4121742",
+      "guides/youtube-7X823MgJlHo"
+    ],
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/pterophyllum-altum"
+  },
   "micralestes-acutidens": {
     "name": "Micralestes acutidens",
     "mentionedIn": [
@@ -792,11 +802,28 @@
     ],
     "mentions": 2
   },
+  "melanotaenia-splendida": {
+    "name": "Melanotaenia splendida",
+    "mentionedIn": [
+      "guides/sprucepets-types-of-rainbow-fish-5272300",
+      "guides/youtube-1TkcARfJKCQ"
+    ],
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/melanotaenia-splendida"
+  },
   "chilatherina-fasciata": {
     "name": "Chilatherina fasciata",
     "mentionedIn": [
       "guides/sprucepets-types-of-rainbow-fish-5272300",
       "species/glossolepis-wanamensis"
+    ],
+    "mentions": 2
+  },
+  "caridina-gracilirostris": {
+    "name": "Caridina gracilirostris",
+    "mentionedIn": [
+      "guides/youtube-8EelCQTnsQ0",
+      "guides/youtube-mY_9yWKaAFc"
     ],
     "mentions": 2
   },
@@ -1826,14 +1853,6 @@
     ],
     "mentions": 1
   },
-  "pterophyllum-altum": {
-    "name": "Pterophyllum altum",
-    "mentionedIn": [
-      "guides/sprucepets-angelfish-gallery-4121742"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/pterophyllum-altum"
-  },
   "corydoras-leopardus": {
     "name": "Corydoras leopardus",
     "mentionedIn": [
@@ -2323,14 +2342,6 @@
     ],
     "mentions": 1
   },
-  "melanotaenia-splendida": {
-    "name": "Melanotaenia splendida",
-    "mentionedIn": [
-      "guides/sprucepets-types-of-rainbow-fish-5272300"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/melanotaenia-splendida"
-  },
   "melanotaenia-duboulayi": {
     "name": "Melanotaenia duboulayi",
     "mentionedIn": [
@@ -2387,6 +2398,36 @@
       "guides/sprucepets-what-fish-species-are-coldwater-1380965"
     ],
     "mentions": 1
+  },
+  "chilatherina-bleheri": {
+    "name": "Chilatherina bleheri",
+    "mentionedIn": [
+      "guides/youtube-1TkcARfJKCQ"
+    ],
+    "mentions": 1
+  },
+  "moenkhausia-pittieri": {
+    "name": "Moenkhausia pittieri",
+    "mentionedIn": [
+      "guides/youtube-1TkcARfJKCQ"
+    ],
+    "mentions": 1
+  },
+  "corydoras-eques": {
+    "name": "Corydoras eques",
+    "mentionedIn": [
+      "guides/youtube-1TkcARfJKCQ"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/osteogaster-eques"
+  },
+  "corydoras-schwartzi": {
+    "name": "Corydoras schwartzi",
+    "mentionedIn": [
+      "guides/youtube-1TkcARfJKCQ"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hoplisoma-schwartzi"
   },
   "cryptocoryne-nevillii": {
     "name": "Cryptocoryne nevillii",
@@ -2506,6 +2547,14 @@
       "guides/youtube-k3xDjE_A8t0"
     ],
     "mentions": 1
+  },
+  "scleropages-leichardti": {
+    "name": "Scleropages leichardti",
+    "mentionedIn": [
+      "guides/youtube-oqjlfn3wxgA"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/scleropages-leichardti"
   },
   "clithon-corona": {
     "name": "Clithon corona",
@@ -5105,11 +5154,6 @@
   },
   "pomacea-diffusa": {
     "name": "Pomacea diffusa",
-    "mentionedIn": [],
-    "mentions": 0
-  },
-  "caridina-gracilirostris": {
-    "name": "Caridina gracilirostris",
     "mentionedIn": [],
     "mentions": 0
   },

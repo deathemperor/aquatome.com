@@ -1175,6 +1175,13 @@
   },
   "Anubias etc": null,
   "Anubias lancifolia": null,
+  "Anubias nana": {
+    "canonicalName": "Anubias barteri",
+    "order": "Alismatales",
+    "family": "Araceae",
+    "genus": "Anubias",
+    "matchType": "EXACT"
+  },
   "Anzeiger der": null,
   "Apareiodon affinis": {
     "canonicalName": "Apareiodon affinis",
@@ -4338,6 +4345,13 @@
     "genus": "Chilatherina",
     "matchType": "EXACT"
   },
+  "Chilatherina bleheri": {
+    "canonicalName": "Chilatherina bleheri",
+    "order": "Atheriniformes",
+    "family": "Melanotaeniidae",
+    "genus": "Chilatherina",
+    "matchType": "EXACT"
+  },
   "Chilatherina fasciata": {
     "canonicalName": "Chilatherina fasciata",
     "order": "Atheriniformes",
@@ -5034,6 +5048,13 @@
   },
   "Corydoras schultzei": {
     "canonicalName": "Corydoras aeneus",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Corydoras",
+    "matchType": "EXACT"
+  },
+  "Corydoras schwartzi": {
+    "canonicalName": "Corydoras schwartzi",
     "order": "Siluriformes",
     "family": "Callichthyidae",
     "genus": "Corydoras",
@@ -7088,6 +7109,7 @@
   "Hai nghi": null,
   "Hai ngu": null,
   "Hai nguy": null,
+  "Hai nhu": null,
   "Halbinsel und": null,
   "Haltung und": null,
   "Haludaria fasciata": {
@@ -7206,6 +7228,7 @@
   },
   "Hazar toothcarp": null,
   "Heaterstat inline": null,
+  "Heckel hoang": null,
   "Helanthium cao": null,
   "Helanthium tenellum": {
     "canonicalName": "Helanthium tenellum",
@@ -7683,6 +7706,7 @@
   "Hoplisoma melini": null,
   "Hoplisoma metae": null,
   "Hoplisoma paleatum": null,
+  "Hoplisoma schwartzi": null,
   "Hoplisoma trilineatum": null,
   "Hoplosternum magdalenae": {
     "canonicalName": "Hoplosternum magdalenae",
@@ -8360,6 +8384,7 @@
   "Khi giun": null,
   "Khi hai": null,
   "Khi keo": null,
+  "Khi kho": null,
   "Khi lau": null,
   "Khi mua": null,
   "Khi ngh": null,
@@ -9199,6 +9224,7 @@
   },
   "Maharlu has": null,
   "Mai cua": null,
+  "Makunaima pittieri": null,
   "Malapterurus microstoma": {
     "canonicalName": "Malapterurus microstoma",
     "order": "Siluriformes",
@@ -9520,6 +9546,7 @@
     "genus": "Melanotaenia",
     "matchType": "EXACT"
   },
+  "Melanotaenia sentaniensis": null,
   "Melanotaenia splendida": {
     "canonicalName": "Melanotaenia splendida",
     "order": "Atheriniformes",
@@ -9885,6 +9912,13 @@
     "family": "Characidae",
     "genus": "Moenkhausia",
     "matchType": "FUZZY"
+  },
+  "Moenkhausia pittieri": {
+    "canonicalName": "Moenkhausia pittieri",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Moenkhausia",
+    "matchType": "EXACT"
   },
   "Moenkhausia sanctaefilomenae": {
     "canonicalName": "Moenkhausia sanctaefilomenae",
@@ -10528,6 +10562,7 @@
   "New ornate": null,
   "Ngay sau": null,
   "Ngay trong": null,
+  "Nghe nhi": null,
   "Nieuwe bijdrage": null,
   "Nieuwe tientallen": null,
   "Niger drainages": null,
@@ -14275,6 +14310,13 @@
     "genus": "Scleropages",
     "matchType": "EXACT"
   },
+  "Scleropages leichardti": {
+    "canonicalName": "Scleropages leichardti",
+    "order": "Osteoglossiformes",
+    "family": "Osteoglossidae",
+    "genus": "Scleropages",
+    "matchType": "EXACT"
+  },
   "Scobinancistrus aureatus": {
     "canonicalName": "Scobinancistrus aureatus",
     "order": "Siluriformes",
@@ -15444,6 +15486,7 @@
     "genus": "Trochilocharax",
     "matchType": "EXACT"
   },
+  "Trong app": null,
   "Trong chuy": null,
   "Trong giai": null,
   "Trong hai": null,
