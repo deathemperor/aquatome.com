@@ -24,6 +24,7 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
   </div>
   <script>
     import { ct } from '../../../scripts/ct'
+    import { NAMED_WINDOW, namedFirst } from '../../../scripts/search-rank'
 
     // Pagefind's browser API (built into /pagefind/ after `astro build`), the parts used here.
     type Doc = { url: string; excerpt: string; content: string; locations: number[]; meta: Record<string, string | undefined> }
@@ -142,7 +143,11 @@ const latin = '<a class="sci" href="?q=Paracheirodon+innesi">Paracheirodon innes
         if (!list.childElementCount) state(q, 'busy')
         const r = await (await load()).search(q)
         if (me !== run) return
-        hits = r.results
+        // Each result's data read once; of the best ones, the pages named what was searched for go first (namedFirst).
+        const once: Hit[] = r.results.map(h => { let p: Promise<Doc> | undefined; return { data: () => (p ??= h.data()) } })
+        const best = await Promise.all(once.slice(0, NAMED_WINDOW).map(async h => ({ h, meta: (await h.data()).meta })))
+        if (me !== run) return
+        hits = [...namedFirst(q, best).map(x => x.h), ...once.slice(NAMED_WINDOW)]
         terms = words(q)
         list.replaceChildren()
         const docs = (await show(0)) ?? []
