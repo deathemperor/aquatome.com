@@ -67,6 +67,22 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertEqual(app.buttons.matching(identifier: "tank").allElementsBoundByIndex.map { $0.label.components(separatedBy: ",")[0] }, ["Bể tép"])
   }
 
+  func testAPasskeyAddedOnTheWebsiteOpensItsAccount() {
+    // A passkey no account has: refused, with what to do instead.
+    var app = launch(resetServer: true)
+    tap(app, "passkey-sign-in")
+    XCTAssertEqual(message(app), "Passkey này không mở được tài khoản nào: đăng nhập cách khác.")
+    XCTAssertFalse(app.staticTexts["account-status"].exists, "signed in with a passkey no account has")
+    app.terminate()
+
+    // Added with "Thêm passkey" on aquatome.com to an account that signs in with Apple: it opens that account.
+    app = launch(resetServer: true, "-seed-passkey")
+    tap(app, "passkey-sign-in")
+    XCTAssertTrue(app.staticTexts["account-status"].waitForExistence(timeout: 5), "not signed in")
+    XCTAssertTrue(app.staticTexts["account-status"].label.contains("passkey"), app.staticTexts["account-status"].label)
+    XCTAssertTrue(waitForSyncs(app, 1), "no sync after signing in")
+  }
+
   func testWithAccountsOffThereIsNoSignIn() {
     let app = launch(resetServer: true, accounts: "off")
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5))

@@ -3,7 +3,7 @@ import Foundation
 import Observation
 import Tanks
 
-/// Signing in to aquatome.com (Apple, or a code sent by email) and syncing "Bể của tôi" with the account
+/// Signing in to aquatome.com (Apple, a code sent by email, or a passkey added there) and syncing "Bể của tôi" with the account
 /// (protocols/accounts.openapi.json), as the
 /// site's page does: right after signing in (the whole store, so tanks made before join the account), when the app
 /// comes to the front, a moment after each change, and on "Đồng bộ ngay". Optional: signed out, tanks stay on the phone.
@@ -30,6 +30,7 @@ final class AccountModel {
   private(set) var syncs = 0
   /// The server offers email sign-in (it can send mail and check Turnstile).
   private(set) var offersEmail = false
+  private(set) var offersPasskey = false
   /// An email sign-in waiting for its code: the address it was sent to.
   private(set) var codeSentTo: String?
 
@@ -37,6 +38,7 @@ final class AccountModel {
   @ObservationIgnored private let tanks: TanksModel
   @ObservationIgnored private let api: AccountsClient
   @ObservationIgnored private let apple: AppleSignIn
+  @ObservationIgnored private let passkey: PasskeySignIn
   @ObservationIgnored private let keychain: TokenStore
   /// The UI tests' stand-in for the Turnstile check (no web page, a new token each time).
   @ObservationIgnored let fakeChecks: Bool
@@ -50,10 +52,11 @@ final class AccountModel {
   /// The store as the last sync left it: a change seen after that is the reader's, and is sent.
   @ObservationIgnored private var synced: TankStore?
 
-  init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false) {
+  init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false) {
     self.tanks = tanks
     self.api = api
     self.apple = apple
+    self.passkey = passkey
     self.keychain = keychain
     self.fakeChecks = fakeChecks
     // The Keychain outlives the app: a reinstall starts signed out, as a first install does.
@@ -76,7 +79,7 @@ final class AccountModel {
       let answer = try await api.session(token: asked)
       // Signed in, out, or deleted meanwhile: the answer is about a session that has gone.
       guard token == asked, !working else { return }
-      if case .on(let p, _, _) = answer { offersEmail = p.email }
+      if case .on(let p, _, _) = answer { offersEmail = p.email; offersPasskey = p.passkey }
       switch answer {
       case .off:
         state = .off
@@ -108,6 +111,26 @@ final class AccountModel {
       state = .signedIn(s.user)
       await sync(first: true)
     } catch is AppleSignInCancelled {
+    } catch {
+      say(problem(error), bad: true)
+    }
+  }
+
+  /// Signs in with a passkey added to the account on aquatome.com (iCloud Keychain brings it to this phone, or a phone
+  /// nearby lends it).
+  func signInWithPasskey() async {
+    guard !working else { return }
+    working = true
+    defer { working = false }
+    message = nil
+    do {
+      let a = try await passkey.assert(try await api.passkeyChallenge())
+      let s = try await api.signInWithPasskey(a, replacing: token)
+      try keychain.save(s.token)
+      token = s.token
+      state = .signedIn(s.user)
+      await sync(first: true)
+    } catch is PasskeySignInCancelled {
     } catch {
       say(problem(error), bad: true)
     }
@@ -302,6 +325,7 @@ final class AccountModel {
     case .refused("apple_revoke_failed"): String(localized: "Apple chưa xác nhận được: thử lại.")
     case .refused("apple_reauth"): String(localized: "Chưa xóa: cần đăng nhập lại bằng Apple để xác nhận.")
     case .refused("bad_email"): String(localized: "Địa chỉ email chưa đúng.")
+    case .refused("bad_passkey"): String(localized: "Passkey này không mở được tài khoản nào: đăng nhập cách khác.")
     case .refused("bad_code"): String(localized: "Mã không đúng hoặc đã hết hạn: kiểm tra lại, hoặc gửi mã mới.")
     case .refused("turnstile"): String(localized: "Không qua được kiểm tra chống spam, vui lòng thử lại.")
     case .refused("mail_failed"): String(localized: "Chưa gửi được email: thử lại sau.")

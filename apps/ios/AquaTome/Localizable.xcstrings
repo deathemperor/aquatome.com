@@ -2705,6 +2705,22 @@
         }
       }
     },
+    "Passkey này không mở được tài khoản nào: đăng nhập cách khác.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passkey ini tidak terhubung ke akun mana pun: masuk dengan cara lain."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "passkey นี้ไม่ตรงกับบัญชีใด: เข้าสู่ระบบด้วยวิธีอื่น"
+          }
+        }
+      }
+    },
     "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.": {
       "localizations": {
         "id": {
@@ -4893,6 +4909,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เข้าสู่ระบบด้วยอีเมล"
+          }
+        }
+      }
+    },
+    "Đăng nhập bằng passkey": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masuk dengan passkey"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้าสู่ระบบด้วย passkey"
           }
         }
       }
