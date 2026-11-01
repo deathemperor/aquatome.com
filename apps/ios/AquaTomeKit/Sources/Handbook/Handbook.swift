@@ -23,13 +23,19 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     public let img: String?
     /// A fish's figures and behaviour (none for other kinds, nor for a fish the site has none for).
     public let facts: Facts
+    /// A guide's subject, as the site's guide list groups them: "setup", "care", "plantCare", "aquascaping",
+    /// "breeding", "disease", "discovery", or one a newer site adds.
+    public let section: String?
+    /// The fish and plants a guide names, by content id (what a tank lists them by).
+    public let about: [String]
     public var id: String { path }
 
-    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img }
+    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about }
 
-    public init(kind: Kind, contentId: String? = nil, name: String, sub: String? = nil, aka: [String]? = nil, path: String, img: String? = nil, facts: Facts = Facts()) {
+    public init(kind: Kind, contentId: String? = nil, name: String, sub: String? = nil, aka: [String]? = nil, path: String, img: String? = nil,
+                facts: Facts = Facts(), section: String? = nil, about: [String] = []) {
       self.kind = kind; self.contentId = contentId; self.name = name; self.sub = sub; self.aka = aka; self.path = path; self.img = img
-      self.facts = facts
+      self.facts = facts; self.section = section; self.about = about
     }
 
     public init(from decoder: any Decoder) throws {
@@ -42,6 +48,9 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       path = try c.decode(String.self, forKey: .path)
       img = try c.decodeIfPresent(String.self, forKey: .img)
       facts = try Facts(from: decoder)
+      // Read leniently, as the facts are: a value this app can't read is left out, never the item.
+      section = (try? c.decodeIfPresent(String.self, forKey: .section)) ?? nil
+      about = ((try? c.decodeIfPresent([String].self, forKey: .about)) ?? nil) ?? []
     }
 
     public func encode(to encoder: any Encoder) throws {
@@ -53,6 +62,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       try c.encodeIfPresent(aka, forKey: .aka)
       try c.encode(path, forKey: .path)
       try c.encodeIfPresent(img, forKey: .img)
+      try c.encodeIfPresent(section, forKey: .section)
+      if !about.isEmpty { try c.encode(about, forKey: .about) }
       try facts.encode(to: encoder)
     }
   }

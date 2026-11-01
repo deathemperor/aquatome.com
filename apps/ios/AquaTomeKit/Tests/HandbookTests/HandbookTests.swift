@@ -123,3 +123,20 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(json["tempC"] == nil && json["id"] as? String == "x")
   #expect(try JSONDecoder().decode(HandbookIndex.Item.self, from: JSONEncoder().encode(item)) == item)
 }
+
+@Test func readsAGuidesSubjectAndTheFishItNames() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[
+   {"kind":"guide","name":"Setup bể đầu tiên","path":"/vi/huong-dan/setup/","section":"setup","about":["paracheirodon-innesi","anubias-barteri-nana"]},
+   {"kind":"guide","name":"Thay nước","path":"/vi/huong-dan/thay-nuoc/","section":"care"},
+   {"kind":"guide","name":"Lạ","path":"/vi/huong-dan/la/","section":7,"about":"neon"}
+  ]}
+  """#.utf8))
+  #expect(ix.items.map(\.section) == ["setup", "care", nil])
+  #expect(ix.items[0].about == ["paracheirodon-innesi", "anubias-barteri-nana"])
+  #expect(ix.items[1].about.isEmpty)
+  // Values it can't read are left out, not the guide.
+  #expect(ix.items[2].name == "Lạ" && ix.items[2].about.isEmpty)
+  let back = try JSONDecoder().decode(HandbookIndex.Item.self, from: JSONEncoder().encode(ix.items[0]))
+  #expect(back == ix.items[0])
+}

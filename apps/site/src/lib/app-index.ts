@@ -2,6 +2,7 @@ import { QUALITY_THRESHOLD, type Content, type Photo, type Traits } from '@aq/sc
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { smallSrc } from './img'
 import { localizePath, served, translator, type Lang } from './i18n'
+import { mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
 
 /**
@@ -21,6 +22,10 @@ export type AppItem = {
   path: string
   /** A small photo (about 480 px wide). */
   img?: string
+  /** A guide's subject, as the guide list groups them (GuideEntity['kind']: setup, care, plantCare, …). */
+  section?: string
+  /** The fish and plants a guide names, by content id, as its page links them ("Bài viết nhắc đến loài này"). */
+  about?: string[]
 } & Partial<Facts>
 /**
  * A species' figures and behaviour (fish), named as the tank-mates tool names them (SpeciesIndexItem), so the app checks
@@ -56,8 +61,12 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     }
   }
   if (served(lang, '/vi/huong-dan/x/')) {
+    const mentions = mentionIndex(c).guides
     for (const g of c.guides) {
-      if (g.t.quality.indexable) items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: img(g.photos) }))
+      if (!g.t.quality.indexable) continue
+      const m = mentions.get(g.id)
+      const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: img(g.photos), section: g.kind, about: about.length ? about : undefined }))
     }
   }
   if (served(lang, '/vi/thuat-ngu/x/')) {
