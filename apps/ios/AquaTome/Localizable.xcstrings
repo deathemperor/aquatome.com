@@ -1457,6 +1457,22 @@
         }
       }
     },
+    "Có trong video hướng dẫn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ada di video panduan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "มีในวิดีโอแนะนำ"
+          }
+        }
+      }
+    },
     "Công cụ": {
       "localizations": {
         "id": {
@@ -4189,6 +4205,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ธรรมชาติ"
+          }
+        }
+      }
+    },
+    "Video": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วิดีโอ"
           }
         }
       }

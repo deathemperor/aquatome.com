@@ -94,15 +94,28 @@ struct ItemRow: View {
       }
       .frame(width: 56, height: 56)
       .clipShape(RoundedRectangle(cornerRadius: 8))
+      // A video guide's length on its picture, as the site's cards show it (read after the name, as the row's value).
+      .overlay(alignment: .bottomTrailing) {
+        if let s = item.video {
+          Text(verbatim: clock(s))
+            .font(.caption2.weight(.semibold)).monospacedDigit()
+            .foregroundStyle(.white).padding(.horizontal, 3).background(.black.opacity(0.75), in: RoundedRectangle(cornerRadius: 3))
+            .padding(2)
+            .accessibilityHidden(true)
+        }
+      }
       VStack(alignment: .leading, spacing: 2) {
         Text(item.name).foregroundStyle(.primary)
-        if let sub = item.sub { Text(sub).font(.caption).italic().foregroundStyle(.secondary) }
-        else { Text(item.kind.title).font(.caption).foregroundStyle(.secondary) }
+        // A scientific name in italics; a video series' channel; else what it is (a video guide: a video).
+        if let sub = item.sub { Text(sub).font(.caption).italic(item.kind != .video).foregroundStyle(.secondary) }
+        else { Text(item.video != nil ? HandbookIndex.Kind.video.title : item.kind.title).font(.caption).foregroundStyle(.secondary) }
       }
     }
     .accessibilityElement(children: .combine)
+    .accessibilityValue(Text(verbatim: item.video.map(clock) ?? ""))
     .accessibilityIdentifier("item")
   }
+
 }
 
 extension HandbookIndex.Kind {
@@ -113,6 +126,7 @@ extension HandbookIndex.Kind {
     case .guide: String(localized: "Hướng dẫn")
     case .glossary: String(localized: "Thuật ngữ")
     case .tool: String(localized: "Công cụ")
+    case .video: String(localized: "Video")
     }
   }
   var symbol: String {
@@ -122,6 +136,7 @@ extension HandbookIndex.Kind {
     case .guide: "book"
     case .glossary: "character.book.closed"
     case .tool: "wrench.and.screwdriver"
+    case .video: "play.rectangle"
     }
   }
 }

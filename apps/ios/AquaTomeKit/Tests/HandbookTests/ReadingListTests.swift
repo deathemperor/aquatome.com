@@ -29,4 +29,8 @@ import Testing
   #expect(ReadingList.items(read, in: byPath, kind: nil, limit: 5).map(\.path) == ["/g1/", "/f1/", "/g2/", "/f2/", "/g3/"])
   #expect(ReadingList.items(read, in: byPath, kind: .guide, limit: 5).map(\.path) == ["/g1/", "/g2/", "/g3/", "/g4/", "/g5/"])
   #expect(ReadingList.items(read, in: byPath, kind: .fish).map(\.path) == ["/f1/", "/f2/"])
+  // Narrowed to videos: a series, and a guide made from a video.
+  let videos = byPath.merging([("/v/", HandbookIndex.Item(kind: .video, name: "v", path: "/v/")),
+                               ("/gv/", HandbookIndex.Item(kind: .guide, name: "gv", path: "/gv/", video: 60))]) { a, _ in a }
+  #expect(ReadingList.items(["/g1/", "/gv/", "/v/"], in: videos, kind: .video).map(\.path) == ["/gv/", "/v/"])
 }

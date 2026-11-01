@@ -30,13 +30,57 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   let newer = Data(#"""
   {"version":1,"lang":"vi","items":[
    {"kind":"fish","id":"danio-rerio","name":"Cá ngựa vằn","path":"/vi/ca/ca-ngua-van/"},
-   {"kind":"video","name":"Trồng cây","path":"/vi/video/trong-cay/"},
+   {"kind":"podcast","name":"Trồng cây","path":"/vi/podcast/trong-cay/"},
    {"kind":"tool","name":"Đèn Chihiros","path":"/vi/cong-cu/den-chihiros/"}
   ]}
   """#.utf8)
   #expect(names(try JSONDecoder().decode(HandbookIndex.self, from: newer).items) == ["Cá ngựa vằn", "Đèn Chihiros"])
   // A format changed on purpose (a new version) isn't read as this one.
   #expect(throws: (any Error).self) { try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":2,"lang":"vi","items":[]}"#.utf8)) }
+}
+
+@Test func readsAVideoSeriesAVideoGuidesLengthAndAToolsOwnWords() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[
+   {"kind":"video","name":"Rêu hại từ A đến Z","sub":"MJ Aquascaping","path":"/vi/video/reu-hai-tu-a-den-z/","img":"https://i.ytimg.com/vi/x/hqdefault.jpg","parts":14},
+   {"kind":"guide","name":"Cách hạn chế rêu hại","path":"/vi/huong-dan/cach-han-che-reu-hai/","section":"plantCare","video":1755},
+   {"kind":"tool","name":"Bể bao nhiêu lít?","path":"/vi/cong-cu/the-tich-be/","words":["Tính thể tích bể cá: lít, gallon, độ dày kính"]},
+   {"kind":"tool","name":"Công cụ","path":"/vi/cong-cu/","words":"not a list","video":"long","parts":-0.5}
+  ]}
+  """#.utf8))
+  #expect(ix.items.map(\.kind) == [.video, .guide, .tool, .tool])
+  #expect(ix.items[0].sub == "MJ Aquascaping" && ix.items[0].parts == 14 && ix.items[0].video == nil)
+  #expect(ix.items[1].video == 1755 && ix.items[1].words.isEmpty)
+  #expect(ix.items[2].words == ["Tính thể tích bể cá: lít, gallon, độ dày kính"])
+  // A value this app can't read is left out, never the item.
+  #expect(ix.items[3].words.isEmpty && ix.items[3].video == nil && ix.items[3].parts == nil)
+  #expect(try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(ix)) == ix, "kept on the phone and read back the same")
+}
+
+@Test func aToolIsFoundByWhatItsPageSaysAfterEveryNameMatch() {
+  let s = HandbookSearch([
+    .init(kind: .tool, name: "Bể bao nhiêu lít?", path: "/vi/cong-cu/the-tich-be/", words: ["Tính thể tích bể cá: lít, gallon, độ dày kính"]),
+    // Longer than the tool's name: among equal ranks the shorter name goes first, so only the rank puts it ahead.
+    .init(kind: .glossary, name: "Dung tích thực của bể", aka: ["Thể tích bể"], path: "/vi/thuat-ngu/dung-tich/"),
+    .init(kind: .guide, name: "Tính thể tích bể", path: "/vi/huong-dan/tinh-the-tich-be/"),
+  ])
+  // The name, then another name, then the page's own words.
+  #expect(names(s.find("the tich be")) == ["Tính thể tích bể", "Dung tích thực của bể", "Bể bao nhiêu lít?"])
+  #expect(names(s.find("gallon")) == ["Bể bao nhiêu lít?"])
+  #expect(names(s.find("gallon kinh", kind: .tool)) == ["Bể bao nhiêu lít?"])
+  #expect(s.find("gallon", kind: .guide).isEmpty)
+}
+
+@Test func videosAreTheSeriesAndTheGuidesMadeFromVideos() {
+  let series = HandbookIndex.Item(kind: .video, name: "Rêu hại từ A đến Z", sub: "MJ Aquascaping", path: "/vi/video/reu/", parts: 14)
+  let video = HandbookIndex.Item(kind: .guide, name: "Cách hạn chế rêu hại", path: "/vi/huong-dan/reu-video/", video: 1755)
+  let written = HandbookIndex.Item(kind: .guide, name: "Rêu hại và cách trị", path: "/vi/huong-dan/reu/")
+  let s = HandbookSearch([series, video, written])
+  #expect(names(s.find("reu", kind: .video)) == ["Rêu hại từ A đến Z", "Cách hạn chế rêu hại"])
+  #expect(names(s.find("", kind: .video)) == ["Cách hạn chế rêu hại", "Rêu hại từ A đến Z"])
+  // A video guide is still a guide.
+  #expect(names(s.find("reu", kind: .guide)) == ["Rêu hại và cách trị", "Cách hạn chế rêu hại"])
+  #expect(video.is(.guide) && video.is(.video) && !written.is(.video) && series.is(.video) && !series.is(.guide))
 }
 
 @Test func foldsAccentsAndTheVietnameseD() {

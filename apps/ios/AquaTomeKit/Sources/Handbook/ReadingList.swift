@@ -26,7 +26,7 @@ public struct ReadingList: Codable, Equatable, Sendable {
   public static func items(_ paths: [String], in byPath: [String: HandbookIndex.Item], kind: HandbookIndex.Kind?, limit: Int = .max) -> [HandbookIndex.Item] {
     var out: [HandbookIndex.Item] = []
     for p in paths where out.count < limit {
-      if let i = byPath[p], kind == nil || i.kind == kind { out.append(i) }
+      if let i = byPath[p], kind.map(i.is) ?? true { out.append(i) }
     }
     return out
   }
