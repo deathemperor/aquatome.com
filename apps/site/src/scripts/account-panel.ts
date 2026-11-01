@@ -222,7 +222,7 @@ export function initAccount(o: { onStore: () => void }) {
     if ($('acc-ways').hidden) { await openWays(true); return }
     reauth = true
     linking = false
-    // An address being added still adds from its mail's link; its code waits until signed in again.
+    // An address being added: its code form closes, and its mail's link still adds it (until a sign-in replaces it).
     $<HTMLFormElement>('acc-code').reset()
     $('acc-code').hidden = true
     explain()
