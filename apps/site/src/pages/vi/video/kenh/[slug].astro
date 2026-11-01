@@ -1,9 +1,11 @@
 ---
 import Browse from '../../../../layouts/Browse.astro'
 import GuideCard from '../../../../components/GuideCard.astro'
+import MoreList from '../../../../components/MoreList.astro'
 import { getContent } from '../../../../lib/content'
 import { creditsFor } from '../../../../lib/credits'
 import { guideImage } from '../../../../lib/mentions'
+import { PAGE } from '../../../../scripts/filter-list'
 import { seriesGuides, videoChannels, type Channel } from '../../../../lib/video'
 import { i18n, langOf } from '../../../../lib/i18n'
 
@@ -14,10 +16,14 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { ch } = Astro.props as { ch: Channel }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
+// The channel's guides a page at a time (lib/list-data.ts guideLists: its guides, newest first), the rest from their data
+// file and on numbered pages (/vi/video/kenh/<slug>/trang/2/…).
+const first = ch.guides.slice(0, PAGE)
+const base = `/vi/video/kenh/${ch.slug}/`
 ---
 <Browse title={t('Video của {name}', { name: ch.name })} heading={t('Video của {name}', { name: ch.name })} crumbs={[['/vi/video/', t('Video')]]}
   intro={t('Bài hướng dẫn AquaTome viết từ video của kênh {name}, kèm video gốc.', { name: ch.name })}
-  noindex={!ch.guides.some(g => g.t.quality.indexable)} credits={creditsFor(ch.guides.map(g => guideImage(c, g)))}>
+  noindex={!ch.guides.some(g => g.t.quality.indexable)} credits={creditsFor(first.map(g => guideImage(c, g)))} creditsLater={ch.guides.length > PAGE}>
   <p class="meta"><a href={ch.url} rel="noopener">{t('Kênh {name} trên YouTube', { name: ch.name })}</a></p>
   {ch.series.length > 0 && (
     <section aria-labelledby="s-h">
@@ -27,7 +33,9 @@ const c = await getContent(lang)
   )}
   <section aria-labelledby="all-h">
     <h2 id="all-h">{t('Tất cả bài ({n})', { n: ch.guides.length })}</h2>
-    <div class="grid">{ch.guides.map(g => <GuideCard g={g} />)}</div>
+    {ch.guides.length > PAGE
+      ? <MoreList kind="guides" src={`/data/${lang}/guides/video/kenh/${ch.slug}.json`} total={ch.guides.length} next={`${base}trang/2/`}><div class="grid">{first.map(g => <GuideCard g={g} />)}<template id="guide-card"><GuideCard g={ch.guides[0]!} template /></template></div></MoreList>
+      : <div class="grid">{ch.guides.map(g => <GuideCard g={g} />)}</div>}
   </section>
 </Browse>
 <style>

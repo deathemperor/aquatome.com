@@ -1,0 +1,40 @@
+---
+import type { GuideEntity, Localized } from '@aq/schema'
+import Browse from '../../../../../../layouts/Browse.astro'
+import GuideCard from '../../../../../../components/GuideCard.astro'
+import PageNav from '../../../../../../components/PageNav.astro'
+import { getContent } from '../../../../../../lib/content'
+import { creditsFor } from '../../../../../../lib/credits'
+import { guideLists } from '../../../../../../lib/list-data'
+import { guideImage } from '../../../../../../lib/mentions'
+import { videoChannels } from '../../../../../../lib/video'
+import { PAGE } from '../../../../../../scripts/filter-list'
+import { i18n, langOf } from '../../../../../../lib/i18n'
+
+/**
+ * A video channel's later pages of guides, a page each (2, 3, …): what "Xem thêm" on its page links to. That page adds
+ * guides in place instead; these are for crawlers and readers without its script, so every video guide has a link to it.
+ */
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
+  const lists = guideLists(c)
+  return videoChannels(c).flatMap(ch => {
+    const guides = lists.get(`video/kenh/${ch.slug}`)!, pages = Math.ceil(guides.length / PAGE)
+    return Array.from({ length: Math.max(pages - 1, 0) }, (_, i) => ({ params: { slug: ch.slug, n: String(i + 2) }, props: { name: ch.name, guides, pages } }))
+  })
+}
+const n = Number(Astro.params.n)
+const { name, guides, pages } = Astro.props as { name: string; guides: Localized<GuideEntity>[]; pages: number }
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
+const here = guides.slice((n - 1) * PAGE, n * PAGE)
+const base = `/vi/video/kenh/${Astro.params.slug}/`
+const title = t('{name}, trang {n}', { name: t('Video của {name}', { name }), n })
+---
+<Browse title={title} heading={title} crumbs={[['/vi/video/', t('Video')], [base, t('Video của {name}', { name })]]} noindex={!here.some(g => g.t.quality.indexable)} credits={creditsFor(here.map(g => guideImage(c, g)))}>
+  <div class="grid">{here.map(g => <GuideCard g={g} />)}</div>
+  <PageNav prev={n === 2 ? base : `${base}trang/${n - 1}/`} next={n < pages ? `${base}trang/${n + 1}/` : undefined} />
+</Browse>
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-6) var(--space-5); }
+</style>

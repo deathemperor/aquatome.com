@@ -6,6 +6,7 @@ import type { Lang, T } from './i18n'
 import { smallSrc } from './img'
 import { guideImage } from './mentions'
 import { toIndexItem } from './species-index'
+import { clock, videoChannels } from './video'
 
 /**
  * The fish and plant lists' data, a file per language (/data/<lang>/species.json, /data/<lang>/plants.json) that the
@@ -81,13 +82,27 @@ export const guideWords = (t: T, c: Content, g: Localized<GuideEntity>) => ({
     : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source }),
 })
 
-/** A guide list card's address, subject (to filter on), words and picture (GuideCard: guideImage). */
-export type GuideListItem = { slug: string; kind: string; name: string; label: string; src: string; photo?: CardPhoto }
+/** A guide card's address, subject (to filter on), words and picture (GuideCard: guideImage); a video's length and label. */
+export type GuideListItem = { slug: string; kind: string; name: string; label: string; src: string; photo?: CardPhoto; video?: { dur: string; cover?: string } }
+
+/** Guides as a list's data file has them. */
+export const guideItems = (t: T, c: Content, guides: Localized<GuideEntity>[]): GuideListItem[] => guides.map(g => {
+  const p = guideImage(c, g)
+  return {
+    slug: g.t.slug, kind: g.kind, name: g.t.name, ...guideWords(t, c, g), ...(p ? { photo: cardPhoto(p) } : {}),
+    ...(g.video ? { video: { dur: clock(g.video.durationSec), ...(g.t.cover ? { cover: g.t.cover } : {}) } } : {}),
+  }
+})
 
 /** Every guide in the guide list's order (/data/<lang>/guides.json): the list's HTML has only its first page. */
-export function guideList(t: T, c: Content): GuideListItem[] {
-  return listedGuides(c).map(g => {
-    const p = guideImage(c, g)
-    return { slug: g.t.slug, kind: g.kind, name: g.t.name, ...guideWords(t, c, g), ...(p ? { photo: cardPhoto(p) } : {}) }
-  })
-}
+export const guideList = (t: T, c: Content): GuideListItem[] => guideItems(t, c, listedGuides(c))
+
+/**
+ * The other lists of guides, by the page's address under /vi/: the discovery notes ("kham-pha") and each video channel's
+ * guides, newest first ("video/kenh/mj-aquascaping"). Their pages, numbered pages and data files
+ * (/data/<lang>/guides/<list>.json) all read them.
+ */
+export const guideLists = (c: Content) => new Map<string, Localized<GuideEntity>[]>([
+  ['kham-pha', c.guides.filter(g => g.kind === 'discovery')],
+  ...videoChannels(c).map(ch => [`video/kenh/${ch.slug}`, ch.guides] as [string, Localized<GuideEntity>[]]),
+])

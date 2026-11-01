@@ -1,0 +1,42 @@
+---
+import { PAGE } from '../scripts/filter-list'
+import { i18n } from '../lib/i18n'
+/**
+ * A list longer than a page, a page at a time, with no filter (scripts/list-more.ts): the slot is a grid of the first
+ * page's cards with a template card (species: SpeciesGrid `template`; guides: GuideCard `template`). "Xem thêm" builds
+ * the next page in place from the list's data file `src`, every item in the list's order. `next`: the list's second
+ * numbered page, and "Xem thêm" is a link to it (for crawlers and readers without the script, and followed when the data
+ * file can't load); else a button, and a failure is said above it. `total`: how many items the list has.
+ */
+interface Props { kind: 'species' | 'guides'; src: string; total: number; next?: string }
+const { kind, src, total, next } = Astro.props
+const { t } = i18n(Astro.url)
+const left = total - PAGE, n = Math.min(left, PAGE)
+const words = kind === 'species' ? t('Xem thêm {n} loài (còn {left})', { n, left }) : t('Xem thêm {n} bài (còn {left})', { n, left })
+---
+<div data-paged={kind} data-src={src}>
+  <slot />
+  <p class="status" data-status aria-live="polite"></p>
+  <p class="more">{next ? <a data-more href={next}>{words}</a> : <button type="button" data-more>{words}</button>}</p>
+</div>
+<script>
+  import type { GuideListItem, SpeciesListItem } from '../lib/list-data'
+  import { ct } from '../scripts/ct'
+  import { buildGuideCard } from '../scripts/guide-card'
+  import { listMore } from '../scripts/list-more'
+  import { buildCard } from '../scripts/species-card'
+  for (const el of document.querySelectorAll<HTMLElement>('[data-paged]')) {
+    if (el.dataset.paged === 'guides') listMore<GuideListItem>(el, buildGuideCard, (n, left) => ct('Xem thêm {n} bài (còn {left})', { n, left }))
+    else listMore<SpeciesListItem>(el, buildCard, (n, left) => ct('Xem thêm {n} loài (còn {left})', { n, left }))
+  }
+</script>
+<style>
+  /* A card the data file no longer has (a page from before the last deploy): cards set their own display. */
+  [data-paged] :global([hidden]) { display: none; }
+  .status:empty { display: none; }
+  .status { color: var(--c-ink-soft); margin-top: var(--space-5); }
+  /* The guide list's "Xem thêm" (pages/vi/huong-dan), a link or a button. */
+  .more { text-align: center; margin-top: var(--space-6); }
+  .more a, .more button { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); text-decoration: none; cursor: pointer; }
+  .more a:hover, .more button:hover { background: var(--c-ink); color: var(--c-paper); }
+</style>

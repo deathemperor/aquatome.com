@@ -12,10 +12,12 @@ const series = c.series.map(s => ({ s, guides: seriesGuides(c, s) })).filter(x =
 const channels = videoChannels(c)
 const withSingles = channels.filter(ch => ch.singles.length)
 const all = c.guides.filter(isVideo)
+// The cards on the page: each series' and each channel's single videos' first four.
+const shown = [...series.flatMap(x => x.guides.slice(0, 4)), ...withSingles.flatMap(ch => ch.singles.slice(0, 4))]
 ---
 <Browse title={t('Video hướng dẫn')} heading={t('Video hướng dẫn')}
   intro={t('Bài hướng dẫn của AquaTome viết từ những video hay của các kênh nuôi cá và thủy sinh. Mỗi bài có video gốc, phụ đề tiếng Việt và các đoạn để nhảy tới phần cần xem.')}
-  credits={creditsFor(all.map(g => guideImage(c, g)))}>
+  credits={creditsFor(shown.map(g => guideImage(c, g)))}>
   {all.length === 0 && <p>{t('Chưa có video hướng dẫn nào.')}</p>}
   {series.map(({ s, guides }) => (
     <section class="series" aria-labelledby={`s-${s.vi.slug}`}>
