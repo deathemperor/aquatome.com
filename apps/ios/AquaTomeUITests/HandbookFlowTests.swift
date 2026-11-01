@@ -1,7 +1,7 @@
 import XCTest
 
-/// The handbook tab on a small fixed index (`-fixed-handbook`, HandbookIndex.fixture): searching and browsing work
-/// without the network, the same way each run.
+/// The handbook tab on a small fixed index (`-fixed-handbook`, HandbookIndex.fixture): searching and browsing (the
+/// home's shelves: fish groups, placements, the glossary) work without the network, the same way each run.
 final class HandbookFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -18,13 +18,56 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(item(app, "Cá neon").waitForExistence(timeout: 5))
   }
 
-  func testBrowsesOneKind() {
+  func testBrowsesAFishGroupNotEverything() {
     let app = launch()
+    // The home leads with ways in, not every page: the discus is a well-known fish, the zebra danio isn't.
+    XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5), "no fish groups")
+    // All the way down the home (a lazy list draws only what's on screen), then back to the groups.
+    for _ in 0..<6 {
+      XCTAssertFalse(item(app, "Cá ngựa vằn").exists, "every fish on the home")
+      app.swipeUp()
+    }
+    XCTAssertFalse(item(app, "Cá ngựa vằn").exists, "every fish on the home")
+    for _ in 0..<8 where !shelf(app, "Cichlid").isHittable { app.swipeDown() }
+    shelf(app, "Cichlid").tap()
+    XCTAssertTrue(app.navigationBars["Cichlid"].waitForExistence(timeout: 5))
     XCTAssertTrue(item(app, "Cá đĩa").waitForExistence(timeout: 5))
-    app.buttons["kind"].tap()
-    app.buttons["Cây"].tap()
+    XCTAssertFalse(item(app, "Cá neon").exists)
+  }
+
+  func testBrowsesEveryFishAndThePlantsByWhereTheyGo() {
+    let app = launch()
+    let all = app.descendants(matching: .any)["all-fish"]
+    XCTAssertTrue(all.waitForExistence(timeout: 5))
+    XCTAssertTrue(all.label.hasPrefix("Tất cả loài"), all.label)
+    all.tap()
+    for name in ["Cá đĩa", "Cá neon", "Cá ngựa vằn"] { XCTAssertTrue(item(app, name).waitForExistence(timeout: 5), name) }
+    XCTAssertFalse(item(app, "Rotala đỏ").exists, "a plant among the fish")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    shelf(app, "Hậu cảnh").tap()
     XCTAssertTrue(item(app, "Rotala đỏ").waitForExistence(timeout: 5))
     XCTAssertFalse(item(app, "Cá đĩa").exists)
+  }
+
+  func testSearchesOneKind() {
+    let app = launch()
+    search(app, "neon")
+    XCTAssertTrue(item(app, "Cá neon").waitForExistence(timeout: 5))
+    app.buttons["Hướng dẫn"].firstMatch.tap()
+    XCTAssertTrue(item(app, "Nuôi cá neon trong bể nhỏ").waitForExistence(timeout: 5))
+    XCTAssertFalse(item(app, "Cá neon").exists, "a fish among the guides")
+  }
+
+  func testTheGlossaryGoesByLetter() {
+    let app = launch()
+    XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
+    // The last section: drawn once it's scrolled to.
+    let all = app.descendants(matching: .any)["all-glossary"]
+    for _ in 0..<6 where !(all.exists && all.isHittable) { app.swipeUp() }
+    all.tap()
+    XCTAssertTrue(app.navigationBars["Thuật ngữ"].waitForExistence(timeout: 5))
+    XCTAssertTrue(app.staticTexts["Đ"].exists, "no letter")
+    XCTAssertTrue(item(app, "Đệm pH").exists)
   }
 
   func testTheChihirosToolOpensTheLightsTab() {
@@ -62,6 +105,11 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
     field.typeText(text)
+  }
+
+  /// A way into a shelf on the home (a fish group, a placement, a subject), by its word.
+  private func shelf(_ app: XCUIApplication, _ label: String) -> XCUIElement {
+    app.descendants(matching: .any).matching(identifier: "shelf").matching(NSPredicate(format: "label BEGINSWITH %@", label)).firstMatch
   }
 
   /// A result row, by its name (the row reads its name, then its scientific name or kind).

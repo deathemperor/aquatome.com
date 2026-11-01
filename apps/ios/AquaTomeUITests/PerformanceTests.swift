@@ -19,9 +19,9 @@ final class PerformanceTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = args
     app.launch()
-    app.buttons["kind"].tap()
-    app.buttons["Loài cá"].tap()
-    let list = app.collectionViews.firstMatch
+    // Every fish: the home's "Tất cả loài", as photo cards.
+    app.descendants(matching: .any)["all-fish"].tap()
+    let list = app.scrollViews["shelf-pages"]
     XCTAssertTrue(list.waitForExistence(timeout: 5))
     let options = XCTMeasureOptions()
     options.invocationOptions = [.manuallyStop]

@@ -545,6 +545,22 @@
         }
       }
     },
+    "Bắt đầu từ đây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mulai dari sini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เริ่มต้นที่นี่"
+          }
+        }
+      }
+    },
     "Bể": {
       "localizations": {
         "id": {
@@ -1271,6 +1287,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tanaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม้น้ำ"
+          }
+        }
+      }
+    },
+    "Cây dễ trồng, không cần CO₂": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanaman mudah, tanpa CO₂"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม้น้ำปลูกง่าย ไม่ต้องใช้ CO₂"
+          }
+        }
+      }
+    },
+    "Cây thủy sinh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanaman air"
           }
         },
         "th": {
@@ -2401,18 +2449,18 @@
         }
       }
     },
-    "Loại": {
+    "Loài quen thuộc": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jenis"
+            "value": "Spesies populer"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ประเภท"
+            "value": "สายพันธุ์ยอดนิยม"
           }
         }
       }
@@ -3789,6 +3837,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ทั้งหมด"
+          }
+        }
+      }
+    },
+    "Tất cả hướng dẫn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua panduan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คู่มือทั้งหมด"
+          }
+        }
+      }
+    },
+    "Tất cả loài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua spesies"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ทุกสายพันธุ์"
           }
         }
       }
