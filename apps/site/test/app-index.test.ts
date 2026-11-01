@@ -77,6 +77,8 @@ test('guides carry their subject and the fish and plants they name, as their pag
   const first = guides.find(g => g.path === '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')!
   expect(first.section).toBe('setup')
   expect(first.about).toEqual(expect.arrayContaining(['paracheirodon-innesi', 'anubias-barteri-nana']))
+  // A fish its text names, with no tag from the engine (entity.json `mentions` is empty): from the page's own links.
+  expect(guides.find(g => g.path === '/vi/huong-dan/thay-nuoc-dung-cach/')?.about).toEqual(['paracheirodon-axelrodi'])
   // A video guide names what it shows, even when its text doesn't.
   const video = guides.find(g => g.about?.includes('neocaridina-davidi') && g.section === 'plantCare')
   expect(video, 'the shrimp a plant video shows').toBeDefined()

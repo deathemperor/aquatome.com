@@ -26,7 +26,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     /// A guide's subject, as the site's guide list groups them: "setup", "care", "plantCare", "aquascaping",
     /// "breeding", "disease", "discovery", or one a newer site adds.
     public let section: String?
-    /// The fish and plants a guide names, by content id (what a tank lists them by).
+    /// The species and plants a guide names, by content id (what a tank lists them by); not breeds.
     public let about: [String]
     public var id: String { path }
 
