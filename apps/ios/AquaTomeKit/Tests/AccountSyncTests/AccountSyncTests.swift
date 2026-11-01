@@ -105,7 +105,9 @@ func email() async throws {
   // A Turnstile token passes once: the app asks the page for another before each code.
   await #expect(throws: AccountError.refused("turnstile")) { _ = try await api.emailStart("reader@example.com", turnstile: "t-1", lang: "vi") }
   await #expect(throws: AccountError.refused("bad_code")) { _ = try await api.emailVerify(flow: flow, code: "000000") }
-  let first = try await api.emailVerify(flow: flow, code: FakeAccounts.emailCode)
+  // Typed with a space or a dash, or pasted from the mail: sent as its six digits.
+  #expect(AccountsClient.codeDigits("123 456") == "123456" && AccountsClient.codeDigits("12-34-56\n") == "123456" && AccountsClient.codeDigits("๑๒๓") == "")
+  let first = try await api.emailVerify(flow: flow, code: "123 456")
   #expect(first.user.methods.map(\.kind) == ["email"])
   await #expect(throws: AccountError.refused("bad_code")) { _ = try await api.emailVerify(flow: flow, code: FakeAccounts.emailCode) }
 

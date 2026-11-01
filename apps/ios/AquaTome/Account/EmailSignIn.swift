@@ -1,3 +1,4 @@
+import AccountSync
 import SwiftUI
 import WebKit
 
@@ -28,7 +29,7 @@ struct EmailSignIn: View {
               .focused($codeFocused)
               .accessibilityIdentifier("email-code")
             Button("Đăng nhập") { Task { if await account.verify(code: code) { dismiss() } } }
-              .disabled(code.filter(\.isNumber).count != 6 || account.working)
+              .disabled(AccountsClient.codeDigits(code).count != 6 || account.working)
               .accessibilityIdentifier("verify-code")
             Button("Gửi lại mã") {
               account.cancelEmail()
@@ -69,7 +70,8 @@ struct EmailSignIn: View {
         ToolbarItem(placement: .cancellationAction) { Button("Hủy") { dismiss() } }
       }
     }
-    .onDisappear { account.cancelEmail() }
+    .onAppear { account.emailOpened() }
+    .onDisappear { account.emailClosed() }
   }
 
   private func send() {
@@ -157,7 +159,10 @@ private struct TurnstileWeb: UIViewRepresentable {
       } else {
         // Expired, or the check failed: no token until a new one comes.
         view.token = nil
-        if o["error"] != nil { view.failed = true }
+        guard let error = o["error"] as? String else { return }
+        view.failed = true
+        // Cloudflare's script didn't load, or there's no widget: trying again loads the page again, not `again()`.
+        if ["load", "render", "none"].contains(error) { loaded = false }
       }
     }
 
@@ -173,7 +178,16 @@ private struct TurnstileWeb: UIViewRepresentable {
       return ours ? .allow : .cancel
     }
 
+    /// The server's error page (email sign-in off, accounts off, a server error) holds no check: not loaded.
+    func webView(_ web: WKWebView, decidePolicyFor response: WKNavigationResponse) async -> WKNavigationResponsePolicy {
+      guard response.isForMainFrame, let http = response.response as? HTTPURLResponse, !(200..<300).contains(http.statusCode) else { return .allow }
+      notLoaded()
+      return .cancel
+    }
+
     func webView(_ web: WKWebView, didFinish navigation: WKNavigation!) { loaded = true }
+    /// iOS ended the page's process (the app in the background a while): the check is gone with it.
+    func webViewWebContentProcessDidTerminate(_ web: WKWebView) { notLoaded() }
     func webView(_ web: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) { notLoaded() }
     func webView(_ web: WKWebView, didFail navigation: WKNavigation!, withError error: Error) { notLoaded() }
 

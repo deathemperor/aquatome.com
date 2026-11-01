@@ -154,10 +154,13 @@ public struct AccountsClient: Sendable {
     return flow
   }
 
-  /// Signs in with the emailed code (401 `bad_code`: wrong, used or expired). The token this phone had, if any, goes
-  /// along: the server ends that session.
+  /// The code as the server takes it: its ASCII digits ("123 456" and "123-456" are 123456). Six of them, or it isn't one.
+  public static func codeDigits(_ typed: String) -> String { String(typed.unicodeScalars.filter { ("0"..."9").contains($0) }) }
+
+  /// Signs in with the emailed code (401 `bad_code`: wrong, used or expired), sent as its digits. The token this phone
+  /// had, if any, goes along: the server ends that session.
   public func emailVerify(flow: String, code: String, replacing token: String? = nil) async throws -> SignedIn {
-    let o = try await call("POST", "/api/v1/auth/email/verify", token: token, body: ["flow": .string(flow), "code": .string(code), "client": .string("app")])
+    let o = try await call("POST", "/api/v1/auth/email/verify", token: token, body: ["flow": .string(flow), "code": .string(Self.codeDigits(code)), "client": .string("app")])
     guard let token = o["token"]?.string else { throw AccountError.badReply }
     return SignedIn(user: try AccountUser(o["user"]), token: token)
   }

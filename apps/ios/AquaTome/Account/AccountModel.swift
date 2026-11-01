@@ -43,6 +43,8 @@ final class AccountModel {
   @ObservationIgnored private var token: String?
   /// The secret the emailed code works with: in memory only.
   @ObservationIgnored private var flow: String?
+  /// Counts the email sign-ins started and closed: a code asked for by one closed since is dropped.
+  @ObservationIgnored private var emailRun = 0
   @ObservationIgnored private var later: Task<Void, Never>?
   @ObservationIgnored private var again = false
   /// The store as the last sync left it: a change seen after that is the reader's, and is sent.
@@ -126,12 +128,16 @@ final class AccountModel {
     defer { working = false }
     message = nil
     let address = email.trimmingCharacters(in: .whitespacesAndNewlines)
+    let run = emailRun
     do {
-      flow = try await api.emailStart(address, turnstile: turnstile, lang: Self.lang)
+      let f = try await api.emailStart(address, turnstile: turnstile, lang: Self.lang)
+      // Closed ("Hủy") while it was on its way: the next opening starts from the address again.
+      guard run == emailRun else { return false }
+      flow = f
       codeSentTo = address
       return true
     } catch {
-      say(problem(error), bad: true)
+      if run == emailRun { say(problem(error), bad: true) }
       return false
     }
   }
@@ -143,10 +149,11 @@ final class AccountModel {
     defer { working = false }
     message = nil
     do {
-      let s = try await api.emailVerify(flow: flow, code: code.trimmingCharacters(in: .whitespaces), replacing: token)
+      let s = try await api.emailVerify(flow: flow, code: code, replacing: token)
       try keychain.save(s.token)
       token = s.token
-      cancelEmail()
+      // The code step stays until the sheet closes (`emailClosed`), so the address form doesn't flash in its place.
+      self.flow = nil
       state = .signedIn(s.user)
       await sync(first: true)
       return true
@@ -156,10 +163,25 @@ final class AccountModel {
     }
   }
 
-  /// Back to the address (another code, or another address), or the sheet closed.
+  /// Back to the address, for another code or another address.
   func cancelEmail() {
+    emailRun += 1
     flow = nil
     codeSentTo = nil
+    message = nil
+  }
+
+  /// The email sheet opened: what was said before is about something else.
+  func emailOpened() {
+    if user == nil { message = nil }
+  }
+
+  /// The email sheet closed. Not signed in ("Hủy"): its messages go with it. Signed in: what the first sync said stays.
+  func emailClosed() {
+    emailRun += 1
+    flow = nil
+    codeSentTo = nil
+    if user == nil { message = nil }
   }
 
   /// Sends the phone's store and takes back the account's. One at a time: a change during a sync is sent after it.
