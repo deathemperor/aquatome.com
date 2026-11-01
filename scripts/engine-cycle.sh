@@ -97,7 +97,9 @@ if part pages sf photos; then
   pnpm engine faces || log "faces: failed (unscreened photos may publish)"
 fi
 if part photos; then
-  # Every page photo must show its species (a tankmate or a whole tank gets rejected); a typical photo leads the page.
+  # Every photo on a species, plant or breed page and its gallery must show that subject (another fish, a map or a tank
+  # gets removed; can't-tell is listed in docs/review/photo-subjects.md); a typical photo leads the page. Most-read pages
+  # first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
   # and plants: iNaturalist, then Commons, GBIF, Openverse; open licences, screened (right species, no faces). GALLERY_SHEETS

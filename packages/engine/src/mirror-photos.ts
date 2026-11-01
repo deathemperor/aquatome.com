@@ -53,7 +53,7 @@ async function files(content: string) {
 }
 
 /** Caches keyed by photo URL: a mirrored photo keeps its verdicts (no second vision call), and the old URL stays known. */
-const URL_KEYED = ['_photo-check.json', '_photo-faces.json', '_photo-rejected.json', '_photo-watermarks.json']
+const URL_KEYED = ['_photo-check.json', '_photo-faces.json', '_photo-rejected.json', '_photo-subjects.json', '_photo-watermarks.json']
 
 /**
  * Commons, iNaturalist, Flickr and GBIF photos are served from our media bucket instead of hot-linked: their hosts set third-party
