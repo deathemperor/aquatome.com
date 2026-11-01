@@ -51,6 +51,9 @@ importers:
       '@types/turndown':
         specifier: ^5.0.6
         version: 5.0.6
+      esbuild:
+        specifier: 0.28.2
+        version: 0.28.2
       lighthouse:
         specifier: 13.6.0
         version: 13.6.0(ajv@8.20.0)(supports-color@10.2.2)(yauzl@2.10.0)

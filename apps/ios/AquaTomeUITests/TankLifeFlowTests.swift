@@ -81,7 +81,10 @@ final class TankLifeFlowTests: XCTestCase {
     app.buttons["put-save"].tap()
     XCTAssertTrue(life(app, "Cá ngựa vằn").label.contains("× 10"), life(app, "Cá ngựa vằn").label)
 
-    life(app, "Rotala đỏ").swipeLeft()
+    // The tank's screen has grown (the check above, the guides below): the plant may be under the tab bar.
+    let rotala = life(app, "Rotala đỏ")
+    for _ in 0..<4 where !(rotala.exists && rotala.isHittable) { app.swipeUp() }
+    rotala.swipeLeft()
     app.buttons["Xóa"].tap()
     XCTAssertTrue(life(app, "Rotala đỏ").waitForNonExistence(timeout: 5), "the plant is still on the tank")
 

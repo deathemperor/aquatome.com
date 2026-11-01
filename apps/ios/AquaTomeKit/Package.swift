@@ -15,6 +15,7 @@ let package = Package(
     .library(name: "Handbook", targets: ["Handbook"]),
     .library(name: "AccountSync", targets: ["AccountSync"]),
     .library(name: "Plugs", targets: ["Plugs"]),
+    .library(name: "TankCheck", targets: ["TankCheck"]),
   ],
   targets: [
     // Chihiros lights: the frames and replies (pure), no Bluetooth.
@@ -39,5 +40,9 @@ let package = Package(
     // the simulator.
     .target(name: "Plugs", dependencies: ["Tanks"], swiftSettings: small),
     .testTarget(name: "PlugsTests", dependencies: ["Plugs", "Tanks"]),
+    // A tank's fish checked as the site's tank-mates tool checks them: the site's own code, bundled into tank-check.js by
+    // apps/site/scripts/app-tank-check.mjs, run in JavaScriptCore.
+    .target(name: "TankCheck", dependencies: ["Handbook"], resources: [.copy("tank-check.js")], swiftSettings: small),
+    .testTarget(name: "TankCheckTests", dependencies: ["TankCheck", "Handbook"]),
   ]
 )
