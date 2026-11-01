@@ -134,7 +134,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   }
 
   /// The site's words, in the index's language, for each key items carry: by key, then by value ("group" → "tetras" →
-  /// "Cá tetra"). A key or value missing is nil, for the app to fall back on.
+  /// "Cá tetra"). A key or value missing is nil, for the app to fall back on. "difficulty" is a plant's ("1" to "3"),
+  /// not a fish's 1–8.
   public struct Labels: Codable, Sendable, Equatable {
     public var words: [String: [String: String]]
     public init(_ words: [String: [String: String]] = [:]) { self.words = words }

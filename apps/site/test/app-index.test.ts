@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import type { AppIndex } from '../src/lib/app-index'
+import { breedGroup, type AppIndex } from '../src/lib/app-index'
 import { LANGS } from '../src/lib/i18n'
 import { DIST, page } from './dist'
 
@@ -96,8 +96,8 @@ test('fish come in the site\'s list order with their group, a breed with its par
   expect(fish.slice(0, 3).map(i => i.id)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi', 'symphysodon-aequifasciatus'])
   expect(fish.find(i => i.id === 'paracheirodon-axelrodi')?.group).toBe('tetras')
   expect(fish.filter(i => i.sub).every(i => typeof i.group === 'string'), 'every species has its group').toBe(true)
-  // A breed with no parent species named has none.
-  expect(fish.find(i => i.id === 'pigeon-blood-discus')).not.toHaveProperty('group')
+  // A colour form takes the group of the species it's a form of (as its page links it).
+  expect(fish.find(i => i.id === 'pigeon-blood-discus')?.group).toBe('cichlids')
   expect(vi.find(i => i.id === 'anubias-barteri-nana')?.plant).toEqual({ difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['foreground', 'epiphyte'] })
   expect(vi.filter(i => i.kind !== 'plant').some(i => 'plant' in i)).toBe(false)
   expect(vi.filter(i => i.kind !== 'fish').some(i => 'group' in i)).toBe(false)
@@ -133,6 +133,15 @@ test('the home picks are the site home\'s, of what the index lists: groups with 
   expect(home.plants.map(p => byPath.get(p)?.id)).toEqual(['cryptocoryne-wendtii', 'anubias-barteri-nana', 'micranthemum-monte-carlo'])
   expect(home.guides[0]).toBe('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
   expect(home.guides.every(p => byPath.get(p)?.kind === 'guide')).toBe(true)
-  // A language without fish and plant pages has no picks for them.
+  // The fixture lists no fish or plants in Indonesian: no picks for them.
   expect(index('id').home).toMatchObject({ groups: [], fish: [], plants: [] })
+})
+
+test('a breed\'s group: what it\'s a form of first (a species, or a breed in turn), else a parent species', () => {
+  const groups = new Map([['betta-splendens', 'labyrinth'], ['symphysodon-aequifasciatus', 'cichlids'], ['carassius-auratus', 'other']])
+  const breeds = [{ id: 'halfmoon-betta', basedOn: 'betta-splendens', parents: [] }, { id: 'loop-a', basedOn: 'loop-b', parents: [] }, { id: 'loop-b', basedOn: 'loop-a', parents: [] }]
+  expect(breedGroup({ basedOn: 'halfmoon-betta', parents: [] }, groups, breeds)).toBe('labyrinth')
+  expect(breedGroup({ parents: [{ name: 'Amphilophus trimaculatus', certain: true }, { name: 'Cá đĩa', species: 'symphysodon-aequifasciatus', certain: false }] }, groups, breeds)).toBe('cichlids')
+  expect(breedGroup({ basedOn: 'unknown', parents: [{ name: 'x', species: 'carassius-auratus', certain: true }] }, groups, breeds)).toBe('other')
+  expect(breedGroup({ basedOn: 'loop-a', parents: [] }, groups, breeds), 'a loop ends').toBeUndefined()
 })

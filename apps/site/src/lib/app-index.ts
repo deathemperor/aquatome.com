@@ -1,4 +1,4 @@
-import { QUALITY_THRESHOLD, type Content, type Photo, type PlantEntity, type Traits } from '@aq/schema'
+import { QUALITY_THRESHOLD, type BreedEntity, type Content, type Photo, type PlantEntity, type Traits } from '@aq/schema'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
@@ -46,11 +46,17 @@ export type AppIndex = { version: 1; lang: Lang; items: AppItem[]; home: AppHome
  * (with a photo of one of them), then fish, plants and guides by their path in this index.
  */
 export type AppHome = { groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[] }
-/** The site's words for each key the items carry (fish groups, guide subjects, plant care), in this language. */
+/**
+ * The site's words for each key the items carry (fish groups, guide subjects, plant care), in this language.
+ * `difficulty` is a plant's (1–3, as a string key), not a fish's 1–8.
+ */
 export type AppLabels = Record<'group' | 'section' | 'difficulty' | 'light' | 'co2' | 'growth' | 'placement', Record<string, string>>
 
-/** `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. */
-export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map()): AppIndex {
+/**
+ * `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. `everySpecies`: the species of
+ * every language (the Vietnamese content's), so a breed gets its species' group even where that species has no page.
+ */
+export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map(), everySpecies: Content['species'] = c.species): AppIndex {
   const t = translator(lang)
   const at = (viPath: string) => localizePath(lang, viPath)
   const img = (photos: Photo[]) => (photos[0] ? smallSrc(photos[0]) : undefined)
@@ -63,7 +69,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     // A thin page (depth.ts) is out of search engines, not out of the app: its translation passed, it is only short.
     const listed = (q: Content['species'][number]['t']['quality']) => q.indexable || (q.reason === 'thin' && q.score >= QUALITY_THRESHOLD)
     // A group the site has no word for (a handful of fish) is "Loài khác", as the app shows it.
-    const groupOf = new Map(c.species.map(s => [s.id, s.group in GROUP_LABELS ? s.group : 'other']))
+    const groupOf = new Map(everySpecies.map(s => [s.id, s.group in GROUP_LABELS ? s.group : 'other']))
     for (const s of listOrder(lang, c)) {
       if (!listed(s.t.quality)) continue
       const f = toIndexItem(s, traits.get(s.id))
@@ -71,8 +77,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       items.push(clean({ kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), group: groupOf.get(s.id), ...facts }))
     }
     for (const b of c.breeds) {
-      const group = b.parents.map(p => p.species && groupOf.get(p.species)).find(g => g)
-      if (listed(b.t.quality)) items.push(clean({ kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group }))
+      if (listed(b.t.quality)) items.push(clean({ kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds) }))
     }
     home.groups = groupTiles(lang, c).map(g => (g.photo ? { id: g.group, img: smallSrc(g.photo) } : { id: g.group }))
     home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
@@ -110,6 +115,21 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const groups = new Set(items.map(i => i.group))
   home.groups = home.groups.filter(g => groups.has(g.id))
   return { version: 1, lang, items, home, labels }
+}
+
+/**
+ * A breed's group: that of what it's a form of (`basedOn`: a species, or a breed in turn, as the breed pages link it),
+ * else of a parent species (a hybrid's).
+ */
+export function breedGroup(b: Pick<BreedEntity, 'basedOn' | 'parents'>, groupOf: Map<string, string>, breeds: Pick<BreedEntity, 'id' | 'basedOn' | 'parents'>[], seen = new Set<string>()): string | undefined {
+  const base = b.basedOn
+  if (base && !seen.has(base)) {
+    seen.add(base)
+    const parent = breeds.find(x => x.id === base)
+    const g = groupOf.get(base) ?? (parent && breedGroup(parent, groupOf, breeds, seen))
+    if (g) return g
+  }
+  return b.parents.map(p => p.species && groupOf.get(p.species)).find(g => g)
 }
 
 /** Leaves out empty fields, so the file stays small. */
