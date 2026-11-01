@@ -105,6 +105,29 @@ public final class LightSession {
     }
   }
 
+  /// Back to the schedule after levels set by hand. A schedule this app wrote (`known`) is written again as it was (the
+  /// same frames as `writeSchedule`), so it surely runs; one set by the My Chihiros app can't be written again (the app
+  /// doesn't know it), so the light only goes back to its sunrise/sunset mode, which keeps it (`resumeSchedule`). As the
+  /// site's page does. Returns the snapshot read after a rewrite.
+  @discardableResult
+  public func backToSchedule(_ known: Schedule?, now: Date = Date()) async throws -> Snapshot? {
+    guard let known, canWriteSchedule else {
+      try await resumeSchedule()
+      return nil
+    }
+    return try await writeSchedule(known, now: now)
+  }
+
+  /// One frame: the light leaves manual mode and runs whatever schedule it holds (chihiros-led-control's
+  /// `switchToScene`). Safe to send when the app may be stopped any moment (going to the background): nothing is
+  /// cleared, so a cut-off send can't leave the light without a schedule.
+  public func resumeSchedule() async throws {
+    try await exclusive {
+      self.isManual = false
+      try await self.send { Frame.setMode(Mode.scene, id: $0) }
+    }
+  }
+
   public func disconnect() { link.disconnect() }
 
   /// Commands run one at a time, each whole: a slider moved during a schedule write waits until the write is done,

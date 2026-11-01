@@ -39,6 +39,9 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   python3 scripts/check-strings.py ~/Library/Developer/Xcode/DerivedData/AquaTome-*   # translations
   ```
 
+  The lights flows (`AquaTomeUITests/LightFlowTests`) follow the site's Chihiros page; the fake light's launch arguments
+  (a slow or lost clock, old firmware, a drop, no Bluetooth…) are listed on `FakeRadio` (`AquaTome/Lights/Radio.swift`).
+
 - **A real iPhone:** copy `Config/Local.xcconfig.example` to `Config/Local.xcconfig` and put your team ID in it. The
   public project never holds the team ID.
 
@@ -84,7 +87,7 @@ Debug builds, so they don't see it.
 
 | Module | What |
 | --- | --- |
-| `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), `LightSession` (the order and pace the light accepts), `FakeLight` (tests, simulator) |
+| `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), `LightSession` (the order and pace the light accepts, and going back to the schedule after levels set by hand), `FakeLight` (tests, simulator) |
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`) |

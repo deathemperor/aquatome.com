@@ -30,3 +30,10 @@ func sched(_ on: String, _ off: String, ramp: Int) -> Schedule {
   #expect(sched("08:00", "20:00", ramp: -1).problem == .rampOutOfRange)
   #expect(sched("12:00", "13:00", ramp: 31).problem == .rampTooLong)
 }
+
+@Test func levelsFitAnotherLight() {
+  #expect(fit([20, 60, 40], to: 1) == [60]) // a white-only light: the brightest, not the first
+  #expect(fit([70, 50, 60], to: 4) == [70, 50, 60, 70])
+  #expect(fit([70, 50, 60, 40], to: 3) == [70, 50, 60])
+  #expect(fit([], to: 3) == [0, 0, 0])
+}
