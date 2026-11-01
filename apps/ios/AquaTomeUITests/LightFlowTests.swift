@@ -321,10 +321,8 @@ final class LightFlowTests: XCTestCase {
     expect(app, "level-2", value: "53%")
     // One brightness for every channel: the mix stays the look.
     // Down to almost nothing and back up: the look as it is at full, not a mix rounded low (100/80/80) or at 70%
-    // (100/80/76). Not to 0%, which is no look at all, as on the site: a drag is only "best effort" (XCUIElement), and
-    // one aimed at 5% landed on 0% on CI's iPhone.
-    scrolledTo(app, "master").adjust(toNormalizedSliderPosition: 0.1)
-    let low = element(app, "master").value as? String
+    // (100/80/76). Not to 0%, which is no look at all, as on the site.
+    let low = slideLow(app, "master")
     XCTAssertFalse(["70%", "0%"].contains(low ?? ""), "the brightness at \(low ?? "?"), not low and above 0")
     XCTAssertTrue(element(app, "look-red").isSelected, "the mix changed with the brightness (at \(low ?? "?"))")
     slideToEnd(app, "master")
@@ -615,6 +613,18 @@ final class LightFlowTests: XCTestCase {
 
   private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement {
     app.descendants(matching: .any).matching(identifier: id).firstMatch
+  }
+
+  /// A slider dragged low but not to 0%, and what it then reads. A drag is only "best effort" (XCUIElement): ones aimed
+  /// at 5% and at 10% landed on 0% on CI, so it is aimed a little higher each time until the slider reads above 0%.
+  private func slideLow(_ app: XCUIApplication, _ id: String) -> String? {
+    var value: String?
+    for position in [0.1, 0.15, 0.2, 0.3] {
+      scrolledTo(app, id).adjust(toNormalizedSliderPosition: position)
+      value = element(app, id).value as? String
+      if let v = value, let n = Int(v.dropLast()), n > 0, n < 50 { break }
+    }
+    return value
   }
 
   /// A slider dragged to 100%. A drag is only "best effort" (XCUIElement): one aimed at the end stopped at 87% on CI, so
