@@ -357,13 +357,15 @@ test('export: the account, its sign-in methods and its tanks; delete: all of it,
   const { cookie, json: { user } } = await google('g-1')
   const t = V.valid.find(c => c.kind === 'tank')!.value
   await call('POST', '/api/v1/tanks/sync', { cookie, body: { store: store([t]) } })
+  await db.prepare(`INSERT INTO plug_links (user_id, provider, provider_uid, created_at) VALUES (?, 'tuya', 'tuya-uid-secret-ish', ?)`).bind(user.id, NOW.toISOString()).run()
   const ex = await call('GET', '/api/v1/account/export', { cookie })
   expect(ex.headers.get('content-disposition')).toMatch(/^attachment; filename="aquatome-2026-11-01\.json"$/)
-  expect(ex.json).toMatchObject({ user: { id: user.id, methods: [{ kind: 'google' }] }, tanks: store([t]) })
+  expect(ex.json).toMatchObject({ user: { id: user.id, methods: [{ kind: 'google' }] }, tanks: store([t]), plugLinks: [{ provider: 'tuya', linkedAt: NOW.toISOString() }] })
+  expect(JSON.stringify(ex.json)).not.toContain('tuya-uid-secret-ish')
   const del = await call('DELETE', '/api/v1/account', { cookie })
   expect(del.status).toBe(204)
   expect(del.headers.get('set-cookie')).toMatch(/^__Host-aq_session=; Path=\/; Max-Age=0/)
-  for (const table of ['users', 'credentials', 'sessions', 'tank_records']) expect((await db.prepare(`SELECT COUNT(*) AS n FROM ${table}`).first<{ n: number }>())!.n, table).toBe(0)
+  for (const table of ['users', 'credentials', 'sessions', 'tank_records', 'plug_links']) expect((await db.prepare(`SELECT COUNT(*) AS n FROM ${table}`).first<{ n: number }>())!.n, table).toBe(0)
   expect((await call('GET', '/api/v1/session', { cookie })).json.user).toBeNull()
 })
 

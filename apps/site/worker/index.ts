@@ -15,6 +15,7 @@ import { prefersMarkdown } from './markdown'
 import { deleteRoute, listPhotos, photosAdmin, photosLive, postPhoto, recentPhotos, removePhoto } from './photos'
 import { accounts, depsFor, type AccountDeps, type AccountsEnv } from './accounts/api'
 import { APP_SITE_ASSOCIATION } from './accounts/passkey'
+import { plugs, type PlugsEnv } from './plugs/api'
 import { purgeExpired } from './accounts/ratelimit'
 
 export interface Env {
@@ -36,7 +37,7 @@ export interface Env {
   UPLOADS?: R2Bucket
   MEDIA?: R2Bucket
 }
-type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv
+type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv & PlugsEnv
 const MAX_EVENT_BYTES = 4096
 
 function finish(res: Response, env: Env, extra: Record<string, string> = {}): Response {
@@ -155,6 +156,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
       : new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary, 'cache-control': 'private, no-store' } }), env)
   }
   if (url.pathname === '/_e') return events(req, env)
+  if (url.pathname === '/api/v1/plugs' || url.pathname.startsWith('/api/v1/plugs/')) return finish(await plugs(req, url, env, new Date()), env)
   if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps ?? depsFor(env)), env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)

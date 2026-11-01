@@ -60,6 +60,8 @@ type Live = AccountsEnv & { DB: D1Database; ACCOUNT_HMAC_KEY: string }
 const ready = (env: AccountsEnv): env is Live => Boolean(env.DB && env.ACCOUNT_HMAC_KEY)
 const switchedOn = (env: AccountsEnv, req: Request) =>
   env.ACCOUNTS === 'on' || (env.ACCOUNTS === 'preview' && /(?:^|;\s*)aq_owner=1(?:;|$)/.test(req.headers.get('cookie') ?? ''))
+/** Accounts are on for this request: the other /api/v1 modules (worker/plugs) answer under the same switch. */
+export const accountsOn = (env: AccountsEnv, req: Request): env is Live => ready(env) && switchedOn(env, req)
 
 /** What the page and the app may offer: providers with their public client ids, email when it can send and check Turnstile. */
 function providers(env: Live, deps: AccountDeps) {
@@ -270,7 +272,9 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
   }
 
   if (route === 'GET /api/v1/account/export') {
-    const data = { exportedAt: now.toISOString(), user: await userView(db, session.userId), tanks: await loadStore(db, session.userId) }
+    // Plug links: which makers are linked and since when (worker/plugs); never their tokens.
+    const plugLinks = (await db.prepare(`SELECT provider, created_at AS linkedAt FROM plug_links WHERE user_id = ? ORDER BY provider`).bind(session.userId).all<{ provider: string; linkedAt: string }>()).results
+    const data = { exportedAt: now.toISOString(), user: await userView(db, session.userId), tanks: await loadStore(db, session.userId), plugLinks }
     return json(data, 200, { 'content-disposition': `attachment; filename="aquatome-${now.toISOString().slice(0, 10)}.json"` })
   }
   if (route === 'DELETE /api/v1/account') {

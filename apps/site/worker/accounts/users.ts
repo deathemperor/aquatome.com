@@ -51,7 +51,7 @@ export async function methodsOf(db: D1Database, userId: string): Promise<Method[
 export async function deleteUser(db: D1Database, userId: string): Promise<void> {
   await db.batch([
     db.prepare(`DELETE FROM auth_challenges WHERE user_id = ? OR (kind = 'email' AND value IN (SELECT email_hash FROM credentials WHERE user_id = ? AND email_hash IS NOT NULL))`).bind(userId, userId),
-    ...['tank_records', 'credentials', 'sessions'].map(t => db.prepare(`DELETE FROM ${t} WHERE user_id = ?`).bind(userId)),
+    ...['tank_records', 'plug_links', 'credentials', 'sessions'].map(t => db.prepare(`DELETE FROM ${t} WHERE user_id = ?`).bind(userId)),
     db.prepare(`DELETE FROM users WHERE id = ?`).bind(userId),
   ])
 }

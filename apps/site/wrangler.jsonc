@@ -15,6 +15,9 @@
   // ACCOUNT_HMAC_KEY secret, migration 0004, and per provider GOOGLE_CLIENT_IDS / APPLE_CLIENT_IDS (public ids, below); email
   // also Turnstile and the EMAIL binding (Cloudflare Email Sending, aquatome.com onboarded); revoking Apple tokens when an
   // account is deleted, the APPLE_SIGNIN_KEY secret (Key ID and team below).
+  // Smart plugs (/api/v1/plugs/*, worker/plugs/, docs/smart-plugs.md): accounts, migration 0005, and for Tuya the secrets
+  // TUYA_ACCESS_ID and TUYA_ACCESS_SECRET (the cloud project's keys) with TUYA_HOST below (the project's data center).
+  // Without them the plug paths answer not_configured.
   "d1_databases": [{ "binding": "DB", "database_name": "thuysinh", "database_id": "3e477e5b-486e-4af0-8e10-130f8f57a747", "migrations_dir": "migrations" }],
   // Reader photos: raw uploads wait in the private bucket; screened WebP copies go to the public media bucket (readers/).
   "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "thuysinh-media" }],
@@ -30,7 +33,8 @@
     "APPLE_CLIENT_IDS": "com.aquatome.web,com.aquatome.app",
     "APPLE_TEAM_ID": "Q783W6B4FA",
     "APPLE_SIGNIN_KEY_ID": "YK437QPP8B",
-    "ACCOUNTS": "on"
+    "ACCOUNTS": "on",
+    "TUYA_HOST": "https://openapi.tuyaus.com"
   },
   "routes": [
     { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
