@@ -247,12 +247,12 @@ The layers above still check the result.
     The rest (Indonesian and Thai, structure, captions, the card) is listed in `docs/review/reader.md`.
   - A finding a text check could catch says which check; the report lists those under "Could become a rule". The first
     one became the caption rule's map check ("Pterophyllum scalare map").
-  - Tried on 10 pages in three languages: it found "trùn chỉ" (tubifex) written for bloodworms, "cá rô phi" (tilapia)
+  - Tried on 9 pages in three languages: it found "trùn chỉ" (tubifex) written for bloodworms, "cá rô phi" (tilapia)
     for African cichlids, "cá mè vinh" (silver barb) for the tinfoil barb, a temperature range given twice as the same
     figure, a guide's mistakes numbered 1, 9, 2…, and photos of another variety, a map and a person planting with
-    tweezers. Three Vietnamese parts were rewritten and passed the reviewer; one rewrite that added its own commentary
-    was refused. On the same pages Sonnet reported findings it then called fine and took the local name "cá heo" (Botia
-    loaches) for "dolphin", so the reader reads with Opus (`READER_MODEL`).
+    tweezers. Three Vietnamese parts were rewritten and passed the reviewer; a tank-size rewrite that added its own
+    commentary was refused twice. On the same pages Sonnet reported findings it then called fine and took the local
+    name "cá heo" (Botia loaches) for "dolphin", so the reader reads with Opus (`READER_MODEL`).
 
 ## Rules for every change (people and agents)
 
