@@ -55,15 +55,13 @@ test('a thin page (out of search engines) is still in the app: its translation p
   expect(index('vi').items.some(i => i.id === 'boraras-brigittae')).toBe(false)
 })
 
-test('fish carry the tank-mates tool\'s figures and behaviour, in every language, under the tool\'s names; missing ones are left out', () => {
-  for (const lang of LANGS) {
-    const cardinal = index(lang).items.find(i => i.id === 'paracheirodon-axelrodi')
-    if (!cardinal) continue
-    expect(cardinal, lang).toMatchObject({ ph: { min: 4, max: 6 }, gh: { min: 1, max: 6 }, sizeCm: 5, tankCm: 60, difficulty: 3, temperament: 'peaceful', schoolMin: 8 })
-    expect(cardinal.tempC, lang).toEqual({ min: expect.any(Number), max: expect.any(Number) })
-    expect('finNipper' in cardinal, 'false is left out').toBe(false)
-  }
+// The fixture build has fish pages in Vietnamese only (the other languages' indexes hold the tools).
+test('fish carry the tank-mates tool\'s figures and behaviour under the tool\'s names; missing ones are left out', () => {
   const vi = index('vi').items
+  const cardinal = vi.find(i => i.id === 'paracheirodon-axelrodi')!
+  expect(cardinal).toMatchObject({ ph: { min: 4, max: 6 }, gh: { min: 1, max: 6 }, sizeCm: 5, tankCm: 60, difficulty: 3, temperament: 'peaceful', schoolMin: 8 })
+  expect(cardinal.tempC).toEqual({ min: expect.any(Number), max: expect.any(Number) })
+  expect('finNipper' in cardinal, 'false is left out').toBe(false)
   // No traits file: its figures, no behaviour.
   const discus = vi.find(i => i.id === 'symphysodon-aequifasciatus')!
   expect(discus).toMatchObject({ sizeCm: 15, tankCm: 120, ph: { min: 4.5, max: 6.5 } })

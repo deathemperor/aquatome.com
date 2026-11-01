@@ -103,7 +103,7 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   {"version":1,"lang":"vi","items":[
    {"kind":"fish","id":"paracheirodon-axelrodi","name":"Cá neon đỏ","path":"/vi/ca/ca-neon-do/","tempC":{"min":23,"max":27},"ph":{"min":4,"max":6},"gh":{"min":1,"max":6},"sizeCm":5,"tankCm":60,"temperament":"peaceful","schoolMin":8,"difficulty":3},
    {"kind":"fish","id":"puntigrus-tetrazona","name":"Cá xăng-đá","path":"/vi/ca/ca-xang-da/","sizeCm":7,"temperament":"shy","finNipper":true},
-   {"kind":"fish","id":"danio-rerio","name":"Cá ngựa vằn","path":"/vi/ca/ca-ngua-van/","sizeCm":"5 cm","ph":{"min":6}},
+   {"kind":"fish","id":"danio-rerio","name":"Cá ngựa vằn","path":"/vi/ca/ca-ngua-van/","sizeCm":"5 cm","ph":{"min":6},"tankCm":60},
    {"kind":"guide","name":"Nuôi cá neon trong bể nhỏ","path":"/vi/huong-dan/nuoi-ca-neon/"}
   ]}
   """#.utf8))
@@ -112,7 +112,7 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   // A temperament this app doesn't know yet is kept as the site wrote it.
   #expect(ix.items[1].facts == .init(sizeCm: 7, temperament: "shy", finNipper: true))
   // A figure it can't read is left out, not the fish.
-  #expect(ix.items[2].name == "Cá ngựa vằn" && ix.items[2].facts == .init())
+  #expect(ix.items[2].name == "Cá ngựa vằn" && ix.items[2].facts == .init(tankCm: 60))
   #expect(ix.items[3].facts == .init())
 }
 
