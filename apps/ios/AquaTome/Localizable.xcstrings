@@ -3201,6 +3201,22 @@
         }
       }
     },
+    "Phát video: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Putar video: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เล่นวิดีโอ: %@"
+          }
+        }
+      }
+    },
     "Phân nền (aqua soil)": {
       "localizations": {
         "id": {
@@ -4253,6 +4269,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "เขียว"
+          }
+        }
+      }
+    },
+    "Xem phần này trên web": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat bagian ini di web"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูส่วนนี้บนเว็บ"
+          }
+        }
+      }
+    },
+    "Xem thêm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat lainnya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูเพิ่มเติม"
           }
         }
       }
@@ -5485,6 +5533,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "นี่เป็น Apple ID อื่น โปรดเข้าสู่ระบบด้วย Apple ID ของบัญชีนี้"
+          }
+        }
+      }
+    },
+    "Đóng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutup"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิด"
           }
         }
       }

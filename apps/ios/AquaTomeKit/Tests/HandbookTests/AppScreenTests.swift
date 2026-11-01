@@ -32,3 +32,17 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(screen("https://example.com/vi/cong-cu/be-cua-toi/") == nil)
   #expect(screen("mailto:hi@aquatome.com") == nil)
 }
+
+@Test func aLinkToAPageTheIndexListsOpensTheAppsScreenForIt() {
+  let listed: (String) -> Bool = { ["/vi/ca/ca-neon/", "/vi/huong-dan/nuoi-ca-neon/"].contains($0) }
+  let page = { (s: String) in AppScreen.of(URL(string: s)!, site: site, listed: listed) }
+  #expect(page("https://aquatome.com/vi/ca/ca-neon/") == .page("/vi/ca/ca-neon/"))
+  #expect(page("https://www.aquatome.com/vi/ca/ca-neon") == .page("/vi/ca/ca-neon/"))
+  #expect(page("https://aquatome.com/vi/huong-dan/nuoi-ca-neon/#cham-soc") == .page("/vi/huong-dan/nuoi-ca-neon/"))
+  // One the index leaves out, or on another site, stays a web page; the tools stay their tabs.
+  #expect(page("https://aquatome.com/vi/ca/ca-mong/") == nil)
+  #expect(page("https://example.com/vi/ca/ca-neon/") == nil)
+  #expect(page("https://aquatome.com/vi/cong-cu/den-chihiros/") == .lights)
+  // Without the index (a web page's own links), as before.
+  #expect(screen("https://aquatome.com/vi/ca/ca-neon/") == nil)
+}

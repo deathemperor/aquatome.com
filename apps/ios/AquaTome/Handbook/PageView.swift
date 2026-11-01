@@ -3,8 +3,10 @@ import Handbook
 import SwiftUI
 import WebKit
 
-/// One of the site's pages, in the app. Each page read is kept on the phone (a web archive) and shown from there when
-/// the phone is offline.
+/// One of the site's pages, in the app, from either tab: drawn by the app from the site's blocks when the site publishes
+/// its kind that way (NativePage, kept on the phone by PageCache), else the web page. Each web page read is kept on the
+/// phone (a web archive) and shown from there when the phone is offline. The toolbar, the facts and "read" are the same
+/// for both.
 struct PageView: View {
   let item: HandbookIndex.Item
   let url: URL
@@ -14,13 +16,31 @@ struct PageView: View {
   @State private var offline = false
   @State private var failed = false
   @State private var putting = false
+  /// The page as the app draws it, once looked for (`tried`); the web page when there's none or the reader asks for it.
+  @State private var pieces: [NativePage.Piece]?
+  @State private var tried = false
+  @State private var onWeb = false
 
   var body: some View {
-    // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
-    WebPage(url: url, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
-      // On the page alone: on the whole screen, it would take the place of the facts' own (an outer id wins).
-      .accessibilityIdentifier("page")
-      .ignoresSafeArea(edges: .bottom)
+    let native = handbook.drawsItself(item) && !onWeb
+    Group {
+      if native, let pieces {
+        NativePage(pieces: pieces) { onWeb = true }
+      } else if native && !tried {
+        ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
+      } else {
+        // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
+        WebPage(url: url, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
+          // On the page alone: on the whole screen, it would take the place of the facts' own (an outer id wins).
+          .accessibilityIdentifier("page")
+          .ignoresSafeArea(edges: .bottom)
+      }
+    }
+      .task(id: item.path) {
+        guard handbook.drawsItself(item), !tried else { return }
+        pieces = await handbook.doc(item).map(NativePage.pieces)
+        tried = true
+      }
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
