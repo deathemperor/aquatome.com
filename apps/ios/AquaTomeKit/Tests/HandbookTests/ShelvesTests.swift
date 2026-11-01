@@ -48,6 +48,19 @@ private let words = HandbookIndex.Labels([
   #expect(s.all(.guide).map(\.name) == ["b", "a", "c"])
 }
 
+@Test func videoGuidesAreOnAShelfOfTheirOwnNotUnderASubject() {
+  let video = { (name: String) in HandbookIndex.Item(kind: .guide, name: name, path: "/vi/huong-dan/\(name)/", section: "plantCare", video: 600) }
+  let ix = HandbookIndex(lang: "vi", items: [
+    guide("a", "setup"), video("v1"), .init(kind: .video, name: "Loạt", sub: "Kênh", path: "/vi/video/loat/", parts: 2), video("v2"), guide("b", "plantCare"),
+  ], labels: words)
+  let s = HandbookShelves(ix)
+  // As the site's guide list leaves them out: no plantCare count from them, not under "every guide".
+  #expect(s.sections.map(\.key) == ["setup", "plantCare"] && s.sections.map(\.count) == [1, 1])
+  #expect(s.all(.guide).map(\.name) == ["a", "b"])
+  #expect(s.videoGuides.map(\.name) == ["v1", "v2"], "the index's order")
+  #expect(s.all(.video).map(\.name) == ["Loạt"])
+}
+
 @Test func theHomesPicksAreThePagesTheIndexHas() {
   let ix = HandbookIndex(lang: "vi", items: [fish("neon", "tetras"), plant("nana", ["epiphyte"]), guide("a", "setup")],
                          home: .init(fish: ["/vi/ca/neon/", "/vi/ca/gone/"], plants: ["/vi/cay/nana/"], guides: ["/vi/huong-dan/a/"]))

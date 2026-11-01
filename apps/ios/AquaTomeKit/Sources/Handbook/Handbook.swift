@@ -15,14 +15,15 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   /// can draw itself. Empty from a site older than that.
   public let pages: [String: Int]
 
-  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool }
+  /// `video`: a series of video guides (its page lists them).
+  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video }
 
   public struct Item: Codable, Sendable, Hashable, Identifiable {
     public let kind: Kind
     /// The page's content id (fish, plants): what a tank's `species[].id` / `plants[].id` hold.
     public let contentId: String?
     public let name: String
-    /// Scientific name (fish, plants).
+    /// Scientific name (fish, plants); a video series' channel.
     public let sub: String?
     /// Other names.
     public let aka: [String]?
@@ -40,14 +41,25 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     public let group: String?
     /// A plant's care, as its page gives it.
     public let plant: Plant?
+    /// A video guide: the video's length in seconds.
+    public let video: Int?
+    /// A video series: how many guides its page lists.
+    public let parts: Int?
+    /// A tool page's own title, the line under its heading and its description: found by search, not shown.
+    public let words: [String]
     public var id: String { path }
 
-    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about, group, plant }
+    /// Of `kind`, as a search narrowed to it or a list of it takes it: a video guide is a guide, and a video too.
+    public func `is`(_ kind: Kind) -> Bool { self.kind == kind || (kind == .video && video != nil) }
+
+    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about, group, plant, video, parts, words }
 
     public init(kind: Kind, contentId: String? = nil, name: String, sub: String? = nil, aka: [String]? = nil, path: String, img: String? = nil,
-                facts: Facts = Facts(), section: String? = nil, about: [String] = [], group: String? = nil, plant: Plant? = nil) {
+                facts: Facts = Facts(), section: String? = nil, about: [String] = [], group: String? = nil, plant: Plant? = nil,
+                video: Int? = nil, parts: Int? = nil, words: [String] = []) {
       self.kind = kind; self.contentId = contentId; self.name = name; self.sub = sub; self.aka = aka; self.path = path; self.img = img
       self.facts = facts; self.section = section; self.about = about; self.group = group; self.plant = plant
+      self.video = video; self.parts = parts; self.words = words
     }
 
     public init(from decoder: any Decoder) throws {
@@ -65,6 +77,9 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       about = ((try? c.decodeIfPresent([String].self, forKey: .about)) ?? nil) ?? []
       group = (try? c.decodeIfPresent(String.self, forKey: .group)) ?? nil
       plant = (try? c.decodeIfPresent(Plant.self, forKey: .plant)) ?? nil
+      video = (try? c.decodeIfPresent(Int.self, forKey: .video)) ?? nil
+      parts = (try? c.decodeIfPresent(Int.self, forKey: .parts)) ?? nil
+      words = ((try? c.decodeIfPresent([String].self, forKey: .words)) ?? nil) ?? []
     }
 
     public func encode(to encoder: any Encoder) throws {
@@ -80,6 +95,9 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       if !about.isEmpty { try c.encode(about, forKey: .about) }
       try c.encodeIfPresent(group, forKey: .group)
       try c.encodeIfPresent(plant, forKey: .plant)
+      try c.encodeIfPresent(video, forKey: .video)
+      try c.encodeIfPresent(parts, forKey: .parts)
+      if !words.isEmpty { try c.encode(words, forKey: .words) }
       try facts.encode(to: encoder)
     }
   }
@@ -282,13 +300,16 @@ public struct HandbookSearch: Sendable {
     let name: String
     let words: [Substring]
     let other: String
+    /// A tool page's own words.
+    let more: String
   }
   private let entries: [Entry]
 
   public init(_ items: [HandbookIndex.Item]) {
     entries = items.map { i in
       let name = Self.fold(i.name)
-      return Entry(item: i, name: name, words: name.split(separator: " "), other: Self.fold(([i.sub ?? ""] + (i.aka ?? [])).joined(separator: " | ")))
+      return Entry(item: i, name: name, words: name.split(separator: " "), other: Self.fold(([i.sub ?? ""] + (i.aka ?? [])).joined(separator: " | ")),
+                   more: Self.fold(i.words.joined(separator: " | ")))
     }
     .sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending } // name order, once
   }
@@ -300,21 +321,23 @@ public struct HandbookSearch: Sendable {
       .lowercased()
   }
 
-  /// Items with every word of `query` in their name, scientific name or other names, best first: the name itself, a
-  /// name that starts with it, a word of the name that starts with it, the name containing it, then other names.
-  /// An empty query lists everything of `kind` in name order, all of it (`limit` is for searches).
+  /// Items with every word of `query` in their name, scientific name, other names or a tool page's own words, best first:
+  /// the name itself, a name that starts with it, a word of the name that starts with it, the name containing it, then
+  /// other names, then a tool page's words. An empty query lists everything of `kind` (Item.is) in name order, all of it
+  /// (`limit` is for searches).
   public func find(_ query: String, kind: HandbookIndex.Kind? = nil, limit: Int = 200) -> [HandbookIndex.Item] {
     let q = Self.fold(query).trimmingCharacters(in: .whitespaces)
-    let pool = entries.filter { kind == nil || $0.item.kind == kind }
+    let pool = entries.filter { kind.map($0.item.is) ?? true }
     guard !q.isEmpty else { return pool.map(\.item) }
     let words = q.split(separator: " ")
     let ranked: [(rank: Int, entry: Entry)] = pool.compactMap { e in
-      guard words.allSatisfy({ e.name.contains($0) || e.other.contains($0) }) else { return nil }
+      guard words.allSatisfy({ e.name.contains($0) || e.other.contains($0) || e.more.contains($0) }) else { return nil }
       let rank = e.name == q ? 0
         : e.name.hasPrefix(q) ? 1
         : e.words.contains(where: { $0.hasPrefix(words[0]) }) && e.name.contains(q) ? 2
         : e.name.contains(q) ? 3
-        : 4
+        : words.allSatisfy({ e.name.contains($0) || e.other.contains($0) }) ? 4
+        : 5
       return (rank, e)
     }
     return Array(ranked.sorted { ($0.rank, $0.entry.name.count, $0.entry.name) < ($1.rank, $1.entry.name.count, $1.entry.name) }

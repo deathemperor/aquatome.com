@@ -76,8 +76,12 @@ final class HandbookModel {
   func saved(_ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] { ReadingList.items(reading.saved, in: byPath, kind: kind) }
   func recent(_ kind: HandbookIndex.Kind?, limit: Int = 5) -> [HandbookIndex.Item] { ReadingList.items(reading.recent, in: byPath, kind: kind, limit: limit) }
 
-  /// Guides that name these fish and plants (a tank's), the most of them first, then in name order.
-  func guides(about ids: [String]) -> [HandbookIndex.Item] { HandbookIndex.guides(about: ids, in: search.find("", kind: .guide)) }
+  /// Guides that name these fish and plants (a tank's), the most of them first, then in name order: the written ones,
+  /// and the ones made from videos apart, as a species page on the site lists them.
+  func guides(about ids: [String]) -> (written: [HandbookIndex.Item], videos: [HandbookIndex.Item]) {
+    let all = search.find("", kind: .guide)
+    return (HandbookIndex.guides(about: ids, in: all.filter { $0.video == nil }), HandbookIndex.guides(about: ids, in: all.filter { $0.video != nil }))
+  }
 
   func read(_ item: HandbookIndex.Item) {
     change { $0.read(item.path) }
@@ -201,9 +205,12 @@ extension HandbookIndex {
     .init(kind: .plant, contentId: "rotala-rotundifolia", name: "Rotala đỏ", sub: "Rotala rotundifolia", path: "/vi/cay/rotala-do/",
           facts: .init(tempC: .init(min: 20, max: 28)), plant: .init(difficulty: 2, light: "high", co2: "optional", growth: "fast", placement: ["background"])),
     .init(kind: .guide, name: "Nuôi cá neon trong bể nhỏ", path: "/vi/huong-dan/nuoi-ca-neon/", section: "care", about: ["paracheirodon-innesi"]),
+    .init(kind: .guide, name: "Cách hạn chế rêu hại", path: "/vi/huong-dan/cach-han-che-reu-hai/", section: "plantCare", about: ["paracheirodon-innesi"],
+          video: 1755),
+    .init(kind: .video, name: "Rêu hại từ A đến Z", sub: "MJ Aquascaping", path: "/vi/video/reu-hai-tu-a-den-z/", parts: 1),
     .init(kind: .glossary, name: "Đệm pH", path: "/vi/thuat-ngu/dem-ph/"),
     .init(kind: .tool, name: "Đèn Chihiros", path: "/vi/cong-cu/den-chihiros/"),
-    .init(kind: .tool, name: "Bể của tôi", path: "/vi/cong-cu/be-cua-toi/"),
+    .init(kind: .tool, name: "Bể của tôi", path: "/vi/cong-cu/be-cua-toi/", words: ["Bể của tôi: sổ ghi bể cá, cây và lịch đèn"]),
   ], home: .init(groups: [.init(id: "cichlids"), .init(id: "tetras"), .init(id: "danios")], fish: ["/vi/ca/ca-neon/", "/vi/ca/ca-dia/"],
                  plants: [], guides: ["/vi/huong-dan/nuoi-ca-neon/"]),
   labels: .init([

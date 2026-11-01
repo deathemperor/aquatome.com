@@ -115,7 +115,7 @@ final class TankLifeFlowTests: XCTestCase {
   }
 
   func testListsTheGuidesThatNameTheTanksFishAndOpensThem() {
-    let app = launch("-seed-tanks", "life") // neons: one guide names them
+    let app = launch("-seed-tanks", "life") // neons: one guide names them, and one video guide
     app.tabBars.buttons["Bể của tôi"].tap()
     app.buttons["tank"].firstMatch.tap()
     XCTAssertTrue(life(app, "Cá neon").waitForExistence(timeout: 5))
@@ -125,6 +125,11 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(guide.waitForExistence(timeout: 5), "no related guide")
     XCTAssertEqual(app.buttons.matching(identifier: "tank-guide").count, 1)
     XCTAssertTrue(guide.label.contains("Nuôi cá neon trong bể nhỏ"), guide.label)
+    // The video guide apart, as a species page on the site lists them.
+    let video = app.buttons.matching(identifier: "tank-video").firstMatch
+    for _ in 0..<2 where !(video.exists && video.isHittable) { app.swipeUp() }
+    XCTAssertTrue(video.exists && video.label.contains("Cách hạn chế rêu hại"), "no video guide apart")
+    XCTAssertTrue(app.staticTexts["Có trong video hướng dẫn"].exists)
     guide.tap()
     XCTAssertTrue(app.navigationBars["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "its page didn't open")
   }

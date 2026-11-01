@@ -24,6 +24,9 @@ public struct HandbookShelves: Sendable {
   public let featuredFish: [HandbookIndex.Item]
   public let easyPlants: [HandbookIndex.Item]
   public let firstGuides: [HandbookIndex.Item]
+  /// The guides made from videos, in the index's order: on a shelf of their own, as the site keeps them off its guide
+  /// list. (The series are `all(.video)`.)
+  public let videoGuides: [HandbookIndex.Item]
 
   private let byKind: [HandbookIndex.Kind: [HandbookIndex.Item]]
   /// The index's language: the glossary's letters go as it sorts them.
@@ -39,7 +42,8 @@ public struct HandbookShelves: Sendable {
 
   public init(_ ix: HandbookIndex) {
     var byKind = Dictionary(grouping: ix.items, by: \.kind)
-    byKind[.guide]?.removeAll { $0.section == Self.news }
+    videoGuides = (byKind[.guide] ?? []).filter { $0.video != nil }
+    byKind[.guide]?.removeAll { $0.section == Self.news || $0.video != nil }
     self.byKind = byKind
     lang = ix.lang
     let words = ix.labels

@@ -92,6 +92,32 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(item(app, "Rotala đỏ").exists)
   }
 
+  func testFindsAToolByWhatItsPageSays() {
+    let app = launch()
+    // "Bể của tôi" by the words of its page's title ("sổ ghi bể cá"), not its name.
+    search(app, "so ghi")
+    XCTAssertTrue(item(app, "Bể của tôi").waitForExistence(timeout: 5), "the tool not found by its page's words")
+  }
+
+  func testVideosHaveAShelfOfTheirOwn() {
+    let app = launch()
+    let all = app.descendants(matching: .any)["all-videos"]
+    for _ in 0..<8 where !(all.exists && all.isHittable) { app.swipeUp() }
+    XCTAssertTrue(item(app, "Rêu hại từ A đến Z").exists, "no video series on the home")
+    all.tap()
+    XCTAssertTrue(app.navigationBars["Video"].waitForExistence(timeout: 5))
+    let video = item(app, "Cách hạn chế rêu hại")
+    XCTAssertTrue(video.waitForExistence(timeout: 5))
+    XCTAssertEqual(video.value as? String, "29:15", "no length")
+    // Not among the written guides, as on the site's guide list.
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    let guides = app.descendants(matching: .any)["all-guides"]
+    for _ in 0..<8 where !(guides.exists && guides.isHittable) { app.swipeDown() }
+    guides.tap()
+    XCTAssertTrue(item(app, "Nuôi cá neon").waitForExistence(timeout: 5))
+    XCTAssertFalse(item(app, "Cách hạn chế rêu hại").exists, "a video among the written guides")
+  }
+
   func testSearchesOneKind() {
     let app = launch()
     search(app, "neon")
