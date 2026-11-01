@@ -2,15 +2,18 @@
 import { linkTerms } from '@aq/schema'
 import Browse from '../../../layouts/Browse.astro'
 import ProductSlots from '../../../components/ProductSlots.astro'
-import SpeciesGrid from '../../../components/SpeciesGrid.astro'
+import PagedSpecies from '../../../components/PagedSpecies.astro'
 import PlantCard from '../../../components/PlantCard.astro'
 import GuideCard from '../../../components/GuideCard.astro'
 import GlossaryTip from '../../../components/GlossaryTip.astro'
 import { getContent } from '../../../lib/content'
-import { categoriesIn, normKeyword, speciesUsing, typeUses, type CategoryUse } from '../../../lib/equipment'
+import { categoriesIn, normKeyword, typeUses, type CategoryUse } from '../../../lib/equipment'
 import { alternatesWhere } from '../../../lib/alternates'
 import { categoryLabel, goLink } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
+import { cleanPhoto } from '../../../lib/home'
+import { speciesLists } from '../../../lib/list-data'
+import { PAGE } from '../../../scripts/filter-list'
 import { smallSrc } from '../../../lib/img'
 import { guidesMentioning, mentionIndex } from '../../../lib/mentions'
 import { creatorsUse } from '../../../lib/gear'
@@ -32,26 +35,33 @@ const used = creatorsUse(lang, c, u.category)
 // Products with their own page (engine product), per type of this kit.
 const picks = (type: string) => c.products.filter(p => p.category === u.category && p.type === type)
 const types = g ? typeUses(lang, c, g) : []
-const users = speciesUsing(lang, c, u.category)
-const TOP = 12
+// The species suggesting this kit, a page at a time (components/PagedSpecies).
+const users = speciesLists(lang, c).get(`thiet-bi/${u.category}`) ?? []
 const plantsPage = u.category === 'cay-thuy-sinh'
-// The CO2 page lists the plants that use it, required first.
+// The CO2 page lists the plants that use it, required first. A page of them: the plant list has every plant, and filters.
 const plants = plantsPage ? c.plants : u.category === 'co2' ? c.plants.filter(p => p.co2 !== 'none').sort((a, b) => Number(b.co2 === 'required') - Number(a.co2 === 'required')) : []
+const needCo2 = plants.filter(p => p.co2 === 'required').length
 // Editorial text links glossary terms, species and other equipment once each, never this page.
 const targets = mentionIndex(c).targets
 const seen = new Set([entity])
 const link = (html: string) => linkTerms(html, targets, 'ml', seen).html
 const intro = g ? link(g.intro) : ''
-const keywords = [...new Set(u.keywords.map(normKeyword))]
+// The shop searches the most species and plants suggest, most first: a page of them (each species and plant page lists its
+// own). Every one any of them suggests made the list grow with the catalogue.
+const suggested = new Map<string, number>()
+for (const x of [...c.species, ...c.plants]) for (const k of new Set(x.productSlots.filter(s => s.category === u.category).flatMap(s => s.keywords.map(normKeyword)))) suggested.set(k, (suggested.get(k) ?? 0) + 1)
+const keywords = [...suggested].sort((a, b) => b[1] - a[1]).slice(0, PAGE).map(([k]) => k)
 const shops = ['shopee', 'lazada', 'tiki'] as const
 const SHOP_NAMES = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
 const faq = g && g.faq.length > 0 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []
-const credits = g ? creditsFor([g.hero, ...g.types.map(t => t.photo)]) : []
+// Every photo shown: the guide's, the species beside each type, the first page of species and plants.
+const credits = creditsFor([...(g ? [g.hero, ...g.types.map(t => t.photo)] : []), ...types.flatMap(ty => ty.species.slice(0, 6).map(s => s.photos[0])),
+  ...(plantsPage ? [] : users.slice(0, PAGE).map(s => cleanPhoto(s.photos))), ...plants.slice(0, PAGE).map(p => p.photos[0])])
 // Shop links, shop keywords and the gear Vietnamese videos use are for the Vietnamese market: that page only.
 const vn = lang === 'vi'
 const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.equipment.some(e => e.category === u.category && (e.quality?.indexable ?? true)))
 ---
-<Browse title={g ? t('{label}: chọn loại nào, dùng cho loài nào', { label }) : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', t('Thiết bị')]]} jsonld={faq} image={g?.hero.url} credits={credits} noindex={g?.quality ? !g.quality.indexable : false} alternates={alternates}>
+<Browse title={g ? t('{label}: chọn loại nào, dùng cho loài nào', { label }) : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', t('Thiết bị')]]} jsonld={faq} image={g?.hero.url} credits={credits} creditsLater={!plantsPage && users.length > PAGE} noindex={g?.quality ? !g.quality.indexable : false} alternates={alternates}>
   {g && (
     <header class="hero">
       <img src={g.hero.url} width={g.hero.width} height={g.hero.height} alt={label} fetchpriority="high" />
@@ -106,16 +116,12 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
 
   {plants.length > 0 && <>
     <h2 class="h">{plantsPage ? t('Cây thủy sinh trên AquaTome') : t('Cây cần CO2')}</h2>
-    <div class="plants">{plants.map(p => <PlantCard p={p} />)}</div>
+    <div class="plants">{plants.slice(0, PAGE).map(p => <PlantCard p={p} />)}</div>
+    {plants.length > PAGE && (plantsPage || needCo2 > 0) && <p class="list"><a href={plantsPage ? '/vi/cay/' : '/vi/cay/?co2=required'}>{plantsPage ? t('Xem cả {n} loài cây', { n: plants.length }) : t('Xem cả {n} loài cây bắt buộc có CO₂', { n: needCo2 })}</a></p>}
   </>}
   {!plantsPage && users.length > 0 && <>
     <h2 class="h">{t('Loài cá cần {label}', { label: label.toLowerCase() })}</h2>
-    <SpeciesGrid species={users.slice(0, TOP)} />
-    {users.length > TOP && (
-      <details class="all"><summary>{t('Xem tất cả {n} loài', { n: users.length })}</summary>
-        <ul class="used">{users.slice(TOP).map(s => <li><a href={`/vi/ca/${s.t.slug}/`}>{s.t.name}</a></li>)}</ul>
-      </details>
-    )}
+    <PagedSpecies species={users} list={`thiet-bi/${u.category}`} />
   </>}
 
   {g && g.faq.length > 0 && <>
@@ -129,7 +135,7 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
   </>}
 
   {vn && (
-    <details class="all"><summary>{t('Tất cả gợi ý mua ({n})', { n: keywords.length })}</summary>
+    <details class="all"><summary>{t('Gợi ý mua hay gặp ({n})', { n: keywords.length })}</summary>
       <ProductSlots slots={[{ category: u.category, keywords }]} heading={t('Gợi ý mua')} entity={entity} />
     </details>
   )}
@@ -165,8 +171,8 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
   .faq p { margin: var(--space-2) 0 0; max-width: var(--measure); color: var(--c-ink-soft); }
   .all { margin-top: var(--space-6); }
   .all summary { cursor: pointer; color: var(--c-moss); }
-  .used { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; margin-top: var(--space-3); }
-  .used a { display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); text-decoration: none; }
+  .list { margin-top: var(--space-5); }
+  .list a { display: inline-block; padding-block: 10px; font-weight: 600; }
   @media (max-width: 720px) {
     .hero, .two { grid-template-columns: minmax(0, 1fr); }
     .type { grid-template-columns: 96px minmax(0, 1fr); gap: var(--space-4); }

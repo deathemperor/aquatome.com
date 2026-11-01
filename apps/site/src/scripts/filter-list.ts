@@ -51,8 +51,9 @@ export function filterList<T extends { slug: string }>(prefix: string, { match, 
   unsureGrid.removeAttribute('aria-busy')
   unsure.querySelector('.more')!.before(unsureGrid)
   // `keep`: the slugs in this list, or every item (no filter).
-  const lists: { grid: HTMLElement; more: HTMLButtonElement; keep: Set<string> | 'all'; shown: number }[] = [
-    { grid, more: $('more') as HTMLButtonElement, keep: 'all', shown: PAGE },
+  // A list's "Xem thêm" is a link to its next numbered page where it has them (the plant list), else a button.
+  const lists: { grid: HTMLElement; more: HTMLButtonElement | HTMLAnchorElement; keep: Set<string> | 'all'; shown: number }[] = [
+    { grid, more: $('more') as HTMLButtonElement | HTMLAnchorElement, keep: 'all', shown: PAGE },
     { grid: unsureGrid, more: $('unsure-more') as HTMLButtonElement, keep: new Set(), shown: PAGE },
   ]
   const size = (l: (typeof lists)[number]) => (l.keep !== 'all' ? l.keep.size : items ? items.length : Number(total))
@@ -138,8 +139,13 @@ export function filterList<T extends { slug: string }>(prefix: string, { match, 
     history.replaceState(null, '', `${p}` ? `?${p}` : location.pathname) // not p.size: Safari before 17 has none
     void run(p)
   }
-  lists.forEach(l => l.more.addEventListener('click', async () => {
-    if (!items && !(await load())) return failed()
+  lists.forEach(l => l.more.addEventListener('click', async e => {
+    e.preventDefault()
+    if (!items && !(await load())) {
+      // The whole list's next page is a page of its own; a filtered list's isn't.
+      if (l.more instanceof HTMLAnchorElement && l.keep === 'all') location.href = l.more.href
+      return failed()
+    }
     l.shown += PAGE
     render()
   }))

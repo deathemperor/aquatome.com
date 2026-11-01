@@ -1,14 +1,18 @@
 ---
 import { i18n } from '../lib/i18n'
+import { PAGE } from '../scripts/filter-list'
 /**
  * A filtered list (scripts/filter-list.ts fills it): the result line, a chip per filter set and "Xóa lọc", the cards
  * (the slot: a grid of the first page's `[data-slug]` cards and a template card `<prefix>-card`) a page at a time, then
  * the cards missing a figure the filter asks about, in a closed group that `why` explains. `total`: how many items the
- * list has; `src`: its data file, every item (lib/list-data.ts).
+ * list has; `src`: its data file, every item (lib/list-data.ts). `next`: the list's second numbered page (the plant list's
+ * /vi/cay/trang/2/): "Xem thêm" is then a link to it, for crawlers and readers without the script, which shows the next
+ * page in place instead.
  */
-interface Props { prefix: string; why: string; total: number; src: string }
-const { prefix, why, total, src } = Astro.props
+interface Props { prefix: string; why: string; total: number; src: string; next?: string }
+const { prefix, why, total, src, next } = Astro.props
 const { t } = i18n(Astro.url)
+const left = total - PAGE
 ---
 <div class="result" id={`${prefix}-result`} data-total={total} data-src={src}>
   <p class="count" id={`${prefix}-count`} aria-live="polite"></p>
@@ -18,7 +22,9 @@ const { t } = i18n(Astro.url)
   </div>
 </div>
 <slot />
-<p class="more"><button type="button" id={`${prefix}-more`} hidden></button></p>
+<p class="more">{next && left > 0
+  ? <a id={`${prefix}-more`} href={next}>{t('Xem thêm {n} loài (còn {left})', { n: Math.min(left, PAGE), left })}</a>
+  : <button type="button" id={`${prefix}-more`} hidden></button>}</p>
 <details class="unsure" id={`${prefix}-unsure`} hidden>
   <summary><span id={`${prefix}-unsure-n`}></span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
   <p class="why">{why}</p>
@@ -54,6 +60,8 @@ const { t } = i18n(Astro.url)
   .unsure summary:hover { color: var(--c-moss); }
   .why { margin: 0 0 var(--space-5); max-width: var(--measure); color: var(--c-ink-soft); font-size: 0.95rem; }
   .more { text-align: center; margin-top: var(--space-6); }
-  .more button { min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); cursor: pointer; }
-  .more button:hover { background: var(--c-ink); color: var(--c-paper); }
+  .more a { display: inline-flex; align-items: center; text-decoration: none; }
+  .more a[hidden] { display: none; }
+  .more button, .more a { min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); cursor: pointer; }
+  .more button:hover, .more a:hover { background: var(--c-ink); color: var(--c-paper); }
 </style>

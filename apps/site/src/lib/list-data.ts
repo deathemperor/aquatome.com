@@ -12,7 +12,8 @@ import { toIndexItem } from './species-index'
  * list's script fetches when a reader filters or goes past the first page: the HTML has only that page's cards, so it
  * stays the same size however many species and plants there are. One item per card, in the list's order: what the
  * filter reads, and what a card built in the browser shows and credits (scripts/species-card.ts, plant-card.ts). The
- * group, taxon and origin pages' longer lists have a file each too (`speciesLists`, /data/<lang>/species/<list>.json).
+ * group, taxon, origin and equipment pages' longer lists have a file each too (`speciesLists`,
+ * /data/<lang>/species/<list>.json).
  */
 
 /** The photo a card shows: its small picture, and its credit (author, licence, its page on the source). */
@@ -35,8 +36,9 @@ export const speciesItems = (species: Localized<SpeciesEntity>[]): SpeciesListIt
 export const speciesList = (lang: Lang, c: Content): SpeciesListItem[] => speciesItems(listOrder(lang, c))
 
 /**
- * The species lists of the group, taxon and origin pages, by the page's address under /vi/ ("nhom/catfish",
- * "phan-loai/perciformes/cichlidae", "nguon-goc/asia/india"), each in the fish list's order. The pages, their numbered
+ * The species lists of the group, taxon, origin and equipment pages, by the page's address under /vi/ ("nhom/catfish",
+ * "phan-loai/perciformes/cichlidae", "nguon-goc/asia/india", "thiet-bi/suoi": the species suggesting a heater), each in
+ * the fish list's order. The pages, their numbered
  * pages and their data files (/data/<lang>/species/<address>.json) all read them, so they can't disagree on who is on a
  * list or in what order.
  */
@@ -50,7 +52,8 @@ export function speciesLists(lang: Lang, c: Content): Map<string, Localized<Spec
       const p = places.get(id)
       return p?.kind === 'continent' ? [`nguon-goc/${id}`] : p?.kind === 'country' && p.parent ? [`nguon-goc/${p.parent}/${id}`] : []
     })
-    for (const k of [`nhom/${s.group}`, `phan-loai/${o}`, `phan-loai/${o}/${f}`, `phan-loai/${o}/${f}/${g}`, ...from]) (lists.get(k) ?? lists.set(k, []).get(k)!).push(s)
+    const kit = [...new Set(s.productSlots.map(x => `thiet-bi/${x.category}`))]
+    for (const k of [`nhom/${s.group}`, `phan-loai/${o}`, `phan-loai/${o}/${f}`, `phan-loai/${o}/${f}/${g}`, ...from, ...kit]) (lists.get(k) ?? lists.set(k, []).get(k)!).push(s)
   }
   return lists
 }

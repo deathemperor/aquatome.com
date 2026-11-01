@@ -4,9 +4,10 @@ import SpeciesGrid from './SpeciesGrid.astro'
 import { PAGE } from '../scripts/filter-list'
 import { i18n } from '../lib/i18n'
 /**
- * A species list a page at a time: a fish group's, taxon's or origin's (lib/list-data.ts speciesLists; `list` is its
- * address under /vi/, "nhom/catfish"). The HTML has the first page of cards; past it, a template card and "Xem thêm",
- * which builds the next page in place from the list's data file (/data/<lang>/species/<list>.json, scripts/list-more.ts).
+ * A species list a page at a time: a fish group's, taxon's, origin's or equipment's (lib/list-data.ts speciesLists;
+ * `list` is its address under /vi/, "nhom/catfish"). The HTML has the first page of cards; past it, a template card and
+ * "Xem thêm", which builds the next page in place from the list's data file (/data/<lang>/species/<list>.json,
+ * scripts/list-more.ts).
  * `pages`: the list has numbered pages (/vi/<list>/trang/2/…), and "Xem thêm" is a link to the next one. A list of one
  * page is the grid alone, as before.
  */

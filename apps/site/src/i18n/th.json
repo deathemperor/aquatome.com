@@ -811,7 +811,6 @@
   "Xem ảnh gốc ↗": "ดูภาพต้นฉบับ ↗",
   "Xem loài hợp bể": "ดูสายพันธุ์ที่เลี้ยงร่วมกันได้",
   "Xem tất cả {n} ảnh →": "ดูรูปภาพทั้งหมด {n} รูป →",
-  "Xem tất cả {n} loài": "ดูทั้งหมด {n} ชนิด",
   "Xem thêm": "ดูเพิ่มเติม",
   "Xem thêm {n} bài (còn {left})": "ดูเพิ่มอีก {n} บทความ (เหลือ {left})",
   "Xem thêm {n} loài (còn {left})": "ดูเพิ่มอีก {n} สายพันธุ์ (เหลือ {left})",
@@ -941,5 +940,7 @@
   "Passkey này không mở được tài khoản nào: đăng nhập cách khác.": "passkey นี้ไม่ตรงกับบัญชีใด: เข้าสู่ระบบด้วยวิธีอื่น",
   "Thêm passkey": "เพิ่ม passkey",
   "{n} ảnh từ {from}, giấy phép mở hoặc được phép dùng.": "ภาพ {n} ภาพจาก {from} ใช้สัญญาอนุญาตแบบเปิดหรือได้รับอนุญาตให้ใช้",
-  "Cách trồng {name} →": "วิธีปลูก{name} →"
+  "Cách trồng {name} →": "วิธีปลูก{name} →",
+  "Xem cả {n} loài cây": "ดูพืชทั้งหมด {n} ชนิด",
+  "Xem cả {n} loài cây bắt buộc có CO₂": "ดูพืชทั้งหมด {n} ชนิดที่ต้องใช้ CO₂"
 }
