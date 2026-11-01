@@ -219,9 +219,10 @@ export const plainEntities = (s: string) => [...s.matchAll(/&(?:amp|lt|gt|quot|a
  * list's label and nothing else. A heading of the text's own ("Một suy nghĩ cuối cùng", "Bình luận của Ken Childs" in a
  * text of letters, "Gửi phản hồi cho nhà sản xuất") stays.
  */
-const COMMENTS = /^((\d+|một|one) (bình luận|phản hồi|ý kiến|suy nghĩ|comments?|responses?|thoughts?|repl(y|ies)|komentar|tanggapan|ความคิดเห็น) (về|on|to|untuk|pada|tentang|เกี่ยวกับ) ["“”'‘’«]|((\d+|một|one) (bình luận|comments?|komentar|ความคิดเห็น)|(bình luận|ý kiến) của (độc giả|bạn đọc)|readers?'? comments|reader's comments|komentar pembaca|ความคิดเห็นของผู้อ่าน)(\s*\([^)]*\))?\s*:?$)/i
-const FORM = /^((để lại|gửi) (một )?(bình luận|phản hồi|ý kiến)|leave a (reply|comment)|tinggalkan (balasan|komentar)|แสดงความคิดเห็น)(\s*(hủy (trả lời|phản hồi)|cancel reply|batalkan balasan))?\s*:?$/i
-const RELATED = /^(bài viết liên quan|related (posts|articles)|artikel terkait|บทความที่เกี่ยวข้อง)\s*:?$/i
+const COMMENT = 'bình luận|phản hồi|ý kiến|suy nghĩ|comments?|responses?|thoughts?|repl(y|ies)|komentar|tanggapan|ความคิดเห็น'
+const COMMENTS = new RegExp(`^((\\d+|một|one) (${COMMENT})(\\s(về|on|to|untuk|pada|tentang)|\\s*เกี่ยวกับ)\\s*["“”'‘’«]|((\\d+|một|one) (${COMMENT})|(bình luận|ý kiến) của (độc giả|bạn đọc)|readers?'? comments|reader's comments|komentar pembaca|ความคิดเห็นของผู้อ่าน)(\\s*\\([^)]*\\))?\\s*:?$)`, 'i')
+const FORM = /^((để lại|gửi) (một )?(bình luận|phản hồi|ý kiến)( của bạn)?|leave a (reply|comment)( to [^.]{1,40}?)?|tinggalkan (balasan|komentar)|แสดงความคิดเห็น)(\s*(hủy (trả lời|phản hồi)|cancel reply|batalkan balasan))?\s*:?$/i
+const RELATED = /^(bài (viết )?liên quan|nội dung liên quan|related (posts|articles|content)|artikel terkait|บทความที่เกี่ยวข้อง)\s*:?$/i
 type Furniture = 'comments' | 'form' | 'related'
 function furnitureOf(el: HTMLElement): Furniture | undefined {
   if (el.rawTagName !== 'h3' && el.rawTagName !== 'p') return undefined
@@ -242,7 +243,7 @@ function furnitureCut(html: string) {
     const kind = furnitureOf(els[i]!)
     if (!kind) continue
     cut.push(els[i]!)
-    const listsOnly = kind === 'related' && els[i]!.rawTagName === 'p'
+    const listsOnly = kind === 'related' // as a heading too: a paragraph of the text's own may follow its list
     while (els[i + 1] && els[i + 1]!.rawTagName !== 'h3' && (!listsOnly || ['ul', 'ol'].includes(els[i + 1]!.rawTagName))) cut.push(els[++i]!)
   }
   return { root, cut, found, tooMuch: cut.reduce((n, e) => n + e.text.length, 0) > root.text.length / 2 }
@@ -252,7 +253,7 @@ export const furniture = (html: string) => { const f = furnitureCut(html); retur
 /** Furniture longer than the rest of its text: left for a person (a short text with a long comment thread under it). */
 export const longFurniture = (html: string) => { const f = furnitureCut(html); return f.tooMuch ? f.found : [] }
 /**
- * The text without its furniture: related posts with the list after them, comments and a comment form with everything
+ * The text without its furniture: related posts with the lists after them, comments and a comment form with everything
  * up to the next heading. Never more than half a text: such a text is left as it is, and listed (longFurniture).
  */
 export function cutFurniture(html: string): string {
@@ -432,7 +433,9 @@ export const SWEPT_KINDS: readonly PageKind[] = ['species', 'plants', 'guides', 
  * must find only what its fix can change, or one page the fix can't mend stops every cycle. Another kind's are listed.
  */
 export const RATCHETED: Readonly<Record<string, readonly PageKind[]>> = {
-  furniture: SWEPT_KINDS, headings: SWEPT_KINDS, repeated: SWEPT_KINDS, labels: SWEPT_KINDS, 'title-count': SWEPT_KINDS,
+  furniture: SWEPT_KINDS, headings: SWEPT_KINDS, repeated: SWEPT_KINDS, labels: SWEPT_KINDS,
+  // A guide's title is written; a breed's or product's is its name (a person may have fixed it: nameFixed), listed only.
+  'title-count': ['guides'],
   caption: ['species', 'plants'], card: ['species', 'breeds'], imperial: METRIC_KINDS as readonly PageKind[],
 }
 /** The findings the real-content test holds at zero. */

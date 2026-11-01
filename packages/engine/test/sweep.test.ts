@@ -45,7 +45,7 @@ async function store() {
       + '<p>Bài viết liên quan:</p><ul><li>15+ thức ăn sống</li></ul><h3>Phân nền</h3><h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>'
       + '<h3>4 bình luận về “Rêu hại”</h3><ul><li><p><strong>Marcia:</strong> Cảm ơn.</p></li></ul><h3>Để lại bình luận</h3>',
   }))
-  // A breed whose tank is shorter than twice the fish, and whose title promises 5 things its text lacks.
+  // A breed whose tank is shorter than twice the fish, and whose title (its name) has a count its text lacks.
   await put('breeds/huyet-long/entity.json', { id: 'huyet-long', kind: 'variety', parents: [], care: { sizeCm: [{ source: 0, value: 90 }], tankCm: [{ source: 0, value: 150 }] }, photos: [], sources: [{ url: 'https://x/a', title: 'A', kind: 'article', at: '2026-10-01' }], updatedAt: '2026-10-01' })
   await put('breeds/huyet-long/vi.json', vi('5 điều về Huyết Long', {}, { slug: 'huyet-long', body: '<p>Rồng đỏ.</p>' }))
   return root
@@ -64,10 +64,10 @@ test('the sweep makes every page pass the rules it fixes, keeps each file\'s ind
   expect(g.body).toBe('<h3>Đèn</h3><p><strong>Sai lầm 1:</strong> đèn mạnh.</p><p><strong>Sai lầm 2:</strong> bật lâu.</p><h3>CO2</h3><p><strong>Sai lầm 3:</strong> thiếu CO2.</p>'
     + '<h3>Phân nền</h3><h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>')
   expect([g.name, g.slug]).toEqual(['Cách xử lý rêu hại nhanh', '10-cách-xử-lý-rêu-hại-nhanh'])
-  expect(r.titles).toEqual([
-    'vi/guides/g: "10 cách xử lý rêu hại nhanh" → "Cách xử lý rêu hại nhanh" (number dropped)',
-    'vi/breeds/huyet-long: "5 điều về Huyết Long" → "Điều về Huyết Long" (number dropped)',
-  ])
+  expect(r.titles).toEqual(['vi/guides/g: "10 cách xử lý rêu hại nhanh" → "Cách xử lý rêu hại nhanh" (number dropped)'])
+  // A breed's title is its name (a person may have fixed it): listed, never rewritten, and not held at zero.
+  expect((await json(root, 'content/breeds/huyet-long/vi.json')).name).toBe('5 điều về Huyết Long')
+  expect(checkPages(await loadPages(join(root, 'content')), RULES.filter(r => r.id === 'title-count')).findings.map(f => f.page.kind)).toEqual(['breeds'])
   // The later copy of the paragraph goes, and the heading left at the end; a one-space file stays one-space.
   const raw = await readFile(join(root, 'content/species/corydoras-adolfoi/vi.json'), 'utf8')
   expect(JSON.parse(raw).sections).toEqual({ 'distribution:seriouslyfish': `<p>${REPEAT}</p>`, 'habitat:seriouslyfish': '<p>Nền cát.</p>' })
@@ -120,5 +120,16 @@ test('a title rewritten by the model is kept when the reviewer passes it, and th
   const wrong = await store()
   expect((await sweep(wrong, { llm: llm('7 cách xử lý rêu hại', 0.9) })).titles[0]).toContain('number dropped; rewrite "7 cách xử lý rêu hại" not kept (0.00')
   // Reference lists are left as published.
+  // One pass leaves nothing a second would change: the trailing form heading dropped brings the comments under half
+  // the text, so they are cut; labels renumbered, the tidy folds the heading now inside the numbered run.
+  for (const body of [
+    '<p>Cá betta cần nước ấm 26 độ, thay nước mỗi tuần một lần và bể có nắp đậy kín.</p><h3>2 bình luận về “Cá betta”</h3><p>Minh: Bể của mình 10 lít có đủ cho một con không ạ?</p><h3>Để lại một bình luận</h3>',
+    '<p>x</p><h3>Bước 1: a</h3><p>a</p><h3>Bước 9: b</h3><p>b</p><h3>Ghi chú</h3><p>n</p><h3>Bước 2: c</h3><p>c</p>',
+  ]) {
+    const once = sweepTranslation({ body }).t
+    expect(sweepTranslation(once).fixed).toEqual([])
+  }
+  expect(sweepTranslation({ body: '<p>Cá betta cần nước ấm 26 độ, thay nước mỗi tuần một lần và bể có nắp đậy kín.</p><h3>2 bình luận về “Cá betta”</h3><p>Minh: Bể của mình 10 lít có đủ cho một con không ạ?</p><h3>Để lại một bình luận</h3>' }).t.body)
+    .toBe('<p>Cá betta cần nước ấm 26 độ, thay nước mỗi tuần một lần và bể có nắp đậy kín.</p>')
   expect(sweepTranslation({ sections: { 'references:x': `<p>${REPEAT}</p>`, 'notes:x': `<p>${REPEAT}</p>` } }).t.sections).toEqual({ 'references:x': `<p>${REPEAT}</p>`, 'notes:x': `<p>${REPEAT}</p>` })
 })

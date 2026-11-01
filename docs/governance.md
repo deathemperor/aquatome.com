@@ -246,12 +246,13 @@ The layers above still check the result.
   - **The sweep.** A page the engine never writes again would keep its defect, so `pnpm engine sweep` (`sweep.ts`)
     makes the fixes on every page each cycle, after `metric` and before the build, and a real-content test fails on any
     page still having one (`RATCHETED`: each rule with the kinds of page its fix covers). A check there finds only what
-    its fix can change, or one page the fix can't mend would stop every cycle. Each file keeps its indentation and date.
-    It hides the element, never the page:
+    its fix can change, or one page the fix can't mend would stop every cycle. The text fixes run again until nothing
+    changes (one can make room for another). Each file keeps its indentation and date. It hides the element, never the
+    page:
     - the source site's comments, comment form and related posts, in the shape the comment plugins write ("7 ý kiến về
-      “…”", "Bình luận của độc giả", "Để lại bình luận" alone): cut, with the list of related posts or everything up to
-      the next heading. More than half a text is left and listed for a person; a heading of the text's own ("Bình luận
-      của Ken Childs" in a text of letters) stays
+      “…”", "Bình luận của độc giả", "Để lại bình luận" alone, "Bài liên quan:", "Nội dung liên quan"): cut, related
+      posts with their lists, comments with everything up to the next heading. More than half a text is left and
+      listed for a person; a heading of the text's own ("Bình luận của Ken Childs" in a text of letters) stays
     - a heading at the end of a text: dropped (a heading straight over another is a group over its sub-headings: every
       heading is an h3, so it stays); a repeated paragraph: the later copy dropped (in two texts of a page, as a run of
       copies, or 120 characters or more: a short line a list repeats under each item is the text's own); labels out of
@@ -264,12 +265,12 @@ The layers above still check the result.
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
       (`hidden` with why, kept in the file; worked out again each run), and the species' approved summary sent back to be
       written again against the new card
-    - a title promising a count its text lacks: rewritten by the model, kept when its reviewer passes it, else the
-      number dropped from the title; the address stays
+    - a guide's title promising a count its text lacks (a breed's or product's title is its name: listed): rewritten by
+      the model, kept when its reviewer passes it, else the number dropped from the title; the address stays
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
   - Text that reports what "the page" says ("Trang lưu ý…", "Trang cũng nêu…") has no safe fix: the reader's writer
     rewrites it on Vietnamese pages, reviewer-gated.
-  - First run (2026-11-02, 2,599 pages): the source site's comments or related posts cut on 8 guides, a heading left at
+  - First run (2026-11-02, 2,599 pages): the source site's comments or related posts cut on 22 guides, a heading left at
     the end on 2, a repeated paragraph on 12 pages, labels renumbered on 1, 29 photos of another fish or a map off 25
     pages (9 maps off every page), 12 cards' tanks hidden (8 summaries to write again), 4 titles rewritten. Three titles
     the rule had listed held their count after all, as numbered labels ("Mẹo 1"…"Mẹo 13") or bold leads. Its first

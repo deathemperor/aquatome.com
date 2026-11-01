@@ -19,7 +19,7 @@ import { carryTopicChecks } from './topic-check'
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
  *   summary, checked against the old card, goes back to pending: hidden until the summaries step writes it again
- * - a title promising a count its text lacks: with `llm`, rewritten by the model (`titles` at most a run, reviewer-gated:
+ * - a guide's title promising a count its text lacks: with `llm`, rewritten by the model (`titles` at most a run, reviewer-gated:
  *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. The address stays.
  */
 export type SweepReport = {
@@ -43,31 +43,42 @@ type Stored = { name?: string; altNames?: string[]; sections?: Record<string, st
 const indentOf = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
 const write = async (file: string, raw: string, data: unknown) => writeFile(file, `${JSON.stringify(data, null, indentOf(raw))}\n`)
 
-/** One stored translation with the text fixes made, and which of them changed something. */
+/**
+ * One stored translation with the text fixes made, and which of them changed something. Again until nothing changes: a
+ * fix can make room for another (a repeat or a trailing form heading dropped brings comments under half the text, so
+ * they can be cut; labels renumbered make a heading the tidy folds), and the real-content test holds what one pass would
+ * leave.
+ */
 export function sweepTranslation<T extends Stored>(t: T): { t: T; fixed: string[] } {
   const fixed: string[] = []
-  const tidy = fixTranslation(t) as T
-  if (JSON.stringify(tidy) !== JSON.stringify(t)) fixed.push('tidy')
-  const fields = [...sectionFields(tidy.sections ?? {}), ...(tidy.body !== undefined ? [{ field: 'body', html: tidy.body }] : []), ...(tidy.definition !== undefined ? [{ field: 'definition', html: tidy.definition }] : [])]
+  const mark = (name: string) => { if (!fixed.includes(name)) fixed.push(name) }
   const prose = (field: string) => !field.startsWith('sections.references')
-  const step = (name: string, fs: typeof fields, fix: (html: string) => string) => fs.map(f => {
-    const html = prose(f.field) ? fix(f.html) : f.html
-    if (html !== f.html && !fixed.includes(name)) fixed.push(name)
-    return { ...f, html }
-  })
-  let out = step('furniture', fields, cutFurniture)
-  const repeats = dropRepeats(out)
-  if (repeats.some((f, i) => f.html !== out[i]!.html)) fixed.push('repeated')
-  out = step('headings', repeats, dropEmptyHeadings)
-  out = step('labels', out, renumberLabels)
-  const html = (field: string) => out.find(f => f.field === field)!.html
-  const next = {
-    ...tidy,
-    ...(tidy.sections ? { sections: Object.fromEntries(Object.keys(tidy.sections).map(k => [k, html(`sections.${k}`)])) } : {}),
-    ...(tidy.body !== undefined ? { body: html('body') } : {}),
-    ...(tidy.definition !== undefined ? { definition: html('definition') } : {}),
+  let cur = t
+  for (let round = 0; round < 5; round++) {
+    const tidy = fixTranslation(cur) as T
+    if (JSON.stringify(tidy) !== JSON.stringify(cur)) mark('tidy')
+    const fields = [...sectionFields(tidy.sections ?? {}), ...(tidy.body !== undefined ? [{ field: 'body', html: tidy.body }] : []), ...(tidy.definition !== undefined ? [{ field: 'definition', html: tidy.definition }] : [])]
+    const step = (name: string, fs: typeof fields, fix: (html: string) => string) => fs.map(f => {
+      const html = prose(f.field) ? fix(f.html) : f.html
+      if (html !== f.html) mark(name)
+      return { ...f, html }
+    })
+    let out = step('furniture', fields, cutFurniture)
+    const repeats = dropRepeats(out)
+    if (repeats.some((f, i) => f.html !== out[i]!.html)) mark('repeated')
+    out = step('headings', repeats, dropEmptyHeadings)
+    out = step('labels', out, renumberLabels)
+    const html = (field: string) => out.find(f => f.field === field)!.html
+    const next = {
+      ...tidy,
+      ...(tidy.sections ? { sections: Object.fromEntries(Object.keys(tidy.sections).map(k => [k, html(`sections.${k}`)])) } : {}),
+      ...(tidy.body !== undefined ? { body: html('body') } : {}),
+      ...(tidy.definition !== undefined ? { definition: html('definition') } : {}),
+    }
+    if (JSON.stringify(next) === JSON.stringify(cur)) break
+    cur = next
   }
-  return { t: next, fixed }
+  return { t: cur, fixed }
 }
 
 type Value = { source: string | number; value: number | { min: number; max: number }; hidden?: string }
@@ -103,7 +114,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
           for (const f of fixed) (report.text[f] ??= []).push(`${kind}/${id}/${lang}`)
           if (kind === 'guides' && before.body !== undefined) guides.push({ key: lang === 'vi' ? id : `${id}:${lang}`, before: before.body, after: t.body! })
         }
-        if (t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
+        if (kind === 'guides' && t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
       }
     }
   }

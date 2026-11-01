@@ -56,6 +56,10 @@ test('a heading with nothing under it, at the end of its text; a heading over an
   // a text of letters).
   for (const own of ['<h3>Một suy nghĩ cuối cùng</h3>', '<h3>5 suy nghĩ sai lầm về cá betta</h3>', '<h3>Một ý kiến khác</h3>', '<h3>One thought on lighting</h3>',
     '<h3>Bình luận của Ken Childs</h3>', '<h3>Gửi phản hồi cho nhà sản xuất</h3>', '<h3>Bài viết liên quan đến cá betta</h3>', '<p>Một ý kiến về lượng nước thay: nhiều người thay 50%.</p>']) expect(detected(own)).toEqual([])
+  // Thai writes no space before เกี่ยวกับ; a count alone; a form label with more of the plugin's words; the related
+  // lists Aquarium Breeder and Loaches Online write ("Bài liên quan:", "Nội dung liên quan").
+  for (const f of ['<h3>3 ความคิดเห็นเกี่ยวกับ “ปลากัด”</h3>', '<h3>2 phản hồi</h3>', '<h3>7 Responses</h3>', '<h3>7 tanggapan</h3>', '<h3>Để lại bình luận của bạn</h3>',
+    '<h3>Leave a Reply to Ken Cancel reply</h3>', '<p>Bài liên quan:</p>', '<h3>Nội dung liên quan</h3>', '<p>Nội dung liên quan: Cá hề chuột (Chromobotia macracanthus)</p>']) expect(detected(f)).toHaveLength(1)
 })
 
 test('markdown left in the text, not a footnote\'s asterisks; entities in plain text', () => {
@@ -189,6 +193,8 @@ test('the source site\'s comments, comment form and related posts: found as head
   const long = 'Đá dung nham tự nhiên là vật liệu trơ, không làm đổi thông số nước trong bể của bạn.'
   // Related posts in the middle of the text: the line and its list, not what follows.
   expect(cutFurniture(`<h3>A</h3><p>${long}</p><p>Bài viết liên quan:</p><ul><li>15+ thức ăn sống</li></ul><p>${long}</p><h3>B</h3><p>${long}</p>`)).toBe(`<h3>A</h3><p>${long}</p><p>${long}</p><h3>B</h3><p>${long}</p>`)
+  // As a heading too, related posts take their lists only (Aquarium Breeder: "Bài liên quan" over one link, mid-text).
+  expect(cutFurniture(`<h3>A</h3><p>${long}</p><h3>Bài liên quan</h3><ul><li>Thủy tức trong bể tép</li></ul><p>${long}</p><h3>B</h3><p>${long}</p>`)).toBe(`<h3>A</h3><p>${long}</p><p>${long}</p><h3>B</h3><p>${long}</p>`)
   // Comments with their readers' names, up to the next heading; the comment form after them.
   expect(cutFurniture(`<h3>Kết luận</h3><p>${long}</p><p>${long}</p><h3>4 bình luận về “Đá dung nham”</h3><ul><li><p><strong>Marcia:</strong> Hỏi.</p></li></ul><h3>Để lại bình luận</h3>`)).toBe(`<h3>Kết luận</h3><p>${long}</p><p>${long}</p>`)
   // Never more than half a text: a page that is mostly comments is left as it is, and listed for a person, not as a
