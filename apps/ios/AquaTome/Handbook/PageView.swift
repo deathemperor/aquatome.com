@@ -12,6 +12,7 @@ struct PageView: View {
   @Environment(\.openScreen) private var openScreen
   @State private var offline = false
   @State private var failed = false
+  @State private var putting = false
 
   var body: some View {
     // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
@@ -20,6 +21,12 @@ struct PageView: View {
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
+        // A fish or plant page: onto one of the reader's tanks (TankLife.swift).
+        if Life(item) != nil {
+          // Not into a store this app must leave alone (newer, unreadable).
+          Button { putting = true } label: { Label("Thêm vào bể", systemImage: "plus.circle") }
+            .disabled(!tanks.canEdit).accessibilityIdentifier("put-on-tank")
+        }
         ShareLink(item: url)
         Link(destination: url) { Image(systemName: "safari") }.accessibilityLabel(Text("Mở trong trình duyệt"))
       }
@@ -34,6 +41,7 @@ struct PageView: View {
         }
       }
       .accessibilityIdentifier("page")
+      .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
   }
 }
 

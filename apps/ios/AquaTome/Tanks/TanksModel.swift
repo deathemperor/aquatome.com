@@ -27,7 +27,9 @@ final class TanksModel {
   var tanks: [Tank] { store.liveTanks }
   func devices(in tank: Tank) -> [Device] { store.devices(in: tank.id) }
   /// Nothing to add to while the store on the phone isn't this app's to write; after a failed save, try again.
-  var canAdd: Bool { (problem == nil || problem == .saveFailed) && tanks.count < maxTanks }
+  var canAdd: Bool { canEdit && tanks.count < maxTanks }
+  /// Whether this phone's store is this app's to write (none newer or unreadable is there); after a failed save, try again.
+  var canEdit: Bool { problem == nil || problem == .saveFailed }
 
   /// The store as JSON, for "Tải bản sao" (the same file the site downloads).
   func exportData() -> Data? { try? store.data() }
@@ -35,17 +37,24 @@ final class TanksModel {
   // MARK: Edits: each one saved at once. A store this app can't keep whole is never written over.
 
   @discardableResult
-  func add(_ f: TankFields) throws -> Tank {
+  func add(_ f: TankFields) throws -> Tank { try add(named: f.name) { f.apply(to: &$0) } }
+
+  func update(_ id: String, _ f: TankFields) throws { try change(id) { f.apply(to: &$0) } }
+
+  /// A new tank, with what `change` gives it (its fields, a fish), saved as one edit.
+  @discardableResult
+  func add(named name: String, _ change: (inout Tank) -> Void) throws -> Tank {
     var s = store
-    let t = try s.addTank(name: f.name)
-    try s.updateTank(t.id) { f.apply(to: &$0) }
+    let t = try s.addTank(name: name)
+    try s.updateTank(t.id) { change(&$0) }
     try commit(s)
     return s.tank(t.id) ?? t
   }
 
-  func update(_ id: String, _ f: TankFields) throws {
+  /// A change to a tank (its fields, its fish and plants).
+  func change(_ id: String, _ change: (inout Tank) -> Void) throws {
     var s = store
-    try s.updateTank(id) { f.apply(to: &$0) }
+    try s.updateTank(id) { change(&$0) }
     try commit(s)
   }
 
@@ -122,20 +131,22 @@ final class TanksModel {
 
   #if DEBUG
   /// UI tests: no tanks (`-reset-defaults`), then maybe a store this app must leave alone (`-seed-tanks newer`,
-  /// `unreadable`), a place it can't save to (`unwritable`), a tank another client gave litres of its own (`litres`), or
-  /// one with fish and plants on it (`life`).
+  /// `unreadable`), a place it can't save to (`unwritable`), a tank another client gave litres of its own (`litres`),
+  /// one with fish and plants on it (`life`), or one with 20 kinds of fish, longer than the screen (`many`).
   static func prepareForTests(_ args: [String], file: URL = defaultFile()) {
     let dir = file.deletingLastPathComponent()
     let fm = FileManager.default
     if args.contains("-reset-defaults") { try? fm.removeItem(at: dir) }
     guard let i = args.firstIndex(of: "-seed-tanks"), i + 1 < args.count else { return }
     switch args[i + 1] {
-    case "newer", "unreadable", "litres", "life":
+    case "newer", "unreadable", "litres", "life", "many":
+      let many = (["paracheirodon-innesi"] + (1...19).map { "loai-thu-\($0)" }).map { #"{"id":"\#($0)","count":2}"# }.joined(separator: ",")
       let store = [
         "newer": #"{"v":2,"tanks":[],"devices":[]}"#,
         "unreadable": "{not json",
         "litres": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000001","name":"Bể cũ","dims":{"l":100,"w":40,"h":50},"litres":180,"species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
         "life": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000002","name":"Bể cá neon","species":[{"id":"paracheirodon-innesi","count":12},{"id":"loai-chua-co-trang"}],"plants":[{"id":"rotala-rotundifolia"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
+        "many": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000004","name":"Bể đông","species":["# + many + #"],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
       ][args[i + 1]]!
       try? fm.createDirectory(at: dir, withIntermediateDirectories: true)
       try? Data(store.utf8).write(to: file)

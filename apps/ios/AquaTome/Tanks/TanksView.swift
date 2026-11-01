@@ -99,6 +99,7 @@ private struct TankDetail: View {
   @Environment(\.dismiss) private var dismiss
   @State private var editing = false
   @State private var confirmDelete = false
+  @State private var lifeSheet: LifeSheet?
 
   var body: some View {
     if let t = tanks.tanks.first(where: { $0.id == id }) {
@@ -109,13 +110,8 @@ private struct TankDetail: View {
           Text(f.isEmpty ? String(localized: "Chưa có kích thước.") : f.joined(separator: " · ")).accessibilityIdentifier("facts")
           if let n = t.notes { Text(n).accessibilityIdentifier("notes") }
         }
-        // As the site lists them: fish (with how many), then plants, each opening its page.
-        if !t.species.isEmpty {
-          Section("Cá và tép") { ForEach(Array(t.species.enumerated()), id: \.offset) { _, s in LifeRow(id: s.id, count: s.count) } }
-        }
-        if !t.plants.isEmpty {
-          Section("Cây") { ForEach(Array(t.plants.enumerated()), id: \.offset) { _, id in LifeRow(id: id, count: nil) } }
-        }
+        // As the site lists them: fish (with how many), then plants, each opening its page (TankLife.swift).
+        TankLifeSections(tank: t, sheet: $lifeSheet)
         if !lights.isEmpty {
           Section("Đèn") { ForEach(lights) { d in LightRow(device: d) } }
         }
@@ -128,6 +124,7 @@ private struct TankDetail: View {
       .task { if !t.species.isEmpty || !t.plants.isEmpty { await handbook.appear() } }
       .toolbar { Button("Sửa") { editing = true }.accessibilityIdentifier("edit") }
       .sheet(isPresented: $editing) { TankForm(editing: t) }
+      .sheet(item: $lifeSheet) { LifeSheetView(sheet: $0, tankId: t.id) }
       .confirmationDialog(
         lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
         isPresented: $confirmDelete, titleVisibility: .visible
@@ -139,26 +136,6 @@ private struct TankDetail: View {
       }
     } else {
       ContentUnavailableView("Bể này đã bị xóa.", systemImage: "trash")
-    }
-  }
-}
-
-/// A fish or plant on a tank: its name from the handbook (the id until the index is here), linked to its page.
-private struct LifeRow: View {
-  let id: String
-  let count: Int?
-  @Environment(HandbookModel.self) private var handbook
-
-  var body: some View {
-    let label = HStack {
-      Text(handbook.page(id)?.name ?? id)
-      Spacer()
-      if let count { Text(verbatim: "× \(count)").foregroundStyle(.secondary).monospacedDigit() }
-    }
-    if let page = handbook.page(id) {
-      NavigationLink(value: page) { label }.accessibilityIdentifier("life")
-    } else {
-      label.accessibilityIdentifier("life")
     }
   }
 }

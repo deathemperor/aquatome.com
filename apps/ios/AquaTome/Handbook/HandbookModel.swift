@@ -41,6 +41,11 @@ final class HandbookModel {
   /// The page of a fish or plant on a tank, once the index is here.
   func page(_ contentId: String) -> HandbookIndex.Item? { pages[contentId] }
 
+  /// The fish and plants a tank can list, for `query` (all of them for none).
+  func life(_ query: String) -> [HandbookIndex.Item] {
+    search.find(query, limit: .max).filter { ($0.kind == .fish || $0.kind == .plant) && $0.contentId != nil }
+  }
+
   /// When the tab shows: the index, unless this run already has the site's copy.
   func appear() async {
     if !fetched { await load() }
@@ -100,7 +105,8 @@ extension HandbookIndex {
   /// UI tests' index: a few pages of each kind, as the site writes them.
   static let fixture = HandbookIndex(lang: "vi", items: [
     .init(kind: .fish, contentId: "symphysodon-aequifasciatus", name: "Cá đĩa", sub: "Symphysodon aequifasciatus", aka: ["Discus"], path: "/vi/ca/ca-dia/"),
-    .init(kind: .fish, contentId: "paracheirodon-innesi", name: "Cá neon", sub: "Paracheirodon innesi", aka: ["Neon tetra"], path: "/vi/ca/ca-neon/"),
+    .init(kind: .fish, contentId: "paracheirodon-innesi", name: "Cá neon", sub: "Paracheirodon innesi", aka: ["Neon tetra"], path: "/vi/ca/ca-neon/",
+          facts: .init(tempC: .init(min: 20, max: 26), ph: .init(min: 5, max: 7), sizeCm: 4, tankCm: 60, temperament: "peaceful", schoolMin: 6, difficulty: 2)),
     .init(kind: .fish, contentId: "danio-rerio", name: "Cá ngựa vằn", sub: "Danio rerio", path: "/vi/ca/ca-ngua-van/"),
     .init(kind: .plant, contentId: "rotala-rotundifolia", name: "Rotala đỏ", sub: "Rotala rotundifolia", path: "/vi/cay/rotala-do/"),
     .init(kind: .guide, name: "Nuôi cá neon trong bể nhỏ", path: "/vi/huong-dan/nuoi-ca-neon/"),

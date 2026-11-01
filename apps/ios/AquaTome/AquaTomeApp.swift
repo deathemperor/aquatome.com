@@ -1,6 +1,7 @@
 import AccountSync
 import Handbook
 import SwiftUI
+import WebKit
 
 @main
 struct AquaTomeApp: App {
@@ -16,9 +17,11 @@ struct AquaTomeApp: App {
 
   init() {
     #if DEBUG
-    // UI tests start from a clean phone (no schedule or tank kept from an earlier run).
+    // UI tests start from a clean phone (no schedule or tank kept from an earlier run), its web views too: a page keeps
+    // the tanks it was handed and sends them back to the app (PageBridge), which would bring an earlier test's tanks in.
     if ProcessInfo.processInfo.arguments.contains("-reset-defaults"), let id = Bundle.main.bundleIdentifier {
       UserDefaults.standard.removePersistentDomain(forName: id)
+      WKWebsiteDataStore.default().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: .distantPast) {}
     }
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
     #endif
