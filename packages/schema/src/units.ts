@@ -16,7 +16,7 @@ export const cmToIn = (cm: number): number => round1(cm / 2.54)
  * - an imperial figure alone is converted: °C to whole degrees; cm to the half under 10 cm, whole above; feet to cm
  *   under a metre (and a tank's sides always in cm), else m to one decimal; litres to one decimal under 5 L, whole
  *   under 100 L, tens under 1,000 L, hundreds above (a range in the steps of its smallest end: "380–1.890 lít");
- *   gallons an hour (GPH) to litres an hour
+ *   gallons an hour (GPH) to litres an hour; pounds and ounces (a weight) to grams, kg from 1,000 g
  * - a change of temperature is no temperature: "±2 °F", "lên 9 °F", anything under 25 °F → ×5/9 ("1 °C" at least)
  * - "mid-60s °F" ("giữa 60 độ F", "ราวกลาง 50 °F") is the decade's middle: "khoảng 18 độ C"
  * - a US tank model is its volume and size, standard dimensions (L × W × H): "bể 20 gallon long" → "bể khoảng 75 lít
@@ -27,14 +27,14 @@ export const cmToIn = (cm: number): number => round1(cm / 2.54)
  *   mm)" → "ống PVC phi 27". Indonesian and Thai pages (none has a pipe yet) get the same outside diameter in mm.
  *   A hose (ống mềm) is sold by its inside size, and a hole saw (mũi khoét lỗ) cuts its own: their figures convert as
  *   lengths
- * - "84” x 27” x 28”", "6’ x 2’", "5ft x 2ft", "1/2" đến 1"", "bốn feet" are read as figures first
+ * - "84” x 27” x 28”", "6’ x 2’", "5ft x 2ft", "1/2" đến 1"", "bốn feet", "satu galon" are read as figures first;
+ *   an Indonesian "kaki" is a foot only after a length word ("kedalaman minimal 3–4 kaki"), since it is a leg too
  * Left as published: a quoted label with its metric after it ("'…elevation 650 feet' (độ cao khoảng 200 m)",
  * "“một gallon nước cho một inch cá” (khoảng 3,8 lít…)"), a product's name ("Fluval 10 Gallon": a unit written with a
- * capital), lb and oz on their own (a copy beside grams or mL goes), unit words with no figure ("vài inch").
+ * capital), a bottle's size in ounces ("chai 8 oz": fluid ounces, as sold), unit words with no figure ("vài inch").
  * Reference lists are not page text: `metricPage` leaves them alone.
  */
 export type UnitLang = 'vi' | 'id' | 'th'
-// mass: lb and oz, only ever dropped beside their metric copy; never converted.
 type Dim = 'temp' | 'length' | 'feet' | 'flow' | 'volume' | 'mass'
 
 const FRAC: Record<string, number> = { '½': 0.5, '¼': 0.25, '¾': 0.75 }
@@ -61,7 +61,7 @@ const IMP_UNIT: Record<Dim, string> = {
   feet: String.raw`(?:(?:[Ff]eet|[Ff]oot|ft)${END}|ฟุต)`,
   flow: String.raw`(?:(?:GPH|gph)${END}|${GAL}(?:\s+(?:Mỹ|US|AS))?\s*(?:mỗi\s+giờ|\/\s*giờ|per\s+jam|\/\s*jam|per\s+hour)${END}|แกลลอน(?:สหรัฐฯ?)?\s*(?:ต่อ|\/)\s*ชั่วโมง)`,
   volume: String.raw`(?:${GAL}${END}|แกลลอน)(?:\s+(?:Mỹ|Anh|US|UK|AS|Inggris|imperial)${END}|\s*(?:สหรัฐฯ?|อังกฤษ))?`,
-  mass: String.raw`(?:(?:lbs?|oz|pounds?|ounces?)${END}|ปอนด์|ออนซ์)`,
+  mass: String.raw`(?:(?:lbs?|oz|pounds?|ounces?|pon)${END}|ปอนด์|ออนซ์)`,
 }
 const LENGTH = String.raw`(?:(?:mm|cm|km|m|mét|meter)${END}|ซม\.|มม\.|เซนติเมตร|เมตร)`
 const LITRE = String.raw`(?:lít|L|l|liter|litre)`
@@ -107,6 +107,7 @@ function fmt(n: number, lang: UnitLang): string {
   return dec ? `${i}${lang === 'th' ? '.' : ','}${dec}` : i
 }
 const roundTo = (n: number, step: number) => Number((Math.round(n / step) * step).toFixed(step < 1 ? 1 : 0))
+const isOunce = (unit: string) => /oz|ounce|ออนซ์/u.test(unit)
 const isUk = (unit: string) => /\b(?:UK|Anh|Inggris|imperial)\b|อังกฤษ/u.test(unit)
 const litres = (gal: number, uk: boolean) => gal * (uk ? 4.546 : 3.785)
 const litreStep = (l: number) => (l < 5 ? 0.1 : l < 100 ? 1 : l < 1000 ? 10 : 100)
@@ -117,6 +118,7 @@ const UNIT_OUT: Record<UnitLang, Record<'length' | 'feet' | 'flow' | 'volume', s
   id: { length: 'cm', feet: 'm', flow: 'liter/jam', volume: 'liter' },
   th: { length: 'ซม.', feet: 'เมตร', flow: 'ลิตร/ชั่วโมง', volume: 'ลิตร' },
 }
+const GRAMS: Record<UnitLang, [string, string]> = { vi: ['g', 'kg'], id: ['g', 'kg'], th: ['กรัม', 'กก.'] }
 
 /** The imperial figure in metric: each number converted, its range and side separators kept. */
 function convert(fig: string, gap: string, unit: string, suffix: string, d: Dim, lang: UnitLang, delta = false): string {
@@ -132,6 +134,11 @@ function convert(fig: string, gap: string, unit: string, suffix: string, d: Dim,
     // A tank's sides, or anything under a metre, in cm: "4 ft × 2 ft" → "122 × 61 cm", "2 feet" → "61 cm".
     if (sides || Math.max(...m) < 1) { out = m.map(x => Math.round(x * 100)); unitOut = UNIT_OUT[lang].length }
     else out = m.map(x => (x < 10 ? round1(x) : Math.round(x)))
+  } else if (d === 'mass') {
+    const g = nums.map(x => x * (isOunce(unit) ? 28.35 : 453.6))
+    const kg = Math.max(...g) >= 1000
+    out = g.map(x => (kg ? (x < 10_000 ? round1(x / 1000) : Math.round(x / 1000)) : roundTo(x, x < 10 ? 0.1 : x < 100 ? 1 : 10)))
+    unitOut = GRAMS[lang][kg ? 1 : 0]
   } else {
     const l = nums.map(g => litres(g, isUk(unit)))
     const step = litreStep(Math.min(...l))
@@ -158,7 +165,7 @@ function agrees(impFig: string, impUnit: string, met: string, d: Dim, lang: Unit
   if (!a.length || a.length !== b.length) return false
   const near = (x: number, y: number, uk: boolean) => {
     if (d === 'temp') return Math.abs((delta ? x * 5 / 9 : (x - 32) * 5 / 9) - y) <= 1.5
-    const want = d === 'length' ? x * 2.54 : d === 'feet' ? x * 30.48 : d === 'mass' ? x * (/lb|pound|ปอนด์/u.test(impUnit) ? 453.6 : 28.35)
+    const want = d === 'length' ? x * 2.54 : d === 'feet' ? x * 30.48 : d === 'mass' ? x * (isOunce(impUnit) ? 28.35 : 453.6)
       : litres(x, uk)
     return Math.abs(want - y) <= Math.max(want * 0.2, d === 'length' ? 0.6 : 0)
   }
@@ -177,6 +184,8 @@ function viNumber(w: string): number {
   if (b === 'mươi') return DIGIT[a!]! * 10 + (c ? DIGIT[c]! : 0)
   return DIGIT[a!]!
 }
+// Indonesian, before "galon" or "inci": "Satu galon air" (not the rule "satu galon per inci").
+const ID_WORDS: Record<string, number> = { satu: 1, dua: 2, tiga: 3, empat: 4, lima: 5, sepuluh: 10, setengah: 0.5 }
 const INCH_MARK = '["”″]'
 const FOOT_MARK = "['’′]"
 const SIDE_UNIT = String.raw`(?:ft|feet|foot|ฟุต|inch|inci|นิ้ว|${INCH_MARK}|${FOOT_MARK})`
@@ -187,6 +196,10 @@ function normalize(t: string): string {
     .replace(re(String.raw`(?<!\p{L})(${WORDS})\s+(feet|foot|inch|gallon)(\s+rưỡi)?(?!\p{L})`),
       (_a, w: string, u: string, half?: string) => `${String(viNumber(w) + (half ? 0.5 : 0)).replace('.', ',')} ${u}`)
     .replace(re(String.raw`(?<!\p{L})nửa\s+(inch|foot|gallon)(?!\p{L})`), '0,5 $1')
+    .replace(re(String.raw`(?<!\p{L})(${Object.keys(ID_WORDS).map(w => `[${w[0]}${w[0]!.toUpperCase()}]${w.slice(1)}`).join('|')})\s+(galon|inci)(?!\p{L})(?!\s+per\s+inci)`),
+      (_a, w: string, u: string) => `${String(ID_WORDS[w.toLowerCase()]).replace('.', ',')} ${u}`)
+    // "kedalaman minimal 3–4 kaki": feet; a "kaki" is a leg too, so only after a length word.
+    .replace(re(String.raw`((?<!\p{L})(?:kedalaman|panjang|tinggi|lebar|jarak|sedalam|setinggi|sepanjang|selebar)(?:nya)?[^\d<>]{0,30}?${START}${N}(?:${TO}${N})?)\s*kaki(?!\p{L})`), '$1 feet')
     // "vài inch (khoảng 5–8 cm)": the bracket says how many.
     .replace(re(String.raw`(?<!\p{L})vài\s+(?:inch|feet|foot|gallon)\s*\(\s*(${QUAL}\s*${N}(?:${TO}${N})?\s*(?:${LENGTH}|${LITRE}${END}))\s*\)`), '$1')
     .replace(re(String.raw`\((\s*(?:${QUAL}\s+)?)(${WORDS})\s+mét\s*\)`), (_a, q: string, w: string) => `(${q}${viNumber(w)} mét)`)
@@ -259,7 +272,7 @@ function rates(t: string, lang: UnitLang): string {
 }
 
 /** "10 ตารางฟุต", "2 feet vuông": square feet in m². */
-const squares = (t: string, lang: UnitLang) => t.replace(re(String.raw`${START}(${N})\s*(?:(?:feet|foot|ft)\s+vuông|kaki\s+persegi|sq\.?\s*ft|ft²|ตารางฟุต)${END}`),
+const squares = (t: string, lang: UnitLang) => t.replace(re(String.raw`${START}(${N})\s*(?:(?:feet|foot|ft)\s+(?:vuông|persegi)|kaki\s+persegi|sq\.?\s*ft|ft²|ตารางฟุต)${END}`),
   (_a, n: string) => `${fmt(round1(parseNum(n, lang) * 0.0929) || 0.1, lang)} ${lang === 'th' ? 'ตารางเมตร' : 'm²'}`)
 
 // Standard US tanks (Aqueon, Marineland, All-Glass), inches: length × width × height.
@@ -363,14 +376,18 @@ export function toMetric(text: string, lang: UnitLang): string {
         const met = m1 ?? m2!
         return agrees(fig, unit, met, d, lang, delta(fig, a)) && !NEARLY.test(met) ? `${bare(met)}${suffix}${words}` : all
       })
-    // 4. Whatever imperial is left: converted where it stands (lb and oz stay).
-    if (d !== 'mass') t = t.replace(re(IMP), (_all, fig: string, gap: string, unit: string, suffix: string, ...a: unknown[]) => convert(fig, gap, unit, suffix, d, lang, delta(fig, a)))
+    // 4. Whatever imperial is left: converted where it stands; a bottle's ounces ("chai 8 oz") are its size as sold.
+    t = t.replace(re(IMP), (all, fig: string, gap: string, unit: string, suffix: string, ...a: unknown[]) => {
+      const { at, s } = after(a)
+      if (d === 'mass' && isOunce(unit) && /(?:chai|lọ|bình|bottle|botol|ขวด)\s*$/iu.test(s.slice(Math.max(0, at - 12), at))) return all
+      return convert(fig, gap, unit, suffix, d, lang, delta(fig, a))
+    })
   }
   return m.restore(t)
 }
 
-/** The imperial figures a text still has: none once `toMetric` has run (quoted labels and names aside). */
-const LEFT = re(String.raw`${ANY_IMP}|${START}\d0(?:-an|\s*(?:ปลาย|ต้น|กลาง)\s*ๆ?)\s*[°º˚]\s*F|${START}${N}\s*ตารางฟุต`)
+/** The imperial figures a text still has (pounds; not ounces, which may size a bottle): none once `toMetric` has run (quoted labels and names aside). */
+const LEFT = re(String.raw`${ANY_IMP}|${START}${N}\s*-?\s*(?:(?:lbs?|pounds?|pon)${END}|ปอนด์)|${START}\d0(?:-an|\s*(?:ปลาย|ต้น|กลาง)\s*ๆ?)\s*[°º˚]\s*F|${START}${N}\s*ตารางฟุต`)
 export const imperialLeft = (text: string): string[] => normalize(mask(text).text).match(LEFT) ?? []
 
 type Page = { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] }

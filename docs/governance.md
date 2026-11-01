@@ -212,10 +212,11 @@ The layers above still check the result.
   (68–86°F)"), one before its metric one gives way to it ("2 inch (khoảng 5 cm)"), one alone is converted ("bể 10 gallon"
   → "bể 38 lít"). A US tank model reads as its volume and size ("bể 20 gallon long" → "bể khoảng 75 lít (76 × 30 × 30
   cm)"), a pipe as the size shops here sell ("ống PVC ¾ inch" → "ống PVC phi 27"), a change of temperature as its own
-  size ("giảm 15 °F" → "giảm 8 °C"). `pnpm engine metric` runs before each cycle's build for anything a writer missed,
-  and a test fails on any °F, inch, foot or gallon figure left in `content/`. Reference lists, titles, quoted labels and
-  weights (lb, oz) with no metric beside them stay as published. Found on 263 fish, plant and breed pages, then on 135
-  guide pages and 9 more fish pages whose sizes were written in inch marks (48" x 15") (2026-11-01).
+  size ("giảm 15 °F" → "giảm 8 °C"), a weight in grams ("1 lb" → "450 g"). `pnpm engine metric` runs before each
+  cycle's build for anything a writer missed, and a test fails on any °F, inch, foot, gallon or pound figure left in
+  `content/`. Reference lists, titles, quoted labels and a bottle's size in ounces stay as published. Found on 263 fish,
+  plant and breed pages, then on 136 guide pages and 9 more fish pages whose sizes were written in inch marks (48" x
+  15") (2026-11-01).
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
   for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
   otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text

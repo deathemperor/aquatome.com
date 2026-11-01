@@ -155,7 +155,7 @@ test('guides: doses per gallon, rules of thumb, flow, rounding', () => {
   expect(vi('tối đa khoảng 13 mg mỗi lít (50 mg mỗi gallon), thì')).toBe('tối đa khoảng 13 mg mỗi lít, thì')
   expect(vi('phân khoáng 80 L, tức khoảng 20 gallon Mỹ.')).toBe('phân khoáng 80 L.')
   expect(id('per 80 L, sekitar 20 galon AS.')).toBe('per 80 L.')
-  expect(th('ใช้เกลือไม่เกิน 1 oz ต่อ 1 แกลลอนสหรัฐฯ อาจช่วย')).toBe('ใช้เกลือไม่เกิน 1 oz ต่อ 3.8 ลิตร อาจช่วย')
+  expect(th('ใช้เกลือไม่เกิน 1 oz ต่อ 1 แกลลอนสหรัฐฯ อาจช่วย')).toBe('ใช้เกลือไม่เกิน 28 กรัม ต่อ 3.8 ลิตร อาจช่วย')
   expect(vi('cho chai 16,9 oz (~500 mL)')).toBe('cho chai 500 mL')
   expect(vi('Lúc này bơm 5 gallon mất 78 giây, tức 230 GPH (khoảng 870 lít/giờ).')).toBe('Lúc này bơm 19 lít mất 78 giây, tức 870 lít/giờ.')
   expect(vi('mẫu lớn nhất được công bố đạt tới 3000 gallon Mỹ mỗi giờ (khoảng 11.400 lít/giờ).')).toBe('mẫu lớn nhất được công bố đạt tới 11.400 lít/giờ.')
@@ -188,10 +188,23 @@ test('guides: inch and foot marks, numbers in words, sides', () => {
   expect(vi('Đạt kích thước tối đa 7–8 inch TL (khoảng 18–20 cm), bể lớn')).toBe('Đạt kích thước tối đa 18–20 cm TL, bể lớn')
   expect(vi('một lớp dày vài inch (khoảng 5–8 cm) mà')).toBe('một lớp dày khoảng 5–8 cm mà')
   expect(th('1 ต้นต่อพื้นที่ผิวน้ำ 10 ตารางฟุต')).toBe('1 ต้นต่อพื้นที่ผิวน้ำ 0.9 ตารางเมตร')
-  for (const s of ['84” x 27” x 28”', 'kisaran 60-an °F bawah', '600 GPH', '10 ตารางฟุต', 'bốn feet', '50 ปลาย ๆ ถึง 60 ต้น ๆ °F']) expect(imperialLeft(s), s).not.toEqual([])
+  expect(id('Satu galon air beratnya sekitar 8 pon.')).toBe('3,8 liter air beratnya sekitar 3,6 kg.')
+  // A "kaki" is a leg too: a foot only after a length word.
+  expect(id('menyarankan kedalaman minimal 3–4 kaki, terutama')).toBe('menyarankan kedalaman minimal 0,9–1,2 m, terutama')
+  expect(id('Udang punya 10 kaki.')).toBe('Udang punya 10 kaki.')
+  for (const s of ['84” x 27” x 28”', 'kedalaman 3 kaki', 'kisaran 60-an °F bawah', '600 GPH', '10 ตารางฟุต', 'bốn feet', '50 ปลาย ๆ ถึง 60 ต้น ๆ °F']) expect(imperialLeft(s), s).not.toEqual([])
 })
 
-test('guides: quoted labels with their metric, names, weights and figureless units stay as published', () => {
+test('guides: a weight in grams, kg from 1,000 g', () => {
+  expect(vi('<li>0,9 lb thịt nghêu</li><li>1,56 lb phi lê cá pollock</li>')).toBe('<li>410 g thịt nghêu</li><li>710 g phi lê cá pollock</li>')
+  expect(id('Pakai sekitar 1 lb per 38 liter, dicampur')).toBe('Pakai sekitar 450 g per 38 liter, dicampur')
+  expect(id('sampai 1 oz per 3,8 liter mungkin membantu')).toBe('sampai 28 g per 3,8 liter mungkin membantu')
+  expect(th('ใช้ประมาณ 1 ปอนด์ต่อน้ำ 38 ลิตร')).toBe('ใช้ประมาณ 450 กรัมต่อน้ำ 38 ลิตร')
+  expect(th('น้ำ 3.8 ลิตรหนักราว 8 ปอนด์')).toBe('น้ำ 3.8 ลิตรหนักราว 3.6 กก.')
+  for (const s of ['0,9 lb', '8 pon', '1 ปอนด์']) expect(imperialLeft(s), s).not.toEqual([])
+})
+
+test('guides: quoted labels with their metric, names, a bottle\'s ounces and figureless units stay as published', () => {
   const left = [
     'Quy tắc “một gallon nước cho một inch cá” (khoảng 3,8 lít nước cho 2,5 cm cá) chỉ là',
     'chờ đợt giảm giá bể "một đô mỗi gallon" (một gallon khoảng 3,8 lít) sắp tới',
@@ -199,7 +212,7 @@ test('guides: quoted labels with their metric, names, weights and figureless uni
     'bộ Aqueon 10 Gallon LED',
     'số inch cá trên mỗi foot vuông diện tích mặt nước hoặc số inch trên mỗi gallon dung tích bể',
     'Giá: cho chai 8 oz.',
-    'Máy xay 0,9 lb thịt nghêu',
+    'Aturan satu galon per inci ikan.',
     'có thể được bán khi chỉ dài vài inch',
   ]
   for (const s of left) expect(vi(s)).toBe(s)

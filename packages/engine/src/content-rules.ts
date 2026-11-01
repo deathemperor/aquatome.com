@@ -272,7 +272,7 @@ export const RULES: Rule[] = [
   },
   {
     id: 'imperial', title: 'Imperial units with no metric figure beside them',
-    about: '°F, inches, gallons, feet or pounds with no °C, cm, litres, metres or kg next to them: listed only (`pnpm engine metric` converts fish, plant and breed pages; guides are not converted yet). Those with a metric figure beside them are counted at the top.',
+    about: '°F, inches, gallons, feet or pounds with no °C, cm, litres, metres or kg next to them: listed only (`pnpm engine metric` converts fish, plant, breed and guide pages). Those with a metric figure beside them are counted at the top.',
     check: p => {
       const alone = [...new Set([...prose(p).map(f => lines(f.html)), ...p.lines.map(l => l.text)].flatMap(t => imperialUnits(t).alone))]
       return alone.length ? [firstFew(alone).join('; ')] : []
