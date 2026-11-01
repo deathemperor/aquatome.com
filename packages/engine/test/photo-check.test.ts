@@ -179,6 +179,11 @@ test('names a guide caption resolves to: the longest name wins, a one-word or sh
   expect(captionSubject('Neon tetras and cherry barbs', index)).toBeUndefined()
   expect(captionSubject('Neon tetra and a cherry barb', index)).toBeUndefined()
   expect(captionSubject('A neonate', index)).toBeUndefined()
+  const genera = new Map([['microsorum', new Set(['pteropus'])], ['anubias', new Set(['barteri'])], ['paracheirodon', new Set(['innesi', 'simulans'])]])
+  const plants = new Map([['java fern', 'pteropus']])
+  expect(captionSubject('Java fern on lava rock', plants, genera)).toBe('pteropus')
+  expect(captionSubject('How to Plant Anubias or Java Fern on Rocks', plants, genera)).toBeUndefined()
+  expect(captionSubject('Neon tetra (Paracheirodon innesi)', index, genera)).toBe('innesi')
 })
 
 test('the blocklist is only added to: entries another step writes during the run stay', async () => {

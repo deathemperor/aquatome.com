@@ -93,9 +93,10 @@ const norm = (s: string) => s.normalize('NFC').toLowerCase().replace(/['‘’"]
 /**
  * The species or plant a guide photo's caption names: a scientific name or another name of exactly one page, two words or
  * more (a one-word name, "Molly", names a group). A name inside a longer one gives way ("Cá neon" in "Cá neon xanh lục");
- * a caption naming two pages names neither.
+ * a caption naming two pages, or another genus ("How to plant Anubias or Java Fern"), names neither. `genera`: each
+ * genus (lower case) and the pages in it.
  */
-export function captionSubject(caption: string, index: Map<string, string>): string | undefined {
+export function captionSubject(caption: string, index: Map<string, string>, genera = new Map<string, Set<string>>()): string | undefined {
   const c = norm(caption)
   const hits: { id: string; from: number; to: number }[] = []
   for (const [name, id] of index) {
@@ -107,16 +108,20 @@ export function captionSubject(caption: string, index: Map<string, string>): str
     }
   }
   const kept = hits.filter(h => !hits.some(o => o !== h && o.from <= h.from && o.to >= h.to && o.to - o.from > h.to - h.from))
-  const ids = new Set(kept.map(h => h.id))
-  return ids.size === 1 ? [...ids][0] : undefined
+  const ids = [...new Set(kept.map(h => h.id))]
+  if (ids.length !== 1) return undefined
+  return c.split(/[^\p{L}]+/u).some(w => genera.get(w) && !genera.get(w)!.has(ids[0]!)) ? undefined : ids[0]
 }
 
-function nameIndex(all: Subject[]): Map<string, string> {
+function nameIndex(all: Subject[]) {
   const owners = new Map<string, Set<string>>()
+  const genera = new Map<string, Set<string>>()
   for (const s of all) if (s.kind !== 'breeds') {
     for (const n of [s.sci.split(/\s+/).slice(0, 2).join(' '), ...s.names].map(norm)) if (n.split(' ').length >= 2) owners.set(n, (owners.get(n) ?? new Set()).add(s.id))
+    const g = norm(s.sci.split(/\s+/)[0]!)
+    genera.set(g, (genera.get(g) ?? new Set()).add(s.id))
   }
-  return new Map([...owners].filter(([, ids]) => ids.size === 1).map(([n, ids]) => [n, [...ids][0]!]))
+  return { names: new Map([...owners].filter(([, ids]) => ids.size === 1).map(([n, ids]) => [n, [...ids][0]!])), genera }
 }
 
 async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
@@ -165,7 +170,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const file = join(content, 'guides', id, 'entity.json')
     const g = await readJson<{ photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } }>(file)
     for (const p of [...(g?.photos ?? []), ...(g?.video?.figures ?? []).flatMap(f => (f.photo ? [f.photo] : []))]) {
-      const page = p.caption ? captionSubject(p.caption, index) : undefined
+      const page = p.caption ? captionSubject(p.caption, index.names, index.genera) : undefined
       shown.push({ file, url: p.url, guide: true, ...(page ? { page, caption: p.caption } : {}) })
     }
   }
