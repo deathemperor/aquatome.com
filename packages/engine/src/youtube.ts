@@ -10,7 +10,7 @@ import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { gate } from './quality'
-import { sanitizeHtml } from './sanitize'
+import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
 import type { Storyboard } from './video-images'
@@ -417,10 +417,10 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         mentions: [...new Set([...(prev.entity?.mentions ?? []), ...await resolveTaxa(contentRoot, taxa ?? [])])],
         video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(lang !== 'en' ? { lang } : {}), ...(ownTranscript || (unknown && !captions) ? { transcribed: true } : {}), ...(taxa ? { taxa } : {}), ...(gear ? { gear } : {}) },
       })
-      const name = d.viTitle.trim()
+      const name = unescapePlain(d.viTitle).trim()
       const vi = TranslationSchema.parse({
         slug: prev.vi?.slug ?? pickSlug(name, 'video', await guideSlugs(contentRoot)), name, altNames: [], sections: {},
-        body: sanitizeHtml(d.body), summary: d.summary.map(s => s.trim()).filter(Boolean), faq: d.faq.filter(f => f.q.trim() && f.a.trim()),
+        body: sanitizeHtml(d.body), ...plainParts(d.summary, d.faq),
         ...(m.chapters.length && d.chapters.length === m.chapters.length ? { chapters: d.chapters.map(c => c.trim()) } : {}),
         quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score } },
         ...(prev.vi?.cover ? { cover: prev.vi.cover } : {}),

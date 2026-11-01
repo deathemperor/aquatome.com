@@ -5,7 +5,7 @@ import { BreedSchema, GallerySchema, metricPage, nameKey, QUALITY_THRESHOLD, slu
 import { LlmError, type Llm } from './claude'
 import { commonsCandidates, screen, type GalleryDeps } from './gallery'
 import { pickSlug } from './merge'
-import { sanitizeHtml } from './sanitize'
+import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { localName, TARGETS, type TargetLang } from './localize'
 import { breedLeads, readForumState } from './forum'
 
@@ -188,12 +188,12 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
     sources: facts.sources.filter((_, i) => web[i]).map(s => ({ ...s, at: today })), updatedAt: today,
   })
   // A name the owner fixed, and the addresses it had before, survive a --redo.
-  const name = (prev?.nameFixed ? prev.name : w.name).trim()
+  const name = (prev?.nameFixed ? prev.name : unescapePlain(w.name)).trim()
   const vi: Translation = TranslationSchema.parse(metricPage({
     slug: prev?.slug ?? pickSlug(name.replace(/\s*\(.*\)\s*$/, ''), facts.kind === 'hybrid' ? 'lai' : 'dong', await speciesSlugs(content)),
     // Other names, minus those the title already holds ("Cá hồng két (Blood parrot cichlid)").
-    name, altNames: [...new Set([...w.altNames, ...facts.enNames, ...facts.viNames.map(v => v.name)].map(s => s.trim()).filter(s => s && !name.toLowerCase().includes(s.toLowerCase())))],
-    sections: {}, body: sanitizeHtml(w.body), summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()),
+    name, altNames: [...new Set([...w.altNames, ...facts.enNames, ...facts.viNames.map(v => v.name)].map(s => unescapePlain(s).trim()).filter(s => s && !name.toLowerCase().includes(s.toLowerCase())))],
+    sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
   }, 'vi'))
@@ -244,13 +244,13 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
     if (t.name) names.add(nameKey(t.name))
   }
   const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string; name: string; nameFixed?: boolean } | null
-  const name = localName(w.name, prev, names, forWriter.name)
+  const name = localName(unescapePlain(w.name), prev, names, forWriter.name)
   const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/\s*\(.*\)\s*$/, ''), lang === 'id' ? 'ikan' : 'fish', taken)
   // The Vietnamese page's own names are not names in this language.
   const viNames = new Set([vi.name, ...vi.altNames].map(n => n.toLowerCase()))
   const t = TranslationSchema.parse(metricPage({
-    slug, name, altNames: [...new Set([w.name, ...w.altNames].map(n => n.trim()).filter(n => n && !viNames.has(n.toLowerCase()) && !name.toLowerCase().includes(n.toLowerCase())))],
-    sections: {}, body: sanitizeHtml(w.body), summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()),
+    slug, name, altNames: [...new Set([w.name, ...w.altNames].map(n => unescapePlain(n).trim()).filter(n => n && !viNames.has(n.toLowerCase()) && !name.toLowerCase().includes(n.toLowerCase())))],
+    sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     ...(w.parentNames?.length && w.parentNames.length === facts.parents.length ? { parents: w.parentNames.map(n => n.trim()) } : {}),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
     ...(prev?.nameFixed ? { nameFixed: true } : {}),

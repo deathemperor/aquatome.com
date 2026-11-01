@@ -114,7 +114,8 @@ if part pages sf photos; then
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
 fi
 if part photos; then
-  # Pictures report (docs/review/content-audit.md): pages without a photo, a card thumb, or pictures inside the text.
+  # Reports, nothing hidden: pictures (docs/review/content-audit.md: pages without a photo, a card thumb, or pictures
+  # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
   pnpm engine audit || log "audit: failed"
 fi
 if part rewrite; then

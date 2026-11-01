@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { MarketSchema, ProductSchema, QUALITY_THRESHOLD, slugify, TranslationSchema, type Market, type ProductEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { isMarketplace } from './marketplaces'
-import { sanitizeHtml } from './sanitize'
+import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 
 const WRITE = readFileSync(new URL('./prompts/product.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
@@ -139,8 +139,8 @@ export async function makeProduct(contentRoot: string, d: { research: Llm; llm: 
     specs: facts.specs.map(cite), variants: facts.variants.map(v => ({ ...v, specs: v.specs.map(cite) })), sources: facts.sources.filter((_, i) => web[i]).map(s => ({ ...s, at: today })), updatedAt: today,
   })
   const vi: Translation = TranslationSchema.parse({
-    slug: prev?.slug ?? id, name: w.name.trim(), altNames: [`${a.brand} ${a.model}`], sections: {}, body,
-    summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()), labels,
+    slug: prev?.slug ?? id, name: unescapePlain(w.name).trim(), altNames: [`${a.brand} ${a.model}`], sections: {}, body,
+    ...plainParts(w.summary, w.faq), labels,
     quality: { score, indexable: score >= QUALITY_THRESHOLD },
   })
   const market: Market = MarketSchema.parse({ currency: 'VND', checkedAt: today, prices: prices.map(p => ({ shop: p.shop, url: p.url, ...(p.variant ? { variant: p.variant } : {}), price: Math.round(p.vnd), at: today })) })

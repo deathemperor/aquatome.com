@@ -5,7 +5,7 @@ import { GuideSchema, QUALITY_THRESHOLD, slugify, TranslationSchema, type GuideE
 import type { Llm } from './claude'
 import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
-import { sanitizeHtml } from './sanitize'
+import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { readForumState, topicLeads } from './forum'
 
 const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8')
@@ -135,7 +135,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
     const t = JSON.parse(await readFile(join(content, 'guides', g, 'vi.json'), 'utf8').catch(() => '{}')) as { slug?: string }
     if (t.slug) taken.add(t.slug)
   }
-  const name = w.name.trim()
+  const name = unescapePlain(w.name).trim()
   const slug = prev?.slug ?? pickSlug(name.replace(/:.*$/, ''), 'huong-dan', taken)
   const ids = await idsByName(content)
   const today = (o.now?.() ?? new Date()).toISOString().slice(0, 10)
@@ -147,7 +147,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
     updatedAt: today, refs,
   })
   const vi = TranslationSchema.parse({
-    slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()),
+    slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
   })
   await mkdir(dir, { recursive: true })
@@ -196,10 +196,10 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
     if (t.slug) taken.add(t.slug)
   }
   const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
-  const name = w.name.trim()
+  const name = unescapePlain(w.name).trim()
   const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), lang === 'id' ? 'panduan' : 'guide', taken)
   const t = TranslationSchema.parse({
-    slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), summary: w.summary.map(s => s.trim()).filter(Boolean), faq: w.faq.filter(f => f.q.trim() && f.a.trim()),
+    slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     refs, quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
   })
   await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)

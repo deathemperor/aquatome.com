@@ -13,6 +13,7 @@
 | `pnpm engine thumbs` | 480px card thumbs for photos stored before thumbs existed; run by the cycle |
 | `pnpm engine metric` | fish, plant and breed pages (vi, id, th) in metric only: °F, inches, feet and gallons a writer left are converted, an imperial figure beside its metric one dropped (`@aq/schema` `toMetric`); every writer of those pages applies it too; run by the cycle before the build |
 | `pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill]` | Jim Cumming's Facebook (posts, albums) → full-size originals in R2 `facebook/` + snapshots in `sources/facebook-jim/` → species in his photos (Claude, high confidence only, `--limit` model calls) → species galleries |
+| `pnpm engine audit [--fix]` | reports, nothing hidden: pictures per page (`docs/review/content-audit.md`) and every published page in each language against the content rules (`docs/review/content-rules.md`, docs/governance.md); `--fix` first makes the rules' safe fixes on the stored text, as the engine does when it writes a page; run by the cycle |
 | `pnpm engine status` | URL counts per source and status from `engine-state/`; thin species pages by source and the most popular ones (docs/governance.md, page depth) |
 
 - Fetching uses headed Chrome (`~/.cache/thuysinh/chrome-profile`). A challenge page marks the source `needs-human`: open that profile, pass the check by hand, and the next run continues. No stealth or solvers.

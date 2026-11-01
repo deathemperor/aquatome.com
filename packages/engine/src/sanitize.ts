@@ -17,16 +17,60 @@ function render(node: Node): string {
   return ALLOWED.has(tag) ? `<${tag}>${inner}</${tag}>` : inner
 }
 
-/** Allow-list sanitiser for translated HTML: no attributes, no active content; a numbered list's headings tidied. */
+/** Allow-list sanitiser for translated HTML: no attributes, no active content; then tidied (tidyHtml). */
 export function sanitizeHtml(html: string): string {
   const root = parse(html, { comment: false })
   const out = root.childNodes.map(render).join('').trim()
   const hasBlock = root.childNodes.some(n => n instanceof HTMLElement && BLOCK.has(n.rawTagName?.toLowerCase() ?? ''))
-  return out && !hasBlock ? `<p>${out}</p>` : tidyHeadings(out)
+  return tidyHtml(out && !hasBlock ? `<p>${out}</p>` : out)
+}
+
+/**
+ * The content rules' safe fixes (content-rules.ts), made whenever the engine writes HTML, and by `pnpm engine audit --fix`
+ * on what is stored: a numbered list's headings, entities escaped twice, empty blocks.
+ */
+export const tidyHtml = (html: string) => tidyHeadings(dropEmptyBlocks(unescapeTwice(html)))
+
+/** "&amp;amp;", "&amp;lt;": an entity escaped twice shows as "&amp;" or "&lt;" on the page. Once is enough. */
+export const unescapeTwice = (html: string) => {
+  let out = html
+  for (let prev = ''; prev !== out;) { prev = out; out = out.replace(/&amp;(amp|lt|gt|quot|apos|nbsp|#\d+|#x[0-9a-f]+);/gi, '&$1;') }
+  return out
+}
+
+const ENTITY: Record<string, string> = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: '\u00a0' }
+/**
+ * Plain text (a page's name, a summary point, an FAQ) holds no entities: the site escapes plain text itself, so a model's
+ * "&amp;" reads "&amp;" on the page (2026-11-01, an Indonesian guide's title "Cacing Jangkar &amp; Kutu Ikan").
+ */
+export const unescapePlain = (s: string) => {
+  let out = s
+  for (let prev = ''; prev !== out;) {
+    prev = out
+    out = out.replace(/&(amp|lt|gt|quot|apos|nbsp|#\d+|#x[0-9a-f]+);/gi, (m, e: string) => {
+      if (e[0] !== '#') return ENTITY[e.toLowerCase()]!
+      const n = /^#x/i.test(e) ? parseInt(e.slice(2), 16) : Number(e.slice(1))
+      return n > 0 && n <= 0x10ffff ? String.fromCodePoint(n) : m // not a character: left as written
+    })
+  }
+  return out
+}
+
+/** A written page's summary points and FAQ, as plain text: trimmed, entities undone, empty ones dropped. */
+export const plainParts = (summary: string[], faq: { q: string; a: string }[]) => ({
+  summary: summary.map(s => unescapePlain(s).trim()).filter(Boolean),
+  faq: faq.map(f => ({ q: unescapePlain(f.q).trim(), a: unescapePlain(f.a).trim() })).filter(f => f.q && f.a),
+})
+
+/** A heading, paragraph or list item with nothing in it, and a list left with no items. */
+export const dropEmptyBlocks = (html: string) => {
+  let out = html
+  for (let prev = ''; prev !== out;) { prev = out; out = out.replace(/<(h3|p|li|ul|ol)>(?:\s|&nbsp;|\u00a0|<br>)*<\/\1>/g, '') }
+  return out
 }
 
 /** A heading's own number: "#3 …", "3. …", "3) …", "Bước 3", "Top 3" (a heading that merely starts with a count, "10 loại cây", has none). */
-const OWN_NUMBER = /^(?:#\s?(\d+)|(\d+)[.):]\s|(?:top|bước|step|langkah|อันดับ|ขั้นที่)\s?(\d+)\b)/iu
+export const OWN_NUMBER = /^(?:#\s?(\d+)|(\d+)[.):]\s|(?:top|bước|step|langkah|อันดับ|ขั้นที่)\s?(\d+)\b)/iu
 
 /**
  * A heading with no number of its own between two numbered ones that follow each other (#3, "Xtreme Betta Pellets",

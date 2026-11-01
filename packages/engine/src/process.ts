@@ -35,7 +35,7 @@ export const LLM_SCHEMA = llmSchema
  * Plausible bounds per field; anything outside (e.g. °F given as °C) is dropped rather than published, and so is a tank
  * length that is the page's tank volume (`en`, the page's English sections).
  */
-const BOUNDS = { tempC: [4, 40], ph: [2, 10.5], gh: [0, 50], sizeCm: [0.3, 300], tankCm: [10, 1000], difficulty: [1, 8] } as const
+export const BOUNDS = { tempC: [4, 40], ph: [2, 10.5], gh: [0, 50], sizeCm: [0.3, 300], tankCm: [10, 1000], difficulty: [1, 8] } as const
 function saneCard(card: z.infer<typeof ProcessedPageSchema>['dataCard'], en: string) {
   const out: typeof card = {}
   for (const [k, v] of Object.entries(card) as [keyof typeof BOUNDS, number | { min: number; max: number }][]) {
