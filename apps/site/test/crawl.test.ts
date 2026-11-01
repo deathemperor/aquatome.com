@@ -4,13 +4,13 @@ import { expect, test } from 'vitest'
 import { allPages } from '../e2e/pages'
 import { DIST } from './dist'
 
-// The fish and plant lists link only the cards on their first page (the rest are built in the browser from the list's
+// The fish, plant and guide lists link only the cards on their first page (the rest are built in the browser from the list's
 // data file). Search engines still reach every species, breed and plant: the sitemap lists the indexable ones, and every
 // one is linked from pages a crawler finds (its group's page, its genus and family pages, related species). This follows
 // the links from each language's home page, as a crawler would, and expects to reach all of them.
-const ITEM = /^\/(vi\/(ca|cay)|id\/(ikan|tanaman)|th\/(fish|plants))\/[^/]+\/$/
+const ITEM = /^\/(vi\/(ca|cay|huong-dan)|id\/(ikan|tanaman|panduan)|th\/(fish|plants|guides))\/[^/]+\/$/
 
-test('every species, breed and plant page is reached by following links from the home pages', () => {
+test('every species, breed, plant and guide page is reached by following links from the home pages', () => {
   const pages = new Set(allPages(DIST))
   const html = (p: string) => readFileSync(join(DIST, p, 'index.html'), 'utf8')
   const seen = new Set<string>()

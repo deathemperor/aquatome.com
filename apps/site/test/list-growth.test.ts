@@ -13,6 +13,8 @@ const SITE = fileURLToPath(new URL('..', import.meta.url))
 const FIXTURE = join(SITE, 'test/fixture-content')
 const read = (f: string) => JSON.parse(readFileSync(f, 'utf8'))
 const nn = (i: number) => String(i).padStart(2, '0')
+/** Guides go past 99: three digits, so their folders sort in number order. */
+const nnn = (i: number) => String(i).padStart(3, '0')
 const roots: string[] = []
 
 /** The test content plus `extra` species and plants, each with its own name, address and photo, built into a folder. */
@@ -34,6 +36,15 @@ function buildWith(extra: number) {
   }
   add('species', 'paracheirodon-innesi', i => ({ id: `testus-thu-${nn(i)}`, sci: `Testus thu${nn(i)}`, name: `Cá thử ${nn(i)}`, slug: `ca-thu-${nn(i)}` }))
   add('plants', 'anubias-barteri-nana', i => ({ id: `plantus-thu-${nn(i)}`, sci: `Plantus thu${nn(i)}`, name: `Cây thử ${nn(i)}`, slug: `cay-thu-${nn(i)}` }))
+  // Guides too (the guide list went over its page-element budget at about 230 guides, 2026-11-01). Ten more than `extra`:
+  // both builds have a full page left after the first ("Xem thêm 24 bài" in both) and totals of two digits.
+  const guide = read(join(FIXTURE, 'guides/setup-be-dau-tien/entity.json')), gvi = read(join(FIXTURE, 'guides/setup-be-dau-tien/vi.json'))
+  for (let i = 1; i <= extra + 10; i++) {
+    const id = `zz-bai-thu-${nnn(i)}`
+    mkdirSync(join(content, 'guides', id), { recursive: true })
+    writeFileSync(join(content, 'guides', id, 'entity.json'), JSON.stringify({ ...guide, id, sourceUrl: `https://example.invalid/${id}`, photos: [{ ...guide.photos[0], url: `https://media.aquatome.com/test/${id}.webp`, author: `Tác giả ${id}`, sourceUrl: `https://example.org/${id}` }] }))
+    writeFileSync(join(content, 'guides', id, 'vi.json'), JSON.stringify({ ...gvi, name: `Bài thử ${nnn(i)}`, slug: `bai-thu-${nnn(i)}` }))
+  }
   const out = join(root, 'dist')
   execFileSync('pnpm', ['exec', 'astro', 'build'], { cwd: SITE, env: { ...process.env, CONTENT_ROOT: content, OUT_DIR: out }, stdio: 'pipe' })
   return (path: string) => readFileSync(join(out, path, 'index.html'), 'utf8')
@@ -57,8 +68,28 @@ function otherDifference(x: string, y: string): string | undefined {
   }
 }
 
-for (const [path, kind] of [['vi/ca', 'species'], ['vi/cay', 'plants']] as const) {
+for (const [path, kind] of [['vi/ca', 'species'], ['vi/cay', 'plants'], ['vi/huong-dan', 'guides']] as const) {
   test(`the ${kind} list's HTML is the same with 40 or 80 more ${kind} past its first page (/${path}/)`, () => {
     expect(otherDifference(small(path), large(path))).toBeUndefined()
   })
 }
+
+// Past the first page, guides are linked from numbered pages ("Xem thêm" on the list is a link to the next one), so
+// crawlers and readers without the list's script still reach every guide.
+test('the guide list and its numbered pages link every guide, a page at a time', () => {
+  const links = (html: string) => [...html.matchAll(/<a class="gc[^"]*" href="\/vi\/huong-dan\/([^"/]+)\/"/g)].map(m => m[1]!)
+  const seen: string[] = []
+  let path: string | undefined = 'vi/huong-dan', pages = 0
+  while (path) {
+    const html = large(path), list: boolean = path === 'vi/huong-dan'
+    // The list's own page also has the beginner row: only its "Tất cả hướng dẫn" grid counts.
+    const own: string = list ? html.slice(html.indexOf('id="guide-list"')) : html
+    seen.push(...links(own.slice(0, own.search(/<template|<nav class="pages"|<\/main>/))))
+    path = (list ? /<a id="guide-more" href="\/(vi\/huong-dan\/trang\/\d+)\/"/ : /<a href="\/(vi\/huong-dan\/trang\/\d+)\/" rel="next"/).exec(own)?.[1]
+    if (++pages > 10) break
+  }
+  const all = Array.from({ length: 80 + 10 }, (_, i) => `bai-thu-${nnn(i + 1)}`)
+  expect(all.filter(s => !seen.includes(s)), 'guides no page links').toEqual([])
+  expect(new Set(seen).size, 'no guide on two pages').toBe(seen.length)
+  expect(pages).toBe(Math.ceil(seen.length / 24))
+})

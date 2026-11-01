@@ -6,12 +6,18 @@ import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { GUIDE_KIND_LABELS } from '../../../lib/format'
 import { leadGuides } from '../../../lib/home'
+import { listedGuides } from '../../../lib/list-data'
+import { PAGE } from '../../../scripts/filter-list'
 import { i18n } from '../../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // Video guides have their own index (/vi/video/), grouped by series.
-const guides = c.guides.filter(g => g.kind !== 'discovery' && !g.video)
+const guides = listedGuides(c)
 const videos = c.guides.some(g => g.video)
+// The first page as cards; every guide is in the list's data file (lib/list-data.ts) and on the numbered pages after this
+// one (/vi/huong-dan/trang/2/…): nothing here grows with the number of guides.
+const first = guides.slice(0, PAGE)
+const left = guides.length - first.length
 // One chip per subject the list has, in the order a new keeper needs them.
 const kinds = (['setup', 'care', 'plantCare', 'aquascaping', 'breeding', 'disease'] as const)
   .map(k => ({ k, n: guides.filter(g => g.kind === k).length }))
@@ -19,7 +25,7 @@ const kinds = (['setup', 'care', 'plantCare', 'aquascaping', 'breeding', 'diseas
 // For a beginner: the guides the home page leads with (cycling, water changes, easy fish and plants), else the most practical.
 const start = leadGuides(c).slice(0, 4)
 ---
-<Browse title={t('Hướng dẫn')} heading={t('Hướng dẫn')} intro={t('Setup bể, chăm sóc, sinh sản và trồng cây, từng bước một.')} credits={creditsFor(guides.map(g => guideImage(c, g)))}>
+<Browse title={t('Hướng dẫn')} heading={t('Hướng dẫn')} intro={t('Setup bể, chăm sóc, sinh sản và trồng cây, từng bước một.')} credits={creditsFor([...start, ...first].map(g => guideImage(c, g)))} creditsLater>
   {videos && <p class="vid">{t('Có cả')} <a href="/vi/video/">{t('video hướng dẫn')}</a>{t(': bài viết kèm video gốc, phụ đề tiếng Việt.')}</p>}
   {guides.length === 0 ? <p>{t('Chưa có hướng dẫn nào được xuất bản.')}</p> : <>
     {start.length > 0 && (
@@ -38,40 +44,38 @@ const start = leadGuides(c).slice(0, 4)
           {kinds.map(({ k, n }) => <button type="button" data-kind={k} aria-pressed="false">{t(GUIDE_KIND_LABELS[k]!)} <span class="n">{n}</span></button>)}
         </div>
       )}
-      <div class="grid" id="guide-list">{guides.map(g => <GuideCard g={g} row />)}</div>
-      {/* Inline, right after the list: a shared ?kind= link is filtered before the page is first drawn, so nothing jumps. */}
+      <p class="status" id="guide-status" aria-live="polite"></p>
+      <div class="grid" id="guide-list" data-src={`/data/${lang}/guides.json`} data-total={guides.length}>{first.map(g => <GuideCard g={g} row />)}<template id="guide-card"><GuideCard g={guides[0]!} row template /></template></div>
+      {/* Inline, right after the list: a shared ?kind= link shows its subject's chip and no beginner row before the page is
+          first drawn, and the first page's cards wait unseen for the script to fill the subject in, so nothing jumps. */}
       {kinds.length > 1 && <script is:inline>(() => {
-        const kinds = document.getElementById('guide-kinds')
-        const buttons = [...kinds.querySelectorAll('button[data-kind]')]
-        const cards = [...document.querySelectorAll('#guide-list > [data-kind]')]
+        const k = new URLSearchParams(location.search).get('kind'), buttons = [...document.querySelectorAll('#guide-kinds button[data-kind]')]
+        if (!k || !buttons.some(b => b.dataset.kind === k)) return
+        for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.kind === k))
         const start = document.getElementById('guide-start')
-        function show(kind) {
-          // A subject this list doesn't have (an old link, another language's list): every guide.
-          if (!buttons.some(b => b.dataset.kind === kind)) kind = ''
-          for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.kind === kind))
-          for (const el of cards) el.hidden = kind !== '' && el.dataset.kind !== kind
-          // The beginner row is for the whole list: a reader who picked a subject goes straight to it.
-          if (start) start.hidden = kind !== ''
-        }
-        kinds.addEventListener('click', e => {
-          const b = e.target.closest('button[data-kind]')
-          if (!b) return
-          history.replaceState(null, '', b.dataset.kind ? '?kind=' + b.dataset.kind : location.pathname)
-          // The chips stay where the reader tapped them while the beginner row above comes and goes.
-          const top = kinds.getBoundingClientRect().top
-          show(b.dataset.kind)
-          scrollBy(0, kinds.getBoundingClientRect().top - top)
-        })
-        show(new URLSearchParams(location.search).get('kind') || '')
+        if (start) start.hidden = true
+        document.getElementById('guide-list').setAttribute('aria-busy', 'true')
       })()</script>}
+      {left > 0 && <p class="more"><a id="guide-more" href="/vi/huong-dan/trang/2/">{t('Xem thêm {n} bài (còn {left})', { n: Math.min(left, PAGE), left })}</a></p>}
     </section>
   </>}
 </Browse>
+<script>
+  import { guideList } from '../../../scripts/guide-list'
+  guideList()
+</script>
 <style>
   .vid { margin: 0 0 var(--space-5); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6) var(--space-5); }
   /* A card of another subject: the card sets its own display, which would beat the hidden attribute. */
   .grid > :global([hidden]) { display: none; }
+  .grid[aria-busy='true'] > :global([data-kind]) { visibility: hidden; }
+  .status:empty { display: none; }
+  .status { color: var(--c-ink-soft); }
+  /* The fish list's "Xem thêm" (FilterResults), here a link to the next page. */
+  .more { text-align: center; margin-top: var(--space-6); }
+  .more a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); text-decoration: none; }
+  .more a:hover { background: var(--c-ink); color: var(--c-paper); }
   h2 { font-size: var(--step-2); margin: 0 0 var(--space-3); }
   .start { margin-bottom: var(--space-7); }
   .start .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
