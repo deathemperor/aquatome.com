@@ -25,6 +25,7 @@ import { ownPhotos } from './own-photos'
 import { httpAdmin, moderate } from './moderate'
 import { httpPhotoAdmin, moderatePhotos, VERDICT_SCHEMA, type Verdict } from './reader-photos'
 import { runEngine } from './run'
+import { cardGaps } from './card-fill'
 import { depthReport, popularityOrder, thinSpecies, type DepthReport } from './depth'
 import { SOURCES } from './sources'
 import { loadState, setSourceBlock, sourceBlockedSince } from './state'
@@ -128,29 +129,44 @@ async function covers(o: { redo?: boolean; limit?: number }) {
   for (const f of cv.failed) console.log(`cover failed: ${f}`)
 }
 
-if (cmd === 'run') {
+if (cmd === 'run' || cmd === 'card-fill') {
   const list = (v?: string) => v?.split(',').map(s => s.trim()) as SourceId[] | undefined
   const except = list(values.except)
   const bad = [...list(values.sources) ?? [], ...except ?? []].filter(s => !(SOURCE_IDS as readonly string[]).includes(s))
   if (bad.length) throw new Error(`unknown source(s): ${bad.join(', ')}`)
   // --except: every source but these (the engine's Seriously Fish job runs that backlog on its own).
-  const sources = list(values.sources) ?? (except && SOURCES.map(s => s.id).filter(s => !except.includes(s)))
+  // card-fill: the sources whose species profiles are found by the name in their address (Seriously Fish, Loaches Online, ScotCat).
+  const sources = list(values.sources) ?? (except && SOURCES.map(s => s.id).filter(s => !except.includes(s))) ?? (cmd === 'card-fill' ? SOURCES.filter(s => s.profiles).map(s => s.id) : undefined)
   if (values.force && !values.only) throw new Error('--force re-translates only the pages matched by --only')
   const profileDir = process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/thuysinh/chrome-profile')
   const fetcher = new ChromeFetcher({ profileDir })
   const startedAt = new Date().toISOString()
+  const order = cmd === 'card-fill' ? popularityOrder(await popularFirst(ROOT)) : []
+  const before = cmd === 'card-fill' ? await cardGaps(join(ROOT, 'content'), order) : []
   await fetcher.open()
   try {
     const report = await runEngine(
       { fetcher, archive: new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA }), llm: claudeCli, http, media: media(), root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)) },
-      { sources, limit: values.limit ? Number(values.limit) : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined, only: values.only ? new RegExp(values.only) : undefined, retryBlocked: values['retry-blocked'], force: values.force },
+      // card-fill: CARD_FILL_LIMIT (engine-cycle.sh) pages a source, 10 by default.
+      { sources, limit: values.limit ? Number(values.limit) : cmd === 'card-fill' ? 10 : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined, only: values.only ? new RegExp(values.only) : undefined, retryBlocked: values['retry-blocked'], force: values.force, cardFill: cmd === 'card-fill' },
     )
-    await mkdir(join(ROOT, 'engine-state'), { recursive: true })
-    await writeFile(join(ROOT, 'engine-state/last-run.json'), `${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), ...report }, null, 2)}\n`)
+    // card-fill reports what each page read gained; last-run.json stays the cycle's main run's report.
+    if (cmd === 'run') {
+      await mkdir(join(ROOT, 'engine-state'), { recursive: true })
+      await writeFile(join(ROOT, 'engine-state/last-run.json'), `${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), ...report }, null, 2)}\n`)
+    }
     console.table(report.perSource)
     if (report.needsHuman.length) console.log(`needs-human: ${report.needsHuman.join(', ')} — pass the browser check in the engine Chrome profile, then: pnpm engine run --sources <id> --retry-blocked`)
     for (const e of report.errors) console.log(`error: ${e}`)
     console.log(`changed: ${report.changed.length}`)
+    if (cmd === 'card-fill') {
+      const after = new Map((await cardGaps(join(ROOT, 'content'), order)).map(g => [g.id, g.missing]))
+      for (const g of before.filter(g => report.changed.some(c => c.kind === 'species' && c.id === g.id))) {
+        const left = after.get(g.id) ?? []
+        console.log(`card-fill: ${g.id}: ${g.missing.filter(f => !left.includes(f)).join(', ') || 'no figure'} added${left.length ? `; still missing ${left.join(', ')}` : ''}`)
+      }
+      console.log(`card-fill: ${before.length} pages lacked a figure, ${after.size} now`)
+    }
     if (report.depth) printDepth(report.depth)
     // A rejected Claude credential stops every page: fail the cycle so the scheduler (GitHub Actions) reports it.
     if (report.errors.some(e => /Failed to authenticate|Invalid bearer token/i.test(e))) { console.log('error: Claude rejected the credential — replace CLAUDE_CODE_OAUTH_TOKEN'); process.exitCode = 1 }

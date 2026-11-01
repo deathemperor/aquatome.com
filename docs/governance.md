@@ -207,6 +207,16 @@ The layers above still check the result.
   its source gives only as a volume (its "75 gallons (about 284 litres)" once made Cá đĩa's card say 284 cm; The Spruce
   Pets' "10 gallons (about 38 litres)" became 40 cm on 19 cards), when the engine reads a page and again at every build
   (`tankIsVolume`). Where sources disagree, every page shows the range they all accept.
+- **Card figures from sources that state them.** A data card lacks a figure when no source read for the page states
+  it. On 2026-11-01, 445 of 1,016 species pages showed no minimum tank, among them the betta, neon tetra and cherry
+  barb, whose sources (The Spruce Pets, Aquarium Co-op, BW Aquatics, Glaser) give a tank as a volume or not at all.
+  Seriously Fish gives each figure, and a tank as its base, and the engine hadn't read its profiles of 107 of those
+  pages yet: they were neither thin nor wanted, so they waited in its backlog.
+  - `pnpm engine card-fill` (each cycle's Seriously Fish job, `CARD_FILL_LIMIT` pages, most-read first) reads the
+    profile of each page whose card lacks a figure as a public build shows it, on a source that has given the page no
+    text yet, found by the name in the address.
+  - The profile is read like any page: translated, reviewed, and its figures go through the same prompt rules and
+    guards (a volume gives no length). A figure no published source states stays empty.
 - **Metric only.** Fish, plant, breed and guide pages give °C, cm and litres in every language. Each writer of those
   pages passes its text through `toMetric` (`@aq/schema`): an imperial figure beside its metric one goes ("20–30°C
   (68–86°F)"), one before its metric one gives way to it ("2 inch (khoảng 5 cm)"), one alone is converted ("bể 10 gallon"

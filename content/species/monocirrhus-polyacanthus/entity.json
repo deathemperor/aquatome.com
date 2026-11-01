@@ -23,6 +23,13 @@
           "min": 25,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 29
+        }
       }
     ],
     "ph": [
@@ -31,6 +38,13 @@
         "value": {
           "min": 6,
           "max": 6.5
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6.8
         }
       }
     ],
@@ -41,11 +55,22 @@
           "min": 2,
           "max": 5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
+        "value": 10
+      },
+      {
+        "source": "seriouslyfish",
         "value": 10
       }
     ],
@@ -53,12 +78,20 @@
       {
         "source": "sprucepets",
         "value": 80
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 75
       }
     ],
     "difficulty": [
       {
         "source": "sprucepets",
         "value": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -68,6 +101,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/south-american-leaffish-4065312",
       "html": "<ul><li>Family: Polycentridae</li><li>Origin: Amazon and Rio Negro basins</li><li>Adult size: 3-4 inches (about 8-10 cm)</li><li>Life expectancy: 5 to 8 years</li><li>Social: aggressive</li><li>Tank level: all</li><li>Minimum tank size: 20 to 25 gallons (about 75-95 litres)</li><li>Diet: carnivore</li><li>Breeding: egg layer</li><li>Care: moderate to difficult</li><li>pH: 6.0 to 6.5</li><li>Hardness: 2 to 5 dH</li><li>Temperature: 25 to 28 °C (77 to 82 °F)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<p>The South American leaf fish, Monocirrhus polyacanthus, is a predator from Brazil, Peru, Venezuela, Colombia and Bolivia that mimics a dead leaf. It stalks prey head-down, appearing to drift like a leaf, and can swallow prey almost as big as itself. Flighty and very sensitive to deteriorating water quality, it is difficult to maintain and not a species for the beginner, and soft, acidic water is essential.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -82,10 +121,22 @@
       "html": "<p>The South American Leaffish hails from the Amazon River basin in the countries of Peru, Brazil, Bolivia, Colombia, and Venezuela.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<p>Brazil, Peru, Venezuela, Colombia, Bolivia.</p>"
+    },
+    {
       "key": "habitat",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/south-american-leaffish-4065312",
       "html": "<p>It lives in shallow water where it hides among the vegetation in the riverbed, facing downward. Hidden from its prey by its surroundings, its camouflaged body, and its transparent fins, these fish are nearly undetectable until they attack.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<p>Found in shallow water with little or no flow in areas where fallen leaves collect.</p>"
     },
     {
       "key": "aquariumSize",
@@ -94,10 +145,22 @@
       "html": "<p>Minimum tank size: 20 to 25 gallons (about 75-95 litres).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<p>Standard length: 10 cm SL. Aquarium base: 75 × 30 cm. Volume: ~68 litres. 75 × 30 × 30 cm.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/south-american-leaffish-4065312",
       "html": "<p>To thrive, the South American Leaffish needs soft water and dim light. Floating plants can help to recreate the fish's natural habitat and keep harsh light from filtering down. Because this fish hunts in ambush and is easily frightened, it also needs plenty of large-leafed plants and driftwood as objects to hide behind. Water filtration should be sufficient to maintain good water quality, but keep the water flow as still as possible.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<p>Soft acidic water is essential. The aquarium should be dimly-lit, with floating plants in order to diffuse the light further. Heavy planting with large-leaved varieties such as echinodorus species is also recommended to make this fish feel secure, as they can be very nervous. Other hiding places in the form of driftwood should also be provided. Any water movement should be kept to a minimum.</p>"
     },
     {
       "key": "waterConditions",
@@ -106,10 +169,22 @@
       "html": "<ul><li>Temperature: 25 to 28 °C (77 to 82 °F)</li><li>pH: 6.0 to 6.5</li><li>Hardness: 2 to 5 dH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<ul><li>Temperature: 23–29 °C</li><li>pH: 5.0–6.8</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/south-american-leaffish-4065312",
       "html": "<p>Leaffish do well in an aquarium as long as they eat live fish as their main diet. Each fish must be fed the equivalent of at least three adult guppies per day, or they will quickly weaken and die. Guppies are eagerly eaten, but feeding large live food can be costly. In some places there is an abundance of small native fish that can be caught and fed to the Leaffish.</p><p>Leaffish typically swim or hang in the water at a head-down angle. This gives the fish protection from larger predatory fish, but the main value of the camouflage is as an aid in capturing smaller fish. The leaffish may drift with the current until an unsuspecting smaller fish swims near, or it may sidle slowly up to a fish until its mouth is almost touching. Then it quickly opens its enormous mouth to create a vacuum that sucks the smaller prey inside.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<p>Carnivorous and will only accept live food. When small, they will accept live bloodworm and small earthworms but in the long term require a piscivorous diet. Do not keep this species if you are not willing to provide a constant supply of live feeder fish, as M. polyacanthus can consume its own body weight daily. Some specimens can be weaned onto live river shrimp but this is the exception rather than the rule.</p>"
     },
     {
       "key": "behaviour",
@@ -118,10 +193,22 @@
       "html": "<p>An ambush predator, the leaffish lies in wait of any prey that will fit into its very large mouth. This fish can eat its own weight in live fish every day. Even though it is only about three inches full-grown, it will clean out an entire community aquarium in a week if the other fish are smaller than it is. For this reason, it is best to keep this species on its own. If you do want to include other fish in the tank, choose larger, more robust and aggressive species such as armored catfish or medium-sized loricariids.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<p>A species tank is highly preferable although M. polyacanthus can be kept with medium-sized loricariids and armoured catfish without too many problems.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/south-american-leaffish-4065312",
       "html": "<p>There are few differences between males and females, though females appear more plump during the spawning season. The male also has slightly larger fins.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<p>Difficult to sex. The female is plumper when full of eggs.</p>"
     },
     {
       "key": "reproduction",
@@ -130,10 +217,22 @@
       "html": "<p>This species is not particularly difficult to breed; the challenge is finding a pair that happens to be ready to breed. If they are ready and there is a broadleaf plant such as an Amazon sword, females will lay eggs on the underside of the leaf or the underside of an overhanging stone. After the female deposits her eggs, the male fertilizes them. Each egg is attached by a short thread, so the large glassy eggs are raised slightly off the spawning site. The eggs are tended closely by both parents and hatch in three to five days.</p><p>The male stays close to the eggs, fanning water over them. After hatching, the young remain attached to the spawning site by the egg thread for another week. Once free-swimming, baby leaffish act much like their parents, remaining still most of the time. At first, young leaffish eat small aquatic microorganisms, but by about 1.3 cm they can eat small fish the size of baby guppies or brine shrimp.</p><p>The fry are transparent for about two weeks and graze on infusoria on mature plants and rocks in the aquarium. After two weeks the fry should be removed and separated since they grow at different speeds; larger fry will eat smaller fry as soon as they can fit them in their mouths.</p><p>Fry must be fed plenty of daphnia, mosquito larvae, brine shrimp and, if available, guppy fry for fastest growth. The fry are covered with white specks until about two months of age. They appear to have an ich infection, but this is just natural coloring at this age. After two to three months, the fry obtain adult coloration and are ready to eat larger fish. At this point, they must be separated further by size.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<p>Can be achieved in captivity. The breeding tank should be thickly planted with broad-leaved plants with soft, acidic water (pH 6.0-6.5, 1-5 dH). It should be warm (above 25 °C) and dimly-lit. A single pair should be used and conditioned with lots of live food. During spawning the male will intensify in colour and the female will display an ovipositor. The pair drift past each other at the water surface and may continue to do this for up to an hour before the male retreats to allow the female to deposit her eggs, which she sometimes does whilst upside down. He then returns to fertilise them. The female should be removed after spawning, as the male may turn on her. Up to 300 eggs may be laid on the underside of a large leaf or overhanging rock. The male tends to these, using his fins to fan them. The eggs hatch in 3-4 days and the male can also be removed at this point. The fry will start taking brine shrimp nauplii as soon as their yolk sacs are absorbed. Any food must be of the swimming variety as the young will not feed from the tank bottom. They should then be fed the fry of other fish as they grow. They can eat incredible amounts for their size and must be separated as soon as differing growth rates become apparent, or they will predate upon their siblings. The maintenance of high water quality is essential or there will be many losses.</p>"
+    },
+    {
       "key": "notes",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/south-american-leaffish-4065312",
       "html": "<p>The fish looks extraordinarily like a dead leaf. It is small, oval-shaped, and flat from side to side; both its anal and dorsal fins are spiny, creating a body margin of jagged edges like a leaf outline. It is yellow to brown with random markings and three lines running from the eye to the belly, from the mouth to the caudal fin, and from the eye to the dorsal fin, resembling leaf veins. Many have a flap of skin about 0.6 cm long protruding from the lower lip that looks like a leaf stem. It has a huge mouth relative to its size.</p><p>The only fins that normally move, the pectorals and the rear tips of the dorsal and anal fins, are transparent and nearly invisible even when in motion. Like a chameleon, it can alter its colors to blend in with its background, in the wild or in captivity.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/monocirrhus-polyacanthus",
+      "html": "<p>An incredibly-adapted species, this fish is camouflaged to mimic a dead leaf, both in body shape and pattern. It can change colour to match its surroundings and has a projection from its bottom lip that resembles a leaf stalk. When hunting, it stalks its prey in a head-down stance, appearing to drift towards it like a dead leaf drifting in a current. In reality, the fish is propelled by tiny movements of its transparent fins. When it strikes at an item of prey the entire mouth protrudes outwards, forming a large tube into which the prey is sucked, usually head first. This happens so quickly it is often difficult to see. It can swallow prey almost as big as itself in this way. Difficult to maintain in captivity and not a species for the beginner. In addition to being a voracious predator, M. polyacanthus is also a flighty species that is very sensitive to deteriorations in water quality.</p>"
     }
   ],
   "photos": [
@@ -149,7 +248,32 @@
       "source": "sprucepets"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "shccSyx57YE",
+      "title": "South American leaf fish (Monocirrhus polyacanthus) spawning!",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EXcdpVl7dr4",
+      "title": "Monocirrhus polyacanthus - Blattfisch im Aquarium, Raubfische Südamerika, Nanderbarsche",
+      "durationSec": 64,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "9-vvWu9pU0M",
+      "title": "monocirrhus polyacanthus agressive behavior",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZEonGfwCR2U",
+      "title": "Monocirrhus polyacanthus Hunting and Eating ((HQ))",
+      "durationSec": 366,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -179,5 +303,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }

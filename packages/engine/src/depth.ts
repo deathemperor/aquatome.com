@@ -47,13 +47,16 @@ export function namedPairs(url: string): [string, string][] {
   try { path = new URL(url).pathname.toLowerCase().replace(/_/g, '-').replace(/\.html?$/, '') } catch { return [] }
   return path.split('/').flatMap(seg => { const m = seg.match(/^([a-z]+)-([a-z]+)(?:-|$)/); return m ? [[m[1]!, m[2]!] as [string, string]] : [] })
 }
-const sameSpecies = (pair: [string, string], t: Thin, anyGenus = false) => {
+const sameSpecies = (pair: [string, string], t: Pick<Thin, 'id'>, anyGenus = false) => {
   const [genus, epithet] = t.id.split('-')
   return !!genus && !!epithet && (anyGenus || pair[0] === genus) && stem(pair[1]) === stem(epithet)
 }
 
-/** Thin species' profiles among a source's pages, by the name in their address (same genus): url → index in `thin`. */
-export function deeperPages(found: { url: string }[], thin: Thin[], src: Pick<SourceConfig, 'profiles'>): Map<string, number> {
+/**
+ * Thin species' profiles among a source's pages, by the name in their address (same genus): url → index in `thin`. The
+ * card-fill step finds the profiles of pages whose data card lacks a figure the same way.
+ */
+export function deeperPages(found: { url: string }[], thin: Pick<Thin, 'id'>[], src: Pick<SourceConfig, 'profiles'>): Map<string, number> {
   const out = new Map<string, number>()
   if (!src.profiles) return out
   for (const { url } of found) {

@@ -32,6 +32,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -55,6 +62,13 @@
           "min": 7,
           "max": 8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.8,
+          "max": 8
+        }
       }
     ],
     "gh": [
@@ -71,6 +85,13 @@
           "min": 5,
           "max": 15
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
       }
     ],
     "sizeCm": [
@@ -85,6 +106,10 @@
       {
         "source": "sprucepets",
         "value": 3.8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2.5
       }
     ],
     "tankCm": [
@@ -94,6 +119,10 @@
       },
       {
         "source": "aquariumcoop",
+        "value": 30
+      },
+      {
+        "source": "seriouslyfish",
         "value": 30
       }
     ],
@@ -109,6 +138,10 @@
       {
         "source": "sprucepets",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -130,6 +163,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
       "html": "<ul><li>Life expectancy: 4 years</li><li>Origin: India</li><li>Social: aggressive</li><li>Tank level: top and mid-dweller</li><li>Minimum tank size: 20 gallons (about 75 litres)</li><li>Diet: carnivore</li><li>Breeding: egg layer</li><li>Hardness: 5 to 15 dKH</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<p>The dwarf puffer, Carinotetraodon travancoricus, is a tiny freshwater puffer endemic to the state of Kerala in southern India. Also known as the Malabar puffer and probably the smallest species of puffer, it usually inhabits sluggish, heavily vegetated inland waters. A popular import, it is often sold without the information needed for its long-term care, and tends to nip the fins of slow-moving or long-finned fish.</p><ul><li>Difficulty: 6 of 8 (moderate) – it needs a well-established tank and stable water.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -162,10 +201,22 @@
       "html": "<p>Native to the Western Ghats of India, these cute little fish have been in decline since their introduction to the aquarium hobby. The Pea Puffer is found in many of the lakes and rivers of this region of India.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<p>Endemic to the state of Kerala, India.</p>"
+    },
+    {
       "key": "habitat",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Carinotetraodon travancoricus inhabits heavily vegetated, slow-moving fresh waters. Its natural environment is composed of mud and sand. In the wild, Dwarf puffer fish dominate in areas with gathered Cabomba plants, which provide essential habitat and food.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<p>An exclusively freshwater species usually inhabiting sluggish, heavily-vegetated inland waters.</p>"
     },
     {
       "key": "aquariumSize",
@@ -180,6 +231,12 @@
       "html": "<p>Because pea puffers can be very territorial, many people keep just one in a five-gallon (about 19 litre) aquarium. To keep more than one, the general rule of thumb is five gallons (19 litres) of water for the first puffer and three gallons (11 litres) for each additional puffer. It is possible to keep three puffers in a 10-gallon (38 litre) tank and six to seven puffers in a 20-gallon (76 litre) tank, but success depends on how well the environment is set up.</p><p>If the tank is mostly bare without much cover, expect a pufferfish battle zone. A lush, densely planted aquarium might handle three puffers in 10 gallons. Up to six or seven pea puffers can be kept in a 20-gallon aquarium (with no other tank mates) if there is lots of cover in the form of plants or decorations.</p><p>The larger the aquarium, the better: more water volume dilutes waste (poor water quality can harm the puffer's health) and gives the puffers more space to avoid each other.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<p>Standard length: 2.5 cm SL.</p><p>You could keep a single fish in a tank as small as 30 cm x 20 cm x 20 cm (12.6 litres). If you want to keep a group more space is needed. A tank volume of 8–11 litres per puffer is normally recommended.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
@@ -192,6 +249,12 @@
       "html": "<p>Pea Puffers like a well-maintained aquarium with lots of plants to hide in. Given their small nature, they are used to being snacks for larger fish, so providing cover, with either plants or other décor items, is critical to reducing their stress level. However, keep in mind that aquarium plants may affect your pH and oxygen levels, so make sure your tank can handle the bioload.</p><p>Pea Puffers tend to be more sensitive to poor water conditions than other freshwater species. It is critical for you to check your water chemistry and keep up with your regular maintenance.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<p>This species fares best in a heavily-planted setup, perhaps further decorated with twisted roots and branches to provide additional cover. This type of set-up will provide plenty of broken lines of sight (important to reduce aggression between individuals) and a varied habitat for these inquisitive fish to explore. The use of floating plants to diffuse the light is also recommended, and the fish will usually be more active and confident under these conditions.</p><p>Try and keep water movement to a minimum as the species inhabits very still waters in nature. Like most puffers it's very sensitive to deteriorating water conditions, so regular partial water changes are a must.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
@@ -202,6 +265,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
       "html": "<p>Pea puffers do well in stable, tropical temperatures from 74 to 82°F (23–28°C). They have been kept at pH 6.5 to 8.4. A pH of 7.2 to 7.5 is ideal, but keeping pH stable matters more than aiming for a specific number.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: C. travancoricus prefers neutral to medium-hard water, within the range 6.8–8.0.</li><li>Hardness: 5–25 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -234,6 +303,12 @@
       "html": "<p>Pea Puffers are carnivorous and require animal-based proteins in their diet. This will likely mean a wide variety of frozen foods in addition to a carnivore pellet. Keep in mind that vitamin content may become diminished in frozen diets, so a pelleted diet must be included to keep your Pea Puffer healthy. If your Pea Puffer is reluctant to eat a pelleted diet, be sure to feed a varied diet to round out their nutritional intake.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<p>As is the case with most puffers, this species relishes all kinds of shellfish, as well as worms and other live and frozen foods. It should be fed small snails (shell on) regularly, in order to maintain its sharp teeth. As with other puffers, these grow continuously and become a problem for the fish if they're not kept ground down. Dried foods are not usually accepted.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
@@ -250,6 +325,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
       "html": "<p>Due to their aggressive nature, there are few species that can be kept in the same aquarium. Most aquariums containing Pea Puffers will ONLY have Pea Puffers and no other fish. If putting them with other fish species, slow swimming fish will be nibbled on, so only fast swimmers should be housed with pufferfish. If you are adding these fish to an established aquarium, be sure they are the last to be added. It is best to always add the most aggressive species to a mixed-species tank last to give others room to call their own and claim places to hide.</p><p>Since they are carnivorous, it is not recommended to keep any invertebrates in their tank. They will become lunch for a ravenous Pea Puffer. This includes shrimp and snails.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<p>Not usually recommended for the community tank, as it tends to nip the fins of slow-moving or long-finned fish. Its small size also means it doesn't compete well for food with more active, vigorous species and could easily end up on the menu of larger companions. Tankmates must therefore be chosen with care. Smaller Loricariids (particularly Otocinclus spp.) tend to be a decent choice. There are also reports (with varying degrees of success) of cohabitation with some of the freshwater shrimp species that have become so popular in the hobby in recent years.</p>"
     },
     {
       "key": "dimorphism",
@@ -270,6 +351,12 @@
       "html": "<p>As with many fish species, if all your puffers are roughly the same age and being fed the same diet, the female Pea Puffers will tend to be larger than males. Males also may have a black line on their belly.</p><p>Male Pea Puffers can be very territorial, so it is recommended to keep only one male per aquarium, or have an extra large tank with lots of space so there are no territory overlaps.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<p>Juveniles are difficult to sex correctly, but mature males have a clear dark line running lengthways over much of the ventral surface (underside), which females lack. Normally males also exhibit a pattern of closely-arranged lines just behind the eye. Sexually mature females are often noticeably rounder in the body than males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
@@ -280,6 +367,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
       "html": "<p>Many hobbyists have had extreme difficulty breeding the Pea Puffer. Some have found certain aquarium plants and mosses to be more conducive to successful breeding, but this is not guaranteed.</p><p>With a healthy population of one male and his female harem, usually, the fish will spawn all at once, provided the correct environmental parameters have been met. Exact specifications for this species is unknown; most spawning occurs through much trial and error. It is highly recommended to move the eggs to a breeding tank to prevent predation post-hatch.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<p>Unlike many of its relatives, C. travancoricus has been successfully bred in aquaria on numerous occasions. Most experts recommend spawning it in pairs or in a harem situation with a single male and multiple females, as rival males have been known to fight to the death. Keeping more females than males also reduces the risk of a single female being excessively harassed by an amorous male. Success has also been achieved using a bigger group of fish containing several specimens of each sex, or with a higher ratio of males to females.</p><p>If using only a pair or trio of puffers, the spawning tank does not need to be particularly large. It can be filtered gently with an air-powered filter, or even not at all provided small partial water changes are conducted regularly. It should be planted very densely, ideally with a large proportion of fine-leaved plants such as Cabomba, Ambulia, Java Moss (Vesicularia dubyana) or Willow Moss (Fontinalis antipyretica). The latter two species and similar aquatic mosses seem to be the preferred spawning medium of these fish. Water conditions as recommended above should be ok; set the temperature towards the upper end of the suggested range.</p><p>Once introduced, condition the group with a high quality diet including meaty frozen foods such as bloodworm and plenty of small snails. When in breeding condition the colour and patterning of the male intensify somewhat. You may also see him displaying at the female with his dorsal and ventral \"crests\", his body appearing to be laterally compressed and less rounded.</p><p>Apparently courtship begins with the male pursuing the female vigorously, often resorting to biting and nipping if she appears disinterested. A successful chase usually ends with the female being driven into a patch of low-lying vegetation where they come together for a few seconds, releasing eggs and milt simultaneously. The near-transparent eggs are tiny (~1 mm in diameter), non-adhesive and will simply develop where they fall. This sequence may be repeated several times, until the female is spent of eggs. Egg numbers tend to be very low, with most spawning events resulting in a yield of ten or less. The fish often spawn on a daily basis though, so if you want to increase your potential simply use more females.</p><p>Post-spawning the eggs are best removed into a more controlled environment. The drawbacks with leaving them under the (apparent, but unconfirmed) care of the male are that they may be eaten by other tank inhabitants, and it will be far more difficult to observe their development. If they hatch, free swimming fry will almost certainly be preyed upon. The eggs can be removed with a large pipette, turkey baster, or length of airline. In some situations they can be extremely difficult to see. If you have observed any courtship behaviour but can't see any eggs try \"hoovering\" around potential spawning sites on a daily basis.</p><p>The rearing tank should be set up using water from that of the parents and maintained at the same temperature. A simple air-powered filter is best as inquisitive fry will not be sucked into it, and beneficial micro-organisms will grow on its surface for the fry to graze on. Similarly, a few strands of moss from the spawning tank are a recommended addition. Remove any infertile or fungussed eggs as you see them. These are easily noticed as they will be a milky-white colour.</p><p>The healthy eggs should hatch in around 5 days and the fry will need another 2 or 3 days to consume their yolk sac, at which point they will start to become more active. Initial foods should be very small, motile invertebrates such as microworm. After a week or so the fry should be large enough to accept Artemia nauplii and can usually be moved onto larger foods such as frozen bloodworm after a month. Take care if growing on fry of different ages together, as the larger have been known to prey on their more diminutive siblings.</p>"
     },
     {
       "key": "notes",
@@ -300,6 +393,12 @@
       "html": "<p>The Pea Puffer has a small, rounded body with a golden back that blends into a white or tan belly. Their back is covered in dark brown to black spots. Like many other puffers, their body is fairly round with eyes that slightly protrude from their pointed head. Their tail tapers to a point with a minimized dorsal fin and absent pelvic fins.</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "html": "<p>C. travancoricus is probably the smallest species of puffer, and is certainly one of the more diminutive fish regularly found in the trade. Its cute looks, amusing personality and fascinating swimming action make it a justifiably popular import, although it's all-too-often sold without the correct information needed for its long-term health and care. It's also known as the Malabar puffer, in reference to the area of southern India that contains much of the species' natural range.</p><p>A possible geographical variant/subspecies/undescribed congener is sometimes available in which the darker markings on the body of the fish are more of a bluey-green colour. Another species, Carinotetraodon imitator, is superficially similar in appearance to C. travancoricus, and is also a sporadic import.</p><p>Puffer fish are so called as they have the ability to inflate their elastic stomachs with water or air. This is usually a response to some kind of threat, although in the aquarium many specimens appear to inflate themselves for no apparent reason. The fish becomes two or three times its normal size, big enough to scare away many potential predators, or difficult to swallow. Puffers are also one of the few fish that can actually blink or close their eyes.</p><p>Many parts of the body of puffers contain the potentially deadly poison tetrodotoxin. This is the same neurotoxin found in the notorious blue-ringed octopus. When ingested in sufficient quantities it can cause paralysis and death. As yet there is no known antitoxin and to humans it's over 1000 times deadlier than cyanide. Grotesquely, the victim usually remains conscious as he or she becomes paralysed. Puffer flesh is regarded as a delicacy in Japan, where it's known as fugu. It's prepared only by highly-trained chefs, and even with this a number of people have died eating it.</p>"
+    },
+    {
       "key": "references",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/",
@@ -307,6 +406,17 @@
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2c6e036f5c8b6d29.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2c6e036f5c8b6d29-480.webp",
+      "width": 720,
+      "height": 405,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
+      "caption": "Adult specimen.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/aquariumcoop/2f87f4da53ea9e87.webp",
       "thumb": "https://media.aquatome.com/aquariumcoop/2f87f4da53ea9e87-480.webp",
@@ -341,17 +451,6 @@
       "source": "aquariumcoop"
     },
     {
-      "url": "https://media.aquatome.com/sprucepets/b1f8530301131505.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/b1f8530301131505-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
-      "caption": "Carinotetraodon travancoricus (Pea Puffer fish)",
-      "source": "sprucepets"
-    },
-    {
       "url": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab.webp",
       "thumb": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab-480.webp",
       "width": 1000,
@@ -361,6 +460,17 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
       "caption": "pea puffer looking at a bloodworm",
       "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/b1f8530301131505.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/b1f8530301131505-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/pea-puffer-fish-species-profile-5101734",
+      "caption": "Carinotetraodon travancoricus (Pea Puffer fish)",
+      "source": "sprucepets"
     },
     {
       "url": "https://media.aquatome.com/commons/b78cb97609998398.webp",
@@ -381,19 +491,34 @@
       "author": "Parazelsus",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_by_Parazelsus_(cropped).jpg",
       "caption": "Carinotetraodon travancoricus in an aquarium displaying its iridescent patches. The image has been cropped from its original dimensions."
-    },
-    {
-      "url": "https://media.aquatome.com/commons/57112b1b49416651.webp",
-      "thumb": "https://media.aquatome.com/commons/57112b1b49416651-480.webp",
-      "width": 960,
-      "height": 576,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_Seitenansicht.jpg",
-      "caption": "Ein Indischer Zwergkugelfisch (Carinotetraodon travancoricus), in Seitenansicht."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "5YY9OuGK8tQ",
+      "title": "The Life Cycle of a Pea Pufferfish",
+      "durationSec": 425,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9C2XNOkKfyk",
+      "title": "Why Most Pea Puffer Tanks Fail | How to Do It Right",
+      "durationSec": 566,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XyYQNa2KxAk",
+      "title": "Pea Puffer Care and Breeding: A Tiny Fish with a BIG Attitude!",
+      "durationSec": 646,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "btujX954rU4",
+      "title": "Erbsenkugelfisch - Carinotetraodon travancoricus | Zwergkugelfisch | GarnelenTv",
+      "durationSec": 452,
+      "lang": "de"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

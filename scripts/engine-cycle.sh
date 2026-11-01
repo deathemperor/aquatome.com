@@ -78,6 +78,10 @@ if part pages; then
   pnpm engine summaries --top "${SUMMARY_LIMIT:-40}" --jobs 4 || log "summaries: failed (those pages show no summary yet)"
 fi
 if part sf && [ -z "${ENGINE_ARGS:-}" ]; then
+  # Species pages whose data card lacks a figure (minimum tank, temperature, pH, hardness, size, difficulty), most-read
+  # first: their Seriously Fish profiles, which give each figure and a tank as its base, read ahead of the backlog.
+  # CARD_FILL_LIMIT pages a cycle. A figure no published source states stays empty (card-fill.ts).
+  pnpm engine card-fill --sources seriouslyfish --limit "${CARD_FILL_LIMIT:-10}" || log "card-fill: failed"
   pnpm engine run --sources seriouslyfish --max-minutes "${ENGINE_MAX_MINUTES:-300}"
 fi
 if part photos; then

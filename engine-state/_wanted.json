@@ -8,7 +8,7 @@
       "species/barbucca-diabolica",
       "species/discherodontus-ashmeadi"
     ],
-    "mentions": 17
+    "mentions": 18
   },
   "mystacoleucus-marginatus": {
     "name": "Mystacoleucus marginatus",
@@ -114,11 +114,11 @@
     "mentionedIn": [
       "species/akysis-vespa",
       "species/botia-kubotai",
+      "species/microdevario-kubotai",
       "species/paracanthocobitis-pictilis",
-      "species/pethia-stoliczkana",
-      "species/syncrossus-beauforti"
+      "species/pethia-stoliczkana"
     ],
-    "mentions": 7
+    "mentions": 8
   },
   "geophagus-gottwaldi": {
     "name": "Geophagus gottwaldi",
@@ -173,7 +173,7 @@
       "species/rasbora-paviana",
       "species/trigonostigma-espei"
     ],
-    "mentions": 6
+    "mentions": 7
   },
   "cryptocoryne-walkeri": {
     "name": "Cryptocoryne walkeri",
@@ -463,9 +463,10 @@
       "species/belontia-signata",
       "species/malpulutta-kretseri",
       "species/pethia-nigrofasciata",
+      "species/puntius-titteya",
       "species/rasboroides-vaterifloris"
     ],
-    "mentions": 4
+    "mentions": 5
   },
   "travancoria-jonesi": {
     "name": "Travancoria jonesi",
@@ -637,28 +638,31 @@
     "name": "Sicyopterus fasciatus",
     "mentionedIn": [
       "species/devario-xyrops",
+      "species/garra-flavatra",
       "species/garra-rakhinica",
       "species/xenentodon-cancila"
     ],
-    "mentions": 3
+    "mentions": 4
   },
   "mystus-vittatus": {
     "name": "Mystus vittatus",
     "mentionedIn": [
       "species/malpulutta-kretseri",
       "species/pethia-nigrofasciata",
+      "species/puntius-titteya",
       "species/rasboroides-vaterifloris"
     ],
-    "mentions": 3
+    "mentions": 4
   },
   "aplocheilus-werneri": {
     "name": "Aplocheilus werneri",
     "mentionedIn": [
       "species/malpulutta-kretseri",
       "species/pethia-nigrofasciata",
+      "species/puntius-titteya",
       "species/rasboroides-vaterifloris"
     ],
-    "mentions": 3
+    "mentions": 4
   },
   "mesonoemacheilus-remadevii": {
     "name": "Mesonoemacheilus remadevii",
@@ -943,9 +947,10 @@
     "name": "Batasio elongatus",
     "mentionedIn": [
       "species/akysis-vespertinus",
-      "species/devario-xyrops"
+      "species/devario-xyrops",
+      "species/garra-flavatra"
     ],
-    "mentions": 2
+    "mentions": 3
   },
   "nannopetersius-ansorgii": {
     "name": "Nannopetersius ansorgii",
@@ -1263,10 +1268,11 @@
   "psilorhynchus-robustus": {
     "name": "Psilorhynchus robustus",
     "mentionedIn": [
+      "species/microdevario-kubotai",
       "species/paracanthocobitis-pictilis",
       "species/pethia-stoliczkana"
     ],
-    "mentions": 2
+    "mentions": 3
   },
   "pethia-nigripinna": {
     "name": "Pethia nigripinna",
@@ -3513,9 +3519,10 @@
   "channa-harcourtbutleri": {
     "name": "Channa harcourtbutleri",
     "mentionedIn": [
-      "species/channa-gachua"
+      "species/channa-gachua",
+      "species/danio-margaritatus"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "channa-marulius": {
     "name": "Channa marulius",
@@ -3835,9 +3842,10 @@
   "pleistophora-hyphessobryconis": {
     "name": "Pleistophora hyphessobryconis",
     "mentionedIn": [
-      "species/danio-rerio"
+      "species/danio-rerio",
+      "species/paracheirodon-innesi"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "danionella-translucida": {
     "name": "Danionella translucida",
@@ -3870,9 +3878,10 @@
   "olyra-burmanica": {
     "name": "Olyra burmanica",
     "mentionedIn": [
-      "species/devario-xyrops"
+      "species/devario-xyrops",
+      "species/garra-flavatra"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "amphiprion-ocellaris": {
     "name": "Amphiprion ocellaris",
@@ -5042,5 +5051,57 @@
     "name": "Pseudoplatystoma fasciatum",
     "mentionedIn": [],
     "mentions": 0
+  },
+  "auriglobus-modestus": {
+    "name": "Auriglobus modestus",
+    "mentionedIn": [
+      "species/betta-splendens"
+    ],
+    "mentions": 1
+  },
+  "devario-sondhii": {
+    "name": "Devario sondhii",
+    "mentionedIn": [
+      "species/danio-margaritatus"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/devario-sondhii"
+  },
+  "awaous-personatus": {
+    "name": "Awaous personatus",
+    "mentionedIn": [
+      "species/garra-flavatra"
+    ],
+    "mentions": 1
+  },
+  "tateurndina-ocellicauda": {
+    "name": "Tateurndina ocellicauda",
+    "mentionedIn": [
+      "species/pseudomugil-furcatus"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda"
+  },
+  "pseudomugil-connieae": {
+    "name": "Pseudomugil connieae",
+    "mentionedIn": [
+      "species/pseudomugil-furcatus"
+    ],
+    "mentions": 1
+  },
+  "puntius-kamalika": {
+    "name": "Puntius kamalika",
+    "mentionedIn": [
+      "species/puntius-titteya"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/puntius-kamalika"
+  },
+  "ludwigia-prostrata": {
+    "name": "Ludwigia prostrata",
+    "mentionedIn": [
+      "species/tanichthys-albonubes"
+    ],
+    "mentions": 1
   }
 }

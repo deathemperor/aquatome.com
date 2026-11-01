@@ -8,7 +8,11 @@
   "places": [
     "oceania",
     "australia",
-    "papua-new-guinea"
+    "papua-new-guinea",
+    "fly",
+    "asia",
+    "indonesia",
+    "aru-islands"
   ],
   "dataCard": {
     "tempC": [
@@ -16,6 +20,13 @@
         "source": "bwaquatics",
         "value": {
           "min": 23,
+          "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
           "max": 28
         }
       }
@@ -27,18 +38,48 @@
           "min": 6,
           "max": 7.5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4.5,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.8
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ]
   },
@@ -50,10 +91,28 @@
       "html": "<ul><li><strong>Scientific name:</strong> Pseudomugil gertrudae</li><li><strong>Common names:</strong> Gertrude's Spotted Blue Eye, Spotted Blue Eye Rainbowfish, Gertrudae Rainbowfish</li><li><strong>Temperament:</strong> Peaceful</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<p>Pseudomugil gertrudae is a pseudomugilid from northern Australia, Papua New Guinea and the Aru Islands, eastern Indonesia. Wild populations are isolated from one another and differ in colour pattern, body size and fin morphology, but the fish on sale are of a single, commercially produced ornamental strain. Dark spots in the dorsal, anal and caudal fins separate it from other members of the genus except P. paskai and Pseudomugil sp. 'red neon'.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
       "html": "<p>Native to the slow-moving waters and wetlands of northern Australia and New Guinea.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<p>Described from 'Rivulet in sago forest at Ngaiguli, Terangan, Aru Island, Aru Islands, Maluku, Indonesia', corresponding to the island now normally referred to as 'Trangan' in the Aru Islands group, eastern Indonesia.</p><p>The islands are located in the Arafura Sea, with western New Guinea to the north and the Arnhem Land Region of Australia's Northern Territory to the south, and though they lie within Maluku province of eastern Indonesia, are part of the Australian continent in a geological sense.</p><p>Populations are now known from numerous rivers draining into the Timor Sea and Gulf of Carpentaria, northern Australia, with a range extending eastwards from the city of Darwin through the Kakadu National Park, Arnhem Land, and Carpentaria as far the Cape York Peninsula.</p><p>It's also known from the islands of Bathurst, Melville, and Groot Eylandt, plus some smaller islands in the Torres Strait.</p><p>Known localities in the Northern Territory include the rivers Moyle, Daly, Finniss, Adelaide, Alligator, Blyth, Liverpool, Cadell, Buckingham, Cato, and some smaller drainages around Darwin.</p><p>In Queensland it's been recorded in the Wenlock, Embley, Dulhunty, Coen, Jardine, Olive, Jacky Jacky, Mciver, Endeavour, Barron, Mulgrave, Russell, Johnstone, Moresby, Tully and Murray watersheds, plus some nutrient-poor coastal lakes in the Flattery Point and around Shelburne Bay.</p><p>In Papua New Guinea records exist from the Bensbach, Pahoturi, and Fly (Elevala River and Lake Bosset, aka Lake Herbert Hoover) river systems but it may be more widely-distributed in southern drainages of the country and neighbouring state of Papua, Indonesia.</p><p>Wild examples are uncommon in the aquarium hobby with the majority of those traded bred commercially for the purpose, though some populations are available and usually labelled with collection details in order to discourage hybridisation, e.g., 'Aru II', 'Aru IV', 'Cadell River', etc.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<p>Shows a preference for shallow, marginal zones of heavily-vegetated, slow-moving or standing waters of creeks, small streams, lakes, billabongs, and swamps, and is often found among macrophytes, submerged woody structures such as fallen branches or tree roots, or leaf litter.</p><p>At some localities the water is stained dark brown with tannins and has very low pH and dissolved nutrients, while at others it may be transparent.</p><p>In both cases the most favourable habitats feature surface vegetation of some kind, either floating or growing up from the substrate.</p><p>Tappin (2010) gives the following ranges of parameters based on those taken from various localities: temperature 12–34 °C, pH 3.68–9.4, conductivity 12–646 µS/cm, hardness 0–320 ppm, alkalinity 2–180 ppm.</p>"
     },
     {
       "key": "aquariumSize",
@@ -62,10 +121,28 @@
       "html": "<p>Tank size: 10 gallons (about 38 litres) or larger.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<p>An aquarium with base dimensions of 45 × 30 cm or equivalent (about 41 litres) should be the smallest considered. Standard length is 3.8 cm SL.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<p>Best kept in a densely-planted tank and an excellent choice for the carefully-aquascaped set-up.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>If you wish to raise fry alongside the adults the addition of fine-leaved aquatic moss such as a Taxiphylum sp. is advisable (see 'Reproduction').</p><p>The water should be well-oxygenated and a degree of flow is advisable. Do not add this fish to a biologically immature aquarium as it can be susceptible to swings in water chemistry.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
       "html": "<ul><li>Temperature: 23–28°C (74–82°F)</li><li>pH: 6.0–7.5</li><li>Water flow: gentle to moderate</li></ul><p>These fish appreciate stable water quality and mature aquariums.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<ul><li>Temperature: 21–28 °C</li><li>pH: 4.5–7.5</li><li>Hardness: 5–12 dGH</li></ul><p>NB: suggested ranges are for the ornamental strain. Wild specimens from specific localities may require particular conditions, especially those inhabiting oligotrophic blackwater environments.</p>"
     },
     {
       "key": "equipment",
@@ -80,13 +157,82 @@
       "html": "<p>These omnivorous nano fish readily accept:</p><ul><li>High-quality micro pellets</li><li>Crushed flakes</li><li>Baby brine shrimp</li><li>Daphnia</li><li>Frozen cyclops</li><li>Small live foods</li></ul><p>A varied diet helps maximise coloration and breeding behaviour.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<p>Feeds chiefly on floating or suspended zooplankton, phytoplankton, and invertebrates in nature, and in the aquarium must be offered items of a suitable size.</p><p>Ideally much of the diet should comprise live foods such as Daphnia, Moina, Artemia nauplii, micro worm, etc., although small/crushed floating dried foods are also accepted.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/pseudomugil-gertrudae-gertrudes-spotted-blue-eye-rainbowfish",
       "html": "<p>Peaceful, active schooling fish that swim in the mid to upper water. Keep them in groups of at least 6–8 individuals to encourage natural schooling behaviour and male display activity. Males display vibrant finnage and flashing behaviour when competing for attention.</p><p>Compatible tank mates: small rasboras, Corydoras, peaceful shrimp, kuhli loaches, small tetras and other nano rainbowfish. Avoid aggressive or fin-nipping fish. Due to their small size, they should not be housed with large or aggressive fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<p>Peaceful but unsuitable for the general community aquarium since it's easily outcompeted and quite timid.</p><p>It's best maintained alone or alongside fishes of comparable size, disposition, and requirements and freshwater shrimp of the genera Caridina and Neocaridina but in all cases be sure to research your choices thoroughly prior to purchase.</p><p>P. gertrudae is a shoaling species and should be kept in a group of at least 8-10 specimens, ideally more. Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display.</p><p>Males will also display their best colours and some fascinating behaviour as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<p>Males are more highly-patterned and colourful than females and the unpaired fins become noticeably extended as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<p>This species is an egg-scatterer exhibiting no parental care and will consume its own eggs and fry given the opportunity.</p><p>Spawning is more likely in temperatures towards the upper end of the range suggested above, with females capable of depositing a few eggs daily for a period of several days, these being attached to aquatic vegetation or other substrate by adhesive filaments.</p><p>An individual male may also mate with multiple females during a single day, and spawning usually continues throughout daylight hours during warmer periods.</p><p>In nature it displays a seasonal reproductive cycle coinciding with the onset of the wet season, around October-December, when food and aquatic vegetation are at their most plentiful.</p><p>Spawning occurs during daylight hours with a peak of activity in late morning/early afternoon when water temperature is 24–28 °C, and in the aquarium breeding can occur throughout the year if temperature is raised to these values.</p><p>There exist two basic methods for aquarium breeding.</p><p>The first involves isolating a small group comprising a single male and two or three females into a container with an air-powered sponge filter and spawning medium in the form of nylon mops or aquatic moss.</p><p>The medium is checked several times per day and any eggs removed to a separate container for incubation and hatching.</p><p>The alternative is to maintain a colony of adults in a larger, fully-decorated set-up which if well-planted should allow some fry to survive.</p><p>Since the latter spend the early part of life close to the water surface aquatic mosses from the genus Taxiphylum attached to décor high in the water column apparently produce the most favourable results, but floating plants with trailing roots are also recommended.</p><p>The latter approach is normally less productive but simpler and more reliable as mature, planted aquaria facilitate relatively stable water conditions and the resident microfauna can constitute a valuable early food source for fish fry.</p><p>The incubation period is around 10 days depending on temperature and the fry require microscopic food such as Paramecium for up to 5 days before they're able to accept Artemia nauplii, micro worm, and similarly-sized foods immediately.</p><p>They can also be raised using good quality, powdered dry products of which some are available in incrementally-graded particle sizes, and growth rate is normally quite fast compared with some congeners.</p><p>Should eggs containing developed embryos fail to hatch they can apparently be stimulated to do so by putting them in a small vial or similar container with some water from the aquarium and shaking it vigorously, or placing it in your pocket and walking around with it. It appears the resultant change in pressure causes the eggs to hatch.</p><p>Small meals should be offered at least twice daily. Aged water can result in high mortality so regular, small water changes are essential and uneaten food should not be allowed to accumulate in the rearing tank.</p><p>Pseudomugil spp. are quite short-lived with females tending to survive for only a single reproductive season in nature.</p><p>Though lifespan tends to increase in well-maintained aquaria the fish will normally be less fecund once they reach an age of 12-18 months.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<p>Wild populations of this species tend to be somewhat isolated from one another, and exhibit various, often highly-localised, differences in colour pattern, body size, and fin morphology.</p><p>It's unclear from where the ornamental fish is derived but all the fish seen on sale are of this strain which is produced commercially in large numbers.</p><p>Wild examples are basically unavailable though some populations are maintained by specialist breeders.</p><p>P. gertrudae differs from all other members of the genus except P. paskai and P. cf. paskai (aka sp. 'red neon') by possession of dark spots in the dorsal, anal, and caudal fins, although the three are easily-separated on the basis of colour pattern.</p><p>The family Pseudomugilidae was erected by Saeed et al. (1989) and currently comprises the genera Kiunga, Pseudomugil, and Scaturiginichthys.</p><p>Members are related to rainbowfishes of the family Melanotaeniidae but differ in lacking a mesethmoid, possessing an infraorbital series with only the anterior member present (the kachrymal), and with an articular bone as high as the dentary bone.</p><p>The family Telmatherinidae is also a relative, with Sparks and Smith (2004) recommending that all telmatherinid genera be included in Pseudomugilidae based on the results of their phylogenetic analysis, in which Marosatherina ladigesi was nested within Pseudomugilidae, these together comprising the sister group to Melanotaeniidae.</p><p>Herder et al. (2006) suggested that since M. ladigesi was the only telmatherinid included in the investigation, meaning that data for 94% of member species plus DNA of some important comparative taxa was not analysed, any such conclusions should be withheld pending additional study.</p><p>The Pseudomugilidae and Telmatherinidae do appear to represent a single clade, however, and this forms a sister group to another clade formed by the Australian and New Guinean Melanotaeniidae plus the Malagasy Bedotiidae, which may seem surprising given their respective modern-day distributional patterns.</p><p>The precise origin and subsequent dispersal of the latter two has therefore been the subject of debate, with some palentologists suggesting that Madagascar's freshwater fishes derived from a trans-oceanic dispersal during the Cenozoic Era, but the most compelling recent arguments indicate a freshwater radiation which occurred during the Mezozoic break-up of Gondwana.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "html": "<ul><li>Allen, G. R. (1980). A Generic Classification of The Rainbowfishes (Family Melanotaeniidae). Records of the Western Australian Museum 8(3), 449-490</li><li>Sparks, J. S. and W. L. Smith (2004). Phylogeny and biogeography of the Malagasy and Australasian rainbowfishes (Teleostei: Melanotaenioidei): Gondwanan vicariance and evolution in freshwater. Molecular Phylogenetics and Evolution 33(3), 719-734</li><li>Herder, F., J. Schwarzer, J. Pfaender, R. K. Hadiaty, and U. K. Schliewen (2006). Preliminary checklist of sailfin silversides (Teleostei: Telmatherinidae) in the Malili Lakes of Sulawesi (Indonesia), with a synopsis of systematics and threats. Verhandlungen der Gesellschaft für Ichthyologie Band 5, 139-163</li><li>Tappin, A. R. (2010). Rainbowfishes - Their Care and Keeping in Captivity. Art Publications, 1-484</li><li>Allen, G. R., H. Midgley, and M. Allen (2002). Field guide to the freshwater fishes of Australia. Western Australian Museum, i-xiv + 1-394</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/71175c87e886d328.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/71175c87e886d328-480.webp",
+      "width": 781,
+      "height": 591,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "caption": "Adult pair from the aquarium trade; female upper.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/899a9ae9741a9aec.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/899a9ae9741a9aec-480.webp",
+      "width": 784,
+      "height": 594,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "caption": "If present in numbers males spar regularly.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/47ce9a92531591db.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/47ce9a92531591db-480.webp",
+      "width": 800,
+      "height": 597,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-gertrudae",
+      "caption": "Adult male feeding.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/commons/1ab6cab2c60600a5.webp",
       "thumb": "https://media.aquatome.com/commons/1ab6cab2c60600a5-480.webp",

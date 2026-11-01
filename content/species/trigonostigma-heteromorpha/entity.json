@@ -11,7 +11,10 @@
     "singapore",
     "indonesia",
     "sumatra",
-    "thailand"
+    "thailand",
+    "narathiwat",
+    "selangor",
+    "nee-soon-swamp"
   ],
   "dataCard": {
     "tempC": [
@@ -19,6 +22,13 @@
         "source": "sprucepets",
         "value": {
           "min": 23,
+          "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
           "max": 28
         }
       }
@@ -30,6 +40,13 @@
           "min": 6,
           "max": 7.5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
       }
     ],
     "gh": [
@@ -39,11 +56,22 @@
           "min": 0,
           "max": 12
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
+        "value": 4.5
+      },
+      {
+        "source": "seriouslyfish",
         "value": 4.5
       }
     ],
@@ -51,6 +79,16 @@
       {
         "source": "sprucepets",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ]
   },
@@ -68,10 +106,22 @@
       "html": "<ul><li>Life expectancy: 6 years</li><li>Social: peaceful, suitable for a community aquarium</li><li>Tank level: top to mid-dwelling</li><li>Diet: omnivore</li><li>Breeding: egglayer</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>The harlequin, Trigonostigma heteromorpha, is a small cyprinid from southern Thailand, Peninsular Malaysia, Singapore and Sumatra. First exported for aquaria in the early 1900s, it is now mass-produced, and farmed fish lack much of the colour of wild ones. The dark triangular body marking sets it apart from T. espei and T. hengeli, and two divergent lineages found in aquarium stock suggest the species as currently recognised may contain more than one taxon.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
       "html": "<p>The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.</p><p>Thai populations seem to be restricted to the district of Narathiwat close to the border with Peninsular Malaysia. In the latter it is more widely-distributed and has been collected from areas of peat swamp forest in the states of Selangor, Kelantan, Terengganu, Pahang, and Johor.</p><p>In Singapore it is found in Nee Soon Swamp, one of the last remaining pockets of pristine freshwater forest swamp found in the central catchment area of the island.</p><p>The extent of its distribution in the Greater Sunda Islands is less clear. While it certainly occurs on the island of Bintan in Riau Islands province, Sumatra, definitive information regarding the mainland is lacking other than a vague reference to the city of Medan in the north (the species is said to range throughout northern Sumatra). Similarly there appears not to exist a single confirmed occurence from Borneo.</p><p>The fish are known to vary somewhat depending on collection locality, with those collected from Johor and southern Thailand having an overall smaller, slimmer appearance than the Singapore and Sunda Island populations (see 'Notes').</p><p>Wild caught examples are rare in the hobby as it's produced on a commercial basis in several countries.</p>"
     },
     {
       "key": "habitat",
@@ -80,10 +130,22 @@
       "html": "<p>It inhabits streams and waters that are characterized principally by their low mineral content and high concentrations of dissolved humic acids, which is typical of water that flows through swamped forests. The waterlogged soils of these forests inhibit the complete decay of leaf litter, resulting in the formation of peat, which leaches humic acids. These conditions resemble those found in the blackwater habitats of South America.</p><p>Rasboras are a true freshwater family of fish and are never seen in brackish waters. They prefer the lowland waters of southeastern Asia, where the water is soft and acidic.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>Mostly inhabits gently flowing sections of forest streams and tributaries where submerged aquatic plants such as Cryptocoryne species grow thickly.</p><p>The water is sometimes stained faintly brown to yellowish due to the presence of tannins and other chemicals released by decomposing organic matter and the substrate scattered with fallen leaves, twigs and branches.</p><p>Such environments characteristically contain soft, weakly acidic to neutral water and are often dimly-lit due to dense marginal vegetation and the forest canopy above.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
       "html": "<p>Minimum tank size: 10 gallons (about 38 litres). Up to 10 harlequin rasboras can generally be kept in a 20-gallon (about 75 litres) aquarium, depending on adult size, swimming behaviour and the presence of other tank inhabitants. Provide enough space for each fish to swim freely and comfortably, and maintain good water quality.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>Aquarium base dimensions of 60 × 30 cm or equivalent (about 54 litres) should be the smallest considered since this species should be maintained in numbers.</p>"
     },
     {
       "key": "maintenance",
@@ -92,16 +154,34 @@
       "html": "<p>Harlequins prefer an environment with areas of dense vegetation, an open area for swimming, a dark substrate, and subdued lighting.</p><p>An aquarium intended to house harlequin rasboras should be planted with live plants. Create open areas for swimming between stands of plants such as Cryptocoryne species, these being among the plants that inhabit the harlequin rasbora's native waters.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>Choice of decor is not especially critical although it tends to show better colouration when maintained in a well-furnished set-up with a dark substrate, and it's a relatively popular choice for carefully-aquascaped arrangements.</p><p>A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and with it the growth of beneficial microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves will aid in simulating a blackwater environment. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>This species seems to do best under fairly dim lighting and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne, and Anubias are recommended since they will grow under such conditions.</p><p>A few patches of floating vegetation to diffuse the light even further may also prove effective.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
       "html": "<ul><li>pH: 6.0 to 7.5</li><li>Hardness: up to 12 dGH</li><li>Temperature: 23 to 28 °C (73 to 82 °F)</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<ul><li>Temperature: 21–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
       "html": "<p>Harlequins readily accept all foods but prefer to eat live foods whenever possible. In nature, their diet consists primarily of insects. However, they will accept frozen foods and freeze-dried foods as well as flake foods. A varied diet will ensure that digestive problems or susceptibility to disease do not occur. Brine shrimp, daphnia, and any type of live worm are excellent supplemental foods, particularly when conditioning before breeding.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>Stomach analyses of wild specimens have revealed it to be a micropredator feeding on small insects, worms, crustaceans and other zooplankton.</p><p>In the aquarium it's easily-fed but for the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules.</p>"
     },
     {
       "key": "behaviour",
@@ -116,10 +196,22 @@
       "html": "<p>The harlequin rasbora is a shoaling fish; it should be kept in schools of eight to 10 individuals. Schools of even larger numbers make for a beautiful display. You can keep harlequins with any fish as long it's not large and predatory. It will not nip at or quarrel with any other species. Some potentially good tankmates may include cardinal tetras, one betta, neon tetras, small barbs, dwarf gouramis, danios, other small rasboras, and cory catfish.</p><p>Harlequin rasboras and bettas can generally coexist in the same aquarium, but only one betta should be added to avoid fighting among the bettas.</p><p>Harlequin rasboras are known for their peaceful, docile nature. However, like all fish, their behaviour can be influenced by various factors, including tank size, water parameters, and the presence of other fish.</p><p>They are generally compatible with shrimp, particularly peaceful shrimp species of similar size, but may eat shrimp fry or smaller shrimp species.</p><p>It is a smaller fish, so keep it with like-sized specimens; larger fish might be attracted by its shimmer and try to make a meal out of it.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>This species is very peaceful indeed making it an ideal resident of the well-maintained community tank and an unreserved recommendation for those new to fishkeeping.</p><p>As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, dwarf cichlids, catfishes, and loaches.</p><p>A well-chosen community based around fish native to Peninsular Malaysia would also make an attractive display with some of the more commonly exported examples include 'Puntius' lineatus, 'P.' pentazona, Trigonopoma pauciperforatum, T. gracile, Rasbora einthovenii, Brevibora dorsiocellata and Pangio spp.</p><p>As always thorough research is essential when choosing tankmates and its small adult size must be a consideration. It also makes an ideal companion for shy anabantoids such as Sphaerichthys or the more diminutive Betta spp.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
       "html": "<p>Male harlequins are more slender and a bit smaller than females. Although they share similar colors and patterns, the males tend to be more brightly colored than the females. In addition, the distinctive black wedge covering the posterior of the fish may be more rounded in males and more angular in females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>Mature females are usually rounder-bellied and often a little larger than the slimmer, more colourful males.</p><p>An alternative method of sexing is to examine the shape of the dark wedge-like marking on the flanks of the fish; in males this tends to have a sharper, more well-defined outline whereas in females it has a 'rounded' appearance.</p>"
     },
     {
       "key": "reproduction",
@@ -134,6 +226,12 @@
       "html": "<p>Harlequins are among the more difficult tropical freshwater species to breed, however, spawning may be achieved if you provide the proper conditions. Select young specimens and condition them with live foods such as daphnia and mosquito larvae before the spawning attempt. Harlequin rasbora differs from other popular rasboras in the aquarium when it comes to breeding. While other rasboras are egg-scattering spawners, harlequin rasboras are egg layers.</p><p>You can breed groups of young harlequins in a single aquarium. When spawned in groups, keep two males for every female. Hobbyists who are intent upon simulating natural conditions as closely as possible may choose to filter the aquarium water over peat, thus replicating the humic acid concentrations found in the fish's native waters, although this is not necessary if the basic water chemistry parameters (no higher than 4 dGH of hardness, pH around 6.4) are correctly maintained. The optimum water temperatures for spawning are between 76 and 80 degrees Fahrenheit (about 24 to 27 °C). Add Cryptocorynes or similar broad-leafed plants to the breeding tank.</p><p>Once you prepare the breeding tank, introduce the breeding stock late in the day. Spawning will usually begin in the morning and is initiated by the male dancing and trembling before the female. This spawning behavior is intended to direct the female beneath a suitable plant for depositing the eggs. You may see the male nudging the sides of the female and rubbing his belly against her back to move her to the spawning location.</p><p>When ready to spawn, the female will turn upside down and rub her belly against the underside of a leaf, signaling the male to join her. The male will approach her while continuing to tremble, then wrap himself around her body and fertilize the eggs as they are released. Six to 12 eggs are laid at a time. The fertilized eggs rise and adhere to the underside of the leaves. During one to two hours, as many as 300 eggs may be laid, although 80 to 100 is more typical.</p><p>When spawning is complete, remove the breeding stock from the aquarium, as they will consume the fry once they hatch. In water temperatures of about 80 degrees Fahrenheit (about 27 °C), the eggs will hatch in approximately 24 hours. The fry are translucent and remain attached to the leaf upon which the eggs were laid for another 12 to 24 hours, during which time the yolk sac is absorbed.</p><p>Once this process is completed, the fry become free-swimming, and at this stage, require very finely sized foods such as live infusoria for a period of seven to 14 days, after which the fry can feed upon newly hatched brine shrimp. If infusoria are unavailable, commercially prepared fry foods for an egglayer may also be used. Young harlequin rasboras then reach sexual maturity in approximately six to nine months.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>This species exhibits no parental care although it does utilise a different spawning method to most small cyprinids as the eggs are attached to the underside of broad plant leaves or other objects rather than scattered randomly.</p><p>When the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of young may start to appear without human intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required. The adult group can still be conditioned together but a separate tank should also be set up.</p><p>This should be very dimly lit with the base either left bare or covered with some kind of mesh of a large enough grade so that any eggs that fail to adhere to the plant can pass through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well.</p><p>The water itself should ideally be of pH 5.0-6.0, 1-5°H with a temperature towards the upper end of the range suggested above.</p><p>A decent-sized clump of Microsorium, Cryptocoryne, other broad-leaved plant or artificial alternative should also be included. Filtration is not really necessary but you can use a small, air-powered sponge filter if you prefer.</p><p>Some breeders of other Trigonostigma spp. report that older fish aged a year or more make the best subjects for spawning which may be the reason why this species is often said to be difficult to breed.</p><p>Apparently it's trickier to initiate spawning behaviour in younger individuals and they are also are less fecund.</p><p>At any rate the best way to condition them is by feeding small amounts of live and frozen foods 2 or 3 times a day in the weeks leading up to a spawning attempt.</p><p>When the females appear full of eggs and the males are showing their best colours as they display to one another a large (40-50% of tank volume), cool water change should be performed and one or two pairs introduced to each spawning container a few hours later, preferably in the evening.</p><p>Spawning usually occurs in the morning hours and is preceded by a flurry of courtship activity by the male(s). Often a pair will perform a number of 'dry runs' over a chosen spawning surface and it may be several hours before any eggs are produced.</p><p>Eventually the female will begin to lay small batches of eggs which are fertilised by the male before the next batch is laid.</p><p>The spawning process is particularly interesting as often a female will choose the underside of a plant leaf and thus the pair will be observed in an inverted position as eggs and sperm are released.</p><p>If the pair(s) fail to spawn immediately they can be left in situ but if no eggs have been observed after 3 or 4 days they should be returned to the main group and a different set of fish chosen. There is no need to feed the adults while they are in the spawning tank.</p><p>Post-spawning the adults will eat any eggs they find so either they or the eggs themselves should be removed as soon as possible.</p><p>Incubation is temperature-dependant to an extent but usually takes between 24 and 48 hours with the young free-swimming in around a week. Initial food should be Paramecium or similar introducing Artemia nauplii and/or microworm once the fry are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma_heteromorpha_blue_and_gold_en/",
@@ -146,13 +244,58 @@
       "html": "<p>Of the more than 60 species of rasbora, the harlequin is arguably the most popular of them all. Often referred to as a red rasbora, the body is a reddish-copper color that is accented by a striking black wedge covering the rear half of the body. The distinguishing triangular patch begins near the dorsal fin and comes to a point near the base of the caudal fin.</p><p>This species looks similar to the Pork Chop or Lamb Chop Rasbora (T. espei), the Narrow Wedge Rasbora (T. hengeli), and Somphong's Rasbora (T. somphongsi), and these species can be differentiated primarily by the size of the dark \"wedge\". These rasboras are listed from largest to smallest triangular patch.</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>T. heteromorpha was first exported for aquaria in the early 1900s and has gone on to become one of the most familiar, enduring species in the hobby.</p><p>It has suffered as a result of its popularity to a certain extent, with the mass-produced fish seen today lacking much of the colour seen in wild specimens and even exhibiting morphological deformities in some cases.</p><p>Several selectively-bred ornamental strains have also become available including 'blue', 'black', and 'golden' (leucistic) forms, care for which is identical to the wild form.</p><p>It also appears that the species as currently recognised may contain multiple taxa with two divergent lineages found to be present among samples of fish from the aquarium trade by Collins et al. (2012).</p><p>Genetic differences were detected using a DNA barcoding technique but the two lineages also displayed morphological incongruities, with one form more slender, lacking a convex-shaped body profile posterior to the occiput, possessing less distinct pigmentation on the anterior dorsal and anal rays, and an additional orange/yellow anterior-subdistal blotch in the anal-fin.</p><p>This fish may turn out to be a so-called 'cryptic' or 'sibling' species and is labelled T. cf. heteromorpha in the images.</p><p>It can be confused with the similar-looking T. espei and T. hengeli although on close inspection they're actually quite easy to tell apart.</p><p>The basic body colouration of T. heteromorpha is pinkish, it has the deepest body shape of the three and the characteristic body marking is broader, more triangular in shape and darker in colour.</p><p>T. espei is generally a bright copper/reddish colour with a thinner, 'lambchop'-shaped body marking whereas T. hengeli is a slightly smaller fish with an overall greyish/colourless body colouration and a flash of bright orange pigmentation along the upper and anterior edges of the 'lambchop' marking.</p><p>T. somphongsi is the fourth, exceptionally rare, member of the genus but is very easy to distinguish from the others as the dark body marking is reduced to a thickish stripe.</p><p>The genus was erected by Kottelat and Witte (1999) in order to separate members from the larger Rasbora grouping on the basis of the following combination of characters: colour pattern comprising a reddish, pinkish or orange body (in life) with a conspicuous black stripe extending from below dorsal-fin origin to middle of caudal-fin base and usually broadened anteriorly so as to have a triangular or hatchet shape (except in T. somphongsi in which the stripe is only slightly broader anteriorly); reproductive strategy in which eggs are deposited on the underside of broad leaves or similar structures.</p><p>Other characters distinguishing the genus (but not unique to it) are: miniature size (maximum 32 mm SL in nature, though captive specimens may grow slightly larger); incomplete lateral line reduced to 6-9 pores; absence of barbels; 5 branched anal-fin rays; relatively deep body (not quantified).</p><p>Rasbora has long been recognised as a polyphyletic lineage as noted by Kottelat (1999) among others, and in 2010 the results of a phylogenetic analysis by Liao et al. suggested a number of changes in order to improve the taxonomy. The authors found species of rasborin genera to represent a monophyletic grouping existing in six clades and erected four new genera containing former members of Rasbora in order to preserve monophyly of the existing groups.</p><p>The first two of these clades contain new groupings Kottelatia and Brevibora, respectively. The third comprises Boraras, Horadandia, Rasboroides, and Trigonostigma, plus new genera Trigonopoma and Rasbosoma. However the results for Boraras and Trigonostigma were found to be inconclusive in some respects and further work regarding their phylogenetic position was recommended.</p><p>The fourth clade includes Rasbora semilineata, R. borapetensis, R. rubrodorsalis, and an undescribed fish similar to R. beauforti. Clade five consists of R. daniconius, R. hubbsi, R. paucisqualis, R. wilpita (plus allies), R. kobonensis, R. ornata, and R. cf. daniconius.</p><p>Clade six is subdivided into two groupings. The first contains R. einthovenii, R. elegans, and R. cephalotaenia, and the second R. lateristriata, R. argyrotaenia, R. volzii, R. paviana, R. rasbora (plus an undescribed related fish), R. caudimaculata, and R. trilineata.</p><p>As this final clade contains R. cephalotaenia, the type species of Rasbora, its members retain the generic name as do members of clade five because they don't differ sufficiently to warrant erection of a new genus or genera.</p><p>Shortly afterwards a paper investigating systematics of the subfamily Danioninae was published (Tang et al. 2010).</p><p>The results differed significantly and the four new genera of Liao et al., plus Boraras and Trigonostigma, were synonymised with Rasbora based on an incomplete knowledge of relationships within the group, an approach described as 'more conservative'.</p><p>Though neither conclusion can be deemed 100% certain, the system of Liao et al. is followed here pending future studies, if only because the familiar genera Boraras and Trigonostigma are preferred.</p>"
+    },
+    {
       "key": "references",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/harlequin-rasbora-1378462",
       "html": "<p>Robert Woods. Harlequin rasbora care guide &amp; species profile. Fishkeeping World.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<ul><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Kottelat, M. and K.-E. Witte (1999). Two new species of Microrasbora from Thailand and Myanmar, with two new generic names for small southeast Asian cyprinid fishes (Teleostei: Cyprinidae). Journal of South Asian Natural History 4(1), 49-56</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Collins R. A., K. F. Armstrong, R. Meier, Y. Yi, S. D. J. Brown, R. H. Cruickshank, S. Keeling, and C. Johnston (2012). Barcoding and border biosecurity: identifying cyprinid fishes in the aquarium trade. PLoS ONE 7(1), e28381</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0cf7dee590132166.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0cf7dee590132166-480.webp",
+      "width": 800,
+      "height": 529,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "caption": "T. heteromorpha is one of the 'classic' aquarium fishes.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1d52df0947dfd16f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1d52df0947dfd16f-480.webp",
+      "width": 720,
+      "height": 453,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "caption": "Wild-collected individual from Kelantan state, Peninsular Malaysia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1cf4965d61e69d35.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1cf4965d61e69d35-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "caption": "The 'blue' aquarium strain was probably produced by line-breeding to fix a natural mutation.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/58663e83a1d25277.webp",
       "thumb": "https://media.aquatome.com/sprucepets/58663e83a1d25277-480.webp",
@@ -176,7 +319,32 @@
       "source": "sprucepets"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "WvjAOqrfGx0",
+      "title": "Rasbora arlequin - Trigonostigma heteromorpha ✔",
+      "durationSec": 150,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "g_t1E_ZZRWE",
+      "title": "Trigonostigma heteromorpha / Harlequin Rasbora -When Life Feels Fish-tastic 🐠💫",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "M7rh2d9l3oQ",
+      "title": "Harlequin rasbora ( Trigonostigma heteromorpha ) Species Profile",
+      "durationSec": 763,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "S1NW3wKGU98",
+      "title": "Harlequin Rasbora (Trigonostigma heteromorpha) | Aquarium Species",
+      "durationSec": 87,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
