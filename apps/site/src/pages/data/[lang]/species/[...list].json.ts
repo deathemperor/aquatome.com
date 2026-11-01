@@ -13,5 +13,6 @@ export const getStaticPaths: GetStaticPaths = async () => (await Promise.all(LAN
 
 export const GET: APIRoute = async ({ params, props }) => {
   const { species } = props as { species: Localized<SpeciesEntity>[] }
-  return Response.json(speciesItems(species, speciesListPhotos(await getContent(params.lang as Lang), params.list!, species)))
+  const lang = params.lang as Lang
+  return Response.json(speciesItems(species, speciesListPhotos(lang, await getContent(lang), params.list!, species)))
 }

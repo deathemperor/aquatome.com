@@ -31,7 +31,7 @@ const c = await getContent(lang)
 const name = t(groupLabel(group!))
 const here = species.slice((n - 1) * PAGE, n * PAGE)
 // The pictures the list's cards show wherever they are built (lib/list-data.ts), none twice.
-const photos = speciesListPhotos(c, `nhom/${group}`, species).slice((n - 1) * PAGE, n * PAGE)
+const photos = speciesListPhotos(lang, c, `nhom/${group}`, species).slice((n - 1) * PAGE, n * PAGE)
 const base = `/vi/nhom/${group}/`
 // The same page in another language: its group has as many pages there.
 const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.filter(s => s.group === group).length > (n - 1) * PAGE)

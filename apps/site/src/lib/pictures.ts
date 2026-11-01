@@ -22,8 +22,8 @@ const lists = new WeakMap<Content, Map<string, (Photo | null)[]>>()
 /**
  * A list's card pictures, chosen once for the whole list in its order, none twice and none of `above` (what its page
  * shows before the list): the list's first page, its numbered pages and its data file (the cards the browser builds for
- * "Xem thêm" or a filter) read the same ones, so a card is the same wherever it is built, and a page the browser adds to
- * shows no picture twice either. `list`: the list's address under /vi/ ("ca", "nhom/catfish"); `items`, the list itself.
+ * "Xem thêm" or a filter) read the same ones, so a card is the same wherever it is built, and the cards the browser adds
+ * repeat nothing above them. `list`: the list's address under /vi/ ("ca", "nhom/catfish"); `items`, the list itself.
  */
 export function listPictures<T>(c: Content, list: string, items: T[], photos: (x: T) => (Photo | undefined)[], above: (Photo | null | undefined)[] = []): (Photo | null)[] {
   const known = lists.get(c) ?? lists.set(c, new Map()).get(c)!

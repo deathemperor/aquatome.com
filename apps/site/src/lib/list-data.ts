@@ -1,11 +1,13 @@
 import type { Content, GuideEntity, Localized, Photo, PlantEntity, SpeciesEntity } from '@aq/schema'
 import type { PlantIndexItem, SpeciesIndexItem } from '../scripts/filter'
+import { typeUses } from './equipment'
 import { GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { leadGuides, listOrder } from './home'
 import type { Lang, T } from './i18n'
 import { smallSrc } from './img'
 import { guideImages } from './mentions'
 import { listPictures, pagePictures, photosOf, takeEach } from './pictures'
+import { PAGE } from '../scripts/filter-list'
 import { toIndexItem } from './species-index'
 import { clock, videoChannels } from './video'
 
@@ -48,8 +50,26 @@ export function fishList(lang: Lang, c: Content) {
 /** Every species in the fish list's order. */
 export const speciesList = (lang: Lang, c: Content): SpeciesListItem[] => { const f = fishList(lang, c); return speciesItems(f.species, f.photos) }
 
-/** The card pictures of one of `speciesLists`, by its address (lib/pictures.ts listPictures). */
-export const speciesListPhotos = (c: Content, list: string, species: Localized<SpeciesEntity>[]) => listPictures(c, list, species, s => photosOf(s.photos))
+/**
+ * What an equipment page (/vi/thiet-bi/<category>/) shows above its fish list, each picture once: the kit's picture, each
+ * type's, the fish beside each type (a fish under two types shows its next photo there, or none), the plants that use it
+ * (the plant page's every plant, the CO2 page's that use CO2, required first: a page of them).
+ */
+export function kitPictures(lang: Lang, c: Content, category: string) {
+  const g = c.equipment.find(x => x.category === category)
+  const types = g ? typeUses(lang, c, g) : []
+  const plants = category === 'cay-thuy-sinh' ? c.plants : category === 'co2' ? c.plants.filter(p => p.co2 !== 'none').sort((a, b) => Number(b.co2 === 'required') - Number(a.co2 === 'required')) : []
+  const pics = pagePictures(c)
+  pics.add(g?.hero.url)
+  const typePhotos = types.map(ty => pics.take([ty.photo]) ?? null)
+  const whoPhotos = types.map(ty => takeEach(pics, ty.species.slice(0, 6), s => photosOf(s.photos)))
+  const plantPhotos = takeEach(pics, plants.slice(0, PAGE), p => photosOf(p.photos))
+  return { g, types, plants, typePhotos, whoPhotos, plantPhotos, above: [g?.hero, ...typePhotos, ...whoPhotos.flat(), ...plantPhotos] }
+}
+
+/** The card pictures of one of `speciesLists`, by its address (lib/pictures.ts listPictures), after what its page shows above it. */
+export const speciesListPhotos = (lang: Lang, c: Content, list: string, species: Localized<SpeciesEntity>[]) =>
+  listPictures(c, list, species, s => photosOf(s.photos), list.startsWith('thiet-bi/') ? kitPictures(lang, c, list.slice('thiet-bi/'.length)).above : [])
 
 /**
  * The species lists of the group, taxon, origin and equipment pages, by the page's address under /vi/ ("nhom/catfish",
