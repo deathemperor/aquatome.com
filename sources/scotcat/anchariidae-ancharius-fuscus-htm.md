@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/anchariidae/ancharius_fuscus.htm
 title: Ancharius fuscus Steindachner, 1880
-fetchedAt: 2026-11-01T16:36:01.404Z
+fetchedAt: 2026-11-01T22:32:01.870Z
 hash: 97ec6f00d423bb2b4b5320ef5eb6975a03d94bda9cd01a3c0e758ddef317ddf0
 ---
 

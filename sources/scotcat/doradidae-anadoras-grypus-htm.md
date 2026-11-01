@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/doradidae/anadoras_grypus.htm
 title: Anadoras grypus (Cope, 1872)
-fetchedAt: 2026-11-01T16:35:48.544Z
+fetchedAt: 2026-11-01T22:31:49.198Z
 hash: 26039d931b3f15041ac17c04855b7b3a8cb541bf88619b3ffd37bae351072f84
 ---
 

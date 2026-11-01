@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (42)
+# Tóm tắt chờ duyệt (50)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -111,6 +111,24 @@ Cá tetra hang mù (Astyanax mexicanus) hợp với người mới chơi và b�
 Kiểm tra:
 - "cá phát triển tốt hơn khi nuôi theo nhóm": the page hedges this with "dường như phát triển tốt hơn" (seems to do better) and says the fish is not a schooling species. The summary drops the hedge and states it as a certainty.
 
+## Cá sấu hỏa tiễn Cuba (Atractosteus tristoechus)
+id: `atractosteus-tristoechus`
+
+Cá sấu hỏa tiễn Cuba (Atractosteus tristoechus) không hợp với bể gia đình: cá lớn tới 180 cm, sống nhiều thập kỷ, cần bể dài tối thiểu 200 cm, độ khó 6/8. Loài này chỉ hợp với người có công trình rất lớn, kiểu bể trưng bày. Nó chịu được nước ngọt lẫn nước lợ, nhưng cần dòng chảy không quá mạnh và ánh sáng không quá chói. Điểm khó nhất là kích thước và tuổi thọ, kèm chuyện cá mới nhập đôi khi không chịu ăn thức ăn chết.
+
+- Nuôi chung với cá nhỏ vừa miệng thì cá sẽ bị coi là thức ăn; nên nuôi riêng, hoặc chỉ nuôi cùng cá không hung dữ, cỡ tương đương và không bị nuốt trọn.
+- Cho ăn tim bò hoặc thịt gà gây tích mỡ và thoái hóa nội tạng về lâu dài; nên cho tôm, cá ống cát đông lạnh, cá lớn thì cho cá nguyên con.
+- Dùng cá mồi sống làm thức ăn thường xuyên dễ đưa bệnh và ký sinh trùng vào bể; hãy cho cá nhịn đói ngắn để tập ăn đồ chết, chỉ dùng cá mồi khi cực đoan và cách ly chúng ít nhất hai tuần.
+
+## Cá sấu hỏa tiễn nhiệt đới (Atractosteus tropicus)
+id: `atractosteus-tropicus`
+
+Cá sấu hỏa tiễn nhiệt đới (Atractosteus tropicus) không hợp với bể gia đình. Cá lớn tới 125 cm, sống vài thập kỷ, cần bể dài tối thiểu 200 cm, nên chỉ hợp hệ trưng bày công cộng rất lớn. Nước 22–28 °C, pH 6–8,5, độ cứng 5–25 dGH, dòng chảy và ánh sáng không nên quá mạnh. Độ khó 5/8, khó nhất là chỗ nuôi đủ lớn cho cả đời cá, rồi tới chuyện tập cá mới về chịu ăn đồ chết.
+
+- Mua cá con khi chưa có chỗ nuôi lâu dài: chỉ nuôi khi có hệ thống dài ít nhất 200 cm và tính tới việc cá lớn tới 125 cm.
+- Cho ăn tim bò hoặc thịt gà: dùng tôm, cá đông lạnh hoặc cá nguyên con, vì thịt động vật có vú làm cá tích mỡ và thoái hóa cơ quan.
+- Thả chung với cá nhỏ: nuôi riêng, hoặc chỉ ghép cá không hung dữ, cỡ tương đương và không bị nuốt vừa.
+
 ## Cá betta ocellata (Betta ocellata)
 id: `betta-ocellata`
 
@@ -145,6 +163,15 @@ Cá betta unimaculata hợp với người muốn nuôi riêng một loài betta
 Kiểm tra:
 - Mistake 2 "Cho ăn toàn đồ khô ... nên xen giun đen và trùn chỉ đỏ đông lạnh với cám viên": the page only says the fish is fed live, frozen and dry foods (blackworms, frozen bloodworms, pellets). It does not say an all-dry diet is a mistake or that foods should be alternated. The fix is advice the page doesn't give.
 
+## Cá trê khổng lồ Piraíba (Brachyplatystoma filamentosum)
+id: `brachyplatystoma-filamentosum`
+
+Cá trê khổng lồ Piraíba (Brachyplatystoma filamentosum) chỉ hợp với thủy cung công cộng và rất ít người nuôi tư nhân, vì cá trưởng thành dài 250 cm và bể tối thiểu phải dài 200 cm. Nước 22–28 °C, pH 6–8, độ cứng 1–20 dGH, nhưng cần hệ lọc khổng lồ, đáng tin cậy và bảo dưỡng nghiêm ngặt. Điểm khó nhất là kích thước bể và việc giữ nước sạch; độ khó 5/8.
+
+- Nuôi chung với cá nhỏ: loài này gần như chỉ ăn cá, nên chỉ nuôi chung với loài đủ lớn để không bị săn.
+- Làm lọc và bảo dưỡng qua loa: hãy dùng hệ lọc khổng lồ, đáng tin cậy và bảo dưỡng nghiêm ngặt.
+- Mở đèn quá sáng: nên giữ ánh sáng dịu, bố trí đơn giản với nền cát và vài khúc lũa lớn, hoặc để bể trống.
+
 ## Cá trê lũa Centromochlus heckelii (Centromochlus heckelii)
 id: `centromochlus-heckelii`
 
@@ -178,6 +205,15 @@ Loài này hợp với người có chỗ đặt một bể thuộc loại lớn
 
 Kiểm tra:
 - "cá không chuyển hóa được chất béo trong các loại thịt này": the page says the fish cannot process "một số loại chất béo" (some kinds of fat) in these meats. The summary drops "some" and turns a limited claim into a blanket one.
+
+## Cá lóc bông (Channa micropeltes)
+id: `channa-micropeltes`
+
+Cá lóc bông (Channa micropeltes) lớn tới 130 cm, nên chỉ hợp với bể trưng bày công cộng hoặc bể nhà cỡ cực lớn, bể tối thiểu dài 200 cm. Nước 20–30 °C, pH 6–8, độ cứng 2–20 dGH, cá khá dễ tính về cách bày bể. Độ khó 6/8: khó nhất là chỗ nuôi quá lớn, nắp bể phải thật kín vì cá hay nhảy, và cá trưởng thành trở nên hung dữ.
+
+- Mua cá con đẹp về nuôi bể nhỏ: cá lớn tới 130 cm, nên chỉ mua khi đã có bể dài từ 200 cm trở lên.
+- Để nắp bể hở hoặc không đậy: cá hay nhảy, nên đậy nắp thật kín và chừa một khoảng trống giữa nắp và mặt nước cho cá thở.
+- Cho ăn tim bò hoặc thịt gà: cá không chuyển hóa hết chất béo, dễ tích mỡ, nên cho ăn cá cắt miếng, tôm nguyên con, vẹm hoặc trai.
 
 ## Cá lóc lùn Sri Lanka (Channa orientalis)
 id: `channa-orientalis`
@@ -358,6 +394,24 @@ Cá trê điện lùn (Malapterurus microstoma) hợp với người chịu nuô
 Kiểm tra:
 - "điểm khó nhất là cá phóng điện nên không nuôi chung được": the page only says "tốt nhất là nuôi riêng một con" (best to keep one alone). The summary turns that hedge into a flat claim that the fish cannot be kept with others.
 
+## Cá chạch sông (Mastacembelus armatus)
+id: `mastacembelus-armatus`
+
+Cá chạch sông (Mastacembelus armatus) hợp với người có bể dài từ 120 cm và chịu nuôi một con lớn tới 91 cm, độ khó 5/8. Nước 24–28 °C, pH 6–7, độ cứng 5–12 dGH, nền cát, nhiều lũa, hang hoặc ống PVC cho cá trốn ban ngày. Khó nhất là giữ cá không chui khỏi bể và chọn cá nuôi chung đủ to, vì ngoài tự nhiên loài này ăn cá sống.
+
+- Để hở nắp bể: đậy thật kín khít, vì chỉ một khe rất nhỏ là cá đã chui ra được.
+- Thả chung với cá nhỏ: chọn cá nuôi chung đủ lớn để không bị coi là mồi.
+- Nuôi nhiều con trong một bể: mỗi bể chỉ nên một con, vì chúng có thể hung dữ với đồng loại.
+
+## Cá chạch lửa (Mastacembelus erythrotaenia)
+id: `mastacembelus-erythrotaenia`
+
+Cá chạch lửa (Mastacembelus erythrotaenia) hợp với người có bể dài từ 120 cm và chịu được cảnh cá trốn gần hết ban ngày. Cá lớn tới 100 cm, nên cần bể 120 × 60 × 60 cm (khoảng 432 lít), nền cát, nhiều lũa, hang đá hoặc ống PVC, nước 24–28 °C, pH 6–7, độ cứng 5–12 dGH, dòng chảy nhẹ. Độ khó 5/8; khó nhất là nắp bể phải thật khít và chọn cá nuôi chung đủ to để không bị coi là mồi.
+
+- Để nắp bể có khe hở: cá chui qua được khe rất nhỏ, nên đậy thật khít.
+- Nuôi chung với cá nhỏ: cá chạch lửa có ăn cá sống, nên chọn cá nuôi chung đủ to.
+- Nuôi nhiều con chạch lửa trong một bể: chúng có thể hung hăng với đồng loại, nên chỉ nuôi một con mỗi bể.
+
 ## Cá tetra mắt đỏ (Moenkhausia sanctaefilomenae)
 id: `moenkhausia-sanctaefilomenae`
 
@@ -368,6 +422,24 @@ Cá tetra mắt đỏ (Moenkhausia sanctaefilomenae) nhỏ, trưởng thành kho
 Kiểm tra:
 - The mistake "Nhầm lô cá đánh bắt ngoài tự nhiên ở Paraguay với cá nuôi trong bể thông thường" is not on the page. The page only says this lot is wild-caught, not captive-bred. It never calls mixing the two up a mistake.
 - The fix "nên hỏi rõ nguồn gốc trước khi mua" is advice the page doesn't give. It says nothing about asking sellers or about what to do before buying.
+
+## Lươn đồng (Monopterus albus)
+id: `monopterus-albus`
+
+Lươn đồng (Monopterus albus) hợp với người đã có kinh nghiệm, muốn nuôi riêng một con trong bể lớn; độ khó 6/8, không dành cho người chơi phổ thông. Cần bể dài tối thiểu 180 cm (đáy 180 × 60 cm, khoảng 648 lít), nước 25–28 °C, pH 6–8, độ cứng 3–25 dGH. Loài này dài tới 100 cm, ăn cá, hoạt động về đêm; khó nhất là giữ nó không trốn khỏi bể và không thả chung với cá khác.
+
+- Đậy nắp không khít: lươn chỉ cần hở một chút là trốn ra và bò đi khá xa, nên dùng nắp thật khít và thật nặng.
+- Thả chung với cá khác: lươn trưởng thành rất to và ăn cá, nên nuôi riêng một con.
+- Bố trí ít chỗ trốn: nên đặt thật nhiều lũa, đá, cây thủy sinh hoặc đoạn ống nhựa cho lươn núp.
+
+## Cá hút bùn buồm Trung Quốc (Myxocyprinus asiaticus)
+id: `myxocyprinus-asiaticus`
+
+Cá hút bùn buồm Trung Quốc (Myxocyprinus asiaticus) chỉ hợp người có bể trưng bày cực lớn hoặc hồ ngoài vườn. Cá lớn tới 90 cm, sống được từ 25 năm trở lên, cần bể dài tối thiểu 200 cm. Nước phải mát 15,5–21 °C, pH 6–8, độ cứng 2–20 dGH, sạch, giàu oxy và chảy mạnh. Độ khó 7/8, khó nhất là chỗ nuôi đủ rộng và giữ nước sạch, mát lâu dài.
+
+- Mua cá con về bể gia đình thường rồi để đó: cá sẽ lớn tới 90 cm, nên lo bể dài ít nhất 200 cm hoặc hồ ngoài vườn ngay từ đầu.
+- Để nước ấm gần ngưỡng trên trong thời gian dài: giữ 15,5–21 °C, vì có báo cáo cá bị nấm trong bể và nguyên nhân có thể là nước quá nóng.
+- Để chất thải hữu cơ tích tụ và dòng yếu: dùng lọc ngoài, bơm tạo dòng, lọc quay vòng nước bể 8–12 lần mỗi giờ để nước luôn sạch và giàu oxy.
 
 ## Cá paro Anjungan (Parosphromenus anjunganensis)
 id: `parosphromenus-anjunganensis`
