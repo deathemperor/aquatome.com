@@ -810,6 +810,88 @@
         "p",
         "web"
       ]
+    },
+    {
+      "note": "a fish's page: its scientific name under the title",
+      "valid": true,
+      "doc": {
+        "v": 1,
+        "kind": "fish",
+        "path": "/vi/ca/ca-neon/",
+        "title": "Cá neon",
+        "sub": "Paracheirodon innesi",
+        "blocks": [
+          {
+            "t": "p",
+            "c": [
+              "Cá neon sống theo đàn."
+            ]
+          }
+        ]
+      },
+      "blocks": [
+        "p"
+      ]
+    },
+    {
+      "note": "pictures of a size 0 or less, and a block inside a list that doesn't read, are the web page in their place; a lead or video that doesn't read is left out, not the page",
+      "valid": false,
+      "doc": {
+        "v": 1,
+        "kind": "guide",
+        "path": "/vi/huong-dan/hong-anh/",
+        "title": "Nuôi cá neon trong bể nhỏ",
+        "lead": {
+          "src": "https://media.aquatome.com/a/neon-lead.webp",
+          "w": 0,
+          "h": 800
+        },
+        "video": {
+          "youtubeId": 42
+        },
+        "blocks": [
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://example.org/x.webp",
+              "w": 0,
+              "h": 600
+            }
+          },
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://example.org/y.webp",
+              "w": 800,
+              "h": -1
+            }
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Thay nước mỗi tuần."
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "carousel",
+                  "items": []
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "blocks": [
+        "web",
+        "web",
+        "list"
+      ]
     }
   ]
 }

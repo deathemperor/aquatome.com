@@ -11,6 +11,9 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   public let home: Home?
   /// The site's words for the keys items carry, in this language; empty from a site older than that.
   public let labels: Labels
+  /// How many shards of pages each kind has (`/app/pages/<lang>/<kind>-<n>.json`, PageDoc.shard): the kinds the app
+  /// can draw itself. Empty from a site older than that.
+  public let pages: [String: Int]
 
   public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool }
 
@@ -197,8 +200,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     }
   }
 
-  public init(version: Int = 1, lang: String, items: [Item], home: Home? = nil, labels: Labels = Labels()) {
-    self.version = version; self.lang = lang; self.items = items; self.home = home; self.labels = labels
+  public init(version: Int = 1, lang: String, items: [Item], home: Home? = nil, labels: Labels = Labels(), pages: [String: Int] = [:]) {
+    self.version = version; self.lang = lang; self.items = items; self.home = home; self.labels = labels; self.pages = pages
   }
 
   /// The index format this app reads. A site that changes it on purpose bumps `version`; the app then keeps its copy.
@@ -221,6 +224,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     // Read leniently: a home or words this app can't read are left out, never the index.
     home = (try? c.decodeIfPresent(Home.self, forKey: .home)) ?? nil
     labels = ((try? c.decodeIfPresent(Labels.self, forKey: .labels)) ?? nil) ?? Labels()
+    pages = ((try? c.decodeIfPresent([String: Int].self, forKey: .pages)) ?? nil) ?? [:]
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -230,9 +234,10 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     try c.encode(items, forKey: .items)
     try c.encodeIfPresent(home, forKey: .home)
     if !labels.words.isEmpty { try c.encode(labels, forKey: .labels) }
+    if !pages.isEmpty { try c.encode(pages, forKey: .pages) }
   }
 
-  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels }
+  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages }
   private struct Skipped: Decodable { init(from decoder: any Decoder) {} }
 }
 

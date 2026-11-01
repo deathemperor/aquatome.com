@@ -100,7 +100,7 @@ Debug builds, so they don't see it.
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`) |
-| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names and each guide's subject and the fish and plants it names, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), and searching it: without accents, đ as d, any word order; where a link in a page goes (`PageRoute`, `AppScreen`); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names and each guide's subject and the fish and plants it names, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"), and searching it: without accents, đ as d, any word order; where a link in a page goes (`PageRoute`, `AppScreen`); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
 | `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code |
 | `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
 | `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
@@ -114,8 +114,8 @@ A read-only check of the Tuya route against a real project (the owner's): `AQUAT
 and `TUYA_ACCESS_SECRET` set, `swift test --filter liveListRead`. It reads the list once, switches nothing, and prints
 counts only.
 
-The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json` and `protocols/tankmates-vectors.json`,
-the same vectors as the site's tests. A protocol or schema change updates the vectors and both implementations together.
+The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json`, `protocols/tankmates-vectors.json`,
+`protocols/filter-vectors.json` and `protocols/page-vectors.json`, the same vectors as the site's tests. A protocol or schema change updates the vectors and both implementations together.
 
 ## Testing on a real light
 
