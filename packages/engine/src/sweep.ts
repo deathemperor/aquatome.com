@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { mayPublish, QUALITY_THRESHOLD, shownCard, type DataCardField, type Lang, type SpeciesEntity } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropRepeats, fixTranslation, isMap, renumberLabels, stripCount, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropRepeats, fixTranslation, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { rewriteTitle } from './reader'
 import { carryTopicChecks } from './topic-check'
@@ -13,8 +13,9 @@ import { carryTopicChecks } from './topic-check'
  * test fails on any left. Each file keeps its own indentation, and no page's date changes.
  * - the source site's comments, comment form and related posts: cut (cutFurniture)
  * - empty headings and blocks: dropped; a repeated paragraph: the later copy dropped; labels out of order: renumbered
- * - a photo whose caption names another fish the site has, or is a map: off that page (its file and its gallery), and
- *   off every page through engine-state/_photo-rejected.json, unless another page it is on is that fish's
+ * - a photo whose caption names another fish the site has, or is a map: off that page (its file and its gallery). A map
+ *   leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
+ *   it is taken off again whenever a later run brings it back here
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
  *   summary, checked against the old card, goes back to pending: hidden until the summaries step writes it again
@@ -35,7 +36,6 @@ export type SweepReport = {
   stopped: string
 }
 
-const TEXT_KINDS = ['species', 'plants', 'guides', 'breeds', 'glossary', 'products']
 const LANGS: Lang[] = ['vi', 'id', 'th']
 type Stored = { name?: string; altNames?: string[]; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 
@@ -86,10 +86,10 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], titles: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
-  const counted: { file: string; raw: string; t: Stored; lang: Lang; id: string }[] = [] // raw: for its indentation
+  const counted: { file: string; raw: string; t: Stored; kind: string; lang: Lang; id: string }[] = [] // raw: for its indentation
 
   // Text, in every language.
-  for (const kind of TEXT_KINDS) {
+  for (const kind of SWEPT_KINDS) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       for (const lang of LANGS) {
         const file = join(content, kind, id, `${lang}.json`)
@@ -103,7 +103,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
           for (const f of fixed) (report.text[f] ??= []).push(`${kind}/${id}/${lang}`)
           if (kind === 'guides' && before.body !== undefined) guides.push({ key: lang === 'vi' ? id : `${id}:${lang}`, before: before.body, after: t.body! })
         }
-        if (kind === 'guides' && t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, lang, id })
+        if (t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
       }
     }
   }
@@ -121,14 +121,14 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         if (r.score >= QUALITY_THRESHOLD) { title = r.title; how = `rewritten (${r.score.toFixed(2)})` }
         else how = `number dropped; rewrite "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`
       } catch (e) {
-        if (e instanceof LlmError) report.stopped = `title ${c.lang}/${c.id}: ${e.message}`
+        if (e instanceof LlmError) report.stopped = `title ${c.lang}/${c.kind}/${c.id}: ${e.message}`
         else how = `number dropped; rewrite failed: ${(e as Error).message.slice(0, 120)}`
       }
     }
     if (title === old || countMismatch(title, c.t.body!)) continue
     await write(c.file, c.raw, { ...c.t, name: title })
-    changed(`guides/${c.id}/${c.lang}.json`)
-    report.titles.push(`${c.lang}/${c.id}: "${old}" → "${title}" (${how})`)
+    changed(`${c.kind}/${c.id}/${c.lang}.json`)
+    report.titles.push(`${c.lang}/${c.kind}/${c.id}: "${old}" → "${title}" (${how})`)
   }
   if (guides.length) await carryTopicChecks(root, guides)
 
@@ -137,37 +137,30 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   const ctx = ctxOf(all)
   const pages = all.filter(p => p.sci && (p.kind === 'species' || p.kind === 'plants'))
   const off = new Map<string, Map<string, string>>() // page (kind/id) → url → why
+  const maps = new Map<string, string>() // url → why
   for (const p of pages) for (const c of p.captions) {
     const other = wrongFish(c.caption, p.sci!, p.latinNames, ctx)
     const why = other ? `caption names ${other}, not ${p.sci}` : isMap(c.caption) ? `a map, not ${p.sci}` : ''
     if (why) off.set(`${p.kind}/${p.id}`, (off.get(`${p.kind}/${p.id}`) ?? new Map()).set(c.url, why))
+    if (!other && why) maps.set(c.url, `${why} (${p.kind}/${p.id})`)
   }
-  if (off.size) {
-    // Every species and plant page each photo is on (its file or its gallery).
-    const carriers = new Map<string, Set<string>>()
-    const files: { page: string; file: string }[] = []
-    for (const kind of ['species', 'plants']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) {
-      files.push({ page: `${kind}/${id}`, file: join(content, kind, id, 'entity.json') }, { page: `${kind}/${id}`, file: join(content, 'gallery', `${id}.json`) })
-    }
-    for (const { page, file } of files) {
+  for (const [page, drop] of off) {
+    const [kind, id] = page.split('/') as [string, string]
+    for (const file of [join(content, kind, id, 'entity.json'), join(content, 'gallery', `${id}.json`)]) {
       const raw = await readFile(file, 'utf8').catch(() => null)
       if (!raw) continue
       const e = JSON.parse(raw) as { photos?: { url: string }[] }
-      for (const ph of e.photos ?? []) carriers.set(ph.url, (carriers.get(ph.url) ?? new Set()).add(page))
-      const drop = off.get(page)
-      if (!drop || !(e.photos ?? []).some(ph => drop.has(ph.url))) continue
+      if (!(e.photos ?? []).some(ph => drop.has(ph.url))) continue
       for (const ph of e.photos!.filter(x => drop.has(x.url))) report.photos.push(`${page}: ${ph.url} (${drop.get(ph.url)})`)
       await write(file, raw, { ...e, photos: e.photos!.filter(ph => !drop.has(ph.url)) })
       changed(file.slice(content.length + 1))
     }
-    // Off every page only when every page it is on is a wrong one: on its own fish's page it stays.
+  }
+  // A map is no fish's photo: off every page, and never picked again.
+  if (maps.size) {
     const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
     const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
-    for (const [page, urls] of off) for (const [url, why] of urls) {
-      if (rejected[url] || ![...(carriers.get(url) ?? [])].every(pg => off.get(pg)?.has(url))) continue
-      rejected[url] = `${why} (${page})`
-      report.rejected++
-    }
+    for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
     if (report.rejected) await writeFile(rejectedFile, `${JSON.stringify(rejected, null, 2)}\n`)
   }
 

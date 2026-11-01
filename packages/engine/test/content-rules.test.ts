@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import {
   blocks, cardSlips, checkPages, countMismatch, cutFurniture, dropEmptyHeadings, dropRepeats, emptySections, englishSentences, fixTranslation, furniture,
-  imperialUnits, labelSlips, leftoverMarkup, numberSlips, otherFish, plainEntities, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
+  imperialUnits, labelSlips, leftoverMarkup, longFurniture, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
   titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
 import { pagePath, type Page } from '../src/pages'
@@ -41,12 +41,21 @@ test('a title promising a count: a numbered run, a list or enough headings hold 
   expect(countMismatch('10 sai lầm hay gặp khiến bể bị rêu', `${'<h3>X</h3><p>y</p>'.repeat(7)}<ul><li>a</li><li>b</li></ul>`)).toBe('title promises 10; 7 headings, none numbered, lists of 2')
 })
 
-test('a heading with nothing under it, unless numbered items follow; the source site\'s comments', () => {
+/** Furniture the rule finds, whether or not the sweep may cut it (more than half a text). */
+const detected = (html: string) => [...furniture(html), ...longFurniture(html)]
+
+test('a heading with nothing under it, at the end of its text; a heading over another is a group; the source site\'s comments', () => {
   expect(emptySections('<h3>Ưu điểm</h3><h3>1. Nhẹ</h3><p>a</p><h3>Kết luận</h3><p>b</p><h3>Để lại bình luận</h3>')).toEqual(['Để lại bình luận'])
-  expect(emptySections('<h3>Các loài</h3><h3>Tép ong</h3><p>a</p>')).toEqual(['Các loài'])
-  expect(furniture('<h3>Kết luận</h3><p>a</p><h3>4 bình luận về “Đá dung nham”</h3><ul><li>Marcia: …</li></ul><h3>Để lại bình luận</h3><h3>Bài viết liên quan:</h3><h3>Bình luận của độc giả (5 bình luận)</h3>'))
+  // The first sweep dropped 7 such parents ("Lựa chọn loài" over a heading a species, "Sản phẩm" over two products).
+  expect(emptySections('<h3>Các loài</h3><h3>Tép ong</h3><p>a</p>')).toEqual([])
+  expect(emptySections('<h3>Sản phẩm</h3><h3>Fish Vet Methylene Blue</h3><p>a</p><h3>Kordon</h3><p>b</p>')).toEqual([])
+  expect(detected('<h3>Kết luận</h3><p>a</p><h3>4 bình luận về “Đá dung nham”</h3><ul><li>Marcia: …</li></ul><h3>Để lại bình luận</h3><h3>Bài viết liên quan:</h3><h3>Bình luận của độc giả (5 bình luận)</h3>'))
     .toEqual(['4 bình luận về “Đá dung nham”', 'Để lại bình luận', 'Bài viết liên quan:', 'Bình luận của độc giả (5 bình luận)'])
-  expect(furniture('<h3>Bình luận về chất lượng nước</h3>')).toEqual([])
+  expect(detected('<h3>Bình luận về chất lượng nước</h3>')).toEqual([])
+  // A heading or a line of the text's own that starts like one (the first sweep cut "Bình luận của Ken Childs", 27% of
+  // a text of letters).
+  for (const own of ['<h3>Một suy nghĩ cuối cùng</h3>', '<h3>5 suy nghĩ sai lầm về cá betta</h3>', '<h3>Một ý kiến khác</h3>', '<h3>One thought on lighting</h3>',
+    '<h3>Bình luận của Ken Childs</h3>', '<h3>Gửi phản hồi cho nhà sản xuất</h3>', '<h3>Bài viết liên quan đến cá betta</h3>', '<p>Một ý kiến về lượng nước thay: nhiều người thay 50%.</p>']) expect(detected(own)).toEqual([])
 })
 
 test('markdown left in the text, not a footnote\'s asterisks; entities in plain text', () => {
@@ -158,31 +167,41 @@ test('numbered labels out of order are numbered again as they appear; counting u
   const html = '<h3>CO2</h3><p><strong>Sai lầm 1: không dùng drop checker.</strong> a</p><p><strong>Sai lầm 9: không hiệu chuẩn.</strong> b</p><h3>Set bể</h3><p><strong>Sai lầm 2: set giữa hè.</strong> c</p><p><strong>Sai lầm 10: bỏ thay nước.</strong> d</p>'
   expect(labelSlips(html)).toEqual(['"sai lầm" 1, 9, 2, 10'])
   expect(renumberLabels(html)).toBe('<h3>CO2</h3><p><strong>Sai lầm 1: không dùng drop checker.</strong> a</p><p><strong>Sai lầm 2: không hiệu chuẩn.</strong> b</p><h3>Set bể</h3><p><strong>Sai lầm 3: set giữa hè.</strong> c</p><p><strong>Sai lầm 4: bỏ thay nước.</strong> d</p>')
-  for (const ok of ['<p>Bước 1: a</p><p>Bước 2: b</p>', '<p>Mẹo 3. a</p><p>Mẹo 2. b</p><p>Mẹo 1. c</p>', '<p>Cách 1: a</p><p>Cách 2: b</p><p>Cách 1: c</p><p>Cách 2: d</p>', '<p>Có 3 cách: một, hai, ba.</p>']) {
+  // A range is no label: a care schedule keeps its intervals.
+  const schedule = '<ul><li>Cách 1–2 ngày: cho ăn</li><li>Cách 7–10 ngày: thay nước</li><li>Cách 2–3 tuần: vệ sinh lọc</li></ul>'
+  for (const ok of ['<p>Bước 1: a</p><p>Bước 2: b</p>', '<p>Mẹo 3. a</p><p>Mẹo 2. b</p><p>Mẹo 1. c</p>', '<p>Cách 1: a</p><p>Cách 2: b</p><p>Cách 1: c</p><p>Cách 2: d</p>', '<p>Có 3 cách: một, hai, ba.</p>', schedule]) {
     expect(labelSlips(ok)).toEqual([])
     expect(renumberLabels(ok)).toBe(ok)
   }
   expect(found(page({ fields: [{ field: 'body', html }] }), 'labels')).toEqual(['"sai lầm" 1, 9, 2, 10'])
+  // What the check reads, the fix mends: a tag or a no-break space between word and number.
+  const split = '<p><strong>Sai lầm</strong> 1: a</p><p><strong>Sai lầm</strong> 9: b</p><p>Sai lầm&nbsp;2: c</p>'
+  expect(labelSlips(split)).toEqual(['"sai lầm" 1, 9, 2'])
+  expect(labelSlips(renumberLabels(split))).toEqual([])
+  expect(renumberLabels(split)).toBe('<p><strong>Sai lầm</strong> 1: a</p><p><strong>Sai lầm</strong> 2: b</p><p>Sai lầm&nbsp;3: c</p>')
 })
 
 test('the source site\'s comments, comment form and related posts: found as headings or lines of their own, and cut', () => {
-  expect(furniture('<h3>7 ý kiến về “Infusoria”</h3><ul><li>a</li></ul><h3>12 thoughts on “Lava rock”</h3><p>Bài viết liên quan:</p><ul><li>x</li></ul><p>Leave a Reply</p>'))
+  expect(detected('<h3>7 ý kiến về “Infusoria”</h3><ul><li>a</li></ul><h3>12 thoughts on “Lava rock”</h3><p>Bài viết liên quan:</p><ul><li>x</li></ul><p>Leave a Reply</p>'))
     .toEqual(['7 ý kiến về “Infusoria”', '12 thoughts on “Lava rock”', 'Bài viết liên quan:', 'Leave a Reply'])
   // In a sentence, a phrase is the text's own.
-  expect(furniture('<p>Bài viết liên quan đến chủ đề này cho thấy cá cần bể lớn.</p><p>Hãy để lại bình luận nếu bạn có câu hỏi về bể.</p>')).toEqual([])
+  expect(detected('<p>Bài viết liên quan đến chủ đề này cho thấy cá cần bể lớn.</p><p>Hãy để lại bình luận nếu bạn có câu hỏi về bể.</p>')).toEqual([])
   const long = 'Đá dung nham tự nhiên là vật liệu trơ, không làm đổi thông số nước trong bể của bạn.'
   // Related posts in the middle of the text: the line and its list, not what follows.
   expect(cutFurniture(`<h3>A</h3><p>${long}</p><p>Bài viết liên quan:</p><ul><li>15+ thức ăn sống</li></ul><p>${long}</p><h3>B</h3><p>${long}</p>`)).toBe(`<h3>A</h3><p>${long}</p><p>${long}</p><h3>B</h3><p>${long}</p>`)
   // Comments with their readers' names, up to the next heading; the comment form after them.
   expect(cutFurniture(`<h3>Kết luận</h3><p>${long}</p><p>${long}</p><h3>4 bình luận về “Đá dung nham”</h3><ul><li><p><strong>Marcia:</strong> Hỏi.</p></li></ul><h3>Để lại bình luận</h3>`)).toBe(`<h3>Kết luận</h3><p>${long}</p><p>${long}</p>`)
-  // Never more than half a text: a page that is mostly comments is left as it is (and listed).
+  // Never more than half a text: a page that is mostly comments is left as it is, and listed for a person, not as a
+  // defect the sweep fixes (one such page would stop every cycle).
   const most = `<p>Ngắn.</p><h3>Bình luận của độc giả</h3><p>${long}</p><p>${long}</p>`
   expect(cutFurniture(most)).toBe(most)
-  expect(found(page({ fields: [{ field: 'body', html: most }] }), 'furniture')).toEqual(['"Bình luận của độc giả"'])
+  expect([furniture(most), longFurniture(most)]).toEqual([[], ['Bình luận của độc giả']])
+  expect(found(page({ fields: [{ field: 'body', html: most }] }), 'furniture')).toEqual([])
+  expect(found(page({ fields: [{ field: 'body', html: most }] }), 'furniture-long')).toEqual(['"Bình luận của độc giả"'])
 })
 
-test('empty headings dropped, also one left empty when the numbered item under it goes', () => {
-  expect(dropEmptyHeadings('<h3>Các loài</h3><h3>Tép ong</h3><p>a</p><h3>Sản phẩm</h3>')).toBe('<h3>Tép ong</h3><p>a</p>')
+test('empty headings dropped at the end of a text, all of them; a group heading kept', () => {
+  expect(dropEmptyHeadings('<h3>Các loài</h3><h3>Tép ong</h3><p>a</p><h3>Sản phẩm</h3>')).toBe('<h3>Các loài</h3><h3>Tép ong</h3><p>a</p>')
   expect(dropEmptyHeadings('<h3>Ưu điểm</h3><h3>1. Nhẹ</h3><p>a</p>')).toBe('<h3>Ưu điểm</h3><h3>1. Nhẹ</h3><p>a</p>')
   expect(dropEmptyHeadings('<p>a</p><h3>Ưu điểm</h3><h3>1. Nhẹ</h3>')).toBe('<p>a</p>')
   expect(emptySections(dropEmptyHeadings('<h3>A</h3><h3>B</h3><h3>C</h3><p>x</p><h3>D</h3>'))).toEqual([])
@@ -246,4 +265,14 @@ test('imperial figures, as the metric test finds them: a unit named with no figu
   expect(found(p('Berapa liter atau galon air untuk satu koi?'), 'imperial')).toEqual([])
   expect(found(p('Sumber lain menaikkan suhu ke 86–88 (kemungkinan °F).'), 'imperial')).toEqual(['"86–88 (kemungkinan °F)"'])
   expect(found(p('bể 20 gallon cho bộ ba'), 'imperial')).toEqual(['"20 gallon"'])
+})
+
+test('the real-content test holds a defect at zero only on the kinds of page its fix mends', () => {
+  const body = [{ field: 'body', html: '<p>Một bể 10 gallon.</p><h3>Kết</h3>' }]
+  const intro = [{ field: 'intro', html: '<p>Một bể 10 gallon.</p><h3>Kết</h3>' }]
+  const pages = [page({ fields: body }), page({ kind: 'glossary', fields: [{ field: 'definition', html: body[0]!.html }] }), page({ kind: 'equipment', fields: intro })]
+  const { findings } = checkPages(pages, RULES.filter(r => ['headings', 'imperial'].includes(r.id)))
+  expect(findings.map(f => `${f.page.kind} ${f.rule}`)).toEqual(['guides headings', 'guides imperial', 'glossary headings', 'glossary imperial', 'equipment headings', 'equipment imperial'])
+  // The sweep writes glossary text, not an equipment page; `pnpm engine metric` converts neither.
+  expect(ratcheted(findings).map(f => `${f.page.kind} ${f.rule}`)).toEqual(['guides headings', 'guides imperial', 'glossary headings'])
 })

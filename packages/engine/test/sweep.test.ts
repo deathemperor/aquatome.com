@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { checkPages, RATCHETED, RULES } from '../src/content-rules'
+import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { sweep, sweepTranslation } from '../src/sweep'
 
@@ -31,46 +31,50 @@ async function store() {
       photo('https://media.aquatome.com/commons/batch.webp', 'Imported as a contaminant in a batch of Corydoras sterbai')],
   }), 1)
   await put('summaries/corydoras-adolfoi.json', { id: 'corydoras-adolfoi', summary: 'Bể từ 10 cm.', mistakes: [], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' })
-  await put('species/corydoras-adolfoi/vi.json', vi('Cá chuột Adolfo', { 'distribution:seriouslyfish': `<p>${REPEAT}</p>`, 'habitat:seriouslyfish': `<p>${REPEAT}</p><p>Nền cát.</p>` }), 1)
+  await put('species/corydoras-adolfoi/vi.json', vi('Cá chuột Adolfo', { 'distribution:seriouslyfish': `<p>${REPEAT}</p>`, 'habitat:seriouslyfish': `<p>${REPEAT}</p><p>Nền cát.</p><h3>Ghi chú</h3>` }), 1)
   await put('gallery/corydoras-adolfoi.json', { id: 'corydoras-adolfoi', photos: [photo('https://media.aquatome.com/inat/tetra.webp', 'A Black Widow Tetra (Gymnocorymbus ternetzi).')], seen: 1, updatedAt: '2026-10-01' })
   await put('species/corydoras-sterbai/entity.json', species('corydoras-sterbai', 'Corydoras sterbai', { photos: [photo('https://media.aquatome.com/commons/sterbai.webp', 'Corydoras sterbai')] }))
   await put('species/corydoras-sterbai/vi.json', vi('Cá chuột sterbai', { 'distribution:seriouslyfish': '<p>Brazil.</p>' }))
   await put('species/gymnocorymbus-ternetzi/entity.json', species('gymnocorymbus-ternetzi', 'Gymnocorymbus ternetzi'))
   await put('species/gymnocorymbus-ternetzi/vi.json', vi('Cá tứ vân đen', { 'distribution:seriouslyfish': '<p>Paraguay.</p>' }))
-  // A guide: a title promising 10 over 3 sections, mistakes numbered out of order, an empty heading, comments and related posts.
+  // A guide: a title promising 10 over 4 sections, mistakes numbered out of order, a heading over a heading (a group, kept),
+  // comments and related posts.
   await put('guides/g/entity.json', { id: 'g', kind: 'care', source: 'aquariumbreeder', sourceUrl: 'https://x/g', html: '', photos: [], mentions: [], updatedAt: '2026-10-01' })
   await put('guides/g/vi.json', vi('10 cách xử lý rêu hại nhanh', {}, {
     body: '<h3>Đèn</h3><p><strong>Sai lầm 1:</strong> đèn mạnh.</p><p><strong>Sai lầm 3:</strong> bật lâu.</p><h3>CO2</h3><p><strong>Sai lầm 2:</strong> thiếu CO2.</p>'
       + '<p>Bài viết liên quan:</p><ul><li>15+ thức ăn sống</li></ul><h3>Phân nền</h3><h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>'
       + '<h3>4 bình luận về “Rêu hại”</h3><ul><li><p><strong>Marcia:</strong> Cảm ơn.</p></li></ul><h3>Để lại bình luận</h3>',
   }))
-  // A breed whose tank is shorter than twice the fish.
+  // A breed whose tank is shorter than twice the fish, and whose title promises 5 things its text lacks.
   await put('breeds/huyet-long/entity.json', { id: 'huyet-long', kind: 'variety', parents: [], care: { sizeCm: [{ source: 0, value: 90 }], tankCm: [{ source: 0, value: 150 }] }, photos: [], sources: [{ url: 'https://x/a', title: 'A', kind: 'article', at: '2026-10-01' }], updatedAt: '2026-10-01' })
-  await put('breeds/huyet-long/vi.json', vi('Huyết Long', {}, { body: '<p>Rồng đỏ.</p>' }))
+  await put('breeds/huyet-long/vi.json', vi('5 điều về Huyết Long', {}, { slug: 'huyet-long', body: '<p>Rồng đỏ.</p>' }))
   return root
 }
 const json = async (root: string, path: string) => JSON.parse(await readFile(join(root, path), 'utf8'))
 
 test('the sweep makes every page pass the rules it fixes, keeps each file\'s indentation and date, and does nothing the second time', async () => {
   const root = await store()
-  const before = checkPages(await loadPages(join(root, 'content')), RULES.filter(r => RATCHETED.includes(r.id))).findings.map(f => f.rule)
+  const before = ratcheted(checkPages(await loadPages(join(root, 'content')), RULES.filter(r => r.id in RATCHETED)).findings).map(f => f.rule)
   expect(new Set(before)).toEqual(new Set(['furniture', 'headings', 'repeated', 'labels', 'caption', 'card', 'title-count']))
   const r = await sweep(root)
-  expect(checkPages(await loadPages(join(root, 'content')), RULES.filter(r => RATCHETED.includes(r.id))).findings.map(f => `${f.rule}: ${f.page.path}: ${f.detail}`)).toEqual([])
+  expect(ratcheted(checkPages(await loadPages(join(root, 'content')), RULES.filter(r => r.id in RATCHETED)).findings).map(f => `${f.rule}: ${f.page.path}: ${f.detail}`)).toEqual([])
 
-  // Text: comments and related posts cut, the empty heading gone, mistakes numbered in order; the address kept.
+  // Text: comments and related posts cut, mistakes numbered in order, the group heading kept; the address kept.
   const g = await json(root, 'content/guides/g/vi.json')
   expect(g.body).toBe('<h3>Đèn</h3><p><strong>Sai lầm 1:</strong> đèn mạnh.</p><p><strong>Sai lầm 2:</strong> bật lâu.</p><h3>CO2</h3><p><strong>Sai lầm 3:</strong> thiếu CO2.</p>'
-    + '<h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>')
+    + '<h3>Phân nền</h3><h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>')
   expect([g.name, g.slug]).toEqual(['Cách xử lý rêu hại nhanh', '10-cách-xử-lý-rêu-hại-nhanh'])
-  expect(r.titles).toEqual(['vi/g: "10 cách xử lý rêu hại nhanh" → "Cách xử lý rêu hại nhanh" (number dropped)'])
-  // The later copy of the paragraph goes; a one-space file stays one-space.
+  expect(r.titles).toEqual([
+    'vi/guides/g: "10 cách xử lý rêu hại nhanh" → "Cách xử lý rêu hại nhanh" (number dropped)',
+    'vi/breeds/huyet-long: "5 điều về Huyết Long" → "Điều về Huyết Long" (number dropped)',
+  ])
+  // The later copy of the paragraph goes, and the heading left at the end; a one-space file stays one-space.
   const raw = await readFile(join(root, 'content/species/corydoras-adolfoi/vi.json'), 'utf8')
   expect(JSON.parse(raw).sections).toEqual({ 'distribution:seriouslyfish': `<p>${REPEAT}</p>`, 'habitat:seriouslyfish': '<p>Nền cát.</p>' })
   expect(raw).toMatch(/^\{\n "slug"/)
 
-  // Photos: the other Corydoras and the map off the page, the tetra off its gallery; "in a batch of" kept. The map and
-  // the tetra, on no other page, leave every page; C. sterbai stays on its own page and out of the rejected list.
+  // Photos: the other Corydoras and the map off the page, the tetra off its gallery; "in a batch of" kept. Only the map
+  // leaves every page: C. sterbai stays on its own page, and the tetra may still join its own.
   const e = await json(root, 'content/species/corydoras-adolfoi/entity.json')
   expect(e.photos.map((p: { url: string }) => p.url.split('/').pop())).toEqual(['own.webp', 'batch.webp'])
   expect(e.updatedAt).toBe('2026-10-01')
@@ -78,7 +82,6 @@ test('the sweep makes every page pass the rules it fixes, keeps each file\'s ind
   expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).photos).toHaveLength(1)
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({
     'https://media.aquatome.com/commons/map.webp': 'a map, not Corydoras adolfoi (species/corydoras-adolfoi)',
-    'https://media.aquatome.com/inat/tetra.webp': 'caption names Gymnocorymbus ternetzi, not Corydoras adolfoi (species/corydoras-adolfoi)',
   })
 
   // Card: the tank shorter than twice the fish and the upside-down pH hidden, kept with why; the breed's too.
@@ -110,9 +113,9 @@ test('a title rewritten by the model is kept when the reviewer passes it, and th
   const llm = (title: string, score: number): Llm => async <T>({ schema }: { schema: object }) =>
     ((schema as { required: string[] }).required.includes('title') ? { title } : { score, notes: score < 0.75 ? ['subject changed'] : [] }) as T
   const kept = await store()
-  expect((await sweep(kept, { llm: llm('3 cách xử lý rêu hại nhanh', 0.9) })).titles).toEqual(['vi/g: "10 cách xử lý rêu hại nhanh" → "3 cách xử lý rêu hại nhanh" (rewritten (0.90))'])
+  expect((await sweep(kept, { llm: llm('3 cách xử lý rêu hại nhanh', 0.9) })).titles[0]).toBe('vi/guides/g: "10 cách xử lý rêu hại nhanh" → "3 cách xử lý rêu hại nhanh" (rewritten (0.90))')
   const refused = await store()
-  expect((await sweep(refused, { llm: llm('Rêu hại', 0.4) })).titles).toEqual(['vi/g: "10 cách xử lý rêu hại nhanh" → "Cách xử lý rêu hại nhanh" (number dropped; rewrite "Rêu hại" not kept (0.40: subject changed))'])
+  expect((await sweep(refused, { llm: llm('Rêu hại', 0.4) })).titles[0]).toBe('vi/guides/g: "10 cách xử lý rêu hại nhanh" → "Cách xử lý rêu hại nhanh" (number dropped; rewrite "Rêu hại" not kept (0.40: subject changed))')
   // A rewrite still promising a count the text lacks is not even reviewed.
   const wrong = await store()
   expect((await sweep(wrong, { llm: llm('7 cách xử lý rêu hại', 0.9) })).titles[0]).toContain('number dropped; rewrite "7 cách xử lý rêu hại" not kept (0.00')

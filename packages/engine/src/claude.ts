@@ -29,7 +29,11 @@ function run<T>(system: string, prompt: string, schema: object, opts: { tools: s
         // measure a run such as the reader's backfill.
         if (process.env.ENGINE_COST_LOG) {
           const u = r.usage ?? {}
-          appendFileSync(process.env.ENGINE_COST_LOG, `${JSON.stringify({ at: new Date().toISOString(), model: opts.model ?? process.env.ENGINE_MODEL ?? 'sonnet', ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
+          try {
+            appendFileSync(process.env.ENGINE_COST_LOG, `${JSON.stringify({ at: new Date().toISOString(), model: opts.model ?? process.env.ENGINE_MODEL ?? 'sonnet', ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
+          } catch (e) {
+            console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
+          }
         }
         if (r.is_error || code !== 0) return reject(new LlmError(`claude failed (${code}): ${r.result ?? err}`.slice(0, 500)))
         resolve(r.structured_output as T)

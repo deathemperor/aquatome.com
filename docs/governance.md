@@ -245,16 +245,22 @@ The layers above still check the result.
     entities. The rest is listed in `docs/review/content-rules.md`, each page once per rule with its link.
   - **The sweep.** A page the engine never writes again would keep its defect, so `pnpm engine sweep` (`sweep.ts`)
     makes the fixes on every page each cycle, after `metric` and before the build, and a real-content test fails on any
-    page still having one (`RATCHETED`). Each file keeps its indentation and date. It hides the element, never the page:
-    - the source site's comments, comment form and related posts: cut, with the list of related posts or everything up
-      to the next heading, never more than half a text
-    - an empty heading: dropped; a repeated paragraph: the later copy dropped (in two texts of a page, as a run of
+    page still having one (`RATCHETED`: each rule with the kinds of page its fix covers). A check there finds only what
+    its fix can change, or one page the fix can't mend would stop every cycle. Each file keeps its indentation and date.
+    It hides the element, never the page:
+    - the source site's comments, comment form and related posts, in the shape the comment plugins write ("7 ý kiến về
+      “…”", "Bình luận của độc giả", "Để lại bình luận" alone): cut, with the list of related posts or everything up to
+      the next heading. More than half a text is left and listed for a person; a heading of the text's own ("Bình luận
+      của Ken Childs" in a text of letters) stays
+    - a heading at the end of a text: dropped (a heading straight over another is a group over its sub-headings: every
+      heading is an h3, so it stays); a repeated paragraph: the later copy dropped (in two texts of a page, as a run of
       copies, or 120 characters or more: a short line a list repeats under each item is the text's own); labels out of
       order ("Sai lầm 1, 9, 2…"): numbered again as they appear
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
-      page's ("in a batch of", "here with", "known as"), or that is a map: off its page, and off every page through
-      `engine-state/_photo-rejected.json` unless another page it is on is that fish's. A Latin name no page has is listed
-      for a person ("may name another fish"), not removed.
+      page's ("in a batch of", "here with", "known as"), or that is a map: off its page. A map leaves every page
+      (`engine-state/_photo-rejected.json`); a photo of another fish only that page, so it may still join its own fish's
+      (taken off again if a later run brings it back). A Latin name no page has is listed for a person ("may name
+      another fish"), not removed.
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
       (`hidden` with why, kept in the file; worked out again each run), and the species' approved summary sent back to be
       written again against the new card
@@ -263,10 +269,12 @@ The layers above still check the result.
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
   - Text that reports what "the page" says ("Trang lưu ý…", "Trang cũng nêu…") has no safe fix: the reader's writer
     rewrites it on Vietnamese pages, reviewer-gated.
-  - First run (2026-11-02, 2,599 pages): the source site's comments or related posts cut on 9 guides (6 were listed),
-    empty headings on 8, a repeated paragraph on 13 pages, labels renumbered on 1, 29 photos of another fish or a map off
-    25 pages (20 of them off every page), 12 cards' tanks hidden (8 summaries to write again), 4 titles rewritten. Three
-    titles the rule had listed held their count after all, as numbered labels ("Mẹo 1"…"Mẹo 13") or bold leads.
+  - First run (2026-11-02, 2,599 pages): the source site's comments or related posts cut on 8 guides, a heading left at
+    the end on 2, a repeated paragraph on 12 pages, labels renumbered on 1, 29 photos of another fish or a map off 25
+    pages (9 maps off every page), 12 cards' tanks hidden (8 summaries to write again), 4 titles rewritten. Three titles
+    the rule had listed held their count after all, as numbered labels ("Mẹo 1"…"Mẹo 13") or bold leads. Its first
+    version also dropped 7 group headings ("Lựa chọn loài", "Sản phẩm"), cut a text's own "Bình luận của Ken Childs"
+    and kept 11 photos of another fish off every page; a review caught them, and they were put back.
   - Found by the owner: the betta foods guide's contents read "3. #3 Cám viên…, 4. Xtreme Betta Pellets, 5. #4…". The
     first run fixed an Indonesian guide whose title read `Cacing Jangkar &amp; Kutu Ikan` on the page, and listed 6
     guides carrying another site's reader comments (with the readers' names), 36 species and plant pages with a photo
