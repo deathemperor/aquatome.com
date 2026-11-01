@@ -1,27 +1,21 @@
 ---
 import type { Localized, SpeciesEntity } from '@aq/schema'
 import SpeciesCard from './SpeciesCard.astro'
-import { cleanPhoto } from '../lib/home'
-import { smallSrc } from '../lib/img'
 import { i18n } from '../lib/i18n'
 /**
  * `heading`: a visually hidden h2 for pages that have none, so card h3s don't skip a level.
- * `full`: only the first `full` species as cards. Each other one is a hidden link (crawlers follow every one) with its
- * picture in data-img/-w/-h, which the page's script turns into a card from the template below when it shows it
- * (scripts/species-card.ts). The template is there whenever `full` is given, so a check can turn cards into links.
+ * `template`: a card template in the grid, for the page's script to build more cards from (the fish list's species past
+ * its first page: scripts/filter-list.ts, species-card.ts).
  */
-interface Props { species: Localized<SpeciesEntity>[]; heading?: string; full?: number }
-const { species, heading, full } = Astro.props
+interface Props { species: Localized<SpeciesEntity>[]; heading?: string; template?: boolean }
+const { species, heading, template } = Astro.props
 const { t } = i18n(Astro.url)
 /** Cards in the first row load at once: one of them is usually the page's largest image. */
 const EAGER = 4
 ---
 {species.length === 0
   ? <p class="empty">{t('Chưa có loài nào ở đây.')}</p>
-  : <>{heading && <h2 class="visually-hidden">{heading}</h2>}<div class="grid">{species.map((s, i) => i < (full ?? Infinity)
-      ? <div data-slug={s.t.slug}><SpeciesCard s={s} eager={i < EAGER} /></div>
-      : (p => <a data-slug={s.t.slug} href={`/vi/ca/${s.t.slug}/`} data-img={p && smallSrc(p)} data-w={p?.width} data-h={p?.height} hidden>{s.t.name}</a>)(cleanPhoto(s.photos)))}</div>
-    {full !== undefined && <template id="species-card"><div data-slug=""><SpeciesCard s={species[0]!} template /></div></template>}</>}
+  : <>{heading && <h2 class="visually-hidden">{heading}</h2>}<div class="grid">{species.map((s, i) => <div data-slug={s.t.slug}><SpeciesCard s={s} eager={i < EAGER} /></div>)}{template && <template id="species-card"><div data-slug=""><SpeciesCard s={species[0]!} template /></div></template>}</div></>}
 <style>
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
   @media (max-width: 520px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); } }
