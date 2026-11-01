@@ -7,7 +7,8 @@
     "./slug": "./src/slug.ts",
     "./text": "./src/text.ts",
     "./tanks": "./src/tanks.ts",
-    "./tank-rules": "./src/tank-rules.ts"
+    "./tank-rules": "./src/tank-rules.ts",
+    "./app-page": "./src/app-page.ts"
   },
   "scripts": {
     "test": "vitest run",

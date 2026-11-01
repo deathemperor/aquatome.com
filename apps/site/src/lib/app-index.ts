@@ -5,6 +5,7 @@ import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from '
 import { smallSrc } from './img'
 import { localizePath, served, translator, type Lang } from './i18n'
 import { mentionIndex } from './mentions'
+import { appGuides } from './app-page'
 import { toIndexItem } from './species-index'
 
 /**
@@ -40,7 +41,11 @@ export type AppItem = {
  */
 export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
 const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
-export type AppIndex = { version: 1; lang: Lang; items: AppItem[]; home: AppHome; labels: AppLabels }
+export type AppIndex = {
+  version: 1; lang: Lang; items: AppItem[]; home: AppHome; labels: AppLabels
+  /** How many shards of pages each kind has (lib/app-page.ts): the app draws those pages itself. */
+  pages?: Partial<Record<'guide' | 'fish' | 'plant' | 'glossary', number>>
+}
 /**
  * What the site's home page leads with, so the app leads with the same (lib/home.ts), in its order: the fish groups
  * (with a photo of one of them), then fish, plants and guides by their path in this index.
@@ -91,8 +96,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   }
   if (served(lang, '/vi/huong-dan/x/')) {
     const mentions = mentionIndex(c).guides
-    for (const g of c.guides) {
-      if (!g.t.quality.indexable) continue
+    // The same guides the app gets pages of.
+    for (const g of appGuides(lang, c)) {
       const m = mentions.get(g.id)
       const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
       items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: img(g.photos), section: g.kind, about: about.length ? about : undefined }))

@@ -12,15 +12,11 @@ import { getContent } from '../../../lib/content'
 import { GUIDE_KIND_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
 import { excerpt } from '../../../lib/meta'
-import { guideImage, mentionIndex } from '../../../lib/mentions'
-import { gearRows } from '../../../lib/gear'
 import GearList from '../../../components/GearList.astro'
-import { placeFigures } from '../../../lib/figures'
 import { categoryLabel } from '../../../lib/format'
-import { readingMinutes, withToc } from '../../../lib/toc'
-import { nextGuides } from '../../../lib/home'
 import VideoPlayer from '../../../components/VideoPlayer.astro'
-import { clock, illustrate, isoDuration, seriesGuides, seriesOf, watchUrl } from '../../../lib/video'
+import { clock, isoDuration, watchUrl } from '../../../lib/video'
+import { guideParts } from '../../../lib/guide-page'
 import { slugify } from '@aq/schema/slug'
 import { i18n, langOf, isVietnamese } from '../../../lib/i18n'
 import { alternatesOf } from '../../../lib/alternates'
@@ -32,30 +28,9 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { g } = Astro.props as { g: Localized<GuideEntity> }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const m = mentionIndex(c).guides.get(g.id)!
-const body = m.html
-const species = [...new Set([...m.species, ...c.species.filter(s => g.mentions.includes(s.id))])]
-const plants = [...new Set([...m.plants, ...c.plants.filter(p => g.mentions.includes(p.id))])]
-const ph = guideImage(c, g)
-const gear = g.video ? gearRows(lang, c, g.video) : []
-// Pictures inside the text: each species/plant photo after the paragraph that first names it, the guide's other photos spread out.
-const shown = (url?: string) => url !== undefined && url !== ph?.url
-const placed = placeFigures(lang, body,
-  [...species.map(s => ({ photo: s.photos[0], label: s.t.name, href: `/vi/ca/${s.t.slug}/` })), ...plants.map(p => ({ photo: p.photos[0], label: p.t.name, href: `/vi/cay/${p.t.slug}/` }))]
-    .filter((f): f is typeof f & { photo: NonNullable<typeof f.photo> } => shown(f.photo?.url)).slice(0, 6),
-  g.photos.filter(p => shown(p.url)).map(photo => ({ photo })))
-const { html: toc0, toc } = withToc(placed)
-const prose = g.video ? illustrate(lang, toc0, g.video) : toc0
-const minutes = readingMinutes(body)
-const series = seriesOf(c, g)
-const inSeries = series ? seriesGuides(c, series) : []
-const pos = inSeries.findIndex(x => x.id === g.id)
-// A series reads in the creator's order: the next parts first, then related guides.
-const next = series ? [...inSeries.slice(pos + 1, pos + 4), ...nextGuides(c, g, 3).filter(x => !inSeries.some(y => y.id === x.id))].slice(0, 3) : nextGuides(c, g)
+const { m, species, plants, ph, gear, toc, prose, minutes, series, inSeries, pos, next, refs } = guideParts(lang, c, g)
 const v = g.video
 const description = excerpt(g.t.body ?? '')
-// A guide in another language cites only the sources its own facts come from.
-const refs = g.t.refs ?? g.refs
 const jsonld: object[] = []
 if (v) {
   jsonld.push({

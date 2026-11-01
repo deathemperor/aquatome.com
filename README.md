@@ -13,7 +13,7 @@ the pages from sources that gave permission. An iOS app is in progress.
 | `packages/schema` | the content model (`@aq/schema`); the site reads content only through `loadAll()` |
 | `packages/engine` | the content engine ([README](packages/engine/README.md)) |
 | `content/` | engine output: `{species,plants,guides,glossary,places}/{id}/entity.json` (data, English source text) + `vi.json` |
-| `protocols/` | device and sync vectors the site and the app both test against |
+| `protocols/` | device and sync vectors, and the app's page format, that the site and the app both test against |
 | `docs/` | [governance](docs/governance.md) (checks and rules), [saved-tank sync](docs/my-tanks-sync.md), research, specs |
 | `PRODUCT.md` | who the product is for and how it should feel |
 

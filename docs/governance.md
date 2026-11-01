@@ -16,6 +16,9 @@ that would have caught it).
 ### 1. Gate (live)
 
 - `pnpm test`: the site built from `apps/site/test/fixture-content`, checked as HTML (vitest).
+  - The app's copy of each page (`/app/pages/`, `protocols/page.schema.json`) against `protocols/page-vectors.json`,
+    which the app's tests read too; every text in the real `content/` converts with nothing the app would have to send
+    to the web.
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools).

@@ -1,0 +1,780 @@
+{
+  "$comment": "Cases for the app page format (packages/schema/src/app-page.ts, protocols/page.schema.json). html: a page's HTML as shown, and the blocks apps/site/src/lib/page-blocks.ts makes of it (unknown: what it could not convert). shards: which shard of /app/pages/<lang>/<kind>-<n>.json a path is in, for that many shards. docs: whole pages; valid ones are as the site writes them, the others a reader must still show, with the blocks it shows (web: \"open on the web\").",
+  "html": [
+    {
+      "note": "paragraphs and a heading with its table-of-contents id; spaces as a browser shows them",
+      "html": "<p>  Cá neon   sống theo đàn. </p>\n<h3 id=\"nuoc\">Nước  cho cá</h3><p>Giữ nhiệt độ ổn định.</p>",
+      "blocks": [
+        {
+          "t": "p",
+          "c": [
+            "Cá neon sống theo đàn."
+          ]
+        },
+        {
+          "t": "h",
+          "text": "Nước cho cá",
+          "id": "nuoc"
+        },
+        {
+          "t": "p",
+          "c": [
+            "Giữ nhiệt độ ổn định."
+          ]
+        }
+      ]
+    },
+    {
+      "note": "bold, italic, both, and a line break",
+      "html": "<p>Thay <strong>30%</strong> nước, <em>đừng</em> thay <strong><em>hết</em></strong>.<br>Mỗi tuần.</p>",
+      "blocks": [
+        {
+          "t": "p",
+          "c": [
+            "Thay ",
+            {
+              "text": "30%",
+              "b": true
+            },
+            " nước, ",
+            {
+              "text": "đừng",
+              "i": true
+            },
+            " thay ",
+            {
+              "text": "hết",
+              "b": true,
+              "i": true
+            },
+            ".\nMỗi tuần."
+          ]
+        }
+      ]
+    },
+    {
+      "note": "a link to a page, a glossary term with its tip, a citation",
+      "html": "<p>Nuôi <a href=\"/vi/ca/ca-neon/\" class=\"ml\">cá neon</a> trong nước có <a href=\"/vi/thuat-ngu/dem-ph/\" class=\"gl\" data-term=\"Đệm pH\" data-tip=\"Khả năng giữ pH ổn định.\">độ đệm</a> thấp.<a class=\"cite\" href=\"https://example.org/a\" rel=\"noopener\" data-term=\"example.org\" data-tip=\"example.org · dịch với sự cho phép của nguồn\">1</a></p>",
+      "blocks": [
+        {
+          "t": "p",
+          "c": [
+            "Nuôi ",
+            {
+              "text": "cá neon",
+              "href": "/vi/ca/ca-neon/"
+            },
+            " trong nước có ",
+            {
+              "text": "độ đệm",
+              "href": "/vi/thuat-ngu/dem-ph/",
+              "tip": {
+                "term": "Đệm pH",
+                "text": "Khả năng giữ pH ổn định."
+              }
+            },
+            " thấp.",
+            {
+              "text": "1",
+              "href": "https://example.org/a",
+              "tip": {
+                "term": "example.org",
+                "text": "example.org · dịch với sự cho phép của nguồn"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "note": "lists: ordered, and an item holding a paragraph and a list",
+      "html": "<ol><li>Đổ nền.</li><li>Châm nước.</li></ol><ul><li><p>Lọc:</p><ul><li>lọc thùng</li><li>lọc treo</li></ul></li></ul>",
+      "blocks": [
+        {
+          "t": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "t": "p",
+                "c": [
+                  "Đổ nền."
+                ]
+              }
+            ],
+            [
+              {
+                "t": "p",
+                "c": [
+                  "Châm nước."
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "t": "list",
+          "items": [
+            [
+              {
+                "t": "p",
+                "c": [
+                  "Lọc:"
+                ]
+              },
+              {
+                "t": "list",
+                "items": [
+                  [
+                    {
+                      "t": "p",
+                      "c": [
+                        "lọc thùng"
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "t": "p",
+                      "c": [
+                        "lọc treo"
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "note": "a table with a header row; a cell holding a list becomes lines",
+      "html": "<table><thead><tr><th>Cây</th><th>Ưu điểm</th></tr></thead><tbody><tr><td>Ráy</td><td><p>Khỏe:</p><ul><li>dễ chăm</li><li>không cần nền</li></ul></td></tr></tbody></table>",
+      "blocks": [
+        {
+          "t": "table",
+          "head": [
+            [
+              "Cây"
+            ],
+            [
+              "Ưu điểm"
+            ]
+          ],
+          "rows": [
+            [
+              [
+                "Ráy"
+              ],
+              [
+                "Khỏe:\n• dễ chăm\n• không cần nền"
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "note": "a table whose first row is all th, without thead",
+      "html": "<table><tr><th>pH</th><th>Độ cứng</th></tr><tr><td>6–7</td><td>mềm</td></tr></table>",
+      "blocks": [
+        {
+          "t": "table",
+          "head": [
+            [
+              "pH"
+            ],
+            [
+              "Độ cứng"
+            ]
+          ],
+          "rows": [
+            [
+              [
+                "6–7"
+              ],
+              [
+                "mềm"
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "note": "a photo in the text linking to the fish it shows, credited",
+      "html": "<figure class=\"inl\"><a href=\"/vi/ca/ca-neon/\" tabindex=\"-1\"><img src=\"https://media.aquatome.com/a/neon.webp\" width=\"1200\" height=\"800\" alt=\"Cá neon\" loading=\"lazy\" decoding=\"async\"></a><figcaption><a href=\"/vi/ca/ca-neon/\">Cá neon</a><a class=\"cite pic\" href=\"https://commons.wikimedia.org/wiki/File:Neon.jpg\" rel=\"noopener\" data-term=\"Tropica\" data-tip=\"CC BY-SA 4.0\" data-more=\"Xem ảnh gốc ↗\" aria-label=\"Tropica, CC BY-SA 4.0\">©</a></figcaption></figure>",
+      "blocks": [
+        {
+          "t": "figure",
+          "img": {
+            "src": "https://media.aquatome.com/a/neon.webp",
+            "w": 1200,
+            "h": 800,
+            "alt": "Cá neon",
+            "credit": {
+              "who": "Tropica",
+              "licence": "CC BY-SA 4.0",
+              "url": "https://commons.wikimedia.org/wiki/File:Neon.jpg"
+            }
+          },
+          "caption": [
+            {
+              "text": "Cá neon",
+              "href": "/vi/ca/ca-neon/"
+            }
+          ],
+          "href": "/vi/ca/ca-neon/"
+        }
+      ]
+    },
+    {
+      "note": "a video guide's stills, each playing from its moment",
+      "html": "<div class=\"moments\"><p class=\"mh\">Trong video</p><ul><li><button type=\"button\" class=\"moment\" data-t=\"95\" data-vp-for=\"abc123XYZ_-\"><span class=\"visually-hidden\">Xem video từ</span> <img src=\"https://i.ytimg.com/vi/abc123XYZ_-/1.jpg\" width=\"320\" height=\"180\" alt=\"\" loading=\"lazy\"> <span class=\"mt\"><span aria-hidden=\"true\">▶</span> 1:35</span> <span class=\"mc\">Cắt tỉa  cây hậu cảnh</span></button></li></ul></div>",
+      "blocks": [
+        {
+          "t": "moments",
+          "title": "Trong video",
+          "youtubeId": "abc123XYZ_-",
+          "items": [
+            {
+              "at": 95,
+              "img": {
+                "src": "https://i.ytimg.com/vi/abc123XYZ_-/1.jpg",
+                "w": 320,
+                "h": 180
+              },
+              "caption": "Cắt tỉa cây hậu cảnh"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "note": "a video section's pictures: its photo, then stills",
+      "html": "<p>Cắt tỉa thường xuyên.</p><div class=\"vfigs\"><figure class=\"vphoto\"><img src=\"https://media.aquatome.com/v/rotala.webp\" width=\"800\" height=\"600\" alt=\"Rotala\" loading=\"lazy\"><figcaption>Rotala sau khi tỉa</figcaption></figure><div class=\"moments\"><p class=\"mh\">Trong video</p><ul><li><button type=\"button\" class=\"moment\" data-t=\"12\" data-vp-for=\"abc123XYZ_-\"><span class=\"visually-hidden\">Xem video từ</span> <img src=\"https://i.ytimg.com/vi/abc123XYZ_-/2.jpg\" width=\"320\" height=\"180\" alt=\"\" loading=\"lazy\"> <span class=\"mt\"><span aria-hidden=\"true\">▶</span> 0:12</span> <span class=\"mc\">Tỉa ngọn</span></button></li></ul></div></div>",
+      "blocks": [
+        {
+          "t": "p",
+          "c": [
+            "Cắt tỉa thường xuyên."
+          ]
+        },
+        {
+          "t": "figure",
+          "img": {
+            "src": "https://media.aquatome.com/v/rotala.webp",
+            "w": 800,
+            "h": 600,
+            "alt": "Rotala"
+          },
+          "caption": [
+            "Rotala sau khi tỉa"
+          ]
+        },
+        {
+          "t": "moments",
+          "title": "Trong video",
+          "youtubeId": "abc123XYZ_-",
+          "items": [
+            {
+              "at": 12,
+              "img": {
+                "src": "https://i.ytimg.com/vi/abc123XYZ_-/2.jpg",
+                "w": 320,
+                "h": 180
+              },
+              "caption": "Tỉa ngọn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "note": "markup it doesn't know becomes one web block, and is named",
+      "html": "<p>Trước.</p><blockquote><p>Trích dẫn.</p></blockquote><div class=\"chart\"></div><p>Sau.</p>",
+      "blocks": [
+        {
+          "t": "p",
+          "c": [
+            "Trước."
+          ]
+        },
+        {
+          "t": "web"
+        },
+        {
+          "t": "p",
+          "c": [
+            "Sau."
+          ]
+        }
+      ],
+      "unknown": [
+        "blockquote",
+        "div.chart"
+      ]
+    },
+    {
+      "note": "text outside any block is a paragraph of its own",
+      "html": "Văn bản rời <strong>đậm</strong><h3>Mục</h3>",
+      "blocks": [
+        {
+          "t": "p",
+          "c": [
+            "Văn bản rời ",
+            {
+              "text": "đậm",
+              "b": true
+            }
+          ]
+        },
+        {
+          "t": "h",
+          "text": "Mục"
+        }
+      ]
+    }
+  ],
+  "shards": [
+    {
+      "path": "/vi/huong-dan/thay-nuoc-dung-cach/",
+      "shards": 64,
+      "n": 18
+    },
+    {
+      "path": "/vi/ca/ca-neon/",
+      "shards": 128,
+      "n": 53
+    },
+    {
+      "path": "/th/คู่มือ/x/",
+      "shards": 8,
+      "n": 0
+    },
+    {
+      "path": "/id/panduan/ganti-air/",
+      "shards": 4,
+      "n": 1
+    },
+    {
+      "path": "/vi/thuat-ngu/dem-ph/",
+      "shards": 1,
+      "n": 0
+    }
+  ],
+  "docs": [
+    {
+      "note": "a written guide with every kind of block",
+      "valid": true,
+      "doc": {
+        "v": 1,
+        "kind": "guide",
+        "path": "/vi/huong-dan/nuoi-ca-neon/",
+        "title": "Nuôi cá neon trong bể nhỏ",
+        "meta": "Chăm sóc · đọc khoảng 4 phút",
+        "credit": [
+          "Theo ",
+          {
+            "text": "Aquarium Co-op",
+            "href": "https://www.aquariumcoop.com/blogs/aquarium/neon-tetra"
+          }
+        ],
+        "lead": {
+          "src": "https://media.aquatome.com/a/neon-lead.webp",
+          "w": 1200,
+          "h": 800
+        },
+        "blocks": [
+          {
+            "t": "summary",
+            "title": "Tóm tắt nhanh",
+            "items": [
+              "Nuôi từ 6 con trở lên.",
+              "Nước mềm, hơi chua."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Cá neon sống theo đàn."
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Nước cho cá",
+            "id": "nuoc"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Giữ nhiệt độ ổn định."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Nuôi ",
+              {
+                "text": "cá neon",
+                "href": "/vi/ca/ca-neon/"
+              },
+              " trong nước có ",
+              {
+                "text": "độ đệm",
+                "href": "/vi/thuat-ngu/dem-ph/",
+                "tip": {
+                  "term": "Đệm pH",
+                  "text": "Khả năng giữ pH ổn định."
+                }
+              },
+              " thấp.",
+              {
+                "text": "1",
+                "href": "https://example.org/a",
+                "tip": {
+                  "term": "example.org",
+                  "text": "example.org · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://media.aquatome.com/a/neon.webp",
+              "w": 1200,
+              "h": 800,
+              "alt": "Cá neon",
+              "credit": {
+                "who": "Tropica",
+                "licence": "CC BY-SA 4.0",
+                "url": "https://commons.wikimedia.org/wiki/File:Neon.jpg"
+              }
+            },
+            "caption": [
+              {
+                "text": "Cá neon",
+                "href": "/vi/ca/ca-neon/"
+              }
+            ],
+            "href": "/vi/ca/ca-neon/"
+          },
+          {
+            "t": "list",
+            "ordered": true,
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Đổ nền."
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Châm nước."
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Lọc:"
+                  ]
+                },
+                {
+                  "t": "list",
+                  "items": [
+                    [
+                      {
+                        "t": "p",
+                        "c": [
+                          "lọc thùng"
+                        ]
+                      }
+                    ],
+                    [
+                      {
+                        "t": "p",
+                        "c": [
+                          "lọc treo"
+                        ]
+                      }
+                    ]
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "table",
+            "head": [
+              [
+                "Cây"
+              ],
+              [
+                "Ưu điểm"
+              ]
+            ],
+            "rows": [
+              [
+                [
+                  "Ráy"
+                ],
+                [
+                  "Khỏe:\n• dễ chăm\n• không cần nền"
+                ]
+              ]
+            ]
+          },
+          {
+            "t": "faq",
+            "title": "Câu hỏi thường gặp",
+            "items": [
+              {
+                "q": "Cá neon sống bao lâu?",
+                "a": "Khoảng 5 năm nếu nước ổn định."
+              }
+            ]
+          },
+          {
+            "t": "refs",
+            "title": "Nguồn tham khảo",
+            "id": "nguon",
+            "items": [
+              {
+                "title": "Neon tetra care",
+                "url": "https://example.org/neon"
+              }
+            ]
+          },
+          {
+            "t": "pages",
+            "title": "Bài tiếp theo",
+            "paths": [
+              "/vi/huong-dan/thay-nuoc-dung-cach/"
+            ]
+          },
+          {
+            "t": "pages",
+            "title": "Loài và cây trong bài",
+            "paths": [
+              "/vi/ca/ca-neon/",
+              "/vi/cay/rotala-do/"
+            ]
+          }
+        ]
+      },
+      "blocks": [
+        "summary",
+        "p",
+        "h",
+        "p",
+        "p",
+        "figure",
+        "list",
+        "list",
+        "table",
+        "faq",
+        "refs",
+        "pages",
+        "pages"
+      ]
+    },
+    {
+      "note": "a video guide: the video with its chapters, a section's pictures, a part only the web page shows",
+      "valid": true,
+      "doc": {
+        "v": 1,
+        "kind": "guide",
+        "path": "/vi/huong-dan/cat-tia-cay/",
+        "title": "Cắt tỉa cây hậu cảnh",
+        "meta": "Chăm cây · video 12:05 · đọc khoảng 3 phút",
+        "credit": [
+          "Bài viết của AquaTome, dựa trên video của ",
+          {
+            "text": "Green Aqua",
+            "href": "https://www.youtube.com/@GreenAqua"
+          }
+        ],
+        "video": {
+          "youtubeId": "abc123XYZ_-",
+          "title": "Trimming stem plants",
+          "channel": "Green Aqua",
+          "durationSec": 725,
+          "chapters": [
+            {
+              "at": 0,
+              "title": "Mở đầu"
+            },
+            {
+              "at": 95,
+              "title": "Cắt tỉa"
+            }
+          ]
+        },
+        "blocks": [
+          {
+            "t": "p",
+            "c": [
+              "Cắt tỉa thường xuyên."
+            ]
+          },
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://media.aquatome.com/v/rotala.webp",
+              "w": 800,
+              "h": 600,
+              "alt": "Rotala"
+            },
+            "caption": [
+              "Rotala sau khi tỉa"
+            ]
+          },
+          {
+            "t": "moments",
+            "title": "Trong video",
+            "youtubeId": "abc123XYZ_-",
+            "items": [
+              {
+                "at": 12,
+                "img": {
+                  "src": "https://i.ytimg.com/vi/abc123XYZ_-/2.jpg",
+                  "w": 320,
+                  "h": 180
+                },
+                "caption": "Tỉa ngọn"
+              }
+            ]
+          },
+          {
+            "t": "web"
+          }
+        ]
+      },
+      "blocks": [
+        "p",
+        "figure",
+        "moments",
+        "web"
+      ]
+    },
+    {
+      "note": "from a newer site: a block and fields this format doesn't have; the known parts show, the unknown block offers the web page",
+      "valid": false,
+      "doc": {
+        "v": 1,
+        "kind": "guide",
+        "path": "/vi/huong-dan/moi/",
+        "title": "Nuôi cá neon trong bể nhỏ",
+        "meta": "Chăm sóc · đọc khoảng 4 phút",
+        "credit": [
+          "Theo ",
+          {
+            "text": "Aquarium Co-op",
+            "href": "https://www.aquariumcoop.com/blogs/aquarium/neon-tetra"
+          }
+        ],
+        "lead": {
+          "src": "https://media.aquatome.com/a/neon-lead.webp",
+          "w": 1200,
+          "h": 800
+        },
+        "blocks": [
+          {
+            "t": "p",
+            "c": [
+              "Cá neon sống theo đàn."
+            ]
+          },
+          {
+            "t": "carousel",
+            "items": [
+              {
+                "src": "https://example.org/1.webp"
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "chữ",
+                "b": true,
+                "u": true
+              }
+            ]
+          }
+        ],
+        "badge": "mới"
+      },
+      "blocks": [
+        "p",
+        "web",
+        "p"
+      ]
+    },
+    {
+      "note": "blocks that don't read (a heading with no text, text that isn't text, a photo with no size) are the web page, not a failed page",
+      "valid": false,
+      "doc": {
+        "v": 1,
+        "kind": "guide",
+        "path": "/vi/huong-dan/hong/",
+        "title": "Nuôi cá neon trong bể nhỏ",
+        "meta": "Chăm sóc · đọc khoảng 4 phút",
+        "credit": [
+          "Theo ",
+          {
+            "text": "Aquarium Co-op",
+            "href": "https://www.aquariumcoop.com/blogs/aquarium/neon-tetra"
+          }
+        ],
+        "lead": {
+          "src": "https://media.aquatome.com/a/neon-lead.webp",
+          "w": 1200,
+          "h": 800
+        },
+        "blocks": [
+          {
+            "t": "h"
+          },
+          {
+            "t": "p",
+            "c": 42
+          },
+          {
+            "t": "p",
+            "c": [
+              "Giữ nhiệt độ ổn định."
+            ]
+          },
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://example.org/x.webp"
+            }
+          }
+        ]
+      },
+      "blocks": [
+        "web",
+        "web",
+        "p",
+        "web"
+      ]
+    }
+  ]
+}
