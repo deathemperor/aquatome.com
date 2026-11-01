@@ -22,7 +22,7 @@ A title with a number ("10 loại cây…", "Top 5…") whose text has no run of
 
 ## Empty headings and blocks (0)
 
-A heading with nothing under it, an empty block: the sweep drops them.
+A heading at the end of its text, an empty block: the sweep drops them. A heading straight over another is a group over its sub-headings, and stays.
 
 - none
 
@@ -34,7 +34,13 @@ The same heading twice on one page. Listed: which of the two sections to keep is
 
 ## The source site's comments or related posts (0)
 
-The source page's furniture, as a heading or a paragraph of its own ("4 bình luận về…", "7 ý kiến về…", "Để lại bình luận", "Leave a Reply", "Bài viết liên quan:"): other readers' names and replies, a comment form, links to the source's other posts. The sweep cuts it, with the list of related posts or everything up to the next heading, never more than half a text.
+The source page's furniture, as a heading or a paragraph of its own ("4 bình luận về…", "7 ý kiến về…", "Để lại bình luận", "Leave a Reply", "Bài viết liên quan:"): other readers' names and replies, a comment form, links to the source's other posts. The sweep cuts it, with the list of related posts or everything up to the next heading (more than half a text is listed under the next rule).
+
+- none
+
+## Comments longer than the text (0)
+
+The source page's comments or related posts, more than half of a text: the sweep leaves such a text as it is. Cut by hand, or the text written again.
 
 - none
 
@@ -84,7 +90,7 @@ A figure in °F, inches, feet, gallons or pounds (`pnpm engine metric` converts 
 
 ## A photo caption naming another fish, or a map (0)
 
-A species or plant photo whose caption names another species the site has a page for, and not the page's, with nothing saying the fish is still the page's; or says it is a map. The sweep takes the photo off the page (and off every page, through engine-state/_photo-rejected.json, unless another page it is on is that fish's). Checked on the Vietnamese page; the photos are the same in every language.
+A species or plant photo whose caption names another species the site has a page for, and not the page's, with nothing saying the fish is still the page's; or says it is a map. The sweep takes the photo off the page; a map leaves every page (engine-state/_photo-rejected.json), a photo of another fish only this one, so it may still join that fish's page. Checked on the Vietnamese page; the photos are the same in every language.
 
 - none
 
