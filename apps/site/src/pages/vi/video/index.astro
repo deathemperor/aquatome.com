@@ -3,6 +3,7 @@ import Browse from '../../../layouts/Browse.astro'
 import GuideCard from '../../../components/GuideCard.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
+import { smallSrc } from '../../../lib/img'
 import { guideImage } from '../../../lib/mentions'
 import { hours, isVideo, seriesGuides, seriesSeconds, videoChannels } from '../../../lib/video'
 import { i18n } from '../../../lib/i18n'
@@ -12,54 +13,90 @@ const series = c.series.map(s => ({ s, guides: seriesGuides(c, s) })).filter(x =
 const channels = videoChannels(c)
 const withSingles = channels.filter(ch => ch.singles.length)
 const all = c.guides.filter(isVideo)
-// The cards on the page: each series' and each channel's single videos' first four.
-const shown = [...series.flatMap(x => x.guides.slice(0, 4)), ...withSingles.flatMap(ch => ch.singles.slice(0, 4))]
+// The newest videos first; each series and each channel's single videos are then one short row, so a new playlist adds a
+// row, not a screen (four cards a series made the page 30 phone screens long, 2026-11-01). Ties by address, so the same
+// videos show on every build.
+const newest = [...all].sort((a, b) => (b.video.publishedAt ?? '').localeCompare(a.video.publishedAt ?? '') || a.t.slug.localeCompare(b.t.slug)).slice(0, 6)
+const groups = [
+  { id: 'series-h', title: t('Loạt video'), rows: series.map(({ s, guides }) => ({ href: `/vi/video/${s.vi.slug}/`, name: s.vi.name, first: guides[0]!, meta: `${t('{n} video', { n: guides.length })} · ${hours(lang, seriesSeconds(c, s))} · ${t('kênh {name}', { name: s.channel })}`, blurb: s.vi.intro })) },
+  { id: 'singles-h', title: t('Video lẻ'), rows: withSingles.map(ch => ({ href: `/vi/video/kenh/${ch.slug}/`, name: t('Video lẻ của {name}', { name: ch.name }), first: ch.singles[0]!, meta: t('{n} video', { n: ch.singles.length }), blurb: '' })) },
+].filter(x => x.rows.length)
 ---
 <Browse title={t('Video hướng dẫn')} heading={t('Video hướng dẫn')}
   intro={t('Bài hướng dẫn của AquaTome viết từ những video hay của các kênh nuôi cá và thủy sinh. Mỗi bài có video gốc, phụ đề tiếng Việt và các đoạn để nhảy tới phần cần xem.')}
-  credits={creditsFor(shown.map(g => guideImage(c, g)))}>
+  credits={creditsFor([...newest, ...groups.flatMap(x => x.rows.map(r => r.first))].map(g => guideImage(c, g)))}>
   {all.length === 0 && <p>{t('Chưa có video hướng dẫn nào.')}</p>}
-  {series.map(({ s, guides }) => (
-    <section class="series" aria-labelledby={`s-${s.vi.slug}`}>
-      <header>
-        <h2 id={`s-${s.vi.slug}`}><a href={`/vi/video/${s.vi.slug}/`}>{s.vi.name}</a></h2>
-        <p class="meta">{t('{n} video', { n: guides.length })} · {hours(lang, seriesSeconds(c, s))} · {t('kênh {name}', { name: s.channel })}</p>
-        <p class="intro">{s.vi.intro}</p>
-      </header>
-      <div class="grid">{guides.slice(0, 4).map(g => <GuideCard g={g} />)}</div>
-      {guides.length > 4 && <p class="more"><a href={`/vi/video/${s.vi.slug}/`}>{t('Xem cả {n} bài trong loạt', { n: guides.length })}</a></p>}
+  {newest.length > 0 && (
+    <section aria-labelledby="new-h">
+      <h2 id="new-h">{t('Mới thêm')}</h2>
+      <ul class="new">{newest.map(g => <li><GuideCard g={g} /></li>)}</ul>
     </section>
-  ))}
-  {withSingles.map(ch => (
-    <section class="series" aria-labelledby={`c-${ch.slug}`}>
-      <header>
-        <h2 id={`c-${ch.slug}`}><a href={`/vi/video/kenh/${ch.slug}/`}>{t('Video lẻ của {name}', { name: ch.name })}</a></h2>
-        <p class="meta">{t('{n} video', { n: ch.singles.length })}</p>
-      </header>
-      <div class="grid">{ch.singles.slice(0, 4).map(g => <GuideCard g={g} />)}</div>
-      {ch.singles.length > 4 && <p class="more"><a href={`/vi/video/kenh/${ch.slug}/`}>{t('Xem cả {n} bài của kênh', { n: ch.guides.length })}</a></p>}
+  )}
+  {groups.map(({ id, title, rows }) => (
+    <section aria-labelledby={id}>
+      <h2 id={id}>{title}</h2>
+      <ul class="rows">
+        {rows.map(r => {
+          const ph = guideImage(c, r.first)
+          return (
+            <li>
+              <a href={r.href}>
+                <span class="th">{ph && <img src={smallSrc(ph)} width="480" height="270" alt="" loading="lazy" />}</span>
+                <div class="txt">
+                  <h3>{r.name}</h3>
+                  <p class="meta">{r.meta}</p>
+                  {r.blurb && <p class="blurb">{r.blurb}</p>}
+                </div>
+              </a>
+            </li>
+          )
+        })}
+      </ul>
     </section>
   ))}
   {channels.length > 1 && (
-    <section class="series" aria-labelledby="ch-h">
-      <header><h2 id="ch-h">{t('Theo kênh')}</h2></header>
+    <section aria-labelledby="ch-h">
+      <h2 id="ch-h">{t('Theo kênh')}</h2>
       <ul class="chans">{channels.map(ch => <li><a href={`/vi/video/kenh/${ch.slug}/`}>{ch.name}</a> <span>{t('{n} bài', { n: ch.guides.length })}</span></li>)}</ul>
     </section>
   )}
 </Browse>
 <style>
-  .series { margin-bottom: var(--space-8); }
-  .series header { max-width: var(--measure); margin-bottom: var(--space-4); }
-  h2 { font-size: var(--step-2); }
-  h2 a { color: inherit; text-decoration: none; }
-  h2 a:hover { color: var(--c-moss); }
-  .meta { font-size: 0.85rem; color: var(--c-ink-faint); margin: var(--space-1) 0 var(--space-2); }
-  .intro { color: var(--c-ink-soft); margin: 0; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-6) var(--space-5); }
-  .more { margin-top: var(--space-4); }
-  .more a { display: inline-block; padding-block: 10px; font-weight: 600; }
+  section { margin-bottom: var(--space-7); }
+  h2 { font-size: var(--step-2); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-4); }
+
+  /* Newest videos: the card grid on a computer, one row to swipe on a phone (CSS only, as the homepage's groups). */
+  .new { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6) var(--space-5); }
+
+  /* A series (or a channel's single videos) as one row: its first video's picture, name, size and a line of its intro. */
+  .rows { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr)); column-gap: var(--space-6); }
+  .rows li { border-bottom: 1px solid var(--c-rule); }
+  .rows a { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: var(--space-4); align-items: start; padding-block: var(--space-3); color: inherit; text-decoration: none; }
+  .th { display: block; background: var(--c-plate); aspect-ratio: 16 / 9; }
+  .th img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .txt { display: grid; gap: 2px; }
+  h3 { font-size: var(--step-1); line-height: 1.25; }
+  .rows a:hover h3 { color: var(--c-moss); }
+  .txt p { margin: 0; }
+  .meta { font-size: 0.8rem; line-height: 1.4; color: var(--c-ink-faint); }
+  .blurb { font-size: 0.9rem; line-height: 1.45; color: var(--c-ink-soft); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+
   .chans { list-style: none; margin: 0; padding: 0; columns: 3 14rem; column-gap: var(--space-6); }
   .chans li { padding-block: 6px; break-inside: avoid; }
   .chans a { display: inline-block; padding-block: 4px; }
   .chans span { color: var(--c-ink-faint); font-size: 0.85rem; }
+
+  @media (max-width: 900px) {
+    .new { display: flex; gap: var(--space-4); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--space-5); margin-inline: calc(-1 * var(--space-5)); padding: 0 var(--space-5) var(--space-2); scrollbar-width: thin; scrollbar-color: var(--c-rule) transparent; }
+    .new li { flex: 0 0 min(78%, 18rem); scroll-snap-align: start; }
+  }
+  /* A phone: the intro's line under the whole row, where it has room to say something. */
+  @media (max-width: 640px) {
+    .rows a { grid-template-columns: 7rem minmax(0, 1fr); grid-template-areas: 'th name' 'th meta' 'blurb blurb'; grid-template-rows: auto 1fr auto; gap: 2px var(--space-3); padding-block: 10px; }
+    .txt { display: contents; }
+    .th { grid-area: th; }
+    h3 { grid-area: name; font-size: 1.05rem; line-height: 1.2; }
+    .meta { grid-area: meta; }
+    .blurb { grid-area: blurb; font-size: 0.85rem; line-height: 1.4; -webkit-line-clamp: 1; line-clamp: 1; }
+  }
 </style>
