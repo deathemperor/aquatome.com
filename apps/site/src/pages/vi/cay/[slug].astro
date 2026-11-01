@@ -52,7 +52,7 @@ const alternates = await alternatesOf('plants', p.id)
   <header class="wrap top">
     <PhotoGallery photos={p.photos} alt={`${p.t.name}, ${p.scientificName}`} />
     <div>
-      <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(p.t, p.scientificName)}>{p.t.name}</h1>
+      <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(p.t, p.scientificName, p.synonyms)}>{p.t.name}</h1>
       <RedirectNote from={p.t.redirectFrom} />
       <p class="sci binomial">{p.scientificName}</p>
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>

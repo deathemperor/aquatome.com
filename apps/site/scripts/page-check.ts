@@ -27,7 +27,7 @@ export type Facts = {
   hashes: PictureHashes
   /** A living thing's page (by its path in every language) → its target key ("species:betta-splendens"). */
   byPath: Map<string, string>
-  /** By key: scientific name and every name, lowercased; its photos' addresses. */
+  /** By key: scientific name (a plant's former ones too) and every name, lowercased; its photos' addresses. */
   living: Map<string, { names: Set<string>; photos: Set<string> }>
   /** A photo's address → the page it belongs to (its key). */
   owner: Map<string, string>
@@ -52,7 +52,7 @@ export async function loadFacts(root: string): Promise<Facts> {
     for (const s of c.species) facts.genera.add(s.genus)
     for (const p of c.plants) facts.genera.add(p.scientificName.split(' ')[0]!)
     for (const s of c.species) add(`species:${s.id}`, `/vi/ca/${s.t.slug}/`, [s.scientificName, s.t.name, ...s.t.altNames], s.photos)
-    for (const p of c.plants) add(`plant:${p.id}`, `/vi/cay/${p.t.slug}/`, [p.scientificName, p.t.name, ...p.t.altNames], p.photos)
+    for (const p of c.plants) add(`plant:${p.id}`, `/vi/cay/${p.t.slug}/`, [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames], p.photos)
     for (const b of c.breeds) add(`breed:${b.id}`, `/vi/ca/${b.t.slug}/`, [b.t.name, ...b.t.altNames], b.photos)
   }
   return facts

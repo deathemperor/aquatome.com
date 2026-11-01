@@ -208,6 +208,10 @@ describe('plants, guides, glossary, equipment, discovery', () => {
     expect(mc).toContain('den')
     expect(page('/vi/cay/').dom.querySelectorAll('a[href^="/vi/cay/"]').length).toBeGreaterThanOrEqual(3)
   })
+  test("a plant page is found by its former scientific names (searching \"Vesicularia dubyana\" finds Java moss)", () => {
+    const aka = page('/vi/cay/ray-nana/').dom.querySelector('h1')!.getAttribute('data-aka')!.split(', ')
+    expect(aka.slice(0, 2)).toEqual(['Anubias barteri var. nana', 'Anubias nana'])
+  })
   test('guide page credits its source and links glossary terms', () => {
     const { html, dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
     expect(html).toContain('2Hr Aquarist')

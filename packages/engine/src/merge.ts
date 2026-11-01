@@ -99,7 +99,7 @@ export function mergePlant(existing: { entity?: PlantEntity; vi?: Translation },
   const prev = existing.entity
   const { sections, vi } = mergeSections(prev?.sections ?? [], existing.vi?.sections ?? {}, page, ctx)
   const entity: PlantEntity = {
-    id: slugify(page.scientificName), scientificName: page.scientificName, ...page.plant,
+    id: slugify(page.scientificName), scientificName: page.scientificName, ...(prev?.synonyms?.length ? { synonyms: prev.synonyms } : {}), ...page.plant,
     sections, photos: prev?.photos ?? [], productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
   }
   return { entity, vi: translation(existing.vi, page, ctx, page.scientificName, page.scientificName.split(' ')[0] ?? '', vi) }

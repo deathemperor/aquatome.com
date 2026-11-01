@@ -143,6 +143,7 @@ test('fish come in the site\'s list order with their group, a breed with its par
   expect(fish.filter(i => i.sub).every(i => typeof i.group === 'string'), 'every species has its group').toBe(true)
   // A colour form takes the group of the species it's a form of (as its page links it).
   expect(fish.find(i => i.id === 'pigeon-blood-discus')?.group).toBe('cichlids')
+  expect(vi.find(i => i.id === 'anubias-barteri-nana')?.aka).toContain('Anubias nana') // its former scientific name, as the site's search has it
   expect(vi.find(i => i.id === 'anubias-barteri-nana')?.plant).toEqual({ difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['foreground', 'epiphyte'] })
   expect(vi.filter(i => i.kind !== 'plant').some(i => 'plant' in i)).toBe(false)
   expect(vi.filter(i => i.kind !== 'fish').some(i => 'group' in i)).toBe(false)

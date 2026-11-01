@@ -63,6 +63,8 @@ git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
+  # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
+  pnpm engine plant-synonyms || log "plant-synonyms: failed"
   # SKIP_VIDEOS (GitHub Actions): the three YouTube steps run in video-cycle.sh on the owner's Mac instead.
   # Original Vietnamese guides from the YouTube playlists in engine-state/youtube-playlists.json (captions and metadata only).
   # Before discovery: a burst of searches makes YouTube throttle the caption fetches that follow.
