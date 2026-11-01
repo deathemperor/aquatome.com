@@ -517,6 +517,13 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-01T05:40:11.174Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm": {
     "entityIds": [
       "species/ageneiosus-magoi"
@@ -546,6 +553,13 @@
     "processedHash": "e64348b77307142af3b570dc541818e1723f610456c1b16afc32dd54da753d95",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.scotcat.com/doradidae/anadoras_grypus.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-01T05:39:59.206Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
   },
   "https://www.scotcat.com/doradidae/centrochir_crocodili.htm": {
     "entityIds": [
@@ -594,6 +608,13 @@
     "processedHash": "7f3e384ad1d9aadab7721ddbb79e105b5388d496669b72e08bdbd1dd293f1f6e",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-01T05:39:45.090Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
   },
   "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm": {
     "entityIds": [
