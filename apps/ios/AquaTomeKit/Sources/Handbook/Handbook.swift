@@ -178,7 +178,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     public var finNipper: Bool?
     /// The smallest group to keep.
     public var schoolMin: Int?
-    /// 1 (easy) to 10.
+    /// 1 (easy) to 8, as the site grades it.
     public var difficulty: Double?
 
     public init(tempC: Range? = nil, ph: Range? = nil, gh: Range? = nil, sizeCm: Double? = nil, tankCm: Double? = nil,

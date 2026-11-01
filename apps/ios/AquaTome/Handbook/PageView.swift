@@ -17,6 +17,8 @@ struct PageView: View {
   var body: some View {
     // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
     WebPage(url: url, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
+      // On the page alone: on the whole screen, it would take the place of the facts' own (an outer id wins).
+      .accessibilityIdentifier("page")
       .ignoresSafeArea(edges: .bottom)
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
@@ -31,16 +33,19 @@ struct PageView: View {
         Link(destination: url) { Image(systemName: "safari") }.accessibilityLabel(Text("Mở trong trình duyệt"))
       }
       .safeAreaInset(edge: .top) {
-        if offline || failed {
-          Text(failed ? "Không tải được trang. Kiểm tra kết nối mạng." : "Đang xem bản đã lưu (ngoại tuyến).")
-            .font(.footnote)
-            .padding(8)
-            .frame(maxWidth: .infinity)
-            .background(.bar)
-            .accessibilityIdentifier("page-status")
+        VStack(spacing: 0) {
+          // A fish's facts, from the index on the phone: there offline, with or without the page.
+          if item.kind == .fish, item.facts.any { FactsCard(facts: item.facts) }
+          if offline || failed {
+            Text(failed ? "Không tải được trang. Kiểm tra kết nối mạng." : "Đang xem bản đã lưu (ngoại tuyến).")
+              .font(.footnote)
+              .padding(8)
+              .frame(maxWidth: .infinity)
+              .accessibilityIdentifier("page-status")
+          }
         }
+        .background(.bar)
       }
-      .accessibilityIdentifier("page")
       .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
   }
 }

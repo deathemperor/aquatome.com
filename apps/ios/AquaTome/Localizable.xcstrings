@@ -625,6 +625,22 @@
         }
       }
     },
+    "Bể tối thiểu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium minimum"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ขั้นต่ำ"
+          }
+        }
+      }
+    },
     "Bể đang bị rêu": {
       "localizations": {
         "id": {
@@ -1377,6 +1393,22 @@
         }
       }
     },
+    "Dễ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mudah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ง่าย"
+          }
+        }
+      }
+    },
     "Dừng": {
       "localizations": {
         "id": {
@@ -1713,6 +1745,22 @@
         }
       }
     },
+    "Hiền": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Damai"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นิสัยสงบ"
+          }
+        }
+      }
+    },
     "Hoàn tác": {
       "localizations": {
         "id": {
@@ -1725,6 +1773,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยกเลิกการเปลี่ยนแปลง"
+          }
+        }
+      }
+    },
+    "Hung dữ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agresif"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดุร้าย"
+          }
+        }
+      }
+    },
+    "Hơi dữ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agak agresif"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค่อนข้างดุ"
           }
         }
       }
@@ -1789,6 +1869,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "อื่น ๆ"
+          }
+        }
+      }
+    },
+    "Khó": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sulit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยาก"
           }
         }
       }
@@ -2125,6 +2221,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปแบบสี"
+          }
+        }
+      }
+    },
+    "Kích thước": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ukuran"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขนาด"
           }
         }
       }
@@ -2657,6 +2769,22 @@
         }
       }
     },
+    "Nhiệt độ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suhu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อุณหภูมิ"
+          }
+        }
+      }
+    },
     "Nhập đủ dài, rộng, cao (từ 1 đến 1.000 cm), hoặc để trống cả ba.": {
       "localizations": {
         "id": {
@@ -2893,6 +3021,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "สว่างเต็มที่"
+          }
+        }
+      }
+    },
+    "Săn mồi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Predator"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ล่าเหยื่อ"
           }
         }
       }
@@ -3537,6 +3681,22 @@
         }
       }
     },
+    "Tính cách": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perilaku"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นิสัย"
+          }
+        }
+      }
+    },
     "Tạo tài khoản nhà phát triển Tuya (miễn phí) tại platform.tuya.com.": {
       "localizations": {
         "id": {
@@ -3709,6 +3869,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยังตั้งตารางเวลาด้านล่างได้: แอปจะจำตารางเวลาไว้ในเครื่องนี้เพื่อบันทึกลงโคมไฟภายหลัง"
+          }
+        }
+      }
+    },
+    "Vừa": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sedang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปานกลาง"
           }
         }
       }
@@ -4061,6 +4237,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เร็ว"
+          }
+        }
+      }
+    },
+    "pH": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pH"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pH"
           }
         }
       }
@@ -5133,6 +5325,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "นาฬิกาของโคมไฟตรงเวลา"
+          }
+        }
+      }
+    },
+    "Độ khó": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tingkat kesulitan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความยาก"
           }
         }
       }

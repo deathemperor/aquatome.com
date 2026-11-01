@@ -168,3 +168,17 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   let odd = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":1,"lang":"vi","items":[{"kind":"fish","name":"Cá","path":"/vi/ca/x/","group":7}],"home":[1],"labels":"x"}"#.utf8))
   #expect(odd.items.count == 1 && odd.items[0].group == nil && odd.home == nil && odd.labels.words.isEmpty)
 }
+
+@Test func writesFactsAsTheSitesPagesDo() {
+  typealias F = HandbookIndex.Facts
+  let vi = Locale(identifier: "vi_VN"), th = Locale(identifier: "th_TH")
+  #expect(F.range(.init(min: 20, max: 26), vi) == "20–26")
+  #expect(F.range(.init(min: 6.5, max: 7.25), vi) == "6,5–7,3") // a half rounded up, as the browser does
+  #expect(F.range(.init(min: 4.5, max: 6.5), th) == "4.5–6.5")
+  #expect(F.range(.init(min: 7, max: 7), vi) == "7")
+  #expect(F.number(1200, vi) == "1200")
+  // The site's three steps of its 1–8 scale.
+  #expect([1, 3, 4, 5, 6, 8].map { F.level($0) } == [.easy, .easy, .mid, .mid, .hard, .hard])
+  #expect(!F().any && !F(temperament: "shy").any)
+  #expect(F(temperament: "predator").any && F(difficulty: 2).any)
+}
