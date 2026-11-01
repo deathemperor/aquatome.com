@@ -7,6 +7,7 @@ engine-state/_sources.json merge=jsonmap
 engine-state/_unsplash.json merge=jsonmap
 engine-state/_breed-photos.json merge=jsonmap
 content/captions/*.json merge=jsonmap
+content/picture-hashes.json merge=jsonmap
 content/species/*/*.json merge=entity
 content/plants/*/*.json merge=entity
 engine-state/_topic-check.json merge=jsonmap

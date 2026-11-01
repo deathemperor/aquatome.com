@@ -4,13 +4,14 @@ import Browse from '../../../layouts/Browse.astro'
 import PagedSpecies from '../../../components/PagedSpecies.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
-import { cleanPhoto } from '../../../lib/home'
+import { gridPhotos } from '../../../lib/pictures'
 import { speciesLists } from '../../../lib/list-data'
 import { PAGE } from '../../../scripts/filter-list'
 import { i18n, langOf } from '../../../lib/i18n'
 import { alternatesWhere } from '../../../lib/alternates'
 
-const { t } = i18n(Astro.url)
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 const INTROS: Record<string, string> = {
   vietnam: t('Những loài cá có nguồn gốc từ sông suối Việt Nam, từ đồng bằng Mekong đến suối núi phía Bắc.'),
 }
@@ -39,7 +40,7 @@ const intro = place ? INTROS[place.id] ?? t('{n} loài có nguồn gốc từ {p
 const alternates = await alternatesWhere(Astro.url.pathname, c => !place || c.places.some(p => p.id === place.id))
 const href = (k: Localized<PlaceEntity>) => (k.kind === 'country' ? `/vi/nguon-goc/${k.parent}/${k.id}/` : k.kind === 'continent' ? `/vi/nguon-goc/${k.id}/` : undefined)
 ---
-<Browse title={place && !TITLES[place.id] ? t('Cá cảnh bản địa {place}: {n} loài', { place: name, n: species.length }) : name} heading={name} crumbs={crumbs} intro={intro} credits={creditsFor(species.slice(0, PAGE).map(s => cleanPhoto(s.photos)))} creditsLater={species.length > PAGE} alternates={alternates}>
+<Browse title={place && !TITLES[place.id] ? t('Cá cảnh bản địa {place}: {n} loài', { place: name, n: species.length }) : name} heading={name} crumbs={crumbs} intro={intro} credits={creditsFor(gridPhotos(c, species.slice(0, PAGE)).map(p => p ?? undefined))} creditsLater={species.length > PAGE} alternates={alternates}>
   {kids.length > 0 && (
     <ul class="kids">{kids.map(k => { const h = href(k); return <li>{h ? <a href={h}>{k.t.name}</a> : <span>{k.t.name}</span>}</li> })}</ul>
   )}

@@ -16,6 +16,7 @@ import BreedList from '../../../components/BreedList.astro'
 import GlossaryTip from '../../../components/GlossaryTip.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
+import { distinctPhotos, pagePictures, takeEach } from '../../../lib/pictures'
 import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
 import { guidesMentioning, linkTargets } from '../../../lib/mentions'
 import { BREED_KIND, basedOn, breedGallery, breedsOf, careCard, type Breed } from '../../../lib/breeds'
@@ -33,9 +34,13 @@ const key = `breed:${b.id}`
 const parent = basedOn(c, b)
 const species = new Map(c.species.map(s => [s.id, s]))
 const { card, sources } = careCard(b)
-const gallery = breedGallery(c, b)
-const strip = gallery.slice(0, GALLERY_STRIP)
+// Every picture once, in page order (lib/pictures.ts): the photo, the gallery's first photos, the lines' cards.
+const pics = pagePictures(c)
+pics.add(b.photos[0]?.url)
+const gallery = distinctPhotos(c, breedGallery(c, b))
+const strip = gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null)
 const lines = breedsOf(lang, c, b.id)
+const linePhotos = takeEach(pics, lines, x => x.photos)
 // Its own text links the species, glossary terms and other pages it names, never itself.
 const body = b.t.body ? linkTerms(b.t.body, linkTargets(c).filter(t => t.key !== key), 'ml').html : ''
 const mentioning = guidesMentioning(c, key)
@@ -52,7 +57,7 @@ const jsonld = [
 const title = t('{name}: nguồn gốc, cách nuôi, chọn mua', { name: b.t.name })
 const alternates = await alternatesOf('breeds', b.id)
 ---
-<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...strip, ...lines.map(x => x.photos[0])])}>
+<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...strip, ...linePhotos].map(p => p ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{t('Loài cá')}</a>{parent && <> / <a href={parent.href}>{parent.name}</a></>}
@@ -77,11 +82,11 @@ const alternates = await alternatesOf('breeds', b.id)
     </div>
   </header>
 
-  {strip.length > 0 && <GalleryStrip photos={gallery} href={gallery.length >= GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined} name={b.t.name} />}
+  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={gallery.length >= GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined} name={b.t.name} />}
   {b.t.summary?.length ? <div class="wrap"><div class="verdict"><h2>{t('Tóm tắt')}</h2>{b.t.summary.map(s => <p>{s}</p>)}</div></div> : null}
   {body && <div class="wrap"><div class="prose body" set:html={body} /></div>}
 
-  <BreedList breeds={lines} heading={t('Các dòng')} />
+  <BreedList breeds={lines} photos={linePhotos} heading={t('Các dòng')} />
 
   {b.t.faq?.length ? (
     <section class="wrap faq" aria-labelledby="faq-h">

@@ -1,7 +1,8 @@
 import { parse } from 'node-html-parser'
 import { slugify } from '@aq/schema/slug'
 
-export type TocEntry = { id: string; text: string }
+/** `n`: the heading's own number ("3. Cá neon"), which the list shows as its number. */
+export type TocEntry = { id: string; text: string; n?: number }
 
 /** Gives each h3 of a guide body an id (unique, from its text) and returns them in order for a table of contents. */
 export function withToc(html: string): { html: string; toc: TocEntry[] } {
@@ -16,7 +17,9 @@ export function withToc(html: string): { html: string; toc: TocEntry[] } {
     for (let i = 2; used.has(id); i++) id = `${base}-${i}`
     used.add(id)
     h.setAttribute('id', id)
-    toc.push({ id, text: text.replace(/^(?:\d+[.)]|#\s?\d+[.):]?)\s+/, '') }) // the list numbers entries itself ("1.", "#1")
+    const m = /^(?:(\d+)[.)]|#\s?(\d+)[.):]?)\s/.exec(text)
+    const n = Number(m?.[1] ?? m?.[2] ?? 0)
+    toc.push({ id, text: text.replace(/^(?:\d+[.)]|#\s?\d+[.):]?)\s+/, ''), ...(n ? { n } : {}) }) // the list numbers entries itself ("1.", "#1")
   }
   return { html: toc.length ? root.toString() : html, toc }
 }

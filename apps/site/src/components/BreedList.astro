@@ -1,18 +1,20 @@
 ---
+import type { Photo } from '@aq/schema'
 import type { Breed } from '../lib/breeds'
 import SpeciesCard from './SpeciesCard.astro'
 /**
  * Breeds as the species list's cards, in its grid. Its pictures must be in the page's credits (each breed's first photo).
  * `bare`: inside a container that already has margins. `eager`: cards that load at once (the list leads the page).
  */
-interface Props { breeds: Breed[]; heading: string; bare?: boolean; eager?: number }
-const { breeds, heading, bare, eager = 0 } = Astro.props
+/** `photos`: each card's picture, as its page chose them (lib/pictures.ts). */
+interface Props { breeds: Breed[]; heading: string; bare?: boolean; eager?: number; photos?: (Photo | null)[] }
+const { breeds, heading, bare, eager = 0, photos } = Astro.props
 ---
 {breeds.length > 0 && (
   <section class:list={["breeds", { wrap: !bare }]} aria-labelledby="breeds-h">
     <h2 id="breeds-h">{heading}</h2>
     <ul>
-      {breeds.map((x, i) => <li><SpeciesCard breed={x} eager={i < eager} /></li>)}
+      {breeds.map((x, i) => <li><SpeciesCard breed={x} eager={i < eager} photo={photos?.[i]} /></li>)}
     </ul>
   </section>
 )}

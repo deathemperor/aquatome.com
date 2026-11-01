@@ -2,7 +2,7 @@ import type { GuideEntity, Localized } from '@aq/schema'
 import type { APIRoute, GetStaticPaths } from 'astro'
 import { getContent } from '../../../../lib/content'
 import { LANGS, served, translator, type Lang } from '../../../../lib/i18n'
-import { guideItems, guideLists } from '../../../../lib/list-data'
+import { guideItems, guideListCovers, guideLists } from '../../../../lib/list-data'
 import { PAGE } from '../../../../scripts/filter-list'
 
 // The discovery notes and each video channel's guides (lib/list-data.ts guideLists), one file per list longer than a page
@@ -13,6 +13,7 @@ export const getStaticPaths: GetStaticPaths = async () => (await Promise.all(LAN
 ))).flat()
 
 export const GET: APIRoute = async ({ params, props }) => {
-  const lang = params.lang as Lang
-  return Response.json(guideItems(translator(lang), await getContent(lang), (props as { guides: Localized<GuideEntity>[] }).guides))
+  const lang = params.lang as Lang, c = await getContent(lang)
+  const { guides } = props as { guides: Localized<GuideEntity>[] }
+  return Response.json(guideItems(translator(lang), c, guides, guideListCovers(c, params.list!, guides)))
 }

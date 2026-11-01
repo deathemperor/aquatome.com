@@ -31,15 +31,19 @@ const group = (lang: Lang, fs: Figure[]) => {
  * heading's first paragraph, list or table, those of one heading together), each `anchored` figure right after the block holding the
  * first link to its href (e.g. a species photo where the species is first named), then `spread` figures evenly over
  * the blocks still without one. Never two figures back to back; spread leftovers are dropped. A headed figure whose
- * heading the text lacks (another language's headings) goes in a group at the end, never lost.
+ * heading the text lacks (another language's headings) goes in a group at the end, never lost. `quiet`: headings whose
+ * sections take only their headed figures (a fish's section in a list of fish shows that fish, not one named in passing).
+ * `placed` collects the figures shown, in no particular order.
  */
-export function placeFigures(lang: Lang, html: string, anchored: Figure[], spread: Figure[], headed: HeadedFigure[] = []): string {
+export function placeFigures(lang: Lang, html: string, anchored: Figure[], spread: Figure[], headed: HeadedFigure[] = [], o: { quiet?: Set<string>; placed?: Figure[] } = {}): string {
   const root = parse(html)
   const blocks = root.childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement)
   if (!blocks.length) return html
   const after = new Map<number, string>()
   const top = (el: HTMLElement) => { let n: HTMLElement = el; while (n.parentNode && n.parentNode !== root) n = n.parentNode as HTMLElement; return blocks.indexOf(n) }
-  const free = (i: number) => i >= 0 && !after.has(i) && !after.has(i - 1) && !after.has(i + 1)
+  let under = ''
+  const sectionOf = blocks.map(b => (b.tagName === 'H3' ? (under = norm(b.textContent)) : under))
+  const free = (i: number) => i >= 0 && !after.has(i) && !after.has(i - 1) && !after.has(i + 1) && !o.quiet?.has(sectionOf[i]!)
   const byHeading = new Map<string, Figure[]>()
   for (const f of headed) byHeading.set(norm(f.heading), [...(byHeading.get(norm(f.heading)) ?? []), f])
   blocks.forEach((b, i) => {
@@ -47,20 +51,21 @@ export function placeFigures(lang: Lang, html: string, anchored: Figure[], sprea
     if (!fs) return
     byHeading.delete(norm(b.textContent))
     after.set(['P', 'UL', 'OL', 'TABLE'].includes(blocks[i + 1]?.tagName ?? '') ? i + 1 : i, group(lang, fs))
+    o.placed?.push(...fs)
   })
   for (const f of anchored) {
     const a = f.href ? root.querySelector(`a[href="${f.href}"]`) : null
     const i = a ? top(a) : -1
-    if (free(i)) after.set(i, figureHtml(lang, f))
+    if (free(i)) { after.set(i, figureHtml(lang, f)); o.placed?.push(f) }
   }
   const open = blocks.map((_, i) => i).filter(i => i < blocks.length - 1 && free(i))
   spread.forEach((f, k) => {
     const want = Math.floor(((k + 1) * blocks.length) / (spread.length + 1))
     const i = open.filter(free).sort((x, y) => Math.abs(x - want) - Math.abs(y - want))[0]
-    if (i !== undefined) after.set(i, figureHtml(lang, f))
+    if (i !== undefined) { after.set(i, figureHtml(lang, f)); o.placed?.push(f) }
   })
   for (const [i, h] of after) blocks[i]!.insertAdjacentHTML('afterend', h)
   const unplaced = [...byHeading.values()].flat()
-  if (unplaced.length) blocks.at(-1)!.insertAdjacentHTML('afterend', group(lang, unplaced))
+  if (unplaced.length) { blocks.at(-1)!.insertAdjacentHTML('afterend', group(lang, unplaced)); o.placed?.push(...unplaced) }
   return root.toString()
 }

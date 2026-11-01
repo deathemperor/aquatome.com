@@ -1,12 +1,10 @@
 ---
-import { guideImage } from '../../../lib/mentions'
 import Browse from '../../../layouts/Browse.astro'
 import GuideCard from '../../../components/GuideCard.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { GUIDE_KIND_LABELS } from '../../../lib/format'
-import { leadGuides } from '../../../lib/home'
-import { listedGuides } from '../../../lib/list-data'
+import { guideListPhotos, listedGuides } from '../../../lib/list-data'
 import { PAGE } from '../../../scripts/filter-list'
 import { i18n } from '../../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
@@ -23,16 +21,18 @@ const kinds = (['setup', 'care', 'plantCare', 'aquascaping', 'breeding', 'diseas
   .map(k => ({ k, n: guides.filter(g => g.kind === k).length }))
   .filter(x => x.n > 0)
 // For a beginner: the guides the home page leads with (cycling, water changes, easy fish and plants), else the most practical.
-const start = leadGuides(c).slice(0, 4)
+// Then the list, each cover one the page doesn't show yet, as its data file has them (lib/list-data.ts).
+const { start, startCovers, covers } = guideListPhotos(c)
+const firstCovers = covers.slice(0, PAGE)
 ---
-<Browse title={t('Hướng dẫn')} heading={t('Hướng dẫn')} intro={t('Setup bể, chăm sóc, sinh sản và trồng cây, từng bước một.')} credits={creditsFor([...start, ...first].map(g => guideImage(c, g)))} creditsLater>
+<Browse title={t('Hướng dẫn')} heading={t('Hướng dẫn')} intro={t('Setup bể, chăm sóc, sinh sản và trồng cây, từng bước một.')} credits={creditsFor([...startCovers, ...firstCovers].map(p => p ?? undefined))} creditsLater>
   {videos && <p class="vid">{t('Có cả')} <a href="/vi/video/">{t('video hướng dẫn')}</a>{t(': bài viết kèm video gốc, phụ đề tiếng Việt.')}</p>}
   {guides.length === 0 ? <p>{t('Chưa có hướng dẫn nào được xuất bản.')}</p> : <>
     {start.length > 0 && (
       <section class="start" id="guide-start" aria-labelledby="start-h">
         <h2 id="start-h">{t('Bắt đầu từ đây')}</h2>
         <p class="lead">{t('Mới nuôi bể? Đọc mấy bài này trước.')}</p>
-        <div class="grid">{start.map(g => <GuideCard g={g} row />)}</div>
+        <div class="grid">{start.map((g, i) => <GuideCard g={g} row photo={startCovers[i]} />)}</div>
       </section>
     )}
     <section aria-labelledby="all-h">
@@ -45,7 +45,7 @@ const start = leadGuides(c).slice(0, 4)
         </div>
       )}
       <p class="status" id="guide-status" aria-live="polite"></p>
-      <div class="grid" id="guide-list" data-src={`/data/${lang}/guides.json`} data-total={guides.length}>{first.map(g => <GuideCard g={g} row />)}<template id="guide-card"><GuideCard g={guides[0]!} row template /></template></div>
+      <div class="grid" id="guide-list" data-src={`/data/${lang}/guides.json`} data-total={guides.length}>{first.map((g, i) => <GuideCard g={g} row photo={firstCovers[i]} />)}<template id="guide-card"><GuideCard g={guides[0]!} row template /></template></div>
       {/* Inline, right after the list: a shared ?kind= link shows its subject's chip and no beginner row before the page is
           first drawn, and the first page's cards wait unseen for the script to fill the subject in, so nothing jumps. */}
       {kinds.length > 1 && <script is:inline>(() => {

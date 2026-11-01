@@ -4,7 +4,7 @@ import Browse from '../../../layouts/Browse.astro'
 import PagedSpecies from '../../../components/PagedSpecies.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
-import { cleanPhoto } from '../../../lib/home'
+import { gridPhotos } from '../../../lib/pictures'
 import { speciesLists } from '../../../lib/list-data'
 import { PAGE } from '../../../scripts/filter-list'
 import { i18n, langOf } from '../../../lib/i18n'
@@ -30,7 +30,8 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
   return [...nodes.values()].map(n => ({ params: { path: n.path.join('/') || undefined }, props: { node: n, kids: children(n) } }))
 }
 const { node, kids } = Astro.props as { node: Node; kids: Node[] }
-const { t } = i18n(Astro.url)
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
 // The same taxon in another language: some species of it has a page there.
 const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.some(s => node.path.every((x, i) => x === [s.order, s.family, s.genus][i]!.toLowerCase())))
 const level = [t('Phân loại'), t('Bộ'), t('Họ'), t('Chi')][node.path.length]!
@@ -40,7 +41,7 @@ const crumbs: [string, string][] = node.path.length
   ? [['/vi/phan-loai/', t('Phân loại')], ...node.path.slice(0, -1).map((_, i): [string, string] => [`/vi/phan-loai/${node.path.slice(0, i + 1).join('/')}/`, crumbNames[i]!])]
   : []
 ---
-<Browse title={node.path.length ? `${level} ${node.name}` : t('Phân loại')} heading={node.path.length ? node.name : t('Phân loại')} crumbs={crumbs} credits={creditsFor(node.species.slice(0, PAGE).map(s => cleanPhoto(s.photos)))} creditsLater={node.species.length > PAGE} intro={node.path.length ? t('{level} {name}: {n} loài.', { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')} alternates={alternates}>
+<Browse title={node.path.length ? `${level} ${node.name}` : t('Phân loại')} heading={node.path.length ? node.name : t('Phân loại')} crumbs={crumbs} credits={creditsFor(gridPhotos(c, node.species.slice(0, PAGE)).map(p => p ?? undefined))} creditsLater={node.species.length > PAGE} intro={node.path.length ? t('{level} {name}: {n} loài.', { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')} alternates={alternates}>
   {/* Always fill the slot: a conditional one leaves the h1 empty when false. A genus is italic, higher ranks are not. */}
   <span slot="heading" class:list={{ sci: node.path.length === 3 }}>{node.path.length ? node.name : t('Phân loại')}</span>
   {kids.length > 0 && (

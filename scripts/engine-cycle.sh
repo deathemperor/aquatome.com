@@ -118,6 +118,8 @@ if part pages sf photos; then
   pnpm engine watermarks --limit "${WATERMARK_LIMIT:-40}" || log "watermarks: failed (unscreened photos may publish)"
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
+  # The image hash of every new picture, so no page shows one picture twice from two files (a failure: compared by address).
+  pnpm engine picture-hashes || log "picture-hashes: failed (new pictures compared by address only)"
 fi
 if part photos; then
   # Reports, nothing hidden: pictures (docs/review/content-audit.md: pages without a photo, a card thumb, or pictures

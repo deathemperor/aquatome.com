@@ -5,8 +5,7 @@ import GuideCard from '../../../../../../components/GuideCard.astro'
 import PageNav from '../../../../../../components/PageNav.astro'
 import { getContent } from '../../../../../../lib/content'
 import { creditsFor } from '../../../../../../lib/credits'
-import { guideLists } from '../../../../../../lib/list-data'
-import { guideImage } from '../../../../../../lib/mentions'
+import { guideListCovers, guideLists } from '../../../../../../lib/list-data'
 import { videoChannels } from '../../../../../../lib/video'
 import { PAGE } from '../../../../../../scripts/filter-list'
 import { i18n, langOf } from '../../../../../../lib/i18n'
@@ -30,9 +29,11 @@ const c = await getContent(lang)
 const here = guides.slice((n - 1) * PAGE, n * PAGE)
 const base = `/vi/video/kenh/${Astro.params.slug}/`
 const title = t('{name}, trang {n}', { name: t('Video của {name}', { name }), n })
+// The covers the list's cards show wherever they are built (lib/list-data.ts), none twice.
+const covers = guideListCovers(c, `video/kenh/${Astro.params.slug}`, guides).slice((n - 1) * PAGE, n * PAGE)
 ---
-<Browse title={title} heading={title} crumbs={[['/vi/video/', t('Video')], [base, t('Video của {name}', { name })]]} noindex={!here.some(g => g.t.quality.indexable)} credits={creditsFor(here.map(g => guideImage(c, g)))}>
-  <div class="grid">{here.map(g => <GuideCard g={g} />)}</div>
+<Browse title={title} heading={title} crumbs={[['/vi/video/', t('Video')], [base, t('Video của {name}', { name })]]} noindex={!here.some(g => g.t.quality.indexable)} credits={creditsFor(covers.map(p => p ?? undefined))}>
+  <div class="grid">{here.map((g, i) => <GuideCard g={g} photo={covers[i]} />)}</div>
   <PageNav prev={n === 2 ? base : `${base}trang/${n - 1}/`} next={n < pages ? `${base}trang/${n + 1}/` : undefined} />
 </Browse>
 <style>

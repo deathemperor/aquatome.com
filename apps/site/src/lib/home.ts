@@ -1,4 +1,4 @@
-import { POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
+import { POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { GROUP_LABELS } from './format'
 import { guideImage, mentionIndex } from './mentions'
 import type { Lang } from './i18n'
@@ -59,17 +59,21 @@ export function listOrder(lang: Lang, c: Content): Localized<SpeciesEntity>[] {
   return [...first, ...c.species.filter(s => !first.includes(s)).sort(richest(lang))]
 }
 
-/** Each species group with a page: its size and a picture of its best-documented member. */
-export function groupTiles(lang: Lang, c: Content): { group: string; label: string; count: number; photo?: Photo }[] {
+/**
+ * Each species group with a page: its size and a picture of its best-documented member. `pics`: the pictures its page
+ * already shows (the home page's fish cards just above): a group whose best member is shown takes its next member's.
+ */
+export function groupTiles(lang: Lang, c: Content, pics?: PictureSet): { group: string; label: string; count: number; photo?: Photo }[] {
   return Object.entries(GROUP_LABELS)
     .map(([group, label]) => {
       const members = c.species.filter(s => s.group === group)
       const ranked = [...members].sort(richest(lang))
-      const best = ranked.find(s => s.photos.some(p => p.source !== 'glaser')) ?? ranked.find(s => s.photos.length)
-      return { group, label, count: members.length, photo: best && cleanPhoto(best.photos) }
+      const photos = [...ranked.filter(clean), ...ranked.filter(s => !clean(s))].flatMap(s => cleanPhoto(s.photos) ?? [])
+      return { group, label, count: members.length, photos }
     })
     .filter(g => g.count > 0 && g.group !== 'other')
     .sort((a, b) => b.count - a.count)
+    .map(({ photos, ...g }) => ({ ...g, photo: pics ? pics.take(photos) : photos[0] }))
 }
 
 /** Plants that need neither strong light nor CO2, easiest first. */

@@ -4,6 +4,7 @@ import PageNav from '../../../../components/PageNav.astro'
 import PlantCard from '../../../../components/PlantCard.astro'
 import { getContent } from '../../../../lib/content'
 import { creditsFor } from '../../../../lib/credits'
+import { plantPhotos } from '../../../../lib/list-data'
 import { PAGE } from '../../../../scripts/filter-list'
 import { alternatesWhere } from '../../../../lib/alternates'
 import { i18n, langOf } from '../../../../lib/i18n'
@@ -21,13 +22,15 @@ const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 const pages = Math.ceil(c.plants.length / PAGE)
 const here = c.plants.slice((n - 1) * PAGE, n * PAGE)
+// Every picture once (lib/pictures.ts): two plants can share a photo.
+const photos = plantPhotos(c).slice((n - 1) * PAGE, n * PAGE)
 const name = t('Cây thủy sinh')
 // The same page in another language: its plant list has as many pages there.
 const alternates = await alternatesWhere(Astro.url.pathname, x => x.plants.length > (n - 1) * PAGE)
 ---
-<Browse title={t('{name}, trang {n}', { name, n })} heading={t('{name}, trang {n}', { name, n })} crumbs={[['/vi/cay/', name]]} credits={creditsFor(here.map(p => p.photos[0]))} alternates={alternates}>
+<Browse title={t('{name}, trang {n}', { name, n })} heading={t('{name}, trang {n}', { name, n })} crumbs={[['/vi/cay/', name]]} credits={creditsFor(photos.map(p => p ?? undefined))} alternates={alternates}>
   <h2 class="visually-hidden">{t('Danh sách loài')}</h2>
-  <div class="grid">{here.map(p => <PlantCard p={p} />)}</div>
+  <div class="grid">{here.map((p, i) => <PlantCard p={p} photo={photos[i]} />)}</div>
   <PageNav prev={n === 2 ? '/vi/cay/' : `/vi/cay/trang/${n - 1}/`} next={n < pages ? `/vi/cay/trang/${n + 1}/` : undefined} />
 </Browse>
 <style>.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }

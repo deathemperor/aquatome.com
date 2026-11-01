@@ -4,7 +4,8 @@ import GuideCard from '../../../components/GuideCard.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
 import { smallSrc } from '../../../lib/img'
-import { guideImage } from '../../../lib/mentions'
+import { guideImages } from '../../../lib/mentions'
+import { pagePictures } from '../../../lib/pictures'
 import { hours, isVideo, seriesGuides, seriesSeconds, videoChannels } from '../../../lib/video'
 import { i18n } from '../../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
@@ -18,18 +19,23 @@ const all = c.guides.filter(isVideo)
 // videos show on every build.
 const newest = [...all].sort((a, b) => (b.video.publishedAt ?? '').localeCompare(a.video.publishedAt ?? '') || a.t.slug.localeCompare(b.t.slug)).slice(0, 6)
 const groups = [
-  { id: 'series-h', title: t('Loạt video'), rows: series.map(({ s, guides }) => ({ href: `/vi/video/${s.vi.slug}/`, name: s.vi.name, first: guides[0]!, meta: `${t('{n} video', { n: guides.length })} · ${hours(lang, seriesSeconds(c, s))} · ${t('kênh {name}', { name: s.channel })}`, blurb: s.vi.intro })) },
-  { id: 'singles-h', title: t('Video lẻ'), rows: withSingles.map(ch => ({ href: `/vi/video/kenh/${ch.slug}/`, name: t('Video lẻ của {name}', { name: ch.name }), first: ch.singles[0]!, meta: t('{n} video', { n: ch.singles.length }), blurb: '' })) },
+  { id: 'series-h', title: t('Loạt video'), rows: series.map(({ s, guides }) => ({ href: `/vi/video/${s.vi.slug}/`, name: s.vi.name, guides, meta: `${t('{n} video', { n: guides.length })} · ${hours(lang, seriesSeconds(c, s))} · ${t('kênh {name}', { name: s.channel })}`, blurb: s.vi.intro })) },
+  { id: 'singles-h', title: t('Video lẻ'), rows: withSingles.map(ch => ({ href: `/vi/video/kenh/${ch.slug}/`, name: t('Video lẻ của {name}', { name: ch.name }), guides: ch.singles, meta: t('{n} video', { n: ch.singles.length }), blurb: '' })) },
 ].filter(x => x.rows.length)
+// Every picture once, in page order (lib/pictures.ts): the newest videos' covers, then each row's, its first video's
+// unless shown already (a new video often starts a series), else another of its videos'.
+const pics = pagePictures(c)
+const newestCovers = newest.map(g => pics.take(guideImages(c, g)) ?? null)
+const rowCovers = new Map(groups.flatMap(x => x.rows).map(r => [r, pics.take(r.guides.flatMap(g => guideImages(c, g))) ?? null]))
 ---
 <Browse title={t('Video hướng dẫn')} heading={t('Video hướng dẫn')}
   intro={t('Bài hướng dẫn của AquaTome viết từ những video hay của các kênh nuôi cá và thủy sinh. Mỗi bài có video gốc, phụ đề tiếng Việt và các đoạn để nhảy tới phần cần xem.')}
-  credits={creditsFor([...newest, ...groups.flatMap(x => x.rows.map(r => r.first))].map(g => guideImage(c, g)))}>
+  credits={creditsFor([...newestCovers, ...rowCovers.values()].map(p => p ?? undefined))}>
   {all.length === 0 && <p>{t('Chưa có video hướng dẫn nào.')}</p>}
   {newest.length > 0 && (
     <section aria-labelledby="new-h">
       <h2 id="new-h">{t('Mới thêm')}</h2>
-      <ul class="new">{newest.map(g => <li><GuideCard g={g} /></li>)}</ul>
+      <ul class="new">{newest.map((g, i) => <li><GuideCard g={g} photo={newestCovers[i]} /></li>)}</ul>
     </section>
   )}
   {groups.map(({ id, title, rows }) => (
@@ -37,7 +43,7 @@ const groups = [
       <h2 id={id}>{title}</h2>
       <ul class="rows">
         {rows.map(r => {
-          const ph = guideImage(c, r.first)
+          const ph = rowCovers.get(r)
           return (
             <li>
               <a href={r.href}>
@@ -68,7 +74,7 @@ const groups = [
   /* Newest videos: the card grid on a computer, one row to swipe on a phone (CSS only, as the homepage's groups). */
   .new { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6) var(--space-5); }
 
-  /* A series (or a channel's single videos) as one row: its first video's picture, name, size and a line of its intro. */
+  /* A series (or a channel's single videos) as one row: its first video's picture (another of its videos' if the page shows that one already), name, size and a line of its intro. */
   .rows { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 30rem), 1fr)); column-gap: var(--space-6); }
   .rows li { border-bottom: 1px solid var(--c-rule); }
   .rows a { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: var(--space-4); align-items: start; padding-block: var(--space-3); color: inherit; text-decoration: none; }

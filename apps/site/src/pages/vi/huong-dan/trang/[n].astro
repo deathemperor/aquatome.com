@@ -4,8 +4,7 @@ import GuideCard from '../../../../components/GuideCard.astro'
 import PageNav from '../../../../components/PageNav.astro'
 import { getContent } from '../../../../lib/content'
 import { creditsFor } from '../../../../lib/credits'
-import { listedGuides } from '../../../../lib/list-data'
-import { guideImage } from '../../../../lib/mentions'
+import { guideListPhotos, listedGuides } from '../../../../lib/list-data'
 import { PAGE } from '../../../../scripts/filter-list'
 import { i18n, langOf } from '../../../../lib/i18n'
 
@@ -24,9 +23,11 @@ const guides = listedGuides(c)
 const pages = Math.ceil(guides.length / PAGE)
 const here = guides.slice((n - 1) * PAGE, n * PAGE)
 const prev = n === 2 ? '/vi/huong-dan/' : `/vi/huong-dan/trang/${n - 1}/`
+// The covers the list's cards show wherever they are built (lib/list-data.ts), none twice.
+const covers = guideListPhotos(c).covers.slice((n - 1) * PAGE, n * PAGE)
 ---
-<Browse title={t('Hướng dẫn, trang {n}', { n })} heading={t('Hướng dẫn, trang {n}', { n })} crumbs={[['/vi/huong-dan/', t('Hướng dẫn')]]} credits={creditsFor(here.map(g => guideImage(c, g)))}>
-  <div class="grid">{here.map(g => <GuideCard g={g} row />)}</div>
+<Browse title={t('Hướng dẫn, trang {n}', { n })} heading={t('Hướng dẫn, trang {n}', { n })} crumbs={[['/vi/huong-dan/', t('Hướng dẫn')]]} credits={creditsFor(covers.map(p => p ?? undefined))}>
+  <div class="grid">{here.map((g, i) => <GuideCard g={g} row photo={covers[i]} />)}</div>
   <PageNav prev={prev} next={n < pages ? `/vi/huong-dan/trang/${n + 1}/` : undefined} />
 </Browse>
 <style>

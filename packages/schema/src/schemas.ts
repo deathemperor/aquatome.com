@@ -98,6 +98,8 @@ export const EquipmentSchema = z.object({
 /** `builtAt`: the last Commons + iNaturalist build (`updatedAt` also moves when a source adds a photo). */
 /** Photo captions written in Vietnamese, in one other language (content/captions/<lang>.json): Vietnamese caption → translation. */
 export const CaptionsSchema = z.record(z.string(), z.string())
+/** content/picture-hashes.json: each photo's 64-bit difference hash (hex) by its address (pictures.ts). */
+export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a-f]{16}$/))
 
 /**
  * A gallery photo can carry what the screening model said of it, so a top-up re-ranks the whole gallery: `best`, one of

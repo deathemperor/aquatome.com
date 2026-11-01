@@ -5,6 +5,7 @@ import FilterBox from '../../../components/FilterBox.astro'
 import FilterResults from '../../../components/FilterResults.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
+import { plantPhotos } from '../../../lib/list-data'
 import { PLANT_LABELS } from '../../../lib/format'
 import { PAGE } from '../../../scripts/filter-list'
 import { i18n } from '../../../lib/i18n'
@@ -14,10 +15,12 @@ const c = await getContent(lang)
 // which the script fetches to filter or show more, and on the numbered pages after this one (/vi/cay/trang/2/…), where
 // crawlers find every plant: nothing here grows with the catalogue.
 const first = c.plants.slice(0, PAGE)
+// Every picture once (lib/pictures.ts): two plants can share a photo.
+const photos = plantPhotos(c).slice(0, PAGE)
 /** Cards in the first row load at once: one of them is usually the page's largest image. */
 const EAGER = 4
 ---
-<Browse title={t('Cây thủy sinh')} heading={t('Cây thủy sinh')} intro={t('{n} loài cây, kèm nhu cầu ánh sáng, CO₂ và vị trí trồng.', { n: c.plants.length })} credits={creditsFor(first.map(p => p.photos[0]))} creditsLater={c.plants.length > 0}>
+<Browse title={t('Cây thủy sinh')} heading={t('Cây thủy sinh')} intro={t('{n} loài cây, kèm nhu cầu ánh sáng, CO₂ và vị trí trồng.', { n: c.plants.length })} credits={creditsFor(photos.map(p => p ?? undefined))} creditsLater={c.plants.length > 0}>
   {c.plants.length === 0 ? <p>{t('Chưa có cây nào được xuất bản.')}</p> : <>
     {/* The reader's tank: its light grows plants needing as much or less; no CO₂ keeps the plants that grow without it. */}
     <FilterBox id="plant-box" prefix="plant" summary={t('Lọc theo bể của bạn')}>
@@ -36,7 +39,7 @@ const EAGER = 4
     </FilterBox>
     <FilterResults prefix="plant" total={c.plants.length} src={`/data/${lang}/plants.json`} next="/vi/cay/trang/2/" why={t('Những cây này còn thiếu thông tin bạn đang lọc (ánh sáng, CO₂, vị trí hoặc độ khó). Thông tin đã có thì hợp, nhưng chưa đủ để nói chắc.')}>
       <h2 class="visually-hidden">{t('Danh sách loài')}</h2>
-      <div class="grid">{first.map((p, i) => <PlantCard p={p} eager={i < EAGER} />)}<template id="plant-card"><PlantCard p={c.plants[0]!} template /></template></div>
+      <div class="grid">{first.map((p, i) => <PlantCard p={p} eager={i < EAGER} photo={photos[i]} />)}<template id="plant-card"><PlantCard p={c.plants[0]!} template /></template></div>
     </FilterResults>
   </>}
 </Browse>
