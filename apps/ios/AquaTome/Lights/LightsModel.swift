@@ -51,6 +51,20 @@ final class LightsModel {
   /// The schedule written before the last write, to put back ("Hoàn tác").
   private var undo: (schedule: Schedule, name: String?)?
   var notice: Notice?
+  /// "Thử màu trên đèn": the light shows the colour being edited (manual mode) until the test ends.
+  private(set) var trying = false
+  /// "Xem thử cả ngày": the minute of the day shown, while the day plays.
+  private(set) var playMinute: Double?
+  private var playTask: Task<Void, Never>?
+  /// The light the preview plays on (none: on screen only).
+  private var playingOn: LightSession?
+  /// The app is in the background: a preview ending there doesn't write the schedule again.
+  private var leaving = false
+  /// "Tắt đèn" or "Sáng hết" holds on the light (also when the store couldn't keep it): leaving the app keeps it.
+  private var held = false
+  /// The mix "Độ sáng" scales, as it was before the brightness moved: rescaling levels already rounded would drift.
+  private var mix: [Int]?
+  private var settingBrightness = false
   #if DEBUG
   /// The last frames sent, for the UI tests (the site's tests read the fake light's frames the same way).
   private(set) var sentFrames: [String] = []
@@ -63,11 +77,16 @@ final class LightsModel {
   /// The preset the form came from, kept with the schedule written (as the site does); changing its hours drops it,
   /// changing only its levels keeps it.
   private(set) var planName: String?
-  var levels = [70, 70, 70, 70] { didSet { if levels != oldValue { edit() } } }
+  var levels = [70, 70, 70, 70] {
+    didSet {
+      guard levels != oldValue else { return }
+      if !settingBrightness { mix = nil }
+      edit()
+      if trying, !filling { send(form.levels) }
+    }
+  }
   /// Touched since the app opened: a known light's schedule doesn't replace the reader's edits.
   private(set) var edited = false
-  /// The manual sliders, by channel.
-  var manual: [Int: Int] = [:]
 
   private let radio: Radio
   private let store: UserDefaults
@@ -81,12 +100,18 @@ final class LightsModel {
   private var attempt = 0
   private var filling = false
   private static let draftKey = "light.draft"
+  /// The day preview's length: the site's ten seconds. Debug builds take `-preview-seconds N` for the UI tests, so that a
+  /// step slowed down on a loaded runner can't outlast a preview the test means to stop.
+  private var previewSeconds = DayPreview.seconds
 
   init(radio: Radio, store: UserDefaults = .standard, tanks: TanksModel? = nil) {
     self.radio = radio
     self.store = store
     self.tanks = tanks
     if radio.isRefused { refused = .unauthorized }
+    #if DEBUG
+    if store.double(forKey: "preview-seconds") > 0 { previewSeconds = store.double(forKey: "preview-seconds") }
+    #endif
     loadDraft()
   }
 
@@ -118,10 +143,10 @@ final class LightsModel {
     let f = form
     return a.on == f.on.description && a.off == f.off.description && a.ramp == f.ramp && a.levels == f.levels
   }
-  var canWrite: Bool { isConnected && !isBusy && form.problem == nil && (firmware ?? 0) >= 20 && !formIsActive }
+  var canWrite: Bool { isConnected && !isBusy && playTask == nil && form.problem == nil && (firmware ?? 0) >= 20 && !formIsActive }
   /// The first write from AquaTome replaces whatever the light holds, maybe a schedule from the My Chihiros app: ask.
   var writeNeedsConfirming: Bool { active == nil }
-  var canGoBackToSchedule: Bool { isConnected && !isBusy && (isManual || device?.manual != nil) }
+  var canGoBackToSchedule: Bool { isConnected && !isBusy && (isManual || trying || device?.manual != nil) }
 
   var clock: ClockState {
     if synced { return .right }
@@ -209,6 +234,7 @@ final class LightsModel {
       return true
     }
     stopScan()
+    stopPreview() // one playing on the screen only: the light connected wasn't part of it
     attempt += 1
     let mine = attempt
     connecting = again ? String(localized: "Đang kết nối lại…") : String(localized: "Đang kết nối…")
@@ -236,7 +262,6 @@ final class LightsModel {
       lastLight = nil
       synced = false
       undo = nil
-      manual = [:]
       let snap = try await new.refresh()
       guard session === new else { return false } // disconnected while reading
       let known = tanks?.store.light(bleName: l.name) != nil
@@ -308,6 +333,9 @@ final class LightsModel {
     synced = false
     undo = nil
     pending = [:]
+    trying = false
+    held = false
+    stopPreview()
   }
 
   private func fail(_ error: Error) {
@@ -357,6 +385,8 @@ final class LightsModel {
   /// "Hoàn tác": the schedule written before the last write, written again.
   func undoWrite() async {
     guard let u = undo else { return }
+    stopPreview()
+    trying = false
     fill(u.schedule, name: u.name)
     keepDraft()
     await write(u.schedule, name: u.name, undoing: true)
@@ -364,6 +394,8 @@ final class LightsModel {
 
   private func write(_ s: Schedule, name: String?, undoing: Bool) async {
     guard let session, s.problem == nil else { return }
+    stopPreview()
+    trying = false
     let before = active
     isWriting = true
     defer { isWriting = false }
@@ -375,8 +407,7 @@ final class LightsModel {
       guard self.session === session else { return }
       self.show(snap)
       self.isManual = false
-      // The light runs the schedule now: the manual levels no longer hold.
-      self.manual = [:]
+      self.held = false
       // Kept only once the light read it back: one it didn't confirm isn't recorded as written.
       self.synced = true // the clock went first, acknowledged
       guard snap.holds(s, channels: self.channels.count) else {
@@ -414,13 +445,15 @@ final class LightsModel {
   func quick(off: Bool) async {
     guard let session else { return }
     let levels = channels.map { _ in off ? 0 : 100 }
+    stopPreview()
+    trying = false
     await run(session) {
       self.pending = [:]
       while self.flushing { try await Task.sleep(for: .milliseconds(20)) }
       for (c, l) in levels.enumerated() { try await session.setLevel(channel: c, level: l) }
       guard self.session === session else { return }
       self.isManual = true
-      self.manual = Dictionary(uniqueKeysWithValues: levels.enumerated().map { ($0, $1) })
+      self.held = true
       self.changeLight { $0.manual = (levels, Timestamp.string(Date())) }
       self.notice = Notice(text: off
         ? String(localized: "Đã tắt đèn. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch”.")
@@ -429,9 +462,11 @@ final class LightsModel {
   }
 
   /// "Theo lịch": a schedule AquaTome wrote is written again as it was; any other (the My Chihiros app's) is left to run
-  /// with one frame (LightSession.backToSchedule).
-  func backToSchedule() async {
+  /// with one frame (LightSession.backToSchedule). Ends a colour test and the day preview too.
+  func backToSchedule(done: Bool = false) async {
     guard let session else { return }
+    stopPreview()
+    trying = false
     let known = active.flatMap { a in TimeOfDay(a.on).flatMap { on in TimeOfDay(a.off).map { Schedule(on: on, off: $0, ramp: a.ramp, levels: a.levels) } } }
     await run(session) {
       self.pending = [:]
@@ -440,16 +475,133 @@ final class LightsModel {
       guard self.session === session else { return }
       if let snap { self.show(snap) }
       self.isManual = false
-      self.manual = [:]
+      self.held = false
       self.changeLight { $0.manual = nil }
-      self.notice = Notice(text: String(localized: "Đèn chạy lại theo lịch."))
+      self.notice = Notice(text: done ? String(localized: "Xong. Đèn chạy lại theo lịch.") : String(localized: "Đèn chạy lại theo lịch."))
     }
   }
 
-  /// A manual level. While a write is under way, only each channel's latest level waits to go next.
-  func setLevel(channel: Int, level: Int) {
-    manual[channel] = level
-    pending[channel] = level
+  /// "Thử màu trên đèn", or "Thôi thử, chạy theo lịch": the light shows the colour being edited, then runs its schedule
+  /// again.
+  func toggleTrying() async {
+    guard isConnected else { return }
+    if trying { await backToSchedule(); return }
+    stopPreview()
+    supersedeHeld()
+    trying = true
+    send(form.levels)
+    notice = Notice(text: String(localized: "Đèn đang hiện màu thử."))
+  }
+
+  // MARK: Colour, as the site's page sets it
+
+  /// "Độ sáng": the brightest channel to `level`, the others with it (the mix kept; all at `level` from off).
+  func setBrightness(_ level: Int) {
+    let base = mix ?? levels
+    mix = base
+    settingBrightness = true
+    defer { settingBrightness = false }
+    levels = fit(scaled(Array(base.prefix(channels.count)), to: level), to: levels.count)
+  }
+
+  /// A colour look at the brightness now (70% from off).
+  func applyLook(_ l: Look) { levels = fit(l.levels(channels, top: form.top), to: levels.count) }
+
+  func setChannel(_ i: Int, _ level: Int) { levels[i] = level }
+
+  // MARK: The day in ten seconds
+
+  /// "Xem thử cả ngày" (on the light too, when one is connected), or "Dừng": the light then runs its schedule again.
+  func togglePreview() async {
+    if playTask != nil {
+      if let s = stopPreview(), session === s, !leaving { await backToSchedule(done: true) }
+      return
+    }
+    guard form.problem == nil else { return }
+    trying = false
+    if session != nil { supersedeHeld() }
+    let on = session
+    playingOn = on
+    playMinute = 0
+    let length = previewSeconds
+    playTask = Task { [weak self] in
+      let start = ContinuousClock.now
+      var last = -1
+      while !Task.isCancelled, let self {
+        let m = DayPreview.minute(at: (ContinuousClock.now - start) / .seconds(1), lasting: length)
+        self.playMinute = m
+        // The form as it is now: edited during the preview, the light follows the screen.
+        if let on, self.session === on, self.form.problem == nil {
+          let s = self.form
+          let share = s.level(atMinute: Int(m))
+          let percent = Int((share * 100).rounded())
+          if DayPreview.sends(percent, after: last) {
+            last = percent
+            self.send(s.levels.map { Int((Double($0) * share).rounded()) })
+          }
+        }
+        if m >= Double(Day.minutes) {
+          // The end: the light, if it played, runs its schedule again (not from the background: see `leave`).
+          self.playTask = nil
+          self.playMinute = nil
+          self.playingOn = nil
+          if let on, self.session === on, !self.leaving { await self.backToSchedule(done: true) }
+          return
+        }
+        try? await Task.sleep(for: .milliseconds(33))
+      }
+    }
+  }
+
+  var isPlaying: Bool { playTask != nil }
+
+  /// The preview stopped where it is; the light it played on, if any, is left to the caller.
+  @discardableResult
+  private func stopPreview() -> LightSession? {
+    guard let t = playTask else { return nil }
+    t.cancel()
+    playTask = nil
+    playMinute = nil
+    defer { playingOn = nil }
+    return playingOn
+  }
+
+  // MARK: Leaving the app
+
+  /// The app went to the background while the light shows a test colour, the day preview or levels sent from here (not
+  /// "Tắt đèn" or "Sáng hết", which are meant to hold): it goes back to its schedule with one frame, as the site does
+  /// when its page is hidden. One only: the app may be stopped any moment, and a rewrite cut off between clearing the
+  /// light's scenes and writing the schedule would leave it with none.
+  /// A command under way (a write, "Theo lịch", "Tắt đèn") is left to end as it would.
+  func leave() {
+    leaving = true
+    guard let session, !isBusy, trying || playTask != nil || isManual, !held, device?.manual == nil else { return }
+    stopPreview()
+    trying = false
+    pending = [:]
+    notice = Notice(text: String(localized: "Đèn chạy lại theo lịch."))
+    Task {
+      // Levels already on their way go first; then nothing follows the scene mode.
+      while flushing { try? await Task.sleep(for: .milliseconds(20)) }
+      guard self.session === session else { return }
+      try? await session.resumeSchedule()
+      if self.session === session { isManual = false }
+    }
+  }
+
+  /// Back in the foreground.
+  func returned() { leaving = false }
+
+  /// A colour test or the day preview on the light replaces "Tắt đèn" or "Sáng hết": the light no longer holds them.
+  private func supersedeHeld() {
+    guard held || device?.manual != nil else { return }
+    held = false
+    changeLight { $0.manual = nil }
+  }
+
+  /// Levels to the light now. While a write is under way, only each channel's latest level waits to go next.
+  private func send(_ levels: [Int]) {
+    for (c, l) in levels.enumerated() { pending[c] = l }
     Task { await flush() }
   }
 

@@ -24,7 +24,7 @@ final class LightFlowTests: XCTestCase {
     connect(app)
     expect(app, "saved", contains: "Chưa ghi lịch nào từ AquaTome.")
     expect(app, "hours", contains: "Đèn sáng 8 tiếng mỗi ngày, sáng hẳn 7 tiếng.")
-    expect(app, "level-0", contains: "70%")
+    expect(app, "master", value: "70%")
   }
 
   func testPutsRightAClockThatIsSevenHoursSlow() {
@@ -229,13 +229,17 @@ final class LightFlowTests: XCTestCase {
   func testWritingAScheduleEndsTheManualLevels() {
     let app = launch()
     connect(app)
-    scrolledTo(app, "manual-0").adjust(toNormalizedSliderPosition: 0.3)
-    expect(app, "manual-0-level", lacks: "–")
+    tap(app, "try")
+    expect(app, "notice", contains: "Đèn đang hiện màu thử.")
+    expect(app, "try", contains: "Thôi thử, chạy theo lịch")
+    expectFrames(app, ".*5a 01 08 .. .. 05 0b ff ff .. \\| .* 07 02 46 ..") // the light in manual mode, at 70%
     write(app)
     expect(app, "notice", contains: "Đã ghi")
-    // The light runs the schedule again: no level set by hand holds now.
-    expect(app, "manual-0-level", contains: "–")
+    // The light runs the schedule again: the test colour no longer holds.
+    expect(app, "try", contains: "Thử màu trên đèn")
+    XCTAssertFalse(element(app, "quick-auto").isEnabled, "“Theo lịch” with nothing set by hand")
   }
+
 
   func testPresetsByTankTypeSayWhyMarkTheChosenOneAndKeepTheMix() {
     let app = launch()
@@ -243,20 +247,21 @@ final class LightFlowTests: XCTestCase {
     expect(app, "preset-fish", contains: "12:00–20:00 · 40%")
     expect(app, "preset-fish", contains: "Đủ để ngắm cá, ít rêu.")
     XCTAssertTrue(element(app, "preset-settled").isSelected, "the form starts as “Bể đã ổn định”, unmarked")
-    // Green mixed lower by hand: a preset sets the brightness and keeps the mix.
-    let green = scrolledTo(app, "level-1")
-    green.buttons.element(boundBy: 0).tap()
-    green.buttons.element(boundBy: 0).tap()
-    expect(app, "level-1", contains: "60%")
+    // A look mixed first (70, 56, 35): a preset sets the brightness and keeps the mix.
+    tap(app, "look-warm")
+    tap(app, "each")
+    expect(app, "level-1", value: "56%")
     tap(app, "preset-fish")
     XCTAssertTrue(element(app, "preset-fish").isSelected, "the chosen preset unmarked")
     XCTAssertFalse(element(app, "preset-settled").isSelected, "a preset with the same hours but brighter marked too")
     expect(app, "hours", contains: "Đèn sáng 8 tiếng mỗi ngày, sáng hẳn 7 tiếng. 6–8 tiếng là vừa cho bể thủy sinh.")
-    expect(app, "level-0", contains: "40%")
-    expect(app, "level-1", contains: "34%")
+    expect(app, "master", value: "40%")
+    expect(app, "level-1", value: "32%")
+    expect(app, "level-2", value: "20%")
+    XCTAssertTrue(element(app, "look-warm").isSelected, "the mix not kept")
     tap(app, "preset-settled")
-    expect(app, "level-0", contains: "70%")
-    expect(app, "level-1", contains: "60%")
+    expect(app, "master", value: "70%")
+    expect(app, "level-1", value: "56%")
     XCTAssertFalse(element(app, "preset-fish").isSelected, "the preset left still marked")
   }
 
@@ -300,6 +305,116 @@ final class LightFlowTests: XCTestCase {
     expect(app, "notice", contains: "Đã ghi: bật 14:00, tắt 22:00.")
     // 14:00, 22:00, a 45-minute ramp, 70% each.
     expectFrames(app, ".*a5 01 13 .. .. 19 0e 00 16 00 2d 7f 46 46 46 .*")
+  }
+
+  func testLooksOneBrightnessAndEachColourMixTheLight() {
+    let app = launch()
+    expect(app, "tank-now", contains: "Bây giờ")
+    expect(app, "tank-now", contains: "Màu trên màn hình chỉ gần đúng.")
+    XCTAssertTrue(element(app, "look-natural").isSelected, "an even mix not marked “Tự nhiên”")
+    tap(app, "look-red")
+    XCTAssertTrue(element(app, "look-red").isSelected, "the chosen look unmarked")
+    XCTAssertFalse(element(app, "look-natural").isSelected, "the look left still marked")
+    tap(app, "each")
+    expect(app, "level-0", value: "70%")
+    expect(app, "level-1", value: "56%")
+    expect(app, "level-2", value: "53%")
+    // One brightness for every channel: the mix stays the look.
+    scrolledTo(app, "master").adjust(toNormalizedSliderPosition: 0.4)
+    XCTAssertNotEqual(element(app, "master").value as? String, "70%", "the brightness didn't move")
+    XCTAssertTrue(element(app, "look-red").isSelected, "the mix changed with the brightness")
+    // One colour by hand: no look any more, and the brightness is the brightest channel's.
+    scrolledTo(app, "level-1").adjust(toNormalizedSliderPosition: 1)
+    expect(app, "level-1", value: "100%")
+    expect(app, "master", value: "100%")
+    XCTAssertFalse(element(app, "look-red").isSelected, "a look marked for a mix of its own")
+  }
+
+  func testTryingAColourShowsItOnTheLightThenTheScheduleRunsAgain() {
+    let app = launch()
+    connect(app)
+    tap(app, "try")
+    expect(app, "notice", contains: "Đèn đang hiện màu thử.")
+    // Manual mode, then each channel at 70%.
+    expectFrames(app, ".*5a 01 08 .. .. 05 0b ff ff .. \\| 5a 01 07 .. .. 07 00 46 .. \\| 5a 01 07 .. .. 07 01 46 .. \\| 5a 01 07 .. .. 07 02 46 ..")
+    // Each change shows at once.
+    tap(app, "look-warm")
+    expectFrames(app, ".* 07 00 46 .. \\| 5a 01 07 .. .. 07 01 38 .. \\| 5a 01 07 .. .. 07 02 23 ..")
+    tap(app, "try")
+    expect(app, "notice", contains: "Đèn chạy lại theo lịch.")
+    expect(app, "try", contains: "Thử màu trên đèn")
+    // Nothing written from AquaTome yet: only the scene mode, after the levels.
+    expectFrames(app, ".* 07 02 23 .. \\| 5a 01 08 .. .. 05 12 ff ff ..")
+  }
+
+  func testTheDayPreviewStopsAtOnceOnTheScreenAndOnTheLight() {
+    // Two minutes long: no step of the test, however slow the runner, outlasts it, so only "Dừng" can end it.
+    let app = launch("-preview-seconds", "120")
+    // Without a light: on the screen only.
+    tap(app, "play")
+    expect(app, "play", contains: "Dừng")
+    tap(app, "play")
+    expect(app, "play", contains: "Xem thử cả ngày", timeout: 3)
+    connect(app)
+    expect(app, "play", contains: "Xem thử cả ngày trên đèn")
+    // "Dừng" on the light: its own schedule again at once (the scene mode: nothing written yet).
+    tap(app, "play")
+    expectFrames(app, ".*5a 01 08 .. .. 05 0b ff ff .*")
+    tap(app, "play")
+    expect(app, "notice", contains: "Xong. Đèn chạy lại theo lịch.", timeout: 4)
+    expectFrames(app, ".* 5a 01 08 .. .. 05 12 ff ff ..")
+  }
+
+  func testTheDayPreviewPlaysOnTheLightThenTheScheduleRunsAgain() {
+    // Forty seconds (the site's ten, slowed): the light holds full for about twelve, longer than a slow runner's look.
+    let app = launch("-preview-seconds", "40")
+    connect(app)
+    // The whole day: the light follows it to full (70%) at noon, off at 20:00, then its own schedule.
+    tap(app, "play")
+    expectFrames(app, ".* 07 02 46 .*", timeout: 30)
+    expect(app, "play", contains: "Xem thử cả ngày trên đèn", timeout: 60)
+    expectFrames(app, ".* 07 02 00 .. \\| 5a 01 08 .. .. 05 12 ff ff ..")
+  }
+
+  func testLeavingTheAppPutsATestColourBackOnTheScheduleWithOneFrame() {
+    let app = launch("-preview-seconds", "120") // the preview is stopped by leaving, never by its end
+
+    connect(app)
+    tap(app, "try")
+    expectFrames(app, ".* 07 02 46 ..")
+    leaveAndComeBack(app)
+    // One frame, the scene mode: the light runs what it holds; nothing cleared, nothing written again.
+    expectFrames(app, ".* 07 02 46 .. \\| 5a 01 08 .. .. 05 12 ff ff ..")
+    expect(app, "try", contains: "Thử màu trên đèn")
+    // The day preview too: once it has sent its first levels (manual mode, off before 12:00), it stops there.
+    tap(app, "play")
+    expectFrames(app, ".* 05 12 ff ff .. \\| 5a 01 08 .. .. 05 0b ff ff .. \\| .*")
+    leaveAndComeBack(app)
+    expect(app, "notice", contains: "Đèn chạy lại theo lịch.")
+    expect(app, "notice", lacks: "Xong") // stopped, not played to its end
+    expect(app, "play", contains: "Xem thử cả ngày trên đèn")
+    expectFrames(app, ".* 07 02 .. .. \\| 5a 01 08 .. .. 05 12 ff ff ..")
+    // "Tắt đèn" is meant to hold: it stays when the app leaves.
+    tap(app, "quick-off")
+    expect(app, "hand", contains: "Đèn đang tắt bằng tay")
+    expectFrames(app, ".* 07 02 00 ..")
+    leaveAndComeBack(app)
+    // Still last: the "off" level (any frame after it would be the light sent back to its schedule).
+    let undone = expectation(for: NSPredicate(format: "NOT (label MATCHES %@)", ".* 07 02 00 .."), evaluatedWith: element(app, "frames"))
+    XCTAssertEqual(XCTWaiter.wait(for: [undone], timeout: 4), .timedOut, "“Tắt đèn” undone when the app left")
+  }
+
+  func testLeavingWhileATestColourIsStillOnItsWaySendsTheSceneModeLast() {
+    // The slow fake light takes 1.5 s a frame: the app leaves while the colour's levels are still being sent.
+    let app = launch("-fake-slow")
+    connect(app)
+    tap(app, "try")
+    expectFrames(app, ".*5a 01 08 .. .. 05 0b ff ff ..")
+    leaveAndComeBack(app)
+    // The levels already on their way, then the scene mode, and nothing after it (no manual mode again).
+    expectFrames(app, ".* 07 02 46 .. \\| 5a 01 08 .. .. 05 12 ff ff ..", timeout: 20)
+    let more = expectation(for: NSPredicate(format: "NOT (label MATCHES %@)", ".* 05 12 ff ff .."), evaluatedWith: element(app, "frames"))
+    XCTAssertEqual(XCTWaiter.wait(for: [more], timeout: 4), .timedOut, "frames after the scene mode")
   }
 
   // MARK: Helpers
@@ -376,8 +491,8 @@ final class LightFlowTests: XCTestCase {
     e.tap()
   }
 
-  private func expect(_ app: XCUIApplication, _ id: String, contains text: String, file: StaticString = #filePath, line: UInt = #line) {
-    wait(app, id, NSPredicate(format: "label CONTAINS %@", text), "“\(text)”", file: file, line: line)
+  private func expect(_ app: XCUIApplication, _ id: String, contains text: String, timeout: TimeInterval = 10, file: StaticString = #filePath, line: UInt = #line) {
+    wait(app, id, NSPredicate(format: "label CONTAINS %@", text), "“\(text)”", timeout: timeout, file: file, line: line)
   }
 
   private func expect(_ app: XCUIApplication, _ id: String, lacks text: String, file: StaticString = #filePath, line: UInt = #line) {
@@ -398,16 +513,25 @@ final class LightFlowTests: XCTestCase {
   }
 
   /// The fake light's last frames (hex, " | " between them), as the app shows them to the tests, match `pattern`.
-  private func expectFrames(_ app: XCUIApplication, _ pattern: String, file: StaticString = #filePath, line: UInt = #line) {
-    wait(app, "frames", NSPredicate(format: "label MATCHES %@", pattern), "frames like /\(pattern)/", file: file, line: line)
+  private func expectFrames(_ app: XCUIApplication, _ pattern: String, timeout: TimeInterval = 10, file: StaticString = #filePath, line: UInt = #line) {
+    wait(app, "frames", NSPredicate(format: "label MATCHES %@", pattern), "frames like /\(pattern)/", timeout: timeout, file: file, line: line)
+  }
+
+  /// To the home screen until the app is in the background, then back to it.
+  private func leaveAndComeBack(_ app: XCUIApplication, file: StaticString = #filePath, line: UInt = #line) {
+    XCUIDevice.shared.press(.home)
+    let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
+    let gone = expectation(for: NSPredicate(format: "state IN %@", states), evaluatedWith: app)
+    XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 5), .completed, "the app didn't go to the background", file: file, line: line)
+    app.activate()
   }
 
   /// Every element of this screen is there without scrolling (it isn't a lazy list): only taps need to scroll.
-  private func wait(_ app: XCUIApplication, _ id: String, _ p: NSPredicate, _ what: String, file: StaticString, line: UInt) {
+  private func wait(_ app: XCUIApplication, _ id: String, _ p: NSPredicate, _ what: String, timeout: TimeInterval = 10, file: StaticString, line: UInt) {
     let e = element(app, id)
     // Checked once more after the wait: on a loaded CI runner a snapshot can take the whole timeout, and the screen was
     // already right ("expected X, got X", PR #212).
-    if XCTWaiter.wait(for: [expectation(for: p, evaluatedWith: e)], timeout: 10) != .completed, !p.evaluate(with: e) {
+    if XCTWaiter.wait(for: [expectation(for: p, evaluatedWith: e)], timeout: timeout) != .completed, !p.evaluate(with: e) {
       XCTFail("\(id): expected \(what), got “\(e.exists ? e.label : "(missing)")”\(e.exists ? " (value “\(e.value.map { "\($0)" } ?? "")”)" : "")", file: file, line: line)
     }
   }

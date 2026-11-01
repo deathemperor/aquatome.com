@@ -57,6 +57,8 @@ struct AquaTomeApp: App {
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
       .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
+      // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).
+      .onChange(of: phase) { if phase == .background { lights.leave() } else if phase == .active { lights.returned() } }
     }
   }
 
