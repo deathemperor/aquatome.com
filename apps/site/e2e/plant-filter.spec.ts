@@ -84,6 +84,29 @@ for (const path of ['/id/tanaman/', '/th/plants/']) {
   })
 }
 
+// Every plant is a plain link away: "Xem thêm" is a link to the list's next numbered page (/vi/cay/trang/2/), which the
+// script shows in place instead; it follows the link when the list's data file can't load.
+test('plant list: "Xem thêm" adds the next page in place, and is a link to the numbered page it follows when the list can\'t load', async ({ page }) => {
+  await page.goto('/vi/cay/')
+  const all = await total(page)
+  test.skip(all <= PAGE, 'every plant fits on the first page')
+  const more = page.locator('#plant-more')
+  await expect(more).toHaveAttribute('href', '/vi/cay/trang/2/')
+  await expect(more).toHaveText(`Xem thêm ${Math.min(all - PAGE, PAGE)} loài (còn ${all - PAGE})`)
+  await more.click()
+  await expect(page).toHaveURL(/\/vi\/cay\/$/)
+  await expect(visible(page)).toHaveCount(Math.min(all, 2 * PAGE))
+  const second = await visible(page).evaluateAll(els => els.slice(24).map(e => e.getAttribute('data-slug')))
+  // The numbered page: the same plants, linked back.
+  await page.goto('/vi/cay/trang/2/')
+  expect(await page.locator('main .pc').evaluateAll(els => els.map(e => e.getAttribute('data-slug')))).toEqual(second)
+  await expect(page.locator('nav.pages a[rel=prev]')).toHaveAttribute('href', '/vi/cay/')
+  await page.route('**/data/*/plants.json', route => route.abort())
+  await page.goto('/vi/cay/')
+  await page.locator('#plant-more').click()
+  await expect(page).toHaveURL(/\/vi\/cay\/trang\/2\/$/)
+})
+
 test('a plant with no photo shows a leaf on the plate colour, the shape of a photo, not an empty strip', async ({ page }) => {
   await page.goto('/vi/cay/')
   // The first card without a photo, with more cards shown until it is (the engine may have photographed them all).

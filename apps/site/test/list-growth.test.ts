@@ -37,16 +37,18 @@ function buildWith(extra: number) {
       // One photo each (the test content's species have one or more), so they come after them in the list's order.
       const photos = [{ url: `https://media.aquatome.com/test/${m.id}.webp`, width: 960, height: 720, licence: 'CC BY 4.0', author: `Tác giả ${m.id}`, sourceUrl: `https://example.org/${m.id}` }]
       mkdirSync(join(content, kind, m.id), { recursive: true })
-      writeFileSync(join(content, kind, m.id, 'entity.json'), JSON.stringify({ ...entity, id: m.id, scientificName: m.sci, photos }))
+      // A shop search of its own in each kind of kit it suggests: the equipment pages once listed every one.
+      const productSlots = entity.productSlots.map((x: { category: string; keywords: string[] }) => ({ ...x, keywords: [...x.keywords, `${x.category} thử ${m.id}`] }))
+      writeFileSync(join(content, kind, m.id, 'entity.json'), JSON.stringify({ ...entity, id: m.id, scientificName: m.sci, photos, productSlots }))
       writeFileSync(join(content, kind, m.id, 'vi.json'), JSON.stringify({ ...vi, name: m.name, slug: m.slug, altNames: [] }))
       // An Indonesian page too for the made-up fish (the test content has none), so the Indonesian group has numbered pages.
       if (kind === 'species') writeFileSync(join(content, kind, m.id, 'id.json'), JSON.stringify({ ...vi, name: m.name, slug: m.slug, altNames: [] }))
     }
   }
-  // Ten more species than `extra`, as for guides below: a list that holds two of the fixture's species and the made-up
-  // ones has a full page left after its first in both builds.
+  // Ten more species and plants than `extra`, as for guides below: a list that holds a few of the fixture's and the
+  // made-up ones has a full page left after its first in both builds.
   add('species', 'paracheirodon-innesi', i => ({ id: `testus-thu-${nn(i)}`, sci: `Testus thu${nn(i)}`, name: `Cá thử ${nn(i)}`, slug: `ca-thu-${nn(i)}` }), extra + 10)
-  add('plants', 'anubias-barteri-nana', i => ({ id: `plantus-thu-${nn(i)}`, sci: `Plantus thu${nn(i)}`, name: `Cây thử ${nn(i)}`, slug: `cay-thu-${nn(i)}` }))
+  add('plants', 'anubias-barteri-nana', i => ({ id: `plantus-thu-${nn(i)}`, sci: `Plantus thu${nn(i)}`, name: `Cây thử ${nn(i)}`, slug: `cay-thu-${nn(i)}` }), extra + 10)
   // Guides too (the guide list went over its page-element budget at about 230 guides, 2026-11-01). Ten more than `extra`:
   // both builds have a full page left after the first ("Xem thêm 24 bài" in both) and totals of two digits.
   const guide = read(join(FIXTURE, 'guides/setup-be-dau-tien/entity.json')), gvi = read(join(FIXTURE, 'guides/setup-be-dau-tien/vi.json'))
@@ -85,8 +87,11 @@ for (const [path, kind] of [['vi/ca', 'species'], ['vi/cay', 'plants'], ['vi/huo
   })
 }
 
-// The pages the made-up species join, as the fixture's fish they copy has them: its group, its taxa, its places.
+// The pages the made-up species and plants join, as the fixture's fish and plant they copy have them: the fish's group,
+// taxa and places, and the equipment pages of the kit both suggest (2026-11-01, on the real build: /vi/thiet-bi/thuc-an/
+// had 5,852 elements, every shop search and every species).
 const NEON = read(join(FIXTURE, 'species/paracheirodon-innesi/entity.json'))
+const ANUBIAS = read(join(FIXTURE, 'plants/anubias-barteri-nana/entity.json'))
 const PLACES = new Map(readdirSync(join(FIXTURE, 'places')).map(id => [id, read(join(FIXTURE, 'places', id, 'entity.json'))]))
 const TAXON = [NEON.order, NEON.family, NEON.genus].map((x: string) => x.toLowerCase())
 const SPECIES_PAGES = [
@@ -96,8 +101,12 @@ const SPECIES_PAGES = [
     const p = PLACES.get(id)
     return p?.kind === 'continent' ? [`vi/nguon-goc/${id}`] : p?.kind === 'country' ? [`vi/nguon-goc/${p.parent}/${id}`] : []
   }),
+  ...[...new Set([...NEON.productSlots, ...ANUBIAS.productSlots].map((x: { category: string }) => `vi/thiet-bi/${x.category}`))],
 ]
-test('the made-up species join a group, three taxa and places with pages', () => expect(SPECIES_PAGES.length).toBeGreaterThanOrEqual(6))
+test('the made-up species join a group, three taxa, places and equipment with pages', () => {
+  expect(SPECIES_PAGES.length).toBeGreaterThanOrEqual(8)
+  expect(SPECIES_PAGES).toContain('vi/thiet-bi/cay-thuy-sinh')
+})
 for (const path of SPECIES_PAGES) {
   test(`a page listing some species has the same HTML with 40 or 80 more of them past its first page (/${path}/)`, () => {
     expect(otherDifference(small(path), large(path))).toBeUndefined()
@@ -142,11 +151,29 @@ test("a fish group's page and its numbered pages link every species of the group
   expect(pages).toBe(Math.ceil(seen.length / 24))
 })
 
+// Past the first page, plants are linked from the plant list's numbered pages ("Xem thêm" is a link to the next one): the
+// equipment page for plants no longer lists them all.
+test('the plant list and its numbered pages link every plant, a page at a time', () => {
+  const links = (html: string) => [...html.matchAll(/<a href="\/vi\/cay\/([^"/]+)\/"/g)].map(m => m[1]!)
+  const seen: string[] = []
+  let path: string | undefined = 'vi/cay', pages = 0
+  while (path) {
+    const html = large(path), own = html.slice(html.indexOf('class="grid"'))
+    seen.push(...links(own.slice(0, own.search(/<template|<nav class="pages"|<\/main>/))))
+    path = (pages === 0 ? /<a id="plant-more" href="\/(vi\/cay\/trang\/\d+)\/"/ : /<a href="\/(vi\/cay\/trang\/\d+)\/" rel="next"/).exec(own)?.[1]
+    if (++pages > 10) break
+  }
+  const made = Array.from({ length: 80 + 10 }, (_, i) => `cay-thu-${nn(i + 1)}`)
+  expect(made.filter(s => !seen.includes(s)), 'plants no page links').toEqual([])
+  expect(new Set(seen).size, 'no plant on two pages').toBe(seen.length)
+  expect(pages).toBe(Math.ceil(seen.length / 24))
+})
+
 // A numbered page's links, its language menu's too, lead to pages that exist, in Vietnamese and in Indonesian (a group's
 // page 2 once linked its Vietnamese version to /vi/nhom/, a page there isn't).
-test("a fish group's numbered pages link only pages that exist, in every language", () => {
+test("the fish groups' and the plant list's numbered pages link only pages that exist, in every language", () => {
   const pages = new Set(allPages(largeDist))
-  for (const path of [`vi/nhom/${NEON.group}/trang/2`, `id/kelompok/${NEON.group}/halaman/2`]) {
+  for (const path of [`vi/nhom/${NEON.group}/trang/2`, `id/kelompok/${NEON.group}/halaman/2`, 'vi/cay/trang/2']) {
     const hrefs = [...large(path).matchAll(/<a\b[^>]*?\shref="(\/(?:vi|id|th)\/[^"]*)"/g)].map(m => m[1]!.replace(/[?#].*$/, ''))
     expect(hrefs.length, path).toBeGreaterThan(24)
     expect([...new Set(hrefs)].filter(h => !pages.has(h)), `/${path}/: links to missing pages`).toEqual([])

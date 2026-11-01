@@ -1,8 +1,8 @@
 import type { Page } from '@playwright/test'
 import { expect, test } from './fixtures'
 
-// The pages that list some of the species: a fish group's (/vi/nhom/<group>/), a taxon's (/vi/phan-loai/…) and an
-// origin's (/vi/nguon-goc/…). Each shows the first page of its species; "Xem thêm" builds the next page in place from the
+// The pages that list some of the species: a fish group's (/vi/nhom/<group>/), a taxon's (/vi/phan-loai/…), an
+// origin's (/vi/nguon-goc/…) and the fish an equipment page names (/vi/thiet-bi/<kind>/). Each shows the first page of its species; "Xem thêm" builds the next page in place from the
 // list's data file (components/PagedSpecies.astro, scripts/list-more.ts). A group's "Xem thêm" is also a link to its
 // numbered pages (/vi/nhom/<group>/trang/2/). The test content has 9 species, so these run on the real build and on
 // aquatome.com; lists and counts are read from the pages.
@@ -50,20 +50,21 @@ test('a fish group\'s "Xem thêm" adds the next page in place; without the scrip
   expect(errors).toEqual([])
 })
 
-test('a taxon\'s and an origin\'s "Xem thêm" adds the next page in place, and says so when the list can\'t load', async ({ page, errors }) => {
-  // The first order and the first continent (one level down from each index) with more than a page of species.
+test('a taxon\'s, an origin\'s and an equipment page\'s "Xem thêm" adds the next page in place, and says so when the list can\'t load', async ({ page, errors }) => {
+  // The first order, continent and kind of equipment (one level down from each index) with more than a page of species.
   const paths: string[] = []
-  for (const index of ['/vi/phan-loai/', '/vi/nguon-goc/']) {
-    await page.goto(index)
-    for (const k of await page.locator('main .kids a').evaluateAll(as => as.map(a => a.getAttribute('href')!))) {
+  for (const [index, links] of [['/vi/phan-loai/', 'main .kids a'], ['/vi/nguon-goc/', 'main .kids a'], ['/vi/thiet-bi/', 'main a.cat']]) {
+    await page.goto(index!)
+    for (const k of await page.locator(links!).evaluateAll(as => as.map(a => a.getAttribute('href')!))) {
       await page.goto(k)
       if (await page.locator('[data-paged]').count()) { paths.push(k); break }
     }
   }
-  test.skip(paths.length === 0, 'no taxon or origin has more than a page of species')
+  test.skip(paths.length === 0, 'no taxon, origin or equipment has more than a page of species')
   for (const path of paths) {
     await page.goto(path)
-    const all = await total(page)
+    // How many the list has: its data file's items (an equipment page has no count line).
+    const all = (await (await page.request.get((await page.locator('[data-paged]').getAttribute('data-src'))!)).json() as unknown[]).length
     await expect(visible(page)).toHaveCount(PAGE)
     // The data file failing: the list says so, and the next "Xem thêm" loads it.
     await page.route('**/data/*/species/**', route => route.abort())

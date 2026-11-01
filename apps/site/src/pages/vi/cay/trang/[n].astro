@@ -1,0 +1,34 @@
+---
+import Browse from '../../../../layouts/Browse.astro'
+import PageNav from '../../../../components/PageNav.astro'
+import PlantCard from '../../../../components/PlantCard.astro'
+import { getContent } from '../../../../lib/content'
+import { creditsFor } from '../../../../lib/credits'
+import { PAGE } from '../../../../scripts/filter-list'
+import { alternatesWhere } from '../../../../lib/alternates'
+import { i18n, langOf } from '../../../../lib/i18n'
+
+/**
+ * The plant list's later pages, a page of plants each (2, 3, …): what "Xem thêm" on /vi/cay/ links to. The list's script
+ * adds plants in place instead; these are for crawlers and readers without it, so every plant has a link to it.
+ */
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const pages = Math.ceil((await getContent(langOf(routePattern))).plants.length / PAGE)
+  return Array.from({ length: Math.max(pages - 1, 0) }, (_, i) => ({ params: { n: String(i + 2) } }))
+}
+const n = Number(Astro.params.n)
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
+const pages = Math.ceil(c.plants.length / PAGE)
+const here = c.plants.slice((n - 1) * PAGE, n * PAGE)
+const name = t('Cây thủy sinh')
+// The same page in another language: its plant list has as many pages there.
+const alternates = await alternatesWhere(Astro.url.pathname, x => x.plants.length > (n - 1) * PAGE)
+---
+<Browse title={t('{name}, trang {n}', { name, n })} heading={t('{name}, trang {n}', { name, n })} crumbs={[['/vi/cay/', name]]} credits={creditsFor(here.map(p => p.photos[0]))} alternates={alternates}>
+  <h2 class="visually-hidden">{t('Danh sách loài')}</h2>
+  <div class="grid">{here.map(p => <PlantCard p={p} />)}</div>
+  <PageNav prev={n === 2 ? '/vi/cay/' : `/vi/cay/trang/${n - 1}/`} next={n < pages ? `/vi/cay/trang/${n + 1}/` : undefined} />
+</Browse>
+<style>.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
+  @media (max-width: 520px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); } }</style>
