@@ -157,11 +157,13 @@ test('guides: a photo captioned with a fish is judged against it; one that is a 
   const d = model({ cardinal: { ok: 'other', note: 'cardinal tetra' }, food: { ok: 'none', note: 'a packshot' }, wrong: { ok: 'other', note: 'a cardinal tetra' } })
   await checkPagePhotos(r, d, { limit: 10 })
   expect(d.seen.find(s => s.photos.includes('fig'))!.prompt).toContain('Paracheirodon simulans')
-  // A photo judged only because its caption names the fish goes with its caption: a caption about another fish ("Red Tail",
-  // a page's other name, in "Red tail catfish") is then "unsure", not removed. The page's own photo needs none.
+  // A photo judged only because its caption names the fish is judged against its caption: "angelfish and java fern" shows
+  // java fern if the angelfish leads, and a caption about another fish ("Red tail catfish" for a page called "Red Tail")
+  // is "unsure", not removed. The page's own photo needs none.
   const neon = d.seen.find(s => s.photos.includes('cardinal'))!
   expect(neon.photos).toEqual(['wrong', 'cardinal', 'food'])
   expect(neon.prompt).toContain('Some photos are from a guide, with this caption: 2: "Neon tetra school"; 3: "Neon tetra food flakes".')
+  expect(neon.prompt).toContain('Judge these against their caption instead')
   expect(d.seen.flatMap(s => s.photos)).not.toContain('heater')
   const g = await json(r, 'content/guides/tetras/entity.json')
   // Another fish goes; a packshot is a guide's own business; the page's rejected photo goes with it.
