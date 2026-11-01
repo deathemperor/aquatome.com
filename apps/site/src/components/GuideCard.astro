@@ -1,23 +1,27 @@
 ---
 import type { GuideEntity, Localized } from '@aq/schema'
-import { GUIDE_KIND_LABELS } from '../lib/format'
 import { getContent } from '../lib/content'
 import { smallSrc } from '../lib/img'
 import { guideImage } from '../lib/mentions'
+import { guideWords } from '../lib/list-data'
 import { clock } from '../lib/video'
 import { i18n } from '../lib/i18n'
-/** `row`: on a phone, a compact row (a small picture beside the text) rather than a full-width card. */
-interface Props { g: Localized<GuideEntity>; row?: boolean }
-const { g, row = false } = Astro.props
+/**
+ * `row`: on a phone, a compact row (a small picture beside the text) rather than a full-width card.
+ * `template`: with a picture slot and stand-in words, for the guide list's script to fill in (scripts/guide-card.ts).
+ */
+interface Props { g: Localized<GuideEntity>; row?: boolean; template?: boolean }
+const { g, row = false, template = false } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 const ph = guideImage(c, g)
+const { label, src } = guideWords(t, c, g)
 ---
 <a class:list={["gc", { row }]} href={`/vi/huong-dan/${g.t.slug}/`} data-kind={g.kind}>
-  <div class:list={['img', { video: g.video }]}>{ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}{g.video && g.t.cover && <span class="cover" lang={lang}>{g.t.cover}</span>}{g.video && <span class="dur">▶ {clock(g.video.durationSec)}</span>}</div>
-  <p class="kind">{t(GUIDE_KIND_LABELS[g.kind])}</p>
+  <div class:list={['img', { video: g.video }]}>{template ? <img src="" width="0" height="0" alt="" loading="lazy" /> : ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}{g.video && g.t.cover && <span class="cover" lang={lang}>{g.t.cover}</span>}{g.video && <span class="dur">▶ {clock(g.video.durationSec)}</span>}</div>
+  <p class="kind">{label}</p>
   <h3>{g.t.name}</h3>
-  <p class="src">{g.video ? t('Theo video của {name}', { name: g.video.channel }) : g.source === 'aquatome' ? t('AquaTome tổng hợp, {n} nguồn', { n: (g.t.refs ?? g.refs)?.length ?? 0 }) : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source })}</p>
+  <p class="src">{src}</p>
 </a>
 <style>
   .gc { display: block; text-decoration: none; color: inherit; }

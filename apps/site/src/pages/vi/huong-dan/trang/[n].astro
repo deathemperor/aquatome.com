@@ -1,0 +1,41 @@
+---
+import Browse from '../../../../layouts/Browse.astro'
+import GuideCard from '../../../../components/GuideCard.astro'
+import { getContent } from '../../../../lib/content'
+import { creditsFor } from '../../../../lib/credits'
+import { listedGuides } from '../../../../lib/list-data'
+import { guideImage } from '../../../../lib/mentions'
+import { PAGE } from '../../../../scripts/filter-list'
+import { i18n, langOf } from '../../../../lib/i18n'
+
+/**
+ * The guide list's later pages, a page of guides each (2, 3, …): what "Xem thêm" on /vi/huong-dan/ links to. The list's
+ * script adds guides in place instead; these are for crawlers and readers without it, so every guide has a link to it.
+ */
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const pages = Math.ceil(listedGuides(await getContent(langOf(routePattern))).length / PAGE)
+  return Array.from({ length: Math.max(pages - 1, 0) }, (_, i) => ({ params: { n: String(i + 2) } }))
+}
+const n = Number(Astro.params.n)
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
+const guides = listedGuides(c)
+const pages = Math.ceil(guides.length / PAGE)
+const here = guides.slice((n - 1) * PAGE, n * PAGE)
+const prev = n === 2 ? '/vi/huong-dan/' : `/vi/huong-dan/trang/${n - 1}/`
+---
+<Browse title={t('Hướng dẫn, trang {n}', { n })} heading={t('Hướng dẫn, trang {n}', { n })} crumbs={[['/vi/huong-dan/', t('Hướng dẫn')]]} credits={creditsFor(here.map(g => guideImage(c, g)))}>
+  <div class="grid">{here.map(g => <GuideCard g={g} row />)}</div>
+  <nav class="pages" aria-label={t('Các trang')}>
+    <a href={prev} rel="prev">{t('Trang trước')}</a>
+    {n < pages && <a href={`/vi/huong-dan/trang/${n + 1}/`} rel="next">{t('Trang sau')}</a>}
+  </nav>
+</Browse>
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6) var(--space-5); }
+  .pages { display: flex; justify-content: space-between; gap: var(--space-4); margin-top: var(--space-6); }
+  .pages a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); text-decoration: none; }
+  .pages a:hover { background: var(--c-ink); color: var(--c-paper); }
+  .pages a[rel='next'] { margin-left: auto; }
+  @media (max-width: 520px) { .grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); } }
+</style>

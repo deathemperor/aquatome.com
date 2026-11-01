@@ -1,9 +1,10 @@
-import type { Content, Localized, Photo, PlantEntity } from '@aq/schema'
+import type { Content, GuideEntity, Localized, Photo, PlantEntity } from '@aq/schema'
 import type { PlantIndexItem, SpeciesIndexItem } from '../scripts/filter'
-import { PLANT_LABELS } from './format'
+import { GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { cleanPhoto, listOrder } from './home'
 import type { Lang, T } from './i18n'
 import { smallSrc } from './img'
+import { guideImage } from './mentions'
 import { toIndexItem } from './species-index'
 
 /**
@@ -41,4 +42,26 @@ export function plantList(t: T, c: Content): PlantListItem[] {
     slug: p.t.slug, name: p.t.name, scientificName: p.scientificName, light: p.light, co2: p.co2, difficulty: p.difficulty,
     ...(p.placement.length ? { placement: p.placement } : {}), meta: plantMeta(t, p), ...(p.photos[0] ? { photo: cardPhoto(p.photos[0]) } : {}),
   }))
+}
+
+/** The guides the guide list shows, in its order: written ones (video guides have /vi/video/, discovery notes /vi/kham-pha/). */
+export const listedGuides = (c: Content) => c.guides.filter(g => g.kind !== 'discovery' && !g.video)
+
+/** A guide card's subject and its line on where the guide comes from, in the page's language (GuideCard). */
+export const guideWords = (t: T, c: Content, g: Localized<GuideEntity>) => ({
+  label: t(GUIDE_KIND_LABELS[g.kind]!),
+  src: g.video ? t('Theo video của {name}', { name: g.video.channel })
+    : g.source === 'aquatome' ? t('AquaTome tổng hợp, {n} nguồn', { n: (g.t.refs ?? g.refs)?.length ?? 0 })
+    : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source }),
+})
+
+/** A guide list card's address, subject (to filter on), words and picture (GuideCard: guideImage). */
+export type GuideListItem = { slug: string; kind: string; name: string; label: string; src: string; photo?: CardPhoto }
+
+/** Every guide in the guide list's order (/data/<lang>/guides.json): the list's HTML has only its first page. */
+export function guideList(t: T, c: Content): GuideListItem[] {
+  return listedGuides(c).map(g => {
+    const p = guideImage(c, g)
+    return { slug: g.t.slug, kind: g.kind, name: g.t.name, ...guideWords(t, c, g), ...(p ? { photo: cardPhoto(p) } : {}) }
+  })
 }
