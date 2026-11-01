@@ -22,8 +22,8 @@
       "test": "PerformanceTests/testFlingingThroughTheFish()",
       "metric": "com.apple.dt.XCTMetric_Memory-com.aquatome.app.physical_peak",
       "unit": "kB",
-      "max": 75500,
-      "reason": "first CI run (2026-11-01, iPhone 17 simulator on macos-26): median 68,573 kB, ×1.1"
+      "max": 84100,
+      "reason": "raised 2026-11-01 from 75,500 kB for the Tìm tab's home of shelves (#316): the commit before it and #316 measured on one Mac, 75,991 → 77,581 kB (CI: 74,537 → 76,438 kB). Not cards kept: every build levels off after two runs, and a list that reuses its rows measured the same (77,597 kB). A heap diff after the same flings by hand puts the rest in the home staying alive under the shelf: more SwiftUI types (+442 kB metadata, +306 kB method caches), their observation and closure records (about 0.9 MB), and the shelves' own copy of the items (+397 kB). Not a leak: twenty runs in one launch hold flat (69.3–69.6 and 69.9–70.1 MB in two launches), and the five-run measurement above rose in one step of about 6 MB, then held flat. Worth it: the owner asked for the site's home in the app. Budget: CI median 76,438 kB ×1.1"
     },
     {
       "name": "App size, as archived for the App Store (all files, before Apple's encryption and thinning)",
