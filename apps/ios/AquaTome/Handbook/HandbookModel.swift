@@ -21,6 +21,10 @@ final class HandbookModel {
   private var search = HandbookSearch([])
   /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold.
   private var pages: [String: HandbookIndex.Item] = [:]
+  /// Every page by its path: what the reading list keeps.
+  private var byPath: [String: HandbookIndex.Item] = [:]
+  /// Pages saved to read later, and the ones read last (kept in the app's settings, on this phone).
+  private(set) var reading: ReadingList = HandbookModel.loadReading()
   private let source: Source
   /// The site's copy has been read this run: showing the tab again doesn't fetch it again (pull to refresh does).
   private var fetched = false
@@ -40,6 +44,26 @@ final class HandbookModel {
 
   /// The page of a fish or plant on a tank, once the index is here.
   func page(_ contentId: String) -> HandbookIndex.Item? { pages[contentId] }
+
+  /// The saved pages and the ones read last, of `kind` (all kinds for nil), as the index has them now.
+  func saved(_ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] { items(reading.saved, kind) }
+  func recent(_ kind: HandbookIndex.Kind?, limit: Int = 5) -> [HandbookIndex.Item] { Array(items(reading.recent, kind).prefix(limit)) }
+  private func items(_ paths: [String], _ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] {
+    paths.compactMap { byPath[$0] }.filter { kind == nil || $0.kind == kind }
+  }
+
+  func read(_ item: HandbookIndex.Item) { change { $0.read(item.path) } }
+  func toggleSaved(_ item: HandbookIndex.Item) { change { $0.toggleSaved(item.path) } }
+
+  private func change(_ edit: (inout ReadingList) -> Void) {
+    edit(&reading)
+    UserDefaults.standard.set(try? JSONEncoder().encode(reading), forKey: Self.readingKey)
+  }
+
+  private static let readingKey = "handbook.reading"
+  private static func loadReading() -> ReadingList {
+    UserDefaults.standard.data(forKey: readingKey).flatMap { try? JSONDecoder().decode(ReadingList.self, from: $0) } ?? ReadingList()
+  }
 
   /// The fish and plants a tank can list, for `query` (all of them for none).
   func life(_ query: String) -> [HandbookIndex.Item] {
@@ -75,6 +99,7 @@ final class HandbookModel {
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
     pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
+    byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
     count = ix.items.count
     status = s
     refresh()

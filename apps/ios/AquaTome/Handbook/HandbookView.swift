@@ -5,7 +5,6 @@ import SwiftUI
 /// tool is the Lights tab, "Bể của tôi" the tanks tab).
 struct HandbookView: View {
   @Environment(HandbookModel.self) private var handbook
-  @Environment(\.openScreen) private var openScreen
 
   var body: some View {
     @Bindable var handbook = handbook
@@ -21,14 +20,23 @@ struct HandbookView: View {
         } footer: {
           StatusText()
         }
-        Section {
-          ForEach(handbook.results) { item in
-            if item.kind == .tool, let screen = AppScreen.of(handbook.url(item), site: handbook.site) {
-              Button { openScreen(screen) } label: { ItemRow(item: item) }
-            } else {
-              NavigationLink(value: item) { ItemRow(item: item) }
+        // Before a search: what the reader saved to read later, and read last (of the kind picked).
+        if handbook.query.isEmpty {
+          let saved = handbook.saved(handbook.kind), recent = handbook.recent(handbook.kind)
+          if !saved.isEmpty {
+            Section("Đã lưu để đọc sau") {
+              ForEach(saved) { item in
+                Row(item: item).swipeActions { Button("Bỏ lưu", role: .destructive) { handbook.toggleSaved(item) } }
+              }
             }
+            .accessibilityIdentifier("saved")
           }
+          if !recent.isEmpty {
+            Section("Đọc gần đây") { ForEach(recent) { item in Row(item: item) } }
+          }
+        }
+        Section {
+          ForEach(handbook.results) { item in Row(item: item) }
         }
       }
       .listStyle(.insetGrouped)
@@ -41,6 +49,21 @@ struct HandbookView: View {
       }
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
+    }
+  }
+}
+
+/// A page in the list: the site's page, or the app's own screen for it.
+private struct Row: View {
+  let item: HandbookIndex.Item
+  @Environment(HandbookModel.self) private var handbook
+  @Environment(\.openScreen) private var openScreen
+
+  var body: some View {
+    if item.kind == .tool, let screen = AppScreen.of(handbook.url(item), site: handbook.site) {
+      Button { openScreen(screen) } label: { ItemRow(item: item) }
+    } else {
+      NavigationLink(value: item) { ItemRow(item: item) }
     }
   }
 }
