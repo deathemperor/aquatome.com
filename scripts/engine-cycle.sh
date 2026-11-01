@@ -126,6 +126,10 @@ if part rewrite; then
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
   # Guides keep to their title's subject (before localizing, so the copies follow): off-topic sections dropped.
   pnpm engine topic-check --limit "${TOPIC_CHECK_LIMIT:-40}" || log "topic-check: failed"
+  # A reader's eye: the model reads READER_LIMIT pages as a reader would (not read yet first, then changed ones), against
+  # a rubric; Vietnamese wording it flags is rewritten, reviewer-gated, READER_REWRITES parts at most; the rest goes to
+  # docs/review/reader.md.
+  pnpm engine reader --limit "${READER_LIMIT:-20}" --rewrites "${READER_REWRITES:-3}" || log "reader: failed"
   # Species pages in Indonesian and Thai, most-read first, from their English sources (and again when that English changes).
   for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-20}" || log "localize $lang: failed"; done
   # Their other names gain the ones Wikidata gives (CC0), where no other page uses the name: pages made or remade this cycle too.
