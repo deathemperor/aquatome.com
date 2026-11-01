@@ -2,8 +2,8 @@ import CryptoKit
 import Foundation
 import Tanks
 
-// The app's side of accounts (protocols/accounts.openapi.json): the session, Sign in with Apple, syncing "Bể của tôi"
-// with the account, signing out and deleting the account. The app sends `client: "app"`, a bearer token, no cookie and
+// The app's side of accounts (protocols/accounts.openapi.json): the session, Sign in with Apple or with an emailed code,
+// syncing "Bể của tôi" with the account, signing out and deleting the account. The app sends `client: "app"`, a bearer token, no cookie and
 // no Origin; the server answers it a token instead of a cookie.
 
 public struct AccountMethod: Sendable, Equatable {
@@ -134,6 +134,33 @@ public struct AccountsClient: Sendable {
   /// any, goes along: the server ends that session.
   public func signInWithApple(idToken: String, nonce: String, replacing token: String? = nil) async throws -> SignedIn {
     let o = try await call("POST", "/api/v1/auth/apple", token: token, body: ["idToken": .string(idToken), "nonce": .string(nonce), "client": .string("app")])
+    guard let token = o["token"]?.string else { throw AccountError.badReply }
+    return SignedIn(user: try AccountUser(o["user"]), token: token)
+  }
+
+  /// The page that runs the Turnstile check for an email sign-in, for a web view (Turnstile runs only in a web page on
+  /// the site's own host). It posts `{token}`, `{expired}` or `{error}` to the message handler `turnstile`.
+  public func turnstilePage(lang: String) -> URL {
+    var c = URLComponents(url: URL(string: "/api/v1/auth/email/turnstile", relativeTo: base)!.absoluteURL, resolvingAgainstBaseURL: false)!
+    c.queryItems = [URLQueryItem(name: "lang", value: lang)]
+    return c.url!
+  }
+
+  /// Emails a 6-digit code to `email`, with a token from the Turnstile page (each is used once). The answer is the flow
+  /// secret the code works with: kept in memory only.
+  public func emailStart(_ email: String, turnstile: String, lang: String) async throws -> String {
+    let o = try await call("POST", "/api/v1/auth/email/start", body: ["email": .string(email), "turnstile": .string(turnstile), "lang": .string(lang), "client": .string("app")])
+    guard let flow = o["flow"]?.string else { throw AccountError.badReply }
+    return flow
+  }
+
+  /// The code as the server takes it: its ASCII digits ("123 456" and "123-456" are 123456). Six of them, or it isn't one.
+  public static func codeDigits(_ typed: String) -> String { String(typed.unicodeScalars.filter { ("0"..."9").contains($0) }) }
+
+  /// Signs in with the emailed code (401 `bad_code`: wrong, used or expired), sent as its digits. The token this phone
+  /// had, if any, goes along: the server ends that session.
+  public func emailVerify(flow: String, code: String, replacing token: String? = nil) async throws -> SignedIn {
+    let o = try await call("POST", "/api/v1/auth/email/verify", token: token, body: ["flow": .string(flow), "code": .string(Self.codeDigits(code)), "client": .string("app")])
     guard let token = o["token"]?.string else { throw AccountError.badReply }
     return SignedIn(user: try AccountUser(o["user"]), token: token)
   }

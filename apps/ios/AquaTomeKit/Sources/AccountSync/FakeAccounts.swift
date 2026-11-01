@@ -5,8 +5,9 @@ import Tanks
 
 /// The accounts server, in process, for tests and the simulator's UI tests: the paths `AccountsClient` uses, answered
 /// as apps/site/worker/accounts does (protocols/accounts.openapi.json). Sign in with Apple's identity token is
-/// `<sub>|<nonce or its SHA-256>`, and a fresh Apple authorization code for an Apple user is `good-<sub>`.
-/// Records are merged as the server merges them, a time ahead of `now` set to `now` first.
+/// `<sub>|<nonce or its SHA-256>`, and a fresh Apple authorization code for an Apple user is `good-<sub>`. An email
+/// sign-in takes any Turnstile token once, and its code is always `emailCode`; that account is kept under
+/// `email:<address>`. Records are merged as the server merges them, a time ahead of `now` set to `now` first.
 @MainActor
 public final class FakeAccounts {
   public var accountsOn = true
@@ -16,14 +17,20 @@ public final class FakeAccounts {
   public var busy = 0
   /// Records (by id) the server refuses, as it does one that doesn't validate.
   public var refuse: Set<String> = []
+  /// The code every email sign-in is sent.
+  public static let emailCode = "123456"
+  /// The mails sent: the address each code went to (lowercased, as the server sends it).
+  public private(set) var mailed: [String] = []
   public var now: () -> Date = Date.init
   /// Every request received, in order.
   public private(set) var requests: [URLRequest] = []
 
-  struct Account { let id: String; var store = TankStore() }
-  private var accounts: [String: Account] = [:] // by Apple sub
-  private var tokens: [String: String] = [:] // token → Apple sub
+  struct Account { let id: String; var kind = "apple"; var store = TankStore() }
+  private var accounts: [String: Account] = [:] // by Apple sub, or `email:<address>`
+  private var tokens: [String: String] = [:] // token → its account's key
   private var nonces: Set<String> = []
+  private var turnstiles: Set<String> = [] // used once each
+  private var flows: [String: (key: String, tries: Int)] = [:]
   private var issued = 0
   static let appleClientIds = ["com.aquatome.web", "com.aquatome.app"]
 
@@ -33,7 +40,7 @@ public final class FakeAccounts {
   /// a second phone signs in to the account the first one made).
   public var snapshot: JSON {
     .object([
-      "accounts": .object(accounts.mapValues { .object(["id": .string($0.id), "store": $0.store.value]) }),
+      "accounts": .object(accounts.mapValues { .object(["id": .string($0.id), "kind": .string($0.kind), "store": $0.store.value]) }),
       "tokens": .object(tokens.mapValues(JSON.string)),
       "issued": .number(Double(issued)),
     ])
@@ -44,13 +51,13 @@ public final class FakeAccounts {
     let o = snapshot.object ?? [:]
     for (sub, a) in o["accounts"]?.object ?? [:] {
       guard let id = a.object?["id"]?.string, let store = a.object?["store"].flatMap({ try? TankStore($0) }) else { continue }
-      accounts[sub] = Account(id: id, store: store)
+      accounts[sub] = Account(id: id, kind: a.object?["kind"]?.string ?? "apple", store: store)
     }
     for (token, sub) in o["tokens"]?.object ?? [:] { if let sub = sub.string, accounts[sub] != nil { tokens[token] = sub } }
     issued = o["issued"]?.int ?? 0
   }
 
-  /// The tanks an account holds, by the Apple user it signs in with.
+  /// The tanks an account holds, by the Apple user it signs in with (`email:<address>` for an email one).
   public func store(of sub: String) -> TankStore? { accounts[sub]?.store }
   public var accountCount: Int { accounts.count }
   public var sessionCount: Int { tokens.count }
@@ -94,14 +101,28 @@ public final class FakeAccounts {
       let parts = idToken.split(separator: "|", omittingEmptySubsequences: false).map(String.init)
       guard parts.count == 2, !parts[0].isEmpty else { return try fail(401, "bad_token") }
       guard parts[1] == nonce || parts[1] == sha256Hex(nonce) else { return try fail(401, "bad_nonce") }
-      let s = parts[0]
-      // Signing in ends the session this phone had.
-      if let bearer { tokens[bearer] = nil }
-      if accounts[s] == nil { accounts[s] = Account(id: UUID().uuidString.lowercased()) }
+      return try reply(200, signedIn(parts[0], "apple", bearer: bearer))
+    case ("POST", "/api/v1/auth/email/start"):
+      let email = body!["email"]?.string?.trimmingCharacters(in: .whitespaces).lowercased() ?? ""
+      guard email.contains("@"), !email.hasPrefix("@"), !email.hasSuffix("@") else { return try fail(400, "bad_email") }
+      // Each Turnstile token passes once, as Cloudflare's do.
+      guard let t = body!["turnstile"]?.string, !t.isEmpty, turnstiles.insert(t).inserted else { return try fail(403, "turnstile") }
       issued += 1
-      let token = "token-\(issued)-" + String(repeating: "x", count: 24)
-      tokens[token] = s
-      return try reply(200, ["user": user(accounts[s]!, s), "token": .string(token)])
+      let flow = "flow-\(issued)"
+      flows[flow] = ("email:" + email, 0)
+      mailed.append(email)
+      return try reply(200, ["flow": .string(flow)])
+    case ("POST", "/api/v1/auth/email/verify"):
+      guard let flow = body!["flow"]?.string, let code = body!["code"]?.string else { return try fail(400, "bad_request") }
+      guard let f = flows[flow] else { return try fail(401, "bad_code") }
+      // Five wrong codes and the flow is gone; a right one is used once.
+      guard code == Self.emailCode else {
+        flows[flow] = f.tries >= 4 ? nil : (f.key, f.tries + 1)
+        return try fail(401, "bad_code")
+      }
+      flows[flow] = nil
+      guard body!["client"]?.string == "app" else { return try fail(403, "cross_site") }
+      return try reply(200, signedIn(f.key, "email", bearer: bearer))
     case ("POST", "/api/v1/tanks/sync"):
       guard let s = sub else { return try fail(401, "signed_out") }
       if busy > 0 { busy -= 1; return try fail(409, "busy") }
@@ -131,10 +152,12 @@ public final class FakeAccounts {
     case ("DELETE", "/api/v1/account"):
       guard let s = sub else { return try fail(401, "signed_out") }
       // Apple's rule: a fresh Sign in with Apple of this account first, so its tokens can be revoked.
-      guard let apple = body?["apple"]?.object, let code = apple["code"]?.string, let clientId = apple["clientId"]?.string else { return try fail(409, "apple_reauth") }
-      guard Self.appleClientIds.contains(clientId) else { return try fail(400, "bad_request") }
-      guard code.hasPrefix("good-") else { return try fail(502, "apple_revoke_failed") }
-      guard code == "good-\(s)" else { return try fail(409, "apple_other_account") }
+      if accounts[s]?.kind == "apple" {
+        guard let apple = body?["apple"]?.object, let code = apple["code"]?.string, let clientId = apple["clientId"]?.string else { return try fail(409, "apple_reauth") }
+        guard Self.appleClientIds.contains(clientId) else { return try fail(400, "bad_request") }
+        guard code.hasPrefix("good-") else { return try fail(502, "apple_revoke_failed") }
+        guard code == "good-\(s)" else { return try fail(409, "apple_other_account") }
+      }
       accounts[s] = nil
       endSessions(of: s)
       return try reply(204)
@@ -143,10 +166,20 @@ public final class FakeAccounts {
     }
   }
 
-  private func user(_ a: Account, _ sub: String) -> JSON {
+  /// Signed in to the account kept under `key` (made on first use), with a new session; the session this phone had ends.
+  private func signedIn(_ key: String, _ kind: String, bearer: String?) -> [String: JSON] {
+    if let bearer { tokens[bearer] = nil }
+    if accounts[key] == nil { accounts[key] = Account(id: UUID().uuidString.lowercased(), kind: kind) }
+    issued += 1
+    let token = "token-\(issued)-" + String(repeating: "x", count: 24)
+    tokens[token] = key
+    return ["user": user(accounts[key]!, key), "token": .string(token)]
+  }
+
+  private func user(_ a: Account, _ key: String) -> JSON {
     .object([
       "id": .string(a.id), "createdAt": .string("2026-11-01T00:00:00.000Z"),
-      "methods": .array([.object(["id": .string("m-\(sub)"), "kind": .string("apple"), "createdAt": .string("2026-11-01T00:00:00.000Z"), "lastUsedAt": .null])]),
+      "methods": .array([.object(["id": .string("m-\(key)"), "kind": .string(a.kind), "createdAt": .string("2026-11-01T00:00:00.000Z"), "lastUsedAt": .null])]),
     ])
   }
 }

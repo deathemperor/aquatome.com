@@ -87,13 +87,23 @@ struct AccountSignIn: View {
   }
 }
 
+/// Sign in with Apple, and with a code sent by email when the server offers it (the address used on aquatome.com, or
+/// with Google there, opens that account).
 private struct SignInButton: View {
   @Environment(AccountModel.self) private var account
+  @State private var email = false
   var body: some View {
     AppleButton { Task { await account.signInWithApple() } }
       .frame(height: 44)
       .disabled(account.working || !account.canSync)
       .opacity(account.working ? 0.5 : 1)
+    if account.offersEmail {
+      Button("Đăng nhập bằng email") { email = true }
+        .frame(maxWidth: .infinity, minHeight: 44)
+        .disabled(account.working || !account.canSync)
+        .accessibilityIdentifier("email-sign-in")
+        .sheet(isPresented: $email) { EmailSignIn() }
+    }
   }
 }
 
@@ -111,7 +121,7 @@ private struct Fine: View {
   var centered = false
   var body: some View {
     VStack(alignment: centered ? .center : .leading, spacing: 4) {
-      Text("Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, email hay số điện thoại.")
+      Text("Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, số điện thoại, và địa chỉ email chỉ lưu ở dạng mã hóa một chiều.")
         .fixedSize(horizontal: false, vertical: true)
         // A list footer is grey already.
         .foregroundStyle(centered ? AnyShapeStyle(.secondary) : AnyShapeStyle(.primary))

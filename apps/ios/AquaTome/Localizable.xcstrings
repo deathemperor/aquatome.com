@@ -705,6 +705,22 @@
         }
       }
     },
+    "Chưa chạy được bước kiểm tra chống spam: bấm để thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pemeriksaan antispam belum berjalan: ketuk untuk mencoba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังตรวจสอบป้องกันสแปมไม่ได้ แตะเพื่อลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Chưa chọn": {
       "localizations": {
         "id": {
@@ -797,6 +813,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยังไม่ได้ส่งคำสั่ง: %@"
+          }
+        }
+      }
+    },
+    "Chưa gửi được email: thử lại sau.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Email belum terkirim: coba lagi nanti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งอีเมลไม่สำเร็จ โปรดลองใหม่ภายหลัง"
           }
         }
       }
@@ -929,18 +961,18 @@
         }
       }
     },
-    "Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, email hay số điện thoại.": {
+    "Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, số điện thoại, và địa chỉ email chỉ lưu ở dạng mã hóa một chiều.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hanya dipakai untuk mengenali Anda saat masuk: nama, email, atau nomor telepon tidak disimpan."
+            "value": "Hanya dipakai untuk mengenali Anda saat masuk: nama dan nomor telepon tidak disimpan, dan alamat email hanya disimpan dalam bentuk hash satu arah."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ใช้เพื่อระบุตัวคุณเมื่อเข้าสู่ระบบเท่านั้น โดยไม่เก็บชื่อ อีเมล หรือหมายเลขโทรศัพท์"
+            "value": "ใช้เพื่อระบุตัวคุณเมื่อเข้าสู่ระบบเท่านั้น ไม่เก็บชื่อและเบอร์โทรศัพท์ ส่วนอีเมลจะเก็บในรูปแบบเข้ารหัสทางเดียวเท่านั้น"
           }
         }
       }
@@ -1633,6 +1665,38 @@
         }
       }
     },
+    "Gửi lại mã": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim ulang kode"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรหัสอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Gửi mã": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim kode"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรหัส"
+          }
+        }
+      }
+    },
     "Hoàn tác": {
       "localizations": {
         "id": {
@@ -1869,6 +1933,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เชื่อมต่อไม่ได้ เข้าใกล้โคมไฟ ปิดแอป My Chihiros บนเครื่องอื่น แล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không qua được kiểm tra chống spam, vui lòng thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gagal lolos pemeriksaan antispam, silakan coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่ผ่านการตรวจสอบป้องกันสแปม โปรดลองอีกครั้ง"
           }
         }
       }
@@ -2381,6 +2461,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "เครื่องนี้ไม่มีบลูทูธ"
+          }
+        }
+      }
+    },
+    "Mã 6 số trong email": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kode 6 digit di email"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รหัส 6 หลักในอีเมล"
+          }
+        }
+      }
+    },
+    "Mã không đúng hoặc đã hết hạn: kiểm tra lại, hoặc gửi mã mới.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kode salah atau sudah kedaluwarsa: periksa lagi, atau kirim kode baru."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รหัสไม่ถูกต้องหรือหมดอายุแล้ว โปรดตรวจสอบอีกครั้งหรือขอรหัสใหม่"
           }
         }
       }
@@ -4161,6 +4273,22 @@
         }
       }
     },
+    "Đã gửi mã tới %@. Mở email và nhập mã 6 số.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kode sudah dikirim ke %@. Buka email dan masukkan kode 6 digit."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรหัสไปที่ %@ แล้ว เปิดอีเมลและกรอกรหัส 6 หลัก"
+          }
+        }
+      }
+    },
     "Đã kết nối %@, firmware %lld: bản này chưa hẹn giờ được từ ứng dụng, cập nhật firmware bằng ứng dụng My Chihiros.": {
       "localizations": {
         "id": {
@@ -4737,6 +4865,38 @@
         }
       }
     },
+    "Đăng nhập": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masuk"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้าสู่ระบบ"
+          }
+        }
+      }
+    },
+    "Đăng nhập bằng email": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masuk dengan email"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้าสู่ระบบด้วยอีเมล"
+          }
+        }
+      }
+    },
     "Đăng xuất": {
       "localizations": {
         "id": {
@@ -4749,6 +4909,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "ออกจากระบบ"
+          }
+        }
+      }
+    },
+    "Địa chỉ chỉ dùng để gửi mã. Tài khoản chỉ giữ nó ở dạng mã hóa một chiều.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alamat hanya dipakai untuk mengirim kode. Akun hanya menyimpannya dalam bentuk hash satu arah."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ใช้อีเมลเพื่อส่งรหัสเท่านั้น บัญชีจะเก็บไว้ในรูปแบบเข้ารหัสทางเดียวเท่านั้น"
+          }
+        }
+      }
+    },
+    "Địa chỉ email": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alamat email"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ที่อยู่อีเมล"
+          }
+        }
+      }
+    },
+    "Địa chỉ email chưa đúng.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alamat email tidak valid."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อีเมลไม่ถูกต้อง"
           }
         }
       }
