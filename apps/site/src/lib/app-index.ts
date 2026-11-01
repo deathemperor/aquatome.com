@@ -4,8 +4,9 @@ import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
 import { smallSrc } from './img'
 import { localizePath, served, translator, type Lang } from './i18n'
-import { mentionIndex } from './mentions'
+import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
+import { seriesGuides } from './video'
 
 /**
  * The handbook's index for the native app (/app/<lang>.json): every indexable page of one language that the app can
@@ -13,14 +14,17 @@ import { toIndexItem } from './species-index'
  * what the app browses it by. Fish come in the site's list order (the well-known ones first).
  */
 export type AppItem = {
-  kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool'
+  /** `video`: a series of video guides (/vi/video/<slug>/). */
+  kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video'
   /** The page's content id, the same in every language (fish, plants): what a saved tank lists them by. */
   id?: string
   name: string
-  /** Scientific name (fish, plants). */
+  /** Scientific name (fish, plants); a video series' channel. */
   sub?: string
   /** Other names, for search. */
   aka?: string[]
+  /** A tool page's own title, the line under its heading and its description, for search. */
+  words?: string[]
   /** The page in this language: "/id/ikan/<slug>/". */
   path: string
   /** A small photo (about 480 px wide). */
@@ -29,6 +33,10 @@ export type AppItem = {
   section?: string
   /** The fish and plants a guide names, by content id, as its page links them ("Bài viết nhắc đến loài này"). */
   about?: string[]
+  /** A video guide: the video's length in seconds. */
+  video?: number
+  /** A video series: how many guides it has, as its page lists them. */
+  parts?: number
   /** A fish's group, as the site groups species (tetras, cichlids, …, `other`); a breed has its parent species'. */
   group?: string
   /** A plant's care, as its page gives it: difficulty 1 (easy) to 3, and the keys of `labels`. */
@@ -103,7 +111,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const g of appGuides(lang, c)) {
       const m = mentions.get(g.id)
       const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: img(g.photos), section: g.kind, about: about.length ? about : undefined }))
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: img(g.photos), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
@@ -112,9 +120,17 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       if (g.t.quality.indexable) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/thuat-ngu/${g.t.slug}/`) }))
     }
   }
-  // The tools: the page of calculators, and the ones with pages of their own.
-  for (const [vi, name] of [['/vi/cong-cu/', t('Công cụ')], ['/vi/cong-cu/nuoi-chung/', t('Nuôi chung được không? Thả bao nhiêu con?')], ['/vi/cong-cu/the-tich-be/', t('Bể bao nhiêu lít?')], ['/vi/cong-cu/den-chihiros/', t('Đèn Chihiros')], ['/vi/cong-cu/be-cua-toi/', t('Bể của tôi')]] as const) {
-    if (served(lang, vi)) items.push({ kind: 'tool', name, path: at(vi) })
+  if (served(lang, '/vi/video/x/')) {
+    // A series as its page lists it, when one of its guides is in the index (the page is out of search engines otherwise).
+    for (const s of c.series) {
+      const guides = seriesGuides(c, s)
+      if (!guides.some(g => g.t.quality.indexable)) continue
+      const ph = guideImage(c, guides[0]!)
+      items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), parts: guides.length }))
+    }
+  }
+  for (const [vi, name, words] of TOOLS) {
+    if (served(lang, vi)) items.push({ kind: 'tool', name: t(name), path: at(vi), words: words.map(w => t(w)) })
   }
   // Only what the index lists (a well-known fish whose page is below the bar leads the site's home, not the app's): a
   // row's worth of each.
@@ -139,6 +155,35 @@ export function breedGroup(b: Pick<BreedEntity, 'basedOn' | 'parents'>, groupOf:
   }
   return b.parents.map(p => p.species && groupOf.get(p.species)).find(g => g)
 }
+
+/**
+ * The tools: the page of calculators, and the ones with pages of their own. Each with its heading, then its page's own
+ * title, the line under the heading and the description (the page's strings, so the same translations; a test holds
+ * them to the built pages), so a search for "thể tích bể" finds "Bể bao nhiêu lít?".
+ */
+const TOOLS: readonly (readonly [string, string, readonly string[]])[] = [
+  ['/vi/cong-cu/', 'Công cụ', ['Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.']],
+  ['/vi/cong-cu/nuoi-chung/', 'Nuôi chung được không? Thả bao nhiêu con?', [
+    'Kiểm tra cá nuôi chung: hợp nước, hợp tính, thả bao nhiêu con',
+    'Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.',
+    'Các loài cá có nuôi chung được không: so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước thả bao nhiêu con là vừa bể.',
+  ]],
+  ['/vi/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', [
+    'Tính thể tích bể cá: lít, gallon, độ dày kính',
+    'Chọn kiểu bể, nhập kích thước lòng bể. Có 12 kiểu: chữ nhật, lục giác, bát giác, trụ, góc, chữ L…',
+    'Tính thể tích bể cá 12 kiểu (chữ nhật, lục giác, trụ tròn, bể góc, chữ L) ra lít và gallon, kèm lượng nước thực tế, cân nặng và độ dày kính nên dùng.',
+  ]],
+  ['/vi/cong-cu/den-chihiros/', 'Đèn Chihiros', [
+    'Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng',
+    'Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng. Trang nhớ đèn và lịch của bạn trên máy này.',
+    'Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.',
+  ]],
+  ['/vi/cong-cu/be-cua-toi/', 'Bể của tôi', [
+    'Bể của tôi: sổ ghi bể cá, cây và lịch đèn',
+    'Ghi lại từng bể: kích thước, nền, cá, cây và đèn với lịch đã đặt. Lưu ngay trên máy này, không cần đăng ký.',
+    'Sổ bể cá miễn phí: lưu kích thước, thể tích, loại nền, cá, cây, ghi chú và lịch đèn Chihiros của từng bể ngay trên trình duyệt, không cần tài khoản.',
+  ]],
+]
 
 /** Leaves out empty fields, so the file stays small. */
 const clean = (i: AppItem): AppItem => Object.fromEntries(Object.entries(i).filter(([, v]) => v !== undefined)) as AppItem
