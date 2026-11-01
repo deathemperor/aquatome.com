@@ -65,22 +65,6 @@
         }
       }
     },
-    "%lld tiếng, %lld%%": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$lld jam, %2$lld%%"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$lld ชั่วโมง, %2$lld%%"
-          }
-        }
-      }
-    },
     "%lld trang": {
       "localizations": {
         "id": {
@@ -157,6 +141,70 @@
           "stringUnit": {
             "state": "translated",
             "value": "(เสร็จแล้ว)"
+          }
+        }
+      }
+    },
+    ", sáng hẳn %@ tiếng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", terang penuh %@ jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", สว่างเต็มที่ %@ ชั่วโมง"
+          }
+        }
+      }
+    },
+    "1–2 tuần, kèm thay nước, vệ sinh.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1–2 minggu, disertai ganti air dan pembersihan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1–2 สัปดาห์ ควบคู่กับการเปลี่ยนน้ำและทำความสะอาด"
+          }
+        }
+      }
+    },
+    "2–4 tuần đầu: ít giờ, đèn nhẹ để rêu khó bám.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2–4 minggu pertama: jam nyala singkat, lampu redup agar lumut sulit tumbuh."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2–4 สัปดาห์แรก: เปิดไฟน้อยชั่วโมงและแสงอ่อน เพื่อไม่ให้ตะไคร่เกาะง่าย"
+          }
+        }
+      }
+    },
+    "6–8 tiếng là vừa cho bể thủy sinh.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "6–8 jam sudah pas untuk akuarium tanaman air."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "6–8 ชั่วโมงกำลังพอดีสำหรับตู้ไม้น้ำ"
           }
         }
       }
@@ -273,6 +321,22 @@
         }
       }
     },
+    "Bây giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sekarang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตอนนี้"
+          }
+        }
+      }
+    },
     "Bấm vào tên để đổi": {
       "localizations": {
         "id": {
@@ -353,6 +417,22 @@
         }
       }
     },
+    "Bật lúc %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyala pukul %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดเวลา %@"
+          }
+        }
+      }
+    },
     "Bật tắt nhanh": {
       "localizations": {
         "id": {
@@ -413,6 +493,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้ปลา"
+          }
+        }
+      }
+    },
+    "Bể cá, không trồng cây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium ikan, tanpa tanaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ปลา ไม่ปลูกไม้น้ำ"
           }
         }
       }
@@ -849,6 +945,22 @@
         }
       }
     },
+    "Chọn kiểu bể để có lịch gợi ý, rồi kéo giờ bật, giờ tắt trên thanh ngày. Đèn tự bật tắt theo đồng hồ của nó, không cần điện thoại ở gần.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih jenis akuarium untuk mendapat jadwal yang disarankan, lalu geser jam nyala dan jam mati pada bilah hari. Lampu menyala dan mati sendiri sesuai jam internalnya, tanpa perlu ponsel di dekatnya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกประเภทตู้เพื่อรับตารางเวลาแนะนำ แล้วลากเวลาเปิดและเวลาปิดบนแถบวัน โคมไฟจะเปิดปิดเองตามนาฬิกาในตัว ไม่ต้องมีโทรศัพท์อยู่ใกล้"
+          }
+        }
+      }
+    },
     "Chọn lịch và màu": {
       "localizations": {
         "id": {
@@ -861,22 +973,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "เลือกตารางเวลาและสี"
-          }
-        }
-      }
-    },
-    "Chọn một mẫu hoặc tự nhập. Đèn tự bật tắt theo đồng hồ của nó, không cần điện thoại ở gần.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pilih templat atau isi sendiri. Lampu akan menyala dan mati sendiri sesuai jam internalnya, tanpa perlu ponsel di dekatnya."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เลือกตารางสำเร็จรูปหรือกรอกเอง โคมไฟจะเปิดปิดเองตามนาฬิกาในตัว โดยไม่ต้องมีโทรศัพท์อยู่ใกล้"
           }
         }
       }
@@ -1057,6 +1153,22 @@
         }
       }
     },
+    "Cây đã bén rễ, có phân và CO₂ đều.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanaman sudah berakar, dengan pupuk dan CO₂ yang rutin."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม้น้ำตั้งรากแล้ว ได้รับปุ๋ยและ CO₂ สม่ำเสมอ"
+          }
+        }
+      }
+    },
     "Có lỗi, chưa làm được: thử lại.": {
       "localizations": {
         "id": {
@@ -1133,6 +1245,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยาว"
+          }
+        }
+      }
+    },
+    "Dưới 5 tiếng, cây trồng lớn chậm.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurang dari 5 jam, tanaman tumbuh lambat."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ต่ำกว่า 5 ชั่วโมง ไม้น้ำจะโตช้า"
           }
         }
       }
@@ -1297,6 +1425,22 @@
         }
       }
     },
+    "Giờ bật": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam nyala"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เวลาเปิด"
+          }
+        }
+      }
+    },
     "Giờ trên điện thoại lệch quá nhiều: chỉnh lại giờ rồi thử lại.": {
       "localizations": {
         "id": {
@@ -1309,6 +1453,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เวลาในโทรศัพท์คลาดเคลื่อนมากเกินไป โปรดตั้งเวลาใหม่แล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Giờ tắt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam mati"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เวลาปิด"
           }
         }
       }
@@ -1421,22 +1581,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "คู่มือ"
-          }
-        }
-      }
-    },
-    "Hẹn giờ bật tắt mỗi ngày": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Timer nyala-mati harian"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ตั้งเวลาเปิดปิดทุกวัน"
           }
         }
       }
@@ -1565,6 +1709,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "คีย์ถูกต้อง %@"
+          }
+        }
+      }
+    },
+    "Không": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่"
           }
         }
       }
@@ -1985,6 +2145,38 @@
         }
       }
     },
+    "Lịch mẫu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Templat jadwal"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตารางสำเร็จรูป"
+          }
+        }
+      }
+    },
+    "Lịch mỗi ngày": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jadwal harian"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตารางเวลาประจำวัน"
+          }
+        }
+      }
+    },
     "Lịch thay nước, phân bón, CO₂…": {
       "localizations": {
         "id": {
@@ -2353,18 +2545,18 @@
         }
       }
     },
-    "Sáng dần, tối dần (phút)": {
+    "Sáng dần, tối dần": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Terang dan redup bertahap (menit)"
+            "value": "Terang bertahap, redup bertahap"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ค่อย ๆ สว่าง ค่อย ๆ มืด (นาที)"
+            "value": "ค่อย ๆ สว่างขึ้น ค่อย ๆ หรี่ลง"
           }
         }
       }
@@ -3101,6 +3293,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปิดเวลา"
+          }
+        }
+      }
+    },
+    "Tắt lúc %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mati pukul %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดเวลา %@"
           }
         }
       }
@@ -4049,18 +4257,18 @@
         }
       }
     },
-    "Đèn sáng %@ tiếng mỗi ngày.": {
+    "Đèn sáng %@ tiếng mỗi ngày": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Lampu menyala %@ jam per hari."
+            "value": "Lampu menyala %@ jam per hari"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ไฟเปิด %@ ชั่วโมงต่อวัน"
+            "value": "เปิดไฟวันละ %@ ชั่วโมง"
           }
         }
       }
@@ -4301,6 +4509,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "นาฬิกาของโคมไฟตรงเวลา"
+          }
+        }
+      }
+    },
+    "Đủ để ngắm cá, ít rêu.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cukup untuk menikmati ikan, lumut sedikit."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สว่างพอสำหรับชมปลา ตะไคร่ขึ้นน้อย"
           }
         }
       }

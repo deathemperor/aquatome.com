@@ -23,7 +23,7 @@ final class LightFlowTests: XCTestCase {
     let app = launch("-fake-other-schedule")
     connect(app)
     expect(app, "saved", contains: "Chưa ghi lịch nào từ AquaTome.")
-    expect(app, "hours", contains: "Đèn sáng 8 tiếng mỗi ngày.")
+    expect(app, "hours", contains: "Đèn sáng 8 tiếng mỗi ngày, sáng hẳn 7 tiếng.")
     expect(app, "level-0", contains: "70%")
   }
 
@@ -49,7 +49,7 @@ final class LightFlowTests: XCTestCase {
     let app = launch()
     connect(app)
     tap(app, "preset-new")
-    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày.")
+    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày, sáng hẳn 5 tiếng.")
     write(app) // the first write asks: it replaces whatever the light holds
     expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
     expect(app, "saved", contains: "Lịch 13:00–19:00 · 40%, sáng dần 30 phút")
@@ -67,7 +67,7 @@ final class LightFlowTests: XCTestCase {
     tap(app, "notice-action")
     expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
     expect(app, "saved", contains: "Lịch 13:00–19:00 · 40%")
-    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày.")
+    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày, sáng hẳn 5 tiếng.")
     XCTAssertFalse(element(app, "notice-action").exists, "an undo of the undo")
 
     // Off by hand, then back: the schedule AquaTome wrote is written again as it was (clear, scene, the same bytes).
@@ -111,23 +111,23 @@ final class LightFlowTests: XCTestCase {
     app = launch(reset: false)
     expect(app, "card-title", contains: "Đèn đã lưu trên máy này")
     expect(app, "saved-meta", contains: "WRGB II Slim · lịch 13:00–19:00 · 40%")
-    expect(app, "hours", contains: "Đèn sáng 8 tiếng mỗi ngày.") // the plan left last time
+    expect(app, "hours", contains: "Đèn sáng 8 tiếng mỗi ngày, sáng hẳn 7 tiếng.") // the plan left last time
     tap(app, "saved-light")
     expect(app, "notice", contains: "Đã kết nối WRGB II Slim.")
     XCTAssertFalse(element(app, "steps").exists, "setup steps for a light already written to")
     expect(app, "saved", contains: "Lịch 13:00–19:00 · 40%, sáng dần 30 phút")
     // Not edited since the app opened: the form takes what was written to this light.
-    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày.")
+    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày, sáng hẳn 5 tiếng.")
   }
 
   func testThePlanIsKeptWithoutALight() {
     var app = launch()
     tap(app, "preset-algae")
-    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày.")
+    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày, sáng hẳn 5 tiếng.")
     XCTAssertFalse(element(app, "write").isEnabled)
     app.terminate()
     app = launch(reset: false)
-    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày.")
+    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày, sáng hẳn 5 tiếng.")
   }
 
   func testQuickActionsLeaveTheScheduleAndComeBackToIt() {
@@ -192,7 +192,7 @@ final class LightFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "settings").exists, "no way to the Settings app")
     XCTAssertFalse(element(app, "scan").exists)
     tap(app, "preset-new")
-    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày.")
+    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày, sáng hẳn 5 tiếng.")
     XCTAssertFalse(element(app, "write").isEnabled)
   }
 
@@ -235,6 +235,71 @@ final class LightFlowTests: XCTestCase {
     expect(app, "notice", contains: "Đã ghi")
     // The light runs the schedule again: no level set by hand holds now.
     expect(app, "manual-0-level", contains: "–")
+  }
+
+  func testPresetsByTankTypeSayWhyMarkTheChosenOneAndKeepTheMix() {
+    let app = launch()
+    expect(app, "preset-fish", contains: "Bể cá, không trồng cây")
+    expect(app, "preset-fish", contains: "12:00–20:00 · 40%")
+    expect(app, "preset-fish", contains: "Đủ để ngắm cá, ít rêu.")
+    XCTAssertTrue(element(app, "preset-settled").isSelected, "the form starts as “Bể đã ổn định”, unmarked")
+    // Green mixed lower by hand: a preset sets the brightness and keeps the mix.
+    let green = scrolledTo(app, "level-1")
+    green.buttons.element(boundBy: 0).tap()
+    green.buttons.element(boundBy: 0).tap()
+    expect(app, "level-1", contains: "60%")
+    tap(app, "preset-fish")
+    XCTAssertTrue(element(app, "preset-fish").isSelected, "the chosen preset unmarked")
+    XCTAssertFalse(element(app, "preset-settled").isSelected, "a preset with the same hours but brighter marked too")
+    expect(app, "hours", contains: "Đèn sáng 8 tiếng mỗi ngày, sáng hẳn 7 tiếng. 6–8 tiếng là vừa cho bể thủy sinh.")
+    expect(app, "level-0", contains: "40%")
+    expect(app, "level-1", contains: "34%")
+    tap(app, "preset-settled")
+    expect(app, "level-0", contains: "70%")
+    expect(app, "level-1", contains: "60%")
+    XCTAssertFalse(element(app, "preset-fish").isSelected, "the preset left still marked")
+  }
+
+  func testTheDaysHandlesAndTheRampMenuSetTheScheduleWritten() {
+    let app = launch()
+    connect(app)
+    expect(app, "handle-on", value: "Bật lúc 12:00")
+    expect(app, "handle-off", value: "Tắt lúc 20:00")
+    expect(app, "handle-ramp", value: "30 phút")
+    // A touch held still changes nothing, even one beside the handle's line (it once jumped the time to the finger).
+    _ = scrolledTo(app, "day")
+    element(app, "handle-on").coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.8)).press(forDuration: 0.6)
+    element(app, "handle-off").coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.8)).press(forDuration: 0.6)
+    expect(app, "handle-on", value: "Bật lúc 12:00")
+    expect(app, "handle-off", value: "Tắt lúc 20:00")
+    XCTAssertTrue(element(app, "preset-settled").isSelected, "a touch on a handle changed the schedule")
+    drag(app, "handle-on", from: 12 * 60, to: 14 * 60)
+    expect(app, "handle-on", value: "Bật lúc 14:00")
+    expect(app, "hours", contains: "Đèn sáng 6 tiếng mỗi ngày, sáng hẳn 5 tiếng. 6–8 tiếng là vừa")
+    drag(app, "handle-off", from: 20 * 60, to: 23 * 60)
+    expect(app, "handle-off", value: "Tắt lúc 23:00")
+    expect(app, "hours", contains: "Đèn sáng 9 tiếng mỗi ngày, sáng hẳn 8 tiếng. Trên 8 tiếng dễ lên rêu.")
+    drag(app, "handle-ramp", from: 30, to: 60)
+    expect(app, "handle-ramp", value: "60 phút")
+    expect(app, "hours", contains: "sáng hẳn 7 tiếng")
+    // Off stays two ramps after on, however far it is dragged.
+    drag(app, "handle-off", from: 23 * 60, to: 12 * 60)
+    expect(app, "handle-off", value: "Tắt lúc 16:00")
+    expect(app, "hours", contains: "Đèn sáng 2 tiếng mỗi ngày, sáng hẳn 0 tiếng. Dưới 5 tiếng, cây trồng lớn chậm.")
+    drag(app, "handle-off", from: 16 * 60, to: 22 * 60)
+    expect(app, "handle-off", value: "Tắt lúc 22:00")
+    // The exact fields follow, and the ramp menu sets the ramp.
+    XCTAssertEqual(element(app, "on").buttons.firstMatch.value as? String, "14:00", "the on time doesn't follow the day")
+    XCTAssertEqual(element(app, "off").buttons.firstMatch.value as? String, "22:00", "the off time doesn't follow the day")
+    tap(app, "ramp")
+    let choice = app.buttons["45 phút"]
+    XCTAssertTrue(choice.waitForExistence(timeout: 5), "no 45-minute ramp in the menu")
+    choice.tap()
+    expect(app, "handle-ramp", value: "45 phút")
+    write(app)
+    expect(app, "notice", contains: "Đã ghi: bật 14:00, tắt 22:00.")
+    // 14:00, 22:00, a 45-minute ramp, 70% each.
+    expectFrames(app, ".*a5 01 13 .. .. 19 0e 00 16 00 2d 7f 46 46 46 .*")
   }
 
   // MARK: Helpers
@@ -319,6 +384,19 @@ final class LightFlowTests: XCTestCase {
     wait(app, id, NSPredicate(format: "exists == true AND NOT (label CONTAINS %@)", text), "no “\(text)”", file: file, line: line)
   }
 
+  private func expect(_ app: XCUIApplication, _ id: String, value: String, file: StaticString = #filePath, line: UInt = #line) {
+    wait(app, id, NSPredicate(format: "value CONTAINS %@", value), "the value “\(value)”", file: file, line: line)
+  }
+
+  /// Drags a handle of the day from where it is (`at`, minutes) by as much as it takes to reach `minute`: the day's
+  /// width is 24 hours. Below the ramp knob for on and off.
+  private func drag(_ app: XCUIApplication, _ id: String, from at: Double, to minute: Double) {
+    let day = scrolledTo(app, "day").frame
+    let start = element(app, id).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: id == "handle-ramp" ? 0.5 : 0.8))
+    let end = start.withOffset(CGVector(dx: day.width * (minute - at) / 1440, dy: 0))
+    start.press(forDuration: 0.1, thenDragTo: end, withVelocity: .slow, thenHoldForDuration: 0.1)
+  }
+
   /// The fake light's last frames (hex, " | " between them), as the app shows them to the tests, match `pattern`.
   private func expectFrames(_ app: XCUIApplication, _ pattern: String, file: StaticString = #filePath, line: UInt = #line) {
     wait(app, "frames", NSPredicate(format: "label MATCHES %@", pattern), "frames like /\(pattern)/", file: file, line: line)
@@ -330,7 +408,7 @@ final class LightFlowTests: XCTestCase {
     // Checked once more after the wait: on a loaded CI runner a snapshot can take the whole timeout, and the screen was
     // already right ("expected X, got X", PR #212).
     if XCTWaiter.wait(for: [expectation(for: p, evaluatedWith: e)], timeout: 10) != .completed, !p.evaluate(with: e) {
-      XCTFail("\(id): expected \(what), got “\(e.exists ? e.label : "(missing)")”", file: file, line: line)
+      XCTFail("\(id): expected \(what), got “\(e.exists ? e.label : "(missing)")”\(e.exists ? " (value “\(e.value.map { "\($0)" } ?? "")”)" : "")", file: file, line: line)
     }
   }
 }

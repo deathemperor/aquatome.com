@@ -317,14 +317,31 @@ final class LightsModel {
 
   // MARK: Commands
 
+  /// A preset's hours, and its brightness for the colours as mixed (the site keeps the mix); the ramp stays.
   func applyPreset(_ p: Preset) {
     on = p.on
     off = p.off
-    levels = levels.map { _ in p.level }
+    levels = fit(scaled(Array(levels.prefix(channels.count)), to: p.level), to: levels.count)
     planName = String(localized: p.name)
     edited = true // even a preset the form already matched: chosen
     keepDraft()
   }
+
+  /// The preset the form is: its hours and its brightness (as the site marks the pressed one).
+  func matches(_ p: Preset) -> Bool { on == p.on && off == p.off && form.top == p.level }
+
+  /// A timeline handle dragged (or adjusted with VoiceOver) to minute `m`: snapped to 15 minutes, kept apart.
+  func move(_ h: Schedule.Handle, to m: Double) {
+    let s = form.moving(h, to: m)
+    on = s.on
+    off = s.off
+  }
+
+  /// The ramp handle dragged to `m` minutes after on: the nearest ramp that fits.
+  func setRamp(near m: Double) { ramp = form.ramp(near: m) }
+
+  /// The ramp handle adjusted with VoiceOver: the next ramp that fits.
+  func stepRamp(up: Bool) { ramp = form.ramp(steppedUp: up) }
 
   func rename(_ text: String) {
     let name = TankFields.capped(text.trimmingCharacters(in: .whitespacesAndNewlines), TankFields.nameMax)
@@ -537,18 +554,24 @@ final class LightsModel {
   }
 }
 
-/// Planted-tank starting points: 6–8 hours a day at a fixed time, less and dimmer while a tank is new or fighting algae.
+/// Starting points by tank type: 6–8 hours a day at a fixed time, less and dimmer while a tank is new or fighting algae.
 /// The same as the site's Chihiros page.
 struct Preset: Identifiable {
   let id: String
   let name: LocalizedStringResource
+  let why: LocalizedStringResource
   let on: TimeOfDay
   let off: TimeOfDay
   let level: Int
 
   static let all = [
-    Preset(id: "new", name: "Bể mới trồng", on: TimeOfDay(hour: 13, minute: 0), off: TimeOfDay(hour: 19, minute: 0), level: 40),
-    Preset(id: "settled", name: "Bể đã ổn định", on: TimeOfDay(hour: 12, minute: 0), off: TimeOfDay(hour: 20, minute: 0), level: 70),
-    Preset(id: "algae", name: "Bể đang bị rêu", on: TimeOfDay(hour: 14, minute: 0), off: TimeOfDay(hour: 20, minute: 0), level: 50),
+    Preset(id: "new", name: "Bể mới trồng", why: "2–4 tuần đầu: ít giờ, đèn nhẹ để rêu khó bám.",
+           on: TimeOfDay(hour: 13, minute: 0), off: TimeOfDay(hour: 19, minute: 0), level: 40),
+    Preset(id: "settled", name: "Bể đã ổn định", why: "Cây đã bén rễ, có phân và CO₂ đều.",
+           on: TimeOfDay(hour: 12, minute: 0), off: TimeOfDay(hour: 20, minute: 0), level: 70),
+    Preset(id: "algae", name: "Bể đang bị rêu", why: "1–2 tuần, kèm thay nước, vệ sinh.",
+           on: TimeOfDay(hour: 14, minute: 0), off: TimeOfDay(hour: 20, minute: 0), level: 50),
+    Preset(id: "fish", name: "Bể cá, không trồng cây", why: "Đủ để ngắm cá, ít rêu.",
+           on: TimeOfDay(hour: 12, minute: 0), off: TimeOfDay(hour: 20, minute: 0), level: 40),
   ]
 }
