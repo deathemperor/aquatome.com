@@ -84,7 +84,7 @@ Debug builds, so they don't see it.
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says |
-| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names and each guide's subject and the fish and plants it names, and searching it: without accents, đ as d, any word order; where a link in a page goes (`PageRoute`, `AppScreen`); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names and each guide's subject and the fish and plants it names, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), and searching it: without accents, đ as d, any word order; where a link in a page goes (`PageRoute`, `AppScreen`); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
 | `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
 
 ```sh

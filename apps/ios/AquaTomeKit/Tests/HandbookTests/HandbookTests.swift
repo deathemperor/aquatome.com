@@ -140,3 +140,31 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   let back = try JSONDecoder().decode(HandbookIndex.Item.self, from: JSONEncoder().encode(ix.items[0]))
   #expect(back == ix.items[0])
 }
+
+@Test func readsWhatTheAppBrowsesBy() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[
+   {"kind":"fish","id":"neon","name":"Cá neon","path":"/vi/ca/neon/","group":"tetras"},
+   {"kind":"plant","id":"nana","name":"Ráy nana","path":"/vi/cay/nana/","plant":{"difficulty":1,"light":"low","co2":"none","growth":"slow","placement":["foreground","epiphyte"]}},
+   {"kind":"plant","id":"la","name":"Lạ","path":"/vi/cay/la/","plant":{"difficulty":"easy","light":"low","placement":"foreground"}}
+  ],
+  "home":{"groups":[{"id":"tetras","img":"https://x/neon.jpg"},{"id":"shrimp"}],"fish":["/vi/ca/neon/"],"plants":["/vi/cay/nana/"],"guides":[]},
+  "labels":{"group":{"tetras":"Cá tetra"},"placement":{"epiphyte":"Bám đá, lũa"},"difficulty":{"1":"Dễ"},"later":["not words"]}}
+  """#.utf8))
+  #expect(ix.items[0].group == "tetras")
+  #expect(ix.items[1].plant == .init(difficulty: 1, light: "low", co2: "none", growth: "slow", placement: ["foreground", "epiphyte"]))
+  // A value this app can't read is left out, not the rest of the plant's care.
+  #expect(ix.items[2].plant == .init(light: "low"))
+  #expect(ix.home == .init(groups: [.init(id: "tetras", img: "https://x/neon.jpg"), .init(id: "shrimp")], fish: ["/vi/ca/neon/"], plants: ["/vi/cay/nana/"]))
+  #expect(ix.labels["group", "tetras"] == "Cá tetra" && ix.labels["placement", "epiphyte"] == "Bám đá, lũa" && ix.labels["difficulty", "1"] == "Dễ")
+  // Words this app can't read cost only themselves.
+  #expect(ix.labels["group", "cichlids"] == nil && ix.labels.words["later"] == nil)
+  #expect(try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(ix)) == ix)
+}
+
+@Test func anIndexFromAnOlderSiteOrWithAHomeItCantReadStillLoads() throws {
+  let old = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":1,"lang":"vi","items":[{"kind":"fish","name":"Cá","path":"/vi/ca/x/"}]}"#.utf8))
+  #expect(old.home == nil && old.labels.words.isEmpty && old.items[0].group == nil && old.items[0].plant == nil)
+  let odd = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":1,"lang":"vi","items":[{"kind":"fish","name":"Cá","path":"/vi/ca/x/","group":7}],"home":[1],"labels":"x"}"#.utf8))
+  #expect(odd.items.count == 1 && odd.items[0].group == nil && odd.home == nil && odd.labels.words.isEmpty)
+}
