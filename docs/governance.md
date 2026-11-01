@@ -31,6 +31,16 @@ that would have caught it).
     - links to this site's pages lead to pages that exist
     - no Vietnamese on Indonesian or Thai pages
     - no script errors
+  - **Built-page checks** (`apps/site/scripts/page-check.ts`), on the HTML alone: in `pnpm test` on every fixture page,
+    in the browser checks (`@page-checks`) on the same sample, live in `watch.yml`:
+    - no picture twice on a page, cards and tiles too, compared as pictures (the image hash in
+      `content/picture-hashes.json`, `pnpm engine picture-hashes`; a YouTube thumbnail by its video), not by address
+    - no figure of another fish under a heading about one fish (it names the fish, or its scientific name in brackets)
+    - no "Name (Scientific name)" linked to a page with another scientific name
+    - in a list of fish, no fish's section without a photo while the fish has one the page doesn't show yet
+    - the contents match the headings, in order, each numbered heading under its own number; numbered headings count up
+    - no heading with nothing under it
+    - `pnpm exec tsx scripts/page-check.ts <dist> <content>` (in `apps/site`) counts any build's problems, per check
   - **Lighthouse** (`lighthouse.spec.ts`, what PageSpeed Insights runs) on one page of each kind readers open most, as
     PageSpeed's mobile and desktop tests, run alone (`E2E_LIGHTHOUSE=1 … --workers=1`). Each page has a budget:
     - accessibility, best practices and SEO at 100
@@ -179,6 +189,11 @@ The layers above still check the result.
     reads the text on every photo shown, gallery photos included, and the model blocks a marked one for good. A gallery
     leads with Claude's best picks, mixed by what they show (male, female, colour form, young, the wild; for a plant
     under water, emersed, in flower).
+  - **One picture, once a page.** Every picture's image hash is in `content/picture-hashes.json` (`pnpm engine
+    picture-hashes`, each cycle): a page decides its pictures in page order and never shows one twice, even as two files
+    (two articles of one source each had a copy), and a card or tile takes its next photo, or none. A guide keeps every
+    photo of its source, each with the heading it sat under, mapped to the guide's own (`guide-sections.ts`); in a list
+    of fish each fish's section shows that fish, the guide's own photo first.
   - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer
     and the page's credits); the gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and
     GBIF photos are copied to our media bucket with the credit kept.
