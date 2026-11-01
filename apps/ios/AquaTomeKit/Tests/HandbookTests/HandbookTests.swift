@@ -97,3 +97,29 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(route("about:blank", mainFrame: false) == .app)
   #expect(route("about:blank", newWindow: true) == .none)
 }
+
+@Test func readsAFishsFiguresAndBehaviourUnderTheToolsNames() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[
+   {"kind":"fish","id":"paracheirodon-axelrodi","name":"Cá neon đỏ","path":"/vi/ca/ca-neon-do/","tempC":{"min":23,"max":27},"ph":{"min":4,"max":6},"gh":{"min":1,"max":6},"sizeCm":5,"tankCm":60,"temperament":"peaceful","schoolMin":8,"difficulty":3},
+   {"kind":"fish","id":"puntigrus-tetrazona","name":"Cá xăng-đá","path":"/vi/ca/ca-xang-da/","sizeCm":7,"temperament":"shy","finNipper":true},
+   {"kind":"fish","id":"danio-rerio","name":"Cá ngựa vằn","path":"/vi/ca/ca-ngua-van/","sizeCm":"5 cm","ph":{"min":6}},
+   {"kind":"guide","name":"Nuôi cá neon trong bể nhỏ","path":"/vi/huong-dan/nuoi-ca-neon/"}
+  ]}
+  """#.utf8))
+  #expect(ix.items.count == 4)
+  #expect(ix.items[0].facts == .init(tempC: .init(min: 23, max: 27), ph: .init(min: 4, max: 6), gh: .init(min: 1, max: 6), sizeCm: 5, tankCm: 60, temperament: "peaceful", schoolMin: 8, difficulty: 3))
+  // A temperament this app doesn't know yet is kept as the site wrote it.
+  #expect(ix.items[1].facts == .init(sizeCm: 7, temperament: "shy", finNipper: true))
+  // A figure it can't read is left out, not the fish.
+  #expect(ix.items[2].name == "Cá ngựa vằn" && ix.items[2].facts == .init())
+  #expect(ix.items[3].facts == .init())
+}
+
+@Test func writesTheFactsBackUnderTheSameNames() throws {
+  let item = HandbookIndex.Item(kind: .fish, contentId: "x", name: "Cá", path: "/vi/ca/x/", facts: .init(ph: .init(min: 6, max: 7.5), sizeCm: 4, finNipper: true))
+  let json = try JSONSerialization.jsonObject(with: JSONEncoder().encode(item)) as! [String: Any]
+  #expect(json["sizeCm"] as? Double == 4 && json["finNipper"] as? Bool == true && (json["ph"] as? [String: Double]) == ["min": 6, "max": 7.5])
+  #expect(json["tempC"] == nil && json["id"] as? String == "x")
+  #expect(try JSONDecoder().decode(HandbookIndex.Item.self, from: JSONEncoder().encode(item)) == item)
+}

@@ -21,12 +21,80 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     /// The page: "/id/ikan/<slug>/".
     public let path: String
     public let img: String?
+    /// A fish's figures and behaviour (none for other kinds, nor for a fish the site has none for).
+    public let facts: Facts
     public var id: String { path }
 
     enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img }
 
-    public init(kind: Kind, contentId: String? = nil, name: String, sub: String? = nil, aka: [String]? = nil, path: String, img: String? = nil) {
+    public init(kind: Kind, contentId: String? = nil, name: String, sub: String? = nil, aka: [String]? = nil, path: String, img: String? = nil, facts: Facts = Facts()) {
       self.kind = kind; self.contentId = contentId; self.name = name; self.sub = sub; self.aka = aka; self.path = path; self.img = img
+      self.facts = facts
+    }
+
+    public init(from decoder: any Decoder) throws {
+      let c = try decoder.container(keyedBy: CodingKeys.self)
+      kind = try c.decode(Kind.self, forKey: .kind)
+      contentId = try c.decodeIfPresent(String.self, forKey: .contentId)
+      name = try c.decode(String.self, forKey: .name)
+      sub = try c.decodeIfPresent(String.self, forKey: .sub)
+      aka = try c.decodeIfPresent([String].self, forKey: .aka)
+      path = try c.decode(String.self, forKey: .path)
+      img = try c.decodeIfPresent(String.self, forKey: .img)
+      facts = try Facts(from: decoder)
+    }
+
+    public func encode(to encoder: any Encoder) throws {
+      var c = encoder.container(keyedBy: CodingKeys.self)
+      try c.encode(kind, forKey: .kind)
+      try c.encodeIfPresent(contentId, forKey: .contentId)
+      try c.encode(name, forKey: .name)
+      try c.encodeIfPresent(sub, forKey: .sub)
+      try c.encodeIfPresent(aka, forKey: .aka)
+      try c.encode(path, forKey: .path)
+      try c.encodeIfPresent(img, forKey: .img)
+      try facts.encode(to: encoder)
+    }
+  }
+
+  /// A species' figures and behaviour, beside the other fields of its item and named as the site's tank-mates tool
+  /// names them (`SpeciesIndexItem`, apps/site/src/scripts/filter.ts). Each is optional, and one this app can't read
+  /// (a new temperament is kept as it is) never costs the item.
+  public struct Facts: Codable, Sendable, Hashable {
+    public struct Range: Codable, Sendable, Hashable {
+      public let min: Double
+      public let max: Double
+      public init(min: Double, max: Double) { self.min = min; self.max = max }
+    }
+    public var tempC: Range?
+    public var ph: Range?
+    /// General hardness, dGH.
+    public var gh: Range?
+    /// Adult length, cm.
+    public var sizeCm: Double?
+    /// The shortest tank it should live in, cm.
+    public var tankCm: Double?
+    /// "peaceful", "semi-aggressive", "aggressive", "predator", or one a newer site adds.
+    public var temperament: String?
+    public var finNipper: Bool?
+    /// The smallest group to keep.
+    public var schoolMin: Int?
+    /// 1 (easy) to 10.
+    public var difficulty: Double?
+
+    public init(tempC: Range? = nil, ph: Range? = nil, gh: Range? = nil, sizeCm: Double? = nil, tankCm: Double? = nil,
+                temperament: String? = nil, finNipper: Bool? = nil, schoolMin: Int? = nil, difficulty: Double? = nil) {
+      self.tempC = tempC; self.ph = ph; self.gh = gh; self.sizeCm = sizeCm; self.tankCm = tankCm
+      self.temperament = temperament; self.finNipper = finNipper; self.schoolMin = schoolMin; self.difficulty = difficulty
+    }
+
+    enum CodingKeys: String, CodingKey { case tempC, ph, gh, sizeCm, tankCm, temperament, finNipper, schoolMin, difficulty }
+
+    public init(from decoder: any Decoder) throws {
+      let c = try decoder.container(keyedBy: CodingKeys.self)
+      func read<T: Decodable>(_ k: CodingKeys) -> T? { (try? c.decodeIfPresent(T.self, forKey: k)) ?? nil }
+      tempC = read(.tempC); ph = read(.ph); gh = read(.gh); sizeCm = read(.sizeCm); tankCm = read(.tankCm)
+      temperament = read(.temperament); finNipper = read(.finNipper); schoolMin = read(.schoolMin); difficulty = read(.difficulty)
     }
   }
 
