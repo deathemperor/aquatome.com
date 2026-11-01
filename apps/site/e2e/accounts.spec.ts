@@ -483,6 +483,40 @@ test('with passkeys off neither passkey button shows', async ({ page, baseURL, e
   expect(errors).toEqual([])
 })
 
+test('the app\'s Turnstile page hands each token to the app, under its own content security policy', async ({ page, errors }) => {
+  const b = backend()
+  await connect(page, b)
+  // Like Cloudflare's script: it calls the page back when loaded, solves a moment after render, and again after a reset.
+  await page.route(/challenges\.cloudflare\.com\/turnstile/, route => route.fulfill({ contentType: 'text/javascript', body: `let n = 0, o
+window.turnstile = { render(el, opts) { o = opts; window.__opts = opts; setTimeout(() => o.callback('tok-' + ++n), 10); return 'w1' }, reset() { setTimeout(() => o.callback('tok-' + ++n), 10) } }
+window.onTurnstile()` }))
+  // WKWebView's script message handler, as the app adds it.
+  await page.addInitScript(() => { const got: unknown[] = []; Object.assign(window, { __got: got, webkit: { messageHandlers: { turnstile: { postMessage: (m: unknown) => got.push(m) } } } }) })
+  const blocked: string[] = []
+  page.on('console', m => { if (/Content Security Policy/i.test(m.text())) blocked.push(m.text()) })
+  await page.goto('/api/v1/auth/email/turnstile?lang=id')
+  const got = () => page.evaluate(() => (window as unknown as { __got: unknown[] }).__got)
+  await expect.poll(got).toEqual([{ token: 'tok-1' }])
+  expect(await page.evaluate(() => (window as unknown as { __opts: { sitekey: string; language: string } }).__opts)).toMatchObject({ sitekey: 'sk', language: 'id' })
+  // A token is used once: the app asks for another.
+  await page.evaluate(() => (window as unknown as { again: () => void }).again())
+  await expect.poll(got).toEqual([{ token: 'tok-1' }, { token: 'tok-2' }])
+  expect(blocked).toEqual([])
+  expect(errors).toEqual([])
+})
+
+test('the app\'s Turnstile page: Cloudflare\'s script blocked, the app is told, and asking again says so too', async ({ page }) => {
+  const b = backend()
+  await connect(page, b)
+  await page.route(/challenges\.cloudflare\.com/, route => route.abort('blockedbyclient'))
+  await page.addInitScript(() => { const got: unknown[] = []; Object.assign(window, { __got: got, webkit: { messageHandlers: { turnstile: { postMessage: (m: unknown) => got.push(m) } } } }) })
+  await page.goto('/api/v1/auth/email/turnstile?lang=vi')
+  const got = () => page.evaluate(() => (window as unknown as { __got: unknown[] }).__got)
+  await expect.poll(got).toEqual([{ error: 'load' }])
+  await page.evaluate(() => (window as unknown as { again: () => void }).again())
+  await expect.poll(got).toEqual([{ error: 'load' }, { error: 'none' }])
+})
+
 test.describe('inside the AquaTome app', () => {
   // The app's web view (apps/ios PageView): its user agent ends in AquaTomeApp/<version>.
   test.use({ userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 AquaTomeApp/1.0' })

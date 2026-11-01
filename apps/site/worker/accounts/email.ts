@@ -27,18 +27,22 @@ export function normalEmail(raw: unknown): string | undefined {
 }
 export const emailHash = (key: string, email: string) => hmac(key, `email|${email}`)
 
-const TEXT: Record<Lang, { subject: (code: string) => string; body: (code: string, link: string) => string }> = {
+// The app's mail has no link: on a phone it would open the browser, which didn't ask for the code. The code goes into the app.
+const TEXT: Record<Lang, { subject: (code: string) => string; body: (code: string, link: string) => string; app: (code: string) => string }> = {
   vi: {
     subject: code => `${code} là mã đăng nhập AquaTome`,
     body: (code, link) => `Mã đăng nhập AquaTome của bạn: ${code}\n\nNhập mã vào trang bạn vừa yêu cầu, hoặc mở link này trên đúng trình duyệt đó:\n${link}\n\nMã dùng được một lần, trong ${CODE_MINUTES} phút. Nếu bạn không yêu cầu đăng nhập, hãy bỏ qua email này.`,
+    app: code => `Mã đăng nhập AquaTome của bạn: ${code}\n\nNhập mã vào ứng dụng AquaTome, nơi bạn vừa yêu cầu.\n\nMã dùng được một lần, trong ${CODE_MINUTES} phút. Nếu bạn không yêu cầu đăng nhập, hãy bỏ qua email này.`,
   },
   id: {
     subject: code => `${code} adalah kode masuk AquaTome`,
     body: (code, link) => `Kode masuk AquaTome Anda: ${code}\n\nMasukkan kode di halaman tempat Anda memintanya, atau buka tautan ini di browser yang sama:\n${link}\n\nKode hanya bisa dipakai sekali, dalam ${CODE_MINUTES} menit. Jika Anda tidak meminta untuk masuk, abaikan email ini.`,
+    app: code => `Kode masuk AquaTome Anda: ${code}\n\nMasukkan kode di aplikasi AquaTome, tempat Anda memintanya.\n\nKode hanya bisa dipakai sekali, dalam ${CODE_MINUTES} menit. Jika Anda tidak meminta untuk masuk, abaikan email ini.`,
   },
   th: {
     subject: code => `${code} คือรหัสเข้าสู่ระบบ AquaTome`,
     body: (code, link) => `รหัสเข้าสู่ระบบ AquaTome ของคุณ: ${code}\n\nกรอกรหัสในหน้าที่คุณขอรหัส หรือเปิดลิงก์นี้ในเบราว์เซอร์เดียวกัน:\n${link}\n\nรหัสใช้ได้ครั้งเดียว ภายใน ${CODE_MINUTES} นาที หากคุณไม่ได้ขอเข้าสู่ระบบ ไม่ต้องสนใจอีเมลนี้`,
+    app: code => `รหัสเข้าสู่ระบบ AquaTome ของคุณ: ${code}\n\nกรอกรหัสในแอป AquaTome ที่คุณขอรหัส\n\nรหัสใช้ได้ครั้งเดียว ภายใน ${CODE_MINUTES} นาที หากคุณไม่ได้ขอเข้าสู่ระบบ ไม่ต้องสนใจอีเมลนี้`,
   },
 }
 
@@ -52,15 +56,16 @@ function sixDigits(): string {
 
 /**
  * Starts an email sign-in: the `flow` secret for the client that asked (stored as its hash, with the address's hash, the
- * code's hash and the signed-in account if any) and the mail with the code.
+ * code's hash and the signed-in account if any) and the mail with the code: with the page's link for a browser, without
+ * one for the app.
  */
-export async function startEmail(db: D1Database, key: string, email: string, lang: Lang, origin: string, signedIn: string | undefined, now: Date): Promise<{ flow: string; mail: Mail }> {
+export async function startEmail(db: D1Database, key: string, email: string, lang: Lang, origin: string, signedIn: string | undefined, now: Date, forApp = false): Promise<{ flow: string; mail: Mail }> {
   const flow = randomToken()
   const code = sixDigits()
   await db.prepare(`INSERT INTO auth_challenges (id, kind, value, user_id, code, expires_at) VALUES (?, 'email', ?, ?, ?, ?)`)
     .bind(await sha256(flow), await emailHash(key, email), signedIn ?? null, await sha256(`${flow}|${code}`), new Date(now.getTime() + CODE_MINUTES * 60_000).toISOString()).run()
   const link = `${origin}${TANKS_PAGE[lang]}#${LINK_PARAM}=${code}`
-  return { flow, mail: { to: email, subject: TEXT[lang].subject(code), text: TEXT[lang].body(code, link) } }
+  return { flow, mail: { to: email, subject: TEXT[lang].subject(code), text: forApp ? TEXT[lang].app(code) : TEXT[lang].body(code, link) } }
 }
 
 /**
