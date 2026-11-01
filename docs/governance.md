@@ -207,12 +207,15 @@ The layers above still check the result.
   its source gives only as a volume (its "75 gallons (about 284 litres)" once made Cá đĩa's card say 284 cm; The Spruce
   Pets' "10 gallons (about 38 litres)" became 40 cm on 19 cards), when the engine reads a page and again at every build
   (`tankIsVolume`). Where sources disagree, every page shows the range they all accept.
-- **Metric only.** Fish, plant and breed pages give °C, cm and litres in every language. Each writer of those pages
-  passes its text through `toMetric` (`@aq/schema`): an imperial figure beside its metric one goes ("20–30°C (68–86°F)"),
-  one before its metric one gives way to it ("2 inch (khoảng 5 cm)"), one alone is converted ("bể 10 gallon" → "bể 38
-  lít"). `pnpm engine metric` runs before each cycle's build for anything a writer missed, and a test fails on any °F,
-  inch, foot or gallon figure left in `content/`. Reference lists and quoted labels stay as published. Found on 263 pages
-  (2026-11-01).
+- **Metric only.** Fish, plant, breed and guide pages give °C, cm and litres in every language. Each writer of those
+  pages passes its text through `toMetric` (`@aq/schema`): an imperial figure beside its metric one goes ("20–30°C
+  (68–86°F)"), one before its metric one gives way to it ("2 inch (khoảng 5 cm)"), one alone is converted ("bể 10 gallon"
+  → "bể 38 lít"). A US tank model reads as its volume and size ("bể 20 gallon long" → "bể khoảng 75 lít (76 × 30 × 30
+  cm)"), a pipe as the size shops here sell ("ống PVC ¾ inch" → "ống PVC phi 27"), a change of temperature as its own
+  size ("giảm 15 °F" → "giảm 8 °C"). `pnpm engine metric` runs before each cycle's build for anything a writer missed,
+  and a test fails on any °F, inch, foot or gallon figure left in `content/`. Reference lists, titles, quoted labels and
+  weights (lb, oz) with no metric beside them stay as published. Found on 263 fish, plant and breed pages, then on 135
+  guide pages and 9 more fish pages whose sizes were written in inch marks (48" x 15") (2026-11-01).
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
   for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
   otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text
