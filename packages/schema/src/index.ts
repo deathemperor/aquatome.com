@@ -1,7 +1,7 @@
 export * from './schemas'
 export type * from './types'
 export { slugify } from './slug'
-export { isVietnamese, nameKey } from './text'
+export { isVietnamese, markVietnameseNames, nameKey } from './text'
 export { POPULAR, STAPLE_SPECIES } from './staples'
 export { PLACE_ALIASES } from './places'
 export { resolveDataCard } from './datacard'
