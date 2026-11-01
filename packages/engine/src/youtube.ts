@@ -19,6 +19,8 @@ import { seconds } from './videos'
 
 /** YouTube is rate-limiting or bot-checking this machine: stop everything and try again next cycle; no video is at fault. */
 export const throttled = (e: unknown) => /HTTP Error 429|Too Many Requests|confirm you.re not a bot/i.test((e as Error)?.message ?? '')
+/** A video only a channel's paying members can watch: never readable for us, so a skip, not a failure that stops the run. */
+const membersOnly = (e: unknown) => /available to this channel.s members|members-only content/i.test((e as Error)?.message ?? '')
 
 export type VideoMeta = {
   id: string; title: string; channel: string; channelUrl: string; durationSec: number; publishedAt?: string
@@ -436,6 +438,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
     } catch (e) {
       if (e instanceof LlmError) { report.errors.push(`${vid}: ${e.message}`); report.stoppedEarly = true; return true } // usage limit or CLI down: stop, retry next run
       if (throttled(e)) { report.errors.push(`YouTube is throttling (${vid}): stopped, nothing marked failed`); report.stoppedEarly = true; return true }
+      if (membersOnly(e)) { await set(vid, { status: 'skipped', entityIds: [], error: 'members only' }); report.skipped.push(`${vid}: members only`); failedInARow = 0; return false }
       await set(vid, { status: 'error', entityIds: [], error: (e as Error).message.slice(0, 300) })
       report.errors.push(`${vid}: ${(e as Error).message}`)
       // Three in a row looks like yt-dlp or the network, not these videos: stop rather than mark the whole queue failed.
