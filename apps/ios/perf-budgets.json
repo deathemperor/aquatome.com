@@ -30,8 +30,8 @@
       "test": "bundle",
       "metric": "AquaTome.app",
       "unit": "kB",
-      "max": 1340,
-      "reason": "raised 2026-11-01 from 1150 kB for sign-in and sync on Bể của tôi (#268): +163 kB measured on both commits (Release archive on one Mac, 1058 → 1221 kB): the account client 42 kB, its model 47 kB, the account section 36 kB, Sign in with Apple 17 kB, the id/th strings 12 kB, after taking the stand-in server out of release builds (−35 kB). Worth it: it is the feature that syncs the reader's tanks with the site. Budget: 1221 kB ×1.1"
+      "max": 1730,
+      "reason": "raised 2026-11-01 from 1340 kB for smart plugs on a tank (#308): +306 kB measured on both commits (Release archive on one Mac, 1266.9 → 1573.0 kB): the kit's plugs module 97 kB (the Tuya client 23, the switching rules 19, standard-library generics specialized for it 34, signing, data centers and types the rest), the tank's plug section 47 kB, the add and edit forms 44 kB, the setup screen 44 kB, the plugs model, Keychain store and plug records 20 kB, the id/th strings 26 kB, growth in existing views, the linker and padding 27 kB; the stand-in cloud and simulator setup are already out of release builds. Worth it: the owner asked for plugs, the first control beyond the lights. Budget: 1573 kB ×1.1"
     }
   ]
 }
