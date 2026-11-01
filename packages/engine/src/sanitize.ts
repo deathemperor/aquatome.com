@@ -47,8 +47,11 @@ export const unescapePlain = (s: string) => {
   let out = s
   for (let prev = ''; prev !== out;) {
     prev = out
-    out = out.replace(/&(amp|lt|gt|quot|apos|nbsp|#\d+|#x[0-9a-f]+);/gi, (_, e: string) =>
-      e[0] !== '#' ? ENTITY[e.toLowerCase()]! : String.fromCodePoint(/^#x/i.test(e) ? parseInt(e.slice(2), 16) : Number(e.slice(1))))
+    out = out.replace(/&(amp|lt|gt|quot|apos|nbsp|#\d+|#x[0-9a-f]+);/gi, (m, e: string) => {
+      if (e[0] !== '#') return ENTITY[e.toLowerCase()]!
+      const n = /^#x/i.test(e) ? parseInt(e.slice(2), 16) : Number(e.slice(1))
+      return n > 0 && n <= 0x10ffff ? String.fromCodePoint(n) : m // not a character: left as written
+    })
   }
   return out
 }

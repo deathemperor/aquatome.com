@@ -41,5 +41,6 @@ test('an entity escaped twice is escaped once; empty headings, paragraphs, items
 test('plain text (a title, a summary point, an FAQ) holds no entities', () => {
   expect(unescapePlain('Cacing Jangkar &amp; Kutu Ikan')).toBe('Cacing Jangkar & Kutu Ikan')
   expect(unescapePlain('A &amp;amp; B &#8211; C &lt; D')).toBe('A & B – C < D')
+  expect(unescapePlain('&#99999999; &#x0;')).toBe('&#99999999; &#x0;')
   expect(plainParts([' a &amp; b ', ''], [{ q: 'Q &amp;?', a: ' ' }, { q: 'Hỏi', a: 'Đáp &gt; 1' }])).toEqual({ summary: ['a & b'], faq: [{ q: 'Hỏi', a: 'Đáp > 1' }] })
 })
