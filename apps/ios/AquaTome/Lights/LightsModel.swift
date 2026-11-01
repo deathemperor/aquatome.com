@@ -3,6 +3,7 @@ import ChihirosBLE
 import Foundation
 import Observation
 import Tanks
+import UIKit
 
 /// The lights screen, as the site's Chihiros page (pages/vi/cong-cu/den-chihiros.astro, scripts/light-page.ts): the light
 /// card (find, connect, what the app knows of the light, quick actions), the schedule being edited, writing it.
@@ -62,6 +63,14 @@ final class LightsModel {
   private var leaving = false
   /// "Tắt đèn" or "Sáng hết" holds on the light (also when the store couldn't keep it): leaving the app keeps it.
   private var held = false
+  /// "Tắt đèn" or "Sáng hết" is being sent: leaving or disconnecting doesn't undo it.
+  private var quickRunning = false
+  /// A write or "Theo lịch" is under way: it ends with the light on its schedule by itself.
+  private var restoring = false
+  /// The levels last sent from here (a colour test, the preview): what the light shows if the link drops.
+  private var shown: [Int] = []
+  /// Asked of iOS while the app, just sent to the background, puts the light back on its schedule.
+  private var keptAwake = UIBackgroundTaskIdentifier.invalid
   /// The mix "Độ sáng" scales, as it was before the brightness moved: rescaling levels already rounded would drift.
   private var mix: [Int]?
   private var settingBrightness = false
@@ -295,11 +304,25 @@ final class LightsModel {
     attempt += 1
     radio.stopScan()
     connecting = nil
-    session?.disconnect()
+    let s = session, l = light, m = model
+    // Mid-test, mid-preview or with levels sent from here: the light runs its schedule again (one frame, as when the app
+    // leaves) before the link drops; otherwise it would stay on them, and nothing here would remember it. "Tắt đèn" and
+    // "Sáng hết" are meant to hold.
+    let resume = !quickRunning && !restoring && (trying || playTask != nil || (isManual && !held))
     reset()
     isLost = false
     lastLight = nil
     notice = nil
+    guard let s else { return }
+    guard resume else { s.disconnect(); return }
+    Task {
+      // Queued after anything already on its way (LightSession runs one command at a time); `flush` stops with the
+      // level it is sending.
+      if (try? await s.resumeSchedule()) != nil, let l, let m {
+        self.tanks?.changeLight(bleName: l.name, model: m.name) { $0.manual = nil }
+      }
+      s.disconnect()
+    }
   }
 
   func forget(_ d: Device) {
@@ -315,6 +338,9 @@ final class LightsModel {
 
   private func lost() {
     guard session != nil, let l = light else { return }
+    // A link that dropped can't be told anything: the light stays on the test colour or the preview's levels. Its
+    // record says so, so that the card connected again says it is off its schedule and offers "Theo lịch".
+    if !held, trying || playTask != nil || isManual, !shown.isEmpty { keepManual() }
     attempt += 1
     connecting = nil // dropped while its status was being read
     reset()
@@ -335,6 +361,7 @@ final class LightsModel {
     pending = [:]
     trying = false
     held = false
+    shown = []
     stopPreview()
   }
 
@@ -398,7 +425,8 @@ final class LightsModel {
     trying = false
     let before = active
     isWriting = true
-    defer { isWriting = false }
+    restoring = true
+    defer { isWriting = false; restoring = false }
     await run(session) {
       // The levels being sent by hand stop: the schedule comes next, after any already on their way.
       self.pending = [:]
@@ -447,6 +475,8 @@ final class LightsModel {
     let levels = channels.map { _ in off ? 0 : 100 }
     stopPreview()
     trying = false
+    quickRunning = true
+    defer { quickRunning = false }
     await run(session) {
       self.pending = [:]
       while self.flushing { try await Task.sleep(for: .milliseconds(20)) }
@@ -468,6 +498,8 @@ final class LightsModel {
     stopPreview()
     trying = false
     let known = active.flatMap { a in TimeOfDay(a.on).flatMap { on in TimeOfDay(a.off).map { Schedule(on: on, off: $0, ramp: a.ramp, levels: a.levels) } } }
+    restoring = true
+    defer { restoring = false }
     await run(session) {
       self.pending = [:]
       while self.flushing { try await Task.sleep(for: .milliseconds(20)) }
@@ -505,7 +537,11 @@ final class LightsModel {
   }
 
   /// A colour look at the brightness now (70% from off).
-  func applyLook(_ l: Look) { levels = fit(l.levels(channels, top: form.top), to: levels.count) }
+  func applyLook(_ l: Look) {
+    levels = fit(l.levels(channels, top: form.top), to: levels.count)
+    // The look at full is the mix "Độ sáng" scales: levels rounded at another brightness would be off by one.
+    mix = fit(l.levels(channels, top: 100), to: levels.count)
+  }
 
   func setChannel(_ i: Int, _ level: Int) { levels[i] = level }
 
@@ -519,6 +555,7 @@ final class LightsModel {
     }
     guard form.problem == nil else { return }
     trying = false
+    notice = nil // what it says next (stopped, played, left) is about this preview
     if session != nil { supersedeHeld() }
     let on = session
     playingOn = on
@@ -571,22 +608,41 @@ final class LightsModel {
   /// The app went to the background while the light shows a test colour, the day preview or levels sent from here (not
   /// "Tắt đèn" or "Sáng hết", which are meant to hold): it goes back to its schedule with one frame, as the site does
   /// when its page is hidden. One only: the app may be stopped any moment, and a rewrite cut off between clearing the
-  /// light's scenes and writing the schedule would leave it with none.
-  /// A command under way (a write, "Theo lịch", "Tắt đèn") is left to end as it would.
+  /// light's scenes and writing the schedule would leave it with none. A command under way (a write, "Theo lịch",
+  /// setting the clock) goes first: the frame is queued after it.
   func leave() {
     leaving = true
-    guard let session, !isBusy, trying || playTask != nil || isManual, !held, device?.manual == nil else { return }
+    guard let session, !held, trying || playTask != nil || isManual else { return }
     stopPreview()
     trying = false
     pending = [:]
-    notice = Notice(text: String(localized: "Đèn chạy lại theo lịch."))
+    // "Tắt đèn" being sent is meant to hold; a write or "Theo lịch" under way ends on the schedule by itself.
+    guard !quickRunning, !restoring else { return }
+    // The seconds this takes, asked of iOS: an app in the background is suspended soon.
+    if keptAwake == .invalid { keptAwake = UIApplication.shared.beginBackgroundTask { [weak self] in self?.letSleep() } }
     Task {
+      defer { self.letSleep() }
       // Levels already on their way go first; then nothing follows the scene mode.
       while flushing { try? await Task.sleep(for: .milliseconds(20)) }
-      guard self.session === session else { return }
-      try? await session.resumeSchedule()
-      if self.session === session { isManual = false }
+      // Back already, with a new test or preview: it isn't overwritten.
+      guard self.session === session, !trying, playTask == nil else { return }
+      do {
+        try await session.resumeSchedule()
+        guard self.session === session else { return }
+        isManual = false
+        changeLight { $0.manual = nil }
+        notice = Notice(text: String(localized: "Đèn chạy lại theo lịch."))
+      } catch {
+        guard self.session === session else { return }
+        notice = Notice(text: Self.describe(error), isError: true)
+      }
     }
+  }
+
+  private func letSleep() {
+    guard keptAwake != .invalid else { return }
+    UIApplication.shared.endBackgroundTask(keptAwake)
+    keptAwake = .invalid
   }
 
   /// Back in the foreground.
@@ -601,9 +657,13 @@ final class LightsModel {
 
   /// Levels to the light now. While a write is under way, only each channel's latest level waits to go next.
   private func send(_ levels: [Int]) {
+    shown = levels
     for (c, l) in levels.enumerated() { pending[c] = l }
     Task { await flush() }
   }
+
+  /// The light's record says it shows `shown` by hand (as "Tắt đèn" keeps it), until "Theo lịch" or a write.
+  private func keepManual() { changeLight { $0.manual = (self.shown, Timestamp.string(Date())) } }
 
   private func flush() async {
     guard !flushing, let session else { return }
@@ -613,8 +673,15 @@ final class LightsModel {
       while !pending.isEmpty, self.session === session {
         let batch = pending.sorted { $0.key < $1.key }
         pending = [:]
-        for (c, l) in batch { try await session.setLevel(channel: c, level: l) }
-        if self.session === session { isManual = true }
+        for (c, l) in batch {
+          // Disconnected meanwhile: the rest stays unsent, so the scene mode `disconnect` queues is the last frame.
+          guard self.session === session else { return }
+          try await session.setLevel(channel: c, level: l)
+        }
+        guard self.session === session else { return }
+        isManual = true
+        // The first levels of a test or the preview: kept on the light's record, as "Tắt đèn" is.
+        if device?.manual == nil { keepManual() }
       }
     } catch {
       guard self.session === session else { return }

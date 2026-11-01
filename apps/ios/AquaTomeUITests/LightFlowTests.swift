@@ -320,8 +320,16 @@ final class LightFlowTests: XCTestCase {
     expect(app, "level-1", value: "56%")
     expect(app, "level-2", value: "53%")
     // One brightness for every channel: the mix stays the look.
-    scrolledTo(app, "master").adjust(toNormalizedSliderPosition: 0.4)
+    // Down to almost nothing and back up: the look as it is at full, not a mix rounded at 5% (100/80/80) or at 70%
+    // (100/80/76).
+    scrolledTo(app, "master").adjust(toNormalizedSliderPosition: 0.05)
     XCTAssertNotEqual(element(app, "master").value as? String, "70%", "the brightness didn't move")
+    XCTAssertTrue(element(app, "look-red").isSelected, "the mix changed with the brightness")
+    scrolledTo(app, "master").adjust(toNormalizedSliderPosition: 1)
+    expect(app, "master", value: "100%")
+    expect(app, "level-0", value: "100%")
+    expect(app, "level-1", value: "80%")
+    expect(app, "level-2", value: "75%")
     XCTAssertTrue(element(app, "look-red").isSelected, "the mix changed with the brightness")
     // One colour by hand: no look any more, and the brightness is the brightest channel's.
     scrolledTo(app, "level-1").adjust(toNormalizedSliderPosition: 1)
@@ -355,14 +363,22 @@ final class LightFlowTests: XCTestCase {
     expect(app, "play", contains: "Dừng")
     tap(app, "play")
     expect(app, "play", contains: "Xem thử cả ngày", timeout: 3)
+    // One playing on the screen stops when a light connects: the light wasn't part of it.
+    tap(app, "play")
+    expect(app, "play", contains: "Dừng")
     connect(app)
     expect(app, "play", contains: "Xem thử cả ngày trên đèn")
-    // "Dừng" on the light: its own schedule again at once (the scene mode: nothing written yet).
+    // "Dừng" on the light: its own schedule again at once (the scene mode: nothing written yet). Nothing is written
+    // while it plays.
+    XCTAssertTrue(element(app, "write").isEnabled, "the schedule can't be written before the preview")
     tap(app, "play")
     expectFrames(app, ".*5a 01 08 .. .. 05 0b ff ff .*")
+    XCTAssertFalse(element(app, "write").isEnabled, "the schedule can be written while the day plays on the light")
     tap(app, "play")
     expect(app, "notice", contains: "Xong. Đèn chạy lại theo lịch.", timeout: 4)
     expectFrames(app, ".* 5a 01 08 .. .. 05 12 ff ff ..")
+    let writable = expectation(for: NSPredicate(format: "enabled == true"), evaluatedWith: element(app, "write"))
+    XCTAssertEqual(XCTWaiter.wait(for: [writable], timeout: 5), .completed, "writing still off after the preview")
   }
 
   func testTheDayPreviewPlaysOnTheLightThenTheScheduleRunsAgain() {
@@ -389,6 +405,7 @@ final class LightFlowTests: XCTestCase {
     // The day preview too: once it has sent its first levels (manual mode, off before 12:00), it stops there.
     tap(app, "play")
     expectFrames(app, ".* 05 12 ff ff .. \\| 5a 01 08 .. .. 05 0b ff ff .. \\| .*")
+    XCTAssertFalse(element(app, "notice").waitForExistence(timeout: 1), "the last notice still showing as the preview starts")
     leaveAndComeBack(app)
     expect(app, "notice", contains: "Đèn chạy lại theo lịch.")
     expect(app, "notice", lacks: "Xong") // stopped, not played to its end
@@ -415,6 +432,49 @@ final class LightFlowTests: XCTestCase {
     expectFrames(app, ".* 07 02 46 .. \\| 5a 01 08 .. .. 05 12 ff ff ..", timeout: 20)
     let more = expectation(for: NSPredicate(format: "NOT (label MATCHES %@)", ".* 05 12 ff ff .."), evaluatedWith: element(app, "frames"))
     XCTAssertEqual(XCTWaiter.wait(for: [more], timeout: 4), .timedOut, "frames after the scene mode")
+  }
+
+  func testDisconnectingMidTestPutsTheLightBackOnItsSchedule() {
+    let app = launch()
+    connect(app)
+    tap(app, "try")
+    expectFrames(app, ".* 07 02 46 ..")
+    XCTAssertFalse(element(app, "hand").exists, "the card says “set by hand” for a colour being tried")
+    // "Ngắt kết nối" mid-test: the scene mode goes first, then the link drops.
+    tap(app, "disconnect")
+    expectFrames(app, ".* 07 02 46 .. \\| 5a 01 08 .. .. 05 12 ff ff ..")
+    // Connected again: nothing left set by hand.
+    connect(app)
+    XCTAssertFalse(element(app, "hand").exists, "the light is kept as set by hand after it went back to its schedule")
+    XCTAssertFalse(element(app, "quick-auto").isEnabled, "“Theo lịch” with nothing set by hand")
+  }
+
+  func testDisconnectingMidPreviewPutsTheLightBackOnItsSchedule() {
+    let app = launch("-preview-seconds", "120")
+    connect(app)
+    // Once it has sent its first levels: manual mode, then off (before 12:00).
+    tap(app, "play")
+    expectFrames(app, ".*5a 01 08 .. .. 05 0b ff ff .. \\| .* 07 02 00 ..")
+    tap(app, "disconnect")
+    expectFrames(app, ".* 5a 01 07 .. .. 07 02 .. .. \\| 5a 01 08 .. .. 05 12 ff ff ..")
+    expect(app, "play", contains: "Xem thử cả ngày")
+  }
+
+  func testALightThatDropsMidTestIsKeptAsSetByHandUntilTheoLich() {
+    // The fake light drops at the first level set by hand: the colour test's first level.
+    let app = launch("-fake-drop")
+    connect(app)
+    tap(app, "try")
+    expect(app, "notice", contains: "Mất kết nối với đèn.")
+    tap(app, "notice-action")
+    expect(app, "notice", contains: "Đã kết nối WRGB II Slim.")
+    // It can't be told to go back while dropped: the card says it is off its schedule, and "Theo lịch" takes it back.
+    expect(app, "hand", contains: "Đèn đang chỉnh tay (70%), không chạy theo lịch.")
+    XCTAssertTrue(element(app, "quick-auto").isEnabled, "no “Theo lịch” for a light left on a test colour")
+    tap(app, "quick-auto")
+    expect(app, "notice", contains: "Đèn chạy lại theo lịch.")
+    expectFrames(app, ".* 5a 01 08 .. .. 05 12 ff ff ..")
+    XCTAssertFalse(element(app, "hand").waitForExistence(timeout: 1), "still kept as set by hand after “Theo lịch”")
   }
 
   // MARK: Helpers

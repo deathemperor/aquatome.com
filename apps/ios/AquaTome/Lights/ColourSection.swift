@@ -52,7 +52,7 @@ struct PreviewButton: View {
     }
     .buttonStyle(.bordered)
     .controlSize(.large)
-    .disabled(lights.form.problem != nil || lights.isBusy)
+    .disabled((lights.form.problem != nil && !lights.isPlaying) || lights.isBusy) // "Dừng" always stops
     .accessibilityIdentifier("play")
   }
 }
@@ -175,24 +175,39 @@ private struct FlowRow: Layout {
   }
 }
 
-/// One level, 0–100%, with the channel's colour.
+/// One level, 0–100%, with the channel's colour: its name and value beside the slider, or above it at the largest
+/// text sizes.
 private struct ChannelSlider: View {
   let id: String
   let title: String
   let swatch: Color?
   let value: Int
   let onChange: (Int) -> Void
+  @Environment(\.dynamicTypeSize) private var size
+  @ScaledMetric private var titleWidth: CGFloat = 96
+  @ScaledMetric private var valueWidth: CGFloat = 48
 
   var body: some View {
-    HStack(spacing: 12) {
-      Text(title).frame(width: 96, alignment: .leading).accessibilityHidden(true) // the slider says it
-      Slider(value: Binding { Double(value) } set: { v in if Int(v) != value { onChange(Int(v)) } }, in: 0...100, step: 1)
-        .tint(swatch ?? .accentColor)
-        .accessibilityLabel(title)
-        .accessibilityValue(Text(verbatim: "\(value)%"))
-        .accessibilityIdentifier(id)
-      Text(verbatim: "\(value)%").monospacedDigit().frame(width: 48, alignment: .trailing)
-        .accessibilityHidden(true)
+    let slider = Slider(value: Binding { Double(value) } set: { v in if Int(v) != value { onChange(Int(v)) } }, in: 0...100, step: 1)
+      .tint(swatch ?? .accentColor)
+      .accessibilityLabel(title)
+      .accessibilityValue(Text(verbatim: "\(value)%"))
+      .accessibilityIdentifier(id)
+    let name = Text(title).accessibilityHidden(true) // the slider says it
+    let shown = Text(verbatim: "\(value)%").monospacedDigit().accessibilityHidden(true)
+    Group {
+      if size.isAccessibilitySize {
+        VStack(alignment: .leading, spacing: 4) {
+          HStack { name; Spacer(); shown }
+          slider
+        }
+      } else {
+        HStack(spacing: 12) {
+          name.frame(minWidth: titleWidth, alignment: .leading).fixedSize()
+          slider
+          shown.frame(minWidth: valueWidth, alignment: .trailing).fixedSize()
+        }
+      }
     }
     .frame(minHeight: 44)
   }

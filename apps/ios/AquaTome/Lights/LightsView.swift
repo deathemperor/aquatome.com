@@ -241,7 +241,8 @@ private struct ReadyCard: View {
 
       VStack(alignment: .leading, spacing: 10) {
         ClockFact()
-        if let m = d?.manual {
+        // Not during a test or the preview: the screen says what the light shows (the record is for a link that drops).
+        if let m = d?.manual, !lights.trying, !lights.isPlaying {
           Fact(icon: "hand.raised", warn: true) {
             Text(m.levels.allSatisfy { $0 == 0 } ? "Đèn đang tắt bằng tay, không chạy theo lịch." : "Đèn đang chỉnh tay (\(m.levels.max() ?? 0)%), không chạy theo lịch.")
           }
@@ -347,7 +348,7 @@ private struct ClockFact: View {
           .accessibilityIdentifier("clock")
           Button("Chỉnh giờ đèn theo máy này") { Task { await lights.syncClock() } }
             .buttonStyle(.bordered).controlSize(.large).tint(.primary).font(.subheadline)
-            .disabled(lights.isBusy)
+            .disabled(lights.isBusy || lights.trying || lights.isPlaying)
             .accessibilityIdentifier("sync-clock")
         }
       }
