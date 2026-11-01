@@ -14,6 +14,18 @@ public struct FishFilter: Equatable, Sendable {
 
   public var isEmpty: Bool { self == FishFilter() }
 
+  /// What the site's form takes for each figure (its inputs' min and max).
+  public static let tankRange: ClosedRange<Double> = 10...400
+  public static let tempRange: ClosedRange<Double> = 5...40
+  public static let phRange: ClosedRange<Double> = 3...10
+
+  /// A number as the reader typed it (a comma or a point); nil unless it's one the site's form takes, so "68" for a pH
+  /// (a missed comma) filters nothing rather than everything.
+  public static func number(_ s: String, within range: ClosedRange<Double>) -> Double? {
+    guard let v = Double(s.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: ",", with: ".")), v.isFinite, range.contains(v) else { return nil }
+    return v
+  }
+
   /// True when every figure asked about is known and fits, false when one known figure doesn't, nil when nothing known
   /// rules the fish out but a figure asked about is missing.
   public func fits(_ f: HandbookIndex.Facts) -> Bool? {

@@ -51,3 +51,13 @@ private let v: Vectors = {
   let set = FishFilter(tankCm: 60).split([breed])
   #expect(set.fit.isEmpty && set.unsure.isEmpty)
 }
+
+@Test func aNumberIsOneTheSitesFormTakes() {
+  #expect(FishFilter.number("6,8", within: FishFilter.phRange) == 6.8)
+  #expect(FishFilter.number(" 60 ", within: FishFilter.tankRange) == 60)
+  // A missed comma, a number past the form's limits, or not a number at all: no filter.
+  #expect(FishFilter.number("68", within: FishFilter.phRange) == nil)
+  #expect(FishFilter.number("5", within: FishFilter.tankRange) == nil && FishFilter.number("41", within: FishFilter.tempRange) == nil)
+  #expect(FishFilter.number("nan", within: FishFilter.phRange) == nil && FishFilter.number("inf", within: FishFilter.tankRange) == nil)
+  #expect(FishFilter.number("", within: FishFilter.phRange) == nil)
+}

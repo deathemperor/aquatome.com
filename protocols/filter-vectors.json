@@ -13,18 +13,19 @@
     {"note": "a 60 cm tank: the ones that need no longer; those without a length may fit", "query": {"tankCm": 60}, "fit": ["Cá neon", "Cá ngựa vằn", "Cá phượng hoàng"], "unsure": ["Cá chưa đo", "Cá chỉ có nhiệt độ"]},
     {"note": "26 °C, both ends of a range count", "query": {"tempC": 26}, "fit": ["Cá neon", "Cá phượng hoàng", "Cá chỉ có nhiệt độ"], "unsure": ["Cá chưa đo"]},
     {"note": "easy and medium (5 on the 1–8 scale) and pH 6.8", "query": {"difficultyMax": 5, "ph": 6.8}, "fit": ["Cá neon", "Cá ngựa vằn", "Cá phượng hoàng"], "unsure": ["Cá chưa đo", "Cá chỉ có nhiệt độ"]},
-    {"note": "everything set: one known figure that doesn't fit rules a fish out", "query": {"tankCm": 90, "tempC": 24, "ph": 6, "difficultyMax": 3}, "fit": ["Cá neon"], "unsure": ["Cá chưa đo", "Cá chỉ có nhiệt độ"]}
+    {"note": "everything set: one known figure that doesn't fit rules a fish out", "query": {"tankCm": 90, "tempC": 24, "ph": 6, "difficultyMax": 3}, "fit": ["Cá neon"], "unsure": ["Cá chưa đo", "Cá chỉ có nhiệt độ"]},
+    {"note": "30 °C in a 60 cm tank: a known temperature that doesn't fit rules a fish out though its tank length is missing", "query": {"tempC": 30, "tankCm": 60}, "fit": ["Cá phượng hoàng"], "unsure": ["Cá chưa đo"]}
   ],
   "plants": [
     {"name": "Ráy nana", "light": "low", "co2": "none", "difficulty": 1},
     {"name": "Monte Carlo", "light": "medium", "co2": "optional", "difficulty": 2},
     {"name": "Rotala đỏ", "light": "high", "co2": "required", "difficulty": 3},
-    {"name": "Cây chưa rõ", "difficulty": 1}
+    {"name": "Cây chưa rõ", "difficulty": 3}
   ],
   "plantCases": [
     {"note": "medium light: plants that need as much or less", "query": {"light": "medium"}, "fit": ["Ráy nana", "Monte Carlo"], "unsure": ["Cây chưa rõ"]},
     {"note": "no CO₂: plants that grow without it, an optional one too", "query": {"co2": "none"}, "fit": ["Ráy nana", "Monte Carlo"], "unsure": ["Cây chưa rõ"]},
     {"note": "the plants that need CO₂", "query": {"co2": "required"}, "fit": ["Rotala đỏ"], "unsure": ["Cây chưa rõ"]},
-    {"note": "easy only (1 on the 1–3 scale), with low light", "query": {"difficultyMax": 1, "light": "low"}, "fit": ["Ráy nana"], "unsure": ["Cây chưa rõ"]}
+    {"note": "easy only (1 on the 1–3 scale), with low light: a plant known to be harder is out, though its light is unknown", "query": {"difficultyMax": 1, "light": "low"}, "fit": ["Ráy nana"], "unsure": []}
   ]
 }

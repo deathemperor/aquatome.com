@@ -106,7 +106,7 @@ private struct FishFilterForm: View {
     let sized = tanks.tanks.compactMap { t in t.dims.map { (id: t.id, name: t.name, cm: $0.l) } }
     FilterForm(title: "Lọc theo bể và nước", isEmpty: filter.isEmpty, clear: { filter = FishFilter() }) {
       Section {
-        NumberField(title: Text("Bể dài (cm)"), value: $filter.tankCm)
+        NumberField(title: Text("Bể dài (cm)"), range: FishFilter.tankRange, value: $filter.tankCm)
         ForEach(sized, id: \.id) { t in
           let picked = filter.tankCm == t.cm
           Button { filter.tankCm = t.cm } label: {
@@ -123,8 +123,8 @@ private struct FishFilterForm: View {
         }
       }
       Section {
-        NumberField(title: Text("Nhiệt độ (°C)"), value: $filter.tempC)
-        NumberField(title: Text(verbatim: "pH"), value: $filter.ph)
+        NumberField(title: Text("Nhiệt độ (°C)"), range: FishFilter.tempRange, value: $filter.tempC)
+        NumberField(title: Text(verbatim: "pH"), range: FishFilter.phRange, value: $filter.ph)
         Picker("Độ khó tối đa", selection: $filter.difficultyMax) {
           Text("Bất kỳ").tag(Double?.none)
           Text("Dễ").tag(Double?(3))
@@ -185,9 +185,10 @@ private struct FilterForm<Fields: View>: View {
   }
 }
 
-/// A number typed in the reader's way (a comma or a point), empty for none.
+/// A number typed in the reader's way (a comma or a point), empty for none; one outside `range` filters nothing.
 private struct NumberField: View {
   let title: Text
+  let range: ClosedRange<Double>
   @Binding var value: Double?
   @State private var text = ""
 
@@ -204,7 +205,7 @@ private struct NumberField: View {
     .onChange(of: value) { if parse(text) != value { text = value.map(number) ?? "" } }
   }
 
-  private func parse(_ s: String) -> Double? { Double(s.replacingOccurrences(of: ",", with: ".")) }
+  private func parse(_ s: String) -> Double? { FishFilter.number(s, within: range) }
 }
 
 private func number(_ x: Double) -> String { x.formatted(.number.grouping(.never)) }
