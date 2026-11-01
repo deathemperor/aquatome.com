@@ -86,4 +86,5 @@ func roundTrip(_ kind: String, _ v: JSON) throws -> JSON {
   #expect(k["substrate"]!.array!.compactMap(\.string) == Known.substrate)
   #expect(k["deviceKind"]!.array!.compactMap(\.string) == Known.deviceKind)
   #expect(k["brand"]!.array!.compactMap(\.string) == Known.brand)
+  #expect(k["outletRole"]!.array!.compactMap(\.string) == Known.outletRole)
 }

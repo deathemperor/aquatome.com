@@ -1,0 +1,598 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AquaTome smart plugs",
+    "version": "1.0.0",
+    "description": "Smart plugs on a reader's tanks: Tuya (Smart Life) and eWeLink (Sonoff) power strips, reached through each maker's cloud with keys only the server holds. Design, linking and safety rules: docs/smart-plugs.md. A plug on a tank is a device record with kind \"plug\" (protocols/tanks.schema.json).\n\nEvery path needs a signed-in AquaTome account, as protocols/accounts.openapi.json describes: the app sends Authorization: Bearer <token>, the site its session cookie; changes from a browser must come from https://aquatome.com pages. With accounts off, every path is 404 accounts_off.\n\nWithout a maker's keys on the server, its paths are 503 not_configured and GET /api/v1/plugs lists it as not available; the other maker is unaffected.\n\nErrors are {\"error\": \"<code>\"} with the status listed. The server switches an outlet only when asked to by this API: nothing switches on its own."
+  },
+  "servers": [
+    {
+      "url": "https://aquatome.com"
+    }
+  ],
+  "paths": {
+    "/api/v1/plugs": {
+      "get": {
+        "summary": "The makers this account can link or has linked, and the linked plugs as they are now",
+        "description": "Each maker is listed with its state; a maker that can't be reached shows its problem and no plugs, and the others still list theirs. The live state (online, on) comes from the maker's cloud on each request and is never stored. 60 requests a minute per account.",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The makers and the plugs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Plugs"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: accounts_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/plugs/{provider}/link": {
+      "post": {
+        "summary": "Start linking a maker's account: the maker's sign-in page to open",
+        "description": "The app opens `url` in an authentication session (ASWebAuthenticationSession) with callback scheme `aquatome`; the site in the same tab. The page is good for 10 minutes and one use. After the reader approves (or cancels), the maker sends them to /api/v1/plugs/{provider}/callback.",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "tuya",
+                "ewelink"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The maker's sign-in page.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "url"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: accounts_off, unknown_provider",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: not_available (the maker doesn't yet let every account link: docs/smart-plugs.md)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error: already_linked",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: not_configured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Unlink a maker's account: its tokens are deleted and its plugs no longer listed",
+        "description": "Plug records on tanks stay (they sync with the tanks); they show as not linked until the maker is linked again. Also done when the AquaTome account is deleted.",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "tuya",
+                "ewelink"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Unlinked (or wasn't linked)."
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: accounts_off, unknown_provider",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/plugs/{provider}/callback": {
+      "get": {
+        "summary": "Where the maker's sign-in page sends the reader back (not called by clients)",
+        "description": "Checks `state` (one use, 10 minutes, tied to the account that started the link), exchanges the maker's code for tokens and stores them encrypted. Then redirects: the app to aquatome://plugs?provider=<provider>&result=<linked|cancelled|failed>, the site to its \"Bể của tôi\" page with the same query.",
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "tuya",
+                "ewelink"
+              ]
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Missing when the reader cancelled."
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "eWeLink: the account's region, which picks its API host."
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Back to the app or the site, with the result."
+          },
+          "400": {
+            "description": "Error: bad_state (unknown, used or expired)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/plugs/{provider}/devices/{device}/outlets/{code}": {
+      "post": {
+        "summary": "Switch one outlet on or off; the outlet as the plug then reports it",
+        "description": "Sent once to the maker's cloud, then the outlet is read back. `on` in the reply is what the plug reports, which can still be the old state if it hasn't caught up, or null if it couldn't be read: clients show the switch as the reply says, never as asked. 30 switches a minute per account. Not retried by the server.",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "tuya",
+                "ewelink"
+              ]
+            }
+          },
+          {
+            "name": "device",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "description": "The maker's device id (a plug's `id` in GET /api/v1/plugs)."
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
+            "description": "The outlet's code, as listed."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "on"
+                ],
+                "properties": {
+                  "on": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sent; the outlet as the plug reports it now.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "outlet"
+                  ],
+                  "properties": {
+                    "outlet": {
+                      "$ref": "#/components/schemas/Outlet"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: accounts_off, unknown_provider, not_linked, no_such_plug (not one of this account's), no_such_outlet",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error: offline, relink (the maker's tokens expired: link again)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate_limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Error: maker_error (the maker's cloud refused or failed; nothing is known to have switched)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: not_configured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "The app: the token from a sign-in with client \"app\" (protocols/accounts.openapi.json)."
+      },
+      "cookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "__Host-aq_session",
+        "description": "The site: set by a sign-in with client \"web\"."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "Provider": {
+        "type": "object",
+        "required": [
+          "id",
+          "linked",
+          "available"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "tuya or ewelink; clients skip ids they don't know."
+          },
+          "linked": {
+            "type": "boolean"
+          },
+          "available": {
+            "type": "boolean",
+            "description": "This account can link it now (the server has its keys, and the maker lets every account link or this one is allowed)."
+          },
+          "problem": {
+            "type": "string",
+            "enum": [
+              "relink",
+              "unreachable"
+            ],
+            "description": "Linked, but its plugs couldn't be listed: relink (tokens expired) or unreachable (the maker's cloud failed)."
+          }
+        }
+      },
+      "Outlet": {
+        "type": "object",
+        "required": [
+          "code",
+          "on"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "The maker's switch code (Tuya: switch_1, switch_usb1…; eWeLink: the outlet number). Stable for the plug."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name the maker's app gives the outlet, if any."
+          },
+          "on": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "description": "As the plug reports it; null when it isn't known."
+          }
+        }
+      },
+      "Plug": {
+        "type": "object",
+        "required": [
+          "provider",
+          "id",
+          "name",
+          "online",
+          "outlets"
+        ],
+        "properties": {
+          "provider": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "The maker's device id: a plug record's remoteId."
+          },
+          "name": {
+            "type": "string",
+            "description": "As named in the maker's app."
+          },
+          "model": {
+            "type": "string"
+          },
+          "online": {
+            "type": "boolean"
+          },
+          "outlets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Outlet"
+            },
+            "maxItems": 16
+          }
+        }
+      },
+      "Plugs": {
+        "type": "object",
+        "required": [
+          "providers",
+          "plugs"
+        ],
+        "properties": {
+          "providers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Provider"
+            }
+          },
+          "plugs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Plug"
+            }
+          }
+        }
+      }
+    }
+  }
+}
