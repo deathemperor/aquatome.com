@@ -41,7 +41,9 @@ that would have caught it).
       (`pnpm engine plant-synonyms`, each cycle)
     - in a list of fish, no fish's section without a photo while the fish has one the page doesn't show yet
     - the contents match the headings, in order, each numbered heading under its own number; numbered headings count up
-    - no heading with nothing under it
+    - no heading with nothing under it: nothing before the next heading of its level or higher, or the end. A heading
+      straight over its sub-sections is a group, shown an h2 over their h3s (`@aq/schema` headingRoles, `lib/toc.ts`),
+      the engine's sweep reading the same rule; a numbered run under it nests under it in the contents
     - `pnpm exec tsx scripts/page-check.ts <dist> <content>` (in `apps/site`) counts any build's problems, per check
   - **Lighthouse** (`lighthouse.spec.ts`, what PageSpeed Insights runs) on one page of each kind readers open most, as
     PageSpeed's mobile and desktop tests, run alone (`E2E_LIGHTHOUSE=1 … --workers=1`). Each page has a budget:
@@ -281,10 +283,12 @@ The layers above still check the result.
       “…”", "Bình luận của độc giả", "Để lại bình luận" alone, "Bài liên quan:", "Nội dung liên quan"): cut, related
       posts with their lists, comments with everything up to the next heading. More than half a text is left and
       listed for a person; a heading of the text's own ("Bình luận của Ken Childs" in a text of letters) stays
-    - a heading at the end of a text: dropped (a heading straight over another is a group over its sub-headings: every
-      heading is an h3, so it stays); a repeated paragraph: the later copy dropped (in two texts of a page, as a run of
-      copies, or 120 characters or more: a short line a list repeats under each item is the text's own); labels out of
-      order ("Sai lầm 1, 9, 2…"): numbered again as they appear
+    - a heading with nothing under it, at the end of a text or over one that isn't its sub-section (an empty one, a
+      group, or its peer: "Ngày 16 tháng 11" over "Ngày 26 tháng 11"): dropped. A heading straight over its
+      sub-sections is a group, and stays: every heading is an h3, so the site shows it a level above them, as the
+      built-page check reads it (`@aq/schema` headingRoles). A repeated paragraph: the later copy dropped (in two texts
+      of a page, as a run of copies, or 120 characters or more: a short line a list repeats under each item is the
+      text's own); labels out of order ("Sai lầm 1, 9, 2…"): numbered again as they appear
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
       page's ("in a batch of", "here with", "known as"), or that is a map: off its page. A map leaves every page
       (`engine-state/_photo-rejected.json`); a photo of another fish only that page, so it may still join its own fish's

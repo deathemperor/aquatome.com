@@ -1,4 +1,5 @@
 import { HTMLElement, NodeType, parse, type Node } from 'node-html-parser'
+import { ownNumber } from '@aq/schema'
 
 const ALLOWED = new Set(['p', 'ul', 'ol', 'li', 'strong', 'em', 'h3', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'br'])
 const DROP_WITH_CONTENT = new Set(['script', 'style', 'iframe', 'object', 'embed', 'noscript', 'template', 'svg', 'math'])
@@ -69,8 +70,6 @@ export const dropEmptyBlocks = (html: string) => {
   return out
 }
 
-/** A heading's own number: "#3 …", "3. …", "3) …", "Bước 3", "Top 3" (a heading that merely starts with a count, "10 loại cây", has none). */
-export const OWN_NUMBER = /^(?:#\s?(\d+)|(\d+)[.):]\s|(?:top|bước|step|langkah|อันดับ|ขั้นที่)\s?(\d+)\b)/iu
 
 /**
  * A heading with no number of its own between two numbered ones that follow each other (#3, "Xtreme Betta Pellets",
@@ -82,7 +81,7 @@ export function tidyHeadings(html: string): string {
   if (!html.includes('<h3>')) return html
   const root = parse(html)
   const hs = root.childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement && n.rawTagName === 'h3')
-  const num = hs.map(h => { const m = h.text.trim().match(OWN_NUMBER); return m ? Number(m[1] ?? m[2] ?? m[3]) : undefined })
+  const num = hs.map(h => ownNumber(h.text))
   const known = num.filter((n): n is number => n !== undefined)
   if (known.length < 2) return html
   const steps = known.slice(1).map((n, i) => Math.sign(n - known[i]!))

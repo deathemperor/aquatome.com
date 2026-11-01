@@ -76,9 +76,16 @@ describe('each check, on a page made to fail it', () => {
     expect(checks(`${toc('<li class="un"><a href="#i">Giới thiệu</a></li><li value="1"><a href="#a">Cá</a></li>')}<div class="prose"><h3 id="i">Giới thiệu</h3><p>…</p><h3 id="a">1. Cá</h3><p>…</p></div>`)).toEqual([])
     expect(checks(`<div class="prose"><h3>1. A</h3><p>…</p><h3>3. B</h3><p>…</p><h3>1. C</h3><p>…</p></div>`)).toEqual(['toc']) // a new list may start again at 1
     expect(checks(`<div class="prose"><h3>Mở đầu</h3><p>…</p><h3>3. A</h3><p>…</p><h3>2. B</h3><p>…</p><h3>1. C</h3><p>…</p></div>`)).toEqual([]) // a countdown
+    // A heading over sub-sections is an h2 with an entry of its own, its numbered run in a list under it, numbered there.
+    const group = `<div class="prose"><h2 id="g">Ưu điểm</h2><h3 id="a">1. Lọc</h3><p>…</p><h3 id="b">2. Đẹp</h3><p>…</p><h3 id="k">Kết luận</h3><p>…</p></div>`
+    expect(checks(`${toc('<li><a href="#g">Ưu điểm</a><ol><li><a href="#a">Lọc</a></li><li><a href="#b">Đẹp</a></li></ol></li><li><a href="#k">Kết luận</a></li>')}${group}`)).toEqual([])
+    expect(checks(`${toc('<li><a href="#a">Lọc</a></li><li><a href="#b">Đẹp</a></li><li><a href="#k">Kết luận</a></li>')}${group}`)).toEqual(['toc', 'toc', 'toc', 'toc'])
   })
-  test('a heading with nothing under it', () => {
+  test('a heading with nothing under it: nothing until a heading of its level or higher, or the end', () => {
     expect(checks(`<div class="prose"><h3>Ưu điểm</h3><h3>Nhược điểm</h3><p>…</p><h3>Để lại bình luận</h3></div>`)).toEqual(['empty-section', 'empty-section'])
+    expect(checks(`<div class="prose"><h2>Phần một</h2><h2>Lựa chọn loài</h2><h3>Botia dario</h3><p>…</p><h2>Kết luận</h2></div>`)).toEqual(['empty-section', 'empty-section'])
+    // A heading over sub-sections, an h2 (lib/toc.ts), has them under it.
+    expect(checks(`<div class="prose"><h2>Lựa chọn loài</h2><h3>Botia dario</h3><p>…</p><h3>Botia kubotai</h3><p>…</p></div>`)).toEqual([])
   })
 })
 
@@ -112,6 +119,12 @@ test('the easy-fish guide (the owner\'s report): each fish section shows that fi
     ['species:symphysodon-aequifasciatus', true], ['species:mikrogeophagus-ramirezi', true], ['species:boraras-brigittae', true], ['species:neocaridina-davidi', true],
   ])
   expect(checkPage(path, html, facts)).toEqual([])
+  // "Năm loài dễ nuôi" over the numbered fish, "Chăm sóc chung" over "Thay nước": a level above them, the fish nested
+  // under theirs in the contents.
+  expect(dom.querySelectorAll('.prose h2').map(h => h.text)).toEqual(['Năm loài dễ nuôi', 'Chăm sóc chung'])
+  expect(dom.querySelectorAll('nav.toc > ol > li').map(li => [li.querySelector('a')!.text, li.querySelectorAll('ol a').length])).toEqual([
+    ['Năm loài dễ nuôi', 5], ['Chăm sóc chung', 0], ['Thay nước', 0], ['Cho ăn', 0], ['Lời kết', 0],
+  ])
   // The guide's own photo in its section, captioned with the fish's name and its page.
   const own = dom.querySelector('img[src="https://media.aquatome.com/sprucepets/00000000000000c3.webp"]')!.closest('figure')!
   expect(own.querySelector('figcaption a')?.getAttribute('href')).toBe('/vi/ca/ca-boraras-do/')
