@@ -10,7 +10,8 @@ import { mergeStores } from '@aq/schema/tank-rules'
 export type Method = { id: string; kind: 'apple' | 'google' | 'passkey' | 'email'; createdAt: string; lastUsedAt: string | null }
 export type User = { id: string; createdAt: string | null; methods: Method[] }
 export type Providers = { google: { clientId: string } | null; apple: { clientId: string } | null; email: boolean; passkey: boolean }
-export type Session = { accounts: false } | { accounts: true; providers: Providers; turnstileSitekey: string | null; user: User | null }
+/** `signedInAt`: when this browser signed in, if it is (adding a way to sign in needs it recent). */
+export type Session = { accounts: false } | { accounts: true; providers: Providers; turnstileSitekey: string | null; user: User | null; signedInAt?: string }
 export type Fail = { error: string }
 type Fetch = (input: string, init?: RequestInit) => Promise<Response>
 

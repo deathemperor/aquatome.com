@@ -1,6 +1,7 @@
 import { isoBase64URL, isoCBOR } from '@simplewebauthn/server/helpers'
 import { expect, test } from 'vitest'
 import { accounts, type AccountDeps, type AccountsEnv } from '../accounts/api'
+import { sha256 } from '../accounts/session'
 import { removeMethod } from '../accounts/users'
 import { testD1 } from './d1'
 
@@ -121,10 +122,15 @@ test('removing a method keeps one way in that is not a passkey, only right after
   const id = (kind: string) => methods.find(m => m.kind === kind)!.id
   // Google is the only way in that isn't the passkey: it stays.
   expect((await call('DELETE', `/api/v1/account/methods/${id('google')}`, { cookie })).json).toEqual({ error: 'last_method' })
-  // A session opened more than ten minutes ago removes nothing: sign in again first.
-  await db.prepare(`UPDATE sessions SET created_at = ?`).bind(new Date(NOW.getTime() - 11 * 60_000).toISOString()).run()
+  // A session opened more than ten minutes ago removes or adds nothing: sign in again first. A refused removal ends no
+  // session.
+  const old = new Date(NOW.getTime() - 11 * 60_000).toISOString()
+  const mine = await sha256(cookie.slice(cookie.indexOf('=') + 1))
+  await db.prepare(`UPDATE sessions SET created_at = ? WHERE id = ?`).bind(old, mine).run()
   expect((await call('DELETE', `/api/v1/account/methods/${id('passkey')}`, { cookie })).json).toEqual({ error: 'reauth_needed' })
-  await db.prepare(`UPDATE sessions SET created_at = ?`).bind(NOW.toISOString()).run()
+  expect((await call('POST', '/api/v1/account/passkey/options', { body: {}, cookie })).json).toEqual({ error: 'reauth_needed' })
+  expect((await call('GET', '/api/v1/session', { cookie: elsewhere })).json.user).not.toBeNull()
+  await db.prepare(`UPDATE sessions SET created_at = ? WHERE created_at = ?`).bind(NOW.toISOString(), old).run()
   // The passkey goes, and the session it opened elsewhere with it; this one goes on.
   expect((await call('DELETE', `/api/v1/account/methods/${id('passkey')}`, { cookie })).status).toBe(204)
   expect((await call('GET', '/api/v1/session', { cookie: elsewhere })).json.user).toBeNull()

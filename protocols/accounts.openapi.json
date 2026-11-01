@@ -257,6 +257,11 @@
                           "type": "null"
                         }
                       ]
+                    },
+                    "signedInAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "When this client signed in (signed in only). Adding or removing a way to sign in needs it within the last 10 minutes."
                     }
                   }
                 }
@@ -365,7 +370,7 @@
                   "link": {
                     "type": "boolean",
                     "default": false,
-                    "description": "true: add this sign-in method to the account signed in on this client (its session goes on; no new token). Without it, signing in while signed in switches to the account this method belongs to and ends the old session: accounts are never joined unless asked."
+                    "description": "true: add this sign-in method to the account signed in on this client (its session goes on; no new token). Without it, signing in while signed in switches to the account this method belongs to and ends the old session: accounts are never joined unless asked. Only within 10 minutes of this client's sign-in (403 reauth_needed: sign in again with a way the account has, then add)."
                   }
                 }
               }
@@ -404,7 +409,7 @@
             }
           },
           "403": {
-            "description": "Error: cross_site",
+            "description": "Error: cross_site, or reauth_needed (link: true, signed in on this client more than 10 minutes ago)",
             "content": {
               "application/json": {
                 "schema": {
@@ -479,7 +484,7 @@
                   "link": {
                     "type": "boolean",
                     "default": false,
-                    "description": "true: add this sign-in method to the account signed in on this client (its session goes on; no new token). Without it, signing in while signed in switches to the account this method belongs to and ends the old session: accounts are never joined unless asked."
+                    "description": "true: add this sign-in method to the account signed in on this client (its session goes on; no new token). Without it, signing in while signed in switches to the account this method belongs to and ends the old session: accounts are never joined unless asked. Only within 10 minutes of this client's sign-in (403 reauth_needed: sign in again with a way the account has, then add)."
                   }
                 }
               }
@@ -518,7 +523,7 @@
             }
           },
           "403": {
-            "description": "Error: cross_site",
+            "description": "Error: cross_site, or reauth_needed (link: true, signed in on this client more than 10 minutes ago)",
             "content": {
               "application/json": {
                 "schema": {
@@ -592,7 +597,7 @@
                   "link": {
                     "type": "boolean",
                     "default": false,
-                    "description": "true: add this sign-in method to the account signed in on this client (its session goes on; no new token). Without it, signing in while signed in switches to the account this method belongs to and ends the old session: accounts are never joined unless asked."
+                    "description": "true: add this sign-in method to the account signed in on this client (its session goes on; no new token). Without it, signing in while signed in switches to the account this method belongs to and ends the old session: accounts are never joined unless asked. Only within 10 minutes of this client's sign-in (403 reauth_needed: sign in again with a way the account has, then add)."
                   },
                   "client": {
                     "type": "string",
@@ -648,7 +653,7 @@
             }
           },
           "403": {
-            "description": "Error: turnstile, cross_site",
+            "description": "Error: turnstile, cross_site, or reauth_needed (link: true, signed in on this client more than 10 minutes ago)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1497,7 +1502,7 @@
     "/api/v1/account/passkey/options": {
       "post": {
         "summary": "A challenge to add a passkey to the account signed in",
-        "description": "Registration options for this account: resident key and user verification required, no attestation, ES256 or RS256, and the account's passkeys as excludeCredentials. The user handle is the account id; the name shown in passkey managers is \"AquaTome\" and the start of that random id. Valid 5 minutes, once, for this account only. 20 per hour per account (with POST /api/v1/account/passkey).",
+        "description": "Registration options for this account: resident key and user verification required, no attestation, ES256 or RS256, and the account's passkeys as excludeCredentials. The user handle is the account id; the name shown in passkey managers is \"AquaTome\" and the start of that random id. Valid 5 minutes, once, for this account only. 20 per hour per account (with POST /api/v1/account/passkey).\n\nOnly within 10 minutes of this client's sign-in (403 reauth_needed).",
         "security": [
           {
             "bearer": []
@@ -1539,7 +1544,7 @@
             }
           },
           "403": {
-            "description": "Error: cross_site",
+            "description": "Error: cross_site, or reauth_needed (signed in on this client more than 10 minutes ago)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1574,7 +1579,7 @@
     "/api/v1/account/passkey": {
       "post": {
         "summary": "Add a passkey to the account signed in",
-        "description": "The new passkey, made from options this account asked for. Kept: its credential id, public key, signature counter and transports (no attestation, nothing biometric). After this, the passkey signs in to this account on its own.",
+        "description": "The new passkey, made from options this account asked for. Kept: its credential id, public key, signature counter and transports (no attestation, nothing biometric). After this, the passkey signs in to this account on its own.\n\nOnly within 10 minutes of this client's sign-in (403 reauth_needed).",
         "security": [
           {
             "bearer": []
@@ -1642,7 +1647,7 @@
             }
           },
           "403": {
-            "description": "Error: cross_site",
+            "description": "Error: cross_site, or reauth_needed (signed in on this client more than 10 minutes ago)",
             "content": {
               "application/json": {
                 "schema": {
