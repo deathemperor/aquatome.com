@@ -114,6 +114,21 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(life(app, "Cá neon").label.contains("× 9"), life(app, "Cá neon").label)
   }
 
+  func testListsTheGuidesThatNameTheTanksFishAndOpensThem() {
+    let app = launch("-seed-tanks", "life") // neons: one guide names them
+    app.tabBars.buttons["Bể của tôi"].tap()
+    app.buttons["tank"].firstMatch.tap()
+    XCTAssertTrue(life(app, "Cá neon").waitForExistence(timeout: 5))
+    // Under the fish, the plants and the tank-mates check: it may start under the tab bar.
+    let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
+    for _ in 0..<4 where !(guide.exists && guide.isHittable) { app.swipeUp() }
+    XCTAssertTrue(guide.waitForExistence(timeout: 5), "no related guide")
+    XCTAssertEqual(app.buttons.matching(identifier: "tank-guide").count, 1)
+    XCTAssertTrue(guide.label.contains("Nuôi cá neon trong bể nhỏ"), guide.label)
+    guide.tap()
+    XCTAssertTrue(app.navigationBars["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "its page didn't open")
+  }
+
   func testNothingIsPutIntoAStoreTheAppMustLeaveAlone() {
     let app = launch("-seed-tanks", "newer")
     let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch

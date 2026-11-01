@@ -51,6 +51,9 @@ final class HandbookModel {
   func saved(_ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] { ReadingList.items(reading.saved, in: byPath, kind: kind) }
   func recent(_ kind: HandbookIndex.Kind?, limit: Int = 5) -> [HandbookIndex.Item] { ReadingList.items(reading.recent, in: byPath, kind: kind, limit: limit) }
 
+  /// Guides that name these fish and plants (a tank's), the most of them first, then in name order.
+  func guides(about ids: [String]) -> [HandbookIndex.Item] { HandbookIndex.guides(about: ids, in: search.find("", kind: .guide)) }
+
   func read(_ item: HandbookIndex.Item) { change { $0.read(item.path) } }
   func toggleSaved(_ item: HandbookIndex.Item) { change { $0.toggleSaved(item.path) } }
 
@@ -130,7 +133,7 @@ extension HandbookIndex {
     .init(kind: .fish, contentId: "danio-rerio", name: "Cá ngựa vằn", sub: "Danio rerio", path: "/vi/ca/ca-ngua-van/"),
     .init(kind: .plant, contentId: "rotala-rotundifolia", name: "Rotala đỏ", sub: "Rotala rotundifolia", path: "/vi/cay/rotala-do/",
           facts: .init(tempC: .init(min: 20, max: 28))),
-    .init(kind: .guide, name: "Nuôi cá neon trong bể nhỏ", path: "/vi/huong-dan/nuoi-ca-neon/"),
+    .init(kind: .guide, name: "Nuôi cá neon trong bể nhỏ", path: "/vi/huong-dan/nuoi-ca-neon/", section: "care", about: ["paracheirodon-innesi"]),
     .init(kind: .glossary, name: "Đệm pH", path: "/vi/thuat-ngu/dem-ph/"),
     .init(kind: .tool, name: "Đèn Chihiros", path: "/vi/cong-cu/den-chihiros/"),
     .init(kind: .tool, name: "Bể của tôi", path: "/vi/cong-cu/be-cua-toi/"),
