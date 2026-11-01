@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm
 title: Pterygoplichthys gibbiceps (Kner, 1854)
-fetchedAt: 2026-11-01T12:08:12.434Z
+fetchedAt: 2026-11-01T15:47:12.395Z
 hash: cd69c8f690df887acdf22328638c0f9f1c676e55ce0ffdd12f1644bb4f853c2f
 ---
 
