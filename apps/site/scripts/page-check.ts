@@ -140,11 +140,12 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
     }
   }
 
-  // Contents: one entry per heading, its words and order, and the number the list gives it the heading's own.
+  // Contents: one entry per heading (a heading over sub-sections, an h2, too), its words and order, and the number the
+  // list gives it the heading's own.
   const toc = root.querySelector('nav.toc')
   if (toc) {
     const entries = toc.querySelectorAll('a[href^="#"]')
-    const ids = root.querySelectorAll('.prose h3[id]')
+    const ids = root.querySelectorAll('.prose h2[id], .prose h3[id]')
     if (entries.length !== ids.length) out.push({ check: 'toc', detail: `${entries.length} entries, ${ids.length} headings` })
     entries.forEach((a, i) => {
       const h = root.querySelector(`[id="${a.getAttribute('href')!.slice(1)}"]`)
@@ -153,7 +154,7 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
       else if (text(a) !== own.replace(/^(?:\d+[.)]|#\s?\d+[.):]?)\s+/, '')) out.push({ check: 'toc', detail: `entry "${text(a)}" for "${own}"` })
       const n = NUMBERED.exec(own)?.[1]
       const li = a.closest('li')
-      const label = li?.getAttribute('value') ?? String(i + 1)
+      const label = li?.getAttribute('value') ?? String(li ? li.parentNode.childNodes.filter(x => x instanceof HTMLElement && x.tagName === 'LI').indexOf(li) + 1 : i + 1) // its place in its own list
       if (n && n !== label) out.push({ check: 'toc', detail: `entry numbered ${label} for "${own}"` })
     })
   }

@@ -1,10 +1,10 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
-import { imperialLeft, type DataCardField, type Lang } from '@aq/schema'
+import { headingRoles, imperialLeft, ownNumber, type DataCardField, type Lang } from '@aq/schema'
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
-import { dropEmptyBlocks, OWN_NUMBER, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice } from './sanitize'
+import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice } from './sanitize'
 import type { Page, PageKind } from './pages'
 
 /**
@@ -54,7 +54,6 @@ const clip = (s: string, n = 90) => (s.length > n ? `${s.slice(0, n - 1).trimEnd
 /** The page's own text, without the sources' reference sections (titles of papers, in their own language). */
 const prose = (p: Page) => p.fields.filter(f => !f.field.startsWith('sections.references'))
 const headings = (html: string) => parse(html).childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement && n.rawTagName === 'h3')
-const ownNumber = (heading: string) => { const m = heading.trim().match(OWN_NUMBER); return m ? Number(m[1] ?? m[2] ?? m[3]) : undefined }
 
 /** Numbered headings in order, split into runs: a run ends where the numbers start again from 1. Each run's length is its highest number. */
 export function numberedRuns(hs: string[]): number[] {
@@ -172,25 +171,25 @@ export function countMismatch(title: string, html: string): string | undefined {
 }
 
 /**
- * A heading with nothing under it: the last block of its text. A heading straight over another is a group over its
- * sub-headings ("Lựa chọn loài" over one heading a species, "Sản phẩm" over two products): every heading is an h3, so
- * a parent looks the same as an empty one, and stays.
+ * Headings with nothing under them (@aq/schema headingRoles, as the site and its built-page check read them): the last
+ * block of a text, or a heading over one that isn't its sub-section ("Ngày 16 tháng 11" over "Ngày 26 tháng 11"). A
+ * heading straight over its sub-sections is a group ("Lựa chọn loài" over one heading a species, "Sản phẩm" over two
+ * products), and stays: the site shows it a level above them.
  */
-const isEmptyAt = (els: HTMLElement[], i: number) => els[i]!.rawTagName === 'h3' && !!els[i]!.text.trim() && i === els.length - 1
+const emptyHeadings = (root: HTMLElement) => headingRoles(root).filter(h => h.role === 'empty')
 const elements = (root: HTMLElement) => root.childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement)
 /** Headings with nothing under them. */
 export function emptySections(html: string): string[] {
-  const els = elements(parse(html))
-  return els.flatMap((b, i) => (isEmptyAt(els, i) ? [b.text.trim()] : []))
+  return emptyHeadings(parse(html)).map(h => h.text)
 }
-/** The text without its empty headings (at its end). */
+/** The text without its empty headings. */
 export function dropEmptyHeadings(html: string): string {
   if (!html.includes('<h3>')) return html
   const root = parse(html)
   let changed = false
   // Again until none is left: two headings at the end both go.
-  for (let els = elements(root), empty = els.filter((_, i) => isEmptyAt(els, i)); empty.length; els = elements(root), empty = els.filter((_, i) => isEmptyAt(els, i))) {
-    for (const e of empty) e.remove()
+  for (let empty = emptyHeadings(root); empty.length; empty = emptyHeadings(root)) {
+    for (const h of empty) h.el.remove()
     changed = true
   }
   return changed ? root.toString() : html
@@ -459,7 +458,7 @@ export const RULES: Rule[] = [
   },
   {
     id: 'headings', title: 'Empty headings and blocks',
-    about: 'A heading at the end of its text, an empty block: the sweep drops them. A heading straight over another is a group over its sub-headings, and stays.',
+    about: 'A heading at the end of its text or over one that isn\'t its sub-section (an empty one, a group, or its peer: "Ngày 16…" over "Ngày 26…", "2. …" over "3. …"), an empty block: the sweep drops them. A heading straight over its sub-sections is a group, and stays: the site shows it a level above them.',
     check: p => [
       ...prose(p).flatMap(f => emptySections(f.html)).map(h => `nothing under "${clip(h, 60)}"`),
       ...prose(p).filter(f => dropEmptyBlocks(f.html) !== f.html).map(f => `an empty block in ${f.field}`),

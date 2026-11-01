@@ -109,7 +109,7 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   const shown = pagePictures(c)
   shown.add(top?.url)
   for (const f of placed) shown.add(f.photo.url)
-  const { html: toc0, toc } = withToc(prose0)
+  const { html: toc0, toc } = withToc(prose0, body)
   const prose = g.video ? illustrate(lang, toc0, g.video, shown) : toc0
   const minutes = readingMinutes(body)
   const series = seriesOf(c, g)

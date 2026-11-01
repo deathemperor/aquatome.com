@@ -44,11 +44,16 @@ test('a title promising a count: a numbered run, a list or enough headings hold 
 /** Furniture the rule finds, whether or not the sweep may cut it (more than half a text). */
 const detected = (html: string) => [...furniture(html), ...longFurniture(html)]
 
-test('a heading with nothing under it, at the end of its text; a heading over another is a group; the source site\'s comments', () => {
+test('a heading with nothing under it, at the end of its text or over one not its own; a heading over its sub-section is a group; the source site\'s comments', () => {
   expect(emptySections('<h3>Ưu điểm</h3><h3>1. Nhẹ</h3><p>a</p><h3>Kết luận</h3><p>b</p><h3>Để lại bình luận</h3>')).toEqual(['Để lại bình luận'])
   // The first sweep dropped 7 such parents ("Lựa chọn loài" over a heading a species, "Sản phẩm" over two products).
   expect(emptySections('<h3>Các loài</h3><h3>Tép ong</h3><p>a</p>')).toEqual([])
   expect(emptySections('<h3>Sản phẩm</h3><h3>Fish Vet Methylene Blue</h3><p>a</p><h3>Kordon</h3><p>b</p>')).toEqual([])
+  // Over one that isn't its sub-section: its peer (a diary date whose text the source lost, an item of a numbered run),
+  // or a group, as the site's built-page check reads them (a heading of its own level or higher next).
+  expect(emptySections('<h3>Ngày 12 tháng 11 năm 2006</h3><p>a</p><h3>Ngày 16 tháng 11 năm 2006</h3><h3>Ngày 26 tháng 11 năm 2006</h3><p>b</p>')).toEqual(['Ngày 16 tháng 11 năm 2006'])
+  expect(emptySections('<h3>Ưu điểm</h3><h3>1. Nhẹ</h3><p>a</p><h3>2. Rẻ</h3><h3>3. Bền</h3><p>c</p>')).toEqual(['2. Rẻ'])
+  expect(emptySections('<h3>Phần một</h3><h3>Các loài</h3><h3>Tép ong</h3><p>a</p>')).toEqual(['Phần một'])
   expect(detected('<h3>Kết luận</h3><p>a</p><h3>4 bình luận về “Đá dung nham”</h3><ul><li>Marcia: …</li></ul><h3>Để lại bình luận</h3><h3>Bài viết liên quan:</h3><h3>Bình luận của độc giả (5 bình luận)</h3>'))
     .toEqual(['4 bình luận về “Đá dung nham”', 'Để lại bình luận', 'Bài viết liên quan:', 'Bình luận của độc giả (5 bình luận)'])
   expect(detected('<h3>Bình luận về chất lượng nước</h3>')).toEqual([])
@@ -206,11 +211,12 @@ test('the source site\'s comments, comment form and related posts: found as head
   expect(found(page({ fields: [{ field: 'body', html: most }] }), 'furniture-long')).toEqual(['"Bình luận của độc giả"'])
 })
 
-test('empty headings dropped at the end of a text, all of them; a group heading kept', () => {
+test('empty headings dropped, all of them; a group heading kept', () => {
   expect(dropEmptyHeadings('<h3>Các loài</h3><h3>Tép ong</h3><p>a</p><h3>Sản phẩm</h3>')).toBe('<h3>Các loài</h3><h3>Tép ong</h3><p>a</p>')
   expect(dropEmptyHeadings('<h3>Ưu điểm</h3><h3>1. Nhẹ</h3><p>a</p>')).toBe('<h3>Ưu điểm</h3><h3>1. Nhẹ</h3><p>a</p>')
   expect(dropEmptyHeadings('<p>a</p><h3>Ưu điểm</h3><h3>1. Nhẹ</h3>')).toBe('<p>a</p>')
-  expect(emptySections(dropEmptyHeadings('<h3>A</h3><h3>B</h3><h3>C</h3><p>x</p><h3>D</h3>'))).toEqual([])
+  expect(dropEmptyHeadings('<h3>A</h3><h3>B</h3><h3>C</h3><p>x</p><h3>D</h3>')).toBe('<h3>B</h3><h3>C</h3><p>x</p>')
+  expect(dropEmptyHeadings('<p>a</p><h3>Ngày 16 tháng 11 năm 2006</h3><h3>Ngày 26 tháng 11 năm 2006</h3><p>b</p>')).toBe('<p>a</p><h3>Ngày 26 tháng 11 năm 2006</h3><p>b</p>')
 })
 
 test('a repeated paragraph: the later copy goes, in reading order across a page\'s texts; reference lists stay', () => {

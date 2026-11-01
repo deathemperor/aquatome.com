@@ -65,7 +65,7 @@ export function illustrate(lang: Lang, html: string, v: NonNullable<GuideEntity[
   const t = translator(lang)
   const root = parse(html)
   const byHeading = new Map(v.figures.map(f => [f.heading, f]))
-  for (const h of root.querySelectorAll('h3')) {
+  for (const h of root.querySelectorAll('h2, h3')) { // h2: a heading over sub-sections (lib/toc.ts)
     const f0 = byHeading.get(h.textContent.replace(/\s+/g, ' ').trim())
     if (!f0) continue
     // Nothing the page already shows: a photo picked for two sections, two stills of the same scene.

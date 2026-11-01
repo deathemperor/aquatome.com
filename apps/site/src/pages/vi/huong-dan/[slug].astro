@@ -70,11 +70,17 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
         </section>
       )}
     </header>
-    {toc.length >= 3 && (
+    {toc.flatMap(e => [e, ...(e.sub ?? [])]).length >= 3 && (
       <nav class="toc" aria-labelledby="toc-h">
         <h2 id="toc-h">{t('Trong bài này')}</h2>
-        {/* Numbered headings keep their own numbers ("1." after an unnumbered introduction is still 1); the others none. */}
-        <ol>{toc.map(t => (toc.some(x => x.n) ? <li value={t.n} class:list={[{ un: !t.n }]}><a href={`#${t.id}`}>{t.text}</a></li> : <li><a href={`#${t.id}`}>{t.text}</a></li>))}</ol>
+        {/* Numbered headings keep their own numbers ("1." after an unnumbered introduction is still 1); the others none. A
+            heading over sub-sections stands out, its numbered run under it. */}
+        <ol>{toc.map(e => (
+          <li value={toc.some(x => x.n) ? e.n : undefined} class:list={[{ un: toc.some(x => x.n) && !e.n, group: e.group }]}>
+            <a href={`#${e.id}`}>{e.text}</a>
+            {e.sub && <ol>{e.sub.map(s => <li value={s.n}><a href={`#${s.id}`}>{s.text}</a></li>)}</ol>}
+          </li>
+        ))}</ol>
       </nav>
     )}
     <div class="prose" set:html={prose} />
@@ -125,9 +131,17 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
   .toc ol { margin: 0; padding-left: 1.4em; font-size: 0.95rem; }
   .toc li { padding-block: 4px; }
   .toc li.un { list-style: none; }
+  /* A heading over sub-sections: its entry stands out, its numbered run indented under it. */
+  .toc li.group > a { font-weight: 600; }
+  .toc li ol { margin-top: var(--space-1); font-size: 0.9rem; }
+  .toc li li { padding-block: 3px; }
   .toc a { color: var(--c-ink); text-decoration-color: var(--c-rule); }
   .toc a:hover { text-decoration-color: var(--c-ink); }
   .prose :global(h3) { font-size: var(--step-2); margin: var(--space-7) 0 var(--space-3); scroll-margin-top: var(--space-5); }
+  /* A heading over sub-sections (lib/toc.ts) opens a part, with the rule the page's other parts open with; its first
+     sub-section follows close under it. */
+  .prose :global(h2) { font-size: var(--step-3); margin: var(--space-8) 0 var(--space-4); padding-top: var(--space-4); border-top: 2px solid var(--c-ink); scroll-margin-top: var(--space-5); }
+  .prose :global(h2 + h3) { margin-top: var(--space-5); }
   .takeaways { background: var(--c-plate); border: 1px solid var(--c-rule); border-top: 2px solid var(--c-ink); padding: var(--space-4) var(--space-5); margin: var(--space-4) 0 var(--space-2); }
   .takeaways h2, .faq h2 { font: 600 0.8rem var(--f-body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-ink-soft); margin-bottom: var(--space-2); }
   .takeaways ul { margin: 0; padding-left: 1.2em; }

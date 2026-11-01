@@ -13,6 +13,7 @@ export { CARE_TOPICS, DEPTH_CHARS, DEPTH_TOPICS, NEAR_EMPTY_WORDS, PROFILE_IF_FU
 export { loadAll, MARKET, QUALITY_THRESHOLD, type LoadOptions, type Localized, type Content } from './load'
 export { linkGlossary, type GlossaryLinkTerm } from './glossary-link'
 export { headingSubject, linkTerms, type LinkTarget } from './link-terms'
+export { headingRoles, OWN_NUMBER, ownNumber, type HeadingRole } from './headings'
 export { COOKIE_PHOTO_HOSTS, MEDIA_HOST, setsCookies, THUMB_WIDTH, thumbOf } from './thumb'
 export { hashDistance, PictureSet, pictureOf, SAME_PICTURE, type PictureHashes } from './pictures'
 export * from './tanks'
