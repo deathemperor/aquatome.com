@@ -12,6 +12,14 @@ concurrency:
   cancel-in-progress: true
 permissions:
   contents: read
+# The flows of the handbook and of what a tank reads from it (its fish, plants and guides, the tank-mates check), run by
+# job `handbook`; job `app` runs every other flow but the lights'. One list for both, so a class misspelled here still
+# runs, in `app`. A class the app doesn't have runs nothing. Keep at least one: an empty list leaves a bare
+# -only-testing:AquaTomeUITests/ and -skip-testing:AquaTomeUITests/ in the commands below.
+env:
+  HANDBOOK_FLOWS: >-
+    HandbookFlowTests FactsCardFlowTests ReadingFlowTests NativePageFlowTests OfflineFlowTests TankCheckFlowTests
+    TankLifeFlowTests
 jobs:
   kit:
     runs-on: macos-26
@@ -28,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
-      # The main flows (apps/ios/AquaTomeUITests), but the lights' (job `lights`).
+      # The main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights' (job `lights`).
       # A failed test runs once more, as the site's journeys do on CI: the simulator on these runners sometimes stops
       # answering for 30 s, then drops the next tap or loses the app (PRs #234, #248 on 2026-10-31, in their
       # recordings). A test that fails twice fails the job; one that passed only on its retry is flagged below.
@@ -37,7 +45,7 @@ jobs:
           -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
           -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
           -retry-tests-on-failure -test-iterations 2 -skip-testing:AquaTomeUITests/PerformanceTests
-          -skip-testing:AquaTomeUITests/LightFlowTests
+          -skip-testing:AquaTomeUITests/LightFlowTests $(printf -- '-skip-testing:AquaTomeUITests/%s ' $HANDBOOK_FLOWS)
       # Flaky tests are seen, not hidden: each one that needed its retry is a warning on the run and in its summary.
       - name: Tests that passed only on a retry
         if: always()
@@ -81,9 +89,33 @@ jobs:
             build/ui.xcresult
             build/perf.xcresult
           if-no-files-found: ignore
+  # The handbook's flows (HANDBOOK_FLOWS, above): on their own runner, beside jobs `app` and `lights`. On 2026-11-01
+  # `app` ran out of its hour on a slow runner, in the performance tests after 52 minutes of flows (15 of them the
+  # build), with only the facts card added to main; the handbook stack (#313 to #341) adds more.
+  handbook:
+    runs-on: macos-26
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: apps/ios/scripts/wait-for-simulator.sh
+      # Retried once, as in job `app`, and for the same reason.
+      - run: >-
+          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
+          -derivedDataPath build/dd -resultBundlePath build/handbook.xcresult CODE_SIGNING_ALLOWED=NO
+          -retry-tests-on-failure -test-iterations 2 $(printf -- '-only-testing:AquaTomeUITests/%s ' $HANDBOOK_FLOWS)
+      - name: Tests that passed only on a retry
+        if: always()
+        run: apps/ios/scripts/retried-tests.py build/handbook.xcresult
+      - if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ios-handbook-flows
+          path: build/handbook.xcresult
+          if-no-files-found: ignore
   # The light flows on the simulator's fake light, which answers like the real one (with its pauses, so each flow takes
-  # a minute or more): on their own runner, beside job `app`. Together the flows outgrew one job's hour on 2026-11-01
-  # (#312: 58 minutes of flows, 37 of them the lights').
+  # a minute or more): on their own runner, beside jobs `app` and `handbook`. Together the flows outgrew one job's hour
+  # on 2026-11-01 (#312: 58 minutes of flows, 37 of them the lights').
   lights:
     runs-on: macos-26
     timeout-minutes: 60
