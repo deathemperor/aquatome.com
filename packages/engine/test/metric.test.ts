@@ -29,3 +29,14 @@ test('fish, plant and breed pages in every language come out in metric; other pa
   expect((await read('guides/e/vi.json')).body).toBe('<p>Bể 20 gallon long.</p>') // guides are not in this pass
   expect(await metricPages(root)).toEqual([]) // done: nothing to change the second time
 })
+
+test("a page keeps its file's own indentation: a changed figure is one changed line", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'metric-'))
+  await mkdir(join(root, 'species/a'), { recursive: true })
+  const before = `${JSON.stringify(page({ 'quickFacts:seriouslyfish': '<li>Nhiệt độ: 20–30°C (68–86°F)</li>' }), null, 1)}\n`
+  await writeFile(join(root, 'species/a/vi.json'), before)
+  await metricPages(root)
+  const after = await readFile(join(root, 'species/a/vi.json'), 'utf8')
+  const changed = after.split('\n').filter((l, i) => l !== before.split('\n')[i])
+  expect(changed).toEqual(['  "quickFacts:seriouslyfish": "<li>Nhiệt độ: 20–30°C</li>"'])
+})

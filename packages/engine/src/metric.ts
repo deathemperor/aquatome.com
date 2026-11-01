@@ -16,11 +16,13 @@ export async function metricPages(contentRoot: string): Promise<string[]> {
     for (const id of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
       for (const lang of LANGS) {
         const file = join(contentRoot, kind, id, `${lang}.json`)
-        const page = await readFile(file, 'utf8').then(s => JSON.parse(s) as Parameters<typeof metricPage>[0], () => null)
-        if (!page) continue
+        const raw = await readFile(file, 'utf8').catch(() => null)
+        if (!raw) continue
+        const page = JSON.parse(raw) as Parameters<typeof metricPage>[0]
         const next = metricPage(page, lang)
         if (JSON.stringify(next) === JSON.stringify(page)) continue
-        await writeFile(file, `${JSON.stringify(next, null, 2)}\n`)
+        // The file's own indentation: a figure changed is one changed line, not every line of the page.
+        await writeFile(file, `${JSON.stringify(next, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
         changed.push(`${kind}/${id}/${lang}`)
       }
     }
