@@ -15,10 +15,12 @@ the app's tanks, merged record by record, and each page sees them. A link to "B�
 those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "Xem trong Bể của tôi →" opens the tank
 just saved.
 
-Signing in (Sign in with Apple) syncs the tanks with an aquatome.com account, as the site's page does: the token is in
-the Keychain, on this phone only. A debug build on the simulator (every UI and performance test) gets a stand-in
-server and Apple sheet inside the app instead (`AquaTome/Account/FakeServer.swift`; accounts on with
-`-fake-accounts on`), so no test reaches aquatome.com; `-real-accounts` tries the real server from the simulator.
+Signing in (Sign in with Apple, or a code sent by email) syncs the tanks with an aquatome.com account, as the site's
+page does: the token is in the Keychain, on this phone only. The email sign-in's Turnstile check runs in a web view
+on the site's page for it (`/api/v1/auth/email/turnstile`), since Turnstile runs only in a web page on the site's host.
+A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet and Turnstile check
+inside the app instead (`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`; every emailed code
+is `123456`), so no test reaches aquatome.com; `-real-accounts` tries the real server from the simulator.
 Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`PlugsModel.forSimulator`;
 `-seed-tuya-keys` starts with its keys entered), so no test reaches Tuya; `-real-tuya` tries Tuya itself.
 

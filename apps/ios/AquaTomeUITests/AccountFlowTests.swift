@@ -53,6 +53,20 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "sign-out").exists, "signed in with no tanks, the account's buttons are there")
   }
 
+  func testEmailSignInOpensTheSameAccountOnANewPhone() {
+    var app = launch(resetServer: true)
+    add(app, "Bể tép", first: true)
+    emailSignIn(app, "reader@example.com", wrongFirst: true)
+    XCTAssertTrue(app.staticTexts["account-status"].label.contains("email"), app.staticTexts["account-status"].label)
+    app.terminate()
+
+    // A new phone, the same address however it is typed: the same account, with its tank.
+    app = launch()
+    emailSignIn(app, " Reader@Example.com")
+    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "the account's tanks didn't come")
+    XCTAssertEqual(app.buttons.matching(identifier: "tank").allElementsBoundByIndex.map { $0.label.components(separatedBy: ",")[0] }, ["Bể tép"])
+  }
+
   func testWithAccountsOffThereIsNoSignIn() {
     let app = launch(resetServer: true, accounts: "off")
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5))
@@ -93,6 +107,38 @@ final class AccountFlowTests: XCTestCase {
     tap(app, "apple-sign-in")
     XCTAssertTrue(app.staticTexts["account-status"].waitForExistence(timeout: 5), "not signed in")
     XCTAssertTrue(waitForSyncs(app, 1), "no sync after signing in")
+  }
+
+  /// Signs in with a code sent to `address` (the stand-in's code), and waits for the sync that follows. `wrongFirst`: a
+  /// wrong code first, which is refused and leaves the code field there.
+  private func emailSignIn(_ app: XCUIApplication, _ address: String, wrongFirst: Bool = false) {
+    tap(app, "email-sign-in")
+    let field = app.textFields["email-address"]
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no email sheet")
+    field.tap()
+    field.typeText(address)
+    let send = app.buttons["send-code"]
+    XCTAssertTrue(send.waitForExistence(timeout: 5))
+    XCTAssertTrue(waitFor(send, "isEnabled == true"), "no token from the check")
+    send.tap()
+    let code = app.textFields["email-code"]
+    XCTAssertTrue(code.waitForExistence(timeout: 5), "the code wasn't sent")
+    if wrongFirst {
+      code.typeText("000000")
+      app.buttons["verify-code"].tap()
+      let said = app.staticTexts["email-message"]
+      XCTAssertTrue(said.waitForExistence(timeout: 5) && said.label.hasPrefix("Mã không đúng"), said.label)
+      code.tap()
+      code.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 6))
+    }
+    code.typeText("123456")
+    app.buttons["verify-code"].tap()
+    XCTAssertTrue(app.staticTexts["account-status"].waitForExistence(timeout: 5), "not signed in")
+    XCTAssertTrue(waitForSyncs(app, 1), "no sync after signing in")
+  }
+
+  private func waitFor(_ e: XCUIElement, _ predicate: String) -> Bool {
+    XCTWaiter().wait(for: [expectation(for: NSPredicate(format: predicate), evaluatedWith: e)], timeout: 5) == .completed
   }
 
   /// Syncs done since launch (the status line's value in a debug build).

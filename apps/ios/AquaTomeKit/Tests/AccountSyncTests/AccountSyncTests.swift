@@ -67,6 +67,8 @@ func requests() async throws {
   try await api.deleteAccount(token: s.token, appleCode: "good-apple-1")
   let s2 = try await signIn(api, "apple-2")
   try await api.signOut(token: s2.token)
+  let flow = try await api.emailStart("reader@example.com", turnstile: "t-1", lang: "vi")
+  _ = try await api.emailVerify(flow: flow, code: FakeAccounts.emailCode)
 
   for r in fake.requests {
     let what = "\(r.httpMethod!) \(r.url!.path)"
@@ -77,7 +79,7 @@ func requests() async throws {
     if r.httpMethod == "POST" { #expect(r.httpBody != nil, "\(what) has no body") }
     if r.httpBody != nil { #expect(r.value(forHTTPHeaderField: "Content-Type") == "application/json", "\(what)") }
     let body = r.httpBody.flatMap { try? JSON.parse($0).object }
-    if r.url!.path == "/api/v1/auth/apple" { #expect(body?["client"]?.string == "app") }
+    if ["/api/v1/auth/apple", "/api/v1/auth/email/start", "/api/v1/auth/email/verify"].contains(r.url!.path) { #expect(body?["client"]?.string == "app", "\(what)") }
     if r.url!.path == "/api/v1/account" { #expect(body?["apple"]?.object?["clientId"]?.string == "com.aquatome.app") }
     if ["/api/v1/tanks/sync", "/api/v1/account", "/api/v1/auth/logout"].contains(r.url!.path) {
       #expect(r.value(forHTTPHeaderField: "Authorization")?.hasPrefix("Bearer token-") == true, "\(what)")
@@ -85,8 +87,43 @@ func requests() async throws {
   }
   #expect(Set(fake.requests.map { "\($0.httpMethod!) \($0.url!.path)" }) == [
     "GET /api/v1/session", "POST /api/v1/auth/nonce", "POST /api/v1/auth/apple", "POST /api/v1/tanks/sync",
-    "DELETE /api/v1/account", "POST /api/v1/auth/logout",
+    "DELETE /api/v1/account", "POST /api/v1/auth/logout", "POST /api/v1/auth/email/start", "POST /api/v1/auth/email/verify",
   ])
+  // The Turnstile page the web view opens is the contract's too.
+  let page = api.turnstilePage(lang: "th")
+  #expect(page.absoluteString == "https://aquatome.com/api/v1/auth/email/turnstile?lang=th")
+  #expect(contract[page.path]?.object?["get"] != nil)
+}
+
+@MainActor @Test("Email: a code to the address, a token for each request, the code once, five wrong ones and it's gone; the same address, the same account")
+func email() async throws {
+  let fake = FakeAccounts()
+  let api = client(fake)
+  await #expect(throws: AccountError.refused("bad_email")) { _ = try await api.emailStart("nope", turnstile: "t-0", lang: "vi") }
+  let flow = try await api.emailStart(" Reader@Example.com ", turnstile: "t-1", lang: "vi")
+  #expect(fake.mailed == ["reader@example.com"])
+  // A Turnstile token passes once: the app asks the page for another before each code.
+  await #expect(throws: AccountError.refused("turnstile")) { _ = try await api.emailStart("reader@example.com", turnstile: "t-1", lang: "vi") }
+  await #expect(throws: AccountError.refused("bad_code")) { _ = try await api.emailVerify(flow: flow, code: "000000") }
+  let first = try await api.emailVerify(flow: flow, code: FakeAccounts.emailCode)
+  #expect(first.user.methods.map(\.kind) == ["email"])
+  await #expect(throws: AccountError.refused("bad_code")) { _ = try await api.emailVerify(flow: flow, code: FakeAccounts.emailCode) }
+
+  // Signing in again from this phone: the same account, and the old session ends.
+  let again = try await api.emailStart("reader@example.com", turnstile: "t-2", lang: "vi")
+  let second = try await api.emailVerify(flow: again, code: FakeAccounts.emailCode, replacing: first.token)
+  #expect(second.user.id == first.user.id)
+  #expect(fake.sessionCount == 1)
+  await #expect(throws: AccountError.signedOut) { _ = try await api.sync(try phone(), token: first.token) }
+
+  // Five wrong codes and the flow is gone, even for the right one.
+  let worn = try await api.emailStart("reader@example.com", turnstile: "t-3", lang: "vi")
+  for _ in 0..<5 { await #expect(throws: AccountError.refused("bad_code")) { _ = try await api.emailVerify(flow: worn, code: "000000") } }
+  await #expect(throws: AccountError.refused("bad_code")) { _ = try await api.emailVerify(flow: worn, code: FakeAccounts.emailCode) }
+
+  // An email account is deleted without Apple's step.
+  try await api.deleteAccount(token: second.token, appleCode: nil)
+  #expect(fake.accountCount == 0)
 }
 
 @MainActor @Test("Two phones on one account: the first's tanks reach the second, a change on either comes back, and what changed during a sync stays")
