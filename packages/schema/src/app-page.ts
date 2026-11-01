@@ -13,7 +13,10 @@ export const PAGE_VERSION = 1
 
 /** A short explanation shown when a link is tapped (a glossary term, a citation), as the site's data-term / data-tip. */
 export const Tip = z.object({ term: z.string(), text: z.string() })
-/** Styled or linked text. `href` is a site path (`/vi/ca/…/`, resolved through the app index) or an absolute URL. */
+/**
+ * Styled or linked text. `href` is a site path, an absolute URL, or `#id` (the block with that id on this page). A path
+ * the app index lists opens that page in the app; any other path opens on the web.
+ */
 export const Run = z.object({
   text: z.string(),
   b: z.literal(true).optional(),
@@ -25,8 +28,8 @@ export const Run = z.object({
 export const Inline = z.union([z.string(), Run])
 export const Text = z.array(Inline)
 
-/** Who a photo is by and under what terms, as the site credits it. */
-export const Credit = z.object({ who: z.string(), licence: z.string(), url: z.string().optional() })
+/** A photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page. */
+export const Credit = z.object({ text: z.string(), licence: z.string(), url: z.string().optional() })
 export const Image = z.object({
   src: z.string(),
   w: z.number().int().positive(),
@@ -57,7 +60,7 @@ export const Refs = z.object({
   id: z.string().optional(),
   items: z.array(z.object({ title: z.string(), url: z.string() })),
 })
-/** Other pages, by their paths as the app index lists them (the next guides, the fish and plants a guide names). */
+/** Other pages, by their paths, each one the app index lists (the next guides, the fish and plants a guide names). */
 export const Pages = z.object({ t: z.literal('pages'), title: z.string(), paths: z.array(z.string()) })
 /** A part only the web page can show: the app offers to open the page there. */
 export const Web = z.object({ t: z.literal('web') })
@@ -78,6 +81,8 @@ export const Video = z.object({
   title: z.string(),
   channel: z.string(),
   durationSec: z.number().int().positive(),
+  /** The badge when the video has Vietnamese subtitles (the site's "Phụ đề tiếng Việt"); none when it's in the page's language. */
+  subtitles: z.string().optional(),
   chapters: z.array(z.object({ at: z.number().int().nonnegative(), title: z.string() })).optional(),
 })
 

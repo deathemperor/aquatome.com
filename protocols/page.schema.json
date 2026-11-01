@@ -99,7 +99,7 @@
             "credit": {
               "type": "object",
               "properties": {
-                "who": {
+                "text": {
                   "type": "string"
                 },
                 "licence": {
@@ -110,7 +110,7 @@
                 }
               },
               "required": [
-                "who",
+                "text",
                 "licence"
               ]
             }
@@ -137,6 +137,9 @@
               "type": "integer",
               "exclusiveMinimum": 0,
               "maximum": 9007199254740991
+            },
+            "subtitles": {
+              "type": "string"
             },
             "chapters": {
               "type": "array",
@@ -455,7 +458,7 @@
                 "credit": {
                   "type": "object",
                   "properties": {
-                    "who": {
+                    "text": {
                       "type": "string"
                     },
                     "licence": {
@@ -466,7 +469,7 @@
                     }
                   },
                   "required": [
-                    "who",
+                    "text",
                     "licence"
                   ]
                 }
@@ -578,7 +581,7 @@
                       "credit": {
                         "type": "object",
                         "properties": {
-                          "who": {
+                          "text": {
                             "type": "string"
                           },
                           "licence": {
@@ -589,7 +592,7 @@
                           }
                         },
                         "required": [
-                          "who",
+                          "text",
                           "licence"
                         ]
                       }

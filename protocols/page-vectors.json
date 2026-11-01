@@ -53,6 +53,22 @@
       ]
     },
     {
+      "note": "a run of only spaces shows nothing, and spaces never double across bold or italic",
+      "html": "<p> <strong> Đậm</strong> và <em> </em> nghiêng</p>",
+      "blocks": [
+        {
+          "t": "p",
+          "c": [
+            {
+              "text": "Đậm",
+              "b": true
+            },
+            " và nghiêng"
+          ]
+        }
+      ]
+    },
+    {
       "note": "a link to a page, a glossary term with its tip, a citation",
       "html": "<p>Nuôi <a href=\"/vi/ca/ca-neon/\" class=\"ml\">cá neon</a> trong nước có <a href=\"/vi/thuat-ngu/dem-ph/\" class=\"gl\" data-term=\"Đệm pH\" data-tip=\"Khả năng giữ pH ổn định.\">độ đệm</a> thấp.<a class=\"cite\" href=\"https://example.org/a\" rel=\"noopener\" data-term=\"example.org\" data-tip=\"example.org · dịch với sự cho phép của nguồn\">1</a></p>",
       "blocks": [
@@ -176,6 +192,22 @@
       ]
     },
     {
+      "note": "a list item's paragraph in a table cell stays on its bullet's line",
+      "html": "<table><tr><td><ul><li><p>Dễ chăm</p></li><li>Khỏe</li></ul></td></tr></table>",
+      "blocks": [
+        {
+          "t": "table",
+          "rows": [
+            [
+              [
+                "• Dễ chăm\n• Khỏe"
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "note": "a table whose first row is all th, without thead",
       "html": "<table><tr><th>pH</th><th>Độ cứng</th></tr><tr><td>6–7</td><td>mềm</td></tr></table>",
       "blocks": [
@@ -204,7 +236,7 @@
     },
     {
       "note": "a photo in the text linking to the fish it shows, credited",
-      "html": "<figure class=\"inl\"><a href=\"/vi/ca/ca-neon/\" tabindex=\"-1\"><img src=\"https://media.aquatome.com/a/neon.webp\" width=\"1200\" height=\"800\" alt=\"Cá neon\" loading=\"lazy\" decoding=\"async\"></a><figcaption><a href=\"/vi/ca/ca-neon/\">Cá neon</a><a class=\"cite pic\" href=\"https://commons.wikimedia.org/wiki/File:Neon.jpg\" rel=\"noopener\" data-term=\"Tropica\" data-tip=\"CC BY-SA 4.0\" data-more=\"Xem ảnh gốc ↗\" aria-label=\"Tropica, CC BY-SA 4.0\">©</a></figcaption></figure>",
+      "html": "<figure class=\"inl\"><a href=\"/vi/ca/ca-neon/\" tabindex=\"-1\"><img src=\"https://media.aquatome.com/a/neon.webp\" width=\"1200\" height=\"800\" alt=\"Cá neon\" loading=\"lazy\" decoding=\"async\"></a><figcaption><a href=\"/vi/ca/ca-neon/\">Cá neon</a><a class=\"cite pic\" href=\"https://example.org/photo/tropica\" rel=\"noopener\" data-term=\"Ảnh: Tropica\" data-tip=\"CC BY-SA 4.0\" data-more=\"Xem ảnh gốc ↗\" aria-label=\"Ảnh: Tropica, CC BY-SA 4.0\">©</a></figcaption></figure>",
       "blocks": [
         {
           "t": "figure",
@@ -214,9 +246,9 @@
             "h": 800,
             "alt": "Cá neon",
             "credit": {
-              "who": "Tropica",
+              "text": "Ảnh: Tropica",
               "licence": "CC BY-SA 4.0",
-              "url": "https://commons.wikimedia.org/wiki/File:Neon.jpg"
+              "url": "https://example.org/photo/tropica"
             }
           },
           "caption": [
@@ -230,31 +262,13 @@
       ]
     },
     {
-      "note": "a video guide's stills, each playing from its moment",
-      "html": "<div class=\"moments\"><p class=\"mh\">Trong video</p><ul><li><button type=\"button\" class=\"moment\" data-t=\"95\" data-vp-for=\"abc123XYZ_-\"><span class=\"visually-hidden\">Xem video từ</span> <img src=\"https://i.ytimg.com/vi/abc123XYZ_-/1.jpg\" width=\"320\" height=\"180\" alt=\"\" loading=\"lazy\"> <span class=\"mt\"><span aria-hidden=\"true\">▶</span> 1:35</span> <span class=\"mc\">Cắt tỉa  cây hậu cảnh</span></button></li></ul></div>",
+      "note": "a video section's pictures: its photo (credited), then stills",
+      "html": "<h3>Cắt tỉa</h3><p>Cắt tỉa thường xuyên.</p><div class=\"vfigs\"><figure class=\"vphoto\"><img src=\"https://media.aquatome.com/v/rotala.webp\" width=\"800\" height=\"600\" alt=\"Rotala sau khi tỉa\" loading=\"lazy\"><figcaption>Rotala sau khi tỉa<a class=\"cite pic\" href=\"https://example.org/photo/green-aqua\" rel=\"noopener\" data-term=\"Ảnh: Green Aqua\" data-tip=\"dùng với sự cho phép\" data-more=\"Xem ảnh gốc ↗\" aria-label=\"Ảnh: Green Aqua, dùng với sự cho phép\">©</a></figcaption></figure><div class=\"moments\"><p class=\"mh\">Trong video</p><ul><li><button type=\"button\" class=\"moment\" data-t=\"12\" data-vp-for=\"abc123XYZ_-\"><span class=\"visually-hidden\">Xem video từ</span> <img src=\"https://i.ytimg.com/vi/abc123XYZ_-/2.jpg\" width=\"320\" height=\"180\" alt=\"\" loading=\"lazy\"> <span class=\"mt\"><span aria-hidden=\"true\">▶</span> 0:12</span> <span class=\"mc\">Tỉa ngọn</span></button></li></ul></div></div>",
       "blocks": [
         {
-          "t": "moments",
-          "title": "Trong video",
-          "youtubeId": "abc123XYZ_-",
-          "items": [
-            {
-              "at": 95,
-              "img": {
-                "src": "https://i.ytimg.com/vi/abc123XYZ_-/1.jpg",
-                "w": 320,
-                "h": 180
-              },
-              "caption": "Cắt tỉa cây hậu cảnh"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "note": "a video section's pictures: its photo, then stills",
-      "html": "<p>Cắt tỉa thường xuyên.</p><div class=\"vfigs\"><figure class=\"vphoto\"><img src=\"https://media.aquatome.com/v/rotala.webp\" width=\"800\" height=\"600\" alt=\"Rotala\" loading=\"lazy\"><figcaption>Rotala sau khi tỉa</figcaption></figure><div class=\"moments\"><p class=\"mh\">Trong video</p><ul><li><button type=\"button\" class=\"moment\" data-t=\"12\" data-vp-for=\"abc123XYZ_-\"><span class=\"visually-hidden\">Xem video từ</span> <img src=\"https://i.ytimg.com/vi/abc123XYZ_-/2.jpg\" width=\"320\" height=\"180\" alt=\"\" loading=\"lazy\"> <span class=\"mt\"><span aria-hidden=\"true\">▶</span> 0:12</span> <span class=\"mc\">Tỉa ngọn</span></button></li></ul></div></div>",
-      "blocks": [
+          "t": "h",
+          "text": "Cắt tỉa"
+        },
         {
           "t": "p",
           "c": [
@@ -267,7 +281,12 @@
             "src": "https://media.aquatome.com/v/rotala.webp",
             "w": 800,
             "h": 600,
-            "alt": "Rotala"
+            "alt": "Rotala sau khi tỉa",
+            "credit": {
+              "text": "Ảnh: Green Aqua",
+              "licence": "dùng với sự cho phép",
+              "url": "https://example.org/photo/green-aqua"
+            }
           },
           "caption": [
             "Rotala sau khi tỉa"
@@ -384,7 +403,12 @@
         "lead": {
           "src": "https://media.aquatome.com/a/neon-lead.webp",
           "w": 1200,
-          "h": 800
+          "h": 800,
+          "credit": {
+            "text": "Ảnh: Aquarium Co-op",
+            "licence": "dùng với sự cho phép",
+            "url": "https://example.org/photo/aquarium-co-op"
+          }
         },
         "blocks": [
           {
@@ -448,9 +472,9 @@
               "h": 800,
               "alt": "Cá neon",
               "credit": {
-                "who": "Tropica",
+                "text": "Ảnh: Tropica",
                 "licence": "CC BY-SA 4.0",
-                "url": "https://commons.wikimedia.org/wiki/File:Neon.jpg"
+                "url": "https://example.org/photo/tropica"
               }
             },
             "caption": [
@@ -622,9 +646,14 @@
               "at": 95,
               "title": "Cắt tỉa"
             }
-          ]
+          ],
+          "subtitles": "Phụ đề tiếng Việt"
         },
         "blocks": [
+          {
+            "t": "h",
+            "text": "Cắt tỉa"
+          },
           {
             "t": "p",
             "c": [
@@ -637,7 +666,12 @@
               "src": "https://media.aquatome.com/v/rotala.webp",
               "w": 800,
               "h": 600,
-              "alt": "Rotala"
+              "alt": "Rotala sau khi tỉa",
+              "credit": {
+                "text": "Ảnh: Green Aqua",
+                "licence": "dùng với sự cho phép",
+                "url": "https://example.org/photo/green-aqua"
+              }
             },
             "caption": [
               "Rotala sau khi tỉa"
@@ -665,6 +699,7 @@
         ]
       },
       "blocks": [
+        "h",
         "p",
         "figure",
         "moments",

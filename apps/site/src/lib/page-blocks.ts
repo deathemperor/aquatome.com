@@ -106,7 +106,8 @@ function inline(nodes: Node[], unknown: Set<string>, cell = false): Inline[] {
         // A table cell's paragraphs and lists, as lines.
         case 'p': case 'ul': case 'ol': case 'li': case 'div':
           if (!cell) unknown.add(`${tag} inside text`)
-          if (runs.length && !runs.at(-1)!.text.endsWith('\n')) runs.push({ text: '\n' })
+          // A new line, unless one just began (a list item's paragraph stays on its bullet's line).
+          if (runs.length && !runs.at(-1)!.text.endsWith('\n') && runs.at(-1)!.text !== '• ') runs.push({ text: '\n' })
           if (tag === 'li') runs.push({ text: '• ' })
           walk(n.childNodes, marks)
           break
@@ -129,23 +130,45 @@ function link(a: HTMLElement): Marks {
 const same = (a: Run, b: Run) =>
   a.b === b.b && a.i === b.i && a.href === b.href && a.tip?.term === b.tip?.term && a.tip?.text === b.tip?.text
 
-/** Joins runs that look the same, drops spaces a browser wouldn't show (at the ends, doubled, around a line break). */
+/**
+ * Spaces as a browser shows them: none at the ends of a paragraph or around a line break, never two in a row (also
+ * across bold or a link), a run of only spaces gone. Then runs that look the same are joined.
+ */
 function tidy(runs: Run[]): Inline[] {
-  const out: Run[] = []
+  const res: Run[] = []
+  const trimEnd = () => {
+    while (res.length) {
+      const last = res.at(-1)!
+      last.text = last.text.replace(/ +$/, '')
+      if (last.text) break
+      res.pop()
+    }
+  }
   for (const r of runs) {
+    let text = r.text.replace(/ *\n */g, '\n')
+    const prev = res.at(-1)?.text
+    if (prev === undefined || prev.endsWith(' ') || prev.endsWith('\n')) text = text.replace(/^ +/, '')
+    if (text.startsWith('\n')) trimEnd()
+    if (text) res.push({ ...r, text })
+  }
+  trimEnd()
+  // Line breaks at the ends of a paragraph show nothing.
+  while (res[0]?.text.startsWith('\n')) {
+    res[0].text = res[0].text.replace(/^\n+/, '')
+    if (!res[0].text) res.shift()
+  }
+  while (res.at(-1)?.text.endsWith('\n')) {
+    const last = res.at(-1)!
+    last.text = last.text.replace(/\n+$/, '')
+    if (!last.text) res.pop()
+  }
+  const out: Run[] = []
+  for (const r of res) {
     const prev = out.at(-1)
     if (prev && same(prev, r)) prev.text += r.text
-    else out.push({ ...r })
+    else out.push(r)
   }
-  for (let i = 0; i < out.length; i++) {
-    const r = out[i]!, prev = out[i - 1]
-    if (r.text === '\n' || r.text.startsWith('\n') || i === 0 || prev?.text.endsWith(' ') || prev?.text.endsWith('\n')) r.text = r.text.replace(/^ +/, '')
-    if (r.text.endsWith('\n') || i === out.length - 1 || out[i + 1]?.text.startsWith('\n')) r.text = r.text.replace(/ +$/, '')
-    r.text = r.text.replace(/ *\n */g, '\n')
-  }
-  // Line breaks at the ends of a paragraph show nothing.
-  if (out.length) { out[0]!.text = out[0]!.text.replace(/^\n+/, ''); out.at(-1)!.text = out.at(-1)!.text.replace(/\n+$/, '') }
-  return out.filter(r => r.text).map(({ text, ...marks }) => (Object.keys(marks).length ? { text, ...marks } : text))
+  return out.map(({ text, ...marks }) => (Object.keys(marks).length ? { text, ...marks } : text))
 }
 
 function table(t: HTMLElement, unknown: Set<string>): Block {
@@ -168,12 +191,12 @@ function image(img: HTMLElement | null, credit?: Image['credit']): Image | undef
   return { src, w: Math.round(w), h: Math.round(h), ...(alt ? { alt } : {}), ...(credit ? { credit } : {}) }
 }
 
-/** A photo in the text (lib/figures.ts, lib/video.ts): the page it shows, its caption, who it's by. */
+/** A photo in the text (lib/figures.ts, lib/video.ts): the page it shows, its caption, its credit as the © mark gives it. */
 function figure(f: HTMLElement, unknown: Set<string>): Block | undefined {
   const cap = f.querySelector('figcaption')
   const mark = cap?.querySelector('a.cite.pic')
   const credit = mark && mark.getAttribute('data-term') && mark.getAttribute('data-tip')
-    ? { who: mark.getAttribute('data-term')!, licence: mark.getAttribute('data-tip')!, ...(mark.getAttribute('href') ? { url: mark.getAttribute('href')! } : {}) }
+    ? { text: mark.getAttribute('data-term')!, licence: mark.getAttribute('data-tip')!, ...(mark.getAttribute('href') ? { url: mark.getAttribute('href')! } : {}) }
     : undefined
   mark?.remove()
   const img = image(f.querySelector('img'), credit)

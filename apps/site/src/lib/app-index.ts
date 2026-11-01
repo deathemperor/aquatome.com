@@ -5,7 +5,6 @@ import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from '
 import { smallSrc } from './img'
 import { localizePath, served, translator, type Lang } from './i18n'
 import { mentionIndex } from './mentions'
-import { appGuides } from './app-page'
 import { toIndexItem } from './species-index'
 
 /**
@@ -45,6 +44,10 @@ export type AppIndex = {
   version: 1; lang: Lang; items: AppItem[]; home: AppHome; labels: AppLabels
   /** How many shards of pages each kind has (lib/app-page.ts): the app draws those pages itself. */
   pages?: Partial<Record<'guide' | 'fish' | 'plant' | 'glossary', number>>
+}
+/** The guides the index lists in this language, and the app has pages of (lib/app-page.ts). */
+export function appGuides(lang: Lang, c: Content): Content['guides'] {
+  return served(lang, '/vi/huong-dan/x/') ? c.guides.filter(g => g.t.quality.indexable) : []
 }
 /**
  * What the site's home page leads with, so the app leads with the same (lib/home.ts), in its order: the fish groups
