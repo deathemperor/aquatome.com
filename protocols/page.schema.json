@@ -1,0 +1,759 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from packages/schema/src/app-page.ts by packages/schema/test/app-page.test.ts (UPDATE_SCHEMA=1 pnpm --filter @aq/schema test). A reader shows a block whose t it does not know, or one that does not read, as \"open on the web\", and ignores fields it does not know: this schema is what the site writes, not all a reader must survive. protocols/page-vectors.json has cases of both.",
+  "$defs": {
+    "PageDoc": {
+      "type": "object",
+      "properties": {
+        "v": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "guide",
+            "fish",
+            "plant",
+            "glossary"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "sub": {
+          "type": "string"
+        },
+        "meta": {
+          "type": "string"
+        },
+        "credit": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "b": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "i": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "href": {
+                    "type": "string"
+                  },
+                  "tip": {
+                    "type": "object",
+                    "properties": {
+                      "term": {
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "term",
+                      "text"
+                    ]
+                  }
+                },
+                "required": [
+                  "text"
+                ]
+              }
+            ]
+          }
+        },
+        "lead": {
+          "type": "object",
+          "properties": {
+            "src": {
+              "type": "string"
+            },
+            "w": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "h": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "alt": {
+              "type": "string"
+            },
+            "credit": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "licence": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "text",
+                "licence"
+              ]
+            }
+          },
+          "required": [
+            "src",
+            "w",
+            "h"
+          ]
+        },
+        "video": {
+          "type": "object",
+          "properties": {
+            "youtubeId": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "channel": {
+              "type": "string"
+            },
+            "durationSec": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "subtitles": {
+              "type": "string"
+            },
+            "chapters": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "at": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "at",
+                  "title"
+                ]
+              }
+            }
+          },
+          "required": [
+            "youtubeId",
+            "title",
+            "channel",
+            "durationSec"
+          ]
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Block"
+          }
+        }
+      },
+      "required": [
+        "v",
+        "kind",
+        "path",
+        "title",
+        "blocks"
+      ]
+    },
+    "PageShard": {
+      "type": "object",
+      "properties": {
+        "v": {
+          "type": "number",
+          "const": 1
+        },
+        "pages": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/PageDoc"
+          }
+        }
+      },
+      "required": [
+        "v",
+        "pages"
+      ]
+    },
+    "Block": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "h"
+            },
+            "text": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "t",
+            "text"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "p"
+            },
+            "c": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string"
+                      },
+                      "b": {
+                        "type": "boolean",
+                        "const": true
+                      },
+                      "i": {
+                        "type": "boolean",
+                        "const": true
+                      },
+                      "href": {
+                        "type": "string"
+                      },
+                      "tip": {
+                        "type": "object",
+                        "properties": {
+                          "term": {
+                            "type": "string"
+                          },
+                          "text": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "term",
+                          "text"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "text"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "t",
+            "c"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "list"
+            },
+            "ordered": {
+              "type": "boolean",
+              "const": true
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Block"
+                }
+              }
+            }
+          },
+          "required": [
+            "t",
+            "items"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "table"
+            },
+            "head": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        },
+                        "b": {
+                          "type": "boolean",
+                          "const": true
+                        },
+                        "i": {
+                          "type": "boolean",
+                          "const": true
+                        },
+                        "href": {
+                          "type": "string"
+                        },
+                        "tip": {
+                          "type": "object",
+                          "properties": {
+                            "term": {
+                              "type": "string"
+                            },
+                            "text": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "term",
+                            "text"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "text"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "type": "string"
+                          },
+                          "b": {
+                            "type": "boolean",
+                            "const": true
+                          },
+                          "i": {
+                            "type": "boolean",
+                            "const": true
+                          },
+                          "href": {
+                            "type": "string"
+                          },
+                          "tip": {
+                            "type": "object",
+                            "properties": {
+                              "term": {
+                                "type": "string"
+                              },
+                              "text": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "term",
+                              "text"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "text"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "t",
+            "rows"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "figure"
+            },
+            "img": {
+              "type": "object",
+              "properties": {
+                "src": {
+                  "type": "string"
+                },
+                "w": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "h": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "alt": {
+                  "type": "string"
+                },
+                "credit": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "licence": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "licence"
+                  ]
+                }
+              },
+              "required": [
+                "src",
+                "w",
+                "h"
+              ]
+            },
+            "caption": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string"
+                      },
+                      "b": {
+                        "type": "boolean",
+                        "const": true
+                      },
+                      "i": {
+                        "type": "boolean",
+                        "const": true
+                      },
+                      "href": {
+                        "type": "string"
+                      },
+                      "tip": {
+                        "type": "object",
+                        "properties": {
+                          "term": {
+                            "type": "string"
+                          },
+                          "text": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "term",
+                          "text"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "text"
+                    ]
+                  }
+                ]
+              }
+            },
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "t",
+            "img"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "moments"
+            },
+            "title": {
+              "type": "string"
+            },
+            "youtubeId": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "at": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "img": {
+                    "type": "object",
+                    "properties": {
+                      "src": {
+                        "type": "string"
+                      },
+                      "w": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "h": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "alt": {
+                        "type": "string"
+                      },
+                      "credit": {
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "type": "string"
+                          },
+                          "licence": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "text",
+                          "licence"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "src",
+                      "w",
+                      "h"
+                    ]
+                  },
+                  "caption": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "at",
+                  "img",
+                  "caption"
+                ]
+              }
+            }
+          },
+          "required": [
+            "t",
+            "title",
+            "youtubeId",
+            "items"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "summary"
+            },
+            "title": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "t",
+            "title",
+            "items"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "faq"
+            },
+            "title": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "q": {
+                    "type": "string"
+                  },
+                  "a": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "q",
+                  "a"
+                ]
+              }
+            }
+          },
+          "required": [
+            "t",
+            "title",
+            "items"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "refs"
+            },
+            "title": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "title",
+                  "url"
+                ]
+              }
+            }
+          },
+          "required": [
+            "t",
+            "title",
+            "items"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "pages"
+            },
+            "title": {
+              "type": "string"
+            },
+            "paths": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "t",
+            "title",
+            "paths"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "t": {
+              "type": "string",
+              "const": "web"
+            }
+          },
+          "required": [
+            "t"
+          ]
+        }
+      ]
+    }
+  }
+}
