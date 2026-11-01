@@ -6,7 +6,9 @@ Three tabs: **Tìm** searches and browses the handbook natively and opens each p
 the phone for reading offline, without ads); **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
 substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
-schedules written to it (as the site does).
+schedules written to it (as the site does). A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
+named for what it powers, with its switch: the app calls Tuya's cloud itself, with the reader's own Tuya project keys
+kept in the Keychain, and no AquaTome account (docs/smart-plugs.md).
 
 The site's pages in the app share the reader's tanks with it (`PageBridge`): the tools' "Lưu vào Bể của tôi" saves to
 the app's tanks, merged record by record, and each page sees them. A link to "Bể của tôi" or the Chihiros page, and
@@ -17,6 +19,8 @@ Signing in (Sign in with Apple) syncs the tanks with an aquatome.com account, as
 the Keychain, on this phone only. A debug build on the simulator (every UI and performance test) gets a stand-in
 server and Apple sheet inside the app instead (`AquaTome/Account/FakeServer.swift`; accounts on with
 `-fake-accounts on`), so no test reaches aquatome.com; `-real-accounts` tries the real server from the simulator.
+Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`PlugsModel.forSimulator`;
+`-seed-tuya-keys` starts with its keys entered), so no test reaches Tuya; `-real-tuya` tries Tuya itself.
 
 ## The app
 
@@ -83,14 +87,19 @@ Debug builds, so they don't see it.
 | `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), `LightSession` (the order and pace the light accepts), `FakeLight` (tests, simulator) |
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
-| `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says |
+| `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`) |
 | `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names and each guide's subject and the fish and plants it names, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), and searching it: without accents, đ as d, any word order; where a link in a page goes (`PageRoute`, `AppScreen`); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
 | `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
+| `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
 
 ```sh
 cd apps/ios/AquaTomeKit
 swift test
 ```
+
+A read-only check of the Tuya route against a real project (the owner's): `AQUATOME_TUYA_LIVE=1` with `TUYA_ACCESS_ID`
+and `TUYA_ACCESS_SECRET` set, `swift test --filter liveListRead`. It reads the list once, switches nothing, and prints
+counts only.
 
 The tests read `protocols/chihiros-vectors.json` and `protocols/tanks-vectors.json`, the same vectors as the site's
 tests. A protocol or schema change updates the vectors and both implementations together.

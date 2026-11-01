@@ -202,7 +202,8 @@ const { t } = i18n(Astro.url)
     // The form is kept out of the list while it is redrawn, then put back where it was being used. Moved only when it
     // has to be: moving a focused field drops the cursor.
     if (form.parentElement !== home) home.insertBefore(form, $('mt-loading'))
-    list.innerHTML = tanks.map(t => tankHtml(t, devices.filter(d => d.tankId === t.id))).join('')
+    // Lights only: other kinds (the app's plugs) are kept as they are but not shown here yet.
+    list.innerHTML = tanks.map(t => tankHtml(t, devices.filter(d => d.tankId === t.id && d.kind === 'light'))).join('')
     $('mt-empty').hidden = tanks.length > 0 || editing === undefined
     if (typeof editing === 'string') document.getElementById(`be-${editing}`)?.append(form)
     void loadNames()
@@ -302,7 +303,7 @@ const { t } = i18n(Astro.url)
     if (el.closest('[data-edit]')) open(id)
     if (el.closest('[data-del]')) {
       const t = store.liveTanks(db).find(x => x.id === id)
-      const lights = store.liveDevices(db).filter(d => d.tankId === id).length
+      const lights = store.liveDevices(db).filter(d => d.tankId === id && d.kind === 'light').length
       if (!t || !confirm(lights ? ct('Xóa bể “{name}” cùng {n} đèn đã lưu trên bể?', { name: t.name, n: lights }) : ct('Xóa bể “{name}”?', { name: t.name }))) return
       const li = el.closest('.tank')!
       const next = ((li.nextElementSibling ?? li.previousElementSibling) as HTMLElement | null)?.dataset.id

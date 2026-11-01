@@ -97,6 +97,70 @@
         }
       }
     },
+    "%lld ổ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld colokan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ช่อง"
+          }
+        }
+      }
+    },
+    "%lld ổ · Mất kết nối": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld colokan · Koneksi terputus"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ช่อง · ขาดการเชื่อมต่อ"
+          }
+        }
+      }
+    },
+    "Access ID": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Access ID"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Access ID"
+          }
+        }
+      }
+    },
+    "Access Secret": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Access Secret"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Access Secret"
+          }
+        }
+      }
+    },
     "Apple chưa xác nhận được: thử lại.": {
       "localizations": {
         "id": {
@@ -109,6 +173,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Apple ยังยืนยันไม่ได้ โปรดลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "AquaTome bật tắt ổ cắm Smart Life (Tuya) bằng dự án đám mây Tuya của chính bạn: ứng dụng gọi thẳng Tuya, không qua máy chủ AquaTome và không cần tài khoản AquaTome.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome menyalakan dan mematikan stopkontak Smart Life (Tuya) dengan proyek cloud Tuya milik Anda sendiri: aplikasi langsung menghubungi Tuya, tidak lewat server AquaTome, dan tidak perlu akun AquaTome."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome เปิดปิดปลั๊กไฟ Smart Life (Tuya) ผ่านโปรเจกต์คลาวด์ Tuya ของคุณเอง แอปเชื่อมต่อกับ Tuya โดยตรง ไม่ผ่านเซิร์ฟเวอร์ของ AquaTome และไม่ต้องมีบัญชี AquaTome"
           }
         }
       }
@@ -161,6 +241,38 @@
         }
       }
     },
+    "Bật": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด"
+          }
+        }
+      }
+    },
+    "Bật gói dùng thử IoT Core (Cloud → Cloud Services → IoT Core). Gói miễn phí phải gia hạn trong console khoảng mỗi tháng: hết hạn thì AquaTome không bật tắt được, còn hẹn giờ trên ổ cắm vẫn chạy.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktifkan uji coba IoT Core (Cloud → Cloud Services → IoT Core). Paket gratis ini harus diperpanjang di konsol kira-kira setiap bulan: jika habis, AquaTome tidak bisa menyalakan atau mematikan, tetapi timer di stopkontak tetap berjalan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดใช้แพ็กเกจทดลอง IoT Core (Cloud → Cloud Services → IoT Core) แพ็กเกจฟรีนี้ต้องต่ออายุในคอนโซลประมาณทุกเดือน หากหมดอายุ AquaTome จะเปิดปิดไม่ได้ แต่ตัวตั้งเวลาบนปลั๊กไฟยังทำงานอยู่"
+          }
+        }
+      }
+    },
     "Bật lúc": {
       "localizations": {
         "id": {
@@ -177,6 +289,22 @@
         }
       }
     },
+    "Bật tắt ổ cắm Smart Life ngay trên bể, bằng dự án Tuya của riêng bạn: không cần tài khoản AquaTome.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan dan matikan stopkontak Smart Life langsung dari akuarium, dengan proyek Tuya milik Anda sendiri: tidak perlu akun AquaTome."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดปิดปลั๊กไฟ Smart Life ได้จากหน้าตู้ ด้วยโปรเจกต์ Tuya ของคุณเอง ไม่ต้องมีบัญชี AquaTome"
+          }
+        }
+      }
+    },
     "Bật đèn, bật Bluetooth và lại gần đèn. Đóng ứng dụng My Chihiros trên các máy khác: mỗi lúc đèn chỉ nhận một kết nối.": {
       "localizations": {
         "id": {
@@ -189,6 +317,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิดโคมไฟและบลูทูธ แล้วเข้าใกล้โคมไฟ ปิดแอป My Chihiros บนเครื่องอื่น เพราะโคมไฟรับการเชื่อมต่อได้ครั้งละหนึ่งเครื่องเท่านั้น"
+          }
+        }
+      }
+    },
+    "Bật “%@”?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan “%@”?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด “%@” ไหม"
           }
         }
       }
@@ -305,6 +449,22 @@
         }
       }
     },
+    "CO2": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CO2"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CO2"
+          }
+        }
+      }
+    },
     "Cao": {
       "localizations": {
         "id": {
@@ -401,6 +561,38 @@
         }
       }
     },
+    "Chưa ghi ổ này cắm gì: nếu là sưởi hay CO2, bật tắt nhầm có thể hại cá. Chọn “Cắm gì” trong Sửa để khỏi hỏi lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dicatat colokan ini dipakai untuk apa: kalau untuk pemanas atau CO2, salah menyalakan atau mematikannya bisa membahayakan ikan. Pilih “Dipakai untuk” di Edit agar tidak ditanya lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ระบุว่าช่องนี้ใช้กับอะไร หากเป็นฮีตเตอร์หรือ CO2 การเปิดหรือปิดผิดอาจเป็นอันตรายต่อปลา เลือก “ใช้กับอะไร” ในแก้ไขเพื่อไม่ต้องถามอีก"
+          }
+        }
+      }
+    },
+    "Chưa gửi lệnh: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perintah belum dikirim: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ส่งคำสั่ง: %@"
+          }
+        }
+      }
+    },
     "Chưa lưu lịch nào cho đèn này.": {
       "localizations": {
         "id": {
@@ -433,6 +625,22 @@
         }
       }
     },
+    "Chưa xác nhận: ổ cắm chưa báo đã đổi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum terkonfirmasi: stopkontak belum melaporkan perubahan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ยืนยัน: ปลั๊กไฟยังไม่รายงานว่าเปลี่ยนแล้ว"
+          }
+        }
+      }
+    },
     "Chưa xóa: cần đăng nhập lại bằng Apple để xác nhận.": {
       "localizations": {
         "id": {
@@ -461,6 +669,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ซิงค์ไม่สำเร็จเนื่องจากไม่มีอินเทอร์เน็ต การเปลี่ยนแปลงยังบันทึกอยู่ในเครื่องนี้"
+          }
+        }
+      }
+    },
+    "Chỉ dùng cho thiết bị của riêng bạn: gói miễn phí của Tuya không dành cho việc dùng thương mại. Ổ cắm eWeLink (Sonoff) sẽ có sau.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanya untuk perangkat milik Anda sendiri: paket gratis Tuya tidak untuk penggunaan komersial. Stopkontak eWeLink (Sonoff) menyusul."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ใช้กับอุปกรณ์ของคุณเองเท่านั้น แพ็กเกจฟรีของ Tuya ไม่ได้มีไว้สำหรับใช้เชิงพาณิชย์ ปลั๊กไฟ eWeLink (Sonoff) จะตามมาภายหลัง"
           }
         }
       }
@@ -529,6 +753,22 @@
         }
       }
     },
+    "Cloud → Development → Create Cloud Project: Industry “Smart Home”, Development Method “Smart Home”, Data Center cùng vùng với tài khoản Smart Life của bạn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cloud → Development → Create Cloud Project: Industry “Smart Home”, Development Method “Smart Home”, Data Center di wilayah yang sama dengan akun Smart Life Anda."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cloud → Development → Create Cloud Project: Industry “Smart Home”, Development Method “Smart Home” และ Data Center ภูมิภาคเดียวกับบัญชี Smart Life ของคุณ"
+          }
+        }
+      }
+    },
     "Cá và tép": {
       "localizations": {
         "id": {
@@ -541,6 +781,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลาและกุ้ง"
+          }
+        }
+      }
+    },
+    "Các bước, làm một lần trên máy tính": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langkah-langkah, sekali saja di komputer"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขั้นตอน ทำครั้งเดียวบนคอมพิวเตอร์"
           }
         }
       }
@@ -589,6 +845,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้ปลาในเครื่องนี้บันทึกด้วยแอปเวอร์ชันที่ใหม่กว่า อัปเดต AquaTome เพื่อดูและแก้ไข"
+          }
+        }
+      }
+    },
+    "Các ổ cắm trong dự án Tuya của bạn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak di proyek Tuya Anda."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊กไฟในโปรเจกต์ Tuya ของคุณ"
           }
         }
       }
@@ -673,6 +945,22 @@
         }
       }
     },
+    "Cắm gì": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dipakai untuk"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ใช้กับอะไร"
+          }
+        }
+      }
+    },
     "Dài": {
       "localizations": {
         "id": {
@@ -685,6 +973,70 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยาว"
+          }
+        }
+      }
+    },
+    "Dự án Tuya chưa có thiết bị nào: liên kết tài khoản Smart Life bằng mã QR (bước 4 trong phần thiết lập).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proyek Tuya belum punya perangkat: tautkan akun Smart Life dengan kode QR (langkah 4 di pengaturan)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โปรเจกต์ Tuya ยังไม่มีอุปกรณ์ เชื่อมบัญชี Smart Life ด้วยคิวอาร์โค้ด (ขั้นตอนที่ 4 ในการตั้งค่า)"
+          }
+        }
+      }
+    },
+    "Dự án Tuya có %lld thiết bị nhưng không có ổ cắm nào.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proyek Tuya punya %lld perangkat, tetapi tidak ada stopkontak."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โปรเจกต์ Tuya มีอุปกรณ์ %lld เครื่อง แต่ไม่มีปลั๊กไฟ"
+          }
+        }
+      }
+    },
+    "Dự án chưa bật IoT Core: bật gói dùng thử ở Cloud → Cloud Services → IoT Core.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proyek belum mengaktifkan IoT Core: aktifkan uji cobanya di Cloud → Cloud Services → IoT Core."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โปรเจกต์ยังไม่ได้เปิด IoT Core เปิดแพ็กเกจทดลองที่ Cloud → Cloud Services → IoT Core"
+          }
+        }
+      }
+    },
+    "Dự án đã dùng hết lượt gọi Tuya của gói lúc này: thử lại sau.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proyek sudah menghabiskan jatah panggilan Tuya untuk saat ini: coba lagi nanti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โปรเจกต์ใช้โควตาการเรียก Tuya ของแพ็กเกจหมดแล้วในตอนนี้ โปรดลองใหม่ภายหลัง"
           }
         }
       }
@@ -785,6 +1137,22 @@
         }
       }
     },
+    "Giờ trên điện thoại lệch quá nhiều: chỉnh lại giờ rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam di ponsel terlalu meleset: atur ulang jam lalu coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เวลาในโทรศัพท์คลาดเคลื่อนมากเกินไป โปรดตั้งเวลาใหม่แล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Giờ tắt phải sau giờ bật, trong cùng một ngày.": {
       "localizations": {
         "id": {
@@ -797,6 +1165,70 @@
           "stringUnit": {
             "state": "translated",
             "value": "เวลาปิดต้องอยู่หลังเวลาเปิด ภายในวันเดียวกัน"
+          }
+        }
+      }
+    },
+    "Gói dùng thử IoT Core của dự án đã hết hạn: gia hạn trong Tuya console (Cloud → Cloud Services → IoT Core) rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uji coba IoT Core proyek sudah berakhir: perpanjang di konsol Tuya (Cloud → Cloud Services → IoT Core), lalu coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แพ็กเกจทดลอง IoT Core ของโปรเจกต์หมดอายุแล้ว ต่ออายุในคอนโซล Tuya (Cloud → Cloud Services → IoT Core) แล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Gỡ khỏi bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lepas dari akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นำออกจากตู้"
+          }
+        }
+      }
+    },
+    "Gỡ khỏi bể không bật tắt gì: ổ cắm vẫn chạy như cũ và vẫn ở trong Smart Life.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Melepas dari akuarium tidak menyalakan atau mematikan apa pun: stopkontak tetap berjalan seperti biasa dan tetap ada di Smart Life."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การนำออกจากตู้ไม่ได้เปิดหรือปิดอะไร ปลั๊กไฟยังทำงานเหมือนเดิมและยังอยู่ใน Smart Life"
+          }
+        }
+      }
+    },
+    "Gỡ “%@” khỏi bể?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lepas “%@” dari akuarium?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นำ “%@” ออกจากตู้ไหม"
           }
         }
       }
@@ -881,6 +1313,102 @@
         }
       }
     },
+    "Khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lainnya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อื่น ๆ"
+          }
+        }
+      }
+    },
+    "Khóa Tuya": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunci Tuya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คีย์ Tuya"
+          }
+        }
+      }
+    },
+    "Khóa chỉ được lưu khi đọc được danh sách: trong Keychain của máy này, không đồng bộ sang máy khác, không gửi cho AquaTome.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunci hanya disimpan jika daftar berhasil dibaca: di Keychain perangkat ini, tidak disinkronkan ke perangkat lain, tidak dikirim ke AquaTome."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คีย์จะถูกบันทึกเมื่ออ่านรายการได้เท่านั้น เก็บใน Keychain ของเครื่องนี้ ไม่ซิงค์ไปเครื่องอื่น และไม่ส่งให้ AquaTome"
+          }
+        }
+      }
+    },
+    "Khóa của dự án": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunci proyek"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คีย์ของโปรเจกต์"
+          }
+        }
+      }
+    },
+    "Khóa đúng nhưng chưa lưu được trên máy này: thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunci benar, tetapi belum bisa disimpan di perangkat ini: coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คีย์ถูกต้อง แต่ยังบันทึกในเครื่องนี้ไม่ได้ โปรดลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Khóa đúng. %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunci benar. %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คีย์ถูกต้อง %@"
+          }
+        }
+      }
+    },
     "Khôi phục lịch trước: %@": {
       "localizations": {
         "id": {
@@ -893,6 +1421,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "คืนค่าตารางก่อนหน้า: %@"
+          }
+        }
+      }
+    },
+    "Không có mạng hoặc Tuya không trả lời: thử lại khi có mạng.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada koneksi internet atau Tuya tidak menjawab: coba lagi saat sudah terhubung."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่มีอินเทอร์เน็ตหรือ Tuya ไม่ตอบกลับ โปรดลองอีกครั้งเมื่อเชื่อมต่อได้"
           }
         }
       }
@@ -945,6 +1489,38 @@
         }
       }
     },
+    "Không rõ trạng thái": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Status tidak diketahui"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่ทราบสถานะ"
+          }
+        }
+      }
+    },
+    "Không thấy trong dự án Tuya": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada di proyek Tuya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่พบในโปรเจกต์ Tuya"
+          }
+        }
+      }
+    },
     "Không trải nền": {
       "localizations": {
         "id": {
@@ -993,6 +1569,22 @@
         }
       }
     },
+    "Không xóa được khóa khỏi Keychain: thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunci tidak bisa dihapus dari Keychain: coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบคีย์ออกจาก Keychain ไม่ได้ โปรดลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Không đọc được các bể đã lưu trên máy này. Dữ liệu được giữ nguyên.": {
       "localizations": {
         "id": {
@@ -1005,6 +1597,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "อ่านข้อมูลตู้ปลาที่บันทึกไว้ในเครื่องนี้ไม่ได้ ข้อมูลยังอยู่ครบ"
+          }
+        }
+      }
+    },
+    "Kiểm tra": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Periksa"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตรวจสอบ"
           }
         }
       }
@@ -1185,6 +1793,22 @@
         }
       }
     },
+    "Lọc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Filter"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กรอง"
+          }
+        }
+      }
+    },
     "Muốn xem các bể này trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.": {
       "localizations": {
         "id": {
@@ -1213,6 +1837,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "เครื่องนี้ไม่มีบลูทูธ"
+          }
+        }
+      }
+    },
+    "Mất kết nối": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koneksi terputus"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขาดการเชื่อมต่อ"
+          }
+        }
+      }
+    },
+    "Mọi ổ cắm trong dự án Tuya đã ở trên một bể.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua stopkontak di proyek Tuya sudah dipasang di akuarium."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊กไฟทุกตัวในโปรเจกต์ Tuya อยู่บนตู้แล้ว"
+          }
+        }
+      }
+    },
+    "Mở platform.tuya.com": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka platform.tuya.com"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด platform.tuya.com"
           }
         }
       }
@@ -1329,6 +2001,22 @@
         }
       }
     },
+    "Quạt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kipas"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "พัดลม"
+          }
+        }
+      }
+    },
     "Rộng": {
       "localizations": {
         "id": {
@@ -1393,6 +2081,22 @@
         }
       }
     },
+    "Sưởi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pemanas"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฮีตเตอร์"
+          }
+        }
+      }
+    },
     "Sỏi": {
       "localizations": {
         "id": {
@@ -1425,6 +2129,22 @@
         }
       }
     },
+    "Sủi khí": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aerator"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปั๊มออกซิเจน"
+          }
+        }
+      }
+    },
     "Sửa": {
       "localizations": {
         "id": {
@@ -1437,6 +2157,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "แก้ไข"
+          }
+        }
+      }
+    },
+    "Thiết lập ổ cắm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atur stopkontak"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตั้งค่าปลั๊กไฟ"
           }
         }
       }
@@ -1537,6 +2273,22 @@
         }
       }
     },
+    "Thêm ổ cắm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah stopkontak"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มปลั๊กไฟ"
+          }
+        }
+      }
+    },
     "Thông tin bể": {
       "localizations": {
         "id": {
@@ -1565,6 +2317,70 @@
           "stringUnit": {
             "state": "translated",
             "value": "ลองหลายครั้งเกินไป โปรดรอสักครู่แล้วลองใหม่"
+          }
+        }
+      }
+    },
+    "Trong dự án: Devices → Link App Account → Add App Account. Mở Smart Life, bấm Tôi → biểu tượng quét ở góc trên, rồi quét mã QR trên màn hình.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Di proyek: Devices → Link App Account → Add App Account. Buka Smart Life, ketuk Saya → ikon pindai di pojok atas, lalu pindai kode QR di layar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ในโปรเจกต์: Devices → Link App Account → Add App Account เปิด Smart Life แตะ ฉัน → ไอคอนสแกนที่มุมบน แล้วสแกนคิวอาร์โค้ดบนหน้าจอ"
+          }
+        }
+      }
+    },
+    "Trung Quốc (China)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiongkok (China)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จีน (China)"
+          }
+        }
+      }
+    },
+    "Trung tâm dữ liệu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pusat data"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ศูนย์ข้อมูล"
+          }
+        }
+      }
+    },
+    "Trung Âu (Central Europe)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eropa Tengah (Central Europe)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยุโรปกลาง (Central Europe)"
           }
         }
       }
@@ -1601,6 +2417,102 @@
         }
       }
     },
+    "Trực tuyến": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Online"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ออนไลน์"
+          }
+        }
+      }
+    },
+    "Tuya không cho dự án xem thiết bị: liên kết tài khoản Smart Life bằng mã QR (bước 4 trong phần thiết lập) và kiểm tra trung tâm dữ liệu.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya tidak mengizinkan proyek melihat perangkatnya: tautkan akun Smart Life dengan kode QR (langkah 4 di pengaturan) dan periksa pusat datanya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya ไม่อนุญาตให้โปรเจกต์เห็นอุปกรณ์ เชื่อมบัญชี Smart Life ด้วยคิวอาร์โค้ด (ขั้นตอนที่ 4 ในการตั้งค่า) และตรวจสอบศูนย์ข้อมูล"
+          }
+        }
+      }
+    },
+    "Tuya không nhận khóa này: kiểm tra Access ID, Access Secret và trung tâm dữ liệu.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya tidak menerima kunci ini: periksa Access ID, Access Secret, dan pusat datanya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya ไม่รับคีย์นี้ โปรดตรวจสอบ Access ID, Access Secret และศูนย์ข้อมูล"
+          }
+        }
+      }
+    },
+    "Tuya trả lời không như mong đợi: thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jawaban Tuya tidak seperti yang diharapkan: coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya ตอบกลับไม่ตรงตามที่คาดไว้ โปรดลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Tuya từ chối (mã %lld).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya menolak (kode %lld)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya ปฏิเสธ (รหัส %lld)"
+          }
+        }
+      }
+    },
+    "Tuya đang bận: thử lại sau một lát.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya sedang sibuk: coba lagi sebentar lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tuya ไม่ว่างอยู่ โปรดลองใหม่อีกสักครู่"
+          }
+        }
+      }
+    },
     "Tài khoản có dữ liệu từ bản ứng dụng mới hơn: cập nhật AquaTome để đồng bộ.": {
       "localizations": {
         "id": {
@@ -1629,6 +2541,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "บัญชีเต็มแล้ว (200 ตู้, 400 โคม) โปรดลบบางรายการออกแล้วซิงค์ใหม่"
+          }
+        }
+      }
+    },
+    "Tây Mỹ (Western America)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amerika Barat (Western America)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อเมริกาตะวันตก (Western America)"
+          }
+        }
+      }
+    },
+    "Tây Âu (Western Europe)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eropa Barat (Western Europe)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยุโรปตะวันตก (Western Europe)"
+          }
+        }
+      }
+    },
+    "Tên (không bắt buộc)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama (opsional)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชื่อ (ไม่บังคับ)"
           }
         }
       }
@@ -1713,6 +2673,22 @@
         }
       }
     },
+    "Tạo tài khoản nhà phát triển Tuya (miễn phí) tại platform.tuya.com.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buat akun developer Tuya (gratis) di platform.tuya.com."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สร้างบัญชีนักพัฒนา Tuya (ฟรี) ที่ platform.tuya.com"
+          }
+        }
+      }
+    },
     "Tải bản sao (JSON)": {
       "localizations": {
         "id": {
@@ -1745,6 +2721,22 @@
         }
       }
     },
+    "Tắt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิด"
+          }
+        }
+      }
+    },
     "Tắt lúc": {
       "localizations": {
         "id": {
@@ -1757,6 +2749,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปิดเวลา"
+          }
+        }
+      }
+    },
+    "Tắt “%@”?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan “%@”?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิด “%@” ไหม"
           }
         }
       }
@@ -1905,6 +2913,54 @@
         }
       }
     },
+    "Xóa khóa": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus kunci"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบคีย์"
+          }
+        }
+      }
+    },
+    "Xóa khóa Tuya trên máy này?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus kunci Tuya di perangkat ini?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบคีย์ Tuya ในเครื่องนี้ไหม"
+          }
+        }
+      }
+    },
+    "Xóa khóa không bật tắt ổ cắm nào: các ổ cắm trên bể vẫn còn, chỉ không bật tắt được cho tới khi nhập lại khóa.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghapus kunci tidak menyalakan atau mematikan stopkontak mana pun: stopkontak di akuarium tetap ada, hanya tidak bisa dinyalakan atau dimatikan sampai kunci dimasukkan lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การลบคีย์ไม่ได้เปิดหรือปิดปลั๊กไฟใด ๆ ปลั๊กไฟบนตู้ยังอยู่ เพียงแต่เปิดปิดไม่ได้จนกว่าจะใส่คีย์อีกครั้ง"
+          }
+        }
+      }
+    },
     "Xóa tài khoản": {
       "localizations": {
         "id": {
@@ -2049,6 +3105,22 @@
         }
       }
     },
+    "Đang gửi lệnh…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mengirim perintah…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังส่งคำสั่ง…"
+          }
+        }
+      }
+    },
     "Đang kết nối…": {
       "localizations": {
         "id": {
@@ -2093,6 +3165,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังดูสำเนาที่บันทึกไว้ (ออฟไลน์)"
+          }
+        }
+      }
+    },
+    "Đang đọc ổ cắm…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Membaca stopkontak…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังอ่านปลั๊กไฟ…"
           }
         }
       }
@@ -2177,6 +3265,22 @@
         }
       }
     },
+    "Đã kết nối: %lld ổ cắm.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terhubung: %lld stopkontak."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อแล้ว: ปลั๊กไฟ %lld ตัว"
+          }
+        }
+      }
+    },
     "Đã lưu bể trên aquatome.com hoặc máy khác? Đăng nhập để lấy về.": {
       "localizations": {
         "id": {
@@ -2189,6 +3293,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เคยบันทึกตู้ปลาไว้บน aquatome.com หรืออุปกรณ์อื่นใช่ไหม เข้าสู่ระบบเพื่อดึงข้อมูลกลับมา"
+          }
+        }
+      }
+    },
+    "Đã lưu khóa của một dự án ở %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunci proyek di %@ sudah disimpan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บันทึกคีย์ของโปรเจกต์ที่ %@ แล้ว"
           }
         }
       }
@@ -2221,6 +3341,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่มตู้ปลา %lld ตู้จากบัญชีแล้ว"
+          }
+        }
+      }
+    },
+    "Đã xác nhận": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terkonfirmasi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยืนยันแล้ว"
           }
         }
       }
@@ -2433,6 +3569,22 @@
         }
       }
     },
+    "Đông Mỹ (Eastern America)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amerika Timur (Eastern America)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อเมริกาตะวันออก (Eastern America)"
+          }
+        }
+      }
+    },
     "Đăng xuất": {
       "localizations": {
         "id": {
@@ -2525,6 +3677,134 @@
           "stringUnit": {
             "state": "translated",
             "value": "นาฬิกาในโคมไฟคลาดจากโทรศัพท์ %lld นาที"
+          }
+        }
+      }
+    },
+    "Ấn Độ (India)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "India"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อินเดีย (India)"
+          }
+        }
+      }
+    },
+    "Ổ %lld": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colokan %lld"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ช่อง %lld"
+          }
+        }
+      }
+    },
+    "Ổ %lld · %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colokan %1$lld · %2$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ช่อง %1$lld · %2$@"
+          }
+        }
+      }
+    },
+    "Ổ cắm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊กไฟ"
+          }
+        }
+      }
+    },
+    "Ổ cắm này đã được gỡ khỏi bể.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak ini sudah dilepas dari akuarium."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊กไฟนี้ถูกนำออกจากตู้แล้ว"
+          }
+        }
+      }
+    },
+    "Ổ này cấp điện cho CO2. Bật nhầm, nhất là ban đêm, có thể làm cá ngạt.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colokan ini mengalirkan listrik ke CO2. Salah menyalakannya, apalagi malam hari, bisa membuat ikan sesak napas."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ช่องนี้จ่ายไฟให้ CO2 หากเปิดผิด โดยเฉพาะตอนกลางคืน ปลาอาจขาดอากาศหายใจ"
+          }
+        }
+      }
+    },
+    "Ổ này cấp điện cho sưởi. Bật tắt nhầm có thể làm nước quá lạnh hoặc quá nóng.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colokan ini mengalirkan listrik ke pemanas. Salah menyalakan atau mematikannya bisa membuat air terlalu dingin atau terlalu panas."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ช่องนี้จ่ายไฟให้ฮีตเตอร์ หากเปิดหรือปิดผิด น้ำอาจเย็นหรือร้อนเกินไป"
+          }
+        }
+      }
+    },
+    "Ở trang Overview của dự án, sao chép Access ID và Access Secret vào ô dưới đây.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Di halaman Overview proyek, salin Access ID dan Access Secret ke kolom di bawah."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ที่หน้า Overview ของโปรเจกต์ คัดลอก Access ID และ Access Secret มาใส่ช่องด้านล่าง"
           }
         }
       }

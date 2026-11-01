@@ -83,6 +83,25 @@ test('a light saved from the Chihiros page shows on its tank with its schedule; 
   expect(errors).toEqual([])
 })
 
+test('a plug the app put on a tank is kept but not shown as a light, nor counted as one when the tank is deleted', async ({ page, errors }) => {
+  const store = {
+    v: 1,
+    tanks: [{ id: id(1), name: 'Bể ổ cắm', species: [], plants: [], createdAt: at, updatedAt: at }],
+    devices: [{
+      id: id(2), tankId: id(1), kind: 'plug', brand: 'tuya', remoteId: 'fake-strip', nickname: 'Ổ cắm bể',
+      outlets: [{ code: 'switch_1', role: 'co2' }], createdAt: at, updatedAt: at,
+    }],
+  }
+  await page.addInitScript(s => localStorage.setItem('aq.tanks', s), JSON.stringify(store))
+  await page.goto(PAGE)
+  await expect(page.locator('.tank h2')).toHaveText('Bể ổ cắm')
+  await expect(page.locator('.tank .lights')).toHaveCount(0)
+  const asked = new Promise<string>(r => page.once('dialog', d => { r(d.message()); void d.dismiss() }))
+  await page.locator('.tank [data-del]').click()
+  expect(await asked).toBe('Xóa bể “Bể ổ cắm”?')
+  expect(errors).toEqual([])
+})
+
 test('Indonesian page: its own address and words; a tank is saved the same way', async ({ page, errors }) => {
   await page.goto('/id/alat/akuarium-saya/')
   await page.locator('#mt-add').click()
