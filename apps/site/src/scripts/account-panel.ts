@@ -5,8 +5,9 @@ import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonc
 
 /**
  * "Đồng bộ giữa các thiết bị" on "Bể của tôi": optional sign-in and sync. The section stays hidden unless the server
- * offers accounts. Google's, Apple's and Turnstile's scripts load only when the reader asks to sign in (and Apple's
- * when "Xóa tài khoản" opens for an account that signs in with Apple). Passkeys use the browser's own prompt.
+ * offers accounts. Google's, Apple's and Turnstile's scripts load only when the reader asks to sign in, or to add a way
+ * to sign in to the account (and Apple's when "Xóa tài khoản" opens for an account that signs in with Apple). Passkeys
+ * use the browser's own prompt.
  *
  * Signed in, this browser's tanks and the account's are merged both ways (sync.ts): right after signing in, when the page
  * opens, after each change here (a moment later), and when the tab comes back into view.
@@ -55,6 +56,8 @@ export function initAccount(o: { onStore: () => void }) {
   let flow: string | undefined
   /** The sign-in buttons are set up once; each later opening only gives them fresh nonces. */
   let wired = false
+  /** Opened from "Thêm cách đăng nhập": a way pressed is added to the account signed in here. */
+  let linking = false
   const rearm: (() => Promise<void>)[] = []
   /** Apple, ready before "Xóa tài khoản vĩnh viễn" is pressed, so its popup opens straight from the click. */
   let appleForDelete: ReturnType<typeof appleReady> | undefined
@@ -73,7 +76,8 @@ export function initAccount(o: { onStore: () => void }) {
     bad_email: ct('Địa chỉ email chưa đúng.'),
     turnstile: ct('Không qua được kiểm tra chống spam, vui lòng thử lại.'),
     mail_failed: ct('Chưa gửi được email: thử lại sau.'),
-    credential_in_use: ct('Cách đăng nhập này đã thuộc một tài khoản khác.'),
+    credential_in_use: ct('Cách đăng nhập này đã có tài khoản riêng. Để gộp: đăng xuất, đăng nhập bằng cách đó (các bể về trình duyệt này), xóa tài khoản đó, rồi đăng nhập lại tài khoản này và thêm nó.'),
+    apple_already_linked: ct('Tài khoản này đã có một Apple ID khác.'),
     apple_other_account: ct('Đó là một Apple ID khác: đăng nhập bằng Apple ID của tài khoản này.'),
     apple_revoke_failed: ct('Apple chưa xác nhận được: thử lại.'),
     apple_reauth: ct('Chưa xóa: cần đăng nhập lại bằng Apple để xác nhận.'),
@@ -90,6 +94,7 @@ export function initAccount(o: { onStore: () => void }) {
       const time = syncedAt ? new Intl.DateTimeFormat(document.documentElement.lang, { hour: '2-digit', minute: '2-digit' }).format(syncedAt) : ''
       $('acc-status').textContent = time ? ct('Đã đăng nhập bằng {ways}. Đồng bộ lúc {time}.', { ways, time }) : ct('Đã đăng nhập bằng {ways}.', { ways })
     }
+    $('acc-leave').hidden = !user
     const addKey = $('acc-passkey-add')
     addKey.hidden = !(user && providers?.passkey && canPasskey())
     if (!addKey.hidden) void webauthn().catch(() => {})
@@ -118,19 +123,49 @@ export function initAccount(o: { onStore: () => void }) {
     o.onStore()
   }
 
-  async function signedIn(u: User) {
-    user = u
+  function closeWays() {
+    $('acc-ways').hidden = true
+    $('acc-code').hidden = true
+    for (const id of ['acc-open', 'acc-add']) {
+      $(id).hidden = false
+      $(id).setAttribute('aria-expanded', 'false')
+    }
+  }
+
+  /** A sign-in, or a way to sign in added: the email sign-in waiting for its code is done, the ways close. */
+  function finished() {
     localStorage.removeItem(PENDING)
     flow = undefined
     $<HTMLFormElement>('acc-email').reset()
     $<HTMLFormElement>('acc-code').reset()
-    $('acc-code').hidden = true
-    $('acc-ways').hidden = true
+    closeWays()
+  }
+
+  /** `pressed`: signed in from this page (not found signed in as it opens, an address still on its way perhaps). */
+  async function signedIn(u: User, pressed = true) {
+    user = u
+    if (pressed) finished()
     show()
     say('')
     await sync(true)
     $('acc-sync').focus()
   }
+
+  /** A sign-in's answer. Signed in here already to that account: the way was added to it (the session goes on). */
+  async function got(u: User) {
+    if (!user || user.id !== u.id) { await signedIn(u); return }
+    const had = new Set(user.methods.map(m => m.id))
+    const added = u.methods.find(m => !had.has(m.id))
+    user = u
+    finished()
+    show()
+    const way = added && (KIND[added.kind] ?? added.kind)
+    say(way ? ct('Đã thêm {way}: lần sau đăng nhập bằng {way} cũng vào tài khoản này.', { way }) : ct('Tài khoản này đã có cách đăng nhập đó.'))
+    $('acc-add').focus()
+  }
+
+  /** A sign-in, or adding a way, refused. Adding one with the session ended elsewhere: signed out here too. */
+  const refused = (f: Fail) => (f.error === 'signed_out' ? signedOut(ct('Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.'), true) : say(problem(f), true))
 
   /** Signed out here, elsewhere, or the account deleted: the sign-in button again, closed. */
   function signedOut(message: string, bad = false) {
@@ -138,11 +173,9 @@ export function initAccount(o: { onStore: () => void }) {
     clearTimeout(timer)
     appleForDelete = undefined
     $('acc-status').textContent = ''
-    $('acc-in').querySelector('details')!.open = false
+    $<HTMLDetailsElement>('acc-leave').open = false
     show()
-    $('acc-ways').hidden = true
-    $('acc-open').hidden = false
-    $('acc-open').setAttribute('aria-expanded', 'false')
+    closeWays()
     say(message, bad)
   }
 
@@ -158,9 +191,9 @@ export function initAccount(o: { onStore: () => void }) {
         g.accounts.id.initialize({
           client_id: clientId, nonce, ux_mode: 'popup', itp_support: true,
           callback: async ({ credential }) => {
-            const r = await signInWith('google', credential, nonce)
-            if (isFail(r)) { say(problem(r), true); void arm(); return }
-            await signedIn(r.user)
+            const r = await signInWith('google', credential, nonce, linking)
+            if (isFail(r)) { refused(r); void arm(); return }
+            await got(r.user)
           },
         })
         return true
@@ -175,14 +208,16 @@ export function initAccount(o: { onStore: () => void }) {
   }
 
   // Apple: our button; its popup gives the identity token (sign-in) or a fresh code (deleting the account).
-  async function appleReady(clientId: string): Promise<{ auth: Apple['auth']; nonce: string } | undefined> {
+  async function appleReady(clientId: string): Promise<{ signIn: Apple['auth']['signIn']; nonce: string } | undefined> {
     try {
       await script(`https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/${APPLE_LOCALE[lang] ?? 'en_US'}/appleid.auth.js`)
       const nonce = await getNonce()
       if (!nonce) return undefined
       const auth = (window as unknown as { AppleID: Apple }).AppleID.auth
-      auth.init({ clientId, scope: '', redirectURI: page, nonce, usePopup: true })
-      return { auth, nonce }
+      const settings = { clientId, scope: '', redirectURI: page, nonce, usePopup: true }
+      auth.init(settings)
+      // Apple keeps one setting for the page, and the delete step sets its own: this nonce again, as the popup opens.
+      return { nonce, signIn: () => { auth.init(settings); return auth.signIn() } }
     } catch {
       return undefined
     }
@@ -195,13 +230,13 @@ export function initAccount(o: { onStore: () => void }) {
       if (!ready) return
       btn.disabled = true
       try {
-        const r = await ready.auth.signIn()
-        const out = await signInWith('apple', r.authorization.id_token, ready.nonce)
-        if (isFail(out)) say(problem(out), true)
-        else await signedIn(out.user)
+        const r = await ready.signIn()
+        const out = await signInWith('apple', r.authorization.id_token, ready.nonce, linking)
+        if (isFail(out)) refused(out)
+        else await got(out.user)
       } catch { /* the popup was closed */ }
       // A nonce is used once: a new one for the next try.
-      if (!user) ready = await appleReady(clientId)
+      if (!$('acc-ways').hidden) ready = await appleReady(clientId)
       btn.disabled = false
     })
     rearm.push(async () => {
@@ -236,11 +271,11 @@ export function initAccount(o: { onStore: () => void }) {
       }
       waiting = false
       btn.disabled = true
-      const r = await emailStart(address, token, lang)
+      const r = await emailStart(address, token, lang, linking)
       btn.disabled = false
       token = ''
       turnstile?.ts.reset(turnstile.widget)
-      if (isFail(r)) { say(problem(r), true); return }
+      if (isFail(r)) { refused(r); return }
       flow = r.flow
       localStorage.setItem(PENDING, JSON.stringify({ flow, until: new Date(Date.now() + 15 * 60_000).toISOString() }))
       $('acc-code').hidden = false
@@ -258,14 +293,13 @@ export function initAccount(o: { onStore: () => void }) {
       const r = await emailVerify(flow, code)
       codeBtn.disabled = false
       if (isFail(r)) { say(problem(r), true); return }
-      await signedIn(r.user)
+      await got(r.user)
     })
   }
 
   // A passkey added to an account earlier, here or in the app: the browser asks for Face ID, a fingerprint or the PIN.
   function passkey() {
     const btn = $<HTMLButtonElement>('acc-passkey')
-    btn.hidden = false
     void webauthn().catch(() => {})
     btn.addEventListener('click', async () => {
       if (btn.disabled) return
@@ -286,13 +320,18 @@ export function initAccount(o: { onStore: () => void }) {
     })
   }
 
-  async function openWays() {
+  async function openWays(link: boolean) {
     const ways = $('acc-ways')
     if (!ways.hidden) return
+    linking = link
     ways.hidden = false
-    $('acc-open').setAttribute('aria-expanded', 'true')
-    $('acc-open').hidden = true
+    $('acc-ways-add').hidden = !link
+    const opener = $(link ? 'acc-add' : 'acc-open')
+    opener.setAttribute('aria-expanded', 'true')
+    opener.hidden = true
     if (!providers) return
+    // A passkey is added with its own button ("Thêm passkey").
+    $('acc-passkey').hidden = link || !(providers.passkey && canPasskey())
     if (wired) { await Promise.all(rearm.map(f => f())); return }
     wired = true
     await Promise.all([
@@ -303,7 +342,8 @@ export function initAccount(o: { onStore: () => void }) {
     ])
   }
 
-  $('acc-open').addEventListener('click', () => void openWays())
+  $('acc-open').addEventListener('click', () => void openWays(false))
+  $('acc-add').addEventListener('click', () => void openWays(true))
   $('acc-sync').addEventListener('click', () => void sync())
   $('acc-signout').addEventListener('click', async () => {
     const r = await signOut()
@@ -340,7 +380,7 @@ export function initAccount(o: { onStore: () => void }) {
   })
   const hasApple = () => !!user?.methods.some(m => m.kind === 'apple') && !!providers?.apple
   const prepApple = () => { if (hasApple()) appleForDelete ??= appleReady(providers!.apple!.clientId) }
-  $('acc-in').querySelector('details')!.addEventListener('toggle', e => { if ((e.target as HTMLDetailsElement).open) prepApple() })
+  $('acc-leave').addEventListener('toggle', e => { if ((e.target as HTMLDetailsElement).open) prepApple() })
   $('acc-delete').addEventListener('click', async () => {
     if (!user || !confirm(ct('Xóa vĩnh viễn tài khoản và các bể trong tài khoản? Bể trên trình duyệt này vẫn còn.'))) return
     const btn = $<HTMLButtonElement>('acc-delete')
@@ -353,7 +393,7 @@ export function initAccount(o: { onStore: () => void }) {
       const ready = await appleForDelete
       try {
         if (!ready) throw new Error('apple')
-        const r = await ready.auth.signIn()
+        const r = await ready.signIn()
         appleCode = { code: r.authorization.code, clientId: providers!.apple!.clientId, redirectUri: page }
       } catch {
         // Not loaded, or the popup closed: ready again for the next press.
@@ -399,20 +439,20 @@ export function initAccount(o: { onStore: () => void }) {
     providers = s.providers
     sitekey = s.turnstileSitekey ?? ''
     section.hidden = false
-    if (s.user) { await signedIn(s.user); return }
-    show()
-    // Back from the mail's link, in the browser that asked for the code.
+    // Back from the mail's link, in the browser that asked for the code: a sign-in, or an address added to the account
+    // signed in here. An email sign-in left unfinished is forgotten once it expires.
     const code = codeInHash(location.hash)
-    // An email sign-in left unfinished is forgotten once it expires.
-    if (!code) { pendingFlow(localStorage, new Date()); return }
-    history.replaceState(null, '', location.pathname + location.search)
     const f = pendingFlow(localStorage, new Date())
+    if (code) history.replaceState(null, '', location.pathname + location.search)
+    if (s.user) await signedIn(s.user, false)
+    else show()
+    if (!code) return
     if (!f) { section.scrollIntoView(); say(ct('Link này cần mở trên đúng trình duyệt đã gửi mã. Hoặc nhập mã 6 số ở đó.'), true); return }
     flow = f
     const r = await emailVerify(f, code)
     section.scrollIntoView()
     if (isFail(r)) { say(problem(r), true); return }
-    await signedIn(r.user)
+    await got(r.user)
   })()
 
   return { changed }
