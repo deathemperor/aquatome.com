@@ -23,6 +23,7 @@ final class ReadingFlowTests: XCTestCase {
 
   func testListsThePagesReadLastNewestFirst() {
     let app = launch()
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "item").firstMatch.waitForExistence(timeout: 5), "no handbook")
     XCTAssertFalse(app.staticTexts["Đọc gần đây"].exists, "something read already")
     openGuide(app)
     back(app)
@@ -33,6 +34,16 @@ final class ReadingFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5))
     let items = app.descendants(matching: .any).matching(identifier: "item").allElementsBoundByIndex.prefix(2).map { $0.label }
     XCTAssertTrue(items.count == 2 && items[0].hasPrefix("Cá đĩa") && items[1].hasPrefix("Nuôi cá neon"), "\(items)")
+  }
+
+  /// UI tests start from a clean phone: a page read in one run isn't listed in the next.
+  func testATestsResetForgetsThePagesRead() {
+    var app = launch()
+    openGuide(app)
+    app.terminate()
+    app = launch()
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "item").firstMatch.waitForExistence(timeout: 5), "no handbook")
+    XCTAssertFalse(app.staticTexts["Đọc gần đây"].exists, "a page read before the reset")
   }
 
   // MARK: Helpers

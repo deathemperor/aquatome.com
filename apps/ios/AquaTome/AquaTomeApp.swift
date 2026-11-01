@@ -6,7 +6,7 @@ import WebKit
 @main
 struct AquaTomeApp: App {
   @State private var lights: LightsModel
-  @State private var handbook = HandbookModel()
+  @State private var handbook: HandbookModel
   @State private var tanks: TanksModel
   @State private var account: AccountModel
   @State private var plugs: PlugsModel
@@ -26,7 +26,8 @@ struct AquaTomeApp: App {
     }
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
     #endif
-    // Read after the tests' reset above.
+    // Read after the tests' reset above (the handbook keeps the pages read).
+    _handbook = State(initialValue: HandbookModel())
     let tanks = TanksModel()
     _tanks = State(initialValue: tanks)
     _lights = State(initialValue: LightsModel(radio: AquaTomeApp.radio(), tanks: tanks))
