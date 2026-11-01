@@ -12,7 +12,8 @@
     "indonesia",
     "malaysia",
     "vietnam",
-    "china"
+    "china",
+    "chao-phraya"
   ],
   "dataCard": {
     "tempC": [
@@ -27,6 +28,13 @@
         "source": "sprucepets",
         "value": {
           "min": 24,
+          "max": 30
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
           "max": 30
         }
       }
@@ -45,6 +53,13 @@
           "min": 6.8,
           "max": 7.4
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
@@ -55,6 +70,10 @@
       {
         "source": "sprucepets",
         "value": 7
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 7
       }
     ],
     "gh": [
@@ -64,18 +83,33 @@
           "min": 0,
           "max": 20
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
       }
     ],
     "tankCm": [
       {
         "source": "sprucepets",
         "value": 30
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ],
     "difficulty": [
       {
         "source": "sprucepets",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -93,6 +127,12 @@
       "html": "<ul><li>Common names: Betta, Siamese fighting fish</li><li>Family: Belontiidae</li><li>Adult size: 7 cm (3 inches)</li><li>Life expectancy: 3 to 5 years</li><li>Origin: Cambodia, Thailand</li><li>Social: males cannot be kept together</li><li>Tank level: all</li><li>Minimum tank size: 2 gallons (about 8 litres)</li><li>Diet: live foods, pellets, flakes and frozen foods</li><li>Breeding: egglayer (male is a bubble nest builder)</li><li>Care: easy to intermediate</li><li>pH: 6.8 to 7.4</li><li>Water hardness: up to 20 dGH</li><li>Temperature: 24 to 30 °C (75 to 86 °F)</li></ul><p>Betta fish, also known as Siamese fighting fish, are popular for their colorful scales and flowing fins. Males cannot be kept together due to their aggressive nature, while multiple females can generally coexist. Bettas require warm water, ideally between 24 and 30 °C, and need access to the water surface to breathe.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<p>The Siamese fighting fish, Betta splendens, is a labyrinth fish from central Thailand, native to rice paddies, swamps, ditches and other still waters. The wild form is rarely seen in the hobby, but countless ornamental strains exist that vary tremendously in colour, finnage and quality. Its care requirements and disposition mean it is best kept alone, and it is not recommended for the standard community aquarium.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
@@ -105,10 +145,22 @@
       "html": "<p>Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China. They inhabit rice paddies, ponds, slow-moving streams, and swamps. Now, non-native populations exist in various countries due to their widespread introduction.</p><p>The name Siamese fighting fish comes from organized male fish fights, similar to cockfights. Such matches persist for betting income, and some males are bred for aggression. However, these fights are cruel and should be discouraged.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<p>Occurs naturally throughout central Thailand, from Chiang Rai province in the north to Surat Thani and Phang Nga provinces at the northern extremity of the Malay Peninsula, just below the Isthmus of Kra. Records from the remainder of southern (peninsular) Thailand, and the Mekong River basin in eastern Thailand, Laos, Vietnam, and Cambodia refer to other species or introduced populations.</p><p>It has been introduced to several countries, largely as a result of escape from ornamental fish farms, with known feral populations established in Singapore, Malaysia, Indonesia, Brazil, Colombia, and the Dominican Republic.</p><p>Type locality is 'Menam River, Thailand', which refers to the Chao Phraya river basin.</p>"
+    },
+    {
       "key": "habitat",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
       "html": "<p>Bettas are one of the most recognized, most colorful, and often most controversial fish in the freshwater aquarium hobby. Debates rage about the appropriateness of keeping them in small bowls. To fully understand their needs, it is important to become familiar with their native habitat, where they live in large rice paddies, shallow ponds, and even in very slow-moving streams. Although many fish keepers are aware that bettas come from shallow waters, the warmer water temperature is often overlooked.</p><p>The home countries of the betta are tropical, which means the water temperature is quite warm, often into the 80s °F (about 27–32 °C).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<p>Inhabits still and sluggish waters, including rice paddies, swamps, roadside ditches, streams and ponds. These are often shaded by submerged, surface or marginal vegetation and sometimes contain little dissolved oxygen. Water conditions tend to vary and change rapidly during the annual monsoon season. Substrates can vary from leaf litter to mud, sand, or deep sediment.</p><p>Habitat loss or modification across its natural range has increased significantly in recent years and is exerting a significant detrimental effect on wild populations. Introduction of ornamental forms and other Betta spp. is known to be having an adverse effect on the genetic integrity of some wild populations.</p>"
     },
     {
       "key": "aquariumSize",
@@ -117,10 +169,22 @@
       "html": "<p>Minimum tank size: 2 gallons (about 8 litres). Maintaining proper water temperature is perhaps the biggest argument against keeping a betta in a bowl, which cannot readily be heat-controlled. Really, the best option is to house them in a betta fish tank, with an aquarium heater and water filter.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<p>Standard length: 70 mm SL (7 cm). Aquarium base: 45 × 30 cm. Volume: ~41 litres.</p><p>An aquarium with base measurements of 45 × 30 cm or equivalent is large enough for a single male or pair. SF does not support the practice of keeping this species in tiny aquaria or small jars.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
       "html": "<p>Routine maintenance should include a partial water change at least once a week.</p><p>Betta fish can live in tap water so long as it is properly treated and warm enough. You should get a water conditioner and water heater for your aquarium to make bettas feel at home.</p><p>Betta fish are low-maintenance fish. Note, however, that they do need regular water changes and for their tank to be kept at a certain temperature.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<p>This species fares best in a well-planted, shady aquarium with plenty of surface cover in the form of tall stem plants, floating types such as Salvinia or Riccia spp., or tropical lilies from the genus Nymphaea. Cryptocoryne spp. are also a good choice.</p><p>Driftwood can also be used and other plants such as Microsorum or Taxiphyllum spp. may be attached to it. Small clay plant pots, lengths of plastic piping or empty camera film cases can also be included to provide further shelter.</p><p>The addition of dried leaf litter offers additional cover and brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, while tannins and other chemicals released by the decaying leaves are considered beneficial.</p><p>As it naturally inhabits sluggish environments strong water movement should be avoided, with an air-powered sponge filter set to turn over gently adequate. Keep the aquarium well-covered and do not fill it to the top since like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
     },
     {
       "key": "waterConditions",
@@ -133,6 +197,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
       "html": "<p>Bettas thrive on heat and will become increasingly listless when the water temperature falls below 75 °F (24 °C).</p><p>Optimally, the water for keeping bettas healthy should be soft and warm, with a neutral to slightly acidic pH. Water movement should be kept to a minimum, which means that power filters and powerheads are not suitable.</p><p>Even though bettas do well in water that is low in dissolved oxygen, that does not mean they require less oxygen than other fish. Bettas have a special respiratory organ (called the labyrinth organ) that allows them to breathe air directly from the surface. In fact, they inherently must do so. In experiments where the labyrinth organ was removed, the fish died from suffocation even though the water was saturated with oxygen. For this reason, bettas must have access to the water surface to breathe air directly from the atmosphere.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<ul><li>Temperature: 22–30°C</li><li>pH: Wild-collected fish are likely to prefer a value between 5.0–7.0, but ornamental strains are unfussy with a range of 6.0–8.0 acceptable.</li><li>Hardness: 1–15 dGH; see comments under pH on wild vs. captive-bred fish.</li></ul>"
     },
     {
       "key": "equipment",
@@ -153,6 +223,12 @@
       "html": "<p>Betta fish should be fed two to three times a day, as much food as they will eat in five minutes. In nature, bettas subsist almost exclusively on insects and insect larvae. They are built with an upturned mouth that is well suited to snatching any hapless insect that might fall into the water. Internally their digestive system is geared for meat, having a much shorter alimentary tract than vegetarian fish. For this reason, live foods are the ideal diet for the betta, however, they will adapt to eating flake foods and frozen or freeze-dried foods, such as:</p><ul><li>Brine shrimp</li><li>Daphnia</li><li>Plankton</li><li>Tubifex</li><li>Glassworms</li><li>Beef heart</li></ul><p>These are all excellent options that may be found frozen or freeze-dried. If flake food is fed, it should be supplemented a few times a week with frozen and freeze-dried foods, and if possible, live foods.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<p>Likely to prey on aquatic and terrestrial invertebrates in nature.</p><p>Captive fish will normally accept dried products once they are recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or chironomid larvae (bloodworm) regularly to ensure development of optimal colour and condition. Small insects such as pinhead crickets or Drosophila fruit flies are also suitable to use; it is best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
@@ -165,10 +241,22 @@
       "html": "<p>Males cannot be kept together unless there are separators in the tank. Multiple females can generally be kept together without problems. Several females, or one male, can be kept with other peaceful fish species, as long as they are small and are not fin-nipping types, such as tiger barbs.</p><p>Male bettas should not be kept with other fish that have similar body types and long fins, as they could mistake them for rivals and fight them.</p><p>Bettas may be kept in a community tank as long as the water conditions are met, and if no aggressive or fin-nipping fish are present. However, only one male may be kept in each aquarium, unless they are separated by a barrier. The use of plastic boxes that hang inside the aquarium is a suitable option for keeping more than one betta in a tank, or for keeping them in a tank with fish that might nip their fins. Females will generally not fight with each other and may be kept together in the same open space. Female bettas can also be kept with other non-aggressive fish species.</p><p>If you have a male betta fish, only one should be kept in the tank. However, if your fish are female, you can keep many together at once in the tank. Betta fish recognize their owners and even take interest in them.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<p>Not recommended for the standard community aquarium. Its care requirements and disposition mean it is best kept alone. Sometimes individual fish may tolerate other species, but this is the exception not the expected norm.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are suitable, but proper research prior to purchase is essential and in most cases it is best maintained alone. Species with body shapes or trailing finnage should certainly be avoided, since a male may view these as rivals.</p><p>Ornamental strains seem to be more aggressive than any other Betta species, including others from the B. splendens group, and only a single individual can be kept per tank in most cases. Usual practice is also to maintain males and females separately unless breeding.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
       "html": "<p>Male bettas are known for their striking colors and long fins. Females are less colorful with shorter fins. Males typically are more brilliantly colored and have longer and flowing fins. They also have a more distinct \"beard\" (under the gill coverings) and are larger overall than the females. Females have short fins and will display vertical stripes and an egg spot (ovipositor) when ready to mate.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<p>Males are more colourful and develop more-extended fins than females, this being taken to extremes in some of the innumerable ornamental strains (see 'Notes').</p>"
     },
     {
       "key": "reproduction",
@@ -183,6 +271,12 @@
       "html": "<p>Bettas have a fairly short lifespan and are most successful as breeders when they are about a year old; bettas in pet shops that are full size are usually at least six months old. They breed in bubble nests and do not require a large tank or special equipment, just a few nice-to-haves, including:</p><ul><li>Floating water plants for the male to attach the bubble nest to</li><li>A hiding place for the female to hang out in if the male becomes aggressive</li></ul><p>When they are ready to spawn, the pair will display intense coloration and begin circling each other under the bubble nest. The male will wrap himself around the female, who has turned on her back. As she expels the eggs, they are fertilized and begin to sink. The male will scoop up the eggs in his mouth and spit them into the nest. This may be repeated several times, but finally, the male will chase the female away and she should be carefully removed from the breeding tank. From this point on, the male will tend the brood and care for the babies after the eggs hatch.</p><p>The male will continue to tend the bubble nest, spitting eggs that fall out back into the nest. In one to three days the eggs will hatch, and the fry will be visible hanging in the bubble nest with their tails pointing downward. They are provided nutrition by their yolk sac for another 36 hours, during which time the male will continue to pick up and return any fry that falls out of the nest. The male should be removed when the fry leave the bubble nest, as the male may eat the young once they are free-swimming.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<p>Bubble nester. It is particularly important to provide plenty of cover for the female, and empty camera film canisters or lengths of plastic tubing can be used to offer potential nesting sites. Floating plants may be incorporated into the nest if present.</p><p>The aquarium should have the tightest-fitting cover possible (some breeders use clingfilm/plastic wrap) because the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>The pair need not be separated prior to spawning. The male might construct the nest in a tube or canister, under a broad plant leaf or among fine-leaved surface vegetation, and will not usually tolerate the female in the vicinity until it is complete.</p><p>The nuptial female becomes paler in colour and dark bars appear on the flanks. Spawning normally occurs beneath the nest in an 'embrace' typical of osphronemids, with the male wrapped around the female.</p><p>At the point of climax milt and a few eggs are released, which the female proceeds to catch between pelvic fins and body. The male then transfers these to the nest while the female recovers any loose eggs. The process is then repeated until the female is spent.</p><p>Post-spawning the adults can normally be left in situ although the female is no longer actively involved, the male assuming sole responsibility for guarding and tending the nest.</p><p>The eggs hatch in 24-48 hours, remaining in the nest for a further 3-4 days until the yolk sac is fully-absorbed, the male continuing to collect and return any that fall. If threatened the entire nest may be moved elsewhere. Once the fry begin to swim freely the male will lose interest, but the adults do not usually eat their offspring.</p><p>The fry require an infusoria-grade food for the first few days, after which they can accept motile foods such as microworm and Artemia nauplii, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter. Water changes should be small and regular rather than large and intermittent.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
@@ -193,51 +287,132 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
       "html": "<p>Captive breeding has produced bettas in a wide range of colors: white, yellow, orange, red, pink, blue, green, turquoise, brown, and black. You can find solid, multi-colored, and patterned varieties. Selective breeding has also led to diverse fin types, including veil, crown, delta, fan, half-moon, lyre, and split tails.</p><p>Betta fish have a torpedo-shaped body and an upturned mouth for surface feeding. Adults grow to two to three inches (5–7 cm), with females slightly smaller. Uniquely, they have a labyrinth organ, enabling them to breathe atmospheric oxygen, which helps them thrive in low-oxygen environments.</p><p>Betta fish generally live anywhere from two to five years.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<p>This species is among the most popular and well-known aquarium fishes. Its common name is derived from the tradition of keeping the fish in order to fight against each other in organised 'bouts' upon which participants and onlookers place wagers. It has been extensively line-bred for vigour, strength, and the ornamental trade, and hybridised with the congeners B. imbellis, B. smaragdina, and B. mahachaiensis.</p><p>The wild form is rarely seen in the aquarium hobby but there exist countless ornamental strains which vary tremendously in colour pattern, morphology of fins and body, quality, and price. The cheap, 'veiltail' strains found on sale in the majority of stores are mostly mass-produced in Southeast Asia or Eastern Europe and often exhibit genetic defects or other health issues, so it is best to find a reputable private breeder if possible.</p><p>Females are also available in a myriad of colours, and some commercial breeders have apparently taken to producing very short-finned males which are subsequently sold as females, purportedly in order to discourage private breeding efforts. The vernacular name 'plakat', often applied to short-finned ornamental strains, is derived from 'pla kat', the Thai name for all members of the B. splendens group.</p><p>This species lends its name to the Betta splendens complex of closely-related species within the genus, of which members share the following series of characters: head length short 22-31 % SL; often a brightly-coloured body; iris of the eye with iridescent green or blue patches; body elongate or slender; opercles parallel when head viewed dorsally; caudal-fin rays red or brown and contrasting with the iridescent interradial membranes; unpaired fins without an iridescent margin; opercle with red or blue vertical bars in males; dorsal-fin rays 0-II, 7-9; anal-fin rays II-V, 21-26.</p><p>The unique combination of characters distinguishing B. splendens from others in the group is as follows: no iridescent scales on opercle; opercle with red-coloured parallel vertical bars; fins in male blue, green, or red; head and body relatively stocky with depth 27.1-32.2 % SL.</p><p>The genus Betta is the most speciose within the family Osphronemidae. Members have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is largely based on morphological and behavioural characters.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabantoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li><li>Regan, C. T. (1910). The Asiatic fishes of the family Anabantidae. Proceedings of the Zoological Society of London 1909(4), 767-787</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li><li>Roberts, T. R. (1981). Identification of the presumed African freshwater fishes Micracanthus marchei (Belontiidae) and Chonerhinos africanus (Tetraodontidae). Cybium 5(2), 91-92</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kowasupat, C., B. Panijpan, P. Ruenwongsa and N. Sriwattanarothai (2012). Betta mahachaiensis, a new species of bubble-nesting fighting fish (Teleostei: Osphronemidae) from Samut Sakhon Province, Thailand. Zootaxa 3522, 49-60</li><li>Kowasupat, C., B. Panijpan, P. Ruenwongsa and T. Jeenthong (2012). Betta siamorientalis, a new species of bubble-nest building fighting fish (Teleostei: Osphronemidae) from eastern Thailand. Vertebrate Zoology 62(3), 387-397</li></ul>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/561b4018211c8bee.webp",
-      "width": 960,
-      "height": 742,
-      "licence": "CC BY 4.0",
-      "author": "Henryk Niestrój",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bojownik_syjamski.jpg",
-      "caption": "Aquarium fish, Siamese fighting fish, also great fighting fish (Betta splendens)",
-      "thumb": "https://media.aquatome.com/commons/561b4018211c8bee-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a5d1a3a1decf2e29.webp",
-      "width": 960,
-      "height": 793,
-      "licence": "CC BY-SA 4.0",
-      "author": "Eleverse",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_opaque_(platinum)_rosetail_male_and_female_betta_(Breeder-_Elena_Trinita).jpg",
-      "caption": "White opaque (platinum) rosetail male and female betta",
-      "thumb": "https://media.aquatome.com/commons/a5d1a3a1decf2e29-480.webp"
+      "url": "https://media.aquatome.com/seriouslyfish/abfbe7c7ace162ce.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/abfbe7c7ace162ce-480.webp",
+      "width": 700,
+      "height": 512,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "caption": "Wild-collected adult male specimen.",
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/commons/d303bc24129e7273.webp",
+      "thumb": "https://media.aquatome.com/commons/d303bc24129e7273-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY-SA 4.0",
       "author": "Mikhaliov",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%BE%D1%81%D1%82%D0%B8%D0%BE%D0%B7_%D1%83_%D0%BF%D0%B5%D1%82%D1%83%D1%88%D0%BA%D0%B0.jpg",
-      "caption": "Сиамская бойцовая рыбка (проще говоря петушок) заболел костиозом. Слиплись плавники, пропал аппетит, начал ото всех прятаться, вскоре начал разлагаться на глазах и терять ориентацию, из за чего рыбку ",
-      "thumb": "https://media.aquatome.com/commons/d303bc24129e7273-480.webp"
+      "caption": "Сиамская бойцовая рыбка (проще говоря петушок) заболел костиозом. Слиплись плавники, пропал аппетит, начал ото всех прятаться, вскоре начал разлагаться на глазах и терять ориентацию, из за чего рыбку "
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b295aaadac2a6bdc.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b295aaadac2a6bdc-480.webp",
+      "width": 800,
+      "height": 498,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "caption": "Bubble nest of B. splendens viewed from above.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/dbda9af50c31faee.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/dbda9af50c31faee-480.webp",
+      "width": 750,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "caption": "Spawning embrace of B. splendens; ornamental strain.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2aac368512dfd6f8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2aac368512dfd6f8-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
+      "caption": "Adult male, ornamental 'veil tail' strain, beneath his bubble nest with newly-hatched yolk sac fry.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/561b4018211c8bee.webp",
+      "thumb": "https://media.aquatome.com/commons/561b4018211c8bee-480.webp",
+      "width": 960,
+      "height": 742,
+      "licence": "CC BY 4.0",
+      "author": "Henryk Niestrój",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bojownik_syjamski.jpg",
+      "caption": "Aquarium fish, Siamese fighting fish, also great fighting fish (Betta splendens)"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a5d1a3a1decf2e29.webp",
+      "thumb": "https://media.aquatome.com/commons/a5d1a3a1decf2e29-480.webp",
+      "width": 960,
+      "height": 793,
+      "licence": "CC BY-SA 4.0",
+      "author": "Eleverse",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_opaque_(platinum)_rosetail_male_and_female_betta_(Breeder-_Elena_Trinita).jpg",
+      "caption": "White opaque (platinum) rosetail male and female betta"
     },
     {
       "url": "https://media.aquatome.com/commons/81a36ecb45e52d4f.webp",
+      "thumb": "https://media.aquatome.com/commons/81a36ecb45e52d4f-480.webp",
       "width": 960,
       "height": 1707,
       "licence": "CC BY 4.0",
       "author": "Atlas Þə Biologist (number 2)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_fish_(Betta_splendens).gif",
-      "caption": "Betta splendens Is a common house pet for its bright colors. Males have brilliant big fins.",
-      "thumb": "https://media.aquatome.com/commons/81a36ecb45e52d4f-480.webp"
+      "caption": "Betta splendens Is a common house pet for its bright colors. Males have brilliant big fins."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Ubojx1Ap71c",
+      "title": "$1 vs $100 Betta Fish",
+      "durationSec": 851,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2tidj0DrzF0",
+      "title": "I built an Ecosystem for a Betta fish , Shrimp and Snails",
+      "durationSec": 389,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KYnK5OuFdCE",
+      "title": "I built an Ecosystem for a Betta Fish",
+      "durationSec": 1073,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "N1IcoHZyr3o",
+      "title": "I Built an Aquarium for a Samurai Betta",
+      "durationSec": 1181,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -268,5 +443,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-01"
 }

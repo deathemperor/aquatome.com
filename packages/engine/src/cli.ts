@@ -25,6 +25,7 @@ import { ownPhotos } from './own-photos'
 import { httpAdmin, moderate } from './moderate'
 import { httpPhotoAdmin, moderatePhotos, VERDICT_SCHEMA, type Verdict } from './reader-photos'
 import { runEngine } from './run'
+import { cardGaps } from './card-fill'
 import { depthReport, popularityOrder, thinSpecies, type DepthReport } from './depth'
 import { SOURCES } from './sources'
 import { loadState, setSourceBlock, sourceBlockedSince } from './state'
@@ -129,29 +130,44 @@ async function covers(o: { redo?: boolean; limit?: number }) {
   for (const f of cv.failed) console.log(`cover failed: ${f}`)
 }
 
-if (cmd === 'run') {
+if (cmd === 'run' || cmd === 'card-fill') {
   const list = (v?: string) => v?.split(',').map(s => s.trim()) as SourceId[] | undefined
   const except = list(values.except)
   const bad = [...list(values.sources) ?? [], ...except ?? []].filter(s => !(SOURCE_IDS as readonly string[]).includes(s))
   if (bad.length) throw new Error(`unknown source(s): ${bad.join(', ')}`)
   // --except: every source but these (the engine's Seriously Fish job runs that backlog on its own).
-  const sources = list(values.sources) ?? (except && SOURCES.map(s => s.id).filter(s => !except.includes(s)))
+  // card-fill: the sources whose species profiles are found by the name in their address (Seriously Fish, Loaches Online, ScotCat).
+  const sources = list(values.sources) ?? (except && SOURCES.map(s => s.id).filter(s => !except.includes(s))) ?? (cmd === 'card-fill' ? SOURCES.filter(s => s.profiles).map(s => s.id) : undefined)
   if (values.force && !values.only) throw new Error('--force re-translates only the pages matched by --only')
   const profileDir = process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/thuysinh/chrome-profile')
   const fetcher = new ChromeFetcher({ profileDir })
   const startedAt = new Date().toISOString()
+  const order = cmd === 'card-fill' ? popularityOrder(await popularFirst(ROOT)) : []
+  const before = cmd === 'card-fill' ? await cardGaps(join(ROOT, 'content'), order) : []
   await fetcher.open()
   try {
     const report = await runEngine(
       { fetcher, archive: new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA }), llm: claudeCli, http, media: media(), root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)) },
-      { sources, limit: values.limit ? Number(values.limit) : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined, only: values.only ? new RegExp(values.only) : undefined, retryBlocked: values['retry-blocked'], force: values.force },
+      // card-fill: CARD_FILL_LIMIT (engine-cycle.sh) pages a source, 10 by default.
+      { sources, limit: values.limit ? Number(values.limit) : cmd === 'card-fill' ? 10 : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined, only: values.only ? new RegExp(values.only) : undefined, retryBlocked: values['retry-blocked'], force: values.force, cardFill: cmd === 'card-fill' },
     )
-    await mkdir(join(ROOT, 'engine-state'), { recursive: true })
-    await writeFile(join(ROOT, 'engine-state/last-run.json'), `${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), ...report }, null, 2)}\n`)
+    // card-fill reports what each page read gained; last-run.json stays the cycle's main run's report.
+    if (cmd === 'run') {
+      await mkdir(join(ROOT, 'engine-state'), { recursive: true })
+      await writeFile(join(ROOT, 'engine-state/last-run.json'), `${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), ...report }, null, 2)}\n`)
+    }
     console.table(report.perSource)
     if (report.needsHuman.length) console.log(`needs-human: ${report.needsHuman.join(', ')} — pass the browser check in the engine Chrome profile, then: pnpm engine run --sources <id> --retry-blocked`)
     for (const e of report.errors) console.log(`error: ${e}`)
     console.log(`changed: ${report.changed.length}`)
+    if (cmd === 'card-fill') {
+      const after = new Map((await cardGaps(join(ROOT, 'content'), order)).map(g => [g.id, g.missing]))
+      for (const g of before.filter(g => report.changed.some(c => c.kind === 'species' && c.id === g.id))) {
+        const left = after.get(g.id) ?? []
+        console.log(`card-fill: ${g.id}: ${g.missing.filter(f => !left.includes(f)).join(', ') || 'no figure'} added${left.length ? `; still missing ${left.join(', ')}` : ''}`)
+      }
+      console.log(`card-fill: ${before.length} pages lacked a figure, ${after.size} now`)
+    }
     if (report.depth) printDepth(report.depth)
     // A rejected Claude credential stops every page: fail the cycle so the scheduler (GitHub Actions) reports it.
     if (report.errors.some(e => /Failed to authenticate|Invalid bearer token/i.test(e))) { console.log('error: Claude rejected the credential — replace CLAUDE_CODE_OAUTH_TOKEN'); process.exitCode = 1 }
@@ -217,14 +233,15 @@ if (cmd === 'run') {
   for (const x of r.removed) console.log(`removed: ${x}`)
   for (const f of r.failed) console.log(`failed: ${f}`)
 } else if (cmd === 'check-photos') {
-  // Each species/plant page's photos judged against the species (vision, cached per photo): other species rejected, a typical photo first.
-  const r = await checkPagePhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-check.json'), join(ROOT, 'engine-state/_photo-rejected.json'), {
+  // Each species, plant and breed page's photos and gallery, and guide photos captioned with a fish, judged against their subject
+  // (vision, cached per photo and page), most-read pages first: another fish or no photo of it removed, can't-tell listed.
+  const r = await checkPagePhotos(ROOT, {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: (file, prompt) => claudeVision({ system: 'You identify aquarium fish and plants in photos. Reply only with JSON.', prompt, schema: PHOTO_CHECK_SCHEMA, file, model: process.env.PHOTO_CHECK_MODEL ?? 'opus' }),
-  }, { limit: values.limit ? Number(values.limit) : 40, ...(values.only ? { only: values.only } : {}) })
-  console.log(`check-photos: ${r.judged.length} pages judged, ${r.removed.length} photos removed, ${r.reordered.length} reordered, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  }, { limit: values.limit ? Number(values.limit) : 40, parallel: values.parallel ? Number(values.parallel) : 1, ...(values.only ? { only: values.only } : {}) })
+  console.log(`check-photos: ${r.sheets} sheets, ${r.judged} photos judged (${r.photos} verdicts in all), ${r.removed.length} removed, ${r.rejected} newly rejected, ${r.unsure} can't tell, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.removed) console.log(`removed: ${x}`)
-  for (const x of r.failed) console.log(`failed: ${x}`)
+  for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
 } else if (cmd === 'watermarks') {
   // No watermarked photos: each photo read once by macOS Vision, text (and logo sources) judged by the model, marked ones dropped everywhere.
   const parallel = values.parallel ? Number(values.parallel) : 1
@@ -584,6 +601,6 @@ if (cmd === 'run') {
   const t = await thinSpecies(join(ROOT, 'content'), popularityOrder(await popularFirst(ROOT)))
   printDepth(depthReport(t.pages, t.thin))
 } else {
-  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--only id] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine metric | pnpm engine localize --lang id|th [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang id|th [--only ids] [--redo] | pnpm engine localize-places --lang id|th [--redo] | pnpm engine localize-captions --lang id|th [--limit N] | pnpm engine wikidata-names --lang id|th | pnpm engine localize-equipment --lang id|th [--only cats] [--redo] | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--parallel N] [--only id] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine metric | pnpm engine localize --lang id|th [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang id|th [--only ids] [--redo] | pnpm engine localize-places --lang id|th [--redo] | pnpm engine localize-captions --lang id|th [--limit N] | pnpm engine wikidata-names --lang id|th | pnpm engine localize-equipment --lang id|th [--only cats] [--redo] | pnpm engine status')
   process.exitCode = 1
 }

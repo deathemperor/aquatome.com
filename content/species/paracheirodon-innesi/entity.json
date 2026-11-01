@@ -11,7 +11,8 @@
     "amazon",
     "colombia",
     "orinoco",
-    "peru"
+    "peru",
+    "putumayo"
   ],
   "dataCard": {
     "tempC": [
@@ -20,6 +21,13 @@
         "value": {
           "min": 20,
           "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 25
         }
       }
     ],
@@ -30,6 +38,13 @@
           "min": 5,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7.5
+        }
       }
     ],
     "gh": [
@@ -39,24 +54,43 @@
           "min": 1,
           "max": 10
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ],
     "tankCm": [
       {
         "source": "sprucepets",
         "value": 40
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ],
     "difficulty": [
       {
         "source": "sprucepets",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ]
   },
@@ -66,6 +100,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/neon-tetra-paracheirodon-1381835",
       "html": "<ul><li><strong>Common names:</strong> Neon tetra, neon fish</li><li><strong>Family:</strong> Characidae</li><li><strong>Adult size:</strong> 4 cm (1.5 inches)</li><li><strong>Life expectancy:</strong> 5 to 10 years</li><li><strong>Origin:</strong> Southeastern Colombia, eastern Peru, western Brazil</li><li><strong>Social:</strong> Peaceful</li><li><strong>Tank level:</strong> Mid-dweller</li><li><strong>Minimum tank size:</strong> 10 gallons (about 38 litres)</li><li><strong>Diet:</strong> Omnivore</li><li><strong>Breeding:</strong> Egg scatterer</li><li><strong>Care:</strong> Intermediate</li><li><strong>pH:</strong> 7</li><li><strong>Hardness:</strong> Up to 10 dGH</li><li><strong>Temperature:</strong> 20 to 26 °C (68 to 79 °F)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams. Years of commercial breeding have weakened the ornamental strain, and defects and ill-health are widespread, so stock needs choosing with care. Neons are also susceptible to 'neon tetra disease', a microsporidian infection that is virtually untreatable once advanced.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -80,10 +120,28 @@
       "html": "<p>Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru. Neon tetras live in shoals mainly in the middle water layers.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>The type locality was originally given as 'near Iquitos', referring to the city of that name in the rainforest of Loreto region, Peru, although the specimens themselves derived from an aquarium import, and even today the true extent of its distribution remains unclear.</p><p>Confirmed records suggest it to occur in several geographically-disparate areas, the first of which is the area around Leticia, Colombia and Tabatinga, Brazil, an area known as the 'Três Fronteiras'.</p><p>Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.</p><p>The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.</p><p>A number of additional populations have been reported, however, and the species may be widespread in western Brazil, eastern Peru and southeastern Colombia as suggested by Weitzman and Fink (1983).</p><p>These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively).</p>"
+    },
+    {
       "key": "habitat",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/neon-tetra-paracheirodon-1381835",
       "html": "<p>These are regions of blackwaters beneath dense forest canopies that allow very little light to get through. In their natural habitat, neon tetras live in areas of dark water with dense vegetation and roots. Providing a habitat with plenty of low-light hiding places is important. Give them plenty of plants, including floating plants if possible. Driftwood will provide hiding places as well. The dark substrate will replicate the natural habitat in which the neon tetras feel most comfortable. Some fishkeepers will put a dark background on three sides of the aquarium to achieve the desired low-light habitat.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>Mostly inhabits forest streams and minor tributaries rather than turbid (whitewater) main channels.</p><p>The water is typically acidic, of negligible carbonate hardness and conductivity and stained brownish due to the presence of humic substances released by decomposing organic matter, although it's also been collected from similar habitats containing transparent, unstained clearwater.</p><p>The substrate tends to be covered in fallen branches, tree roots and leaf litter and in some habitats aquatic plants may also be present.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or larger is recommended (about 54 litres).</p>"
     },
     {
       "key": "maintenance",
@@ -92,10 +150,22 @@
       "html": "<p>Newly set up aquariums are not suitable for neon tetras as they will not tolerate changes that occur during the initial startup cycle. Only add neon tetras when your tank is fully mature and has stable water chemistry.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>Provided healthy stock can be obtained (see 'Notes') maintenance presents few problems although it perhaps looks best in an arrangement comprising a sandy substrate plus some driftwood roots and branches.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the humic substances released by the decaying leaves are also considered beneficial, with alder cones also useful in this respect.</p><p>There's no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>This species seems to do best under fairly dim lighting but you can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, such as Ceratopteris spp., is also appreciated.</p><p>The vast majority of fish available in the aquarium trade are produced on a commercial basis and are more adaptable than wild specimens.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/neon-tetra-paracheirodon-1381835",
       "html": "<p>Water should be soft and acidic for neon tetras, meaning a pH that is not above 7.0 and hardness of no more than 10 dGH. Blackwater extracts or driftwood are often used to darken the water, maintain an acidic pH, and soften the water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<ul><li>Temperature: 21–25°C</li><li>pH: 4.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -104,10 +174,22 @@
       "html": "<p>In nature, neon tetras are omnivores that will eat both plant and animal material, feeding on insects, worms and small crustaceans. Fine flake food, small granules, live or frozen brine shrimp or daphnia, and frozen or freeze-dried bloodworms are all good food choices. Offer a variety of food, including live foods, to ensure good health.</p><p>You should feed your neon tetra two to four times per day and only give them the amount of food that they can eat in two minutes. Overfeeding can cause your fish to look visibly bloated, cause appetite suppression, as well as constipation. Make sure to clear any food leftovers out of the tank as this leftover food can cause high ammonia levels in the tank, which is dangerous for neon tetras.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/neon-tetra-paracheirodon-1381835",
       "html": "<p>Neon tetras are peaceful fish that get along well with most community fish. Always keep neon tetras in schools of a half dozen or more as they are a shoaling species that requires the presence of others of their kind. Neon tetras do well in a community tank as long as the other species are not large or aggressive. Small peaceful fish such as rasboras, small tetras, dwarf gouramis, corys, and other small catfish are good choices as companions. Avoid larger tetras, as they will eat neon tetras at the first opportunity. The rule of thumb is, if the mouth of the fish opens large enough to swallow the neon, they will do it sooner or later.</p><p>Like other colorful fish, the bright colors of the neon tetra will fade at night when they are resting, when they become alarmed or when they are ill.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>Generally peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It's perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
     },
     {
       "key": "dimorphism",
@@ -116,19 +198,65 @@
       "html": "<p>Gender differences are not overtly apparent in neon tetras. Generally, the female will have a larger more rounded belly than the male. This rounded belly can even make the blue stripe appear curved on the female, in contrast to the very straight blue stripe on the male.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>Sexually mature females are normally noticeably rounder-bodied and a little larger than males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/neon-tetra-paracheirodon-1381835",
       "html": "<p>Neon tetras can be challenging to breed, due to their need for very specific water conditions. If you wish to attempt to breed them, set up a separate breeding tank. Water hardness in the breeding tank should be only 1 to 2 dGH, and pH 5.0 to 6.0. Use a sponge filter for filtration, and provide live plants. Spawning fish will often jump, so make sure the tank has a cover. Cover the sides of the tank with dark paper to reduce light in the tank. Water temperature should be kept between 22 and 24 °C (72 and 75 °F). Neon tetras can be bred every few weeks.</p><p>Condition the breeding pair with live foods prior to placement in the breeding tank. When introducing the breeding pair to the tank, begin with no lighting at all. The next day, increase the lighting and continue to do so gradually to induce spawning. Spawning will generally occur in the morning. The male will embrace the female during spawning, which will then release more than 100 eggs. The eggs are transparent and slightly adhesive and will stick to the plants. Remove the breeding pair as soon as the eggs are laid, as the parents will quickly eat the eggs.</p><p>Maintain low lighting as both the eggs and the fry are sensitive to light. The eggs will hatch in approximately 24 hours, producing tiny fry that will feed off their yolk sack for the next few days. Hatch rates are not high, so do not expect more than one-third of the eggs to result in viable fry. In three to four days the fry will become free-swimming and must be fed very small foods, such as infusoria, rotifers, hard-boiled egg yolk, or commercially prepared fry food. In a few weeks, they will be large enough to be fed freshly hatched brine shrimp. The fry will display adult coloration after the first month.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>You'll need to set up a dedicated tank if you want to raise decent numbers of fry. This should be very dimly lit and contain clumps of fine-leaved plants such as java moss or spawning mops, to give the fish somewhere to deposit their eggs.</p><p>Alternatively you could cover the base of the tank with some kind of mesh. This should be of a large enough grade so that the eggs can fall through it, but small enough so that the adults cannot reach them.</p><p>The water should be soft and acidic in the range pH 5.5-6.5, gH 1-5, with a temperature of around 26.5–29°C.</p><p>A small air-powered sponge filter bubbling away very gently is all that is needed in terms of filtration.</p><p>It can be spawned in a group, with half a dozen specimens of each sex being a good number. Condition these with plenty of small live foods and spawning shouldn't present too many problems.</p><p>The adults can be removed once eggs are noticed, or in a very heavily planted tank left in situ and fry siphoned from the tank as they're noticed.</p><p>In terms of productivity, it's best spawned in pairs. Under this technique the fish are conditioned in male and female groups in separate tanks, or via the use of a tank divider.</p><p>When the females are noticeably full of eggs and the males are displaying their best colours, select the fattest female and best-coloured male and transfer them to the spawning tank in the evening.</p><p>They should spawn the following morning. If no eggs have appeared after a couple of days remove them and try a different pair.</p><p>In either situation the adults will eat the eggs given the chance and should be removed as soon as eggs are noticed. These will hatch in 24-36 hours, with the fry becoming free swimming 3-4 days later.</p><p>They should be fed on an infusoria-type food for the first few days, until they're large enough to accept microworm or brine shrimp nauplii.</p><p>The eggs and fry are light sensitive in the early stages of life and the tank should be kept in darkness if possible.</p>"
+    },
+    {
       "key": "notes",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/neon-tetra-paracheirodon-1381835",
       "html": "<p>The neon tetra has a slender torpedo-shaped body that reaches no more than an inch and a half in length. From the tip of the nose to the adipose fin, the neon tetra has a bright neon blue stripe. It is believed this bright stripe makes them more readily visible to each other in blackwater conditions. Below the blue stripe, the neon tetra sports a white-silver belly. Past the belly, a bright red stripe extends all the way to the tail. The fish is rivaled only by the cardinal tetra, for which they are often mistaken. The key difference between the two fish is the red stripe. In the neon tetra, it only extends from the middle of the body to the tail. In the cardinal tetra, the red stripe runs the entire length of the fish, from snout to tail.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<p>One of the most popular and instantly recognisable fishes in the aquarium hobby, this species has been selectively-bred to produce a number of additional strains including albino, 'golden' (leucistic), short-bodied, long-finned and 'diamond' (in which the dorsal surface is covered in reflective scales).</p><p>Unfortunately years of commercial breeding have somewhat affected the genetic vigour of the ornamental strain meaning morphological defects and ill-health are widespread and care must be taken when selecting stock.</p><p>This species also susceptible to an ailment commonly referred to as 'neon tetra disease' (NTD) which is so named because it was first diagnosed in neons but can actually affect many other species.</p><p>It's therefore recommended to spend time observing the fish in the shop and if any are displaying signs of restlessness, white patches on the skin or setting themselves apart from the main school, all classic signs of the disease, it's best to avoid purchase entirely.</p><p>NTD is caused by a microsporidian parasite called Pleistophora hyphessobryconis and is virtually untreatable once it reaches an advanced stage.</p><p>The spores (larval stage) of the parasite enter the fish through the mouth and burrow through the walls of the gut before settling in the muscles. Here they produce cysts which cause rapid degeneration of the muscle tissue and development of the characteristic white patches.</p><p>Once the disease becomes established the rate of mortality can be very high and the only way to treat the aquarium is by physically removing any fish exhibiting signs of infection.</p><p>Similar symptoms may be observed in a common illness caused by the pathogenic bacteria Flavobacterium columnare which is often referred to as 'columnaris' or 'false neon tetra disease' and can be successfully treated using antibacterial products, meaning it's always worth isolating and treating a fish showing symptoms of NTD as you may be able to cure it if the bacteria is to blame.</p><p>As in all members of the genus some wild specimens possess a variable number of golden metallic scales and are marketed as P. innesi 'platinum' or 'gold'. Although naturally-occurring the condition is said to be caused by a parasite which stimulates increased guanine deposition in the scales.</p><p>P. innesi can be told apart from its congeners P. axelrodi and P. simulans by the following combination of characters following Weitzman and Fink (1983): premaxilla possessing a single row (the anterior teeth may sometimes give the appearance of two rows) of 5-7, rarely 8, teeth having no more than 3 cusps each; maxilla with 2-3 teeth having no more than 3 cusps each; dentary teeth with no more than 3 cusps each; ventral-limb gill rakers 10-11, usually 11; pored lateral line scales 3-6, usually 4-5; red pigmentation on body of live specimens not extending anterior to the pectoral-fin base.</p><p>For aquarists perhaps more useful are the subtle differences in colour pattern with P. innesi differing from P. axelrodi in possessing relatively less red pigment on the body, a narrower blue lateral stripe which extends less posteriorly and a more distinct white line on the anal-fin.</p><p>It differs from P. simulans in possessing a bluer (vs. greener) lateral stripe which extends only as far as the adipose-fin (vs. extending to caudal-fin base), a greater amount of red pigment on the flanks and a more distinct white marking on the anal-fin.</p><p>The taxonomic history of all three species is complicated with earlier authors such as Géry (1960, 1977) tending to include them in separate genera as Hypessobrycon simulans, Cheirodon axelrodi and Paracheirodon innesi, respectively, with this classification mostly based on dental morphology following the system proposed by Eigenmann (1915).</p><p>Others such as Madsen (1975) placed both P. axelrodi and P. simulans in the genus Cheirodon while van Ramshorst (1981) included P. innesi in Cheirodon as well.</p><p>Weitzman and Fink (1983) provided the first evidence for the monophyly of Paracheirodon, containing all three species, via a number of osteological characters plus their distinctive colour pattern consisting of an intense blue or blue-green lateral stripe, dense red pigment on the body restricted to the portion ventral to the lateral stripe, and a stripe of dark brown or black chromatophores underlying and extending dorsally to the lateral stripe.</p><p>A fourth Paracheirodon species has apparently been discovered at a single locality within the rio Purus system, the main channel of which enters the Amazon upstream of the rio Negro but little additional information is currently available.</p><p>The closer relationships of Paracheirodon within the family Characidae have not yet been fully-confirmed with the grouping considered incertae sedis by the majority of recent authors.</p><p>Results obtained in the molecular phylogenetic analysis of Oliveira et al. (2011) recovered P. axelrodi to be most-closely related to certain members of Hyphessobrycon species (specifically H. eques and H. megalopterus) among those species included in the study.</p><p>The function of the intense blue lateral stripe in Paracheirodon spp. may have evolved as a predator evasion strategy according to the hypothesis of Ikeda and Kohshima (2009) which was published following direct field study of the fish in blackwater streams near Requena in the Peruvian Amazon plus observation of wild specimens in aquaria under different conditions.</p><p>The researchers found that the bright colouration of the lateral stripe in P. innesi is less conspicuous in blackwater except when viewed from a limited angle of around 30° above the horizon, and that this could aid in confusing predators via bright mirror images of the stripe being projected onto the underside of the water surface.</p><p>Whereas most characids displaying a laterally-striped colour pattern possess a dark-coloured lateral stripe with a lighter stripe dorsally, this pattern is reversed in Paracheirodon and may be an adaptation for forming such mirror images.</p><p>The fish are also able to change the intensity of their overall colour pattern to an extent, becoming lighter in bright conditions with pale substrate or background and clear water, and duller with a violet lateral stripe at night, and this may also be a response designed to make them less visible.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "html": "<ul><li>Ikeda, T. and S. Kohshima (2009). Why is the neon tetra so bright? Coloration for mirror-image projection to confuse predators? “Mirror-image decoy” hypothesis. Environmental Biology of Fishes 86, 427-441</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ortega, H. and R. P. Vari (1986). Annotated checklist of the freshwater fishes of Peru. Smithsonian Contributions to Zoology No. 437, iii + 1-25</li><li>Weitzman, S. H. and W. L. Fink (1983). Relationships of the neon tetras, a group of South American fishes (Teleostei, Characidae), with comments on the phylogeny of New World characiforms. Bulletin of the Museum of Comparative Zoology 150(6), 339-395</li><li>Michel, C., S. Messiaen and J-F Bernardet (2002). Muscle infections in imported neon tetra, Paracheirodon innesi Myers: limited occurrence of microsporidia and predominance of severe forms of columnaris disease caused by an Asian genomovar of Flavobacterium columnare. Journal of Fish Diseases 25, 253-263</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1e02e74db113e6be.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1e02e74db113e6be-480.webp",
+      "width": 794,
+      "height": 528,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "caption": "Adult individual from the aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4286e57cdc3e8b79.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4286e57cdc3e8b79-480.webp",
+      "width": 640,
+      "height": 402,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/a203a7205a81a29b.webp",
       "thumb": "https://media.aquatome.com/sprucepets/a203a7205a81a29b-480.webp",
@@ -139,9 +267,56 @@
       "sourceUrl": "https://www.thesprucepets.com/neon-tetra-paracheirodon-1381835",
       "caption": "Neon tetra fish with aqua blue stripe and red tail closeup",
       "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/53a56c0cd98fd8d4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/53a56c0cd98fd8d4-480.webp",
+      "width": 800,
+      "height": 577,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "caption": "Selectively-bred 'diamond' strain.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ff17b7d63d902579.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ff17b7d63d902579-480.webp",
+      "width": 794,
+      "height": 529,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+      "caption": "Leucistic 'gold' strain.",
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "YXVW7jxmOaU",
+      "title": "Paracheirodon innesi - Tetra néon bleu ✔",
+      "durationSec": 211,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "dC-pkEEkSHc",
+      "title": "PECES tetra NEÓN · Paracheirodon innesi [ AGUA DULCE ]",
+      "durationSec": 500,
+      "lang": "es"
+    },
+    {
+      "youtubeId": "MHueMHelWoI",
+      "title": "Paracheirodon innesi. The world's most POPULAR tetra! (Leopard Aquatic C036C)",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SKWNyXCxBIk",
+      "title": "BREEDING Neon Tetras in Tubs - Over 100 Fry!",
+      "durationSec": 1197,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -172,5 +347,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-01"
 }

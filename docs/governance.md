@@ -194,6 +194,17 @@ The layers above still check the result.
     (two articles of one source each had a copy), and a card or tile takes its next photo, or none. A guide keeps every
     photo of its source, each with the heading it sat under, mapped to the guide's own (`guide-sections.ts`); in a list
     of fish each fish's section shows that fish, the guide's own photo first.
+  - **The right subject.** `pnpm engine check-photos` (each photos cycle, and the Mac's video job) shows the model every
+    photo on a species, plant or breed page and its gallery, 6 to a sheet, with the scientific name, the page's names
+    and, for a breed, what sets it apart. Verdicts: shows it, its wild habitat, something else (it says what), not a
+    photo of it (a map, chart, hands, a tank, a packshot), or can't tell. "Something else" and "not a photo of it" leave
+    the page; a photo no page keeps joins `_photo-rejected.json`. Can't tell stays and is listed in
+    `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; the check
+    puts nothing in its place, and the photo steps fill it from their sources as for any page short of photos). A
+    guide photo whose caption names one fish is judged against what the caption says, and only "something else"
+    leaves a guide; a guide photo that is a page's photo goes with that page's "something else". Most-read pages first, verdicts cached per photo and page (`_photo-subjects.json`). Found by
+    the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
+    page; the first check (2026-10) had reached under half the page photos, in alphabetical order, and no gallery.
   - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer
     and the page's credits); the gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and
     GBIF photos are copied to our media bucket with the credit kept.
@@ -222,6 +233,16 @@ The layers above still check the result.
   its source gives only as a volume (its "75 gallons (about 284 litres)" once made Cá đĩa's card say 284 cm; The Spruce
   Pets' "10 gallons (about 38 litres)" became 40 cm on 19 cards), when the engine reads a page and again at every build
   (`tankIsVolume`). Where sources disagree, every page shows the range they all accept.
+- **Card figures from sources that state them.** A data card lacks a figure when no source read for the page states
+  it. On 2026-11-01, 445 of 1,016 species pages showed no minimum tank, among them the betta, neon tetra and cherry
+  barb, whose sources (The Spruce Pets, Aquarium Co-op, BW Aquatics, Glaser) give a tank as a volume or not at all.
+  Seriously Fish gives each figure, and a tank as its base, and the engine hadn't read its profiles of 107 of those
+  pages yet: they were neither thin nor wanted, so they waited in its backlog.
+  - `pnpm engine card-fill` (each cycle's Seriously Fish job, `CARD_FILL_LIMIT` pages, most-read first) reads the
+    profile of each page whose card lacks a figure as a public build shows it, on a source that has given the page no
+    text yet, found by the name in the address.
+  - The profile is read like any page: translated, reviewed, and its figures go through the same prompt rules and
+    guards (a volume gives no length). A figure no published source states stays empty.
 - **Metric only.** Fish, plant, breed and guide pages give °C, cm and litres in every language. Each writer of those
   pages passes its text through `toMetric` (`@aq/schema`): an imperial figure beside its metric one goes ("20–30°C
   (68–86°F)"), one before its metric one gives way to it ("2 inch (khoảng 5 cm)"), one alone is converted ("bể 10 gallon"

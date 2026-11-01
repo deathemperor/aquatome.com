@@ -18,6 +18,13 @@
           "min": 23,
           "max": 27
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
       }
     ],
     "ph": [
@@ -26,6 +33,13 @@
         "value": {
           "min": 6,
           "max": 7
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
         }
       }
     ],
@@ -36,11 +50,22 @@
           "min": 4,
           "max": 10
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
+        "value": 5
+      },
+      {
+        "source": "seriouslyfish",
         "value": 5
       }
     ],
@@ -48,12 +73,20 @@
       {
         "source": "sprucepets",
         "value": 90
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ],
     "difficulty": [
       {
         "source": "sprucepets",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ]
   },
@@ -69,6 +102,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
       "html": "<ul><li>Family: Cyprinidae</li><li>Origin: Sri Lanka</li><li>Adult size: 2 inches (about 5 cm)</li><li>Life expectancy: 4 to 6 years</li><li>Social: peaceful</li><li>Tank level: top and mid-dweller</li><li>Minimum tank size: 25 gallons (about 95 litres)</li><li>Diet: omnivore</li><li>Breeding: egglayer</li><li>Care: easy</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<p>The cherry barb, Puntius titteya, is a small cyprinid endemic to the Kelani and Nilwala river basins in the southwestern 'wet zone' of Sri Lanka. Among the most ubiquitous small cyprinids in the hobby and an unreserved choice for beginners, it is sold mostly as commercially farmed stock, including albino and 'super red' strains. Generally very peaceful, it is a schooling species and at least 6-10 should be kept.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -89,10 +128,34 @@
       "html": "<p>The Cherry Barb, native to Sri Lanka, inhabits the Kelani and Nilwala basins. Their vibrant colors have made them popular in the aquarium trade, leading to overfishing of the most colorful individuals.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<p>Endemic to Sri Lanka where it is restricted to the Kelani and Nilwala river basins in the southwestern 'wet zone' of the island, plus smaller drainages in the area between them.</p><p>Type locality is 'Ambagaspitiya, Sri Lanka'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<p>The 'wet zone' of southwestern Sri Lanka is an area receiving annual rainfall of 2000 – 3000 mm, much of which arrives during the South-West monsoons between March and August.</p><p>It is a tropical environment with no significant dry spells or climatic changes, and air temperature is fairly constant throughout the year, ranging from 25 – 27 °C.</p><p>Such conditions favour development of lowland tropical rainforest at altitudes below 1000 m AMSL.</p><p>In Sri Lanka these forests are found only in the wet zone and they are inhabited by a significant proportion of the country's endemic flora and fauna with the moist, warm climate and long period of geographic isolation leading to exceptional localised biodiversity.</p><p>The vast majority has been cleared for plantation agriculture, however, much of it when the country was under British colonial rule, though a significant portion was also removed during the more-recent civil war, with more than 35% of the original cover lost between 1990 and 2005.</p><p>As of 2006 only 4.6% of the old forest was left with the remainder existing only in small, highly-fragmented patches, most covering areas less than 10 km², of which some are now officially-protected reserves.</p><p>Kottawa Forest is one of these and comprises just 15-20 hectares of wet, evergreen jungle, though the combined Kottawa-Kombala forest covers around 1600 ha.</p><p>A number of minor, pristine streams containing clear or slightly-stained, shallow water traverse the reserve and these represent typical habitats of P. titteya across its range.</p><p>Little sun is able to penetrate the forest floor so aquatic habitats are shaded and water temperature may be relatively cool, while conductivity and hardness are generally low and pH slightly acid.</p><p>Macrophytes are uncommon though there may be dense, marginal vegetation, sometimes overhanging the full width of the stream, the roots of which may penetrate the banks underwater.</p><p>Typical substrates are sandy but covered by a layer of leaf litter with fallen twigs and branches.</p><p>Sympatric fish species include Rasboroides vaterifloris, Puntius bimaculatus, P. kelumi, Pethia nigrofasciata, Dawkinsia singhala, Schistura notostigma, Mystus vittatus, Aplocheilus werneri, Channa orientalis, Malpulutta kretseri, and Mastacembelus armatus.</p><p>Export of wild specimens from Sri Lanka is currently prohibited although collection apparently continues. Reports suggest that the most brightly-coloured fish are becoming scarcer and there exists a possibility that selective collection for the aquarium trade have altered the structure of wild populations.</p><p>That said, very little of the country's forest cover remains due to human activities, with the result that habitat and water quality have been heavily degraded and numerous native fish species are now considered at risk of extinction.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<p>Base dimensions of at least 60 × 30 cm or equivalent are required (volume about 54 litres).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
       "html": "<p>Being a shyer fish, the Cherry Barb likes to have lots of places to hide in their home aquarium. They should be added to your aquarium first, so they can get settled and not have to compete for hiding places.</p><p>Since they like to stick in a group, you may need to make lots of hiding places to accommodate more than one fish at a time. Planted tanks or aquascapes make a great home for Cherry Barbs with good water quality and lots of places to hide.</p><p>Cherry Barbs are relatively easy to care for as long as you keep up with your regular maintenance. In planted tanks, be sure to remove dead plant material regularly and pay attention to any pH changes between day and night.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants, driftwood roots or branches, and leaf litter also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong though it does seem to appreciate a degree of water movement and will also do well in a hill stream-type set-up.</p>"
     },
     {
       "key": "waterConditions",
@@ -101,10 +164,22 @@
       "html": "<ul><li>pH: 6.0 to 7.0</li><li>Hardness: 4 to 10 dKH</li><li>Temperature: 74 to 79 °F (23 to 27 °C)</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<ul><li>Temperature: 20 – 27 °C</li><li>pH: The farm-raised fish available in stores are fairly adaptable where water chemistry is concerned and should be happy within the range 6.0 – 8.0. Wild stock are likely to prefer slightly acidic to neutral conditions.</li><li>Hardness: 2 – 20 dGH. Wild fish will probably do best towards the lower end of this range.</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
       "html": "<p>As an omnivore, the Cherry Barb will accept a wide variety of foods. A standard tropical pellet will suffice for most of their nutritional needs. You can supplement with fresh veggies and frozen treats on occasion. Most Cherry Barbs raised in captivity are very well accustomed to a pelleted diet and are not too picky about the type.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<p>Wild fish are probably foragers feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it is easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
     },
     {
       "key": "behaviour",
@@ -113,10 +188,22 @@
       "html": "<p>Cherry Barbs thrive in small schools, so ensure you have room for 5-6 fish. Suitable tank mates include other barb species like the Rosy Barb or Black Ruby Barb, and tetra species such as the Neon Tetra or Buenos Aires Tetra, which add vibrant color to your tank. Many peaceful community fishes are also well-suited for a tank with Cherry Barbs, but ensure their water parameters are compatible.</p><p>These smaller fish tend to be shy around larger, aggressive fish, so keep them in a group and choose their tank mates carefully.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<p>Generally very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfishes, anabantoids, catfishes, and loaches.</p><p>It is a schooling species by nature, and at least 6-10 specimens should be purchased.</p><p>Maintaining it in such numbers will not only make the fish less skittish but result in a more effective, natural looking display, and males will develop better colours in the presence of conspecific rivals.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
       "html": "<p>Their characteristic red coloration is more common in male Cherry Barbs during spawning season. Most Cherry Barbs will be primarily tan to dark brown with highlights of red or orange. All Cherry Barbs have a darker line of scales along their midline, right along their lateral line.</p><p>During spawning, Cherry Barb males will turn a vibrant red color. Females tend to be lighter with a darker lateral line bar. Females often get very round as their eggs mature, whereas males tend to stay slender. Your males and females may look very similar if they are not interested in spawning.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<p>Adult males are noticeably smaller, slimmer, and more colourful than females, especially when in spawning condition.</p><p>Some ornamental strains appear to have been line-bred to retain red pigmentation permanently.</p>"
     },
     {
       "key": "reproduction",
@@ -125,13 +212,75 @@
       "html": "<p>Cherry Barbs readily breed in captivity and even beginners have good luck getting their fish to spawn. In order to get your Cherry Barbs interested in spawning, you will need to increase your tank's water temperature. Be sure to provide plenty of food to support gender differentiation and development of reproductive products. You will see your male fish take on a brighter red color during this time. If you have lots of males and only a few females, things may get very competitive. Try to have more females than males in your school to keep competition limited.</p><p>Cherry Barbs will lay their eggs on various plant materials in the tank. Then the males will follow behind the females and externally fertilize the eggs. Within a few days, the fry will hatch and start swimming around. Beware that other fish and invertebrates will try to eat the fry. If possible, move the plants containing eggs to a separate spawning tank prior to hatching. This will also allow you to feed the fry a better diet for proper development.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<p>Like most small cyprinids Puntius spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a mature aquarium it is possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 48 hours with the fry free swimming around 24 hours later.</p><p>They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_titteya_super_red_en/",
       "html": "<p>Text &amp; photos: Frank Schäfer</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<p>P. titteya is an unreserved choice for beginners and is among the most ubiquitous small cyprinids in the aquarium hobby.</p><p>The vast majority of fish on sale are farmed on a commercial basis and several ornamental strains have been developed via selective breeding, including albino and 'super red' forms. Care for these is identical to that of the standard fish.</p><p>A detailed diagnosis regarding its identifying characters has not been obtained so far but the distinctive colour pattern makes it difficult to confuse with any other member of the genus.</p><p>The genus Puntius was viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid for a number of years until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>P. titteya was retained in Puntius sensu stricto (but see below), of which members are defined by the following combination of characters: adult size usually less than 120 mm SL; maxillary barbels absent or present; rostral barbels absent; 3-4 unbranched and 8 branched dorsal-fin rays; 3 unbranched and 5 branched anal-fin rays; last unbranched dorsal-fin ray weak or strong and unserrated; lateral line complete with 22-28 pored body scales; free uroneural present; gill rakers simple and acuminate (not branched or laminate); no antrorse predorsal spinous ray; post-epiphysial fontanelle usually present; 4 supraneurals; infraorbital 3 slender; 5th ceratobranchial narrow; pharyngeal teeth 5 + 3 + 2; 12-14 abdominal and 14-16 caudal vertebrae; colour pattern including a (sometimes faint) blackish spot on the caudal peduncle.</p><p>However P. titteya and P. bimaculatus differ from this definition in lacking a postepiphysial fontanelle, possession of only 7 branched dorsal-fin rays, 3½ (vs. 4½-5½) scale rows between dorsal-fin origin and lateral-line row, lateral line incomplete and in P. bimaculatus, occasionally interrupted. Both species also have a male colour pattern including a broad, reddish body stripe.</p><p>Although these two could therefore be placed in their own genus to do so would render Puntius paraphyletic, and the authors stated that analysis of a wider range of specimens is therefore required before any definitive conclusion can be drawn at the moment.</p><p>No species from Indochina, China, or Indonesia were included in the study meaning some former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement. Several of these issues were resolved by Kottelat (2013) who raised new genera for a number of Southeast Asian species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "html": "<ul><li>Silva, A., K. Maduwage, and R. Pethiyagoda (2008). Puntius kamalika, a new species of barb from Sri Lanka (Teleostei: Cyprinidae). Zootaxa 1824, 55-64</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Deraniyagala, P. E. P. (1929). Two new freshwater fishes. Ceylon Journal of Science Section B Zoology 15(2), 73-77</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/67a75b585f3a170b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/67a75b585f3a170b-480.webp",
+      "width": 684,
+      "height": 513,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "caption": "Putative wild-collected adult male imported to Singapore among a shipment of Rasboroides vaterifloris.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/871b305c6a5bae5e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/871b305c6a5bae5e-480.webp",
+      "width": 720,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "caption": "Females are less colourful than males.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a45a866873993fb8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a45a866873993fb8-480.webp",
+      "width": 680,
+      "height": 510,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b826386ee16932ab.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b826386ee16932ab-480.webp",
+      "width": 820,
+      "height": 485,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-titteya",
+      "caption": "Male from the Danish aquarium trade.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/60809b2a94bcdced.webp",
       "thumb": "https://media.aquatome.com/sprucepets/60809b2a94bcdced-480.webp",
@@ -141,17 +290,6 @@
       "author": "The Spruce Pets",
       "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
       "caption": "Cherry barb in an aquarium",
-      "source": "sprucepets"
-    },
-    {
-      "url": "https://media.aquatome.com/sprucepets/bc56e57aea7edc07.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/bc56e57aea7edc07-480.webp",
-      "width": 1200,
-      "height": 810,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/cherry-barb-fish-species-profile-5187999",
-      "caption": "Rosy barb in an aquarium",
       "source": "sprucepets"
     },
     {
@@ -177,7 +315,32 @@
       "source": "sprucepets"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "-RVC9Qj-Cno",
+      "title": "Fish tank - Corydoras Sterbai and Cherry Barbs (Puntius titteya)",
+      "durationSec": 640,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-R_HBM9tPqY",
+      "title": "Cherry barb (Puntius titteya ) species profile",
+      "durationSec": 647,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mCP3QdRw05s",
+      "title": "Cherry Barb breeding. 50 days: from eggs to juveniles (Puntius titteya)",
+      "durationSec": 750,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "NVZEWo_Ksnk",
+      "title": "Species Spotlight | Cherry Barb",
+      "durationSec": 370,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -201,5 +364,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-01"
 }

@@ -21,6 +21,13 @@
           "min": 24,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
       }
     ],
     "ph": [
@@ -28,6 +35,13 @@
         "source": "bwaquatics",
         "value": {
           "min": 4.5,
+          "max": 6.5
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
           "max": 6.5
         }
       }
@@ -39,12 +53,35 @@
           "min": 0,
           "max": 4
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 3.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -54,6 +91,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
       "html": "<p>Paracheirodon simulans is a brilliant, small schooling tetra. Closely related to the more common Paracheirodon innesi and P. axelrodi, it is distinguished by its intense turquoise-green iridescent stripe and smaller size. Peaceful, active and highly social, it makes an exceptional choice for blackwater and planted aquariums.</p><p>Adults reach approximately 2.5–3.5 cm (≈ 1.0–1.4″) in length.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<p>The green neon tetra, Paracheirodon simulans, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela. An exclusive inhabitant of blackwater, it lives only in the upper, terra firme reaches of tributaries and is sometimes traded as 'false neon tetra' or 'blue neon tetra'. A greener lateral stripe that extends to the caudal-fin base and duller red flanks separate it from P. innesi and P. axelrodi.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -68,10 +111,34 @@
       "html": "<p>Native to the upper Rio Negro and Orinoco River basins in South America.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<p>Known from the middle-to-upper rio Negro drainage, Brazil upstream of the mouth of its principal tributary the rio Branco, plus the Río Orinoco system in the border region of Venezuela and Colombia, between San Fernando de Atabapo and the mouth of the Río Meta.</p><p>Type locality was originally given as 'Rio Purus, Manaus, Brazil' but this was later corrected to the rio Jufaris, an affluent of the rio Negro located just upstream of the latter's confluence with the rio Branco in Amazonas state, Brazil.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
       "html": "<p>It inhabits slow-moving, shaded blackwater tributaries rich in tannins and leaf litter.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<p>Unlike its congeners P. innesi and P. axelrodi this species is an exclusive inhabitant of blackwater environments and tends to be found only in the upper, terra firme, reaches of tributary drainages.</p><p>Such habitats typically contain slow to moderately-flowing water with thick, often overhanging, riparian vegetation and sandy substrates covered in fallen branches, tree roots and leaf litter.</p><p>The water is typically acidic, of negligible carbonate hardness and conductivity and stained brownish due to the presence of humic substances released by decomposing organic matter.</p><p>Although it occurs over a similar range to P. axelrodi the two are not found together and P. simulans also tends to occur in warmer waters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<p>An aquarium with base dimensions of 45 × 30 cm or larger is recommended (about 41 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<p>Maintenance generally presents few problems although a degree of care is necessary since fish in the trade are exclusively collected in the wild and can be sensitive, especially post-import.</p><p>It perhaps looks best in a heavily-planted set-up or natural-style arrangement comprising a sandy substrate plus some driftwood roots and branches.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the humic substances released by the decaying leaves are also considered beneficial, with alder cones also useful in this respect.</p><p>There's no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>This species seems to do best under fairly dim lighting but you can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, such as Ceratopteris spp., is also appreciated.</p><p>It is also sensitive to fluctuating or deteriorating water conditions and should never be added to biologically-immature aquaria.</p>"
     },
     {
       "key": "waterConditions",
@@ -80,16 +147,40 @@
       "html": "<p>Very soft, acidic blackwater is ideal.</p><ul><li>pH 4.5 – 6.5</li><li>GH ≤ 4 °d</li><li>KH ≤ 2 °d</li><li>TDS &lt; 100 ppm</li><li>Temperature: 24 – 28 °C (75 – 82 °F); stable warmth enhances coloration and vitality.</li></ul><p>Provide stable, clean water with minimal current, subdued lighting, and natural décor such as driftwood, botanicals, and leaf litter to replicate their forest-stream habitat.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<ul><li>Temperature: 24–27°C; temperature in its natural habitats has been recorded to range between 24.6–35.2°C and it may have evolved a natural tolerance to high temperatures (Marshall et al., 2011)</li><li>pH: 3.0–6.5</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
       "html": "<p>Omnivorous micro-predator. Offer high-quality micro-pellets, crushed flakes, and small live or frozen foods such as daphnia, baby brine shrimp, and cyclops. A varied diet helps maintain their brilliant green-blue sheen.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
       "html": "<p>Extremely peaceful and best kept in schools of at least 8–10 individuals. Suitable companions include other small, gentle blackwater species such as Hyphessobrycon amapaensis, Boraras, Corydoras pygmaeus, or dwarf apistogrammas. Avoid large or aggressive fish that may intimidate or outcompete them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<p>Peaceful with other species but does not make an ideal community fish due to its small size and somewhat specialised requirements.</p><p>Ideally it should be maintained alone or at most with diminutive, non-aggressive characids and smaller callichthyid or loricariid catfishes.</p><p>It is gregarious and naturally forms schools meaning 8-10 specimens is the minimum recommended purchase since the fish will be less shy and display more interesting behaviour.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<p>Sexually mature females are normally noticeably rounder-bodied and a little larger than males.</p>"
     },
     {
       "key": "reproduction",
@@ -102,31 +193,112 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
       "html": "<p>Paracheirodon simulans originates from highly specialized, tannin-rich blackwater environments. They are sensitive to sudden changes in pH or hardness and should only be introduced to a mature, stable aquarium. They thrive in calm, low-light conditions with soft water and do best in well-established, planted systems.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<p>This species is not bred on a commercial basis and is thus less common and usually more expensive than its congeners.</p><p>It is sometimes traded as 'false neon tetra' or 'blue neon tetra'.</p><p>As in all members of the genus some wild specimens possess a variable number of golden metallic scales and are marketed as P. simulans 'platinum' or 'gold'. Although naturally-occurring the condition is said to be caused by a parasite which stimulates increased guanine deposition in the scales.</p><p>P. simulans can be told apart from its congeners P. innesi and P. axelrodi by the following combination of characters following Weitzman and Fink (1983): premaxilla with 2 distinct rows of teeth; outer row with 1 or sometimes 2 conical teeth; inner row comprising 4-5 multicuspid teeth with 5-9 cusps; maxilla usually toothless, sometimes with 1 conical tooth; 7-8, usually 8, branched dorsal-fin rays; 7-9, usually 8, branched pectoral-fin rays; 5-6, usually 6, branched pelvic-fin rays; blue-green lateral stripe on the body of live specimens terminating at the caudal-fin base.</p><p>For aquarists perhaps more useful are the subtle differences in colour pattern with P. simulans differing from both P. innesi and P. axelrodi in possessing a greener (vs. bluer) lateral stripe which covers more (vs. less) of the eye/head and extends to the caudal-fin base (vs. terminating anterior to caudal-fin base), a lesser (vs. greater) amount of relatively duller (vs. brighter) red pigmentation on the flanks.</p><p>The taxonomic history of all three species is complicated with earlier authors such as Géry (1960, 1977) tending to include them in separate genera as Hypessobrycon simulans, Cheirodon axelrodi and Paracheirodon innesi, respectively, with this classification mostly based on dental morphology following the system proposed by Eigenmann (1915).</p><p>Others such as Madsen (1975) placed both P. axelrodi and P. simulans in the genus Cheirodon while van Ramshorst (1981) included P. innesi in Cheirodon as well.</p><p>Weitzman and Fink (1983) provided the first evidence for the monophyly of Paracheirodon, containing all three species, via a number of osteological characters plus their distinctive colour pattern consisting of an intense blue or blue-green lateral stripe, dense red pigment on the body restricted to the portion ventral to the lateral stripe, and a stripe of dark brown or black chromatophores underlying and extending dorsally to the lateral stripe.</p><p>A fourth Paracheirodon species has apparently been discovered at a single locality within the rio Purus system, the main channel of which enters the Amazon upstream of the rio Negro but little additional information is currently available.</p><p>The closer relationships of Paracheirodon within the family Characidae have not yet been fully-confirmed with the grouping considered incertae sedis by the majority of recent authors.</p><p>Results obtained in the molecular phylogenetic analysis of Oliveira et al. (2011) recovered P. axelrodi to be most-closely related to certain members of Hyphessobrycon species (specifically H. eques and H. megalopterus) among those species included in the study.</p><p>The function of the intense blue lateral stripe in Paracheirodon spp. may have evolved as a predator evasion strategy according to the hypothesis of Ikeda and Kohshima (2009) which was published following direct field study of the fish in blackwater streams near Requena in the Peruvian Amazon plus observation of wild specimens in aquaria under different conditions.</p><p>The reserachers found that the bright colouration of the lateral stripe in P. innesi is less conspicuous in blackwater except when viewed from a limited angle of around 30° above the horizon, and that this could aid in confusing predators via bright mirror images of the stripe being projected onto the underside of the water surface.</p><p>Whereas most characids displaying a laterally-striped colour pattern possess a dark-coloured lateral stripe with a lighter stripe dorsally, this pattern is reversed in Paracheirodon and may be an adaptation for forming such mirror images.</p><p>The fish are also able to change the intensity of their overall colour pattern to an extent, becoming lighter in bright conditions with pale substrate or background and clear water, and duller with a violet lateral stripe at night, and this may also be a response designed to make them less visible.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "html": "<ul><li>Ikeda, T. and S. Kohshima (2009). Why is the neon tetra so bright? Coloration for mirror-image projection to confuse predators? “Mirror-image decoy” hypothesis. Environmental Biology of Fishes 86, 427-441</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Weitzman, S. H. and W. L. Fink (1983). Relationships of the neon tetras, a group of South American fishes (Teleostei, Characidae), with comments on the phylogeny of New World characiforms. Bulletin of the Museum of Comparative Zoology 150(6), 339-395</li><li>Marshall, B. G., B. R. Forsberg, L. L. Hess and C. E. de Carvalho Freitas (2011). Water temperature differences in interfluvial palm swamp habitats of Paracheirodon axelrodi and P. simulans (Osteichthyes: Characidae) in the middle Rio Negro, Brazil. Ichthyological Exploration of Freshwaters 22(4), 377-383</li><li>Géry, J. (1963). Hyphessobrycon simulans a new neon tetra. Tropical Fish Hobbyist 11(8), 13-16</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/a269f84912158d27.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a269f84912158d27-480.webp",
+      "width": 793,
+      "height": 595,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "caption": "Adult female individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b302817f6d8fa919.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b302817f6d8fa919-480.webp",
+      "width": 794,
+      "height": 596,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "caption": "Adult male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0392857b4ce976b3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0392857b4ce976b3-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "caption": "The presence of metallic gold scales in some specimens is a naturally-occurring phenomenon (see 'Notes').",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b508a90bce4be27e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b508a90bce4be27e-480.webp",
+      "width": 794,
+      "height": 596,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "caption": "Head detail.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/bwaquatics/0b413da48f8882f9.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/0b413da48f8882f9-480.webp",
       "width": 1000,
       "height": 659,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/0b413da48f8882f9-480.webp"
+      "source": "bwaquatics"
     },
     {
       "url": "https://media.aquatome.com/bwaquatics/72e065dab2201632.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/72e065dab2201632-480.webp",
       "width": 1000,
       "height": 750,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/72e065dab2201632-480.webp"
+      "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "cUtj0bWA9ME",
+      "title": "Paracheirodon simulans – The Green Neon Tetra",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BQBmIZ6Qb08",
+      "title": "Green Neon Tetra (Paracheirodon simulans)",
+      "durationSec": 216,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rpr2UGFQQFU",
+      "title": "NEON SIMULANS",
+      "durationSec": 54,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aV_Nuk8ep14",
+      "title": "GREEN NEON TETRA CARE - Brilliant Blue Nano Fish for Aquascaping",
+      "durationSec": 309,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -159,5 +331,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-01"
 }

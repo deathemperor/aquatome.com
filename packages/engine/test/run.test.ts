@@ -347,3 +347,34 @@ test('a usage limit during the style pass stops the run; nothing publishes unpol
   await runEngine(d, { sources: ['seriouslyfish'] })
   await expect(readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8')).rejects.toThrow()
 })
+
+test("card-fill reads only the profiles of pages whose card lacks a figure, most-read first, from a source they don't have yet", async () => {
+  const root = await fresh()
+  const page = async (id: string, source: string, html: string, dataCard: object) => {
+    const sci = id.replace('-', ' ').replace(/^./, c => c.toUpperCase())
+    await mkdir(join(root, 'content/species', id), { recursive: true })
+    await writeFile(join(root, 'content/species', id, 'entity.json'), JSON.stringify({ id, scientificName: sci, order: 'O', family: 'F', genus: sci.split(' ')[0], group: 'other', places: [], dataCard, sections: [{ key: 'aquariumSize', source, sourceUrl: 'https://x.test/a', html }], photos: [], videos: [], productSlots: [], updatedAt: '2026-10-01' }))
+    await writeFile(join(root, 'content/species', id, 'vi.json'), JSON.stringify({ slug: id, name: id, altNames: [], sections: { [`aquariumSize:${source}`]: html }, quality: { score: 0.9, indexable: true, bySource: { [source]: 0.9 } } }))
+  }
+  const sized = (source: string, tank?: number) => ({ tempC: [{ source, value: { min: 22, max: 26 } }], ph: [{ source, value: { min: 6, max: 7 } }], gh: [{ source, value: { min: 2, max: 10 } }], sizeCm: [{ source, value: 4 }], difficulty: [{ source, value: 2 }], ...(tank ? { tankCm: [{ source, value: tank }] } : {}) })
+  // The cardinal's only tank length was made from The Spruce Pets' volume: the page shows none, and it is a staple.
+  await page('paracheirodon-axelrodi', 'sprucepets', '<p>Minimum tank size: 10 gallons (about 38 litres).</p>', sized('sprucepets', 40))
+  await page('danio-rerio', 'sprucepets', '<p>Minimum tank size: 10 gallons (about 38 litres).</p>', sized('sprucepets'))
+  // Already has Seriously Fish's text, which gave no tank: reading it again would add nothing.
+  await page('puntius-titteya', 'seriouslyfish', '<p>A planted tank.</p>', sized('seriouslyfish'))
+  await page('boraras-brigittae', 'sprucepets', '<p>Aquarium of 40 × 20 cm.</p>', sized('sprucepets', 40))
+  const urls = ['aaa-new', 'boraras-brigittae', 'danio-rerio', 'paracheirodon-axelrodi', 'puntius-titteya']
+  const run = async (limit: number) => {
+    const { d } = deps(root, { urls, page: { ...species, dataCard: { tankCm: 60 }, sections: [{ key: 'aquariumSize', en: '<p>Aquarium base: 60 × 30 cm.</p>', vi: '<p>Đáy bể 60 × 30 cm.</p>' }] } })
+    const order: string[] = []
+    const get = d.fetcher.get
+    d.fetcher.get = async (u: string) => { order.push(u.slice(SF.length)); return get(u) }
+    await runEngine(d, { sources: ['seriouslyfish'], cardFill: true, limit })
+    return order
+  }
+  expect(await run(1)).toEqual(['paracheirodon-axelrodi'])
+  const card = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8')).dataCard
+  expect(card.tankCm).toEqual([{ source: 'sprucepets', value: 40 }, { source: 'seriouslyfish', value: 60 }])
+  // Next cycle: the cardinal has Seriously Fish now; the danio is next; the rest are no card's gap.
+  expect(await run(5)).toEqual(['danio-rerio'])
+})

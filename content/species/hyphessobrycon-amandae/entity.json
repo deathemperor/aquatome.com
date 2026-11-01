@@ -18,6 +18,13 @@
           "min": 23,
           "max": 27
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -25,6 +32,13 @@
         "source": "sprucepets",
         "value": {
           "min": 5.5,
+          "max": 7
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
           "max": 7
         }
       }
@@ -36,23 +50,42 @@
           "min": 5,
           "max": 17
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
         "value": 2.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ],
     "tankCm": [
       {
         "source": "sprucepets",
         "value": 40
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ],
     "difficulty": [
       {
         "source": "sprucepets",
+        "value": 2
+      },
+      {
+        "source": "seriouslyfish",
         "value": 2
       }
     ]
@@ -65,10 +98,34 @@
       "html": "<ul><li>Family: Characidae</li><li>Origin: South America</li><li>Social: Peaceful</li><li>Tank level: All</li><li>Minimum tank size: 10 gallons (about 38 litres)</li><li>Diet: Omnivore</li><li>Breeding: Egg layer</li><li>Care: Easy</li><li>pH: 5.5 to 7.0</li><li>Hardness: 5 to 17 dGH</li><li>Temperature: 23 to 27°C (73 to 80°F)</li><li>Adult size: 1 inch (about 2.5 cm)</li><li>Life expectancy: 2 to 4 years</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<p>The ember tetra, Hyphessobrycon amandae, is a tiny characid from the rio das Mortes, a tributary of the Araguaia in Mato Grosso, Brazil. Also traded as the 'Amanda's', 'dwarf red', 'red' and 'fire' tetra, it grows to around 20 mm SL. Very peaceful and gregarious, it makes a good dither fish for Apistogramma and other dwarf cichlids and spawns often in a mature aquarium.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
       "html": "<p>The Ember Tetra originates from the Araguaia River Basin in South America. Most available in the fish hobby have been captively bred, so wild stocks are not affected.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<p>Type locality is 'Rio das Mortes, some 100 km before its confluence with the Braço Maior of the Rio Araguaia (the western border of the Isla do Bananal). State of Mato Grosso.'</p><p>The das Mortes is a principal tributary of the Araguaia, itself the major affluent of the rio Tocantins in central Brazil, although the full range of H. amandae within the Araguaia system is unclear.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<p>Little information appears to exist but presumably inhabits minor tributaries, backwaters and oxbow lakes rather than main river channels.</p><p>In the Araguaia drainage such habitats typically contain soft, weakly acidic water with the substrate covered by a layer of fallen leaves and branches.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<p>Aquarium base dimensions of at least 45 × 30 cm or equivalent are suggested (volume about 41 litres).</p>"
     },
     {
       "key": "maintenance",
@@ -77,10 +134,28 @@
       "html": "<p>When it comes to building the ideal habitat for your Ember Tetras, it is important to keep in mind their small size and shy nature. These fish should always be kept in a school of at least 5 individuals, but as stated above, these can be mixed species of similar-sized fishes. Ensure your fish have lots of cover from either fake or live plants. Unlike many species of freshwater fish, the Ember Tetra will not voraciously snack on your live plants and will use them for cover, rather than nutrition.</p><p>As with care of all fishes, ensuring good water quality is critical to your fishes' overall health and welfare. You will need to test your water chemistry regularly, using a liquid-based test kit. Although Ember Tetras are small and individually have a minimal impact on water chemistry, keeping them in large groups can significantly affect the water quality. You may not have to clean up after them as often as your goldfish or other larger fish, but keeping an eye on your water quality parameters will help. Plan on regular aquarium maintenance including water changes and trimming any dead plant material.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<p>Should ideally be kept in a heavily-planted set-up, preferably with a dark substrate.</p><p>Floating plants are a useful addition as are driftwood branches and dried leaf litter, the latter in particular driving establishment of microbe colonies as decomposition occurs.</p><p>Such microorganisms can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves are also thought beneficial.</p><p>Filtration need only be gentle with an air-powered sponge-style unit normally adequate, although a degree of water movement is acceptable.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
       "html": "<p>The Ember Tetra is an omnivore, therefore it will require a mix of meat and veggie food sources. This can easily be accomplished by feeding a complete pelleted diet. Try to avoid flake foods, even for small fish. Flakes, with a higher surface to mass ratio, will quickly lose their water-soluble vitamins, including vitamin C. Thankfully, very small pelleted diets are available for even the smallest pet fish species.</p><p>In addition to their pelleted diet, you can supplement with an occasional frozen diet. Please keep in mind that these recommendations are only for maintaining adult fish. For juvenile fish and broodstock, you will need to feed higher protein and fat in the diet in order to promote proper growth and development.</p><p>Frequency of feeding will depend on the temperature of your aquarium water and how often you are around. Most fish species will forage in the wild throughout the day, so small meals spread throughout the day are best if you can manage it. Otherwise, you should feed your fish once to twice a day, ensuring the food is well spread out so all the members of the school can get equal access to food. There should be enough food for them to eat for 3-5 minutes, but no uneaten food left over after that time.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<p>Probably a micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Moina, grindal worm, etc.</p>"
     },
     {
       "key": "behaviour",
@@ -89,10 +164,22 @@
       "html": "<p>When it comes to tankmates for the Ember Tetra, there are many community fishes that will cohabitate with them well. Ember Tetras are naturally shy fish and like to be in a school, but they can school with other small fish, including other small tetras and Rasboras. They also do well with bottom-dwelling peaceful fishes, such as plecos and cory catfishes. Here are some excellent examples of tank mates for the Ember Tetra:</p><ul><li>Cardinal Tetra (Paracheirodon axelrodi)</li><li>Cory catfishes (Corydoras spp.)</li><li>Harlequin Rasbora (Rasbora heteromorpha)</li></ul>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<p>Very peaceful and will not compete well with very boisterous or much larger tankmates.</p><p>In a community it's best kept with similarly-sized, peaceful characids, smaller callichthyid or loricariid catfishes and sedate surface-dwellers such as hatchetfishes.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank, and does not normally hunt fry.</p><p>In a more general community set-up it can be combined with smaller rasboras, barbs, anabantoids, etc.</p><p>It's gregarious and naturally forms schools meaning a minimum of 8-10 specimens is the recommended purchase since the fish will be less shy and display more interesting behaviour.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
       "html": "<p>It can be difficult to tell apart male versus female Ember Tetras. Provided you are giving them an appropriate breeding diet, supplemented with more protein and fat, you may notice your female Ember Tetras will become a little rounder in the belly. This can be hard to see, but if you have a school of these fishes, chances are good that you will have at least one of each gender.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<p>Adult males are more intensely-coloured, especially when in spawning condition, while females are noticeably rounder-bodied.</p>"
     },
     {
       "key": "reproduction",
@@ -101,26 +188,113 @@
       "html": "<p>Breeding the Ember Tetra is relatively easy for most intermediate fish keepers. If you have never bred fish before, it can be a little bit difficult. The Ember Tetra is an egg-laying fish, so the females will deposit their eggs in a safe space in the aquarium, and then the male will swim along behind her to fertilize the eggs. You may notice the males chasing the females prior to laying the eggs. This is a common behavior wherein the males are trying to entice the females to release their eggs.</p><p>The main challenge in breeding Ember Tetras is ensuring that the broodstock receives adequate nutrition and has an optimized environment for successful reproduction. Remember, breeding fish will require higher protein and fat content in order to properly develop eggs and sperm. They have to be happy within their environment, including good water quality with adequate cover to make them feel safe. Without these parameters covered, your fish may abandon their breeding desires.</p><p>You may choose to move your fish to a breeding tank prior to changing their diet. This will allow you to manipulate their environment slightly, providing longer light periods and a slightly elevated temperature. Once the eggs are laid, you can remove the parents, since Ember Tetras do not rear their young at all. The eggs will hatch in a few days. After hatching, the fry will have a yolk sac that will slowly be absorbed. Once that is used up, they will rely on you for proper developmental diet. Plan on feeding a high protein and fat diet frequently throughout the day in order to encourage proper development and growth. Be sure not to overfeed, though, as that will quickly foul the water quality.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<p>An egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition adults will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above.</p><p>An air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container and left in place for 2-3 days before being removed, shortly after which and the first fry should be visible.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
       "html": "<p>The Ember Tetra gets its name from its striking red-orange appearance. Glowing like an ember, this fish's entire body is a solid, shining bronze to pumpkin orange. Even their eyes take on this pigment, resulting in a stunningly vibrant fish. If you notice an Ember Tetra that is lighter in color, with almost a translucent body, this can happen if they do not have a proper diet during development.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<p>Hyphessobrycon: from the Ancient Greek υπελάσσων (hyphesson), meaning 'of lesser stature', and used as a prefix in this case, plus the generic name Brycon.</p><p>This species is also traded under the names 'Amanda's', 'dwarf red', 'red', and 'fire' tetra.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families.</p><p>This tremendous taxonomical and morphological diversity has historically impaired the ability of researchers to resolve their genetic relationships with many taxa remaining incertae sedis.</p><p>A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern phylogenetic techniques have allowed some headway, though, and a molecular investigation of characiform relationships by Calcagnotto et al. published in 2005 revealed some interesting hypotheses.</p><p>Their results suggest that Hyphessobrycon is a member of a clade also containing the genera Astyanax, Astyanacinus, Moenkhausia, Inpaichthys, and Hemigrammus, of which all species possess five or more teeth in the inner series of the premaxilla.</p><p>A more extensive analysis by Oliveira et al. (2011) placed Hyphessobrycon in a much larger clade containing 29 genera including all those listed above.</p><p>This clade was one of three large clades, plus the genus Spintherobolus which was recovered as sister to all other characids, that formed the authors' revised Characidae family.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on pigmentation patterns, and these definitions are still widely used today, e.g., the H. aghula group, the H. heterorhabdus group, etc.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade'.</p><p>They did not offer any hypotheses regarding relationships between the remaining species although Hyphessobrycon has long been recognised as a polyphyletic lineage and thus is likely to be split into several genera in the future.</p><p>De Carvalho (2011) redescribed H. compressus, type species of the genus, and conducted a molecular phylogeny incuding 227 taxa.</p><p>He concluded that Hyphessobrycon sensu stricto should be restricted to a monophyletic group of 24 species which share the unambiguous synapomorphy of the Weberian apparatus being orientated dorso-horizontally though the dorsal margin of the operculum with other defining characters comprising a black spot in the dorsal-fin and lack of visible lateral-line except in some specimens of H. pulchripinnis.</p><p>This group contains H. compressus, H. pulchripinnis, H. hasemani, H. haraldschultzi, H. troemneri, H. cf. troemneri, H. copelandi, H. takesei, H. minor, H. micropterus, H. rosaceus, H. megalopterus, H. bentosi, H. eques, H. sweglesi, H. werneri, H. epicharis, H. socolofi, H. pyrrhonotus, H. erythrostigma, H. khardinae, H. georgetta, H. roseus and H. simulans.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "html": "<ul><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>de Carvalho, F. R. (2011). Sistemática de Hyphessobrycon Durbin, 1908 (Ostariophysi: Characidae). unpublished PHD Thesis, i-xxiii + 1-365</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/3a87a1f14d3180ed.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3a87a1f14d3180ed-480.webp",
+      "width": 799,
+      "height": 599,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/17db6be1214348a4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/17db6be1214348a4-480.webp",
+      "width": 743,
+      "height": 488,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "caption": "Adult male.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/sprucepets/a5ed49932c844d54.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/a5ed49932c844d54-480.webp",
       "width": 1200,
       "height": 800,
       "licence": "dùng với sự cho phép",
       "author": "The Spruce Pets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
       "caption": "School of Ember Tetras Hyphessobrycon amandae",
-      "source": "sprucepets",
-      "thumb": "https://media.aquatome.com/sprucepets/a5ed49932c844d54-480.webp"
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/781b2d38d6c9d934.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/781b2d38d6c9d934-480.webp",
+      "width": 800,
+      "height": 532,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "caption": "Mature adult females.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/44e15b1953f7f6a9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/44e15b1953f7f6a9-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "caption": "Adult male with pale colouration.",
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "UCBItkKpEww",
+      "title": "Ember / Fire Tetra - Hyphessobrycon amandae",
+      "durationSec": 333,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "JX1PfeppSXw",
+      "title": "Tetra amande - Hyphessobrycon amandae  ✔",
+      "durationSec": 193,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "ON5dvCVy4ts",
+      "title": "Ember Tetra Care and Breeding: A Tiny Tetra with Show Stopping Color!",
+      "durationSec": 495,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7ojNnUK59oA",
+      "title": "Ember Tetras: What I Learned",
+      "durationSec": 280,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -151,5 +325,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-01"
 }

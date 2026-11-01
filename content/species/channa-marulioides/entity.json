@@ -7,13 +7,59 @@
   "group": "other",
   "places": [
     "asia",
-    "thailand"
+    "thailand",
+    "malaysia",
+    "indonesia",
+    "kalimantan"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 65
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 65
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -25,10 +71,34 @@
       "html": "<p>The largest and most splendid of all snakeheads belong to the relationship of Channa marulius. This species occurs in India and attains a maximum length of about 120 cm. The largest specimen ever collected is said to have had a length of 183 cm and a weight of 30 kg. But most often the fish become \"only\" 40-60 cm long. The counterpart of that species in Southeast Asia is Channa marulioides (in fact the specific name means \"similar to marulius\"). It has now been imported from Thailand. It is likely to have the potential to grow as large as C. marulius, but the largest specimen recorded so far scientifically was only 65 cm long. Currently the fish are 12-15 cm long.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<p>Max size: 650 mm SL (65 cm). Temperature: 22–30°C. pH: 6.0–8.0. Hardness: 2–15 dGH. Difficulty: 6 of 8 (rated difficult because it needs a tank at least 2 m long).</p><p>The emperor snakehead, Channa marulioides, is a large snakehead from southern Thailand, Malaysia and Indonesia, including Borneo and Sumatra. Colour pattern varies with locality, and it is often confused with C. marulius and C. melanoptera, all three presenting taxonomic problems. Growing to 650 mm SL, it is pelagic, turns aggressive towards its own kind at sexual maturity and is suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li><li>Needs a tank at least 2 m long.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-marulioides-4/",
       "html": "<p>Southeast Asia; imported from Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<p>Native to southern Thailand (below the Isthmus of Kra), Malaysia, and Indonesia, including the Greater Sunda Islands.</p><p>Type locality is 'Sambas, western Borneo, Indonesia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<p>Tends to inhabit larger river channels and inland lakes such as the Danau Sentarum system in Kalimantan, Borneo.</p>"
     },
     {
       "key": "aquariumSize",
@@ -37,14 +107,104 @@
       "html": "<p>Due to the size, a very large tank is needed, but it is advisable to let the tank grow with the fish. A small fish is easily lost in a too big tank.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<p>Standard length: 650 mm SL. Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<p>Relatively unfussy although some surface cover in the form of floating or overhanging vegetation or branches is appreciated.</p><p>Unlike most Channa spp. it's pelagic and requires plenty of room to swim.</p><p>It's essential to use a tightly-fitting hood since Channa spp. are notorious for their ability to escape, and a gap should be left between this and the water surface as they require access to a layer of humid air.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<ul><li>Temperature: 22–30°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<p>An obligate predator which probably feeds on smaller fishes, amphibians and terrestrial insects in nature but in most cases adapts well to dead alternatives in captivity.</p><p>Some specimens even accept dried foods though these should never form the staple diet.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, etc.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-marulioides-4/",
       "html": "<p>These snakeheads are piscivorous. Against other fish that are too large to be eaten, C. marulioides are usually peaceful. The large snakeheads are highly appreciated as food fish in the countries where they occur, but they are also often kept in temple ponds. Here the Channa become very tame, they are fed by the visitors of the temple and they can even be stroked. The elegant predators also become very tame in private aquaria.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<p>Best-maintained in a species-specific aquarium.</p><p>Juveniles and subadults are relatively peaceful with one another but become aggressive when they reach sexual maturity.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<p>This species is often confused with the nominal congeners C. marulius (Hamilton, 1822) and C. melanoptera (Bleeker, 1855) with all three presenting taxonomic problems.</p><p>For example, C. marulioides exhibits a number of variations in colour pattern depending on collection locality with the most common possessing a brownish base colour with a series of dark, chevron-like markings along each flank and some scales margined posteriorly in white.</p><p>However, specimens from the Danau-Sentarum riverine lake system in Borneo do not possess chevron-shaped markings (Kottelat &amp; Widjanarti, 2005), and there also exists a darker grey-blue form with reduced flank markings which is sometimes referred to as C. marulioides 'blue' in the aquarium trade.</p><p>It is unclear if the different forms are conspecific or not although in general any fish from Peninsular Thailand, Malaysia, or Indonesia is currently assigned to this species.</p><p>C. marulius has been recorded from Pakistan through India, Sri Lanka, Bangladesh, Nepal, Myanmar, and Thailand to southern China, Laos and Vietnam and is widely-considered to represent a complex of related species requiring additional research.</p><p>C. melanoptera (Bleeker, 1855) was described from the Kapuas River at Pontianak, Indonesian Borneo, and depicted by Bleeker (1877) as a uniformly-coloured fish although Weber and de Beaufort (1922) depicted it as possessing black markings on the flanks.</p><p>It may represent a juvenile synonym of C. marulioides or a related species with distribution restricted to the Sambas river in West Kalimantan (Kalimantan Barat) province, Indonesian Borneo (Tan &amp; Ng, 2005).</p><p>Although C. marulioides is sometimes said to be identified by presence of an ocellus in the upper part of the caudal-fin, this fades in specimens larger than ca. 50 mm (5 cm) SL but tends to be retained in adults of C. marulius (though not in all populations, e.g., Mekong basin; see Kottelat, 2001).</p><p>Distinguishing morphological characters in C. marulioides include: gular scales absent; dorsal-fin rays 45-47; anal-fin rays 30-31; lateral line scales 55-58; predorsal scales 13-15; scales between lateral line and anterior dorsal-fin rays 3½; lateral line curving abruptly downward at lateral line scales 17-20; preopercular scales 5-7; no canines on prevomer or palatines.</p><p>Members of the family Channidae are commonly referred to as 'snakeheads' due to possession of large scales on the head of most species which are reminiscent of the epidermal scales (cephalic plates) on the heads of snakes.</p><p>There currently exist over 30 valid species but diversity within the group is likely to prove significantly greater.</p><p>All Channa spp. possess supplementary breathing apparatus in the form of paired suprabranchial chambers located behind and above the gills, although these are not labyrinthic but lined with respiratory epithelium.</p><p>These chambers allow the fish to breathe atmospheric air and survive in hypoxic conditions or even out of the water for a considerable period of time, and in aquaria they are often seen rising to the surface to take gulps of air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "html": "<ul><li>Bleeker, P. (1851). Vijfde bijdrage tot de kennis der ichthyologische fauna van Borneo, met beschrijving van eenige nieuwe soorten van zoetwatervisschen. Natuurkundig Tijdschrift voor Nederlandsch Indië v. 2, 415-442</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabanatoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li><li>Brede, N. and P. Antler (2009). Schlangenkopffische—Die Gattungen Channa und Parachanna. Natur und Tier Verlag, Münster, 62 pp.</li><li>Courtenay, W. R., Jr. and J. D. Williams (2004). Snakeheads (Pisces, Channidae) - a biological synopsis and risk assessment. Circular, U. S. Department of the Interior, Geological Survey No. 1251, i-v + 1-143</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8d40ef5d8990c774.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8d40ef5d8990c774-480.webp",
+      "width": 617,
+      "height": 434,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "caption": "Adult specimen from southern Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/7fd3417b68b22809.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7fd3417b68b22809-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulioides",
+      "caption": "Individual from Peninsular Malaysia.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ZHZYt_SQt6o",
+      "title": "Channa Marulioides 101 | Tank Setup, Feeding, Behavior & Mistakes.",
+      "durationSec": 496,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "MRTtuIqVRBE",
+      "title": "Red Barito: BEST Complete Care Guide + Tips (color +flowering) Channa Marulioides",
+      "durationSec": 521,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "reyEhd_cQvg",
+      "title": "Stop Calling Everything Sentarum | Full Marulioides Color & Locality Guide",
+      "durationSec": 1442,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_hHd6Yj5LDs",
+      "title": "3 Crucial Factors Affecting Color in Channa Marulioides",
+      "durationSec": 293,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -68,5 +228,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }

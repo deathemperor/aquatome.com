@@ -136,6 +136,20 @@ export function tankIsVolume(html: string, value: number): boolean {
   })
 }
 
+/**
+ * A data card as a page shows it: the values of the sources it may show (`allowed`), without a tank length that is that
+ * source's tank volume (read in that source's sections). The build reads every card this way, and so does the engine's
+ * card-fill step when it looks for the figures a card lacks.
+ */
+export function shownCard<C extends Card>(card: C, sections: { source: string; html: string }[], allowed: (source: string) => boolean): C {
+  return Object.fromEntries(
+    Object.entries(card)
+      .map(([field, values]) => [field, (values ?? []).filter(v => allowed(v.source)
+        && !(field === 'tankCm' && typeof v.value === 'number' && tankIsVolume(sections.filter(s => s.source === v.source).map(s => s.html).join('\n'), v.value)))] as const)
+      .filter(([, values]) => values.length > 0),
+  ) as C
+}
+
 const FIELDS: DataCardField[] = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm']
 const key = (v: Figure) => JSON.stringify(isRange(v) ? [v.min, v.max] : v)
 

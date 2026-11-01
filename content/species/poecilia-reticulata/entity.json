@@ -13,7 +13,10 @@
     "north-america",
     "barbados",
     "trinidad-and-tobago",
-    "trinidad"
+    "trinidad",
+    "french-guiana",
+    "antigua-and-barbuda",
+    "netherlands-antilles"
   ],
   "dataCard": {
     "tempC": [
@@ -22,6 +25,13 @@
         "value": {
           "min": 20,
           "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 17,
+          "max": 28
         }
       }
     ],
@@ -32,6 +42,13 @@
           "min": 6.5,
           "max": 8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
       }
     ],
     "gh": [
@@ -41,18 +58,39 @@
           "min": 6,
           "max": 8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 30
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ],
     "difficulty": [
       {
         "source": "sprucepets",
         "value": 1
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ]
   },
@@ -62,6 +100,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
       "html": "<ul><li>Life expectancy: 2 to 3 years</li><li>Origin: native to South America; pet fish are captive-bred</li><li>Temperament: peaceful</li><li>Tank level: top and mid-dweller</li><li>Diet: omnivore</li><li>Breeding: livebearer</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<p>The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad. One of the most popular aquarium fish in the world, it is available in many aquarium-bred varieties with elongated finnage, while the wild form is seldom seen for sale. Many commercially bred guppies are weakened by inbreeding and over-production, and introduced or feral populations exist in around fifty other countries.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -76,16 +120,46 @@
       "html": "<p>The guppy has been captive bred for over 100 years, but originally came from South America. They are named for Robert John Lechmere Guppy who collected these fish on the island of Trinidad in 1866. They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago. Now, they have been introduced to every continent but Antarctica, and can be found in many warm waterways around the world.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<p>Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.</p><p>Type locality is 'Guayre River, Caracas, Venezuela'.</p><p>Wild examples are relatively rare in the aquarium hobby, most fish being commercially bred.</p><p>Introduced or feral populations also exist in around fifty other countries across the globe, including the UK.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<p>An incredibly adaptable species that occurs in almost every imaginable biotope, from high-altitude streams to turbid swamps and ditches.</p><p>Some populations also exist in brackish conditions.</p><p>However it does tend to thrive best in habitats with lush growths of algae, marginal vegetation and/or aquatic plants.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
       "html": "<p>Minimum tank size is 10 gallons (about 40 litres). The number of guppies you can keep depends on the size of the tank—a general guideline is 1 gallon of water for every 1 inch of fish. Because guppies average around 2 inches (5 cm) in length, a 10-gallon (40 litre) tank may only hold five guppies comfortably, while a 30-gallon (110 litre) tank may hold 15 guppies. A bigger tank is recommended since guppies are very active fish.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<p>Standard length: 60 mm SL.</p><p>Aquarium base: 45 × 30 cm.</p><p>Volume: ~41 litres (45 × 30 × 30 cm).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
       "html": "<p>Guppies are great beginner fish. They are low maintenance and can tolerate some beginner mistakes. They thrive in an aquarium with plants and soft décor items.</p><p>To keep your population from exploding, it is strongly recommended that you separate males and females in different tanks. Females can store sperm for multiple spawns, even after separation from males, so once a female has been with a male, she may have multiple batches of babies. Tank dividers are okay as a temporary solution, but many flimsy plastic dividers are usually not enough to keep fish separated. Two separate tanks will keep unwanted spawning to zero.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<p>Unfussy, though a planted tank with floating vegetation is appreciated.</p><p>Strong currents should be avoided.</p><p>This is a hard water fish and while it may manage in soft and/or acidic conditions, long-term maintenance should be in moderately hard or harder water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<ul><li>Temperature: 17–28°C</li><li>pH: 7.0–8.5</li><li>Hardness: 8–30 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -100,10 +174,22 @@
       "html": "<p>Guppies are omnivores and do well on a variety of commercially available feeds. Even though guppies are small, pelleted diets called micro pellets are the best choice since they hold onto their nutrition longer than flakes. Supplements such as frozen foods can be added, but no more than once or twice a week.</p><p>Depending on your aquarium's temperature and the other tank inhabitants, you may feed once or twice a day. Always start with a little food, and when it has all been consumed, add a little more. Repeat for a few minutes and use this time to check all of your fish for odd behavior or signs of sickness.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<p>Wild fish are primarily insectivorous, but today's tank-bred fish are far-removed from their ancestors and will accept most foods offered.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
       "html": "<p>Guppies are peaceful, easygoing community fish that play well with a mix of other non-aggressive fish species. You may want to keep them with similar, live-bearing fish, such as platys or mollies. Other good tankmates include small fish, such as neon tetras or zebrafish. Keep in mind that any fry spawned from an active guppy female may be dinner for other fish in the tank, so having smaller tankmates will ensure more fry survive.</p><p>Many guppy keepers opt for a guppy-only aquarium. You can mix different varieties of guppy in the same tank. Generally, it is best to have two or three females for every one male in the tank.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<p>A very peaceful fish. Do not keep with fin-nipping species such as tiger barbs, serpae tetras etc. Does well in a quiet community tank with other livebearers, rasboras, corydoras, small loricariids and tetras.</p>"
     },
     {
       "key": "dimorphism",
@@ -112,19 +198,87 @@
       "html": "<p>Males tend to be smaller and more vibrantly colored. Females tend to have a brown coloration and are larger and rounder. As male guppies grow, their body develops coloration that does not occur on the female's body.</p><p>On the underside of the fish, the anal fin of the male is long and thin and tapers to a point. The anal fin on the female is larger and triangular or fan-shaped.</p><p>You should be able to identify the differences between genders by 1 month of age, if you wish to separate them.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<p>In the wild type males are the more colourful sex and have elongated finnage, and this is taken to extremes in the selectively bred aquarium varieties.</p><p>The male fish also possesses a gonopodium, which is a modification of the anal fin used in reproduction and is stick-like in appearance.</p><p>Females are larger, plumper and generally exhibit dull colouration, although aquarium bred varieties may show some quite intense colouration in the caudal fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
       "html": "<p>Guppies are sexually mature in about two to three months. Female guppies first produce offspring at 10–20 weeks of age, and they continue to reproduce until 20–34 months of age.</p><p>Many beginner hobbyists start with only one female guppy and suddenly have a swarm. Since females can store sperm, it only takes one insemination by a male for a few spawns to be born. To prevent your aquarium from exceeding its stocking capacity, it is best to separate male and female guppies.</p><p>Guppies are livebearers, so the female gives birth to 10–50 wiggling fry per spawning. Newly born fry are often eaten by other fish in the aquarium, so to save them keep them in a separate tank or breeding box. Heavily planted aquariums also give the babies places to hide and survive.</p><p>After many generations of breeding within the same population, you may notice more fish with congenital abnormalities, such as crooked spines, or shortened lifespans. Since inbreeding is common in isolated fish populations, a simple solution is to add more diversity. Many hobbyists trade fish with fellow guppy keepers, or you can purchase new fish to add once they have cleared quarantine.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<p>Very easy. Livebearer. It is advisable to keep several females to each male as males can be quite vigorous in their constant pursuit of females. No real effort needs to be made to breed these fish although a densely planted species tank with lots of floating vegetation is the best way to ensure the survival of the fry.</p><p>A pregnant female can be identified by the gravid spot (darkened area) behind her anal fin just behind the belly. Between 5-100 young may be produced from a single female, and gestation takes between 4-6 weeks.</p><p>Excess viable sperm can be preserved in the female's oviduct for a long time.</p><p>This means that the females are still able to produce young for 6 months or more if no males are present. Adult fish will eat the young so it is better to remove them after the fry are born to ensure 100% survival. They are incredibly prolific so if you do not want a tank full of fry buy fish of only one sex.</p>"
+    },
+    {
       "key": "notes",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
       "html": "<p>Guppies usually live between two and three years, with females generally living longer than males. You can extend your guppy's life by feeding a good diet, watching for disease, and maintaining balanced aquarium water.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<p>Etymology: Poecilia comes from the Greek poikilo, meaning 'variable, variegated'. reticulata comes from the Latin reticulatus, meaning 'reticulated, having a network-like pattern'.</p><p>One of the most popular aquarium fish in the world, the guppy is instantly recognisable to most people. There are many aquarium bred varieties of this species available, most have elongated finnage and gaudy colouration. The wild form is seldom seen for sale.</p><p>Unfortunately many commercially bred guppies are not very hardy due to inbreeding and over-production and are prone to disease and premature death. Purchasing quality stock from breeders or society auctions is therefore recommended.</p><p>P. reticulata has been introduced into many third world countries as a means of malaria control, as these fish feed voraciously on mosquito larvae.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "html": "<ul><li>Peters, W. (C. H.) (1859). Eine neue vom Herrn Jagor im atlantischen Meere gefangene Art der Gattung Leptocephalus, und über einige andere neue Fische des Zoologischen Museums. Monatsberichte der Königlichen Preussische Akademie des Wissenschaften zu Berlin, 411-413</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e2e952410c961141.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e2e952410c961141-480.webp",
+      "width": 800,
+      "height": 586,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "caption": "Wild specimens from Brazil; female on left, two males on right.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9fc8383e59fb4c22.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9fc8383e59fb4c22-480.webp",
+      "width": 798,
+      "height": 623,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "caption": "Wild specimens from Brazil; female on right, two males on left.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/87e2a1c96c3b2eb2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/87e2a1c96c3b2eb2-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "caption": "Adult male; ornamental 'steel blue' form.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3a42b81d1ba3df9c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3a42b81d1ba3df9c-480.webp",
+      "width": 799,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
+      "caption": "Wild pair from an unspecified locality in Brazil; male on right.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/b58ccf70750226c1.webp",
       "thumb": "https://media.aquatome.com/sprucepets/b58ccf70750226c1-480.webp",
@@ -148,7 +302,32 @@
       "source": "sprucepets"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "S0UYsAusDa8",
+      "title": "LE GUPPY - Poecilia Reticulata (ce qu'on ne vous dit pas toujours !)",
+      "durationSec": 518,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "kO6bciaOkg4",
+      "title": "Guppy - Poecilia reticulata ✔",
+      "durationSec": 277,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "Vk5dh1uNqxI",
+      "title": "Ginga Rubra Guppies (Poecilia reticulata) Aquarium Fish Species Profile & Care Guide",
+      "durationSec": 244,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ezDe1R3jSZc",
+      "title": "Top 10 Tankmates for Guppies (Poecilia reticulata, Million Fish)",
+      "durationSec": 542,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

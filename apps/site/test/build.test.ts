@@ -464,12 +464,15 @@ describe('video guide', () => {
 })
 
 describe('video pages', () => {
-  test('/vi/video/ lists series with a published guide only', () => {
+  test('/vi/video/ lists series with a published guide only, each as one row; the newest videos as cards', () => {
     const { dom } = page('/vi/video/')
-    expect(dom.querySelector('h2 a[href="/vi/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
+    expect(dom.querySelector('.rows a[href="/vi/video/reu-hai-tu-a-den-z/"] h3')?.text).toBe('Rêu hại từ A đến Z')
     expect(dom.querySelector('a[href="/vi/video/trong/"]')).toBeNull()
-    expect(dom.querySelector('.gc .dur')?.text).toContain('29:15')
-    expect(dom.querySelector('.gc .cover')?.text).toBe('Bí quyết trị rêu hại')
+    // Newest first (2024's video, then 2023's).
+    expect(dom.querySelectorAll('.new .gc').map(a => a.getAttribute('href'))).toEqual(['/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/', '/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/'])
+    const card = dom.querySelector('.new .gc[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')
+    expect(card?.querySelector('.dur')?.text).toContain('29:15')
+    expect(card?.querySelector('.cover')?.text).toBe('Bí quyết trị rêu hại')
   })
   test('series page lists parts in order with an ItemList', () => {
     const { dom } = page('/vi/video/reu-hai-tu-a-den-z/')
@@ -488,7 +491,7 @@ describe('video pages', () => {
   })
   test('single videos: grouped by channel on /vi/video/, a channel page, a breadcrumb to it; no caption promise when transcribed', () => {
     const idx = page('/vi/video/').dom
-    expect(idx.querySelector('h2 a[href="/vi/video/kenh/green-aqua/"]')?.text).toBe('Video lẻ của Green Aqua')
+    expect(idx.querySelector('.rows a[href="/vi/video/kenh/green-aqua/"] h3')?.text).toBe('Video lẻ của Green Aqua')
     const ch = page('/vi/video/kenh/green-aqua/').dom
     expect(ch.querySelector('.grid a[href="/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/"]')).not.toBeNull()
     const g = page('/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/').dom

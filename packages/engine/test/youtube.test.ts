@@ -173,6 +173,21 @@ test('redo rewrites a written guide with the same slug and cover; the reviewer i
   expect(again.calls.prompts.some(p => p.includes('Giọng văn'))).toBe(true) // style guide in the writer's prompt
 })
 
+test("a video nobody outside a channel's members can watch is skipped for good and doesn't stop the run", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const { d } = deps(root, { videos: { m1: {}, m2: {}, m3: {}, a1: {} } })
+  const transcript = d.yt.transcript
+  d.yt.transcript = async (id, lang) => {
+    if (id.startsWith('m')) throw new Error(`yt-dlp: ERROR: [youtube] ${id}: This video is available to this channel's members on level: Cây Đẹp - Nước Trong (or any higher level). Join this channel to get access to members-only content and other exclusive perks.`)
+    return transcript(id, lang)
+  }
+  const r = await videoGuides(d, { playlists: ['PL1'] })
+  expect(r.stoppedEarly).toBe(false)
+  expect(r.written).toEqual(['youtube-a1 (0.90)'])
+  expect(r.skipped).toEqual(['m1: members only', 'm2: members only', 'm3: members only'])
+  expect((await read(root, 'engine-state/youtube.json')).m1).toMatchObject({ status: 'skipped', error: 'members only' })
+})
+
 test('YouTube throttling stops the run without marking any video failed', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   const { d } = deps(root, { videos: { a1: {}, a2: {} } })

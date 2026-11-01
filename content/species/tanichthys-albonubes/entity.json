@@ -10,7 +10,8 @@
     "china",
     "guangdong",
     "vietnam",
-    "quang-ninh"
+    "quang-ninh",
+    "pearl-river"
   ],
   "dataCard": {
     "tempC": [
@@ -18,6 +19,13 @@
         "source": "sprucepets",
         "value": {
           "min": 15,
+          "max": 22
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 14,
           "max": 22
         }
       }
@@ -29,6 +37,13 @@
           "min": 6,
           "max": 8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8.5
+        }
       }
     ],
     "gh": [
@@ -38,11 +53,22 @@
           "min": 5,
           "max": 19
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
+        "value": 4
+      },
+      {
+        "source": "seriouslyfish",
         "value": 4
       }
     ],
@@ -50,6 +76,16 @@
       {
         "source": "sprucepets",
         "value": 1
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ]
   },
@@ -59,6 +95,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
       "html": "<ul><li>Origin: White Cloud Mountains of China</li><li>Social: peaceful and sociable</li><li>Tank level: top to middle</li><li>Minimum tank size: 10 gallons (about 40 litres)</li><li>Diet: omnivore</li><li>Breeding: egg scatterers; easy to breed</li><li>Care: easy; good fish for beginners</li><li>Life expectancy: 3 to 5 years</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<p>The White Cloud Mountain minnow, Tanichthys albonubes, is a small cyprinid from Guangdong and Hainan in southern China and from northeastern Vietnam. It appears to have been extirpated from White Cloud Mountain itself and is considered endangered in China, but all the fish on sale are commercially bred. Inbreeding among farm-bred stock has left many genetically weak and prone to disease or deformity, and permanent exposure to warmer conditions is likely to shorten its life.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -73,10 +115,28 @@
       "html": "<p>The geographic origins of this fish in China and Vietnam have undergone significant changes, which have negatively impacted its habitat, and slowly the species has disappeared. Beginning in 1980, Tanichthys albonubes had not been seen in nature, leading to the belief that it had become extinct in the wild.</p><p>Fortunately, a small number of native populations have been discovered in isolated locations within the coastal provinces of Guangdong and Hainan Island in China, as well as in Quảng Ninh province in Vietnam. The species is still very rare in the wild and is considered an endangered species in China. Efforts are underway to reintroduce captive-bred populations into the wild, but currently, all white cloud mountain minnows sold in the aquarium trade are captive-bred.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<p>Type locality is 'White Cloud Mountain, Kwangtung, China', referring to White Cloud Mountain (also known as Mount Baiyun or Baiyunshan) a few miles north of the city of Guangzhou, Guangdong Province, China and this species is probably restricted to the Pearl River Delta region.</p><p>It appears to been extirpated from the 'mountain' which is actually a collection of thirty or so peaks and now a popular tourist resort complete with cable car access, hotels and public parks.</p><p>Between 1980 and 2001 it was not recorded anywhere at all leading to fears of its extinction but a handful of relict populations have been discovered close to the type locality and at isolated spots in coastal Guangdong province (in the prefecture-level city of Shanwei) and Quang Ninh province, northeastern Vietnam.</p><p>The latter shares a border with Guangxi province, China, and the fish were found in a coastal stream draining into the world famous Ha Long Bay.</p><p>In 2007 an additional population was discovered on Hainan Island, Hainan province, which is separated from Guangdong by the 30 km wide Qiongzhou Strait (Chan and Chen, 2009).</p><p>Questions regarding the genetic status of the Shanwei, Hainan, and Vietnamese populations have been raised as they appear to have been segregated for a considerable period of time meaning phylogenetic studies could yield interesting results.</p><p>It's considered an endangered species by governmental agencies in China and features in the China Red Data Book of Endangered Animals, in which it is listed as a 'second class state protected' animal, but has not been evaluated by the IUCN at time of writing.</p><p>Reintroduction programmes using captive-bred fish have been implemented but details as to their success or failure could not be obtained.</p><p>This precarious conservation status is unlikely to affect the aquarium hobby because all the fish on sale are bred on a commercial basis.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<p>Little published information exists but one of the populations rediscovered close to the type locality in Guangdong inhabits a sluggish, spring-fed mountain stream with clear, shallow water and dense growths of aquatic vegetation (Yi et al. 2004).</p><p>Macropodus opercularis and introduced Gambusia affinis were the only other fish species recorded.</p><p>The Hainan Island fish occupy a clear, slow-moving coastal stream and its tributaries with substrates of sand, pebbles and leaf litter and maximum water depth of only 60 cm even during the wet season.</p><p>They were observed swimming in schools in calmer zones and backwaters close to patches of dense, trailing marginal vegetation.</p><p>pH was 6.4 with low hardness values and plant species included Blyxa japonica, Rotala rotundifolia, Ludwigia prostrata, Ceratopteris thalictroides and Limnophila sp.</p><p>Sympatric fishes were Puntius semifasciolatus, Misgurnus anguillicaudatus, Macropodus opercularis, and Channa gachua as well as non-native Gambusia and Oreochromis.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
       "html": "<p>Minimum tank size: 10 gallons (about 40 litres).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<p>Standard length: 40 mm SL (4 cm).</p><p>Aquarium base: 60 × 30 cm. Volume: approximately 54 litres.</p><p>Minimum base dimensions of 60 × 30 cm or equivalent are required.</p>"
     },
     {
       "key": "maintenance",
@@ -85,10 +145,22 @@
       "html": "<p>When kept in the right temperature range, this species is very hardy and well suited for beginner hobbyists. Although undemanding when it comes to water quality, this minnow does not deal with heat well. There is evidence that keeping white cloud mountain minnows in water constantly above 22 °C (72 °F) will shorten their lifespan.</p><p>The substrate should be fine and darker in color, with plenty of vegetation as well as some rocks and driftwood. Leave an open area for swimming and offer subdued lighting to bring out the colors of this fish. Water hardness and pH are not critical, but it is wise to avoid extremes. Avoid all medications containing copper, as white cloud mountain minnows are very sensitive to copper.</p><p>White cloud mountain minnows are sometimes kept as pond fish to help control mosquito breeding. They cannot be kept with large pond fish, as they will be eaten. They do, however, make good companions for African dwarf frogs. While they tolerate cool water, they cannot be left in outdoor ponds in winter in areas where the water freezes.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants, driftwood roots or branches, and leaf litter also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong though it does seem to appreciate a degree of water movement and will also do well in a hill stream-type set-up.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
       "html": "<p>Temperature 15 to 22 °C (60 to 72 °F), pH 6.0 to 8.0, hardness 5 to 19 dGH.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<ul><li>Temperature: 14–22°C</li><li>pH: 6.0–8.5</li><li>Hardness: 5–20 dGH</li></ul><p>Temperature: This species is subject to seasonal temperature fluctuations in nature and is most comfortable between 14–22°C.</p><p>Permanent exposure to warmer conditions is likely to result in a shortened lifespan and in many countries or well-insulated homes it's best-maintained without artificial heating year-round.</p><p>In tests the wild fish from Hainan Island showed a reduced tolerance to cooler temperatures compared with tank-bred specimens, presumably due to their more southerly, i.e., tropical, distribution.</p>"
     },
     {
       "key": "diet",
@@ -97,10 +169,22 @@
       "html": "<p>White cloud mountain minnows eat all types of food, including live, frozen, and flake food. In their native habitat, they are voracious insect eaters. They particularly relish mosquito larvae, daphnia, and brine shrimp. Feed a good variety of dry and frozen foods, including live foods whenever possible.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<p>Stomach analyses of wild specimens have revealed it to be a micropredator feeding on small insects, worms, crustaceans and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
       "html": "<p>White cloud mountain minnows should be kept in good-sized schools, preferably of half a dozen or more. When kept singly, they tend to lose color and hide most of the time. They are peaceful and fit well with other small peaceful fish. Avoid larger tankmates, as they will be inclined to eat white cloud mountain minnows. The same is true of any aggressive species.</p><p>They are top- or middle-dwelling fish and are rarely seen in the bottom region of the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<p>Very peaceful indeed and an ideal resident of a well-maintained community set-up provided its temperature requirements are considered.</p><p>Other species that enjoy comparable conditions include Pethia conchonius, P. padamya, 'Puntius' semifasciolatus, and Macropodus opercularis (it occurs sympatrically with the latter two in nature) but it doesn't make a suitable companion for goldfish despite often being sold as such.</p><p>In a stream-style tank it can also be combined with rheophilic species from genera such as Danio, Devario, and Garra as well as many loaches.</p><p>It's a schooling fish by nature and ideally a group comprising 10+ specimens should be purchased.</p><p>Maintaining such numbers will not only make individuals less nervous but result in a more effective, natural-looking display, and males will display their best colours as they compete with one other for female attention.</p>"
     },
     {
       "key": "dimorphism",
@@ -109,13 +193,92 @@
       "html": "<p>Males are more slender and more colorful than females. Sexual differences are slight, and determining gender accurately can be difficult. Females ready to spawn have a fuller abdomen.</p><p>The mouth slants upward, with the lower jaw slightly protruding. They possess no barbels, and the dorsal fin is positioned past the mid-line of the body, in line with the anal fin. The body is a shimmering bronze-brown, with a fluorescent line running from eye to tail, where it ends in a dark spot surrounded by brilliant red. The belly is whiter than the body, and the anal and dorsal fins are both splashed with red and edged in white. Several color variations exist, including a golden variety as well as a long-finned variant known as the meteor minnow.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<p>Mature females are usually rounder-bellied and often a little larger than the slimmer, more colourful males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
       "html": "<p>White clouds reach sexual maturity between 6 months and 1 year of age. When mature enough to spawn, males display against each other, spreading their fins and showing their most vibrant colors, in the hope of attracting a female.</p><p>They are easy to breed and a good choice for first-time breeders. They are egg scatterers that breed year-round. The pair provides no parental care to the young.</p><p>There are two approaches. One is to keep a large school of white clouds (and only white clouds) in their original tank and allow them to breed there. Because these fish are not as aggressive about eating their eggs and fry as other fish, some of the young will survive if there are plants and other hiding places near the bottom of the tank.</p><p>Another option is to set up a small breeding tank of 5 to 10 gallons (about 20 to 40 litres) and add a couple of the most colorful males and twice as many females. The tank should be equipped with a spawning mop and/or clumps of plants where the fish can deposit eggs. For spawning, the water should be soft, with a pH of 6.5 to 7.5 and a temperature of 20 to 22 °C (68 to 72 °F). No substrate is necessary in a separate breeding tank. Gentle filtration, such as a sponge filter, is recommended.</p><p>Regardless of the method, the fish should be conditioned with live foods before spawning, particularly brine shrimp, daphnia, and mosquito larvae. High-quality frozen foods can be used if live food is not available.</p><p>Once spawning begins, eggs will be scattered over the plants or spawning mop for up to 24 hours. The eggs hatch in 36 to 48 hours. Remove the parents once the eggs begin to hatch. Fry should initially be fed very fine micro-foods or liquid fry food, followed by freshly hatched brine shrimp. The young grow rapidly and are easy to care for.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<p>Like many small cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care.</p><p>That is to say when the fish are in good condition they will spawn often and when a group is maintained alone in a densely-planted, mature aquarium or outdoor container small numbers of fry usually start to appear without further intervention.</p><p>Should a more controlled approach be required a separate, smaller aquarium can be set up.</p><p>This should be dimly-lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed after 2-3 days maximum.</p><p>The eggs should hatch in 48-60 hours and once free-swimming the fry may require an infusoria-grade food until large enough to accept microworm, Artemia nauplii, and suchlike.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<p>One of the most ubiquitous species in the aquarium hobby and several ornamental strains are available including 'long-finned', 'golden', 'albino', and 'super red', for which care is identical.</p><p>Unfortunately inbreeding among farm-bred stock has resulted in a situation whereby many of the fish available today are genetically weak and prone to disease or develop physical deformities.</p><p>Some of the more colourful forms have been seen mislabelled as Aphyocypris pooni, a name currently considered a junior synonym of T. albonubes, or A. lini, chosen as a replacement for A. pooni by Weitzman &amp; Chan (1966) and referring to an unrelated species.</p><p>T. albonubes was discovered by a Chinese scoutmaster named Tan Kam Fei in 1932 who passed some specimens on to a local fisheries station, and the director of the station chose to honour the collector by naming the newly-erected genus in his honour.</p><p>The genus remained monotypic until 2001 when the Vietnamese species T. micagemmae and T. thacbaensis were described.</p><p>The former has been available in the aquarium trade for a number of years but T. thacbaensis is somewhat enigmatic since its description is written entirely in Vietnamese and accompanied only by a line drawing, with photos of live specimens unavailable to date.</p><p>A fourth species, currently known only as T. sp. 'Vietnam' appeared in the aquarium trade during 2010 and has been available in limited numbers.</p><p>T. albonubes is noticeably larger than T. micagemmae and T. sp. 'Vietnam', and exhibits an overall reddish-brown colouration in the body that is lacking in the other two and possesses a less broad dark, lateral stripe on the body, below the paler stripe.</p><p>In T. micagemmae the ventral and anal fins are reddish, whereas they are bright yellow in T. sp. 'Vietnam'.</p><p>Diagnostic characters for the genus include presence of cornified tubercules on the snout posterior to the premaxila in males, and confluent narial openings.</p><p>Less clear is the phylogenetic position of Tanichthys within the family Cyprinidae.</p><p>It has been considered closely related to the genera Danio or Rasbora but recent studies, notably that of Fang et al. (2009) have suggested it to be more analagous with Tinca tinca, the common tench, and the putative subfamily Acheilognathinae, better known as the bitterlings.</p><p>The results also suggested that T. micagemmae is the parent species of the group in evolutionary terms with T. albonubes its younger relative.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "html": "<ul><li>Chan, B.P.L., and X-L Chen (2009). Discovery of Tanichthys albonubes Lin 1932 (Cyprinidae) on Hainan Island, and notes on its ecology. Zoological Research 30(2), 209–214</li><li>Liang, X-F, G-Z. Chen, X-L. Chen, and P-Q. Yue (2007). Threatened fishes of the world: Tanichthys albonubes Lin 1932 (Cyprinidae). Environmental Bi0logy of Fishes 82(2), 177-178</li><li>Yi, Z-S., X-L. Chen, J-X. Wu, S-C. Yu, and C-E. Huang (2004). Rediscovering the wild population of white cloud mountain minnows (Tanichthys albonubes Lin) on Guangdong Province. Zoological Research 25(6), 551-555</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Rüber, L. , M. Kottelat, H. H. Tan, P. K. L. Ng and R. Britz (2007). Evolution of miniaturization and the phylogenetic position of Paedocypris, comprising the world's smallest vertebrate. BMC Evolutionary Biology London 7(38), 1-10</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/13bfd22bc7cdcdb9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/13bfd22bc7cdcdb9-480.webp",
+      "width": 797,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "caption": "Adult male specimen from the aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/77af872520320923.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/77af872520320923-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "caption": "Wild-collected male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/508d120a1e202fd6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/508d120a1e202fd6-480.webp",
+      "width": 782,
+      "height": 592,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "caption": "Adult pair; male at front.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/743342d6de2171fc.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/743342d6de2171fc-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
+      "caption": "White cloud mountain minnow fish with gray and red-orange scales",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/51c1ec946e2e56e0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/51c1ec946e2e56e0-480.webp",
+      "width": 720,
+      "height": 481,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
+      "caption": "Males of the ornamental long-finned strain in aggressive mood.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/3bc2bc33eb430538.webp",
       "thumb": "https://media.aquatome.com/sprucepets/3bc2bc33eb430538-480.webp",
@@ -136,17 +299,6 @@
       "author": "The Spruce Pets",
       "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
       "caption": "Long-fin variety of White cloud mountain minnow",
-      "source": "sprucepets"
-    },
-    {
-      "url": "https://media.aquatome.com/sprucepets/743342d6de2171fc.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/743342d6de2171fc-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
-      "caption": "White cloud mountain minnow fish with gray and red-orange scales",
       "source": "sprucepets"
     },
     {

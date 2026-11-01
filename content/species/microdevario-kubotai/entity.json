@@ -8,12 +8,22 @@
   "places": [
     "asia",
     "thailand",
-    "mae-klong"
+    "mae-klong",
+    "ranong",
+    "myanmar",
+    "salween"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "bwaquatics",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 20,
           "max": 27
@@ -27,18 +37,48 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ]
   },
@@ -50,10 +90,22 @@
       "html": "<p>Microdevario kubotai, commonly known as Kubotai Rasbora or Microrasbora kubotai, is a small and colorful freshwater fish of the family Cyprinidae. It grows to a maximum size of around 2.5 to 4 cm (1 to 1.5 inches). Its small size makes it suitable for nano and small community aquariums.</p><p>Difficulty: intermediate. They are easy to keep once the aquarium is stable, but their small, delicate nature can make them difficult at times.</p><p>Appearance: the body is clear with a neon green glow that makes them stand out against the background.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<p>Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar. Relatively common in the ornamental trade, it is sold under names including 'green neon rasbora' and 'yellow neon rasbora'. It apparently inhabits calm to moderately-flowing, well-oxygenated headwaters and minor tributaries. In nature it typically occurs in groups of 20-50, and at least 8-10 are recommended.</p><p>Difficulty: moderate. Rated moderate because it needs a well-established tank and stable water.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
       "html": "<p>Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<p>Known from Ranong and Phang Nga provinces on the northwestern slope of peninsular Thailand and the Ataran River basin, a tributary within the Salween drainage in southern Myanmar which rises in Kanchanaburi province, western Thailand. It is likely to occur in other localities in the area between, and in Kanchanaburi an introduced population exists in the Songgaria River, upper Khwae Noi watershed. It has also been recorded in the Suriya (known as Hanthayaw in Myanmar) River basin, a headwater tributary of the Salween which rises in Tak province, Thailand.</p><p>Type locality is 'Khlong Phrae Sai at Ban Kreo Noi, kilometer 8 on road branching east, 32 kilometers north of Ranong on road from Ranong to Kra Buri (10°09'51\"N, 98°41'11'E), Ranong Province, Thailand'.</p>"
     },
     {
       "key": "habitat",
@@ -62,10 +114,34 @@
       "html": "<p>In their natural environment the water is clear, and the substrate is composed of fallen branches, leaf litter, gravel, rocks, and exposed bedrock forming submerged rocky outcrops around heavily vegetated margins.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<p>Apparently inhabits calm to moderately-flowing stretches of well-oxygenated headwaters and minor tributaries. Such habitats tend to comprise transparent water, substrates of sand, gravel, rocks, boulders, and patches of leaf litter, with submerged driftwood, roots of riparian vegetation, and aquatic vegetation in places.</p><p>In the Songgaria River the water is clear, substrate composed of fallen branches, leaf litter, gravel, rocks, and exposed bedrock forming submerged rocky outcrops around heavily-vegetated margins. Sympatric species include Batasio tigrinus, Badis khwae, Tetraodon leiurus, Rasbora, and Schistura species.</p><p>In the Suriya the water is well-oxygenated, slightly turbid and aquatic plants such as Cryptocoryne crispatula var. balansae and Pogostemon helferi grow in calmer zones. Other fishes include Chanda pulcinella, Botia kubotai, Acanthocobitis pictilis, Mustura maepaiensis, Homalopteroides modestus, Syncrossus berdmorei, Pangio fusca, Pethia stoliczkana, Crossocheilus burmanicus, Akysis vespa, Glyptothorax dorsalis, Amblyceps caecutiens, Batasio feruminatus, B. dayi, Caelatoglanis zonatus, Psilorhynchus robustus, and Tetraodon cutcutia.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<p>An aquarium with base dimensions measuring at least 60 × 30 cm is required (about 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<p>Looks particularly effective in a planted arrangement with a darker substrate, and can appear a little washed out in sparsely-decorated set-ups. Also thrives in a set-up designed to resemble a flowing river or stream with a substrate of variably-sized rocks and gravel and some large water-worn boulders. This could be further furnished with driftwood branches and plants such as Microsorum, Bolbitis or Anubias spp. grown attached to the décor.</p><p>Since it naturally inhabits running water this species should never be added to a biologically immature set-up as it requires stable water conditions, and weekly water changes of 30-50 % aquarium volume should be considered mandatory.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
       "html": "<ul><li>pH: 6.0 – 7.0</li><li>TDS: 18-179</li><li>Temperature: 20-27°C (70-82°F)</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<ul><li>Temperature: 20–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -80,38 +156,96 @@
       "html": "<p>In the wild, they feed on small invertebrates and insects. In the aquarium, they accept a variety of foods, including flake food, freeze-dried or frozen foods, and small live foods such as brine shrimp or daphnia.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<p>Likely to feed on small invertebrates, algae and other zooplankton in nature. In the aquarium it will accept dried foods of a suitable size but should mostly be offered small live and frozen fare such as Daphnia, Artemia, etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
       "html": "<p>Peaceful and social fish that do well in small groups of 6-8 individuals. They are active swimmers and spend most of their time in the middle and upper levels of the aquarium.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<p>Very peaceful but best maintained alone or with comparably-sized species that enjoy similar conditions.</p><p>Other small fishes from Thailand such as Boraras micros, B. naevus, Trigonostigma heteromorpha, T. espei, Acanthocobitis zonalternans, Acanthopsoides and Pangio spp. make excellent companions, and it might also do well alongside some species normally recommended for non-community aquaria such as Dario or smaller Betta.</p><p>It is a schooling species typically occurring in groups of 20-50 individuals in nature, therefore the purchase of at least 8-10 is recommended. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<p>Mature females tend to be deeper-bodied and noticeably larger than the more compact, intensely-coloured males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
       "html": "<p>Egg-layers; breeding can be difficult in captivity. They require very soft and acidic water, as well as a densely planted aquarium with fine-leaved plants such as Java moss.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<p>Has been bred successfully in aquaria. Like many small cyprinids Microdevario spp. scatter their eggs randomly, typically among aquatic vegetation, and do not exhibit parental care. If the fish are in good condition they will spawn often and in a mature planted aquarium it is possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield a slightly more controlled approach is required. The adult group can still be conditioned together but one or more smaller containers should also be set up and filled with aged water. Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved plant. Neither lighting nor filtration is necessary although a small air-powered sponge filter can be installed if you prefer.</p><p>When the adults are suitably-conditioned a single pair or group comprising several males and females is then introduced to each container; the more individuals involved the greater probability of egg predation.</p><p>The adults are best removed after 2-3 days as they will eat any eggs or fry they find. Incubation is temperature-dependent to an extent but normally around 72 hours with the young free-swimming 3-4 days later. Initial food should be 5-50 micron grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<p>M. kubotai is relatively common in the ornamental trade, and is sold under various names including 'green neon rasbora', 'yellow neon rasbora', 'Kubotai's microrasbora', and 'kubotai rasbora'.</p><p>It can be distinguished from its congeners by possession of hyaline dorsal and anal fins, 9-10 branched anal-fin rays, and 24-25 + 1 longitudinal scales.</p><p>The genus Microdevario was raised by Fang et al. (2009) after phylogenetic analyses revealed that some species formerly included in Microrasbora to be more closely allied with Devario and in need of reclassification. Microdevario is largely separated from Devario and other closely related genera such as Chela and Laubuca by virtue of internal characters but also the following: small adult size; anal and dorsal fins with concave-shaped distal margin; absence of barbels; absence of perforated scales; 9-10 branched anal-fin rays; 7 branched dorsal-fin rays; less abdominal than caudal vertebrae.</p><p>The evolutionary pathway leading to small adult size in Microdevario has been referred to as miniaturisation, characterised by sexually mature adults with a significantly reduced size of less than 20 mm SL. Among bony fishes cyprinids are one of the few groups in which this phenomenon occurs repeatedly across numerous genera. Most show a preference for still or slow-moving, often nutrient-poor, habitats such as forest peat swamps.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "html": "<ul><li>Conway, K. W., W.-J. Chen and R. L. Mayden (2008). The 'Celestial Pearl danio' is a miniature Danio (s.s) (Ostariophysi: Cyprinidae): evidence from morphology and molecules. Zootaxa 1686, 1-28</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Rüber, L. , M. Kottelat, H. H. Tan, P. K. L. Ng and R. Britz (2007). Evolution of miniaturization and the phylogenetic position of Paedocypris, comprising the world's smallest vertebrate. BMC Evolutionary Biology London 7(38), 1-10</li><li>Kottelat, M. and K.-E. Witte (1999). Two new species of Microrasbora from Thailand and Myanmar, with two new generic names for small southeast Asian cyprinid fishes (Teleostei: Cyprinidae). Journal of South Asian Natural History 4(1), 49-56</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Jiang, Y.-E., X.-Y. Chen and J.-X. Yang (2008). Microrasbora Annandale, a new genus record in China, with description of a new species (Teleostei: Cyprinidae). Environmental Biology of Fishes 83(3), 299-304</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/7306cf12e963af18.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7306cf12e963af18-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "caption": "Adult specimen from the Singapore aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/9536a7200592a208.webp",
+      "thumb": "https://media.aquatome.com/commons/9536a7200592a208-480.webp",
       "width": 800,
       "height": 415,
       "licence": "CC BY-SA 3.0",
       "author": "BottomDog",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microdevario_kubotai-hires.jpg",
-      "caption": "Microdevario kubotai",
-      "thumb": "https://media.aquatome.com/commons/9536a7200592a208-480.webp"
+      "caption": "Microdevario kubotai"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a614ef35f4e8daf4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a614ef35f4e8daf4-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
+      "caption": "At 3 weeks of age fry can be viewed without the aid of magnification.",
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/commons/ae4361b4800d06cd.webp",
+      "thumb": "https://media.aquatome.com/commons/ae4361b4800d06cd-480.webp",
       "width": 800,
       "height": 500,
       "licence": "CC BY-SA 3.0",
       "author": "Lerdsuwa",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microdevario_kubotai.jpg",
-      "caption": "Microdevario kubotai (Kottelat & Witte, 1999)",
-      "thumb": "https://media.aquatome.com/commons/ae4361b4800d06cd-480.webp"
+      "caption": "Microdevario kubotai (Kottelat & Witte, 1999)"
     }
   ],
   "videos": [
@@ -163,5 +297,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-01"
 }

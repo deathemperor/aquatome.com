@@ -78,6 +78,10 @@ if part pages; then
   pnpm engine summaries --top "${SUMMARY_LIMIT:-40}" --jobs 4 || log "summaries: failed (those pages show no summary yet)"
 fi
 if part sf && [ -z "${ENGINE_ARGS:-}" ]; then
+  # Species pages whose data card lacks a figure (minimum tank, temperature, pH, hardness, size, difficulty), most-read
+  # first: their Seriously Fish profiles, which give each figure and a tank as its base, read ahead of the backlog.
+  # CARD_FILL_LIMIT pages a cycle. A figure no published source states stays empty (card-fill.ts).
+  pnpm engine card-fill --sources seriouslyfish --limit "${CARD_FILL_LIMIT:-10}" || log "card-fill: failed"
   pnpm engine run --sources seriouslyfish --max-minutes "${ENGINE_MAX_MINUTES:-300}"
 fi
 if part photos; then
@@ -93,7 +97,9 @@ if part pages sf photos; then
   pnpm engine faces || log "faces: failed (unscreened photos may publish)"
 fi
 if part photos; then
-  # Every page photo must show its species (a tankmate or a whole tank gets rejected); a typical photo leads the page.
+  # Every photo on a species, plant or breed page and its gallery must show that subject (another fish, a map or a tank
+  # gets removed; can't-tell is listed in docs/review/photo-subjects.md); a typical photo leads the page. Most-read pages
+  # first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
   # and plants: iNaturalist, then Commons, GBIF, Openverse; open licences, screened (right species, no faces). GALLERY_SHEETS

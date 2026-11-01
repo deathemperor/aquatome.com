@@ -1,14 +1,14 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
-import { tankIsVolume } from './card-facts'
+import { shownCard } from './card-facts'
 import { setsCookies } from './thumb'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
 import { BreedSchema, CaptionsSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
-import type { BreedEntity, ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
 /** The market (prices, shops) each site language serves. */
@@ -93,13 +93,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
   const cleanPhotos = <P extends Photo>(xs: P[]): P[] => xs.filter(p => (p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)) && !(publicBuild && setsCookies(p.url))).map(caption)
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
-  const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] =>
-    Object.fromEntries(
-      Object.entries(card)
-        .map(([field, values]) => [field, (values ?? []).filter(v => allowed(v.source)
-          && !(field === 'tankCm' && typeof v.value === 'number' && tankIsVolume(sections.filter(s => s.source === v.source).map(s => s.html).join('\n'), v.value)))] as const)
-        .filter(([, values]) => values.length > 0),
-    ) as Partial<Record<DataCardField, SpeciesEntity['dataCard'][DataCardField]>>
+  const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] => shownCard(card, sections, s => allowed(s as SourceId))
 
   /** Page quality counts only the sources this build may show. */
   const cleanQuality = <E extends { t: Translation }>(x: E): E => {

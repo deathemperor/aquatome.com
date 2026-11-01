@@ -9,7 +9,8 @@
     "asia",
     "indonesia",
     "kalimantan",
-    "malaysia"
+    "malaysia",
+    "batang-hari"
   ],
   "dataCard": {
     "tempC": [
@@ -18,6 +19,13 @@
         "value": {
           "min": 24,
           "max": 29
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
         }
       }
     ],
@@ -28,6 +36,13 @@
           "min": 6,
           "max": 7.5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
       }
     ],
     "gh": [
@@ -37,24 +52,43 @@
           "min": 5,
           "max": 15
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
         "value": 30
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 40
       }
     ],
     "tankCm": [
       {
         "source": "sprucepets",
         "value": 120
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 180
       }
     ],
     "difficulty": [
       {
         "source": "sprucepets",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -66,10 +100,22 @@
       "html": "<ul><li><strong>Common name:</strong> Clown loach</li><li><strong>Scientific name:</strong> Botia macracantha</li><li><strong>Family:</strong> Cobitidae</li><li><strong>Origin:</strong> Indonesia</li><li><strong>Adult size:</strong> 12 inches (about 30 cm)</li><li><strong>Life expectancy:</strong> 10 to 25 years</li><li><strong>Social:</strong> Peaceful</li><li><strong>Tank level:</strong> Bottom</li><li><strong>Minimum tank size:</strong> 100 gallons (about 380 litres)</li><li><strong>Diet:</strong> Carnivore</li><li><strong>Breeding:</strong> Spawners (rarely bred in captivity)</li><li><strong>Care:</strong> Moderately difficult</li><li><strong>pH:</strong> 6 to 7.5</li><li><strong>Hardness:</strong> 5 to 15 dH</li><li><strong>Temperature:</strong> 24 to 29 °C (75 to 85 °F)</li></ul><p>Clown loaches are peaceful schooling fish that grow up to 12 inches long and can live for 10 to 25 years. They are native to Indonesia and prefer shaded, slow-moving waters with plenty of hiding spots. They can be sensitive to water quality and prone to Ich infections, needing clean, well-aerated, and warm water.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<ul><li>Difficulty: moderate; needs a very large tank, a group, careful choice of tankmates and a well-established tank</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
       "html": "<p>Virtually all clown loaches sold for aquaria are captured in the wild. When buying clown loaches, select only those with bright colors and those that are at least a few inches long. At the store, look carefully at the tank to be sure it is well kept and that the fish seem comfortable and healthy. If you see any dead fish, steer clear of that tank; there is a good chance you'll be buying a loach that is already infected with Ich parasites.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>The clown loach, Chromobotia macracanthus, is a large botiid loach native to river systems of Borneo and Sumatra in Indonesia. Widely sold, it is wholly unsuitable for smaller aquaria: a group needs a tank of at least 180 x 60 cm, and a properly kept fish can live for more than twenty years. Bornean and Sumatran populations differ slightly in pattern, and in the Batang Hari, Sumatra, drifting larvae are now collected and grown on for the trade.</p>"
     },
     {
       "key": "distribution",
@@ -78,10 +124,22 @@
       "html": "<p>The clown loach hails from the rivers and tributaries of Malaysia, Borneo, Sumatra, and Kalimantan. It is eaten as a food fish in Indonesia and Borneo, where it grows to over a foot in length.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<p>Native to the Greater Sunda Islands of Borneo and Sumatra. In the former it's restricted to river systems of Kalimantan Barat (West Kalimantan), Kalimantan Tengah (Central Kalimantan) and Kalimantan Timur (East Kalimantan) provinces in the Indonesian portion including the Kapuas and Kayan.</p><p>In Sumatra it's found in eastern and southern drainages of Jambi, Sumatera Selatan (South Sumatra) and Lampung provinces including the Batang Hari, Musi and Tulang Bawang.</p><p>The type series was collected from 'Palembang' and 'Kwanten' on Sumatra, the former most likely referring to the Musi River and the latter to modern day Kuantan Singingi, Riau province meaning the Indragiri River basin was the probable collection locality.</p><p>Populations from the two islands are known to exhibit differences in genetic structure, patterning (see 'Notes') and adult size, and it's been suggested that these may turn out to be distinct species if a detailed study was conducted.</p>"
+    },
+    {
       "key": "habitat",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
       "html": "<p>During spawning periods, they migrate to flooded areas of the rainforest where soft, tea-colored water flows through boggy, slow-moving streams. This loach prefers waterways that are shaded by leafy plants and lined with plant detritus, such as fallen leaves, twigs, and branches.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<p>Mostly inhabits main river channels but migrates upstream into smaller tributaries to spawn during the wet season, when some areas become temporarily flooded.</p><p>The fish are therefore found in different habitat-types depending on the time of year, and the habitats themselves also vary; water flow and depth tend to increase significantly during the wet season, for example. Turbidity and pH typically also rise during this time while water temperature drops.</p><p>Age also plays a part, with juveniles remaining in the floodplain breeding grounds for several months whereas the adults typically return to the main rivers post-spawning with very old individuals probably not migrating at all.</p><p>The majority of its native rivers contain soft, tea-coloured water and pass through areas of rainforest, although much of what once existed has now been degraded.</p><p>In the floodplain swamp forests marginal vegetation is normally thick with shade provided by the forest canopy above. Substrate consists largely of detritus and leaf litter with submerged tree roots, trunks, patches of previously emerse vegetation, while the water tends to be almost still.</p><p>Fish species diversity in these zones is typically quite high as many move here to feed and spawn, and in an article published in 2009 by the German magazine 'Amazonas' Hans-Georg Evers recorded no less than 40 in the floodplain of the Sungai (river) Pijoan, part of the lower Batang Hari drainage.</p><p>Among these were several known to the aquatic trade, including Brevibora dorsiocellata, R. einthovenii, Trigonopoma pauciperforatum, Trigonostigma hengeli, Betta falx, Luciocephalus pulcher, L. aura, Nandus nandus, Chaca bankanensis, Mystus spp. and many more.</p><p>In the main river channels the story is rather different; these can flow swiftly during the wet season, less so during the dry months, and submerged vegetation is uncommon. Here larger, pelagic species from genera such as Barbonymus, Labeo and Pangasius can be found.</p>"
     },
     {
       "key": "aquariumSize",
@@ -90,16 +148,34 @@
       "html": "<p>Clown loaches are large schooling fish, and they are quite active. You will need a large tank with plenty of space for your loaches to move around. Minimum tank size: 100 gallons.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<ul><li>Standard length: 40 cm SL</li><li>Aquarium base: 180 × 60 cm</li><li>Volume: ~648 litres</li></ul><p>A tank with base measurements of 180 × 60 cm or equivalent is the absolute minimum required to house a group, and young specimens should only be grown on in smaller aquaria if several partial water changes are conducted each week.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
       "html": "<p>Each and every loach should have several hiding spots available; loaches love enclosed spaces and will sometimes \"hide\" in caves, tubes, and other hidey-holes. Hiding places can be made of wood or rock; strong, sturdy plants are also a good addition.</p><p>Maintaining excellent water quality is crucial for clown loach health. Ensure the water is clean, well-aerated, and warm by using an efficient filtration system and conducting frequent water changes. Keep tank lighting subdued, and use a soft, sandy substrate to mimic their natural habitat.</p><p>Loaches are particularly prone to Ich infections; watch them closely whenever new fish or plants are added to the tank. If an infection does occur, keep in mind that loaches, like catfish, are very sensitive to some medications. Often medication dosages must be cut in half to be safe. Read product information carefully before treating any loach.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<p>All botiids need a well-structured set-up although the actual choice of décor is more-or-less down to personal taste.</p><p>A natural-style arrangement could include a substrate of sand or fine gravel with lots of smooth, water-worn rocks and pebbles plus driftwood roots and branches.</p><p>Lighting can be relatively subdued and plants able to grow in such conditions like Microsorum pteropus (Java fern), Taxiphyllum barbieri ('Java' moss) or Anubias spp. can be added if you wish. These have an added benefit as they can be attached to pieces of décor in such a way as to provide useful shade.</p><p>Otherwise be sure to provide plenty of cover as botiids are inquisitive and seem to enjoy exploring their surroundings. Rocks, wood, flower pots and aquarium ornaments can be used in whichever combination to achieve the desired effect.</p><p>Bear in mind that they like to squeeze themselves into small gaps and crevices so items with sharp edges should be omitted, and any gaps or holes small enough for a fish to become trapped should be filled in with aquarium-grade silicone sealant. A tightly-fitting cover is also essential as these loaches do jump at times.</p><p>Although botiids don't require turbulent conditions they do best when the water is well-oxygenated with a degree of flow, are intolerant to accumulation of organic wastes and require spotless water in order to thrive.</p><p>For these reasons they should never be introduced to biologically immature set-ups and adapt most readily to stable, mature aquaria. In terms of maintenance weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
       "html": "<p>pH 6 to 7.5; hardness 5 to 15 dH; temperature 24 to 29 °C (75 to 85 °F).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<ul><li>Temperature: 24–30°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -114,10 +190,22 @@
       "html": "<p>Clown loaches enjoy a varied diet, with a preference for live foods like worms. They can also eat earthworms, but ensure these come from pesticide-free soil to avoid potential toxins. Ideally, feed them several small meals throughout the day. Clown loaches will even eat any annoying snails that wind up in your aquarium.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<p>Appears to be chiefly carnivorous; it will also eat vegetative matter if available, often including soft-leaved aquatic plants. The natural diet comprises aquatic molluscs, insects, worms, and other invertebrates.</p><p>In captivity it's a largely unfussy feeder but must be offered a varied diet comprising quality dried products, live or frozen bloodworm, Tubifex, Artemia, etc., plus fresh fruit and vegetables such as cucumber, melon, blanched spinach, or courgette.</p><p>Home-made foods using a mixture of natural ingredients and bound with gelatin are also highly recommended.</p><p>Chopped earthworm can also provide a useful source of protein but should be used sparingly, and while it will also prey on aquatic snails it should never be considered the answer to an infestation since it is not an obligate molluscivore.</p><p>Once settled into an aquarium it's a bold feeder and will often rise into midwater at meal times.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
       "html": "<p>Peaceful with its own and other species, the clown loach prefers to have companions with which it will form a school. Virtually all non-aggressive fish are suitable as tankmates. Because they prefer to live in groups, it's wise to keep four or more in a tank. They don't like bright light, will hide among plants or rocks, and sleep in holes, caves, and other hiding places.</p><p>Unlike many loach species that are only active at night, the clown loach can be active during the daytime hours, though it's likely to be most lively in the early morning and after dark. A blue \"moonlight\" bulb will encourage your fish to come out to hunt during the day.</p><p>Like all loaches, it has a sharp spine beneath each eye. These spines are used for defense; in captivity, they may prick fingers or snag on nets, so be careful when handling your loach.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<p>Not especially aggressive but don't keep it with much smaller fishes as they may be intimidated by its size and sometimes very active behaviour.</p><p>Slow-moving, long-finned species such as ornamental bettas, guppies and many cichlids should also be avoided as trailing fins can be nipped.</p><p>More suitable tankmates include peaceful, open water-dwelling cyprinids, while in larger tanks members of Barilius, Luciosoma, Balantiocheilos and Barbonymus become options.</p><p>In terms of other bottom-dwellers it will do well alongside most other botiids. Some cobitid and nemacheilid loaches are also possibilities as are members of Epalzeorhynchos, Crossocheilus and Garra and many catfishes.</p><p>As always, thorough research prior to selecting a community of fishes is the best way to avoid problems.</p><p>C. macracanthus is gregarious, forms complex social hierarchies and should be maintained in groups of at least 5 or 6 specimens, preferably 10 or more.</p><p>When kept singly it can become withdrawn or aggressive towards similarly-shaped fishes, and if only a pair or trio are purchased the dominant individual may stress the other(s) to the extent that they stop feeding.</p><p>That said it seemingly requires regular contact with conspecifics, a fact exemplified by a number of behavioural rituals which have been recorded consistently in aquaria (see 'Notes').</p>"
     },
     {
       "key": "dimorphism",
@@ -126,19 +214,65 @@
       "html": "<p>Males can be identified by the tail fin, which is larger, forming a more pointed V-shape, and is more brightly colored.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<p>Adult females are normally fuller-bodied and larger than comparably-aged males. Some theories suggest that males also possess a more deeply forked caudal fin but this is unproven as far as we know.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
       "html": "<p>Clown loaches rarely breed in captivity. If a female does spawn in an aquarium, there is an excellent chance that the eggs will not be fertilized and that she or the males will eat the eggs before they hatch. There are very few documented cases of breeding in captivity, so very little is known about their breeding habits and needs.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<p>In nature this species is a migratory spawner, moving from the main river channels into smaller tributaries with surrounding, temporarily inundated flood plains during the rainy season.</p><p>These movements usually begin in September with spawning typically occurring in late September/early October, though the timing of this is beginning to shift with the changing climate.</p><p>The eggs drift and come to settle in the riparian vegetation and there the initially pelagic larvae spend their early days feeding on micro-organisms. Some drift too far, enter the main rivers and are eventually swept out to sea, and modern-day native fishermen have come to take advantage of this phenomenon (see 'Notes').</p><p>The remaining fry stay in the flooded areas until the waters begin to recede at which point they typically measure around 30 mm SL.</p><p>They then move into the smaller tributaries until large enough to complete their passage into the major channels where they remain until sexually mature and able to undertake spawning migrations of their own.</p><p>There exist reports suggesting that the Bornean populations inhabiting permanent waters such as the Danau Sentarum lake system do not perform such migrations although this has not been confirmed definitively.</p><p>At one time all traded fish were wild-collected, mostly from Sumatra, but these days the situation is less clear. While many thousands of wild specimens are still caught and sold annually, farmers in Southeast Asia have been artificially breeding the species via the use of hormones for several years.</p><p>More recently breeders from the Czech Republic and other parts of Eastern Europe have perfected a similar technique which has seen the price of the once-expensive captive-bred fish drop considerably.</p><p>Unfortunately this practice has been taken to a different level in recent years with an apparent hybrid between a Botia species (probably a form of B. histrionica) and C. macracanthus appearing on the market as well as others with questionable body shapes or markings.</p><p>Aquarium breeding by private hobbyists remains unheard of and undocumented which given the complexity of the species' natural reproductive cycle is perhaps unsurprising.</p><p>It's often been said that the reason for the lack of success is that immature animals were being used and that the species requires many years to become sexually mature, but this would appear not to be the case.</p><p>In nature the specimens undertaking annual spawning migrations average 12–20 cm SL, and the species seems to become sexually mature at 12–15 cm. Larger individuals appear not to migrate and remain in the primary river channels year-round, suggesting they don't spawn beyond a certain age.</p><p>The only substantial observations in private aquaria known were made by forum member Colin Dunlop who noticed his group of four adult fish (three males and a single female) swimming in a 'diamond' formation with the female at the head in one of his large stock tanks.</p><p>The fish were removed and placed in a separate, smaller tank with plastic grating covering part of the base and some lengths of plastic piping. Water temperature was 26°C and pH 4.5, the latter lowered using hydrochloric acid.</p><p>After several days Colin noticed \"thousands\" of eggs on the base of the tank, and on close inspection all four fish were found to be crammed into a single piece of piping out of which hundreds more eggs were falling.</p><p>The vast majority fungussed immediately with the others proving infertile shortly after, the general consensus being that moving the fish stressed them and caused the female to expel the eggs without being prompted by the males.</p>"
+    },
+    {
       "key": "notes",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
       "html": "<p>The clown loach has a long, pointed nose surrounded by sensitive barbels. Its arched body is long and lean. The body is bright orange to yellow, and the fins and tail are bright red. It has two wide, black V-shaped bands on the sides of the body and a third black band running vertically through the eye. It is sometimes called a scaleless fish, but it actually has small scales embedded in its skin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<p>Etymology: Chromobotia comes from the Greek khroma, meaning 'colour', and the generic name Botia, in reference to this species' bright colour pattern.</p><p>This species is arguably one of the most misunderstood in the hobby since it's wholly unsuitable for smaller aquaria despite its ubiquitous availability.</p><p>Most retailers sell it without providing what should be considered essential information regarding long-term care and most specimens undoubtedly fail to reach their potential in captivity. The purchase of a group is also a considerable investment given that if properly cared for typical life span is in excess of twenty years.</p><p>Populations from Borneo and Sumatra are documented to exhibit slight differences in patterning, the most obvious being the presence of black colouration in the pelvic fins of Bornean fish, almost completely black in some specimens.</p><p>In contrast the fins of Sumatran examples are a uniform reddish colour. The black band on the caudal peduncle also tends to terminate closer to the fin itself in Bornean than Sumatran fish.</p><p>A further observation is that in some Bornean individuals the dark bands on the body develop thin, pale borders although it is unclear whether this is specific to fish inhabiting a particular river drainage, an artefact of age or something else.</p><p>The two populations are thought to have diverged from one another around 9.5 million years ago and 'reintroduction' of specimens from Sumatra to Kalimantan in order to rebuild stocks may have already resulted in hybridisation within the native populations there.</p><p>It's now illegal to collect large specimens in Indonesia and annual catches of smaller fish have declined greatly, so native fishermen in some areas have been forced to change their tactics in order to keep trading. Traditionally the most common collection technique involves using lengths of bamboo with openings cut into each segment.</p><p>These are normally weighted with stones to make them sink and hung from overhanging or marginal vegetation. The loaches take refuge in these at night and the fishermen return during hours of darkness to collect them.</p><p>Smaller specimens of 2–8 cm have been collected in this way for many years, usually during the month of February, but numbers have fallen away sharply since the turn of the century.</p><p>In the Batang Hari river, Sumatra, a different technique now represents the most productive method of collection.</p><p>Here C. macracanthus appears to spawn not only in the flooded tributaries but in the plains surrounding the river itself, and local fishermen now collect the pelagic larvae which drift into the main river channel and grow them on to sell to middlemen or larger distributors. Perhaps as many as 10,000,000 specimens are raised and shipped from the area in this way each year.</p><p>C. macracanthus was for many years included in the genus Botia, but in 2004 Kottelat moved it into the new genus Chromobotia in order to tidy up a loose end left open by earlier studies, particularly one published by Nalbant (2002). The main distinguishing features useful to aquarists are the unique colour pattern and adult size.</p><p>The family Botiidae has been widely considered a genetically distinct grouping since Nalbant (2002), having previously been considered a subfamily (Botiinae) of the family Cobitidae. Later Kottelat (2004) raised Chromobotia for B. macracanthus, and Kottelat (2012) erected the genus Ambastaia.</p><p>Some behavioural routines exhibited by botiid species have been recorded often enough that they've been assigned non-scientific terms for ease of reference.</p><p>For example during dominance battles (these occur most frequently when the fish have been introduced to a new tank, or new individuals added to an existing group) the protagonists normally lose much of their body patterning and colouration, a phenomenon that's come to be known as 'greying out'. Such displays will sometimes also happen within an established group as individuals seek to improve social ranking but are usually nothing to worry about.</p><p>Interestingly some observations suggest that the character of the highest-ranked, or alpha, fish appears to affect that of the whole group though it must be said that scientific studies of botiid loach behaviour are virtually non-existent. It certainly seems that they display a degree of 'personality' with some specimens being naturally bolder or more aggressive than others. The alpha is normally the largest specimen within the group and often female.</p><p>'Shadowing' is an interesting behaviour in which younger individuals swim flank-to-flank with older, mimicking their every movement. Some keepers report that more than one smaller fish may shadow a larger simultaneously, with even three or four on each side! The reason for it is unknown; it may relate to a group staying in touch with one another when rivers swell during times of flooding, perhaps reducing drag by swimming 'in formation' or having some other communicative function. It's been observed in aquaria with both high and low water flow and seems to be habitual to the extent whereby some individuals will shadow other fishes if no conspecifics are present.</p><p>Sound also appears to be an important factor in communication since these loaches are able to produce audible clicking sounds, these increasing in volume when the fish are excited. The sounds are thought to be produced by grinding of the pharyngeal (throat) teeth or subocular spines.</p><p>A further curiosity is the so-called 'loachy dance' which involves an entire group swimming in a constant, restless fashion around the sides of the tank, usually utilising the full length and height. The reasons for this are unknown but the most common triggers appear to be the addition of food, fresh water or new conspecifics, and it can last anything from a few minutes to a day or more.</p><p>Botiids also often settle at peculiar angles, wedged vertically or sideways between items of décor, or even lying flat on the substrate. This is no cause for alarm and appears to be a natural resting behaviour.</p><p>C. macracanthus also possesses sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g., if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and those of larger specimens can break human skin.</p><p>Botiids are also susceptible to a condition commonly referred to as 'skinny disease' and characterised by a loss of weight. This is especially common in newly-imported specimens and is thought to be caused by a species of the flagellate genus Spironucleus. It's treatable although the recommended medication varies depending on country. Hobbyists in the UK tend to use the antibiotic Levamisole and those in the United States Fenbendazole (aka Panacur).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "html": "<ul><li>Bleeker, P. (1852). Diagnostische beschrijvingen van nieuwe of weinig bekende vischsoorten van Sumatra. Tiental I - IV. Natuurkundig Tijdschrift voor Nederlandsch Indië 3, 569-608</li><li>Evers, H-G. (2009). Auf nach Jambi! Prachtschmerlen in ihrem natürlichen Lebensraum. Amazonas 24, 18-27</li><li>Evers, H-G. (2009). Neue Wege - Prachtschmerlenfang einmal anders. Amazonas 24, 28-37</li><li>Kottelat, M. (2004). Botia kubotai, a new species of loach (Teleostei: Cobitidae) from the Ataran River basin (Myanmar), with comments on botiine nomenclature and diagnosis of a new genus. Zootaxa 401, 1-18</li><li>Nalbant, T. T. (2002). Sixty million years of evolution. Part one: family Botiidae (Pisces: Ostariophysi: Cobitoidea). Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 44, 309-333</li><li>Nalbant, T. T. (2004). Hymenphysa, Hymenophysa, Syncrossus, Chromobotia and other problems in the systematics of Botiidae. A reply to Maurice Kottelat. Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 47, 269-277</li><li>Šlechtová, V., J. Bohlen, J. Freyhof and P. Ráb (2006). Molecular phylogeny of the Southeast Asian freshwater fish family Botiidae (Teleostei: Cobitoidea) and the origin of polyploidy in their evolution. Molecular Phylogenetics and Evolution 39(2), 529-541</li><li>Tang, Q., B. Xiong, X. Yang and H. Liu (2005). Phylogeny of the East Asian botiine loaches (Cypriniformes, Botiidae) inferred from mitochondrial cytochrome b gene sequences. Hydrobiologia 544(1), 249-258</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/964011655bf86bec.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/964011655bf86bec-480.webp",
+      "width": 800,
+      "height": 534,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "caption": "Subadult specimen of C. macracanthus - Bornean form.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bdec424bc489bdb2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bdec424bc489bdb2-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "caption": "Juvenile of the Bornean form.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/1c49d9d1db6606f6.webp",
       "thumb": "https://media.aquatome.com/sprucepets/1c49d9d1db6606f6-480.webp",
@@ -149,6 +283,28 @@
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
       "caption": "Clown loach",
       "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/37dce95b637e2eaf.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/37dce95b637e2eaf-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "caption": "The standard striped patterning can vary considerably. Image shows a juvenile of the Sumatran form.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/56022faeeffe5eab.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/56022faeeffe5eab-480.webp",
+      "width": 800,
+      "height": 656,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
+      "caption": "Two unusually-marked Sumatran specimens 'greying out'.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [
@@ -207,5 +363,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-01"
 }
