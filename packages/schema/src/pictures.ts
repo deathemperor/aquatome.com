@@ -11,10 +11,15 @@ export type PictureHashes = Record<string, string>
 /** At most this many bits apart: the same picture (near-copies differ in a few, other photos in about 30). */
 export const SAME_PICTURE = 6
 
+/** Bits set in a 32-bit number. */
+const bits = (x: number) => {
+  x -= (x >>> 1) & 0x55555555
+  x = (x & 0x33333333) + ((x >>> 2) & 0x33333333)
+  return Math.imul((x + (x >>> 4)) & 0x0f0f0f0f, 0x01010101) >>> 24
+}
+/** How many bits two hashes (16 hex digits) differ in. In 32-bit halves: a page compares each picture with every one it shows. */
 export function hashDistance(a: string, b: string): number {
-  let x = BigInt(`0x${a}`) ^ BigInt(`0x${b}`), n = 0
-  for (; x; x >>= 1n) n += Number(x & 1n)
-  return n
+  return bits(parseInt(a.slice(0, 8), 16) ^ parseInt(b.slice(0, 8), 16)) + bits(parseInt(a.slice(8), 16) ^ parseInt(b.slice(8), 16))
 }
 
 const YOUTUBE = /^https?:\/\/i\d?\.ytimg\.com\/vi(?:_webp)?\/([^/]+)\//
