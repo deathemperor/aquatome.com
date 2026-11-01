@@ -327,14 +327,14 @@ final class LightFlowTests: XCTestCase {
     let low = element(app, "master").value as? String
     XCTAssertFalse(["70%", "0%"].contains(low ?? ""), "the brightness at \(low ?? "?"), not low and above 0")
     XCTAssertTrue(element(app, "look-red").isSelected, "the mix changed with the brightness (at \(low ?? "?"))")
-    scrolledTo(app, "master").adjust(toNormalizedSliderPosition: 1)
+    slideToEnd(app, "master")
     expect(app, "master", value: "100%")
     expect(app, "level-0", value: "100%")
     expect(app, "level-1", value: "80%")
     expect(app, "level-2", value: "75%")
     XCTAssertTrue(element(app, "look-red").isSelected, "the mix changed with the brightness")
     // One colour by hand: no look any more, and the brightness is the brightest channel's.
-    scrolledTo(app, "level-1").adjust(toNormalizedSliderPosition: 1)
+    slideToEnd(app, "level-1")
     expect(app, "level-1", value: "100%")
     expect(app, "master", value: "100%")
     XCTAssertFalse(element(app, "look-red").isSelected, "a look marked for a mix of its own")
@@ -515,6 +515,15 @@ final class LightFlowTests: XCTestCase {
 
   /// Scrolled until `e` is clear of the navigation bar above and the status bar pinned below (the content scrolls under
   /// both), however tall the notice in it is.
+  /// A slider dragged to 100%. A drag is only "best effort" (XCUIElement): one aimed at the end stopped at 87% on CI, so
+  /// it is dragged again, at most three times, until the slider reads 100%.
+  private func slideToEnd(_ app: XCUIApplication, _ id: String) {
+    for _ in 0..<3 {
+      scrolledTo(app, id).adjust(toNormalizedSliderPosition: 1)
+      if element(app, id).value as? String == "100%" { return }
+    }
+  }
+
   private func scrolledTo(_ app: XCUIApplication, _ id: String) -> XCUIElement {
     let e = element(app, id)
     _ = e.waitForExistence(timeout: 2) // it may still be appearing
