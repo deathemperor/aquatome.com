@@ -6,7 +6,7 @@ import { setsCookies } from './thumb'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese } from './text'
-import { BreedSchema, CaptionsSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { BreedSchema, CaptionsSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { BreedEntity, ChangelogEntry, DataCardField, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
@@ -64,7 +64,9 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
 export async function loadAll(opts: LoadOptions): Promise<Content> {
   const { root, lang, publicBuild } = opts
   const sources = await readJson(join(root, 'sources.json'), SourcesSchema)
-  const allowed = (s: SourceId) => !publicBuild || sources[s]?.publish === true
+  // Text, and everything written from it (sections, guides, card values, quality, changelog); photos have their own gate.
+  const allowed = (s: SourceId) => !publicBuild || mayPublish(sources[s], 'text')
+  const photoAllowed = (s: SourceId) => !publicBuild || mayPublish(sources[s], 'photos')
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
   // Captions written in Vietnamese (galleries, breed photos) are shown in this language from content/captions/<lang>.json;
   // one not translated yet is left off, so the photo's alt text falls back to the page's name.
@@ -78,7 +80,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   /** Photos copied from a source follow that source's publish gate; others need an open licence. */
   // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
-  const cleanPhotos = (xs: Photo[]) => xs.filter(p => (p.source ? allowed(p.source) : isAllowedLicence(p.licence)) && !(publicBuild && setsCookies(p.url))).map(caption)
+  const cleanPhotos = (xs: Photo[]) => xs.filter(p => (p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)) && !(publicBuild && setsCookies(p.url))).map(caption)
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] =>
     Object.fromEntries(

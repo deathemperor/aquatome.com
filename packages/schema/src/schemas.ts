@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'youtube', 'aquatome'] as const
+export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome'] as const
 export const LANGS = ['vi', 'id', 'th'] as const
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
@@ -170,10 +170,17 @@ export const ChangelogEntrySchema = z.object({
 })
 export const ChangelogSchema = z.array(ChangelogEntrySchema)
 
+/**
+ * `publish`: true once the written permission covers the source's text and photos; `'photos'` when it covers only photos
+ * (Diễn Đàn Cá Cảnh): a public build shows its photos, and nothing written from its text (sections, guides, card values).
+ */
 export const SourceInfoSchema = z.object({
-  name: z.string(), homepage: z.string(), publish: z.boolean(),
+  name: z.string(), homepage: z.string(), publish: z.union([z.boolean(), z.literal('photos')]),
   permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()) }).optional(),
-}).refine(s => !s.publish || s.permission !== undefined, { message: 'publish: true requires a permission record', path: ['permission'] })
+}).refine(s => !s.publish || s.permission !== undefined, { message: 'publish requires a permission record', path: ['permission'] })
+/** What a public build may show from a source: its text (and what is written from it), or its photos. */
+export const mayPublish = (info: { publish?: boolean | 'photos' } | undefined, what: 'text' | 'photos') =>
+  info?.publish === true || (what === 'photos' && info?.publish === 'photos')
 export const SourcesSchema = z.partialRecord(SourceId, SourceInfoSchema)
 
 export const schemas = { Range, SourcedValue, Section, Photo, Video, ProductSlot }
