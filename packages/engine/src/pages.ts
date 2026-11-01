@@ -23,6 +23,10 @@ export type Page = {
   sci?: string
   latinNames: string[]
   card: CardValue[]
+  /** Species and plants: the English each section was translated from, by field. */
+  en?: Record<string, string>
+  /** Guides: the source page they were written from. */
+  origin?: { source: string; url: string }
 }
 
 /**
@@ -68,12 +72,14 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
     ...c.species.map(s => ({
       ...base('species', s.id, s.t.slug, s.t.name), ...textOf(s.t, s.t.sections),
       captions: captionsOf([...s.photos, ...(c.galleries[s.id] ?? [])]), sci: s.scientificName, latinNames: latin(s.t.altNames), card: card(s.dataCard),
+      en: Object.fromEntries(s.sections.map(x => [`sections.${x.key}:${x.source}`, x.html])),
     })),
     ...c.plants.map(p => ({
       ...base('plants', p.id, p.t.slug, p.t.name), ...textOf(p.t, p.t.sections),
       captions: captionsOf([...p.photos, ...(c.galleries[p.id] ?? [])]), sci: p.scientificName, latinNames: latin(p.t.altNames), card: [],
+      en: Object.fromEntries(p.sections.map(x => [`sections.${x.key}:${x.source}`, x.html])),
     })),
-    ...c.guides.map(g => ({ ...base('guides', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: captionsOf(g.photos), latinNames: [], card: [] })),
+    ...c.guides.map(g => ({ ...base('guides', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: captionsOf(g.photos), latinNames: [], card: [], origin: { source: g.source, url: g.sourceUrl } })),
     ...c.breeds.map(b => ({
       ...base('breeds', b.id, b.t.slug, b.t.name), ...textOf(b.t), captions: captionsOf(b.photos), latinNames: [],
       card: Object.entries(b.care).flatMap(([field, vs]) => (vs ?? []).map(v => ({ field: field as DataCardField, source: `source ${v.source + 1}`, value: v.value }))),

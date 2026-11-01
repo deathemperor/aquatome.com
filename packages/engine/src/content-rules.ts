@@ -207,6 +207,9 @@ export function otherFish(caption: string, sci: string, others: string[], ctx: C
   return other ? `${other[1]} ${other[2]}` : undefined
 }
 
+/** A caption saying the picture is a map ("Belontia signata map", "bản đồ phân bố"). */
+const MAP = /(?<!\p{L})(map|range map|bản đồ|peta|แผนที่)(?!\p{L})/iu
+
 const range = (v: number | { min: number; max: number }) => (typeof v === 'number' ? `${v}` : `${v.min}–${v.max}`)
 const firstFew = (xs: string[], n = 3) => [...xs.slice(0, n).map(s => `"${s}"`), ...(xs.length > n ? [`and ${xs.length - n} more`] : [])]
 
@@ -280,11 +283,12 @@ export const RULES: Rule[] = [
   },
   {
     // The photos are the same in every language: checked on the Vietnamese page.
-    id: 'caption', title: 'A photo caption naming another fish',
-    about: 'A species or plant photo whose caption names a different species and not the page\'s: the photo may show the wrong fish (`pnpm engine check-photos --only <id>` looks again). Checked on the Vietnamese page; the photos are the same in every language.',
+    id: 'caption', title: 'A photo caption naming another fish, or a map',
+    about: 'A species or plant photo whose caption names a different species and not the page\'s, or says it is a map: the photo may not show the fish (`pnpm engine check-photos --only <id>` looks again). Checked on the Vietnamese page; the photos are the same in every language.',
     check: (p, ctx) => (!p.sci || p.lang !== 'vi' ? [] : [...new Set(p.captions.flatMap(c => {
       const other = otherFish(c.caption, p.sci!, p.latinNames, ctx)
-      return other ? [`${other}: "${clip(c.caption, 80)}"`] : []
+      // Found by the reader's eye (2026-11-01): "Pterophyllum scalare map" shown as a photo of the fish.
+      return [...(other ? [`${other}: "${clip(c.caption, 80)}"`] : []), ...(MAP.test(c.caption) ? [`a map, not the fish: "${clip(c.caption, 80)}"`] : [])]
     }))]),
   },
   {

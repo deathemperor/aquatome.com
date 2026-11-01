@@ -95,6 +95,11 @@ test('a caption naming another fish, and not the page\'s own under another spell
   expect(otherFish('Các nhánh Rêu tản Riccardia chia thùy rõ nét', 'Riccardia multifida', [], ctx)).toBeUndefined()
 })
 
+test('a map shown as a photo of the fish, in a caption', () => {
+  const p = page({ kind: 'species', sci: 'Pterophyllum scalare', captions: [{ url: 'a', caption: 'Pterophyllum scalare map' }, { url: 'b', caption: 'Bản đồ phân bố' }, { url: 'c', caption: 'A pair mapping out a territory' }] })
+  expect(found(p, 'caption')).toEqual(['a map, not the fish: "Pterophyllum scalare map"', 'a map, not the fish: "Bản đồ phân bố"'])
+})
+
 test('data card: outside bounds, upside down, a tank shorter than twice the fish; checked once, on the Vietnamese page', () => {
   const card: Page['card'] = [
     { field: 'tankCm', source: 'a', value: 15 }, { field: 'sizeCm', source: 'a', value: 7.6 },

@@ -233,6 +233,26 @@ The layers above still check the result.
     first run fixed an Indonesian guide whose title read `Cacing Jangkar &amp; Kutu Ikan` on the page, and listed 6
     guides carrying another site's reader comments (with the readers' names), 36 species and plant pages with a photo
     whose caption names another fish, and 7 guides whose titles promise more items than they have.
+- **A reader's eye.** Each cycle the model reads 20 pages (`READER_LIMIT`) as a careful reader would, against a rubric
+  (`pnpm engine reader` in the rewrite part, `packages/engine/src/reader.ts`, `prompts/reader.md`): structure that
+  misleads, a page contradicting itself, wrong or mismatched numbers and units, garbled or unnatural Vietnamese,
+  Indonesian or Thai, captions that don't fit, claims the page's own sources don't support.
+  - It reads the page's text (headings, paragraphs, lists, card values, captions), and the sources it was written from
+    where the engine keeps them: a species or plant's English sections, a guide's source page in `sources/`.
+  - Pages not read yet go first (Vietnamese, then guides), then pages whose text changed; an unchanged page is not read
+    again (`engine-state/_reader.json`, by page and a hash of its text). A finding must quote words that are on the page.
+  - Vietnamese wording it flags, and a figure or claim in a section with its English source, go through the rewrite
+    step's writer with the findings as notes (`READER_REWRITES`, 3 parts a cycle) and are kept only when the reviewer
+    passes them: against the English, or, in a guide, against the old wording, with only the quoted paragraphs rewritten.
+    The rest (Indonesian and Thai, structure, captions, the card) is listed in `docs/review/reader.md`.
+  - A finding a text check could catch says which check; the report lists those under "Could become a rule". The first
+    one became the caption rule's map check ("Pterophyllum scalare map").
+  - Tried on 10 pages in three languages: it found "trùn chỉ" (tubifex) written for bloodworms, "cá rô phi" (tilapia)
+    for African cichlids, "cá mè vinh" (silver barb) for the tinfoil barb, a temperature range given twice as the same
+    figure, a guide's mistakes numbered 1, 9, 2…, and photos of another variety, a map and a person planting with
+    tweezers. Three Vietnamese parts were rewritten and passed the reviewer; one rewrite that added its own commentary
+    was refused. On the same pages Sonnet reported findings it then called fine and took the local name "cá heo" (Botia
+    loaches) for "dolphin", so the reader reads with Opus (`READER_MODEL`).
 
 ## Rules for every change (people and agents)
 

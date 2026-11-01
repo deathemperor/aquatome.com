@@ -1,0 +1,269 @@
+{
+  "id/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
+    "at": "2026-11-01",
+    "hash": "1f06d31ba99d8852",
+    "findings": []
+  },
+  "th/species/pterophyllum-scalare": {
+    "at": "2026-11-01",
+    "hash": "7c44b5238c3f445f",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C2",
+        "quote": "Pterophyllum scalare map",
+        "problem": "This is a range map, not a photo of the fish.",
+        "rule": "A caption containing the word 'map'.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C4",
+        "quote": "This series of shots come from the Melbourne Aquarium - it was really great - recommend it to all.",
+        "problem": "The caption is the photographer's comment about their visit, not a description of the photo, and it stops mid-sentence.",
+        "field": "caption"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P12",
+        "quote": "ควรเริ่มจากปลาวัยรุ่น (juvenile) 6 ตัว",
+        "problem": "'ปลาวัยรุ่น' means teenage fish. The usual hobby word for juveniles is 'ปลารุ่น' or 'ปลาวัยอ่อน'.",
+        "fix": "ควรเริ่มจากปลารุ่น 6 ตัว",
+        "field": "sections.dimorphism:seriouslyfish"
+      }
+    ]
+  },
+  "vi/guides/aquariumbreeder-lava-rocks-in-aquariums-pros-and-cons": {
+    "at": "2026-11-01",
+    "hash": "1d1f6742338f84f9",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 4 bình luận về “Đá dung nham trong bể thủy sinh: Ưu và nhược điểm”",
+        "problem": "The reader comments and the author's replies were carried over from the source web page as if they were part of the handbook text.",
+        "rule": "A heading that matches 'N bình luận về' or 'thoughts on' marks a comment section copied from a web page.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Để lại bình luận",
+        "problem": "The comment form's 'Leave a Reply' heading is left over from the source web page.",
+        "rule": "A heading that reads 'Để lại bình luận' or 'Leave a Reply' is a web-page leftover.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài viết liên quan:",
+        "problem": "The source site's 'Related articles' link lists were copied over as plain text that links nowhere on this site.",
+        "rule": "A line 'Bài viết liên quan:' followed by list items is a web-page leftover.",
+        "field": "body"
+      }
+    ]
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-betta-fish-foods": {
+    "at": "2026-11-01",
+    "hash": "e8b553b1ebac8db9",
+    "findings": []
+  },
+  "vi/guides/youtube-K972tk73JpU": {
+    "at": "2026-11-01",
+    "hash": "5b2757e3ac4d09e5",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Sai lầm 9: không hiệu chuẩn cảm biến pH.",
+        "problem": "The mistakes are numbered out of order. Mistake 9 sits right after mistake 1 in the CO2 section, so the list reads 1, 9, 2, 3, 4, 5, 6, 7, 8, 10.",
+        "fix": "Đánh số lại theo thứ tự xuất hiện: Sai lầm 2: không hiệu chuẩn cảm biến pH, rồi các lỗi sau lần lượt là 3 đến 10.",
+        "rule": "Numbered 'Sai lầm N' labels that do not run in ascending order through the page.",
+        "field": "body"
+      }
+    ]
+  },
+  "vi/plants/anubias-barteri": {
+    "at": "2026-11-01",
+    "hash": "fbbaccdb5a385f77",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C1",
+        "quote": "Anubias barteri var. nana",
+        "problem": "The photo shows Anubias barteri var. nana, a different variety from the 'Coin Leaf' cultivar this page covers.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C2",
+        "quote": "Anubias barteri var. nana in the Botanischer Garten Halle",
+        "problem": "The photo shows var. nana in a botanical garden, not Anubias 'Coin Leaf'.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C3",
+        "quote": "This image represents an mutation of a plant (anubias), it's leaves lack a pigment called chlorofile",
+        "problem": "The photo shows an Anubias mutant with no chlorophyll, which looks nothing like the deep green Coin Leaf. The caption is also a comment rather than a description of this plant.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C4",
+        "quote": "An Aquascapist Planting Aquatic Plant Anubias Petite with Tweezers in an Aquarium",
+        "problem": "The photo shows a person's hands planting a different cultivar, Anubias Petite.",
+        "field": "caption"
+      }
+    ]
+  },
+  "vi/species/ancistrus-cirrhosus": {
+    "at": "2026-11-01",
+    "hash": "1486307a5f8cf6d3",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P4",
+        "quote": "Trang cũng nêu kích thước bể tối thiểu là 150 lít; bể 75 lít có thể nuôi hai con.",
+        "problem": "The page says the fish does well from 75 L, then gives a 150 L minimum, then says 75 L holds two fish. It never says which figure to follow.",
+        "fix": "Cá lau kiếng bristlenose sống tốt trong bể từ 75 lít trở lên, và bể 75 lít nuôi được hai con. Có nguồn khuyên bể tối thiểu 150 lít.",
+        "field": "sections.aquariumSize:sprucepets"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P7",
+        "quote": "những con đực có thể rất bảo vệ lãnh thổ với nhau",
+        "problem": "This reads as a word-for-word translation and sounds unnatural in Vietnamese.",
+        "fix": "những con đực có thể tranh giành lãnh thổ rất dữ với nhau",
+        "field": "sections.behaviour:sprucepets"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P10",
+        "quote": "đầu rộng với hàm dưới hơi vâu",
+        "problem": "'Vâu' means buck teeth, so it is the wrong word for an underbite. The usual word is 'móm'.",
+        "fix": "đầu rộng, miệng hơi móm",
+        "field": "sections.notes:sprucepets"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P10",
+        "quote": "Trang lưu ý rằng chúng không thực sự làm sạch bể",
+        "problem": "'Trang lưu ý' (the page notes) is left over from the source web page. The house style says to state the point directly.",
+        "fix": "Thật ra chúng không làm sạch bể",
+        "rule": "the phrase 'Trang cũng nêu' or 'Trang lưu ý' in the body text",
+        "field": "sections.notes:sprucepets"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-01",
+        "field": "sections.aquariumSize:sprucepets",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "The page gives 75 L as fine and then 150 L as the minimum, so the tank size advice contradicts itself without saying which is whose figure."
+        ]
+      },
+      {
+        "at": "2026-11-01",
+        "field": "sections.waterConditions:sprucepets",
+        "score": 0.85,
+        "kept": true,
+        "problems": [
+          "The 'other figure' is identical to the first, so the sentence is meaningless; the source's other figure is 73-80 °F (about 23-26 °C)."
+        ]
+      },
+      {
+        "at": "2026-11-01",
+        "field": "sections.aquariumSize:sprucepets",
+        "score": 0.7,
+        "kept": false,
+        "problems": [
+          "The page says the fish does well from 75 L, then gives a 150 L minimum, then says 75 L holds two fish. It never says which figure to follow."
+        ]
+      },
+      {
+        "at": "2026-11-01",
+        "field": "sections.diet:sprucepets",
+        "score": 0.9,
+        "kept": true,
+        "problems": [
+          "Bloodworms are 'trùn huyết' in the Vietnamese hobby. 'Trùn chỉ' means tubifex, which is a different food."
+        ]
+      },
+      {
+        "at": "2026-11-01",
+        "field": "sections.behaviour:sprucepets",
+        "score": 0.85,
+        "kept": true,
+        "problems": [
+          "'Cá rô phi' means tilapia. The source means African cichlids in general."
+        ]
+      }
+    ]
+  },
+  "vi/species/darienheros-calobrensis": {
+    "at": "2026-11-01",
+    "hash": "94ace32072576f3a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P8",
+        "quote": "cá mè vinh (tinfoil barb)",
+        "problem": "Vietnamese hobbyists use 'cá mè vinh' for the silver barb (Barbonymus gonionotus), not the tinfoil barb (B. schwanenfeldii), which they call 'cá he đỏ'.",
+        "fix": "cá he đỏ (tinfoil barb)",
+        "field": "sections.behaviour:seriouslyfish"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P10",
+        "quote": "nó có thể bị con đực rối loạn giết chết",
+        "problem": "'rối loạn' is a word-for-word rendering of 'confused' and reads unnaturally. It suggests a disorder rather than a male that has lost track of its spawning cycle.",
+        "fix": "con đực đang bối rối có thể giết chết nó",
+        "field": "sections.reproduction:seriouslyfish"
+      }
+    ]
+  },
+  "vi/species/peregriana-peregra": {
+    "at": "2026-11-01",
+    "hash": "7526a872df9f09da",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P7",
+        "quote": "Khi bị động, ốc co chân lại và bịt kín miệng vỏ.",
+        "problem": "\"Bị động\" means \"passive\" in Vietnamese, so readers will not see that this means \"when disturbed\".",
+        "fix": "Khi bị quấy động, ốc co chân lại và bịt kín miệng vỏ.",
+        "field": "sections.behaviour:aquariumbreeder"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P5",
+        "quote": "vỏ ốc có thể tạo kém do ốc khó hấp thu canxi",
+        "problem": "\"Vỏ ốc có thể tạo kém\" is unnatural Vietnamese. The shell does not \"make\" itself, it \"forms\" (hình thành).",
+        "fix": "vỏ ốc có thể hình thành kém do ốc khó hấp thu canxi",
+        "field": "sections.waterConditions:aquariumbreeder"
+      }
+    ]
+  }
+}

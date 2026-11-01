@@ -162,9 +162,9 @@ Letters only Vietnamese uses, outside the Vietnamese names the site marks as suc
 - [vi · Oxy trong bể cá](https://aquatome.com/vi/huong-dan/oxy-trong-be-ca/) — "ặt nước hoặc số inch trên mỗi gallon dung tích"
 - [vi · Tự nấu thức ăn đông lạnh cho cá tại nhà](https://aquatome.com/vi/huong-dan/tu-nau-thuc-an-dong-lanh-cho-ca-tai-nha/) — "ay Black & Decker BL 4900 0,9 lb thịt nghê"; "cũng từng dùng thịt ốc) 1,56 lb phi lê cá"; "hông đáng kể) 1 quả chuối 0,9 lb gan bò Tổ"
 
-## A photo caption naming another fish (36)
+## A photo caption naming another fish, or a map (44)
 
-A species or plant photo whose caption names a different species and not the page's: the photo may show the wrong fish (`pnpm engine check-photos --only <id>` looks again). Checked on the Vietnamese page; the photos are the same in every language.
+A species or plant photo whose caption names a different species and not the page's, or says it is a map: the photo may not show the fish (`pnpm engine check-photos --only <id>` looks again). Checked on the Vietnamese page; the photos are the same in every language.
 
 - [vi · Cá ánh kim hồng](https://aquatome.com/vi/ca/ca-anh-kim-hong/) — Puntius semifasciolatus: "Gold Barb - Puntius semifasciolatus"
 - [vi · Cá bắn cung](https://aquatome.com/vi/ca/ca-ban-cung/) — Toxotes chatareus: "Toxotes chatareus adult"
@@ -174,8 +174,9 @@ A species or plant photo whose caption names a different species and not the pag
 - [vi · Cá chân kiếm Sumatra](https://aquatome.com/vi/ca/ca-chan-kiem-sumatra/) — Parosphromenus deissneri: "A male Parosphromenus deissneri with its spawn. The 'cave' is a capped length o…"
 - [vi · Cá chuột Adolfo](https://aquatome.com/vi/ca/ca-chuot-adolfo/) — Corydoras sterbai: "Corydoras sterbai"; Gymnocorymbus ternetzi: "A Black Widow Tetra (Gymnocorymbus ternetzi)."
 - [vi · Cá chuột sọc nói](https://aquatome.com/vi/ca/ca-chuot-soc-noi/) — Platydoras costatus: "Young specimen of Platydoras costatus"; Platydoras costatus: "Platydoras costatus"
-- [vi · Cá combtail Java](https://aquatome.com/vi/ca/ca-combtail-java/) — Belontia signata: "Belontia signata map"
+- [vi · Cá combtail Java](https://aquatome.com/vi/ca/ca-combtail-java/) — Belontia signata: "Belontia signata map"; a map, not the fish: "Belontia signata map"
 - [vi · Cá da trơn mõm xẻng Pseudoplatystoma corruscans](https://aquatome.com/vi/ca/ca-da-tron-mom-xeng-pseudoplatystoma-corruscans/) — Triportheus pantanensis: "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are liste…"
+- [vi · Cá pikehead khổng lồ](https://aquatome.com/vi/ca/ca-dau-cho-san/) — a map, not the fish: "Luciocephalus pulcher map"
 - [vi · Cá đầu chúc sọc](https://aquatome.com/vi/ca/ca-dau-chuc-soc/) — Anostomus brevior: "Anostomus brevior in French Guiana"; Anostomus salmoneus: "Anostomus salmoneus"
 - [vi · Cá đuôi cờ Prochilodus](https://aquatome.com/vi/ca/ca-duoi-co-prochilodus/) — Semaprochilodus insignis: "Semaprochilodus insignis"
 - [vi · Cá Garra rakhinica](https://aquatome.com/vi/ca/ca-garra-rakhinica/) — Garra flavatra: "Specimen from the Thai aquarium trade, imported as a contaminant in a batch of…"
@@ -183,19 +184,26 @@ A species or plant photo whose caption names a different species and not the pag
 - [vi · Cá he vàng](https://aquatome.com/vi/ca/ca-he-vang/) — Barbonymus schwanenfeldii: "Barbonymus schwanenfeldii by OpenCage.jpg"
 - [vi · Cá chạch lá guntea](https://aquatome.com/vi/ca/ca-heo-guntea/) — Garra flavatra: "...and are peaceful with other species. Here with Garra flavatra."
 - [vi · Cá julie vàng](https://aquatome.com/vi/ca/ca-julie-vang/) — Julidochromis regani: "Picture taken in the zoo of Wrocław (Poland): Julidochromis regani (Poll, 1942)"
+- [vi · Cá khủng long Ansorgii](https://aquatome.com/vi/ca/ca-khung-long-ansorgii/) — a map, not the fish: "Polypterus ansorgii Map"
 - [vi · Cá killi Aphyosemion bitaeniatum](https://aquatome.com/vi/ca/ca-killi-aphyosemion-bitaeniatum/) — Aphyosemion bivittatum: "♂ Aphyosemion bivittatum (syn. Chromaphyosemion bivittatum)"
 - [vi · Cá killifish Bouala lyretail](https://aquatome.com/vi/ca/ca-killifish-bouala-lyretail/) — Aphyosemion elberti: "Male Aphyosemion elberti "Red T", a West African Killifish from Cameroon. This…"
 - [vi · Cá lau kiếng sừng (Horned Bristlenose Pleco)](https://aquatome.com/vi/ca/ca-lau-kieng-sung-horned-bristlenose-pleco/) — Ancistrus dolichopterus: "Ancistrus dolichopterus (young fish)"; Ancistrus dolichopterus: "Picture taken in the zoo of Wrocław (Poland): Ancistrus dolichopterus (Kner, 18…"
+- [vi · Cá mèo gỗ Flag](https://aquatome.com/vi/ca/ca-meo-go-flag/) — a map, not the fish: "Map of Magdalena River and its drainage basin"
 - [vi · Cá neon hoàng đế tím](https://aquatome.com/vi/ca/ca-neon-hoang-de-tim/) — Moenkhausia oligolepis: "Species that contributed the most for total abundance and occurrence in the Ari…"
 - [vi · Cá ngựa vằn](https://aquatome.com/vi/ca/ca-ngua-van/) — Danio albolineatus: "Pearl Danio, Danio albolineatus fish"
 - [vi · Cá nheo Synodontis frontosus](https://aquatome.com/vi/ca/ca-nheo-synodontis-frontosus/) — Synodontis caudovittatus: "Synodontis caudovittatus"
+- [vi · Cá ông tiên](https://aquatome.com/vi/ca/ca-ong-tien/) — a map, not the fish: "Pterophyllum scalare map"
+- [vi · Cá paro Anjungan](https://aquatome.com/vi/ca/ca-paro-anjungan/) — a map, not the fish: "Parosphromenus anjunganensis Map"
 - [vi · Cá pyrrhulina Paraguay](https://aquatome.com/vi/ca/ca-pyrrhulina-paraguay/) — Leporinus friderici: "Some fish species from streams of the lower Iguatemi River in the upper Paraná…"
 - [vi · Cá rìu thường](https://aquatome.com/vi/ca/ca-riu-thuong/) — Acestrorhynchus falcatus: "Selected fish species collected in the Munim River Basin of the Order Characifo…"
+- [vi · Cá sặc môi dày](https://aquatome.com/vi/ca/ca-sac-moi-day/) — a map, not the fish: "Trichogaster labiosa Map"
 - [vi · Cá tetra agulha](https://aquatome.com/vi/ca/ca-tetra-agulha/) — Moenkhausia oligolepis: "Species that contributed the most for total abundance and occurrence in the Ari…"
+- [vi · Cá thài lài kêu](https://aquatome.com/vi/ca/ca-thai-lai-keu/) — a map, not the fish: "Trichopsis vittata map"
+- [vi · Cá thiên đường đen](https://aquatome.com/vi/ca/ca-thien-duong-den/) — a map, not the fish: "Macropodus spechti Map"
 - [vi · Cá trê bottlenose](https://aquatome.com/vi/ca/ca-tre-bottlenose/) — Ageneiosus inermis: "Manduba (Ageneiosus inermis) in Brazil"; Ageneiosus inermis: "Manduba (Ageneiosus inermis) in Argentina"
 - [vi · Cá trê điện lùn](https://aquatome.com/vi/ca/ca-tre-dien-lun/) — Malapterurus electricus: "Photo of Malapterurus electricus (electric catfish) at the Steinhart Aquarium i…"
 - [vi · Cá trê lũa Centromochlus heckelii](https://aquatome.com/vi/ca/ca-tre-lua-centromochlus-heckelii/) — Prionobrama filigera: "Fish species collected on the beaches of Acre river, Acre, Brazil.28) Paragonia…"
-- [vi · Cá trê lũa](https://aquatome.com/vi/ca/ca-tre-lua/) — Leiarius marmoratus: "Taxonomic Classification: Animalia--Pimelodidae--Leiarius marmoratus (Gill 1870…"
+- [vi · Cá trê lũa](https://aquatome.com/vi/ca/ca-tre-lua/) — Leiarius marmoratus: "Taxonomic Classification: Animalia--Pimelodidae--Leiarius marmoratus (Gill 1870…"; a map, not the fish: "Firewood catfish range map"
 - [vi · Cá trê nói chuyện cẩm thạch](https://aquatome.com/vi/ca/ca-tre-noi-chuyen-cam-thach/) — Platydoras hancockii: "This species is often traded as A. hancockii, a name currently regarded synonym…"
 - [vi · Cá trê Pimelodella gracilis](https://aquatome.com/vi/ca/ca-tre-pimelodella-gracilis/) — Triportheus pantanensis: "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are liste…"
 - [vi · Cá trê suối Thành Đô](https://aquatome.com/vi/ca/ca-tre-suoi-thanh-do/) — Liobagrus chengduensis: "Liobagrus chengduensis: paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Dorsal view-paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Ventral view-paratype"
