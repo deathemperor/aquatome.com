@@ -11,7 +11,10 @@ import { buildGuideCard } from './guide-card'
  * "Xem thêm" adds the next page in place. Subjects live in the address (?kind=care), so a filtered list can be shared.
  */
 export function guideList() {
-  const list = document.getElementById('guide-list')!
+  // A language with no guides published yet has no list.
+  const found = document.getElementById('guide-list')
+  if (!found) return
+  const list: HTMLElement = found
   const template = document.getElementById('guide-card') as HTMLTemplateElement
   const buttons = [...document.querySelectorAll<HTMLButtonElement>('#guide-kinds button[data-kind]')]
   const more = document.getElementById('guide-more') as HTMLAnchorElement | null
