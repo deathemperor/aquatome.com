@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (41)
+# Tóm tắt chờ duyệt (42)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -213,6 +213,20 @@ Hợp với người có bể lớn, đáy 180 × 60 cm (khoảng 648 lít), mu�
 
 Kiểm tra:
 - "chưa ai cho sinh sản trong bể": the page hedges this ("có lẽ chưa ai cho loài này sinh sản trong bể", "theo những gì được biết đến nay"). The summary turns the hedge into a certainty.
+
+## Cá dao thủy tinh (Eigenmannia virescens)
+id: `eigenmannia-virescens`
+
+Cá dao thủy tinh (Eigenmannia virescens) hợp với người muốn nuôi loài hiền, ăn dễ, trưởng thành 20 cm. Hồ sơ không nêu nhiệt độ, pH hay bể tối thiểu, nên cần tự tìm thêm trước khi chuẩn bị bể. Điểm khó nhất là nhận đúng loài: phân loại của chi này rất rối, con nuôi thường có nguồn gốc Venezuela (E. sp. “Orinoco”), và chúng tự phân ngôi thứ trong đàn.
+
+- Đừng chỉ tính theo con cá nhỏ lúc mua, vì con đực lớn hơn hẳn con cái; hãy chuẩn bị chỗ cho cá trưởng thành 20 cm.
+- Đừng bỏ qua chuyện ngôi thứ khi nuôi đàn; nên quan sát đàn, vì chúng tự phân ngôi thứ với nhau.
+
+Kiểm tra:
+- "Điểm khó nhất là nhận đúng loài" contradicts the page, which says that for hobbyists identifying the exact species "không quan trọng lắm" because all Eigenmannia behave alike.
+- "con nuôi thường có nguồn gốc Venezuela" overstates the page. It says only that the fish described there came from Venezuela, not that kept fish usually do.
+- "nên quan sát đàn" is advice the page doesn't give. The page only says the fish sort out a hierarchy and are generally gentle, and it names no mistake or fix about this.
+- "Đừng bỏ qua chuyện ngôi thứ khi nuôi đàn" presents hierarchy as a hazard, which the page doesn't do. It calls the species generally gentle.
 
 ## Cá bay sọc (Esomus metallicus)
 id: `esomus-metallicus`

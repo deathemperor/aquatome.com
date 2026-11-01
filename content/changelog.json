@@ -2,6 +2,13 @@
   {
     "date": "2026-11-01",
     "kind": "species",
+    "id": "symphysodon-discus",
+    "source": "sprucepets",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-01",
+    "kind": "species",
     "id": "pseudomugil-gertrudae",
     "source": "bwaquatics",
     "action": "updated"
@@ -3489,13 +3496,6 @@
     "date": "2026-10-31",
     "kind": "guide",
     "id": "youtube-QoLZvjObqYM",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-10-31",
-    "kind": "guide",
-    "id": "youtube-vLqQpjxKAgU",
     "source": "youtube",
     "action": "new"
   }
