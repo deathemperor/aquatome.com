@@ -38,7 +38,8 @@ function walk(node: Node, out: string[]): void {
 
 /** `product`: the image sits in a shop product card (class or id naming "product"), e.g. Aquarium Co-Op's product tiles in its articles. */
 /** `page`: the photo's own page, when it has one; `author`: the photographer, when the source names one per photo. */
-export type PageImage = { src: string; alt: string; width?: number; height?: number; product?: true; page?: string; author?: string }
+/** `heading`: the heading it sits under (the last one before it), so a guide puts it in the same section. */
+export type PageImage = { src: string; alt: string; width?: number; height?: number; product?: true; page?: string; author?: string; heading?: string }
 
 const PRODUCT_BOX = /product/i
 const inProduct = (i: HTMLElement) => {
@@ -57,11 +58,31 @@ function pageImage(i: HTMLElement): PageImage | null {
   return src ? { src, alt, ...(w ? { width: w } : {}), ...(h ? { height: h } : {}) } : null
 }
 
+/** The heading each image sits under: the last h1–h4 before it in the page. */
+function headings(scope: HTMLElement): Map<HTMLElement, string> {
+  const out = new Map<HTMLElement, string>()
+  let current = ''
+  const visit = (n: Node) => {
+    if (!(n instanceof HTMLElement)) return
+    const tag = n.rawTagName?.toLowerCase() ?? ''
+    if (/^h[1-4]$/.test(tag)) { current = clean(inline(n)); return }
+    if (tag === 'img' && current) out.set(n, current)
+    n.childNodes.forEach(visit)
+  }
+  visit(scope)
+  return out
+}
+
 export function htmlToOutline(html: string, contentSelector?: string): { title: string; outline: string; images: PageImage[] } {
   const root = parse(html, { comment: false })
   const title = clean(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? '')
   const scope = (contentSelector && root.querySelector(contentSelector)) || root.querySelector('main') || root.querySelector('article') || root.querySelector('body') || root
-  const images = scope.querySelectorAll('img').flatMap(i => { const p = pageImage(i); return p ? [inProduct(i) ? { ...p, product: true as const } : p] : [] })
+  const under = headings(scope)
+  const images = scope.querySelectorAll('img').flatMap(i => {
+    const p = pageImage(i)
+    const heading = under.get(i)
+    return p ? [{ ...p, ...(inProduct(i) ? { product: true as const } : {}), ...(heading ? { heading } : {}) }] : []
+  })
   const out: string[] = []
   walk(scope, out)
   return { title, outline: denoise(out.join('\n')), images }

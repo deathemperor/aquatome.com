@@ -1,7 +1,7 @@
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, isAllowedLicence, thumbOf, type Photo } from '@aq/schema'
+import { GallerySchema, hashDistance, isAllowedLicence, SAME_PICTURE, thumbOf, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -97,10 +97,7 @@ export async function dhash(bytes: Uint8Array): Promise<string> {
   for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) bits += px[y * 9 + x]! > px[y * 9 + x + 1]! ? '1' : '0'
   return BigInt(`0b${bits}`).toString(16).padStart(16, '0')
 }
-const distance = (a: string, b: string) => { let x = BigInt(`0x${a}`) ^ BigInt(`0x${b}`), n = 0; for (; x; x >>= 1n) n += Number(x & 1n); return n }
-/** At most this many bits apart: the same photo. */
-const SAME = 6
-export const isNearCopy = (h: string, known: Iterable<string>) => { for (const k of known) if (distance(h, k) <= SAME) return true; return false }
+export const isNearCopy = (h: string, known: Iterable<string>) => { for (const k of known) if (hashDistance(h, k) <= SAME_PICTURE) return true; return false }
 
 export type Screened = { key: string; photo: Photo; best: boolean; kind?: string; hash: string }
 
