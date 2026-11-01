@@ -1,0 +1,31 @@
+{
+  "$comment": "The fish and plant lists' filters (apps/site/src/scripts/filter.ts): which ones fit what the reader set (every figure known and fitting) and which may fit (nothing known rules them out, but a figure the filter asks about is missing). The site's tests run filter.ts on these cases, and the iOS app's tests run its own filters (AquaTomeKit Handbook/Filters.swift): both must answer `fit` and `unsure` exactly, in this order. Species figures are the app index's (tempC, ph, tankCm, difficulty on the site's 1–8 scale); plants' are their care (light, co2, difficulty 1–3).",
+  "species": [
+    {"name": "Cá neon", "tempC": {"min": 20, "max": 26}, "ph": {"min": 5, "max": 7}, "tankCm": 60, "difficulty": 2},
+    {"name": "Cá đĩa", "tempC": {"min": 28, "max": 31}, "ph": {"min": 4.5, "max": 6.5}, "tankCm": 120, "difficulty": 7},
+    {"name": "Cá ngựa vằn", "tempC": {"min": 18, "max": 25}, "ph": {"min": 6.5, "max": 8}, "tankCm": 60, "difficulty": 1},
+    {"name": "Cá phượng hoàng", "tempC": {"min": 26, "max": 30}, "ph": {"min": 5, "max": 7}, "tankCm": 60, "difficulty": 5},
+    {"name": "Cá chưa đo", "difficulty": 3},
+    {"name": "Cá chỉ có nhiệt độ", "tempC": {"min": 22, "max": 28}}
+  ],
+  "speciesCases": [
+    {"note": "nothing set: every one fits", "query": {}, "fit": ["Cá neon", "Cá đĩa", "Cá ngựa vằn", "Cá phượng hoàng", "Cá chưa đo", "Cá chỉ có nhiệt độ"], "unsure": []},
+    {"note": "a 60 cm tank: the ones that need no longer; those without a length may fit", "query": {"tankCm": 60}, "fit": ["Cá neon", "Cá ngựa vằn", "Cá phượng hoàng"], "unsure": ["Cá chưa đo", "Cá chỉ có nhiệt độ"]},
+    {"note": "26 °C, both ends of a range count", "query": {"tempC": 26}, "fit": ["Cá neon", "Cá phượng hoàng", "Cá chỉ có nhiệt độ"], "unsure": ["Cá chưa đo"]},
+    {"note": "easy and medium (5 on the 1–8 scale) and pH 6.8", "query": {"difficultyMax": 5, "ph": 6.8}, "fit": ["Cá neon", "Cá ngựa vằn", "Cá phượng hoàng"], "unsure": ["Cá chưa đo", "Cá chỉ có nhiệt độ"]},
+    {"note": "everything set: one known figure that doesn't fit rules a fish out", "query": {"tankCm": 90, "tempC": 24, "ph": 6, "difficultyMax": 3}, "fit": ["Cá neon"], "unsure": ["Cá chưa đo", "Cá chỉ có nhiệt độ"]},
+    {"note": "30 °C in a 60 cm tank: a known temperature that doesn't fit rules a fish out though its tank length is missing", "query": {"tempC": 30, "tankCm": 60}, "fit": ["Cá phượng hoàng"], "unsure": ["Cá chưa đo"]}
+  ],
+  "plants": [
+    {"name": "Ráy nana", "light": "low", "co2": "none", "difficulty": 1},
+    {"name": "Monte Carlo", "light": "medium", "co2": "optional", "difficulty": 2},
+    {"name": "Rotala đỏ", "light": "high", "co2": "required", "difficulty": 3},
+    {"name": "Cây chưa rõ", "difficulty": 3}
+  ],
+  "plantCases": [
+    {"note": "medium light: plants that need as much or less", "query": {"light": "medium"}, "fit": ["Ráy nana", "Monte Carlo"], "unsure": ["Cây chưa rõ"]},
+    {"note": "no CO₂: plants that grow without it, an optional one too", "query": {"co2": "none"}, "fit": ["Ráy nana", "Monte Carlo"], "unsure": ["Cây chưa rõ"]},
+    {"note": "the plants that need CO₂", "query": {"co2": "required"}, "fit": ["Rotala đỏ"], "unsure": ["Cây chưa rõ"]},
+    {"note": "easy only (1 on the 1–3 scale), with low light: a plant known to be harder is out, though its light is unknown", "query": {"difficultyMax": 1, "light": "low"}, "fit": ["Ráy nana"], "unsure": []}
+  ]
+}

@@ -49,6 +49,49 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertFalse(item(app, "Cá đĩa").exists)
   }
 
+  func testFiltersTheFishToMyTank() {
+    // Bể 60 (60 cm long): the neon fits, the discus needs 120 cm, the zebra danio has no figures yet.
+    let app = launch("-seed-tanks", "clash")
+    let all = app.descendants(matching: .any)["all-fish"]
+    XCTAssertTrue(all.waitForExistence(timeout: 5))
+    all.tap()
+    XCTAssertTrue(item(app, "Cá đĩa").waitForExistence(timeout: 5))
+    app.buttons["filter"].tap()
+    let tank = app.buttons.matching(identifier: "my-tank").matching(NSPredicate(format: "label BEGINSWITH 'Bể 60'")).firstMatch
+    XCTAssertTrue(tank.waitForExistence(timeout: 5), "the reader's tank not offered")
+    tank.tap()
+    app.buttons["Xong"].tap()
+
+    XCTAssertTrue(app.staticTexts["1 loài phù hợp · 1 loài chưa đủ dữ liệu để chắc"].waitForExistence(timeout: 5))
+    XCTAssertTrue(item(app, "Cá neon").exists)
+    XCTAssertFalse(item(app, "Cá đĩa").exists, "a fish too big for the tank")
+    XCTAssertTrue(app.staticTexts["Chưa đủ dữ liệu để chắc (1)"].exists)
+    XCTAssertTrue(item(app, "Cá ngựa vằn").exists, "a fish with no figures left out")
+
+    app.buttons["Xóa lọc"].tap()
+    XCTAssertTrue(item(app, "Cá đĩa").waitForExistence(timeout: 5))
+    XCTAssertFalse(app.staticTexts["Chưa đủ dữ liệu để chắc (1)"].exists)
+  }
+
+  func testFiltersThePlantsToTheTanksLight() {
+    let app = launch()
+    let all = app.descendants(matching: .any)["all-plants"]
+    for _ in 0..<4 where !(all.exists && all.isHittable) { app.swipeUp() }
+    all.tap()
+    XCTAssertTrue(item(app, "Rotala đỏ").waitForExistence(timeout: 5))
+    app.buttons["filter"].tap()
+    // Rotala needs strong light: out under weak light, in under strong.
+    pick(app, "Ánh sáng bể", "Yếu")
+    app.buttons["Xong"].tap()
+    XCTAssertTrue(app.staticTexts["Không có loài nào khớp. Thử nới điều kiện lọc."].waitForExistence(timeout: 5))
+    XCTAssertFalse(item(app, "Rotala đỏ").exists)
+    app.buttons["filter"].tap()
+    pick(app, "Ánh sáng bể", "Mạnh")
+    app.buttons["Xong"].tap()
+    XCTAssertTrue(app.staticTexts["1 loài phù hợp"].waitForExistence(timeout: 5))
+    XCTAssertTrue(item(app, "Rotala đỏ").exists)
+  }
+
   func testSearchesOneKind() {
     let app = launch()
     search(app, "neon")
@@ -93,9 +136,9 @@ final class HandbookFlowTests: XCTestCase {
 
   // MARK: Helpers
 
-  private func launch() -> XCUIApplication {
+  private func launch(_ more: String...) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"]
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"] + more
     app.launch()
     return app
   }
@@ -110,6 +153,14 @@ final class HandbookFlowTests: XCTestCase {
   /// A way into a shelf on the home (a fish group, a placement, a subject), by its word.
   private func shelf(_ app: XCUIApplication, _ label: String) -> XCUIElement {
     app.descendants(matching: .any).matching(identifier: "shelf").matching(NSPredicate(format: "label BEGINSWITH %@", label)).firstMatch
+  }
+
+  /// Picks an option of a filter's picker (which reads its label, then the option picked).
+  private func pick(_ app: XCUIApplication, _ picker: String, _ option: String) {
+    app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", picker)).firstMatch.tap()
+    let choice = app.buttons[option]
+    XCTAssertTrue(choice.waitForExistence(timeout: 5), "no \(option) under \(picker)")
+    choice.tap()
   }
 
   /// A result row, by its name (the row reads its name, then its scientific name or kind).

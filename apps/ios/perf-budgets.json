@@ -30,8 +30,8 @@
       "test": "bundle",
       "metric": "AquaTome.app",
       "unit": "kB",
-      "max": 2261,
-      "reason": "raised 2026-11-01 from 1978 kB for email sign-in in the app (#322), which merged while the app job ran out of its hour before the size check (fixed in #325): +88.6 kB measured on one Mac (Release archive, 2dc632e4 1966.6 → af0a8d77 2055.2 kB): the binary 84.6 kB (the email sheet with its Turnstile web view, the account model's code steps, the kit's email client; the binary grows in 16 kB pages), the id/th strings 3.6 kB, the privacy manifest 0.4 kB. Worth it: the website's email and Google accounts open in the app. Budget: 2055.2 kB ×1.1"
+      "max": 2541,
+      "reason": "raised 2026-11-01 from 2261 kB for the fish and plant shelf filters (#317), the first of the handbook stack over it: each PR measured on one Mac (Release archive) on main with the lights (8ba3696a): main 2092.8, the facts card (#313) 2127.4, saved and recent pages (#314) 2145.1, a tank's guides (#315) 2161.9, the Tìm home (#316) 2250.8, the filters 2309.6 kB. The filters' +58.8 kB: the filter forms and the filtered shelf 64.3 kB of code, the kit's filter 5.5, less 3.9 for the grid they replace. Worth it: the owner asked for the site's fish and plant filters in the app. Budget: 2309.6 kB ×1.1"
     }
   ]
 }

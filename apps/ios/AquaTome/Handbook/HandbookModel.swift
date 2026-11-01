@@ -150,6 +150,8 @@ extension HandbookIndex {
     "group": ["cichlids": "Cichlid", "tetras": "Cá tetra", "danios": "Danio", "other": "Loài khác"],
     "placement": ["foreground": "Tiền cảnh", "midground": "Trung cảnh", "background": "Hậu cảnh", "epiphyte": "Bám đá, lũa", "floating": "Thả nổi"],
     "section": ["setup": "Setup bể", "care": "Chăm sóc", "plantCare": "Chăm cây"],
+    "light": ["low": "Yếu", "medium": "Trung bình", "high": "Mạnh"],
+    "co2": ["none": "Không cần", "optional": "Tùy chọn", "required": "Bắt buộc"],
   ]))
 
   /// Performance tests' index: the fixture plus 800 fish (the site lists about 700), named and shaped like real ones,
