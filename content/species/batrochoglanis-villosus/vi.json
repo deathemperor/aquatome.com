@@ -1,0 +1,21 @@
+{
+  "slug": "ca-batrochoglanis",
+  "name": "Cá Batrochoglanis",
+  "altNames": [
+    "Batrochoglanis sp. 2",
+    "Batrochoglanis Sp(2)"
+  ],
+  "sections": {
+    "distribution:planetcatfish": "<p>Lưu vực Amazon, vùng thượng Amazon, sông Nanay. Ảnh của loài này chụp ở sông Nanay, gần Iquitos, Peru.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi nhận. Đến nay chưa có báo cáo nào về việc cho loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Phân hạng trong Sách Đỏ IUCN: Chưa đánh giá (Not Evaluated). Từng có một cá thể non dài 3-4 cm SL (chiều dài chuẩn) được bán dưới tên Microglanis.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.9
+    },
+    "reason": "thin"
+  }
+}

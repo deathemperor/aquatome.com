@@ -1,0 +1,70 @@
+{
+  "id": "microctenopoma-ansorgii",
+  "scientificName": "Microctenopoma ansorgii",
+  "order": "Perciformes",
+  "family": "Anabantidae",
+  "genus": "Microctenopoma",
+  "group": "labyrinth",
+  "places": [
+    "africa",
+    "congo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en/",
+      "html": "<p>Wild-caught red dwarf bushfish from the Congo. The species belongs to the bubble-nest builders and grows to about 6-8 cm long. The fish are currently 3-4 cm long.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en/",
+      "html": "<p>The species belongs to the bubble-nest builders.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/abefbf6f22274ae4.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 3.0",
+      "author": "Juan Carlos Palau Díaz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microctenopoma_ansorgii_2.jpg",
+      "caption": "Microctenopoma ansorgii",
+      "thumb": "https://media.aquatome.com/commons/abefbf6f22274ae4-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

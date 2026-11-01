@@ -15,6 +15,28 @@
       {
         "source": "planetcatfish",
         "value": 21
+      },
+      {
+        "source": "scotcat",
+        "value": 22.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,10 +48,28 @@
       "html": "<p>Scientific name: Centrochir crocodili (Humboldt, 1821)</p><p>Type locality: Río Magdalena, Colombia.</p><p>Size: 210 mm (8.3\") SL.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrochir_crocodili.htm",
+      "html": "<p>Centrochir crocodili (Humboldt, 1821) is the only species in the genus Centrochir of the catfish family Doradidae. Maximum size 22.5 cm (9 in). Temperature 22-26°C (71-79°F). pH 6.0-7.5.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1060",
       "html": "<p>South America: Magdalena River basin. Colombia Caribbean Rivers, Magdalena.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrochir_crocodili.htm",
+      "html": "<p>South America: Magdalena River basin, Colombia. The species is endemic to Colombia and is known from the Lower and Middle Magdalena basin. Type locality: Magdalena River, Nouvelle-Grenade, between Pinto and Mompox, near the confluence of the Cauca River. In the Santander Department it has been found in Ciénaga de Paredes and Caño Peruétano.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrochir_crocodili.htm",
+      "html": "<p>It occurs at elevations between 5 and 200 m. This species inhabits clear waters in floodplain lakes and creeks, where it can usually be found near the bottom.</p>"
     },
     {
       "key": "reproduction",
@@ -38,35 +78,25 @@
       "html": "<p>Breeding: Unreported.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrochir_crocodili.htm",
+      "html": "<p>Etymology: the genus name Centrochir comes from kentron, thorn or spine, and cheiros, hand, referring to the unrayed pectoral spines. The specific name crocodili means 'of a crocodile', referring to its local name in Colombia, 'pexe que mata el Cayman' (fish that kills caiman), referring to its sharp pectoral fins, known to kill caiman that attempt to eat it.</p><p>IUCN Red List: Least Concern, because it has a wide distribution, it is frequent and the main threat is not significantly affecting its population.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1060",
       "html": "<p>Voyage de Humboldt et Bonpland v. 2 (Title page 1833), pp181, Pl. 48 (fig. 2).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrochir_crocodili.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2023. FishBase. www.fishbase.org. Jimenez-Segura, L., Mojica, J. &amp; Alonso, J. C. 2016. Centrochir crocodili. The IUCN Red List of Threatened Species 2016. Sabaj, M.H. and C.J. Ferraris Jr., 2003. Doradidae (Thorny catfishes). p. 456-469. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/fe791741d8dfd6ea.webp",
-      "thumb": "https://media.aquatome.com/scotcat/fe791741d8dfd6ea-480.webp",
-      "width": 500,
-      "height": 281,
-      "licence": "dùng với sự cho phép",
-      "author": "Sebastian Eduardo Mu / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/doradidae/centrochir_crocodili.htm",
-      "caption": "Centrochir crocodili: Barrancabermeja, Santander, Colombia",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/12f98e152ae7d195.webp",
-      "thumb": "https://media.aquatome.com/scotcat/12f98e152ae7d195-480.webp",
-      "width": 500,
-      "height": 246,
-      "licence": "dùng với sự cho phép",
-      "author": "Mark Henry Sabaj / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/doradidae/centrochir_crocodili.htm",
-      "caption": "Centrochir crocodili",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/41b3f692824cf74f.webp",
       "thumb": "https://media.aquatome.com/scotcat/41b3f692824cf74f-480.webp",
@@ -76,6 +106,17 @@
       "author": "Ricardo Alvarez Zamora / ScotCat",
       "sourceUrl": "https://www.scotcat.com/doradidae/centrochir_crocodili.htm",
       "caption": "Centrochir crocodili: Colombia",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/fe791741d8dfd6ea.webp",
+      "thumb": "https://media.aquatome.com/scotcat/fe791741d8dfd6ea-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "Sebastian Eduardo Mu / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrochir_crocodili.htm",
+      "caption": "Centrochir crocodili: Barrancabermeja, Santander, Colombia",
       "source": "scotcat"
     },
     {
@@ -90,24 +131,35 @@
       "source": "scotcat"
     },
     {
+      "url": "https://media.aquatome.com/scotcat/12f98e152ae7d195.webp",
+      "thumb": "https://media.aquatome.com/scotcat/12f98e152ae7d195-480.webp",
+      "width": 500,
+      "height": 246,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrochir_crocodili.htm",
+      "caption": "Centrochir crocodili",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/c7d0eae7765e2ebf.webp",
+      "thumb": "https://media.aquatome.com/commons/c7d0eae7765e2ebf-480.webp",
       "width": 960,
       "height": 640,
       "licence": "Public domain",
       "author": "Actinopterygii-Humboldt-T048.png: A. Humboldt (1769-1859) derivative work: Haplochromis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Centrochir_crocodili.jpg",
-      "caption": "Centrochir crocodili. (Syn. Doras crocodili)",
-      "thumb": "https://media.aquatome.com/commons/c7d0eae7765e2ebf-480.webp"
+      "caption": "Centrochir crocodili. (Syn. Doras crocodili)"
     },
     {
       "url": "https://media.aquatome.com/commons/1c4ad9e04a255652.webp",
+      "thumb": "https://media.aquatome.com/commons/1c4ad9e04a255652-480.webp",
       "width": 960,
       "height": 1341,
       "licence": "Public domain",
       "author": "A. Humboldt (1769-1859)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Actinopterygii-Humboldt-T048.png",
-      "caption": "Fig. 1. Hoplias malabaricus. (Syn. Erythrinus guavina) Fig. 2. Centrochir crocodili. (Syn. Doras crocodili)",
-      "thumb": "https://media.aquatome.com/commons/1c4ad9e04a255652-480.webp"
+      "caption": "Fig. 1. Hoplias malabaricus. (Syn. Erythrinus guavina) Fig. 2. Centrochir crocodili. (Syn. Doras crocodili)"
     }
   ],
   "videos": [],
@@ -125,5 +177,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }

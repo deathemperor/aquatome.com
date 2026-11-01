@@ -1,0 +1,57 @@
+{
+  "id": "pareiorhaphis-vestigipinnis",
+  "scientificName": "Pareiorhaphis vestigipinnis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pareiorhaphis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-canoas"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1142",
+      "html": "<p>Pareiorhaphis vestigipinnis (Pereira &amp; Reis, 1992). Size: 98 mm (3.9\") SL. Type locality: creek tributary of Rio Caveiras at Painel, about 27°55'S, 50°05'W, Lajes, Santa Catarina, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1142",
+      "html": "<p>South America: rio Canoas and its tributaries in Santa Catarina, Brazil. La Plata, Uruguay, Upper Uruguay, Canoas.</p><p>IUCN Red List category: Data Deficient (last assessed 2018).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1142",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1142",
+      "html": "<p>Pareiorhaphis species are primarily diagnosed from remaining neoplecostomines by having the canal plate firmly articulated to the preopercle, and by a series of sexually-dimorphic features of hypertrophied odontodes of adult males, giving the fish a hispid appearance.</p><p>Absence of adipose fin; cleithral width 27.3-31.7% SL; presence of normally developed dermal plates on the dorsal surface of body; nuptial males with few and delicate hypertrophied odontodes on the lateral margin of head, usually hidden by extensive soft fleshy lobes.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1142",
+      "html": "<p>Revue française d'Aquariologie Herpétologie v. 18 (no. 4) [for 1991], pp 113, Figs. 2-3.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-01"
+}

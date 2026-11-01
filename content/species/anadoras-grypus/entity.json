@@ -1,0 +1,115 @@
+{
+  "id": "anadoras-grypus",
+  "scientificName": "Anadoras grypus",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Anadoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/anadoras-grypus-2/",
+      "html": "<ul><li>pH and hardness: not important for care (tap water), soft and acidic for breeding</li><li>Diet: omnivorous</li><li>Social behavior: peaceful toward conspecifics and other fish species; very small fish are viewed as food.</li></ul>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/anadoras-grypus-2/",
+      "html": "<p>These are typical thorny catfish—that is, fish that passively protect themselves from being eaten by means of various spiny skin projections. Spiny catfish are generally secretive, predominantly nocturnal animals. Therefore, it is important to offer some food even after the lights are turned off, at least during the acclimation period. Over time, however, the catfish will get used to the feeding schedule and will emerge from their hiding places during the day when food is offered.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/anadoras-grypus-2/",
+      "html": "<p>The genus Anadoras currently comprises four accepted species, which, however, are virtually indistinguishable based on external characteristics. Since no scientific revision of the genus exists, a pragmatic approach is currently taken, and the species are named according to their origin. In the hobby, A. grypus from Peru is the most commonly encountered species, although it should be noted that none of the species are particularly common in the trade.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/763c732be22ca18c.webp",
+      "thumb": "https://media.aquatome.com/glaser/763c732be22ca18c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/anadoras-grypus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1cc11c8f37e18996.webp",
+      "thumb": "https://media.aquatome.com/glaser/1cc11c8f37e18996-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/anadoras-grypus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/29aca11f8d4c2c09.webp",
+      "thumb": "https://media.aquatome.com/glaser/29aca11f8d4c2c09-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/anadoras-grypus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/716e94031e536ac9.webp",
+      "thumb": "https://media.aquatome.com/glaser/716e94031e536ac9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/anadoras-grypus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "viên chìm cho cá nheo"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

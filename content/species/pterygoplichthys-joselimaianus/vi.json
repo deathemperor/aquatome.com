@@ -5,7 +5,11 @@
     "Cá tỳ bà vây buồm",
     "White Spot Sailfin Pleco",
     "White Spot Glycopterichthys",
-    "Sail Fin Pleco"
+    "Sail Fin Pleco",
+    "Cá dọn bể vây buồm đốm vàng",
+    "L001",
+    "L022",
+    "Gold-flecked sailfin plec"
   ],
   "sections": {
     "distribution:glaser": "<p>Glyptoperichthys joselimaianus có nguồn gốc từ sông Rio Araguaia. Đây là một trong những phụ lưu chính của sông Rio Tocantins ở Brazil.</p>",
@@ -14,14 +18,22 @@
     "waterConditions:glaser": "<p>Ngoài tự nhiên, chúng sống trong vùng nước trắng, nhưng khi nuôi bạn không cần làm giống y điều kiện nước đó. L 1 là loài cá thích nghi rất tốt.</p>",
     "equipment:glaser": "<p>Chúng ăn rất khỏe. Vì vậy bể nuôi cần một hệ thống lọc mạnh.</p>",
     "behaviour:glaser": "<p>Nhìn một con cá cỡ này lượn thong thả, uyển chuyển khắp bể thật sự rất ấn tượng. So với nhiều loài Loricariidae khác, cá lau kiếng vây buồm không hề nhát.</p>",
-    "beforeYouBuy:glaser": "<p>Cá đánh bắt tự nhiên của loài này rất hiếm khi có bán. Phần lớn cá trên thị trường là cá nuôi trong ao ở châu Á.</p>"
+    "beforeYouBuy:glaser": "<p>Cá đánh bắt tự nhiên của loài này rất hiếm khi có bán. Phần lớn cá trên thị trường là cá nuôi trong ao ở châu Á.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: L001, L022, Gold-flecked sailfin plec</li></ul>",
+    "distribution:scotcat": "<p>Brazil: Pará, Rio Tocantins (tại Tucurui). Ở Brazil, Pterygoplichthys joselimaianus sống trong lưu vực sông Tocantins, thuộc các bang Goiás, Pará và Tocantins. Ngoài tự nhiên, loài này vốn ít gặp và số lượng không nhiều. Dù vậy, hiện chưa thấy mối đe dọa đáng kể nào với quần thể của nó. Vì thế IUCN xếp loài này vào nhóm Ít quan tâm (LC) (IUCN 2022).</p>",
+    "maintenance:scotcat": "<p>Lúc còn nhỏ, cá khá dễ nuôi chung. Càng lớn chúng càng hiếu động, quậy phá và có thể rất hay giành lãnh thổ. Vì vậy, bạn nên nuôi riêng loài này trong bể lớn, dài trên 180 cm.</p>",
+    "aquariumSize:scotcat": "<p>Bạn nên nuôi riêng loài này trong bể dài trên 180 cm.</p>",
+    "diet:scotcat": "<p>Cá ăn được mọi loại thức ăn cho cá cảnh, như thức ăn dạng mảnh, dạng viên, thức ăn sống và đông lạnh.</p>",
+    "dimorphism:scotcat": "<p>Cá đực có vây to hơn cá cái, rõ nhất là ở vây lưng.</p>",
+    "notes:scotcat": "<p>Đây là mã L-Number đầu tiên do Claude Weber xác định. Ảnh của loài này và của L022 từng được đăng trên tạp chí DATZ dưới tên Glyptoperichthys joselimaianus. L022 có thân màu nâu, còn L001 có màu nền đen. Dù vậy, nhiều khả năng cả hai là cùng một loài. Loài này được nhân giống với số lượng lớn trong các ao ở Đông Nam Á để cung cấp cho dân chơi cá. Đây là loài cỡ lớn, vây lưng có 12-14 tia.</p><p>Từ nguyên: tên loài joselimaianus đặt để vinh danh nhà ngư học người Brazil José Lima de Figueiredo (sinh năm 1943), làm việc tại Museu de Zoologia da Universidade de São Paulo. Ông là người đã chỉ cho tác giả thứ nhất thấy các giống \"khác thường\" mà nay gọi là Leporacanthicus và Hopliancistrus.</p><p>Ghi chú: một số tài liệu và trang mạng vẫn còn gọi loài này là Glyptoperichthys joselimaianus.</p>",
+    "references:scotcat": "<p>All L-Numbers Datz Special. Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Pterygoplichthys joselimaianus. The IUCN Red List of Threatened Species 2022. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
   },
   "quality": {
-    "score": 0.82,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.82
-    },
-    "reason": "thin"
+      "glaser": 0.82,
+      "scotcat": 0.8
+    }
   }
 }

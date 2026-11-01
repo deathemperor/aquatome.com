@@ -7,7 +7,10 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "ecuador",
+    "napo",
+    "amazon"
   ],
   "dataCard": {
     "difficulty": [
@@ -15,9 +18,54 @@
         "source": "glaser",
         "value": 2
       }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 0,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 76
+      }
     ]
   },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "html": "<ul><li>Size: male 9.0 cm, female 10.0 cm</li><li>IUCN Red List: Least Concern, as it is widely distributed, common within some of its range, and no major widespread threats are known to currently affect its population (IUCN 2023).</li></ul>"
+    },
     {
       "key": "distribution",
       "source": "glaser",
@@ -25,10 +73,46 @@
       "html": "<p>The breeding group of the fish described here originates from Peru.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "html": "<p>South America: Western Amazon River basin, Ecuador and Peru. Type locality: afluente occidental del río Lagartococha, cerca del poblado de Garza-Cocha, sistema del alto Napo.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "html": "<p>A tank of at least 30\" x 15\" x 12\" (about 76 x 38 x 30 cm) is suggested for a shoal.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-multiradiatus-bred/",
       "html": "<p>The care of all Brochis is easy and hardly differs from that of the remaining corys.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "html": "<p>Water quality and general husbandry are very important; changing a minimum of 25% of the water every fortnight is recommended.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "html": "<p>Best kept in water with a pH in the range of 6.0-7.2 and hardness up to 15.0 dGH. Ideally suited to temperatures of 21-24°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "html": "<p>The preferred substrate is good quality aquarium sand, or very smooth rounded gravel, to prevent the barbels from being damaged. The aquarium should provide some shelter in the form of rocks, bogwood and aquatic plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "html": "<p>As with the other Brochis, they readily accept a mixed and varied diet: catfish pellets, good quality flake foods, granular foods, cultured whiteworm and frozen foods such as bloodworm.</p>"
     },
     {
       "key": "reproduction",
@@ -41,48 +125,93 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-multiradiatus-bred/",
       "html": "<p>The big emerald corys of the genus Brochis clearly differ from all species of Corydoras through the long dorsal fin, which contains considerably more fin rays. While Corydoras have 7-8 rays in the dorsal fin, Brochis have 10-18.</p><p>The young of Brochis splendens look completely different from the adults. For the other Brochis species the juvenile form was previously unknown.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "html": "<p>Brochis multiradiata has a 17 dorsal ray count compared to B. splendens (12) and B. britskii (15), and a far longer snout than the latter two. Lineage: Brochis is included in Lineage 8 (sub-clade 1) with the \"intermediate long-snouts\" with deeper bodies.</p><p>Etymology: the specific name multiradiata means many (fin) rays.</p><p>Remarks: Brochis was synonymised with Corydoras by Britto in 2003, but a future revision will resurrect Brochis (Cope, 1871) as a full genus again, so Brochis is retained for now because of marked differences between the two genera. In the latest revision (Dias et al 2024), Brochis multiradiatus was placed in Lineage 8 sub-clade 1, keeping the genus name Brochis, with the specific name changed to multiradiata.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "html": "<p>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited.</p><p>Frederico, R.G. &amp; Jimenez-Prado, P. 2023. Corydoras (Brochis) multiradiata. The IUCN Red List of Threatened Species 2023.</p><p>Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises.</p><p>ScotCat Factsheet no. 129. March 2007.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/a4bbc8a5b2174b2a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a4bbc8a5b2174b2a-480.webp",
+      "width": 500,
+      "height": 238,
+      "licence": "dùng với sự cho phép",
+      "author": "Ian Fuller / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "caption": "Brochis multiradiata",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9df8dd5c9841f650.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9df8dd5c9841f650-480.webp",
+      "width": 500,
+      "height": 371,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "caption": "Brochis multiradiata: showing head area",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/29f757c021f23b69.webp",
+      "thumb": "https://media.aquatome.com/scotcat/29f757c021f23b69-480.webp",
+      "width": 500,
+      "height": 297,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
+      "caption": "Brochis multiradiata",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/ea138017ee323837.webp",
+      "thumb": "https://media.aquatome.com/commons/ea138017ee323837-480.webp",
       "width": 960,
       "height": 685,
       "licence": "CC BY-SA 3.0",
       "author": "Ltshears",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_at_Louisville_Zoo_025.jpg",
-      "caption": "Hognosed Brochis Brochis multiradiatus at the Louisville Zoo.",
-      "thumb": "https://media.aquatome.com/commons/ea138017ee323837-480.webp"
+      "caption": "Hognosed Brochis Brochis multiradiatus at the Louisville Zoo."
     },
     {
       "url": "https://media.aquatome.com/commons/48a204474c206f94.webp",
+      "thumb": "https://media.aquatome.com/commons/48a204474c206f94-480.webp",
       "width": 960,
       "height": 637,
       "licence": "CC BY-SA 3.0",
       "author": "Ltshears",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hog-nosedBrochis2010.jpg",
-      "caption": "Hog-Nosed Brochis Brochis multiradiatus at the Louisville Zoo",
-      "thumb": "https://media.aquatome.com/commons/48a204474c206f94-480.webp"
+      "caption": "Hog-Nosed Brochis Brochis multiradiatus at the Louisville Zoo"
     },
     {
       "url": "https://media.aquatome.com/commons/18fbcd29fe9b7752.webp",
+      "thumb": "https://media.aquatome.com/commons/18fbcd29fe9b7752-480.webp",
       "width": 960,
       "height": 656,
       "licence": "CC BY-SA 3.0",
       "author": "Ltshears",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_at_Louisville_Zoo_2.jpg",
-      "caption": "Hog-nosed Brochis Brochis multiradiatus at Louisville Zoo)",
-      "thumb": "https://media.aquatome.com/commons/18fbcd29fe9b7752-480.webp"
+      "caption": "Hog-nosed Brochis Brochis multiradiatus at Louisville Zoo)"
     },
     {
       "url": "https://media.aquatome.com/commons/245fb44fcadad96d.webp",
+      "thumb": "https://media.aquatome.com/commons/245fb44fcadad96d-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 4.0",
       "author": "karsten_s",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_multiradiatus_246860237.jpg",
-      "caption": "hog-nosed catfish (Corydoras multiradiatus) in Peru",
-      "thumb": "https://media.aquatome.com/commons/245fb44fcadad96d-480.webp"
+      "caption": "hog-nosed catfish (Corydoras multiradiatus) in Peru"
     }
   ],
   "videos": [
@@ -133,5 +262,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }

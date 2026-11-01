@@ -1,0 +1,127 @@
+{
+  "id": "corydoras-atropersonatus",
+  "scientificName": "Corydoras atropersonatus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "tigre",
+    "peru",
+    "nanay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=116",
+      "html": "<ul><li>Scientific name: Hoplisoma atropersonatum (Weitzman &amp; Nijssen, 1970)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=116",
+      "html": "<p>South America: Amazon, Upper Amazon, Tigre, Upper Tigre, Conambo and Nanay. Type locality: Río Conambo at mouth of River Shione, Río Tigre system, Pastaza State, Ecuador.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=116",
+      "html": "<p>Ideally, and close to mandatory, substrate should be sand, but rounded gravel is an imperfect alternative. Avoid rough-edged (chipped) gravel or sharp sand, which increases the risk of damage to the fish's barbels when it digs. Substrate should be bordered with driftwood and aquatic plants, leaving an open area to search for food and swim. The shade provided by overhanging rockwork, arching bogwood, and tall or floating plants is all that is required to settle a group of these fishes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=116",
+      "html": "<p>Readily accepts all prepared foods that reach the bottom of the aquarium, such as tablets, granules and larger flakes. Live or frozen foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups for spawning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=116",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=116",
+      "html": "<p>Females grow larger and are more full-bodied, best observed from above. Males typically have more pointed rather than rounded fin tips as they mature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=116",
+      "html": "<p>Etymology: the genus name Callichthys refers to the armour plates (Callum = hard skin; ichthys = fish) found in all members of this family.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=116",
+      "html": "<p>Beaufortia v. 18 (no. 233), pp 123, Figs. 2, 6b.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/16e035d5b55bf322.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "MaurizioCorydoras",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_Atropersonatus.jpg",
+      "caption": "fotografia di c.atropersonatus",
+      "thumb": "https://media.aquatome.com/commons/16e035d5b55bf322-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

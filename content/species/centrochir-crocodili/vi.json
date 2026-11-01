@@ -6,13 +6,20 @@
     "quickFacts:planetcatfish": "<p>Tên khoa học: Centrochir crocodili (Humboldt, 1821)</p><p>Nơi thu mẫu chuẩn: Río Magdalena, Colombia.</p><p>Kích thước: 21 cm SL (chiều dài chuẩn, tính từ mõm đến gốc đuôi).</p>",
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong lưu vực sông Magdalena. Đây là một trong những hệ thống sông đổ ra biển Caribe của Colombia.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: hiện chưa có ghi nhận nào.</p>",
-    "references:planetcatfish": "<p>Voyage de Humboldt et Bonpland v. 2 (trang tiêu đề 1833), tr. 181, bảng 48 (hình 2).</p>"
+    "references:planetcatfish": "<p>Voyage de Humboldt et Bonpland v. 2 (trang tiêu đề 1833), tr. 181, bảng 48 (hình 2).</p>",
+    "quickFacts:scotcat": "<p>Centrochir crocodili (Humboldt, 1821) là loài duy nhất của chi Centrochir, thuộc họ cá da trơn Doradidae. Cá dài tối đa 22,5 cm. Nhiệt độ nước thích hợp là 22-26°C, pH 6,0-7,5.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Magdalena, Colombia. Đây là loài đặc hữu của Colombia, hiện mới ghi nhận ở vùng hạ lưu và trung lưu lưu vực sông Magdalena. Mẫu chuẩn được thu trên sông Magdalena, vùng Nouvelle-Grenade, đoạn giữa Pinto và Mompox, gần chỗ sông Cauca đổ vào. Ở tỉnh Santander, người ta đã bắt gặp loài này tại Ciénaga de Paredes và Caño Peruétano.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở độ cao từ 5 đến 200 m. Chúng ở vùng nước trong tại các hồ trên đồng bằng ngập lũ và các con suối nhỏ. Bạn thường sẽ thấy chúng quanh quẩn gần đáy.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên chi Centrochir ghép từ kentron (gai) và cheiros (bàn tay), ý chỉ gai vây ngực không phân tia của cá. Tên loài crocodili nghĩa là “của cá sấu”. Tên này lấy từ cách gọi của người địa phương ở Colombia là “pexe que mata el Cayman” (cá giết cá sấu caiman). Cái tên xuất phát từ bộ vây ngực sắc nhọn của cá, vốn nổi tiếng là đã giết chết những con caiman định nuốt nó.</p><p>Sách đỏ IUCN: Ít quan tâm (Least Concern). Loài này phân bố rộng và khá phổ biến. Mối đe dọa chính đối với chúng cũng không làm quần thể suy giảm đáng kể.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2023. FishBase. www.fishbase.org. Jimenez-Segura, L., Mojica, J. &amp; Alonso, J. C. 2016. Centrochir crocodili. The IUCN Red List of Threatened Species 2016. Sabaj, M.H. and C.J. Ferraris Jr., 2003. Doradidae (Thorny catfishes). p. 456-469. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.7,
     "indexable": false,
     "bySource": {
-      "planetcatfish": 0.7
-    }
+      "planetcatfish": 0.7,
+      "scotcat": 0.8
+    },
+    "reason": "score"
   }
 }

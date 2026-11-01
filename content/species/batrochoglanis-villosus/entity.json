@@ -1,0 +1,81 @@
+{
+  "id": "batrochoglanis-villosus",
+  "scientificName": "Batrochoglanis villosus",
+  "order": "Siluriformes",
+  "family": "Pseudopimelodidae",
+  "genus": "Batrochoglanis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "nanay"
+  ],
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1113",
+      "html": "<p>Amazon, Upper Amazon, Nanay. Photographed in the Rio Nanay near Iquitos, Peru.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1113",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1113",
+      "html": "<p>IUCN Red List category: Not Evaluated. A juvenile of 3-4 cm SL was sold as Microglanis.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/a85200a40f94152c.webp",
+      "width": 960,
+      "height": 646,
+      "licence": "Public domain",
+      "author": "Burkhardt, Jacques",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Batrochoglanis_raninus_and_Batrochoglanis_villosus_(Tajapuru,_Brazil,_22_August_1865;_Teffe,_Brazil,_30_September_1865).jpg",
+      "caption": "Taxonomic Classification: Animalia--Pseudopimelodidae--Batrochoglanis raninus (Valenciennes 1840).Taxonomic Classification: Animalia--Pseudopimelodidae--Batrochoglanis villosus (Eigenmann 1912)",
+      "thumb": "https://media.aquatome.com/commons/a85200a40f94152c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/cf4169566e5b133e.webp",
+      "width": 960,
+      "height": 620,
+      "licence": "Public domain",
+      "author": "Burkhardt, Jacques",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Batrochoglanis_villosus_(Teffe,_Brazil,_30_September_1865).jpg",
+      "caption": "Taxonomic Classification: Animalia--Pseudopimelodidae--Batrochoglanis villosus (Eigenmann 1912). Common Name: Bumblebee catfish. Common Name: Dwarf marbled catfish. Specimen Collection Date: 1865-09-3",
+      "thumb": "https://media.aquatome.com/commons/cf4169566e5b133e-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "lọc cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

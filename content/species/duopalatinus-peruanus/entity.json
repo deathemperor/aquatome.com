@@ -1,0 +1,71 @@
+{
+  "id": "duopalatinus-peruanus",
+  "scientificName": "Duopalatinus peruanus",
+  "order": "Siluriformes",
+  "family": "Pimelodidae",
+  "genus": "Duopalatinus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "ucayali"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1180",
+      "html": "<p>Duopalatinus peruanus Eigenmann &amp; Allen, 1942. Family Pimelodidae. Type locality: Río Puinagua, mouth of Río Pacaya, Río Ucayali system, Peru. Etymology: Latin Duo = two + palatum = roof of the mouth. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1180",
+      "html": "<p>South America: Amazon and Orinoco River basins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1180",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1180",
+      "html": "<p>Maximum size 150 mm (5.9\") SL.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1180",
+      "html": "<p>Fishes of western South America, pp 107, Pl. 4 (fig. 4).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

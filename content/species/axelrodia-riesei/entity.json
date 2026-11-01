@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "colombia",
-    "meta"
+    "meta",
+    "meta-river"
   ],
   "dataCard": {
     "tempC": [
@@ -16,6 +17,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 20,
+          "max": 28
+        }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 24,
           "max": 28
         }
       }
@@ -27,6 +35,13 @@
           "min": 4,
           "max": 6.5
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ],
     "gh": [
@@ -36,12 +51,23 @@
           "min": 1,
           "max": 5
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 3
       }
     ],
     "tankCm": [
@@ -54,6 +80,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 3
       }
     ]
   },
@@ -65,10 +95,22 @@
       "html": "<p>The ruby tetra, Axelrodia riesei, is a tiny characid known only from the upper Río Meta basin in Colombia, part of the Orinoco system. It is less often seen in the hobby than A. stigmatias, presumably because of its remote, restricted range, and differs from it in its deeper body and red colour, which can fade after a period in aquaria. It is said to inhabit blackwater environments, and its small size and somewhat specialised requirements make it a poor community fish.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Scientific name: Axelrodia riesei</li><li>Water type: freshwater</li><li>Tank size: 40 litres</li><li>Breeding: medium to difficult</li><li>Dwellers: mid to bottom</li><li>Nitrate: less than 60 ppm</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Lifespan: up to 3 years</li><li>Colour: from bright red to pinkish</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-riesei",
       "html": "<p>Type locality is 'Upper Río Meta basin, east of Villavicencio, Colombia', and this species is currently known only from the upper Meta.</p><p>The Meta is a tributary within the larger Río Orinoco system.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Axelrodia riesei has a very narrow natural distribution and can only be found in the basin of the Meta River, a left tributary of the Orinoco River, in Colombia, South America.</p>"
     },
     {
       "key": "habitat",
@@ -77,10 +119,22 @@
       "html": "<p>Said to be an inhabitant of blackwater environments but detailed information is lacking.</p><p>Presumably it inhabits smaller, forested tributaries rather than larger river channels.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Ruby tetras inhabit stagnant or slow-moving blackwater rivers and streams that flow under the dense cover of tropical forest.</p><p>The bottom is littered with fallen leaves and driftwood. The water is rich in tannins from decomposing organic matter, giving it a brownish colour.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-riesei",
       "html": "<p>Despite its small size minimum base dimensions of 60 × 30 cm (24 × 12 in) or equivalent are recommended for long-term care, though smaller aquaria can be used for breeding. Volume is about 54 litres.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Due to their small size, Ruby tetras can be kept even in nano aquariums. A 10-gallon (about 40-litre) aquarium is suitable for a group of 8–10 individuals, provided there are no other fish species in the tank.</p><p>Keeping this species in excessively large tanks would be counterproductive: because these fish dislike swimming in open water, they will simply \"disappear\" in larger aquariums.</p>"
     },
     {
       "key": "maintenance",
@@ -89,10 +143,28 @@
       "html": "<p>Best-maintained in a well-structured set-up, ideally comprising a sandy substrate plus some driftwood roots and branches.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments. Alder cones may also be used for the latter purpose.</p><p>This species seems to do best under fairly dim lighting. You can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>For breeding purposes acidic conditions with negligible carbonate hardness and very low general hardness are required so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>This species is sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Maintaining a clean and healthy aquatic environment is crucial. High levels of ammonia, nitrite and nitrate can be detrimental, so the aquarium should be cycled and fully established before introducing the fish.</p><p>Ruby tetras are very sensitive to the accumulation of organic waste. Perform weekly water changes (at least 20%), remove leftover food and vacuum the bottom.</p><p>Before putting them into the tank, at least temperature-acclimate them. Do not rush the process; sudden changes can harm them.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-riesei",
       "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 4.0–6.5</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature: 24–28°C.</p><p>pH: 6.0–7.0. In nature they are found in acidic blackwater.</p><p>Hardness: GH 1–8 dGH; KH 1–4 dKH. Many aquarists noticed that in hard water the fish lose their colours.</p><p>Ammonia and nitrite should be kept at 0 ppm and nitrate below 60 ppm.</p><p>Blackwater is water with a natural dark or tea-coloured tint, caused by tannins released from decaying leaves and wood. It is favourable for this species and is often created in aquariums with Indian almond leaves, driftwood and other organic items, or with specialised water conditioners.</p><p>Water flow: still or very slow currents are recommended.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lighting: Ruby tetras prefer subdued lighting. In planted tanks, adapt lighting to the needs of the plants.</p><p>Substrate: they spend a lot of time close to the substrate, so use sand or smooth gravel. In planted tanks an active substrate boosts plant growth and helps keep pH low. Avoid coarse gravel, whose sharp edges can injure the fish.</p><p>Filtration: since they are sensitive to water composition and cleanliness, a powerful filtration system with filter media that increase acidity is desirable. Soft water can be achieved using a reverse osmosis system.</p><p>Decorations: a natural look with dim lighting, driftwood, leaves, shade-tolerant plants, floating plants, dark substrate and background, and lots of hiding places is highly recommended.</p>"
     },
     {
       "key": "diet",
@@ -101,10 +173,22 @@
       "html": "<p>Probably a micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will normally accept dried foods of a suitably small size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Daphnia, Moina, grindal worm, etc.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In the wild, this fish is a micropredator that feeds on small invertebrates and other zooplankton.</p><p>In an aquarium, they usually accept dry or freeze-dried foods of all kinds as long as they suit their small mouth. A varied and balanced diet results in healthier, more active and more colourful fish.</p><p>Live foods: brine shrimp, artemia nauplii, cyclops, daphnia, fruit flies, mosquito larvae, moina, detritus worms, vinegar eels, grindal worms, etc.</p><p>They can take any small live or frozen food that fits into the mouth. Large worms should be chopped into small pieces and flake food crumbled.</p><p>They also accept frozen and commercial foods such as Fluval Bug Bites, Hikari First Bites, TetraMin Crisps and any really small crushed flake food.</p><p>If the fish are too afraid to come into the open: crush a pill or flake in a small pot, add water to make a liquid, suck it up with a syringe or turkey baster and release it near the fish.</p><p>Ruby tetras can be kept in planted tanks. They do not eat live plants, and planted tanks are highly recommended.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-riesei",
       "html": "<p>Peaceful with other species but does not make an ideal community fish due to its small size and somewhat specialised requirements.</p><p>Ideally it should be maintained alone or at most with diminutive, non-aggressive characids and smaller callichthyid or loricariid catfishes.</p><p>Though gregarious by nature it's a shoaling rather than schooling species with rival males forming small territories and sparring on a regular basis.</p><p>8-10 specimens should be the minimum purchase since the fish will be less shy and display more interesting behaviour.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temper: Ruby tetras are peaceful and harmless. They do not nip other fish and are more likely to be bullied by others. Males may engage in dominance competition but do no visible damage. Young Ruby tetras can be confused with Serpae tetras (Hyphessobrycon eques), which are semi-aggressive and nippy.</p><p>Sociality: this is a shoaling fish rather than a schooling one. Keep at least 8 (bare minimum); larger groups make them happier and more confident. Groups are needed so they can establish a hierarchy. Small groups or solitary fish become stressed.</p><p>Activity: they are incredibly shy and skittish, often hiding in plants or behind driftwood and rarely coming out except at feeding time. They move like dragonflies: motionless for periods, then suddenly darting forward 2–5 cm and stopping again. They are diurnal and rely heavily on vision.</p><p>Placement: they prefer the middle and bottom of the tank.</p><p>Tankmates: choose small fish that cannot eat or harass them, such as pygmy corydoras, clown killifish, least killifish, guppies, peacock gudgeon, ghost glass catfish, harlequin rasboras, sparkling gourami and otocinclus. Avoid very active, boisterous or territorial fish.</p><p>Shrimp: adult dwarf shrimp may be safe, but baby shrimp are highly susceptible to predation, even in heavily planted tanks. Keep shrimp separate if you want a thriving shrimp population.</p><p>Snails: they can share a tank with freshwater snails, but most snails prefer hard water and do not tolerate acidic water well in the long term, while this fish prefers soft, acidic water.</p><p>Avoid crayfish, freshwater crabs and African dwarf frogs.</p>"
     },
     {
       "key": "dimorphism",
@@ -113,10 +197,22 @@
       "html": "<p>Adult males are slightly smaller and more intensely-coloured than females.</p><p>Sexually mature females appear rounder-bodied than males, especially when gravid.</p><p>It's unclear whether the differences in colour pattern in newly-imported wild fish (see 'Notes') relate to gender or not.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Although Ruby tetras are sexually dimorphic, their small size makes it challenging to tell males from females.</p><ul><li>Body shape and size: females are slightly larger and plumper, especially when carrying eggs. Males are slimmer and more streamlined.</li><li>Coloration: males tend to show slightly more colour.</li><li>Fins: in males the dorsal fin tends to be more pointed and elongated, and the anal fin more pointed and narrow.</li></ul>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-riesei",
       "html": "<p>Has been achieved and in a properly-structured, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>The main requirements are soft, slightly acidic water and provision of fine-leaved plants such as Taxiphyllum or similar within which the fish will spawn.</p><p>Addition of leaf litter is also recommended due to the microorganisms which colonise it as decomposition occurs since these constitute a useful food source for fry.</p><p>Once in condition adults spawn on a daily basis so if attempting to breed this species in controlled conditions a pair or male and several females can be placed in a smaller aquarium and removed after a few days with the eggs and fry left to hatch and grow in the spawning tank.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Ruby tetras rarely breed in captivity and there is no established breeding protocol. Little is known about their wild reproduction; information is based on aquarists' observations.</p><p>They reach sexual maturity at 5–7 months.</p><p>They are egg scatterers with no parental care and will readily eat their own eggs. Parents should be moved to a separate tank a few days before spawning and removed afterwards. A small breeding tank should have lots of hiding places such as rocks, driftwood and plants.</p><p>Diet also matters: Ruby tetras require constant feeding with high-quality foods, not just before the spawning period.</p><p>The fry hatch in 2–3 days. Newly hatched fry are very small and need microscopic food such as infusoria or specialised liquid or powdered products. Adult shrimp may eat the fry, so the fry should stay in a separate tank for at least a month.</p>"
     },
     {
       "key": "notes",
@@ -125,13 +221,36 @@
       "html": "<p>This species is less often seen than its congener A. stigmatias in the aquarium hobby, presumably a reflection of its more remote, restricted natural range.</p><p>The red pigmentation on the body can vary in both extent and intensity, and apparently begins to fade when the fish have been maintained in aquaria for a period.</p><p>Axelrodia was proposed as a new genus when it was revealed that the type species Hyphessobrycon stigmatias possessed only a single row of conical teeth and therefore could not be a member of that grouping.</p><p>The most recent diagnosis of all three current members appears to be that of Géry (1977) in which A. riesei is distinguished from congeners by the following combination of characters: 14-15 anal-fin rays; 7-10 premaxillary and 4-5 maxillary teeth; body depth 3.1-3.5 times in SL; suborbital bone large and 'reduced'; body red in life.</p><p>It's similar to A. stigmatias but can be told apart by its less-elongate body (depth 3.1-3.5 times, vs. 4-5 times, in SL), live body colour (red, vs. silvery yellow) and suborbital bone structure (reduced, vs. almost complete).</p><p>The third species, A. lindeae, is quite different possessing a greater number of anal-fin rays (22-25, vs. 14-15), premaxillary teeth (15, vs. 7-10), maxillary teeth (8-9, vs. 4-5), and a colour pattern comprising a dark stripe extending from the tip of the snout to below the dorsal-fin, a black line at the base of the dorsal, anal and caudal fins and black primary rays in the dorsal and anal fins.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families.</p><p>This tremendous taxonomical and morphological diversity has historically impaired the ability of researchers to resolve their genetic relationships with many genera remaining incertae sedis.</p><p>A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern molecular phylogenetic techniques have allowed some headway, although as far as is known Axelrodia has never been included in such a study.</p>"
     },
     {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The genus Axelrodia was established in 1965 by Jacques Géry, and Axelrodia riesei was described in 1966. Axelrodia fowleri was later recognised as a junior synonym of Hyphessobrycon stigmatia. The species was named in honour of Dr. Herbert R. Axelrod and Mr. William Riese, a tropical-fish exporter who helped collect it.</p><p>It is one of the smallest fish in the hobby and probably the smallest in the tetra family. Body elongated and slightly compressed, pointed snout, large eyes; colour from bright red to pinkish, paler toward the belly; fins short and transparent; caudal fin forked with a conspicuous black spot.</p><p>In captivity, Ruby tetras can live 2–3 years if appropriately cared for.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-riesei",
       "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fowler, H. W. (1913). Fishes from the Madeira River, Brazil. Proceedings of the Academy of Natural Sciences of Philadelphia 65, 517-179</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Axelrodia riesei, a new characoid fish from upper Rio Méta in Columbia (with remarks concerning the genus Axelrodia and description of a similar, sympatric Hyphessobrycon-species). Ichthyologica-The Aquarium Journ., 37 (3) new ser.: 111- 120.</li><li>Axelrodia riesei in Morales-Betancourt D (2022). Especies acuáticas y semiacuáticas de humedales interiores de Colombia derivado de información secundaria. Instituto de Investigación de Recursos Biológicos Alexander von Humboldt.</li><li>Bührnheim, Cristina Motta. “Sistemática de Odontostilbe Cope, 1870 com a proposição de uma nova tribo Odontostilbini e redefinição dos gêneros incertae sedis de Cheirodontinae (Ostariophysi: Characiformes: Characidae).” (2006).</li><li>Géry, J., 1977. Characoids of the world. Neptune City ; Reigate : T.F.H. [etc.]; 672 p. : ill. (chiefly col.) ; 23 cm. (Ref. 598)</li><li>Christopher Scharpf &amp; Kenneth J. Lazara (22 September 2018). “Order CHARACIFORMES: Family CHARACIDAE: Subfamily STEVARDIINAE + Incertae sedis”. The ETYFish Project Fish Name Etymology Database. Christopher Scharpf and Kenneth J. Lazara. Retrieved 27 March 2021.</li><li>Weitzman, Stanley H., and William L. Fink. Relationships of the neon tetras, a group of South American freshwater fishes (Teleostei, Characidae), with comments on the phylogeny of New World characiforms. Museum of Comparative Zoology, Harvard University, 1983.</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/eb80c1e695ab26b1.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/eb80c1e695ab26b1-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -163,5 +282,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }

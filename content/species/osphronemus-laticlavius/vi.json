@@ -1,0 +1,21 @@
+{
+  "slug": "ca-tai-tuong-do",
+  "name": "Cá tai tượng đỏ",
+  "altNames": [
+    "Cá tai tượng vây đỏ",
+    "Red finned giant gourami"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá tai tượng vây đỏ rất hiếm. Loài này lớn ngang cá tai tượng thường, cỡ khoảng 60 cm. Cá đực khi đã thành thục sinh dục có phần đầu gồ lên rất rõ và bộ vây đỏ đậm, nổi bật đẹp mắt trên nền thân đen.</p>",
+    "distribution:glaser": "<p>O. laticlavius là loài bản địa của đảo Borneo.</p>",
+    "dimorphism:glaser": "<p>Cá đực khi đã thành thục sinh dục có phần đầu gồ lên rất rõ và bộ vây đỏ đậm, tương phản với thân màu đen.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

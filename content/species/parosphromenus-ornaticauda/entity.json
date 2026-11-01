@@ -1,0 +1,109 @@
+{
+  "id": "parosphromenus-ornaticauda",
+  "scientificName": "Parosphromenus ornaticauda",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Parosphromenus",
+  "group": "labyrinth",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 4,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "bwaquatics",
+        "value": 3.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-ornaticauda",
+      "html": "<p>Parosphromenus ornaticauda (wild caught) is a small freshwater fish belonging to the family Osphronemidae. Adult males typically reach a maximum length of 3.5 cm (1.4 in), while females are slightly smaller.</p><ul><li>Temperament: peaceful, but males can be territorial</li><li>TDS: 0-60</li></ul>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-ornaticauda",
+      "html": "<p>In the wild, P. ornaticauda is found in slow-moving and shaded water bodies with a pH between 4.0 and 6.0 and a temperature range of 22 to 28 °C (71.6 to 82.4 °F).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-ornaticauda",
+      "html": "<p>They are small fish, so it is recommended to keep them in groups of 5 in a tank of about 19 litres (5 gallons) or larger, unless breeding. In that case, they are best kept in pairs.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-ornaticauda",
+      "html": "<p>They feed on small aquatic invertebrates such as insect larvae and crustaceans. In the aquarium: blackworms, brine shrimp and water fleas. They only eat live food and must be trained to accept anything else. Adding dither fish tends to help them learn to take dry foods.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/ff13f4a778e65a88.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/ff13f4a778e65a88-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-ornaticauda",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/e63b67b66cadc611.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/e63b67b66cadc611-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-ornaticauda",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 20 lít",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "bo bo",
+        "giun đen"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH nước",
+        "bộ test nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

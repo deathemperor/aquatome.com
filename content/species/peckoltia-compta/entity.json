@@ -16,6 +16,28 @@
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "scotcat",
+        "value": 11
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -27,19 +49,107 @@
       "html": "<p>P. compta is one of the most recommendable L-catfishes and combines all desired characteristics of this group in an ideal way: small size (maximum 12 cm with tail fin), splendid coloring, a little shy nature and comparatively easy breeding.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "html": "<p>First introduced in the magazine \"DATZ\" in June 1993 as L134. It has since been named to science by Oliveira et al. (2010).</p><p>Etymology: the specific name compta is from the Latin for ornamented or adorned.</p><p>Family: Loricariidae. Size: 11 cm. Temperature: 26-30°C. pH: 6.0-7.2.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l134-peckoltia-compta-2/",
       "html": "<p>L134 (Peckoltia compta) comes from the Rio Tapajós.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "html": "<p>Brazil: Pará, Rio Tapajós, Pimental.</p><p>According to the IUCN Red List, Peckoltia compta is endemic to Brazil and occurs in the middle Tapajós River basin and the Jamanxim River basin in the state of Pará. The species is infrequent and not very abundant, and occurs associated with rocky areas and rapids.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "html": "<p>Should be kept at slightly higher temperatures and has a requirement for higher oxygen intake.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "html": "<p>Omnivores, easy to feed with frozen and live foods and also tablet and flake food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "html": "<p>Peaceful inhabitants of an aquarium.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l134-peckoltia-compta-2/",
       "html": "<p>Distinguishing the sexes is tricky and often ends unsatisfactorily for the aquarist. Although sexually active males are always easy to recognize, boyish females are not, and males that are ranked far below cannot be distinguished from females at all.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "html": "<p>Males have hair-like odontodes on the leading rays of the pectoral and caudal fins, whereas females do not. Juveniles have very regular banding; in adulthood, spots can form into the pattern.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "html": "<p>The genus Peckoltia are cave spawners.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "html": "<p>Description: it differs from congeners in having small dark brown spots only on the fin rays, rarely reaching the interradial membranes, interorbital distance 31.1–32.9% of head length, cleithral width 32.3–34.6% of standard length and head depth 57.8–62.2% of head length.</p><p>Colouration: a bold colour pattern of large dark transversal bars on the body and thick longitudinal dark stripes on the snout and head. It is most similar in colour pattern to P. vittata but can be distinguished from all its congeners by a pale line inside each dark stripe running from the snout tip to the anterior margin of the eyes (versus absence of such clear lines and a mottled appearance in P. vittata, and a mix of vermiculations and spots on the head of the remaining congeners).</p><p>There are two varieties: 1. from the Rio Tapajós, with large transversal bars on the body; 2. from the Rio Jamanxim, with more of a spotted pattern.</p><p>Conservation: there is evidence of morphological variations, such as colour patterns, related to certain localities, which may indicate genetically distinct subpopulations. Specimens are collected for the aquarium market, but this apparently does not significantly affect subpopulations. The main threat is the construction of hydroelectric dams in the Tapajós River drainage. About 50% of the stretches with confirmed records are expected to be impacted, and a population reduction of at least 50% in 15 years (three generations) is suspected. The IUCN categorises the species as Endangered (EN) under criterion A3c (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Peckoltia compta. The IUCN Red List of Threatened Species 2022.</p><p>de Oliveira, RR, J Zuanon, LR Py-Daniel &amp; MS Rocha (2010) Peckoltia compta, a new species of catfish from the Brazilian Amazon, rio Tapajós basin (Siluriformes: Loricariidae). Zootaxa 2534, pp. 48–56.</p><p>Garcia, Jorge pers comm. 2024.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/915b685b447acaa5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/915b685b447acaa5-480.webp",
+      "width": 500,
+      "height": 538,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "caption": "Peckoltia compta",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8b2ed91f678e54e9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8b2ed91f678e54e9-480.webp",
+      "width": 500,
+      "height": 382,
+      "licence": "dùng với sự cho phép",
+      "author": "Vedran Cuncic / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "caption": "Peckoltia compta",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8e6c9873e53cd1d7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8e6c9873e53cd1d7-480.webp",
+      "width": 500,
+      "height": 445,
+      "licence": "dùng với sự cho phép",
+      "author": "Vedran Cuncic / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_compta.htm",
+      "caption": "Peckoltia sp. (L 134)",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -64,5 +174,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-01"
 }

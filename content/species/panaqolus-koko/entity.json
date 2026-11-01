@@ -1,0 +1,69 @@
+{
+  "id": "panaqolus-koko",
+  "scientificName": "Panaqolus koko",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Panaqolus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "maroni",
+    "suriname",
+    "marowijne",
+    "guyana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1149",
+      "html": "<p>Pseudoqolus koko (Fisch-Muller &amp; Covain, 2012). Common name: Koko Pleco. Size: 90 mm (3.5\") SL. Synonym: Panaqolus koko.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1149",
+      "html": "<p>Antecume Pata in the upper Maroni River basin, French Guiana. Type locality: Marouini River, vicinity of Antecume Pata, French Guiana. Also recorded from Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers, Marowijne and Upper Marowijne.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1149",
+      "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1149",
+      "html": "<p>Cybium v. 36 (no. 1), pp184, Figs. 7, 13 14.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}

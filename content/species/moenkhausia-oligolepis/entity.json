@@ -1,0 +1,158 @@
+{
+  "id": "moenkhausia-oligolepis",
+  "scientificName": "Moenkhausia oligolepis",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Moenkhausia",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru",
+    "guyana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "html": "<p>M. oligolepis occurs in the Amazon region and the Guianas. The related M. sanctaefilomenae comes from the adjacent southern zone, the Rio Paraguay and Parnahyba. Wild M. oligolepis are occasionally imported from Peru.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "html": "<p>Water parameters play only a minor role. pH between 6 and 8, soft to moderately hard water (and even hard water after acclimation), and a water temperature between 22 and 26°C as a guideline (it can occasionally be slightly lower or higher).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "html": "<p>They will eat any commercially available ornamental fish food of suitable size.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "html": "<p>Red-eyed Moenkhausia should always be kept in as large a school as possible. With a maximum length of 12 cm, M. oligolepis grows significantly larger than M. sanctaefilomenae (approx. 7 cm) and is therefore better suited than the latter as a companion fish for larger cichlids.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "html": "<p>Caring for and breeding both species is easy.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "html": "<p>Traditionally, two virtually indistinguishable red-eyed Moenkhausia species are distinguished: M. oligolepis and M. sanctaefilomenae. M. oligolepis is called the \"mirror-spot tetra\" because the black spot at the base of the tail is flanked at the front and back by a broad white band, but this also applies to some M. sanctaefilomenae. A reliable distinguishing feature is the scale count in the longitudinal row: M. oligolepis has 29–32 scales, M. sanctaefilomenae 22–26.</p><p>Two further species have been described: M. forestii (2009) and M. pyrophthalma (1994). M. forestii, like M. sanctaefilomenae, comes from the Rio Paraguay basin. All three red-eyed Moenkhausia are currently classified in the genus Bario. M. pyrophthalma is currently placed in Ramirezella; it is much slimmer and has a completely different pattern at the base of the tail.</p><p>The most recent research shows three species of red-eyed Moenkhausia in the drainage of the Rio Paraguay: B. forestii and B. sanctaefilomenae (both with an incomplete lateral line) and B. australis (with a complete lateral line), described in 1908.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "html": "<p>Mirande, J.M., Körber, S., Terán, G.E. &amp; G. Aguílera (2024): Welche Spezies mit roten Augen ist es? Die Moenkhausia oligolepis Gruppe in Argentinien (Characiformes: Characidae). AKFS-aktuell (49): 23-30</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/06ddf6e4763ba8ea.webp",
+      "thumb": "https://media.aquatome.com/glaser/06ddf6e4763ba8ea-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f40549123c8e872c.webp",
+      "thumb": "https://media.aquatome.com/glaser/f40549123c8e872c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ac0d17ff7bd23200.webp",
+      "thumb": "https://media.aquatome.com/glaser/ac0d17ff7bd23200-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/36282ec350a7e771.webp",
+      "thumb": "https://media.aquatome.com/glaser/36282ec350a7e771-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá cảnh dạng hạt"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-01"
+}
