@@ -1,14 +1,14 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "File:Kleiner Leopard-Fiederbartwels (Tiergarten Delitzsch).jpg"
+ ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/9c3969ccf15182ec.webp": "c3334db663b60cbe",
-  "https://media.aquatome.com/glaser/ca9d260d0389cf45.webp": "e92e45591ca3f08c",
-  "https://media.aquatome.com/glaser/e7af93b817e291e9.webp": "71c5c8839219322d",
-  "https://media.aquatome.com/glaser/a4d4a038d5055628.webp": "0247534723839a9e",
-  "https://media.aquatome.com/glaser/10d7cb09e810797d.webp": "de9f8ec7879eeea9",
   "https://media.aquatome.com/commons/70f0868406b91d56.webp": "fcd90109791f5f5d",
-  "https://media.aquatome.com/commons/90ff72588ee35b18.webp": "7d60333333372703"
+  "https://media.aquatome.com/commons/90ff72588ee35b18.webp": "7d60333333372703",
+  "https://media.aquatome.com/commons/0729c51cc067b013.webp": "e7e3f67178669b92",
+  "https://media.aquatome.com/commons/976a0ca9a5a13619.webp": "7c9f173f7f6eef1f",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Kleiner_Leopard-Fiederbartwels_%28Tiergarten_Delitzsch%29.jpg/1280px-Kleiner_Leopard-Fiederbartwels_%28Tiergarten_Delitzsch%29.jpg": "9201ccb0f9ce9e3e"
  },
  "gbif": {
   "key": 2344304,
@@ -19,10 +19,12 @@
  },
  "inat": {
   "taxon": 113659,
-  "pass": "research",
+  "pass": "done",
   "after": {
    "research": 0,
-   "agree": 0
+   "agree": 230491881
   }
- }
+ },
+ "commons": "2026-11-01",
+ "exhausted": "2026-11-01"
 }

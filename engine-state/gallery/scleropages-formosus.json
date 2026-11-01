@@ -92,9 +92,6 @@
   "flickr:13078654563"
  ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/a493c0ea695fe621.webp": "0000380733360006",
-  "https://media.aquatome.com/seriouslyfish/9ae1d5b5b62eee83.webp": "3e2f876d3b3f8f0c",
-  "https://media.aquatome.com/seriouslyfish/d0e9c485cdd2ced4.webp": "cda70f0e0f4b1958",
   "https://media.aquatome.com/seriouslyfish/25eed079586f976a.webp": "0f070f1107340208",
   "https://media.aquatome.com/commons/49cb95d4921bfdbe.webp": "3f3de0eb7b7b330d",
   "https://media.aquatome.com/commons/2c7274389903406d.webp": "0301070303311b9f",
@@ -106,11 +103,7 @@
   "https://media.aquatome.com/commons/18305902a53e52a5.webp": "15150e1f8e830303",
   "https://media.aquatome.com/commons/fdb933c97d6ae947.webp": "40521e0f07d72799",
   "https://media.aquatome.com/commons/d57b2609ec3d6ce3.webp": "00412131398e9c0f",
-  "https://media.aquatome.com/inaturalist/291158994.webp": "610d42484486c8fc",
-  "https://media.aquatome.com/inaturalist/302678005.webp": "393c3725c6eccf9b",
-  "https://media.aquatome.com/inaturalist/371559299.webp": "121f0fc7564bdf7f",
   "https://media.aquatome.com/inaturalist/93728003.webp": "f3c3da07239783f6",
-  "https://media.aquatome.com/inaturalist/371606712.webp": "3b8e23781b4d4f33",
   "https://media.aquatome.com/commons/84f557378f0c3b1d.webp": "f0703d1e97819911",
   "https://media.aquatome.com/commons/974a37e99c46a42c.webp": "1f1f0f0787060715",
   "https://media.aquatome.com/commons/abc7f85db0d600c0.webp": "7ff3170f1b3f6f3f",
@@ -141,11 +134,11 @@
   "https://media.aquatome.com/inaturalist/338828313.webp": "9081240c989a9f9d",
   "https://images.unsplash.com/photo-1637806701562-3b67d4c9fa28?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8QXNpYW4lMjBhcm93YW5hfGVufDF8fHx8MTc5MzQ1OTU5MXww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "0304e51b0bc01f58",
   "https://images.unsplash.com/photo-1684127946837-9bca0bcf138e?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Nnx8QXNpYW4lMjBhcm93YW5hfGVufDF8fHx8MTc5MzQ1OTU5MXww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "1f6d1b67671f5f3f",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/288012739/large.jpeg": "0f1d492331193737",
-  "https://live.staticflickr.com/8188/8445099001_6be80bc5c7_b.jpg": "0707271f03182939",
-  "https://live.staticflickr.com/4130/5100993520_d5a8c362ed_b.jpg": "7d1f7e6d4b77d585",
-  "https://live.staticflickr.com/1124/5100397121_86c2239fcb_b.jpg": "1f1f3d6f6e3f1e1f",
-  "https://live.staticflickr.com/7453/13078654563_3b4945cd17_b.jpg": "51cc0f114b273046"
+  "https://media.aquatome.com/flickr/5100993520.webp": "5d6f7e6f6b7dd58d",
+  "https://media.aquatome.com/flickr/8445099001.webp": "0707261f03182119",
+  "https://media.aquatome.com/flickr/13078654563.webp": "20080f114b362000",
+  "https://media.aquatome.com/inaturalist/288012739.webp": "0f150923313d370f",
+  "https://media.aquatome.com/flickr/5100397121.webp": "1d1f396f6f3f1e1f"
  },
  "inat": {
   "taxon": 112325,

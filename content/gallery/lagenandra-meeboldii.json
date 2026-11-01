@@ -2,6 +2,18 @@
   "id": "lagenandra-meeboldii",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/352914420.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/352914420-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Dinesh Valke",
+      "sourceUrl": "https://www.inaturalist.org/photos/352914420",
+      "caption": "Lagenandra meeboldii mọc tự nhiên giữa dương xỉ trong rừng",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/b470cc121edfabd6.webp",
       "thumb": "https://media.aquatome.com/commons/b470cc121edfabd6-480.webp",
       "width": 1200,
@@ -12,9 +24,21 @@
       "caption": "Lá Lagenandra meeboldii trong bể thủy sinh, nhìn từ trên xuống",
       "best": true,
       "kind": "submersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/353160567.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/353160567-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Dinesh Valke",
+      "sourceUrl": "https://www.inaturalist.org/photos/353160567",
+      "caption": "Các cây Lagenandra meeboldii mọc trên nền sỏi ẩm ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
-  "seen": 3,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 6,
+  "updatedAt": "2026-11-01",
+  "builtAt": "2026-11-01"
 }

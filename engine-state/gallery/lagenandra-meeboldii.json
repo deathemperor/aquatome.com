@@ -3,21 +3,26 @@
  "judged": [
   "File:Lagenandra meeboldii-2-veda aquarium-bengaluru-India.jpg",
   "File:Lagenandra meeboldii Red Care-1-veda aquarium-bengaluru-India.jpg",
-  "File:Lagenandra meeboldii Red Care-2-veda aquarium-bengaluru-India.jpg"
+  "File:Lagenandra meeboldii Red Care-2-veda aquarium-bengaluru-India.jpg",
+  "inat:104909854",
+  "inat:352914420",
+  "inat:353160567"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/d5a797d9aa49ee70.webp": "ca8c075753190908",
   "https://media.aquatome.com/commons/f2fed929b0887548.webp": "5e8fcf3b1f3dc6e3",
   "https://media.aquatome.com/commons/71eb23d9b3b20b5b.webp": "dc4ccf6b1b7d86e3",
   "https://media.aquatome.com/commons/eb450ce4d59d3edd.webp": "69b97335356d2cac",
-  "https://upload.wikimedia.org/wikipedia/commons/f/f3/Lagenandra_meeboldii_Red_Care-1-veda_aquarium-bengaluru-India.jpg": "a9397237b5ec2cac"
+  "https://media.aquatome.com/commons/b470cc121edfabd6.webp": "a9393234356c2ca4",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/352914420/large.jpg": "69a1a534913939a5",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/353160567/large.jpg": "7acaded68cae5777"
  },
  "inat": {
   "taxon": 818692,
-  "pass": "research",
+  "pass": "done",
   "after": {
-   "research": 0,
-   "agree": 0
+   "research": 200195610,
+   "agree": 346314995
   }
  },
  "commons": "2026-10-31",

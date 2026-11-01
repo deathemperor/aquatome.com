@@ -11,10 +11,13 @@
   "File:Borasasb (cropped).jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/bwaquatics/d1b134e814c6733e.webp": "1e14165b1538aca8",
   "https://media.aquatome.com/commons/33de0bd15f65808d.webp": "19ab3c317b333337",
   "https://media.aquatome.com/commons/0996c8928e74bf80.webp": "6060200a1f040200",
-  "https://media.aquatome.com/commons/75e92837b21cdbe6.webp": "048184c08e880244"
+  "https://media.aquatome.com/commons/75e92837b21cdbe6.webp": "048184c08e880244",
+  "https://media.aquatome.com/commons/1254100a9b4b2caf.webp": "fe3c1e0f2c3ce8e1",
+  "https://media.aquatome.com/commons/3e158e81b4352d68.webp": "59551787d1d99e87",
+  "https://media.aquatome.com/commons/bb991a4fdd2edcd5.webp": "1f1b993851133736",
+  "https://media.aquatome.com/commons/b6bcaf61a7a9f2e1.webp": "669533469e7c7e7f"
  },
  "commons": "2026-10-31",
  "gbif": {
@@ -23,7 +26,7 @@
  },
  "inat": {
   "taxon": 612615,
-  "pass": "agree",
+  "pass": "done",
   "after": {
    "research": 0,
    "agree": 0

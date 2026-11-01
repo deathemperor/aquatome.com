@@ -2,6 +2,42 @@
   "id": "phractocephalus-hemioliopterus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/d9a5d4607d77dd98.webp",
+      "thumb": "https://media.aquatome.com/commons/d9a5d4607d77dd98-480.webp",
+      "width": 1200,
+      "height": 833,
+      "licence": "CC BY-SA 2.0",
+      "author": "Guillaume Baviere from Copenhagen, Denmark",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Copenhagen_2014-03-01_(12954072944).jpg",
+      "caption": "Cá da trơn đuôi đỏ với vây lưng cam trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/781111206b723dae.webp",
+      "thumb": "https://media.aquatome.com/commons/781111206b723dae-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "CC BY-SA 3.0",
+      "author": "Andrey Butko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019-07-16._%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC_%D0%B2_%D0%95%D0%B9%D1%81%D0%BA%D0%B5_022.jpg",
+      "caption": "Cá da trơn đuôi đỏ nằm đáy bể thủy sinh lớn",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/db438263a63643c5.webp",
+      "thumb": "https://media.aquatome.com/commons/db438263a63643c5-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hal_-_Phractocephalus_hemioliopterus_-_2.jpg",
+      "caption": "Cá da trơn đuôi đỏ nhìn thẳng phía trước trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/11697784.webp",
       "thumb": "https://media.aquatome.com/inaturalist/11697784-480.webp",
       "width": 1024,
@@ -578,6 +614,18 @@
       "caption": "Cá da trơn đuôi đỏ bơi dưới gờ đá trong bể"
     },
     {
+      "url": "https://media.aquatome.com/commons/d5d6d4eb1e9763bf.webp",
+      "thumb": "https://media.aquatome.com/commons/d5d6d4eb1e9763bf-480.webp",
+      "width": 1200,
+      "height": 898,
+      "licence": "CC BY-SA 3.0",
+      "author": "Iridescenti",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catfish_in_Biodome.JPG",
+      "caption": "Cá da trơn đuôi đỏ bơi giữa cành cây trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/265275120.webp",
       "thumb": "https://media.aquatome.com/inaturalist/265275120-480.webp",
       "width": 1024,
@@ -588,9 +636,57 @@
       "caption": "Cá da trơn đuôi đỏ với vây đuôi đỏ trong bể kính",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/319834376.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/319834376-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/319834376",
+      "caption": "Cá da trơn đuôi đỏ bơi gần đáy bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/337173429.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/337173429-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Nick T.",
+      "sourceUrl": "https://www.inaturalist.org/photos/337173429",
+      "caption": "Cá da trơn đuôi đỏ bơi trong bể lớn",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/428596786.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/428596786-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/428596786",
+      "caption": "Cá da trơn đuôi đỏ trong bể có sỏi",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/749734525.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/749734525-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Aaron Liston",
+      "sourceUrl": "https://www.inaturalist.org/photos/749734525",
+      "caption": "Cá da trơn đuôi đỏ lớn trong bể nền đá",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 136,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 156,
+  "updatedAt": "2026-11-01",
+  "builtAt": "2026-11-01"
 }
