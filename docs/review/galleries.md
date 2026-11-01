@@ -7,8 +7,8 @@ Written by `pnpm engine gallery` (2026-11-01). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 4 | 8 |
 | shop | 60 | 123 | 77 | 27 | 173 |
 | popular | 40 | 21 | 0 | 1 | 20 |
-| covered | 30 | 83 | 3 | 1 | 85 |
-| rest | 20 | 777 | 92 | 0 | 869 |
+| covered | 30 | 86 | 3 | 1 | 88 |
+| rest | 20 | 774 | 92 | 0 | 866 |
 
 ## Short of target: every source read (16)
 
@@ -22,10 +22,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/phenacogrammus-interruptus | shop | 16 | 60 |
 | species/corydoras-similis | shop | 0 | 60 |
 | species/corydoras-caudimaculatus | shop | 0 | 60 |
-| species/synodontis-petricola | shop | 3 | 60 |
+| species/synodontis-petricola | shop | 2 | 60 |
 | species/leporacanthicus-joselimai | shop | 1 | 60 |
 | species/alestopetersius-caudalis | shop | 1 | 60 |
-| species/trichogaster-lalius | shop | 34 | 60 |
+| species/trichogaster-lalius | shop | 33 | 60 |
 | species/hyphessobrycon-elachys | shop | 0 | 60 |
 | species/thayeria-boehlkei | shop | 5 | 60 |
 | species/scleropages-jardinii | shop | 8 | 60 |

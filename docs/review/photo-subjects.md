@@ -1,17 +1,16 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-01), most-read pages first. Rules: docs/governance.md, "Photos".
-2381 verdicts. Shows it: 1804; its habitat: 40; something else: 82; not a photo of it: 47; can't tell: 408.
+2381 verdicts. Shows it: 1804; its habitat: 40; something else: 82; not a photo of it: 47; can't tell: 402.
 
-## Left with no photo (5)
+## Left with no photo (4)
 
 - plants/cyperus-helferi
 - species/channa-stewartii
 - plants/vesicularia-montagnei
 - species/nemacheilus-guentheri
-- species/ancharius-fuscus
 
-## Can't tell: still shown (408)
+## Can't tell: still shown (402)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -49,7 +48,6 @@ Written by `pnpm engine check-photos` (2026-11-01), most-read pages first. Rules
 | species/neocaridina-davidi | [photo](https://media.aquatome.com/inaturalist/259004710.webp) | two brownish mottled shrimps on gravel; maybe wild-type Neocaridina, could be another dwarf shrimp |
 | species/neocaridina-davidi | [photo](https://media.aquatome.com/inaturalist/417540239.webp) | translucent greenish shrimp with brown saddle in a container; possibly wild-type Neocaridina, can't confirm |
 | species/astronotus-ocellatus | [photo](https://media.aquatome.com/commons/32dab8303dcedaa8.webp) | oscar-like tiger pattern but unnatural blue fins and serrated dorsal; may be edited or digital art |
-| species/danio-rerio | [photo](https://media.aquatome.com/sprucepets/4f49449864eac9f4.webp) | pale golden fish with faint stripes; possibly golden zebra danio but can't confirm |
 | plants/eleocharis-acicularis | [photo](https://media.aquatome.com/inaturalist/215552042.webp) | fine-stemmed sedge with white flowering spikelets among other plants; can't confirm species |
 | plants/eleocharis-acicularis | [photo](https://media.aquatome.com/inaturalist/89276688.webp) | close-up of fine stems with pale flowering spikelets; could be another small sedge |
 | species/anentome-helena | [photo](https://media.aquatome.com/commons/98d669efa37acd54.webp) | empty faded brown shell on black; banding not clear enough to confirm Anentome |
@@ -104,7 +102,6 @@ Written by `pnpm engine check-photos` (2026-11-01), most-read pages first. Rules
 | species/peckoltia-compta | [photo](https://media.aquatome.com/scotcat/8e6c9873e53cd1d7.webp) | Dull brown pleco with tan bands, seen from above among pebbles; I can't rule out other Peckoltia |
 | plants/echinodorus-grisebachii | [photo](https://media.aquatome.com/commons/3ddb1e118562603b.webp) | Close-up of a white Echinodorus-type flower; the flower alone doesn't show the species |
 | plants/echinodorus-grisebachii | [photo](https://media.aquatome.com/commons/7c8095098c81c6aa.webp) | White three-petalled Echinodorus-type flowers; many species look the same |
-| plants/echinodorus-grisebachii | [photo](https://media.aquatome.com/commons/8016f2e10cd4b798.webp) | Discus fish are the main subject; sword-like plants behind them can't be clearly identified |
 | plants/echinodorus-grisebachii | [photo](https://media.aquatome.com/commons/88437892163cbca8.webp) | Above-water sword plant in a bucket with flower stalks; the species can't be confirmed |
 | plants/echinodorus-grisebachii | [photo](https://media.aquatome.com/commons/981ef650c6ba6161.webp) | Emersed sword plant in a tub with flower stalks; it's an Echinodorus but I can't confirm which species |
 | species/caridina-multidentata | [photo](https://media.aquatome.com/inaturalist/103111757.webp) | small brownish shrimp among stones, too distant to see Amano dash pattern |
@@ -401,9 +398,6 @@ Written by `pnpm engine check-photos` (2026-11-01), most-read pages first. Rules
 | species/acnodon-normani | [photo](https://media.aquatome.com/commons/aa63c5785142c6ec.webp) | Preserved museum specimen of a serrasalmid (pacu-type) next to a scale bar, shown from the side, top and bottom. Faded a |
 | species/acrossocheilus-parallens | [photo](https://media.aquatome.com/inaturalist/489240864.webp) | Several small fish with dark bars over rocks and sand in a stream, filmed underwater. Probably young Acrossocheilus, but |
 | species/acrossocheilus-parallens | [photo](https://media.aquatome.com/inaturalist/489242412.webp) | One small fish with dark bars over sand in a stream, filmed underwater. Blurry and seen from far off, so the species can |
-| species/ageneiosus-marmoratus | [photo](https://media.aquatome.com/commons/5f226b45867604ae.webp) | Head close-up of the same caught Ageneiosus catfish. It has no marbled pattern, so I can't confirm it is A. marmoratus. |
-| species/ageneiosus-marmoratus | [photo](https://media.aquatome.com/commons/619d495fc41a3d83.webp) | Front view of a hand-held catfish with its mouth wide open. The species can't be confirmed from this angle. |
-| species/ageneiosus-marmoratus | [photo](https://media.aquatome.com/commons/87c47a81e6dcfbbe.webp) | Caught Ageneiosus-type slopehead catfish lying in shallows next to a hand. It is plain silvery-green with no visible mar |
 | species/ailiichthys-punctata | [photo](https://media.aquatome.com/scotcat/ac306b49641859c5.webp) | Dead specimen of a pale ailiid catfish with long barbels and long anal fin; fits Jamuna ailia, but Ailia coila can't be  |
 | species/ailiichthys-punctata | [photo](https://media.aquatome.com/scotcat/ece10baf4b7425d8.webp) | Dead pale ailiid catfish on a black background; no marks are visible that would separate it from Ailia coila |
 | species/akysis-brachybarbatus | [photo](https://media.aquatome.com/scotcat/29f95bd124ba8bac.webp) | yellow-and-black banded Akysis catfish on sand; other Akysis species look very similar |
@@ -418,7 +412,6 @@ Written by `pnpm engine check-photos` (2026-11-01), most-read pages first. Rules
 | species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617710483.webp) | murky mottled elongated fish in a pond, possibly a snakehead |
 | species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617710654.webp) | blurry blotched fish seen from above in murky water; can't confirm the species, may be a snakehead |
 | species/anatolichthys-villwocki | [photo](https://media.aquatome.com/seriouslyfish/eeb0c620f8c32168.webp) | plain olive female-type small toothcarp with a dark spot on the tail base; no bars, could be a female Anatolichthys or a |
-| species/ancistrus-triradiatus | [photo](https://media.aquatome.com/commons/bfcb2df1ebf3c447.webp) | Dark Ancistrus with white spots on gravel; can't confirm species, could be another Ancistrus |
 | species/andinoacara-pulcher | [photo](https://media.aquatome.com/commons/c46df7276ec4e372.webp) | acara-like cichlid head-on under strong blue lighting; colours distorted, can't confirm the species |
 | species/andinoacara-pulcher | [photo](https://media.aquatome.com/commons/d50f3ea5630ff569.webp) | dark barred cichlid with dense blue spangles and orange dorsal edge; could be blue acara in barred mood, but Jack Dempse |
 | species/aphyocharax-nattereri | [photo](https://media.aquatome.com/seriouslyfish/76ac3d43f145df02.webp) | Pale translucent tetra with a dark tail base and white-tipped fins. It doesn't clearly show the Dawn Tetra's marks and c |

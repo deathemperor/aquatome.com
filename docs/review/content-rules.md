@@ -22,7 +22,7 @@ A title with a number ("10 loại cây…", "Top 5…") whose text has no run of
 
 ## Empty headings and blocks (0)
 
-A heading at the end of its text, an empty block: the sweep drops them. A heading straight over another is a group over its sub-headings, and stays.
+A heading at the end of its text or over one that isn't its sub-section (an empty one, a group, or its peer: "Ngày 16…" over "Ngày 26…", "2. …" over "3. …"), an empty block: the sweep drops them. A heading straight over its sub-sections is a group, and stays: the site shows it a level above them.
 
 - none
 
@@ -99,12 +99,11 @@ A species or plant photo whose caption names another species the site has a page
 A caption naming a Latin name in a genus the site has, that no page has, or another page's species with words saying the fish may still be the page's ("in a batch of", "here with"). Listed, not removed: `pnpm engine check-photos --only <id>` looks again. Checked on the Vietnamese page.
 
 - [vi · Cá anh đào](https://aquatome.com/vi/ca/ca-anh-dao/) — Rasboroides vaterifloris: "Putative wild-collected adult male imported to Singapore among a shipment of Ra…"
-- [vi · Cá rosy barb](https://aquatome.com/vi/ca/ca-anh-kim-hong/) — Puntius semifasciolatus: "Gold Barb - Puntius semifasciolatus"
 - [vi · Cá bắn cung](https://aquatome.com/vi/ca/ca-ban-cung/) — Toxotes chatareus: "Toxotes chatareus adult"
 - [vi · Cá chân kiếm Sumatra](https://aquatome.com/vi/ca/ca-chan-kiem-sumatra/) — Parosphromenus deissneri: "A male Parosphromenus deissneri with its spawn. The 'cave' is a capped length o…"
 - [vi · Cá chuột sọc nói](https://aquatome.com/vi/ca/ca-chuot-soc-noi/) — Platydoras costatus: "Young specimen of Platydoras costatus"; Platydoras costatus: "Platydoras costatus"
 - [vi · Cá da trơn mõm xẻng Pseudoplatystoma corruscans](https://aquatome.com/vi/ca/ca-da-tron-mom-xeng-pseudoplatystoma-corruscans/) — Triportheus pantanensis: "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are liste…"
-- [vi · Cá đầu chúc sọc](https://aquatome.com/vi/ca/ca-dau-chuc-soc/) — Anostomus brevior: "Anostomus brevior in French Guiana"; Anostomus salmoneus: "Anostomus salmoneus"
+- [vi · Cá đầu chúc sọc](https://aquatome.com/vi/ca/ca-dau-chuc-soc/) — Anostomus brevior: "Anostomus brevior in French Guiana"
 - [vi · Cá đuôi cờ Prochilodus](https://aquatome.com/vi/ca/ca-duoi-co-prochilodus/) — Semaprochilodus insignis: "Semaprochilodus insignis"
 - [vi · Cá Garra rakhinica](https://aquatome.com/vi/ca/ca-garra-rakhinica/) — Garra flavatra: "Specimen from the Thai aquarium trade, imported as a contaminant in a batch of…"
 - [vi · Cá hàm răng Salda](https://aquatome.com/vi/ca/ca-ham-rang-salda/) — Aphanius splendens: "Male of Aphanius splendens."
@@ -115,6 +114,7 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 - [vi · Cá nheo Synodontis frontosus](https://aquatome.com/vi/ca/ca-nheo-synodontis-frontosus/) — Synodontis caudovittatus: "Synodontis caudovittatus"
 - [vi · Cá trê lũa](https://aquatome.com/vi/ca/ca-tre-lua/) — Leiarius marmoratus: "Taxonomic Classification: Animalia--Pimelodidae--Leiarius marmoratus (Gill 1870…"
 - [vi · Cá trê nói chuyện cẩm thạch](https://aquatome.com/vi/ca/ca-tre-noi-chuyen-cam-thach/) — Platydoras hancockii: "This species is often traded as A. hancockii, a name currently regarded synonym…"
+- [vi · Cá trê nói chuyện nâu sô-cô-la](https://aquatome.com/vi/ca/ca-tre-noi-chuyen-nau-so-co-la/) — Platydoras armatulus: "This species is most often seen among shipments of Platydoras armatulus or Agam…"
 - [vi · Cá trê Pimelodella gracilis](https://aquatome.com/vi/ca/ca-tre-pimelodella-gracilis/) — Triportheus pantanensis: "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are liste…"
 - [vi · Cá trê suối Thành Đô](https://aquatome.com/vi/ca/ca-tre-suoi-thanh-do/) — Liobagrus chengduensis: "Liobagrus chengduensis: paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Dorsal view-paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Ventral view-paratype"
 - [vi · Cá vòi voi Campylomormyrus compressirostris](https://aquatome.com/vi/ca/ca-voi-voi-campylomormyrus-compressirostris/) — Campylomormyrus rhynchophorus: "Campylomormyrus rhynchophorus at the Tokyo Tower Aquarium"
