@@ -1,18 +1,24 @@
 ---
 import Browse from '../../../layouts/Browse.astro'
+import PageNav from '../../../components/PageNav.astro'
+import { changelogEntries, KIND, PER } from '../../../lib/changelog'
 import { getContent } from '../../../lib/content'
-import { i18n } from '../../../lib/i18n'
+import { i18n, langOf } from '../../../lib/i18n'
+
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const pages = Math.ceil(changelogEntries(await getContent(langOf(routePattern))).length / PER)
+  return [{ params: { page: undefined } }, ...Array.from({ length: Math.max(pages - 1, 0) }, (_, i) => ({ params: { page: `trang/${i + 2}` } }))]
+}
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const KIND = { species: ['ca', 'Loài'], plant: ['cay', 'Cây'], guide: ['huong-dan', 'Hướng dẫn'] } as const
-const pools = { species: c.species, plant: c.plants, guide: c.guides }
-const entries = c.changelog.flatMap(e => {
-  const item = (pools[e.kind] as { id: string; t: { slug: string; name: string } }[]).find(x => x.id === e.id)
-  return item ? [{ ...e, href: `/vi/${KIND[e.kind][0]}/${item.t.slug}/`, name: item.t.name }] : []
-})
+const all = changelogEntries(c)
+const n = Number(Astro.params.page?.split('/')[1] ?? 1)
+const entries = all.slice((n - 1) * PER, n * PER)
+const at = (k: number) => (k === 1 ? '/vi/moi-cap-nhat/' : `/vi/moi-cap-nhat/trang/${k}/`)
 const fmt = (d: string) => d.split('-').reverse().join('/')
+const title = n === 1 ? t('Mới cập nhật') : t('{name}, trang {n}', { name: t('Mới cập nhật'), n })
 ---
-<Browse title={t('Mới cập nhật')} heading={t('Mới cập nhật')} intro={t('Các trang vừa được thêm hoặc cập nhật theo nguồn gốc.')}>
+<Browse title={title} heading={title} crumbs={n === 1 ? [] : [['/vi/moi-cap-nhat/', t('Mới cập nhật')]]} intro={n === 1 ? t('Các trang vừa được thêm hoặc cập nhật theo nguồn gốc.') : undefined}>
   {entries.length === 0 ? <p>{t('Chưa có cập nhật nào.')}</p> : (
     <ol class="log" data-changelog>
       {entries.map(e => (
@@ -25,6 +31,7 @@ const fmt = (d: string) => d.split('-').reverse().join('/')
       ))}
     </ol>
   )}
+  {all.length > PER && <PageNav prev={n > 1 ? at(n - 1) : undefined} next={n * PER < all.length ? at(n + 1) : undefined} />}
 </Browse>
 <style>
   .log { list-style: none; padding: 0; margin: 0; max-width: var(--measure); }
