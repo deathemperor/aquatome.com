@@ -22,14 +22,33 @@ struct Life: Identifiable, Hashable {
   }
 }
 
+/// A sheet of the tank's fish and plants: the handbook's list to add one, or a fish's number.
+enum LifeSheet: Identifiable {
+  case add
+  case count(Life)
+  var id: String { if case .count(let l) = self { "count:\(l.id)" } else { "add" } }
+}
+
+/// What a `LifeSheet` shows, on the tank `tankId`. The tank's screen presents it from its list, which is always there
+/// (a sheet on a row would wait for that row to be drawn).
+struct LifeSheetView: View {
+  let sheet: LifeSheet
+  let tankId: String
+  var body: some View {
+    switch sheet {
+    case .add: LifePicker(tankId: tankId)
+    case .count(let life): NavigationStack { PutOnTank(life: life, tankId: tankId) }
+    }
+  }
+}
+
 /// A tank's fish (with how many) and plants, as the site lists them, each opening its page. Swiped, a fish's number
-/// changes, or either comes off the tank; more are added from the handbook.
+/// changes, or either comes off the tank; more are added from the handbook (`sheet`, presented by the tank's screen).
 struct TankLifeSections: View {
   let tank: Tank
+  @Binding var sheet: LifeSheet?
   @Environment(TanksModel.self) private var tanks
   @Environment(HandbookModel.self) private var handbook
-  @State private var counting: Life?
-  @State private var adding = false
 
   var body: some View {
     if !tank.species.isEmpty {
@@ -37,7 +56,7 @@ struct TankLifeSections: View {
         ForEach(Array(tank.species.enumerated()), id: \.offset) { _, s in
           LifeRow(id: s.id, count: s.count).swipeActions {
             Button("Xóa", role: .destructive) { try? tanks.change(tank.id) { $0.removeSpecies(s.id) } }
-            Button("Số con") { counting = handbook.page(s.id).flatMap(Life.init) ?? Life(id: s.id, name: s.id, fish: true) }
+            Button("Số con") { sheet = .count(handbook.page(s.id).flatMap(Life.init) ?? Life(id: s.id, name: s.id, fish: true)) }
           }
         }
       }
@@ -52,11 +71,8 @@ struct TankLifeSections: View {
       }
     }
     Section {
-      Button { adding = true } label: { Label("Thêm cá hoặc cây", systemImage: "plus") }
+      Button { sheet = .add } label: { Label("Thêm cá hoặc cây", systemImage: "plus") }
         .accessibilityIdentifier("add-life")
-        // On the one row that's always there: a sheet on a section would be one per row.
-        .sheet(isPresented: $adding) { LifePicker(tankId: tank.id) }
-        .sheet(item: $counting) { life in NavigationStack { PutOnTank(life: life, tankId: tank.id) } }
     }
   }
 }
@@ -179,7 +195,7 @@ struct PutOnTank: View {
 }
 
 /// The handbook's fish and plants, searched as the Tìm tab searches, to put one on a tank.
-private struct LifePicker: View {
+struct LifePicker: View {
   let tankId: String
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dismiss) private var dismiss
@@ -202,6 +218,12 @@ private struct LifePicker: View {
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Hủy") { dismiss() } } }
       .navigationDestination(item: $picked) { life in PutOnTank(life: life, tankId: tankId, done: { dismiss() }) }
+      .refreshable { await handbook.load() }
+      // Until the index is here (the tanks tab may be the first one opened), or when it can't be.
+      .overlay {
+        if handbook.status == .loading { ProgressView() }
+        else if handbook.status == .failed { ContentUnavailableView("Không tải được cẩm nang. Kiểm tra kết nối mạng rồi kéo xuống để thử lại.", systemImage: "wifi.slash") }
+      }
       // The tanks tab may be the first one opened.
       .task { await handbook.appear() }
     }

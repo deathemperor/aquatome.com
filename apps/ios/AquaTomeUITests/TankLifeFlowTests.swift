@@ -95,6 +95,22 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertFalse(life(app, "Rotala đỏ").exists, "the plant came back")
   }
 
+  func testChangesTheNumberOfTheFirstFishOnATankLongerThanTheScreen() {
+    let app = launch("-seed-tanks", "many") // 20 kinds: the add row is far below
+    app.tabBars.buttons["Bể của tôi"].tap()
+    app.buttons["tank"].firstMatch.tap()
+    let neon = life(app, "Cá neon")
+    XCTAssertTrue(neon.waitForExistence(timeout: 5))
+    let add = app.buttons["add-life"]
+    XCTAssertFalse(add.exists && add.isHittable, "the add row is on screen: the tank isn't long enough to test this")
+    neon.swipeLeft()
+    app.buttons["Số con"].tap()
+    XCTAssertTrue(app.textFields["put-count"].waitForExistence(timeout: 5), "no sheet for a fish far above the add row")
+    app.textFields["put-count"].clearAndType("9")
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(life(app, "Cá neon").label.contains("× 9"), life(app, "Cá neon").label)
+  }
+
   func testNothingIsPutIntoAStoreTheAppMustLeaveAlone() {
     let app = launch("-seed-tanks", "newer")
     let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch

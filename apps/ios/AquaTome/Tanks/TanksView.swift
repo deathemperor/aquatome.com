@@ -99,6 +99,7 @@ private struct TankDetail: View {
   @Environment(\.dismiss) private var dismiss
   @State private var editing = false
   @State private var confirmDelete = false
+  @State private var lifeSheet: LifeSheet?
 
   var body: some View {
     if let t = tanks.tanks.first(where: { $0.id == id }) {
@@ -110,7 +111,7 @@ private struct TankDetail: View {
           if let n = t.notes { Text(n).accessibilityIdentifier("notes") }
         }
         // As the site lists them: fish (with how many), then plants, each opening its page (TankLife.swift).
-        TankLifeSections(tank: t)
+        TankLifeSections(tank: t, sheet: $lifeSheet)
         if !lights.isEmpty {
           Section("Đèn") { ForEach(lights) { d in LightRow(device: d) } }
         }
@@ -123,6 +124,7 @@ private struct TankDetail: View {
       .task { if !t.species.isEmpty || !t.plants.isEmpty { await handbook.appear() } }
       .toolbar { Button("Sửa") { editing = true }.accessibilityIdentifier("edit") }
       .sheet(isPresented: $editing) { TankForm(editing: t) }
+      .sheet(item: $lifeSheet) { LifeSheetView(sheet: $0, tankId: t.id) }
       .confirmationDialog(
         lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
         isPresented: $confirmDelete, titleVisibility: .visible

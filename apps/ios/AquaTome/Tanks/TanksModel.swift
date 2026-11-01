@@ -131,20 +131,22 @@ final class TanksModel {
 
   #if DEBUG
   /// UI tests: no tanks (`-reset-defaults`), then maybe a store this app must leave alone (`-seed-tanks newer`,
-  /// `unreadable`), a place it can't save to (`unwritable`), a tank another client gave litres of its own (`litres`), or
-  /// one with fish and plants on it (`life`).
+  /// `unreadable`), a place it can't save to (`unwritable`), a tank another client gave litres of its own (`litres`),
+  /// one with fish and plants on it (`life`), or one with 20 kinds of fish, longer than the screen (`many`).
   static func prepareForTests(_ args: [String], file: URL = defaultFile()) {
     let dir = file.deletingLastPathComponent()
     let fm = FileManager.default
     if args.contains("-reset-defaults") { try? fm.removeItem(at: dir) }
     guard let i = args.firstIndex(of: "-seed-tanks"), i + 1 < args.count else { return }
     switch args[i + 1] {
-    case "newer", "unreadable", "litres", "life":
+    case "newer", "unreadable", "litres", "life", "many":
+      let many = (["paracheirodon-innesi"] + (1...19).map { "loai-thu-\($0)" }).map { #"{"id":"\#($0)","count":2}"# }.joined(separator: ",")
       let store = [
         "newer": #"{"v":2,"tanks":[],"devices":[]}"#,
         "unreadable": "{not json",
         "litres": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000001","name":"Bể cũ","dims":{"l":100,"w":40,"h":50},"litres":180,"species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
         "life": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000002","name":"Bể cá neon","species":[{"id":"paracheirodon-innesi","count":12},{"id":"loai-chua-co-trang"}],"plants":[{"id":"rotala-rotundifolia"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
+        "many": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000004","name":"Bể đông","species":["# + many + #"],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
       ][args[i + 1]]!
       try? fm.createDirectory(at: dir, withIntermediateDirectories: true)
       try? Data(store.utf8).write(to: file)
