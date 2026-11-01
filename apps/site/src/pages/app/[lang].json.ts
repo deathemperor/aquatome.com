@@ -9,5 +9,6 @@ export const getStaticPaths: GetStaticPaths = () => LANGS.map(lang => ({ params:
 
 export const GET: APIRoute = async ({ params }) => {
   const lang = params.lang as Lang
-  return Response.json(appIndex(lang, await getContent(lang), await getTraits()))
+  // Every species' group, for breeds whose species has no page in this language.
+  return Response.json(appIndex(lang, await getContent(lang), await getTraits(), (await getContent('vi')).species))
 }

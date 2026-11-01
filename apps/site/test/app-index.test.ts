@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import type { AppIndex } from '../src/lib/app-index'
+import { breedGroup, type AppIndex } from '../src/lib/app-index'
 import { LANGS } from '../src/lib/i18n'
 import { DIST, page } from './dist'
 
@@ -87,4 +87,61 @@ test('guides carry their subject and the fish and plants they name, as their pag
   expect(guides.find(g => g.section === 'discovery')?.about).toContain('boraras-brigittae')
   // Fish and plants have neither.
   expect(index('vi').items.filter(i => i.kind !== 'guide').some(i => 'section' in i || 'about' in i)).toBe(false)
+})
+
+test('fish come in the site\'s list order with their group, a breed with its parent\'s; plants with their care', () => {
+  const vi = index('vi').items
+  const fish = vi.filter(i => i.kind === 'fish')
+  // The well-known fish first, in the site's order (STAPLE_SPECIES), as the fish list page has them.
+  expect(fish.slice(0, 3).map(i => i.id)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi', 'symphysodon-aequifasciatus'])
+  expect(fish.find(i => i.id === 'paracheirodon-axelrodi')?.group).toBe('tetras')
+  expect(fish.filter(i => i.sub).every(i => typeof i.group === 'string'), 'every species has its group').toBe(true)
+  // A colour form takes the group of the species it's a form of (as its page links it).
+  expect(fish.find(i => i.id === 'pigeon-blood-discus')?.group).toBe('cichlids')
+  expect(vi.find(i => i.id === 'anubias-barteri-nana')?.plant).toEqual({ difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['foreground', 'epiphyte'] })
+  expect(vi.filter(i => i.kind !== 'plant').some(i => 'plant' in i)).toBe(false)
+  expect(vi.filter(i => i.kind !== 'fish').some(i => 'group' in i)).toBe(false)
+})
+
+test('every index carries the site\'s words for groups, subjects and plant care in its language', () => {
+  const vi = index('vi').labels
+  expect(vi.group).toMatchObject({ tetras: 'Cá tetra', other: 'Loài khác' })
+  expect(vi.section.plantCare).toBe('Chăm cây')
+  expect(vi.placement.epiphyte).toBe('Bám đá, lũa')
+  expect(vi.difficulty).toEqual({ 1: 'Dễ', 2: 'Trung bình', 3: 'Khó' })
+  expect(index('id').labels.group.tetras).toBe('Ikan tetra')
+  // Every key an item carries has its word.
+  for (const lang of LANGS) {
+    const { items, labels } = index(lang)
+    for (const i of items) {
+      if (i.group) expect(labels.group[i.group], i.path).toBeDefined()
+      if (i.section) expect(labels.section[i.section], i.path).toBeDefined()
+      for (const p of i.plant?.placement ?? []) expect(labels.placement[p], i.path).toBeDefined()
+    }
+  }
+})
+
+test('the home picks are the site home\'s, of what the index lists: groups with a photo, then fish, easy plants and the beginner guides', () => {
+  const { items, home } = index('vi')
+  const byPath = new Map(items.map(i => [i.path, i]))
+  // Biggest group first, as on the site's home; one the index lists nothing of (Rasbora: a page below the bar) isn't there.
+  expect(home.groups.map(g => g.id)).toEqual(['cichlids', 'tetras', 'danios', 'shrimp'])
+  for (const g of home.groups) expect(g.img, g.id).toMatch(/^https:\/\//)
+  expect(home.fish[0]).toBe('/vi/ca/ca-neon-xanh/')
+  expect(home.fish.every(p => byPath.get(p)?.kind === 'fish')).toBe(true)
+  // Neither strong light nor CO2 needed; one with no photo is left out.
+  expect(home.plants.map(p => byPath.get(p)?.id)).toEqual(['cryptocoryne-wendtii', 'anubias-barteri-nana', 'micranthemum-monte-carlo'])
+  expect(home.guides[0]).toBe('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+  expect(home.guides.every(p => byPath.get(p)?.kind === 'guide')).toBe(true)
+  // The fixture lists no fish or plants in Indonesian: no picks for them.
+  expect(index('id').home).toMatchObject({ groups: [], fish: [], plants: [] })
+})
+
+test('a breed\'s group: what it\'s a form of first (a species, or a breed in turn), else a parent species', () => {
+  const groups = new Map([['betta-splendens', 'labyrinth'], ['symphysodon-aequifasciatus', 'cichlids'], ['carassius-auratus', 'other']])
+  const breeds = [{ id: 'halfmoon-betta', basedOn: 'betta-splendens', parents: [] }, { id: 'loop-a', basedOn: 'loop-b', parents: [] }, { id: 'loop-b', basedOn: 'loop-a', parents: [] }]
+  expect(breedGroup({ basedOn: 'halfmoon-betta', parents: [] }, groups, breeds)).toBe('labyrinth')
+  expect(breedGroup({ parents: [{ name: 'Amphilophus trimaculatus', certain: true }, { name: 'Cá đĩa', species: 'symphysodon-aequifasciatus', certain: false }] }, groups, breeds)).toBe('cichlids')
+  expect(breedGroup({ basedOn: 'unknown', parents: [{ name: 'x', species: 'carassius-auratus', certain: true }] }, groups, breeds)).toBe('other')
+  expect(breedGroup({ basedOn: 'loop-a', parents: [] }, groups, breeds), 'a loop ends').toBeUndefined()
 })
