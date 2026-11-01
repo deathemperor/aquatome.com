@@ -19,7 +19,7 @@ test("signs as Tuya's worked examples do (token request, then a business request
 
 const KEYS = { host: 'https://tuya.test', id: 'test-client', secret: 'test-secret' }
 let clients = 0
-type FakeDevice = { id: string; name: string; online: boolean; product_name?: string; status: { code: string; value: unknown }[]; ignores?: boolean }
+type FakeDevice = { id: string; name: string; online: boolean; product_name?: string; status: { code: string; value: unknown }[]; ignores?: boolean; lags?: number }
 
 /**
  * Tuya's cloud as the docs describe it, refusing any request whose signature doesn't check out. A device that `ignores`
@@ -31,7 +31,8 @@ function fakeTuya(devices: Record<string, FakeDevice[]>) {
   const log: { method: string; path: string; body?: unknown }[] = []
   let issued = 0, expireTime = 7200
   const live = new Set<string>()
-  let failing = false
+  const pending = new Map<string, { s: { value: unknown }; value: unknown; reads: number }>()
+  let failing = false, hanging = false
   const fetch = (async (input: string, init: RequestInit = {}) => {
     const url = new URL(input), path = url.pathname + url.search, method = init.method ?? 'GET'
     const h = init.headers as Record<string, string>
@@ -39,6 +40,7 @@ function fakeTuya(devices: Record<string, FakeDevice[]>) {
     const ok = (result: unknown) => Response.json({ success: true, result })
     const no = (code: number) => Response.json({ success: false, code, msg: 'no' })
     if (failing) return new Response('upstream down', { status: 502 })
+    if (hanging) return new Promise<Response>(() => {})
     const expected = await sign({ id: keys.id, secret: keys.secret, t: h.t!, nonce: h.nonce!, token: h.access_token, method, path, body })
     if (h.client_id !== keys.id || h.sign !== expected || h.sign_method !== 'HMAC-SHA256') return no(1004)
     log.push({ method, path, ...(body ? { body: JSON.parse(body) } : {}) })
@@ -48,19 +50,24 @@ function fakeTuya(devices: Record<string, FakeDevice[]>) {
     if (m) return ok(devices[decodeURIComponent(m[1]!)] ?? [])
     const all = Object.values(devices).flat()
     m = /^\/v1\.0\/iot-03\/devices\/([^/]+)\/status$/.exec(path)
-    if (m) return ok(all.find(d => d.id === m![1])?.status ?? [])
+    if (m) {
+      const p = pending.get(m[1]!)
+      if (p && --p.reads <= 0) { p.s.value = p.value; pending.delete(m[1]!) }
+      return ok(all.find(d => d.id === m![1])?.status ?? [])
+    }
     m = /^\/v1\.0\/iot-03\/devices\/([^/]+)\/commands$/.exec(path)
     if (m && method === 'POST') {
       const d = all.find(x => x.id === m![1])
       for (const c of (JSON.parse(body!) as { commands: { code: string; value: unknown }[] }).commands) {
         const s = d?.status.find(x => x.code === c.code)
-        if (s && !d!.ignores) s.value = c.value
+        // A plug that `lags` reports the new state only after that many reads.
+        if (s && !d!.ignores) { if (d!.lags) pending.set(d!.id, { s, value: c.value, reads: d!.lags }); else s.value = c.value }
       }
       return ok(true)
     }
     return no(1108)
   }) as typeof globalThis.fetch
-  return { keys, fetch, log, expire: (s: number) => { expireTime = s }, revoke: () => live.clear(), down: (d: boolean) => { failing = d } }
+  return { keys, fetch, log, expire: (s: number) => { expireTime = s }, revoke: () => live.clear(), down: (d: boolean) => { failing = d }, hang: () => { hanging = true } }
 }
 
 const strip = (): FakeDevice => ({
@@ -86,10 +93,10 @@ test('a token is used until a minute before it runs out, and a revoked one is re
   await cloud.plugs('u2')
   expect(tokens()).toBe(2)
   tuya.revoke()
-  expect(await cloud.plugs('u2')).toHaveLength(1)
+  expect(await cloud.plugs('u2', { fresh: true })).toHaveLength(1)
   expect(tokens()).toBe(3)
   tuya.down(true)
-  await expect(cloud.plugs('u2')).rejects.toBeInstanceOf(TuyaError)
+  await expect(cloud.plugs('u2', { fresh: true })).rejects.toBeInstanceOf(TuyaError)
 })
 
 /** A signed-in account (app bearer token), its Tuya link if given, and the routes with a fake Tuya cloud. */
@@ -97,7 +104,8 @@ async function setup(o: { link?: string; devices?: Record<string, FakeDevice[]>;
   const db = testD1()
   const env: PlugsEnv = { DB: db, ACCOUNTS: 'on', ACCOUNT_HMAC_KEY: 'k'.repeat(32), ...o.env }
   const tuya = fakeTuya(o.devices ?? { u1: [strip()] })
-  const deps: PlugsDeps = o.configured === false ? {} : { tuya: tuyaCloud(tuya.keys, { fetch: tuya.fetch, now: () => NOW.getTime() }) }
+  const fast = { wait: async () => {}, makerMs: 50 }
+  const deps: PlugsDeps = o.configured === false ? fast : { ...fast, tuya: tuyaCloud(tuya.keys, { fetch: tuya.fetch, now: () => NOW.getTime() }) }
   const user = async (id: string) => {
     await db.prepare(`INSERT INTO users (id, created_at) VALUES (?, ?)`).bind(id, NOW.toISOString()).run()
     return createSession(db, id, 'app', NOW)
@@ -112,7 +120,8 @@ async function setup(o: { link?: string; devices?: Record<string, FakeDevice[]>;
     const req = new Request(`https://x.test${path}`, { method, headers, ...(x.body !== undefined ? { body: JSON.stringify(x.body) } : {}) })
     const res = await plugs(req, new URL(req.url), env, NOW, deps)
     const text = await res.text()
-    return { status: res.status, json: text ? JSON.parse(text) : undefined }
+    const location = res.headers.get('location')
+    return { status: res.status, json: text ? JSON.parse(text) : undefined, ...(location ? { location } : {}) }
   }
   return { db, call, tuya, user }
 }
@@ -135,22 +144,38 @@ test('the list: nothing linked yet, then the linked Smart Life account\'s plugs 
   expect(r.json.providers[0]).toEqual({ id: 'tuya', linked: true, available: false })
   expect(r.json.plugs).toEqual([{ provider: 'tuya', id: 'fake-strip-1', name: 'Ổ cắm bể 60', model: 'Ổ cắm 4 cổng', online: true, outlets: [{ code: 'switch_1', on: true }, { code: 'switch_2', on: false }, { code: 'switch_usb1', on: true }] }])
   expect(tuya.log.some(l => l.method === 'POST'), 'listing switches nothing').toBe(false)
+  // Within 15 seconds the list comes from the server's copy (the makers' call limits); a switch refreshes it.
+  const asked = () => tuya.log.filter(l => l.path === '/v1.0/users/u1/devices').length
+  await call('GET', '/api/v1/plugs')
+  expect(asked()).toBe(1)
+  await call('POST', SWITCH, { body: { on: true } })
+  expect((await call('GET', '/api/v1/plugs')).json.plugs[0].outlets[1]).toEqual({ code: 'switch_2', on: true })
 })
 
 test("a maker that can't be reached shows its problem; the list still answers", async () => {
   const { call, tuya } = await setup({ link: 'u1' })
   tuya.down(true)
   expect((await call('GET', '/api/v1/plugs')).json).toEqual({ providers: [{ id: 'tuya', linked: true, available: false, problem: 'unreachable' }, { id: 'ewelink', linked: false, available: false }], plugs: [] })
+  const hung = await setup({ link: 'u1' })
+  hung.tuya.hang()
+  expect((await hung.call('GET', '/api/v1/plugs')).json.providers[0]).toEqual({ id: 'tuya', linked: true, available: false, problem: 'unreachable' })
   const unconfigured = await setup({ link: 'u1', configured: false })
   expect((await unconfigured.call('GET', '/api/v1/plugs')).json.providers[0]).toEqual({ id: 'tuya', linked: true, available: false, problem: 'unreachable' })
 })
 
 test('switching sends one command and answers with what the plug then reports, not what was asked', async () => {
   const { call, tuya } = await setup({ link: 'u1' })
-  expect(await call('POST', SWITCH, { body: { on: true } })).toEqual({ status: 200, json: { outlet: { code: 'switch_2', on: true } } })
+  expect(await call('POST', SWITCH, { body: { on: true } })).toEqual({ status: 200, json: { outlet: { code: 'switch_2', on: true }, confirmed: true } })
   expect(tuya.log.filter(l => l.method === 'POST')).toEqual([{ method: 'POST', path: '/v1.0/iot-03/devices/fake-strip-1/commands', body: { commands: [{ code: 'switch_2', value: true }] } }])
+  // A plug that reports the new state on the third read: read back until it does.
+  const slow = await setup({ link: 'u1', devices: { u1: [{ ...strip(), lags: 3 }] } })
+  expect((await slow.call('POST', SWITCH, { body: { on: true } })).json).toEqual({ outlet: { code: 'switch_2', on: true }, confirmed: true })
+  expect(slow.tuya.log.filter(l => l.path.endsWith('/status'))).toHaveLength(3)
+  // One that never does: read for 3 seconds (5 reads, 600 ms apart), then say so; the command isn't sent again.
   const stuck = await setup({ link: 'u1', devices: { u1: [{ ...strip(), ignores: true }] } })
-  expect((await stuck.call('POST', SWITCH, { body: { on: true } })).json).toEqual({ outlet: { code: 'switch_2', on: false } })
+  expect((await stuck.call('POST', SWITCH, { body: { on: true } })).json).toEqual({ outlet: { code: 'switch_2', on: false }, confirmed: false })
+  expect(stuck.tuya.log.filter(l => l.path.endsWith('/status'))).toHaveLength(5)
+  expect(stuck.tuya.log.filter(l => l.method === 'POST')).toHaveLength(1)
 })
 
 test('switching is refused for a plug or outlet not the account\'s, an offline plug, or a bad body, and nothing is sent', async () => {
@@ -185,11 +210,14 @@ test('linking: not open to every account yet; unlinking removes the link; makers
   expect(await call('POST', '/api/v1/plugs/ewelink/link')).toEqual({ status: 503, json: { error: 'not_configured' } })
   expect(await call('POST', '/api/v1/plugs/acme/link')).toEqual({ status: 404, json: { error: 'unknown_provider' } })
   const linked = await setup({ link: 'u1' })
-  expect(await linked.call('POST', '/api/v1/plugs/tuya/link')).toEqual({ status: 409, json: { error: 'already_linked' } })
+  // Linking again (tokens expired) is the same request: not open yet either.
+  expect(await linked.call('POST', '/api/v1/plugs/tuya/link')).toEqual({ status: 403, json: { error: 'not_available' } })
+  expect(await linked.call('POST', '/api/v1/plugs/tuya/link/complete', { body: { ticket: 't', verifier: 'v'.repeat(43) } })).toEqual({ status: 400, json: { error: 'bad_ticket' } })
   expect((await linked.call('DELETE', '/api/v1/plugs/tuya/link')).status).toBe(204)
   expect(await linked.db.prepare(`SELECT COUNT(*) AS n FROM plug_links`).first()).toEqual({ n: 0 })
   expect((await linked.call('GET', '/api/v1/plugs')).json.plugs).toEqual([])
-  expect(await call('GET', '/api/v1/plugs/tuya/callback?state=x&code=y', { bearer: null })).toEqual({ status: 400, json: { error: 'bad_state' } })
+  // The callback always sends the reader back somewhere, never to raw JSON.
+  expect(await call('GET', '/api/v1/plugs/tuya/callback?state=x&code=y', { bearer: null })).toEqual({ status: 302, json: undefined, location: '/vi/cong-cu/be-cua-toi/?provider=tuya&result=failed' })
   void db
 })
 
@@ -207,6 +235,7 @@ test('every path in the API contract (protocols/plugs.openapi.json) is served', 
       const concrete = path.replace('{provider}', 'tuya').replace('{device}', 'fake-strip-1').replace('{code}', 'switch_1')
       const r = await call(method.toUpperCase(), concrete, method === 'post' && path.includes('outlets') ? { body: { on: true } } : {})
       expect(r.json?.error, `${method.toUpperCase()} ${path}`).not.toBe('not_found')
+      expect(Object.keys((ops as Record<string, { responses: object }>)[method]!.responses), `${method.toUpperCase()} ${path}: ${r.status} is in the contract`).toContain(String(r.status))
     }
   }
 })

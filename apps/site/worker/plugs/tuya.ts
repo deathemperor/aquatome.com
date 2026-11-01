@@ -39,6 +39,12 @@ const outletsOf = (status: unknown): Outlet[] =>
 
 /** Tokens by project, kept across requests while this worker instance lives. */
 const tokens = new Map<string, { value: string; until: number }>()
+/**
+ * Plug lists by project and user, kept this long: the makers limit calls (docs/smart-plugs.md). A switch through
+ * AquaTome forgets its user's list.
+ */
+const KEEP_MS = 15_000
+const lists = new Map<string, { plugs: Plug[]; at: number }>()
 
 /** Token expired or invalid: get a new one and ask again (once). */
 const STALE_TOKEN = new Set([1010, 1011])
@@ -82,16 +88,25 @@ export function tuyaCloud(keys: TuyaKeys, o: { fetch?: typeof fetch; now?: () =>
   }
 
   return {
-    /** The plugs of a Tuya user (a Smart Life account linked to the project): devices with at least one outlet. */
-    async plugs(uid: string): Promise<Plug[]> {
+    /**
+     * The plugs of a Tuya user (a Smart Life account linked to the project): devices with at least one outlet. Kept for
+     * KEEP_MS; `fresh` asks Tuya now.
+     */
+    async plugs(uid: string, o: { fresh?: boolean } = {}): Promise<Plug[]> {
+      const key = `${keys.id}|${uid}`, kept = lists.get(key)
+      if (!o.fresh && kept && now() - kept.at < KEEP_MS) return kept.plugs
       const list = await call<Record<string, unknown>[]>('GET', `/v1.0/users/${encodeURIComponent(uid)}/devices`)
-      return (Array.isArray(list) ? list : []).flatMap(d => {
+      const plugs = (Array.isArray(list) ? list : []).flatMap(d => {
         const outlets = outletsOf(d.status)
         if (!outlets.length || typeof d.id !== 'string') return []
         const model = d.product_name ?? d.productName
         return [{ provider: 'tuya' as const, id: d.id, name: String(d.name ?? ''), ...(typeof model === 'string' && model ? { model } : {}), online: Boolean(d.online ?? d.isOnline), outlets }]
       })
+      lists.set(key, { plugs, at: now() })
+      return plugs
     },
+    /** Drops a user's kept list (after a switch). */
+    forget(uid: string) { lists.delete(`${keys.id}|${uid}`) },
     /** An outlet's state as the device last reported it; null when it isn't in the device's status. */
     async outlet(deviceId: string, code: string): Promise<boolean | null> {
       const status = await call<unknown>('GET', `/v1.0/iot-03/devices/${encodeURIComponent(deviceId)}/status`)

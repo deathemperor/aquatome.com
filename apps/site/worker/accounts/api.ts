@@ -272,7 +272,9 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
   }
 
   if (route === 'GET /api/v1/account/export') {
-    const data = { exportedAt: now.toISOString(), user: await userView(db, session.userId), tanks: await loadStore(db, session.userId) }
+    // Plug links: which makers are linked and since when (worker/plugs); never their tokens.
+    const plugLinks = (await db.prepare(`SELECT provider, created_at AS linkedAt FROM plug_links WHERE user_id = ? ORDER BY provider`).bind(session.userId).all<{ provider: string; linkedAt: string }>()).results
+    const data = { exportedAt: now.toISOString(), user: await userView(db, session.userId), tanks: await loadStore(db, session.userId), plugLinks }
     return json(data, 200, { 'content-disposition': `attachment; filename="aquatome-${now.toISOString().slice(0, 10)}.json"` })
   }
   if (route === 'DELETE /api/v1/account') {

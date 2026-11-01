@@ -1169,7 +1169,8 @@
                   "required": [
                     "exportedAt",
                     "user",
-                    "tanks"
+                    "tanks",
+                    "plugLinks"
                   ],
                   "properties": {
                     "exportedAt": {
@@ -1180,6 +1181,25 @@
                     },
                     "tanks": {
                       "$ref": "#/components/schemas/TankStore"
+                    },
+                    "plugLinks": {
+                      "type": "array",
+                      "description": "The smart plug makers linked to the account (protocols/plugs.openapi.json), never their tokens.",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "provider",
+                          "linkedAt"
+                        ],
+                        "properties": {
+                          "provider": {
+                            "type": "string"
+                          },
+                          "linkedAt": {
+                            "type": "string"
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -1202,7 +1222,7 @@
     "/api/v1/account": {
       "delete": {
         "summary": "Delete the account now: its tanks, sign-in methods and every session",
-        "description": "Ask the reader to confirm first. The device keeps its own copy of the tanks unless the reader clears it too.\n\nAn account with Sign in with Apple: Apple requires its tokens to be revoked, and none are kept, so first ask the reader to sign in with Apple again and send that `authorizationCode` here (the app: ASAuthorizationAppleIDCredential.authorizationCode, clientId = the bundle id; the web: Sign in with Apple JS, clientId = the Services ID, redirectUri = the page's address as given to AppleID.auth.init). Without it the answer is 409 apple_reauth.",
+        "description": "Ask the reader to confirm first. Everything the account holds goes, its smart plug links too (protocols/plugs.openapi.json). The device keeps its own copy of the tanks unless the reader clears it too.\n\nAn account with Sign in with Apple: Apple requires its tokens to be revoked, and none are kept, so first ask the reader to sign in with Apple again and send that `authorizationCode` here (the app: ASAuthorizationAppleIDCredential.authorizationCode, clientId = the bundle id; the web: Sign in with Apple JS, clientId = the Services ID, redirectUri = the page's address as given to AppleID.auth.init). Without it the answer is 409 apple_reauth.",
         "security": [
           {
             "bearer": []
