@@ -1,5 +1,5 @@
 ---
-import { resolveDataCard, type Localized, type SpeciesEntity } from '@aq/schema'
+import { resolveDataCard, type Localized, type Photo, type SpeciesEntity } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
 import { fmt, isRange } from '../lib/format'
@@ -12,13 +12,14 @@ import { BREED_KIND, type Breed } from '../lib/breeds'
  * `breed`: a line or hybrid in the same card, its kind where the Latin name goes; its picture is the first one (the
  * credits list that one). No figures yet: the list's water filter doesn't read a breed's, so a card showing them would
  * contradict it. The name keeps the class `n` the fish list's search reads.
+ * `photo`: the picture its page chose (a page never shows one twice, lib/pictures.ts); null: none.
  */
-type Props = { eager?: boolean; template?: boolean } & ({ s: Localized<SpeciesEntity>; breed?: never } | { breed: Breed; s?: never })
-const { s, breed, eager = false, template = false } = Astro.props
+type Props = { eager?: boolean; template?: boolean; photo?: Photo | null } & ({ s: Localized<SpeciesEntity>; breed?: never } | { breed: Breed; s?: never })
+const { s, breed, eager = false, template = false, photo } = Astro.props
 // `t` below is the temperature range: the translator is `tr` here.
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
-const p = breed ? breed.photos[0] : cleanPhoto(s.photos)
+const p = photo !== undefined ? photo : breed ? breed.photos[0] : cleanPhoto(s.photos)
 const card = breed ? {} : s.dataCard
 const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.tempC ?? [])
 const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.ph ?? [])

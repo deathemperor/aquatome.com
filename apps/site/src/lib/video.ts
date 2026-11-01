@@ -1,6 +1,6 @@
 import { parse } from 'node-html-parser'
 import { slugify } from '@aq/schema/slug'
-import type { Content, GuideEntity, Localized, Photo, Series } from '@aq/schema'
+import type { Content, GuideEntity, Localized, Photo, PictureSet, Series } from '@aq/schema'
 import { translator, type Lang } from './i18n'
 import { photoMark } from './cite'
 
@@ -60,14 +60,17 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
  * Each section's pictures after its first paragraph (or list): the open-licence photo, then stills from the video
  * whose buttons play the video from that moment (VideoPlayer's click handler).
  */
-export function illustrate(lang: Lang, html: string, v: NonNullable<GuideEntity['video']>): string {
+export function illustrate(lang: Lang, html: string, v: NonNullable<GuideEntity['video']>, shown?: PictureSet): string {
   if (!v.figures?.length) return html
   const t = translator(lang)
   const root = parse(html)
   const byHeading = new Map(v.figures.map(f => [f.heading, f]))
   for (const h of root.querySelectorAll('h3')) {
-    const f = byHeading.get(h.textContent.replace(/\s+/g, ' ').trim())
-    if (!f) continue
+    const f0 = byHeading.get(h.textContent.replace(/\s+/g, ' ').trim())
+    if (!f0) continue
+    // Nothing the page already shows: a photo picked for two sections, two stills of the same scene.
+    const f = shown ? { ...f0, photo: shown.take([f0.photo]), moments: f0.moments.filter(m => shown.take([m])) } : f0
+    if (!f.photo && !f.moments.length) continue
     const photo = f.photo
       ? `<figure class="vphoto"><img src="${esc(f.photo.url)}" width="${f.photo.width}" height="${f.photo.height}" alt="${esc(f.photo.caption ?? '')}" loading="lazy"><figcaption>${esc(f.photo.caption ?? '')}${photoMark(lang, f.photo)}</figcaption></figure>`
       : ''

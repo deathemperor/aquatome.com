@@ -13,6 +13,7 @@ import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './m
 import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
 import { findPhotos } from './photos'
+import { withSections } from './guide-sections'
 import { processPage, type ProcessedPage } from './process'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
@@ -243,7 +244,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const existing = await s.read<z.infer<typeof GuideSchema>>('guides', guideId(source, url))
       const item = writeGuide(page, { source, url, now, existing, takenSlugs: await s.taken('guides', existing.vi?.slug), quality: combineQuality(undefined, source, score) })
       if (!item) return null
-      item.entity.photos = await sourcePhotos([], item.entity.photos, 6) // more pictures to place through the text
+      // Every photo the source shows (a list of fish has one per fish), each in the section it sat under.
+      item.entity.photos = withSections(await sourcePhotos([], item.entity.photos, Infinity), { vi: item.vi.body ?? '' })
       await s.write('guides', GuideSchema, item)
       await appendChangelog(contentRoot, [log('guide', item.entity.id, !!existing.entity)])
       return [`guides/${item.entity.id}`]

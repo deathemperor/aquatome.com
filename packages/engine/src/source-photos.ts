@@ -74,6 +74,9 @@ export async function linkedPhotos(html: string, pageUrl: string, photoPage: Reg
   return out
 }
 
+/** A stored photo and the source heading it sat under (guide-sections.ts turns that into the guide's own heading). */
+export type SourcePhoto = Photo & { heading?: string }
+
 /**
  * Copy picked photos to our media bucket (once per image) and credit the source page. `blocked`: photos taken off the
  * site before (engine-state/_photo-rejected.json: watermarks, other species), skipped so a re-read doesn't bring them back.
@@ -81,13 +84,13 @@ export async function linkedPhotos(html: string, pageUrl: string, photoPage: Reg
 export async function storeSourcePhotos(
   source: SourceId, sourceName: string, pageUrl: string, picked: Picked[],
   deps: { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string> }, existing: Photo[],
-): Promise<Photo[]> {
-  const out: Photo[] = []
+): Promise<SourcePhoto[]> {
+  const out: SourcePhoto[] = []
   for (const img of picked) {
     const key = `${source}/${createHash('sha256').update(img.src).digest('hex').slice(0, 16)}.webp`
     if (deps.blocked?.[deps.media.urlFor(key)]) continue
     const known = existing.find(p => p.url === deps.media.urlFor(key))
-    if (known) { out.push(known); continue }
+    if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); continue }
     let bytes: Uint8Array
     try {
       bytes = await deps.bytes(img.src, pageUrl)
@@ -100,7 +103,7 @@ export async function storeSourcePhotos(
       if (width < MIN_WIDTH || !okShape(width, height)) continue
     }
     const stored = await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
-    out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: img.author ? `${img.author} / ${sourceName}` : sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source })
+    out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: img.author ? `${img.author} / ${sourceName}` : sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source, ...(img.heading ? { heading: img.heading } : {}) })
   }
   return out
 }

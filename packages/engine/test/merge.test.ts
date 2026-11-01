@@ -102,6 +102,15 @@ test("a new species doesn't start under another fish's name, even written anothe
   expect(mergeSpecies({}, page(), { ...ctx('glaser'), takenNames: new Set([nameKey('Cá neon xanh')]) }).vi).toMatchObject({ name: 'Cá neon vua', slug: 'ca-neon-vua' })
 })
 
+test("a plant written again keeps its former scientific names (plant-synonyms.ts), in the schema's place", () => {
+  const plant = { difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['epiphyte'] } as const
+  const first = mergePlant({}, page({ kind: 'plant', scientificName: 'Taxiphyllum barbieri', viName: 'Rêu java', plant: { ...plant, placement: ['epiphyte'] } }), { source: 'tropica', url: 'https://t/p', now: '2026-10-28', takenSlugs: new Set() })!
+  expect(first.entity).not.toHaveProperty('synonyms')
+  const again = mergePlant({ entity: { ...first.entity, synonyms: ['Vesicularia dubyana'] }, vi: first.vi }, page({ kind: 'plant', scientificName: 'Taxiphyllum barbieri', viName: 'Rêu java', plant: { ...plant, placement: ['epiphyte'] } }), { source: 'aquariumcoop', url: 'https://a/p', now: '2026-11-02', takenSlugs: new Set() })!
+  expect(again.entity.synonyms).toEqual(['Vesicularia dubyana'])
+  expect(Object.keys(again.entity).slice(0, 3)).toEqual(['id', 'scientificName', 'synonyms'])
+})
+
 test("a new plant doesn't start under another plant's name", () => {
   const plant = { difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['epiphyte'] } as const
   const p = mergePlant({}, page({ kind: 'plant', scientificName: 'Anubias barteri var. nana', viName: 'Anubias nana', plant: { ...plant, placement: ['epiphyte'] } }), { source: 'tropica', url: 'https://t/p', now: '2026-10-28', takenSlugs: new Set(), takenNames: new Set([nameKey('Anubias nana')]) })

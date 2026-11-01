@@ -1,5 +1,5 @@
 ---
-import type { GuideEntity, Localized } from '@aq/schema'
+import type { GuideEntity, Localized, Photo } from '@aq/schema'
 import { getContent } from '../lib/content'
 import { smallSrc } from '../lib/img'
 import { guideImage } from '../lib/mentions'
@@ -9,13 +9,13 @@ import { i18n } from '../lib/i18n'
 /**
  * `row`: on a phone, a compact row (a small picture beside the text) rather than a full-width card.
  * `template`: with a picture slot and stand-in words (a video's label too), for a list's script to fill in
- * (scripts/guide-card.ts).
+ * (scripts/guide-card.ts). `photo`: the picture its page chose (a page never shows one twice, lib/pictures.ts); null: none.
  */
-interface Props { g: Localized<GuideEntity>; row?: boolean; template?: boolean }
-const { g, row = false, template = false } = Astro.props
+interface Props { g: Localized<GuideEntity>; row?: boolean; template?: boolean; photo?: Photo | null }
+const { g, row = false, template = false, photo } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const ph = guideImage(c, g)
+const ph = photo !== undefined ? photo : guideImage(c, g)
 const { label, src } = guideWords(t, c, g)
 ---
 <a class:list={["gc", { row }]} href={`/vi/huong-dan/${g.t.slug}/`} data-kind={g.kind}>

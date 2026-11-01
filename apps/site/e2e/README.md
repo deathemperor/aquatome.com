@@ -13,6 +13,9 @@ E2E_SEED=3 pnpm --filter site e2e --grep @invariants   # other pages of each kin
 
 - `invariants.spec.ts`: what every page must do, on one or two pages of each kind (`pages.ts` groups the build's pages
   by language, section and depth).
+- `@page-checks` (in `invariants.spec.ts`): `scripts/page-check.ts` on each sampled page's HTML, once (phone project).
+  It reads the content the build came from: the fixture's for a local build, `../../content` for a live site,
+  `CONTENT_ROOT` for another build (`E2E_DIST`).
 - `search.spec.ts`, `glossary.spec.ts`, `tools.spec.ts`: journeys, one file per feature. Add one for each new feature.
 - `lighthouse.spec.ts`: Lighthouse's scores and budgets on one page of each main kind (`E2E_LIGHTHOUSE=1`, alone:
   `E2E_LIGHTHOUSE=1 pnpm --filter site e2e --grep @lighthouse --workers=1`). Each run's numbers are in the log.

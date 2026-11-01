@@ -1,4 +1,4 @@
-import { linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type PlantEntity, type SpeciesEntity } from '@aq/schema'
+import { linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { videoPhoto } from './video'
 import { categories } from './equipment'
 import { GROUP_LABELS } from './format'
@@ -46,7 +46,7 @@ const taxonHref = (...parts: string[]) => `/vi/phan-loai/${parts.map(p => p.toLo
 
 export function linkTargets(c: Content): LinkTarget[] {
   const out: LinkTarget[] = []
-  const ok = specific([...c.species, ...c.plants].flatMap(x => [x.scientificName, x.t.name, ...x.t.altNames]).concat(c.breeds.flatMap(b => [b.t.name, ...b.t.altNames])))
+  const ok = specific([...c.species, ...c.plants].flatMap(x => [x.scientificName, x.t.name, ...x.t.altNames]).concat(c.plants.flatMap(p => p.synonyms ?? []), c.breeds.flatMap(b => [b.t.name, ...b.t.altNames])))
   // A man-made fish before the species: "cá vàng Ranchu" is the Ranchu page, not the goldfish one.
   for (const b of c.breeds) {
     const names = [b.t.name, b.t.name.replace(/\s*\(.*\)\s*$/, ''), ...b.t.altNames]
@@ -55,7 +55,8 @@ export function linkTargets(c: Content): LinkTarget[] {
   // A name shared by several pages (a species and its shop colour varieties) goes to the fullest page: richest first.
   const size = (x: { t: { sections: Record<string, string> } }) => Object.values(x.t.sections).join('').length
   for (const s of [...c.species].sort((a, b) => size(b) - size(a))) out.push({ key: `species:${s.id}`, href: `/vi/ca/${s.t.slug}/`, names: [s.scientificName, s.t.name, ...s.t.altNames].filter(n => multiWord(n) && ok(n)) })
-  for (const p of c.plants) out.push({ key: `plant:${p.id}`, href: `/vi/cay/${p.t.slug}/`, names: [p.scientificName, p.t.name, ...p.t.altNames].filter(n => multiWord(n) && ok(n)) })
+  // A plant's former scientific names are its own: "Rêu java (Vesicularia dubyana)" is the Java moss page.
+  for (const p of c.plants) out.push({ key: `plant:${p.id}`, href: `/vi/cay/${p.t.slug}/`, names: [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames].filter(n => multiWord(n) && ok(n)) })
   const taxa = new Map<string, LinkTarget>()
   for (const s of c.species) {
     taxa.set(`genus:${s.genus}`, { key: `genus:${s.genus}`, href: taxonHref(s.order, s.family, s.genus), names: [s.genus], exact: true })
@@ -116,8 +117,14 @@ export function mentionIndex(c: Content): Index {
 export const guidesMentioning = (c: Content, key: string): Localized<GuideEntity>[] =>
   c.guides.filter(g => mentionIndex(c).guides.get(g.id)?.keys.includes(key)).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
 
-/** A guide's picture: its own photo, else its video's thumbnail, else the first species or plant it talks about (so every guide card has one). */
-export function guideImage(c: Content, g: Localized<GuideEntity>) {
+/**
+ * A guide's possible pictures, best first: its own photos, its video's thumbnail, then the first photo of each fish and
+ * plant it talks about. A card takes the first one its page doesn't show yet (lib/pictures.ts).
+ */
+export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   const m = mentionIndex(c).guides.get(g.id)
-  return g.photos[0] ?? (g.video && videoPhoto(g.video)) ?? m?.species.find(s => s.photos[0])?.photos[0] ?? m?.plants.find(p => p.photos[0])?.photos[0]
+  return [...g.photos, ...(g.video ? [videoPhoto(g.video)] : []), ...(m?.species ?? []).flatMap(s => s.photos[0] ?? []), ...(m?.plants ?? []).flatMap(p => p.photos[0] ?? [])]
 }
+
+/** A guide's picture: its own photo, else its video's thumbnail, else the first species or plant it talks about (so every guide card has one). */
+export const guideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined => guideImages(c, g)[0]

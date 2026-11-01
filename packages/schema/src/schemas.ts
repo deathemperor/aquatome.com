@@ -27,7 +27,13 @@ export const SpeciesSchema = z.object({
 })
 
 export const PlantSchema = z.object({
-  id: z.string(), scientificName: z.string(), difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]),
+  id: z.string(), scientificName: z.string(),
+  /**
+   * Other scientific names the plant has gone by: an older genus, GBIF's newer one, a name the hobby long sold it under
+   * (engine plant-synonyms.ts). The site links, checks and searches them as the plant's own.
+   */
+  synonyms: z.array(z.string()).optional(),
+  difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]),
   light: z.enum(['low', 'medium', 'high']), co2: z.enum(['none', 'optional', 'required']), growth: z.enum(['slow', 'medium', 'fast']),
   placement: z.array(z.enum(['foreground', 'midground', 'background', 'epiphyte', 'floating'])),
   sections: z.array(Section), photos: z.array(Photo), productSlots: z.array(ProductSlot), updatedAt: z.string(),
@@ -102,6 +108,8 @@ export const EquipmentSchema = z.object({
 /** `builtAt`: the last Commons + iNaturalist build (`updatedAt` also moves when a source adds a photo). */
 /** Photo captions written in Vietnamese, in one other language (content/captions/<lang>.json): Vietnamese caption → translation. */
 export const CaptionsSchema = z.record(z.string(), z.string())
+/** content/picture-hashes.json: each photo's 64-bit difference hash (hex) by its address (pictures.ts). */
+export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a-f]{16}$/))
 
 /**
  * A gallery photo can carry what the screening model said of it, so a top-up re-ranks the whole gallery: `best`, one of

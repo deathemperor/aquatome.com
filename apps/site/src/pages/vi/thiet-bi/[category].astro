@@ -7,15 +7,15 @@ import PlantCard from '../../../components/PlantCard.astro'
 import GuideCard from '../../../components/GuideCard.astro'
 import GlossaryTip from '../../../components/GlossaryTip.astro'
 import { getContent } from '../../../lib/content'
-import { categoriesIn, normKeyword, typeUses, type CategoryUse } from '../../../lib/equipment'
+import { categoriesIn, normKeyword, type CategoryUse } from '../../../lib/equipment'
 import { alternatesWhere } from '../../../lib/alternates'
 import { categoryLabel, goLink } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
-import { cleanPhoto } from '../../../lib/home'
-import { speciesLists } from '../../../lib/list-data'
+import { pagePictures, takeEach } from '../../../lib/pictures'
+import { kitPictures, speciesListPhotos, speciesLists } from '../../../lib/list-data'
 import { PAGE } from '../../../scripts/filter-list'
 import { smallSrc } from '../../../lib/img'
-import { guidesMentioning, mentionIndex } from '../../../lib/mentions'
+import { guideImages, guidesMentioning, mentionIndex } from '../../../lib/mentions'
 import { creatorsUse } from '../../../lib/gear'
 import { productHref } from '../../../lib/products'
 import { i18n, langOf } from '../../../lib/i18n'
@@ -26,7 +26,9 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { u } = Astro.props as { u: CategoryUse }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const g = c.equipment.find(x => x.category === u.category)
+// Every picture once, in page order (lib/list-data.ts kitPictures): the kit's, each type's, the fish beside each type, the
+// plants, then the fish list's first page as its data file has it, then the guides.
+const { g, types, plants, typePhotos, whoPhotos, plantPhotos, above } = kitPictures(lang, c, u.category)
 const label = g?.name ?? t(categoryLabel(u.category))
 const entity = `equipment:${u.category}`
 const guides = guidesMentioning(c, entity).slice(0, 6)
@@ -34,12 +36,9 @@ const guides = guidesMentioning(c, entity).slice(0, 6)
 const used = creatorsUse(lang, c, u.category)
 // Products with their own page (engine product), per type of this kit.
 const picks = (type: string) => c.products.filter(p => p.category === u.category && p.type === type)
-const types = g ? typeUses(lang, c, g) : []
 // The species suggesting this kit, a page at a time (components/PagedSpecies).
 const users = speciesLists(lang, c).get(`thiet-bi/${u.category}`) ?? []
 const plantsPage = u.category === 'cay-thuy-sinh'
-// The CO2 page lists the plants that use it, required first. A page of them: the plant list has every plant, and filters.
-const plants = plantsPage ? c.plants : u.category === 'co2' ? c.plants.filter(p => p.co2 !== 'none').sort((a, b) => Number(b.co2 === 'required') - Number(a.co2 === 'required')) : []
 const needCo2 = plants.filter(p => p.co2 === 'required').length
 // Editorial text links glossary terms, species and other equipment once each, never this page.
 const targets = mentionIndex(c).targets
@@ -54,9 +53,11 @@ const keywords = [...suggested].sort((a, b) => b[1] - a[1]).slice(0, PAGE).map((
 const shops = ['shopee', 'lazada', 'tiki'] as const
 const SHOP_NAMES = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
 const faq = g && g.faq.length > 0 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []
-// Every photo shown: the guide's, the species beside each type, the first page of species and plants.
-const credits = creditsFor([...(g ? [g.hero, ...g.types.map(t => t.photo)] : []), ...types.flatMap(ty => ty.species.slice(0, 6).map(s => s.photos[0])),
-  ...(plantsPage ? [] : users.slice(0, PAGE).map(s => cleanPhoto(s.photos))), ...plants.slice(0, PAGE).map(p => p.photos[0])])
+const userPhotos = plantsPage ? [] : speciesListPhotos(lang, c, `thiet-bi/${u.category}`, users).slice(0, PAGE)
+const pics = pagePictures(c)
+for (const p of [...above, ...userPhotos]) pics.add(p?.url)
+const guidePhotos = takeEach(pics, guides, x => guideImages(c, x))
+const credits = creditsFor([g?.hero, ...typePhotos, ...whoPhotos.flat(), ...plantPhotos, ...userPhotos, ...guidePhotos].map(p => p ?? undefined))
 // Shop links, shop keywords and the gear Vietnamese videos use are for the Vietnamese market: that page only.
 const vn = lang === 'vi'
 const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.equipment.some(e => e.category === u.category && (e.quality?.indexable ?? true)))
@@ -76,9 +77,9 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
   {types.length > 0 && <>
     <h2 class="h">{t('Các loại {label}', { label: label.toLowerCase() })}</h2>
     <div class="types">
-      {types.map(ty => (
-        <article class:list={['type', { bare: !ty.photo }]} id={ty.id}>
-          {ty.photo && <div class="ph"><img src={smallSrc(ty.photo)} width={ty.photo.width} height={ty.photo.height} alt={ty.name} loading="lazy" /></div>}
+      {types.map((ty, k) => (
+        <article class:list={['type', { bare: !typePhotos[k] }]} id={ty.id}>
+          {typePhotos[k] && <div class="ph"><img src={smallSrc(typePhotos[k])} width={typePhotos[k].width} height={typePhotos[k].height} alt={ty.name} loading="lazy" /></div>}
           <div class="body">
             <h3>{ty.name}</h3>
             <p set:html={link(ty.desc)} />
@@ -88,7 +89,7 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
             {vn && ty.keywords.length > 1 && <p class="more">{t('Hay tìm:')} {ty.keywords.filter(k => k !== ty.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{k}</a>)}</p>}
             {ty.species.length > 0 && (
               <ul class="who" aria-label={t('Loài dùng {name}', { name: ty.name.toLowerCase() })}>
-                {ty.species.slice(0, 6).map(s => <li><a href={`/vi/ca/${s.t.slug}/`}>{s.photos[0] && <img src={smallSrc(s.photos[0])} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li>)}
+                {ty.species.slice(0, 6).map((s, i) => { const p = whoPhotos[k]![i]; return <li><a href={`/vi/ca/${s.t.slug}/`}>{p && <img src={smallSrc(p)} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li> })}
                 {ty.species.length > 6 && <li class="n">{t('+{n} loài', { n: ty.species.length - 6 })}</li>}
               </ul>
             )}
@@ -116,12 +117,12 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
 
   {plants.length > 0 && <>
     <h2 class="h">{plantsPage ? t('Cây thủy sinh trên AquaTome') : t('Cây cần CO2')}</h2>
-    <div class="plants">{plants.slice(0, PAGE).map(p => <PlantCard p={p} />)}</div>
+    <div class="plants">{plants.slice(0, PAGE).map((p, i) => <PlantCard p={p} photo={plantPhotos[i]} />)}</div>
     {plants.length > PAGE && (plantsPage || needCo2 > 0) && <p class="list"><a href={plantsPage ? '/vi/cay/' : '/vi/cay/?co2=required'}>{plantsPage ? t('Xem cả {n} loài cây', { n: plants.length }) : t('Xem cả {n} loài cây bắt buộc có CO₂', { n: needCo2 })}</a></p>}
   </>}
   {!plantsPage && users.length > 0 && <>
     <h2 class="h">{t('Loài cá cần {label}', { label: label.toLowerCase() })}</h2>
-    <PagedSpecies species={users} list={`thiet-bi/${u.category}`} />
+    <PagedSpecies species={users} list={`thiet-bi/${u.category}`} photos={userPhotos} />
   </>}
 
   {g && g.faq.length > 0 && <>
@@ -131,7 +132,7 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
 
   {guides.length > 0 && <>
     <h2 class="h">{t('Bài viết liên quan')}</h2>
-    <div class="guides">{guides.map(x => <GuideCard g={x} />)}</div>
+    <div class="guides">{guides.map((x, i) => <GuideCard g={x} photo={guidePhotos[i]} />)}</div>
   </>}
 
   {vn && (

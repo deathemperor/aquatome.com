@@ -1,15 +1,15 @@
 ---
-import type { Localized, PlantEntity } from '@aq/schema'
+import type { Localized, Photo, PlantEntity } from '@aq/schema'
 import { plantMeta } from '../lib/list-data'
 import { smallSrc } from '../lib/img'
 import { i18n } from '../lib/i18n'
 /**
  * `eager`: the image loads at once (the list's first row). `template`: a picture and the no-photo leaf both, for the
- * plant list's script to keep one of and fill in (scripts/plant-card.ts).
+ * plant list's script to keep one of and fill in (scripts/plant-card.ts). `photo`: the picture its page chose (lib/pictures.ts); null: none.
  */
-interface Props { p: Localized<PlantEntity>; eager?: boolean; template?: boolean }
-const { p, eager = false, template = false } = Astro.props
-const ph = p.photos[0]
+interface Props { p: Localized<PlantEntity>; eager?: boolean; template?: boolean; photo?: Photo | null }
+const { p, eager = false, template = false, photo } = Astro.props
+const ph = photo !== undefined ? photo : p.photos[0]
 const { t } = i18n(Astro.url)
 ---
 <article class="pc" data-slug={template ? "" : p.t.slug}>

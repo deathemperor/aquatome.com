@@ -6,7 +6,8 @@ import { setsCookies } from './thumb'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
-import { BreedSchema, CaptionsSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { BreedSchema, CaptionsSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import type { PictureHashes } from './pictures'
 import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
@@ -32,6 +33,8 @@ export type Content = {
   series: Series[]
   sources: Partial<Record<SourceId, SourceInfo>>
   changelog: ChangelogEntry[]
+  /** Each photo's image hash by its address (content/picture-hashes.json): a page never shows one picture twice (pictures.ts). */
+  pictureHashes: PictureHashes
 }
 
 async function readJson<S extends z.ZodType>(path: string, schema: S): Promise<z.infer<S>> {
@@ -171,5 +174,6 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     // page is empty and no link points at one it lacks. Vietnamese has every place.
     places: (await loadKind(root, 'places', PlaceSchema, lang)).filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),
     sources,
+    pictureHashes: (await exists(join(root, 'picture-hashes.json'))) ? await readJson(join(root, 'picture-hashes.json'), PictureHashesSchema) : {},
   }
 }

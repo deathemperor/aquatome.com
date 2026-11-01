@@ -26,6 +26,7 @@ import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
 import { approvedSummary } from '../../../lib/summaries'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
+import { distinctPhotos, pagePictures, takeEach } from '../../../lib/pictures'
 import { searchAliases } from '../../../lib/search'
 import { speciesDescription, speciesTitle } from '../../../lib/meta'
 import { i18n, langOf, served } from '../../../lib/i18n'
@@ -52,13 +53,19 @@ const jsonld = [
 ]
 const firstSource = s.sections[0]
 const summary = await approvedSummary(s.id)
-const gallery = c.galleries[s.id] ?? []
-const strip = gallery.length >= GALLERY_MIN && served(lang, `/vi/ca/${s.t.slug}/anh/`) ? gallery.slice(0, GALLERY_STRIP) : []
+// Every picture once, in page order (lib/pictures.ts): the photo, the gallery's first photos, the photos between the
+// sections, the breeds' cards. The gallery as its page has it (each picture once), so a thumb opens its own photo there.
+const pics = pagePictures(c)
+pics.add(s.photos[0]?.url)
+const gallery = distinctPhotos(c, c.galleries[s.id] ?? [])
+const strip = gallery.length >= GALLERY_MIN && served(lang, `/vi/ca/${s.t.slug}/anh/`) ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
+const figures = s.photos.slice(1).filter(p => pics.take([p]))
 // Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes) stay on /vi/.
 const vn = lang === 'vi'
 const videos = vn ? s.videos : s.videos.filter(v => (v.lang ?? 'en') !== 'vi')
 const alternates = await alternatesOf('species', s.id)
 const breeds = breedsOf(lang, c, s.id)
+const breedPhotos = takeEach(pics, breeds, b => b.photos)
 const mates = await companionsOf(lang, c, s.id)
 const showMates = !!(mates.self.temperament || mates.self.schoolMin || mates.good.length || mates.avoid.length)
 const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
@@ -68,11 +75,11 @@ const text = foldNearEmpty(s.sections, s.t, t)
 const written = (key: SectionKey) => text.sections.some(x => x.key === key && text.t.sections[`${key}:${x.source}`])
 const JUMPS: [SectionKey, string][] = [['aquariumSize', 'Bể'], ['waterConditions', 'Nước'], ['diet', 'Thức ăn'], ['behaviour', 'Nuôi chung'], ['reproduction', 'Sinh sản']]
 const jumps = [
-  ...(strip.length > 0 ? [{ href: '#gal-h', label: t('Ảnh') }] : []),
+  ...(strip.some(Boolean) ? [{ href: '#gal-h', label: t('Ảnh') }] : []),
   ...JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) })),
 ]
 ---
-<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...s.photos.slice(1), ...strip, ...breeds.map(b => b.photos[0])])}>
+<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...breedPhotos].map(p => p ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`}>{s.family}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/${s.genus.toLowerCase()}/`} class="sci">{s.genus}</a>
@@ -96,10 +103,10 @@ const jumps = [
   </header>
   <JumpChips items={jumps} />
 
-  {strip.length > 0 && <GalleryStrip photos={gallery} href={`/vi/ca/${s.t.slug}/anh/`} name={s.t.name} />}
+  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={`/vi/ca/${s.t.slug}/anh/`} name={s.t.name} />}
   {vn && summary && <QuickSummary summary={summary} />}
-  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={s.photos.slice(1).map(photo => ({ photo }))} card={s.dataCard} />
-  <BreedList breeds={breeds} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
+  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} />
+  <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guidesMentioning(c, `species:${s.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến loài này')} />
   <VideoGuideGrid guides={guidesMentioning(c, `species:${s.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
 

@@ -63,6 +63,8 @@ git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
+  # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
+  pnpm engine plant-synonyms || log "plant-synonyms: failed"
   # SKIP_VIDEOS (GitHub Actions): the three YouTube steps run in video-cycle.sh on the owner's Mac instead.
   # Original Vietnamese guides from the YouTube playlists in engine-state/youtube-playlists.json (captions and metadata only).
   # Before discovery: a burst of searches makes YouTube throttle the caption fetches that follow.
@@ -97,7 +99,9 @@ if part pages sf photos; then
   pnpm engine faces || log "faces: failed (unscreened photos may publish)"
 fi
 if part photos; then
-  # Every page photo must show its species (a tankmate or a whole tank gets rejected); a typical photo leads the page.
+  # Every photo on a species, plant or breed page and its gallery must show that subject (another fish, a map or a tank
+  # gets removed; can't-tell is listed in docs/review/photo-subjects.md); a typical photo leads the page. Most-read pages
+  # first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
   # and plants: iNaturalist, then Commons, GBIF, Openverse; open licences, screened (right species, no faces). GALLERY_SHEETS
@@ -116,6 +120,8 @@ if part pages sf photos; then
   pnpm engine watermarks --limit "${WATERMARK_LIMIT:-40}" || log "watermarks: failed (unscreened photos may publish)"
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
+  # The image hash of every new picture, so no page shows one picture twice from two files (a failure: compared by address).
+  pnpm engine picture-hashes || log "picture-hashes: failed (new pictures compared by address only)"
 fi
 if part rewrite; then
   # Diễn Đàn Cá Cảnh's guide sections, read for orientation (notes on each thread, never its text), 5 s between requests:

@@ -16,6 +16,7 @@ import { getContent } from '../../../lib/content'
 import { searchAliases } from '../../../lib/search'
 import { PLANT_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
+import { distinctPhotos, pagePictures } from '../../../lib/pictures'
 import { i18n, langOf, served } from '../../../lib/i18n'
 import { alternatesOf } from '../../../lib/alternates'
 
@@ -27,8 +28,12 @@ const { p } = Astro.props as { p: Localized<PlantEntity> }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // Its gallery's first photos, linking the gallery page, once there are enough for one.
-const gallery = c.galleries[p.id] ?? []
-const strip = gallery.length >= GALLERY_MIN && served(lang, `/vi/cay/${p.t.slug}/anh/`) ? gallery.slice(0, GALLERY_STRIP) : []
+// Every picture once, in page order (lib/pictures.ts): the photo, the gallery's first photos, those between the sections.
+const pics = pagePictures(c)
+pics.add(p.photos[0]?.url)
+const gallery = distinctPhotos(c, c.galleries[p.id] ?? [])
+const strip = gallery.length >= GALLERY_MIN && served(lang, `/vi/cay/${p.t.slug}/anh/`) ? gallery.slice(0, GALLERY_STRIP).map(x => pics.take([x]) ?? null) : []
+const figures = p.photos.slice(1).filter(x => pics.take([x]))
 // The plant itself is always a shopping item (sold on Shopee/Lazada), even when the engine proposed none.
 const slots = p.productSlots.some(s => s.category === 'cay-thuy-sinh') ? p.productSlots : [{ category: 'cay-thuy-sinh', keywords: [p.t.name, p.scientificName] }, ...p.productSlots]
 const facts: [string, string][] = [
@@ -41,20 +46,20 @@ const facts: [string, string][] = [
 import RedirectNote from '../../../components/RedirectNote.astro'
 const alternates = await alternatesOf('plants', p.id)
 ---
-<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...p.photos.slice(1), ...strip])}>
+<Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...figures, ...strip].map(x => x ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}><a href="/vi/cay/">{t('Cây thủy sinh')}</a></nav>
   <header class="wrap top">
     <PhotoGallery photos={p.photos} alt={`${p.t.name}, ${p.scientificName}`} />
     <div>
-      <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(p.t, p.scientificName)}>{p.t.name}</h1>
+      <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(p.t, p.scientificName, p.synonyms)}>{p.t.name}</h1>
       <RedirectNote from={p.t.redirectFrom} />
       <p class="sci binomial">{p.scientificName}</p>
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>
   </header>
-  {strip.length > 0 && <GalleryStrip photos={gallery} href={`/vi/cay/${p.t.slug}/anh/`} name={p.t.name} />}
-  <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={p.photos.slice(1).map(photo => ({ photo }))} />
+  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={`/vi/cay/${p.t.slug}/anh/`} name={p.t.name} />}
+  <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} />
   <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến cây này')} />
   <VideoGuideGrid guides={guidesMentioning(c, `plant:${p.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
   {/* Shops are Vietnam's (Shopee/Lazada links); every language has its own discussion. */}

@@ -1,6 +1,9 @@
 {
   "id": "hygrophila-pinnatifida",
   "scientificName": "Hygrophila pinnatifida",
+  "synonyms": [
+    "Cardanthera pinnatifida"
+  ],
   "difficulty": 2,
   "light": "medium",
   "co2": "optional",
@@ -41,6 +44,16 @@
       "thumb": "https://media.aquatome.com/commons/795665d0c7e3a1e3-480.webp"
     },
     {
+      "url": "https://media.aquatome.com/commons/2178ab3adf127bd1.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY-SA 4.0",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_pinnatifida_kz03.jpg",
+      "caption": "Hygrophila pinnatifida in the Botanischer Garten Halle",
+      "thumb": "https://media.aquatome.com/commons/2178ab3adf127bd1-480.webp"
+    },
+    {
       "url": "https://media.aquatome.com/commons/536ca3c8ca0dd39e.webp",
       "width": 960,
       "height": 720,
@@ -59,16 +72,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_pinnatifida_kz05.jpg",
       "caption": "Hygrophila pinnatifida in the Botanischer Garten Halle",
       "thumb": "https://media.aquatome.com/commons/bb4257fdff49bbba-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2178ab3adf127bd1.webp",
-      "width": 960,
-      "height": 1280,
-      "licence": "CC BY-SA 4.0",
-      "author": "Krzysztof Ziarnek, Kenraiz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_pinnatifida_kz03.jpg",
-      "caption": "Hygrophila pinnatifida in the Botanischer Garten Halle",
-      "thumb": "https://media.aquatome.com/commons/2178ab3adf127bd1-480.webp"
     }
   ],
   "productSlots": [

@@ -40,7 +40,24 @@ export async function gbifUsageKey(name: string, http: (url: string) => Promise<
   return m.acceptedUsageKey ?? m.usageKey ?? null
 }
 
-type Occurrence = { key: number; datasetKey: string; recordedBy?: string; media?: { type?: string; identifier?: string; license?: string; creator?: string; rightsHolder?: string }[] }
+/**
+ * The other scientific names GBIF gives a species: its accepted name, when this one is a synonym (Taxiphyllum barbieri →
+ * Ectropothecium barbieri), and the accepted name's synonyms at species rank (no varieties or forms). [] unless GBIF
+ * matches the name exactly, at species rank: a fuzzy match can be another plant.
+ */
+export async function gbifSynonyms(name: string, http: (url: string) => Promise<unknown>): Promise<string[]> {
+  const m = (await http(`https://api.gbif.org/v1/species/match?name=${encodeURIComponent(name)}`)) as Match & { usageKey?: number; acceptedUsageKey?: number }
+  if (m.matchType !== 'EXACT' || m.rank !== 'SPECIES' || !m.usageKey) return []
+  const out = m.acceptedUsageKey && m.species ? [m.species] : []
+  for (let offset = 0; offset < 1000; offset += 100) {
+    const r = (await http(`https://api.gbif.org/v1/species/${m.acceptedUsageKey ?? m.usageKey}/synonyms?limit=100&offset=${offset}`)) as { results: { canonicalName?: string; rank?: string }[]; endOfRecords: boolean }
+    for (const u of r.results) if (u.rank === 'SPECIES' && u.canonicalName) out.push(u.canonicalName)
+    if (r.endOfRecords || !r.results.length) break
+  }
+  return [...new Set(out)].filter(n => n !== name)
+}
+
+type Occurrence ={ key: number; datasetKey: string; recordedBy?: string; media?: { type?: string; identifier?: string; license?: string; creator?: string; rightsHolder?: string }[] }
 const GBIF_PAGE = 100
 /** GBIF serves a copy of every occurrence photo at a fixed address and size (its image cache). */
 export const gbifImage = (occurrence: number, identifier: string, size: string) =>

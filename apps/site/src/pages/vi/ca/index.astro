@@ -4,7 +4,7 @@ import SpeciesGrid from '../../../components/SpeciesGrid.astro'
 import { getContent } from '../../../lib/content'
 import { groupLabel } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
-import { cleanPhoto, listOrder } from '../../../lib/home'
+import { fishList } from '../../../lib/list-data'
 import { PAGE } from '../../../scripts/filter-list'
 import BreedList from '../../../components/BreedList.astro'
 import FilterBox from '../../../components/FilterBox.astro'
@@ -16,9 +16,12 @@ const c = await getContent(lang)
 const groups = [...new Set(c.species.map(s => s.group))].sort()
 // The first page as cards. Every species, with its filter figures and photo, is in the list's data file (lib/list-data.ts),
 // which the script fetches to filter or show more: nothing here grows with the catalogue.
-const first = listOrder(lang, c).slice(0, PAGE)
+// Every picture once, in page order (lib/pictures.ts): the man-made fish, then the species (a colour form often has its
+// species' photo), each card's as the data file has it.
+const { breeds, breedPhotos, species, photos } = fishList(lang, c)
+const first = species.slice(0, PAGE), firstPhotos = photos.slice(0, PAGE)
 ---
-<Browse title={t('Tất cả loài')} heading={t('Tất cả loài')} intro={t('{n} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.', { n: c.species.length })} credits={creditsFor([...first.map(s => cleanPhoto(s.photos)), ...c.breeds.map(b => b.photos[0])])} creditsLater>
+<Browse title={t('Tất cả loài')} heading={t('Tất cả loài')} intro={t('{n} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.', { n: c.species.length })} credits={creditsFor([...breedPhotos, ...firstPhotos].map(p => p ?? undefined))} creditsLater>
   <FilterBox id="filter-box" prefix="species" summary={t('Lọc theo bể và nước')}>
     <label>{t('Tên')} <input name="q" type="search" placeholder={t('neon, Corydoras…')} /></label>
     <label>{t('Nhóm')}
@@ -31,9 +34,9 @@ const first = listOrder(lang, c).slice(0, PAGE)
       <select name="difficultyMax"><option value="">{t('Bất kỳ')}</option><option value="3">{t('Dễ')}</option><option value="5">{t('Dễ và vừa')}</option></select>
     </label>
   </FilterBox>
-  <BreedList breeds={[...c.breeds].sort((a, b) => Number(!a.photos.length) - Number(!b.photos.length) || a.t.name.localeCompare(b.t.name, lang))} heading={t('Cá lai và các dòng cá cảnh')} bare eager={4} />
+  <BreedList breeds={breeds} photos={breedPhotos} heading={t('Cá lai và các dòng cá cảnh')} bare eager={4} />
   <FilterResults prefix="species" total={c.species.length} src={`/data/${lang}/species.json`} why={t('Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.')}>
-    <SpeciesGrid species={first} heading={t('Danh sách loài')} template />
+    <SpeciesGrid species={first} photos={firstPhotos} heading={t('Danh sách loài')} template />
   </FilterResults>
 </Browse>
 <script>

@@ -1,21 +1,25 @@
 ---
-import type { Localized, SpeciesEntity } from '@aq/schema'
+import type { Localized, Photo, SpeciesEntity } from '@aq/schema'
 import SpeciesCard from './SpeciesCard.astro'
 import { i18n } from '../lib/i18n'
+import { getContent } from '../lib/content'
+import { gridPhotos } from '../lib/pictures'
 /**
  * `heading`: a visually hidden h2 for pages that have none, so card h3s don't skip a level.
  * `template`: a card template in the grid, for the page's script to build more cards from (the fish list's species past
  * its first page: scripts/filter-list.ts, species-card.ts).
+ * `photos`: each card's picture, as its page chose them (lib/pictures.ts); by default none twice within the grid.
  */
-interface Props { species: Localized<SpeciesEntity>[]; heading?: string; template?: boolean }
+interface Props { species: Localized<SpeciesEntity>[]; heading?: string; template?: boolean; photos?: (Photo | null)[] }
 const { species, heading, template } = Astro.props
-const { t } = i18n(Astro.url)
+const { t, lang } = i18n(Astro.url)
+const photos = Astro.props.photos ?? gridPhotos(await getContent(lang), species)
 /** Cards in the first row load at once: one of them is usually the page's largest image. */
 const EAGER = 4
 ---
 {species.length === 0
   ? <p class="empty">{t('Chưa có loài nào ở đây.')}</p>
-  : <>{heading && <h2 class="visually-hidden">{heading}</h2>}<div class="grid">{species.map((s, i) => <div data-slug={s.t.slug}><SpeciesCard s={s} eager={i < EAGER} /></div>)}{template && <template id="species-card"><div data-slug=""><SpeciesCard s={species[0]!} template /></div></template>}</div></>}
+  : <>{heading && <h2 class="visually-hidden">{heading}</h2>}<div class="grid">{species.map((s, i) => <div data-slug={s.t.slug}><SpeciesCard s={s} eager={i < EAGER} photo={photos[i] ?? null} /></div>)}{template && <template id="species-card"><div data-slug=""><SpeciesCard s={species[0]!} template /></div></template>}</div></>}
 <style>
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
   @media (max-width: 520px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); } }

@@ -5,6 +5,7 @@ import { htmlToOutline, isChallenge } from './outline'
 import { mergePhotos } from './run'
 import { SOURCES, sourceById } from './sources'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
+import { withSections } from './guide-sections'
 
 export type BackfillDeps = {
   get: (url: string) => Promise<{ status: number; html: string }>
@@ -13,10 +14,12 @@ export type BackfillDeps = {
   now: () => Date
   sleep: (ms: number) => Promise<void>
 }
-type Entity = { photos: Photo[]; scientificName?: string; family?: string; source?: SourceId; sourceUrl?: string; sections?: { source: SourceId; sourceUrl: string }[] }
+type Entity = { photos: (Photo & { section?: unknown })[]; scientificName?: string; family?: string; source?: SourceId; sourceUrl?: string; sections?: { source: SourceId; sourceUrl: string }[] }
 
 const WANT = 3 // pages with fewer photos get their source pages re-read
 const RETRY_MS = 30 * 86_400_000
+/** Guides read before photos kept their section (and before the cap of 6 went): each is read once more for them. */
+const SECTIONS_SINCE = '2026-11-01T12:00:00.000Z'
 
 // The catfish families ScotCat covers (one index page each, see sources.ts).
 const CATFISH = new Set(['Ailiidae', 'Akysidae', 'Amblycipitidae', 'Amphiliidae', 'Anchariidae', 'Andinichthyidae', 'Ariidae', 'Aspredinidae', 'Astroblepidae', 'Auchenipteridae', 'Auchenoglanididae', 'Austroglanididae', 'Bagridae', 'Callichthyidae', 'Cetopsidae', 'Chacidae', 'Clariidae', 'Claroteidae', 'Cranoglanididae', 'Diplomystidae', 'Doradidae', 'Heptapteridae', 'Heteropneustidae', 'Horabagridae', 'Ictaluridae', 'Kryptoglanidae', 'Lacantuniidae', 'Loricariidae', 'Malapteruridae', 'Mochokidae', 'Nematogenyidae', 'Pangasiidae', 'Phreatobiidae', 'Pimelodidae', 'Plotosidae', 'Pseudopimelodidae', 'Ritidae', 'Schilbeidae', 'Scoloplacidae', 'Siluridae', 'Sisoridae', 'Trichomycteridae'])
@@ -30,9 +33,10 @@ export function scotcatUrl(scientificName?: string, family?: string): string | u
 /**
  * Re-reads the source pages of species, plants and guides with fewer than 3 photos and adds the photos the picker
  * missed before (slim fish, images without a pixel size); catfish from other sources also get ScotCat's photos. Each
- * source page is tried at most once a month.
+ * source page is tried at most once a month. A guide keeps every photo of its source, each in the section it sat under
+ * (a list of fish has one per fish): guides read before that are read once more. `kinds`: only those.
  */
-export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limit?: number } = {}): Promise<{ pages: number; added: number; errors: string[] }> {
+export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limit?: number; kinds?: string[] } = {}): Promise<{ pages: number; added: number; errors: string[] }> {
   const triedFile = join(root, 'engine-state/_photo-backfill.json')
   const tried: Record<string, string> = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}'))
   const names: Record<string, { name?: string }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
@@ -46,22 +50,25 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   let pages = 0
   let added = 0
   const errors: string[] = []
-  for (const kind of ['species', 'plants', 'guides'] as const) {
+  for (const kind of (['species', 'plants', 'guides'] as const).filter(k => !opts.kinds || opts.kinds.includes(k))) {
     for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
       if (opts.limit !== undefined && pages >= opts.limit) break
       const file = join(root, 'content', kind, id, 'entity.json')
       const e = JSON.parse(await readFile(file, 'utf8')) as Entity
-      if (e.photos.length >= WANT) continue
+      const unsectioned = kind === 'guides' && !e.photos.some(p => p.section)
+      if (e.photos.length >= WANT && !unsectioned) continue
       // Video guides (source 'youtube') have no web page to read photos from.
       const own = kind === 'guides' ? (e.source && e.sourceUrl && e.source !== 'youtube' ? [{ source: e.source, sourceUrl: e.sourceUrl }] : []) : (e.sections ?? [])
       const scotcat = kind === 'species' && !own.some(r => r.source === 'scotcat') ? scotcatUrl(e.scientificName, e.family) : undefined
       const refs = scotcat ? [...own, { source: 'scotcat' as const, sourceUrl: scotcat }] : own
       // Only sources the engine reads (not our own guides, Facebook or video), and not those read through the Internet
       // Archive: the archive keeps no usable copies of their photos.
-      const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u, s]) => SOURCES.some(x => x.id === s) && sourceById(s).via !== 'archive' && (!tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS))
+      const due = (u: string) => !tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS || (unsectioned && tried[u]! < SECTIONS_SINCE)
+      const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u, s]) => SOURCES.some(x => x.id === s) && sourceById(s).via !== 'archive' && due(u))
       if (!urls.length) continue
       pages++
       const before = e.photos.length
+      const was = JSON.stringify(e.photos)
       for (const [url, source] of urls) {
         const src = sourceById(source)
         const get = polite(source, d.get)
@@ -72,15 +79,18 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           if (r.status >= 400 || isChallenge(o.title, o.outline)) throw new Error(r.status >= 400 ? `HTTP ${r.status}` : 'challenge')
           // Same photos as the engine takes: from their own pages where the source keeps them there (ScotCat).
           const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
-          const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], kind === 'guides' ? 6 : 4, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth)
+          const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], kind === 'guides' ? Infinity : 4, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth)
           const stored = await storeSourcePhotos(source, names[source]?.name ?? source, url, picked, { bytes: polite(source, d.bytes), media: d.media, blocked }, e.photos)
-          if (stored.length) e.photos = kind === 'guides' ? [...stored, ...e.photos.filter(p => p.sourceUrl !== url)].slice(0, 6) : mergePhotos(e.photos, source, url, stored)
+          if (stored.length && kind === 'guides') {
+            const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
+            e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', id: await body('id'), th: await body('th') }), ...e.photos.filter(p => p.sourceUrl !== url)]
+          } else if (stored.length) e.photos = mergePhotos(e.photos, source, url, stored.map(({ heading: _, ...p }) => p))
           tried[url] = d.now().toISOString()
         } catch (err) {
           errors.push(`${kind}/${id} ${url}: ${(err as Error).message.slice(0, 120)}`)
         }
       }
-      if (e.photos.length !== before) { added += e.photos.length - before; await writeFile(file, `${JSON.stringify(e, null, 2)}\n`) }
+      if (JSON.stringify(e.photos) !== was) { added += e.photos.length - before; await writeFile(file, `${JSON.stringify(e, null, 2)}\n`) }
     }
   }
   await writeFile(triedFile, `${JSON.stringify(Object.fromEntries(Object.entries(tried).sort()), null, 2)}\n`)

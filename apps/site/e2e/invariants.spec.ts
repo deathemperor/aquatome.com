@@ -1,8 +1,13 @@
 import { existsSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 import type { APIRequestContext } from '@playwright/test'
 import { DIST, LIVE, recheckPages, samplePages, sourcePages } from './pages'
 import { VIETNAMESE, VIETNAMESE_ALLOWED, expect, test } from './fixtures'
+import { checkPage, loadFacts } from '../scripts/page-check'
+
+// The page checks read the content the build was made from: the fixture's for a local build, the checkout's (the live
+// version's commit, in watch.yml) for a live site; CONTENT_ROOT for another build (E2E_DIST).
+const facts = loadFacts(resolve(process.env.CONTENT_ROOT ?? (LIVE ? '../../content' : 'test/fixture-content')))
 
 // What every page must do, on a phone and a computer, checked on a sample of each kind of page (pages.ts).
 const known = new Set(sourcePages())
@@ -67,5 +72,17 @@ for (const path of pages) {
 
     expect(errors, 'script errors').toEqual([])
     info.annotations.push({ type: 'checked', description: path })
+  })
+}
+
+// What only the page as built shows (scripts/page-check.ts): a picture twice, a wrong fish or link, a fish's section without
+// its photo, contents that disagree with the headings, an empty section. The HTML alone, once (not per screen size); on
+// the fixture build in CI and on the live site in watch.yml, where a problem becomes an issue like any other.
+for (const path of pages) {
+  test(`page checks ${path}`, { tag: '@page-checks' }, async ({ request }, info) => {
+    test.skip(info.project.name !== 'phone', 'the HTML is the same on every screen')
+    const res = await request.get(path, { headers: { accept: 'text/html' } })
+    expect(res.status(), 'status').toBe(200)
+    expect(checkPage(path, await res.text(), await facts)).toEqual([])
   })
 }
