@@ -3,14 +3,16 @@ import SwiftUI
 
 /// The handbook: before a search, a home arranged as the site arranges it (HomeList: fish by group, plants by where
 /// they go, guides by subject, the tools, the glossary); while searching, every page that matches, of one kind if
-/// picked. A page opens the site's page, or the app's own screen for it (the Chihiros tool is the Lights tab, "Bể của
-/// tôi" the tanks tab).
+/// picked. A page opens as the app draws it (guides), the site's page, or the app's own screen for it (the Chihiros
+/// tool is the Lights tab, "Bể của tôi" the tanks tab).
 struct HandbookView: View {
+  /// The pages open in the tab: a link in a page the app draws pushes onto it (AppScreen.page).
+  @Binding var path: NavigationPath
   @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
     @Bindable var handbook = handbook
-    NavigationStack {
+    NavigationStack(path: $path) {
       List {
         if handbook.query.isEmpty {
           HomeList()
@@ -43,15 +45,29 @@ struct HandbookView: View {
 /// A page in a list: the site's page, or the app's own screen for it.
 struct Row: View {
   let item: HandbookIndex.Item
+  /// Outside a list (a page's "pages" block), which draws no chevron of its own.
+  var chevron = false
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
 
   var body: some View {
     if item.kind == .tool, let screen = AppScreen.of(handbook.url(item), site: handbook.site) {
-      Button { openScreen(screen) } label: { ItemRow(item: item) }
+      Button { openScreen(screen) } label: { label }
     } else {
-      NavigationLink(value: item) { ItemRow(item: item) }
+      NavigationLink(value: item) { label }
     }
+  }
+
+  private var label: some View {
+    HStack {
+      ItemRow(item: item)
+      if chevron {
+        Spacer()
+        Image(systemName: "chevron.right").foregroundStyle(.tertiary)
+      }
+    }
+    // The whole row answers a tap, the space before the chevron too (a plain button takes only what it draws).
+    .contentShape(.rect)
   }
 }
 

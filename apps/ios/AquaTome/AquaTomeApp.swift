@@ -12,6 +12,7 @@ struct AquaTomeApp: App {
   @State private var plugs: PlugsModel
   @State private var tab = Tab.handbook
   @State private var tanksPath = NavigationPath()
+  @State private var handbookPath = NavigationPath()
   @Environment(\.scenePhase) private var phase
 
   enum Tab { case tanks, handbook, lights }
@@ -38,7 +39,7 @@ struct AquaTomeApp: App {
   var body: some Scene {
     WindowGroup {
       TabView(selection: $tab) {
-        HandbookView()
+        HandbookView(path: $handbookPath)
           .tabItem { Label("Tìm", systemImage: "magnifyingglass") }
           .tag(Tab.handbook)
         TanksView(path: $tanksPath)
@@ -72,6 +73,10 @@ struct AquaTomeApp: App {
       if let id, tanks.tanks.contains(where: { $0.id == id }) { path.append(id) }
       tanksPath = path
       tab = .tanks
+    case .page(let path):
+      // A page the app draws linking to another: pushed on the tab it's in.
+      guard let item = handbook.item(at: path) else { return }
+      if tab == .tanks { tanksPath.append(item) } else { tab = .handbook; handbookPath.append(item) }
     }
   }
 

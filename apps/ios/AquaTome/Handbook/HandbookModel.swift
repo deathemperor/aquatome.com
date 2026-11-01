@@ -27,12 +27,20 @@ final class HandbookModel {
   private(set) var shelves = HandbookShelves(HandbookIndex(lang: "vi", items: []))
   /// The site's words for the keys items carry, in this language.
   private(set) var labels = HandbookIndex.Labels()
+  /// How many shards of pages each kind has: the kinds the app draws itself (PageDoc).
+  private var shardCounts: [String: Int] = [:]
   /// Pages saved to read later, and the ones read last (kept in the app's settings, on this phone, one list per
   /// language: the pages are this language's).
   private(set) var reading: ReadingList
   private let source: Source
+  /// The pages the app draws itself, kept on the phone.
+  private let drawn: PageCache
   /// The site's copy has been read this run: showing the tab again doesn't fetch it again (pull to refresh does).
   private var fetched = false
+  #if DEBUG
+  /// UI tests (`-pages-later`): the fixed index, with its `pages`, held back until a page opens.
+  private var pagesLater: HandbookIndex?
+  #endif
 
   /// Where the index comes from: the site, or (UI tests) a fixed one.
   enum Source {
@@ -44,7 +52,20 @@ final class HandbookModel {
     self.source = source
     lang = preferred.first.flatMap { ["vi", "id", "th"].contains($0) ? $0 : nil } ?? "vi"
     reading = UserDefaults.standard.data(forKey: "handbook.reading.\(lang)").flatMap { try? JSONDecoder().decode(ReadingList.self, from: $0) } ?? ReadingList()
+    drawn = Self.pageCache(source, site: site)
   }
+
+  /// Whether the app draws this page itself: the site publishes its kind as blocks.
+  func drawsItself(_ item: HandbookIndex.Item) -> Bool { shardCounts[item.kind.rawValue] != nil }
+
+  /// The page as blocks, from the phone or the site; nil when the web page is to show instead.
+  func doc(_ item: HandbookIndex.Item) async -> PageDoc? {
+    guard let count = shardCounts[item.kind.rawValue] else { return nil }
+    return await drawn.doc(path: item.path, kind: item.kind.rawValue, lang: lang, count: count)
+  }
+
+  /// The page at a path the index lists ("/vi/ca/ca-neon/").
+  func item(at path: String) -> HandbookIndex.Item? { byPath[path] }
 
   func url(_ item: HandbookIndex.Item) -> URL { URL(string: item.path, relativeTo: site)!.absoluteURL }
 
@@ -58,7 +79,16 @@ final class HandbookModel {
   /// Guides that name these fish and plants (a tank's), the most of them first, then in name order.
   func guides(about ids: [String]) -> [HandbookIndex.Item] { HandbookIndex.guides(about: ids, in: search.find("", kind: .guide)) }
 
-  func read(_ item: HandbookIndex.Item) { change { $0.read(item.path) } }
+  func read(_ item: HandbookIndex.Item) {
+    change { $0.read(item.path) }
+    #if DEBUG
+    // UI tests (`-pages-later`): the index says which kinds the app draws only once a page has opened.
+    if let ix = pagesLater {
+      pagesLater = nil
+      Task { try? await Task.sleep(for: .seconds(1)); use(ix, .ready) }
+    }
+    #endif
+  }
   func toggleSaved(_ item: HandbookIndex.Item) { change { $0.toggleSaved(item.path) } }
 
   private func change(_ edit: (inout ReadingList) -> Void) {
@@ -78,7 +108,15 @@ final class HandbookModel {
 
   /// The kept copy first (instant, offline) if nothing is shown yet, then the site's current one.
   func load() async {
-    if case .fixed(let ix) = source { return use(ix, .ready) }
+    if case .fixed(let ix) = source {
+      #if DEBUG
+      if ProcessInfo.processInfo.arguments.contains("-pages-later"), pagesLater == nil, count == 0 {
+        pagesLater = ix
+        return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels), .ready)
+      }
+      #endif
+      return use(ix, .ready)
+    }
     let file = Self.cacheFile(lang)
     if count == 0, let data = try? Data(contentsOf: file), let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) {
       use(ix, .offline)
@@ -101,6 +139,7 @@ final class HandbookModel {
     search = HandbookSearch(ix.items)
     pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
     byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
+    shardCounts = ix.pages
     shelves = HandbookShelves(ix)
     labels = ix.labels
     count = ix.items.count
@@ -119,6 +158,27 @@ final class HandbookModel {
     if args.contains("-fixed-handbook") { return .fixed(.fixture) }
     #endif
     return .site
+  }
+
+  /// Kept in Application Support, as the index is; UI tests get the fixed pages, without the network.
+  private static func pageCache(_ source: Source, site: URL) -> PageCache {
+    #if DEBUG
+    if case .fixed = source {
+      let dir = FileManager.default.temporaryDirectory.appending(path: "pages-\(UUID().uuidString)")
+      return PageCache(dir: dir, site: site, fetch: { _ in HandbookIndex.fixturePages })
+    }
+    #endif
+    var dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appending(path: "pages")
+    // The site's copy, read again when needed: not for the phone's backup.
+    try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+    var values = URLResourceValues()
+    values.isExcludedFromBackup = true
+    try? dir.setResourceValues(values)
+    return PageCache(dir: dir, site: site, fetch: { url in
+      let (data, response) = try await URLSession.shared.data(from: url)
+      guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
+      return data
+    })
   }
 
   private static func cacheFile(_ lang: String) -> URL {
@@ -152,7 +212,35 @@ extension HandbookIndex {
     "section": ["setup": "Setup bể", "care": "Chăm sóc", "plantCare": "Chăm cây"],
     "light": ["low": "Yếu", "medium": "Trung bình", "high": "Mạnh"],
     "co2": ["none": "Không cần", "optional": "Tùy chọn", "required": "Bắt buộc"],
-  ]))
+  ]), pages: ["guide": 1])
+
+  /// UI tests' pages: the neon guide as the site writes it (/app/pages/vi/guide-0.json), with each kind of block, links
+  /// to the fixture's pages and a tool, a word's tip, and two parts in a row from a newer site the app can't draw.
+  static let fixturePages = Data(#"""
+  {"v":1,"pages":{"/vi/huong-dan/nuoi-ca-neon/":{"v":1,"kind":"guide","path":"/vi/huong-dan/nuoi-ca-neon/","title":"Nuôi cá neon trong bể nhỏ",
+   "meta":"Chăm sóc · đọc khoảng 4 phút","credit":["AquaTome tổng hợp từ ",{"text":"2 nguồn","href":"#nguon"}," rồi tự viết"],
+   "lead":{"src":"https://media.aquatome.com/a/neon-lead.webp","w":1200,"h":800,"credit":{"text":"Ảnh: Aquarium Co-op","licence":"CC BY 4.0"}},
+   "blocks":[
+    {"t":"summary","title":"Tóm tắt nhanh","items":["Nuôi từ 6 con trở lên.","Nước mềm, hơi chua."]},
+    {"t":"h","text":"Bể và nước","id":"be-va-nuoc"},
+    {"t":"p","c":["Cá ",{"text":"neon","href":"/vi/ca/ca-neon/"}," sống theo đàn và cần nước có ",{"text":"pH","href":"/vi/thuat-ngu/dem-ph/","tip":{"term":"Đệm pH","text":"Khả năng giữ pH của nước khi có thêm axit."}}," từ 5 đến 7."]},
+    {"t":"list","ordered":true,"items":[[{"t":"p","c":["Bể từ ",{"text":"60 cm","b":true},"."]}],[{"t":"p","c":["Cây thủy sinh và lũa."]}]]},
+    {"t":"table","head":[["Thông số"],["Mức"]],"rows":[[["Nhiệt độ"],["20–26°C"]],[["pH"],["5–7"]]]},
+    {"t":"carousel","items":[{"src":"https://example.org/1.webp"}]},
+    {"t":"quiz","q":"Cá neon sống ở đâu?"},
+    {"t":"h","text":"Cho ăn","id":"cho-an"},
+    {"t":"p","c":["Ngày hai lần, lượng ăn hết trong hai phút."]},
+    {"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ hoặc artemia vài lần một tuần."]},
+    {"t":"p","c":["Cá ăn ít hơn khi nước lạnh; giữ nhiệt độ ổn định."]},
+    {"t":"h","text":"Bệnh thường gặp","id":"benh"},
+    {"t":"p","c":["Bệnh neon (Pleistophora) không chữa được: tách con bệnh ra ngay."]},
+    {"t":"p","c":["Đốm trắng: tăng nhiệt độ từ từ và thay nước."]},
+    {"t":"p","c":["Nấm: cách ly và giữ nước sạch."]},
+    {"t":"faq","title":"Câu hỏi thường gặp","items":[{"q":"Nuôi mấy con?","a":"Từ 6 con trở lên."}]},
+    {"t":"refs","title":"Nguồn tham khảo","id":"nguon","items":[{"title":"Neon tetra care","url":"https://example.org/neon"},{"title":"Cá neon","url":"https://example.org/ca-neon"}]},
+    {"t":"pages","title":"Loài và cây trong bài","paths":["/vi/ca/ca-neon/","/vi/ca/khong-co/","/vi/cong-cu/be-cua-toi/"]}
+   ]}}}
+  """#.utf8)
 
   /// Performance tests' index: the fixture plus 800 fish (the site lists about 700), named and shaped like real ones,
   /// with no pictures (those come from the network).
