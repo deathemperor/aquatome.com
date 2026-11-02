@@ -138,16 +138,17 @@ final class AccountModel {
     }
   }
 
-  /// Signed in on this phone: the token kept, the passkey added when this was signing in again to its account for it,
-  /// then the whole store synced.
+  /// Signed in on this phone: the token kept, the whole store synced, then the passkey added when this was signing in
+  /// again to its account for it. After the sync, so a sync doesn't clear what the add says; the sign-in buttons (and
+  /// the email sheet on one of them) stay until the passkey is made.
   private func took(_ s: SignedIn) async throws {
     try keychain.save(s.token)
     let adding = signingInAgain && s.user.id == user?.id
-    signingInAgain = false
+    if !adding { signingInAgain = false }
     token = s.token
     state = .signedIn(s.user)
-    if adding { await register(s.token) }
     await sync(first: true)
+    if adding { await register(s.token) }
   }
 
   /// "Thêm passkey": a passkey for the account signed in, made on this phone (kept in iCloud Keychain, so the reader's
@@ -164,12 +165,17 @@ final class AccountModel {
   func cancelSigningInAgain() { signingInAgain = false }
 
   private func register(_ token: String) async {
+    var again = false
+    defer { signingInAgain = again }
     do {
       let p = try await passkey.register(try await api.newPasskeyChallenge(token: token))
-      state = .signedIn(try await api.addPasskey(p, token: token))
+      let u = try await api.addPasskey(p, token: token)
+      // Signed out meanwhile (a sync told the session had ended): nothing to show.
+      guard self.token == token else { return }
+      state = .signedIn(u)
       say(String(localized: "Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy."))
     } catch AccountError.refused("reauth_needed") {
-      signingInAgain = true
+      again = true
     } catch is PasskeySignInCancelled {
     } catch is PasskeyExists {
       say(String(localized: "Máy này đã có passkey của tài khoản này."))

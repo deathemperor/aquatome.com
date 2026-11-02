@@ -105,6 +105,21 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "sign-in-again").exists, "still asked to sign in again")
   }
 
+  func testWhatTheAddSaysAfterSigningInAgainByEmailStays() {
+    // The stand-in's one passkey belongs to the Apple account; this phone signs in by email, to another.
+    var app = launch(resetServer: true, "-seed-passkey")
+    emailSignIn(app, "reader@example.com")
+    app.terminate()
+
+    // Later: signing in again by email, then the add is refused, and says so (the sync after signing in doesn't clear it).
+    app = launch(newPhone: false)
+    tap(app, "passkey-add")
+    XCTAssertTrue(element(app, "sign-in-again").waitForExistence(timeout: 5), "not asked to sign in again")
+    emailSignIn(app, "reader@example.com")
+    XCTAssertTrue(says(app, "Cách đăng nhập này đã thuộc một tài khoản khác."), message(app))
+    XCTAssertFalse(element(app, "sign-in-again").exists, "still asked to sign in again")
+  }
+
   func testWithAccountsOffThereIsNoSignIn() {
     let app = launch(resetServer: true, accounts: "off")
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5))
