@@ -1,0 +1,82 @@
+{
+  "id": "youtube-4UAMT8frW4s",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=4UAMT8frW4s",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "bedotia-geayi",
+    "melanotaenia-boesemani"
+  ],
+  "updatedAt": "2026-11-02",
+  "video": {
+    "youtubeId": "4UAMT8frW4s",
+    "title": "INTERMEDIATE FISH:  Madagascar Rainbowfish ( Bedotia geayi )",
+    "channel": "JJ Aquariums",
+    "channelUrl": "https://www.youtube.com/channel/UCYEW_UxwA14ERep6kZhCxww",
+    "durationSec": 460,
+    "publishedAt": "2019-05-09",
+    "chapters": [],
+    "series": {
+      "id": "PLTq76cnhXn0Vx-FPlI8OeiWyQm8pKZZdU",
+      "position": 16
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/4UAMT8frW4s/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Bedotia geayi",
+      "Melanotaenia boesemani"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 0
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 3
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 4
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Nhiệt độ nước và sưởi",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4UAMT8frW4s/p1-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/4UAMT8frW4s/p1-ha3dhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ewkaa",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+          "caption": "Cây sưởi bể cá có giác hút, dùng để giữ nước ấm ổn định."
+        }
+      },
+      {
+        "heading": "Bể cần to cỡ nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4UAMT8frW4s/p2-dfem9vKS0xLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/4UAMT8frW4s/p2-dfem9vKS0xLkpQRw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Guérin Nicolas (messages)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bedotia_geayi_(Wroclaw_zoo)-1.JPG",
+          "caption": "Một đàn cá bơi cùng nhau trong bể, cần không gian rộng khi trưởng thành."
+        }
+      }
+    ]
+  }
+}

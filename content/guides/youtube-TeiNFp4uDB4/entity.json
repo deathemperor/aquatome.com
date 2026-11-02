@@ -1,0 +1,213 @@
+{
+  "id": "youtube-TeiNFp4uDB4",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=TeiNFp4uDB4",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "paracheirodon-innesi",
+    "paracheirodon-axelrodi",
+    "vallisneria"
+  ],
+  "updatedAt": "2026-11-02",
+  "video": {
+    "youtubeId": "TeiNFp4uDB4",
+    "title": "Setting Up a Neon Tetra Tank - How to Start a Tetra Tank",
+    "channel": "Ryo Watanabe",
+    "channelUrl": "https://www.youtube.com/channel/UCpApuc8SzdcvubLk2snN0NQ",
+    "durationSec": 546,
+    "publishedAt": "2017-07-09",
+    "chapters": [],
+    "series": {
+      "id": "PLnA8KyrNx81jxlWcrVr5NV-cWPEwjJ1HC",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/TeiNFp4uDB4/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [
+      "Paracheirodon innesi",
+      "Paracheirodon axelrodi",
+      "Vallisneria sp."
+    ],
+    "gear": [
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "brand": "Eheim",
+        "t": 65
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 65
+      },
+      {
+        "category": "den",
+        "t": 32
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 32
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 267
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cần chuẩn bị những gì",
+        "moments": [
+          {
+            "t": 64,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t64.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể trống đặt sẵn, chuẩn bị lắp đồ."
+          }
+        ]
+      },
+      {
+        "heading": "Rải nền và châm nước",
+        "moments": [
+          {
+            "t": 142,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t142.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Sỏi được rải và san đều dưới đáy bể."
+          },
+          {
+            "t": 201,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t201.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Xô đỏ đựng nước đã cycle lấy từ bể khác để châm vào bể mới."
+          }
+        ]
+      },
+      {
+        "heading": "Lắp sưởi, lọc và đèn",
+        "moments": [
+          {
+            "t": 236,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t236.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bộ sưởi được đặt trong bể, sát góc kính trên nền sỏi."
+          },
+          {
+            "t": 250,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t250.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Lọc treo đã lắp ở thành bể, nước chảy xuống thành dòng."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/TeiNFp4uDB4/p3-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/TeiNFp4uDB4/p3-ha3dhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ewkaa",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+          "caption": "Thanh sưởi bể cá có giác hút để gắn vào thành bể."
+        }
+      },
+      {
+        "heading": "Trồng cây và trang trí",
+        "moments": [
+          {
+            "t": 275,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t275.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Các bụi Anubias và cỏ lan nước mới mua, còn trong túi."
+          },
+          {
+            "t": 432,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t432.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể đã trồng cỏ lan nước và thêm lũa trên nền cát sỏi."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/TeiNFp4uDB4/p4-saXNuZXJpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/TeiNFp4uDB4/p4-saXNuZXJpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Damitr",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Aquarium_with_Vallisneria.jpg",
+          "caption": "Bể trồng cỏ lan nước Vallisneria lên dày, cá bơi lượn giữa các tán lá."
+        }
+      },
+      {
+        "heading": "Chờ bể chạy và thả neon",
+        "moments": [
+          {
+            "t": 368,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t368.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Thả nổi nguyên túi cá neon trên mặt nước để cân bằng nhiệt độ."
+          },
+          {
+            "t": 388,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t388.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Đàn neon tetra đã được thả và bơi trong bể có lũa và cây."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/TeiNFp4uDB4/p5-5uZXNpXzAxLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/TeiNFp4uDB4/p5-5uZXNpXzAxLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "Wojciech J. Płuciennik",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracheirodon_innesi_01.jpg",
+          "caption": "Cá neon tetra bơi giữa bể thủy sinh đã trồng cây xanh."
+        }
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [
+          {
+            "t": 383,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t383.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể mới set với lũa, cây Vallisneria và đàn neon vừa thả."
+          },
+          {
+            "t": 398,
+            "url": "https://media.aquatome.com/video/TeiNFp4uDB4/t398.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Đàn cá neon bơi gần lũa và cây trong bể."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/TeiNFp4uDB4/p6-5uZXNpXzAxLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/TeiNFp4uDB4/p6-5uZXNpXzAxLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "Wojciech J. Płuciennik",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracheirodon_innesi_01.jpg",
+          "caption": "Cá neon bơi giữa bể trồng cây xanh, có Anubias và các loại cây dễ nuôi."
+        }
+      }
+    ]
+  }
+}

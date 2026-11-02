@@ -1,0 +1,96 @@
+{
+  "id": "youtube-8DffJuK_nqI",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=8DffJuK_nqI",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "sphaerichthys-osphromenoides",
+    "neocaridina-davidi"
+  ],
+  "updatedAt": "2026-11-02",
+  "video": {
+    "youtubeId": "8DffJuK_nqI",
+    "title": "ADVANCED FISH: Chocolate Gourami",
+    "channel": "JJ Aquariums",
+    "channelUrl": "https://www.youtube.com/channel/UCYEW_UxwA14ERep6kZhCxww",
+    "durationSec": 639,
+    "publishedAt": "2017-09-20",
+    "chapters": [],
+    "series": {
+      "id": "PLTq76cnhXn0Vx-FPlI8OeiWyQm8pKZZdU",
+      "position": 3
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/8DffJuK_nqI/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Sphaerichthys osphromenoides",
+      "Neocaridina davidi"
+    ],
+    "gear": [
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 440
+      },
+      {
+        "category": "thuc-an",
+        "type": "song",
+        "t": 440
+      },
+      {
+        "category": "thuc-an",
+        "type": "dong-lanh",
+        "t": 470
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao cá sặc chocolate khó nuôi",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8DffJuK_nqI/p0-1lbm9pZGVzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/8DffJuK_nqI/p0-1lbm9pZGVzLmpwZw-480.webp",
+          "width": 960,
+          "height": 594,
+          "licence": "CC BY 2.0",
+          "author": "Brian Gratwicke",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_gourami,_Sphaerichthys_osphromenoides.jpg",
+          "caption": "Một con cá sặc chocolate bơi giữa đám cây thủy sinh trong bể."
+        }
+      },
+      {
+        "heading": "Bể bao nhiêu lít là đủ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8DffJuK_nqI/p3-FxdWFyaXVtLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/8DffJuK_nqI/p3-FxdWFyaXVtLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY 2.0",
+          "author": "Tim Sheerman-Chase",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Tank,_Blue_Reef_Aquarium.jpg",
+          "caption": "Bể cây thủy sinh nước ngọt dạng hộp kính lớn, có nhiều cây và rêu."
+        }
+      },
+      {
+        "heading": "Nuôi một con hay nuôi theo cặp",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8DffJuK_nqI/p4-1lbm9pZGVzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/8DffJuK_nqI/p4-1lbm9pZGVzLmpwZw-480.webp",
+          "width": 960,
+          "height": 594,
+          "licence": "CC BY 2.0",
+          "author": "Brian Gratwicke",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_gourami,_Sphaerichthys_osphromenoides.jpg",
+          "caption": "Một con sặc chocolate nâu sẫm bơi giữa đám cây thủy sinh trong bể."
+        }
+      }
+    ]
+  }
+}

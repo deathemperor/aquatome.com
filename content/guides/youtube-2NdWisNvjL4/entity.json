@@ -1,0 +1,75 @@
+{
+  "id": "youtube-2NdWisNvjL4",
+  "kind": "plantCare",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=2NdWisNvjL4",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-pteropus"
+  ],
+  "updatedAt": "2026-11-02",
+  "video": {
+    "youtubeId": "2NdWisNvjL4",
+    "title": "BEGINNER PLANT: Java Fern",
+    "channel": "JJ Aquariums",
+    "channelUrl": "https://www.youtube.com/channel/UCYEW_UxwA14ERep6kZhCxww",
+    "durationSec": 331,
+    "publishedAt": "2017-07-31",
+    "chapters": [],
+    "series": {
+      "id": "PLTq76cnhXn0XsIZHXIJESmADKVuifqCBA",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/2NdWisNvjL4/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Microsorum pteropus"
+    ],
+    "gear": [
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 256
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 63
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Dương xỉ Java trông thế nào và hợp với ai",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/2NdWisNvjL4/p0-aGVfd2lsZC4uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/2NdWisNvjL4/p0-aGVfd2lsZC4uanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Fhurzan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Java_Fern_(Microsorum_pteropus)_growing_in_the_wild..jpg",
+          "caption": "Cụm dương xỉ Java lá dài xanh đậm mọc bên bờ suối."
+        }
+      },
+      {
+        "heading": "Nhiệt độ và thông số nước",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/2NdWisNvjL4/p2-YXF1YXJpdW0uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/2NdWisNvjL4/p2-YXF1YXJpdW0uanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ranjith-chemmad",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquarium.jpg",
+          "caption": "Thảm rêu xanh tốt trong bể nước ngọt, có đàn cá nhỏ bơi phía trên."
+        }
+      }
+    ]
+  }
+}

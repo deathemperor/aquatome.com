@@ -1,0 +1,118 @@
+{
+  "id": "youtube-FbX_XvXFmW0",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=FbX_XvXFmW0",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "apteronotus-albifrons",
+    "microsorum-pteropus"
+  ],
+  "updatedAt": "2026-11-02",
+  "video": {
+    "youtubeId": "FbX_XvXFmW0",
+    "title": "INTERMEDIATE FISH: Black Ghost Knife",
+    "channel": "JJ Aquariums",
+    "channelUrl": "https://www.youtube.com/channel/UCYEW_UxwA14ERep6kZhCxww",
+    "durationSec": 634,
+    "publishedAt": "2017-09-07",
+    "chapters": [],
+    "series": {
+      "id": "PLTq76cnhXn0Vx-FPlI8OeiWyQm8pKZZdU",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/FbX_XvXFmW0/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Apteronotus albifrons",
+      "Microsorum pteropus",
+      "Anubias sp."
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 386
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 386
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 439
+      },
+      {
+        "category": "thuc-an",
+        "type": "song",
+        "t": 317
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cá lông gà đen là cá gì, có khó nuôi không",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/FbX_XvXFmW0/t10.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể cá có hang đá làm chỗ trốn và vài cây thủy sinh."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/FbX_XvXFmW0/p0-NF8yMDE2XzEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/FbX_XvXFmW0/p0-NF8yMDE2XzEuanBn-480.webp",
+          "width": 960,
+          "height": 623,
+          "licence": "CC0",
+          "author": "Vassil",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Apteronotus_albifrons_Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_10_04_2016_1.jpg",
+          "caption": "Cá lông gà đen bơi trong bể có lũa và rêu, chỗ trốn khá thoáng."
+        }
+      },
+      {
+        "heading": "Bể cần lớn cỡ nào",
+        "moments": [
+          {
+            "t": 15,
+            "url": "https://media.aquatome.com/video/FbX_XvXFmW0/t15.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Một bể nhỏ có đá và cây thủy sinh, chưa thấy cá."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/FbX_XvXFmW0/p2-fb2ZfUGlzYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/FbX_XvXFmW0/p2-fb2ZfUGlzYS5qcGc-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "Mattia Nocciola",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Apteronotus_albifrons_Natural_History_Museum_University_of_Pisa.jpg",
+          "caption": "Cá dao đen trưởng thành to bè, nằm sát đáy bể cát."
+        }
+      },
+      {
+        "heading": "Cho ăn gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/FbX_XvXFmW0/p4-sb29kd29ybS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/FbX_XvXFmW0/p4-sb29kd29ybS5qcGc-480.webp",
+          "width": 960,
+          "height": 784,
+          "licence": "CC BY-SA 3.0",
+          "author": "lamiot, from english wikipedia with : \"Photo by me, Jasper Nance. 4X lomo objective, 10X ocular. Taken with a Pentax K10D and a substage flash using a condenser stop for darkfield effect.\"",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bloodworm.jpg",
+          "caption": "Trùn huyết (ấu trùng muỗi) chụp cận cảnh, món thức ăn sống cá rất ưa."
+        }
+      }
+    ]
+  }
+}

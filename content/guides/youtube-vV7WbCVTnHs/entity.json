@@ -1,0 +1,82 @@
+{
+  "id": "youtube-vV7WbCVTnHs",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=vV7WbCVTnHs",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "carinotetraodon-travancoricus",
+    "pethia-ticto"
+  ],
+  "updatedAt": "2026-11-02",
+  "video": {
+    "youtubeId": "vV7WbCVTnHs",
+    "title": "INTERMEDIATE FISH:  Pea Puffer",
+    "channel": "JJ Aquariums",
+    "channelUrl": "https://www.youtube.com/channel/UCYEW_UxwA14ERep6kZhCxww",
+    "durationSec": 458,
+    "publishedAt": "2017-08-30",
+    "chapters": [],
+    "series": {
+      "id": "PLTq76cnhXn0Vx-FPlI8OeiWyQm8pKZZdU",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/vV7WbCVTnHs/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Carinotetraodon travancoricus",
+      "Pethia ticto"
+    ],
+    "gear": [
+      {
+        "category": "thuc-an",
+        "type": "dong-lanh",
+        "t": 323
+      },
+      {
+        "category": "thuc-an",
+        "type": "song",
+        "t": 323
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 419
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cá sống được bao lâu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vV7WbCVTnHs/p1-zX2hpX3Jlcy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vV7WbCVTnHs/p1-zX2hpX3Jlcy5qcGc-480.webp",
+          "width": 960,
+          "height": 578,
+          "licence": "CC BY-SA 4.0",
+          "author": "Beta Mahatvaraj",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_hi_res.jpg",
+          "caption": "Cá nóc lùn khỏe mạnh bơi giữa bể trồng cây xanh."
+        }
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vV7WbCVTnHs/p6-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/vV7WbCVTnHs/p6-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể nền cát trắng, trồng cây và lũa tạo nhiều chỗ trốn cho cá."
+        }
+      }
+    ]
+  }
+}

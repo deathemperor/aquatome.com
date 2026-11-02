@@ -53,13 +53,6 @@
         "heading": "Cần chuẩn bị những gì",
         "moments": [
           {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t20.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hộp nhựa có nắp kín dùng làm thân lọc."
-          },
-          {
             "t": 89,
             "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t89.webp",
             "width": 320,
@@ -87,13 +80,6 @@
             "width": 320,
             "height": 180,
             "caption": "Hộp tròn nắp kín đặt cạnh các hộp khác để so kích thước."
-          },
-          {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t79.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hộp nhựa cao có nắp gài bằng lẫy, ấn xuống là kín."
           }
         ],
         "photo": {
@@ -106,25 +92,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:HK_CWB_Tung_Lo_Wan_Road_%E5%A4%A7%E5%BF%AB%E6%B4%BB%E5%BF%AB%E9%A4%90%E5%BA%97_Fairwood_Restaurant_lunch_box_cover_plastic_Nov-2013.JPG",
           "caption": "Hộp nhựa trong có nắp đậy, kiểu hộp dùng để chứa vật liệu lọc."
         }
-      },
-      {
-        "heading": "Chọn bơm theo cỡ bể",
-        "moments": [
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t40.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bơm chìm Atman cầm trên tay, thấy rõ thân bơm và khe hút nước."
-          },
-          {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t59.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Mặt đáy bơm chìm CM-2258 có ghi thông số công suất."
-          }
-        ]
       },
       {
         "heading": "Xếp vật liệu bên trong lọc",
@@ -186,17 +153,7 @@
             "height": 180,
             "caption": "Bể thủy sinh 35 cm đã lên cây, nước trong, đèn chiếu sáng."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/p5-hX3NocmltcC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/fc2vp6Hvo2I/p5-hX3NocmltcC5qcGc-480.webp",
-          "width": 960,
-          "height": 718,
-          "licence": "CC BY 4.0",
-          "author": "Snehayan",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
-          "caption": "Bể thủy sinh mini trồng nhiều loại cây xanh tốt, có lũa và đá."
-        }
+        ]
       }
     ]
   }

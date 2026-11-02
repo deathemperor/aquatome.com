@@ -1,0 +1,108 @@
+{
+  "id": "youtube-ADOahCd61bc",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=ADOahCd61bc",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-02",
+  "video": {
+    "youtubeId": "ADOahCd61bc",
+    "title": "INTERMEDIATE FISH: Otocinclus Catfish",
+    "channel": "JJ Aquariums",
+    "channelUrl": "https://www.youtube.com/channel/UCYEW_UxwA14ERep6kZhCxww",
+    "durationSec": 904,
+    "publishedAt": "2017-11-04",
+    "chapters": [],
+    "series": {
+      "id": "PLTq76cnhXn0Vx-FPlI8OeiWyQm8pKZZdU",
+      "position": 7
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/ADOahCd61bc/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Otocinclus sp.",
+      "Echinodorus sp."
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 160
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 348
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Otto là cá gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ADOahCd61bc/p0-dmVzdGl0dXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/ADOahCd61bc/p0-dmVzdGl0dXMuanBn-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fremen",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_vestitus.jpg",
+          "caption": "Cá otto nhìn nghiêng, thấy rõ sọc đen dọc hông và thân lốm đốm."
+        }
+      },
+      {
+        "heading": "Vì sao otto được xếp vào loại cá trung cấp",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/ADOahCd61bc/t10.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể cá đã chạy ổn định với đá và vài con cá nhỏ bơi."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ADOahCd61bc/p1-mdHdvb2RfMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/ADOahCd61bc/p1-mdHdvb2RfMy5qcGc-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY 4.0",
+          "author": "Evan Baldonado",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
+          "caption": "Cá otto nhỏ bám trên lũa phủ rêu trong bể thủy sinh."
+        }
+      },
+      {
+        "heading": "Nuôi bao nhiêu con và bể cỡ nào",
+        "moments": [
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/ADOahCd61bc/t20.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể cong cỡ vừa với đá bên dưới và vài con cá nhỏ bơi."
+          }
+        ]
+      },
+      {
+        "heading": "Nuôi chung với cá và tép",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ADOahCd61bc/p5-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/ADOahCd61bc/p5-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể cộng đồng thủy sinh nhiều cây, cá nhỏ hiền bơi chung với otto ở đáy."
+        }
+      }
+    ]
+  }
+}
