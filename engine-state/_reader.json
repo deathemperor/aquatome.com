@@ -235,6 +235,41 @@
       }
     ]
   },
+  "vi/guides/aquariumbreeder-light-co2-and-nutrients-why-aquarium-plants-struggle-to-grow": {
+    "at": "2026-11-02",
+    "hash": "09546c3edab09e8a",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Bước 5: Kiểm tra thông số nước",
+        "problem": "Two consecutive headings are both numbered Step 5, so the step sequence is wrong.",
+        "fix": "## Bước 6: Kiểm tra thông số nước",
+        "rule": "Two step headings in one page carry the same number.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Bạn cần theo dõi nitrat (NO3) và photpho (P), giữ hai chất này ở tỷ lệ 1:10.",
+        "problem": "The ratio is reversed. Nitrate is normally dosed at about ten times phosphate, so 1:10 would tell readers to add far too much phosphate.",
+        "fix": "Bạn cần theo dõi nitrat (NO3) và photphat (PO4), giữ tỷ lệ nitrat:photphat khoảng 10:1.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nước cứng (GH) thì chứa nhiều bicarbonate hơn.",
+        "problem": "Bicarbonate is measured by carbonate hardness (KH), not general hardness (GH), so the label is wrong.",
+        "fix": "Nước cứng (KH cao) thì chứa nhiều bicarbonate hơn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "09546c3edab09e8a"
+  },
   "vi/guides/aquariumbreeder-problems-of-the-planted-tanks-and-liebigs-law-of-the-minimum": {
     "at": "2026-11-01",
     "hash": "085d7c3bd96d2bf7",
@@ -712,6 +747,28 @@
     "findings": [],
     "ruled": "be7e6b71965db191"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-daphnia-culturing-how-to-raise-daphnia": {
+    "at": "2026-11-02",
+    "hash": "4b7023dca9da164c",
+    "findings": [],
+    "ruled": "4b7023dca9da164c"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-dither-fish": {
+    "at": "2026-11-02",
+    "hash": "02923b061e117514",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C3",
+        "quote": "Tetras and rasboras as dither fish - chart",
+        "problem": "The image is a chart, not a photo of the fish.",
+        "rule": "A caption containing the word 'chart', 'map' or 'diagram'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "02923b061e117514"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-diy-plant-background-wall": {
     "at": "2026-11-02",
     "hash": "0cf05bfa9a5982b2",
@@ -784,6 +841,22 @@
       }
     ],
     "ruled": "0ba76a440acfda5a"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-frozen-fish-food": {
+    "at": "2026-11-02",
+    "hash": "fee04e804b0eeefd",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Feed Frozen Fish Food to Your Aquarium - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and site name. It doesn't say what the photo shows.",
+        "rule": "A caption that contains a site or brand name after a dash, like an article title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "fee04e804b0eeefd"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-goldfish-food": {
     "at": "2026-11-01",
@@ -1021,6 +1094,49 @@
     ],
     "ruled": "63774f027a7ba1bf"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-microworms": {
+    "at": "2026-11-02",
+    "hash": "4c21c70f1c3379b4",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Nén nhẹ cho hỗn hợp phẳng đều trong hộp, rồi cho một thìa giun giống vào.",
+        "problem": "The step that makes the mixture is missing: spread a 1.5 cm layer of potato flakes and add water a little at a time until it is light and fluffy. The page jumps straight to pressing down a 'mixture' it never explained.",
+        "fix": "Thêm bước trước đó: \"Rải một lớp khoai tây nghiền khô dày khoảng 1,5 cm phủ kín đáy hộp. Thêm nước từng chút một và khuấy đến khi hỗn hợp tơi xốp như khoai tây nghiền. Hỗn hợp không được khô vụn, cũng không được nhão loãng.\"",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "một số người bỏ luôn cả khay vào vỏ gối chứ không bịt từng lỗ trên nắp.",
+        "problem": "The step about the lid is missing: cut a 1 cm air hole in the lid, cover it with cloth or filter floss, then close the box. The note refers to holes in the lid that the page never mentioned, and without them the worms get no air.",
+        "fix": "Thêm bước: \"Khoét một lỗ nhỏ khoảng 1 cm x 1 cm giữa nắp để giun có không khí. Dán một miếng vải lên lỗ hoặc nhét bông lọc vào để ruồi và côn trùng không chui vào. Sau đó đậy nắp lại.\"",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lặp lại các bước 2–5 để có nhiều mẻ giun, phòng khi một mẻ bị sập.",
+        "problem": "The page sends readers to 'steps 2–5', but no step is numbered. The materials and the steps also sit in one unnumbered list, so readers cannot tell which steps are meant.",
+        "rule": "A reference to numbered steps ('các bước N–M') on a page that has no numbered list.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhỉnh hơn lươn giấm một chút",
+        "problem": "'Lươn giấm' is a word-for-word translation of 'vinegar eels'. Vietnamese hobbyists usually call them 'giun giấm'.",
+        "fix": "nhỉnh hơn giun giấm một chút",
+        "field": "body"
+      }
+    ],
+    "ruled": "4c21c70f1c3379b4"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-mini-outdoor-pond": {
     "at": "2026-11-02",
     "hash": "111a9a2ce43dce0c",
@@ -1240,6 +1356,22 @@
     "findings": [],
     "ruled": "d88b624e30b9c5ef"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-easy-beginner-fish": {
+    "at": "2026-11-02",
+    "hash": "e386b8d2762f1d80",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 10 Easy Fish That Beginners Always Love - Aquarium Co-Op",
+        "problem": "This caption is the source article's title, likely a banner or collage. It doesn't describe a photo of any one fish on the page.",
+        "rule": "A caption that matches the source article title or contains a site name such as 'Aquarium Co-Op'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "e386b8d2762f1d80"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-fish-for-10-gallon-aquarium": {
     "at": "2026-11-01",
     "hash": "49db4e51a6d4befe",
@@ -1289,6 +1421,12 @@
       }
     ],
     "ruled": "83ad404b094d1a16"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-vinegar-eels": {
+    "at": "2026-11-02",
+    "hash": "b0c28ad57e446446",
+    "findings": [],
+    "ruled": "b0c28ad57e446446"
   },
   "vi/guides/aquatome-ap-trung-artemia-lam-thuc-an-cho-ca-con-cach-lam-tai-nha": {
     "at": "2026-11-01",
@@ -3483,6 +3621,22 @@
     ],
     "ruled": "885d5ea49cfd0812"
   },
+  "vi/guides/youtube-_cadRIECpmo": {
+    "at": "2026-11-02",
+    "hash": "261b20775997fc9f",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một tổ hợp ổn ở bể này chưa chắc ổn ở bể khác",
+        "problem": "\"Tổ hợp\" is a stiff word that hobbyists don't use for a mix of tank mates.",
+        "fix": "Một cách phối cá ổn ở bể này chưa chắc ổn ở bể khác",
+        "field": "body"
+      }
+    ],
+    "ruled": "261b20775997fc9f"
+  },
   "vi/guides/youtube-_ZxeBxNRdPU": {
     "at": "2026-11-01",
     "hash": "d50bd3651a38097b",
@@ -3557,6 +3711,22 @@
       }
     ]
   },
+  "vi/guides/youtube-4UAMT8frW4s": {
+    "at": "2026-11-02",
+    "hash": "769e5615886e405f",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L8",
+        "quote": "nên giữ nhiệt độ ổn định bằng sưởi là an toàn hơn để nhiệt độ trôi theo phòng",
+        "problem": "The word \"là\" is missing before the second option, so \"để\" reads as \"in order to\" and the comparison is hard to follow.",
+        "fix": "Dùng sưởi để giữ nhiệt độ ổn định thì an toàn hơn là để nhiệt độ lên xuống theo nhiệt độ phòng.",
+        "field": "faq.0.a"
+      }
+    ],
+    "ruled": "769e5615886e405f"
+  },
   "vi/guides/youtube-8wpB5jlgKEg": {
     "at": "2026-11-01",
     "hash": "9410c3e2c1c08818",
@@ -3578,6 +3748,12 @@
       }
     ],
     "ruled": "b80957fae8e7432c"
+  },
+  "vi/guides/youtube-AnakIetIR0U": {
+    "at": "2026-11-02",
+    "hash": "4717c782dad068f3",
+    "findings": [],
+    "ruled": "4717c782dad068f3"
   },
   "vi/guides/youtube-AsK_yxCXVrY": {
     "at": "2026-11-01",
@@ -3613,6 +3789,47 @@
     ],
     "ruled": "b9bcb2943234dab3"
   },
+  "vi/guides/youtube-cJLZq603RAY": {
+    "at": "2026-11-02",
+    "hash": "c9acc265da8d5544",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "high",
+        "part": "P1",
+        "quote": "đó là lúc nên ngăn bể để tách con đực khỏi các con cái. Sau đó để con cái đẻ",
+        "problem": "The breeding steps make no sense: if the male is taken out before spawning, the eggs can't be fertilised. In gouramis the male builds the bubble nest and guards the eggs, so the female is the one removed after spawning.",
+        "fix": "Khi có tỉ lệ phù hợp, để cặp cá đẻ dưới tổ bọt. Đẻ xong, con đực sẽ bắt đầu rượt đánh con cái. Lúc đó nên vớt con cái ra hoặc ngăn bể, để con đực ở lại giữ tổ cho tới khi trứng nở thành cá bột.",
+        "field": "body"
+      }
+    ],
+    "ruled": "c9acc265da8d5544"
+  },
+  "vi/guides/youtube-cnQq4fywDzE": {
+    "at": "2026-11-02",
+    "hash": "c6e5db577f65d8e5",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Mục tiêu là khi cá con ra đời thì cả cá cha lẫn cá mẹ đều đã ở bể khác.",
+        "problem": "The steps just above say to take the male out only after the eggs hatch, so both parents are not already gone when the fry are born.",
+        "fix": "Mục tiêu là tách cả cá cha lẫn cá mẹ ra khỏi trứng và cá con: cá cái sau khi đẻ, cá đực ngay khi trứng nở.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bản sặc mật sunset (sunset honey gourami) có cách nuôi gần như y hệt",
+        "problem": "'Bản' is the wrong word for a colour variety. Vietnamese hobbyists say 'dòng' or 'biến thể'.",
+        "fix": "Dòng sặc mật sunset (sunset honey gourami) có cách nuôi gần như y hệt",
+        "field": "body"
+      }
+    ],
+    "ruled": "c6e5db577f65d8e5"
+  },
   "vi/guides/youtube-dTkvCEn1xHA": {
     "at": "2026-11-01",
     "hash": "04be1f083eda629e",
@@ -3645,6 +3862,31 @@
       }
     ],
     "ruled": "d086c8552fdab84a"
+  },
+  "vi/guides/youtube-eKREW6KPMh4": {
+    "at": "2026-11-02",
+    "hash": "af43e762626a2eff",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L3",
+        "quote": "Cá con 2,5 cm chỉ ở tạm bể 75–150 lít",
+        "problem": "The table gives 75–115 litres for a 2.5 cm juvenile and puts about 150 litres in a separate 'growing fish' row, but the summary merges the two into 75–150 litres.",
+        "fix": "Cá con 2,5 cm chỉ ở tạm bể 75–115 lít, cá đang lớn ở bể khoảng 150 lít được vài tháng",
+        "field": "summary.2"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "L16",
+        "quote": "Được, nhưng chỉ ở tạm. Bể khoảng 75–150 lít chứa được cá con",
+        "problem": "The question asks about a 60 cm tank, which usually holds about 55–65 litres, so 'yes' does not fit the 75–150 litre minimum given in the answer.",
+        "fix": "Bể 60 cm thường chỉ khoảng 55–65 lít, hơi nhỏ. Cá con 2–3 cm nên ở bể từ 75 lít trở lên, và cũng chỉ ở tạm vài tháng đến nửa năm, sau đó phải chuyển sang bể vài trăm lít.",
+        "field": "faq.4.a"
+      }
+    ],
+    "ruled": "af43e762626a2eff"
   },
   "vi/guides/youtube-EV1ZR6CjOzc": {
     "at": "2026-11-02",
@@ -3818,6 +4060,12 @@
     ],
     "ruled": "bb9d783fd5f8c05c"
   },
+  "vi/guides/youtube-J7X8RsrXLWk": {
+    "at": "2026-11-02",
+    "hash": "42233d8e576f95c4",
+    "findings": [],
+    "ruled": "42233d8e576f95c4"
+  },
   "vi/guides/youtube-JlH-zeUbQB0": {
     "at": "2026-11-01",
     "hash": "2604d4d0107effa7",
@@ -3833,6 +4081,60 @@
       }
     ],
     "ruled": "2604d4d0107effa7"
+  },
+  "vi/guides/youtube-jvEJpkByqJ0": {
+    "at": "2026-11-02",
+    "hash": "0accee578e601f3b",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Khoảng 70% thành công nằm ở khâu mua cá.",
+        "problem": "The page first gives 70% of failures to two causes together (an unstable tank or a poor fish source), then gives 70% of success to buying the fish alone, so the two figures don't agree.",
+        "fix": "Phần lớn thành công nằm ở khâu mua cá.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "mỗi tuần thay 10 đến 15% nước, chỉ 1 đến 2 lần",
+        "problem": "It is unclear whether the 1–2 water changes are per week or for the whole two weeks.",
+        "fix": "mỗi tuần thay 1 đến 2 lần, mỗi lần 10 đến 15% nước",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L3",
+        "quote": "Bể nên chạy ít nhất 3 đến 5 tuần",
+        "problem": "\"At least\" followed by a range reads oddly, and the body says 3 weeks minimum, 5 weeks better.",
+        "fix": "Bể nên chạy ít nhất 3 tuần, tốt nhất 5 tuần",
+        "rule": "\"ít nhất\" or \"tối thiểu\" followed by a numeric range \"X đến Y\".",
+        "field": "summary.2"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tối thiểu 3 đến 5 tuần, được 5 tuần thì tốt hơn",
+        "problem": "A minimum given as a range is awkward and repeats the 5 weeks.",
+        "fix": "Tối thiểu 3 tuần, được 5 tuần thì tốt hơn",
+        "rule": "\"ít nhất\" or \"tối thiểu\" followed by a numeric range \"X đến Y\".",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "mỗi 1 đến 2 tháng cho hệ vi sinh trong bể đều đặn",
+        "problem": "\"Đều đặn\" (regular) is the wrong word for the state of the bacteria colony. \"Ổn định\" (stable) is meant.",
+        "fix": "mỗi 1 đến 2 tháng để hệ vi sinh trong bể luôn ổn định",
+        "field": "body"
+      }
+    ],
+    "ruled": "0accee578e601f3b"
   },
   "vi/guides/youtube-K972tk73JpU": {
     "at": "2026-11-01",
@@ -3866,11 +4168,33 @@
     ],
     "ruled": "d07139bac22219d9"
   },
+  "vi/guides/youtube-L1Xd9owK1fs": {
+    "at": "2026-11-02",
+    "hash": "5d576aea4de9b629",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây là một trong những loài cá khỏe nhất mà dân chơi có thể bắt đầu.",
+        "problem": "The verb 'bắt đầu' has nothing after it, so the sentence reads as an awkward translation.",
+        "fix": "Đây là một trong những loài cá khỏe nhất để người mới bắt đầu chơi.",
+        "field": "body"
+      }
+    ],
+    "ruled": "5d576aea4de9b629"
+  },
   "vi/guides/youtube-LFIB7o9BnFA": {
     "at": "2026-11-02",
     "hash": "4b725d9b27967785",
     "findings": [],
     "ruled": "4b725d9b27967785"
+  },
+  "vi/guides/youtube-m-uLNI5xx2Y": {
+    "at": "2026-11-02",
+    "hash": "36475e02d8dc52b5",
+    "findings": [],
+    "ruled": "36475e02d8dc52b5"
   },
   "vi/guides/youtube-M0kds6giFrU": {
     "at": "2026-11-01",
@@ -4022,6 +4346,22 @@
     ],
     "ruled": "cec8ab7f2af4b477"
   },
+  "vi/guides/youtube-r9rJ8JljJC0": {
+    "at": "2026-11-02",
+    "hash": "30e739e9d0312d8f",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Điểm dễ nhận ra nhất là các sọc đậm chạy dọc thân",
+        "problem": "The intro says the stripes run across the body (chạy ngang, like tiger bars), but this section says they run along the body (chạy dọc thân).",
+        "fix": "Điểm dễ nhận ra nhất là các sọc đậm chạy ngang thân",
+        "field": "body"
+      }
+    ],
+    "ruled": "30e739e9d0312d8f"
+  },
   "vi/guides/youtube-S-FR9u--jVs": {
     "at": "2026-11-01",
     "hash": "788f6e44801add2e",
@@ -4100,6 +4440,22 @@
       }
     ],
     "ruled": "2412285ce62e9b4a"
+  },
+  "vi/guides/youtube-tRV48fsAOZU": {
+    "at": "2026-11-02",
+    "hash": "cf06a2f56c486607",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đó là theo quan sát khi nuôi chung trong bể cộng đồng.",
+        "problem": "This sentence is awkward and reads like a translated hedge stuck onto the paragraph. The next paragraph also opens with \"Theo quan sát thì\", so the phrase is repeated.",
+        "fix": "Người nuôi chung trong bể cộng đồng thường thấy như vậy.",
+        "field": "body"
+      }
+    ],
+    "ruled": "cf06a2f56c486607"
   },
   "vi/guides/youtube-uHt88QgoeZY": {
     "at": "2026-11-01",
@@ -4191,6 +4547,12 @@
       }
     ],
     "ruled": "ba16f9865e9e2370"
+  },
+  "vi/guides/youtube-vV7WbCVTnHs": {
+    "at": "2026-11-02",
+    "hash": "7c50722b81a34363",
+    "findings": [],
+    "ruled": "7c50722b81a34363"
   },
   "vi/guides/youtube-vZVXVNavk4g": {
     "at": "2026-11-01",

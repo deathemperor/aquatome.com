@@ -42,15 +42,16 @@
     ]
   },
   "alternanthera-reineckii": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-02",
+    "from": "2026-11-02",
     "name": "Alternanthera reineckii",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.85,
     "notes": [
-      "Item 1: \"Dijual sebagai tanaman dalam pot 5 cm\" is fine, but \"kultivarnya muncul\" is slightly awkward; consider \"kultivar muncul atau dikembangkan dalam budidaya\".",
-      "Item 2: \"Cahaya yang cukup\" is weaker than \"Good light\"; consider \"Pencahayaan yang baik\".",
-      "Item 2: \"pucuk ujungnya\" is redundant; use \"pucuk\" or \"pucuk teratasnya\"."
+      "Item 9: \"the author's view is that this plant requires nutrient-rich substrates\" is rendered as a flat statement (\"tanaman ini membutuhkan substrat yang kaya nutrisi\"). This loses the hedge, though the preceding sentence still says other substrates can work. Soften it, e.g. \"sebaiknya/lebih disarankan\".",
+      "Item 12: \"white or blue-pink\" became \"putih atau biru keunguan hingga merah jambu\". This adds \"keunguan\" and a range, which changes the colour description. Use \"putih atau biru-merah jambu\".",
+      "Item 4: \"bogs\" as \"rawa gambut\" is too specific (peat swamp). Use \"rawa\" or \"lahan basah\" instead.",
+      "Item 12: \"Melting\" is left in English where Indonesian hobbyists often say \"meleleh/rontok\". It is acceptable, but a gloss on first use would help."
     ]
   },
   "alternanthera-reineckii-mini": {
@@ -1096,6 +1097,45 @@
     "notes": [
       "\"jadi daunnya lebih bulat\": the added \"jadi\" makes a causal link that the English does not state. Use \"dan daunnya lebih bulat\" or \"serta berdaun lebih bulat\".",
       "\"(emersed)\": this is an added English gloss. It is acceptable, but \"emers\" or \"di atas permukaan air\" alone is more natural."
+    ]
+  },
+  "hygrophila-difformis": {
+    "at": "2026-11-02",
+    "from": "2026-11-02",
+    "name": "Water Wisteria",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 4: \"Plant the individual plants with some distance between them into the bottom substrate\" is fine, but the English \"remove the leaves from the lowest 5 cm (2\\\")\" is converted OK; the real problem is \"ikan lain yang sensitif\" for \"shrimps and other delicate fish\" – fine, but \"Tanaman ini dijual sebagai satu ikat ... dijepit dengan pemberat (anchor)\" adds \"dijual\"/\"dijepit\"; better: \"diikat dengan pemberat/penjepit timah\".",
+      "Item 7: \"berbentuk seperti bulu dengan lebar hingga 10 cm\" is unclear; say \"helai daun seperti bulu burung (feathery fronds) selebar hingga 10 cm\".",
+      "Item 7: \"Water wisteria vs. water sprite\" heading left in English; translate (e.g. \"Water wisteria vs. water sprite (Ceratopteris)\" with Indonesian: \"Water wisteria dan water sprite: apa bedanya\").",
+      "Item 7: \"Daun emersed ... lebih lebar\" fine, but \"kebun komersial\" for \"commercial farms\" should be \"pembudidaya/kebun komersial\" – acceptable; \"kekurangan nutrisi\" for \"starvation\" OK.",
+      "Item 5: \"Peralihan dari emersed ke submersed\" and \"kesadahan (GH) rendah\" fine; \"boleh dibuang\" for \"you can remove them\" is okay but \"sebaiknya dibuang\" is more natural.",
+      "Item 5: \"leggy\" translated as \"terlalu panjang kurus\"; use \"memanjang dan jarang daunnya (etiolasi)\".",
+      "Item 3: \"countries ranging between India and Thailand\" -> \"Berasal dari negara-negara di antara India dan Thailand\" – 'kawasan' is slightly redundant.",
+      "Item 6: \"lobed leaves ... distinctive group\" -> \"kelompok yang khas\" is vague; say \"rumpun yang mencolok\"."
+    ]
+  },
+  "hygrophila-lancea-araguaia": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "Hygrophila lancea 'Araguaia'",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"Pemangkasan pucuk batang\": acceptable, but \"pemangkasan pucuk\" alone is more natural for pinching.",
+      "\"banyak tanda yang menunjukkan\" is slightly literal; \"ada banyak indikasi\" reads more natural."
+    ]
+  },
+  "hygrophila-odora": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "Hygrophila odora",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [
+      "Minor: \"tanaman hijau\" in \"mengisi area tengah atau belakang dengan tanaman hijau\" could be \"tanaman\" or \"warna hijau\"; \"greenery\" is better rendered as \"hijauan\".",
+      "Minor: \"vibrant\" is rendered as \"segar\", which repeats \"fresh\" later; \"subur/semarak\" would be more varied."
     ]
   },
   "hygrophila-polysperma": {

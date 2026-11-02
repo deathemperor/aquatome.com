@@ -43,16 +43,22 @@
     ]
   },
   "alternanthera-reineckii": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "อัลเทอร์แนนเทอร่า เรนิกกี้",
+    "at": "2026-11-02",
+    "from": "2026-11-02",
+    "name": "อัลเทอร์แนนเทอร่า เรเน็คกี้",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.6,
     "notes": [
-      "Item 1: \"สายพันธุ์ปลูกเลี้ยงเกิดขึ้นหรือได้มาจากการเพาะพันธุ์ในที่เลี้ยง\" is stilted; use the hobby term \"คัลทิวาร์ (cultivar)\", e.g. \"คัลทิวาร์เกิดหรือถูกพัฒนาในการเพาะเลี้ยง\".",
-      "Item 1: \"มาเป็นต้นในกระถางขนาด 5 ซม.\" is awkward; better \"จำหน่ายเป็นต้นในกระถางขนาด 5 ซม.\".",
-      "Item 3: \"ใต้ใบสีชมพู\" is ambiguous (reads as under a pink leaf); better \"ด้านใต้ใบสีชมพู\" or \"ใบที่ด้านล่างเป็นสีชมพู\".",
-      "Item 2: \"ปักลงวัสดุปลูก\" is fine, but \"nipping off the terminal bud\" could be \"เด็ดยอดปลาย\"; consider the common hobby term \"ปักชำ\" for planting the cutting."
+      "Item 6: 'Stems become 25-50 cm tall' is rendered as 'ลำต้นสูงได้ 25–50 ซม.' (numbers kept), but this conflicts with other items; fine. Real issue is elsewhere.",
+      "Item 10: 'ปลาหมูอินโด (clown loach)' — clown loach is commonly 'ปลาตะเพียนหมูลาย/โคลนโลช'; 'ปลาหมูอินโด' is a different fish (Botia). Use 'ปลาหมูข้างลาย/โคลนโลช'.",
+      "Item 10: 'ปลาคาร์พ (โค่ย)' — koi is 'ปลาคาร์ฟ/ปลาแฟนซีคาร์ฟ' in Thai hobby usage; 'ปลาคาร์พ' is a non-standard spelling.",
+      "Item 10: 'กุ้งก้ามแดง' for crayfish is wrong (it is a specific species, red claw); also 'กุ้งเครย์ฟิช' duplicates it. Use 'กุ้งเครย์ฟิช/กุ้งน้ำจืดก้ามใหญ่' only.",
+      "Item 10: 'กุ้งยามาโตะ' for Amano shrimp is acceptable, but 'ให้กินได้เต็มที่' for 'buffet of biofilm' is awkward; 'จริงได้' at the end for 'really dangerous' reads oddly — use 'อันตรายมาก'.",
+      "Item 10: 'สัตว์ไม่มีกระดูกสันหลัง' for invertebrates is stiff; hobbyists say 'สัตว์น้ำไม่มีกระดูกสันหลัง/กุ้งหอย'. Also in item 12 quarantine.",
+      "Item 9: 'ธาตุอาหารรอง/หลัก' for micro/macro: 'micronutrients' deficiency causes pale leaves—'ธาตุอาหารรอง' is okay, but 'ปุ๋ยฝัง' for root tabs should be 'ปุ๋ยเม็ดฝัง/รูททับ'.",
+      "Item 9: 'มีความเห็นว่า' leaves out the subject (the author's view) producing a hanging sentence; rephrase e.g. 'ข้อสังเกตคือ'.",
+      "Item 12: 'สายพันธุ์' used for 'Variations' and 'forms' (and cultivar) though the text says they are not subspecies — use 'รูปแบบ/ชนิดย่อยการค้า' instead of 'สายพันธุ์'.",
+      "Item 12: 'อับเรณูที่เป็นหมัน' for 'barren anthers' ok; but 'ยาฆ่าแมลง' for pesticides in plant treatment and 'การกักโรค' fine. Item 12 'Solution: improve lighting and filter the water' correct. Item 7 'ตัดกิ่งข้างรองหรือใบออก' ok."
     ]
   },
   "alternanthera-reineckii-mini": {
@@ -1050,6 +1056,48 @@
       "\"ข้อห่างกว่า\" (gaps between leaves): the English says larger gaps between the leaves, but this reads as nodes/stems. Prefer \"ใบห่างกันมากกว่า\" or \"ช่องว่างระหว่างใบกว้างกว่า\".",
       "\"เพาะเลี้ยงแบบบก\" is slightly awkward. Prefer \"เลี้ยงแบบเหนือน้ำ\" or \"ปลูกแบบโผล่เหนือน้ำ\" (emersed).",
       "\"ไม้น้ำแบบต้น (ไม้ข้อ)\" is acceptable but a bit wordy. Consider \"ไม้ลำต้น\" or \"ไม้ข้อ\" alone."
+    ]
+  },
+  "hygrophila-difformis": {
+    "at": "2026-11-02",
+    "from": "2026-11-02",
+    "name": "วอเตอร์วิสทีเรีย",
+    "confidence": "medium",
+    "score": 0.55,
+    "notes": [
+      "Item 4: \"Tropica's own nursery\" became \"เรือนเพาะชำของผู้ผลิตเอง\". This is acceptable neutral wording, but \"twice a week for 2 weeks\" is fine. The real problem is \"anchor\", which is rendered as \"ตัวถ่วง\". Use \"แผ่นตะกั่ว/ที่รัดโคนต้น\" or similar, because the hobby calls it a lead strip.",
+      "Item 4: \"shrimps and other delicate fish\" became \"กุ้งหรือปลาที่บอบบาง\". This is fine. However, \"2\\\"\" was dropped and \"5 ซม.\" kept, which is correct.",
+      "Item 5: \"Wisteria ... floating ... horizontal stem\" is fine. But \"Halfway through the first week\" and \"ใบบก\" for emersed: the common Thai hobby term is \"ใบเหนือน้ำ/ใบบก\", which is OK. \"ใยหิน (rock wool)\" is OK.",
+      "Item 5: \"If fish dig in the substrate\" became \"ถ้าปลาชอบขุดพื้น\", which is fine. \"ทำให้น้ำนิ่งและขาดออกซิเจน\" is fine.",
+      "Item 5: \"If conversion is difficult, float some stems... replant\" is OK. \"รักษาคุณภาพน้ำ\" for \"water parameters\" is slightly loose. Prefer \"ค่าน้ำ\".",
+      "Item 5: \"ปลูกครึ่งบนแทนที่\" is awkward. Use \"ปลูกครึ่งบนแทน\".",
+      "Item 6: \"A shortage of micronutrients\" is translated as \"ขาดธาตุอาหารรอง\". In Thai usage, \"ธาตุอาหารรอง\" means secondary nutrients (Ca, Mg, S), so use \"ธาตุอาหารเสริม/จุลธาตุ\" instead. Also \"Stems... 6–12 cm wide\" is fine.",
+      "Item 2: \"ใบแฉกเป็นฝอยดูคล้ายลูกไม้\" is fine. \"melting\" is rendered as \"ละลาย\", which is the standard term.",
+      "Item 7: \"ปลูกแบบบก\" is slightly inconsistent with \"ใบบก\". \"เป็นใบแฉกฝอยคล้ายขนนกสีเขียวสด\" is acceptable.",
+      "Item 1: the Thai is fine. Item 3: the Thai is fine. No change needed."
+    ]
+  },
+  "hygrophila-lancea-araguaia": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "ไฮโกรฟิล่า อารากัวย่า (Hygrophila lancea 'Araguaia')",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ไม้ต้น (ไม้ข้อ)\": \"Stem plant\" is normally just \"ไม้ข้อ\" or \"พรรณไม้น้ำแบบลำต้น\"; \"ไม้ต้น\" is misleading and should be dropped or replaced.",
+      "\"ใบเรียงตัวชิดกันแน่นเป็นพุ่มกะทัดรัด\": \"เป็นพุ่มกะทัดรัด\" is added and slightly redundant with the later bushy-look sentence; keep it closer to \"compact, tight-sitting leaves\".",
+      "\"สายพันธุ์ปลูกเลี้ยง\" for \"cultivar\": a more usual term is \"พันธุ์ปลูกเลี้ยง\" or \"พันธุ์คัดสายพันธุ์ (cultivar)\"."
+    ]
+  },
+  "hygrophila-odora": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "ไฮโกรฟิล่า โอโดร่า",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"ลงตู้ปลาได้สองเดือน\" is slightly awkward; \"หลังปลูกในตู้ได้สองเดือน\" is more natural for a plant.",
+      "Item 3: \"ไม้น้ำสีสด\" for \"vibrant\" is slightly redundant next to \"เขียวสดใส\"; could be smoothed."
     ]
   },
   "hygrophila-polysperma": {

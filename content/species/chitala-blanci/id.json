@@ -1,27 +1,40 @@
 {
   "slug": "belida-royal",
-  "name": "Belida Royal",
+  "name": "Royal Knifefish",
   "altNames": [
-    "Royal Knifefish",
     "Royal Knife",
-    "Royal Featherback",
-    "Ikan Belida"
+    "Belida",
+    "Belida Mekong",
+    "Royal Featherback"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Ikan belida Asia (featherback) yang sirip punggungnya berkembang baik sudah lama dimasukkan ke dalam genus Notopterus. Sekarang genus Notopterus dianggap monotipik (hanya berisi satu spesies, yaitu N. notopterus), sedangkan bentuk-bentuk yang berpunggung tinggi dipindahkan ke genus lain, yaitu Chitala.</p><p>Chitala blanci bisa mencapai panjang maksimal sekitar 120 cm. Ikan ini merupakan penghuni yang sangat indah untuk akuarium besar.</p>",
+    "quickFacts:glaser": "<p>Ikan belida Asia yang punya sirip punggung berkembang baik sudah lama dimasukkan ke genus Notopterus. Sekarang genus Notopterus dianggap monotipik (hanya berisi satu spesies, N. notopterus), dan bentuk-bentuk yang berpunggung tinggi dipindahkan ke genus lain, yaitu Chitala.</p><p>Chitala blanci bisa mencapai panjang maksimal sekitar 120 cm. Ikan ini penghuni yang sangat indah untuk akuarium besar.</p>",
+    "quickFacts:seriouslyfish": "<p>Royal featherback, Chitala blanci, adalah anggota famili Notopteridae yang berukuran sangat besar dan endemik di daerah aliran Sungai Mekong di Laos, Thailand, Vietnam, dan Kamboja. Ikan ini juga dijual dengan nama 'royal knifefish'. Panjangnya mencapai 120 cm SL, dan bisa dibilang tidak cocok untuk hobi ikan hias karena hanya layak dipelihara di akuarium publik atau akuarium pribadi yang sangat besar. Banyak bintik gelap kecil di bagian depan tubuhnya menyatu membentuk garis-garis miring. Spesies ini diduga terancam oleh pembangunan bendungan.</p>",
     "distribution:glaser": "<p>Chitala blanci berasal dari daerah aliran Sungai Mekong di Thailand, Laos, dan Kamboja.</p>",
-    "habitat:glaser": "<p>Chitala blanci lebih menyukai perairan berarus kuat dan menghindari air yang tenang maupun rawa.</p>",
-    "diet:glaser": "<p>Semua spesies Chitala adalah ikan predator yang harus diberi pakan daging (beku). Tentu saja ikan-ikan kecil juga akan dimakan.</p>",
-    "behaviour:glaser": "<p>Terhadap sesama jenis dan teman setangki lain yang tidak bisa dimangsa, ikan belida sangat damai.</p><p>Spesies Chitala mampu menghirup udara langsung dari permukaan bila diperlukan. Karena itu, mereka bisa bertahan cukup lama bahkan di air yang miskin oksigen.</p>",
+    "distribution:seriouslyfish": "<p>Endemik di daerah aliran Sungai Mekong di Laos, Thailand, Vietnam, dan Kamboja, termasuk kawasan delta Mekong dan sistem Danau Tonlé Sap.</p><p>Lokasi tipenya adalah Beng-Cha, Mekong hulu, Kamboja utara.</p>",
+    "habitat:glaser": "<p>Chitala blanci lebih menyukai perairan berarus kuat dan menghindari air tenang atau rawa.</p>",
+    "habitat:seriouslyfish": "<p>Kebanyakan tercatat di alur utama Sungai Mekong dan bagian hilir beberapa anak sungainya. Di sana ikan ini menyukai habitat berbatu seperti lubuk dalam dan jeram, biasanya dengan arus sedang sampai deras. Untuk memijah, ikan ini pindah ke kawasan hutan banjir.</p><p>Spesies ini diduga terancam oleh pembangunan bendungan dan perubahan habitat lain akibat ulah manusia.</p>",
+    "aquariumSize:seriouslyfish": "<p>Hanya cocok untuk akuarium publik atau akuarium pribadi yang sangat besar dan sangat khusus. Butuh akuarium dengan panjang minimal 2 m.</p>",
+    "maintenance:seriouslyfish": "<p>Lebih suka pencahayaan redup dan tempat bersembunyi berupa kayu rendam, batu besar, atau potongan pipa plastik.</p><p>Sistem filter besar yang sudah matang, perawatan disiplin dengan ganti air mingguan sebanyak 50–70% volume akuarium, serta air yang kaya oksigen dengan sedikit aliran/sirkulasi sebaiknya dianggap wajib.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Suhu: 20–28 °C</li><li>pH: 6,0–8,0</li><li>Kesadahan: 2–15 dGH</li></ul>",
+    "diet:glaser": "<p>Semua spesies Chitala adalah ikan predator yang harus diberi pakan berdaging (beku). Tentu saja ikan kecil juga dimakan.</p>",
+    "diet:seriouslyfish": "<p>Ikan ini predator sejati yang biasanya aktif di malam hari. Di alam ia memangsa ikan yang lebih kecil, krustasea, dan invertebrata lain, tetapi di akuarium kebanyakan bisa beradaptasi dengan baik dengan pakan mati sebagai penggantinya.</p><p>Ikan muda bisa diberi larva chironomid (cacing darah), cacing tanah kecil, udang cincang, dan sejenisnya, sedangkan ikan dewasa mau menerima potongan daging ikan, udang utuh, kerang, udang sungai hidup, cacing tanah yang lebih besar, dan sebagainya, juga pelet kering, meskipun pelet sebaiknya tidak dijadikan pakan utama.</p><p>Spesies ini sebaiknya tidak diberi daging mamalia atau unggas seperti jantung sapi atau ayam, karena sebagian lemak di dalamnya tidak bisa dicerna dengan baik oleh ikan dan bisa menyebabkan penumpukan lemak berlebih, bahkan kerusakan organ.</p><p>Begitu juga, tidak ada manfaatnya memberi ikan pakan hidup (feeder) seperti ikan livebearer atau ikan mas koki kecil. Ikan-ikan ini berisiko membawa parasit atau penyakit, dan biasanya nilai gizinya juga tidak tinggi kecuali sudah dikondisikan dengan benar sebelumnya.</p>",
+    "behaviour:glaser": "<p>Terhadap sesama jenis dan teman satu akuarium yang tidak bisa dimangsa, ikan belida sangat damai.</p><p>Spesies Chitala mampu menghirup udara langsung dari permukaan bila perlu, sehingga bisa bertahan cukup lama bahkan di air yang miskin oksigen.</p>",
+    "behaviour:seriouslyfish": "<p>Relatif damai terhadap ikan yang terlalu besar untuk dimangsa, tetapi bisa teritorial terhadap sesama jenis dan spesies lain yang bentuk tubuhnya mirip, terutama jika ruangnya terbatas.</p>",
     "dimorphism:glaser": "<p>Jantan dan betina tidak bisa dibedakan dari luar.</p>",
-    "reproduction:glaser": "<p>Pada musim kawin, ikan-ikan ini membentuk pasangan dan bertelur di batu, kayu, dan sebagainya. Telurnya dijaga oleh kedua induknya.</p>",
-    "notes:glaser": "<p>Spesies Chitala adalah ikan konsumsi yang sangat dicari di negara-negara asalnya. Namun, dagingnya penuh tulang-tulang kecil, sehingga biasanya dicincang, ditekan melalui saringan, lalu dijadikan bakso.</p>"
+    "dimorphism:seriouslyfish": "<p>Belum ada laporan.</p>",
+    "reproduction:glaser": "<p>Pada musim kawin, ikan-ikan ini membentuk pasangan dan memijah di atas batu, kayu, dan sebagainya. Telurnya dijaga oleh induknya.</p>",
+    "reproduction:seriouslyfish": "<p>Belum pernah dilaporkan di akuarium. Di alam, ikan jantan membuat sarang dari ranting dan daun, lalu tetap tinggal menjaga telur dan burayak setelah pemijahan, yang berlangsung di kawasan hutan banjir pada musim hujan.</p>",
+    "notes:glaser": "<p>Spesies Chitala adalah ikan konsumsi yang sangat dicari di negara-negara asalnya. Namun dagingnya penuh tulang kecil, sehingga biasanya dicincang, disaring, lalu dibuat bakso.</p>",
+    "notes:seriouslyfish": "<p>Di perdagangan ikan hias, spesies ini juga disebut 'royal knifefish', walaupun bisa dibilang tidak cocok untuk hobi ikan hias mengingat ukuran dewasanya dan kebutuhannya yang khusus.</p><p>Spesies ini bisa dibedakan dari kerabat satu genusnya dari banyaknya bintik gelap kecil di bagian depan tubuh, yang menyatu membentuk garis-garis miring tidak beraturan dan memanjang ke belakang sampai ke sirip anal dan sirip ekor.</p><p>Anggota famili Notopteridae tersebar di Afrika dan Asia Tenggara. Semuanya memiliki sirip anal memanjang yang menyambung dengan sirip ekor, punggung yang tampak 'bungkuk', sisik yang sangat kecil, serta kemampuan menghirup udara langsung dari permukaan.</p>",
+    "references:seriouslyfish": "<ul><li>D'Aubenton, F. (1865). Notopterus blanci n. sp., nouvelle espèce de poisson Notopteridae de haut Mékong cambodgien. Bulletin du Muséum National d'Histoire Naturelle (Série 2) 37(2), 261-264</li><li>Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
   },
   "quality": {
-    "score": 0.75,
-    "indexable": true,
+    "score": 0.7,
+    "indexable": false,
     "bySource": {
-      "glaser": 0.75
+      "glaser": 0.7,
+      "seriouslyfish": 0.7
     }
   }
 }
