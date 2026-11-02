@@ -57,7 +57,25 @@ function pageFor(ix: Index, sci: string): CatalogEntry | undefined {
   const exact = ix.full.get(k.full)?.[0]
   if (exact) return exact
   const same = ix.binomial.get(k.binomial) ?? []
-  return same.find(e => sciKey(e.sci ?? '').full === k.binomial) ?? same[0]
+  const page = same.find(e => sciKey(e.sci ?? '').full === k.binomial) ?? same[0]
+  if (page) return page
+  // A misspelt or re-gendered epithet ("temminkii" for "temminckii", "-us" for "-a"): the one page of the genus within 2 edits.
+  const epithet = k.binomial.split(' ')[1] ?? ''
+  if (epithet.length < 5) return undefined
+  const close = new Set((ix.genus.get(k.genus) ?? []).filter(e => e.kind !== 'breed' && within(sciKey(e.sci ?? '').binomial.split(' ')[1] ?? '', epithet, 2)))
+  return close.size === 1 ? [...close][0] : undefined
+}
+
+/** Whether `a` becomes `b` in at most `max` single-letter edits. */
+function within(a: string, b: string, max: number): boolean {
+  if (Math.abs(a.length - b.length) > max) return false
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j)
+  for (let i = 1; i <= a.length; i++) {
+    const row = [i]
+    for (let j = 1; j <= b.length; j++) row[j] = Math.min(prev[j]! + 1, row[j - 1]! + 1, prev[j - 1]! + (a[i - 1] === b[j - 1] ? 0 : 1))
+    prev = row
+  }
+  return prev[b.length]! <= max
 }
 
 /**

@@ -32,6 +32,16 @@ const CATALOG: Catalog = {
 const g = (scientificName: string, commonName: string, variety: string | null = null): Guess => ({ scientificName, commonName, variety, confidence: 0.8, reason: '' })
 const pageOf = (guess: Guess) => matchGuesses([guess], CATALOG, 'vi')[0]!.page?.id
 
+test('a scientific name a letter or two off finds its page when one page of the genus is that close, never a look-alike epithet', () => {
+  expect(pageOf(g('Pterophyllum scalaris', 'Angelfish'))).toBe('pterophyllum-scalare')
+  expect(pageOf(g('Betta splendes', 'Siamese fighting fish'))).toBe('betta-splendens')
+  expect(pageOf(g('Betta imbellis', 'Peaceful betta'))).toBeUndefined()
+  expect(pageOf(g('Poecilia wingei', 'Endler guppy'))).toBeUndefined()
+  // Two pages of the genus within 2 edits: neither.
+  const two: Catalog = { version: 1, entries: [species('corydoras-julii', 'Corydoras julii', 'Cá chuột julii'), species('corydoras-juli', 'Corydoras juli', 'x')] }
+  expect(matchGuesses([g('Corydoras julli', 'Julii cory')], two, 'vi')[0]!.page).toBeUndefined()
+})
+
 test('names compared without marks, case or a leading "cá"; scientific names without qualifiers or punctuation', () => {
   expect(plain('Cá Thần Tiên (Koi)')).toBe('than tien koi')
   expect(plain('Tép ong đỏ')).toBe('ong do')
