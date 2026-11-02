@@ -29,6 +29,8 @@ final class HandbookFlowTests: XCTestCase {
     }
     XCTAssertFalse(item(app, "Cá ngựa vằn").exists, "every fish on the home")
     for _ in 0..<8 where !shelf(app, "Cichlid").isHittable { app.swipeDown() }
+    // Hittable while still under the top bar, where a tap lands on the status bar and only scrolls: once more, to the top.
+    app.swipeDown()
     shelf(app, "Cichlid").tap()
     XCTAssertTrue(app.navigationBars["Cichlid"].waitForExistence(timeout: 5))
     XCTAssertTrue(item(app, "Cá đĩa").waitForExistence(timeout: 5))
@@ -172,6 +174,9 @@ final class HandbookFlowTests: XCTestCase {
     item(app, "Cá neon").tap()
     XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5))
     XCTAssertTrue(app.descendants(matching: .any)["page"].exists)
+    // The site's page stood in for, naming its path: no test reaches aquatome.com. A web view's first start can take a
+    // while on a slow runner.
+    XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-neon/"].waitForExistence(timeout: 15), "not the stand-in page")
   }
 
   // MARK: Helpers

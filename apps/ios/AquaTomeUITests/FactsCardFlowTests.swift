@@ -1,7 +1,7 @@
 import XCTest
 
 /// A fish's facts above its page (FactsCard.swift), from the handbook's index on the phone: there without the network
-/// (the fixed index; the page itself may never load in a test).
+/// (the fixed index; the page below it is a stand-in for the site's).
 final class FactsCardFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -38,6 +38,8 @@ final class FactsCardFlowTests: XCTestCase {
     let app = launch()
     open(app, "Rotala") // it has a temperature in the fixed index: no card all the same
     XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5))
+    // A web view's first start can take a while on a slow runner.
+    XCTAssertTrue(app.webViews.staticTexts["/vi/cay/rotala-do/"].waitForExistence(timeout: 15), "not the stand-in page")
     XCTAssertFalse(app.descendants(matching: .any)["facts-card"].exists, "a card on a plant")
   }
 
