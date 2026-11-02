@@ -112,6 +112,42 @@ jobs:
           name: lighthouse-report
           path: apps/site/e2e-report
           if-no-files-found: ignore
+  # Before and after (docs/governance.md, rule 6 of every change), on PRs that change the site's code: the same pages of
+  # the base's fixture build and this change's, at a phone's and a computer's size. The pairs that differ are the
+  # `site-page-shots` artifact and the run's summary lists them. For the PR's author and reviewer: not part of `test`.
+  shots:
+    name: Before and after screenshots (pull requests that change apps/site/src)
+    needs: changes
+    if: needs.changes.outputs.review == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install Node, pnpm and the dependencies
+        uses: ./.github/actions/setup
+      - name: Build this change's site from the fixture content
+        working-directory: apps/site
+        run: CONTENT_ROOT=$PWD/test/fixture-content pnpm build
+      - name: Build the base's site from its fixture content
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git fetch -q --depth=1 origin "$BASE"
+          git worktree add -q ../base FETCH_HEAD
+          cd ../base && pnpm install --frozen-lockfile
+          cd apps/site && CONTENT_ROOT=$PWD/test/fixture-content pnpm build
+      - name: Install Chromium for Playwright
+        run: pnpm --filter site exec playwright install --with-deps chromium
+      - name: Screenshot the same pages of both
+        working-directory: apps/site
+        run: |
+          node e2e/page-shots.mjs ../../../base/apps/site/dist dist page-shots
+          cat page-shots/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Keep the pairs
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: site-page-shots
+          path: apps/site/page-shots
   # The check main's ruleset requires, by this exact name: green when every site check passed, or when the change is
   # iOS-only and they were skipped. A failed or cancelled check, or a failed `changes`, fails it.
   test:
