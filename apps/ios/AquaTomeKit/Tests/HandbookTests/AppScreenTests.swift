@@ -25,6 +25,19 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(screen("https://aquatome.com/th/tools/chihiros-light/") == .lights)
 }
 
+@Test func theTankVolumeToolInEachLanguageOpensTheAppsScreenWithWhatItsLinkSets() {
+  #expect(screen("https://aquatome.com/vi/cong-cu/the-tich-be/") == .tankVolume(nil))
+  #expect(screen("https://www.aquatome.com/vi/cong-cu/the-tich-be") == .tankVolume(nil))
+  #expect(screen("https://aquatome.com/id/alat/volume-akuarium/") == .tankVolume(nil))
+  #expect(screen("https://aquatome.com/th/tools/tank-volume/#faq-h") == .tankVolume(nil))
+  // The page keeps its state in its address (a row of its table, a result shared): the screen opens set to it.
+  #expect(screen("https://aquatome.com/vi/cong-cu/the-tich-be/?hinh=chu-nhat&l=60&w=30&h=36") == .tankVolume("hinh=chu-nhat&l=60&w=30&h=36"))
+  #expect(screen("https://aquatome.com/vi/cong-cu/the-tich-be/?") == .tankVolume(nil))
+  // Whatever the index lists, it's the tool's screen, not a page of the handbook.
+  #expect(AppScreen.of(URL(string: "https://aquatome.com/vi/cong-cu/the-tich-be/")!, site: site, listed: { _ in true }) == .tankVolume(nil))
+  #expect(screen("https://aquatome.com/vi/cong-cu/the-tich-be/khac/") == nil)
+}
+
 @Test func otherPagesAndOtherSitesStayPages() {
   #expect(screen("https://aquatome.com/vi/cong-cu/nuoi-chung/") == nil)
   #expect(screen("https://aquatome.com/vi/ca/ca-neon/") == nil)

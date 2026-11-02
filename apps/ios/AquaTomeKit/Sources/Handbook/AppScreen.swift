@@ -7,6 +7,9 @@ public enum AppScreen: Equatable, Sendable {
   case tanks(String?)
   /// The Chihiros light page: the app's Lights tab.
   case lights
+  /// The tank volume tool, with the state its link gives (`hinh=tru&d=40&h=50`, as the site's page keeps it in its
+  /// address), if any: the app's own screen, on the tab in front.
+  case tankVolume(String?)
   /// A page the app index lists, by its path ("/vi/ca/ca-neon/"): the app's screen for it, on the tab in front.
   case page(String)
   /// A group's page ("/vi/nhom/catfish/", and its numbered pages): the app's shelf of that group's fish.
@@ -24,6 +27,8 @@ public enum AppScreen: Equatable, Sendable {
       return .tanks(id?.isEmpty == false ? id : nil)
     case "vi/cong-cu/den-chihiros", "id/alat/lampu-chihiros", "th/tools/chihiros-light":
       return .lights
+    case "vi/cong-cu/the-tich-be", "id/alat/volume-akuarium", "th/tools/tank-volume":
+      return .tankVolume(url.query(percentEncoded: true).flatMap { $0.isEmpty ? nil : $0 })
     default:
       // A link asking for more than the page (the tank-mates tool set to a fish, `?ca=ca-neon:6`) isn't the page as the
       // app shows it: the web takes it whole.

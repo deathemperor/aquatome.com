@@ -42,6 +42,7 @@ struct HandbookView: View {
       .navigationTitle("Tìm")
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
+      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
       .overlay {
         if handbook.status == .loading { ProgressView() }
         // Nothing found of any kind (none of one, with others found, is a row: NoneOfKind).

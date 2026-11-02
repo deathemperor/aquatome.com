@@ -61,6 +61,7 @@ struct TanksView: View {
       .navigationDestination(for: String.self) { id in TankDetail(id: id) }
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
+      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
           Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }
