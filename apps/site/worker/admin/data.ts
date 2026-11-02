@@ -60,3 +60,14 @@ export async function listWanted(kv: KVNamespace): Promise<{ names: Wanted[]; mo
   return { names: sortWanted(names), more: true }
 }
 const sortWanted = (xs: Wanted[]) => xs.sort((a, b) => b.readers - a.readers || b.last.localeCompare(a.last) || a.name.localeCompare(b.name))
+
+export type Waiting = { comments: number; photos: number; oldest: string | null }
+/** What the nightly moderation (moderate.yml) hasn't looked at yet: comments without a decision, photos still pending. */
+export async function moderationWaiting(db: D1Database): Promise<Waiting> {
+  const [c, p] = await Promise.all([
+    db.prepare("SELECT COUNT(*) AS n, MIN(created_at) AS oldest FROM comments WHERE status != 'removed' AND decided_at IS NULL").first<{ n: number; oldest: string | null }>(),
+    db.prepare("SELECT COUNT(*) AS n, MIN(created_at) AS oldest FROM photos WHERE status = 'pending'").first<{ n: number; oldest: string | null }>(),
+  ])
+  const oldest = [c?.oldest, p?.oldest].filter((x): x is string => Boolean(x)).sort()[0] ?? null
+  return { comments: c?.n ?? 0, photos: p?.n ?? 0, oldest }
+}

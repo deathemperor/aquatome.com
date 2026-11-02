@@ -2,10 +2,10 @@ import type { FishIdStatus } from '../fishid/api'
 import type { Hidden } from '../hidden'
 import type { Readers } from '../readers'
 import type { Wanted } from '../wanted'
-import { dayChart, deltaHtml, esc, fmt, lastDays, rankTable, tiles, usd, type Tile } from './chart'
-import type { AccountStats } from './data'
+import { chip, dayChart, deltaHtml, esc, fmt, lastDays, rankTable, spark, tiles, usd } from './chart'
+import type { AccountStats, Waiting } from './data'
 import type { Call, FishIdStats, Totals } from './fishid'
-import { failedBox, isFailed, page, type Soft } from './shell'
+import { failedBox, ICON, isFailed, page, type Soft } from './shell'
 
 /** Each admin page's HTML from what its loaders returned; a part that failed says so in its place. */
 
@@ -13,7 +13,6 @@ export type AffSummary = { byNetwork: { network: string; category: string; n: nu
 export type RecentPhoto = { id: string; entity_ref: string; name: string; thumb: string; created_at: string }
 export type Clicks = { days: string[]; clicks: number[] }
 
-const UTC = 'Ngày tính theo giờ UTC (7 giờ sáng ở Việt Nam). “7 ngày”, “14 ngày”, “30 ngày”: những ngày trọn, đến hết hôm qua, so với chừng ấy ngày trước đó.'
 const when = (iso: string) => esc(iso.slice(0, 16).replace('T', ' '))
 /** The sum of `vals` (one per day, the last is today) from `from` to `to` days ago. */
 const ago = (vals: number[], from: number, to: number) => vals.slice(vals.length - 1 - from, vals.length - to).reduce((a, b) => a + b, 0)
@@ -21,48 +20,149 @@ const alignDaily = (days: string[], daily: Readers['daily']) => {
   const m = new Map(daily.map(d => [d.day, d]))
   return { sessions: days.map(d => m.get(d)?.sessions ?? 0), readers: days.map(d => m.get(d)?.readers ?? 0) }
 }
-const failedTile = (label: string, f: { failed: string }, href?: string): Tile => ({ label, value: '—', sub: `Không tải được: ${f.failed.slice(0, 90)}`, href })
 
 // ——— Tổng quan ———
 
-export type Overview = { now: Date; readers: Soft<Readers['daily']>; clicks: Soft<Clicks>; fish: Soft<FishIdStats>; photos: Soft<number>; wanted: Soft<{ names: Wanted[]; more: boolean }> }
-
-export function overviewPage(o: Overview): string {
-  const days = lastDays(o.now, 30)
-  const r = isFailed(o.readers) ? undefined : alignDaily(days, o.readers)
-  const t: Tile[] = []
-  if (isFailed(o.readers)) t.push(failedTile('Người đọc · 7 ngày', o.readers, '/_ab/doc-gia/'))
-  else {
-    t.push({ label: 'Người đọc · 7 ngày', href: '/_ab/doc-gia/', value: fmt(ago(r!.readers, 7, 1)), delta: { now: ago(r!.readers, 7, 1), before: ago(r!.readers, 14, 8), vs: '7 ngày trước đó', good: 'up' } })
-    t.push({ label: 'Phiên · 7 ngày', href: '/_ab/doc-gia/', value: fmt(ago(r!.sessions, 7, 1)), delta: { now: ago(r!.sessions, 7, 1), before: ago(r!.sessions, 14, 8), vs: '7 ngày trước đó', good: 'up' } })
-  }
-  if (isFailed(o.clicks)) t.push(failedTile('Lượt bấm affiliate · 14 ngày', o.clicks, '/_ab/affiliate/'))
-  else t.push({ label: 'Lượt bấm affiliate · 14 ngày', href: '/_ab/affiliate/', value: fmt(ago(o.clicks.clicks, 14, 1)), delta: { now: ago(o.clicks.clicks, 14, 1), before: ago(o.clicks.clicks, 28, 15), vs: '14 ngày trước đó', good: 'up' } })
-  t.push(isFailed(o.photos) ? failedTile('Ảnh bạn đọc đang hiện', o.photos, '/_ab/anh-ban-doc/') : { label: 'Ảnh bạn đọc đang hiện', href: '/_ab/anh-ban-doc/', value: fmt(o.photos) })
-  if (isFailed(o.wanted)) t.push(failedTile('Tên bạn đọc muốn có', o.wanted, '/_ab/muon-co/'))
-  else {
-    const since = days[days.length - 7]!
-    t.push({ label: 'Tên bạn đọc muốn có', href: '/_ab/muon-co/', value: `${fmt(o.wanted.names.length)}${o.wanted.more ? '+' : ''}`, sub: `${fmt(o.wanted.names.filter(w => w.first >= since).length)} tên mới trong 7 ngày gần nhất` })
-  }
-
-  const charts = [
-    isFailed(o.readers) ? failedBox('người đọc', o.readers) : dayChart({ id: 'c-readers', title: 'Người đọc mỗi ngày', days, series: [{ label: 'Người đọc', values: r!.readers }], kind: 'columns', partialLast: true, empty: 'Chưa có người đọc nào trong 30 ngày.' }),
-    isFailed(o.clicks) ? failedBox('lượt bấm affiliate', o.clicks) : dayChart({ id: 'c-clicks', title: 'Lượt bấm affiliate mỗi ngày', days: o.clicks.days, series: [{ label: 'Lượt bấm', values: o.clicks.clicks }], kind: 'columns', partialLast: true, empty: 'Chưa có lượt bấm nào trong 30 ngày.' }),
-    ...fishCharts(o.fish),
-  ]
-  const fish = isFailed(o.fish) ? failedBox('nhật ký nhận diện cá', o.fish) : periodTable(o.fish, false)
-  return page('/_ab/', 'Tổng quan', `<h1>Tổng quan</h1><p class="lede">${UTC}</p>${tiles(t)}
-<h2><a href="/_ab/nhan-dien-ca/">Nhận diện cá</a></h2>${fish}
-<h2>Theo ngày · 30 ngày</h2><p class="note">Cột nhạt: hôm nay, chưa hết ngày. Rê chuột lên cột để xem số; bảng số liệu dưới mỗi biểu đồ.</p><div class="charts">${charts.join('')}</div>`)
+export type Overview = {
+  now: Date
+  /** 31 days to today: 30 whole days, then today. */
+  readers: Soft<Readers['daily']>
+  /** 31 days to today, as readers. */
+  clicks: Soft<Clicks>
+  fish: Soft<FishIdStats>
+  keys: Soft<FishIdStatus | undefined>
+  photos: Soft<number>
+  waiting: Soft<Waiting>
+  wanted: Soft<{ names: Wanted[]; more: boolean }>
+  accounts: Soft<AccountStats>
+  hidden: Soft<Hidden>
 }
 
-/** The overview's two fish-ID charts; when the log can't load, its section above says so once. */
-function fishCharts(f: Soft<FishIdStats>): string[] {
-  if (isFailed(f)) return []
-  return [
-    dayChart({ id: 'c-fish', title: 'Lượt nhận diện cá gọi Claude mỗi ngày', days: f.days, series: [{ label: 'Lượt gọi', values: f.perDay.ok.map((v, i) => v + f.perDay.none[i]!) }], kind: 'columns', partialLast: true, empty: 'Chưa có lượt nhận diện nào được ghi (nhật ký bắt đầu từ bản cập nhật này).' }),
-    dayChart({ id: 'c-cost', title: 'Chi phí nhận diện cá mỗi ngày', days: f.days, series: [{ label: 'Chi phí', values: f.perDay.usd }], kind: 'columns', format: usd, tickPrefix: '$', partialLast: true, empty: 'Chưa có chi phí nào được ghi.' }),
-  ]
+const VS = '7 ngày trước đó'
+const MODERATION_RUNS = 'https://github.com/deathemperor/aquatome.com/actions/workflows/moderate.yml'
+/** 2026-11-03T21:05… → 03/11 21:05 */
+const short = (iso: string) => `${iso.slice(8, 10)}/${iso.slice(5, 7)} ${iso.slice(11, 16)}`
+const WEEKDAY = ['Chủ nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy']
+/** The last value of each list is today's: the value `back` days before it. */
+const at = (vals: number[], back: number) => vals[vals.length - 1 - back] ?? 0
+const waitingText = (w: Waiting) => [w.comments ? `${fmt(w.comments)} bình luận` : '', w.photos ? `${fmt(w.photos)} ảnh` : ''].filter(Boolean).join(', ')
+
+/** Each part of the overview, by what it is to the owner and where its page is. */
+const parts = (o: Overview): [string, Soft<unknown>, string][] => [
+  ['người đọc', o.readers, '/_ab/doc-gia/'], ['lượt bấm affiliate', o.clicks, '/_ab/affiliate/'], ['nhật ký nhận diện cá', o.fish, '/_ab/nhan-dien-ca/'],
+  ['bình luận và tài khoản', o.accounts, '/_ab/tai-khoan/'], ['hàng chờ kiểm duyệt', o.waiting, '/_ab/tai-khoan/'], ['ảnh bạn đọc', o.photos, '/_ab/anh-ban-doc/'],
+  ['danh sách bạn đọc muốn có', o.wanted, '/_ab/muon-co/'], ['danh sách trang ẩn', o.hidden, '/_ab/an-trang/'],
+]
+
+export type Todo = { title: string; text: string; href: string; action: string }
+/** What needs the owner, each with the one place to deal with it: the fish-ID keys, a moderation that stopped, a part that won't load. */
+export function todos(o: Overview): Todo[] {
+  const out: Todo[] = []
+  const key = { href: '/_ab/nhan-dien-ca/#key', action: 'Xem key' }
+  if (isFailed(o.keys)) out.push({ title: 'Không đọc được trạng thái key Anthropic', text: o.keys.failed.slice(0, 160), ...key })
+  else if (!o.keys) out.push({ title: 'Nhận diện cá đang tắt', text: 'Chưa có key Anthropic nào trong ANTHROPIC_KEYS.', ...key })
+  else {
+    const off = o.keys.rows.filter(r => r.state !== 'ok')
+    if (off.length) {
+      const all = off.length === o.keys.rows.length
+      out.push({ title: all ? 'Nhận diện cá không chạy: mọi key đang nghỉ' : `${fmt(off.length)} key Anthropic đang nghỉ`, text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)} UTC` : ''}`).join(' · '), ...key })
+    }
+    if (o.keys.bad) out.push({ title: `${fmt(o.keys.bad)} dòng trong ANTHROPIC_KEYS không đọc được`, text: 'Công cụ bỏ qua những dòng đó: sửa secret ANTHROPIC_KEYS.', ...key })
+  }
+  // The moderation runs at 21:00 UTC each night: anything still waiting after 30 hours means a night was missed.
+  if (!isFailed(o.waiting) && o.waiting.oldest && o.now.getTime() - Date.parse(o.waiting.oldest) > 30 * 3_600_000) {
+    out.push({ title: 'Kiểm duyệt đêm chưa chạy', text: `${waitingText(o.waiting)} chờ từ ${short(o.waiting.oldest)} UTC. Kiểm duyệt chạy mỗi đêm lúc 4 giờ sáng giờ Việt Nam.`, href: MODERATION_RUNS, action: 'Xem lần chạy' })
+  }
+  for (const [label, part, href] of parts(o)) {
+    if (isFailed(part)) out.push({ title: `Không tải được ${label}`, text: part.failed.slice(0, 160), href, action: 'Mở' })
+  }
+  return out
+}
+
+export type Area = { name: string; href: string; fig: string; sub: string; spark?: number[]; chip?: string; warn?: boolean }
+const failedArea = (name: string, href: string, f: { failed: string }): Area => ({ name, href, fig: '—', sub: `Không tải được: ${f.failed.slice(0, 80)}`, warn: true })
+/** One row an area: its figure (most are the last 7 whole days), what it counts, the 30 whole days before today, and the change on the 7 days before. */
+export function areas(o: Overview): Area[] {
+  const out: Area[] = []
+  const whole = (vals: number[]) => vals.slice(0, -1)
+  if (isFailed(o.readers)) out.push(failedArea('Người đọc', '/_ab/doc-gia/', o.readers))
+  else {
+    const r = alignDaily(lastDays(o.now, 31), o.readers)
+    out.push({ name: 'Người đọc', href: '/_ab/doc-gia/', fig: fmt(ago(r.readers, 7, 1)), sub: `người đọc · 7 ngày · ${fmt(ago(r.sessions, 7, 1))} phiên`, spark: whole(r.readers), chip: chip(ago(r.readers, 7, 1), ago(r.readers, 14, 8), VS, 'up') })
+  }
+  if (isFailed(o.clicks)) out.push(failedArea('Affiliate', '/_ab/affiliate/', o.clicks))
+  else out.push({ name: 'Affiliate', href: '/_ab/affiliate/', fig: fmt(ago(o.clicks.clicks, 7, 1)), sub: 'lượt bấm sang sàn · 7 ngày', spark: whole(o.clicks.clicks), chip: chip(ago(o.clicks.clicks, 7, 1), ago(o.clicks.clicks, 14, 8), VS, 'up') })
+  const keysOff = isFailed(o.keys) || !o.keys || o.keys.rows.some(k => k.state !== 'ok')
+  if (isFailed(o.fish)) out.push(failedArea('Nhận diện cá', '/_ab/nhan-dien-ca/', o.fish))
+  else {
+    const { periods: p, perDay } = o.fish
+    out.push({ name: 'Nhận diện cá', href: '/_ab/nhan-dien-ca/', fig: fmt(p.d7.calls), sub: `lượt gọi Claude · 7 ngày · ${usd(p.d7.usd)}`, spark: whole(perDay.ok.map((v, i) => v + perDay.none[i]!)), chip: chip(p.d7.calls, p.d7prev.calls, VS), warn: keysOff })
+  }
+  const waiting = isFailed(o.waiting) ? undefined : o.waiting
+  if (isFailed(o.accounts)) out.push(failedArea('Bình luận', '/_ab/tai-khoan/', o.accounts), failedArea('Tài khoản mới', '/_ab/tai-khoan/', o.accounts))
+  else {
+    const a = o.accounts
+    out.push({ name: 'Bình luận', href: '/_ab/tai-khoan/', fig: fmt(ago(a.newComments, 7, 1)), sub: `bình luận mới · 7 ngày${waiting?.comments ? ` · ${fmt(waiting.comments)} chờ kiểm duyệt` : ''}`, spark: whole(a.newComments), chip: chip(ago(a.newComments, 7, 1), ago(a.newComments, 14, 8), VS, 'up') })
+    out.push({ name: 'Tài khoản mới', href: '/_ab/tai-khoan/', fig: fmt(ago(a.newUsers, 7, 1)), sub: `7 ngày · tổng ${fmt(a.users)} · ${fmt(a.synced)} có bể đồng bộ`, spark: whole(a.newUsers), chip: chip(ago(a.newUsers, 7, 1), ago(a.newUsers, 14, 8), VS, 'up') })
+  }
+  if (isFailed(o.photos)) out.push(failedArea('Ảnh bạn đọc', '/_ab/anh-ban-doc/', o.photos))
+  else out.push({ name: 'Ảnh bạn đọc', href: '/_ab/anh-ban-doc/', fig: fmt(o.photos), sub: `ảnh đang hiện${waiting?.photos ? ` · ${fmt(waiting.photos)} chờ kiểm duyệt` : ''}` })
+  if (isFailed(o.wanted)) out.push(failedArea('Bạn đọc muốn có', '/_ab/muon-co/', o.wanted))
+  else {
+    const { names, more } = o.wanted
+    const perDay = lastDays(o.now, 31).map(d => names.filter(w => w.first === d).length)
+    out.push({ name: 'Bạn đọc muốn có', href: '/_ab/muon-co/', fig: `${fmt(names.length)}${more ? '+' : ''}`, sub: `tên chưa có trang · ${fmt(ago(perDay, 7, 1))} tên mới trong 7 ngày`, spark: whole(perDay) })
+  }
+  if (isFailed(o.hidden)) out.push(failedArea('Ẩn trang', '/_ab/an-trang/', o.hidden))
+  else out.push({ name: 'Ẩn trang', href: '/_ab/an-trang/', fig: fmt(Object.keys(o.hidden).length), sub: 'trang đang ẩn' })
+  return out
+}
+
+export type LogItem = { k: string; text: string; small?: string }
+export type LogDay = { day: string; label: string; partial: boolean; items: LogItem[] }
+/** The last `n` UTC days, today first, in words: what each area counted that day. A part that didn't load is left out (its to-do says so). */
+export function log(o: Overview, n = 3): LogDay[] {
+  const days = lastDays(o.now, n).reverse()
+  const r = isFailed(o.readers) ? undefined : alignDaily(lastDays(o.now, 31), o.readers)
+  const { clicks, fish, accounts, wanted, hidden } = o
+  return days.map((day, back) => {
+    const items: LogItem[] = []
+    if (r && (at(r.readers, back) || at(r.sessions, back))) items.push({ k: 'Người đọc', text: `${fmt(at(r.readers, back))} người đọc`, small: `${fmt(at(r.sessions, back))} phiên` })
+    if (!isFailed(clicks) && at(clicks.clicks, back)) items.push({ k: 'Affiliate', text: `${fmt(at(clicks.clicks, back))} lượt bấm sang sàn` })
+    if (!isFailed(fish)) {
+      const d = fish.perDay
+      const calls = at(d.ok, back) + at(d.none, back)
+      if (calls || at(d.blocked, back)) items.push({ k: 'Nhận diện cá', text: `${fmt(calls)} lượt gọi Claude · ${usd(at(d.usd, back))}`, small: `${fmt(at(d.ok, back))} có kết quả${at(d.blocked, back) ? ` · ${fmt(at(d.blocked, back))} chặn trước khi gọi` : ''}` })
+    }
+    if (!isFailed(accounts)) {
+      if (at(accounts.newComments, back)) items.push({ k: 'Bình luận', text: `${fmt(at(accounts.newComments, back))} bình luận mới` })
+      if (at(accounts.newUsers, back)) items.push({ k: 'Tài khoản', text: `${fmt(at(accounts.newUsers, back))} tài khoản mới` })
+    }
+    if (!isFailed(wanted)) {
+      const fresh = wanted.names.filter(w => w.first === day)
+      if (fresh.length) items.push({ k: 'Bạn đọc muốn có', text: `${fmt(fresh.length)} tên mới`, small: `${fresh.slice(0, 3).map(w => w.name).join(', ')}${fresh.length > 3 ? '…' : ''}` })
+    }
+    if (!isFailed(hidden)) {
+      const hid = Object.entries(hidden).filter(([, v]) => v.at.slice(0, 10) === day).map(([path]) => path)
+      if (hid.length) items.push({ k: 'Ẩn trang', text: `Ẩn ${fmt(hid.length)} trang`, small: `${hid.slice(0, 2).join(', ')}${hid.length > 2 ? '…' : ''}` })
+    }
+    const dm = `${day.slice(8, 10)}/${day.slice(5, 7)}`
+    const label = back === 0 ? `Hôm nay · ${dm}` : back === 1 ? `Hôm qua · ${dm}` : `${WEEKDAY[new Date(`${day}T00:00:00Z`).getUTCDay()]} · ${dm}`
+    return { day, label, partial: back === 0, items }
+  })
+}
+
+export function overviewPage(o: Overview): string {
+  const t = todos(o)
+  const todoHtml = t.length
+    ? `<ul class="todo">${t.map(x => `<li>${ICON.alert}<div><b>${esc(x.title)}</b><p>${esc(x.text)}</p></div><a class="act" href="${esc(x.href)}">${esc(x.action)}</a></li>`).join('')}</ul>`
+    : `<p class="clear panel">${ICON.check}Không có việc gì cần bạn lúc này.</p>`
+  const rows = areas(o).map(a => `<li><a class="area" href="${esc(a.href)}"><span><span class="name">${a.warn ? '<span class="dot" role="img" aria-label="cần xem"></span>' : ''}${esc(a.name)}</span><span class="fig">${esc(a.fig)}</span><span class="sub">${esc(a.sub)}</span></span><span class="trend">${a.spark ? spark(a.spark, a.warn) : ''}${a.chip ?? ''}</span>${ICON.chevron}</a></li>`).join('')
+  const days = log(o).map(d => `<section><h3>${esc(d.label)}${d.partial ? ' <span class="muted">· chưa hết ngày</span>' : ''}</h3>${d.items.length ? `<ol>${d.items.map(i => `<li><span class="k">${esc(i.k)}</span><p>${esc(i.text)}</p>${i.small ? `<small>${esc(i.small)}</small>` : ''}</li>`).join('')}</ol>` : '<p class="muted">Không có gì mới.</p>'}</section>`).join('')
+  return page('/_ab/', 'Tổng quan', `<h1 class="vh">Tổng quan</h1><div class="home-grid"><div>
+<section aria-labelledby="h-todo"><h2 id="h-todo">Cần bạn${t.length ? ` <span class="badge">${fmt(t.length)}<span class="vh"> việc</span></span>` : ''}</h2>${todoHtml}</section>
+<section aria-labelledby="h-areas"><h2 id="h-areas">Các mục</h2><ul class="areas">${rows}</ul><p class="note">Số lớn: 7 ngày trọn đến hết hôm qua, so với 7 ngày trước đó. Đường nhỏ: 30 ngày trọn. Ngày theo giờ UTC (7 giờ sáng ở Việt Nam).</p></section>
+</div><div class="side"><section aria-labelledby="h-log"><h2 id="h-log">Mấy ngày qua</h2><div class="log">${days}</div></section></div></div>`, o.now)
 }
 
 // ——— Nhận diện cá ———
