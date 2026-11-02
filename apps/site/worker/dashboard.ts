@@ -1,3 +1,4 @@
+import type { FishIdStatus } from './fishid/api'
 import type { Hidden } from './hidden'
 import type { Readers } from './readers'
 
@@ -45,10 +46,10 @@ const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;
 
 export type RecentPhoto = { id: string; entity_ref: string; name: string; thumb: string; created_at: string }
 
-export function renderDashboard(aff?: AffSummary, hidden: Hidden = {}, photos?: RecentPhoto[]): string {
+export function renderDashboard(aff?: AffSummary, hidden: Hidden = {}, photos?: RecentPhoto[], fishId?: FishIdStatus): string {
   return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản trị · AquaTome</title>
 <style>body{font:15px/1.5 system-ui,sans-serif;margin:2rem;color:#10241f;background:#eef1ec}table{border-collapse:collapse;background:#fff}th,td{padding:.5rem .8rem;border-bottom:1px solid #d3dad3;text-align:right}th{text-align:left}thead th{font-size:.8rem;color:#5d6d67}p{color:#5d6d67}</style></head><body>
-<h1>Quản trị AquaTome</h1><p><a href="/_ab/doc-gia/">Người đọc thật →</a></p>${aff ? affHtml(aff) : '<h2>Affiliate</h2><p>Chưa cấu hình D1.</p>'}${hiddenHtml(hidden)}${photos ? photosHtml(photos) : ''}</body></html>`
+<h1>Quản trị AquaTome</h1><p><a href="/_ab/doc-gia/">Người đọc thật →</a></p>${aff ? affHtml(aff) : '<h2>Affiliate</h2><p>Chưa cấu hình D1.</p>'}${hiddenHtml(hidden)}${photos ? photosHtml(photos) : ''}${fishId ? fishIdHtml(fishId) : ''}</body></html>`
 }
 
 function affHtml(a: AffSummary): string {
@@ -64,6 +65,15 @@ function photosHtml(xs: RecentPhoto[]): string {
   return `<h2 id="anh-ban-doc">Ảnh bạn đọc</h2>
 <p>Ảnh đã qua kiểm duyệt tự động (khuôn mặt, đúng loài, an toàn) và đang hiện trên trang loài. Gỡ: ảnh bị xóa ngay khỏi trang và máy chủ.</p>
 <table><thead><tr><th></th><th>Trang</th><th>Tên</th><th>Lúc (UTC)</th><th></th></tr></thead><tbody>${rows || '<tr><td colspan="5">Chưa có ảnh nào.</td></tr>'}</tbody></table>`
+}
+
+const KEY_STATE: Record<FishIdStatus['rows'][number]['state'], string> = { ok: 'đang dùng', credit: 'hết credit', auth: 'key bị từ chối', rate: 'bị giới hạn tốc độ' }
+/** The fish-ID tool's API keys: number and hash only, never the key. */
+function fishIdHtml(f: FishIdStatus): string {
+  const rows = f.rows.map(r => `<tr><th>#${r.n}</th><td><code>${esc(r.hash)}</code></td><td>${r.workspace ? 'tổ chức + workspace' : 'workspace'}</td><td>${esc(KEY_STATE[r.state])}${r.until ? ` đến ${esc(r.until.slice(0, 16).replace('T', ' '))}` : ''}</td><td>${fmt(r.calls)}</td></tr>`).join('')
+  return `<h2 id="nhan-dien-ca">Nhận diện cá · key Anthropic</h2>
+<p>Hôm nay (UTC): ${fmt(f.today)} lượt nhận diện · mô hình ${esc(f.model)}. Mỗi lượt dùng một key ngẫu nhiên trong số key đang dùng; key lỗi thì sang key khác. Hết credit hoặc bị từ chối: nghỉ 24 giờ.${f.bad ? ` <strong>${fmt(f.bad)} dòng trong ANTHROPIC_KEYS không đọc được, bị bỏ qua.</strong>` : ''}</p>
+<table><thead><tr><th>Key</th><th>SHA-256 (8 ký tự đầu)</th><th>Loại</th><th>Trạng thái</th><th>Lượt gọi hôm nay</th></tr></thead><tbody>${rows || '<tr><td colspan="5">Chưa có key nào.</td></tr>'}</tbody></table>`
 }
 
 function hiddenHtml(h: Hidden): string {

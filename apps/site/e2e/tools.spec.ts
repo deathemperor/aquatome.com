@@ -94,7 +94,8 @@ test('tank-mates: links to the old place on the tools page open the checker with
 
 test('tools page: a card for every tool; the calculators below by anchor', async ({ page }) => {
   await page.goto('/vi/cong-cu/')
-  await expect(page.locator('.tools a')).toHaveCount(7)
+  await expect(page.locator('.tools a')).toHaveCount(8)
+  await expect(page.locator('.tools a[href="/vi/cong-cu/nhan-dien-ca/"]')).toBeVisible()
   await page.locator('.tools a[href="#suoi"]').click()
   await expect(page.locator('#suoi')).toBeInViewport()
   await page.locator('.tools a[href="/vi/cong-cu/nuoi-chung/"]').click()

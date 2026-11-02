@@ -39,7 +39,7 @@ test('tools page: nav link, a card for every tool, sitemap; the checker\'s speci
   expect(dom.querySelector('nav a[href="/vi/cong-cu/"]')).not.toBeNull()
   // Pages of their own, and the calculators below by anchor (each anchor has its section).
   const cards = dom.querySelectorAll('.tools a').map(a => a.getAttribute('href')!)
-  expect(cards).toEqual(['/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '#nen', '#suoi', '#phan-bon', '/vi/cong-cu/den-chihiros/', '/vi/cong-cu/be-cua-toi/'])
+  expect(cards).toEqual(['/vi/cong-cu/nhan-dien-ca/', '/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '#nen', '#suoi', '#phan-bon', '/vi/cong-cu/den-chihiros/', '/vi/cong-cu/be-cua-toi/'])
   for (const h of cards.filter(h => h.startsWith('#'))) expect(dom.querySelector(h), h).not.toBeNull()
   expect(dom.querySelector('#species-index')).toBeNull()
   // The other languages' cards keep their links (a link to a page a language lacks loses its href).

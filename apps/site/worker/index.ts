@@ -17,6 +17,7 @@ import { accounts, depsFor, type AccountDeps, type AccountsEnv } from './account
 import { APP_SITE_ASSOCIATION } from './accounts/passkey'
 import { purgeExpired } from './accounts/ratelimit'
 import { wantedRoute } from './wanted'
+import { fishId, fishIdStatus, type FishIdDeps, type FishIdEnv } from './fishid/api'
 
 export interface Env {
   ASSETS: Fetcher
@@ -37,7 +38,7 @@ export interface Env {
   UPLOADS?: R2Bucket
   MEDIA?: R2Bucket
 }
-type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv
+type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv & FishIdEnv
 const MAX_EVENT_BYTES = 4096
 
 function finish(res: Response, env: Env, extra: Record<string, string> = {}): Response {
@@ -120,7 +121,7 @@ export function chosenLang(cookie: string | null): 'vi' | 'id' | 'th' | undefine
   return v as 'vi' | 'id' | 'th' | undefined
 }
 
-export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p, accountDeps?: AccountDeps): Promise<Response> {
+export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p, accountDeps?: AccountDeps, fishDeps?: FishIdDeps): Promise<Response> {
   const url = new URL(req.url)
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
@@ -158,6 +159,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/_e') return events(req, env)
   // Names readers keep that have no page (worker/wanted.ts): open to everyone, signed in or not, accounts on or off.
   if (url.pathname === '/api/v1/wanted' || url.pathname === '/api/v1/wanted/') return finish(await wantedRoute(req, env, new Date()), env)
+  if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps), env)
   if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps ?? depsFor(env)), env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
@@ -204,7 +206,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
     // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts).
     const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer', 'set-cookie': OWNER_COOKIE }
     const aff = env.DB ? await affSummary(env.DB, new Date()) : undefined
-    return new Response(renderDashboard(aff, await loadHidden(env.AB, true), await recentPhotos(env).catch(() => undefined)), { headers })
+    return new Response(renderDashboard(aff, await loadHidden(env.AB, true), await recentPhotos(env).catch(() => undefined), await fishIdStatus(env, new Date()).catch(() => undefined)), { headers })
   }
   if (url.pathname === '/_ab/doc-gia' || url.pathname === '/_ab/doc-gia/') {
     if (!authorise(req, env.AB_DASH_TOKEN).ok) return new Response(null, { status: 303, headers: { location: '/_ab/', 'cache-control': 'no-store' } })
