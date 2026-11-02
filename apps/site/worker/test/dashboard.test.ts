@@ -71,9 +71,9 @@ test('overview log: the last three days in words, today first; a quiet day says 
   o.hidden = { '/vi/ca/x/': { at: '2026-11-02T03:00:00.000Z' } }
   const l = log(o)
   expect(l.map(d => d.label)).toEqual(['Hôm nay · 02/11', 'Hôm qua · 01/11', 'Thứ Bảy · 31/10'])
-  expect(l[0]!.items).toEqual([{ k: 'Affiliate', text: '4 lượt bấm sang sàn' }, { k: 'Ẩn trang', text: 'Ẩn 1 trang', small: '/vi/ca/x/' }])
-  expect(l[1]!.items).toEqual([{ k: 'Bạn đọc muốn có', text: '1 tên mới', small: 'Cá A' }])
-  expect(l[2]!.items).toEqual([{ k: 'Affiliate', text: '2 lượt bấm sang sàn' }])
+  expect(l[0]!.items).toEqual([{ text: '4 lượt bấm sang sàn' }, { text: 'Ẩn 1 trang', small: '/vi/ca/x/' }])
+  expect(l[1]!.items).toEqual([{ text: '1 tên mới bạn đọc muốn có', small: 'Cá A' }])
+  expect(l[2]!.items).toEqual([{ text: '2 lượt bấm sang sàn' }])
   const html = overviewPage({ ...well() })
   expect(html).toContain('Không có gì mới.')
   expect(html).toContain('chưa hết ngày')

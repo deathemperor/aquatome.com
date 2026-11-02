@@ -118,7 +118,7 @@ export function areas(o: Overview): Area[] {
   return out
 }
 
-export type LogItem = { k: string; text: string; small?: string }
+export type LogItem = { text: string; small?: string }
 export type LogDay = { day: string; label: string; partial: boolean; items: LogItem[] }
 /** The last `n` UTC days, today first, in words: what each area counted that day. A part that didn't load is left out (its to-do says so). */
 export function log(o: Overview, n = 3): LogDay[] {
@@ -127,24 +127,24 @@ export function log(o: Overview, n = 3): LogDay[] {
   const { clicks, fish, accounts, wanted, hidden } = o
   return days.map((day, back) => {
     const items: LogItem[] = []
-    if (r && (at(r.readers, back) || at(r.sessions, back))) items.push({ k: 'Người đọc', text: `${fmt(at(r.readers, back))} người đọc`, small: `${fmt(at(r.sessions, back))} phiên` })
-    if (!isFailed(clicks) && at(clicks.clicks, back)) items.push({ k: 'Affiliate', text: `${fmt(at(clicks.clicks, back))} lượt bấm sang sàn` })
+    if (r && (at(r.readers, back) || at(r.sessions, back))) items.push({ text: `${fmt(at(r.readers, back))} người đọc`, small: `${fmt(at(r.sessions, back))} phiên` })
+    if (!isFailed(clicks) && at(clicks.clicks, back)) items.push({ text: `${fmt(at(clicks.clicks, back))} lượt bấm sang sàn` })
     if (!isFailed(fish)) {
       const d = fish.perDay
       const calls = at(d.ok, back) + at(d.none, back)
-      if (calls || at(d.blocked, back)) items.push({ k: 'Nhận diện cá', text: `${fmt(calls)} lượt gọi Claude · ${usd(at(d.usd, back))}`, small: `${fmt(at(d.ok, back))} có kết quả${at(d.blocked, back) ? ` · ${fmt(at(d.blocked, back))} chặn trước khi gọi` : ''}` })
+      if (calls || at(d.blocked, back)) items.push({ text: `${fmt(calls)} lượt nhận diện cá gọi Claude · ${usd(at(d.usd, back))}`, small: `${fmt(at(d.ok, back))} có kết quả${at(d.blocked, back) ? ` · ${fmt(at(d.blocked, back))} chặn trước khi gọi` : ''}` })
     }
     if (!isFailed(accounts)) {
-      if (at(accounts.newComments, back)) items.push({ k: 'Bình luận', text: `${fmt(at(accounts.newComments, back))} bình luận mới` })
-      if (at(accounts.newUsers, back)) items.push({ k: 'Tài khoản', text: `${fmt(at(accounts.newUsers, back))} tài khoản mới` })
+      if (at(accounts.newComments, back)) items.push({ text: `${fmt(at(accounts.newComments, back))} bình luận mới` })
+      if (at(accounts.newUsers, back)) items.push({ text: `${fmt(at(accounts.newUsers, back))} tài khoản mới` })
     }
     if (!isFailed(wanted)) {
       const fresh = wanted.names.filter(w => w.first === day)
-      if (fresh.length) items.push({ k: 'Bạn đọc muốn có', text: `${fmt(fresh.length)} tên mới`, small: `${fresh.slice(0, 3).map(w => w.name).join(', ')}${fresh.length > 3 ? '…' : ''}` })
+      if (fresh.length) items.push({ text: `${fmt(fresh.length)} tên mới bạn đọc muốn có`, small: `${fresh.slice(0, 3).map(w => w.name).join(', ')}${fresh.length > 3 ? '…' : ''}` })
     }
     if (!isFailed(hidden)) {
       const hid = Object.entries(hidden).filter(([, v]) => v.at.slice(0, 10) === day).map(([path]) => path)
-      if (hid.length) items.push({ k: 'Ẩn trang', text: `Ẩn ${fmt(hid.length)} trang`, small: `${hid.slice(0, 2).join(', ')}${hid.length > 2 ? '…' : ''}` })
+      if (hid.length) items.push({ text: `Ẩn ${fmt(hid.length)} trang`, small: `${hid.slice(0, 2).join(', ')}${hid.length > 2 ? '…' : ''}` })
     }
     const dm = `${day.slice(8, 10)}/${day.slice(5, 7)}`
     const label = back === 0 ? `Hôm nay · ${dm}` : back === 1 ? `Hôm qua · ${dm}` : `${WEEKDAY[new Date(`${day}T00:00:00Z`).getUTCDay()]} · ${dm}`
@@ -158,7 +158,7 @@ export function overviewPage(o: Overview): string {
     ? `<ul class="todo">${t.map(x => `<li>${ICON.alert}<div><b>${esc(x.title)}</b><p>${esc(x.text)}</p></div><a class="act" href="${esc(x.href)}">${esc(x.action)}</a></li>`).join('')}</ul>`
     : `<p class="clear panel">${ICON.check}Không có việc gì cần bạn lúc này.</p>`
   const rows = areas(o).map(a => `<li><a class="area" href="${esc(a.href)}"><span><span class="name">${a.warn ? '<span class="dot" role="img" aria-label="cần xem"></span>' : ''}${esc(a.name)}</span><span class="fig">${esc(a.fig)}</span><span class="sub">${esc(a.sub)}</span></span><span class="trend">${a.spark ? spark(a.spark, a.warn) : ''}${a.chip ?? ''}</span>${ICON.chevron}</a></li>`).join('')
-  const days = log(o).map(d => `<section><h3>${esc(d.label)}${d.partial ? ' <span class="muted">· chưa hết ngày</span>' : ''}</h3>${d.items.length ? `<ol>${d.items.map(i => `<li><span class="k">${esc(i.k)}</span><p>${esc(i.text)}</p>${i.small ? `<small>${esc(i.small)}</small>` : ''}</li>`).join('')}</ol>` : '<p class="muted">Không có gì mới.</p>'}</section>`).join('')
+  const days = log(o).map(d => `<section><h3>${esc(d.label)}${d.partial ? ' <span class="muted">· chưa hết ngày</span>' : ''}</h3>${d.items.length ? `<ol>${d.items.map(i => `<li><p>${esc(i.text)}</p>${i.small ? `<small>${esc(i.small)}</small>` : ''}</li>`).join('')}</ol>` : '<p class="muted">Không có gì mới.</p>'}</section>`).join('')
   return page('/_ab/', 'Tổng quan', `<h1 class="vh">Tổng quan</h1><div class="home-grid"><div>
 <section aria-labelledby="h-todo"><h2 id="h-todo">Cần bạn${t.length ? ` <span class="badge">${fmt(t.length)}<span class="vh"> việc</span></span>` : ''}</h2>${todoHtml}</section>
 <section aria-labelledby="h-areas"><h2 id="h-areas">Các mục</h2><ul class="areas">${rows}</ul><p class="note">Số lớn: 7 ngày trọn đến hết hôm qua, so với 7 ngày trước đó. Đường nhỏ: 30 ngày trọn. Ngày theo giờ UTC (7 giờ sáng ở Việt Nam).</p></section>

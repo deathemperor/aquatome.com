@@ -82,6 +82,7 @@ section>h2:first-child{margin-top:28px}
 .areas{list-style:none;margin:0;padding:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
 .areas li+li{border-top:1px solid var(--rule)}
 .area{display:grid;grid-template-columns:minmax(0,1fr) auto 16px;align-items:center;gap:6px 12px;padding:13px 12px 13px 14px;text-decoration:none;color:inherit;min-height:64px}
+.area:focus-visible{outline-offset:-3px;border-radius:calc(var(--r) - 2px)}
 .area:hover{background:color-mix(in srgb,var(--moss) 6%,var(--plate));color:inherit}
 .area .name{display:flex;align-items:center;gap:7px;font-weight:600;font-size:14px}
 .area .fig{display:block;font:600 1.75rem/1.1 var(--serif);letter-spacing:-.01em;margin:2px 0 1px}
@@ -104,8 +105,7 @@ section>h2:first-child{margin-top:28px}
 .log ol{list-style:none;margin:0;padding:0 0 0 2px}
 .log li{position:relative;padding:0 0 13px 20px;border-left:1px solid var(--rule);margin-left:4px}
 .log li:last-child{padding-bottom:2px}
-.log li:before{content:'';position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 2px var(--moss)}
-.log .k{display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.log li:before{content:'';position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 2px var(--axis)}
 .log p{margin:1px 0 0;font-size:14px}
 .log small{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
 .home-grid{display:grid;gap:8px 32px}
