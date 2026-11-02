@@ -1,11 +1,11 @@
 import { escapeHtml } from './comments'
 import { ct } from './ct'
-import { guessHtml, hasGuesses, own, photoId, verdictLine, type Answer, type Linked, type Result } from './fish-id-client'
+import { genusHtml, guessHtml, hasGuesses, own, photoId, verdictLine, type Answer, type Linked, type Result } from './fish-id-client'
 
 /**
  * "Bể của tôi": a photo names a fish or plant for the tank's form (life-edit.ts), through the fish-ID tool
  * (fish-id-client.ts). Loaded when the reader opens "Chụp ảnh nhận diện". Each guess offers one action: its page, or an
- * entry without a page filled in from the guess.
+ * entry without a page filled in from the guess. Under it, its genus's other pages, each added as a guess's page is.
  */
 
 /** A guess's page as the form keeps it: a fish (a species or a breed) or a plant, with this site's address for it, if any. */
@@ -38,8 +38,12 @@ export function initPhoto(panel: HTMLElement, o: {
     const species = p && r.species ? `<p class="also">${escapeHtml(ct('Một dòng của'))} ${escapeHtml(r.species.name)}</p>` : ''
     const none = p ? '' : `<p class="add">${escapeHtml(ct('Chưa có trong cẩm nang.'))}</p>`
     const act = `<p class="act"><button type="button" class="quiet" data-guess="${i}"${there ? ' disabled' : ''} aria-label="${escapeHtml(there ? ct('Đã có: {name}', { name: label }) : ct('Thêm vào bể: {name}', { name: label }))}">${escapeHtml(there ? ct('Đã có') : ct('Thêm vào bể'))}</button></p>`
+    const genus = genusHtml(ct, r, (l, j) => {
+      const on = o.has(pageOf(l))
+      return `<button type="button" class="sib" data-sib="${i}:${j}"${on ? ' disabled' : ''} aria-label="${escapeHtml(on ? ct('Đã có: {name}', { name: l.name }) : ct('Thêm vào bể: {name}', { name: l.name }))}"><span class="nm">${escapeHtml(l.name)}${l.sci ? ` <i>${escapeHtml(l.sci)}</i>` : ''}</span><span class="tag" aria-hidden="true">${escapeHtml(on ? ct('Đã có') : ct('Thêm'))}</span></button>`
+    })
     // The name as text, not a link: the form isn't saved yet.
-    return guessHtml(ct, r, escapeHtml(label), `${species}${none}${act}`)
+    return guessHtml(ct, r, escapeHtml(label), `${species}${none}${act}${genus}`)
   }
   function draw() {
     if (!answer) { out.innerHTML = ''; return }
@@ -49,9 +53,16 @@ export function initPhoto(panel: HTMLElement, o: {
   const tool = photoId(panel, { off: o.off, show: a => { answer = a; draw() }, clear: () => { answer = undefined; draw() } })
 
   out.addEventListener('click', e => {
-    const b = (e.target as Element).closest<HTMLButtonElement>('[data-guess]')
-    const r = answer?.results[Number(b?.dataset.guess)]
-    if (b && !b.disabled && r) o.add(r.page ? { page: pageOf(r.page) } : { entry: guessEntry(r, answer!.verdict) })
+    const b = (e.target as Element).closest<HTMLButtonElement>('[data-guess], [data-sib]')
+    if (!b || b.disabled) return
+    if (b.dataset.sib) {
+      const [i, j] = b.dataset.sib.split(':').map(Number)
+      const l = answer?.results[i!]?.sameGenus?.[j!]
+      if (l) o.add({ page: pageOf(l) })
+      return
+    }
+    const r = answer?.results[Number(b.dataset.guess)]
+    if (r) o.add(r.page ? { page: pageOf(r.page) } : { entry: guessEntry(r, answer!.verdict) })
   })
   return {
     /** Back to its first state, for the next photo: no photo, no guesses. */

@@ -1,21 +1,24 @@
 import { escapeHtml } from './comments'
 import { msg } from '../i18n/msg'
 import { ct } from './ct'
-import { guessHtml, hasGuesses, own, photoId, verdictLine, type Answer, type Linked, type Result } from './fish-id-client'
+import { genusHtml, guessHtml, hasGuesses, own, photoId, verdictLine, type Answer, type Linked, type Result } from './fish-id-client'
 
 const OFF = msg('Công cụ nhận diện tạm thời chưa dùng được. Bạn tìm cá theo tên trong danh sách cá nhé.')
 
 const name = (l: Linked) => escapeHtml(l.name)
 const link = (l: Linked) => (own(l.url) ? `<a href="${escapeHtml(own(l.url)!)}">${name(l)}</a>` : name(l))
 
-/** One guess: our page's name and link when the handbook has it; otherwise Claude's name, said plainly. */
+/**
+ * One guess: our page's name and link when the handbook has it; otherwise Claude's name, said plainly. Under it, the
+ * genus's other pages, each with its scientific name.
+ */
 function card(r: Result): string {
+  const genus = genusHtml(ct, r, l => `${link(l)}${l.sci ? ` <i class="sci">${escapeHtml(l.sci)}</i>` : ''}`)
   if (r.page) {
     const species = r.species ? `<p class="also">${escapeHtml(ct('Một dòng của'))} ${link(r.species)}</p>` : ''
     const open = own(r.page.url) ? `<a class="open" href="${escapeHtml(own(r.page.url)!)}">${escapeHtml(ct('Xem hồ sơ'))} →</a>` : ''
-    return guessHtml(ct, r, link(r.page), `${species}${open}`)
+    return guessHtml(ct, r, link(r.page), `${species}${open}${genus}`)
   }
-  const genus = r.sameGenus?.length ? `<p class="also">${escapeHtml(ct('Cùng chi, có trong cẩm nang:'))} ${r.sameGenus.map(link).join(', ')}</p>` : ''
   return guessHtml(ct, r, escapeHtml(r.commonName || r.scientificName), `<p class="add">${escapeHtml(ct('Chưa có trong cẩm nang.'))}</p>${genus}`)
 }
 

@@ -10,18 +10,25 @@ export function photoHtml(p: ShownPhoto): string {
   return `<li><a href="${escapeHtml(p.url)}" target="_blank" rel="noopener"><img src="${escapeHtml(p.thumb)}" width="${p.width}" height="${p.height}" alt="${ct('Ảnh của {name}', { name: escapeHtml(p.name) })}" loading="lazy"></a><span>${escapeHtml(p.name)}</span></li>`
 }
 
+/** Part of a photo, in fractions (0–1) of its width and height as shown (turned upright). */
+export type Region = { x: number; y: number; w: number; h: number }
+
 /**
  * Re-encode on the phone before upload: at most 2000 px (or `maxSide`), JPEG. The photo uploads faster, and its EXIF (GPS position,
  * phone model) never leaves the device. Null when the browser can't decode the file: it is then not sent at all.
+ * With `region`, only that part, cut from the full-size photo (the fish-ID tool's "Khoanh một con cá").
  */
-export async function shrink(file: File, maxSide = MAX_SIDE, quality = 0.88): Promise<Blob | null> {
+export async function shrink(file: Blob, maxSide = MAX_SIDE, quality = 0.88, region?: Region): Promise<Blob | null> {
   try {
     const bmp = await createImageBitmap(file)
-    const k = Math.min(1, maxSide / Math.max(bmp.width, bmp.height))
+    const r = region ?? { x: 0, y: 0, w: 1, h: 1 }
+    const sx = Math.round(r.x * bmp.width), sy = Math.round(r.y * bmp.height)
+    const sw = Math.max(1, Math.round(r.w * bmp.width)), sh = Math.max(1, Math.round(r.h * bmp.height))
+    const k = Math.min(1, maxSide / Math.max(sw, sh))
     const c = document.createElement('canvas')
-    c.width = Math.round(bmp.width * k)
-    c.height = Math.round(bmp.height * k)
-    c.getContext('2d')!.drawImage(bmp, 0, 0, c.width, c.height)
+    c.width = Math.round(sw * k)
+    c.height = Math.round(sh * k)
+    c.getContext('2d')!.drawImage(bmp, sx, sy, sw, sh, 0, 0, c.width, c.height)
     bmp.close()
     const out = await new Promise<Blob | null>(r => c.toBlob(r, 'image/jpeg', quality))
     return out

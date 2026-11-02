@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import { buildCatalog, type Catalog, type CatalogEntry } from '../fishid/catalog'
 import type { Guess } from '../fishid/claude'
-import { matchGuesses, plain, sciKey } from '../fishid/match'
+import { matchGuesses, plain, SAME_GENUS_MAX, sciKey } from '../fishid/match'
 import { readAnswer } from '../fishid/claude'
 
 const species = (id: string, sci: string, vi: string): CatalogEntry => ({ id, kind: 'species', sci, name: { vi }, url: { vi: `/vi/ca/${id}/` } })
@@ -106,13 +106,44 @@ test('"koi" names the koi of its own species, never the koi carp or another fish
   expect(pageOf(g('Xiphophorus maculatus', 'Southern platyfish', 'Mickey Mouse'))).toBe('mickey-mouse-platy')
 })
 
-test('hybrids by their trade name; a plain common name is never taken for a breed', () => {
+test('hybrids by their trade name, the species of the genus named offered beside; a plain common name is never taken for a breed', () => {
   const [flower] = matchGuesses([g('Amphilophus hybrid', 'Flowerhorn')], CATALOG, 'vi')
   expect(flower!.page!.id).toBe('flowerhorn-cichlid')
   expect(flower!.species).toBeUndefined()
-  expect(flower!.sameGenus).toBeUndefined()
+  expect(flower!.sameGenus!.map(x => x.id)).toEqual(['amphilophus-citrinellus'])
   expect(pageOf(g('Amphilophus hybrid', 'Blood parrot'))).toBe('blood-parrot-cichlid')
   expect(pageOf(g('Pterophyllum scalare', 'Angelfish'))).toBe('pterophyllum-scalare')
+})
+
+test('a matched guess lists its genus\'s other pages for "not this one?": not the page, not its species, no breeds; capped', () => {
+  const betta = (n: number) => species(`betta-s${n}`, `Betta s${n}`, `Cá betta ${n}`)
+  const c: Catalog = { version: 1, entries: [...CATALOG.entries, betta(1), betta(2), { id: 'betta-x', kind: 'breed', sci: 'Betta x', name: { vi: 'Betta lai' }, url: { vi: '/vi/ca/betta-x/' } }] }
+  const [plainBetta, halfmoon] = matchGuesses([g('Betta splendens', 'Siamese fighting fish'), g('Betta splendens', 'Siamese fighting fish', 'Halfmoon')], c, 'vi')
+  expect(plainBetta!.page!.id).toBe('betta-splendens')
+  expect(plainBetta!.sameGenus!.map(x => x.id)).toEqual(['betta-s1', 'betta-s2'])
+  // A breed: neither it nor the species beside it.
+  expect(halfmoon!.page!.id).toBe('halfmoon-betta')
+  expect(halfmoon!.sameGenus!.map(x => x.id)).toEqual(['betta-s1', 'betta-s2'])
+  // Linked as a match is: id, kind, name, scientific name, address (and photo, when the page has one).
+  expect(plainBetta!.sameGenus![0]).toEqual({ id: 'betta-s1', kind: 'species', name: 'Cá betta 1', sci: 'Betta s1', url: '/vi/ca/betta-s1/' })
+  // Alone in its genus: none.
+  expect(matchGuesses([g('Pterophyllum scalare', 'Angelfish')], c, 'vi')[0]).not.toHaveProperty('sameGenus')
+  // Betta has 59 pages on the live site: the list stops at the cap.
+  const many: Catalog = { version: 1, entries: [species('betta-splendens', 'Betta splendens', 'Cá betta'), ...Array.from({ length: SAME_GENUS_MAX + 10 }, (_, i) => betta(i))] }
+  const [r] = matchGuesses([g('Betta splendens', 'Siamese fighting fish')], many, 'vi')
+  expect(r!.sameGenus).toHaveLength(SAME_GENUS_MAX)
+  expect(r!.sameGenus!.map(x => x.id)).not.toContain('betta-splendens')
+})
+
+test('the genus is the matched page\'s: a guess by a former name lists its page\'s genus-mates', () => {
+  const c: Catalog = { version: 1, entries: [
+    { id: 'hoplisoma-panda', kind: 'species', sci: 'Hoplisoma panda', syn: ['Corydoras panda'], name: { vi: 'Cá chuột panda' }, url: { vi: '/vi/ca/ca-chuot-panda/' } },
+    species('hoplisoma-metae', 'Hoplisoma metae', 'Cá chuột metae'),
+    species('corydoras-aeneus', 'Corydoras aeneus', 'Cá chuột đồng'),
+  ] }
+  const [r] = matchGuesses([g('Corydoras panda', 'Panda cory')], c, 'vi')
+  expect(r!.page!.id).toBe('hoplisoma-panda')
+  expect(r!.sameGenus!.map(x => x.id)).toEqual(['hoplisoma-metae'])
 })
 
 test('no page: the same genus\'s pages, apart; nothing at all for an unknown genus', () => {
