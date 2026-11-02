@@ -125,7 +125,7 @@ struct PutOnTank: View {
           .accessibilityIdentifier("put-tank")
           if target == nil {
             TextField("Tên bể", text: $name, prompt: Text("Bể mới")).accessibilityIdentifier("put-name")
-              .onChange(of: name) { _, v in name = TankFields.capped(v, TankFields.nameMax) }
+              .capped($name, to: TankFields.nameMax)
           }
         }
       }

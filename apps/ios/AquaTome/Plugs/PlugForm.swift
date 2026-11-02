@@ -74,6 +74,7 @@ struct PlugForm: View {
             .accessibilityIdentifier("role-\(o.code)")
             TextField("Tên (không bắt buộc)", text: label(i, d))
               .accessibilityIdentifier("label-\(o.code)")
+              .capped(label(i, d), to: 40)
           }
         }
         if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(.red) }
@@ -112,7 +113,7 @@ struct PlugForm: View {
   }
 
   private func label(_ i: Int, _ d: Device) -> Binding<String> {
-    Binding(get: { (outlets ?? d.outlets)[i].label ?? "" }, set: { v in edit(d) { $0[i].label = TankFields.capped(v, 40) } })
+    Binding(get: { (outlets ?? d.outlets)[i].label ?? "" }, set: { v in edit(d) { $0[i].label = v } })
   }
 
   private func edit(_ d: Device, _ change: (inout [PlugOutlet]) -> Void) {

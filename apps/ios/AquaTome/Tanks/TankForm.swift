@@ -15,7 +15,7 @@ struct TankForm: View {
       Form {
         Section {
           TextField("Ví dụ: Bể 60 phòng khách", text: $f.name).accessibilityIdentifier("name")
-            .onChange(of: f.name) { _, v in f.name = TankFields.capped(v, TankFields.nameMax) }
+            .capped($f.name, to: TankFields.nameMax)
         } header: {
           Text("Tên bể")
         }
@@ -50,7 +50,7 @@ struct TankForm: View {
           TextField("Lịch thay nước, phân bón, CO₂…", text: $f.notes, axis: .vertical)
             .lineLimit(3...8)
             .accessibilityIdentifier("notes-field")
-            .onChange(of: f.notes) { _, v in f.notes = TankFields.capped(v, TankFields.notesMax) }
+            .capped($f.notes, to: TankFields.notesMax)
         } header: {
           Text("Ghi chú")
         }
@@ -83,6 +83,17 @@ struct TankForm: View {
       dismiss()
     } catch {
       failed = true
+    }
+  }
+}
+
+extension View {
+  /// Keeps `text` to `max` characters, cut a moment after a change, once the field shows what was typed. Cut in the
+  /// same update, or in the binding, the field could go on showing more than was kept (typed fast: 81–90 shown, 80 kept).
+  func capped(_ text: Binding<String>, to max: Int) -> some View {
+    onChange(of: text.wrappedValue) { _, v in
+      guard TankFields.capped(v, max) != v else { return }
+      DispatchQueue.main.async { text.wrappedValue = TankFields.capped(text.wrappedValue, max) }
     }
   }
 }
