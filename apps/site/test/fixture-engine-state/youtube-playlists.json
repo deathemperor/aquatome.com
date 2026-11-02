@@ -1,0 +1,4 @@
+[
+  { "id": "PL1", "title": "Basics", "channel": "A channel", "by": "owner", "addedAt": "2026-10-29", "videoIds": ["v1", "v2", "v3", "v4", "v5"] },
+  { "id": "PL2", "title": "Off topic", "channel": "B channel", "by": "search", "addedAt": "2026-10-30", "skip": true, "videoIds": ["v9"] }
+]

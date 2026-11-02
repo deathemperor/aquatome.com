@@ -46,7 +46,7 @@ test('readers: sessions that scrolled half a page or stayed 30 s; sources, top p
 
 test('Analytics Engine IF() needs one type: decimal columns default to 0.0 (an integer 0 is a 422)', async () => {
   const { readFileSync } = await import('node:fs')
-  for (const f of ['../readers.ts', '../admin/fishid.ts']) {
+  for (const f of ['../readers.ts', '../admin/fishid.ts', '../admin/content.ts']) {
     const src = readFileSync(new URL(f, import.meta.url).pathname, 'utf8')
     expect(src, f).not.toMatch(/IF\([^()]*double\d+, 0\)/)
     expect(src, f).not.toMatch(/IF\([^()]*, double\d+\)/)
