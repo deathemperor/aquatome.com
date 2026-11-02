@@ -5,9 +5,12 @@ import type { Guess } from './claude'
 export type Linked = { id: string; kind: CatalogEntry['kind']; name: string; sci?: string; url?: string; img?: string }
 /**
  * A guess with the handbook's pages for it: `page` the breed its variety names, else the species or plant; `species`
- * the species beside a breed; `sameGenus` (only when nothing matched) pages of its genus, never shown as a match.
+ * the species beside a breed; `sameGenus` the genus's other species and plant pages (no breeds), for "not this one?":
+ * a photo often gets the genus right and the species wrong. Never shown as a match.
  */
 export type Result = Guess & { page?: Linked; species?: Linked; sameGenus?: Linked[] }
+/** A genus's pages a guess lists at most (Betta has 59 on the live site, about 11 KB with their photos). */
+export const SAME_GENUS_MAX = 60
 
 const QUALIFIERS = new Set(['cf', 'aff', 'sp', 'spp', 'var', 'subsp', 'ssp', 'x', 'f', 'hybrid'])
 /** "Alternanthera reineckii 'Mini'" → full "alternanthera reineckii mini", binomial "alternanthera reineckii", genus. */
@@ -140,8 +143,13 @@ export function matchGuesses(guesses: Guess[], c: Catalog, lang: Lang): Result[]
     const species = pageFor(ix, g.scientificName)
     const breed = breedFor(ix, g, species)
     const page = breed ?? species
-    if (page) return { ...g, page: link(page, lang), ...(breed && species ? { species: link(species, lang) } : {}) }
-    const genus = (ix.genus.get(sciKey(g.scientificName).genus) ?? []).filter(e => e.kind !== 'breed').slice(0, 3)
-    return genus.length ? { ...g, sameGenus: genus.map(e => link(e, lang)) } : { ...g }
+    // The genus of the page it matched (a synonym or a renamed genus finds the page's own), else of Claude's name.
+    const genus = (ix.genus.get(sciKey(species?.sci ?? page?.sci ?? g.scientificName).genus) ?? []).filter(e => e.kind !== 'breed' && e !== page && e !== species).slice(0, SAME_GENUS_MAX)
+    return {
+      ...g,
+      ...(page ? { page: link(page, lang) } : {}),
+      ...(breed && species ? { species: link(species, lang) } : {}),
+      ...(genus.length ? { sameGenus: genus.map(e => link(e, lang)) } : {}),
+    }
   })
 }

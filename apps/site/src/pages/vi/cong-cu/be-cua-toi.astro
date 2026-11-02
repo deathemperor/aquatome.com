@@ -48,7 +48,15 @@ const { t } = i18n(Astro.url)
           <label class="main"><input class="vh" type="file" name="camera" accept="image/*" capture="environment" /><span>{t('Chụp ảnh')}</span></label>
           <label><input class="vh" type="file" name="file" accept="image/*" /><span>{t('Chọn ảnh có sẵn')}</span></label>
         </div>
-        <div class="preview" data-preview hidden></div>
+        <p class="tip">{t('Mẹo: chuyển đèn bể sang ánh trắng (tắt màu đỏ, hồng) và chụp gần một con cá. Ảnh cả bể thường chỉ nhận ra con nổi bật nhất.')}</p>
+        <div class="preview" data-preview hidden>
+          <div class="frame" data-frame></div>
+          <p class="crop">
+            <button type="button" class="quiet" data-crop>{t('Khoanh một con cá')}</button>
+            <button type="button" class="quiet" data-whole hidden>{t('Dùng cả ảnh')}</button>
+            <span data-crop-say aria-live="polite"></span>
+          </p>
+        </div>
         <div class="slot">
           <div data-turnstile></div>
           <p class="note" data-note></p>
@@ -514,22 +522,39 @@ const { t } = i18n(Astro.url)
   .editor .pick label[aria-disabled='true'] { opacity: 0.55; cursor: not-allowed; }
   /* The file input stays focusable and announced; its label is the visible button. */
   .editor .pick .vh { position: absolute; width: 1px; height: 1px; min-height: 0; padding: 0; border: 0; opacity: 0; overflow: hidden; clip-path: inset(50%); }
-  .preview :global(img) { display: block; max-width: min(100%, 16rem); height: auto; border: 1px solid var(--c-rule); }
+  .preview { display: grid; gap: var(--space-2); justify-items: start; }
+  .preview[hidden] { display: none; }
+  /* The photo; while boxing, it takes the drag (no scrolling or selecting) and dims outside the box. */
+  .frame { position: relative; width: fit-content; max-width: min(100%, 16rem); overflow: hidden; border: 1px solid var(--c-rule); }
+  .frame :global(img) { display: block; width: 100%; height: auto; }
+  .frame.cropping { touch-action: none; user-select: none; -webkit-user-select: none; cursor: crosshair; }
+  .frame :global(.box) { position: absolute; outline: 2px dashed var(--c-paper); box-shadow: 0 0 0 100vmax rgb(0 0 0 / 0.5); pointer-events: none; }
+  .crop { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-3); font-size: 0.9rem; color: var(--c-ink-soft); }
   /* Turnstile's widget (65 px), or a note in its place: the same room either way, so nothing below moves. */
   .slot { min-height: 65px; }
-  .photo-id .note, .photo-id .privacy { color: var(--c-ink-soft); font-size: var(--step--1); }
+  .photo-id .note, .photo-id .privacy, .photo-id .tip { color: var(--c-ink-soft); font-size: var(--step--1); }
   .note:empty, .said:empty, .guesses:empty { display: none; }
   :global(.editor .photo-id button:disabled) { opacity: 0.55; cursor: not-allowed; }
   .said { font-size: 0.9rem; overflow-wrap: anywhere; }
   .guesses :global(.lead) { color: var(--c-ink-soft); max-width: var(--measure); }
   .guesses :global(ol) { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
-  .guesses :global(li) { display: flex; gap: var(--space-3); align-items: flex-start; padding-top: var(--space-3); border-top: 1px solid var(--c-rule); }
-  .guesses :global(li img) { flex: none; width: 6rem; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--c-plate); }
-  .guesses :global(li > div) { min-width: 0; overflow-wrap: anywhere; }
+  .guesses :global(ol > li) { display: flex; gap: var(--space-3); align-items: flex-start; padding-top: var(--space-3); border-top: 1px solid var(--c-rule); }
+  .guesses :global(ol > li > img) { flex: none; width: 6rem; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--c-plate); }
+  .guesses :global(ol > li > div) { min-width: 0; overflow-wrap: anywhere; }
   .guesses :global(h3) { font: 600 var(--step-0) var(--f-body); margin: 0.1rem 0; }
   .guesses :global(.sure) { font-size: var(--step--1); font-weight: 600; color: var(--c-moss); }
   .guesses :global(.add) { color: var(--c-ink-soft); font-size: var(--step--1); }
   .guesses :global(.act) { margin-top: var(--space-2); }
+  /* "Không phải? N loài … khác": the genus's other pages, each a row that adds itself. */
+  .guesses :global(.genus) { margin-top: var(--space-2); }
+  .guesses :global(.genus summary) { padding: 0.65rem 0; cursor: pointer; font-weight: 600; font-size: 0.9rem; color: var(--c-moss); }
+  .guesses :global(.genus summary:focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .guesses :global(.genus ul) { list-style: none; margin: 0; padding: 0; display: grid; }
+  :global(.editor .guesses .sib) { display: flex; align-items: center; gap: var(--space-3); width: 100%; min-height: 44px; padding: 0.35rem 0; border: 0; border-bottom: 1px solid var(--c-rule); border-radius: 0; background: none; color: var(--c-ink); font: 400 0.95rem var(--f-body); text-align: start; cursor: pointer; }
+  :global(.editor .guesses .sib i) { color: var(--c-ink-soft); font-size: 0.85rem; }
+  :global(.editor .guesses .sib .nm) { flex: 1; min-width: 0; }
+  :global(.editor .guesses .sib .tag) { flex: none; font-weight: 600; font-size: 0.85rem; color: var(--c-moss); }
+  :global(.editor .guesses .sib:disabled .tag) { color: var(--c-ink-soft); }
   .life-msg { margin: 0; font-size: 0.9rem; }
   .life-msg:empty { display: none; }
   .err { margin: 0; color: var(--c-cardinal); }

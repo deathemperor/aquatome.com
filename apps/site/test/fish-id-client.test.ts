@@ -1,6 +1,6 @@
 import { expect, test, vi as vitest } from 'vitest'
 import { translator } from '../src/lib/i18n'
-import { errorText, guessHtml, hasGuesses, own, sure, verdictLine, type Answer, type Result } from '../src/scripts/fish-id-client'
+import { errorText, genusHtml, guessHtml, hasGuesses, own, sure, verdictLine, type Answer, type Result } from '../src/scripts/fish-id-client'
 import { guessEntry } from '../src/scripts/life-photo'
 
 // The fish-ID tool's client, shared by its page and the "Bể của tôi" editor (src/scripts/fish-id-client.ts). Its modules
@@ -45,6 +45,19 @@ test('a guess is inert HTML: Claude\'s words are text; only this site\'s pages a
   expect(guessHtml(vi, guess(), 'Tên', '<p>thêm</p>')).toMatch(/^<li class="miss"><div><span class="sure">Gần như chắc chắn<\/span><h3>Tên<\/h3>.*<p>thêm<\/p><\/div><\/li>$/)
   expect(['/vi/ca/x/', '/id/ikan/x/', '/th/fish/x/'].map(own)).toEqual(['/vi/ca/x/', '/id/ikan/x/', '/th/fish/x/'])
   expect(['javascript:alert(1)', '//evil.test/vi/', 'https://evil.test/vi/', '/en/x/', undefined].map(own)).toEqual([undefined, undefined, undefined, undefined, undefined])
+})
+
+test('"not this one?": the genus\'s other pages in a closed list, its genus the matched page\'s, in italics; none without any', () => {
+  const sib = [{ id: 'betta-macrostoma', kind: 'species' as const, name: 'Cá betta Brunei', sci: 'Betta macrostoma', url: '/vi/ca/ca-betta-macrostoma/' }, { id: 'b', name: '<b>x</b>' }]
+  const item = (l: { name: string }) => l.name
+  const matched = genusHtml(vi, guess({ scientificName: 'Betta splendens', page: { id: 'betta-splendens', name: 'Cá betta', sci: 'Betta splendens' }, sameGenus: sib }), item)
+  expect(matched).toMatch(/^<details class="genus"><summary>Không phải\? 2 loài <i>Betta<\/i> khác trong cẩm nang<\/summary><ul><li>Cá betta Brunei<\/li>/)
+  // A former name matched: the list is of the page's genus, and says so.
+  expect(genusHtml(vi, guess({ scientificName: 'Corydoras panda', page: { id: 'p', name: 'Cá chuột panda', sci: 'Hoplisoma panda' }, sameGenus: sib }), item)).toContain('<i>Hoplisoma</i>')
+  expect(genusHtml(vi, guess({ scientificName: 'Betta sp. <x>', sameGenus: sib }), item)).toContain('<summary>2 loài <i>Betta</i> có trong cẩm nang</summary>')
+  expect(genusHtml(translator('id'), guess({ scientificName: 'Betta splendens', page: { id: 'x', name: 'n' }, sameGenus: sib }), item)).toContain('Bukan? 2 spesies <i>Betta</i> lain di panduan')
+  expect(genusHtml(vi, guess({ sameGenus: [] }), item)).toBe('')
+  expect(genusHtml(vi, guess(), item)).toBe('')
 })
 
 test('a guess without a page fills in the "Thêm …" form: fish unless the photo is of a plant, its common name, its scientific name; cut to what the form holds', () => {

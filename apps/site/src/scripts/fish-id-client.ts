@@ -3,7 +3,7 @@ import { escapeHtml, loadTurnstile, type Turnstile } from './comments'
 import { msg } from '../i18n/msg'
 import type { T } from '../lib/i18n'
 import { ct } from './ct'
-import { shrink } from './reader-photos'
+import { shrink, type Region } from './reader-photos'
 
 /**
  * The fish-ID tool's client, wherever a reader sends a photo from: the tool's page (fish-id.ts) and the fish-and-plant
@@ -50,6 +50,23 @@ export function verdictLine(t: T, a: Answer): string {
 /** Whether there are guesses to show. */
 export const hasGuesses = (a: Answer) => a.verdict !== 'other' && a.results.length > 0
 
+const OTHERS = msg('Không phải? {n} loài {genus} khác trong cẩm nang')
+const IN_BOOK = msg('{n} loài {genus} có trong cẩm nang')
+
+/**
+ * Under a guess, its genus's other pages (match.ts `sameGenus`), closed until opened: a photo often gets the genus right
+ * and the species wrong. "Không phải? N loài <Genus> khác…" under a page, "N loài <Genus> có…" under a guess with none.
+ * `item` draws each page: a link on the tool's page, a button in the tank's form.
+ */
+export function genusHtml(t: T, r: Result, item: (l: Linked, i: number) => string): string {
+  const list = r.sameGenus ?? []
+  if (!list.length) return ''
+  // The page's genus, as the Worker picked the list by: a former name's page lists its own genus.
+  const genus = (r.species?.sci ?? r.page?.sci ?? r.scientificName).trim().split(/\s+/)[0] ?? ''
+  const label = escapeHtml(t(r.page ? OTHERS : IN_BOOK, { n: list.length })).replace('{genus}', `<i>${escapeHtml(genus)}</i>`)
+  return `<details class="genus"><summary>${label}</summary><ul>${list.map((l, i) => `<li>${item(l, i)}</li>`).join('')}</ul></details>`
+}
+
 // Only this site's own pages and our media host's photos, whatever the answer holds.
 export const own = (u?: string) => (u && /^\/(vi|id|th)\//.test(u) ? u : undefined)
 const photoSrc = (u?: string) => (u && /^https:\/\//.test(u) ? u : undefined)
@@ -67,13 +84,18 @@ export function guessHtml(t: T, r: Result, name: string, more: string): string {
 }
 
 /**
- * The photo, Turnstile and the request, in `root`: its file inputs (camera and photos), `[data-preview]`,
- * `[data-turnstile]`, `[data-note]` (why it can't be used), `[data-go]` and `[data-msg]` (what it is doing). Asks the
- * Worker first: off (`off`, the caller's words) or resting, the photo can't be picked. `show` gets each answer.
+ * The photo, Turnstile and the request, in `root`: its file inputs (camera and photos), `[data-preview]` (the photo in
+ * `[data-frame]`, with `[data-crop]`, `[data-whole]` and `[data-crop-say]`), `[data-turnstile]`, `[data-note]` (why it
+ * can't be used), `[data-go]` and `[data-msg]` (what it is doing). Asks the Worker first: off (`off`, the caller's words)
+ * or resting, the photo can't be picked. `show` gets each answer.
  */
 export function photoId(root: HTMLElement, o: { off: string; show: (a: Answer) => void; clear: () => void }) {
   const inputs = [...root.querySelectorAll<HTMLInputElement>('input[type=file]')]
   const preview = root.querySelector<HTMLElement>('[data-preview]')!
+  const frame = root.querySelector<HTMLElement>('[data-frame]')!
+  const cropBtn = root.querySelector<HTMLButtonElement>('[data-crop]')!
+  const wholeBtn = root.querySelector<HTMLButtonElement>('[data-whole]')!
+  const cropSay = root.querySelector<HTMLElement>('[data-crop-say]')!
   const note = root.querySelector<HTMLElement>('[data-note]')!
   const go = root.querySelector<HTMLButtonElement>('[data-go]')!
   const say = root.querySelector<HTMLElement>('[data-msg]')!
@@ -84,33 +106,110 @@ export function photoId(root: HTMLElement, o: { off: string; show: (a: Answer) =
   }
 
   let status: Status | null = null
+  /** What "Nhận diện" sends: the whole photo shrunk, or the part the reader boxed. */
   let photo: Blob | null = null
+  /** The photo as picked, full size, and shrunk whole. */
+  let file: Blob | null = null
+  let whole: Blob | null = null
   let token = ''
   let busy = false
   /** Counts resets: an answer to a photo from before one isn't shown. */
   let round = 0
+  /** Counts photos and boxes: a slower shrink of an older one isn't kept. */
+  let cut = 0
   let ts: Turnstile | null = null
   let widget: string | undefined
   const ready = () => { go.disabled = busy || !photo || !token }
 
+  // "Khoanh một con cá": a box dragged on the photo (finger or mouse) sends only that part, cut from the full-size photo
+  // and shrunk as the whole one is. Optional: without it the whole photo goes, as before. Only while boxing does the
+  // photo take the drag, so a phone still scrolls past it otherwise.
+  const box = document.createElement('div')
+  box.className = 'box'
+  box.hidden = true
+  let start: { x: number; y: number } | null = null
+  let drawn: Region | null = null
+  function setCropping(on: boolean) {
+    frame.classList.toggle('cropping', on)
+    cropBtn.hidden = on
+    wholeBtn.hidden = !on
+    cropSay.textContent = on ? ct('Kéo một khung quanh con cá trên ảnh.') : ''
+    box.hidden = true
+    start = drawn = null
+    if (!on && whole && photo !== whole) { cut++; photo = whole; ready() }
+  }
+  const at = (e: PointerEvent) => {
+    const r = frame.getBoundingClientRect()
+    return { x: Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)), y: Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)) }
+  }
+  const show = (g: Region) => {
+    Object.assign(box.style, { left: `${g.x * 100}%`, top: `${g.y * 100}%`, width: `${g.w * 100}%`, height: `${g.h * 100}%` })
+    box.hidden = false
+  }
+  frame.addEventListener('pointerdown', e => {
+    if (!frame.classList.contains('cropping') || !file || e.button > 0) return
+    e.preventDefault()
+    frame.setPointerCapture(e.pointerId)
+    start = at(e)
+  })
+  frame.addEventListener('pointermove', e => {
+    if (!start) return
+    const p = at(e)
+    show({ x: Math.min(start.x, p.x), y: Math.min(start.y, p.y), w: Math.abs(p.x - start.x), h: Math.abs(p.y - start.y) })
+  })
+  const end = async (e: PointerEvent) => {
+    if (!start || !file) return
+    const p = at(e)
+    const g = { x: Math.min(start.x, p.x), y: Math.min(start.y, p.y), w: Math.abs(p.x - start.x), h: Math.abs(p.y - start.y) }
+    start = null
+    const r = frame.getBoundingClientRect()
+    // A tap, or a box too small to hold a fish: the box before it stays.
+    if (g.w * r.width < 16 || g.h * r.height < 16) { if (drawn) show(drawn); else box.hidden = true; return }
+    drawn = g
+    show(g)
+    const mine = ++cut
+    photo = null
+    ready()
+    cropSay.textContent = ct('Đang thu nhỏ ảnh…')
+    const part = await shrink(file, MAX_SIDE, JPEG_QUALITY, g)
+    if (mine !== cut) return
+    photo = part ?? whole
+    cropSay.textContent = part ? ct('Sẽ gửi phần trong khung. Kéo lại để khoanh chỗ khác.') : ct('Trình duyệt không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.')
+    ready()
+  }
+  frame.addEventListener('pointerup', e => void end(e))
+  frame.addEventListener('pointercancel', () => { start = null; if (drawn) show(drawn); else box.hidden = true })
+  cropBtn.addEventListener('click', () => { setCropping(true); wholeBtn.focus() })
+  wholeBtn.addEventListener('click', () => { setCropping(false); cropBtn.focus() })
+
   // Listening from the start: a photo picked while the Worker is still being asked isn't lost.
   for (const input of inputs) input.addEventListener('change', async () => {
-    const file = input.files?.[0]
+    const picked = input.files?.[0]
     input.value = ''
-    if (!file) return
+    if (!picked) return
     o.clear()
+    setCropping(false)
+    const mine = ++cut
+    // Nothing to send or box until the new photo is ready.
+    photo = file = whole = null
     say.textContent = ct('Đang thu nhỏ ảnh…')
-    photo = await shrink(file, MAX_SIDE, JPEG_QUALITY)
-    if (!photo) { preview.hidden = true; say.textContent = ct('Trình duyệt không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.'); ready(); return }
+    ready()
+    const shrunk = await shrink(picked, MAX_SIDE, JPEG_QUALITY)
+    if (mine !== cut) return
+    file = shrunk ? picked : null
+    photo = whole = shrunk
+    if (!shrunk) { preview.hidden = true; say.textContent = ct('Trình duyệt không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.'); ready(); return }
     const img = new Image()
-    img.src = URL.createObjectURL(photo)
+    img.src = URL.createObjectURL(shrunk)
     img.alt = ct('Ảnh bạn chọn')
     img.onload = () => { img.width = img.naturalWidth; img.height = img.naturalHeight }
-    preview.replaceChildren(img)
+    img.draggable = false
+    frame.replaceChildren(img, box)
     preview.hidden = false
     say.textContent = token || !ts ? '' : ct('Đợi bước kiểm tra chống spam xong là bấm được “Nhận diện”.')
     ready()
   })
+
   // A click, not a form's submit: the editor's panel sits inside the tank's form. On the tool's page this is its form's
   // submit button, so pressing Enter clicks it too.
   go.addEventListener('click', async e => {
@@ -156,9 +255,11 @@ export function photoId(root: HTMLElement, o: { off: string; show: (a: Answer) =
     /** No photo and no answer, as before the first: the Turnstile widget and its token stay. */
     reset() {
       round++
-      photo = null
+      setCropping(false)
+      cut++
+      photo = file = whole = null
       preview.hidden = true
-      preview.replaceChildren()
+      frame.replaceChildren()
       say.textContent = ''
       o.clear()
       ready()

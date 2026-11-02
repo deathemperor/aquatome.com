@@ -329,7 +329,7 @@ test('a photo names a fish the handbook has: its page joins the tank as from the
   await open.click()
   await expect(open).toHaveAttribute('aria-expanded', 'true')
   const panel = await photoOf(page)
-  const guesses = panel.locator('[data-out] li')
+  const guesses = panel.locator('[data-out] ol > li')
   await expect(guesses).toHaveCount(2)
   const first = guesses.first()
   await expect(first.locator('.sure')).toHaveText('Gần như chắc chắn')
@@ -358,6 +358,37 @@ test('a photo names a fish the handbook has: its page joins the tank as from the
   const saved = (await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))).tanks[0]
   expect(saved.species).toEqual([{ id: fish.id, count: fish.schoolMin ?? 1 }])
   expect(bodies).toEqual([])
+  expect(errors).toEqual([])
+})
+
+test('"not this one?": a photo\'s guess lists its genus\'s other pages, and picking one adds that page as a guess\'s would', async ({ page, errors }) => {
+  await fakeTurnstile(page)
+  // Three of the handbook's fish, read from the page so it holds live too: the guess, the pick, one on the tank already.
+  const fish = ((await (await page.request.get('/app/vi.json')).json()) as { items: IndexFish[] }).items.filter(i => i.kind === 'fish' && i.id && i.sub)
+  const [guessed, picked, there] = fish as [IndexFish, IndexFish, IndexFish]
+  const linked = (f: IndexFish) => ({ id: f.id, kind: 'species', name: f.name, sci: f.sub, url: f.path })
+  await mockFishId(page, ON, [{ status: 200, body: { verdict: 'fish', model: 'm', results: [
+    { scientificName: guessed.sub, commonName: 'x', variety: null, confidence: 0.6, reason: 'Vây dài.', page: linked(guessed), sameGenus: [linked(picked), linked(there)] },
+  ] } }])
+  await seeded(page, { v: 1, tanks: [{ id: id(1), name: 'Bể', species: [{ id: there.id, count: 1 }], plants: [], createdAt: at, updatedAt: at }], devices: [] })
+  await page.goto(PAGE)
+  await page.locator('.tank [data-edit]').first().click()
+  await page.locator('[data-life-photo-open]').click()
+  const panel = await photoOf(page)
+  const genus = panel.locator('[data-out] ol > li').first().locator('.genus')
+  await expect(genus.locator('summary')).toHaveText(`Không phải? 2 loài ${guessed.sub!.split(' ')[0]} khác trong cẩm nang`)
+  await genus.locator('summary').click()
+  await expect(genus.getByRole('button', { name: `Đã có: ${there.name}`, exact: true })).toBeDisabled()
+  await genus.getByRole('button', { name: `Thêm vào bể: ${picked.name}`, exact: true }).click()
+  const row = page.locator('.life-rows li', { has: page.locator(`a[href="${picked.path}"]`) })
+  await expect(row.locator('input[type=number]')).toHaveValue(String(picked.schoolMin ?? 1))
+  // Ready for the next fish: no photo, no guesses.
+  await expect(panel.locator('[data-out] li')).toHaveCount(0)
+  await expect(panel.locator('[data-preview]')).toBeHidden()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
+  await page.locator('#mt-form button[type=submit]').click()
+  const saved = (await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))).tanks[0]
+  expect(saved.species).toEqual([{ id: there.id, count: 1 }, { id: picked.id, count: picked.schoolMin ?? 1 }])
   expect(errors).toEqual([])
 })
 

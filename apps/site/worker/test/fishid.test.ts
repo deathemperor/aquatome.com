@@ -84,7 +84,7 @@ const deps = (fetch: typeof globalThis.fetch, extra: Partial<FishIdDeps> = {}): 
   return { fetch, random: () => 0, siteverify: async () => true, log: l => { lines.push(l) }, lines, ...extra }
 }
 const run = (req: Request, e: Env, d: FishIdDeps) => handle(req, e, undefined, undefined, d)
-type Body = { verdict?: string; error?: string; refused?: boolean; results?: { scientificName: string; page?: { id: string; url?: string; name: string }; species?: { id: string }; sameGenus?: { id: string }[] }[] }
+type Body = { verdict?: string; error?: string; refused?: boolean; results?: { scientificName: string; page?: { id: string; url?: string; name: string }; species?: { id: string }; sameGenus?: { id: string; url?: string }[] }[] }
 
 test('the keys file: one key per line, its workspace beside it; comments, blank lines and duplicates skipped; bad lines counted, never echoed', async () => {
   const text = `# keys\n\n${A} wrkspc_1\n${B}\n  ${B}  \n${C} # note\nnot a key line at all\nshort\n${A}x wrkspc_1 extra\n`
@@ -107,9 +107,11 @@ test('happy path: the photo goes to Claude with the workspace header for an orga
   expect(r.status).toBe(200)
   const body = (await r.json()) as Body
   expect(body.verdict).toBe('fish')
-  // Sorted by confidence; the neon tetra links its page, the green neon has a genus-mate only, the ember tetra nothing.
+  // Sorted by confidence; the neon tetra links its page with its genus's other page ("not this one?"), the green neon
+  // has genus-mates only, the ember tetra nothing.
   expect(body.results!.map(x => x.scientificName)).toEqual(['Paracheirodon innesi', 'Hyphessobrycon amandae', 'Paracheirodon simulans'])
   expect(body.results![0]!.page).toMatchObject({ id: 'paracheirodon-innesi', url: '/vi/ca/ca-neon-xanh/', name: 'Cá neon xanh' })
+  expect(body.results![0]!.sameGenus).toEqual([{ id: 'paracheirodon-axelrodi', kind: 'species', name: 'Cá neon vua', sci: 'Paracheirodon axelrodi', url: '/vi/ca/ca-neon-vua/' }])
   expect(body.results![1]!.page).toBeUndefined()
   expect(body.results![1]!.sameGenus).toBeUndefined()
   expect(body.results![2]!.page).toBeUndefined()
