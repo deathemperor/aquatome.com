@@ -67,8 +67,8 @@ private func json(_ b: PageDoc.Block) -> [String: Any] {
   case let .figure(img, caption, href): o["img"] = json(img); if !caption.isEmpty { o["caption"] = caption.map(json) }; o["href"] = href
   case let .moments(title, youtubeId, items):
     o["title"] = title; o["youtubeId"] = youtubeId; o["items"] = items.map { ["at": $0.at, "img": json($0.img), "caption": $0.caption] }
-  case let .summary(title, items, mistakes, by):
-    o["title"] = title; o["items"] = items; o["by"] = by
+  case let .summary(title, items, text, mistakes, by):
+    o["title"] = title; o["items"] = items; o["text"] = text; o["by"] = by
     o["mistakes"] = mistakes.map { ["title": $0.title, "items": $0.items] as [String: Any] }
   case let .faq(title, items): o["title"] = title; o["items"] = items.map { ["q": $0.q, "a": $0.a] }
   case let .refs(title, id, items, note): o["title"] = title; o["id"] = id; o["items"] = items.map { ["title": $0.title, "url": $0.url] }; o["note"] = note
@@ -202,6 +202,30 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   let odd = Data(#"{"version":1,"lang":"vi","items":[{"kind":"tool","name":"Đèn Chihiros","path":"/vi/cong-cu/den-chihiros/"}],"pages":"many"}"#.utf8)
   let read = try JSONDecoder().decode(HandbookIndex.self, from: odd)
   #expect(read.pages.isEmpty && read.items.count == 1)
+}
+
+@Test func drawsTheKindsAtOrBelowItsLevelAsTheSitesCasesSay() throws {
+  let levels = cases("levels")
+  #expect(levels.count >= 3)
+  for c in levels {
+    let shards = try JSONDecoder().decode([String: HandbookIndex.Shards].self, from: JSONSerialization.data(withJSONObject: c["shards"]!))
+    #expect(Set(HandbookIndex.drawn(shards, level: c["appLevel"] as! Int).keys) == Set(c["draws"] as! [String]), "\(c["note"]!)")
+  }
+  // This app draws fish, plants and glossary terms: level 2.
+  #expect(PageDoc.level == 2)
+}
+
+@Test func theAppDrawsTheKindsTheIndexGivesItsLevelOrALowerOneAndKeepsTheRestOnTheWeb() throws {
+  // `pages` stays guides only, for apps older than levels; `shards` gives each kind its level.
+  let json = #"{"version":1,"lang":"vi","items":[],"pages":{"guide":32},"shards":{"guide":{"n":32,"level":1},"fish":{"n":128,"level":2},"plant":{"n":"x","level":2},"breed":{"n":8,"level":3}}}"#
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(json.utf8))
+  // A kind it can't read (plant here) is left on the web; one of a later level too.
+  #expect(ix.pages == ["guide": 32, "fish": 128])
+  // The copy kept on the phone reads back the same.
+  #expect(try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(ix)).pages == ix.pages)
+  // A site with levels but none this app knows: nothing drawn, not its frozen `pages`.
+  let later = #"{"version":1,"lang":"vi","items":[],"pages":{"guide":32},"shards":{"guide":{"n":32,"level":9}}}"#
+  #expect(try JSONDecoder().decode(HandbookIndex.self, from: Data(later.utf8)).pages.isEmpty)
 }
 
 @Test func aPagesPicturesAreTheLeadThenEachPhotoAndStillInTheText() throws {

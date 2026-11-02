@@ -1,7 +1,7 @@
 import XCTest
 
 /// A fish's facts above its page (FactsCard.swift), from the handbook's index on the phone: there without the network
-/// (the fixed index; the page below it is a stand-in for the site's).
+/// (the fixed index), and a plant's care.
 final class FactsCardFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -11,7 +11,7 @@ final class FactsCardFlowTests: XCTestCase {
     let card = app.descendants(matching: .any)["facts-card"]
     XCTAssertTrue(card.waitForExistence(timeout: 5), "no facts card")
     let facts = card.descendants(matching: .any).matching(identifier: "fact").allElementsBoundByIndex.map { $0.label }
-    XCTAssertEqual(facts, ["Kích thước, 4 cm", "Nhiệt độ, 20–26°C", "pH, 5–7", "Bể tối thiểu, 60 cm", "Tính cách, Hiền", "Độ khó, Dễ"])
+    XCTAssertEqual(facts, ["Kích thước, 4 cm", "Nhiệt độ, 20–26°C", "pH, 5–7", "Độ cứng (dGH), 1–2", "Bể tối thiểu, 60 cm", "Tính cách, Hiền", "Độ khó, Dễ"])
   }
 
   func testAFishWithoutATemperamentShowsWhatItHas() {
@@ -34,13 +34,14 @@ final class FactsCardFlowTests: XCTestCase {
     XCTAssertTrue(facts.contains("pH, 4,5–6,5"), "\(facts)")
   }
 
-  func testOtherPagesHaveNoCard() {
+  /// A plant's care, as its page lists it, in the index's words: not the temperature the fixed index also has for it.
+  func testAPlantShowsItsCareNotAFishsFigures() {
     let app = launch()
-    open(app, "Rotala") // it has a temperature in the fixed index: no card all the same
-    XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5))
-    // A web view's first start can take a while on a slow runner.
-    XCTAssertTrue(app.webViews.staticTexts["/vi/cay/rotala-do/"].waitForExistence(timeout: 15), "not the stand-in page")
-    XCTAssertFalse(app.descendants(matching: .any)["facts-card"].exists, "a card on a plant")
+    open(app, "Rotala")
+    let card = app.descendants(matching: .any)["facts-card"]
+    XCTAssertTrue(card.waitForExistence(timeout: 5), "no care card")
+    let facts = card.descendants(matching: .any).matching(identifier: "fact").allElementsBoundByIndex.map { $0.label }
+    XCTAssertEqual(facts, ["Độ khó, Trung bình", "Ánh sáng, Mạnh", "CO₂, Tùy chọn", "Tốc độ mọc, Nhanh", "Vị trí, Hậu cảnh"])
   }
 
   // MARK: Helpers

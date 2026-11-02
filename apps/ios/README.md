@@ -4,11 +4,11 @@ The native app: device control (Chihiros lights first) and the handbook. SwiftUI
 
 Three tabs: **Tìm** opens on a home of shelves as the site arranges its pages (fish groups, plants by where they go,
 guides by subject, the video series and video guides, tools, the glossary by letter; fish filtered to a tank, its water and difficulty, plants to its
-light and CO₂, as the site's lists filter them), searches and browses the handbook natively, draws the guides itself from the site's pages as blocks (`/app/pages/`,
+light and CO₂, as the site's lists filter them), searches and browses the handbook natively, draws the guides, fish, plants and glossary terms itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, each photo credited,
 kept on the phone with their pictures, so a guide read once reads offline, and a shelf of guides can be kept for offline at once, asking first on mobile data and not with too little room, stopped with nothing half-kept, the kept pages listed in one place on the Tìm home and let go of there; a part it can't draw opens the web page),
-and opens the other pages of aquatome.com in the app (kept on the phone for reading offline, without ads; fish,
-plants, the glossary and videos become native the same way, tools stay web pages until rebuilt), a fish's facts above its page (size, temperature, pH, the shortest tank,
-temperament, difficulty, from the index on the phone, so offline too), and the pages saved to read later and read last; **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
+and opens the other pages of aquatome.com in the app (kept on the phone for reading offline, without ads; videos
+and the pages they link to become native the same way, tools stay web pages until rebuilt), a fish's facts above its page (size, temperature, pH, hardness, the shortest tank,
+temperament, difficulty) and a plant's care (difficulty, light, CO₂, growth, where it goes), from the index on the phone, so offline too, and the pages saved to read later and read last; **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
 substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; one the handbook has no page for put on by name, marked "chưa có trang" until a page has its scientific name, and sent once, with no account, as a name readers want pages for; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough; and the guides that name them, the video guides apart) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
 schedules written to it (as the site does). A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet

@@ -10,6 +10,10 @@ public struct PageDoc: Sendable {
   /// The format this app reads. A site changes it only when a known block changes meaning; a page of another version is
   /// unreadable, and the app opens it on the web.
   public static let version = 1
+  /// The kinds this app draws itself: those the index's `shards` gives this level or a lower one. Level 1, guides; 2,
+  /// fish, plants and glossary terms, with the blocks added for them. A kind needing a block this app doesn't know gets
+  /// the next level, so the app keeps it on the web instead of offering the web for one part after another.
+  public static let level = 2
 
   /// "guide", "fish", "plant", "glossary", or one a newer site adds.
   public let kind: String
@@ -194,8 +198,9 @@ public struct PageDoc: Sendable {
     case figure(Image, caption: [Run], href: String?)
     /// Stills from the guide's video, each playing it from that moment.
     case moments(title: String, youtubeId: String, items: [Still])
-    /// A guide's key points; a fish's summary (one paragraph), the mistakes keepers make, and who wrote it.
-    case summary(title: String, items: [String], mistakes: (title: String, items: [String])?, by: String?)
+    /// A guide's key points; a fish's summary (`text`, one paragraph; its `items` the same, for older apps), the mistakes
+    /// keepers make, and who wrote it.
+    case summary(title: String, items: [String], text: String?, mistakes: (title: String, items: [String])?, by: String?)
     case faq(title: String, items: [(q: String, a: String)])
     /// The sources the page cites; `id` is the anchor its credit links to. On a fish's or plant's page they're numbered
     /// as the marks in its text, and `note` says on what terms the text uses them.
@@ -286,7 +291,7 @@ public struct PageDoc: Sendable {
         let m = o["mistakes"] as? [String: Any]
         var mistakes: (title: String, items: [String])?
         if let t = m?["title"] as? String, let i = m?["items"] as? [String] { mistakes = (t, i) }
-        self = .summary(title: title, items: items, mistakes: mistakes, by: o["by"] as? String)
+        self = .summary(title: title, items: items, text: o["text"] as? String, mistakes: mistakes, by: o["by"] as? String)
       case "faq":
         let items = each(o["items"]) { i -> (q: String, a: String)? in
           guard let i = i as? [String: Any], let q = i["q"] as? String, let a = i["a"] as? String else { return nil }

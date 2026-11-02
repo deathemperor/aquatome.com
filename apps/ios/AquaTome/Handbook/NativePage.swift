@@ -23,8 +23,23 @@ struct NativePage: View {
     case photo(src: String, ratio: CGFloat, alt: String?, caption: AttributedString, href: URL?, play: Bool = false)
     /// Other pages the index lists, each opening in the app.
     case pages(String, [String])
+    /// Other pages as cards drawn from what they carry (tank-mates, breeds), each opening in the app, or else on the web;
+    /// under a subheading (tank-mates' "Hợp với") or none (the section's heading is its own piece).
+    case cards(String?, [Card])
+    /// A gallery's row of photos, each credited; tapped, all of its photos, full size.
+    case gallery(title: String, note: String, photos: [PageDoc.Image], strip: [Int])
+    /// Text shown once its title is tapped (the sources behind each figure).
+    case more(String, AttributedString)
     /// A part the app can't draw: the web page instead.
     case web
+  }
+
+  /// A card for another page: `sub`, the line under its name (a breed's kind, why to keep a fish away).
+  struct Card {
+    let path: String
+    let name: String
+    let sub: String?
+    let img: PageDoc.Image?
   }
 
   var body: some View {
@@ -74,6 +89,39 @@ struct NativePage: View {
       }
     case let .pages(title, paths):
       PagesBlock(title: title, paths: paths)
+    case let .cards(title, cards):
+      VStack(alignment: .leading, spacing: 8) {
+        if let title { Text(title).font(.headline).accessibilityAddTraits(.isHeader) }
+        ForEach(cards.indices, id: \.self) { j in
+          let c = cards[j]
+          Button { if let u = URL(string: c.path) { _ = open(u, nil) } } label: {
+            HStack(spacing: 12) {
+              if let img = c.img { PageImage(src: img.thumb ?? img.src, ratio: CGFloat(img.w) / CGFloat(img.h)).frame(width: 72) }
+              VStack(alignment: .leading, spacing: 2) {
+                Text(c.name).font(.body.weight(.semibold))
+                if let sub = c.sub { Text(sub).font(.subheadline).foregroundStyle(.secondary) }
+                if let credit = c.img?.credit { Text(verbatim: "\(credit.text) · \(credit.licence)").font(.caption2).foregroundStyle(.secondary) }
+              }
+              Spacer(minLength: 0)
+              Image(systemName: "chevron.right").font(.footnote).foregroundStyle(.tertiary)
+            }
+            .contentShape(.rect)
+          }
+          .buttonStyle(.plain)
+          // The photo's own page, as its credit links it on the site.
+          .contextMenu { if let u = c.img?.credit?.url.flatMap(URL.init(string:)) { Link("Nguồn ảnh", destination: u) } }
+          .accessibilityIdentifier("card")
+        }
+      }
+    case let .gallery(title, note, photos, strip):
+      GalleryRow(title: title, note: note, photos: photos, strip: strip)
+    case let .more(title, text):
+      DisclosureGroup {
+        Text(text).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 6)
+      } label: {
+        Text(title).font(.headline)
+      }
+      .accessibilityIdentifier("page-more")
     case .web:
       Button(action: web) { Label("Xem phần này trên web", systemImage: "safari") }
         .buttonStyle(.bordered)
@@ -107,8 +155,10 @@ struct NativePage: View {
   static func pieces(_ doc: PageDoc) -> [Piece] {
     var out: [Piece] = []
     if let meta = doc.meta { out.append(.text(styled(meta, .subheadline, secondary: true))) }
+    if !doc.where.isEmpty { out.append(.text(styled(doc.where, font: .subheadline))) }
     out.append(.text(styled(doc.title, .title.bold()), header: true))
     if let sub = doc.sub { out.append(.text(styled(sub, .body.italic(), secondary: true))) }
+    if let aka = doc.aka { out.append(.text(styled(aka, .footnote, secondary: true))) }
     if !doc.credit.isEmpty { out.append(.text(styled(doc.credit, font: .footnote))) }
     if let v = doc.video {
       var cap = styled("\(v.title) · \(v.channel) · \(clock(v.durationSec))")
@@ -153,13 +203,17 @@ struct NativePage: View {
         out.append(.photo(src: s.img.src, ratio: CGFloat(s.img.w) / CGFloat(s.img.h), alt: s.img.alt, caption: styled("\(clock(s.at)) · \(s.caption)"),
                           href: youtube(id, at: s.at), play: true))
       }
-    case let .summary(title, items, _, _):
+    case let .summary(title, items, paragraph, mistakes, by):
       out.append(.text(styled(title, .headline), header: true))
-      out.append(.text(styled(items.map { "• " + $0 }.joined(separator: "\n")), boxed: true))
+      // A guide's key points as a list; a fish's summary, one paragraph, as it is.
+      var text = paragraph.map { styled($0) } ?? styled(items.map { "• " + $0 }.joined(separator: "\n"))
+      if let m = mistakes { text += styled("\n\n" + m.title, .body.bold()) + styled(m.items.map { "\n• " + $0 }.joined()) }
+      if let by { text += styled("\n\n" + by, .footnote, secondary: true) }
+      out.append(.text(text, boxed: true))
     case let .faq(title, items):
       out.append(.text(styled(title, .title3.bold()), header: true))
       for qa in items { out.append(.text(styled(qa.q, .body.bold()) + styled("\n" + qa.a))) }
-    case let .refs(title, id, items, _):
+    case let .refs(title, id, items, note):
       out.append(.text(styled(title, .title3.bold()), anchor: id, header: true))
       var text = AttributedString()
       for (i, r) in items.enumerated() {
@@ -167,11 +221,49 @@ struct NativePage: View {
         line.link = URL(string: r.url)
         text += line
       }
+      // On what terms the text uses them.
+      if let note { text += styled("\n\n" + note, .footnote, secondary: true) }
       out.append(.text(text))
     case let .pages(title, paths):
       out.append(.pages(title, paths))
-    case .web, .gallery, .trust, .mates, .climate, .cards, .videos:
+    case .web:
       out.append(.web)
+    case let .gallery(title, note, photos, strip, _):
+      // No row on the page (too few photos for one): none here either.
+      if !strip.isEmpty { out.append(.gallery(title: title, note: note, photos: photos, strip: strip)) }
+    case let .trust(title, legend, rows):
+      var text = AttributedString()
+      if let legend, rows.contains(where: \.conflict) { text += styled("● " + legend + "\n\n", .footnote, secondary: true) }
+      for (i, r) in rows.enumerated() {
+        text += styled((i > 0 ? "\n\n" : "") + r.label + (r.conflict ? " ●" : ""), .subheadline.bold())
+        if let note = r.note { text += styled("\n" + note, .footnote, secondary: true) }
+        text += styled(r.items.map { "\n" + $0 }.joined(), .subheadline)
+      }
+      out.append(.more(title, text))
+    case let .mates(m):
+      out.append(.text(styled(m.title, .title3.bold()), header: true))
+      for g in [m.good, m.avoid].compactMap({ $0 }) where !g.items.isEmpty {
+        out.append(.cards(g.title, g.items.map { Card(path: $0.path, name: $0.name, sub: $0.why, img: $0.img) }))
+      }
+      let text = m.note.map { styled($0 + "\n", .footnote, secondary: true) } ?? AttributedString()
+      var tool = AttributedString(m.tool.text)
+      tool.link = URL(string: m.tool.href)
+      out.append(.text(text + tool))
+    case let .climate(title, items, note):
+      out.append(.text(styled(title, .title3.bold()), header: true))
+      var text = AttributedString()
+      for (i, it) in items.enumerated() { text += styled((i > 0 ? "\n" : "") + (it.ok ? "✓ " : "⚠︎ ") + it.label + ": ", .body.bold()) + styled(it.text) }
+      out.append(.text(text + styled("\n\n" + note, .footnote, secondary: true), boxed: true))
+    case let .cards(title, items):
+      out.append(.text(styled(title, .title3.bold()), header: true))
+      out.append(.cards(nil, items.map { Card(path: $0.path, name: $0.name, sub: $0.sub, img: $0.img) }))
+    case let .videos(title, items):
+      out.append(.text(styled(title, .title3.bold()), header: true))
+      for v in items {
+        let length = v.durationSec > 0 ? " · \(clock(v.durationSec))" : ""
+        out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"),
+                          caption: styled("\(v.title)\(length) · \(v.lang)"), href: youtube(v.youtubeId, at: 0), play: true))
+      }
     }
   }
 
@@ -284,6 +376,85 @@ private struct PagesBlock: View {
         // As in a list of results: a tool opens its tab (AppScreen), a page pushes on this one.
         ForEach(items) { item in Row(item: item, chevron: true).buttonStyle(.plain) }
       }
+    }
+  }
+}
+
+/// A gallery's row on its page: its photos as the site's row shows them, each with its credit; tapped, every photo of the
+/// gallery full size, credited, in the gallery page's order.
+private struct GalleryRow: View {
+  let title: String
+  let note: String
+  let photos: [PageDoc.Image]
+  let strip: [Int]
+  @State private var shown: Int?
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 8) {
+      Text(title).font(.title3.bold()).accessibilityAddTraits(.isHeader)
+      ScrollView(.horizontal, showsIndicators: false) {
+        HStack(alignment: .top, spacing: 10) {
+          ForEach(strip, id: \.self) { i in
+            let p = photos[i]
+            let ratio = CGFloat(p.w) / CGFloat(p.h)
+            Button { shown = i } label: {
+              VStack(alignment: .leading, spacing: 2) {
+                PageImage(src: p.thumb ?? p.src, ratio: ratio, alt: p.alt).frame(height: 120)
+                if let c = p.credit { Text(verbatim: "\(c.text) · \(c.licence)").font(.caption2).foregroundStyle(.secondary).lineLimit(1) }
+              }
+              .frame(width: 120 * ratio)
+            }
+            .buttonStyle(.plain)
+          }
+        }
+      }
+      Button("Xem tất cả \(photos.count) ảnh") { shown = strip.first ?? 0 }
+        .accessibilityIdentifier("gallery-all")
+    }
+    .sheet(isPresented: Binding(get: { shown != nil }, set: { if !$0 { shown = nil } })) {
+      GalleryViewer(title: title, note: note, photos: photos, index: shown ?? 0)
+    }
+  }
+}
+
+/// Every photo of a gallery, one at a time, each with who took it, its licence and its own page.
+private struct GalleryViewer: View {
+  let title: String
+  let note: String
+  let photos: [PageDoc.Image]
+  @State var index: Int
+  @Environment(\.dismiss) private var dismiss
+
+  var body: some View {
+    NavigationStack {
+      TabView(selection: $index) {
+        ForEach(photos.indices, id: \.self) { i in
+          let p = photos[i]
+          ScrollView {
+            VStack(alignment: .leading, spacing: 8) {
+              PageImage(src: p.src, ratio: CGFloat(p.w) / CGFloat(p.h), alt: p.alt)
+              if let alt = p.alt, !alt.isEmpty { Text(alt).font(.subheadline) }
+              if let c = p.credit {
+                if let u = c.url.flatMap(URL.init(string:)) {
+                  Link(destination: u) { Text(verbatim: "\(c.text) · \(c.licence)") }.font(.footnote)
+                } else {
+                  Text(verbatim: "\(c.text) · \(c.licence)").font(.footnote).foregroundStyle(.secondary)
+                }
+              }
+            }
+            .padding()
+          }
+          .tag(i)
+        }
+      }
+      .tabViewStyle(.page(indexDisplayMode: .never))
+      .safeAreaInset(edge: .bottom) {
+        Text(verbatim: "\(index + 1)/\(photos.count) · \(note)").font(.caption).foregroundStyle(.secondary).padding(8).frame(maxWidth: .infinity).background(.bar)
+      }
+      .navigationTitle(title)
+      .navigationBarTitleDisplayMode(.inline)
+      .toolbar { Button("Đóng") { dismiss() } }
+      .accessibilityIdentifier("gallery")
     }
   }
 }

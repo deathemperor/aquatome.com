@@ -64,6 +64,8 @@ struct PageView: View {
         VStack(spacing: 0) {
           // A fish's facts, from the index on the phone: there offline, with or without the page.
           if item.kind == .fish, item.facts.any { FactsCard(facts: item.facts) }
+          // A plant's care, as its page lists it: not a temperature the index may also have for it.
+          if item.kind == .plant, let plant = item.plant, plant.any { FactsCard(facts: .init(), plant: plant) }
           if offline || failed {
             Text(failed ? "Không tải được trang. Kiểm tra kết nối mạng." : "Đang xem bản đã lưu (ngoại tuyến).")
               .font(.footnote)

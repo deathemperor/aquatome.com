@@ -173,10 +173,14 @@ final class HandbookFlowTests: XCTestCase {
     let app = launch()
     item(app, "Cá neon").tap()
     XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5))
-    XCTAssertTrue(app.descendants(matching: .any)["page"].exists)
-    // The site's page stood in for, naming its path: no test reaches aquatome.com. A web view's first start can take a
-    // while on a slow runner.
-    XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-neon/"].waitForExistence(timeout: 15), "not the stand-in page")
+    // The site writes the neon's page as blocks: the app draws it.
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "not drawn by the app")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    // The discus has no copy among them: its web page, stood in for, naming its path (no test reaches aquatome.com). A web
+    // view's first start can take a while on a slow runner.
+    item(app, "Cá đĩa").tap()
+    XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5), "not the web page")
+    XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-dia/"].waitForExistence(timeout: 15), "not the stand-in page")
   }
 
   // MARK: Helpers

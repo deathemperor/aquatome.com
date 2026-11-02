@@ -18,9 +18,14 @@ extension HandbookIndex.Facts {
 
   /// Whether the card has anything to show: a figure, or a temperament the site names.
   public var any: Bool {
-    sizeCm != nil || tempC != nil || ph != nil || tankCm != nil || difficulty != nil || Self.temperaments.contains(temperament ?? "")
+    sizeCm != nil || tempC != nil || ph != nil || gh != nil || tankCm != nil || difficulty != nil || Self.temperaments.contains(temperament ?? "")
   }
 
   /// The temperaments the site names (TEMPERAMENT_LABELS); another is left out of the card.
   public static let temperaments = ["peaceful", "semi-aggressive", "aggressive", "predator"]
+}
+
+extension HandbookIndex.Plant {
+  /// Whether a plant's card has anything to show.
+  public var any: Bool { difficulty != nil || light != nil || co2 != nil || growth != nil || !placement.isEmpty }
 }
