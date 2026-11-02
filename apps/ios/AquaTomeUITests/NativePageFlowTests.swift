@@ -311,16 +311,19 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "not on the tanks tab")
   }
 
-  /// The tank-mates tool, set to this fish by the page's link: its web page in the app, fish and all (not the tool left
-  /// empty, nor the browser).
+  /// The tank-mates tool, set to this fish by the page's link: the app's own screen (TankMatesView), with the fish at the
+  /// link's number (not the web page, nor the tool left empty).
   func testTheTankMatesToolOpensSetToTheFish() {
     let app = launch()
     openItem(app, "ca neon", "Cá neon")
     let tool = app.links["Kiểm tra nuôi chung với loài khác →"].firstMatch
     reveal(app, tool)
     tool.tap()
-    XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5), "not the web page in the app")
-    XCTAssertTrue(app.webViews.staticTexts["/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"].waitForExistence(timeout: 15), "the tool, not set to the fish")
+    XCTAssertTrue(app.navigationBars["Kiểm tra nuôi chung"].waitForExistence(timeout: 5), "not the app's tool")
+    XCTAssertEqual(app.webViews.count, 0, "the web page opened")
+    let count = app.textFields["mate-count"]
+    XCTAssertEqual(count.label, "Số con Cá neon", "the tool, not set to the fish")
+    XCTAssertEqual(count.value as? String, "6", "not the link's number")
   }
 
   /// A breed the index leaves out (the app can't draw it): its web page, in the app, not the browser.

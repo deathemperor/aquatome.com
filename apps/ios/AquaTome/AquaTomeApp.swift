@@ -107,6 +107,8 @@ struct AquaTomeApp: App {
       push(Browse.fish(group))
     case .tankVolume(let query):
       push(VolumeTool(query: query))
+    case .tankMates(let query):
+      push(TankMatesTool(query: query))
     }
   }
 
