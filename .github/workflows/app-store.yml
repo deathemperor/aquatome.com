@@ -58,7 +58,8 @@ jobs:
         if: always()
         run: rm -f "$RUNNER_TEMP/asc.p8"
   shots:
-    name: "${{ inputs.apply && 'iOS app: App Store screenshots, written to App Store Connect' || 'iOS app: App Store screenshots' }}"
+    # A plain name: one with an expression reads as the expression itself on a pull request, where the job is skipped.
+    name: "iOS app: App Store screenshots, and the listing written when asked"
     if: github.event_name == 'workflow_dispatch'
     runs-on: macos-26
     timeout-minutes: 150
