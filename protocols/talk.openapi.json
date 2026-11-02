@@ -1,0 +1,547 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AquaTome readers' comments and photos",
+    "version": "1.0.0",
+    "description": "A page's readers' comments and readers' photos, read and posted by the site's pages and the iOS app (apps/site/worker/comments, apps/site/worker/photos).\n\nKeys: a page's `e` is its section's `data-entity`, which the app's copy of the page carries as `talk` (protocols/page.schema.json; apps/site/src/lib/talk.ts). Comments have one discussion per language (`species:x` on /vi/, `id:species:x` on /id/); readers' photos are shared by every language.\n\nReading (GET) is public: no Origin, no session, cached for a minute.\n\nPosting (POST) comes one of two ways:\n- The site's page: same-origin (`Origin`), with a Turnstile `token`.\n- The app: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), checked as GET /api/v1/session checks it. No Origin and no Turnstile. A bearer that is present but missing, expired or signed out is `401 {error: \"session\"}`, even with a `token` too: it never falls back to the page's way.\n\nLimits stack: every post counts against its address's daily limit, and an app post against its account's too (5 comments and 5 photos a day each). Past the limit, a comment is held for moderation (201, `held`) and a photo is refused (429 `rate`). While `verification` is `phone`, the page's way is refused (403 `verification_required`) and a signed-in account counts as verified.\n\nAn app post belongs to its account: deleting the account deletes its posts.\n\nErrors are `{error}`; the app shows each with the site's own words for it (apps/site/src/scripts/comments.ts, reader-photos.ts)."
+  },
+  "paths": {
+    "/_c": {
+      "get": {
+        "summary": "A page's approved comments, oldest first (up to 200)",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CommentsKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Its comments; `sitekey` and `verification` are for the page's form.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comments"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: comments_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Post a comment on a page",
+        "security": [
+          {
+            "bearer": []
+          },
+          {}
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewComment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Posted: shown at once (`approved`, with the comment as it shows) or held for moderation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Posted"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad entity | name must be 1–40 characters | comment must be 2–2000 characters | a content rule's reason",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: session (the app's bearer is missing, expired or signed out)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross-origin | turnstile | verification_required (the page's way)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Error: too large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: comments_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/_p": {
+      "get": {
+        "summary": "A page's approved readers' photos, newest first (up to 60)",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PhotosKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Its readers' photos; `sitekey` and `verification` are for the page's form.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Photos"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: photos_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Send a reader's photo of a page's species, for moderation",
+        "security": [
+          {
+            "bearer": []
+          },
+          {}
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPhoto"
+              },
+              "encoding": {
+                "file": {
+                  "contentType": "image/jpeg, image/png, image/webp"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Received, to be moderated before it shows.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sent"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad form | bad entity | bad name | consent | no file",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: session (the app's bearer is missing, expired or signed out)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross-origin | turnstile | verification_required (the page's way)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Error: too large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Error: not an image",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: photos_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "The app: the token from a sign-in with client \"app\" (protocols/accounts.openapi.json)."
+      }
+    },
+    "parameters": {
+      "CommentsKey": {
+        "name": "e",
+        "in": "query",
+        "required": true,
+        "description": "The page's comments key (`talk.comments`).",
+        "schema": {
+          "type": "string",
+          "pattern": "^(?:(?:id|th):)?(species|breed|plant|guide):[A-Za-z0-9_-]{1,140}$"
+        }
+      },
+      "PhotosKey": {
+        "name": "e",
+        "in": "query",
+        "required": true,
+        "description": "The page's readers' photos key (`talk.photos`).",
+        "schema": {
+          "type": "string",
+          "pattern": "^(species|breed):[a-z0-9-]{1,140}$"
+        }
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "Comment": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "body",
+          "helpful",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string",
+            "description": "Plain text, paragraphs apart by a blank line: shown as text, a link in it included."
+          },
+          "helpful": {
+            "type": "boolean",
+            "description": "Marked \"Trả lời hay\"."
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "ISO 8601 (toISOString)."
+          }
+        }
+      },
+      "Photo": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "url",
+          "thumb",
+          "width",
+          "height",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "The reader's name: the photo's credit."
+          },
+          "url": {
+            "type": "string"
+          },
+          "thumb": {
+            "type": "string"
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "ISO 8601 (toISOString)."
+          }
+        }
+      },
+      "Verification": {
+        "type": "string",
+        "enum": [
+          "none",
+          "phone"
+        ]
+      },
+      "Comments": {
+        "type": "object",
+        "required": [
+          "comments",
+          "sitekey",
+          "verification"
+        ],
+        "properties": {
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "sitekey": {
+            "type": "string"
+          },
+          "verification": {
+            "$ref": "#/components/schemas/Verification"
+          }
+        }
+      },
+      "Photos": {
+        "type": "object",
+        "required": [
+          "photos",
+          "sitekey",
+          "verification"
+        ],
+        "properties": {
+          "photos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Photo"
+            }
+          },
+          "sitekey": {
+            "type": "string"
+          },
+          "verification": {
+            "$ref": "#/components/schemas/Verification"
+          }
+        }
+      },
+      "NewComment": {
+        "type": "object",
+        "required": [
+          "e",
+          "name",
+          "body"
+        ],
+        "properties": {
+          "e": {
+            "type": "string",
+            "description": "The page's comments key."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "body": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2000
+          },
+          "token": {
+            "type": "string",
+            "description": "The page's way: its Turnstile token. The app sends none."
+          }
+        }
+      },
+      "Posted": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "approved",
+              "held"
+            ]
+          },
+          "comment": {
+            "$ref": "#/components/schemas/Comment",
+            "description": "With `approved`: the comment as it shows."
+          }
+        }
+      },
+      "NewPhoto": {
+        "type": "object",
+        "required": [
+          "e",
+          "name",
+          "file",
+          "consent"
+        ],
+        "properties": {
+          "e": {
+            "type": "string",
+            "description": "The page's readers' photos key."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "file": {
+            "type": "string",
+            "description": "JPEG, PNG or WebP, at most 8 MB; the sender strips its location and camera data and shrinks it first.",
+            "contentEncoding": "binary"
+          },
+          "consent": {
+            "type": "string",
+            "const": "1",
+            "description": "The reader took the photo and agrees to its being shown with their name."
+          },
+          "token": {
+            "type": "string",
+            "description": "The page's way: its Turnstile token. The app sends none."
+          }
+        }
+      },
+      "Sent": {
+        "type": "object",
+        "required": [
+          "status",
+          "id",
+          "deleteUrl"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "pending"
+          },
+          "id": {
+            "type": "string"
+          },
+          "deleteUrl": {
+            "type": "string",
+            "description": "Where the sender can take the photo back."
+          }
+        }
+      }
+    }
+  }
+}
