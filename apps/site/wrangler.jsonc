@@ -22,7 +22,8 @@
   "durable_objects": { "bindings": [{ "name": "FISHID_RELAY", "class_name": "FishIdRelay" }] },
   "migrations": [{ "tag": "v1-fishid-relay", "new_sqlite_classes": ["FishIdRelay"] }],
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
-  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],
+  // Readers' beacon events (worker/events.ts); every fish-ID request's outcome, tokens and cost (worker/fishid/log.ts).
+  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }],
   "triggers": { "crons": ["17 20 * * *"] },
   "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com"] }],
   "vars": {

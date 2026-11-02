@@ -50,7 +50,7 @@ export function initPhoto(panel: HTMLElement, o: {
     const line = verdictLine(ct, answer)
     out.innerHTML = `${line ? `<p class="lead">${escapeHtml(line)}</p>` : ''}${hasGuesses(answer) ? `<ol>${answer.results.map(card).join('')}</ol>` : ''}`
   }
-  const tool = photoId(panel, { off: o.off, show: a => { answer = a; draw() }, clear: () => { answer = undefined; draw() } })
+  const tool = photoId(panel, { from: 'tank', off: o.off, show: a => { answer = a; draw() }, clear: () => { answer = undefined; draw() } })
 
   out.addEventListener('click', e => {
     const b = (e.target as Element).closest<HTMLButtonElement>('[data-guess], [data-sib]')

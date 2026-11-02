@@ -87,9 +87,10 @@ export function guessHtml(t: T, r: Result, name: string, more: string): string {
  * The photo, Turnstile and the request, in `root`: its file inputs (camera and photos), `[data-preview]` (the photo in
  * `[data-frame]`, with `[data-crop]`, `[data-whole]` and `[data-crop-say]`), `[data-turnstile]`, `[data-note]` (why it
  * can't be used), `[data-go]` and `[data-msg]` (what it is doing). Asks the Worker first: off (`off`, the caller's words)
- * or resting, the photo can't be picked. `show` gets each answer.
+ * or resting, the photo can't be picked. `show` gets each answer. `from` tells the Worker's log where the photo was sent
+ * from.
  */
-export function photoId(root: HTMLElement, o: { off: string; show: (a: Answer) => void; clear: () => void }) {
+export function photoId(root: HTMLElement, o: { from: 'page' | 'tank'; off: string; show: (a: Answer) => void; clear: () => void }) {
   const inputs = [...root.querySelectorAll<HTMLInputElement>('input[type=file]')]
   const preview = root.querySelector<HTMLElement>('[data-preview]')!
   const frame = root.querySelector<HTMLElement>('[data-frame]')!
@@ -224,6 +225,7 @@ export function photoId(root: HTMLElement, o: { off: string; show: (a: Answer) =
     body.set('file', photo, 'photo.jpg')
     body.set('token', token)
     body.set('lang', document.documentElement.lang.slice(0, 2))
+    body.set('from', o.from)
     const r = await fetch('/api/fish-id', { method: 'POST', body }).catch(() => null)
     const data = (await r?.json().catch(() => null)) as (Answer & { error?: string; limit?: number }) | null
     // A Turnstile token is good for one request.

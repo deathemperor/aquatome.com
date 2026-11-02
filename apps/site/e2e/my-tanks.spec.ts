@@ -338,6 +338,7 @@ test('a photo names a fish the handbook has: its page joins the tank as from the
   await expect(guesses.nth(1)).toContainText('Chưa có trong cẩm nang.')
   expect(sent[0]).toContain('Content-Type: image/jpeg')
   expect(sent[0]).toContain('token-1')
+  expect(sent[0]).toMatch(/name="from"\r\n\r\ntank/)
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
 
   await first.getByRole('button', { name: `Thêm vào bể: ${fish.name}` }).click()

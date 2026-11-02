@@ -60,16 +60,26 @@ function kv() {
     } as unknown as KVNamespace,
   }
 }
+type Point = { blobs: string[]; doubles: number[]; indexes: string[] }
 function env(extra: Record<string, string | undefined> = {}) {
   const store = kv()
+  // Every test writes the Analytics Engine log, so a branch that throws while logging fails its own test.
+  const points: Point[] = []
   const e = {
+    FISHID_LOG: { writeDataPoint: (p: Point) => { points.push(p) } },
     ASSETS: { fetch: async (r: Request) => (new URL(r.url).pathname === '/app/fish-id.json' ? Response.json(CATALOG) : new Response('nope', { status: 404 })) },
     AB: store.ns,
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'site-key', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: 'tok',
     ANTHROPIC_KEYS: KEYS,
     ...extra,
   } as unknown as Env
-  return { e, kv: store.m }
+  return { e, kv: store.m, points }
+}
+/** A data point by name, as worker/fishid/log.ts lays it out. */
+const fields = (p: Point) => {
+  const [outcome, model, key, verdict, top, page, lang, from, country] = p.blobs
+  const [input, output, cost, ms, attempts, confidence, guesses] = p.doubles
+  return { outcome, model, key, verdict, top, page, lang, from, country, input, output, cost, ms, attempts, confidence, guesses, index: p.indexes[0] }
 }
 
 const post = (file: Blob = new Blob([JPEG]), fields: Record<string, string> = { token: 't', lang: 'vi' }, headers: Record<string, string> = {}) => {
@@ -374,6 +384,88 @@ test('off without the keys, or with none readable: the page is told it is off; a
   expect(await (await run(new Request('https://x.test/api/fish-id'), env({ TURNSTILE_SECRET: undefined }).e, deps(fake.fetch))).json()).toEqual({ on: false })
   expect((await run(post(), env({ COMMENT_HMAC_KEY: undefined }).e, deps(fake.fetch))).status).toBe(503)
   expect(fake.calls).toHaveLength(0)
+})
+
+test('every POST writes one Analytics Engine point: outcome, model, key hash, tokens, cost, the top guess and its page; never the photo, a key, the IP, the token or a cookie', async () => {
+  const { e, points } = env()
+  const fake = claude({})
+  const token = 'turnstile-token-0123456789'
+  const r = await run(post(undefined, { token, lang: 'vi', from: 'page' }, { cookie: 'aq_session=cookie-value-42' }), e, deps(fake.fetch))
+  expect(r.status).toBe(200)
+  expect(points).toHaveLength(1)
+  const ok = fields(points[0]!)
+  // Opus 5.5 at $4 / $20 per million: 1,500 in and 120 out.
+  expect(ok).toMatchObject({ outcome: 'ok', index: 'ok', model: 'claude-opus-5-5', key: await keyHash(A), verdict: 'fish', top: 'Paracheirodon innesi', page: 'paracheirodon-innesi', lang: 'vi', from: 'page', country: '', input: 1500, output: 120, attempts: 1, confidence: 0.92, guesses: 3 })
+  expect(ok.cost).toBeCloseTo(0.0084, 10)
+  expect(ok.ms).toBeGreaterThanOrEqual(0)
+  const logged = JSON.stringify(points)
+  for (const secret of [A, B, C, 'wrkspc_orgA', '203.0.113.7', token, 'cookie-value-42', btoa(String.fromCharCode(...JPEG))]) expect(logged).not.toContain(secret)
+
+  // Refused by Claude: paid for, no verdict. The tank's editor says where it came from; an unknown source is ''.
+  const refused = claude({ [A]: () => message('I can\'t help with that.', 'refusal') })
+  const r2 = env()
+  await run(post(undefined, { token: 't', lang: 'th', from: 'tank' }), r2.e, deps(refused.fetch))
+  expect(fields(r2.points[0]!)).toMatchObject({ outcome: 'refused', verdict: '', top: '', page: '', lang: 'th', from: 'tank', input: 1500, output: 120, attempts: 1 })
+  expect(fields(r2.points[0]!).cost).toBeGreaterThan(0)
+  const u = env()
+  await run(post(undefined, { token: 't', lang: 'vi', from: 'somewhere-else' }), u.e, deps(fake.fetch))
+  expect(fields(u.points[0]!).from).toBe('')
+
+  // A guess with no page: the page is ''.
+  const ember = claude({ [A]: () => message({ verdict: 'fish', guesses: [NEON.guesses[2]] }) })
+  const m = env()
+  await run(post(), m.e, deps(ember.fetch))
+  expect(fields(m.points[0]!)).toMatchObject({ outcome: 'ok', top: 'Hyphessobrycon amandae', page: '', confidence: 0.4, guesses: 1 })
+
+  // An answer that can't be read was still paid for.
+  const cut = claude({ [A]: () => message('{"verdict":"fi', 'max_tokens') })
+  const c = env()
+  expect((await run(post(), c.e, deps(cut.fetch))).status).toBe(502)
+  expect(fields(c.points[0]!)).toMatchObject({ outcome: 'unreadable', input: 1500, output: 120, attempts: 1 })
+})
+
+test('the log: a limit or another refusal before any call has no key, call or tokens; a failure names the last key tried', async () => {
+  const { e, points } = env({ FISH_ID_PER_IP: '1' })
+  const fake = claude({})
+  await run(post(), e, deps(fake.fetch))
+  await run(post(), e, deps(fake.fetch))
+  expect(points.map(p => p.blobs[0])).toEqual(['ok', 'rate'])
+  expect(fields(points[1]!)).toMatchObject({ outcome: 'rate', index: 'rate', key: '', lang: 'vi', input: 0, output: 0, cost: 0, attempts: 0, guesses: 0 })
+  // Refused before the form is read: no language yet.
+  const pre = env()
+  await run(post(undefined, undefined, { origin: 'https://evil.test' }), pre.e, deps(fake.fetch))
+  await run(post(), pre.e, deps(fake.fetch, { siteverify: async () => false }))
+  await run(post(new Blob([new TextEncoder().encode('<svg onload=x>')])), pre.e, deps(fake.fetch))
+  expect(pre.points.map(fields).map(f => [f.outcome, f.lang, f.attempts])).toEqual([['cross-origin', '', 0], ['turnstile', 'vi', 0], ['not an image', 'vi', 0]])
+  // Every key failing for now: each tried once, the last one named, nothing paid.
+  const allBusy = claude({ [A]: () => apiError(529, 'overloaded_error', 'x'), [B]: () => apiError(500, 'api_error', 'x'), [C]: () => apiError(529, 'overloaded_error', 'x') })
+  const f = env()
+  expect((await run(post(), f.e, deps(allBusy.fetch))).status).toBe(503)
+  expect(fields(f.points[0]!)).toMatchObject({ outcome: 'unavailable', key: await keyHash(C), attempts: 3, input: 0, output: 0, cost: 0 })
+  // Our request refused: 'request'.
+  const bad = claude({ [A]: () => apiError(400, 'invalid_request_error', 'messages.0.content.0.source: invalid base64 data') })
+  const b = env()
+  await run(post(), b.e, deps(bad.fetch))
+  expect(fields(b.points[0]!)).toMatchObject({ outcome: 'request', key: await keyHash(A), attempts: 1 })
+  // Off: logged too. No log binding: nothing breaks.
+  const off = env({ ANTHROPIC_KEYS: undefined })
+  await run(post(), off.e, deps(fake.fetch))
+  expect(fields(off.points[0]!).outcome).toBe('fish_id_off')
+  const none = env()
+  delete (none.e as { FISHID_LOG?: unknown }).FISHID_LOG
+  expect((await run(post(), none.e, deps(fake.fetch))).status).toBe(200)
+})
+
+test('the log never fails a reader\'s request: a write that throws is only reported', async () => {
+  const { e } = env()
+  ;(e as unknown as { FISHID_LOG: unknown }).FISHID_LOG = { writeDataPoint: () => { throw new Error('quota') } }
+  const err = vi.spyOn(console, 'error').mockImplementation(() => {})
+  try {
+    expect((await run(post(), e, deps(claude({}).fetch))).status).toBe(200)
+    expect(err).toHaveBeenCalledWith('fish-id log:', expect.any(Error))
+  } finally {
+    err.mockRestore()
+  }
 })
 
 test('the owner\'s dashboard: each key by number and hash, its state and today\'s calls; never the key', async () => {
