@@ -4,7 +4,10 @@ name: 'Engine: content cycle every 3 h'
 # testing, committing and deploying its own content, so a failure in one loses only that part's work.
 on:
   schedule:
-    - cron: '23 */3 * * *'
+    # Hourly, though a cycle runs every 3 hours: GitHub delays or drops scheduled runs when busy (on 2 November only 3
+    # of the 8 three-hourly ones started, up to an hour late). Job `due` lets a scheduled run through only when no
+    # cycle started in the last 2 h 50 min, so the cycle keeps its pace even when most of these are dropped.
+    - cron: '23 * * * *'
   workflow_dispatch:
     inputs:
       engine_args:
@@ -20,7 +23,29 @@ permissions:
   contents: write
   actions: write # each job starts deploy.yml
 jobs:
+  due:
+    name: 'Is a cycle due?'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      run: ${{ steps.due.outputs.run }}
+    steps:
+      # A cycle is a run that went on for over 10 minutes or is still going; the hourly checks that found none due end
+      # in seconds. A run started by hand always goes.
+      - id: due
+        name: Started by hand, or 2 h 50 min since the last cycle started
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" != schedule ]; then echo run=true >> "$GITHUB_OUTPUT"; exit 0; fi
+          last=$(gh run list -R "$GITHUB_REPOSITORY" -w engine.yml -L 30 --json databaseId,createdAt,updatedAt,status \
+            --jq "[.[] | select(.databaseId != $GITHUB_RUN_ID) | select(.status != \"completed\" or ((.updatedAt | fromdateiso8601) - (.createdAt | fromdateiso8601)) > 600) | .createdAt | fromdateiso8601] | max // 0")
+          age=$(( $(date -u +%s) - last ))
+          echo "last cycle started $((age / 60)) min ago"
+          if [ "$age" -ge $((170 * 60)) ]; then echo run=true >> "$GITHUB_OUTPUT"; else echo run=false >> "$GITHUB_OUTPUT"; fi
   cycle:
+    needs: due
+    if: needs.due.outputs.run == 'true'
     strategy:
       fail-fast: false
       matrix:
