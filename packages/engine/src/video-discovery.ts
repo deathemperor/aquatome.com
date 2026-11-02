@@ -4,8 +4,9 @@ import type { Llm } from './claude'
 import { loadState } from './state'
 import type { Playlist } from './youtube'
 
-/** A playlist the engine knows: queued for guides, or rejected (`skip`) so it is never vetted again. */
-export type PlaylistEntry = { id: string; title: string; channel: string; by: 'seed' | 'owner' | 'search'; addedAt: string; videoIds?: string[]; skip?: boolean; reason?: string; /** The vet's guess of the spoken language: the site's own goes first in the queue. */ lang?: string }
+/** A playlist the engine knows: queued for guides, or rejected (`skip`) so it is never vetted again. `channel`: found on a
+ * channel in CHANNELS (they are written before search finds; youtube.ts readPlaylists). */
+export type PlaylistEntry = { id: string; title: string; channel: string; by: 'seed' | 'owner' | 'channel' | 'search'; addedAt: string; videoIds?: string[]; skip?: boolean; reason?: string; /** The vet's guess of the spoken language: the site's own goes first in the queue. */ lang?: string }
 export type Found = { id: string; title: string; channel: string }
 export type Finder = { search(query: string): Promise<Found[]>; searchVideos(query: string): Promise<Found[]>; channel(handle: string): Promise<Found[]>; uploads(handle: string): Promise<Found[]>; playlist(id: string): Promise<Playlist> }
 /** A single video queued for a guide (engine-state/youtube-videos.json), or rejected (`skip`). */
@@ -29,8 +30,12 @@ export const QUERIES = [
   'aquarium CO2 guide', 'aquarium lighting guide', 'pond fish guide', 'koi pond guide', 'goldfish care guide', 'aquarium fish species profile',
   'catfish corydoras care', 'killifish keeping', 'blackwater aquarium', 'aquarium hardscape tutorial', 'iwagumi tutorial', 'carpeting plants guide',
 ]
-/** Channels known for teaching videos: their playlists are vetted like search results. */
-export const CHANNELS = ['MJAquascaping', 'AquariumCoOp', 'SerpaDesign', 'GeorgeFarmerStudios', 'MDFishTanks', 'KingofDIY', 'KGTropicals', 'RachelOLeary', 'girltalksfish', 'PrimeTimeAquatics', 'TheSmallScape', 'BucePlant', '2HrAquarist']
+/**
+ * Channels known for teaching videos, by their YouTube handle: their playlists are vetted like search results, but
+ * even with a full queue, and written first after the owner's picks. A handle is someone's: @KingofDIY is a stranger's
+ * channel, The king of DIY is @thekingofdiy.
+ */
+export const CHANNELS = ['MJAquascaping', 'AquariumCoOp', 'SerpaDesign', 'GeorgeFarmerStudios', 'MDFishTanks', 'thekingofdiy', 'KGTropicals', 'RachelOLeary', 'girltalksfish', 'PrimeTimeAquatics', 'TheSmallScape', 'BucePlant', '2HrAquarist']
 
 const FILE = (root: string) => join(root, 'engine-state/youtube-playlists.json')
 const VFILE = (root: string) => join(root, 'engine-state/youtube-videos.json')
@@ -54,9 +59,9 @@ reason: a few words. lang: the language the videos are spoken in ("vi" or "en"; 
 export type DiscoveryReport = { candidates: number; added: string[]; rejected: number; skipped: string; errors: string[] }
 
 /**
- * Finds teaching playlists (searches + known channels), drops ones mostly overlapping playlists we already have,
+ * Finds teaching playlists (known channels, then searches), drops ones mostly overlapping playlists we already have,
  * asks the model to vet the rest, and appends both verdicts to engine-state/youtube-playlists.json.
- * Does nothing while ≥ `queueCap` queued videos still wait for guides.
+ * Searches wait while ≥ `queueCap` queued videos still wait for guides (`skipped`); the channels never do.
  */
 export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: string; now: () => Date }, opts: { maxNew?: number; queueCap?: number; queries?: string[]; channels?: string[]; force?: boolean } = {}): Promise<DiscoveryReport> {
   const { find, llm, root } = deps
@@ -64,15 +69,19 @@ export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: st
   const entries = await readEntries(root)
   const done = await loadState(root, 'youtube')
   const queued = new Set(entries.filter(e => !e.skip).flatMap(e => e.videoIds ?? []).filter(v => !done[v]))
-  if (!opts.force && queued.size >= (opts.queueCap ?? 150)) { report.skipped = `${queued.size} videos already queued`; return report }
+  const full = !opts.force && queued.size >= (opts.queueCap ?? 150)
+  if (full) report.skipped = `${queued.size} videos already queued`
 
   const known = new Set(entries.map(e => e.id))
   const seen = new Map<string, Found>()
   const take = (xs: Found[]) => { for (const x of xs) if (x.id.startsWith('PL') && !known.has(x.id) && !seen.has(x.id)) seen.set(x.id, x) }
-  // The site's language first: its creators are the ones a reader can watch without subtitles.
-  for (const q of opts.queries ?? [...Object.values(QUERIES_BY_LANG).flat(), ...QUERIES]) await find.search(q).then(take, e => report.errors.push(`search "${q}": ${(e as Error).message}`))
+  // The channels first, so the vetting limit below goes to them before search finds.
   for (const h of opts.channels ?? CHANNELS) await find.channel(h).then(take, e => report.errors.push(`channel @${h}: ${(e as Error).message}`))
+  const onChannel = new Set(seen.keys())
+  // The site's language first: its creators are the ones a reader can watch without subtitles.
+  if (!full) for (const q of opts.queries ?? [...Object.values(QUERIES_BY_LANG).flat(), ...QUERIES]) await find.search(q).then(take, e => report.errors.push(`search "${q}": ${(e as Error).message}`))
   report.candidates = seen.size
+  const by = (id: string): PlaylistEntry['by'] => (onChannel.has(id) ? 'channel' : 'search')
 
   const haveVideos = new Set([...entries.filter(e => !e.skip).flatMap(e => e.videoIds ?? []), ...Object.keys(done)])
   const maxNew = opts.maxNew ?? 10
@@ -85,7 +94,7 @@ export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: st
     const ids = p.videos.map(v => v.id)
     const overlap = ids.filter(v => haveVideos.has(v)).length
     const why = ids.length < 3 ? 'fewer than 3 videos' : ids.length > 150 ? 'more than 150 videos' : overlap * 2 >= ids.length ? 'mostly videos we already have' : null
-    if (why) { entries.push({ id: p.id, title: p.title, channel: p.channel, by: 'search', addedAt: today, skip: true, reason: why }); report.rejected++; continue }
+    if (why) { entries.push({ id: p.id, title: p.title, channel: p.channel, by: by(p.id), addedAt: today, skip: true, reason: why }); report.rejected++; continue }
     batch.push(p)
   }
 
@@ -98,7 +107,7 @@ export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: st
     for (const p of part) {
       const v = verdicts.find(x => x.id === p.id)
       if (!v || (v.ok && report.added.length >= maxNew)) continue // not judged, or over this run's limit: seen again next run
-      entries.push({ id: p.id, title: p.title, channel: p.channel, by: 'search', addedAt: today, videoIds: p.videos.map(x => x.id), ...(v.ok ? (v.lang ? { lang: v.lang } : {}) : { skip: true, reason: v.reason }) })
+      entries.push({ id: p.id, title: p.title, channel: p.channel, by: by(p.id), addedAt: today, videoIds: p.videos.map(x => x.id), ...(v.ok ? (v.lang ? { lang: v.lang } : {}) : { skip: true, reason: v.reason }) })
       if (v.ok) { report.added.push(`${p.id} ${p.title} (${p.channel}, ${p.videos.length})`); for (const x of p.videos) haveVideos.add(x.id) } else report.rejected++
     }
   }

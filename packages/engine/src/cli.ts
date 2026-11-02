@@ -534,7 +534,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const only = values.lang ? { channels: [], queries: QUERIES_BY_LANG[values.lang] ?? [] } : channels ? { channels, queries: [] } : {}
   const deps = { find: { ...ytFinder, playlist: (id: string) => youtube().playlist(id) }, llm: claudeCli, root: ROOT, now: () => new Date() }
   const r = await discoverPlaylists(deps, { maxNew: values.limit ? Number(values.limit) : undefined, force: values.force || !!values.lang, ...only })
-  console.log(r.skipped ? `playlists: skipped (${r.skipped})` : `playlists: ${r.candidates} candidates, ${r.added.length} added, ${r.rejected} rejected, ${r.errors.length} errors`)
+  console.log(`playlists: ${r.candidates} candidates, ${r.added.length} added, ${r.rejected} rejected, ${r.errors.length} errors${r.skipped ? ` (searches skipped: ${r.skipped})` : ''}`)
   for (const a of r.added) console.log(`added: ${a}`)
   for (const e of r.errors) console.log(`error: ${e}`)
   // Single teaching videos from the channels' upload pages (skipped while the playlist queue is full, unless --force).

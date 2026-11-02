@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { addOwnerPicks, discoverPlaylists, discoverSingles, type Finder } from '../src/video-discovery'
-import { readSingles } from '../src/youtube'
+import { readPlaylists, readSingles } from '../src/youtube'
 
 const vids = (prefix: string, n: number) => Array.from({ length: n }, (_, i) => ({ id: `${prefix}${i}`, title: `${prefix} video ${i}` }))
 const lists: Record<string, { title: string; videos: { id: string; title: string }[] }> = {
@@ -47,11 +47,27 @@ test('vets new playlists only: filters tiny and overlapping ones, records both v
   expect(again.candidates).toBe(0)
 })
 
-test('does nothing while enough videos are queued', async () => {
+test('a full queue holds the searches, not the known channels: their playlists are still vetted, marked as theirs', async () => {
   const root = await setup()
   await writeFile(join(root, 'engine-state/youtube-playlists.json'), JSON.stringify([{ id: 'PLq', title: 'Q', channel: 'A', by: 'search', addedAt: '', videoIds: vids('q', 5).map(v => v.id) }]))
-  const r = await discoverPlaylists({ find, llm: async () => { throw new Error('no') }, root, now: () => new Date() }, { queueCap: 5 })
+  const searched: string[] = []
+  const f: Finder = { ...find, search: async q => { searched.push(q); return [] }, channel: async () => [{ id: 'PLgood', title: '', channel: 'A' }] }
+  const llm = async <T,>() => ({ verdicts: [{ id: 'PLgood', ok: true, reason: 'care guides', lang: 'en' }] }) as T
+  const r = await discoverPlaylists({ find: f, llm, root, now: () => new Date('2026-11-02T00:00:00Z') }, { queueCap: 5, channels: ['A'] })
   expect(r.skipped).toBe('5 videos already queued')
+  expect(searched).toEqual([])
+  expect(r.added).toEqual(['PLgood Planted tank basics (A, 5)'])
+  const saved = JSON.parse(await readFile(join(root, 'engine-state/youtube-playlists.json'), 'utf8'))
+  expect(saved.at(-1)).toMatchObject({ id: 'PLgood', by: 'channel', lang: 'en' })
+})
+
+test("writing order: the owner's picks, then the known channels', then the site's language, then the rest", async () => {
+  const root = await setup()
+  const e = (id: string, by: string, lang?: string) => ({ id, title: '', channel: '', by, addedAt: '', ...(lang ? { lang } : {}) })
+  await writeFile(join(root, 'engine-state/youtube-playlists.json'), JSON.stringify([
+    e('PLsearchEn', 'search', 'en'), e('PLsearchVi', 'search', 'vi'), e('PLchannel', 'channel', 'en'), e('PLowner', 'owner', 'en'), e('PLseed', 'seed'), { ...e('PLskip', 'channel'), skip: true },
+  ]))
+  expect(await readPlaylists(root)).toEqual(['PLowner', 'PLseed', 'PLchannel', 'PLsearchVi', 'PLsearchEn'])
 })
 
 test('single videos from upload pages: unknown ones vetted by title, both verdicts kept', async () => {
