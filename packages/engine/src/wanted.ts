@@ -7,8 +7,9 @@ import { matchTaxon, pageIds } from './video-items'
 /**
  * Species our pages name by scientific name but that have no page yet, keyed by the accepted name's slug.
  * `names`: every slug the pages used for it (synonyms too), so a source address under an old name still counts.
+ * `readers`: how many readers keep it on a tank without a page (readers-wanted.ts).
  */
-export type Wanted = Map<string, { name: string; names: string[]; mentionedIn: string[] }>
+export type Wanted = Map<string, { name: string; names: string[]; mentionedIn: string[]; readers?: number }>
 
 const BINOMIAL = /\b([A-Z][a-z]{2,})\s+([a-z]{3,})\b/g
 const text = (html: string) => html.replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ')
@@ -140,11 +141,17 @@ export function withPopular(wanted: Wanted, have: Set<string>, popular = POPULAR
   return out
 }
 
-/** Wanted pages first (popular species in list order, then the most-mentioned, then discovery order), then everything else. */
+/**
+ * Wanted pages first (what the most readers keep on their tanks, then popular species in list order, then the
+ * most-mentioned, then discovery order), then everything else.
+ */
 export function wantedFirst<T extends { url: string }>(found: T[], wanted: Wanted, popular = POPULAR): T[] {
   if (!wanted.size) return found
   const order = popular.map(slugify)
-  const rank = (slug: string): [number, number] => { const i = order.indexOf(slug); return i >= 0 ? [0, i] : [1, -wanted.get(slug)!.mentionedIn.length] }
+  const rank = (slug: string): [number, number] => {
+    const w = wanted.get(slug)!, i = order.indexOf(slug)
+    return w.readers ? [0, -w.readers] : i >= 0 ? [1, i] : [2, -w.mentionedIn.length]
+  }
   const hit = found.map((f, i) => ({ f, i, slug: wantedIn(f.url, wanted) })).filter((h): h is { f: T; i: number; slug: string } => !!h.slug)
   hit.sort((a, b) => { const [x, y] = [rank(a.slug), rank(b.slug)]; return x[0] - y[0] || x[1] - y[1] || a.i - b.i })
   return hit.length ? [...hit.map(h => h.f), ...found.filter(f => !hit.some(h => h.f === f))] : found

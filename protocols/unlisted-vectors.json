@@ -1,0 +1,182 @@
+{
+ "$comment": "Entries without a page (a tank's `unlisted`, protocols/tanks-vectors.json) shown as a handbook page once one has their scientific name. The rule: packages/schema/src/unlisted.ts (sciKey, pageMatcher), which the site and the Worker use; the iOS app's tests run these cases too. sciKey: the name as compared (NFKC, lower case, one space between words, the words cf. and aff. left out). match: the page `pageMatcher(pages)(kind, sci)` gives, by id, or null: a page's own scientific name first, else a former name (synonyms) no other page has; nothing for one word (a genus), a name two pages share, or another kind of page. Display only: nothing is written back to the tank. The pages are a sample, not the handbook's (two share a former name on purpose).",
+ "sciKey": [
+  {
+   "note": "letter case and spacing don't count",
+   "in": "  Paracheirodon\tINNESI ",
+   "key": "paracheirodon innesi"
+  },
+  {
+   "note": "cf. is left out",
+   "in": "Corydoras cf. sterbai",
+   "key": "corydoras sterbai"
+  },
+  {
+   "note": "aff. is left out, with or without its dot",
+   "in": "Apistogramma aff agassizii",
+   "key": "apistogramma agassizii"
+  },
+  {
+   "note": "other words stay: a variety is part of the name",
+   "in": "Anubias barteri var. nana",
+   "key": "anubias barteri var. nana"
+  },
+  {
+   "note": "full-width letters from a phone keyboard read as plain ones (NFKC)",
+   "in": "Ｃｏｒｙｄｏｒａｓ sterbai",
+   "key": "corydoras sterbai"
+  }
+ ],
+ "pages": [
+  {
+   "kind": "fish",
+   "id": "corydoras-sterbai",
+   "sci": "Corydoras sterbai"
+  },
+  {
+   "kind": "fish",
+   "id": "paracheirodon-innesi",
+   "sci": "Paracheirodon innesi"
+  },
+  {
+   "kind": "fish",
+   "id": "betta-halfmoon"
+  },
+  {
+   "kind": "plant",
+   "id": "microsorum-pteropus",
+   "sci": "Microsorum pteropus",
+   "synonyms": [
+    "Leptochilus pteropus"
+   ]
+  },
+  {
+   "kind": "plant",
+   "id": "ammannia-gracilis",
+   "sci": "Ammannia gracilis"
+  },
+  {
+   "kind": "plant",
+   "id": "nesaea-crassicaulis",
+   "sci": "Nesaea crassicaulis",
+   "synonyms": [
+    "Ammannia gracilis",
+    "Ammannia crassicaulis"
+   ]
+  },
+  {
+   "kind": "plant",
+   "id": "cryptocoryne-wendtii",
+   "sci": "Cryptocoryne wendtii",
+   "synonyms": [
+    "Cryptocoryne willisii"
+   ]
+  },
+  {
+   "kind": "plant",
+   "id": "cryptocoryne-lucens",
+   "sci": "Cryptocoryne lucens",
+   "synonyms": [
+    "Cryptocoryne willisii"
+   ]
+  }
+ ],
+ "match": [
+  {
+   "note": "a page's own scientific name",
+   "kind": "fish",
+   "sci": "Corydoras sterbai",
+   "page": "corydoras-sterbai"
+  },
+  {
+   "note": "as typed on a phone: case and spaces",
+   "kind": "fish",
+   "sci": " corydoras  STERBAI",
+   "page": "corydoras-sterbai"
+  },
+  {
+   "note": "cf.",
+   "kind": "fish",
+   "sci": "Corydoras cf. sterbai",
+   "page": "corydoras-sterbai"
+  },
+  {
+   "note": "aff.",
+   "kind": "fish",
+   "sci": "Corydoras aff. sterbai",
+   "page": "corydoras-sterbai"
+  },
+  {
+   "note": "a former name of a plant",
+   "kind": "plant",
+   "sci": "Leptochilus pteropus",
+   "page": "microsorum-pteropus"
+  },
+  {
+   "note": "a page's own name wins over another page's former name",
+   "kind": "plant",
+   "sci": "Ammannia gracilis",
+   "page": "ammannia-gracilis"
+  },
+  {
+   "note": "a former name only one page has",
+   "kind": "plant",
+   "sci": "Ammannia crassicaulis",
+   "page": "nesaea-crassicaulis"
+  },
+  {
+   "note": "a former name two pages have names neither",
+   "kind": "plant",
+   "sci": "Cryptocoryne willisii",
+   "page": null
+  },
+  {
+   "note": "another kind of page: a fish isn't a plant's page",
+   "kind": "fish",
+   "sci": "Microsorum pteropus",
+   "page": null
+  },
+  {
+   "note": "another kind of page: a plant isn't a fish's page",
+   "kind": "plant",
+   "sci": "Corydoras sterbai",
+   "page": null
+  },
+  {
+   "note": "a kind the handbook has no pages of",
+   "kind": "snail",
+   "sci": "Corydoras sterbai",
+   "page": null
+  },
+  {
+   "note": "a genus alone names no page",
+   "kind": "fish",
+   "sci": "Corydoras",
+   "page": null
+  },
+  {
+   "note": "an undescribed species names no page",
+   "kind": "fish",
+   "sci": "Corydoras sp.",
+   "page": null
+  },
+  {
+   "note": "no scientific name",
+   "kind": "fish",
+   "sci": null,
+   "page": null
+  },
+  {
+   "note": "another spelling is another name: no guessing",
+   "kind": "fish",
+   "sci": "Corydoras sterbaii",
+   "page": null
+  },
+  {
+   "note": "a page without a scientific name (a breed) is never matched",
+   "kind": "fish",
+   "sci": "Betta splendens",
+   "page": null
+  }
+ ]
+}

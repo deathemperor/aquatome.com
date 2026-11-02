@@ -168,6 +168,27 @@ test('limit is respected per source', async () => {
   expect(r.perSource.seriouslyfish).toMatchObject({ discovered: 3, fetched: 1, processed: 1 })
 })
 
+test('a species readers keep on their tanks without a page is fetched first; reported for the audit; a failed read changes nothing', async () => {
+  const urls = ['broken-fish', 'paracheirodon-axelrodi']
+  const plain = await runEngine(deps(await fresh(), { urls }).d, { sources: ['seriouslyfish'], limit: 1 })
+  expect(plain.perSource.seriouslyfish).toMatchObject({ processed: 0, errors: 1 }) // the address order: the broken page first
+
+  const root = await fresh()
+  const readersWanted = async () => [{ kind: 'fish', name: 'Cá neon vua', sci: 'Paracheirodon axelrodi', readers: 2, sources: { tank: 2 }, last: '2026-10-27' }]
+  const r = await runEngine({ ...deps(root, { urls }).d, readersWanted }, { sources: ['seriouslyfish'], limit: 1 })
+  expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1, errors: 0 })
+  const report = JSON.parse(await readFile(join(root, 'engine-state/_readers-wanted.json'), 'utf8'))
+  // Two readers: the public report names the species, not the readers' words.
+  expect(report).toEqual({ names: [expect.objectContaining({ name: 'Paracheirodon axelrodi', readers: 2, status: 'queued', slug: 'paracheirodon-axelrodi' })], held: { names: 0, readers: 0 } })
+  expect(JSON.stringify(report)).not.toContain('Cá neon vua')
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_wanted.json'), 'utf8'))['paracheirodon-axelrodi']).toMatchObject({ readers: 2 })
+
+  // No access to KV this run: the run goes on as without readers, and the last report stays.
+  const failed = await runEngine({ ...deps(root, { urls: ['broken-fish'] }).d, readersWanted: async () => { throw new Error('Cloudflare KV list: HTTP 403') } }, { sources: ['seriouslyfish'], limit: 1 })
+  expect(failed.perSource.seriouslyfish).toMatchObject({ discovered: 1 })
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_readers-wanted.json'), 'utf8'))).toEqual(report)
+})
+
 test('low quality: one re-translation with reviewer notes, then noindex', async () => {
   const root = await fresh()
   const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'], score: 0.5 })

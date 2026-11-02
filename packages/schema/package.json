@@ -8,6 +8,7 @@
     "./text": "./src/text.ts",
     "./tanks": "./src/tanks.ts",
     "./tank-rules": "./src/tank-rules.ts",
+    "./unlisted": "./src/unlisted.ts",
     "./app-page": "./src/app-page.ts"
   },
   "scripts": {

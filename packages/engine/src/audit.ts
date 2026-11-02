@@ -1,11 +1,12 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { PUBLIC_MIN_READERS, type ReaderRow } from './readers-wanted'
 
 type Photo = { url: string; thumb?: string }
 export type AuditRow = { page: string; name: string; photos: number; missingThumbs: number }
 
 /** Every species, plant and guide by picture count: none, photos without a card thumb, or one photo (nothing inside the text). */
-export async function auditPictures(contentRoot: string, wantedFile?: string): Promise<{ rows: AuditRow[]; markdown: string }> {
+export async function auditPictures(contentRoot: string, wantedFile?: string, readersFile?: string): Promise<{ rows: AuditRow[]; markdown: string }> {
   const rows: AuditRow[] = []
   for (const kind of ['species', 'plants', 'guides']) {
     for (const id of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
@@ -25,7 +26,7 @@ borrow one from a species or plant they mention on the site.
 ${list('No photo', rows.filter(r => !r.photos))}
 ${list('Photos without a card thumbnail', rows.filter(r => r.missingThumbs))}
 ${list('Only one photo (no pictures inside the text)', rows.filter(r => r.photos === 1))}
-${list('Same Vietnamese name as another page (rename one, set nameFixed)', sameName(rows))}${await wantedSection(wantedFile)}`
+${list('Same Vietnamese name as another page (rename one, set nameFixed)', sameName(rows))}${await readersSection(readersFile)}${await wantedSection(wantedFile)}`
   return { rows, markdown }
 }
 
@@ -39,14 +40,32 @@ export function sameName(rows: AuditRow[]): AuditRow[] {
   return [...by.values()].filter(xs => xs.length > 1).flat()
 }
 
-type WantedRow = { name: string; mentions: number; mentionedIn: string[]; onSource?: string }
+type WantedRow = { name: string; mentions: number; mentionedIn: string[]; readers?: number; onSource?: string }
+const readersOf = (n: number) => `${n} reader${n === 1 ? '' : 's'}`
+
+/** Names readers keep on their tanks that have no page (each engine run, readers-wanted.ts), most readers first. */
+async function readersSection(file?: string): Promise<string> {
+  const raw = file ? await readFile(file, 'utf8').catch(() => null) : null
+  if (!raw) return ''
+  const { names, held } = JSON.parse(raw) as { names: ReaderRow[]; held: { names: number; readers: number } }
+  const what = (r: ReaderRow) => r.status === 'queued' ? `queued first (${r.slug})` : r.status === 'have' ? `we have its page (${r.slug}): their scientific name may differ from it` : 'no species GBIF knows by this name: a person decides'
+  const line = (r: ReaderRow) => `- ${r.name}${r.sci && r.sci !== r.name ? ` (${r.sci})` : ''}, ${r.kind} — ${readersOf(r.readers)} — ${what(r)}`
+  const rest = held.names ? `\n- and ${held.names} more name${held.names === 1 ? '' : 's'} (${readersOf(held.readers)}) that GBIF doesn't know and fewer than ${PUBLIC_MIN_READERS} readers gave: kept out of this public file` : ''
+  return `
+## Readers keep these on their tanks, no page yet (${names.length})
+
+Each reader counted once a day. Queued names go before every other wanted page on each source that has them.
+
+${names.map(line).join('\n') || '- none'}${rest}
+`
+}
 
 /** Species our pages name without having a page (written by each engine run, see wanted.ts). */
 async function wantedSection(file?: string): Promise<string> {
   const raw = file ? await readFile(file, 'utf8').catch(() => null) : null
   if (!raw) return ''
   const rows = Object.values(JSON.parse(raw) as Record<string, WantedRow>).sort((a, b) => b.mentions - a.mentions || a.name.localeCompare(b.name))
-  const line = (w: WantedRow) => `- ${w.name} — named on ${w.mentions} page${w.mentions === 1 ? '' : 's'} (${w.mentionedIn.join(', ')}${w.mentions > w.mentionedIn.length ? ', …' : ''})${w.onSource ? ` — queued first: ${w.onSource}` : ''}`
+  const line = (w: WantedRow) => `- ${w.name}${w.mentions ? ` — named on ${w.mentions} page${w.mentions === 1 ? '' : 's'} (${w.mentionedIn.join(', ')}${w.mentions > w.mentionedIn.length ? ', …' : ''})` : ''}${w.readers ? ` — kept by ${readersOf(w.readers)}` : ''}${w.onSource ? ` — queued first: ${w.onSource}` : ''}`
   const queued = rows.filter(w => w.onSource)
   const none = rows.filter(w => !w.onSource)
   return `

@@ -30,6 +30,29 @@ const { t } = i18n(Astro.url)
         {Object.entries(SUBSTRATE_LABELS).map(([v, label]) => <option value={v}>{t(label)}</option>)}
       </select>
     </label>
+    {/* Shown once its script (scripts/life-edit.ts) is here: offline before it ever loaded, the tank still saves without it. */}
+    <fieldset id="mt-life" class="life-edit" hidden>
+      <legend>{t('Cá, tép và cây')}</legend>
+      <ul class="life-rows" data-life-list hidden></ul>
+      <div class="combo">
+        <label for="mt-q" class="visually-hidden">{t('Tìm cá, tép hoặc cây để thêm')}</label>
+        <input id="mt-q" data-life-q type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="mt-opts" placeholder={t('Thêm cá hoặc cây: gõ tên Việt hoặc tên khoa học')} autocomplete="off" autocapitalize="off" spellcheck="false" />
+        <ul id="mt-opts" data-life-opts role="listbox" aria-label={t('Gợi ý')} hidden></ul>
+      </div>
+      <div class="new-entry" data-life-new hidden>
+        <p><strong data-life-q-shown></strong> {t('chưa có trang trong cẩm nang. Vẫn thêm vào bể được: khi có trang, bể sẽ hiện trang đó.')}</p>
+        <fieldset class="kind">
+          <legend>{t('Đây là')}</legend>
+          <label><input type="radio" name="ukind" value="fish" checked /> {t('Cá, tép hoặc ốc')}</label>
+          <label><input type="radio" name="ukind" value="plant" /> {t('Cây')}</label>
+        </fieldset>
+        <label>{t('Tên')} <input name="uname" maxlength="80" autocomplete="off" /></label>
+        <label>{t('Tên khoa học (nếu biết)')} <input name="usci" maxlength="120" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder={t('Ví dụ: Rhinogobius duospilus')} /></label>
+        <label>{t('Số con (nếu muốn)')} <input name="ucount" type="number" inputmode="numeric" min="1" max="9999" /></label>
+        <p class="acts"><button type="button" class="primary" data-life-add>{t('Thêm vào bể')}</button> <button type="button" class="quiet" data-life-cancel>{t('Hủy')}</button></p>
+      </div>
+      <p class="hint life-msg" data-life-msg aria-live="polite"></p>
+    </fieldset>
     <label class="wide">{t('Ghi chú')} <textarea name="notes" rows="3" maxlength="4000" placeholder={t('Lịch thay nước, phân bón, CO₂…')}></textarea></label>
     <p class="err" id="mt-err" role="alert" hidden></p>
     <div class="acts">
@@ -110,11 +133,11 @@ const { t } = i18n(Astro.url)
 </Browse>
 
 <script>
-  import type { Device, Tank, TankStore } from '@aq/schema'
+  import type { Device, Tank, TankStore, UnlistedEntry } from '@aq/schema'
   import { tankLitres } from '@aq/schema/tank-rules'
   import * as store from '../../../scripts/tank-store'
   import { initAccount } from '../../../scripts/account-panel'
-  import { channelsOf, dayPicture, esc, facts } from '../../../scripts/my-tanks'
+  import { channelsOf, dayPicture, esc, facts, handbook, unlistedOf, type IndexItem } from '../../../scripts/my-tanks'
   import { cpath, ct } from '../../../scripts/ct'
 
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
@@ -128,16 +151,29 @@ const { t } = i18n(Astro.url)
   let db: TankStore = store.load()
   let editing: string | undefined | null = null // null: no form; undefined: a new tank; a string: that tank
 
-  // Page names of the species and plants on the tanks, from the handbook index (fetched only when a tank has any).
+  // The handbook's fish and plants (its index), read once: when a tank has any, or the form adds some. Page names of the
+  // species and plants on the tanks, and the page an entry without a page is shown as once one has its scientific name.
   let names: Map<string, { name: string; path: string }> | undefined
-  async function loadNames() {
-    if (names || !store.liveTanks(db).some(t => t.species.length || t.plants.length)) return
-    try {
-      const r = await fetch(`/app/${lang.slice(0, 2)}.json`)
-      const idx = (await r.json()) as { items: { id?: string; name: string; path: string }[] }
+  let book: ReturnType<typeof handbook> | undefined
+  let reading: Promise<ReturnType<typeof handbook> | undefined> | undefined
+  function readBook() {
+    return (reading ??= fetch(`/app/${lang.slice(0, 2)}.json`).then(r => r.json()).then((idx: { items: IndexItem[] }) => {
       names = new Map(idx.items.flatMap(i => (i.id ? [[i.id, { name: i.name, path: i.path }] as const] : [])))
-      if (editing === null) render()
-    } catch { /* names stay ids */ }
+      return (book = handbook(idx.items))
+    }).catch(() => { reading = undefined; return undefined })) // names stay ids, entries without a page their names; tried again next time
+  }
+  async function loadNames() {
+    if (names || !store.liveTanks(db).some(t => t.species.length || t.plants.length || t.unlisted?.length)) return
+    if ((await readBook()) && editing === null) render()
+  }
+  // The fish and plants in the form (scripts/life-edit.ts): loaded when the form opens, not with the page.
+  let lifeEditor: Promise<ReturnType<typeof import('../../../scripts/life-edit').initLife>> | undefined
+  const life = () => (lifeEditor ??= import('../../../scripts/life-edit').then(m => m.initLife($('mt-life'), { pages: async () => (await readBook())?.pages, match: e => book?.match(e) }))
+    .catch(e => { lifeEditor = undefined; throw e })) // offline: tried again when the form next opens
+  let opened = 0
+  /** A name the handbook has no page for, counted to decide which pages to write next: its kind and names, nothing else. */
+  const wanted = (u: UnlistedEntry) => {
+    void fetch('/api/v1/wanted', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ kind: u.kind, name: u.name, ...(u.sci ? { sci: u.sci } : {}) }), keepalive: true }).catch(() => {})
   }
 
   function lightHtml(d: Device): string {
@@ -174,9 +210,17 @@ const { t } = i18n(Astro.url)
       const text = esc(n?.name ?? id.replace(/-/g, ' '))
       return `<li>${n ? `<a href="${esc(n.path)}">${text}</a>` : text}${count ? ` <span class="count">× ${num(count, 0)}</span>` : ''}</li>`
     }
+    // An entry without a page: shown as the page that has its scientific name, else by its name, marked as such.
+    const loose = (u: UnlistedEntry) => {
+      const p = book?.match(u)
+      const count = u.count ? ` <span class="count">× ${num(u.count, 0)}</span>` : ''
+      return p ? `<li><a href="${esc(p.path)}">${esc(p.name)}</a>${count}</li>` : `<li class="unlisted">${esc(u.name)}${count} <span class="tag">${ct('chưa có trang')}</span></li>`
+    }
+    const fish = [...t.species.map(s => chip(s.id, s.count)), ...unlistedOf(t, false).map(loose)]
+    const plants = [...t.plants.map(p => chip(p.id)), ...unlistedOf(t, true).map(loose)]
     const parts: string[] = []
-    if (t.species.length) parts.push(`<div class="life"><h3>${ct('Cá và tép')}</h3><ul class="chips">${t.species.map(s => chip(s.id, s.count)).join('')}</ul></div>`)
-    if (t.plants.length) parts.push(`<div class="life"><h3>${ct('Cây')}</h3><ul class="chips">${t.plants.map(p => chip(p.id)).join('')}</ul></div>`)
+    if (fish.length) parts.push(`<div class="life"><h3>${ct('Cá và tép')}</h3><ul class="chips">${fish.join('')}</ul></div>`)
+    if (plants.length) parts.push(`<div class="life"><h3>${ct('Cây')}</h3><ul class="chips">${plants.join('')}</ul></div>`)
     return parts.join('')
   }
 
@@ -230,6 +274,8 @@ const { t } = i18n(Astro.url)
     }
     sub.value = t?.substrate ?? ''
     ;(form.elements.namedItem('notes') as HTMLTextAreaElement).value = t?.notes ?? ''
+    const ticket = ++opened
+    void life().then(l => { if (ticket === opened) l.edit(t) }, () => {})
     $('mt-err').hidden = true
     $('mt-gone').hidden = true
     form.hidden = false
@@ -263,7 +309,7 @@ const { t } = i18n(Astro.url)
   }
 
   form.addEventListener('input', preview)
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault()
     const name = field('name').value.trim()
     const d = dims()
@@ -271,6 +317,9 @@ const { t } = i18n(Astro.url)
     $('mt-err').textContent = err
     $('mt-err').hidden = !err
     if (err) return
+    // The fish and plants as the form has them, when changed there; else the tank keeps its own (also when the form
+    // couldn't show them, offline).
+    const added = lifeEditor && !$('mt-life').hidden ? (await life()).value() : undefined
     db = store.load()
     const kept = typeof editing === 'string' ? store.liveTanks(db).find(x => x.id === editing) : undefined
     if (typeof editing === 'string' && !kept) {
@@ -289,8 +338,12 @@ const { t } = i18n(Astro.url)
       ...(resized ? { litres: undefined } : {}),
       substrate: (form.elements.namedItem('substrate') as HTMLSelectElement).value || undefined,
       notes: (form.elements.namedItem('notes') as HTMLTextAreaElement).value.trim() || undefined,
+      ...(added ? { species: added.species, plants: added.plants, unlisted: added.unlisted.length ? added.unlisted : undefined } : {}),
     }, editing ?? undefined)
     store.save(db)
+    // What was just put on the tank without a page (and no page has its scientific name either): counted once saved.
+    const before = new Set((kept?.unlisted ?? []).map(u => u.id))
+    for (const u of added?.unlisted ?? []) if (!before.has(u.id) && !book?.match(u)) wanted(u)
     account.changed()
     close(t.id)
     document.getElementById(`be-${t.id}`)?.scrollIntoView({ block: 'nearest' })
@@ -392,6 +445,44 @@ const { t } = i18n(Astro.url)
   .size > span { padding-bottom: 0.7rem; color: var(--c-ink-faint); }
   .size output { padding-bottom: 0.65rem; font-weight: 600; font-variant-numeric: tabular-nums; }
   .acts { display: flex; gap: var(--space-3); }
+
+  /* The tank's fish and plants in its form: one row each, a search under them, and the few fields of an entry without a page. */
+  .life-edit { grid-column: 1 / -1; display: grid; gap: var(--space-2); border: 0; padding: 0; margin: 0; min-inline-size: 0; }
+  .life-edit[hidden] { display: none; }
+  .life-edit > legend { font-size: 0.85rem; color: var(--c-ink-soft); padding: 0; margin-bottom: var(--space-1); }
+  .life-rows { list-style: none; margin: 0; padding: 0; }
+  .life-rows[hidden] { display: none; }
+  :global(.life-rows li) { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); min-height: 3.25rem; border-bottom: 1px solid var(--c-rule); }
+  :global(.life-rows li:first-child) { border-top: 1px solid var(--c-rule); }
+  :global(.life-rows .nm) { flex: 1 1 10rem; min-width: 0; overflow-wrap: anywhere; }
+  :global(.life-rows a) { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 500; }
+  :global(.life-edit .sci) { color: var(--c-ink-soft); font-size: 0.9rem; }
+  :global(.life-edit .tag), :global(.chips .tag) { font-size: var(--step--1); color: var(--c-ink-soft); white-space: nowrap; }
+  :global(.life-rows .qty) { display: flex; align-items: center; gap: var(--space-1); color: var(--c-ink-soft); font-size: 0.9rem; }
+  :global(.life-rows .qty input) { box-sizing: border-box; width: 5rem; min-height: 2.75rem; font: inherit; font-size: 1rem; text-align: right; padding: 0.25rem 0.5rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-mat); color: var(--c-ink); font-variant-numeric: tabular-nums; }
+  :global(.editor .life-rows button.rm) { padding: 0.4rem 0.9rem; font-size: 0.9rem; }
+  :global(.life-rows :is(a, input):focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .life-edit .combo { position: relative; }
+  .life-edit .combo input { width: 100%; }
+  .life-edit .combo input[aria-expanded="true"] { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  #mt-opts { position: absolute; z-index: 20; inset-inline: 0; top: 100%; margin: 0; padding: 0; list-style: none; background: var(--c-plate); border: 2px solid var(--c-focus); border-top: 1px solid var(--c-rule); border-radius: 0 0 8px 8px; box-shadow: 0 10px 24px -8px rgb(10 26 29 / 0.28); overflow: hidden; }
+  #mt-opts[hidden] { display: none; }
+  #mt-opts :global([role=option]) { display: flex; align-items: center; gap: var(--space-3); min-height: 3rem; padding: var(--space-2) var(--space-3); cursor: pointer; border-top: 1px solid var(--c-rule); overflow-wrap: anywhere; }
+  #mt-opts :global([role=option]:first-child) { border-top: 0; }
+  #mt-opts :global([role=option]:hover), #mt-opts :global([aria-selected="true"]) { background: color-mix(in srgb, var(--c-moss) 12%, var(--c-plate)); }
+  #mt-opts :global([aria-selected="true"]) { box-shadow: inset 2px 0 var(--c-moss); }
+  #mt-opts :global([aria-disabled="true"]) { cursor: default; color: var(--c-ink-soft); }
+  #mt-opts :global(.nm) { flex: 1 1 auto; min-width: 0; }
+  #mt-opts :global(.new) { font-weight: 500; }
+  .new-entry { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr)); gap: var(--space-3) var(--space-4); padding: var(--space-4); border: 1px solid var(--c-rule); background: var(--c-mat); }
+  .new-entry[hidden] { display: none; }
+  .new-entry > p, .new-entry .kind { grid-column: 1 / -1; margin: 0; }
+  .kind { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-5); border: 0; padding: 0; min-inline-size: 0; }
+  .kind legend { font-size: 0.85rem; color: var(--c-ink-soft); padding: 0; margin-bottom: var(--space-1); }
+  .editor .kind label { display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font-size: 1rem; color: var(--c-ink); cursor: pointer; }
+  .editor .kind input { width: 1.25rem; height: 1.25rem; min-height: 0; margin: 0; padding: 0; accent-color: var(--c-moss); }
+  .life-msg { margin: 0; font-size: 0.9rem; }
+  .life-msg:empty { display: none; }
   .err { margin: 0; color: var(--c-cardinal); }
   .hint { color: var(--c-ink-faint); }
 
@@ -415,6 +506,7 @@ const { t } = i18n(Astro.url)
   :global(.chips) { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; }
   :global(.chips li) { border: 1px solid var(--c-rule); padding: 0.25rem 0.7rem; border-radius: 999px; font-size: 0.9rem; background: var(--c-plate); }
   :global(.chips .count) { color: var(--c-ink-faint); font-variant-numeric: tabular-nums; }
+  :global(.chips .unlisted) { border-style: dashed; }
   :global(.tank .notes) { font-family: var(--f-display); font-style: italic; font-size: var(--step-1); max-width: var(--measure); white-space: pre-line; margin: var(--space-5) 0 0; color: var(--c-ink); }
   :global(.tank .stamp) { margin: var(--space-4) 0 0; font-size: var(--step--1); color: var(--c-ink-faint); }
 

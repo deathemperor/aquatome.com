@@ -17,6 +17,8 @@ export * from './tank-rules'
 /** Live records a reader can make (checked when making one): a merge of two stores (signing in) can go past it. */
 export const MAX_TANKS = 50
 export const MAX_DEVICES = 100
+/** Entries without a page on one tank (`unlisted`). */
+export const MAX_UNLISTED = 100
 /** Live records an account may hold after a merge; a sync past them is refused. */
 export const STORED_MAX = { tanks: 4 * MAX_TANKS, devices: 4 * MAX_DEVICES }
 
@@ -41,6 +43,8 @@ export const KNOWN = {
   brand: ['chihiros', 'tuya', 'ewelink'],
   /** What a plug's outlet powers (docs/smart-plugs.md). */
   outletRole: ['light', 'co2', 'filter', 'heater', 'air', 'fan', 'other'],
+  /** What an entry without a page is. */
+  unlistedKind: ['fish', 'plant'],
 } as const
 
 
@@ -59,6 +63,20 @@ export const SavedSchedule = z.looseObject({
 }).refine(s => minutesLit(s.on, s.off) > 0, { message: 'off must be after on, the same day', path: ['off'] })
   .refine(s => s.ramp * 2 <= minutesLit(s.on, s.off), { message: 'ramp longer than half the time lit', path: ['ramp'] })
 
+/**
+ * A fish or plant on a tank that the handbook has no page for yet, as the reader named it. Shown as a page once one has
+ * its scientific name (`matchPage` in ./unlisted.ts); never rewritten into `species` or `plants` by itself.
+ */
+export const UnlistedEntry = z.looseObject({
+  id: RecordId,
+  /** KNOWN.unlistedKind; open, like a device's `kind`. */
+  kind: z.string().min(1).max(40),
+  name: Label(80),
+  /** The scientific name, when the reader gives one: what links the entry to a page later. */
+  sci: Label(120).optional(),
+  count: z.number().int().min(1).max(9999).optional(),
+})
+
 export const Tank = z.looseObject({
   id: RecordId,
   name: Label(80),
@@ -69,6 +87,8 @@ export const Tank = z.looseObject({
   substrate: z.string().min(1).max(40).optional(),
   species: z.array(z.looseObject({ id: ContentId, count: z.number().int().min(1).max(9999).optional() })).max(200),
   plants: z.array(z.looseObject({ id: ContentId })).max(200),
+  /** Fish and plants with no page yet (left out when there are none). */
+  unlisted: z.array(UnlistedEntry).max(MAX_UNLISTED).optional(),
   notes: z.string().max(4000).optional(),
   createdAt: Timestamp,
   updatedAt: Timestamp,
@@ -128,6 +148,7 @@ export const TankStore = z.looseObject({
   .refine(s => unique(s.devices), { message: 'two devices with the same id', path: ['devices'] })
 
 export type SavedSchedule = z.infer<typeof SavedSchedule>
+export type UnlistedEntry = z.infer<typeof UnlistedEntry>
 export type Tank = z.infer<typeof Tank>
 export type Device = z.infer<typeof Device>
 export type Tombstone = z.infer<typeof Tombstone>

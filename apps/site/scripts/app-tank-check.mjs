@@ -10,13 +10,13 @@ import { fileURLToPath } from 'node:url'
 const site = fileURLToPath(new URL('../', import.meta.url))
 const out = fileURLToPath(new URL('../../ios/AquaTomeKit/Sources/TankCheck/tank-check.js', import.meta.url))
 
-// aqTankCheck(input JSON: { lang, fish, size }) → the check as JSON. ct and fmt as a page in that language has them
+// aqTankCheck(input JSON: { lang, fish, size, unlisted? }) → the check as JSON (`unlisted`: names of fish without a page). ct and fmt as a page in that language has them
 // (scripts/ct.ts, the tool's fmt).
 const entry = `
 import { tankCheck } from './src/scripts/tank-check'
 const formats = {}
 globalThis.aqTankCheck = input => {
-  const { lang, fish, size } = JSON.parse(input)
+  const { lang, fish, size, unlisted } = JSON.parse(input)
   const dict = aqTankCheckStrings[lang] ?? {}
   const ct = (s, vars) => {
     const t = dict[s] ?? s
@@ -24,7 +24,7 @@ globalThis.aqTankCheck = input => {
   }
   // One formatter per language and decimals: making one is most of a check's time in JavaScriptCore.
   const fmt = (n, d = 1) => (formats[lang + d] ??= new Intl.NumberFormat(lang, { maximumFractionDigits: d })).format(n)
-  return JSON.stringify(tankCheck(fish, size, ct, fmt))
+  return JSON.stringify(tankCheck(fish, size, ct, fmt, unlisted))
 }
 `
 const { outputFiles } = await build({

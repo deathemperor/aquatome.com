@@ -3,6 +3,7 @@ var aqTankCheckStrings = {
  "id": {
   "Bể dài tối thiểu cho cả nhóm: <strong>{n} cm</strong>.": "Panjang akuarium minimum untuk seluruh kelompok: <strong>{n} cm</strong>.",
   "Chưa có kích thước của {names}: chưa tính vào mật độ.": "Ukuran {names} belum tersedia: belum dihitung dalam kepadatan.",
+  "Chưa kiểm tra {names}: cẩm nang chưa có trang nên chưa có số liệu để so.": "{names} belum diperiksa: panduan belum punya halamannya, jadi belum ada data untuk dibandingkan.",
   "Chưa thấy điểm xung khắc, nhưng chưa đủ dữ liệu để chắc": "Belum terlihat ketidakcocokan, tetapi datanya belum cukup untuk memastikan",
   "Còn thưa": "Masih longgar",
   "Cần để ý, và chưa đủ dữ liệu để chắc": "Perlu diawasi, dan datanya belum cukup untuk memastikan",
@@ -46,6 +47,7 @@ var aqTankCheckStrings = {
  "th": {
   "Bể dài tối thiểu cho cả nhóm: <strong>{n} cm</strong>.": "ความยาวตู้ขั้นต่ำสำหรับทั้งกลุ่ม: <strong>{n} cm</strong>",
   "Chưa có kích thước của {names}: chưa tính vào mật độ.": "ยังไม่มีข้อมูลขนาดของ {names} จึงยังไม่นำมาคำนวณความหนาแน่น",
+  "Chưa kiểm tra {names}: cẩm nang chưa có trang nên chưa có số liệu để so.": "ยังไม่ได้ตรวจ {names} เพราะคู่มือยังไม่มีหน้า จึงยังไม่มีข้อมูลให้เทียบ",
   "Chưa thấy điểm xung khắc, nhưng chưa đủ dữ liệu để chắc": "ยังไม่พบจุดที่เข้ากันไม่ได้ แต่ข้อมูลยังไม่พอจะยืนยันได้",
   "Còn thưa": "ยังเลี้ยงเพิ่มได้",
   "Cần để ý, và chưa đủ dữ liệu để chắc": "ต้องคอยสังเกต และข้อมูลยังไม่พอจะยืนยันได้",
@@ -186,7 +188,7 @@ var aqTankCheckStrings = {
     ...s.unknown.length ? [unsizedNote(s.unknown, ct, esc)] : []
   ];
   var unsizedNote = (names, ct, esc = same) => ct("Chưa có kích thước của {names}: chưa tính vào mật độ.", { names: names.map(esc).join(", ") });
-  function tankCheck(fish, size, ct, fmt) {
+  function tankCheck(fish, size, ct, fmt, unlisted = []) {
     const mates = fish;
     const r = checkTankmates(mates, ct);
     const out = { warnings: [] };
@@ -207,6 +209,7 @@ var aqTankCheckStrings = {
     if (!size.dims && r.minTankCm) {
       out.minTank = ct("Bể dài tối thiểu cho cả nhóm: <strong>{n} cm</strong>.", { n: fmt(r.minTankCm) }).replace(/<\/?strong>/g, "");
     }
+    if (unlisted.length) out.unchecked = ct("Chưa kiểm tra {names}: cẩm nang chưa có trang nên chưa có số liệu để so.", { names: unlisted.join(", ") });
     return out;
   }
   var LEVEL = {
@@ -219,7 +222,7 @@ var aqTankCheckStrings = {
   // apps/site/app-tank-check
   var formats = {};
   globalThis.aqTankCheck = (input) => {
-    const { lang, fish, size } = JSON.parse(input);
+    const { lang, fish, size, unlisted } = JSON.parse(input);
     const dict = aqTankCheckStrings[lang] ?? {};
     const ct = (s, vars) => {
       const t = dict[s] ?? s;
@@ -229,6 +232,6 @@ var aqTankCheckStrings = {
       var _a;
       return (formats[_a = lang + d] ?? (formats[_a] = new Intl.NumberFormat(lang, { maximumFractionDigits: d }))).format(n);
     };
-    return JSON.stringify(tankCheck(fish, size, ct, fmt));
+    return JSON.stringify(tankCheck(fish, size, ct, fmt, unlisted));
   };
 })();
