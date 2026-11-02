@@ -430,11 +430,11 @@ Rules (as for the site):
 5. **A performance budget only tightens.** A change that makes the app cheaper may lower its budget. Raising one needs a
    new `reason` in `perf-budgets.json` saying why the cost is worth it; the PR check fails on a budget raised with the
    old reason, or removed.
-6. **A change to how a screen looks shows it before and after**, as on the site (rule 6 there). `PageShotsFlowTests`
-   screenshots the handbook's pages top to bottom (a fish, a plant and a guide, in light and dark, and the fish's top
-   in large text), with stand-in photos (`-fixed-pictures`). Job `handbook` puts them in its `ios-page-shots` artifact
-   on every run it makes (`apps/ios/scripts/shots.py`): the PR links its base's run (main's last, or the PR below it)
-   and its own, and names the pair behind each improvement. A screen the shots don't reach gets one added there in the
-   same PR.
+6. **A change to how a screen looks shows it before and after**, so its author critiques their own work against them
+   before asking for review, and a reviewer can check what it claims. `PageShotsFlowTests` screenshots the handbook's
+   pages top to bottom (a fish, a plant and a guide, in light and dark, and the fish's top in large text), with
+   stand-in photos (`-fixed-pictures`). Job `handbook` puts them in its `ios-page-shots` artifact on every run it makes
+   (`apps/ios/scripts/shots.py`): the PR links its base's run (main's last, or the PR below it) and its own, and names
+   the pair behind each improvement. A screen the shots don't reach gets one added there in the same PR.
 
 Next: layer 3 reviews simulator screenshots against the site's rubric.
