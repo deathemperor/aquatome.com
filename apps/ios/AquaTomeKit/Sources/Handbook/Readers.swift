@@ -179,15 +179,20 @@ public enum Readers {
   public static func reported(_ data: Data, status: Int) -> Reported {
     let o = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
     if status == 202 && o?["status"] as? String == "received" { return .received }
-    // Not public any more: taken off by another report, or removed. The reader's wish is met.
-    if status == 404 { return .received }
     let code = o?["error"] as? String
+    // Not public any more: taken off by another report, or removed. The reader's wish is met. Only the report's own
+    // answer: another 404 (no such path, accounts off, a proxy's page) is a report that went nowhere.
+    if status == 404 && code == "not found" { return .received }
     return status == 401 && code == "session" ? .signedOut : .refused(code ?? "failed")
   }
 
   /// What the reader blocks to hide a comment's or photo's poster on their phone: its `author`, or, from a Worker that
   /// doesn't say, that one post.
   public static func blockKey(author: String?, id: String) -> String { author ?? "post:\(id)" }
+
+  /// Whether a block's `key` hides the post `id` by `author`: its poster's, or that one post's, kept by a block made
+  /// before the site said who posted it (the same post then carries an `author` the key isn't).
+  public static func blocks(_ key: String, author: String?, id: String) -> Bool { key == author || key == "post:\(id)" }
 
   /// The Worker's code for a comment it refuses unread (apps/site/worker/comments/rules.ts parseComment), or nil: a name
   /// of 1–40 and a comment of 2–2000, trimmed, counted as JavaScript counts them (UTF-16 units).

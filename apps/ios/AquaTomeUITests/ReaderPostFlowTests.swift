@@ -27,6 +27,9 @@ final class ReaderPostFlowTests: XCTestCase {
     app.buttons["Đóng"].tap()
     let mine = app.descendants(matching: .any).matching(identifier: "comment").matching(NSPredicate(format: "label BEGINSWITH %@ AND label ENDSWITH %@", "Hà  ", "\nĐàn 12 con khỏe.")).firstMatch
     XCTAssertTrue(mine.waitForExistence(timeout: 5), "the comment isn't on the page: \(app.descendants(matching: .any).matching(identifier: "comment").allElementsBoundByIndex.map { $0.label })")
+    // Others' to report or block; not the reader's own.
+    XCTAssertTrue(readerMenu(app, "Tùy chọn cho bình luận của Lan").exists, "no way to report another's comment")
+    XCTAssertFalse(readerMenu(app, "Tùy chọn cho bình luận của Hà").exists, "a way to report the reader's own comment")
   }
 
   /// After posting, a page read again within the site's minute of caching still shows the reader's comment.
@@ -129,7 +132,7 @@ final class ReaderPostFlowTests: XCTestCase {
   }
 
   /// A reader's photo reported from its viewer, with no reason given: the viewer closes on the thanks, the photo gone
-  /// from the page.
+  /// from the page. The page's last one reported takes its viewer with it, and the page says what it hides.
   func testAReadersPhotoIsReportedFromItsViewer() {
     let app = launch()
     openNeon(app)
@@ -145,7 +148,24 @@ final class ReaderPostFlowTests: XCTestCase {
     thanked(app)
     XCTAssertTrue(gone(app.descendants(matching: .any)["gallery"]), "the viewer stayed open")
     XCTAssertFalse(app.buttons["Ảnh của Lan"].exists, "the reported photo still shows")
-    XCTAssertTrue(app.buttons["Ảnh của Minh"].exists, "the other photo went too")
+    let last = app.buttons["Ảnh của Minh"]
+    XCTAssertTrue(last.exists, "the other photo went too")
+    last.tap()
+    let menu2 = readerMenu(app, "Tùy chọn cho ảnh của Minh")
+    XCTAssertTrue(menu2.waitForExistence(timeout: 5), "no options in the photo's viewer")
+    menu2.tap()
+    app.buttons["Báo cáo"].tap()
+    XCTAssertTrue(app.buttons["Spam hoặc quảng cáo"].waitForExistence(timeout: 5), "not asked why")
+    app.buttons["Spam hoặc quảng cáo"].tap()
+    // The row goes with its last photo, and its viewer with it: the thanks, if it shows at all, closed.
+    let thanks = app.alerts["Đã gửi báo cáo. Cảm ơn bạn."]
+    if thanks.waitForExistence(timeout: 3) { thanks.buttons["Đóng"].tap() }
+    XCTAssertTrue(gone(app.descendants(matching: .any)["gallery"]), "the viewer stayed open")
+    XCTAssertFalse(app.buttons["Ảnh của Minh"].exists, "the reported photo still shows")
+    let note = app.descendants(matching: .any)["readers-hidden"]
+    reveal(app, note)
+    XCTAssertEqual(note.label, "Đang ẩn 2 mục bạn đã chặn hoặc báo cáo.")
+    XCTAssertFalse(app.staticTexts["Chưa có ảnh nào. Bạn nuôi Cá neon? Gửi một tấm ảnh cho mọi người cùng xem."].exists, "said there are none")
   }
 
   /// Blocking who wrote a comment hides everything they posted, their photos too, until they're let back from the page.
@@ -217,9 +237,8 @@ final class ReaderPostFlowTests: XCTestCase {
     app.descendants(matching: .any).matching(identifier: "comment").matching(NSPredicate(format: "label BEGINSWITH %@", "\(name) ")).firstMatch
   }
 
-  private func readerMenu(_ app: XCUIApplication, _ label: String) -> XCUIElement {
-    app.buttons.matching(identifier: "reader-menu").matching(NSPredicate(format: "label == %@", label)).firstMatch
-  }
+  /// A "…" by what VoiceOver says of it (each names its poster): a menu in a toolbar may not carry its identifier.
+  private func readerMenu(_ app: XCUIApplication, _ label: String) -> XCUIElement { app.buttons[label].firstMatch }
 
   /// A comment's "…", then one of its choices.
   private func act(_ app: XCUIApplication, _ menu: String, _ choice: String) {

@@ -448,6 +448,7 @@ private struct GalleryViewer: View {
   let photos: [PageDoc.Image]
   let readers: [ReaderItem]?
   @State var index: Int
+  @Environment(HandbookModel.self) private var handbook
   @Environment(\.dismiss) private var dismiss
   @State private var reporting: ReaderItem?
   @State private var blocking: ReaderItem?
@@ -478,7 +479,7 @@ private struct GalleryViewer: View {
       .toolbar {
         ToolbarItem(placement: .primaryAction) { Button("Đóng") { dismiss() } }
         // A reader's photo: report it, or block who sent it; then the viewer closes, and the row shows it no more.
-        if let readers, readers.indices.contains(index) {
+        if let readers, readers.indices.contains(index), !handbook.safety.isOwn(readers[index]) {
           ToolbarItem(placement: .topBarLeading) { ReaderMenu(item: readers[index], reporting: $reporting, blocking: $blocking) }
         }
       }
@@ -515,7 +516,8 @@ private struct ReadersPart: View {
       if talk.photos != nil && (open || !shownPhotos.isEmpty) {
         if shownPhotos.isEmpty {
           Text("Ảnh bạn đọc").font(.title3.bold()).accessibilityAddTraits(.isHeader)
-          if photos != nil { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
+          // None at all: hidden ones the note below says.
+          if photos?.isEmpty == true { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
         } else {
           GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map {
             PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: ($0.name, "", nil))
@@ -529,7 +531,8 @@ private struct ReadersPart: View {
         ForEach(shownComments, id: \.id) { c in
           HStack(alignment: .top, spacing: 4) {
             Text(line(c)).frame(maxWidth: .infinity, alignment: .leading).accessibilityIdentifier("comment")
-            ReaderMenu(item: ReaderItem(c), reporting: $reporting, blocking: $blocking)
+            // Another reader's: not one of the reader's own.
+            if !safety.isOwn(ReaderItem(c)) { ReaderMenu(item: ReaderItem(c), reporting: $reporting, blocking: $blocking) }
           }
         }
         if open { Button("Gửi bình luận") { posting = .comment }.accessibilityIdentifier("post-comment") }
@@ -562,6 +565,7 @@ private struct ReadersPart: View {
     .sheet(item: $posting) { kind in
       ReaderPost(kind: kind, key: (kind == .comment ? talk.comments : talk.photos) ?? "", name: name) { c in
         if let key = talk.comments { handbook.posted(c, on: key) }
+        handbook.safety.posted(c)
         comments = (comments ?? []) + [c]
       }
     }

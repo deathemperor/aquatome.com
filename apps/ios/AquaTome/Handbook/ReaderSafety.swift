@@ -15,16 +15,30 @@ final class ReaderSafety {
 
   private(set) var blocked: [Blocked]
   private(set) var reported: Set<String>
+  /// The reader's own `author`s, from the comments they posted that showed at once: no "…" on their own.
+  private(set) var own: Set<String>
   @ObservationIgnored private let defaults: UserDefaults
 
   init(defaults: UserDefaults = .standard) {
     self.defaults = defaults
     blocked = defaults.data(forKey: "readers.blocked").flatMap { try? JSONDecoder().decode([Blocked].self, from: $0) } ?? []
     reported = Set(defaults.stringArray(forKey: "readers.reported") ?? [])
+    own = Set(defaults.stringArray(forKey: "readers.own") ?? [])
   }
 
+  /// Hidden: reported, or by a poster blocked, by their `author` or, blocked from a post that carried none, that post
+  /// (a block made before the site sent `author` still holds once it does).
   func hides(_ item: ReaderItem) -> Bool {
-    reported.contains("\(item.kind):\(item.id)") || blocked.contains { $0.key == Readers.blockKey(author: item.author, id: item.id) }
+    reported.contains("\(item.kind):\(item.id)")
+      || blocked.contains { Readers.blocks($0.key, author: item.author, id: item.id) }
+  }
+
+  func isOwn(_ item: ReaderItem) -> Bool { item.author.map(own.contains) ?? false }
+
+  func posted(_ c: Readers.Comment) {
+    guard let a = c.author, !own.contains(a) else { return }
+    own.insert(a)
+    defaults.set(Array(own).sorted(), forKey: "readers.own")
   }
 
   func block(_ item: ReaderItem) {
@@ -89,8 +103,8 @@ private struct ReaderActions: ViewModifier {
   @Environment(HandbookModel.self) private var handbook
   @Environment(AccountModel.self) private var account
   @State private var said: String?
-  /// Reported, kept on screen until the reader has read the thanks: a photo's viewer stays open for it.
-  @State private var sent: ReaderItem?
+  /// Reported: the thanks closes a photo's viewer too; a report not sent leaves it open to try again.
+  @State private var sent = false
 
   /// The reasons offered, each sent as its code for moderation; the last, none.
   private static let reasons: [(LocalizedStringKey, String?)] = [
@@ -115,9 +129,8 @@ private struct ReaderActions: ViewModifier {
       }
       .alert(said ?? "", isPresented: Binding(get: { said != nil }, set: { if !$0 { said = nil } })) {
         Button("Đóng") {
-          if let sent { handbook.safety.reported(sent) }
-          sent = nil
-          done()
+          if sent { done() }
+          sent = false
         }
       }
   }
@@ -134,7 +147,10 @@ private struct ReaderActions: ViewModifier {
       }.map { Readers.reported($0.0, status: $0.1) }
       switch answer {
       case .received?:
-        sent = item
+        // Hidden at once, and kept so: the page or the app may close before the thanks does. A photo that was the
+        // page's last takes its viewer, and the thanks, with it; the page then says what it hides.
+        handbook.safety.reported(item)
+        sent = true
         said = String(localized: "Đã gửi báo cáo. Cảm ơn bạn.")
       case .refused("rate")?:
         said = String(localized: "Hôm nay bạn đã báo cáo nhiều lần. Hãy thử lại vào ngày mai.")
@@ -154,10 +170,29 @@ struct BlockedList: View {
       HStack {
         Text(verbatim: b.name)
         Spacer()
+        // The button alone, not the row: a tap on the name doesn't let them back.
         Button("Bỏ chặn") { handbook.safety.unblock(b.key) }
+          .buttonStyle(.borderless)
           .accessibilityLabel(Text("Bỏ chặn \(b.name)"))
           .accessibilityIdentifier("unblock")
       }
+    }
+  }
+}
+
+/// "Người đã chặn" under the tanks tab's empty state (no tanks, signed out), once anyone is blocked.
+struct BlockedPanel: View {
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    if !handbook.safety.blocked.isEmpty {
+      VStack(alignment: .leading, spacing: 8) {
+        Text("Người đã chặn").font(.headline).accessibilityAddTraits(.isHeader).accessibilityIdentifier("blocked-header")
+        BlockedList()
+        Text("Bình luận và ảnh của những người này đang ẩn trên máy này.").font(.footnote).foregroundStyle(.secondary)
+      }
+      .frame(maxWidth: 300)
+      .padding(.top, 16)
     }
   }
 }

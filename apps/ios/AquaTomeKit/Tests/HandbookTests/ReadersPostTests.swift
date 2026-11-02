@@ -155,6 +155,10 @@ private let site = URL(string: "https://aquatome.com")!
   #expect(Readers.reported(Data(#"{"status":"received"}"#.utf8), status: 202) == .received)
   // Not public any more (another report took it off, or moderation did): what the reader wanted.
   #expect(Readers.reported(Data(#"{"error":"not found"}"#.utf8), status: 404) == .received)
+  // A 404 that isn't the report's: no report endpoint (the accounts router's), accounts off, a proxy's page. Not sent.
+  #expect(Readers.reported(Data(#"{"error":"not_found"}"#.utf8), status: 404) == .refused("not_found"))
+  #expect(Readers.reported(Data(#"{"error":"accounts_off"}"#.utf8), status: 404) == .refused("accounts_off"))
+  #expect(Readers.reported(Data("<html>Not Found</html>".utf8), status: 404) == .refused("failed"))
   #expect(Readers.reported(Data(#"{"error":"session"}"#.utf8), status: 401) == .signedOut)
   #expect(Readers.reported(Data(#"{"error":"rate"}"#.utf8), status: 429) == .refused("rate"))
   #expect(Readers.reported(Data(#"{"error":"bad report"}"#.utf8), status: 400) == .refused("bad report"))
@@ -169,4 +173,9 @@ private let site = URL(string: "https://aquatome.com")!
 @Test func blockingAPosterKeysOnTheirAuthorOrElseOnThatOnePost() {
   #expect(Readers.blockKey(author: "0f1e2d3c4b5a6978", id: "c1") == "0f1e2d3c4b5a6978")
   #expect(Readers.blockKey(author: nil, id: "c1") == "post:c1")
+  // A poster's block hides all they post; a post's, that post, also once the site says who posted it.
+  #expect(Readers.blocks("0f1e2d3c4b5a6978", author: "0f1e2d3c4b5a6978", id: "p9"))
+  #expect(Readers.blocks("post:c1", author: "0f1e2d3c4b5a6978", id: "c1"))
+  #expect(!Readers.blocks("post:c1", author: "0f1e2d3c4b5a6978", id: "c2"))
+  #expect(!Readers.blocks("0f1e2d3c4b5a6978", author: nil, id: "c2"))
 }

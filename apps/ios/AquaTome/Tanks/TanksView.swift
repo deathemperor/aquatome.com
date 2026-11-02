@@ -15,8 +15,8 @@ struct TanksView: View {
     NavigationStack(path: $path) {
       Group {
         // A store left alone (newer, unreadable) is said so in the list; after a failed save there's still a first tank to add.
-        // Signed in, the list stays, for the account's buttons; and with anyone blocked, for the list to unblock them.
-        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil && handbook.safety.blocked.isEmpty {
+        // Signed in, the list stays, for the account's buttons.
+        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil {
           // Centred on the screen; it scrolls when the sign-in and its fine print run past the tab bar (a small phone,
           // large text).
           GeometryReader { g in
@@ -28,6 +28,7 @@ struct TanksView: View {
               } actions: {
                 Button("Thêm bể đầu tiên") { adding = true }.buttonStyle(.borderedProminent).accessibilityIdentifier("add-first")
                 AccountSignIn()
+                BlockedPanel()
               }
               .frame(minHeight: g.size.height)
             }
