@@ -61,9 +61,11 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(group("https://aquatome.com/th/groups/catfish/") == .group("catfish"))
   #expect(group("https://aquatome.com/vi/nhom/catfish/trang/2/") == .group("catfish"))
   #expect(group("https://aquatome.com/id/kelompok/catfish/halaman/3/") == .group("catfish"))
+  #expect(group("https://aquatome.com/th/groups/catfish/page/2/") == .group("catfish"))
   // A group the app has no fish of, a segment of another language, or a link asking for more: the web page.
   #expect(group("https://aquatome.com/vi/nhom/killifish/") == nil)
   #expect(group("https://aquatome.com/vi/groups/catfish/") == nil)
+  #expect(group("https://aquatome.com/th/groups/catfish/trang/2/") == nil)
   #expect(group("https://aquatome.com/vi/nhom/catfish/?sort=size") == nil)
   #expect(group("https://aquatome.com/vi/nhom/") == nil)
   #expect(group("https://aquatome.com/vi/nhom/catfish/khac/") == nil)
