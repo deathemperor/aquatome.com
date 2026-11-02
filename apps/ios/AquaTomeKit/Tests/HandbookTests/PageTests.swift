@@ -35,6 +35,12 @@ private func json(_ d: PageDoc) -> [String: Any] {
     j["chapters"] = v.chapters?.map { ["at": $0.at, "title": $0.title] as [String: Any] }
     o["video"] = j
   }
+  if let t = d.talk {
+    var j: [String: Any] = [:]
+    j["comments"] = t.comments
+    j["photos"] = t.photos
+    o["talk"] = j
+  }
   return o
 }
 private func json(_ r: PageDoc.Run) -> Any {
@@ -138,6 +144,21 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
     let d = try doc(c["doc"]!)
     #expect(same(json(d), c["doc"]!), "\(c["note"]!)")
     #expect(!d.blocks.contains { $0.t == "web" }, "\(c["note"]!)")
+  }
+}
+
+@Test func aPageNamesWhereItsReadersCommentsAndPhotosAre() throws {
+  let fish = try #require(cases("added").first { ($0["doc"] as? [String: Any])?["kind"] as? String == "fish" })
+  #expect(try doc(fish["doc"]!).talk == .init(comments: "species:paracheirodon-axelrodi", photos: "species:paracheirodon-axelrodi"))
+  let plant = try #require(cases("added").first { ($0["doc"] as? [String: Any])?["kind"] as? String == "plant" })
+  #expect(try doc(plant["doc"]!).talk == .init(comments: "plant:cryptocoryne-wendtii", photos: nil))
+  // Comments alone (a plant, a guide); neither, or a part this app can't read, is no section.
+  var p = page([])
+  p["talk"] = ["comments": "id:plant:rotala-rotundifolia"]
+  #expect(try doc(p).talk == .init(comments: "id:plant:rotala-rotundifolia", photos: nil))
+  for odd: Any in [[String: Any](), ["comments": 3], "species:x"] {
+    p["talk"] = odd
+    #expect(try doc(p).talk == nil)
   }
 }
 

@@ -33,7 +33,16 @@ public struct PageDoc: Sendable {
   public let credit: [Run]
   public let lead: Image?
   public let video: Video?
+  /// Where its readers' comments and photos are (Readers), by the keys its web page reads them by; nil when it has
+  /// neither.
+  public let talk: Talk?
   public let blocks: [Block]
+
+  /// The keys of a page's readers' sections: its comments (`/_c?e=`) and its readers' photos (`/_p?e=`).
+  public struct Talk: Sendable, Equatable {
+    public let comments: String?
+    public let photos: String?
+  }
 
   /// Text, plain or styled. `href` is a site path, an absolute URL, or `#id` (the block with that id on this page).
   public struct Run: Sendable {
@@ -357,6 +366,9 @@ public struct PageDoc: Sendable {
     credit = Run.list(o["credit"]) ?? []
     lead = Image(json: o["lead"])
     video = Video(json: o["video"])
+    let talk = o["talk"] as? [String: Any]
+    let comments = talk?["comments"] as? String, photos = talk?["photos"] as? String
+    self.talk = comments == nil && photos == nil ? nil : Talk(comments: comments, photos: photos)
   }
 
   /// Which shard of `/app/pages/<lang>/<kind>-<n>.json` holds `path`, of `count` (the app index's `pages`): 32-bit

@@ -89,6 +89,8 @@ test('a guide\'s header line, credit and lead photo read as its built page\'s', 
     expect(d.title, d.path).toBe(clean(dom.querySelector('h1')!.textContent))
     expect(d.meta, d.path).toBe(clean(dom.querySelector('.kind')!.textContent))
     expect(textOf(d.credit), d.path).toBe(clean(dom.querySelector('.credit')!.textContent))
+    // Its readers' comments, by the key the page's section reads them by.
+    expect(d.talk, d.path).toEqual({ comments: dom.querySelector('[data-comments]')!.getAttribute('data-entity') })
     const lead = dom.querySelector('img.lead')
     expect(d.lead?.src, d.path).toBe(lead?.getAttribute('src'))
     if (d.lead) {

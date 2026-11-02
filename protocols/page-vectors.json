@@ -925,6 +925,10 @@
             "url": "https://example.org/photo/cardinal"
           }
         },
+        "talk": {
+          "comments": "species:paracheirodon-axelrodi",
+          "photos": "species:paracheirodon-axelrodi"
+        },
         "blocks": [
           {
             "t": "trust",
@@ -1206,6 +1210,9 @@
             "licence": "dùng với sự cho phép",
             "url": "https://example.org/photo/wendtii"
           }
+        },
+        "talk": {
+          "comments": "plant:cryptocoryne-wendtii"
         },
         "blocks": [
           {

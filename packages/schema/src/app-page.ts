@@ -202,6 +202,11 @@ export const PageDoc = z.object({
   credit: Text.optional(),
   lead: Image.optional(),
   video: Video.optional(),
+  /**
+   * The keys of the page's readers' sections, as its web page has them (`data-entity`): its comments (`/_c?e=`) and its
+   * readers' photos (`/_p?e=`). One it lacks, the page has no such section.
+   */
+  talk: z.object({ comments: z.string().optional(), photos: z.string().optional() }).optional(),
   blocks: z.array(Block),
 })
 

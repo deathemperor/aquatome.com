@@ -18,6 +18,7 @@ import { plantParts } from './plant-page'
 import { OFF_LABELS, sectionParts, type SectionProps } from './section-parts'
 import { QUESTION_LABELS } from './sections'
 import { speciesParts } from './species-page'
+import { commentsKey, photosKey } from './talk'
 import { clock } from './video'
 
 /**
@@ -192,6 +193,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     ...(s.t.altNames.length ? { aka: t('Tên khác: {names}', { names: s.t.altNames.join(', ') }) } : {}),
     ...(p.firstSource ? { credit: [t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources, date: s.updatedAt })] } : {}),
     ...(lead ? { lead } : {}),
+    talk: { comments: commentsKey(lang, `species:${s.id}`), photos: photosKey(`species:${s.id}`) },
     blocks: [
       ...trustBlock(t, lang, s.dataCard, c.sources),
       mates,
@@ -223,6 +225,7 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
     title: p.t.name,
     sub: p.scientificName,
     ...(lead ? { lead } : {}),
+    talk: { comments: commentsKey(lang, `plant:${p.id}`) },
     blocks: [
       ...galleryBlock(lang, c.sources, p.t.name, parts.gallery, parts.strip, parts.galleryPath),
       ...text,
@@ -282,6 +285,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
         ...(v.chapters.length > 1 ? { chapters: v.chapters.map((ch, i) => ({ at: ch.start, title: g.t.chapters?.[i] ?? ch.title })) } : {}),
       },
     } : {}),
+    talk: { comments: commentsKey(lang, `guide:${g.id}`) },
     blocks: [
       ...(g.t.summary?.length ? [{ t: 'summary' as const, title: t('Tóm tắt nhanh'), items: g.t.summary }] : []),
       ...blocks,

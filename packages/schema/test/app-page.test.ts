@@ -74,6 +74,14 @@ test('the pages with blocks added after the first app are the format, and an old
   expect(defs.filter(t => t && !FIRST.has(t)).sort()).toEqual([...ADDED].sort())
 })
 
+test('the cases name readers\' sections as pages do: a fish with comments and photos, a plant with comments only, a page with neither', () => {
+  const talk = (kind: string) => (v.added.find(d => (d.doc as { kind?: string }).kind === kind)?.doc as { talk?: { comments?: string; photos?: string } } | undefined)?.talk
+  expect(talk('fish')?.comments && talk('fish')?.photos).toBeTruthy()
+  expect(talk('plant')?.comments).toBeTruthy()
+  expect(talk('plant')?.photos).toBeUndefined()
+  expect(v.added.some(d => !('talk' in d.doc))).toBe(true)
+})
+
 test.each(v.levels)('levels: $note', c => {
   expect(drawnKinds(c.shards, c.appLevel).sort(), c.note).toEqual([...c.draws].sort())
 })

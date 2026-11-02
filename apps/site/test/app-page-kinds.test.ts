@@ -20,6 +20,11 @@ const text = (c: Inline[] = []) => c.map(r => (typeof r === 'string' ? r : r.tex
 const all = <T extends Block['t']>(d: PageDoc, t: T) => d.blocks.filter((b): b is B<T> => b.t === t)
 const one = <T extends Block['t']>(d: PageDoc, t: T) => all(d, t)[0]
 const txt = (el: HTMLElement | null | undefined) => clean(el?.textContent ?? '')
+/** The keys the page's readers' sections (comments, readers' photos) read theirs by. */
+const talk = (dom: HTMLElement) => ({
+  comments: dom.querySelector('[data-comments]')?.getAttribute('data-entity'),
+  photos: dom.querySelector('[data-reader-photos]')?.getAttribute('data-entity'),
+})
 const kids = (bs: Block[]): Block[] => bs.flatMap(b => [b, ...(b.t === 'list' ? b.items.flatMap(kids) : [])])
 /** Every picture a copy carries, wherever it is: the lead, photos in the text, the gallery, cards, tank mates. */
 function images(d: PageDoc): Image[] {
@@ -108,6 +113,8 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
     expect(text(d.credit), d.path).toBe(txt(dom.querySelector('.facts > .srcline')).startsWith('Dịch') ? txt(dom.querySelector('.facts > .srcline')) : '')
     expect(d.lead?.src, d.path).toBe(dom.querySelector('.photo img')?.getAttribute('src'))
+    expect(d.talk, d.path).toEqual(talk(dom))
+    expect(d.talk?.comments && d.talk.photos, d.path).toBeTruthy()
     if (d.lead) expect(d.lead.credit?.text, d.path).toBe(dom.querySelector('.photo a.cite.pic')!.getAttribute('data-term'))
     credited(d, dom, bySource)
     // "Nguồn và độ tin cậy": every field's sources, each source's own figure where they disagree, and no figure else.
@@ -222,6 +229,8 @@ test('each plant\'s copy reads as its built page: header, credits, sources, gall
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
     expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
     expect(d.lead?.src, d.path).toBe(dom.querySelector('header .gallery img')?.getAttribute('src'))
+    expect(d.talk, d.path).toEqual(talk(dom))
+    expect(d.talk?.comments, d.path).toBeTruthy()
     credited(d, dom, bySource)
     gallery(d, dom)
     const guides = new Set(dom.querySelectorAll('.guides a, .vg a').map(a => a.getAttribute('href')))
@@ -258,6 +267,8 @@ test('a fish\'s copy in Indonesian: the Indonesian page\'s paths and links, no V
     const d = await fishDoc('id', c, s, listed)
     expect(PageDoc.safeParse(d).error, s.id).toBeUndefined()
     expect(d.path).toBe(`/id/ikan/${s.t.slug}/`)
+    // Its own discussion, as the Indonesian page's (Comments.astro); readers' photos are shared by every language.
+    expect(d.talk).toEqual({ comments: `id:species:${s.id}`, photos: `species:${s.id}` })
     expect(d.blocks.some(b => b.t === 'climate' || b.t === 'summary'), s.id).toBe(false)
     const hrefs = JSON.stringify(d).match(/"(href|path)":"[^"]*"/g) ?? []
     for (const h of hrefs) expect(h, `${s.id}: ${h}`).not.toMatch(/"\/vi\//)
