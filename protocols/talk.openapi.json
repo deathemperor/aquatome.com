@@ -671,7 +671,7 @@
           "reason": {
             "type": "string",
             "maxLength": 500,
-            "description": "Why, if the reader says (500 UTF-16 units at most)."
+            "description": "Why, if the reader says (500 UTF-16 units at most). The app sends one of `spam`, `harassment`, `inappropriate`, or none; the website, the reader's own words."
           }
         }
       },

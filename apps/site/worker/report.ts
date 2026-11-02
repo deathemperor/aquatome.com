@@ -52,6 +52,7 @@ export async function reportRoute(req: Request, env: ReportEnv, now: Date): Prom
   const reported = item && item.status !== 'approved'
     ? await db.prepare(`SELECT 1 FROM reports WHERE kind = ? AND item_id = ? LIMIT 1`).bind(r.kind, r.id).first()
     : null
+  // The app counts exactly this body as received (the item is gone already); any other 404 means the report didn't arrive.
   if (!item || (item.status !== 'approved' && !reported)) return json({ error: 'not found' }, 404)
   await Promise.all(rl.map((k, i) => env.AB.put(k, String(today[i]), { expirationTtl: 86_400 })))
 
