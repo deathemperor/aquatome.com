@@ -64,7 +64,10 @@ const added = []
 // Pages a few at a time (each waits on its scripts more than it draws).
 const AT_ONCE = 6
 for (const [size, device] of Object.entries(SIZES)) {
-  const context = await browser.newContext({ ...device, colorScheme: 'light', reducedMotion: 'reduce' })
+  const context = await browser.newContext({ ...device, colorScheme: 'light', reducedMotion: 'reduce', timezoneId: 'Asia/Ho_Chi_Minh' })
+  // One fixed time for both builds: a page that shows the time (the Chihiros light's "now") would differ by the minute
+  // between the two shots.
+  await context.clock.setFixedTime(new Date('2026-06-15T03:00:00Z'))
   const shots = new Map()
   for (let i = 0; i < pages.length; i += AT_ONCE) {
     await Promise.all(pages.slice(i, i + AT_ONCE).map(async path => {
