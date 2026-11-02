@@ -627,11 +627,16 @@ final class LightFlowTests: XCTestCase {
     return value
   }
 
-  /// A slider dragged to 100%. A drag is only "best effort" (XCUIElement): one aimed at the end stopped at 87% on CI, so
-  /// it is dragged again, at most three times, until the slider reads 100%.
+  /// A slider dragged to 100%: its thumb taken well past the end, where the slider stops at its maximum however the
+  /// drag's last steps land. `adjust(toNormalizedSliderPosition: 1)` is only "best effort" (XCUIElement) and stopped at
+  /// 87%, 95% and 97% on CI's iPhone, even dragged again. The thumb is found where UIKit draws it: its centre half its
+  /// width (28 pt) in from either end of the track at 0 and 1.
   private func slideToEnd(_ app: XCUIApplication, _ id: String) {
     for _ in 0..<3 {
-      scrolledTo(app, id).adjust(toNormalizedSliderPosition: 1)
+      let s = scrolledTo(app, id)
+      let x = 14 + s.normalizedSliderPosition * (s.frame.width - 28)
+      s.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5)).withOffset(CGVector(dx: x, dy: 0))
+        .press(forDuration: 0.1, thenDragTo: s.coordinate(withNormalizedOffset: CGVector(dx: 1, dy: 0.5)).withOffset(CGVector(dx: 80, dy: 0)))
       if element(app, id).value as? String == "100%" { return }
     }
   }
@@ -699,12 +704,33 @@ final class LightFlowTests: XCTestCase {
   }
 
   /// Drags a handle of the day from where it is (`at`, minutes) by as much as it takes to reach `minute`: the day's
-  /// width is 24 hours. Below the ramp knob for on and off.
+  /// width is 24 hours. Below the ramp knob for on and off. A drag that lands a step off (the runners' touches do, now
+  /// and then: 20:00 to 23:00 landed on 23:15, twice) is put right by going back an hour the way it came and dragging
+  /// the last hour: a step alone is shorter than a handle needs to start moving. Further off is left to fail the test.
   private func drag(_ app: XCUIApplication, _ id: String, from at: Double, to minute: Double) {
+    slide(app, id, by: minute - at)
+    let back = minute + (minute < at ? 60 : -60)
+    for _ in 0..<2 {
+      guard let now = minutes(app, id), now != minute, abs(now - minute) <= 30 else { return }
+      slide(app, id, by: back - now)
+      guard let then = minutes(app, id) else { return }
+      slide(app, id, by: minute - then)
+    }
+  }
+
+  /// One drag of a handle of the day, by `span` minutes.
+  private func slide(_ app: XCUIApplication, _ id: String, by span: Double) {
     let day = scrolledTo(app, "day").frame
     let start = element(app, id).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: id == "handle-ramp" ? 0.5 : 0.8))
-    let end = start.withOffset(CGVector(dx: day.width * (minute - at) / 1440, dy: 0))
+    let end = start.withOffset(CGVector(dx: day.width * span / 1440, dy: 0))
     start.press(forDuration: 0.1, thenDragTo: end, withVelocity: .slow, thenHoldForDuration: 0.1)
+  }
+
+  /// A handle's value in minutes: “Tắt lúc 23:15” is 1395, “60 phút” is 60.
+  private func minutes(_ app: XCUIApplication, _ id: String) -> Double? {
+    guard let value = element(app, id).value as? String else { return nil }
+    if let t = value.firstMatch(of: #/(\d+):(\d+)/#), let h = Double(t.1), let m = Double(t.2) { return h * 60 + m }
+    return value.firstMatch(of: #/\d+/#).flatMap { Double($0.0) }
   }
 
   /// The fake light's last frames (hex, " | " between them), as the app shows them to the tests, match `pattern`.
