@@ -82,6 +82,9 @@ struct AquaTomeApp: App {
       // A page the app draws linking to another: pushed on the tab it's in.
       guard let item = handbook.item(at: path) else { return }
       if tab == .tanks { tanksPath.append(item) } else { tab = .handbook; handbookPath.append(item) }
+    case .group(let group):
+      // A group named in a page's text: its shelf, pushed on the tab the page is in.
+      if tab == .tanks { tanksPath.append(Browse.fish(group)) } else { tab = .handbook; handbookPath.append(Browse.fish(group)) }
     }
   }
 

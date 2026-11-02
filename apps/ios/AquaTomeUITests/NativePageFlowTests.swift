@@ -173,6 +173,37 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Cá ngựa vằn"].waitForExistence(timeout: 5), "the tank-mate's page didn't open")
   }
 
+  /// A group named in the text ("cá tetra", linked to the site's group page) opens the app's shelf of that group, as the
+  /// home's group tiles do: not its web page.
+  func testAGroupNamedInTheTextOpensTheAppsShelfOfIt() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    let group = app.links["cá tetra"].firstMatch
+    reveal(app, group)
+    group.tap()
+    XCTAssertTrue(app.navigationBars["Cá tetra"].waitForExistence(timeout: 5), "not the group's shelf")
+    XCTAssertTrue(app.descendants(matching: .any)["shelf-pages"].exists, "not the app's shelf")
+    XCTAssertTrue(app.descendants(matching: .any)["shelf-pages"].buttons.matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch.exists, "the group's fish not on it")
+    XCTAssertFalse(app.descendants(matching: .any)["page"].exists, "the group's web page")
+  }
+
+  /// From the tanks tab, the group's shelf opens on the tanks tab too, as a page does.
+  func testAGroupFromTheTanksTabOpensOnTheTanksTab() {
+    let app = launch("-seed-tanks", "life") // "Bể cá neon": a guide names its neons
+    app.tabBars.buttons["Bể của tôi"].tap()
+    app.buttons["tank"].firstMatch.tap()
+    let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
+    for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
+    guide.tap()
+    app.links["neon"].firstMatch.tap()
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "the link didn't open the fish")
+    let group = app.links["cá tetra"].firstMatch
+    reveal(app, group)
+    group.tap()
+    XCTAssertTrue(app.navigationBars["Cá tetra"].waitForExistence(timeout: 5), "not the group's shelf")
+    XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "not on the tanks tab")
+  }
+
   /// The tank-mates tool, set to this fish by the page's link: its web page in the app, fish and all (not the tool left
   /// empty, nor the browser).
   func testTheTankMatesToolOpensSetToTheFish() {
