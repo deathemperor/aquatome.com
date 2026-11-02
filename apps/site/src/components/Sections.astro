@@ -1,44 +1,21 @@
 ---
-import { dropCardRepeats, figuresOffCard, linkTerms, type DataCardField, type Range, type Section, type SpeciesEntity, type Translation } from '@aq/schema'
+import type { Range } from '@aq/schema'
 import GlossaryTip from './GlossaryTip.astro'
 import { getContent } from '../lib/content'
-import { mentionIndex } from '../lib/mentions'
-import { figureHtml, type Figure } from '../lib/figures'
-import { DISPLAY_ORDER, QUESTION_LABELS } from '../lib/sections'
+import { figureHtml } from '../lib/figures'
+import { QUESTION_LABELS } from '../lib/sections'
+import { OFF_LABELS, sectionParts, type SectionProps } from '../lib/section-parts'
 import { fmt, isRange } from '../lib/format'
 import { i18n } from '../lib/i18n'
-import { citeMark, withCite } from '../lib/cite'
 /** `card`: a species' data card. Its figures are the page's own: a quick-facts list drops what the card already gives, and a
- * block that states a figure the card shows otherwise says which source it follows (@aq/schema card-facts). */
-interface Props { sections: Section[]; t: Translation; self?: string; selfNames?: string[]; figures?: Figure[]; card?: SpeciesEntity['dataCard'] }
-const { sections, t, self, selfNames = [], figures = [], card } = Astro.props
+ * block that states a figure the card shows otherwise says which source it follows (@aq/schema card-facts). The text is
+ * put together in lib/section-parts.ts, which the app's copy of the page reads too. */
+type Props = SectionProps
 // `t` is the entity's translation (a prop): the translator is `tr` here.
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
-const OFF_LABELS: Partial<Record<DataCardField, string>> = { tempC: 'nhiệt độ', ph: 'pH', gh: 'độ cứng', sizeCm: 'kích thước', tankCm: 'bể tối thiểu' }
 const pair = (v: Range | number) => (isRange(v) ? `${v.min},${v.max}` : `${v},${v}`)
-const c = await getContent(lang)
-const targets = mentionIndex(c).targets
-// Other species, plants, taxa, groups, places, glossary terms and equipment: first mention on the page, never the page's own names.
-const linked = new Set<string>(self ? [self] : [])
-const own = new Set(selfNames.map(n => n.toLowerCase()))
-// Each source is numbered by where it first appears; every block ends with its source's mark (lib/cite.ts), and the
-// numbered list closes the page's text.
-const refs: { name: string; url: string }[] = []
-const refNo = (name: string, url: string) => { const i = refs.findIndex(r => r.url === url); return i >= 0 ? i + 1 : refs.push({ name, url }) }
-const groups = DISPLAY_ORDER.map(key => ({
-  key,
-  blocks: sections.filter(x => x.key === key).flatMap(x => {
-    const text = t.sections[`${key}:${x.source}`]
-    const html = text && card && key === 'quickFacts' ? dropCardRepeats(x.html, text, x.source, card) : text
-    if (!html) return []
-    const name = c.sources[x.source]?.name ?? x.source
-    const off = card && key !== 'references' ? figuresOffCard(card, x.source, html) : []
-    return [{ ...x, name, off, vi: withCite(linkTerms(html, targets, 'ml', linked, own).html, citeMark(lang, refNo(name, x.sourceUrl), name, x.sourceUrl)) }]
-  }),
-})).filter(x => x.blocks.length > 0)
-// Extra photos go between sections, spread evenly (never after the last one).
-const figAfter = new Map(figures.slice(0, Math.max(0, groups.length - 1)).map((f, k, all) => [Math.floor(((k + 1) * groups.length) / (all.length + 1)) - 1, f] as const))
+const { groups, refs, figAfter } = sectionParts(lang, await getContent(lang), Astro.props)
 ---
 <div class="wrap body">
   {groups.map((sec, i) => (<>

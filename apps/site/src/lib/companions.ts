@@ -2,13 +2,22 @@ import { POPULAR, slugify, STAPLE_SPECIES, type Content, type Localized, type Sp
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { checkTankmates } from '../scripts/tankmates'
 import { richest } from './home'
-import type { Lang } from './i18n'
+import type { Lang, T } from './i18n'
 import { toIndexItem } from './species-index'
 import { getTraits } from './traits'
 
 /** Why a species is in the "tránh" list, worst first: the tank-mates tool's own clashes, as they affect this species. */
 export const AVOID_REASONS = ['eatsIt', 'eatenByIt', 'predator', 'aggressive', 'semiAggressive', 'finNipper'] as const
 export type AvoidReason = (typeof AVOID_REASONS)[number]
+/**
+ * Why to keep a fish away from `name`, in a few words: the clash as the tank-mates tool sees it, with the other fish's
+ * adult size where the size is the reason ({size}, filled in by the page: a length the units toggle converts).
+ */
+export const avoidWhy = (t: T, name: string): Record<AvoidReason, string> => ({
+  eatsIt: t('Lớn tới {size}, có thể ăn {name}', { name }), eatenByIt: t('Chỉ dài {size}, có thể bị {name} ăn', { name }),
+  predator: t('Cá săn mồi, ăn con nào vừa miệng'), aggressive: t('Hung dữ, thường phải nuôi riêng'),
+  semiAggressive: t('Hơi dữ, có thể rượt đuổi {name}', { name }), finNipper: t('Hay cắn vây cá khác'),
+})
 export type Verdict = { kind: 'good' } | { kind: 'avoid'; reason: AvoidReason }
 
 /** A shared range this narrow is a technicality, not water both can live in: a suggestion needs some room. */

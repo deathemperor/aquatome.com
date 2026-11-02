@@ -4,10 +4,8 @@ import Base from '../../../layouts/Base.astro'
 import Nav from '../../../components/Nav.astro'
 import PhotoGallery from '../../../components/PhotoGallery.astro'
 import GalleryStrip from '../../../components/GalleryStrip.astro'
-import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
 import Sections from '../../../components/Sections.astro'
 import GuideLinks from '../../../components/GuideLinks.astro'
-import { guidesMentioning } from '../../../lib/mentions'
 import VideoGuideGrid from '../../../components/VideoGuideGrid.astro'
 import ProductSlots from '../../../components/ProductSlots.astro'
 import Comments from '../../../components/Comments.astro'
@@ -16,8 +14,8 @@ import { getContent } from '../../../lib/content'
 import { searchAliases } from '../../../lib/search'
 import { PLANT_LABELS } from '../../../lib/format'
 import { creditsFor } from '../../../lib/credits'
-import { distinctPhotos, pagePictures } from '../../../lib/pictures'
-import { i18n, langOf, served } from '../../../lib/i18n'
+import { plantParts } from '../../../lib/plant-page'
+import { i18n, langOf } from '../../../lib/i18n'
 import { alternatesOf } from '../../../lib/alternates'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
@@ -27,13 +25,8 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { p } = Astro.props as { p: Localized<PlantEntity> }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-// Its gallery's first photos, linking the gallery page, once there are enough for one.
-// Every picture once, in page order (lib/pictures.ts): the photo, the gallery's first photos, those between the sections.
-const pics = pagePictures(c)
-pics.add(p.photos[0]?.url)
-const gallery = distinctPhotos(c, c.galleries[p.id] ?? [])
-const strip = gallery.length >= GALLERY_MIN && served(lang, `/vi/cay/${p.t.slug}/anh/`) ? gallery.slice(0, GALLERY_STRIP).map(x => pics.take([x]) ?? null) : []
-const figures = p.photos.slice(1).filter(x => pics.take([x]))
+// What the page shows, chosen in page order (lib/plant-page.ts, which the app's copy reads too).
+const { gallery, galleryPath, strip, figures, guides, videoGuides } = plantParts(lang, c, p)
 // The plant itself is always a shopping item (sold on Shopee/Lazada), even when the engine proposed none.
 const slots = p.productSlots.some(s => s.category === 'cay-thuy-sinh') ? p.productSlots : [{ category: 'cay-thuy-sinh', keywords: [p.t.name, p.scientificName] }, ...p.productSlots]
 const facts: [string, string][] = [
@@ -58,10 +51,10 @@ const alternates = await alternatesOf('plants', p.id)
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>
   </header>
-  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={`/vi/cay/${p.t.slug}/anh/`} name={p.t.name} />}
+  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={p.t.name} />}
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} />
-  <GuideLinks guides={guidesMentioning(c, `plant:${p.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến cây này')} />
-  <VideoGuideGrid guides={guidesMentioning(c, `plant:${p.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
+  <GuideLinks guides={guides} heading={t('Bài viết nhắc đến cây này')} />
+  <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />
   {/* Shops are Vietnam's (Shopee/Lazada links); every language has its own discussion. */}
   {lang === 'vi' ? (
     <div class="wrap two">

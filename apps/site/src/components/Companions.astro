@@ -2,7 +2,7 @@
 import type { Localized, SpeciesEntity } from '@aq/schema'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { TEMPERAMENT_LABELS } from '../scripts/tankmates'
-import type { AvoidReason } from '../lib/companions'
+import { avoidWhy, type AvoidReason } from '../lib/companions'
 import { cleanPhoto } from '../lib/home'
 import { smallSrc } from '../lib/img'
 import { fmt } from '../lib/format'
@@ -17,13 +17,7 @@ interface Props {
 const { self, good, avoid, tool } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const { num } = fmt(lang)
-// Why to keep it away, in a few words: the clash as the tank-mates tool sees it, with the other fish's adult size
-// where the size is the reason ({size}: a length the units toggle converts).
-const why: Record<AvoidReason, string> = {
-  eatsIt: t('Lớn tới {size}, có thể ăn {name}', { name: self.name }), eatenByIt: t('Chỉ dài {size}, có thể bị {name} ăn', { name: self.name }),
-  predator: t('Cá săn mồi, ăn con nào vừa miệng'), aggressive: t('Hung dữ, thường phải nuôi riêng'),
-  semiAggressive: t('Hơi dữ, có thể rượt đuổi {name}', { name: self.name }), finNipper: t('Hay cắn vây cá khác'),
-}
+const why = avoidWhy(t, self.name)
 const thumb = (s: Localized<SpeciesEntity>) => { const p = cleanPhoto(s.photos); return p && smallSrc(p) }
 ---
 <section class="mates" aria-labelledby="mates-h" data-pagefind-ignore>

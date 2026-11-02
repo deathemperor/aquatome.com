@@ -1,0 +1,22 @@
+import type { Content, Localized, PlantEntity } from '@aq/schema'
+import { GALLERY_MIN, GALLERY_STRIP } from './gallery'
+import { served, type Lang } from './i18n'
+import { guidesMentioning } from './mentions'
+import { distinctPhotos, pagePictures } from './pictures'
+
+/**
+ * What a plant's page shows, put together once for the page (pages/vi/cay/[slug].astro) and for the app's copy of it
+ * (lib/app-page.ts): its gallery strip, the photos between the sections and the guides that name it. Every picture once,
+ * in page order (lib/pictures.ts): the photo, the gallery's first photos, those between the sections.
+ */
+export function plantParts(lang: Lang, c: Content, p: Localized<PlantEntity>) {
+  const pics = pagePictures(c)
+  pics.add(p.photos[0]?.url)
+  // Its gallery's first photos, linking the gallery page, once there are enough for one.
+  const gallery = distinctPhotos(c, c.galleries[p.id] ?? [])
+  const galleryPath = `/vi/cay/${p.t.slug}/anh/`
+  const strip = gallery.length >= GALLERY_MIN && served(lang, galleryPath) ? gallery.slice(0, GALLERY_STRIP).map(x => pics.take([x]) ?? null) : []
+  const figures = p.photos.slice(1).filter(x => pics.take([x]))
+  const mentioning = guidesMentioning(c, `plant:${p.id}`)
+  return { gallery, galleryPath, strip, figures, guides: mentioning.filter(g => !g.video), videoGuides: mentioning.filter(g => g.video) }
+}
