@@ -95,7 +95,9 @@ that would have caught it).
     once fixed.
   - On a PR that changes `apps/site/src/`, the same review runs on the fixture build and posts its findings as one PR
     comment (advisory).
-  - A review that hits Claude's usage limit (the owner's subscription; the engine's pattern, `e2e/claude-limit.ts`) did
+  - Claude runs on the owner's subscription accounts in turn (`CLAUDE_CODE_OAUTH_TOKENS`, `e2e/claude-accounts.ts`): an
+    account out of its usage limit, or whose token is rejected, is set aside and the review goes to the next.
+  - A review that hits Claude's usage limit on every account (the engine's pattern, `e2e/claude-limit.ts`) did
     not run: it is skipped, so it opens, updates and closes no issue, and the PR comment counts only the pages reviewed
     and says how many did not run, and why. Found 2026-11-02: the weekly limit opened 17 issues, one per page, and two
     PR comments read "Nothing serious found" with no page reviewed.
@@ -125,8 +127,9 @@ that would have caught it).
      - it refuses patches to `.github/` or to the fix and watch scripts
      - it needs the repository setting "Allow GitHub Actions to create and approve pull requests" (on since
        2026-10-31); if opening the PR fails anyway, the issue gets a link to the pushed branch
-- Remaining risk: the agent job holds the Claude token and can run commands. Its input is the bot's own issues, or
-  issues a collaborator labelled `autofix`.
+- Remaining risk: the agent job holds the Claude tokens (every account's; the agent's own environment gets only the
+  token it runs on) and can run commands. Its input is the bot's own issues, or issues a collaborator labelled
+  `autofix`.
 - **Merging is a review**, by the owner or an agent working for them, after CI. When the fix is live, the next watch
   run closes the issue.
 

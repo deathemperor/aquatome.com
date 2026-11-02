@@ -49,10 +49,26 @@ jobs:
       - name: Claude reproduces the problem and fixes it
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
+        # The owner's Claude accounts in turn (CLAUDE_CODE_OAUTH_TOKENS, one token a line; else CLAUDE_CODE_OAUTH_TOKEN), as
+        # the engine does (claude-accounts.ts): the next one only when the agent stopped on this one's usage limit or its
+        # token was rejected, from a clean tree. The last answer stands.
         run: |
           schema='{"type":"object","required":["status","summary"],"additionalProperties":false,"properties":{"status":{"enum":["fixed","not-reproduced","needs-person"]},"summary":{"type":"string"},"check":{"type":"string"}}}'
-          claude -p --model "${FIX_MODEL:-opus}" --output-format json --tools 'Read,Edit,Write,Bash,Glob,Grep' --allowedTools 'Read,Edit,Write,Bash,Glob,Grep' \
-            --setting-sources '' --strict-mcp-config --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
+          out='hit your .*limit|usage limit|limit reached|rate.?limit|Failed to authenticate|Invalid bearer token'
+          tokens="${CLAUDE_CODE_OAUTH_TOKENS:-$CLAUDE_CODE_OAUTH_TOKEN}"
+          unset CLAUDE_CODE_OAUTH_TOKENS # the agent's environment gets its own account's token only
+          n=0
+          while IFS= read -r token; do
+            token="${token//[$'\r\t ']/}"
+            [ -n "$token" ] || continue
+            n=$((n + 1))
+            [ "$n" = 1 ] || { git checkout -q -- . && git clean -qfd -e ISSUE.md; }
+            CLAUDE_CODE_OAUTH_TOKEN="$token" claude -p --model "${FIX_MODEL:-opus}" --output-format json --tools 'Read,Edit,Write,Bash,Glob,Grep' --allowedTools 'Read,Edit,Write,Bash,Glob,Grep' \
+              --setting-sources '' --strict-mcp-config --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
+            jq -e --arg out "$out" '.is_error and ((.result // "") | test($out; "i"))' /tmp/agent.json > /dev/null 2>&1 || break
+            echo "Claude account $n is out of its limit or was rejected: the next one"
+          done <<< "$tokens"
       - name: Turn the agent's work into a patch
         run: |
           mkdir -p /tmp/fix
