@@ -68,6 +68,67 @@ test('dashboard: sign-in form without token, 303 strips token from URL', async (
   expect(r.status).toBe(303)
   expect(r.headers.get('location')).toBe('/_ab/')
   expect((await handle(get('/_ab/doc-gia/'), e)).status).toBe(303) // the readers page needs the token cookie too
+  expect((await handle(get('/_ab/login'), e)).headers.get('location')).toBe('/_ab/')
+})
+
+test('every /_ab route refuses without the token: pages ask for it or send to the sign-in, the actions and the JSON are not found', async () => {
+  const { ADMIN_PAGES } = await import('../dashboard')
+  const { e } = env({ DB: testD1(), AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' } as Partial<Env>)
+  expect(ADMIN_PAGES).toHaveLength(8)
+  for (const cookie of [undefined, 'ab_token=wrong']) {
+    const h = cookie ? { ...browser, cookie } : browser
+    for (const path of ADMIN_PAGES) {
+      for (const p of [path, path.replace(/\/$/, '')]) {
+        const r = await handle(get(p, h), e)
+        const body = await r.text()
+        if (path === '/_ab/') {
+          expect(r.status, p).toBe(200)
+          expect(body).toContain('action="/_ab/login"')
+          expect(body).not.toContain('<nav')
+        } else {
+          expect([r.status, r.headers.get('location')], p).toEqual([303, '/_ab/'])
+          expect(body).toBe('')
+        }
+        expect(r.headers.get('set-cookie'), p).toBeNull()
+      }
+    }
+    expect((await handle(get('/_ab/hidden.json', h), e)).status).toBe(404)
+    for (const p of ['/_ab/photos', '/_ab/hidden']) expect((await handle(new Request(`https://x.test${p}`, { method: 'POST', body: new URLSearchParams({ id: 'x', url: '/vi/ca/x/', action: 'hide' }), headers: h }), e)).status, p).toBe(404)
+    expect((await handle(get('/_ab/something-else/', h), e)).status).toBe(404)
+  }
+  // With the token: a page, noindex, never stored.
+  const ok = await handle(get('/_ab/an-trang/', { ...browser, cookie: 'ab_token=tok' }), e)
+  expect(ok.status).toBe(200)
+  expect([ok.headers.get('cache-control'), ok.headers.get('x-robots-tag')]).toEqual(['no-store', 'noindex, nofollow'])
+  expect(await ok.text()).toContain('aria-current="page">Ẩn trang<')
+  // The token in a sub-page's address: moved into the cookie, back to the same page.
+  const moved = await handle(get('/_ab/nhan-dien-ca/?token=tok'), e)
+  expect([moved.status, moved.headers.get('location')]).toEqual([303, '/_ab/nhan-dien-ca/'])
+})
+
+test('dashboard: a part that can\'t load says why in its place; the rest of the page renders', async () => {
+  const { vi } = await import('vitest')
+  const db = testD1()
+  await db.prepare("INSERT INTO clicks_daily VALUES (?, 'shopee', 'thuc-an', 'species:x', 'search', 4)").bind(new Date().toISOString().slice(0, 10)).run()
+  const { e } = env({ DB: db, AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' } as Partial<Env>)
+  // Analytics Engine refuses every query; KV can't list.
+  const fetch = vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response('Unknown function', { status: 422 }))
+  const err = vi.spyOn(console, 'error').mockImplementation(() => {})
+  try {
+    const r = await handle(get('/_ab/', { ...browser, cookie: 'ab_token=tok' }), e)
+    expect(r.status).toBe(200)
+    const html = await r.text()
+    expect(html).toContain('analytics engine sql 422: Unknown function')
+    expect(html).toContain('Lượt bấm affiliate mỗi ngày') // from D1, still drawn
+    expect(html).toContain('Lượt bấm affiliate · 14 ngày')
+    expect(fetch.mock.calls.every(([u]) => String(u).startsWith('https://api.cloudflare.com/client/v4/accounts/acc/analytics_engine/sql'))).toBe(true)
+    const fish = await (await handle(get('/_ab/nhan-dien-ca/', { ...browser, cookie: 'ab_token=tok' }), e)).text()
+    expect(fish).toContain('Không tải được nhật ký nhận diện cá')
+    expect(fish).toContain('Key Anthropic')
+  } finally {
+    fetch.mockRestore()
+    err.mockRestore()
+  }
 })
 
 test('events are accepted (and dropped) when Analytics Engine is not bound yet', async () => {

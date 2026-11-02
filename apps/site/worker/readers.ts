@@ -1,3 +1,5 @@
+import { aeSql } from './admin/ae'
+
 /**
  * "Real readers" from our own beacon (only browsers that run the page's JavaScript, minus known bots and the owner):
  * a session is a reader when it scrolled half a page or stayed 30 s. Queried live from Analytics Engine for /_ab/.
@@ -71,11 +73,11 @@ const VIEWS_SQL = (days: number) => `SELECT blob4 AS sid, blob3 AS p, blob5 AS r
 FROM thuysinh_events WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid, p, ref, cc FORMAT JSON`
 
 export async function queryReaders(accountId: string, token: string, days = 14): Promise<Readers> {
-  const sql = async <T>(q: string) => {
-    const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/analytics_engine/sql`, { method: 'POST', headers: { authorization: `Bearer ${token}` }, body: q })
-    if (!r.ok) throw new Error(`analytics engine sql ${r.status}: ${(await r.text()).slice(0, 200)}`)
-    return ((await r.json()) as { data: T[] }).data
-  }
-  const [sessions, views] = await Promise.all([sql<Session>(SESSIONS_SQL(days)), sql<View>(VIEWS_SQL(days))])
+  const [sessions, views] = await Promise.all([aeSql<Session>(accountId, token, SESSIONS_SQL(days)), aeSql<View>(accountId, token, VIEWS_SQL(days))])
   return summariseReaders(sessions, views, days)
+}
+
+/** Sessions and readers per day (UTC, by a session's first event), from the sessions query alone: the overview's. */
+export async function queryReaderDays(accountId: string, token: string, days: number): Promise<Readers['daily']> {
+  return summariseReaders(await aeSql<Session>(accountId, token, SESSIONS_SQL(days)), [], days).daily
 }

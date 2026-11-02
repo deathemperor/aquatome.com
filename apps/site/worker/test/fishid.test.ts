@@ -3,7 +3,8 @@ import { handle, type Env } from '../index'
 import type { Catalog } from '../fishid/catalog'
 import { fishIdStatus, type FishIdDeps } from '../fishid/api'
 import { keyHash, loadKeys, parseKeys } from '../fishid/keys'
-import { renderDashboard } from '../dashboard'
+import { fishIdPage } from '../admin/pages'
+import { unset } from '../admin/shell'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
@@ -138,7 +139,7 @@ test('happy path: the photo goes to Claude with the workspace header for an orga
   for (const secret of [A, 'wrkspc_orgA', '203.0.113.7', btoa(String.fromCharCode(...JPEG))]) expect(logged).not.toContain(secret)
   expect(d.lines[0]).toMatchObject({ fishId: 'ok', in: 1500, out: 120, attempts: [{ key: await keyHash(A) }] })
   // Counted: the reader's day and the site's, with the key's call.
-  expect(JSON.parse(kv.get(`fishid:day:${new Date().toISOString().slice(0, 10)}`)!.v)).toEqual({ calls: 1, keys: { [await keyHash(A)]: 1 } })
+  expect(JSON.parse(kv.get(`fishid:day:${new Date().toISOString().slice(0, 10)}`)!.v)).toEqual({ calls: 1, keys: { [await keyHash(A)]: 1 }, ok: { [await keyHash(A)]: 1 } })
 })
 
 test('a fish Claude is fairly sure of with no page counts as a reader\'s request; a matched, unsure or owner\'s one does not', async () => {
@@ -473,12 +474,15 @@ test('the owner\'s dashboard: each key by number and hash, its state and today\'
   const fake = claude({ [A]: () => apiError(402, 'billing_error', 'x') })
   await run(post(), e, deps(fake.fetch))
   const status = (await fishIdStatus(e as never, new Date()))!
-  expect(status.rows.map(r => [r.n, r.hash, r.state, r.calls, r.workspace])).toEqual([
-    [1, await keyHash(A), 'credit', 1, true], [2, await keyHash(B), 'ok', 1, false], [3, await keyHash(C), 'ok', 0, false],
+  // Calls count every attempt with a key; answered, the ones Claude answered.
+  expect(status.rows.map(r => [r.n, r.hash, r.state, r.calls, r.answered, r.workspace])).toEqual([
+    [1, await keyHash(A), 'credit', 1, 0, true], [2, await keyHash(B), 'ok', 1, 1, false], [3, await keyHash(C), 'ok', 0, 0, false],
   ])
   expect(status.today).toBe(1)
-  const html = renderDashboard(undefined, {}, undefined, status)
+  const html = fishIdPage({ now: new Date(), stats: unset('AE'), keys: status, pages: new Map() })
   expect(html).toContain('hết credit')
+  expect(html).toContain('Lần gọi API hôm nay')
+  expect(html).toContain('Claude trả lời')
   expect(html).toContain(await keyHash(A))
   for (const k of [A, B, C, 'wrkspc_orgA']) expect(html).not.toContain(k)
   expect(kv.size).toBeGreaterThan(0)

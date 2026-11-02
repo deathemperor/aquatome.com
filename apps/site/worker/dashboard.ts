@@ -1,6 +1,19 @@
-import type { FishIdStatus } from './fishid/api'
-import type { Hidden } from './hidden'
-import type { Readers } from './readers'
+import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
+import { loadHidden, updateHidden } from './hidden'
+import { OWNER_COOKIE } from './owner'
+import { photosLive, recentPhotos, removePhoto, type PhotosEnv } from './photos'
+import { queryReaderDays, queryReaders } from './readers'
+import { accountStats, clicksByDay, listWanted, livePhotos } from './admin/data'
+import { queryFishId, queryFishIdDays } from './admin/fishid'
+import { accountsPage, affiliatePage, fishIdPage, hiddenPage, overviewPage, photosPage, readersPage, wantedPage, type AffSummary } from './admin/pages'
+import { loginPage, soft, unset, type AdminPath } from './admin/shell'
+
+/**
+ * The owner's dashboard, /_ab/: one page per part (admin/pages.ts), each behind the ab_token cookie, noindex and never
+ * stored. Each part loads on its own and says so in its place when it can't.
+ */
+export type AdminEnv = FishIdEnv & PhotosEnv & { DB?: D1Database; AB_DASH_TOKEN?: string; AE_API_TOKEN?: string; CF_ACCOUNT_ID?: string }
+export type { AffSummary }
 
 export function safeEqual(a: string, b: string): boolean {
   let diff = a.length ^ b.length
@@ -17,18 +30,11 @@ export function authorise(req: Request, secret: string | undefined): { ok: boole
   return { ok: !!c && safeEqual(c, secret) }
 }
 
-/** /_ab/ without a valid token: ask for it (POST /_ab/login). */
-export function renderLogin(failed = false): string {
-  return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản trị · AquaTome</title>
-<style>body{font:15px/1.5 system-ui,sans-serif;margin:2rem;color:#10241f;background:#eef1ec}input{font:inherit;padding:.4rem .6rem}button{font:inherit;padding:.4rem .9rem}.err{color:#b3261e}</style></head><body>
-<h1>Quản trị AquaTome</h1>${failed ? '<p class="err">Mã quản trị không đúng.</p>' : ''}
-<form method="post" action="/_ab/login"><label>Mã quản trị <input type="password" name="token" required autocomplete="current-password" autofocus></label> <button>Vào</button></form>
-<p><a href="/vi/">← Về trang chủ</a></p></body></html>`
+/** The dashboard token as a Bearer header: the build and the home machine's scripts. */
+export const bearerOk = (req: Request, secret: string | undefined) => {
+  const token = req.headers.get('authorization')?.replace(/^Bearer\s+/i, '') ?? ''
+  return Boolean(secret) && safeEqual(token, secret!)
 }
-
-const fmt = (n: number, d = 0) => n.toLocaleString('vi-VN', { maximumFractionDigits: d, minimumFractionDigits: d })
-
-export type AffSummary = { byNetwork: { network: string; category: string; n: number }[]; top: { entity_ref: string; n: number }[]; status: { status: string; n: number }[]; lastCheck: string | null }
 
 /** Last 14 days of affiliate clicks + catalog health, straight from D1. */
 export async function affSummary(db: D1Database, now: Date): Promise<AffSummary> {
@@ -42,63 +48,98 @@ export async function affSummary(db: D1Database, now: Date): Promise<AffSummary>
   return { byNetwork: byNetwork.results, top: top.results, status: status.results, lastCheck: last?.at ?? null }
 }
 
-const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
-
-export type RecentPhoto = { id: string; entity_ref: string; name: string; thumb: string; created_at: string }
-
-export function renderDashboard(aff?: AffSummary, hidden: Hidden = {}, photos?: RecentPhoto[], fishId?: FishIdStatus): string {
-  return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản trị · AquaTome</title>
-<style>body{font:15px/1.5 system-ui,sans-serif;margin:2rem;color:#10241f;background:#eef1ec}table{border-collapse:collapse;background:#fff}th,td{padding:.5rem .8rem;border-bottom:1px solid #d3dad3;text-align:right}th{text-align:left}thead th{font-size:.8rem;color:#5d6d67}p{color:#5d6d67}</style></head><body>
-<h1>Quản trị AquaTome</h1><p><a href="/_ab/doc-gia/">Người đọc thật →</a></p>${aff ? affHtml(aff) : '<h2>Affiliate</h2><p>Chưa cấu hình D1.</p>'}${hiddenHtml(hidden)}${photos ? photosHtml(photos) : ''}${fishId ? fishIdHtml(fishId) : ''}</body></html>`
+const HTML = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' }
+const badForm = () => new Response('expected a form', { status: 400, headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' } })
+const notFound = () => new Response('Not found', { status: 404, headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' } })
+const see = (location: string, cookies: string[] = []) => {
+  const h = new Headers({ location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' })
+  for (const c of cookies) h.append('set-cookie', c)
+  return new Response(null, { status: 303, headers: h })
 }
 
-function affHtml(a: AffSummary): string {
-  const rows = (xs: string[][]) => xs.map(r => `<tr>${r.map((c, i) => (i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('') || '<tr><td colspan="3">—</td></tr>'
-  return `<h2>Affiliate · 14 ngày</h2>
-<table><thead><tr><th>Sàn</th><th>Nhóm</th><th>Lượt bấm</th></tr></thead><tbody>${rows(a.byNetwork.map(r => [r.network, r.category, fmt(r.n)]))}</tbody></table>
-<h3>Trang dẫn nhiều nhất</h3><table><tbody>${rows(a.top.map(r => [r.entity_ref, fmt(r.n)]))}</tbody></table>
-<p>Sản phẩm: ${a.status.map(s => `${esc(s.status)} ${fmt(s.n)}`).join(' · ') || 'chưa có (đang dùng liên kết tìm kiếm)'} · kiểm tra gần nhất: ${a.lastCheck ?? 'chưa chạy'}</p>`
-}
+const NO_AE = 'AE_API_TOKEN và CF_ACCOUNT_ID'
+const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
 
-function photosHtml(xs: RecentPhoto[]): string {
-  const rows = xs.map(p => `<tr><th><img src="${esc(p.thumb)}" alt="" width="96" loading="lazy"></th><td>${esc(p.entity_ref)}</td><td>${esc(p.name)}</td><td>${esc(p.created_at.slice(0, 16).replace('T', ' '))}</td><td><form method="post" action="/_ab/photos"><input type="hidden" name="id" value="${esc(p.id)}"><button>Gỡ</button></form></td></tr>`).join('')
-  return `<h2 id="anh-ban-doc">Ảnh bạn đọc</h2>
-<p>Ảnh đã qua kiểm duyệt tự động (khuôn mặt, đúng loài, an toàn) và đang hiện trên trang loài. Gỡ: ảnh bị xóa ngay khỏi trang và máy chủ.</p>
-<table><thead><tr><th></th><th>Trang</th><th>Tên</th><th>Lúc (UTC)</th><th></th></tr></thead><tbody>${rows || '<tr><td colspan="5">Chưa có ảnh nào.</td></tr>'}</tbody></table>`
+/** Each page: its loaders, side by side, each failing on its own. */
+const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<string>> = {
+  '/_ab/': async (env, _url, now) => {
+    const a = ae(env)
+    const [readers, clicks, fish, photos, wanted] = await Promise.all([
+      a ? soft('readers', queryReaderDays(a.account, a.token, 31)) : unset(NO_AE),
+      env.DB ? soft('clicks', clicksByDay(env.DB, now)) : unset('D1'),
+      a ? soft('fish-id', queryFishIdDays(a.account, a.token, now)) : unset(NO_AE),
+      photosLive(env) ? soft('photos', livePhotos(env.DB!)) : unset('ảnh bạn đọc (D1, R2, Turnstile)'),
+      soft('wanted', listWanted(env.AB)),
+    ])
+    return overviewPage({ now, readers, clicks, fish, photos, wanted })
+  },
+  '/_ab/doc-gia/': async (env, _url, now) => {
+    const a = ae(env)
+    return readersPage(now, a ? await soft('readers', queryReaders(a.account, a.token)) : undefined)
+  },
+  '/_ab/nhan-dien-ca/': async (env, url, now) => {
+    const a = ae(env)
+    const [stats, keys, catalog] = await Promise.all([
+      a ? soft('fish-id', queryFishId(a.account, a.token, now)) : unset(NO_AE),
+      soft('fish-id keys', fishIdStatus(env, now)),
+      catalogOf(env, url.origin),
+    ])
+    // A guess's page by its id, from the catalog the tool links with; never an address from the log itself.
+    const pages = new Map((catalog?.entries ?? []).map(e => [e.id, e.url.vi]))
+    return fishIdPage({ now, stats, keys, pages })
+  },
+  '/_ab/affiliate/': async (env, _url, now) => {
+    if (!env.DB) return affiliatePage(unset('D1'), unset('D1'))
+    const [clicks, summary] = await Promise.all([soft('clicks', clicksByDay(env.DB, now)), soft('affiliate', affSummary(env.DB, now))])
+    return affiliatePage(clicks, summary)
+  },
+  '/_ab/muon-co/': async (env, _url, now) => wantedPage(now, await soft('wanted', listWanted(env.AB))),
+  '/_ab/anh-ban-doc/': async env => photosPage(await soft('photos', recentPhotos(env))),
+  '/_ab/an-trang/': async env => hiddenPage(await soft('hidden', loadHidden(env.AB, true))),
+  '/_ab/tai-khoan/': async (env, _url, now) => accountsPage(env.DB ? await soft('accounts', accountStats(env.DB, now)) : unset('D1')),
 }
+export const ADMIN_PAGES = Object.keys(PAGES) as AdminPath[]
 
-const KEY_STATE: Record<FishIdStatus['rows'][number]['state'], string> = { ok: 'đang dùng', credit: 'hết credit', auth: 'key bị từ chối', rate: 'bị giới hạn tốc độ' }
-/** The fish-ID tool's API keys: number and hash only, never the key. */
-function fishIdHtml(f: FishIdStatus): string {
-  const rows = f.rows.map(r => `<tr><th>#${r.n}</th><td><code>${esc(r.hash)}</code></td><td>${r.workspace ? 'tổ chức + workspace' : 'workspace'}</td><td>${esc(KEY_STATE[r.state])}${r.until ? ` đến ${esc(r.until.slice(0, 16).replace('T', ' '))}` : ''}</td><td>${fmt(r.calls)}</td></tr>`).join('')
-  return `<h2 id="nhan-dien-ca">Nhận diện cá · key Anthropic</h2>
-<p>Hôm nay (UTC): ${fmt(f.today)} lượt nhận diện · mô hình ${esc(f.model)}. Mỗi lượt dùng một key ngẫu nhiên trong số key đang dùng; key lỗi thì sang key khác. Hết credit hoặc bị từ chối: nghỉ 24 giờ.${f.bad ? ` <strong>${fmt(f.bad)} dòng trong ANTHROPIC_KEYS không đọc được, bị bỏ qua.</strong>` : ''}</p>
-<table><thead><tr><th>Key</th><th>SHA-256 (8 ký tự đầu)</th><th>Loại</th><th>Trạng thái</th><th>Lượt gọi hôm nay</th></tr></thead><tbody>${rows || '<tr><td colspan="5">Chưa có key nào.</td></tr>'}</tbody></table>`
-}
+/** Every /_ab path: the pages, the sign-in, the owner's two actions, and the hidden list the build reads. */
+export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = new Date()): Promise<Response> {
+  const path = url.pathname
+  if (path === '/_ab/login') {
+    if (req.method !== 'POST') return see('/_ab/')
+    // The sign-in form: same as opening /_ab/?token=…, without the token in the address bar or history.
+    const token = String((await req.formData().catch(() => null))?.get('token') ?? '')
+    if (!env.AB_DASH_TOKEN || !safeEqual(token, env.AB_DASH_TOKEN)) return new Response(loginPage(true), { status: 403, headers: HTML })
+    return see('/_ab/', [`ab_token=${token}; Path=/_ab; Max-Age=2592000; HttpOnly; Secure; SameSite=Strict`, OWNER_COOKIE])
+  }
+  if (path === '/_ab/hidden.json') {
+    // The build reads this (Bearer token) to drop hidden pages from lists, sitemap and search.
+    if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !authorise(req, env.AB_DASH_TOKEN).ok)) return notFound()
+    return Response.json(await loadHidden(env.AB, true), { headers: { 'cache-control': 'no-store' } })
+  }
+  if (path === '/_ab/photos') {
+    if (req.method !== 'POST' || !authorise(req, env.AB_DASH_TOKEN).ok || !photosLive(env)) return notFound()
+    const form = await req.formData().catch(() => null)
+    if (!form) return badForm()
+    await removePhoto(env, String(form.get('id') ?? ''), 'removed by owner', now)
+    return see('/_ab/anh-ban-doc/')
+  }
+  if (path === '/_ab/hidden') {
+    if (req.method !== 'POST' || !authorise(req, env.AB_DASH_TOKEN).ok) return notFound()
+    const form = await req.formData().catch(() => null)
+    if (!form) return badForm()
+    const err = await updateHidden(env.AB, form, now)
+    if (err) return new Response(err, { status: 400, headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' } })
+    return see('/_ab/an-trang/')
+  }
 
-function hiddenHtml(h: Hidden): string {
-  const rows = Object.entries(h).sort(([, a], [, b]) => b.at.localeCompare(a.at)).map(([path, v]) =>
-    `<tr><th><a href="${esc(path)}">${esc(path)}</a></th><td>${esc(v.note ?? '')}</td><td>${esc(v.at.slice(0, 16).replace('T', ' '))}</td><td><form method="post" action="/_ab/hidden"><input type="hidden" name="url" value="${esc(path)}"><button name="action" value="unhide">Hiện lại</button></form></td></tr>`).join('')
-  return `<h2 id="an-trang">Ẩn trang</h2>
-<p>Trang bị ẩn trả về 410 (đã gỡ), kể cả bản Markdown: thường sau 1–2 phút, chậm nhất là lần build sau (≤3 giờ), khi nó cũng biến khỏi danh sách, sitemap và tìm kiếm. Hiện lại: nếu đã qua một lần build, trang quay lại ở lần build tiếp theo.</p>
-<form method="post" action="/_ab/hidden"><input name="url" required size="60" placeholder="https://aquatome.com/vi/ca/..."> <input name="note" size="30" placeholder="Lý do (tuỳ chọn)"> <button name="action" value="hide">Ẩn</button></form>
-<table><thead><tr><th>Trang</th><th>Lý do</th><th>Lúc (UTC)</th><th></th></tr></thead><tbody>${rows || '<tr><td colspan="4">Chưa ẩn trang nào.</td></tr>'}</tbody></table>`
-}
-
-/** /_ab/doc-gia/: the real-readers page (our own beacon, see readers.ts). */
-export function renderReaders(r: Readers | undefined): string {
-  return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Người đọc · AquaTome</title>
-<style>body{font:15px/1.5 system-ui,sans-serif;margin:2rem;color:#10241f;background:#eef1ec}table{border-collapse:collapse;background:#fff}th,td{padding:.5rem .8rem;border-bottom:1px solid #d3dad3;text-align:right}th{text-align:left}thead th{font-size:.8rem;color:#5d6d67}p{color:#5d6d67}</style></head><body>
-<p><a href="/_ab/">← Quản trị</a></p>${r ? readersHtml(r) : '<h1>Người đọc thật</h1><p>Chưa đọc được dữ liệu (Analytics Engine).</p>'}</body></html>`
-}
-
-function readersHtml(r: Readers): string {
-  const rows = (xs: string[][]) => xs.map(x => `<tr>${x.map((c, i) => (i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('') || '<tr><td colspan="3">—</td></tr>'
-  return `<h1>Người đọc thật</h1>
-<p>${r.days} ngày gần nhất · đếm từ trình duyệt chạy JavaScript của trang (bỏ bot đã biết và lượt của chủ trang) · <b>người đọc</b> = phiên cuộn ≥ 50% trang hoặc ở lại ≥ 30 giây.</p>
-<table><thead><tr><th>Phiên</th><th>Người đọc</th><th>Tỉ lệ</th></tr></thead><tbody><tr><td>${fmt(r.sessions)}</td><td>${fmt(r.readers)}</td><td>${fmt(r.sessions ? (100 * r.readers) / r.sessions : 0, 1)}%</td></tr></tbody></table>
-<h3>Theo ngày</h3><table><thead><tr><th>Ngày</th><th>Phiên</th><th>Người đọc</th></tr></thead><tbody>${rows(r.daily.map(d => [d.day, fmt(d.sessions), fmt(d.readers)]))}</tbody></table>
-<h3>Nguồn truy cập</h3><table><thead><tr><th>Nguồn</th><th>Phiên</th><th>Người đọc</th></tr></thead><tbody>${rows(r.sources.map(x => [x.source, fmt(x.sessions), fmt(x.readers)]))}</tbody></table>
-<h3>Trang người đọc xem nhiều nhất</h3><table><tbody>${rows(r.pages.map(x => [x.path, fmt(x.views)]))}</tbody></table>
-<h3>Quốc gia (người đọc)</h3><table><tbody>${rows(r.countries.map(x => [x.cc, fmt(x.readers)]))}</tbody></table>`
+  const key = (path.endsWith('/') ? path : `${path}/`) as AdminPath
+  const render = Object.hasOwn(PAGES, key) ? PAGES[key] : undefined
+  if (!render) return notFound()
+  if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
+  const auth = authorise(req, env.AB_DASH_TOKEN)
+  // Signed out: the overview asks for the token; every other page sends there first.
+  if (!auth.ok) return key === '/_ab/' ? new Response(loginPage(), { headers: HTML }) : see('/_ab/')
+  // Token arrived in the URL: move it into an HttpOnly cookie and drop it from the address bar and history.
+  if (auth.setCookie) return see(key, [auth.setCookie, OWNER_COOKIE])
+  // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts).
+  return new Response(req.method === 'HEAD' ? null : await render(env, url, now), { headers: { ...HTML, 'set-cookie': OWNER_COOKIE } })
 }

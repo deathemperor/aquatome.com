@@ -5,19 +5,17 @@ import { searchTarget, type AffEnv } from './affiliate/networks'
 import { applyDecisions, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from './comments/api'
 import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
-import { affSummary, authorise, renderDashboard, renderLogin, renderReaders, safeEqual } from './dashboard'
+import { adminRoute, bearerOk as dashBearer } from './dashboard'
 import { parseEvent, toDataPoint } from './events'
-import { queryReaders } from './readers'
 import { redirectFor } from './redirects'
-import { gonePage, isHidden, loadHidden, pagePath, updateHidden } from './hidden'
-import { OWNER_COOKIE } from './owner'
+import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
-import { deleteRoute, listPhotos, photosAdmin, photosLive, postPhoto, recentPhotos, removePhoto } from './photos'
+import { deleteRoute, listPhotos, photosAdmin, postPhoto } from './photos'
 import { accounts, depsFor, type AccountDeps, type AccountsEnv } from './accounts/api'
 import { APP_SITE_ASSOCIATION } from './accounts/passkey'
 import { purgeExpired } from './accounts/ratelimit'
 import { wantedRoute } from './wanted'
-import { fishId, fishIdStatus, type FishIdDeps, type FishIdEnv } from './fishid/api'
+import { fishId, type FishIdDeps, type FishIdEnv } from './fishid/api'
 
 export interface Env {
   ASSETS: Fetcher
@@ -77,10 +75,7 @@ async function goRoute(req: Request, url: URL, env: FullEnv, wait: (p: Promise<u
   return finish(new Response(null, { status: 302, headers: { location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } }), env)
 }
 
-const bearerOk = (req: Request, env: Env) => {
-  const token = req.headers.get('authorization')?.replace(/^Bearer\s+/i, '') ?? ''
-  return Boolean(env.AB_DASH_TOKEN) && safeEqual(token, env.AB_DASH_TOKEN!)
-}
+const bearerOk = (req: Request, env: Env) => dashBearer(req, env.AB_DASH_TOKEN)
 
 /** POST /_aff/products (Bearer dashboard token): upsert concrete listings once network accounts exist. */
 async function affAdmin(req: Request, env: FullEnv): Promise<Response> {
@@ -101,8 +96,6 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
   if (!Array.isArray(body) || body.length > 500) return new Response('expected a JSON array (≤500)', { status: 400 })
   return Response.json(await applyDecisions(env.DB, body, new Date()))
 }
-
-const ADMIN_HEADERS = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' }
 
 /** The site language a browser ranks highest among ours (Accept-Language, q order); Vietnamese when none. */
 export function rootLang(header: string | null): 'vi' | 'id' | 'th' {
@@ -168,51 +161,8 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/_p') return finish(req.method === 'POST' ? await postPhoto(req, env, new Date()) : req.method === 'GET' ? await listPhotos(url, env) : new Response(null, { status: 405 }), env)
   if (url.pathname === '/_p/xoa/' || url.pathname === '/_p/xoa') return finish(await deleteRoute(req, url, env, new Date()), env)
   if (url.pathname.startsWith('/_p/admin/')) return bearerOk(req, env) ? photosAdmin(req, url, env, new Date()) : new Response('Not found', { status: 404 })
-  if (url.pathname === '/_ab/photos' && req.method === 'POST') {
-    if (!authorise(req, env.AB_DASH_TOKEN).ok || !photosLive(env)) return new Response('Not found', { status: 404 })
-    await removePhoto(env, String((await req.formData()).get('id') ?? ''), 'removed by owner', new Date())
-    return new Response(null, { status: 303, headers: { location: '/_ab/#anh-ban-doc', 'cache-control': 'no-store' } })
-  }
-  if (url.pathname === '/_ab/hidden' && req.method === 'POST') {
-    if (!authorise(req, env.AB_DASH_TOKEN).ok) return new Response('Not found', { status: 404 })
-    const err = await updateHidden(env.AB, await req.formData(), new Date())
-    if (err) return new Response(err, { status: 400, headers: { 'content-type': 'text/plain; charset=utf-8' } })
-    return new Response(null, { status: 303, headers: { location: '/_ab/#an-trang', 'cache-control': 'no-store' } })
-  }
-  if (url.pathname === '/_ab/hidden.json' && req.method === 'GET') {
-    // The build reads this (Bearer token) to drop hidden pages from lists, sitemap and search.
-    if (!bearerOk(req, env) && !authorise(req, env.AB_DASH_TOKEN).ok) return new Response('Not found', { status: 404 })
-    return Response.json(await loadHidden(env.AB, true), { headers: { 'cache-control': 'no-store' } })
-  }
-  if (url.pathname === '/_ab/login' && req.method === 'POST') {
-    // The sign-in form: same as opening /_ab/?token=…, without the token in the address bar or history.
-    const token = String((await req.formData()).get('token') ?? '')
-    if (!env.AB_DASH_TOKEN || !safeEqual(token, env.AB_DASH_TOKEN)) return new Response(renderLogin(true), { status: 403, headers: ADMIN_HEADERS })
-    const h = new Headers({ location: '/_ab/', 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' })
-    h.append('set-cookie', `ab_token=${token}; Path=/_ab; Max-Age=2592000; HttpOnly; Secure; SameSite=Strict`)
-    h.append('set-cookie', OWNER_COOKIE)
-    return new Response(null, { status: 303, headers: h })
-  }
-  if (url.pathname === '/_ab' || url.pathname === '/_ab/') {
-    const auth = authorise(req, env.AB_DASH_TOKEN)
-    if (!auth.ok) return new Response(renderLogin(), { headers: ADMIN_HEADERS })
-    // Token arrived in the URL: move it into an HttpOnly cookie and drop it from the address bar/history.
-    if (auth.setCookie) {
-      const h = new Headers({ location: '/_ab/', 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' })
-      h.append('set-cookie', auth.setCookie)
-      h.append('set-cookie', OWNER_COOKIE)
-      return new Response(null, { status: 303, headers: h })
-    }
-    // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts).
-    const headers = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer', 'set-cookie': OWNER_COOKIE }
-    const aff = env.DB ? await affSummary(env.DB, new Date()) : undefined
-    return new Response(renderDashboard(aff, await loadHidden(env.AB, true), await recentPhotos(env).catch(() => undefined), await fishIdStatus(env, new Date()).catch(() => undefined)), { headers })
-  }
-  if (url.pathname === '/_ab/doc-gia' || url.pathname === '/_ab/doc-gia/') {
-    if (!authorise(req, env.AB_DASH_TOKEN).ok) return new Response(null, { status: 303, headers: { location: '/_ab/', 'cache-control': 'no-store' } })
-    const readers = env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? await queryReaders(env.CF_ACCOUNT_ID, env.AE_API_TOKEN).catch(e => (console.error('readers:', e), undefined)) : undefined
-    return new Response(renderReaders(readers), { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' } })
-  }
+  // The owner's dashboard (worker/dashboard.ts): every /_ab path, each behind the token.
+  if (url.pathname === '/_ab' || url.pathname.startsWith('/_ab/')) return adminRoute(req, url, env)
 
   // HTML is never cached by the browser (a hidden page must turn 410 soon): no revalidation against the static ETag.
   const plain = new Request(req)
