@@ -24,7 +24,7 @@ const compact = (s: string) => plain(s).replace(/ /g, '')
 /** "Cá tai tượng albino (Albino oscar)" → itself, "tai tuong albino", "albino oscar", compacted. */
 const namesOf = (e: CatalogEntry) => [...new Set([e.name.vi, ...(e.alt ?? [])].flatMap(n => [n, ...n.split(/[()]/)]).map(compact).filter(Boolean))]
 
-type Index = { full: Map<string, CatalogEntry[]>; binomial: Map<string, CatalogEntry[]>; genus: Map<string, CatalogEntry[]>; breeds: { e: CatalogEntry; root?: string; names: string[] }[] }
+type Index = { full: Map<string, CatalogEntry[]>; binomial: Map<string, CatalogEntry[]>; genus: Map<string, CatalogEntry[]>; breeds: { e: CatalogEntry; root?: string; names: string[]; words: string[][]; whole: string[][] }[] }
 const built = new WeakMap<Catalog, Index>()
 function indexOf(c: Catalog): Index {
   let ix = built.get(c)
@@ -44,7 +44,8 @@ function indexOf(c: Catalog): Index {
       // What it is a form of, through other breeds, down to a species.
       let root = e.basedOn
       for (let i = 0; root && byId.get(root)?.kind === 'breed' && i < 5; i++) root = byId.get(root)!.basedOn
-      ix.breeds.push({ e, root, names: namesOf(e) })
+      const all = [e.name.vi, ...(e.alt ?? [])]
+      ix.breeds.push({ e, root, names: namesOf(e), words: [...new Set(all.flatMap(n => [n, ...n.split(/[()]/)]))].map(words).filter(w => w.length), whole: [...new Set([e.name.vi, ...e.name.vi.split(/[()]/), ...(e.alt ?? []).flatMap(n => n.split(/[()]/).filter(p => words(p).length >= 2))])].map(words).filter(w => w.length) })
     }
   }
   built.set(c, ix)
@@ -78,26 +79,52 @@ function within(a: string, b: string, max: number): boolean {
   return prev[b.length]! <= max
 }
 
+/** A name's words, compared as `plain` compares names. */
+const words = (s: string) => plain(s).split(' ').filter(Boolean)
+/** One word for another: the same, or one the start of the other, both of 4 letters or more ("tail" for "tailed"). */
+const sameWord = (a: string, b: string) => a === b || (Math.min(a.length, b.length) >= 4 && (a.startsWith(b) || b.startsWith(a)))
+const hasWord = (ws: string[], w: string) => ws.some(x => sameWord(x, w))
+
 /**
- * The breed a guess names. Breeds of its species come first, matched by the variety anywhere in a name ("halfmoon" in
- * "Cá betta Halfmoon"); a breed with no species of record (hybrids, colour forms) only when the rest of its name is in
- * the guess's own names ("koi" + "angelfish" for "Koi angelfish", never "koi" alone for a koi betta), or its common
- * name is the breed's ("Flowerhorn", "Blood parrot" for "Blood parrot cichlid").
+ * The breed a guess names.
+ * - Breeds of its species: every word of a breed's name that isn't the species' (its scientific name, the guess's common
+ *   name) is in the variety. "white platinum halfmoon" is the Halfmoon betta, "Full Red delta tail" the Full Red guppy;
+ *   "tiger" is not the "Albino tiger oscar". The breed whose name has most such words wins (HMPK over halfmoon).
+ * - A breed with no species of record (hybrids, colour forms, GloFish): the rest of its name is in the guess's own
+ *   names ("koi" + "angelfish" for "Koi angelfish", never "koi" alone for a koi betta), its common name is the breed's
+ *   ("Flowerhorn", "Blood parrot" for "Blood parrot cichlid"), or all of a full name of it of 5 letters or more is in
+ *   the variety and common name, the variety giving some ("GloFish" in "GloFish / long-fin", "Red Tail Golden").
  */
 function breedFor(ix: Index, g: Guess, species: CatalogEntry | undefined): CatalogEntry | undefined {
   const v = g.variety ? compact(g.variety) : ''
   const common = compact(g.commonName)
   const own = common + compact(g.scientificName)
+  const vw = g.variety ? words(g.variety) : []
+  const cw = words(g.commonName)
+  // The species' own words: its scientific name, and the common name's words the variety doesn't repeat.
+  const plainWords = [...words(g.scientificName), ...cw.filter(w => !hasWord(vw, w)), 'fish']
   let best: { e: CatalogEntry; rank: number[] } | undefined
+  const offer = (e: CatalogEntry, rank: number[]) => { if (!best || compareRank(rank, best.rank) > 0) best = { e, rank } }
   for (const b of ix.breeds) {
     const specific = Boolean(species && b.root === species.id)
     if (!specific && b.root) continue
     for (const n of b.names) {
-      let rank: number[] | undefined
-      if (common && common === n) rank = [specific ? 1 : 0, 2, common.length, -n.length]
-      else if (v && n.includes(v) && (specific ? v.length >= 3 : (rest => rest.length >= 3 && own.includes(rest))(n.replace(v, '')))) rank = [specific ? 1 : 0, 1, v.length, -n.length]
-      else if (!specific && common.length >= 6 && n.startsWith(common)) rank = [0, 0, common.length, -n.length]
-      if (rank && (!best || compareRank(rank, best.rank) > 0)) best = { e: b.e, rank }
+      if (common && common === n) offer(b.e, [specific ? 1 : 0, 2, common.length, -n.length])
+      else if (!specific && v && n.includes(v) && (rest => rest.length >= 3 && own.includes(rest))(n.replace(v, ''))) offer(b.e, [0, 1, v.length, -n.length])
+      else if (!specific && common.length >= 6 && n.startsWith(common)) offer(b.e, [0, 0, common.length, -n.length])
+    }
+    if (!vw.length) continue
+    if (specific) {
+      for (const ws of b.words) {
+        const marks = [...new Set(ws.filter(w => !hasWord(plainWords, w)))] // "Cá betta Halfmoon (Halfmoon betta)" counts halfmoon once
+        const size = marks.join('').length
+        if (size >= 2 && marks.every(w => hasWord(vw, w))) offer(b.e, [1, 1, size, -ws.join('').length])
+      }
+    } else {
+      for (const ws of b.whole) {
+        const size = [...new Set(ws)].join('').length
+        if (size >= 5 && ws.every(w => hasWord(vw, w) || hasWord(cw, w)) && ws.some(w => hasWord(vw, w))) offer(b.e, [0, 1, size, -size])
+      }
     }
   }
   return best?.e

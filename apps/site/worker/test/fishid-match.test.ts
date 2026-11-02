@@ -73,6 +73,28 @@ test('a variety names its species\' breed, the species alongside; the closest na
   expect(pageOf(g('Betta splendens', 'Siamese fighting fish', 'Red'))).toBe('betta-splendens')
 })
 
+test('a longer variety still names its breed; a variety word that is only part of a breed\'s name does not', () => {
+  const c: Catalog = { version: 1, entries: [
+    ...CATALOG.entries,
+    species('astronotus-ocellatus', 'Astronotus ocellatus', 'Cá Oscar'),
+    { ...breed('albino-oscar', 'Cá tai tượng albino (Albino oscar)', ['Albino tiger oscar', 'Albino red oscar']), basedOn: 'astronotus-ocellatus' },
+    { ...breed('full-red-guppy', 'Cá bảy màu Full Red (Full Red Guppy)', ['Guppy Full Red', 'Albino Full Red guppy']), basedOn: 'poecilia-reticulata' },
+    breed('glofish', 'Cá GloFish', ['GloFish Tetra', 'glow fish']),
+    breed('red-tailed-golden-arowana', 'Kim Long Hồng Vĩ (Red-tailed golden arowana)', ['Red tail golden (RTG)']),
+    breed('balloon-molly', 'Cá bình tích balloon (Balloon molly)', ['Cá bình tích (balloon)']),
+  ] }
+  const at = (guess: Guess) => matchGuesses([guess], c, 'vi')[0]!.page?.id
+  expect(at(g('Betta splendens', 'Siamese fighting fish', 'white platinum halfmoon'))).toBe('halfmoon-betta')
+  expect(at(g('Poecilia reticulata', 'Guppy', 'Full Red delta tail'))).toBe('full-red-guppy')
+  expect(at(g('Astronotus ocellatus', 'Oscar', 'tiger'))).toBe('astronotus-ocellatus')
+  expect(at(g('Astronotus ocellatus', 'Oscar', 'albino tiger'))).toBe('albino-oscar')
+  expect(at(g('Gymnocorymbus ternetzi', 'Black skirt tetra', 'GloFish / long-fin colour form'))).toBe('glofish')
+  expect(at(g('Scleropages formosus', 'Asian arowana', 'Red Tail Golden'))).toBe('red-tailed-golden-arowana')
+  // "balloon" alone, on another fish: not the balloon molly.
+  expect(at(g('Mikrogeophagus ramirezi', 'Ram cichlid', 'balloon'))).toBeUndefined()
+  expect(at(g('Poecilia latipinna', 'Sailfin molly', 'balloon'))).toBe('balloon-molly')
+})
+
 test('"koi" names the koi of its own species, never the koi carp or another fish\'s koi', () => {
   expect(pageOf(g('Betta splendens', 'Siamese fighting fish', 'Koi'))).toBe('koi-betta')
   expect(pageOf(g('Poecilia reticulata', 'Guppy', 'Koi'))).toBe('koi-guppy')
