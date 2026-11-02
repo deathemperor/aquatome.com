@@ -1,0 +1,239 @@
+import { existsSync, readFileSync } from 'node:fs'
+import { expect, test } from 'vitest'
+import type { HTMLElement } from 'node-html-parser'
+import { PageDoc, type Block, type Image, type Inline } from '@aq/schema/app-page'
+import { appGlossary, appPlants, appSpecies } from '../src/lib/app-index'
+import { fishDoc, glossaryDoc, listedPaths, plantDoc, sectionBlocks } from '../src/lib/app-page'
+import { getContent } from '../src/lib/content'
+import { speciesParts } from '../src/lib/species-page'
+import { translator } from '../src/lib/i18n'
+import { page } from './dist'
+
+// The app draws fish, plant and glossary pages from these copies (once the index counts their kinds): what they hold
+// must be the page, credits and sources first.
+type B<T extends Block['t']> = Extract<Block, { t: T }>
+const clean = (s: string) => s.replace(/\s+/g, ' ').trim()
+const text = (c: Inline[] = []) => c.map(r => (typeof r === 'string' ? r : r.text)).join('')
+const all = <T extends Block['t']>(d: PageDoc, t: T) => d.blocks.filter((b): b is B<T> => b.t === t)
+const one = <T extends Block['t']>(d: PageDoc, t: T) => all(d, t)[0]
+const txt = (el: HTMLElement | null | undefined) => clean(el?.textContent ?? '')
+const kids = (bs: Block[]): Block[] => bs.flatMap(b => [b, ...(b.t === 'list' ? b.items.flatMap(kids) : [])])
+/** Every picture a copy carries, wherever it is: the lead, photos in the text, the gallery, cards, tank mates. */
+function images(d: PageDoc): Image[] {
+  const out: Image[] = d.lead ? [d.lead] : []
+  for (const b of kids(d.blocks)) {
+    if (b.t === 'figure') out.push(b.img)
+    if (b.t === 'gallery') out.push(...b.photos)
+    if (b.t === 'cards') out.push(...b.items.flatMap(i => (i.img ? [i.img] : [])))
+    if (b.t === 'mates') out.push(...[...(b.good?.items ?? []), ...(b.avoid?.items ?? [])].flatMap(i => (i.img ? [i.img] : [])))
+  }
+  return out
+}
+/** Every run of the text that is a source's numbered mark. */
+const marks = (d: PageDoc) => kids(d.blocks).flatMap(b => (b.t === 'p' ? b.c : [])).filter(r => typeof r !== 'string' && /^\d+$/.test(r.text) && r.tip)
+
+/** What every fish and plant copy owes its page: its pictures credited, the page's credits all there, its sources. */
+function credited(d: PageDoc, dom: HTMLElement) {
+  for (const img of images(d)) {
+    expect(img.credit?.text, `${d.path} ${img.src}`).toMatch(/^Ảnh: \S/)
+    expect(img.credit?.licence, `${d.path} ${img.src}`).toBeTruthy()
+    expect(img.credit?.url, `${d.path} ${img.src}`).toBeTruthy()
+  }
+  // The footer's "Nguồn ảnh" names each photo the page shows by its own page: every one of them is in the copy, credited.
+  const ours = new Set(images(d).map(i => i.credit!.url))
+  for (const a of dom.querySelectorAll('#photo-credits li a')) expect(ours.has(a.getAttribute('href')!), `${d.path}: ${a.getAttribute('href')}`).toBe(true)
+  // The numbered sources, as the page lists them, and each mark in the text with its source's card.
+  const refs = one(d, 'refs')
+  const li = dom.querySelectorAll('.body .refs li')
+  expect(refs?.items.map(r => [r.title, r.url]) ?? [], d.path).toEqual(li.map(l => [txt(l.querySelector('a')), l.querySelector('a')!.getAttribute('href')]))
+  if (refs) expect(refs.note, d.path).toBe(txt(dom.querySelector('.body .refs .note')))
+  expect(marks(d).length, d.path).toBe(dom.querySelectorAll('.body .prose a.cite').length)
+  for (const m of marks(d)) expect(typeof m !== 'string' && m.tip?.text, d.path).toMatch(/dịch với sự cho phép của nguồn$/)
+  // The sections under their questions, with the ids the page's jump row links.
+  expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2'))]))
+}
+
+/** The gallery as the page's strip shows it and its gallery page lists it. */
+function gallery(d: PageDoc, dom: HTMLElement) {
+  const g = one(d, 'gallery')
+  const strip = dom.querySelectorAll('.strip li img')
+  expect(!!g, d.path).toBe(strip.length > 0)
+  if (!g) return
+  expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))
+  expect(g.strip.map(i => g.photos[i]!.thumb ?? g.photos[i]!.src), d.path).toEqual(strip.map(i => i.getAttribute('src')))
+  const all = page(g.href!).dom
+  expect(g.photos.map(p => p.src), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-full')))
+  expect(g.photos.map(p => p.credit!.url), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-src')))
+  // "6 ảnh từ Wikimedia Commons, giấy phép mở.": the gallery page's line, without the scientific name before it or the link after.
+  const lead = all.querySelector('.lead')!
+  lead.querySelectorAll('.sci, a').forEach(x => x.remove())
+  expect(g.note, d.path).toBe(clean(lead.textContent.replace(/^ ·/, '')))
+}
+
+test('each fish\'s copy reads as its built page: header, credits, sources, card sources, tank mates, climate, gallery, breeds, videos', async () => {
+  const c = await getContent('vi')
+  const listed = listedPaths('vi', c)
+  const fish = appSpecies('vi', c)
+  expect(fish.length).toBeGreaterThan(5)
+  const seen = new Set<string>()
+  for (const s of fish) {
+    const d = await fishDoc('vi', c, s, listed)
+    expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
+    const { dom } = page(d.path)
+    d.blocks.forEach(b => seen.add(b.t))
+    // The header: name, scientific name, the line above the name, other names, the line under the card, the photo.
+    expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
+    expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
+    expect(text(d.where), d.path).toBe(txt(dom.querySelector('.where')))
+    expect(d.where?.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href])), d.path).toEqual(dom.querySelectorAll('.where a').map(a => a.getAttribute('href')))
+    expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
+    expect(text(d.credit), d.path).toBe(txt(dom.querySelector('.facts > .srcline')).startsWith('Dịch') ? txt(dom.querySelector('.facts > .srcline')) : '')
+    expect(d.lead?.src, d.path).toBe(dom.querySelector('.photo img')?.getAttribute('src'))
+    if (d.lead) expect(d.lead.credit?.text, d.path).toBe(dom.querySelector('.photo a.cite.pic')!.getAttribute('data-term'))
+    credited(d, dom)
+    // "Nguồn và độ tin cậy": every field's sources, each source's own figure where they disagree, and no figure else.
+    const trust = one(d, 'trust')
+    const rows = dom.querySelectorAll('.datacard .by > div')
+    expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
+      r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
+    ]))
+    // Tank mates: who and why, as the page's chips, and the tool set to this fish.
+    const mates = one(d, 'mates')
+    const box = dom.querySelector('.mates')
+    expect(!!mates, d.path).toBe(!!box)
+    if (mates && box) {
+      const chips = (sel: string) => box.querySelectorAll(`${sel} li a`).map(a => ({ path: a.getAttribute('href'), name: txt(a.querySelector('.nm')?.childNodes[0] as HTMLElement), why: a.querySelector('.why') ? txt(a.querySelector('.why')) : undefined }))
+      expect(mates.good?.items.map(m => ({ path: m.path, name: m.name, why: m.why })) ?? [], d.path).toEqual(chips('.row:not(.avoid)'))
+      expect(mates.avoid?.items.map(m => ({ path: m.path, name: m.name, why: m.why })) ?? [], d.path).toEqual(chips('.row.avoid'))
+      expect(mates.tool.href, d.path).toBe(box.querySelector('.how a')!.getAttribute('href'))
+      expect(mates.note, d.path).toBe(box.querySelector('.how span') ? txt(box.querySelector('.how span')) : undefined)
+    } else {
+      const a = dom.querySelector('.facts > .srcline a')!
+      expect(d.blocks.some(b => b.t === 'p' && b.c.some(r => typeof r !== 'string' && r.href === a.getAttribute('href') && r.text === txt(a))), d.path).toBe(true)
+    }
+    // Vietnam's climate, on Vietnamese pages.
+    const vn = one(d, 'climate')
+    expect(vn?.items.map(i => `${i.label}: ${i.text}`) ?? [], d.path).toEqual(dom.querySelectorAll('.vn li').map(txt))
+    if (vn) expect(vn.note, d.path).toBe(txt(dom.querySelector('.vn .assume')))
+    gallery(d, dom)
+    // A block that follows a source the card didn't says so above it, as on the page.
+    expect(d.blocks.filter(b => b.t === 'p' && text(b.c).includes(' ghi khác bảng dữ liệu:')).map(b => text((b as B<'p'>).c)), d.path).toEqual(dom.querySelectorAll('.body .off').map(txt))
+    // Breeds as cards, each with its picture's credit; videos; the guides that name it.
+    const cards = one(d, 'cards')
+    expect(cards?.items.map(i => [i.path, i.name, i.sub, i.img?.src]) ?? [], d.path).toEqual(dom.querySelectorAll('.breeds li').map(l => [l.querySelector('a')!.getAttribute('href'), txt(l.querySelector('h3')), txt(l.querySelector('.kind')), l.querySelector('img')?.getAttribute('src')]))
+    expect(one(d, 'videos')?.items.map(v => [v.youtubeId, `${v.title}${Math.floor(v.durationSec / 60)}:${String(v.durationSec % 60).padStart(2, '0')}, ${v.lang}`]) ?? [], d.path).toEqual(dom.querySelectorAll('.videos li').map(l => [l.querySelector('button')!.getAttribute('data-youtube-id'), txt(l.querySelector('p'))]))
+    const guides = new Set(dom.querySelectorAll('.guides a, .vg a').map(a => a.getAttribute('href')))
+    for (const p of all(d, 'pages').flatMap(b => b.paths)) expect(guides.has(p), `${d.path} names ${p}`).toBe(true)
+    const summary = one(d, 'summary')
+    expect(summary ? [summary.items[0], ...(summary.mistakes?.items ?? []), summary.by] : [], d.path).toEqual(dom.querySelector('.qs') ? [txt(dom.querySelector('.qs .box > p')), ...dom.querySelectorAll('.qs li').map(txt), txt(dom.querySelector('.qs .by'))] : [])
+  }
+  // The fixture has every new block somewhere.
+  for (const t of ['trust', 'mates', 'climate', 'gallery', 'summary', 'cards', 'videos', 'refs', 'pages']) expect(seen.has(t), t).toBe(true)
+})
+
+test('each fish\'s and plant\'s text converts with nothing the app would have to send to the web', async () => {
+  const c = await getContent('vi')
+  for (const s of appSpecies('vi', c)) {
+    const p = await speciesParts('vi', c, s)
+    expect(sectionBlocks('vi', c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard }).unknown, s.id).toEqual([])
+  }
+  for (const x of appPlants('vi', c)) expect(sectionBlocks('vi', c, { sections: x.sections, t: x.t, figures: x.photos.slice(1).map(photo => ({ photo })) }).unknown, x.id).toEqual([])
+})
+
+test('a fish\'s copy: its blocks in page order, every one credited and sourced', async () => {
+  const c = await getContent('vi')
+  const s = c.species.find(x => x.id === 'paracheirodon-axelrodi')!
+  const d = await fishDoc('vi', c, s, listedPaths('vi', c))
+  expect(d.blocks.map(b => b.t).filter((t, i, a) => t !== a[i - 1])).toEqual(['trust', 'mates', 'climate', 'gallery', 'summary', 'h', 'p', 'list', 'h', 'p', 'h', 'p', 'h', 'p', 'h', 'p', 'h', 'p', 'h', 'p', 'refs', 'pages', 'videos'])
+  expect(d).toMatchObject({
+    kind: 'fish', path: '/vi/ca/ca-neon-vua/', title: 'Cá neon vua', sub: 'Paracheirodon axelrodi',
+    where: ['Characidae, ', { text: 'Brazil', href: '/vi/nguon-goc/south-america/brazil/' }], aka: 'Tên khác: Cardinal tetra',
+    credit: ['Dịch và tổng hợp từ Seriously Fish, Aquarium Glaser. Cập nhật 2026-10-28.'],
+    lead: { alt: 'Cá neon vua, Paracheirodon axelrodi', credit: { text: 'Ảnh: CHUCAO', licence: 'CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg' } },
+  })
+  // The card's figures are the index's: only who gives them here, and each source's own where they disagree.
+  expect(one(d, 'trust')!.rows[0]).toEqual({ field: 'tempC', label: 'Nhiệt độ', conflict: true, note: 'Mức mọi nguồn cùng khuyên', items: ['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'] })
+  expect(one(d, 'gallery')).toMatchObject({ title: 'Ảnh Cá neon vua', note: '6 ảnh từ Wikimedia Commons, giấy phép mở.', href: '/vi/ca/ca-neon-vua/anh/' })
+  expect(one(d, 'gallery')!.photos[0]).toMatchObject({ credit: { text: 'Ảnh: Tác giả 1', licence: 'CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' } })
+  expect(one(d, 'summary')).toEqual({ t: 'summary', title: 'Tóm tắt nhanh', items: ['Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.'], mistakes: { title: 'Lỗi hay gặp', items: ['Thả vài con: nên nuôi đàn từ 8 con trở lên.'] }, by: 'AquaTome tóm tắt từ các nguồn bên dưới.' })
+  expect(one(d, 'refs')).toMatchObject({ title: 'Nguồn', id: 'nguon', items: [{ title: 'Seriously Fish', url: 'https://www.seriouslyfish.com/species/paracheirodon-axelrodi' }, { title: 'Aquarium Glaser' }, { title: 'Aquarium Glaser' }] })
+  expect(one(d, 'h')).toEqual({ t: 'h', text: 'Thông tin nhanh', id: 'muc-quickFacts' })
+  expect(one(d, 'videos')).toEqual({ t: 'videos', title: 'Video', items: [{ youtubeId: 'aaaaaaaaaaa', title: 'Video mẫu: đàn neon vua trong bể thủy sinh', durationSec: 724, lang: 'tiếng Việt' }] })
+  const breeds = await fishDoc('vi', c, c.species.find(x => x.id === 'symphysodon-aequifasciatus')!, listedPaths('vi', c))
+  expect(one(breeds, 'cards')).toEqual({
+    t: 'cards', title: 'Các dòng và cá lai từ Cá đĩa', items: [
+      { path: '/vi/ca/ca-dia-pigeon-blood/', name: 'Cá đĩa Pigeon Blood', sub: 'Dòng cá cảnh', img: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Breed1.jpg/500px-Breed1.jpg', w: 1280, h: 960, credit: { text: 'Ảnh: Người chụp 1', licence: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Breed1.jpg' } } },
+      // No photo of it yet: the page shows its card without one, and so does the copy.
+      { path: '/vi/ca/ca-la-han/', name: 'Cá La Hán (Flowerhorn)', sub: 'Cá lai' },
+    ],
+  })
+})
+
+test('each plant\'s copy reads as its built page: header, credits, sources, gallery, guides', async () => {
+  const c = await getContent('vi')
+  const listed = listedPaths('vi', c)
+  const plants = appPlants('vi', c)
+  expect(plants.length).toBeGreaterThan(2)
+  for (const p of plants) {
+    const d = plantDoc('vi', c, p, listed)
+    expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
+    const { dom } = page(d.path)
+    expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
+    expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
+    expect(d.lead?.src, d.path).toBe(dom.querySelector('header .gallery img')?.getAttribute('src'))
+    credited(d, dom)
+    gallery(d, dom)
+    const guides = new Set(dom.querySelectorAll('.guides a, .vg a').map(a => a.getAttribute('href')))
+    for (const x of all(d, 'pages').flatMap(b => b.paths)) expect(guides.has(x), `${d.path} names ${x}`).toBe(true)
+  }
+  const w = plantDoc('vi', c, c.plants.find(x => x.id === 'cryptocoryne-wendtii')!, listed)
+  expect(w.blocks.map(b => b.t)).toEqual(['gallery', 'h', 'p', 'h', 'p', 'refs'])
+  expect(one(w, 'gallery')!.photos.every(x => x.credit?.text.startsWith('Ảnh: '))).toBe(true)
+})
+
+test('each glossary term\'s copy reads as its built page; one in Indonesian has the Indonesian page\'s path and words', async () => {
+  const c = await getContent('vi')
+  const terms = appGlossary('vi', c)
+  expect(terms.length).toBeGreaterThan(2)
+  for (const g of terms) {
+    const d = glossaryDoc('vi', g)
+    expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
+    const { dom } = page(d.path)
+    expect(d.title).toBe(txt(dom.querySelector('h1')))
+    expect(d.blocks.map(b => text((b as B<'p'>).c))).toEqual([txt(dom.querySelector('.en')), ...(dom.querySelector('.def') && txt(dom.querySelector('.def')) ? [txt(dom.querySelector('.def'))] : [])])
+  }
+  const ph = glossaryDoc('vi', c.glossary.find(x => x.id === 'ph')!)
+  expect(ph).toMatchObject({ kind: 'glossary', path: '/vi/thuat-ngu/ph/', title: 'pH' })
+  const id = glossaryDoc('id', c.glossary.find(x => x.id === 'ph')!)
+  expect(id.path).toBe('/id/istilah/ph/')
+  expect(text((id.blocks[0] as B<'p'>).c).startsWith(translator('id')('Tiếng Anh:'))).toBe(true)
+})
+
+test('a fish\'s copy in Indonesian: the Indonesian page\'s paths and links, no Vietnam-only parts', async () => {
+  // The fixture has no Indonesian fish: its Vietnamese ones, made as the Indonesian pages are.
+  const c = await getContent('vi')
+  const listed = listedPaths('id', c)
+  for (const s of c.species) {
+    const d = await fishDoc('id', c, s, listed)
+    expect(PageDoc.safeParse(d).error, s.id).toBeUndefined()
+    expect(d.path).toBe(`/id/ikan/${s.t.slug}/`)
+    expect(d.blocks.some(b => b.t === 'climate' || b.t === 'summary'), s.id).toBe(false)
+    const hrefs = JSON.stringify(d).match(/"(href|path)":"[^"]*"/g) ?? []
+    for (const h of hrefs) expect(h, `${s.id}: ${h}`).not.toMatch(/"\/vi\//)
+    for (const p of all(d, 'pages').flatMap(b => b.paths)) expect(listed.has(p), `${d.path} names ${p}`).toBe(true)
+  }
+})
+
+test('the fish and plant pages and the app\'s copies are put together by the same code', () => {
+  const read = (f: string) => readFileSync(new URL(`../src/${f}`, import.meta.url), 'utf8')
+  const fish = read('pages/vi/ca/[slug].astro'), plant = read('pages/vi/cay/[slug].astro'), sections = read('components/Sections.astro')
+  expect(fish).toContain("from '../../../lib/species-page'")
+  expect(plant).toContain("from '../../../lib/plant-page'")
+  expect(sections).toContain("from '../lib/section-parts'")
+  for (const own of ['pagePictures(', 'distinctPhotos(', 'takeEach(', 'companionsOf(', 'approvedSummary(', 'breedsOf(', 'guidesMentioning(']) {
+    expect(fish, own).not.toContain(own)
+    expect(plant, own).not.toContain(own)
+  }
+  for (const own of ['linkTerms(', 'withCite(', 'figuresOffCard(', 'dropCardRepeats(']) expect(sections, own).not.toContain(own)
+  expect(existsSync(new URL('../src/lib/section-parts.ts', import.meta.url))).toBe(true)
+})

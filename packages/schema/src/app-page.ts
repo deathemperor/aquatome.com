@@ -51,29 +51,125 @@ export const Moments = z.object({
   youtubeId: z.string(),
   items: z.array(z.object({ at: z.number().int().nonnegative(), img: Image, caption: z.string() })),
 })
-export const Summary = z.object({ t: z.literal('summary'), title: z.string(), items: z.array(z.string()) })
+/**
+ * A guide's key points, or a fish's summary (one paragraph). A fish's also has the mistakes keepers make (`mistakes`) and
+ * who wrote it (`by`, "AquaTome tóm tắt từ các nguồn bên dưới.").
+ */
+export const Summary = z.object({
+  t: z.literal('summary'),
+  title: z.string(),
+  items: z.array(z.string()),
+  mistakes: z.object({ title: z.string(), items: z.array(z.string()) }).optional(),
+  by: z.string().optional(),
+})
 export const Faq = z.object({ t: z.literal('faq'), title: z.string(), items: z.array(z.object({ q: z.string(), a: z.string() })) })
-/** The sources a page cites; `id` is the anchor the page's credit links to (`#nguon`). */
+/**
+ * The sources a page cites; `id` is the anchor the page's credit links to (`#nguon`). On a fish's or plant's page they
+ * are numbered as the marks in its text (a run whose `tip` names the source), and `note` says on what terms the text
+ * uses them.
+ */
 export const Refs = z.object({
   t: z.literal('refs'),
   title: z.string(),
   id: z.string().optional(),
   items: z.array(z.object({ title: z.string(), url: z.string() })),
+  note: z.string().optional(),
 })
 /** Other pages, by their paths, each one the app index lists (the next guides, the fish and plants a guide names). */
 export const Pages = z.object({ t: z.literal('pages'), title: z.string(), paths: z.array(z.string()) })
 /** A part only the web page can show: the app offers to open the page there. */
 export const Web = z.object({ t: z.literal('web') })
 
+// Fish, plant and glossary pages (added after the first app that reads this format: it shows each block below as "open on
+// the web", so the app index lists those kinds only once an app that draws them ships).
+
+/** A photo of a gallery: `thumb` is a smaller copy (about 480 px wide) for a grid of them. */
+export const GalleryPhoto = Image.extend({ thumb: z.string().optional() })
+/**
+ * A fish's or plant's photo gallery, every photo with its credit, in the gallery page's order. `strip`: the photos the
+ * page shows in its row, by their place in `photos` (a photo the page shows elsewhere is left out of the row, not out of
+ * the gallery). `note`: how many photos, from which sites, under what licences, as the gallery page says. `href`: the
+ * gallery's own web page.
+ */
+export const Gallery = z.object({
+  t: z.literal('gallery'),
+  title: z.string(),
+  note: z.string(),
+  photos: z.array(GalleryPhoto),
+  strip: z.array(z.number().int().nonnegative()),
+  href: z.string().optional(),
+})
+/**
+ * What each figure on a fish's data card rests on (the site's "Nguồn và độ tin cậy"), in the card's order. The figures
+ * themselves are the app index's (`facts`), so they aren't repeated here. A row names the sources that give the figure
+ * (`items`); where they disagree (`conflict`, the card's dot, explained by `legend`), each source's own figure and which
+ * one the card shows (`note`).
+ */
+export const Trust = z.object({
+  t: z.literal('trust'),
+  title: z.string(),
+  legend: z.string().optional(),
+  rows: z.array(z.object({
+    /** The index's name for the figure: tempC, ph, gh, sizeCm, tankCm, difficulty. */
+    field: z.string(),
+    label: z.string(),
+    conflict: z.literal(true).optional(),
+    note: z.string().optional(),
+    items: z.array(z.string()),
+  })),
+})
+/** Another fish to keep with this one or away from it: its page, name, photo, and why to keep it away. */
+const Mate = z.object({ path: z.string(), name: z.string(), img: Image.optional(), why: z.string().optional() })
+/**
+ * "Nuôi chung": fish to keep with this one (`good`) and fish to keep away (`avoid`), as the tank-mates tool judges them,
+ * what the suggestions rest on (`note`), and the tool, set to this fish (`tool`). The fish's own temperament and shoal
+ * size are the index's facts.
+ */
+export const Mates = z.object({
+  t: z.literal('mates'),
+  title: z.string(),
+  good: z.object({ title: z.string(), items: z.array(Mate) }).optional(),
+  avoid: z.object({ title: z.string(), items: z.array(Mate) }).optional(),
+  note: z.string().optional(),
+  tool: z.object({ text: z.string(), href: z.string() }),
+})
+/**
+ * "Nuôi ở Việt Nam" (Vietnamese pages): what the fish's temperature range means for a tank with no heater or chiller,
+ * region by region (`ok`: fine as it is), and the water temperatures that assumes (`note`).
+ */
+export const Climate = z.object({
+  t: z.literal('climate'),
+  title: z.string(),
+  items: z.array(z.object({ label: z.string(), ok: z.boolean(), text: z.string() })),
+  note: z.string(),
+})
+/**
+ * Cards for other pages, each drawn from what it carries rather than the app index (a fish's breeds and hybrids, which
+ * the index may not list): the path opens in the app when the index lists it, else on the web. `sub`: the line under
+ * the name (a breed's kind).
+ */
+export const Cards = z.object({
+  t: z.literal('cards'),
+  title: z.string(),
+  items: z.array(z.object({ path: z.string(), name: z.string(), sub: z.string().optional(), img: Image.optional() })),
+})
+/** Videos about a fish (not guides), each played on YouTube. `lang`: its language as the page names it ("EN", "tiếng Việt"). */
+export const Videos = z.object({
+  t: z.literal('videos'),
+  title: z.string(),
+  items: z.array(z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number().int().nonnegative(), lang: z.string() })),
+})
+
 type BlockT =
   | z.infer<typeof Heading> | z.infer<typeof Paragraph> | { t: 'list'; ordered?: true; items: BlockT[][] } | z.infer<typeof Table>
   | z.infer<typeof Figure> | z.infer<typeof Moments> | z.infer<typeof Summary> | z.infer<typeof Faq> | z.infer<typeof Refs>
-  | z.infer<typeof Pages> | z.infer<typeof Web>
+  | z.infer<typeof Pages> | z.infer<typeof Web> | z.infer<typeof Gallery> | z.infer<typeof Trust> | z.infer<typeof Mates>
+  | z.infer<typeof Climate> | z.infer<typeof Cards> | z.infer<typeof Videos>
 /** A list; each item is blocks (mostly one paragraph, sometimes a list inside it). */
 export const List: z.ZodType<{ t: 'list'; ordered?: true; items: BlockT[][] }> = z.lazy(() =>
   z.object({ t: z.literal('list'), ordered: z.literal(true).optional(), items: z.array(z.array(Block)) }))
 export const Block: z.ZodType<BlockT> = z.lazy(() =>
-  z.union([Heading, Paragraph, List, Table, Figure, Moments, Summary, Faq, Refs, Pages, Web]))
+  z.union([Heading, Paragraph, List, Table, Figure, Moments, Summary, Faq, Refs, Pages, Web, Gallery, Trust, Mates, Climate, Cards, Videos]))
 
 /** A guide's video: the app shows its thumbnail and plays it on YouTube, from a chapter's start (`at`, seconds) if picked. */
 export const Video = z.object({
@@ -96,7 +192,11 @@ export const PageDoc = z.object({
   sub: z.string().optional(),
   /** The line above the title, as the site writes it ("Chăm sóc · đọc khoảng 6 phút"). */
   meta: z.string().optional(),
-  /** Whose page this is ("Theo Aquarium Breeder"), linked as on the site. */
+  /** A fish's line above its name, as the site writes it: its family and country, the country linked to its origin page. */
+  where: Text.optional(),
+  /** Its other names, as the site writes them under the name ("Tên khác: …"). */
+  aka: z.string().optional(),
+  /** Whose page this is ("Theo Aquarium Breeder"; a fish's "Dịch và tổng hợp từ …"), linked as on the site. */
   credit: Text.optional(),
   lead: Image.optional(),
   video: Video.optional(),

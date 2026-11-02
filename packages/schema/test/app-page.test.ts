@@ -8,6 +8,7 @@ import { Block, PageDoc, PageShard } from '../src/app-page'
 type Vectors = {
   html: { note: string; blocks: unknown[] }[]
   docs: { note: string; valid: boolean; doc: unknown }[]
+  added: { note: string; doc: { blocks: { t: string }[] }; older: string[] }[]
 }
 const VECTORS = new URL('../../../protocols/page-vectors.json', import.meta.url)
 const SCHEMA_FILE = new URL('../../../protocols/page.schema.json', import.meta.url)
@@ -50,4 +51,24 @@ test('the site\'s pages are the format; a newer site\'s or a malformed page is n
     expect(PageDoc.safeParse(d.doc).success, d.note).toBe(d.valid)
     expect(valid('PageDoc', d.doc), d.note).toBe(d.valid)
   }
+})
+
+// The blocks the first app that reads this format knows. A block added since (fish, plant and glossary pages') is
+// "open on the web" to it, in its place, and a field added since is nothing: the app index counts those kinds only once
+// an app that draws them ships (apps/site/src/lib/app-page.ts INDEXED_PAGE_KINDS).
+const FIRST = new Set(['h', 'p', 'list', 'table', 'figure', 'moments', 'summary', 'faq', 'refs', 'pages', 'web'])
+const ADDED = ['gallery', 'trust', 'mates', 'climate', 'cards', 'videos']
+
+test('the pages with blocks added after the first app are the format, and an older app shows the web for each of those blocks', () => {
+  expect(v.added.length).toBeGreaterThanOrEqual(3)
+  for (const d of v.added) {
+    expect(PageDoc.safeParse(d.doc).error, d.note).toBeUndefined()
+    expect(valid('PageDoc', d.doc), `${d.note}: ${ajv.errorsText()}`).toBe(true)
+    expect(d.older, d.note).toEqual(d.doc.blocks.map(b => (FIRST.has(b.t) ? b.t : 'web')))
+  }
+  // Each added block is in a case, and every block the format has is either the first app's or an added one.
+  const used = new Set(v.added.flatMap(d => d.doc.blocks.map(b => b.t)))
+  for (const t of ADDED) expect(used.has(t), t).toBe(true)
+  const defs = (schema.$defs.Block.anyOf as { properties?: { t?: { const?: string } } }[]).map(b => b.properties?.t?.const)
+  expect(defs.filter(t => t && !FIRST.has(t)).sort()).toEqual([...ADDED].sort())
 })
