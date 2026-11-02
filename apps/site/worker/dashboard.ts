@@ -1,3 +1,4 @@
+import { sessionOf, tokenOf } from './accounts/session'
 import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
 import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
@@ -9,10 +10,12 @@ import { accountsPage, affiliatePage, fishIdPage, hiddenPage, overviewPage, phot
 import { loginPage, soft, unset, type AdminPath } from './admin/shell'
 
 /**
- * The owner's dashboard, /_ab/: one page per part (admin/pages.ts), each behind the ab_token cookie, noindex and never
- * stored. Each part loads on its own and says so in its place when it can't.
+ * The owner's dashboard, /_ab/: one page per part (admin/pages.ts), each open only to the owner signed in to the site,
+ * noindex and never stored. Each part loads on its own and says so in its place when it can't.
+ * OWNER_ACCOUNTS (a Worker secret): the owner's account ids, comma-separated. AB_DASH_TOKEN, as a bearer token, is the
+ * build's and the scripts' key to /_ab/hidden.json; it no longer opens the dashboard, since a token can leak or be shared.
  */
-export type AdminEnv = FishIdEnv & PhotosEnv & { DB?: D1Database; AB_DASH_TOKEN?: string; AE_API_TOKEN?: string; CF_ACCOUNT_ID?: string }
+export type AdminEnv = FishIdEnv & PhotosEnv & { DB?: D1Database; AB_DASH_TOKEN?: string; OWNER_ACCOUNTS?: string; AE_API_TOKEN?: string; CF_ACCOUNT_ID?: string }
 export type { AffSummary }
 
 export function safeEqual(a: string, b: string): boolean {
@@ -21,14 +24,20 @@ export function safeEqual(a: string, b: string): boolean {
   return diff === 0
 }
 
-/** Token from ?token= or the ab_token cookie. Returns the cookie to set on first valid visit. */
-export function authorise(req: Request, secret: string | undefined): { ok: boolean; setCookie?: string } {
-  if (!secret) return { ok: false }
-  const q = new URL(req.url).searchParams.get('token')
-  const c = req.headers.get('cookie')?.match(/(?:^|;\s*)ab_token=([^;]+)/)?.[1]
-  if (q && safeEqual(q, secret)) return { ok: true, setCookie: `ab_token=${q}; Path=/_ab; Max-Age=2592000; HttpOnly; Secure; SameSite=Strict` }
-  return { ok: !!c && safeEqual(c, secret) }
+/**
+ * Who opens the dashboard: the owner (a browser signed in to the site, the way readers sign in, to an account
+ * OWNER_ACCOUNTS names), another account, or nobody signed in. Only a browser's session cookie counts: an app's bearer
+ * session doesn't open these pages.
+ */
+export async function visitor(req: Request, env: AdminEnv, now: Date): Promise<'owner' | 'other' | 'none'> {
+  if (!env.DB || tokenOf(req)?.via !== 'cookie') return 'none'
+  const session = await sessionOf(req, env.DB, now)
+  if (!session) return 'none'
+  const owners = (env.OWNER_ACCOUNTS ?? '').split(',').map(id => id.trim()).filter(Boolean)
+  return owners.includes(session.userId) ? 'owner' : 'other'
 }
+/** The token cookie the dashboard used to set (Path=/_ab): cleared when the owner signs in the new way. */
+const OLD_TOKEN_COOKIE = 'ab_token=; Path=/_ab; Max-Age=0; HttpOnly; Secure; SameSite=Strict'
 
 /** The dashboard token as a Bearer header: the build and the home machine's scripts. */
 export const bearerOk = (req: Request, secret: string | undefined) => {
@@ -100,30 +109,26 @@ const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<s
 }
 export const ADMIN_PAGES = Object.keys(PAGES) as AdminPath[]
 
-/** Every /_ab path: the pages, the sign-in, the owner's two actions, and the hidden list the build reads. */
+/** Every /_ab path: the pages, the owner's two actions, and the hidden list the build reads. */
 export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = new Date()): Promise<Response> {
   const path = url.pathname
-  if (path === '/_ab/login') {
-    if (req.method !== 'POST') return see('/_ab/')
-    // The sign-in form: same as opening /_ab/?token=…, without the token in the address bar or history.
-    const token = String((await req.formData().catch(() => null))?.get('token') ?? '')
-    if (!env.AB_DASH_TOKEN || !safeEqual(token, env.AB_DASH_TOKEN)) return new Response(loginPage(true), { status: 403, headers: HTML })
-    return see('/_ab/', [`ab_token=${token}; Path=/_ab; Max-Age=2592000; HttpOnly; Secure; SameSite=Strict`, OWNER_COOKIE])
-  }
+  const owner = async () => (await visitor(req, env, now)) === 'owner'
+  // The old token form's address: the dashboard signs in with the site's accounts now.
+  if (path === '/_ab/login') return see('/_ab/')
   if (path === '/_ab/hidden.json') {
     // The build reads this (Bearer token) to drop hidden pages from lists, sitemap and search.
-    if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !authorise(req, env.AB_DASH_TOKEN).ok)) return notFound()
+    if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !(await owner()))) return notFound()
     return Response.json(await loadHidden(env.AB, true), { headers: { 'cache-control': 'no-store' } })
   }
   if (path === '/_ab/photos') {
-    if (req.method !== 'POST' || !authorise(req, env.AB_DASH_TOKEN).ok || !photosLive(env)) return notFound()
+    if (req.method !== 'POST' || !(await owner()) || !photosLive(env)) return notFound()
     const form = await req.formData().catch(() => null)
     if (!form) return badForm()
     await removePhoto(env, String(form.get('id') ?? ''), 'removed by owner', now)
     return see('/_ab/anh-ban-doc/')
   }
   if (path === '/_ab/hidden') {
-    if (req.method !== 'POST' || !authorise(req, env.AB_DASH_TOKEN).ok) return notFound()
+    if (req.method !== 'POST' || !(await owner())) return notFound()
     const form = await req.formData().catch(() => null)
     if (!form) return badForm()
     const err = await updateHidden(env.AB, form, now)
@@ -135,11 +140,11 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   const render = Object.hasOwn(PAGES, key) ? PAGES[key] : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
-  const auth = authorise(req, env.AB_DASH_TOKEN)
-  // Signed out: the overview asks for the token; every other page sends there first.
-  if (!auth.ok) return key === '/_ab/' ? new Response(loginPage(), { headers: HTML }) : see('/_ab/')
-  // Token arrived in the URL: move it into an HttpOnly cookie and drop it from the address bar and history.
-  if (auth.setCookie) return see(key, [auth.setCookie, OWNER_COOKIE])
-  // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts).
-  return new Response(req.method === 'HEAD' ? null : await render(env, url, now), { headers: { ...HTML, 'set-cookie': OWNER_COOKIE } })
+  const who = await visitor(req, env, now)
+  // Not the owner: the overview says how to sign in (or that this account isn't the owner's); every other page sends there.
+  if (who !== 'owner') return key === '/_ab/' ? new Response(loginPage(who === 'other'), { status: who === 'other' ? 403 : 200, headers: HTML }) : see('/_ab/')
+  // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts), and drops the old token cookie.
+  const headers = new Headers(HTML)
+  for (const c of [OWNER_COOKIE, OLD_TOKEN_COOKIE]) headers.append('set-cookie', c)
+  return new Response(req.method === 'HEAD' ? null : await render(env, url, now), { headers })
 }

@@ -106,8 +106,9 @@ input[name=url]{flex:1 1 22rem}
 input[name=note]{flex:1 1 12rem}
 button{font:inherit;padding:.5rem 1rem;border:1px solid var(--axis);border-radius:4px;background:#fff;color:var(--ink);min-height:44px;cursor:pointer}
 button:hover{background:#f2f5f2;border-color:var(--muted)}
-button.go{background:var(--ink);border-color:var(--ink);color:#fff}
-button.go:hover{background:#1d3a32}
+button.go,a.go{background:var(--ink);border-color:var(--ink);color:#fff}
+button.go:hover,a.go:hover{background:#1d3a32}
+a.go{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;border-radius:4px;text-decoration:none}
 .thumb{display:block;width:96px;height:auto;border-radius:4px}
 .muted{color:var(--muted)}
 i.sci{font-style:italic}
@@ -122,9 +123,11 @@ export function page(current: AdminPath, title: string, body: string): string {
 }
 
 /** /_ab/ without a valid token: ask for it (POST /_ab/login). */
-export function loginPage(failed = false): string {
-  return `${HEAD('Đăng nhập')}<body><main style="max-width:28rem"><h1>Quản trị AquaTome</h1>${failed ? '<p class="failed">Mã quản trị không đúng.</p>' : '<p class="lede">Nhập mã quản trị để xem số liệu.</p>'}
-<form class="inline" method="post" action="/_ab/login"><label for="token" class="muted" style="flex-basis:100%">Mã quản trị</label><input id="token" type="password" name="token" required autocomplete="current-password" autofocus style="flex:1"> <button class="go">Vào</button></form>
+/** Signed out, or `other`: signed in to an account that isn't the owner's. The site's own sign-in is on the My tanks page. */
+export function loginPage(other = false): string {
+  return `${HEAD('Đăng nhập')}<body><main style="max-width:28rem"><h1>Quản trị AquaTome</h1>${other ? '<p class="failed">Tài khoản đang đăng nhập không phải tài khoản chủ trang. Đăng xuất rồi đăng nhập bằng tài khoản chủ trang.</p>' : '<p class="lede">Đăng nhập bằng tài khoản AquaTome của chủ trang để xem số liệu.</p>'}
+<p><a class="go" href="/vi/cong-cu/be-cua-toi/#tai-khoan">${other ? 'Đổi tài khoản' : 'Đăng nhập'}</a></p>
+<p class="muted">Đăng nhập xong, mở lại <a href="/_ab/">/_ab/</a>.</p>
 <p><a href="/vi/">Về trang chủ</a></p></main></body></html>`
 }
 

@@ -26,6 +26,8 @@ export interface Env {
   /** Production host; any other host (www, the old staging domain) 301s here. */
   CANONICAL_HOST?: string
   AB_DASH_TOKEN?: string
+  /** The owner's account ids, comma-separated (a secret): the dashboard opens only to them (dashboard.ts visitor). */
+  OWNER_ACCOUNTS?: string
   AE_API_TOKEN?: string
   CF_ACCOUNT_ID?: string
   /** Hidden pages when deployed (scripts/deploy.sh), space-separated: what an isolate goes by until it has read KV. */
