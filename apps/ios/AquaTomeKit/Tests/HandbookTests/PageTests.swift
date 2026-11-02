@@ -149,3 +149,31 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   let read = try JSONDecoder().decode(HandbookIndex.self, from: odd)
   #expect(read.pages.isEmpty && read.items.count == 1)
 }
+
+@Test func aPagesPicturesAreTheLeadThenEachPhotoAndStillInTheText() throws {
+  let img = { (src: String) in ["src": src, "w": 4, "h": 3] as [String: Any] }
+  let blocks: [Any] = [
+    ["t": "figure", "img": img("https://x/1.jpg")],
+    ["t": "list", "items": [[["t": "figure", "img": img("https://x/2.jpg")]]]],
+    ["t": "moments", "title": "Cảnh", "youtubeId": "abc", "items": [["at": 5, "img": img("https://x/3.jpg"), "caption": "c"]]],
+    ["t": "p", "c": ["chữ"]],
+  ]
+  var p = page(blocks)
+  p["lead"] = img("https://x/lead.jpg")
+  #expect(try doc(p).pictures == ["https://x/lead.jpg", "https://x/1.jpg", "https://x/2.jpg", "https://x/3.jpg"])
+  // A video guide shows its video's picture, not a lead photo.
+  p["video"] = ["youtubeId": "abc", "title": "t", "channel": "c", "durationSec": 60]
+  #expect(try doc(p).pictures.first == "https://i.ytimg.com/vi/abc/hqdefault.jpg")
+  #expect(try doc(p).pictures.count == 4)
+}
+
+@Test func aShelfIsKeptForOfflineOnWiFiAskedFirstOnMobileDataAndNotWithoutRoomOrNetwork() {
+  let room: Int64 = 1 << 30
+  #expect(KeepPlan.of(online: true, expensive: false, constrained: false, freeBytes: room) == .go)
+  #expect(KeepPlan.of(online: true, expensive: true, constrained: false, freeBytes: room) == .ask)
+  #expect(KeepPlan.of(online: true, expensive: false, constrained: true, freeBytes: room) == .ask, "Low Data Mode")
+  #expect(KeepPlan.of(online: true, expensive: false, constrained: false, freeBytes: 100 << 20) == .noRoom)
+  #expect(KeepPlan.of(online: true, expensive: true, constrained: false, freeBytes: 100 << 20) == .noRoom, "no room: not even asked")
+  #expect(KeepPlan.of(online: true, expensive: false, constrained: false, freeBytes: nil) == .go, "room unknown")
+  #expect(KeepPlan.of(online: false, expensive: false, constrained: false, freeBytes: room) == .offline)
+}

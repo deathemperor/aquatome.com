@@ -26,6 +26,10 @@ struct HomeList: View {
     if !recent.isEmpty {
       Section("Đọc gần đây") { ForEach(recent) { item in Row(item: item) } }
     }
+    let kept = handbook.keptItems
+    if !kept.isEmpty {
+      Section { AllLink(browse: .kept, count: kept.count, title: "Đã tải để đọc offline", id: "all-kept") }
+    }
 
     // Nothing yet (loading, or no copy and no network): the status alone, not shelves of nothing.
     if handbook.count > 0 { Shelves(shelves: shelves) }
