@@ -52,8 +52,21 @@ final class TanksFlowTests: XCTestCase {
   func testKeepsANameToTheSitesLength() {
     let app = launch()
     app.buttons["add-first"].tap()
-    type(app, "name", String(repeating: "a", count: 90))
-    XCTAssertEqual((app.textFields["name"].value as? String)?.count, 80)
+    // Typed fast past the cut, the field once went on showing 81–89 characters while 80 were kept, about one time in
+    // three: typed ten times, the field shows what's kept each time, and the tank is saved with it.
+    let field = app.textFields["name"]
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no name field")
+    field.tap()
+    for round in 1...10 {
+      if round > 1 { field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 90)) }
+      field.typeText(String(repeating: "a", count: 90))
+      let cut = expectation(for: NSPredicate(format: "value == %@", String(repeating: "a", count: 80)), evaluatedWith: field)
+      XCTAssertEqual(XCTWaiter.wait(for: [cut], timeout: 3), .completed, "round \(round): the field shows \((field.value as? String)?.count ?? 0) characters, not 80")
+    }
+    app.buttons["save"].tap()
+    let row = app.buttons["tank"].firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no tank listed")
+    XCTAssertTrue(row.label.contains(String(repeating: "a", count: 80)) && !row.label.contains(String(repeating: "a", count: 81)), row.label)
   }
 
   func testEditsATankKeepingItsOtherFieldsAndFindsItAfterARelaunch() {

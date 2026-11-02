@@ -56,7 +56,10 @@ final class PlugFlowTests: XCTestCase {
     let field = app.textFields["label-switch_3"]
     XCTAssertTrue(field.waitForExistence(timeout: 5))
     field.tap()
-    field.typeText("Lọc thùng")
+    // Kept to 40 characters, and the field shows the 40 (it once went on showing all that was typed).
+    field.typeText(String(repeating: "a", count: 50))
+    XCTAssertEqual((field.value as? String)?.count, 40, "the field shows more than the label keeps")
+    field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 50) + "Lọc thùng")
     app.buttons["save-plug"].tap()
     XCTAssertTrue(app.staticTexts["Lọc thùng"].waitForExistence(timeout: 5), "the label isn't shown")
     // A strip is on one tank: it isn't offered again.
