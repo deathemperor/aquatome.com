@@ -19,7 +19,7 @@ E2E_SEED=3 pnpm --filter site e2e --grep @invariants   # other pages of each kin
 - `search.spec.ts`, `glossary.spec.ts`, `tools.spec.ts`: journeys, one file per feature. Add one for each new feature.
 - `lighthouse.spec.ts`: Lighthouse's scores and budgets on one page of each main kind (`E2E_LIGHTHOUSE=1`, alone:
   `E2E_LIGHTHOUSE=1 pnpm --filter site e2e --grep @lighthouse --workers=1`). Each run's numbers are in the log.
-- `review.spec.ts`: the AI page review (`E2E_REVIEW=1`; needs the `claude` CLI signed in). `E2E_REVIEW_PAGES=/vi/ca/?q=neon,/vi/` reviews other pages once.
+- `review.spec.ts`: the AI page review (`E2E_REVIEW=1`; needs the `claude` CLI signed in). `E2E_REVIEW_PAGES=/vi/ca/?q=neon,/vi/` reviews other pages once. A review stopped by Claude's usage limit is skipped, with the CLI's text as the reason (`claude-limit.ts`).
 - `fixtures.ts`: blocks every request that isn't the site itself (ads, analytics, photo hosts), and collects script
   errors in `errors`.
 - `E2E_DIST`: another build folder to serve.

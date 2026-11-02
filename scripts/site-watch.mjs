@@ -5,14 +5,17 @@
 //   site-watch.mjs prepare <site> <dir>      sitemap → <dir>/e2e-pages.json; pages of open issues → <dir>/e2e-recheck.json
 //   site-watch.mjs report <results.json>[,<more.json>] <run-url>    (the page checks, then Lighthouse's own run)
 //   site-watch.mjs deploy-failed <run-url> | deploy-ok <run-url>
-//   site-watch.mjs pr-comment <results.json> <pr-number> <run-url>    the AI review's findings as one comment on the PR
+//   site-watch.mjs pr-comment <results.json> <pr-number> <run-url>    the AI review's findings as one comment on the PR, and
+//                                                                     how many reviews did not run, and why
 //
 // The AI review (e2e/review.spec.ts, layer 3): a "high" finding fails its check and becomes a site-check issue like any
 // other; "medium" ones are notes, kept in one issue per page (label page-review), refreshed each review, closed by hand.
+// A review stopped by Claude's usage limit is skipped: no issue opened, updated or closed.
 import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 const LABEL = 'site-check'
 const gh = (...args) => execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] })
@@ -75,14 +78,15 @@ function notes(c, runUrl) {
 
 const strip = s => s.replace(/\x1b\[[0-9;]*m/g, '')
 /** Playwright's JSON report → one entry per check (a page or a journey), across the phone and computer runs. */
-function checks(report) {
+export function checks(report) {
   const out = new Map()
   const walk = suite => {
     for (const spec of suite.specs ?? []) {
       const key = `${spec.file}: ${spec.title}`
-      const c = out.get(key) ?? { key, title: spec.title, file: spec.file, failed: [], passed: [], errors: [], notes: [], highs: [] }
+      const c = out.get(key) ?? { key, title: spec.title, file: spec.file, failed: [], passed: [], errors: [], notes: [], highs: [], skips: [] }
       for (const t of spec.tests) {
-        if (t.status === 'skipped') continue
+        // A skip is neither a pass nor a failure: report leaves its issue as it is. Its reason, for pr-comment.
+        if (t.status === 'skipped') { c.skips.push(...(t.annotations ?? []).filter(a => a.type === 'skip' && a.description).map(a => a.description)); continue }
         for (const a of t.annotations ?? []) (a.type === 'review high' ? c.highs : a.type === 'review medium' ? c.notes : []).push(a.description)
         if (t.status === 'unexpected') {
           c.failed.push(t.projectName)
@@ -98,7 +102,24 @@ function checks(report) {
   return [...out.values()]
 }
 
-const [cmd, ...args] = process.argv.slice(2)
+/**
+ * The AI review's PR comment, from checks(). A page is reviewed when its review ran: it passed, or failed on what it
+ * found. A skip (Claude's usage limit, e2e/claude-limit.ts) or any other failure is a review that did not run, counted
+ * under its reason. ci.yml runs the phone project only, so a review's one skip is that reason.
+ */
+export function prComment(results, runUrl) {
+  const reviews = results.filter(c => c.title.startsWith('review '))
+  const reviewed = reviews.filter(c => c.passed.length || c.highs.length)
+  const unrun = Map.groupBy(reviews.filter(c => !reviewed.includes(c)), c => c.skips[0] ?? c.errors[0]?.split('\n')[0] ?? 'no result')
+  const lines = reviewed.flatMap(c => [...c.highs.map(h => `- **high**, ${c.title.replace(/ @\w+$/, '')}: ${h}`), ...c.notes.map(n => `- medium, ${c.title.replace(/ @\w+$/, '')}: ${n}`)])
+  const head = reviewed.length ? `${reviewed.length} pages reviewed on the fixture build.` : reviews.length ? 'No page was reviewed.' : 'The review did not run.'
+  const why = [...unrun].map(([reason, cs]) => `${cs.length} ${cs.length === 1 ? 'review' : 'reviews'} did not run: ${reason}`)
+  return [`### AI page review (advisory)`, '', head, ...why, '', ...(reviewed.length ? [...(lines.length ? lines : ['Nothing serious found.']), ''] : []), `[run](${runUrl}) · docs/governance.md, layer 3`].join('\n')
+}
+
+// Run as a script it acts; imported (its test, apps/site/test/site-watch.test.ts) it only defines.
+const main = import.meta.url === pathToFileURL(process.argv[1] ?? '').href
+const [cmd, ...args] = main ? process.argv.slice(2) : []
 if (cmd === 'prepare') {
   const [site, dir] = args
   const xml = await (await fetch(new URL('/sitemap.xml', site))).text()
@@ -136,11 +157,9 @@ if (cmd === 'prepare') {
   passing(openIssues(), fingerprint('deploy'), args[0], 'A deploy finished')
 } else if (cmd === 'pr-comment') {
   const [file, pr, runUrl] = args
-  const reviewed = existsSync(file) ? checks(JSON.parse(readFileSync(file, 'utf8'))).filter(c => c.title.startsWith('review ')) : []
-  const lines = reviewed.flatMap(c => [...c.highs.map(h => `- **high**, ${c.title.replace(/ @\w+$/, '')}: ${h}`), ...c.notes.map(n => `- medium, ${c.title.replace(/ @\w+$/, '')}: ${n}`)])
-  const body = [`### AI page review (advisory)`, '', reviewed.length ? `${reviewed.length} pages reviewed on the fixture build.` : 'The review did not run.', '', ...(lines.length ? lines : ['Nothing serious found.']), '', `[run](${runUrl}) · docs/governance.md, layer 3`].join('\n')
+  const body = prComment(existsSync(file) ? checks(JSON.parse(readFileSync(file, 'utf8'))) : [], runUrl)
   try { act('pr', 'comment', pr, '--edit-last', '--body', body) } catch { act('pr', 'comment', pr, '--body', body) }
-} else {
+} else if (main) {
   console.error('usage: site-watch.mjs prepare <site> <dir> | report <results.json>[,<more.json>] <run-url> | deploy-failed <run-url> | deploy-ok <run-url> | pr-comment <results.json> <pr> <run-url>')
   process.exit(2)
 }

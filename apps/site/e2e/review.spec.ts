@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process'
 import { mkdtempSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { usageLimit } from './claude-limit'
 import { LIVE, recheckPages, sourcePages } from './pages'
 import { expect, test } from './fixtures'
 
@@ -108,7 +109,13 @@ for (const path of PAGES) {
     await info.attach('phone', { path: join(dir, 'phone.png'), contentType: 'image/png' })
     await info.attach('desktop', { path: join(dir, 'desktop.png'), contentType: 'image/png' })
 
-    const findings = await ask(dir, `Address: ${new URL(path, baseURL).href}\nOutline (visible headings, live status text): ${JSON.stringify(outline)}\n\nScreenshots in this folder: phone.png, desktop.png.${LIVE ? '' : TEST_BUILD}`)
+    const findings = await ask(dir, `Address: ${new URL(path, baseURL).href}\nOutline (visible headings, live status text): ${JSON.stringify(outline)}\n\nScreenshots in this folder: phone.png, desktop.png.${LIVE ? '' : TEST_BUILD}`).catch((e: Error) => {
+      // Claude's usage limit says nothing about the page: the review didn't run, so it is skipped, not failed (no issue;
+      // the PR comment counts it, with this reason). Any other failure still fails.
+      const limit = usageLimit(e.message)
+      test.skip(!!limit, limit)
+      throw e
+    })
     // Every finding as an annotation: scripts/site-watch.mjs writes issues and PR comments from them.
     for (const f of findings) info.annotations.push({ type: `review ${f.severity}`, description: `${f.title}: ${f.evidence} Fix: ${f.fix}` })
     expect(findings.filter(f => f.severity === 'high').map(f => f.title), 'serious problems the review found').toEqual([])
