@@ -925,6 +925,10 @@
             "url": "https://example.org/photo/cardinal"
           }
         },
+        "talk": {
+          "comments": "species:paracheirodon-axelrodi",
+          "photos": "species:paracheirodon-axelrodi"
+        },
         "blocks": [
           {
             "t": "trust",

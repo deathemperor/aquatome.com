@@ -219,6 +219,17 @@
             "durationSec"
           ]
         },
+        "talk": {
+          "type": "object",
+          "properties": {
+            "comments": {
+              "type": "string"
+            },
+            "photos": {
+              "type": "string"
+            }
+          }
+        },
         "blocks": {
           "type": "array",
           "items": {
