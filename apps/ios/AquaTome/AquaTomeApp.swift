@@ -28,11 +28,16 @@ struct AquaTomeApp: App {
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
     #endif
     // Read after the tests' reset above (the handbook keeps the pages read).
-    _handbook = State(initialValue: HandbookModel())
+    let handbook = HandbookModel()
+    _handbook = State(initialValue: handbook)
     let tanks = TanksModel()
     _tanks = State(initialValue: tanks)
     _lights = State(initialValue: LightsModel(radio: AquaTomeApp.radio(), tanks: tanks))
-    _account = State(initialValue: AquaTomeApp.account(tanks))
+    let (account, wanted) = AquaTomeApp.server(tanks)
+    _account = State(initialValue: account)
+    // What a save puts on a tank without a page, that no page has, is sent as wanted.
+    tanks.wanted = wanted
+    tanks.hasPage = { handbook.page(for: $0) != nil }
     _plugs = State(initialValue: AquaTomeApp.plugs())
   }
 
@@ -80,19 +85,22 @@ struct AquaTomeApp: App {
     }
   }
 
-  /// aquatome.com's accounts. A debug build on the simulator (every UI and performance test) never reaches it: it gets a
-  /// stand-in server in the app (accounts off unless `-fake-accounts on`), a stand-in Apple sheet and Turnstile check,
-  /// as it gets a fake light; `-real-accounts` to try the real server from the simulator.
+  /// aquatome.com's accounts, and where readers' demand for pages goes (Wanted). A debug build on the simulator (every UI
+  /// and performance test) never reaches it: it gets one stand-in server in the app for both (accounts off unless
+  /// `-fake-accounts on`), a stand-in Apple sheet and Turnstile check, as it gets a fake light; `-real-accounts` to try
+  /// the real server from the simulator.
   @MainActor
-  private static func account(_ tanks: TanksModel) -> AccountModel {
+  private static func server(_ tanks: TanksModel) -> (AccountModel, Wanted) {
     #if DEBUG && targetEnvironment(simulator)
     let args = ProcessInfo.processInfo.arguments
     if !args.contains("-real-accounts") {
       let fake = FakeServer(args)
-      return AccountModel(tanks: tanks, api: AccountsClient(send: { try await fake.send($0) }), apple: FakeAppleSignIn(), passkey: FakePasskeySignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true)
+      let send: Send = { try await fake.send($0) }
+      return (AccountModel(tanks: tanks, api: AccountsClient(send: send), apple: FakeAppleSignIn(), passkey: FakePasskeySignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true),
+              Wanted(send: send))
     }
     #endif
-    return AccountModel(tanks: tanks)
+    return (AccountModel(tanks: tanks), Wanted())
   }
 
   /// The reader's Tuya plugs, with their own project's keys. A debug build on the simulator (every UI test) never

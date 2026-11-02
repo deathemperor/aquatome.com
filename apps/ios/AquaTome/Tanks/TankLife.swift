@@ -22,11 +22,19 @@ struct Life: Identifiable, Hashable {
   }
 }
 
-/// A sheet of the tank's fish and plants: the handbook's list to add one, or a fish's number.
+/// A sheet of the tank's fish and plants: the handbook's list to add one, a fish's number, or the number of an entry
+/// without a page.
 enum LifeSheet: Identifiable {
   case add
   case count(Life)
-  var id: String { if case .count(let l) = self { "count:\(l.id)" } else { "add" } }
+  case unlisted(UnlistedEntry)
+  var id: String {
+    switch self {
+    case .add: "add"
+    case .count(let l): "count:\(l.id)"
+    case .unlisted(let e): "unlisted:\(e.id)"
+    }
+  }
 }
 
 /// What a `LifeSheet` shows, on the tank `tankId`. The tank's screen presents it from its list, which is always there
@@ -38,12 +46,14 @@ struct LifeSheetView: View {
     switch sheet {
     case .add: LifePicker(tankId: tankId)
     case .count(let life): NavigationStack { PutOnTank(life: life, tankId: tankId) }
+    case .unlisted(let entry): NavigationStack { UnlistedCount(entry: entry, tankId: tankId) }
     }
   }
 }
 
-/// A tank's fish (with how many) and plants, as the site lists them, each opening its page. Swiped, a fish's number
-/// changes, or either comes off the tank; more are added from the handbook (`sheet`, presented by the tank's screen).
+/// A tank's fish (with how many) and plants, as the site lists them, each opening its page; after them, what the
+/// handbook has no page for (`unlisted`). Swiped, a fish's number changes, or either comes off the tank; more are added
+/// from the handbook, or by name (`sheet`, presented by the tank's screen).
 struct TankLifeSections: View {
   let tank: Tank
   @Binding var sheet: LifeSheet?
@@ -51,7 +61,9 @@ struct TankLifeSections: View {
   @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
-    if !tank.species.isEmpty {
+    // As the site sorts them: a plant with the plants, anything else (a kind from a newer client too) with the fish.
+    let fish = tank.unlisted.filter { !$0.isPlant }, plants = tank.unlisted.filter(\.isPlant)
+    if !tank.species.isEmpty || !fish.isEmpty {
       Section("Cá và tép") {
         ForEach(Array(tank.species.enumerated()), id: \.offset) { _, s in
           LifeRow(id: s.id, count: s.count).swipeActions {
@@ -59,13 +71,24 @@ struct TankLifeSections: View {
             Button("Số con") { sheet = .count(handbook.page(s.id).flatMap(Life.init) ?? Life(id: s.id, name: s.id, fish: true)) }
           }
         }
+        ForEach(Array(fish.enumerated()), id: \.offset) { _, e in
+          UnlistedRow(entry: e).swipeActions {
+            Button("Xóa", role: .destructive) { try? tanks.change(tank.id) { $0.removeUnlisted(e.id) } }
+            Button("Số con") { sheet = .unlisted(e) }
+          }
+        }
       }
     }
-    if !tank.plants.isEmpty {
+    if !tank.plants.isEmpty || !plants.isEmpty {
       Section("Cây") {
         ForEach(Array(tank.plants.enumerated()), id: \.offset) { _, id in
           LifeRow(id: id, count: nil).swipeActions {
             Button("Xóa", role: .destructive) { try? tanks.change(tank.id) { $0.removePlant(id) } }
+          }
+        }
+        ForEach(Array(plants.enumerated()), id: \.offset) { _, e in
+          UnlistedRow(entry: e).swipeActions {
+            Button("Xóa", role: .destructive) { try? tanks.change(tank.id) { $0.removeUnlisted(e.id) } }
           }
         }
       }
@@ -73,7 +96,18 @@ struct TankLifeSections: View {
     Section {
       Button { sheet = .add } label: { Label("Thêm cá hoặc cây", systemImage: "plus") }
         .accessibilityIdentifier("add-life")
+        .accessibilityValue(wantedForTests)
     }
+  }
+
+  /// The UI tests read here what the stand-in server took as wanted, a body a line; nothing for VoiceOver in a release
+  /// build.
+  private var wantedForTests: String {
+    #if DEBUG
+    tanks.wantedForTests.joined(separator: "\n")
+    #else
+    ""
+    #endif
   }
 }
 
@@ -93,6 +127,82 @@ private struct LifeRow: View {
       NavigationLink(value: page) { label }.accessibilityIdentifier("life")
     } else {
       label.accessibilityIdentifier("life")
+    }
+  }
+}
+
+/// What the handbook has no page for, on a tank: shown as the page that has its scientific name once there is one (with
+/// the entry's number), else by its name, marked "chưa có trang" in a dashed chip as the site marks it, VoiceOver too.
+private struct UnlistedRow: View {
+  let entry: UnlistedEntry
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    if let page = handbook.page(for: entry) {
+      NavigationLink(value: page) {
+        HStack {
+          Text(page.name)
+          Spacer()
+          if let count = entry.count { Text(verbatim: "× \(count)").foregroundStyle(.secondary).monospacedDigit() }
+        }
+      }
+      .accessibilityIdentifier("life")
+    } else {
+      HStack {
+        VStack(alignment: .leading, spacing: 2) {
+          Text(verbatim: entry.name)
+          if let sci = entry.sci { Text(verbatim: sci).font(.caption).italic().foregroundStyle(.secondary) }
+        }
+        Spacer()
+        if let count = entry.count { Text(verbatim: "× \(count)").foregroundStyle(.secondary).monospacedDigit() }
+        Text("chưa có trang")
+          .font(.caption).foregroundStyle(.secondary)
+          .padding(.horizontal, 8).padding(.vertical, 3)
+          .overlay(Capsule().strokeBorder(.secondary, style: StrokeStyle(lineWidth: 1, dash: [3, 3])))
+      }
+      .accessibilityElement(children: .combine)
+      .accessibilityIdentifier("life")
+    }
+  }
+}
+
+/// The number of an entry without a page, changed as a fish's is; left empty, the tank says no number, as on the site.
+struct UnlistedCount: View {
+  let entry: UnlistedEntry
+  let tankId: String
+  @Environment(TanksModel.self) private var tanks
+  @Environment(HandbookModel.self) private var handbook
+  @Environment(\.dismiss) private var dismiss
+  @State private var count = ""
+  @State private var failed = false
+
+  var body: some View {
+    Form {
+      Section("Số con") {
+        TextField("Số con (nếu muốn)", text: $count).keyboardType(.numberPad).accessibilityIdentifier("put-count")
+      }
+      if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(Color.warning) }
+    }
+    .navigationTitle(handbook.page(for: entry)?.name ?? entry.name)
+    .navigationBarTitleDisplayMode(.inline)
+    .toolbar {
+      ToolbarItem(placement: .cancellationAction) { Button("Hủy") { dismiss() } }
+      ToolbarItem(placement: .confirmationAction) {
+        Button("Lưu") { save() }.disabled(!typed.isEmpty && number == nil).accessibilityIdentifier("put-save")
+      }
+    }
+    .onAppear { count = entry.count.map(String.init) ?? "" }
+  }
+
+  private var typed: String { count.trimmingCharacters(in: .whitespaces) }
+  private var number: Int? { Int(typed).flatMap { (1...maxCount).contains($0) ? $0 : nil } }
+
+  private func save() {
+    do {
+      try tanks.change(tankId) { $0.setUnlistedCount(entry.id, number) }
+      dismiss()
+    } catch {
+      failed = true
     }
   }
 }
@@ -194,38 +304,137 @@ struct PutOnTank: View {
   }
 }
 
-/// The handbook's fish and plants, searched as the Tìm tab searches, to put one on a tank.
+/// The handbook's fish and plants, searched as the Tìm tab searches, to put one on a tank. The last row adds what was
+/// typed without a page, as the site's search ends (offline too: the handbook isn't needed for that).
 struct LifePicker: View {
   let tankId: String
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dismiss) private var dismiss
   @State private var query = ""
   @State private var picked: Life?
+  /// What was typed, to add without a page.
+  @State private var named: String?
 
   var body: some View {
+    let typed = query.trimmingCharacters(in: .whitespacesAndNewlines)
     NavigationStack {
-      List(handbook.life(query)) { item in
-        Button { picked = Life(item) } label: {
-          VStack(alignment: .leading, spacing: 2) {
-            Text(item.name).foregroundStyle(.primary)
-            if let sub = item.sub { Text(sub).font(.caption).italic().foregroundStyle(.secondary) }
+      List {
+        ForEach(handbook.life(query)) { item in
+          Button { picked = Life(item) } label: {
+            VStack(alignment: .leading, spacing: 2) {
+              Text(item.name).foregroundStyle(.primary)
+              if let sub = item.sub { Text(sub).font(.caption).italic().foregroundStyle(.secondary) }
+            }
           }
+          .accessibilityIdentifier("life-item")
         }
-        .accessibilityIdentifier("life-item")
+        if typed.count >= 2 {
+          Button { named = typed } label: { Text("Thêm “\(typed)” (chưa có trong cẩm nang)") }
+            .accessibilityIdentifier("life-new")
+        }
       }
       .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Tìm loài cá, cây"))
+      // Scientific names are typed here, as on the site's search: not corrected, not capitalized.
+      .autocorrectionDisabled()
+      .textInputAutocapitalization(.never)
       .navigationTitle("Thêm cá hoặc cây")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Hủy") { dismiss() } } }
       .navigationDestination(item: $picked) { life in PutOnTank(life: life, tankId: tankId, done: { dismiss() }) }
+      .navigationDestination(item: $named) { name in
+        NewUnlisted(name: name, sci: NewUnlisted.readsAsScientific(name) ? name : nil, tankId: tankId, done: { dismiss() })
+      }
       .refreshable { await handbook.load() }
-      // Until the index is here (the tanks tab may be the first one opened), or when it can't be.
+      // Until the index is here (the tanks tab may be the first one opened), or when it can't be; not over what was
+      // typed, which can still be added by name.
       .overlay {
-        if handbook.status == .loading { ProgressView() }
-        else if handbook.status == .failed { ContentUnavailableView("Không tải được cẩm nang. Kiểm tra kết nối mạng rồi kéo xuống để thử lại.", systemImage: "wifi.slash") }
+        if typed.isEmpty {
+          if handbook.status == .loading { ProgressView() }
+          else if handbook.status == .failed { ContentUnavailableView("Không tải được cẩm nang. Kiểm tra kết nối mạng rồi kéo xuống để thử lại.", systemImage: "wifi.slash") }
+        }
       }
       // The tanks tab may be the first one opened.
       .task { await handbook.appear() }
+    }
+  }
+}
+
+/// Something the handbook has no page for, put on the tank by its name, as the site's form asks it: fish or plant, the
+/// scientific name if known (what shows it as its page once the handbook has one), how many. Opened with what was
+/// typed; a photo's guess can open it the same way, with its names and kind.
+struct NewUnlisted: View {
+  let tankId: String
+  var done: () -> Void
+  /// The name it was opened with.
+  private let typed: String
+  @Environment(TanksModel.self) private var tanks
+  @State private var kind: String
+  @State private var name: String
+  @State private var sci: String
+  @State private var count = ""
+  @State private var failed = false
+
+  init(name: String, sci: String? = nil, kind: String = "fish", tankId: String, done: @escaping () -> Void) {
+    typed = name
+    _name = State(initialValue: name)
+    _sci = State(initialValue: sci ?? "")
+    _kind = State(initialValue: kind)
+    self.tankId = tankId
+    self.done = done
+  }
+
+  /// Typed like a scientific name ("Rhinogobius duospilus"): taken as the scientific name too, as the site's form does.
+  static func readsAsScientific(_ s: String) -> Bool {
+    s.range(of: #"^[A-Z][a-z]+ (?:(?:cf|aff)\.? )?[a-z]+$"#, options: .regularExpression) != nil
+  }
+
+  var body: some View {
+    Form {
+      Section {
+        Text("\(Text(verbatim: typed).bold()) chưa có trang trong cẩm nang. Vẫn thêm vào bể được: khi có trang, bể sẽ hiện trang đó.")
+        Picker("Đây là", selection: $kind) {
+          Text("Cá, tép hoặc ốc").tag("fish")
+          Text("Cây").tag("plant")
+        }
+        .pickerStyle(.segmented)
+        .accessibilityIdentifier("new-kind")
+      }
+      Section {
+        TextField("Tên", text: $name).accessibilityIdentifier("new-name").capped($name, to: TankFields.nameMax)
+        TextField("Tên khoa học (nếu biết)", text: $sci, prompt: Text("Ví dụ: Rhinogobius duospilus"))
+          .textInputAutocapitalization(.never).autocorrectionDisabled()
+          .accessibilityIdentifier("new-sci").capped($sci, to: 120)
+        if kind != "plant" {
+          TextField("Số con (nếu muốn)", text: $count).keyboardType(.numberPad).accessibilityIdentifier("new-count")
+        }
+      }
+      if full { Text("Đã đủ \(maxUnlisted) loài chưa có trang trên bể này.").foregroundStyle(Color.warning) }
+      if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(Color.warning) }
+    }
+    .navigationTitle(typed)
+    .navigationBarTitleDisplayMode(.inline)
+    .toolbar {
+      ToolbarItem(placement: .confirmationAction) {
+        Button("Thêm vào bể") { save() }
+          .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || badCount || full)
+          .accessibilityIdentifier("new-save")
+      }
+    }
+  }
+
+  private var full: Bool { (tanks.tanks.first { $0.id == tankId }?.unlisted.count ?? 0) >= maxUnlisted }
+  /// No number is fine; one typed must be one the store takes.
+  private var number: Int? { Int(count.trimmingCharacters(in: .whitespaces)).flatMap { (1...maxCount).contains($0) ? $0 : nil } }
+  private var badCount: Bool { kind != "plant" && !count.trimmingCharacters(in: .whitespaces).isEmpty && number == nil }
+
+  private func save() {
+    let e = UnlistedEntry(kind: kind, name: name, sci: sci, count: number)
+    do {
+      // Saved, then sent as wanted when no page has it (TanksModel).
+      try tanks.change(tankId) { $0.addUnlisted(e) }
+      done()
+    } catch {
+      failed = true
     }
   }
 }

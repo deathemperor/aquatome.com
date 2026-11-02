@@ -9,7 +9,7 @@ kept on the phone with their pictures, so a guide read once reads offline, and a
 and opens the other pages of aquatome.com in the app (kept on the phone for reading offline, without ads; fish,
 plants, the glossary and videos become native the same way, tools stay web pages until rebuilt), a fish's facts above its page (size, temperature, pH, the shortest tank,
 temperament, difficulty, from the index on the phone, so offline too), and the pages saved to read later and read last; **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
-substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough; and the guides that name them, the video guides apart) on the phone with no account, in the same store the
+substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; one the handbook has no page for put on by name, marked "chưa có trang" until a page has its scientific name, and sent once, with no account, as a name readers want pages for; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough; and the guides that name them, the video guides apart) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
 schedules written to it (as the site does). A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
 named for what it powers, with its switch: the app calls Tuya's cloud itself, with the reader's own Tuya project keys
@@ -122,7 +122,8 @@ and `TUYA_ACCESS_SECRET` set, `swift test --filter liveListRead`. It reads the l
 counts only.
 
 The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json`, `protocols/tankmates-vectors.json`,
-`protocols/filter-vectors.json` and `protocols/page-vectors.json`, the same vectors as the site's tests. A protocol or schema change updates the vectors and both implementations together.
+`protocols/filter-vectors.json`, `protocols/page-vectors.json` and `protocols/unlisted-vectors.json`, the same vectors as
+the site's tests. A protocol or schema change updates the vectors and both implementations together.
 
 ## Testing on a real light
 

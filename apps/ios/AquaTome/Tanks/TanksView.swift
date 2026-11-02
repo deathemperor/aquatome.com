@@ -135,7 +135,7 @@ private struct TankDetail: View {
       .readsPlugs()
       .navigationTitle(t.name)
       // Fish and plants are named from the handbook's index, which may not be loaded yet if the Tìm tab wasn't opened.
-      .task { if !t.species.isEmpty || !t.plants.isEmpty { await handbook.appear() } }
+      .task { if !t.species.isEmpty || !t.plants.isEmpty || !t.unlisted.isEmpty { await handbook.appear() } }
       .toolbar { Button("Sửa") { editing = true }.accessibilityIdentifier("edit") }
       .sheet(isPresented: $editing) { TankForm(editing: t) }
       .sheet(item: $lifeSheet) { LifeSheetView(sheet: $0, tankId: t.id) }
