@@ -86,11 +86,16 @@ private let cases: [Case] = {
 
 @Test func aPageOnTheTankTwiceIsCheckedAsOneFishWithItsCountsAddedUp() {
   // On the tank from its page, and again by name from before the page existed (an entry the page now matches).
-  func neon(_ n: Int?) -> TankCheck.Fish { .init(name: "Cá neon", facts: .init(), count: n) }
+  func neon(_ n: Int?) -> TankCheck.Fish { .init(name: "Cá neon", facts: .init(schoolMin: 6), count: n) }
   let betta = TankCheck.Fish(name: "Cá betta", facts: .init(), count: 1)
   #expect(TankCheck.onePerPage([("neon", neon(10)), ("betta", betta), ("neon", neon(5))]) == [neon(15), betta])
-  // A count left out adds nothing; none given stays none.
-  #expect(TankCheck.onePerPage([("neon", neon(nil)), ("neon", neon(4))]) == [neon(4)])
-  #expect(TankCheck.onePerPage([("neon", neon(4)), ("neon", neon(nil))]) == [neon(4)])
+  // A row without a count is read as the school size, so the other row's 4 doesn't bring the 6 down; 10 is more.
+  #expect(TankCheck.onePerPage([("neon", neon(nil)), ("neon", neon(4))]) == [neon(6)])
+  #expect(TankCheck.onePerPage([("neon", neon(4)), ("neon", neon(nil))]) == [neon(6)])
+  #expect(TankCheck.onePerPage([("neon", neon(nil)), ("neon", neon(10))]) == [neon(10)])
+  // No school size: one.
+  let shrimp = TankCheck.Fish(name: "Tép", facts: .init(), count: nil), shrimp3 = TankCheck.Fish(name: "Tép", facts: .init(), count: 3)
+  #expect(TankCheck.onePerPage([("tep", shrimp), ("tep", shrimp3)]) == [shrimp3])
+  // None given stays none, for the check to read as it reads one row.
   #expect(TankCheck.onePerPage([("neon", neon(nil)), ("neon", neon(nil))]) == [neon(nil)])
 }

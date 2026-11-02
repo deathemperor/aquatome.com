@@ -65,15 +65,20 @@ public struct TankCheck: Decodable, Equatable, Sendable {
   }
 
   /// The fish to check, one per handbook page (by content id): a page on the tank twice, put on from the page and
-  /// again by name from before the page existed, is one fish, with the counts given added up.
+  /// again by name from before the page existed, is one fish, with the counts given added up. The check reads a fish
+  /// with no count as its school size, so while one of them has none, the fish counts at least that: adding a row never
+  /// lowers it. None given: none.
   public static func onePerPage(_ fish: [(page: String, fish: Fish)]) -> [Fish] {
-    var out: [Fish] = [], at: [String: Int] = [:]
+    var order: [String] = [], rows: [String: [Fish]] = [:]
     for (page, f) in fish {
-      guard let i = at[page] else { at[page] = out.count; out.append(f); continue }
-      let o = out[i]
-      out[i] = Fish(name: o.name, facts: o.facts, count: o.count.map { $0 + (f.count ?? 0) } ?? f.count)
+      if rows[page] == nil { order.append(page) }
+      rows[page, default: []].append(f)
     }
-    return out
+    return order.map { page in
+      let all = rows[page]!, first = all[0], given = all.compactMap(\.count), sum = given.reduce(0, +)
+      let count = given.isEmpty ? nil : given.count == all.count ? sum : max(sum, first.facts.schoolMin ?? 1)
+      return Fish(name: first.name, facts: first.facts, count: count)
+    }
   }
 }
 
