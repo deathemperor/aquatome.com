@@ -19,7 +19,8 @@ LIGHTS = (KIT + 'light-harness/',)
 HANDBOOK = ('apps/ios/AquaTome/Handbook/', KIT + 'Handbook/')
 NEITHER = ('protocols/', 'apps/ios/AquaTomeKit/Tests/', 'apps/ios/README.md', 'apps/ios/perf-budgets.json',
            'apps/ios/AquaTome/Localizable.xcstrings', 'apps/ios/scripts/check-perf.py',
-           'apps/ios/scripts/check-strings.py', 'apps/ios/scripts/asc-build-state.mjs')
+           'apps/ios/scripts/check-strings.py', 'apps/ios/scripts/asc-build-state.mjs',
+           'apps/ios/scripts/testflight-notes.py')
 
 
 def pick(paths, handbook_flows):
@@ -57,7 +58,8 @@ def test():
         ([TESTS + 'TankLifeFlowTests.swift'], (True, False)),
         ([TESTS + 'LightFlowTests.swift'], (False, True)),
         ([TESTS + 'AccountFlowTests.swift', 'protocols/tanks-vectors.json', 'apps/ios/perf-budgets.json',
-          'apps/ios/AquaTome/Localizable.xcstrings', 'apps/ios/AquaTomeKit/Tests/TanksTests/StoreTests.swift'],
+          'apps/ios/AquaTome/Localizable.xcstrings', 'apps/ios/AquaTomeKit/Tests/TanksTests/StoreTests.swift',
+          'apps/ios/scripts/testflight-notes.py'],
          (False, False)),
         (['apps/ios/AquaTome/Handbook/HomeView.swift', 'apps/ios/AquaTome/Tanks/TanksView.swift'], (True, True)),
         (['apps/ios/AquaTome/Account/AccountSection.swift'], (True, True)),
