@@ -1,3 +1,5 @@
+import { deletePhotoFiles } from '../photos'
+
 /** Accounts and their ways to sign in (credentials). An account holds no name, phone number or email address. */
 export type Kind = 'apple' | 'google' | 'passkey' | 'email'
 export type Method = { id: string; kind: Kind; createdAt: string; lastUsedAt: string | null }
@@ -45,11 +47,18 @@ export async function methodsOf(db: D1Database, userId: string): Promise<Method[
 }
 
 /**
- * Everything of an account, in one batch: its saved tanks, pending email codes for its addresses (so a code sent before
- * can't sign in after), sign-ins and sessions, then the account.
+ * Everything of an account. First the files of the photos it sent from the app (once their rows are gone nothing finds
+ * them again; deleting twice does no harm). Then in one batch: its comments and photos, its saved tanks, pending email
+ * codes for its addresses (so a code sent before can't sign in after), sign-ins and sessions, then the account.
  */
-export async function deleteUser(db: D1Database, userId: string): Promise<void> {
+export async function deleteUser(db: D1Database, userId: string, buckets: { UPLOADS?: R2Bucket; MEDIA?: R2Bucket } = {}): Promise<void> {
+  const { UPLOADS, MEDIA } = buckets
+  if (UPLOADS && MEDIA) {
+    const { results } = await db.prepare(`SELECT id FROM photos WHERE account_id = ?`).bind(userId).all<{ id: string }>()
+    await Promise.all(results.map(p => deletePhotoFiles({ UPLOADS, MEDIA }, p.id)))
+  }
   await db.batch([
+    ...['comments', 'photos'].map(t => db.prepare(`DELETE FROM ${t} WHERE account_id = ?`).bind(userId)),
     db.prepare(`DELETE FROM auth_challenges WHERE user_id = ? OR (kind = 'email' AND value IN (SELECT email_hash FROM credentials WHERE user_id = ? AND email_hash IS NOT NULL))`).bind(userId, userId),
     ...['tank_records', 'credentials', 'sessions'].map(t => db.prepare(`DELETE FROM ${t} WHERE user_id = ?`).bind(userId)),
     db.prepare(`DELETE FROM users WHERE id = ?`).bind(userId),

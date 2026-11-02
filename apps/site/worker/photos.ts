@@ -1,8 +1,9 @@
-import { ipDayKey, siteverify, verifyCommenter } from './comments/api'
+import { appAccount, dayKeys, siteverify, verifyCommenter } from './comments/api'
 import { staticRules } from './comments/rules'
 
 /**
- * Reader photos on species pages, no accounts: name + Turnstile + a per-day limit; a private delete link instead of a login.
+ * Reader photos on species pages: name + Turnstile + a per-day limit; a private delete link instead of a login. The app
+ * sends them with the reader's account instead of Turnstile (protocols/talk.openapi.json); deleting the account deletes them.
  * Uploads wait in the private UPLOADS bucket; the nightly moderation pass on the home machine screens them (faces, then
  * Claude: is it this fish?) and publishes a re-encoded WebP to the public media bucket under readers/.
  */
@@ -55,11 +56,16 @@ export async function listPhotos(url: URL, env: PhotosEnv): Promise<Response> {
   return json({ photos, sitekey: env.TURNSTILE_SITEKEY, verification: env.COMMENT_VERIFICATION === 'phone' ? 'phone' : 'none' }, 200, { 'cache-control': 'public, max-age=60' })
 }
 
-/** POST /_p (multipart: e, name, consent, token, file): cheapest checks first; the photo waits for moderation. */
+/**
+ * POST /_p (multipart: e, name, consent, token, file): cheapest checks first; the photo waits for moderation. The app (a
+ * bearer) skips Origin and Turnstile, and its photo counts against its account's day too.
+ */
 export async function postPhoto(req: Request, env: PhotosEnv, now: Date, verify: Siteverify = siteverify): Promise<Response> {
   if (!live(env)) return off()
-  if (req.headers.get('origin') !== new URL(req.url).origin) return json({ error: 'cross-origin' }, 403)
-  if ((await verifyCommenter(req, env)) === 'verification_required') return json({ error: 'verification_required' }, 403)
+  const account = await appAccount(req, env.DB, now)
+  if (account === 'session') return json({ error: 'session' }, 401)
+  if (!account && req.headers.get('origin') !== new URL(req.url).origin) return json({ error: 'cross-origin' }, 403)
+  if ((await verifyCommenter(req, env, Boolean(account))) === 'verification_required') return json({ error: 'verification_required' }, 403)
   const length = Number(req.headers.get('content-length') ?? NaN)
   if (!Number.isFinite(length) || length > MAX_BYTES + 64 * 1024) return json({ error: 'too large' }, 413)
   const form = await req.formData().catch(() => null)
@@ -77,26 +83,32 @@ export async function postPhoto(req: Request, env: PhotosEnv, now: Date, verify:
   if (!type) return json({ error: 'not an image' }, 415)
   const ip = req.headers.get('cf-connecting-ip')
   const t = String(form.get('token') ?? '')
-  if (!t || !(await verify(env.TURNSTILE_SECRET, t, ip, new URL(req.url).hostname))) return json({ error: 'turnstile' }, 403)
+  if (!account && (!t || !(await verify(env.TURNSTILE_SECRET, t, ip, new URL(req.url).hostname)))) return json({ error: 'turnstile' }, 403)
 
-  const rl = `p${await ipDayKey(env.COMMENT_HMAC_KEY, ip ?? 'unknown', now)}`
-  const today = Number((await env.AB.get(rl)) ?? 0) + 1
-  if (today > MAX_PER_DAY) return json({ error: 'rate' }, 429)
-  await env.AB.put(rl, String(today), { expirationTtl: 86_400 })
+  // Past either day's limit, refused; counted only once under both.
+  const rl = (await dayKeys(env.COMMENT_HMAC_KEY, ip, account, now)).map(k => `p${k}`)
+  const today = await Promise.all(rl.map(async k => Number((await env.AB.get(k)) ?? 0) + 1))
+  if (today.some(n => n > MAX_PER_DAY)) return json({ error: 'rate' }, 429)
+  await Promise.all(rl.map((k, i) => env.AB.put(k, String(today[i]), { expirationTtl: 86_400 })))
 
   const id = crypto.randomUUID()
   const del = token()
   await env.UPLOADS.put(`pending/${id}`, bytes, { httpMetadata: { contentType: type } })
-  await env.DB.prepare(`INSERT INTO photos (id, entity_ref, name, status, delete_hash, created_at) VALUES (?, ?, ?, 'pending', ?, ?)`)
-    .bind(id, entityRef, name, await sha256(del), now.toISOString()).run()
+  await env.DB.prepare(`INSERT INTO photos (id, entity_ref, name, status, delete_hash, created_at, account_id) VALUES (?, ?, ?, 'pending', ?, ?, ?)`)
+    .bind(id, entityRef, name, await sha256(del), now.toISOString(), account ?? null).run()
   return json({ status: 'pending', id, deleteUrl: `/_p/xoa/?id=${id}&t=${del}` }, 201)
+}
+
+/** Every stored copy of a photo: the raw upload and the published files. */
+export async function deletePhotoFiles(buckets: { UPLOADS: R2Bucket; MEDIA: R2Bucket }, id: string): Promise<void> {
+  await Promise.all([buckets.UPLOADS.delete(`pending/${id}`), buckets.MEDIA.delete([fullKey(id), thumbKey(id)])])
 }
 
 /** Take a photo down: row → removed, every stored copy deleted. */
 export async function removePhoto(env: Live, id: string, reason: string, now: Date): Promise<boolean> {
   const r = await env.DB.prepare(`UPDATE photos SET status = 'removed', url = NULL, thumb = NULL, reason = ?, decided_at = ? WHERE id = ? AND status != 'removed'`)
     .bind(reason.slice(0, 300), now.toISOString(), id).run()
-  await Promise.all([env.UPLOADS.delete(`pending/${id}`), env.MEDIA.delete([fullKey(id), thumbKey(id)])])
+  await deletePhotoFiles(env, id)
   return (r.meta.changes ?? 0) > 0
 }
 

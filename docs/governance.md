@@ -29,6 +29,9 @@ that would have caught it).
     - A kind that needs a block no shipped app knows gets the next level.
     - `pages` (guides only) stays as it is for the apps already installed: the first app draws every kind it lists.
     - Guides are level 1. Fish, plant and glossary pages are level 2: the iOS app that reads `shards` knows level 2.
+  - The Worker's answers when the app posts readers' comments and photos (a bearer, no Turnstile) against
+    `protocols/talk.openapi.json`: a status the contract lists and a body of its shape, the account's daily limits on
+    top of the address's, and an account's posts and photo files deleted with it (`apps/site/worker/test/talk.test.ts`).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools).

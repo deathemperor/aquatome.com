@@ -35,6 +35,9 @@ export type AccountsEnv = {
   PASSKEYS?: string
   /** This site's host: a passkey's relying party, answered only on it. */
   CANONICAL_HOST?: string
+  /** Readers' photos (worker/photos.ts): deleting an account deletes the files of the photos it sent. */
+  UPLOADS?: R2Bucket
+  MEDIA?: R2Bucket
 }
 type Siteverify = (secret: string, token: string, ip: string | null, host: string) => Promise<boolean>
 export type AccountDeps = { verifyIdToken: VerifyIdToken; siteverify: Siteverify; sendMail?: SendMail; revokeApple?: RevokeApple }
@@ -329,7 +332,7 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     const apple = (await db.prepare(`SELECT subject FROM credentials WHERE user_id = ? AND kind = 'apple'`).bind(session.userId).all<{ subject: string }>()).results
     const refused = await revokeAppleFirst(env, deps, req, url, session.userId, apple.map(x => x.subject), now)
     if (refused) return refused
-    await deleteUser(db, session.userId)
+    await deleteUser(db, session.userId, env)
     return none(session.via === 'cookie' ? { 'set-cookie': CLEAR_COOKIE } : {})
   }
   const m = /^\/api\/v1\/account\/methods\/([0-9a-f-]{36})$/.exec(path)
