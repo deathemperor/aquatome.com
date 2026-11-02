@@ -8,9 +8,10 @@
   "mentions": [
     "carassius-auratus",
     "hyphessobrycon-herbertaxelrodi",
-    "trigonostigma-heteromorpha"
+    "trigonostigma-heteromorpha",
+    "hyphessobrycon-amandae"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "t0uqYP60WJA",
     "title": "Bệnh nguy hiểm thường gặp ở cá cảnh thủy sinh, bạn đã biết? #Greenhappiness",
@@ -31,10 +32,10 @@
     "transcribed": true,
     "lang": "vi",
     "taxa": [
-      "Symphysodon sp.",
       "Carassius auratus",
+      "Symphysodon sp.",
       "Hyphessobrycon herbertaxelrodi",
-      "Nematobrycon palmeri",
+      "Hyphessobrycon amandae",
       "Trigonostigma heteromorpha"
     ],
     "gear": [
@@ -53,29 +54,21 @@
         "category": "thuc-an",
         "type": "kho",
         "brand": "JBL",
-        "model": "Novotap",
+        "model": "Novotab",
         "t": 617
       },
       {
         "category": "thuc-an",
         "type": "kho",
         "brand": "Tetra",
-        "model": "Color",
-        "t": 619
+        "model": "Tetra Color",
+        "t": 617
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao cá bị đốm trắng",
-        "moments": [
-          {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/t0uqYP60WJA/t69.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh nhiều cây và lũa, cá mới thả dễ mang mầm bệnh."
-          }
-        ],
+        "heading": "Đốm trắng là bệnh gì",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/t0uqYP60WJA/p0-oaXJpYXNpcy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/t0uqYP60WJA/p0-oaXJpYXNpcy5qcGc-480.webp",
@@ -84,11 +77,25 @@
           "licence": "Public domain",
           "author": "No machine-readable author provided. Djpalme assumed (based on copyright claims).",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ichthyophthiriasis.jpg",
-          "caption": "Cá có các đốm trắng li ti trên thân và vây do bệnh đốm trắng."
+          "caption": "Cá cichlid vàng xanh bị đốm trắng li ti bám trên vây và thân."
         }
       },
       {
-        "heading": "Bể nuôi cá không trồng cây: muối và sưởi",
+        "heading": "Vì sao cá trong bể bị đốm trắng",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/t0uqYP60WJA/p1-ZlbGlmZXIpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/t0uqYP60WJA/p1-ZlbGlmZXIpLmpwZw-480.webp",
+          "width": 960,
+          "height": 644,
+          "licence": "CC BY-SA 4.0",
+          "author": "Julia Sumangil",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sailfin_tang_(Zebrasoma_velifer).jpg",
+          "caption": "Một con cá đang bơi trong bể, thân khỏe và sạch, chưa có đốm trắng."
+        }
+      },
+      {
+        "heading": "Trị đốm trắng ở bể chỉ nuôi cá",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/t0uqYP60WJA/p2-ha3dhcml1bS5qcGc.webp",
@@ -102,95 +109,80 @@
         }
       },
       {
-        "heading": "Bể thủy sinh: thay nước và đánh thuốc nhẹ tay",
+        "heading": "Trị đốm trắng ở bể thủy sinh có cây",
         "moments": [
           {
             "t": 273,
             "url": "https://media.aquatome.com/video/t0uqYP60WJA/t273.webp",
             "width": 160,
             "height": 90,
-            "caption": "Vệ sinh bể thủy sinh, dùng ống siphon hút cặn giữa đám cây."
+            "caption": "Bể thủy sinh nhiều cây đang được hút cặn bẩn ở nền."
           },
+          {
+            "t": 298,
+            "url": "https://media.aquatome.com/video/t0uqYP60WJA/t298.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Lọ thuốc trị ký sinh trùng cầm trên tay trước bể cá."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/t0uqYP60WJA/p3-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/t0uqYP60WJA/p3-hX3NocmltcC5qcGc-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh cây rậm rạp với lũa và đá, cá nhỏ bơi giữa các bụi cây."
+        }
+      },
+      {
+        "heading": "Phòng bệnh: mua cá và mật độ nuôi",
+        "moments": [
           {
             "t": 333,
             "url": "https://media.aquatome.com/video/t0uqYP60WJA/t333.webp",
             "width": 160,
             "height": 90,
-            "caption": "Toàn cảnh bể thủy sinh có cây xanh tốt sau khi vệ sinh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/t0uqYP60WJA/p3-bV9maXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/t0uqYP60WJA/p3-bV9maXNoZXMuanBn-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "KannanVM",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_fresh_water_aquarium_fishes.jpg",
-          "caption": "Bể có cây thủy sinh nuôi cá vàng, cần thay nước và dùng thuốc nhẹ tay."
-        }
-      },
-      {
-        "heading": "Mua cá và chọn loài thế nào để ít bệnh",
-        "moments": [
+            "caption": "Bể thủy sinh nhiều cây, cá thả vừa phải, nước sạch."
+          },
           {
             "t": 372,
             "url": "https://media.aquatome.com/video/t0uqYP60WJA/t372.webp",
             "width": 160,
             "height": 90,
-            "caption": "Dãy bể bán cá ở tiệm, có rất nhiều cá nhỏ bơi bên trong."
-          },
-          {
-            "t": 377,
-            "url": "https://media.aquatome.com/video/t0uqYP60WJA/t377.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh bể cá trong tiệm để quan sát cá có khỏe không."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/t0uqYP60WJA/p4-lb25UZXRyYS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/t0uqYP60WJA/p4-lb25UZXRyYS5KUEc-480.webp",
-          "width": 960,
-          "height": 729,
-          "licence": "CC BY-SA 3.0",
-          "author": "Corpse89",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:NeonTetra.JPG",
-          "caption": "Cá neon khỏe mạnh, vây nguyên vẹn, thân sáng màu, không đốm trắng."
-        }
-      },
-      {
-        "heading": "Mật độ, lọc và thay nước",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/t0uqYP60WJA/p5-sXzA2MDIyNy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/t0uqYP60WJA/p5-sXzA2MDIyNy5qcGc-480.webp",
-          "width": 960,
-          "height": 614,
-          "licence": "CC BY-SA 3.0",
-          "author": "Wikimedia Commons",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
-          "caption": "Các loại vật liệu lọc: bông lọc, sứ lọc, bio ball và sỏi nung."
-        }
-      },
-      {
-        "heading": "Cho ăn thế nào cho đúng",
-        "moments": [
-          {
-            "t": 615,
-            "url": "https://media.aquatome.com/video/t0uqYP60WJA/t615.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay cầm lọ thức ăn rắc cho đàn cá nhỏ trong hồ thủy sinh."
-          },
-          {
-            "t": 620,
-            "url": "https://media.aquatome.com/video/t0uqYP60WJA/t620.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá nhỏ bơi lên đớp thức ăn quanh lũa phủ rêu."
+            "caption": "Dãy bể bán nuôi nhiều cá nhỏ, mật độ khá dày."
           }
         ]
+      },
+      {
+        "heading": "Chọn loài cá nào cho bể thủy sinh",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/t0uqYP60WJA/p5-heGVscm9kaS5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/t0uqYP60WJA/p5-heGVscm9kaS5KUEc-480.webp",
+          "width": 960,
+          "height": 585,
+          "licence": "CC BY-SA 3.0",
+          "author": "Juan R. Lascorz",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:05.Hyphessobrycon_herbertaxelrodi.JPG",
+          "caption": "Cá neon đen khỏe mạnh bơi giữa đám cây thủy sinh xanh."
+        }
+      },
+      {
+        "heading": "Lọc, thay nước và cho ăn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/t0uqYP60WJA/p6-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/t0uqYP60WJA/p6-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ bể, có ống xả nước thay đưa vào xô."
+        }
       }
     ]
   }

@@ -9,7 +9,7 @@
     "alternanthera-reineckii",
     "bucephalandra-sp"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "xuc03DuJ9o4",
     "title": "Kinh nghiệm ép đỏ cây thủy sinh #Greenhappiness",
@@ -30,7 +30,6 @@
     "lang": "vi",
     "taxa": [
       "Rotala sp.",
-      "Alternanthera reineckii",
       "Bucephalandra sp."
     ],
     "gear": [
@@ -58,7 +57,7 @@
       {
         "category": "loc",
         "type": "suc-khi",
-        "t": 417
+        "t": 415
       },
       {
         "category": "loc",
@@ -67,12 +66,40 @@
       {
         "category": "den",
         "type": "thuy-sinh",
-        "t": 508
+        "t": 480
       }
     ],
     "figures": [
       {
-        "heading": "Đèn loại nào và chiếu bao lâu",
+        "heading": "Khi nào mới bắt đầu ép đỏ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xuc03DuJ9o4/p1-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/xuc03DuJ9o4/p1-hX3NocmltcC5qcGc-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh trồng nhiều loại cây xanh tốt bên lũa và đá."
+        }
+      },
+      {
+        "heading": "Châm phân thế nào để cây đỏ mà không ra rêu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xuc03DuJ9o4/p2-AxOF9hXzAyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/xuc03DuJ9o4/p2-AxOF9hXzAyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Lamiot",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flore_subaquatique_d%27une_mare_citerne_en_vall%C3%A9e_de_l%27Esteron_fin_avril_2018_a_02.jpg",
+          "caption": "Bể thủy sinh cây xanh um tùm, khỏe mạnh, sạch rêu."
+        }
+      },
+      {
+        "heading": "Đèn và thời gian chiếu sáng khi ép màu",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/xuc03DuJ9o4/p4-1bV9MaWdodC5qcGc.webp",
@@ -82,7 +109,43 @@
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh có đèn đặt phía trên, cây xanh mướt phát triển tốt."
+          "caption": "Bể thủy sinh có đèn LED đặt trên miệng bể, cây xanh rậm rạp."
+        }
+      },
+      {
+        "heading": "Theo dõi rêu hại trong giai đoạn ép",
+        "moments": [
+          {
+            "t": 645,
+            "url": "https://media.aquatome.com/video/xuc03DuJ9o4/t645.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cận cảnh cây thủy sinh ép đỏ rực, cần theo dõi rêu hại mỗi ngày."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xuc03DuJ9o4/p5-d25fQmVsb3cuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/xuc03DuJ9o4/p5-d25fQmVsb3cuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Coughdrop12",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_Algae_Down_Below.jpg",
+          "caption": "Rêu nhớt xanh bám dày trong bể dưới ánh đèn chiếu sáng mạnh."
+        }
+      },
+      {
+        "heading": "Chọn cây đỏ nào cho dễ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xuc03DuJ9o4/p6-tyaXNobmFuLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/xuc03DuJ9o4/p6-tyaXNobmFuLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "V C balakrishnan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alternanthera_reineckii_(8).JPG_-_Photo_by_V_C_Balakrishnan.jpg",
+          "caption": "Bụi diệp tài hồng lên màu đỏ tím rực, trồng dày trong chậu."
         }
       }
     ]

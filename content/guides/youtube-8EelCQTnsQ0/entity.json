@@ -6,9 +6,12 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "microsorum-sp"
+    "microsorum-sp",
+    "aegagropila-linnaei",
+    "paracheirodon-axelrodi",
+    "danio-margaritatus"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "8EelCQTnsQ0",
     "title": "Hướng dẫn làm bể thủy sinh với ngân sách 15 triệu (Phần 2)",
@@ -28,14 +31,12 @@
     },
     "lang": "vi",
     "taxa": [
-      "Crossocheilus oblongus",
-      "Caridina gracilirostris",
-      "Salvinia sp.",
-      "Pangio sp.",
       "Otocinclus sp.",
-      "Cryptocoryne sp.",
-      "Microsorum sp.",
-      "Taxiphyllum sp."
+      "Caridina sp.",
+      "Salvinia sp.",
+      "Aegagropila linnaei",
+      "Paracheirodon axelrodi",
+      "Danio margaritatus"
     ],
     "gear": [
       {
@@ -46,10 +47,18 @@
         "t": 69
       },
       {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 440
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      },
+      {
         "category": "co2",
         "type": "binh",
-        "brand": "Mufan",
-        "model": "MT3",
         "t": 0
       },
       {
@@ -60,18 +69,7 @@
         "t": 0
       },
       {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 0
-      },
-      {
-        "category": "loc",
-        "type": "suc-khi",
-        "t": 440
-      },
-      {
         "category": "den",
-        "type": "thuy-sinh",
         "brand": "Odyssea",
         "model": "T5HO",
         "t": 664
@@ -79,26 +77,36 @@
     ],
     "figures": [
       {
-        "heading": "Hẹn giờ đèn thế nào trong ngày",
+        "heading": "Đặt lịch đèn thế nào",
         "moments": [
-          {
-            "t": 114,
-            "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t114.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mở hộp lấy đèn LED Chihiros mới ra khỏi thùng."
-          },
           {
             "t": 169,
             "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t169.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh được chiếu sáng bằng đèn LED Chihiros treo phía trên."
+            "caption": "Bể thủy sinh với đèn LED thanh treo phía trên, sáng đèn hồng."
+          },
+          {
+            "t": 174,
+            "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t174.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh dưới đèn LED ánh sáng trắng, cây lên xanh."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8EelCQTnsQ0/p0-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/8EelCQTnsQ0/p0-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh có đèn LED gác phía trên, rêu và cây xanh mướt."
+        }
       },
       {
-        "heading": "Thay nước bao nhiêu và giãn ra khi nào",
+        "heading": "Thay nước trong những tuần đầu",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/8EelCQTnsQ0/p2-bV9maXNoZXMuanBn.webp",
@@ -108,39 +116,73 @@
           "licence": "CC BY-SA 4.0",
           "author": "KannanVM",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
-          "caption": "Bể cá cảnh có sỏi nền và cây thủy sinh, cá vàng bơi trong nước trong."
+          "caption": "Bể cá cảnh nền sỏi, nước trong, có cây và lũa."
         }
       },
       {
-        "heading": "Cá, tép và bèo hỗ trợ dọn rêu",
+        "heading": "Vệ sinh rêu và moss ball bằng dây sủi",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8EelCQTnsQ0/p3-uZF9zdG9uZS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/8EelCQTnsQ0/p3-uZF9zdG9uZS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
+          "caption": "Máy sủi oxy nhỏ kèm dây sủi và đầu sủi, dùng để thổi cặn rêu."
+        }
+      },
+      {
+        "heading": "Cá, tép và bèo giúp chống rêu hại",
         "moments": [
           {
             "t": 576,
             "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t576.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cá rêu bút chì và tép mũi đỏ bò giữa đá và cây thủy sinh."
+            "caption": "Cá bút chì và tép nhỏ bơi giữa rêu và cây thủy sinh."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8EelCQTnsQ0/p4-yLXNha3VyYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/8EelCQTnsQ0/p4-yLXNha3VyYS5qcGc-480.webp",
+          "width": 960,
+          "height": 653,
+          "licence": "CC BY-SA 3.0",
+          "author": "DirkBlankenhaus",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neocaridina-heteropoda-var-sakura.jpg",
+          "caption": "Tép đỏ đang bám trên đám rêu hại trong bể thủy sinh."
+        }
       },
       {
-        "heading": "Chia ngân sách 15 triệu cho bể 90x45x45",
+        "heading": "Chia ngân sách 15 triệu ra sao",
         "moments": [
           {
             "t": 721,
             "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t721.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh với lũa và cây mọc dày hai bên."
+            "caption": "Bể thủy sinh với cây và rêu mọc dày trên đá, lũa."
           },
           {
             "t": 735,
             "url": "https://media.aquatome.com/video/8EelCQTnsQ0/t735.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bố cục lũa, đá phủ rêu và cây thủy sinh xanh mướt trong bể."
+            "caption": "Cận cảnh bố cục lũa, đá phủ rêu và cây thủy sinh xanh tốt."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8EelCQTnsQ0/p5-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/8EelCQTnsQ0/p5-hX3NocmltcC5qcGc-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh với lũa, đá và cây xanh um tùm."
+        }
       }
     ]
   }

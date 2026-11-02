@@ -10,9 +10,10 @@
     "microsorum-pteropus",
     "ceratophyllum-demersum",
     "neocaridina-davidi",
-    "pterophyllum-scalare"
+    "pterophyllum-scalare",
+    "pogostemon-stellatus"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "4GFdgPkH4WI",
     "title": "Hỏi/đáp: Thay nước, chăm sóc bể thuỷ sinh #Greenhappiness",
@@ -35,14 +36,11 @@
       "Otocinclus sp.",
       "Pangio sp.",
       "Rotala rotundifolia",
+      "Cryptocoryne sp.",
       "Microsorum pteropus",
       "Anubias sp.",
       "Ceratophyllum demersum",
-      "Taxiphyllum sp.",
-      "Neocaridina davidi",
-      "Pterophyllum scalare",
-      "Symphysodon sp.",
-      "Cryptocoryne sp."
+      "Pogostemon stellatus"
     ],
     "gear": [
       {
@@ -55,7 +53,7 @@
       {
         "category": "loc",
         "type": "suc-khi",
-        "t": 294
+        "t": 300
       },
       {
         "category": "den",
@@ -81,32 +79,42 @@
         "category": "den",
         "type": "thuy-sinh",
         "brand": "LOL",
-        "t": 843
+        "t": 844
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "J.I.M LED",
-        "t": 843
+        "t": 844
+      },
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 220
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "reu",
+        "t": 156
       }
     ],
     "figures": [
       {
-        "heading": "Hút cặn thế nào để không mất quá nhiều nước",
+        "heading": "Hút cặn mà không phải xả quá nhiều nước",
         "moments": [
           {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/t79.webp",
+            "t": 89,
+            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/t89.webp",
             "width": 160,
             "height": 90,
-            "caption": "Ống dẫn nước nối vào bể thủy sinh để hút cặn mà không hụt nước."
+            "caption": "Ống hút cặn được lắp vào bể thủy sinh có cây đỏ."
           },
           {
             "t": 119,
             "url": "https://media.aquatome.com/video/4GFdgPkH4WI/t119.webp",
             "width": 160,
             "height": 90,
-            "caption": "Ống hút đặt trong bể lũa đá, dùng để hút cặn đáy bể."
+            "caption": "Ống hút đặt trong bể có lũa và nền cát để hút cặn."
           }
         ],
         "photo": {
@@ -117,104 +125,94 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, ống nối ra xô để xả nước."
+          "caption": "Lọc thùng đặt trong tủ bể, ống dẫn nước thải vào xô."
         }
       },
       {
-        "heading": "Nên dùng nước máy hay nước RO",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/4GFdgPkH4WI/p1-IwMjAxMTAxLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/4GFdgPkH4WI/p1-IwMjAxMTAxLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Solomon203",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yen_Sun_Technology_YS-8103RWT_20201101.jpg",
-          "caption": "Máy lọc nước RO gia đình dạng nhỏ gọn, tạo nước tinh khiết."
-        }
+        "heading": "Rêu hại và tảo nâu: kiểm soát chứ không diệt hết",
+        "moments": [
+          {
+            "t": 445,
+            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/t445.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cây thủy sinh lá đỏ trong bể, có dụng cụ cọ kính đang gắn bên trên."
+          },
+          {
+            "t": 454,
+            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/t454.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể có đá và cát, dùng dụng cụ cọ kính để vệ sinh rêu hại."
+          }
+        ]
       },
       {
-        "heading": "Kiểm soát rêu hại và tảo nâu",
+        "heading": "Vệ sinh kính, ống và đồ trong bể",
         "moments": [
           {
             "t": 425,
             "url": "https://media.aquatome.com/video/4GFdgPkH4WI/t425.webp",
             "width": 160,
             "height": 90,
-            "caption": "Góc bể thủy sinh với cây xanh và ống dẫn nước."
-          },
-          {
-            "t": 445,
-            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/t445.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thân đỏ khỏe mạnh trong bể thủy sinh, không thấy rêu hại."
+            "caption": "Ống thủy tinh IN-OUT và đường ống trong bể thủy sinh đầy cây."
           }
         ]
       },
       {
-        "heading": "Rêu chùm đen: phòng là chính",
-        "moments": [
-          {
-            "t": 583,
-            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/t583.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây lá ráy xanh mọc cạnh đá và lũa trong bể thủy sinh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/4GFdgPkH4WI/p4-JkX2FsZ2FlLnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/4GFdgPkH4WI/p4-JkX2FsZ2FlLnBuZw-480.webp",
-          "width": 873,
-          "height": 556,
-          "licence": "CC BY 3.0",
-          "author": "Emboli",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
-          "caption": "Rêu chùm đen bám thành búi xám đen trên lá cây trong bể."
-        }
-      },
-      {
-        "heading": "Vì sao phải cắt tỉa cây",
+        "heading": "Thả cá và tép ăn rêu hại",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/4GFdgPkH4WI/p5-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/4GFdgPkH4WI/p5-J1LUluZGlhLmpwZw-480.webp",
-          "width": 960,
-          "height": 1280,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Bụi liễu đỏ răng cưa mọc cao, ngả hồng đỏ cạnh lũa đá."
-        }
-      },
-      {
-        "heading": "Đèn thế nào là đủ",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/4GFdgPkH4WI/p6-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/4GFdgPkH4WI/p6-1bV9MaWdodC5qcGc-480.webp",
-          "width": 960,
-          "height": 666,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lime Huang",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh trồng nhiều cây, lắp đèn LED trắng phía trên."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/4GFdgPkH4WI/p7-mdHdvb2RfMy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/4GFdgPkH4WI/p7-mdHdvb2RfMy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/4GFdgPkH4WI/p4-mdHdvb2RfMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/4GFdgPkH4WI/p4-mdHdvb2RfMy5qcGc-480.webp",
           "width": 960,
           "height": 540,
           "licence": "CC BY 4.0",
           "author": "Evan Baldonado",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
-          "caption": "Cá otto bám trên khúc lũa phủ rêu, giữa cây thủy sinh."
+          "caption": "Cá otto nhỏ bám trên khúc lũa phủ rêu, đang dọn rêu hại."
+        }
+      },
+      {
+        "heading": "Rêu chùm đen: vì sao mọc và vì sao khó trị",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4GFdgPkH4WI/p5-JkX2FsZ2FlLnBuZw.webp",
+          "thumb": "https://media.aquatome.com/video/4GFdgPkH4WI/p5-JkX2FsZ2FlLnBuZw-480.webp",
+          "width": 873,
+          "height": 556,
+          "licence": "CC BY 3.0",
+          "author": "Emboli",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
+          "caption": "Rêu chùm đen bám dày trên lá cây thủy sinh trong bể."
+        }
+      },
+      {
+        "heading": "Vì sao phải tỉa cây và làm sao cho liễu đỏ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4GFdgPkH4WI/p6-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/4GFdgPkH4WI/p6-J1LUluZGlhLmpwZw-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Bụi cây thân đỏ hồng mọc um tùm trong hồ thủy sinh, cạnh lũa."
+        }
+      },
+      {
+        "heading": "Chọn đèn thế nào cho hợp",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4GFdgPkH4WI/p7-hcmFzX2xlZC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/4GFdgPkH4WI/p7-hcmFzX2xlZC5qcGc-480.webp",
+          "width": 960,
+          "height": 577,
+          "licence": "CC BY-SA 4.0",
+          "author": "Gustavo Sivila",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acuario_iluminado_con_l%C3%A1mparas_led.jpg",
+          "caption": "Bể thủy sinh trồng cây với dàn đèn LED treo phía trên."
         }
       }
     ]

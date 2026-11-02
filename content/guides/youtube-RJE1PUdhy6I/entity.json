@@ -7,9 +7,10 @@
   "photos": [],
   "mentions": [
     "microsorum-pteropus",
-    "vallisneria"
+    "vallisneria",
+    "taxiphyllum-alternans"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "RJE1PUdhy6I",
     "title": "7 vấn đề cơ bản chăm sóc bể thủy sinh phong cách \"Nhàn\" #Greenhappiness",
@@ -31,13 +32,23 @@
     "lang": "vi",
     "taxa": [
       "Microsorum pteropus",
-      "Cryptocoryne sp.",
+      "Taxiphyllum alternans",
       "Hemianthus callitrichoides",
-      "Eleocharis sp.",
-      "Vesicularia sp.",
-      "Vallisneria sp."
+      "Cryptocoryne sp.",
+      "Vesicularia sp."
     ],
     "gear": [
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Oliver Knot",
+        "t": 32
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 32
+      },
       {
         "category": "cay-thuy-sinh",
         "type": "reu",
@@ -46,12 +57,17 @@
       {
         "category": "cay-thuy-sinh",
         "type": "gan-lua",
-        "t": 95
+        "t": 65
+      },
+      {
+        "category": "suoi",
+        "type": "lam-lanh",
+        "t": 190
       },
       {
         "category": "den",
         "type": "thuy-sinh",
-        "brand": "Chirot",
+        "brand": "Chihiros",
         "t": 220
       },
       {
@@ -62,65 +78,48 @@
       {
         "category": "loc",
         "type": "thung",
-        "t": 280
+        "t": 270
       },
       {
         "category": "phan-nen",
         "type": "phan",
-        "brand": "Oliver Knot",
-        "model": "Anubias",
-        "t": 32
-      },
-      {
-        "category": "phan-nen",
-        "type": "phan",
-        "brand": "Gax",
-        "t": 32
-      },
-      {
-        "category": "phan-nen",
-        "type": "phan",
-        "t": 330
+        "brand": "Akadama",
+        "t": 315
       },
       {
         "category": "phan-nen",
         "type": "phan",
         "brand": "ADA",
-        "t": 340
-      },
-      {
-        "category": "suoi",
-        "type": "lam-lanh",
-        "t": 190
+        "t": 335
       },
       {
         "category": "be-ca",
         "type": "nano",
-        "t": 28
+        "t": 32
       }
     ],
     "figures": [
       {
-        "heading": "Dựng bể nhàn bắt đầu thế nào",
+        "heading": "Set bể nhàn gồm những gì",
         "moments": [
+          {
+            "t": 49,
+            "url": "https://media.aquatome.com/video/RJE1PUdhy6I/t49.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể hoàn thiện với lũa phủ rêu, ráy và dương xỉ xanh tốt."
+          },
           {
             "t": 69,
             "url": "https://media.aquatome.com/video/RJE1PUdhy6I/t69.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể cubic đã xếp lũa trên lớp nền, tạo cảm giác xa gần."
-          },
-          {
-            "t": 137,
-            "url": "https://media.aquatome.com/video/RJE1PUdhy6I/t137.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cắt nhỏ rêu mini Taiwan để chuẩn bị gắn lên lũa."
+            "caption": "Bể đã xếp lũa tự do, các khúc ghép vào nhau tạo hốc."
           }
         ]
       },
       {
-        "heading": "Đèn cần mạnh không, bật bao lâu",
+        "heading": "Đèn loại nào, bật bao lâu",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/RJE1PUdhy6I/p2-1bV9MaWdodC5qcGc.webp",
@@ -130,54 +129,40 @@
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh cây xanh tốt chỉ với một bộ đèn LED trắng đơn giản."
+          "caption": "Bể thủy sinh nhiều rêu và dương xỉ, có đèn LED đặt trên miệng bể."
         }
       },
       {
-        "heading": "Có cần CO2 và lọc thế nào",
+        "heading": "CO2 và lọc cho bể nhỏ",
         "moments": [
           {
             "t": 255,
             "url": "https://media.aquatome.com/video/RJE1PUdhy6I/t255.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đầu sủi CO2 đặt trong bể, bọt khí li ti bay lên."
+            "caption": "Bộ đếm giọt CO2 gắn trong bể thủy sinh cây rậm."
           },
           {
             "t": 270,
             "url": "https://media.aquatome.com/video/RJE1PUdhy6I/t270.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bình CO2 và lọc thùng tự chế đặt cạnh bể."
+            "caption": "Lọc thùng tự chế đặt cạnh bình CO2 dưới tủ bể."
           }
         ]
-      },
-      {
-        "heading": "Nền và dinh dưỡng: vì sao không cần cốt nền",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/RJE1PUdhy6I/p4-X2FuZF93ZXQuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/RJE1PUdhy6I/p4-X2FuZF93ZXQuSlBH-480.webp",
-          "width": 800,
-          "height": 600,
-          "licence": "CC BY-SA 3.0",
-          "author": "Abrahami",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akadama_dry_and_wet.JPG",
-          "caption": "Đất akadama dạng hạt nâu đỏ, loại nền ít dinh dưỡng, giá bình dân."
-        }
       },
       {
         "heading": "Thả bao nhiêu cá và cho ăn thế nào",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/RJE1PUdhy6I/p5-lfc2Nob29sLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/RJE1PUdhy6I/p5-lfc2Nob29sLmpwZw-480.webp",
-          "width": 801,
-          "height": 686,
-          "licence": "Public domain",
-          "author": "Tkinias at English Wikipedia",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracheirodon_axelrodi_school.jpg",
-          "caption": "Đàn cá neon thả thưa trong bể trồng cây, bơi thoải mái."
+          "url": "https://media.aquatome.com/video/RJE1PUdhy6I/p5-hX3JpZXNlaS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/RJE1PUdhy6I/p5-hX3JpZXNlaS5qcGc-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 2.0",
+          "author": "Gergely Hideg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_a_school_of_Axelrodia_riesei.jpg",
+          "caption": "Bể thủy sinh có đá, lũa, cây xanh và vài con cá nhỏ thả thưa."
         }
       },
       {
@@ -191,21 +176,7 @@
           "licence": "CC BY-SA 4.0",
           "author": "KannanVM",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
-          "caption": "Bể cá cảnh nền sỏi có cá vàng bơi, cần thay nước đều đặn."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/RJE1PUdhy6I/p7-NfUGxhbnRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/RJE1PUdhy6I/p7-NfUGxhbnRzLmpwZw-480.webp",
-          "width": 960,
-          "height": 638,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Ráy xanh gắn trên lũa nhiều hốc trong bể thủy sinh nền cát trắng."
+          "caption": "Bể nhỏ nền sỏi với cá vàng và gỗ lũa, nhìn rất gọn gàng."
         }
       }
     ]

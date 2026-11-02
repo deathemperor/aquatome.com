@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "mY_9yWKaAFc",
     "title": "Làm bể thủy sinh 60cm với ngân sách 8 -10 triệu #Greenhappiness",
@@ -26,9 +26,11 @@
     },
     "lang": "vi",
     "taxa": [
-      "Caridina gracilirostris",
-      "Neritina sp.",
-      "Taxiphyllum sp."
+      "Taxiphyllum sp.",
+      "Rotala sp.",
+      "Hemianthus callitrichoides",
+      "Caridina sp.",
+      "Neritina sp."
     ],
     "gear": [
       {
@@ -46,7 +48,7 @@
       {
         "category": "co2",
         "type": "binh",
-        "t": 0
+        "t": 44
       },
       {
         "category": "den",
@@ -65,13 +67,13 @@
         "category": "phan-nen",
         "type": "phan",
         "brand": "Tropica",
-        "t": 138
+        "t": 140
       },
       {
         "category": "phan-nen",
         "type": "cat",
         "brand": "Nhà mình Farm",
-        "t": 0
+        "t": 44
       },
       {
         "category": "phan-nen",
@@ -81,126 +83,97 @@
     ],
     "figures": [
       {
-        "heading": "Thiết bị cần có trong tầm 8–10 triệu",
+        "heading": "Cần chuẩn bị những gì với 8–10 triệu",
         "moments": [
           {
             "t": 44,
             "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t44.webp",
             "width": 160,
             "height": 90,
-            "caption": "Lũa và đá được sắp xếp thành bố cục hoàn chỉnh trong bể."
+            "caption": "Cận cảnh lũa sầm đỏ và đá nham xanh đã bố cục trong bể."
           },
           {
             "t": 64,
             "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t64.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể kính trống với lũa và đá đã dựng xong bố cục."
+            "caption": "Bể kính 60x40x40 với lũa và đá nham xanh đã đặt xong."
           }
         ]
       },
       {
-        "heading": "Dựng bố cục đá và lũa thế nào cho chắc",
+        "heading": "Dựng bố cục đá lũa thế nào cho chắc",
         "moments": [
           {
             "t": 84,
             "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t84.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bố cục đá nham xanh làm khung, lũa sầm đỏ xếp chồng lên trên."
+            "caption": "Cụm lũa được dựng chắc trên viên đá nặng ở bên dưới."
           },
           {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t104.webp",
+            "t": 109,
+            "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t109.webp",
             "width": 160,
             "height": 90,
-            "caption": "Nhỏ keo 502 để gắn các khúc lũa vào nhau và vào đá."
+            "caption": "Dựng thử bố cục lũa và đá trong bể trước khi cố định."
           }
         ]
       },
       {
-        "heading": "Trải nền sao cho phân không lem ra cát",
+        "heading": "Trải nền: phân nền, cát và lớp bông lót",
         "moments": [
+          {
+            "t": 133,
+            "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t133.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Lớp nền sỏi nhẹ sẫm màu dùng để trải nền bể."
+          },
           {
             "t": 138,
             "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t138.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đặt bông trắng vào các khe lũa đá để chặn phân nền."
-          },
-          {
-            "t": 148,
-            "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t148.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bố cục lũa và đá đã lót bông, ngăn vùng phân với cát."
+            "caption": "Lót bông vào các khe giữa lũa và đá trong bể trống."
           }
         ]
       },
       {
-        "heading": "Chọn cây và gắn cây lên bố cục",
+        "heading": "Chọn cây và cách trồng lên lũa đá",
         "moments": [
           {
             "t": 306,
             "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t306.webp",
             "width": 160,
             "height": 90,
-            "caption": "Dùng keo dán cây gắn rêu lên lũa trong bố cục."
+            "caption": "Dùng keo dán rêu lên lũa đá giữa các cụm cây."
           },
           {
             "t": 311,
             "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t311.webp",
             "width": 160,
             "height": 90,
-            "caption": "Rêu moss ball đã gắn xanh mướt trên lũa đen, cây cài khe lũa."
+            "caption": "Rêu xanh phủ kín trên lũa đá đen trong bể thủy sinh."
           }
         ]
       },
       {
-        "heading": "Chăm bể trong những tuần đầu",
-        "moments": [
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t360.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh rêu và cây phủ trên đá lũa, có dụng cụ đang vệ sinh."
-          },
-          {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t370.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể thủy sinh còn mới với đá, lũa và cây phủ xanh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/mY_9yWKaAFc/p4-bV9maXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/mY_9yWKaAFc/p4-bV9maXNoZXMuanBn-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "KannanVM",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
-          "caption": "Bể cá vàng nền sỏi màu, cây thủy sinh phía sau."
-        }
-      },
-      {
-        "heading": "Rêu tóc xuất hiện khi tăng đèn thì làm gì",
+        "heading": "Rêu tóc xuất hiện thì làm gì",
         "moments": [
           {
             "t": 434,
             "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t434.webp",
             "width": 160,
             "height": 90,
-            "caption": "Rêu hại mọc thành đám xanh trên đá và thân lũa trong bể."
+            "caption": "Rêu hại bám thành thảm xanh mịn trên đá và gỗ trong bể."
           },
           {
-            "t": 474,
-            "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t474.webp",
+            "t": 439,
+            "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t439.webp",
             "width": 160,
             "height": 90,
-            "caption": "Thả tép vào bể để dọn rêu hại."
+            "caption": "Cận cảnh cây thủy sinh lá xanh bên gỗ lũa đỏ và đá."
           }
         ],
         "photo": {
@@ -211,20 +184,30 @@
           "licence": "CC BY 2.0",
           "author": "aquarist.me",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emerald_Crab_munching_on_Hair_Algae.jpg",
-          "caption": "Rêu tóc xanh mọc thành búi dày trên đá và giá thể trong bể."
+          "caption": "Rêu tóc mọc thành đám xanh bám trên đá trong bể."
         }
       },
       {
-        "heading": "Tảo nâu và lợi ích của lớp cát tiền cảnh",
+        "heading": "Tảo nâu và lợi ích của tiền cảnh cát",
         "moments": [
           {
             "t": 523,
             "url": "https://media.aquatome.com/video/mY_9yWKaAFc/t523.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh có lớp cát sáng ở tiền cảnh, kính trước sạch."
+            "caption": "Bể thủy sinh có tiền cảnh trải cát sạch, không bám rêu hại."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/mY_9yWKaAFc/p6-9TbmFpbF8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/mY_9yWKaAFc/p6-9TbmFpbF8xLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 3.0",
+          "author": "TheJammingYam",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebra_Nerite_Snail_1.jpg",
+          "caption": "Ốc nerita vằn bò trên lũa trong bể thủy sinh, chuyên ăn tảo nâu."
+        }
       }
     ]
   }

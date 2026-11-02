@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "8afh_cil1IM",
     "title": "[Vlog Thuỷ sinh] Đại chiến Rêu Hại (Phần 1) #Greenhappiness",
@@ -37,19 +37,36 @@
         "category": "khac",
         "brand": "Seachem",
         "model": "Prime",
-        "t": 504
+        "t": 484
+      },
+      {
+        "category": "test-nuoc",
+        "type": "tds",
+        "t": 270
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 270
       }
     ],
     "figures": [
       {
-        "heading": "Bể của bạn đang gặp loại rêu hại nào",
+        "heading": "Những loại rêu hại hay gặp",
         "moments": [
           {
-            "t": 123,
-            "url": "https://media.aquatome.com/video/8afh_cil1IM/t123.webp",
+            "t": 109,
+            "url": "https://media.aquatome.com/video/8afh_cil1IM/t109.webp",
             "width": 160,
             "height": 90,
-            "caption": "Rêu hại màu đen bám trên lũa và rêu cảnh trong bể thủy sinh."
+            "caption": "Bể thủy sinh bị rêu hại mọc um tùm khắp hồ."
+          },
+          {
+            "t": 118,
+            "url": "https://media.aquatome.com/video/8afh_cil1IM/t118.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Rêu hại phủ xanh bể, bám dày trên lũa và đá."
           }
         ],
         "photo": {
@@ -60,104 +77,85 @@
           "licence": "CC BY 2.0",
           "author": "aquarist.me",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emerald_Crab_munching_on_Hair_Algae.jpg",
-          "caption": "Rêu tóc xanh mọc thành chùm dày bám trên đá và lũa trong bể."
+          "caption": "Rêu tóc xanh mọc um tùm bám trên đá trong bể."
         }
       },
       {
-        "heading": "Vì sao rêu hại bùng phát",
+        "heading": "Bể đang sai ở đâu",
         "moments": [
           {
             "t": 252,
             "url": "https://media.aquatome.com/video/8afh_cil1IM/t252.webp",
             "width": 160,
             "height": 90,
-            "caption": "Hệ thống lọc thùng và bình CO2 đặt trong tủ dưới bể."
-          }
-        ]
-      },
-      {
-        "heading": "Ba hướng xử lý rêu hại",
-        "moments": [
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/8afh_cil1IM/t360.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng kẹp gắp rêu hại trong bể thủy sinh, xử lý cơ học."
-          },
-          {
-            "t": 365,
-            "url": "https://media.aquatome.com/video/8afh_cil1IM/t365.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cây thủy sinh trong bể có lẫn rêu hại."
+            "caption": "Hệ thống lọc ngoài và bình CO2 đặt trong tủ dưới bể thủy sinh."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/8afh_cil1IM/p2-0ZXJfRmlzaC5wbmc.webp",
-          "thumb": "https://media.aquatome.com/video/8afh_cil1IM/p2-0ZXJfRmlzaC5wbmc-480.webp",
-          "width": 940,
-          "height": 788,
+          "url": "https://media.aquatome.com/video/8afh_cil1IM/p2-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/8afh_cil1IM/p2-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Chamika Ranaweera",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_Algae_Eater_Fish.png",
-          "caption": "Đàn cá ăn rêu bám trên lũa phủ rêu trong bể thủy sinh."
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng dưới tủ bể và xô có ống siphon để thay nước."
         }
       },
       {
-        "heading": "Dọn rêu bằng tay thế nào cho hiệu quả",
+        "heading": "Dọn rêu bằng tay và dụng cụ",
         "moments": [
           {
             "t": 380,
             "url": "https://media.aquatome.com/video/8afh_cil1IM/t380.webp",
             "width": 160,
             "height": 90,
-            "caption": "Tay cuốn một đám rêu hại xanh lớn ra khỏi bể."
+            "caption": "Dùng miếng bọt xanh lau gỡ rêu hại bám trong bể."
           },
           {
             "t": 395,
             "url": "https://media.aquatome.com/video/8afh_cil1IM/t395.webp",
             "width": 160,
             "height": 90,
-            "caption": "Hút đáy trong bể thủy sinh để lấy rêu chìm và cặn bẩn."
+            "caption": "Rêu hại bám dày trên lũa và cây trong bể thủy sinh."
           }
         ]
       },
       {
-        "heading": "Thay nước khi bể đang nhiễm rêu",
+        "heading": "Thay nước khi bể đang rêu nặng",
         "moments": [
-          {
-            "t": 454,
-            "url": "https://media.aquatome.com/video/8afh_cil1IM/t454.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ống xi phông xanh đang hút nước trong bể thủy sinh nhiều rêu."
-          },
           {
             "t": 494,
             "url": "https://media.aquatome.com/video/8afh_cil1IM/t494.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh phủ rêu hại trên cây và đá, nền cát sạch."
+            "caption": "Bể thủy sinh phủ rêu hại, cần vệ sinh và thay nước."
+          },
+          {
+            "t": 528,
+            "url": "https://media.aquatome.com/video/8afh_cil1IM/t528.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Dùng dụng cụ cọ kính và dọn rêu hại trong bể."
           }
         ]
       },
       {
-        "heading": "Cắt tỉa phần cây và rêu cảnh bị nhiễm nặng",
+        "heading": "Xử lý rêu hại lẫn trong rêu cảnh và cây",
         "moments": [
           {
             "t": 474,
             "url": "https://media.aquatome.com/video/8afh_cil1IM/t474.webp",
             "width": 160,
             "height": 90,
-            "caption": "Dương xỉ và cây cắm trong hồ bị rêu hại quấn lẫn vào."
+            "caption": "Rêu tóc bám dày lẫn trong dương xỉ và rêu cảnh."
           },
           {
-            "t": 489,
-            "url": "https://media.aquatome.com/video/8afh_cil1IM/t489.webp",
+            "t": 484,
+            "url": "https://media.aquatome.com/video/8afh_cil1IM/t484.webp",
             "width": 160,
             "height": 90,
-            "caption": "Mảng rêu cảnh lẫn rêu hại giữa đám cây dày trong hồ."
+            "caption": "Rêu hại bám trên thân cây cắt cắm và lên kính bể."
           }
         ]
       }

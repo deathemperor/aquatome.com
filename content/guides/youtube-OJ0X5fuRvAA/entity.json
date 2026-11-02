@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "OJ0X5fuRvAA",
     "title": "Chơi thủy sinh theo phong cách \"Nhàn\" #Greenhappiness",
@@ -35,7 +35,7 @@
       },
       {
         "category": "den",
-        "type": "thuy-sinh",
+        "type": "diu",
         "t": 160
       },
       {
@@ -45,6 +45,7 @@
       },
       {
         "category": "loc",
+        "type": "bot-bien",
         "brand": "HWK",
         "model": "603",
         "t": 409
@@ -52,26 +53,31 @@
       {
         "category": "loc",
         "type": "treo",
-        "t": 472
+        "t": 457
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "reu",
+        "t": 160
       }
     ],
     "figures": [
       {
-        "heading": "Chọn cây gì để bể ít phải chăm",
+        "heading": "Chọn cây thế nào để bể ít phải chăm",
         "moments": [
           {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/t35.webp",
+            "t": 54,
+            "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/t54.webp",
             "width": 160,
             "height": 90,
-            "caption": "Lũa phủ kín rêu xanh, bố cục ổn định, ít phải cắt tỉa."
+            "caption": "Bể thủy sinh lũa phủ rêu và dương xỉ xanh tốt."
           },
           {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/t104.webp",
+            "t": 84,
+            "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/t84.webp",
             "width": 160,
             "height": 90,
-            "caption": "Rêu và dương xỉ mọc dày trên lũa, cây lớn chậm nên bố cục gọn."
+            "caption": "Cận cảnh dương xỉ và rêu phủ kín lũa trong bể."
           }
         ]
       },
@@ -83,7 +89,7 @@
             "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/t124.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cận cảnh bể thủy sinh trong suốt với lũa phủ rêu và cây xanh."
+            "caption": "Cận cảnh cây thủy sinh và lũa rêu xanh tốt trong bể kính trong."
           }
         ],
         "photo": {
@@ -94,11 +100,11 @@
           "licence": "CC BY-SA 4.0",
           "author": "Pelagic",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sydney_Zoo_aquarium_exhibit_A,_front_view_crop_2023-02-05.jpg",
-          "caption": "Bể kính trong suốt nhìn ngang, có cây thủy sinh, đá và đàn cá nhỏ."
+          "caption": "Bể kính trong có cây thủy sinh, đá và cá bơi bên trong."
         }
       },
       {
-        "heading": "Đèn có cần loại đắt không",
+        "heading": "Đèn có cần loại xịn không",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/p2-1bV9MaWdodC5qcGc.webp",
@@ -108,7 +114,7 @@
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh rêu và dương xỉ với bộ đèn phổ thông gắn phía trên."
+          "caption": "Bể thủy sinh rêu và dương xỉ dùng đèn LED đơn giản gắn phía trên."
         }
       },
       {
@@ -119,14 +125,14 @@
             "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/t426.webp",
             "width": 160,
             "height": 90,
-            "caption": "Lọc thùng màu trắng HWK603 với bơm đặt ở phía trên nắp."
+            "caption": "Lọc thùng nhỏ màu trắng với bơm đặt ở phía trên nắp."
           },
           {
-            "t": 431,
-            "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/t431.webp",
+            "t": 461,
+            "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/t461.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cận cảnh bơm đen đã được chuyển lên trên nắp lọc."
+            "caption": "Bộ in-out thủy tinh trong bể thủy sinh nhỏ."
           }
         ],
         "photo": {
@@ -137,7 +143,7 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, có ống nước nối ra và xô bên cạnh."
+          "caption": "Chiếc lọc thùng đặt trong tủ bể, có ống nước nối ra xô."
         }
       }
     ]
