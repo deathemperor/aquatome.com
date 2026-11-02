@@ -12,7 +12,8 @@ on:
     - cron: '0 2 * * 1'
   workflow_dispatch:
   pull_request:
-    paths: ['.github/workflows/testflight.yml', 'apps/ios/AquaTome.xcodeproj/**', 'apps/ios/Config/**']
+    paths: ['.github/workflows/testflight.yml', 'apps/ios/AquaTome.xcodeproj/**', 'apps/ios/Config/**',
+            'apps/ios/scripts/asc-build-state.mjs', 'apps/ios/scripts/testflight-notes.py']
 concurrency:
   # One upload at a time, and never one stopped halfway.
   group: ${{ github.event_name == 'pull_request' && format('testflight-pr-{0}', github.event.pull_request.number) || 'testflight' }}
@@ -26,26 +27,33 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       upload: ${{ steps.decide.outputs.upload }}
+      whats_new: ${{ steps.notes.outputs.whats_new }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - id: decide
+      # The last run on main whose upload job succeeded: its commit and when. The job was named "upload" until
+      # 2026-11-02. Read by the Monday check below and for the build's "What to Test".
+      - id: last
+        if: github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
-          EVENT: ${{ github.event_name }}
         run: |
-          if [ "$EVENT" != schedule ]; then echo upload=yes >> "$GITHUB_OUTPUT"; exit 0; fi
-          # The last run on main whose upload job succeeded: its commit and when. The job was named "upload" until
-          # 2026-11-02.
           last=""
           for run in $(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/testflight.yml/runs?branch=main&status=success&per_page=50" \
             --jq '.workflow_runs[] | select(.event != "pull_request") | "\(.id),\(.head_sha),\(.created_at)"'); do
             if gh api "repos/$GITHUB_REPOSITORY/actions/runs/${run%%,*}/jobs" \
               --jq '.jobs[] | select((.name == "upload" or .name == "iOS app: sign and upload to TestFlight") and .conclusion == "success") | .id' | grep -q .; then last=$run; break; fi
           done
-          sha=$(echo "$last" | cut -d, -f2)
-          days=$(( ($(date +%s) - $(date -d "$(echo "$last" | cut -d, -f3 | grep . || echo 1970-01-01T00:00:00Z)" +%s)) / 86400 ))
+          echo "run=$last" >> "$GITHUB_OUTPUT"
+      - id: decide
+        env:
+          EVENT: ${{ github.event_name }}
+          LAST: ${{ steps.last.outputs.run }}
+        run: |
+          if [ "$EVENT" != schedule ]; then echo upload=yes >> "$GITHUB_OUTPUT"; exit 0; fi
+          sha=$(echo "$LAST" | cut -d, -f2)
+          days=$(( ($(date +%s) - $(date -d "$(echo "$LAST" | cut -d, -f3 | grep . || echo 1970-01-01T00:00:00Z)" +%s)) / 86400 ))
           # A failed fetch or diff uploads (a spare build is harmless; a missing one isn't).
           if [ -n "$sha" ] && [ "$days" -lt 60 ] && git fetch -q --depth=1 origin "$sha" &&
             git diff --quiet "$sha" "$GITHUB_SHA" -- apps/ios protocols .github/workflows/testflight.yml; then
@@ -53,6 +61,29 @@ jobs:
             echo upload=no >> "$GITHUB_OUTPUT"
           else
             echo upload=yes >> "$GITHUB_OUTPUT"
+          fi
+      # TestFlight's "What to Test" for this build: the pull requests merged into the app since the last upload, in
+      # English as their titles are (apps/ios/scripts/testflight-notes.py). A pull request checks the script only.
+      # Never stops an upload: a note that can't be written is a warning, and the build goes up without one.
+      - id: notes
+        env:
+          EVENT: ${{ github.event_name }}
+          LAST: ${{ steps.last.outputs.run }}
+        run: |
+          if ! python3 apps/ios/scripts/testflight-notes.py --test; then
+            [ "$EVENT" != pull_request ] || exit 1
+            echo "::warning title=What to Test::the note's own test failed; the build goes up without one"; exit 0
+          fi
+          [ "$EVENT" != pull_request ] || exit 0
+          since=$(echo "$LAST" | cut -d, -f2)
+          if { [ -z "$since" ] || [ "$(git rev-parse --is-shallow-repository)" = false ] ||
+            git fetch -q --filter=blob:none --unshallow origin; } &&
+            text=$(python3 apps/ios/scripts/testflight-notes.py "$since"); then
+            end=$(openssl rand -hex 8)
+            printf 'whats_new<<%s\n%s\n%s\n' "$end" "$text" "$end" >> "$GITHUB_OUTPUT"
+            printf '%s\n' "$text"
+          else
+            echo "::warning title=What to Test::the note couldn't be written; the build goes up without one"
           fi
   upload:
     # The weekly check above finds the last upload by this name: change both together.
@@ -132,8 +163,9 @@ jobs:
       - name: Wait for App Store Connect
         env:
           APP_ID: '6829188547'
-          # A dry run only reports the newest build (it checks the key and the script).
+          # A dry run only reports the newest build (it checks the key and the script), and sets no note.
           BUILD: ${{ env.DESTINATION == 'upload' && github.run_number || '' }}
+          WHATS_NEW: ${{ needs.check.outputs.whats_new }}
         run: KEY_PATH="$RUNNER_TEMP/asc.p8" node apps/ios/scripts/asc-build-state.mjs
       - name: Remove the key
         if: always()

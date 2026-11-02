@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 // Waits until App Store Connect has processed an uploaded build: exit 0 once it is ready for TestFlight, 1 if Apple
 // refused it. A build still processing after the wait is reported, not failed (processing sometimes takes an hour).
+// Once it's ready, WHATS_NEW (if any, already within TestFlight's limits: testflight-notes.py) becomes its "What to
+// Test" for testers: in en-US, in Vietnamese (the app's own language), and in any other language the build already
+// has one for. Each language is set on its own; one that can't be set is a warning, and the build is up anyway.
 //
 // Without BUILD (a pull request's dry run) it only reports the newest build, which checks the key and this script.
-// Env: KEY_PATH (the .p8), KEY_ID, ISSUER_ID, APP_ID, BUILD (the build number). Prints nothing secret.
+// Env: KEY_PATH (the .p8), KEY_ID, ISSUER_ID, APP_ID, BUILD (the build number), WHATS_NEW. Prints nothing secret.
 import { readFileSync, appendFileSync } from 'node:fs'
 import { sign } from 'node:crypto'
 
-const { KEY_PATH, KEY_ID, ISSUER_ID, APP_ID, BUILD, GITHUB_STEP_SUMMARY } = process.env
+const { KEY_PATH, KEY_ID, ISSUER_ID, APP_ID, BUILD, WHATS_NEW, GITHUB_STEP_SUMMARY } = process.env
 const key = readFileSync(KEY_PATH)
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString('base64url')
 
@@ -23,9 +26,37 @@ async function builds(query) {
   // A refused key or a wrong app is not a wait: fail now. Apple's own hiccups (5xx) are retried.
   if (res.status >= 400 && res.status < 500) { report(`App Store Connect refused the request (${res.status}).`); process.exit(1) }
   if (!res.ok) throw new Error(`App Store Connect answered ${res.status}`)
-  return (await res.json()).data.map((b) => b.attributes)
+  return (await res.json()).data.map((b) => ({ id: b.id, ...b.attributes }))
 }
-const state = async () => (await builds(`filter[version]=${BUILD}`))[0]?.processingState // undefined until listed
+const build = async () => (await builds(`filter[version]=${BUILD}`))[0] // undefined until listed
+
+async function api(method, path, data) {
+  const res = await fetch(`https://api.appstoreconnect.apple.com/v1/${path}`, {
+    method, headers: { Authorization: `Bearer ${token()}`, 'Content-Type': 'application/json' }, body: data && JSON.stringify({ data }),
+  })
+  if (!res.ok) {
+    // Apple says why in the body (a limit, a character it refuses, a language it doesn't know): kept for the warning.
+    const why = await res.json().then((j) => j.errors?.map((e) => e.detail ?? e.title).join('; ')).catch(() => '')
+    throw new Error(`${method} ${path} answered ${res.status}${why ? `: ${why}` : ''}`)
+  }
+  return res.status === 204 ? null : (await res.json()).data
+}
+
+async function whatToTest(id) {
+  const whatsNew = WHATS_NEW // within the limits already (testflight-notes.py)
+  const have = await api('GET', `builds/${id}/betaBuildLocalizations`)
+  const set = []
+  const each = async (locale, call) => {
+    try { await call(); set.push(locale) } catch (e) { console.log(`::warning title=What to Test not set (${locale})::${e.message}`) }
+  }
+  for (const l of have)
+    await each(l.attributes.locale, () => api('PATCH', `betaBuildLocalizations/${l.id}`, { type: 'betaBuildLocalizations', id: l.id, attributes: { whatsNew } }))
+  for (const locale of ['en-US', 'vi'].filter((x) => !have.some((l) => l.attributes.locale === x)))
+    await each(locale, () => api('POST', 'betaBuildLocalizations', {
+      type: 'betaBuildLocalizations', attributes: { locale, whatsNew }, relationships: { build: { data: { type: 'builds', id } } },
+    }))
+  report(set.length ? `What to Test set (${set.join(', ')}).` : 'What to Test not set: see the warnings.')
+}
 
 function report(line) {
   console.log(line)
@@ -41,11 +72,17 @@ if (!BUILD) {
 const deadline = Date.now() + 45 * 60_000
 let last
 while (Date.now() < deadline) {
-  const s = await state().catch((e) => (console.log(e.message), last))
+  const b = await build().catch((e) => (console.log(e.message), undefined))
+  const s = b ? b.processingState : last
   if (s !== last) console.log(`build ${BUILD}: ${s ?? 'not listed yet'}`)
   last = s
-  if (s === 'VALID') { report(`Build ${BUILD} is on TestFlight.`); process.exit(0) }
+  if (s === 'VALID') {
+    report(`Build ${BUILD} is on TestFlight.`)
+    if (WHATS_NEW) await whatToTest(b.id).catch((e) => { console.log(`::warning title=What to Test not set::${e.message}`); report(`What to Test not set: ${e.message}.`) })
+    process.exit(0)
+  }
   if (s === 'FAILED' || s === 'INVALID') { report(`Build ${BUILD} was refused by App Store Connect (${s}); Apple's email says why.`); process.exit(1) }
   await new Promise((r) => setTimeout(r, 30_000))
 }
 report(`Build ${BUILD} is still ${last ?? 'not listed'} after 45 minutes; it reaches TestFlight when Apple finishes.`)
+if (WHATS_NEW) console.log('::warning title=What to Test not set::the build was still processing')
