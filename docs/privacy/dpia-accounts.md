@@ -60,8 +60,9 @@ trang hoặc ứng dụng.
 | Mã một lần | Mã băm của liên kết/mã đăng nhập email, nonce, thử thách passkey | D1 `auth_challenges` | 10–15 phút; xóa hằng ngày |
 | Giới hạn tần suất | Mã băm có khóa của dải IP hoặc của email kèm bộ đếm | D1 `rate_limits` | Tối đa 24 giờ; xóa hằng ngày |
 | Thông tin bể | Tên bể, kích thước, loại nền, loài cá và cây (mã trang), ghi chú tự do, thiết bị (đèn, tên Bluetooth của đèn, lịch, mức sáng) | D1 `tank_records` | Đến khi người dùng xóa bể hoặc xóa tài khoản |
+| Bình luận và ảnh gửi từ ứng dụng | Mã tài khoản đã gửi, gắn với bình luận hoặc ảnh (tên hiển thị, nội dung, ảnh: như khi gửi từ trang web); bộ đếm mỗi ngày theo mã băm có khóa của mã tài khoản | D1 `comments`, `photos` (cột `account_id`), tệp ảnh trong R2, bộ đếm trong KV | Như bình luận và ảnh gửi từ trang web; xóa cùng tài khoản (cả tệp ảnh); bộ đếm 24 giờ |
 
-**Không thu thập:** họ tên, số điện thoại, ngày sinh, ảnh, vị trí, danh bạ. Không lưu địa chỉ email và địa chỉ IP.
+**Không thu thập:** họ tên, số điện thoại, ngày sinh, ảnh (ngoài ảnh cá người dùng tự gửi từ ứng dụng, ở trên), vị trí, danh bạ. Không lưu địa chỉ email và địa chỉ IP.
 Không xử lý dữ liệu cá nhân nhạy cảm.
 
 **Dữ liệu chỉ đi qua, không lưu:** địa chỉ email người dùng nhập để nhận mã đăng nhập (chỉ dùng để gửi một email);

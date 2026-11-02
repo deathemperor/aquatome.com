@@ -1,3 +1,4 @@
+import { sessionOf } from '../accounts/session'
 import { ENTITY_RE, checkRules, parseComment } from './rules'
 
 export type CommentsEnv = {
@@ -27,9 +28,21 @@ export const siteverify: Siteverify = async (secret, token, ip, host) => {
   return r.ok && out.success === true && out.hostname === host
 }
 
-/** Pluggable Decree 147 check; 'ok' unless a verification mode is switched on. */
-export async function verifyCommenter(_req: Request, env: CommentsEnv): Promise<'ok' | 'verification_required'> {
-  return env.COMMENT_VERIFICATION === 'phone' ? 'verification_required' : 'ok'
+/** Pluggable Decree 147 check; 'ok' unless a verification mode is switched on. A signed-in account counts as verified. */
+export async function verifyCommenter(_req: Request, env: CommentsEnv, signedIn = false): Promise<'ok' | 'verification_required'> {
+  return env.COMMENT_VERIFICATION === 'phone' && !signedIn ? 'verification_required' : 'ok'
+}
+
+/**
+ * Who posts (protocols/talk.openapi.json): a request with an Authorization header is the app, and posts as the account
+ * of its live app session, checked as GET /api/v1/session checks it; 'session' when there is none (a bad, expired or
+ * signed-out bearer), with no fallback to the page's way. undefined: the page's way (Origin and Turnstile).
+ */
+export async function appAccount(req: Request, db: D1Database, now: Date): Promise<string | 'session' | undefined> {
+  if (!req.headers.has('authorization')) return undefined
+  const s = await sessionOf(req, db, now)
+  // An empty header makes sessionOf read the cookie: a browser's session never posts the app's way.
+  return s?.via === 'bearer' ? s.userId : 'session'
 }
 
 /** IPv6 users control a whole /64, so that is the unit we limit (written out first: 2001:db8::1 is 2001:db8:0:0:…). */
@@ -42,12 +55,18 @@ export function ipUnit(ip: string): string {
   return full.concat(['0', '0', '0', '0']).slice(0, 4).map(x => x.replace(/^0+(?=.)/, '')).join(':')
 }
 
-/** Per-day rate-limit key: HMAC(ip unit + day) — the raw IP is never written anywhere. */
-export async function ipDayKey(secret: string, ip: string, now: Date): Promise<string> {
+/** Per-day rate-limit key: HMAC(what is counted + day) — the raw IP or account id is never written anywhere. */
+async function dayKey(secret: string, unit: string, now: Date): Promise<string> {
   const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'])
-  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${ipUnit(ip)}|${now.toISOString().slice(0, 10)}`))
+  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${unit}|${now.toISOString().slice(0, 10)}`))
   return `rl:${[...new Uint8Array(sig).slice(0, 16)].map(b => b.toString(16).padStart(2, '0')).join('')}`
 }
+export const ipDayKey = (secret: string, ip: string, now: Date) => dayKey(secret, ipUnit(ip), now)
+/** An account's day: marked, so it never counts as an address. */
+export const accountDayKey = (secret: string, account: string, now: Date) => dayKey(secret, `account:${account}`, now)
+/** The day's keys a post counts against: its address's, and an app post's account's too (the limits stack). */
+export const dayKeys = async (secret: string, ip: string | null, account: string | undefined, now: Date) =>
+  [await ipDayKey(secret, ip ?? 'unknown', now), ...(account ? [await accountDayKey(secret, account, now)] : [])]
 
 const live = (env: CommentsEnv): env is CommentsEnv & { DB: D1Database; TURNSTILE_SECRET: string; TURNSTILE_SITEKEY: string; COMMENT_HMAC_KEY: string } =>
   Boolean(env.DB && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY)
@@ -84,12 +103,17 @@ export async function readCapped(req: Request, max: number): Promise<string | nu
   return new TextDecoder().decode(all)
 }
 
-/** POST /_c: shape → static rules → Turnstile → rate limit → duplicate → insert. Cheapest checks first. */
+/**
+ * POST /_c: shape → static rules → Turnstile → rate limit → duplicate → insert. Cheapest checks first. The app (a
+ * bearer) skips Origin and Turnstile, and its comment counts against its account's day too.
+ */
 export async function postComment(req: Request, env: CommentsEnv, now: Date, verify: Siteverify = siteverify): Promise<Response> {
   if (!live(env)) return off()
+  const account = await appAccount(req, env.DB, now)
+  if (account === 'session') return json({ error: 'session' }, 401)
   const origin = req.headers.get('origin')
-  if (origin !== new URL(req.url).origin) return json({ error: 'cross-origin' }, 403)
-  if ((await verifyCommenter(req, env)) === 'verification_required') return json({ error: 'verification_required' }, 403)
+  if (!account && origin !== new URL(req.url).origin) return json({ error: 'cross-origin' }, 403)
+  if ((await verifyCommenter(req, env, Boolean(account))) === 'verification_required') return json({ error: 'verification_required' }, 403)
   const text = await readCapped(req, 8192)
   if (text === null) return json({ error: 'too large' }, 413)
   const raw = (() => { try { return JSON.parse(text) as Record<string, unknown> } catch { return null } })()
@@ -97,11 +121,15 @@ export async function postComment(req: Request, env: CommentsEnv, now: Date, ver
   if (typeof c === 'string') return json({ error: c }, 400)
   const ip = req.headers.get('cf-connecting-ip')
   const token = typeof raw?.token === 'string' ? raw.token : ''
-  if (!token || !(await verify(env.TURNSTILE_SECRET, token, ip, new URL(req.url).hostname))) return json({ error: 'turnstile' }, 403)
+  if (!account && (!token || !(await verify(env.TURNSTILE_SECRET, token, ip, new URL(req.url).hostname)))) return json({ error: 'turnstile' }, 403)
 
-  const rl = await ipDayKey(env.COMMENT_HMAC_KEY, ip ?? 'unknown', now)
-  const postsToday = Number((await env.AB.get(rl)) ?? 0) + 1
-  await env.AB.put(rl, String(postsToday), { expirationTtl: 86_400 })
+  // Past either day's limit, the comment is held.
+  let postsToday = 0
+  for (const rl of await dayKeys(env.COMMENT_HMAC_KEY, ip, account, now)) {
+    const n = Number((await env.AB.get(rl)) ?? 0) + 1
+    await env.AB.put(rl, String(n), { expirationTtl: 86_400 })
+    postsToday = Math.max(postsToday, n)
+  }
   const duplicate = Boolean(await env.DB.prepare(`SELECT 1 FROM comments WHERE entity_ref = ? AND body = ? AND created_at > ? LIMIT 1`)
     .bind(c.entityRef, c.body, new Date(now.getTime() - DAY_MS).toISOString()).first())
 
@@ -110,8 +138,8 @@ export async function postComment(req: Request, env: CommentsEnv, now: Date, ver
   const status = 'ok' in v ? 'approved' : 'held'
   const id = crypto.randomUUID()
   const createdAt = now.toISOString()
-  await env.DB.prepare(`INSERT INTO comments (id, entity_ref, name, body, status, helpful, reason, created_at) VALUES (?, ?, ?, ?, ?, 0, ?, ?)`)
-    .bind(id, c.entityRef, c.name, c.body, status, 'held' in v ? v.held : null, createdAt).run()
+  await env.DB.prepare(`INSERT INTO comments (id, entity_ref, name, body, status, helpful, reason, created_at, account_id) VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?)`)
+    .bind(id, c.entityRef, c.name, c.body, status, 'held' in v ? v.held : null, createdAt, account ?? null).run()
   const comment: PublicComment | undefined = status === 'approved' ? { id, name: c.name, body: c.body, helpful: false, createdAt } : undefined
   return json({ status, comment }, 201)
 }
