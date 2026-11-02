@@ -376,6 +376,13 @@ The layers above still check the result.
 4. Before merging, the gate must pass. When it can't (a check is wrong), fix the check in the same PR and say why.
 5. **A Lighthouse budget only tightens.** A fix that lifts a page past its `KNOWN` entry removes the entry in the same
    PR. Loosening one needs the reason written next to it.
+6. **A change to how a page looks shows it before and after.** On a PR that changes `apps/site/src`, ci.yml's job
+   `shots` screenshots the same pages of the base's fixture build and the change's, at a phone's size (Pixel 7, 412 px)
+   and a computer's (1280 px). It keeps the pairs that differ, side by side, as the `site-page-shots` artifact, and lists
+   them in its run's summary. The PR links that artifact and names the pair that shows each improvement it claims. Its
+   author checks their work against those pairs before asking for review, and a reviewer checks each claim. Run it
+   before pushing with `apps/site/e2e/page-shots.mjs` (apps/site/e2e/README.md). A page that changed but isn't in the
+   sample is named: `node e2e/page-shots.mjs <before> <after> <out> /vi/x/,/vi/y/`.
 
 ### main's ruleset (GitHub)
 

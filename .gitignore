@@ -7,6 +7,7 @@ dist
 engine-state/last-run.json
 test-results
 e2e-report
+page-shots
 apps/site/e2e-*.json
 apps/site/review-results.json
 ISSUE.md
