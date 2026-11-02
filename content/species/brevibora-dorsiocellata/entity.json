@@ -5,7 +5,14 @@
   "family": "Cyprinidae",
   "genus": "Brevibora",
   "group": "rasboras",
-  "places": [],
+  "places": [
+    "asia",
+    "thailand",
+    "malaysia",
+    "muar",
+    "indonesia",
+    "kalimantan"
+  ],
   "dataCard": {
     "tempC": [
       {
@@ -14,6 +21,49 @@
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2.3
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ]
   },
@@ -31,6 +81,12 @@
       "html": "<p>A small schooling nano fish that is perfect for those looking to add life and color into a blackwater biotope. Temperament: peaceful.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<p>The eyespot rasbora, Brevibora dorsiocellata, is a small cyprinid from southern Thailand, Peninsular Malaysia, Borneo and Sumatra. It is also traded as the 'green-eyed', 'emerald-eyed' or 'hi-spot' rasbora. The common, commercially produced form is plain-coloured with a greenish-blue reflective patch in the eye, while a probably wild-caught form seen from time to time has russet red at the base of the tail. Some Bornean records may refer to B. cheeya.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata/",
@@ -43,16 +99,52 @@
       "html": "<p>Be sure to have the habitat ready before purchase.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<p>Native to southern Thailand, Peninsular Malaysia and the Greater Sunda islands of Borneo and Sumatra. Type locality is 'Muar River, Tebinh Tinggi, Johore, Malaysia'.</p><p>In Peninsular Malaysia localities include the Selai and Muar rivers in Johor state and the blackwater swamp lake of Tasek Bera in Pahang state while in Sumatra the only report we've been able to find seems to refer to the Lalah River, Riau province in the east of the island.</p><p>Records from Borneo are confusing. It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah). However it appears possible that some or even all of the records from the Kapuas may actually refer to Brevibora cheeya. Until a scientific comparison between the forms of the species from the islands and mainland is conducted it is unlikely that the truth will be known.</p><p>In any case wild caught fish are quite rare in the hobby as the species is being produced commercially in several countries.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<p>Mostly inhabits gently flowing black water streams and rivers associated with ancient forest peat swamps.</p><p>The water is stained brown due to the release of tannins and other chemicals released by decomposing organic matter and the substrate scattered with fallen leaves, twigs and branches. Such environments characteristically contain very soft (negligible hardness), acidic (pH as low as 4.0) water and are often dimly-lit due to the forest canopy above.</p><p>Unfortunately these biotopes are under threat from rubber or palm oil plantations, building developments and other human activities across much of Southeast Asia.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<p>A group will need an aquarium with base dimensions of 45 × 30 cm or more (about 41 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<p>Choice of décor is not as critical as water quality although this species does look particularly effective in a well-planted tank with a dark substrate.</p><p>To see it at its best a natural-style set-up can also make an interesting project. In this case a soft, sandy substrate is probably the best choice to which can be added a few driftwood roots and branches placed in such a way that plenty of shady spots are formed. If you can't find driftwood of the desired shape common beech or oak is safe to use if thoroughly dried and stripped of bark.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering even more cover for the fish brings with it the growth of microbe colonies as decomposition occurs. Such microorganisms can provide a valuable secondary food source for fry whilst the tannins and other chemicals released by the decaying leaves are thought to be beneficial for blackwater fish species. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>This species will do best under fairly dim lighting although this does not preclude the use of aquatic plants with Microsorum, Taxiphyllum or Cryptocoryne spp. all able to survive in such conditions.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
       "html": "<p>Prefers soft, acidic water with low TDS, but can adapt to a wide range of conditions, including both fast-flowing and slow-flowing water.</p><p>Temperature: 72–78°F (about 22–26°C).</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: The widely available, captive-bred fish are quite adaptable and should be happy within the range 5.0–7.5. If you have the opportunity to purchase wild specimens they are likely to do best on the acidic side of neutral.</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
       "html": "<p>Small foods such as pellets and flakes. Baby brine shrimp are perfect as live food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<p>Stomach analyses of wild specimens have revealed it to be a micropredator feeding on small insects, worms, crustaceans and other zooplankton.</p><p>In the aquarium it will accept dried foods of a suitable size but should ideally be offered daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike.</p>"
     },
     {
       "key": "behaviour",
@@ -65,21 +157,98 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
       "html": "<p>One of its best traits is its natural schooling behavior, which can give character to a blackwater biotope.</p><p>Tankmates: they are aggressive eaters and can out-compete slower fish for food, so do not keep them with slow-moving and shy fish. Likewise, do not keep them with large fish that see them as food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<p>This species is very peaceful indeed making it an ideal resident of the well-chosen community tank.</p><p>As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, dwarf cichlids, catfish and loaches. As always when selecting a compatible community of fish thorough research is essential and its small adult size must be a consideration.</p><p>Some of the more commonly exported species with which it lives in nature include Striuntius lineatus, Desmopuntius pentazona, Trigonopoma pauciperforatum, Rasbora einthovenii, and various Pangio spp. It also makes an ideal companion for anabantoids such as Sphaerichthys or the more diminutive Betta species.</p><p>It's a schooling fish by nature and should be kept in a group of at least 8-10 specimens. Maintaining decent numbers will not only make the fish less nervous but result in a more effective, natural-looking display, while males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<p>Mature females are noticeably rounder-bellied and often a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<p>Like many small cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care.</p><p>That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without intervention. However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller containers should also be set up. These should be very dimly lit with the base either left bare or covered with some kind of mesh of a large enough grade so that any eggs that fail to adhere to the plant can pass through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well for related species.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An internal power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container. Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding live and frozen foods several times throughout the day. Several spawning events normally occur before a female is spent of eggs.</p><p>The adults will likely eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism.</p><p>Incubation in related Rasbora spp. is temperature-dependant to an extent but usually takes between 18 and 48 hours with the young free-swimming 24 to 48 hours later. Initial food should be Paramecium or similar introducing Artemia nauplii, microworm and suchlike once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<p>B. dorsiocellata is sometimes traded as 'green-eyed', 'emerald-eyed' or 'hi-spot' rasbora. There appear to exist several geographical forms of the species at least two of which have been seen in the trade.</p><p>The most common is the rather plain-coloured fish that is produced commercially in large numbers and has gained popularity due to the bright greenish-blue reflective patch in the lower part of the eye. The other is only available from time-to-time and in all likelihood is wild caught. It's particularly attractive because the caudal peduncle and base of the caudal fin are suffused with a russet red colouration, the extent and intensity of which can vary depending on the mood, condition and sexual maturity of the fish.</p><p>B. cheeya Liao and Tan, 2011 can be told apart from B. dorsiocellata by a combination of characters: lateral line complete (25-30 pored scales vs. 4-9); more scales in the lateral row (29-32 vs. 25-27); larger adult size (39 mm SL vs. 23 mm SL); larger head and prepectoral length (head length 28.5-30.0% SL, vs. 24.4-27.9; prepectoral length 29.6-32.9% SL, vs. 25.8-28.8).</p><p>Several years prior to its description Grant (2002) suggested that specimens of B. cheeya in the aquarium trade might represent the subspecies Rasbora dorsiocellata macrophthalma (Meinken, 1951) which was described using a specimen from the aquarium trade from the vague locality 'Malay Peninsula'. Liao and Tan (2011) argue that the type specimen of R. d. macrophthalma has been lost and that even if proved a genuine species the validity of B. cheeya would be unaffected since it possesses a complete lateral line (vs. incomplete in R. d. macrophthalma).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "html": "<ul><li>Kottelat, M. (1999). Nomenclature of the genera Barbodes, Cyclocheilichthys, Rasbora and Chonerhinos (Teleostei: Cyprinidae and Tetraodontidae), with comments on the definition of the first reviser. Raffles Bulletin of Zoology Supplement 47(2), 591-600</li><li>Grant, S. (2002). Zur Identität und Gültigkeit von Rasbora macrophthalma MEINKEN, 1951 (Cyprinidae, Rasborinae). BSSW Report Heft 4(2002), 13-17</li><li>Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176</li><li>Liao, T-Y., and H. H. Tan (2011). Brevibora cheeya, a new species of cyprinid fish from Malay Peninsula and Sumatra. Raffles Bulletin of Zoology 59(1), 77-82</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Duncker, G. (1904). Die Fische der malayischen Halbinsel. Mitteilungen aus dem Naturhistorischen (Zoologischen) Museum in Hamburg v. 21, 133-207</li><li>Liao, T. Y. and H. H. Tan (2014). Brevibora exilis, a new rasborin fish from Borneo (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 24(3), 209-215</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/d358601bd1904471.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d358601bd1904471-480.webp",
+      "width": 612,
+      "height": 279,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "caption": "This reddish form is imported occasionally. Image shows an adult pair, female top.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e7740e460b859421.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e7740e460b859421-480.webp",
+      "width": 913,
+      "height": 250,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
+      "caption": "Brevibora cheeya (left) grows larger than B. dorsiocellata (right).",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/774dddb37bbec0cf.webp",
+      "thumb": "https://media.aquatome.com/commons/774dddb37bbec0cf-480.webp",
       "width": 960,
       "height": 712,
       "licence": "Public domain",
       "author": "Pseudogastromyzon",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_dorsiocellata.jpg",
-      "caption": "Hi spot rasbora",
-      "thumb": "https://media.aquatome.com/commons/774dddb37bbec0cf-480.webp"
+      "caption": "Hi spot rasbora"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "QMTdr-q07Iw",
+      "title": "Emerald Eye Rasbora (Brevibora dorsiocellata) Aquarium Fish Species Profile & Care Guide",
+      "durationSec": 383,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "317kZcn0-ns",
+      "title": "The Glowing Eyes of The Emerald Eye Rasbora (Care and Breeding)",
+      "durationSec": 615,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mOJ5m_KoyRI",
+      "title": "Forgotten Nano Fish: Why the Emerald Eye Rasbora Deserves More Attention",
+      "durationSec": 506,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "nPsx10aD084",
+      "title": "Emerald eye rasbora, Brevibora dorsiocellata -Species Spotlight",
+      "durationSec": 251,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -103,5 +272,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-02"
 }

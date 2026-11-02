@@ -7,13 +7,67 @@
   "group": "barbs",
   "places": [
     "asia",
-    "thailand"
+    "thailand",
+    "laos",
+    "mekong",
+    "chao-phraya",
+    "cambodia",
+    "tonle-sap",
+    "vietnam",
+    "dong-nai",
+    "malaysia",
+    "pahang",
+    "indonesia",
+    "kapuas"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 100
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -23,6 +77,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_chrysophekadion_en/",
       "html": "<p>The black shark is of course no shark at all, but a cyprinid or carp. It is a very large growing species, attaining almost a metre in length and 7 kg in weight.</p><p>Available size: 6-8 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<p>The black shark, Labeo chrysophekadion, is a large cyprinid from Southeast Asia, including the Mekong, Chao Phraya and the Greater Sunda Islands. Also known as the black sharkminnow, it reaches 600 mm and is aggressively territorial towards conspecifics and similarly-shaped fishes. It continues to be sold despite its patent unsuitability for the home aquarium, and an albino form has been selectively bred for the trade.</p><ul><li>Needs a tank at least 2 m long</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -37,13 +97,124 @@
       "html": "<p>Origin: Thailand.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<p>Widespread in Southeast Asia, including the Mekong basin in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai drainage in Vietnam, the Chao Phraya and Mae Klong systems in Thailand, and various smaller watersheds in southern Thailand (and possibly Myanmar), Peninsular Malaysia, and Indonesia (Greater Sunda Islands of Borneo, Sumatra, and Java).</p><p>In Borneo it has been recorded in the Kapuas River system in Kalimantan, the Indonesian portion of the island, but may also occur in the Malaysian states of Sarawak and Sabah.</p><p>Type locality is 'Kalimas River, Surabaya, Java, Indonesia', corresonding to what is now known as the Brantas River in East Java.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<p>Tends to inhabit larger river channels but also occurs in smaller tributaries, canals and inundated floodplains, less often in reservoirs and other man-made impoundments.</p><p>Adults undertake seasonal migrations to forage in floodplains and breed in upstream areas (see 'Reproduction').</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<p>Suitable only for public installations or the very largest, highly-specialised private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<p>A large, mature filter system, rigorous maintenance regime comprising weekly water changes of 50-70% tank volume, and provision of highly-oxygenated water with a degree of movement should be considered mandatory.</p><p>Smaller individuals will also appreciate a cave or shaded spot around which they may form a territory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<p>Primarily an aufwuchs grazer feeding on algae, small crustaceans, insect larvae, etc., and for it to develop its best colours and condition it should be offered regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia and Artemia along with good quality dried flakes, granules and fresh plant material.</p><p>Shelled peas, cucumber, blanched courgette, spinach and chopped fruit all make good additions to the menu. Once settled it will often ascend into midwater to feed and browse the biofilm that tends to form on rockwork and other solid surfaces.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<p>This species can be belligerent and aggressively territorial towards conspecifics and similarly-shaped fishes, especially when space is limited.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<p>Sexually mature females are likely to be deeper-bodied and may grow larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<p>Breeds on a seasonal basis in nature, at the onset of the wet season. It apparently spawns upstream of shallow sandbars where the eggs settle and hatch as the water begins to rise, with the fry moving into inundated riparian vegetation where they continue to follow the edge of the water as the flooding increases.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_chrysophekadion_en/",
       "html": "<p>Despite the zoological relationship the name “shark” is a good description, because the species owns a large dorsal fin which is often presented during display. An albino sport is also known from that species, which could be named “white shark”.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<p>L. chrysophekadion is also known as 'black sharkminnow'. It continues to be available in the ornamental trade despite its patent unsuitability for the home aquarium, and an albino form has been selectively bred for the purpose.</p><p>It can be distinguished from other members of the genus by the following combination of characters: body and fins black; dorsal fin large, with anterior branched dorsal rays longer than head and distal margin straight to slightly concave; 15-18½ branched dorsal rays; both lips fringed; juveniles all black; large adults grey to black with a single iridescent spot on each scale.</p><p>The genus Labeo is an enigmatic grouping containg more than 100 species which is critically in need of revision. Members occur throughout much of Africa and Asia, and they are considered members of the tribe Labeonini within the putative cyprinid subfamily Cyprininae or simply the subfamily Labeoninae (name varies with author). According to the most recent phylogenetic research, this grouping is further divided into four subtribes; Labeoina, Garraina, Osteochilina, and Semilabeoina (Yang et al., 2012). Among these, Labeo is included in the Labeoina alongside Bangana sensu stricto (which includes the genus Nukta), Cirrhinus sensu stricto, Cirrhinus microlepis (which is of a different genetic lineage to other Cirrhinus species), Gymnostomus, and Incisilabeo.</p><p>Thirty Labeo species were used in the study, and the genus was found to be polyphyletic, although all were nested within the Labeoina clade (Yang et al., 2012). Labeo boggut, L. bata and L. bata var. formed a clade with Incisilabeo behri, Schismatorhynchos nukta, and Bangana dero (the type species of the genus) and B. sp. Salween. All other Labeo species comprised a group referred to as Labeo sensu stricto which also includes Gibelion catla, and the authors recommended that the latter be synonymised with Labeo, although this does not appear to have been widely accepted (eg. Kottelat, 2013).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "html": "<ul><li>Bleeker, P. (1849). Bijdrage tot de kennis der ichthyologische fauna van Midden- en Oost-Java, met beschrijving van eenige nieuwe species. Verhandelingen van het Bataviaasch Genootschap van Kunsten en Wetenschappen. 23(12), 1-23</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2c53f8f15cd6dede.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2c53f8f15cd6dede-480.webp",
+      "width": 800,
+      "height": 421,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "caption": "Subadult specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9b1dff401d2f84fb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9b1dff401d2f84fb-480.webp",
+      "width": 800,
+      "height": 549,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "caption": "Adult individual from Pahang state, Malaysia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/be9601f55b3ff8a3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/be9601f55b3ff8a3-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "caption": "Juvenile specimen of the ornamental albino form.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/154cfcf63af0867d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/154cfcf63af0867d-480.webp",
+      "width": 800,
+      "height": 398,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-chrysophekadion",
+      "caption": "Juvenile individual.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -68,5 +239,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-02"
 }

@@ -14,7 +14,12 @@
     "french-guiana",
     "suriname",
     "colombia",
-    "guyana"
+    "guyana",
+    "bolivia",
+    "caqueta",
+    "ecuador",
+    "peru",
+    "trinidad-and-tobago"
   ],
   "dataCard": {
     "tempC": [
@@ -30,6 +35,13 @@
         "value": {
           "min": 22,
           "max": 27
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
         }
       }
     ],
@@ -47,6 +59,13 @@
           "min": 6,
           "max": 7.2
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
@@ -57,6 +76,32 @@
       {
         "source": "scotcat",
         "value": 140
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 105
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200,
+        "hidden": "shorter than twice the fish (150 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -74,6 +119,12 @@
       "html": "<ul><li>IUCN Red List: Least Concern (IUCN 2024). Despite the little information available, the species has a wide range and no apparent threats that put it at risk of extinction.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<p>The piramutaba, Brachyplatystoma vaillantii, is a large migratory pimelodid catfish from the Amazon and Orinoco watersheds and rivers of the Guianas. Juveniles feed in the Amazon delta before migrating upstream in massive numbers, when they are subject to intensive capture by commercial and artisanal fisheries. Sexually mature adults have been observed in the rio Caquetá basin, some 3500 km from the estuary. It grows to 105 cm SL.</p><p>Rated difficult because it needs a tank at least 2 m long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1178",
@@ -84,6 +135,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
       "html": "<p>South America: Amazon and Orinoco River basins and major rivers of the Guianas and northeastern Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<p>Valenciennes states that the type series derived from Cayenne, the capital of French Guiana, and Suriname but the species is currently understood to range throughout the Amazon and Orinoco watersheds, including numerous major tributaries, plus other important fluvial systems in the Guianas and northeastern Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -98,16 +155,70 @@
       "html": "<p>In the Amazon, they congregate in schools at the Rio Madeira rapids every four to five years (Goulding 1981). These schools apparently originate in the Amazon estuaries and migrate upstream as far as the Rio Solimoes. It can sometimes be caught in the upper part up to the foot of the Andean range, where it appears to be more rare than Brachyplatystoma filamentosum, but never in the zones prone to flood. Reproductive migrations probably occur like in other Brachyplatystoma. Usually caught with long lines and drift nets. Its flesh is of excellent quality and highly appreciated.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<p>Found in a number of habitat-types, though rarely in smaller tributaries, generally preferring deeper, flowing channels through which it travels for considerable distances at certain times of year. Like other large, migratory pimelodids these movements are typically associated with nutrient-rich, white water drainages rather than nutrient-poor black waters. When the Amazon begins to rise at the start of the wet season, freshwater is pushed into its delta and the normally brackish waters recede, allowing juveniles and sexually-immature adults of several migratory catfish species, including B. vaillantii, to enter the area and feed on polychaetes, bivalves, crustaceans, and other fishes. This rich feeding ground is exploited until the sea water returns, at which point the catfishes begin to migrate upstream in massive numbers, moving up the Amazon and its tributaries. Sexually mature individuals are not normally recorded during these events so they're thought related to feeding and dispersal rather than spawning. The fish are subject to intensive capture by commercial and artisanal fishing operations during this upstream movement.</p><p>Spawning occurs in often-distant headwaters and the fry are washed downstream to the delta, a process estimated to take 13-20 days in the congener B. rousseauxii. Juveniles then remain in the estuary region for around three years, entering the delta to feed when conditions permit. They then move into the lower and middle Amazon where they may remain for a further year as they continue to feed and grow. Following this period of growth schools of adults begin to form and make their way into headwaters in order to spawn. There is no single spawning ground for a given species, rather there appear to exist distinct populations in different watersheds, and there exists evidence to suggest that individuals may return to the particular tributary in which they were born to spawn.</p><p>Study of B. rousseauxii has revealed that sexually mature adults are found only in the western Amazon, with no mature individual ever recorded east of Manaus despite the intensive commercial fishery operating there. The total distance covered by some populations during migration from the delta was as much as 5500 km, making it the longest known in any freshwater fish species. Sexually-mature adults of B. vaillantii have been observed in the rio Caquetá basin, some 3500 km from the estuary.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<p>This species is suitable only for public aquaria plus a very small minority of private aquarists and as such no recommended aquarium size is offered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<p>The choice of décor is as much down to personal preference as anything else though a carefully-aquascaped, planted set-up is obviously out of the question. A sandy substrate with some large chunks of driftwood, or a completely bare arrangement are perhaps the most-favoured options in privately-owned aquaria, but provided water quality is maintained and lighting not too bright this species is relatively unfussy. An enormous, reliable filter system and rigorous maintenance regime should be considered mandatory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<p>Almost entirely piscivorous preying on loricariids and other bottom-dwelling fishes in nature but most specimens readily adapt to dead alternatives such as prawn/shrimp, mussel, squid, whitebait, strips of larger white fish, etc., in aquaria. Should not be fed daily and adults require a single meal per week at most.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<p>Only keep with species large enough to avoid predation.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<p>Unknown.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1178",
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<p>Unrecorded in captivity, perhaps unsurprising given its complex natural life cycle (see 'habitat').</p>"
+    },
+    {
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
       "html": "<p>Resembles B. filamentosum, but B. vaillantii has a larger adipose fin and does not grow as large as the former.</p><p>Etymology: the specific name vaillantii honours François Levaillant (1753–1824), French explorer, naturalist and zoological collector, who brought the types to Europe.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<p>This species can be distinguished from congeners by the following external characters: colour pattern in both adults and juveniles strongly but gradually countershaded along flanks, dorsum dark to light grey or brown, no spots or stripes; caudal-fin in adults deeply-forked with narrow lobes which are almost equal in length; no caudal-fin filaments in adults; eye diameter fits 4-5 times in length of snout; maxillary barbels reaching base of adipose-fin, often the caudal-fin, in adults; caudal peduncle compressed with greater depth than width; origin of adipose-fin anterior to origin of anal-fin; base length of adipose-fin approximately 1.5 times that of anal-fin; adipose-fin height approximately three times its length; opercle triangular; 15-19 anal-fin rays.</p><p>Brachyplatystoma spp. are distinguished from all other catfishes by two synapomorphies. The first comprises several morphological characters relating to the skull, specifically that the mandibular suspensorium (that which connects the lower jaw bone to the skull) is greatly expanded mediodorsally to form a large plate approaching the parasphenoid bone, with the hyomandibula and metapterygoid similarly enlarged. The second is the presence of an elongate filament formed from a single, unbranched simple ray on both caudal fin lobes in juveniles and subadults. These become shorter or are lost in adult specimens of B. vaillantii, B. filamentosum, B. rousseauxii, and B. capapretum but retained in B. juruense, B. platynema and B. tigrinum.</p>"
     },
     {
       "key": "references",
@@ -120,18 +231,25 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/pimelodidae/brachyplatystoma_vaillantii.htm",
       "html": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (01/2011).</p><p>Salvador, G.N. 2024. Brachyplatystoma vaillantii. The IUCN Red List of Threatened Species 2024.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Lundberg, J. G. and A. Akama (2005). Brachyplatystoma capapretum: a new species of goliath catfish from the Amazon basin, with a reclassification of allied catfishes. Copeia 2005(3), 492-516</li><li>M. Petrere Jr., R. B. Barthem, E. A. Córdoba and B. Corrales Gómez (2004). Review of the large catfish fisheries in the upper Amazon and the stock depletion of piraíba (Brachyplatystoma filamentosum Lichtenstein). Reviews in Fish Biology and Fisheries 14, 403-414</li><li>Batista, J. S. and J. A. Alves-Gomes (2006). Phylogeography of Brachyplatystoma rousseauxii (Siluriformes - Pimelodidae) in the Amazon Basin offers preliminary evidence for the first case of “homing” for an Amazonian migratory catfish. Genetics and Molecular Research 5(4), 723-740</li><li>Cuvier, G. and A. Valenciennes (1840). Histoire naturelle des poissons. Tome quinzième. Suite du livre dix-septième. Siluroïdes. Histoire naturelle des poissons v. 15, i-xxxi + 1-540</li></ul>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/d75d202d7b6a65f8.webp",
-      "thumb": "https://media.aquatome.com/commons/d75d202d7b6a65f8-480.webp",
-      "width": 960,
-      "height": 549,
-      "licence": "CC BY 4.0",
-      "author": "Clara Costa D'Elia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piramutaba.png",
-      "caption": "Desenho à lápis da piramutaba (Brachyplatystoma vaillant). Desenho originalmente comissionado pela ONG Rare Brazil (rare.org/program/fish-forever-in-brazil/)."
+      "url": "https://media.aquatome.com/seriouslyfish/e680e6e65e13e79c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e680e6e65e13e79c-480.webp",
+      "width": 870,
+      "height": 653,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii",
+      "caption": "Head detail of pre-adult.",
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/scotcat/5593bd39111dff72.webp",
@@ -156,6 +274,16 @@
       "source": "scotcat"
     },
     {
+      "url": "https://media.aquatome.com/commons/d75d202d7b6a65f8.webp",
+      "thumb": "https://media.aquatome.com/commons/d75d202d7b6a65f8-480.webp",
+      "width": 960,
+      "height": 549,
+      "licence": "CC BY 4.0",
+      "author": "Clara Costa D'Elia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piramutaba.png",
+      "caption": "Desenho à lápis da piramutaba (Brachyplatystoma vaillant). Desenho originalmente comissionado pela ONG Rare Brazil (rare.org/program/fish-forever-in-brazil/)."
+    },
+    {
       "url": "https://media.aquatome.com/commons/9d5798afeca44766.webp",
       "thumb": "https://media.aquatome.com/commons/9d5798afeca44766-480.webp",
       "width": 960,
@@ -164,19 +292,55 @@
       "author": "NaturaLista.co user: juan_carlos_caicedo_hernandez",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brachyplatystoma_vaillantii.jpg",
       "caption": "Laulao Catfish (Brachyplatystoma vaillantii). Species of fish."
-    },
-    {
-      "url": "https://media.aquatome.com/commons/fe091f77544a4b75.webp",
-      "thumb": "https://media.aquatome.com/commons/fe091f77544a4b75-480.webp",
-      "width": 831,
-      "height": 320,
-      "licence": "CC BY 4.0",
-      "author": "M. Goulding, from Ronaldo B. Barthem, Michael Goulding, Rosseval G. Leite, Carlos Cañas, Bruce Forsberg, Eduardo Venticinque, Paulo Petry, Mauro L. de B. Ribeiro, Junior Chuctaya & Armando Mercado",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vaillantii_piramutaba_pirabuton.png",
-      "caption": "B. vaillantii (piramutaba in Portuguese, pirabutón in Spanish)"
     }
   ],
-  "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-10-31"
+  "videos": [
+    {
+      "youtubeId": "FLUdQJokG6Q",
+      "title": "The Brachyplatystoma vaillantii or LauLao Catfish @coys_lil_fishery | Falcon Aquarium Services",
+      "durationSec": 8,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "Xw3MbrGURHU",
+      "title": "True Brachyplatystoma vaillantii catfish ~12\" in 4500 gal, Dec 2016",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7ocCEqT5OlY",
+      "title": "Brachyplatystoma vaillantii",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kfIKbc8JYeI",
+      "title": "Brachie, vaillantii, compressed",
+      "durationSec": 32,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước hồ cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "tôm tươi đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
 }

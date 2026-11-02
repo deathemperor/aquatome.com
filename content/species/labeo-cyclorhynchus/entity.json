@@ -8,13 +8,59 @@
   "places": [
     "africa",
     "democratic-republic-of-the-congo",
-    "congo"
+    "congo",
+    "republic-of-the-congo",
+    "gabon",
+    "ogooue"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 16
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 16
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -26,10 +72,52 @@
       "html": "<p>Labeo cyclorhynchus becomes about 16 cm long. The name \"variegatus\" is regarded nowadays only as a synonym of Labeo cyclorhynchus. The checkered variety occurs in the wild but bears no scientific name of its own.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<p>The harlequin shark, Labeo cyclorhynchus, is a cyprinid from the middle and lower Congo basin and the Ogooué drainage in Gabon. The patterning of young fish fades with age and adults are much darker. It becomes increasingly territorial as it grows, especially towards similar-looking species, so tankmates need choosing with care. It may still be seen as Labeo variegatus, an invalid name, in older literature and trade lists.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_variegatus_en/",
       "html": "<p>This species of Labeo is imported from the Congo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<p>Native to the middle and lower Congo river basin in the Democratic Republic of the Congo and Republic of the Congo as well as the Ogooué (sometimes spelled 'Ogowe') drainage in Gabon. The Congo region represents a centre of diversity for Labeo with over fifteen endemic species, these forming a monophyletic subgroup within the genus.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<p>Mostly inhabits forest streams with thick marginal vegetation. These are often shaded by the dense rainforest canopy above. The substrate is most often composed of a thick layer of silt littered with fallen tree branches and leaf litter and the water is quite clear but coloured weakly brown due to tannins released from the decomposing organic matter.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<p>A 120cm x 37.5cm x 30cm/135 litre tank is just about acceptable for a single specimen.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<p>This species will do well in most larger, well-maintained tanks if plenty of hiding places are provided although it might harm softer-leaved plants. However we highly recommend keeping it in a set-up designed to resemble a flowing river with a substrate of variably-sized rocks, gravel and some large water-worn boulders. The tank can be further furnished with driftwood branches arranged to form a network of nooks, crannies and shaded spots. While the vast majority of plant species will fail to thrive in such surroundings hardy types such as Java fern, Bolbitis or Anubias can be grown attached to the decor and bright lighting will promote the growth of biofilm upon which the fish will graze. In this kind of environment it will show more natural behaviour and can be kept alongside some other species that enjoy similar conditions (see 'compatibility').</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<ul><li>Temperature: 21–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 3–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<p>Labeo species are primarily aufwuchs feeders grazing submerged surfaces for algae, microscopic animals and other detritus. They are adaptable, with recognisable groups being specialised towards a particular method of feeding; some have even been recorded living with groups of hippopotamus, browsing the bodies of the animals. For it to develop its best colours and condition it should therefore be offered regular meals of small live and frozen foods such as bloodworm, Daphnia and Artemia along with good quality dried flakes, granules and plenty of vegetable matter. Shelled peas, cucumber, blanched courgette, spinach and chopped fruit all make good additions to the menu. Once settled into the aquarium it will ascend into midwater to feed and in a tank set up as described above will often be seen browsing the biofilm that tends to form on the rockwork.</p>"
     },
     {
       "key": "behaviour",
@@ -38,16 +126,46 @@
       "html": "<p>Like all Labeos these fish are quarrelsome against conspecifics, but L. cyclorhynchus in particular is regarded as quite peaceful against other species of fish.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<p>This species is largely unsuitable for the general community aquarium though this does not mean to say it must be kept alone, rather that tankmates must be chosen with care. While small specimens tend to hide away much of the time they often become increasingly territorial as they grow and can exhibit particularly high levels of aggression towards similar-looking species. Other bottom-dwelling fish including cichlids and most catfish are best avoided as they may too be picked on. For the upper levels choose robust, active African characins such as Arnoldichthys spilopterus, Brycinus longipinnis, Phenacogrammus or if geography is not an issue many non-African cyprinids are also suitable.</p><p>It is a similar story when attempting to house a group together in the aquarium. This is a fish that lives a solitary lifestyle and in nature would probably have only come into contact with others of its own kind infrequently and during the spawning season. Intraspecific aggression is pronounced and it is not uncommon to see tanks full of young specimens with tattered fins on sale. These instincts only heighten as the fish get older and we therefore recommend it be kept singly in the vast majority of cases. In a very large tank with lots of hiding places a cohabitation attempt might be possible but each fish is likely to require a territory with a diameter of at least a metre.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_variegatus_en/",
       "html": "<p>Usually this species has long, sickle-shaped dorsal fins. But one of the specimens has a \"normal\"-shaped dorsal fin. This possibly is a sexual dimorphism. Possibly the \"Variegatus\" morph is most often linked to male specimens? So far nobody knows.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<p>Females should be noticeably thicker-bodied than males when in spawning condition but otherwise Labeo are notoriously difficult to sex.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<p>As far as we know it has not been bred in aquaria.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_variegatus_en/",
       "html": "<p>The checkered variety is maybe best compared with the so-called OB-morphs in Mbuna cichlids from Lake Malawi. The \"normal\" variety of Labeo cyclorhynchus is hardly ever imported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<p>L. cyclorhynchus was described twice in the space of two years, with Pellegrin erecting Labeo variegatus for it in 1901. Although the invalidity of the variegatus name is quite well-documented you may still see the species named as such in older literature, trade lists and by some websites. It's also worth noting that the attractive patterning seen in young fish does fade with age, the adults being much darker in colour.</p><p>The genus Labeo currently contains over 100 species but is in dire need of systematic review; at the very least many of the names listed are likely to represent synonyms of other species. Members are divided into two groups depending on the structure of the inner part of the lips which is either papillate (covered in small tooth-like projections) or plicate (consisting of a series of parallel ridges). L. cyclorhynchus belongs to the second group of which there exist 14 species in the lower Congo region alone. There are also numerous Asian species which remain poorly-studied and virtually non-existent in the aquarium trade.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-cyclorhynchus",
+      "html": "<ul><li>Reid, G. M. (1985). A revision of African species of Labeo (Pisces: Cyprinidae) and a re-definition of the genus. Verlag von J. Cramer, Braunschweig. 322 p.</li><li>Baensch, H. A. and R. Riehl (1985). Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany, 1-1216</li></ul>"
     }
   ],
   "photos": [],
@@ -75,5 +193,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-02"
 }

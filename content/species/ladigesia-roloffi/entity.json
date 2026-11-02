@@ -7,13 +7,60 @@
   "group": "tetras",
   "places": [
     "africa",
-    "guinea"
+    "guinea",
+    "sierra-leone",
+    "gbangbaia",
+    "liberia",
+    "du-river"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.1
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,10 +72,46 @@
       "html": "<p>This dwarf tetra (maximum length reported is 4 cm) is a real jewel from West Africa. Available size: 2-3 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<p>The jelly bean tetra, Ladigesia roloffi, is a small alestid from Sierra Leone, known with certainty only from the Kasewe Forest reserve. Also called the 'Sierra Leone dwarf characin', it is the only member of its genus and grows to around 31 mm SL. The IUCN assesses it as Endangered, and over 97% of Sierra Leone's primary forest has been destroyed, surviving only in protected reserves such as Kasewe. Soft, acidic water is a prerequisite for breeding.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/ladigesia_roloffi_en/",
       "html": "<p>Origin: Guinea.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<p>This species' distribution is unclear and it's only known with certainty from the type locality 'Kasewe Forest, Sierra Leone' where it's said to inhabit the upper Gbangbaia river basin.</p><p>A single record from the Du river drainage in the Firestone rubber plantation near Harbel, Liberia (Van den Nieuwenhuisen, 1972), also exists.</p><p>It's currently assessed as 'Endangered' by the IUCN.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<p>The climate in Sierra Leone is hot and wet with a pronounced wet season between April-May and October-November, and most rivers tend to run perennially.</p><p>The water is generally warm, soft and acidic (in the Jong River, which discharges into the same coastal lagoon system as the Gbangbaia, conductivity has been measured to range between 10-30 µS/cm and water temperature from 25 °C in September-October to 31 °C in April-May, for example).</p><p>Over 97% of the primary forest in the country has been destroyed with the only surviving pockets existing in protected forest reserves.</p><p>Kasewe is one such reserve in Moyamba district and comprises an area of hills composed of volcanic rock covered by moist, semi-deciduous and evergreen forests.</p><p>Other fish species known from Kasewe include Epiplatys annulatus, Scriptaphyosemion chaytori, Wallaceochromis humilis, Mochokiella paynei and Notoglanidium thomasi.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<p>Minimum base dimensions of 60 × 30 cm or equivalent are recommended (about 54 litres), although smaller aquaria can be used for breeding purposes.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<p>Best-maintained in a well-structured set-up, ideally comprising a sandy substrate plus some driftwood roots and branches.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments. Alder cones may also be used for the latter purpose.</p><p>This species seems to do best under fairly dim lighting. You can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>For breeding purposes acidic conditions with negligible carbonate hardness and very low general hardness are required so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>This species is sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -37,20 +120,93 @@
       "html": "<p>They should be kept in a well planted aquarium. It is important to choose a dark gravel, which makes the colours of the fish shine brightly.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<p>Probably a micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Daphnia, Moina, grindal worm, etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/ladigesia_roloffi_en/",
       "html": "<p>The fish love to swim. They should be kept in schools.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<p>Peaceful with other species but does not make an ideal community fish due to its small size and somewhat specialised requirements.</p><p>Other small tetras such as Lepidarchus adonis or Neolebias ansorgii make good tankmates as in fact do most similarly-sized, quiet species that enjoy comparable conditions such as many smaller cyprinids, anabantoids, callicthyids and loricariids.</p><p>It's also a suitable companion for many smaller cichlid species, but in all cases thorough research should be conducted prior to purchase.</p><p>Try to buy at least 8-10 specimens since this species is gregarious and the fish will not only be less shy but display more interesting behaviour when maintained in larger groups.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<p>The anterior anal-fin rays are slightly extended in males while gravid females may appear somewhat rounder-bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<p>Not often bred in aquaria although it is apparently possible with soft, acidic water a prerequisite.</p><p>In a mature set-up it's possible that small numbers of fry may start to appear without intervention but should you wish to maximise yield a more controlled approach using a separate aquarium is preferable.</p><p>Good results can apparently be had using a layer of peat topped with a mesh or grille to prevent the adults eating the eggs, and plenty of vegetation with Taxiphylum spp. ideal.</p><p>The adults are conditioned with plenty of live foods before being introduced to the spawning tank in the evening, and should be removed as soon as possible post-spawning, this normally denoted by the female appearing noticeably slimmer.</p><p>Incubation is 24-36 hours with the fry free-swimming within a week, and when they can be seen actively looking for food should be offered microscopic food for the initial period.</p><p>It can be up to a fortnight before they're large enough to accept Artemia nauplii and similar.</p><p>The fry are supposedly very sensitive to fluctuating chemistry and may do best if no water at all is changed during their first few weeks of life.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/ladigesia_roloffi_en/",
       "html": "<p>Ladigesia: dedication name for Werner Ladiges (1910-1984). roloffi: dedication name for Erhard Roloff (1903-1980).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<p>This species is sometimes referred to as 'Sierra Leone dwarf characin' and is the only member of its genus which can be distinguished from other alestids by lacking dorsal scales anterior to the adipose-fin insertion.</p><p>The family Alestidae is the most speciose of the African characiform families with well over 100 recognised members. Most occur in sub-Saharan waters with the greatest diversity to be found in the Congo River system, lower Guinea and coastal rivers of western Africa.</p><p>Alestids were formerly included in the family Characidae before being moved to their own grouping by Géry (1977) and range in size from the giant, piscivorous goliath tigerfish, Hydrocynus goliath, to tiny micropredators such as Lepidarchus adonis.</p><p>Alestidae was originally split into the subfamilies Hydrocyninae (containing the genus Hydrocynus) and Alestinae (containing all other alestids), but monophyly of these was strongly-rejected by later studies. More recently, a system whereby the family is comprised of three putative tribes based on dental morphology has been favoured for practical convenience, and these groupings are diagnosed as follows (Schaefer, 2007):</p><ul><li>the genus Hydrocynus characterised by strong, caniniform, mostly conical teeth.</li><li>the genera Alestes, Brycinus and Bryconaethiops (the Alestiini sensu stricto) characterised by more modest, pluricuspid teeth with the inner row of premaxillary teeth molariform.</li><li>all remaining alestid genera (the Petersiini) characterised by smaller adult size and reduced pluricuspid teeth, with the inner row of premaxillary teeth typically not molariform.</li></ul><p>Following this system Ladigesia would be included in the latter and it was recovered as forming a clade alongside Lepidarchus and Tricuspidalestes in the phylogenetic analyses of Zanata and Vari (2005) who also considered the neotropical genus Chalceus to be a member of Alestidae and revalidated the genus Bryconalestes (Hoedeman, 1951) for the species previously assigned to the 'longipinnis-group' within Brycinus.</p><p>In the more recent molecular study by Arroyave and Stiassny (2011), however, it grouped together with Micralestes while Lepidarchus and Tricuspidalestes were not even recovered as close relatives. The latter authors also removed Chalceus and Arnoldichthys from the Alestidae in order to retain monophyly of the group.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "html": "<ul><li>Paugy, D., C. Lévêque, G. G. Teugels, R. Bigorne and R. Romand (1990). Freshwater fishes of Sierra Leone and Liberia: Annotated checklist and distribution. Revue d'Hydrobiologie Tropicale 23 (4), 329-350</li><li>Paugy, D., C. Lévêque and G. G. Teugels (2003). The Fresh and Brackish Water Fishes of West Africa Volume 1 IRD Éditions, Publication scientifiques du Muséum, MRAC, 1-457</li><li>Zanata, A. M. and R. P. Vari (2005). The family Alestidae (Ostariophysi, Characiformes): a phylogenetic analysis of a trans-Atlantic clade. Zoological Journal of the Linnean Society 145, 1-144</li><li>Arroyave, J. and M. L. J. Stiassny (2011). Phylogenetic relationships and the temporal context for the diversification of African characins of the family Alestidae (Ostariophysi: Characiformes): Evidence from DNA sequence data. Molecular Phylogenetics and Evolution 60(3), 385-397</li><li>Paugy, D. and S. A. Schaefer (2007). Alestidae. In: Stiassny, M. L. J., G. G. Teugels and C. D Hopkins. (Eds), The Fresh and Brackish Water Fishes of Lower Guinea, West-Central Africa. IRD Éditions, Paris, 349-411</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Paugy, D. (1990). Characidae. In: Lévêque, C., D. Paugy and G. G. Teugels. (Eds), Faune des Poissons d'eaux Douce et Saumâtres de l'Afrique de l'Ouest Vol. 1. ORSTOM, Paris, 195-236</li><li>Paugy, D. (1990). Note à propos des Petersiini (Teleostei: Characidae) d'Afrique occidentale. Ichthyological Exploration of Freshwaters 1(1), 75-84</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e012301f1178b790.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e012301f1178b790-480.webp",
+      "width": 799,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ladigesia-roloffi",
+      "caption": "...and appreciates a planted aquarium.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "d10WwCWVOoo",
+      "title": "Jellybean Tetra - Ladigesia roloffi - Rare Nano Aquarium Fish Species Spotlight & Care Guide",
+      "durationSec": 227,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "n5xseVPOOac",
+      "title": "Guinee biotoop bij Aquarium Speciaalzaak Utaka - Ladigesia roloffi",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "s8vIrqIqxAI",
+      "title": "Ladigesia roloffi (jellybean tetra)",
+      "durationSec": 156,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Y1FsIrW9oTw",
+      "title": "Ladigesia roloffi - Géry, 1968 - (Alestidae) - Characidé nain orange - Aqua Porte Dorée - 06/2015",
+      "durationSec": 207,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -72,5 +228,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

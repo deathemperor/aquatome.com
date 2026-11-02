@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/betta-smaragdina
 title: Betta smaragdina (Emerald Betta) · Seriously Fish
-fetchedAt: 2026-11-02T07:13:49.192Z
+fetchedAt: 2026-11-02T12:13:42.796Z
 hash: 8ae03db21691665c573732711cd1ad673c76370d2b1a2529cd7fa60667a01901
 ---
 

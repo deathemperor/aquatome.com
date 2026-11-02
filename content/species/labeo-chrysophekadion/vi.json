@@ -1,22 +1,38 @@
 {
   "slug": "ca-map-den",
-  "name": "Cá mập đen",
+  "name": "Cá chép đen",
   "altNames": [
     "Cá mập đen Đông Nam Á",
-    "Black shark"
+    "Black shark",
+    "Cá mập đen",
+    "Cá hắc kình",
+    "Black sharkminnow"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Tên là cá mập đen nhưng dĩ nhiên nó chẳng phải cá mập. Đây là một loài cá chép thuộc họ Cyprinidae. Cá lớn rất to, có thể dài gần 1 mét và nặng tới 7 kg.</p><p>Cỡ cá thường bán: 6-8 cm.</p>",
     "beforeYouBuy:glaser": "<p>Cũng như nhiều loài cá chép cỡ lớn khác, cá mập đen là loài cá ăn thịt rất được chuộng ở Đông Nam Á. Vì vậy người ta nuôi nó trong các trại thủy sản. Cá con đôi khi theo đường này mà lọt vào thị trường cá cảnh. Với người có bể thật lớn, đây là loài cá rất đáng nuôi.</p>",
     "distribution:glaser": "<p>Nguồn gốc: Thái Lan.</p>",
-    "notes:glaser": "<p>Xét về phân loại thì nó không có họ hàng gì với cá mập. Dù vậy, cái tên “cá mập” vẫn rất hợp, vì cá có vây lưng lớn và hay giương vây này lên khi phô diễn. Loài này còn có dạng bạch tạng, có thể gọi là “cá mập trắng” (white shark).</p>"
+    "notes:glaser": "<p>Xét về phân loại thì nó không có họ hàng gì với cá mập. Dù vậy, cái tên “cá mập” vẫn rất hợp, vì cá có vây lưng lớn và hay giương vây này lên khi phô diễn. Loài này còn có dạng bạch tạng, có thể gọi là “cá mập trắng” (white shark).</p>",
+    "quickFacts:seriouslyfish": "<p>Cá chép đen (black shark), tên khoa học Labeo chrysophekadion, là một loài cá họ cá chép cỡ lớn ở Đông Nam Á. Loài này sống ở sông Mekong, sông Chao Phraya và quần đảo Đại Sunda. Người ta còn gọi nó là black sharkminnow. Cá dài tới 600 mm và rất dữ khi giữ lãnh thổ, nhất là với cá cùng loài và những loài có dáng giống nó. Loài này rõ ràng không hợp với bể cá gia đình nhưng vẫn được bày bán. Người ta còn lai chọn ra cả một dạng bạch tạng để bán.</p><ul><li>Cần bể dài ít nhất 2 m</li></ul>",
+    "distribution:seriouslyfish": "<p>Loài này phân bố rộng khắp Đông Nam Á. Cá có ở lưu vực sông Mekong thuộc Lào, Thái Lan, Campuchia và Việt Nam, ở lưu vực sông Đồng Nai của Việt Nam, và ở hệ thống sông Chao Phraya và Mae Klong của Thái Lan. Ngoài ra cá còn sống ở nhiều lưu vực nhỏ hơn ở miền nam Thái Lan (và có thể cả Myanmar), ở Bán đảo Malaysia và ở Indonesia (các đảo Borneo, Sumatra và Java thuộc quần đảo Đại Sunda).</p><p>Trên đảo Borneo, người ta đã ghi nhận loài này ở hệ thống sông Kapuas thuộc Kalimantan, tức phần đảo của Indonesia. Cá cũng có thể có mặt ở hai bang Sarawak và Sabah của Malaysia.</p><p>Địa điểm thu mẫu chuẩn là 'sông Kalimas, Surabaya, Java, Indonesia'. Con sông này ngày nay có tên là sông Brantas, nằm ở Đông Java.</p>",
+    "habitat:seriouslyfish": "<p>Cá thường sống ở các dòng sông lớn. Tuy vậy, chúng cũng có mặt ở các nhánh sông nhỏ, kênh rạch và vùng đồng bằng ngập lũ. Ở hồ chứa và các công trình trữ nước nhân tạo khác thì ít gặp hơn.</p><p>Cá trưởng thành di cư theo mùa. Chúng xuống vùng ngập lũ để kiếm ăn và ngược lên thượng nguồn để sinh sản (xem mục 'Sinh sản').</p>",
+    "aquariumSize:seriouslyfish": "<p>Loài này chỉ hợp với bể công cộng, hoặc với những bể tư nhân cỡ thật lớn được thiết kế chuyên biệt.</p>",
+    "maintenance:seriouslyfish": "<p>Có ba thứ gần như bắt buộc. Thứ nhất là hệ lọc lớn và đã chạy chín. Thứ hai là lịch chăm sóc nghiêm ngặt, mỗi tuần thay 50–70% nước bể. Thứ ba là nước giàu oxy và có dòng chảy vừa phải.</p><p>Cá còn nhỏ cũng thích có một cái hang hoặc một góc râm để chiếm làm lãnh thổ.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–26°C</li><li>pH: 6,0–8,0</li><li>Độ cứng: 2–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Ngoài tự nhiên, cá chủ yếu gặm aufwuchs, tức lớp tảo và sinh vật nhỏ bám trên bề mặt đá, gỗ. Chúng ăn tảo, giáp xác nhỏ, ấu trùng côn trùng và những thứ tương tự. Muốn cá lên màu đẹp và khỏe nhất, bạn nên cho ăn đều đặn các loại thức ăn sống và đông lạnh cỡ nhỏ như ấu trùng muỗi lắc (trùng huyết), bo bo và Artemia. Bên cạnh đó cho thêm thức ăn khô dạng mảnh, dạng viên loại tốt và rau củ tươi.</p><p>Đậu Hà Lan bóc vỏ, dưa chuột, bí ngòi trụng sơ, rau chân vịt và trái cây cắt nhỏ đều là món bổ sung tốt. Khi đã quen bể, cá thường bơi lên tầng giữa để ăn. Chúng cũng hay gặm lớp màng vi sinh bám trên đá và các bề mặt cứng khác.</p>",
+    "behaviour:seriouslyfish": "<p>Loài này có thể khá hung hăng. Chúng giữ lãnh thổ rất gắt với cá cùng loài và những loài có dáng giống mình. Bể càng chật thì chuyện đánh nhau càng dễ xảy ra.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá cái đã trưởng thành nhiều khả năng có thân cao hơn cá đực. Cá cái cũng có thể lớn hơn cá đực.</p>",
+    "reproduction:seriouslyfish": "<p>Ngoài tự nhiên, cá sinh sản theo mùa, vào đầu mùa mưa. Có vẻ cá đẻ ở phía thượng nguồn của các bãi cát nông. Trứng lắng xuống đó và nở khi nước bắt đầu lên. Sau đó cá bột bơi vào đám cây cỏ ven sông bị ngập. Lũ càng dâng thì cá bột càng men theo mép nước mà đi.</p>",
+    "notes:seriouslyfish": "<p>L. chrysophekadion còn có tên là 'black sharkminnow'. Loài này rõ ràng không hợp với bể cá gia đình nhưng vẫn có bán trên thị trường cá cảnh. Người ta còn lai chọn ra một dạng bạch tạng để bán.</p><p>Muốn phân biệt loài này với các loài khác cùng chi, cần dựa vào cả một tổ hợp đặc điểm. Thân và vây cá màu đen. Vây lưng lớn, các tia vây lưng phân nhánh phía trước dài hơn đầu, và mép ngoài vây thẳng hoặc hơi lõm. Vây lưng có 15–18½ tia phân nhánh. Cả hai môi đều có tua. Cá con đen toàn thân. Cá trưởng thành cỡ lớn có màu xám đến đen, và mỗi vảy có một đốm óng ánh.</p><p>Chi Labeo là một nhóm còn nhiều điều chưa rõ, gồm hơn 100 loài, và rất cần được xem xét lại về phân loại. Các loài trong chi sống ở phần lớn châu Phi và châu Á. Chúng được xếp vào tộc Labeonini thuộc phân họ Cyprininae của họ cá chép (phân họ này vẫn mang tính giả định), hoặc gọi gọn là phân họ Labeoninae (tên gọi tùy tác giả). Theo nghiên cứu phát sinh loài mới nhất, nhóm này lại chia tiếp thành bốn phân tộc là Labeoina, Garraina, Osteochilina và Semilabeoina (Yang et al., 2012). Labeo thuộc phân tộc Labeoina. Cùng phân tộc với nó có Bangana sensu stricto (gồm cả chi Nukta), Cirrhinus sensu stricto, Cirrhinus microlepis (thuộc dòng di truyền khác với các loài Cirrhinus còn lại), Gymnostomus và Incisilabeo.</p><p>Nghiên cứu này dùng ba mươi loài Labeo. Kết quả cho thấy chi này là đa ngành, dù tất cả các loài đều nằm trong nhánh Labeoina (Yang et al., 2012). Labeo boggut, L. bata và L. bata var. hợp thành một nhánh với Incisilabeo behri, Schismatorhynchos nukta, Bangana dero (loài chuẩn của chi Bangana) và B. sp. Salween. Tất cả các loài Labeo còn lại tạo thành một nhóm gọi là Labeo sensu stricto, và nhóm này có cả Gibelion catla. Các tác giả nghiên cứu đề nghị coi Gibelion là tên đồng nghĩa của Labeo, tức gộp Gibelion catla vào Labeo. Tuy vậy, đề xuất này có vẻ chưa được chấp nhận rộng rãi (ví dụ Kottelat, 2013).</p>",
+    "references:seriouslyfish": "<ul><li>Bleeker, P. (1849). Bijdrage tot de kennis der ichthyologische fauna van Midden- en Oost-Java, met beschrijving van eenige nieuwe species. Verhandelingen van het Bataviaasch Genootschap van Kunsten en Wetenschappen. 23(12), 1-23</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379</li></ul>"
   },
   "quality": {
     "score": 0.6,
     "indexable": false,
     "bySource": {
-      "glaser": 0.6
+      "glaser": 0.6,
+      "seriouslyfish": 0.6
     },
-    "reason": "thin"
+    "reason": "score"
   }
 }

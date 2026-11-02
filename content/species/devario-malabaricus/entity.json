@@ -7,9 +7,57 @@
   "group": "danios",
   "places": [
     "asia",
-    "sri-lanka"
+    "sri-lanka",
+    "india",
+    "kaveri"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -18,55 +66,174 @@
       "html": "<p>The Giant or Malabar Danio is one of the most popular aquarium fish at all. The species takes some time to settle when brought in a new tank and until then it looks a bit silvery. But when the males get in brooding mood they leave no doubts why this species of fish is a favorite ornamental fish for more than 100 years now.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Weekly water changes of 30-50% volume should be considered routine.</p><p>The giant 'danio', Devario malabaricus, is a deep-bodied devario from peninsular India, living in hill streams and upper parts of small rivers. Most older aquarium literature labels it D. aequipinnatus, but genetic and morphological data have shown the traded fish to be D. malabaricus. It has a blue-and-yellow colour pattern and a P stripe extending to the fork of the caudal fin. Its true range is uncertain and may be confined to western-flowing drainages of India.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<p>Described from 'Malabar, India' and currently accepted to range throughout the Indian peninsula and Sri Lanka, though in reality it may be confined to western-flowing drainages of India, and possibly even to the state of Kerala (R. Kumar, pers. comm.). The precise extent of its range is only likely to be solved with further study.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<p>Inhabits hill streams and upper parts of small rivers containing clear, well-oxygenated water with substrates of gravel and variably-sized rocks and some marginal or over-hanging vegetation.</p><p>Water flow, volume and turbidity are highly variable depending on time of year, and some populations survive in remnant pools during the dry season.</p><p>In the Cauvery River, Karnataka state, southern India sympatric species include Opsarius gatensis, Puntius bimaculatus, Pethia conchonius, Rasbora daniconius, Schistura semiarmatus, Lepidocephalichthys thermalis, Aplocheilus blockii, A. lineatus, A. panchax, Badis sp., Channa gachua, C. punctata, Glossogobius giuris, Mastacembelus armatus, Oryzias dancena, and Chanda ranga.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<p>An aquarium with base dimensions of 120 × 45 cm or equivalent should be the minimum considered. Volume: about 243 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<p>Not difficult to keep in a well-maintained aquarium. It's likely to thrive in an aquarium set up to resemble a flowing stream or river with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders.</p><p>This can be further furnished with driftwood roots or branches, and while the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p><p>Since it naturally occurs in pristine habitats it's probably intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive.</p><p>Though very fast flow is unnecessary it also prefers a relatively high proportion of dissolved oxygen and moderate water movement.</p><p>Weekly water changes of 30-50% volume should be considered routine, and the tank must have a very tightly-fitting cover as all Devario spp. are accomplished jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<ul><li>Temperature: 18–25°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<p>Almost certain to prey chiefly on insects and their larvae in nature though in captivity it's far from selective and easily fed.</p><p>A good quality dry food can be used as the staple diet but this should be supplemented with regular meals of small live and frozen foods such as bloodworm, Daphnia, Artemia, etc., for the best colouration and conditioning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<p>Not an aggressive fish but may upset slow-moving or timid tankmates with its constant activity and vigorous feeding behaviour, and is therefore most appropriate for larger aquaria containing robust, similarly-sized fishes.</p><p>There are plenty of suitable choices including many cyprinids, loaches, cichlids, catfishes and characins, although as always when selecting a compatible community of fish proper research is essential.</p><p>It's a schooling species by nature and ideally should be kept in a group of at least 8-10 specimens which will not only make the fish less nervous but result in a more effective, natural looking display.</p><p>Any aggression will also be contained as the fish concentrate on maintaining their hierarchical position within the group, and males tend to display better colours in the presence of rivals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<p>Sexually mature females should be rounder-bellied, less colourful and a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<p>Like most small cyprinids Devario spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a well-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention. However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller tank with a base measuring at least 60 cm × 30 cm should also be set up and filled with mature water. This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced. If ready, spawning usually takes place within 24 hours, with the female tending to appear noticeably slimmer after the event, and after 48 hours the adults should be removed whether this is observed or not.</p><p>Incubation is temperature-dependent to an extent but typically lasts 24-36 hours with the young free-swimming a few days later. Initial food should be Paramecium or similar, introducing Artemia nauplii, microworm, powdered dry foods, etc. once the fry are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario_malabaricus_en/",
       "html": "<p>The photos show animals of our current stock which we imported from Sri Lanka.</p><p>For our customers: the fish have code 413703 on our stocklist. Please note that we exclusively supply the wholesale trade.</p><p>Text &amp; photos: Frank Schäfer</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<p>Genetic and morphological data has revealed the fish in the aquarium trade which is usually referred to as 'giant danio' and labelled with the scientific name D. aequipinnatus in the majority of older aquarium literature is actually D. malabaricus (R. Collins, pers. comm.).</p><p>These two nominal species are frequently confused but their identities are in a state of disarray, particularly that of the latter since the drawing accompanying the original description by McClelland depicts a fish with a deeply-forked caudal fin but completely plain colour pattern and no reference to any caudal-fin patterning or stripes on the body.</p><p>D. malabaricus possesses a moderately deep body, 35-38 scales in the lateral series, at least 15 rays in the unpaired fins, a complex axial skeleton, a vertically-extended cleithral marking and a P stripe that extends to the fork of the caudal fin, whereas D. aequipinnatus probably has a less deep body, 31-34 scales in the lateral series, 13 rays in the unpaired fins, a well-defined, rounded cleithral marking and a P stripe that probably does not extend into the caudal fin, rather terminating at its base.</p><p>The two are also separated geographically, D. malabaricus native to the Indian peninsula and D. aequipinnatus inhabiting the Brahmaputra River system in northeastern India.</p><p>D. malabaricus is one of a group of similar-looking, deep-bodied congeners with a blue-and-yellow colour pattern alongside D. anomalus, D. assamensis, D. devario, D. ostreographus and D. regina among other nominal species.</p><p>The current genus name has only been in general use since 2003 prior to which members were considered to belong to the genus Danio. In 2003 Fang Fang conducted a detailed study based on morphological characters which suggested that the genus Danio as previously considered represents a polyphyletic grouping. The genus name Devario was suggested for the larger species with Danio being applied only to the smaller fish, although Kottelat (2013) later restricted Danio to its type species, D. dangila, and placed most former members in the revalidated genera Brachydanio and Celestichthys. Kullander (2015), the Catalog of Fishes and FishBase do not follow that split and keep those species in Danio.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "html": "<ul><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Mayden, R. L., et al. (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Pramod, P. K., et al. (2010). Betadevario ramachandrani a new danionine genus and species from the Western Ghats of India (Teleostei: Cyprinidae: Danioninae). Zootaxa 2519, 31-47</li><li>Tang, K. L., et al. (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Conway, K. W., R. L. Mayden, and K. L. Tang (2009). Devario anomalus, a new species of freshwater fish from Bangladesh (Ostariophysi: Cyprinidae). Zootaxa 2136, 49-58</li><li>Jayaram, K. C. (1991). Systematic status of Danio malabaricus (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 2(2), 109-112</li><li>Collins R. A., et al. (2012). Barcoding and border biosecurity: identifying cyprinid fishes in the aquarium trade. PLoS ONE 7(1), e28381</li><li>Jerdon, T. C. (1849). On the fresh-water fishes of southern India. Madras Journal of Literature and Science 15(1), 139-149</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/f750b4176e6c818d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f750b4176e6c818d-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "caption": "Specimen from Kerala, southwestern India.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/eb277a729507474c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/eb277a729507474c-480.webp",
+      "width": 640,
+      "height": 264,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-malabaricus",
+      "caption": "Specimen from the aquarium trade...",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/32ea6cc6a9e7c883.webp",
+      "thumb": "https://media.aquatome.com/commons/32ea6cc6a9e7c883-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Shifu Tanks",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devario_malabaricus_-_mid-water_lateral_profile_against_aquatic_plants_(aquarium).jpg",
-      "caption": "Lateral profile of Devario malabaricus in a freshwater planted aquarium. The fish is photographed mid-water with dense aquatic plants behind it, making the body pattern - blue stripe and yellow lines ",
-      "thumb": "https://media.aquatome.com/commons/32ea6cc6a9e7c883-480.webp"
+      "caption": "Lateral profile of Devario malabaricus in a freshwater planted aquarium. The fish is photographed mid-water with dense aquatic plants behind it, making the body pattern - blue stripe and yellow lines "
     },
     {
       "url": "https://media.aquatome.com/commons/2aae632923e532b9.webp",
+      "thumb": "https://media.aquatome.com/commons/2aae632923e532b9-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Shifu Tanks",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devario_malabaricus_(Malabar_danio)_-_lateral_view_in_planted_aquarium_(right-facing).jpg",
-      "caption": "Side profile of Devario malabaricus (Malabar danio) in a planted freshwater aquarium. The photo clearly shows the characteristic blue horizontal stripe, yellow lines along the body, and translucent fi",
-      "thumb": "https://media.aquatome.com/commons/2aae632923e532b9-480.webp"
+      "caption": "Side profile of Devario malabaricus (Malabar danio) in a planted freshwater aquarium. The photo clearly shows the characteristic blue horizontal stripe, yellow lines along the body, and translucent fi"
     },
     {
       "url": "https://media.aquatome.com/commons/ac554b22cc78e160.webp",
+      "thumb": "https://media.aquatome.com/commons/ac554b22cc78e160-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Shifu Tanks",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devario_malabaricus_-_adult_coloration_with_schooling_fish_in_background_(aquarium).jpg",
-      "caption": "Devario malabaricus in a planted freshwater aquarium, photographed mid-water. The image shows the species’ blue lateral stripe and yellow line pattern; additional fish are visible out of focus, illust",
-      "thumb": "https://media.aquatome.com/commons/ac554b22cc78e160-480.webp"
+      "caption": "Devario malabaricus in a planted freshwater aquarium, photographed mid-water. The image shows the species’ blue lateral stripe and yellow line pattern; additional fish are visible out of focus, illust"
     },
     {
       "url": "https://media.aquatome.com/commons/77b31437ac75299d.webp",
+      "thumb": "https://media.aquatome.com/commons/77b31437ac75299d-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Shifu Tanks",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devario_malabaricus_-_left-facing_lateral_view_near_water_surface_(aquarium).jpg",
-      "caption": "Lateral view of Devario malabaricus photographed near the water surface in a freshwater aquarium. The fish’s horizontal striping and translucent fins are clearly visible; the waterline and aquarium li",
-      "thumb": "https://media.aquatome.com/commons/77b31437ac75299d-480.webp"
+      "caption": "Lateral view of Devario malabaricus photographed near the water surface in a freshwater aquarium. The fish’s horizontal striping and translucent fins are clearly visible; the waterline and aquarium li"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "e2LNjpWcyx8",
+      "title": "Giant Danios (Devario malabaricus)",
+      "durationSec": 295,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "asx-C509mow",
+      "title": "Danio (Devario) malabaricus swarming after adding fresh water",
+      "durationSec": 102,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-eB2KuNfa4Y",
+      "title": "Devario malabaricus in an Eastern Ghat Hillstream",
+      "durationSec": 107,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "4X0Os5XUYMI",
+      "title": "ジャイアントダニオ　Malabar danio　Devario malabaricus",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -90,5 +257,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-02"
 }

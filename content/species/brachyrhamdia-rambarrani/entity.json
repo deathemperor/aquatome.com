@@ -18,6 +18,13 @@
           "min": 24,
           "max": 26
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -27,11 +34,22 @@
           "min": 5.8,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
+        "value": 5.5
+      },
+      {
+        "source": "seriouslyfish",
         "value": 5.5
       }
     ],
@@ -39,6 +57,25 @@
       {
         "source": "planetcatfish",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
       }
     ]
   },
@@ -50,16 +87,52 @@
       "html": "<ul><li>Scientific name: Brachyrhamdia rambarrani (Axelrod &amp; Burgess, 1987)</li><li>Common name: False Adolfoi</li><li>Size: 55 mm (2.2 in) SL</li><li>Synonym: Pimelodella rambarrani</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<p>The false adolfoi, Brachyrhamdia rambarrani, is a heptapterid catfish from the Rio Unini, a blackwater tributary of the lower rio Negro in Brazil. It occurs with, and mimics, Hoplisoma davidsandsi, sharing its basic colour pattern, while the common name comes from its resemblance to H. adolfoi. Rarely seen in the trade, it tends to turn up as a contaminant among shipments of other species.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
       "html": "<p>South America: Unini River basin in the upper Negro River drainage, Brazil. Type locality: Rio Unini, tributary of Rio Negro, Amazonas, Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<p>Described from the Rio Unini, a tributary of the lower rio Negro basin in Amazonas state, northwestern Brazil. Much of the river lies in a protected area which may explain why this species is so poorly-known in the aquarium hobby. It's also popular with sports anglers fishing for Cichla spp.</p><p>N.B. this species is often said to be native to the upper rio Negro but on every map checked the rio Unini is located in the lower part of the watershed, between Manaus and Barcelos.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<p>The Unini is a typical black water river system, with water poor in nutrients, very soft, of low pH, and stained deeply with tannins released by decomposing organic matter. B. rambarrani occurs syntopically with, and is a mimic of, Hoplisoma davidsandsi, with which it shares basic colour pattern.</p><p>It remains unclear if this adaptation evolved as a means of protection from predators or to provide a competitive feeding advantage whereby items unearthed by the Corydoras school, and possibly their eggs, are consumed.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<p>Standard length: 55 mm SL.</p><p>Aquarium base: 80 × 30 cm or equivalent.</p><p>Volume: ~72 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<p>A substrate of fine sand is ideal, and the tank can be further-decorated with driftwood roots and branches. Although aquatic plants aren't likely to be a feature of its natural habitat species from genera such as Microsorum, Taxiphyllum, Cryptocoryne and Anubias may survive attached to items of décor. The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel.</p><p>It's intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive, therefore a stringent regime of weekly partial water changes and aquarium maintenance should be employed.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
       "html": "<p>pH 5.8 - 7.0. Temperature 24.0-26.0°C (75.2-78.8°F).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 4.0–7.0</li><li>Hardness: 0–10 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -74,10 +147,28 @@
       "html": "<p>Will eat most foods to the point of bursting. Care must be taken not to overfeed, especially with foods that expand once inside the fish. Live foods are relished but best used for acclimatizing or conditioning individuals.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<p>Brachyrhamdia spp. feed mostly on benthic invertebrates in nature. In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although sinking dried foods are also accepted.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
       "html": "<p>A peaceful fish both with its own species and with Corydoras. The only drawback is that it will eat small tetras and young fish. Fish larger than 1 inch are too large to eat and will not otherwise be molested.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<p>Generally non-aggressive although very small fishes might be eaten, and comparably-shaped catfishes with different colour pattern, e.g., spotted Corydoras spp. may be subject to harassment. It's best-maintained alongside a group of a similarly-patterned Corydoras sp. such as Hoplisoma adolfoi, H. davidsandsi, H. duplicareum, etc., and in the absence of other benthic species. Characids, gasteropelecids, or lebiasinids of sufficient size to escape predation are ideal for the upper levels.</p><p>Brachyrhamdia spp. are not especially gregarious with conspecifics but more than one can usually be maintained provided the aquarium is not too small.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<p>Mature females should be noticeably fuller in the body than males.</p>"
     },
     {
       "key": "reproduction",
@@ -86,16 +177,34 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<p>Unrecorded, but spawning of B. imitator has been observed and was apparently initiated by a group of cohabiting Hoplisoma melanistium which began to spawn just prior to the Brachyrhamdia.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
       "html": "<p>Only potentially confused with Corydoras imitator or similar. Anything more than a quick glance reveals the long barbels and naked flanks. Sexing: unknown. Fishbase lists 70 mm TL. IUCN Red List: Least Concern (last assessed 2018).</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<p>This species is rarely-seen in the aquarium trade and only tends to be encountered as a contaminant among shipments of other species. The vernacular name is derived from its resemblance to Hoplisoma adolfoi, though the two may not actually occur together in nature.</p><p>Several Brachyrhamdia species have developed colour patterns that mimic syntopically-occurring Corydoras spp. throughout the life-cycle, and the remainder may mimic Otocinclus or smaller Corydoras spp. when juvenile. They're easily told apart from Corydoras by their significantly longer barbels and lack of scute-like plates on the body.</p><p>Among other catfishes they're closely-related to members of the genus Pimelodella, but differ in that the posterior cranial fontanelle is closed and forms two small foramina whereas in Pimelodella it is wide open.</p><p>The family Heptapteridae was previously considered a subfamily (Rhamdiinae) of the family Pimelodidae, but molecular studies appear to have confirmed its monophyly. It's most closely-related to the familes Pimelodidae, Pseudopimelodidae, and the genus Conorhynchos.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=117",
       "html": "<p>Tropical Fish Hobbyist v. 35 (no. 12), pp 24, Figs.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Baensch, H. A. and R. Riehl (1991). Aquarium Atlas volume 3 Mergus, Verlag für Natur- und Heimtierkunde, Germany, 1-1104</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li></ul>"
     }
   ],
   "photos": [
@@ -144,7 +253,14 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "u1vrXZ4xogg",
+      "title": "Brachyrhamdia rambarrani",
+      "durationSec": 7,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -174,5 +290,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

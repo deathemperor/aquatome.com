@@ -5,7 +5,11 @@
   "family": "Callichthyidae",
   "genus": "Corydoras",
   "group": "catfish",
-  "places": [],
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
   "dataCard": {
     "ph": [
       {
@@ -14,6 +18,43 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ]
   },
@@ -25,10 +66,40 @@
       "html": "<p>A very cool, uncommon species of corydoras. It has a black line across its back and a black vertical mask in the eye area.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<p>Max size: 60 mm SL (6 cm). Temperature: 20–26°C. pH: 4.0–7.0. Hardness: 1–5 dGH.</p><p>Adolfo's cory, Hoplisoma adolfoi, long known as Corydoras adolfoi, is an armoured catfish apparently highly endemic to the upper rio Negro near São Gabriel da Cachoeira, Brazil. One of several rio Negro Corydoras with an oblique dark bar along the back, it is most easily confused with H. duplicareum and cannot be separated from it reliably by colour. It inhabits pristine blackwater tributaries and flooded forest.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<p>Type locality is given as 'Small tributary of the upper Rio Negro on the equator near São Gabriel da Cachoeira, Brazil', and this species is apparently highly endemic there.</p><p>Some sources state that it also occurs in the rio Uaupés (known as 'Vaupés' in Colombia), a major tributary of the Negro, but official confirmation has not been obtained so far.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<p>Inhabits pristine blackwater tributaries and areas of flooded forest where the water is characteristically stained dark with organic chemicals.</p><p>In the rio Negro basin such habitats typically contain tea-coloured water with very little detectable hardness, low conductivity, and a pH of 4.0-6.0, with other fishes comprising small characids, lebiasinids, and dwarf cichlids of the genus Apistogramma.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p><p>Driftwood branches and dried leaf litter are useful additions, the latter in particular driving establishment of microbe colonies as decomposition occurs.</p><p>Such microorganisms can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves are also thought beneficial and help simulate natural conditions.</p><p>Filtration need only be gentle with an air-powered sponge-style unit normally adequate, although a degree of water movement is acceptable.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
       "html": "<p>Currently kept at a pH of 6-7, but they can adapt to a variety of pH.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<p>Temperature: 20–26°C</p><p>pH: 4.0–7.0, though wild fish may do best towards the middle and lower ends of this range.</p><p>Hardness: 1–5 dGH; notes for wild fish as per pH.</p>"
     },
     {
       "key": "diet",
@@ -37,35 +108,107 @@
       "html": "<p>Currently fed blackworms, frozen bloodworms and pellets.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/adolfos-cory-corydoras-adolfoi",
       "html": "<p>They are very peaceful and suitable for many community tanks. Do not keep them with big fish that may try to eat them, as this will likely result in the death of both fish. They are best kept in groups as they like to school here and there.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of 2 males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs are normally deposited on the aquarium glass, but it's recommended to provide alternatives in the form of fine-leaved vegetation or fine spawning mops.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They are not the easiest to raise, requiring excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare-bottomed arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<p>This species is among a number of congeners native to the rio Negro region to possess a colour pattern with an oblique dark bar running along the dorsal surface of the body.</p><p>This unofficial group also includes Hoplisoma burgessi, H. davidsandsi, H. duplicareum, Brochis imitator, H. melini, and Corydoras serratus, and among these H. adolfoi is most easily-confused with H. duplicareum.</p><p>The oblique dark body bar tends to be less broad in H. adolfoi, and the orange patch of pigment on the nape less intense than in H. duplicareum, but these characters cannot be used to separate the species reliably.</p><p>H. duplicareum does possess serrations on the posterior edge of the pectoral-fin spine which are lacking in H. adolfoi, but these are almost impossible to see with the naked eye.</p><p>The existence of multiple, similarly-coloured species which coexist and form large mixed schools is relatively common in the genus. In some cases Corydoras colour patterns have even evolved in other taxa, such as certain members of the genera Otocinclus, Brachyrhamdia, and Serrapinus. The reason for the success of such patterns is thought to be protection from predators in that they feature cryptic or otherwise disruptive details such as stripes, reticulations, or strongly-coloured fin spines. Similarly-patterned species may therefore have evolved to take advantage of foraging in a larger group while simultaneously adapting to exploit contrasting ecological niches. In Corydoras, this is typically expressed via differences in snout length or mouth position, for example.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Hoplisoma.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Greven, H., T. Flasbeck and D. Passia (2006). Axillary glands in the armoured catfish Corydoras aeneus (Callichthyidae, Siluriformes). Verhandlungen der Gesellschaft für Ichthyologie, Band 5, 65-69</li><li>Britto, M. R. and F. C. T. Lima (2003). Corydoras tukano, a new species of corydoradine catfish from the rio Tiquié, upper rio Negro basin, Brazil (Ostariophysi: Siluriformes: Callichthyidae). Neotropical Ichthyology 1(2), 83-91</li><li>Ferraris, C. J., Jr. and R. P. Vari (1992). Catalog of type specimens of Recent fishes in the National Museum of Natural History, Smithsonian Instituion, 4: Gonorynchiformes, Gymnotiformes, and Siluriformes (Teleostei: Ostariophysi). Smithsonian Contributions to Zoology 535, 1-52</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Burgess, W. E. (1982). Corydoras adolfoi, a new species of catfish (Siluriformes, Callichthyidae) from the upper Rio Negro, Brazil, near Sao Gabriel da Cachoeira. Tropical Fish Hobbyist 30(7), 15-16</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/d324fadec027938c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d324fadec027938c-480.webp",
+      "width": 797,
+      "height": 323,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "caption": "Typical colour pattern of Corydoras duplicareus (left) vs. C. adolfoi (right), although the differences are not always as pronounced.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/241e4896ed03734d.webp",
+      "thumb": "https://media.aquatome.com/commons/241e4896ed03734d-480.webp",
       "width": 960,
       "height": 624,
       "licence": "CC BY-SA 4.0",
       "author": "Corydoras-adolfoi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras-adolfoi-alone.jpg",
-      "caption": "A single Corydoras adolfoi.",
-      "thumb": "https://media.aquatome.com/commons/241e4896ed03734d-480.webp"
+      "caption": "A single Corydoras adolfoi."
     },
     {
       "url": "https://media.aquatome.com/commons/1f8fbe3ab3aaf383.webp",
+      "thumb": "https://media.aquatome.com/commons/1f8fbe3ab3aaf383-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 4.0",
       "author": "Corydoras-adolfoi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras-adolfoi.jpg",
-      "caption": "Two Corydoras adolfoi.",
-      "thumb": "https://media.aquatome.com/commons/1f8fbe3ab3aaf383-480.webp"
+      "caption": "Two Corydoras adolfoi."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "dDyyMwq5NO0",
+      "title": "One of THE Best! Adolfo's Cory Cat Care and Breeding",
+      "durationSec": 511,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6dhD7ZFVNzU",
+      "title": "Todo lo que necesitas saber Sobre Corydoras adolfoi",
+      "durationSec": 1046,
+      "lang": "es"
+    },
+    {
+      "youtubeId": "FaoBElnvsuY",
+      "title": "Adolfoi Corydora Addition",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oWNAmYFYmQE",
+      "title": "Corydoras Adolfoi - Cleaning up the Fishroom Cory Cat",
+      "durationSec": 334,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -96,5 +239,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

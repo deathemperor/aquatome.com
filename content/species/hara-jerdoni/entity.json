@@ -9,13 +9,57 @@
     "asia",
     "india",
     "myanmar",
-    "thailand"
+    "thailand",
+    "bangladesh"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.6,
+          "max": 7.6
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -27,10 +71,28 @@
       "html": "<p>Hara jerdoni is a tiny moth catfish that attains only a length of 2-3 cm and has very, very long pectoral fin spines. In some swimming positions it looks like a passenger airplane.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<p>The Asian stone catfish, Hara jerdoni, is a tiny sisorid catfish from India and Bangladesh, found in slow-moving streams and small rivers. It grows to around 30 mm SL and is told apart from others in the genus by its elongated pectoral spines. It and its congeners also go by the name moth catfish, after their patterning and shape when viewed from above. Very peaceful, it prefers soft substrates and is outcompeted by active bottom-dwelling species.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/hara_jerdoni_en/",
       "html": "<p>Moth cats (Hara) occur in India, Burma, and Thailand. The species are very difficult to tell apart, in many cases it is simply impossible in live animals. There are a few species that can be determined by a filament on the caudal fin, but most of the species are extremely similar looking. Hara jerdoni is an exception to this rule.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<p>India, Bangladesh.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<p>Inhabits slow-moving streams and small rivers. Its preferred habitats are characterised by soft substrates.</p>"
     },
     {
       "key": "aquariumSize",
@@ -39,10 +101,58 @@
       "html": "<p>Since Hara in general do not swim a lot, all species can be kept in small tanks.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<p>30 × 20 × 20 cm, about 12 litres. Not only is this species tiny, it's also very inactive, and so doesn't need much room. If keeping it in a very small tank you must pay extreme care to water parameters (see below).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<p>Provide as many hiding places as possible, along with a soft, sandy substrate. The addition of some dried beech or oak leaves and pieces of driftwood would simulate the natural habitat of the fish nicely. The water must be kept clean, relatively cool and well-oxygenated or the fish will suffer as its natural waters are high in dissolved oxygen.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 5.6–7.6</li><li>Hardness: 8–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<p>It will accept most small foods, including dried pellets, but should be offered a diet composed mainly of live and frozen varieties, such as bloodworm, daphnia etc. It's strictly a nocturnal feeder so add food after lights out to ensure it gets its share.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/hara_jerdoni_en/",
       "html": "<p>Moth catfish are very peaceful towards conspecifics and other fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<p>A very peaceful little cat that fits well into communities of other small species, or into a biotope setup with other Asian stream-dwelling species, such as Dario sp. and danios. Don't keep it with any active bottom-dwelling species or it will be out-competed for food easily. It can be kept with others of its own kind without any problems, and in fact prefers to be kept in a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<p>Unknown. It is likely that females will appear broader than males when full of eggs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<p>Has been bred in aquaria, but unfortunately very few details are available. Apparently the eggs were deposited in spawning mops.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hara-jerdoni",
+      "html": "<p>This delightful little species can be distinguished from others in the genus by its elongated pectoral spines. It, and others in the genus (and also the closely related genus Erithistes), also go by the common name of moth catfish due to their patterning and shape when viewed from above.</p>"
     }
   ],
   "photos": [],
@@ -68,5 +178,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-02"
 }

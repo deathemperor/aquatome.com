@@ -7,13 +7,60 @@
   "group": "labyrinth",
   "places": [
     "africa",
-    "congo"
+    "congo",
+    "republic-of-the-congo",
+    "democratic-republic-of-the-congo",
+    "angola",
+    "madagascar"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -25,22 +72,88 @@
       "html": "<p>Wild-caught red dwarf bushfish from the Congo. The species belongs to the bubble-nest builders and grows to about 6-8 cm long. The fish are currently 3-4 cm long.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<p>The ornate ctenopoma, Microctenopoma ansorgii, is an anabantoid from the Congo basin in the Republic of Congo and Democratic Republic of Congo. The most colourful of the African anabantoids, it is relatively rare in the hobby because its habitat of densely vegetated small streams is hard to collect from. It can be difficult to acclimatise but is very hardy once settled, and it is a slow-moving fish that is easily out-competed at feeding time.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<p>Native to the River Congo basin in parts of both the Republic of Congo and Democratic Republic of Congo. Apparently a feral population exists on the island of Madagascar.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<p>In nature it can be found in small streams, inhabiting areas of dense vegetation close to the riverbanks.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<p>Standard length: 7 cm. Suggested tank: 75 x 30 x 30 cm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<p>Prefers a densely planted tank with lots of floating cover and stained water. Peat filtration is beneficial. The tank should be well-covered as these fish are great escape artists.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<ul><li>Temperature: 20–27°C, but aim for the upper end of this range.</li><li>pH: 5.5–7.5</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<p>Provide a diet consisting mainly of small frozen or live food. Rarely accepts dried foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<p>This is quite a slow-moving fish and will easily be out-competed by more boisterous species at feeding time, so is best kept with small, peaceful species that inhabit the upper and lower parts of the tank such as hatchetfish, lampeyes, corydoras and small loricariids. It is stunning enough to deserve a species tank, in which it will do best. Males may be aggressive to one another, particularly if spawning.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<p>Males are the larger sex and are much more colourful. They also have white edges to the anal and dorsal fins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en/",
       "html": "<p>The species belongs to the bubble-nest builders.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<p>Possible but tricky. Bubblenester. A dimly-lit, well-planted aquarium with lots of floating plants and soft, acidic water is required to spawn these fish. Condition them with live food. The male will build a very small, loose bubblenest of large bubbles amongst floating vegetation or under a broad leaf. Spawning occurs under the nest in a typical anabantoid embrace. Up to 600 eggs may be laid, which hatch in around 24 hours and become free-swimming in 2-3 days. It is best to remove the parents after hatching. The fry are tiny and should be fed infusoria for the first week, after which they will accept brine shrimp nauplii.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
+      "html": "<p>This is the most colourful of the African anabantoids and is much sought after by hobbyists. A male in full breeding dress is truly a sight to behold. It is difficult to collect a lot of fish from these habitats and so M. ansorgei is relatively rare in the hobby. These fish can be difficult to acclimatise but once settled are very hardy and can live up to 5 years in the aquarium.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/abefbf6f22274ae4.webp",
+      "thumb": "https://media.aquatome.com/commons/abefbf6f22274ae4-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY 3.0",
       "author": "Juan Carlos Palau Díaz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microctenopoma_ansorgii_2.jpg",
-      "caption": "Microctenopoma ansorgii",
-      "thumb": "https://media.aquatome.com/commons/abefbf6f22274ae4-480.webp"
+      "caption": "Microctenopoma ansorgii"
     }
   ],
   "videos": [],
@@ -66,5 +179,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-02"
 }

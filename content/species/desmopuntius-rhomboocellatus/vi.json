@@ -1,30 +1,45 @@
 {
- "slug": "ca-diec-da-ran",
- "name": "Cá diếc da rắn",
- "altNames": [
-  "Orange barb"
- ],
- "sections": {
-  "quickFacts:glaser": "<p>Chúng tôi đã nhận được những cá thể bắt ngoài tự nhiên rất đẹp từ Borneo. Cá đực có nhiều màu đỏ trong màu nền cơ bản.</p>",
-  "reproduction:glaser": "<p>Việc nuôi và nhân giống tương tự như loài họ hàng gần được biết đến nhiều hơn là Barbus pentazona.</p>",
-  "beforeYouBuy:glaser": "<p>Dành cho khách hàng của chúng tôi: các cá thể này có mã 370923 trong danh sách hàng. Xin lưu ý rằng chúng tôi chỉ cung cấp cho thị trường bán buôn.</p>"
- },
- "quality": {
-  "score": 0.85,
-  "indexable": true,
-  "bySource": {
-   "glaser": 0.85
-  }
- },
- "nameFixed": true,
- "redirectFrom": [
-  {
-   "slug": "ca-ngua-van-cam",
-   "name": "Cá ngựa vằn cam"
+  "slug": "ca-diec-da-ran",
+  "name": "Cá diếc da rắn",
+  "altNames": [
+    "Orange barb",
+    "Cá barb vằn da rắn",
+    "Snakeskin Barb"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Chúng tôi đã nhận được những cá thể bắt ngoài tự nhiên rất đẹp từ Borneo. Cá đực có nhiều màu đỏ trong màu nền cơ bản.</p>",
+    "reproduction:glaser": "<p>Việc nuôi và nhân giống tương tự như loài họ hàng gần được biết đến nhiều hơn là Barbus pentazona.</p>",
+    "beforeYouBuy:glaser": "<p>Dành cho khách hàng của chúng tôi: các cá thể này có mã 370923 trong danh sách hàng. Xin lưu ý rằng chúng tôi chỉ cung cấp cho thị trường bán buôn.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá barb da rắn (Desmopuntius rhomboocellatus) là một loài thuộc họ cá chép, chỉ có ở miền nam Kalimantan, phần đảo Borneo thuộc Indonesia. Người ta đã ghi nhận loài này ở nhiều hệ thống sông, trong đó có Kapuas, Kepayang và Barito. Chúng hay sống ở đầm lầy than bùn, suối nước đen và những vùng nước tĩnh khác có cây thủy sinh mọc chìm, hai bên bờ cây cối rậm rạp.</p>",
+    "distribution:seriouslyfish": "<p>Loài này chỉ có ở miền nam Kalimantan, phần đảo Borneo thuộc Indonesia. Người ta đã ghi nhận chúng ở nhiều hệ thống sông, gồm Kapuas, Kepayang, Barito và Kahajan.</p><p>Nơi thu mẫu chuẩn (type locality) là \"kênh dọc đường cao tốc từ Oelin đến Bandjermasin, cách Bandjermasin khoảng 15 km, Borneo\".</p>",
+    "habitat:seriouslyfish": "<p>Chúng thường sống ở đầm lầy than bùn, các con suối nước đen chảy ra từ đó, và cả những vùng nước tĩnh khác. Nơi chúng ở thường có cỏ hoặc cây thủy sinh mọc chìm, còn trên bờ thì cây cối rậm rạp.</p><p>Nước ở đây thường ngả màu nâu do axit humic và các hóa chất khác tiết ra từ xác hữu cơ đang phân hủy. Lượng khoáng hòa tan thường gần như không đáng kể, còn pH có khi xuống tới 3,0 hoặc 4,0. Đáy thường phủ đầy lá rụng, cành cây và rễ cây ngập nước. Dù vậy, ở một số nơi vẫn có cây thủy sinh thuộc các chi như Cryptocoryne hay Barcalaya.</p>",
+    "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn (SL): 55 mm. Đáy bể: 80 × 30 cm. Thể tích: khoảng 72 lít.</p><p>Bể cần có đáy ít nhất 80 × 30 cm hoặc diện tích tương đương.</p>",
+    "maintenance:seriouslyfish": "<p>Cá sống khỏe trong bể trồng dày cây hoặc bể mô phỏng suối rừng. Kiểu bể suối rừng gồm nền mềm, ánh sáng mờ, rễ cây, cành cây và lá khô rải đáy.</p><p>Bạn cũng có thể trồng thêm những cây chịu được điều kiện này, như Microsorum, Taxiphyllum hay các loài Cryptocoryne. Lọc không cần quá mạnh, vì ngoài tự nhiên loài này chủ yếu sống ở vùng nước chảy lờ đờ.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–28°C</li><li>pH: 4,0–7,0</li><li>Độ cứng: 1–5 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Ngoài tự nhiên, cá chủ yếu săn những con mồi rất nhỏ như côn trùng nhỏ, giun, giáp xác và các loại động vật phù du khác. Trong bể, cá chịu ăn thức ăn khô cỡ vừa miệng, nhưng không nên chỉ cho ăn mỗi thức ăn khô. Nếu ngày nào cũng cho ăn thức ăn sống và đông lạnh cỡ nhỏ như Daphnia, Artemia hay những loại tương tự, cá sẽ lên màu đẹp nhất và dễ vào trạng thái sẵn sàng sinh sản hơn.</p>",
+    "behaviour:seriouslyfish": "<p>Đây là lựa chọn rất hợp cho bể cộng đồng hiền gồm cá Đông Nam Á. Bạn cùng bể tốt nhất có lẽ là các loài cá chép cùng cỡ, cá chạch họ Cobitidae và một số loài cá mê cung.</p><p>Vài loài từ Borneo hay được xuất khẩu hơn cả gồm Desmopuntius johorensis, D. hexazona, Brevibora dorsiocellata, Trigonopoma pauciperforatum, Rasbora einthovenii và nhiều loài Pangio. Tránh nuôi chung với cá ồn ào hoặc bơi quá sung, vì chúng có thể giành hết thức ăn của cá barb da rắn.</p><p>Bản tính loài này là sống theo đàn, nên tốt nhất bạn nuôi ít nhất 8-10 con. Nuôi đông một chút thì cá bớt nhát, cả đàn trông đẹp và tự nhiên hơn. Cá đực cũng sẽ lên màu đẹp nhất khi phải ganh nhau để thu hút cá cái.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá đực trưởng thành thường nhỏ hơn cá cái một chút, thon hơn thấy rõ và màu đậm hơn.</p>",
+    "reproduction:seriouslyfish": "<p>Có thể loài này chưa từng được ghi nhận sinh sản trong bể nuôi. Dưới đây là cách cho đẻ áp dụng với các loài họ hàng gần:</p><p>Giống phần lớn các loài cá chép nhỏ, cá Desmopuntius đẻ trứng rải tự do và không chăm con. Khi cá khỏe, chúng đẻ khá thường xuyên. Trong một bể đã ổn định lâu, có khi bạn sẽ thấy lác đác vài con cá bột xuất hiện mà không cần làm gì.</p><p>Nếu muốn thu được nhiều cá con nhất thì cần làm bài bản hơn. Bạn vẫn có thể nuôi vỗ cả đàn chung một bể, nhưng nên set thêm một bể nhỏ hơn và đổ đầy nước lấy từ bể đã ổn định. Bể đẻ nên để rất tối. Đáy bể phủ một lớp lưới có mắt đủ to cho trứng lọt xuống nhưng đủ nhỏ để cá bố mẹ không với tới trứng. Loại thảm cỏ nhựa bán ở nhiều nơi cũng dùng tốt, một lớp bi thủy tinh cũng vậy. Một cách khác là trồng kín phần lớn bể bằng cây lá nhỏ như Taxiphyllum, hoặc thả tổ đẻ bằng sợi (spawning mop), kết quả cũng khá ổn.</p><p>Nước nên hơi axit, nhiệt độ để gần mức cao của khoảng nhiệt nêu ở trên. Bể cũng cần một lọc bông chạy bằng máy sủi khí hoặc vài viên đá sủi để cấp oxy và tạo dòng chảy.</p><p>Khi cá bố mẹ đã được vỗ tốt và bụng cá cái căng trứng, bạn thả một hoặc hai cặp vào bể đẻ. Thường cá sẽ đẻ vào sáng hôm sau. Bạn cũng có thể cho cả nhóm đẻ chung, khoảng sáu đực sáu cái là vừa, nhưng khi đó có thể phải dùng bể lớn hơn.</p><p>Dù chọn cách nào, cá bố mẹ nhiều khả năng sẽ ăn trứng nếu có dịp, nên hễ thấy trứng là vớt cá bố mẹ ra ngay. Trứng thường nở sau 24 - 36 giờ, và cá bột bơi tự do sau 3-4 ngày. Vài ngày đầu, bạn cho cá bột ăn thức ăn cỡ infusoria (động vật nguyên sinh). Khi cá đủ lớn thì chuyển sang giun siêu nhỏ (microworm), ấu trùng Artemia mới nở hoặc các loại tương tự.</p>",
+    "notes:seriouslyfish": "<p>D. rhomboocellatus nằm trong một nhóm loài họ hàng gần, trông khá giống nhau, mà Kottelat (2013) đã chuyển sang chi mới Desmopuntius. Trước đó, nhóm này thuộc tập hợp Puntius. Suốt nhiều năm, Puntius bị xem là một nhóm đa ngành kiểu \"gom tất cả\", chứa hơn 100 loài cá chép cỡ nhỏ đến trung bình. Tình trạng đó kéo dài cho đến khi Pethiyagoda và cộng sự (2012) công bố một bản rà soát một phần, tập trung vào các loài ở Nam Á.</p><p>Phần lớn các loài Puntius vùng dưới chân Himalaya được xếp lại. Các chi mới Dawkinsia, Dravidia (sau đổi thành Haludaria) và Pethia được lập ra để chứa một số loài trong đó. Số còn lại hoặc vẫn ở Puntius, hoặc chuyển sang tập hợp Systomus vốn có sẵn. Tuy nhiên, định nghĩa của Systomus cũng bị sửa lại, nên một số loài Đông Nam Á trước đây xếp vào đó không còn được tính là thành viên nữa.</p><p>Kottelat (2013) công bố một bản cập nhật danh pháp đầy đủ cho cá Đông Nam Á. Trong đó, chi Desmopuntius được nâng lên và có chẩn đoán như sau. Chi này có kiểu màu riêng gồm 4–6 vằn đứng, ít nhất là ở cá con. Vằn đầu tiên chạy ngang qua mắt, vằn thứ 2 nằm sau khe mang, vằn thứ 3 ở gốc vây lưng, vằn thứ 4 ở gốc vây hậu môn, vằn thứ 5 ở giữa cuống đuôi và vằn thứ 6 ở gốc vây đuôi. Cá thường có một đốm đen ở mút sau gốc vây lưng. Ở D. gemellus, D. johorensis và D. trifasciatus, kiểu vằn đứng chỉ có ở cá con. Khi cá lớn dần, các vằn này chuyển thành sọc chạy dọc thân.</p><p>Ngoài ra, có thể dựa vào các đặc điểm sau để nhận dạng cá Desmopuntius: tia đơn cuối cùng của vây lưng có răng cưa ở mép sau, có râu mõm và râu hàm trên, môi trơn và mỏng, rãnh sau môi bị đứt quãng ở giữa, đường bên hoàn chỉnh với 25–27 vảy có lỗ trên thân, có ½4/1/4½ hàng vảy tính từ gốc vây lưng xuống đường giữa bụng ngay trước gốc vây bụng, 12 hàng vảy quanh cuống đuôi, và 7–11 lược mang trên cung mang thứ nhất.</p>",
+    "references:seriouslyfish": "<ul><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Kottelat, M. (1992). The identity of Barbus johorensis Duncker, 1904 (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 40(2), 187-192</li><li>Kottelat, M. and H-H Tan (2011). Systomus xouthos, a new cyprinid fish from Borneo, and revalidation of Puntius pulcher (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 22(3), 209-214</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Koumans, F. P. (1940). On a new species of Puntius from Borneo. Temminckia, Leiden v. 5, 189-190</li></ul>"
   },
-  {
-   "slug": "ca-barb-cam",
-   "name": "Cá barb cam"
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-ngua-van-cam",
+      "name": "Cá ngựa vằn cam"
+    },
+    {
+      "slug": "ca-barb-cam",
+      "name": "Cá barb cam"
+    }
+  ],
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85,
+      "seriouslyfish": 0.93
+    }
   }
- ]
 }

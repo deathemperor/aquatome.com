@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/opsarius-barna
 title: Opsarius barna · Seriously Fish
-fetchedAt: 2026-10-31T11:19:11.515Z
+fetchedAt: 2026-11-02T12:34:00.765Z
 hash: 4cad9b72f17b304095ca67bb88fd021859552cb2efae878fffb3bd589d9116a4
 ---
 

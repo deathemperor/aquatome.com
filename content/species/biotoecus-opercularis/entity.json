@@ -1,0 +1,235 @@
+{
+  "id": "biotoecus-opercularis",
+  "scientificName": "Biotoecus opercularis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Biotoecus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<p>Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro. It favours shallow, slow-flowing water over sand with leaf litter and submerged wood, often stained with tannins. Several populations are traded, among them B. sp. 'rio Negro' from the rio Jauaperi and B. sp. 'Santarém' or 'Tapajós', though no scientific evidence shows them to be more than one species. It should not be mixed with other Biotoecus species or populations.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<p>Described from 'Lago Saracá' (Lake Saracá) and 'Villa Bella' (the latter a city now known as Parintins), both located between the cities of Manaus and Santarém in the middle Amazon basin, Amazonas state, Brazil. It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.</p><p>There is a form regularly exported for the aquarium hobby which is apparently collected from the rio Jauaperi, close to the confluence of the rios Branco and rio Negro, Roraima state, Brazil and normally traded as B. sp. 'rio Negro'. Some collections are also labelled \"Caicubi\", presumably in reference to the village of that name in nearby Caracaraí municipality while those originating from around Santarém and the rio Tapajós are generally referred to as B. sp. 'Santarém' or 'Tapajós'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<p>Tends to prefer shallow habitats with sandy substrate, patches of leaf litter and submerged, woody structures. Water flow is normally quite slow and many habitats are stained with tannins and other chemicals released by decomposing organic material.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<p>A single pair could probably be maintained in a tank with base measurements around 45 × 30 cm but most successful breeders keep mixed-sex groups in aquaria with dimensions of 90 × 30 cm or more (about 81 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<p>Provided adequate cover and structure is available this species is unfussy with regards to décor with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions. A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel, provide suitable spawning sites and facilitate the presence of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst most populations will appreciate the tannins and other chemicals released by the decaying leaves. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>Fairly dim lighting is recommended and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne and Anubias are arguably best since they will grow under such conditions. A few patches of floating vegetation to diffuse the light even further may also prove effective.</p><p>Water quality is of the utmost importance since these cichlids are susceptible to deteriorating water quality and should never be introduced to a biologically immature aquarium. Filtration, or at least water flow, should not be very strong and very large water changes are best avoided with 10-15% weekly adequate provided the tank is lightly-stocked.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<ul><li>Temperature: 25–30°C</li><li>pH: 4.0–6.5</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<p>Stomach contents of dissected wild specimens were found to be composed largely of small invertebrates including chironomid larvae and ostracods. The captive diet should thus contain a variety of small live and/or frozen chironomid larvae (bloodworm), Tubifex, Artemia, mosquito larvae, etc. Some success has also been had using high quality, fine-grade prepared foods though newly-imported wild specimens may initially refuse them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<p>Best maintained alone or with small 'dither' fishes such as Nannostomus or Micropoecilia spp., and should not be mixed with other Biotoecus species or populations. It can be kept in groups provided sufficient space is available with males occupying small territories centred around a suitable spawning site and non-breeding females forming loose aggregations.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<p>Males are smaller but develop more colourful and extended fins than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<p>Biparental substrate spawner which normally lays its eggs in crevices or cavities among the décor, with the underside of submerged leaves or small caves normally preferred. Ripe females are noticeable by the development of pinkish colouration around the abdominal region while the ventral fins become bluish although courtship is initiated by territorial males.</p><p>The eggs normally hatch within 3-5 days with the larvae either remaining attached to the roof of the spawning site or moved into a shallow depression in the substrate until the yolk sacs have been absorbed. Once free swimming parental care continues for a further 3-4 weeks though the male may exhibit only loose interest. If more than one pair is permitted to spawn in the same tank, adults in adjacent territories may apparently begin to guard the fry of others if the broods become mixed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<p>At time of writing there exists no scientific evidence that the different populations of this species seen in the aquarium trade (see 'Distribution') represent anything other than a single, widely-distributed species although some exhibit minor morphological differences including relative body depth, longer fin rays in the unpaired fins and yellow or orange colouration in the paired fins. There is apparently a form from the upper rio Negro which may turn out to be distinct but it's uncommon in the hobby.</p><p>B. dicentrarchus is currently the only other officially-described member of the genus and is native to the upper rio Negro and Río Orinoco basins in Colombia and Venezuela. It can be told apart from B. opercularis by the following characters: possession of 2 anal fin spines (vs. 3 in B. opercularis); 6 (vs. 5) dark lateral spots on the body; anterior few dorsal fin spines slightly elongated compared with the rest of the fin (vs. equal in length); absence of lateralis canal through the anguloarticular bone (vs. presence); dentary lateralis comprising 3-4 (vs. 5) skin openings and 2-3 (vs. 4) canal fragments; modal dorsal fin ray count VII.15 (vs. VIII.14).</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical family Cichlidae was divided into six subfamilies of which the putative subfamily Geophaginae contained 16 genera divided among three 'tribes': Acarichthyini - Acarichthys and Guianacara. Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia. Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</p><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species. However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works. The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation (diversification of a species or single ancestral type into several forms that are each adaptively specialised to a specific environmental niche).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "html": "<ul><li>Kullander, S. O. (1989). Biotoecus Eigenmann and Kennedy (Teleostei: Cichlidae): description of a new species from the Orinoco Basin and revised generic diagnosis. Journal of Natural History 23(1), 225-260</li><li>Kullander, S. O. (2003). Cichlidae (Cichlids). In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre, EDIPUCRS, Brasil</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bd407212755cc7bc.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bd407212755cc7bc-480.webp",
+      "width": 800,
+      "height": 508,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "caption": "Adult male specimen from the middle rio Negro basin.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1adef26c33439cbd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1adef26c33439cbd-480.webp",
+      "width": 800,
+      "height": 520,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "caption": "Adult female from the rio Negro.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f20be156c36f0ac8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f20be156c36f0ac8-480.webp",
+      "width": 800,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "caption": "A typical breeding set-up for this species.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5267845f73cc94dd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5267845f73cc94dd-480.webp",
+      "width": 820,
+      "height": 547,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
+      "caption": "Adult male - collection details unknown.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "1M5Ry5LcuIA",
+      "title": "SANDHÜGEL-ZWERGCICHLIDEN - Wie geht es den BIOTOECUS OPERCULARIS im Biotopaquarium light?",
+      "durationSec": 1268,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "b_MD-643suE",
+      "title": "Biotoecus opercularis",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-IMTUF0Aea0",
+      "title": "Biotoecus opercularis",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OnOx3_G2CQM",
+      "title": "Sandhügel-Zwergcichlide, Biotoecus opercularis - Shrimp-Visions",
+      "durationSec": 89,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90x30 cm",
+        "bể cá 81 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc nhẹ cho bể cichlid nhỏ"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

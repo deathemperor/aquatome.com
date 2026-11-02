@@ -12,12 +12,20 @@
     "guyana",
     "essequibo",
     "brazil",
-    "rio-negro"
+    "rio-negro",
+    "uatuma"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 18,
           "max": 22
@@ -31,6 +39,13 @@
           "min": 5.8,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.8,
+          "max": 7
+        }
       }
     ],
     "gh": [
@@ -40,12 +55,35 @@
           "min": 18,
           "max": 18
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 18
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 23
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 23
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -57,10 +95,40 @@
       "html": "<ul><li>Scientific name: Leptodoras linnelli Eigenmann, 1912</li><li>Common names: Elongate Mouse Catfish, Black-back Sturgeon Catfish</li><li>Type locality: Potaro river, Tumatumari, Mazaruni-Potaro, Guyana.</li><li>Etymology: Leptodoras: from the Greek leptos, meaning slender, and doras, meaning skin (also a word commonly used in forming generic names for doradids); in reference to the shape.</li><li>Size: 230 mm (9.1\") SL.</li><li>IUCN Red List category: Not Evaluated</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<p>The elongate mouse catfish, Leptodoras linnelli, is a doradid catfish from river drainages of northern South America in Venezuela, Guyana and Brazil. It is found over sandy substrates in deeper, flowing sections of rivers and prefers cooler water than many related species. Totally unaggressive and schooling in nature, it is seldom exported and usually turns up only as bycatch among shipments of Opsodoras leporhinus or Hassar orestis.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=113",
       "html": "<p>South America: Upper Orinoco (rios Ventuari and Mavaca) and Casiquiare River basin in Venezuela; Atlantic Coast drainages of the Guianas and northern Brazil such as Essequibo, Demerara and Araguari; the rios Uatumã, Tacutu and Demini in Brazil. Recently collected from the rio Tiquié basin (right bank tributary of the upper rio Negro) in the Amazonas State and from the upper rio Aripuaña (tributary of the rio Madeira) in Mato Grosso State, Brazil, extending the known distribution of this species into the western limits of the Brazilian Shield.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<p>Various river drainages of northern South America, including the Rio Casiquiare and Upper Rio Orinoco in Venezuela, Rio Essequibo and Rio Demerara in Guyana and Rio Araguari, Rio Uatumã, Rio Tacutu and Rio Demini in northern Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<p>Usually found over sandy substrates in deeper, flowing sections of rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<p>An adult specimen is going to need a tank measuring at least 120 × 45 × 45 cm (about 243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<p>Replication of this species' natural habitat would be relatively easy. A substrate of fine sand, with perhaps the odd rounded boulder or driftwood branch for effect and cover is all that is required. Filtration should be quite powerful as this fish prefers a degree of flow through its tank, and is sensitive to deteriorating water quality. An external canister filter with the outlet positioned so that water flows down the length of the tank is probably the best option.</p><p>As it naturally inhabits the bottoms of deep rivers where little sunlight penetrates, avoid using very bright lighting on the setup. In dimmer conditions it will be much more active and outgoing. Floating plants can greatly assist in this respect.</p>"
     },
     {
       "key": "waterConditions",
@@ -69,10 +137,46 @@
       "html": "<ul><li>pH: 5.8 - 7.0</li><li>Temperature: 18.0-22.0°C (64.4-71.6°F)</li><li>Hardness: dH 18</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<ul><li>Temperature: prefers cooler water than many related species, in the range 18–22°C.</li><li>pH: 5.8–7.0</li><li>Hardness: 5–18 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<p>Generally unfussy. Dried catfish pellets, algae wafers and granular foods are all accepted, but live and frozen foods should also form a good proportion of the diet. It's a good idea to add food to the aquarium just before lights out during the acclimatisation period, as it usually feeds during the hours of darkness until it feels settled.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<p>Totally unaggressive, although very small tankmates may be eaten. It's an excellent choice for the peaceful community of slightly larger South American species that appreciate flowing water. Any of the various Hemiodus or Triportheus species, as well as many Loricariids are excellent choices for a biotope style tank. More placid cichlids, such as Geophagus, Satanoperca, Heros or Uaru species can also work well.</p><p>Like most Doradids, L. linnelli occurs in schools in nature and fares better when in the company of its own kind. Buy as many as your tank will house comfortably.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<p>Unconfirmed, although sexually mature females are likely to be broader bodied than males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=113",
       "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<p>Unreported in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptodoras-linnelli",
+      "html": "<p>The genus Leptodoras currently contains 10 species, none of which are particularly well known in the hobby. There is little published information regarding the genus, and its members are seldom exported for the aquatic trade. L. linnelli is no exception, usually only turning up as bycatch among shipments of other species such as Opsodoras leporhinus or Hassar orestis.</p><p>According to Fishbase, it can be distinguished from all other members of the genus except L. acipenserinus by the presence of a thin, ridge-like growth extending outwards from the front of the adipose fin approximately half way to the dorsal fin. Apparently it can also be told apart from L. acipenserinus by a slightly longer predorsal distance (approximately 35.5–38.7% of the total length of the fish's body), an incomplete inner gill flap, fewer (74–81) midlateral plates, the shape of the anal fin, the length of the pectoral spines and also the structure of the \"teeth\" that run along these spines (these are highly backward-facing along the lower edge of the spine, becoming less so towards the tip. Their size along the lower half of the spine is roughly uniform, and the last \"tooth\" is usually close to the tip).</p>"
     },
     {
       "key": "references",
@@ -116,7 +220,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "tmdStGmhOHc",
+      "title": "Leptodoras linnelli 黑背雷達鐵甲         wild_fish",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "lrqw5Rtwiok",
+      "title": "長鼻雷達鼠 Leptodoras linnelli ~台南 大自然水族",
+      "durationSec": 81,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "LLH2AJwsK4M",
+      "title": "Leptodoras Sp. feeding clip",
+      "durationSec": 248,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9aEVOLYCOrE",
+      "title": "Leptodoras sp. (cataniai?) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -147,5 +276,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

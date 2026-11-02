@@ -16468,5 +16468,51 @@
     "family": "Pimelodidae",
     "genus": "Zungaro",
     "matchType": "EXACT"
+  },
+  "Barilius profundus": {
+    "canonicalName": "Barilius profundus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Barilius",
+    "matchType": "EXACT"
+  },
+  "Brevibora exilis": {
+    "canonicalName": "Brevibora exilis",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Brevibora",
+    "matchType": "EXACT"
+  },
+  "Hoplisoma adolfoi": null,
+  "Hoplisoma davidsandsi": null,
+  "Malaysia localities": null,
+  "Myanmar including": null,
+  "Myersglanis blythii": {
+    "canonicalName": "Myersglanis blythii",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Myersglanis",
+    "matchType": "EXACT"
+  },
+  "Schizothorax richardsonii": {
+    "canonicalName": "Schizothorax richardsonii",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Schizothorax",
+    "matchType": "EXACT"
+  },
+  "Trachelyichthys exilis": {
+    "canonicalName": "Trachelyichthys exilis",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Trachelyichthys",
+    "matchType": "EXACT"
+  },
+  "Trichopsis schalleri": {
+    "canonicalName": "Trichopsis schalleri",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Trichopsis",
+    "matchType": "EXACT"
   }
 }

@@ -9,9 +9,70 @@
     "south-america",
     "brazil",
     "mato-grosso",
-    "peru"
+    "peru",
+    "argentina",
+    "rio-de-la-plata",
+    "bolivia",
+    "parana",
+    "colombia",
+    "ecuador",
+    "french-guiana",
+    "guyana",
+    "paraguay",
+    "suriname",
+    "trinidad-and-tobago",
+    "caroni",
+    "venezuela",
+    "yaracuy",
+    "uruguay"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -20,42 +81,119 @@
       "html": "<p>This colour morph of the Bronze corydoras exhibits a lot of orange colours. It belongs to the “Gold Shoulder” group, which is sometimes named Corydoras schultzei; however, this name is currently considered to be a synonym of C. aeneus. The fish is very rare and available in limited numbers only.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<p>The bronze cory, Osteogaster aenea, long known as Corydoras aeneus, is an armoured catfish described from Trinidad and accepted to occur across much of South America. That range looks more like a complex of similar, distinct species than a single one, and fish from outside Trinidad are of uncertain identity. Aquarium fish are almost all commercially farmed, and the names C. schultzei and C. venezuelanus are routinely misapplied to them.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_aeneus_puerto_maldonado_en/",
       "html": "<p>This morph comes from Peru (Puerto Maldonado).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<p>Type locality is 'Trinidad Island, West Indies', and it still occurs in some river systems of central and southern parts of the island.</p><p>Its wider distribution appears in serious question, however, as does its taxonomy (see 'Notes').</p><p>Currently it's accepted to occur throughout much of South America from Colombia and Trinidad in the north as far south as the Río de la Plata drainage at the border of Uruguay and Argentina.</p><p>Records exist from Argentina, Bolivia, Brazil, Colombia, French Guiana, Guyana, Paraguay, Peru, Suriname, Trinidad and Tobago and Venezuela, but this gigantic range seems more akin to that of a complex of similar-looking, distinct taxa rather than a single species.</p><p>Fish traded as C. aeneus have been ubiquitous in the aquarium hobby for decades, with the vast majority of these farmed in commercial facilities around the world.</p><p>However, given the taxonomic confusion surrounding the species it's difficult to escape suspicions that they might not represent Osteogaster aenea sensu stricto, or that over the years more than a single species has been mixed into the bloodline at some point(s).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<p>Base dimensions of 80 × 30 cm or equivalent are recommended for long-term care (about 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<ul><li>Temperature: 21–27°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of 2 males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs are normally deposited on the aquarium glass, but it's recommended to provide alternatives in the form of fine-leaved vegetation or fine spawning mops.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger.</p><p>The new container should contain the same water as the spawning tank and be similarly well-oxygenated. Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare-bottomed arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<p>This species is among the most well-known in the aquarium hobby and can be found on sale in most stores. There also exist selectively-bred albino and 'long-finned' strains, while mutated 'short-bodied' and artificially-dyed specimens have been available for a number of years.</p><p>Despite the ubiquity of its name in aquarium literature confusion surrounds its true identity, however.</p><p>Given it's the only member of the genus occurring on the island, fish from Trinidad do presumably represent Osteogaster aenea, but the classification of those from other localities appears far from certain.</p><p>Currently it's accepted to occur throughout much of South America, and indeed similarly-patterned fish do occur across a large portion of the continent.</p><p>Some of these, such as the green (CW009) and gold (CW010) 'laser corys' are already assigned C or CW numbers and well-known to aquarists, while others are not.</p><p>The chances that a single Corydoras species occurs across such a vast geographical area is unlikely for a number of reasons, and there already exist the following nominal taxa, all of which are currently considered synonyms of O. aenea:</p><ul><li>Corydoras microps Eigenmann &amp; Kennedy, 1903. Type locality: from a small lagoon, half dry, near the Rio Branco (Mato Grosso, Brazil).</li><li>Corydoras venezuelanus Ihering, 1911: Type locality: Río Cabriales, Valencia, Est. Carabobo, Venezuela.</li><li>Corydoras macrosteus Regan, 1912a: Type locality: Rio Piracicaba, San Paulo, Brazil.</li><li>Corydoras schultzei Holly, 1940: Type locality: aquarium specimen (said to be from very small water-courses of the Amazon).</li></ul><p>Of these, C. schultzei has been routinely misapplied to a melanistic strain of aquarium O. aenea which exhibits a blackish colour pattern, is often traded as 'C. schultzei black' and said to be exported from Venezuela.</p><p>The melanistic fish were in fact first recorded in Germany in the early 1990s with a handful of dark-coloured fry appearing in a batch captive-bred from a form of O. aenea.</p><p>These were line-bred to fix the unusual trait and subsequently appeared in the trade.</p><p>The fry possess orangish fins as do those of a form of O. aenea exported from the llanos of Colombia and Venezuela which is able to darken its colouration when stressed and known as 'C. venezuelanus black', so this is where the confusion may have started.</p><p>As a result the line-bred fish now tend to be traded under both of these names, despite neither being correct, and the appearance of wild 'C. venezuelanus black' remains somewhat vague with more than one species possibly confused under the name.</p><p>The name C. schultzei has also been applied to a fish usually exported from Peru and sometimes referred to as 'gold flash' or 'Peru gold-stripe' cory (not to be confused with the 'gold laser', CW010, or 'gold stripe', CW014/C023, forms).</p><p>This does appear distinct from other O. aenea-type fish and may well prove to be so, but because the type locality of C. schultzei is not known, the original description has proven unobtainable thus far, and it remains invalid in an official sense, it is retained in synonymy with O. aenea for the time being.</p><p>C. venezuelanus is another name that has not been considered scientifically valid for a number of years but is widely used in aquarium literature.</p><p>As with C. schultzei this appears to have occurred in the absence of any detailed rediagnosis and it's unclear which characters should be used to define the species.</p><p>The name may well be applicable to a Corydoras sp. inhabiting the states of Miranda, Aragua and Carabobo in northern Venezuela, although it's more often used in reference to 'C. venezuelanus black'.</p><p>However in the absence of official confirmation C. venezuelanus is also retained as a synonym of O. aenea here.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Osteogaster.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Gill, T. N. (1858). Synopsis of the fresh water fishes of the western portion of the island of Trinidad, W. I. Annals of the Lyceum of Natural History of New York v. 6 (nos 10-13), 363-430</li><li>Phillip, D. A. T., D. C. Taphorn, E. Holm, J. F. Gilliam, B. A. Lamphere and H. López-Fernández (2013). Annotated list and key to the stream fishes of Trinidad &amp; Tobago. Zootaxa 3711(1), 1-64</li><li>Espíndola, V. C., M. R. S. Spencer, L. R. Rocha and M. R. Britto (2014). A new species of Corydoras Lacépède (Siluriformes: Callichthyidae) from the Rio Tapajós basin and its phylogenetic implications. Papéis Avulsos de Zoologia, São Paulo 54(3), 25-32</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/20558755057677fd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/20558755057677fd-480.webp",
+      "width": 800,
+      "height": 534,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-aenea",
+      "caption": "Albino form of C. aeneus, aquarium strain.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/078aaad91d369bb6.webp",
+      "thumb": "https://media.aquatome.com/commons/078aaad91d369bb6-480.webp",
       "width": 960,
       "height": 406,
       "licence": "Public domain",
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_aeneus_2.jpg",
-      "caption": "Corydoras aeneus 2.jpg",
-      "thumb": "https://media.aquatome.com/commons/078aaad91d369bb6-480.webp"
+      "caption": "Corydoras aeneus 2.jpg"
     },
     {
       "url": "https://media.aquatome.com/commons/230f7a4652570148.webp",
+      "thumb": "https://media.aquatome.com/commons/230f7a4652570148-480.webp",
       "width": 960,
       "height": 473,
       "licence": "CC BY 2.5",
       "author": "Pharaoh Hound",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_aeneus2.jpg",
-      "caption": "A Bronze Corydoras (Corydoras aeneus) owned by the author.",
-      "thumb": "https://media.aquatome.com/commons/230f7a4652570148-480.webp"
+      "caption": "A Bronze Corydoras (Corydoras aeneus) owned by the author."
     },
     {
       "url": "https://media.aquatome.com/commons/4f9a23602701dc33.webp",
+      "thumb": "https://media.aquatome.com/commons/4f9a23602701dc33-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC0",
       "author": "Andrew Keller",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Female_Bronze_Corydoras_(Corydoras_aeneus).jpg",
-      "caption": "Sideview of a female bronze corydoras (corydoras aeneus) in a home aquarium.",
-      "thumb": "https://media.aquatome.com/commons/4f9a23602701dc33-480.webp"
+      "caption": "Sideview of a female bronze corydoras (corydoras aeneus) in a home aquarium."
     }
   ],
   "videos": [
@@ -107,5 +245,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-02"
 }

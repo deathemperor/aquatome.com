@@ -1,0 +1,118 @@
+{
+  "id": "labiobarbus-fasciatus",
+  "scientificName": "Labiobarbus fasciatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Labiobarbus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "malaysia",
+    "pahang",
+    "indonesia",
+    "kapuas"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-fasciatus",
+      "html": "<p>Labiobarbus fasciatus is a labeonin cyprinid from the Pahang River system in Peninsular Malaysia and the islands of Sumatra and Borneo. It has a red caudal fin with a thin dark stripe along each lobe, and longitudinal stripes formed by spots on the scales. Like other Labiobarbus it has two pairs of well-developed barbels and an extremely long dorsal fin, and the genus was known as Dangila for over 100 years.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-fasciatus",
+      "html": "<p>Known from the Pahang River system in southern Peninsular Malaysia, and the Greater Sunda Islands of Sumatra and Borneo. On the latter records exist from the Kapuas, Barito, and Mahakam watersheds in Kalimantan, the Indonesian portion of the island.</p><p>Type locality is 'Pangabuang, Lampong Province, Sumatra, Indonesia'.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-fasciatus",
+      "html": "<p>L. fasciatus can be distinguished from congeners by the following combination of characters: 48-54 scales in the lateral series; usually no spot on the shoulder or centre of the caudal peduncle; body with longitudinal stripes formed by spots on scales, more intense on lateral line than above or below it; caudal fin red with thin dusky or dark marginal stripe on each lobe.</p><p>In recent studies the genus Labiobarbus is usually grouped within the cyprinid subfamily Labeoninae. Several authors including Roberts (1989) have argued that the generic name Dangila (Valenciennes, 1842), which was officially used for over 100 years, should continue to take precedence.</p><p>However according to rules set out in the modern-day International Code of Zoological Nomenclature Labiobarbus is the correct name on the basis of priority, having first been proposed by van Hasselt in 1823. Further doubts that van Hasselt and Valenciennes may have described two different fish were settled by Roberts (1993) who found that they were the same.</p><p>Members are most-easily distinguished from their close relatives by the possession of two pairs of well-developed barbels, an extremely long dorsal-fin with 4 simple and 18-30 branched rays and unique soft mouth parts which lack unculi (these form ridge-like rows on the lips of other Labeonins).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-fasciatus",
+      "html": "<ul><li>Roberts, T. R. (1993). Systematic revision of the Southeast Asian cyprinid fish genus Labiobarbus (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 41(2), 315-329</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Yang, L. and R. L. Mayden (2010). Phylogenetic relationships, subdivision, and biogeography of the cyprinid tribe Labeonini (sensu Rainboth, 1991) (Teleostei: Cypriniformes), with comments on the implications of lips and associated structures in the labeonin classification. Molecular Phylogenetics and Evolution 54(1), 254-265</li><li>Bleeker, P. (1853). Diagnostische beschrijvingen van nieuwe of weinig bekende vischsoorten van Sumatra. Tiental V-X. Natuurkundig Tijdschrift voor Nederlandsch Indië v. 4, 243-3</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6132a4ce4ac440e5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6132a4ce4ac440e5-480.webp",
+      "width": 800,
+      "height": 457,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-fasciatus",
+      "caption": "Adult individual measuring 180 mm SL from a tributary within the Mentaya River drainage in Central Kalimantan (Kalimantan Tengah) province, Indonesia (Borneo).",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fdb2a73d0a0f98ae.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fdb2a73d0a0f98ae-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-fasciatus",
+      "caption": "Detail of caudal-fin.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5d7aa9f82baf1327.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5d7aa9f82baf1327-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-fasciatus",
+      "caption": "Detail of pelvic fin.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1ca0762b451de5a9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1ca0762b451de5a9-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-fasciatus",
+      "caption": "Detail of dorsal-fin and central portion of body.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

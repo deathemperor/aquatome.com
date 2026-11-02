@@ -7,13 +7,60 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "brazil",
+    "amazon",
+    "ecuador",
+    "bolivia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 16.7
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -25,10 +72,46 @@
       "html": "<p>This graceful, beautiful species reaches a body length of about 20 cm, and the fin filaments can become even that long.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "html": "<p>Sturgeon catfish, Lamontichthys filamentosus, is a loricariid from the central and western Amazon in Brazil, Peru, Ecuador and Bolivia. Above 60 mm SL the pectoral-fin spine extends into a filament that can be over four times the length of the first branched ray, and the dorsal-fin spine carries a similar extension. Relatively common in the hobby but not easy to maintain, it needs clean, well-oxygenated water and a mature aquarium with plenty of algae-covered surfaces.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lamontichthys-filamentosus-2/",
       "html": "<p>Lamontichthys are very sensitive fish, which need optimal water conditions. In addition, the fish are often difficult to bring to the food. Obviously they are very shy and tend to stop feeding at even minor disturbances.</p><p>Lamontichthys are therefore best kept in species tanks.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "html": "<p>Native to the central and western Amazon basins in Brazil, Peru, Ecuador and Bolivia.</p><p>Type locality is 'vicinity of the mouth of Rio Embira, a tributary of Rio Tarauaca, which, in turn, is a tributary of Rio Jurua (700 15' W., 70 30' S.)'.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "html": "<p>An aquarium with base dimensions of 120 × 45 cm or larger is required for long-term care (about 243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "html": "<p>The water must be clean and well-oxygenated so the use of an over-sized filter is suggested as a minimum requirement, and additional powerheads, airstones, etc., can be employed as necessary.</p><p>Base substrate can either be of gravel, sand or a mixture of both to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Aged driftwood can also be used but avoid new pieces since these usually leach tannins that discolour the water and reduce the effectiveness of artificial lighting, an unwanted side-effect since the latter should be strong to promote the growth of algae and associated microorganisms.</p><p>Exposed filter sponges will also be grazed, and some enthusiasts maintain an open filter in the tank specifically to provide an additional food source.</p><p>Although rarely a feature of the natural habitat aquatic plants can be used with adaptable genera such as Microsorum, Crinum and Anubias spp. likely to fare best.</p><p>The latter are particularly useful as their leaves tend to attract algal growth and provide additional cover.</p><p>Since it needs stable water conditions and feeds on biofilm this species should never be added to a biologically immature set-up.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "html": "<ul><li>Temperature: 22–30°C</li><li>pH: 5.5–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "html": "<p>Much of the natural diet is likely to be composed of benthic algae plus associated micro-organisms which are rasped from solid surfaces.</p><p>In captivity it will accept good-quality dried foods and meatier items like live or frozen bloodworm but may suffer internal problems if the diet contains excessive protein.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain a high proportion of fresh vegetables, alongside other ingredients.</p><p>For long-term success it's best to provide a mature aquarium with a plentiful supply of algae-covered rocks and other surfaces, though.</p><p>If unable to grow sufficient algae in the main tank or you have a community containing numerous herbivorous fishes which consume what's available quickly it may be necessary to maintain a separate tank in which to grow algae on rocks and switch them with those in the main tank on a cyclical basis.</p><p>Such a 'nursery' doesn't have to be very large, requires only strong lighting and in sunny climates can be kept outdoors.</p>"
     },
     {
       "key": "reproduction",
@@ -41,10 +124,81 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lamontichthys-filamentosus-2/",
       "html": "<p>Lamontichthys: dedication name (ichthys: ancient Greek for \"fish\") in honor of Francesca La Monte. filamentosus: filamentous (referring to the extended fins).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "html": "<p>This species is relatively common in the aquarium hobby but is not easy to maintain and recommended only for experienced aquarists.</p><p>It can be told apart from all congeners by specimens larger than 60 mm (6 cm) SL possessing an extended pectoral-fin spine forming an extremely long filament that may be more than four times the length of the first branched pectoral-fin ray (vs. not possessing such a filament in other species of Lamontichthys).</p><p>It is further distinguished from other Lamontichthys species, except L. llanero, by having a similar filamentous extension on the dorsal-fin spine that may reach the posterior margin of the caudal-fin (vs. dorsal-fin without such an extension) and by the lower lip being semicircular in shape (vs. semi-oval).</p><p>The head is broader in L. filamentosus than in L. llanero (97.4-111.1%, vs. 82.6-96.9% HL).</p><p>Members of Lamontichthys are distinguished from all other Loricariids, except Harttia leiopleura Oyakawa 1993 and Rineloricaria daraha Rapp Py-Daniel &amp; Fichberg, 2008 by the presence of seven branched pectoral-fin rays (vs. six).</p><p>They are told apart from Harttia leiopleura by presence (vs. absence) of dermal plates on the upper lip and lateroventral plates on the thoracic region and from Rineloricaria daraha by posession of button-like papillae (vs. long digitiform papillae) on the ventral surface on the lower lip, absence (vs. presence) of a postorbital notch and possession of 14 (vs. 12) caudal-fin rays.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "html": "<ul><li>La Monte, F. R. (1935). Fishes from Rio Jurua and Rio Purus, Brazilian Amazonas. American Museum Novitates No. 784, 1-8</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>de Carvalho Paixão, A. and M. Toledo-Piza (2009). Systematics of Lamontichthys Miranda-Ribeiro (Siluriformes: Loricariidae), with the description of two new species. Neotropical Ichthyology 7(4), 519-568</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/dd11c848409b1b73.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/dd11c848409b1b73-480.webp",
+      "width": 800,
+      "height": 432,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/586390915d5dbc52.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/586390915d5dbc52-480.webp",
+      "width": 627,
+      "height": 630,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "caption": "Female specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/39234eb0f3d9a438.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/39234eb0f3d9a438-480.webp",
+      "width": 720,
+      "height": 616,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
+      "caption": "Dorsal view of adult male.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "b5r4NCklCBg",
+      "title": "Lamontichthys filamentosus- Armored Catfish Showcase",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XrbsZegaQs4",
+      "title": "Lamontichthys Filamentosus",
+      "durationSec": 47,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "r5zRoFj2ffQ",
+      "title": "Lamontichthys Filamentosus",
+      "durationSec": 44,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sOoRSQGw3wQ",
+      "title": "ラモンティクティス　フィラメントーサス　Lamontichthys filamentosus",
+      "durationSec": 86,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -68,5 +222,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

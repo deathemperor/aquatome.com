@@ -8,13 +8,57 @@
   "places": [
     "asia",
     "indonesia",
-    "kalimantan"
+    "kalimantan",
+    "kapuas"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -26,10 +70,22 @@
       "html": "<p>Cyclocheilichthys janthochir belongs to the barb family. Species of several barb genera with a similar body shape are commonly called \"shark\" in the hobby. In the fishhouse it got the nickname \"top-model-barb\", because it is very pretty but looks very skinny. It is neither fastidious regarding food, nor uptight in any other way.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<p>Cyclocheilichthys janthochir is a cyprinid endemic to Borneo, known from West and Central Kalimantan in Indonesia. It inhabits black water streams and rivers associated with ancient forest peat swamps, where the water is very soft and acidic. Red markings in the dorsal and caudal fins plus a dark lateral stripe make it easy to identify. Specialised shops stock it from time to time, and it also turns up as bycatch among wild fish from Kalimantan.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys_janthochir_en/",
       "html": "<p>The species originates from the island of Borneo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<p>Endemic to the island of Borneo where it's known from the Indonesian provinces of Kalimantan Barat (West Kalimantan) and Kalimantan Tengah (Central Kalimantan).</p><p>Type locality is 'Indonesia: Borneo: Kalimantan Barat: Kapuas River in Pontianak'.</p>"
     },
     {
       "key": "habitat",
@@ -38,41 +94,120 @@
       "html": "<p>It occurs in typical black water.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<p>Inhabits black water streams and rivers associated with ancient forest peat swamps. The water is typically stained brown due to the release of tannins and other chemicals released by decomposing organic matter and the substrate scattered with fallen leaves, twigs and branches.</p><p>Such environments characteristically contain very soft (negligible hardness), acidic (pH as low as 3.0-4.0) water and are often dimly-lit due to the forest canopy above. Across much of Southeast Asia these biotopes are under threat from rubber or palm oil plantations, building developments, and other human activities.</p><p>In the exceptionally diverse Danau Sentarum lake system of the upper Kapuas River basin, West Kalimantan, sympatric species include Scleropages formosus, Barbonymus gonionotus, B. schwanenfeldii, Crossocheilus nigriloba, Cyclocheilichthys apogon, C. repasson, Epalzeorhynchos kalopterus, Labiobarbus ocellatus, Leptobarbus hoevenii, Luciosoma spilopleura plus various representatives of Barbodes, Rasbora and Osteochilus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<p>An aquarium with base measurements of 180 × 45 cm or more is required for long-term care (about 365 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<p>Choice of décor is not as critical as water quality and the amount of open swimming-space provided. We suggest keeping it in a large, well-furnished aquarium or alternatively it would look superb in a set-up designed to recreate a peat swamp-type environment with dim lighting, roots, branches, and leaf litter.</p><p>In the latter the water will become stained with tannins and the fish develop more intense colouration. Aquatic plant species that can survive under such conditions include Microsorum, Taxiphyllum and Cryptocoryne spp.</p><p>Like many species that hail from such pristine natural environments it's intolerant to the accumulation of organic wastes, requires spotless water at all times in order to thrive, and should never be introduced to a biologically immature aquarium.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<p>According to stomach analyses of wild specimens it feeds mainly on invertebrates both aquatic and terrestrial, particularly insects.</p><p>In the aquarium it's easily-fed but for it to develop its best colours and condition offer regular meals of live and frozen foods such as bloodworm, Daphnia and Artemia along with good quality dried flakes and granules. Hobbyists who have kept the species found that larger specimens particularly relish chopped prawn/shrimp.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys_janthochir_en/",
       "html": "<p>Cyclocheilichthys janthochir is a schooling fish and certainly an enrichment for any large community tank.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<p>An ideal resident of the larger, well-furnished community set-up though it might upset slow-moving or timid companions simply by its size.</p><p>There are plenty of suitable tankmates including many cyprinids, loaches, cichlids, catfish and characins, but as always when selecting a compatible community of fish proper research is essential. A community based around one of its native countries or river basins would also make a worthwhile project.</p><p>It is a gregarious species by nature and ideally should be kept in a group of at least six. The fish show better colours in the presence of conspecifics, are less nervous and the display on the whole will appear more natural-looking.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<p>Sexually mature females are likely to be thicker-bodied and perhaps a little less colourful than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<p>Not thought to have been bred in aquaria to date.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys_janthochir_en/",
       "html": "<p>The maximum size reported is around 20 cm. The specimens at the fishhouse are currently 5-7 cm long. With each centimetre the fish grow they become more beautiful, as the fins become more and more red.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
+      "html": "<p>As with others in the genus little has been written regarding the captive care of this species but it makes a peaceful and unusual addition to larger aquaria. It is rarely imported in large numbers but some of the more specialised shops stock it from time-to-time and it may also be found as bycatch among shipments of wild fish from Kalimantan.</p><p>Although some Cyclocheilichthys spp. can appear similar at first glance C. janthochir is easily identifiable due to its unique combination of red markings in the dorsal and caudal fins, plus a dark lateral stripe on the body.</p><p>Members of Cyclocheilichthys are characterised by possessing a serrated dorsal fin spine, 9 branched pelvic fin rays, a conical snout, small, subterminal mouth and parallel rows of sensory folds on the snout and cheeks. The latter feature is lacking in most other cyprinids but present in a few genera including Eirmotus, Oreichthys, and Neobarynotus.</p><p>There have been some nomenclatural issues in recent years, ostensibly because Cyclocheilichthys and the now synonymous Anematichthys were used simultaneously by Bleeker (1859) in reference to the same fish, C. apogon. The issue was addressed by Kottelat (1999) but later misinterpreted by Pasco-Viel, Veran and Variot, 2012, who concluded that Cyclocheilichthys represents a paraphyletic grouping and split the genus into two groups: Cyclocheilichthys (comprising C. enoplos) and Anematichthys (comprising C. apogon, C. armatus and C. repasson).</p><p>This was corrected by Kottelat (2013), and Cyclocheilichthys currently comprises seven species with the revalidated genus Cyclocheilos including the former members C. enoplos and C. furcatus. C. heteronema differs considerably from other Cyclocheilichthys species and may eventually be separated with the generic name Oxybarbus available for it.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/ccf1cdcebfa7ed51.webp",
+      "thumb": "https://media.aquatome.com/commons/ccf1cdcebfa7ed51-480.webp",
       "width": 960,
       "height": 513,
       "licence": "CC BY 3.0",
       "author": "Published by Zoologische Mededelingen, at http://www.zoologischemededelingen.nl Creative Commons license published on main page.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyclocheilichthys_janthochir_Bleeker.jpg",
-      "caption": "Cyclocheilichthys janthochir (Bleeker, 1854)",
-      "thumb": "https://media.aquatome.com/commons/ccf1cdcebfa7ed51-480.webp"
+      "caption": "Cyclocheilichthys janthochir (Bleeker, 1854)"
     },
     {
       "url": "https://media.aquatome.com/commons/a5db7ed585d54b08.webp",
+      "thumb": "https://media.aquatome.com/commons/a5db7ed585d54b08-480.webp",
       "width": 960,
       "height": 513,
       "licence": "CC BY 3.0",
       "author": "Published by Zoologische Mededelingen, at http://www.zoologischemededelingen.nl Creative Commons license published on main page.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyclocheilichthys_janthochir_Bleeker.png",
-      "caption": "Cyclocheilichthys janthochir (Bleeker, 1854)",
-      "thumb": "https://media.aquatome.com/commons/a5db7ed585d54b08-480.webp"
+      "caption": "Cyclocheilichthys janthochir (Bleeker, 1854)"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "XzI-SP6ZWoM",
+      "title": "Borneo Red Fin Silver Shark - Cyclocheilichthys janthochir - Rare Barb Fish Profile & Care Guide",
+      "durationSec": 243,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "2c9Q2sUrYlk",
+      "title": "Cyclocheilichthys jantochir. The BORNEO Red Fin Shark! (Leopard Aquatic U045B)",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HU5BmJ0pxHU",
+      "title": "“Red Fin Bala Shark – The Hidden Gem of Borneo’s Waters” #fish4u",
+      "durationSec": 136,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MdfHOBLLob0",
+      "title": "40 breeder C. janthochir",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -96,5 +231,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-02"
 }

@@ -10,13 +10,59 @@
     "thailand",
     "mekong",
     "laos",
-    "cambodia"
+    "cambodia",
+    "vietnam",
+    "tonle-sap"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 120
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200,
+        "hidden": "shorter than twice the fish (120 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -28,10 +74,22 @@
       "html": "<p>The Asian featherbacks, which have a well developed dorsal fin, have been placed in the genus Notopterus for a long time. Nowadays the genus Notopterus is seen monotypic (it contains only the single species N. notopterus) and the high-backed forms have been placed in another genus, namely Chitala.</p><p>Chitala blanci can attain a maximum length of about 120 cm. The fish are gorgeous inhabitants for large aquaria.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<p>The royal featherback, Chitala blanci, is a very large notopterid endemic to the Mekong drainage in Laos, Thailand, Vietnam and Cambodia. Also sold as the 'royal knifefish', it reaches 120 cm SL and arguably has no place in the ornamental hobby, being suitable only for public installations or the very largest private aquaria. Many small dark spots on the front of the body merge into oblique stripes, and it is thought to be threatened by dam construction.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
       "html": "<p>Chitala blanci originates from the basin of the Mekong river in Thailand, Laos, and Cambodia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<p>Endemic to the Mekong river drainage in Laos, Thailand, Vietnam, and Cambodia, including the Mekong delta region and Tonlé Sap lake system.</p><p>Type locality is 'Beng-Cha, upper Mekong River, northern Cambodia'.</p>"
     },
     {
       "key": "habitat",
@@ -40,10 +98,40 @@
       "html": "<p>Chitala blanci prefers waters with a strong current and avoids quiet water or swamps.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<p>Mostly recorded from the Mekong main channel and lower parts of certain tributaries, where it displays a preference for rocky habitats such as deep pools and rapids, typically with moderate to fast-flowing water. Moves into areas of flooded forest to spawn.</p><p>It is thought to be threatened by dam construction and other anthropogenic habitat alterations.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<p>Suitable only for public installations or the very largest, highly-specialised private aquaria. Needs a tank at least 2 m long.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<p>Prefers dim lighting and access to refuges in the form of driftwood, large rocks or lengths of plastic piping.</p><p>A large, mature filter system, rigorous maintenance regime comprising weekly water changes of 50-70% tank volume, and provision of highly-oxygenated water with a degree of movement should be considered mandatory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
       "html": "<p>All species of Chitala are predatory fish that have to be fed with beefy (frozen) food. Of course small fish are also eaten.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<p>An obligate, typically nocturnal, predator feeding on smaller fishes, crustaceans and other invertebrates in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc., as well as dried pellets although the latter should not form the staple diet.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
     },
     {
       "key": "behaviour",
@@ -52,10 +140,22 @@
       "html": "<p>Against conspecifics and other tankmates that cannot be eaten, featherbacks are very peaceful.</p><p>Chitala species are able to breath atmospheric air when necessary. So they can survive even in oxygen-poor water for quite a long time.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<p>Relatively peaceful with fishes too large to be considered prey but can be territorial with conspecifics and other similarly-shaped species, especially if space is at a premium.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
       "html": "<p>The sexes cannot be distinguished externally.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<p>Unreported.</p>"
     },
     {
       "key": "reproduction",
@@ -64,35 +164,78 @@
       "html": "<p>During breeding season the fish form pairs and spawn on rocks, wood etc. The spawn is guarded by the parents.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<p>Unreported in captivity but in nature male individuals construct nests from branches and leaves and remain to guard the eggs and fry post-spawning, which takes place in areas of flooded forest during the wet season.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
       "html": "<p>Chitala species are much sought-after market fish in the countries where they occur. However, the flesh is full of small bones, so the meat is usually chopped, pressed through a sieve and used for meatballs.</p><p>Text &amp; photos: Frank Schäfer</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<p>This species is also referred to as 'royal knifefish' in the aquarium trade although it arguably has no place in the ornamental hobby given its adult size and specialised requirements.</p><p>It can be distinguished from congeners by presence of many small, dark spots on the anterior portion of the body which merge to form oblique, irregular stripes extending onto the anal and caudal fins posteriorly.</p><p>Notopterids are distributed in Africa and Southeast Asia and all possess an elongated anal-fin which is continuous with the caudal-fin, a 'humped' appearance, very small scales, plus the ability to breathe atmospheric air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-blanci",
+      "html": "<ul><li>D'Aubenton, F. (1865). Notopterus blanci n. sp., nouvelle espèce de poisson Notopteridae de haut Mékong cambodgien. Bulletin du Muséum National d'Histoire Naturelle (Série 2) 37(2), 261-264</li><li>Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/9d6904b7f2d7a98e.webp",
+      "thumb": "https://media.aquatome.com/commons/9d6904b7f2d7a98e-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 3.0",
       "author": "This illustration was made by Peter Potrowl. Please credit this with : © Peter Potrowl in the immediate vicinity of the image. A link to my website sitemai.eu would be much appreciated but isn't mandatory. An email to Peter Potrowl would be appreciated too. Do not copy this image illegally by ignoring the terms of the license below, as it is not in the public domain. If you would like special permission to use, license, or purchase the image please contact me Peter Potrowl to negotiate terms. More free pictures in my website. Donations are accepted here and here.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shanghai_Ocean_Aquarium_-_Chitala_blanci_1.jpg",
-      "caption": "Royal knifefish (Chitala blanci) in Shanghai Ocean Aquarium",
-      "thumb": "https://media.aquatome.com/commons/9d6904b7f2d7a98e-480.webp"
+      "caption": "Royal knifefish (Chitala blanci) in Shanghai Ocean Aquarium"
     },
     {
       "url": "https://media.aquatome.com/commons/f4b642e1c1311797.webp",
+      "thumb": "https://media.aquatome.com/commons/f4b642e1c1311797-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 3.0",
       "author": "This illustration was made by Peter Potrowl. Please credit this with : © Peter Potrowl in the immediate vicinity of the image. A link to my website sitemai.eu would be much appreciated but isn't mandatory. An email to Peter Potrowl would be appreciated too. Do not copy this image illegally by ignoring the terms of the license below, as it is not in the public domain. If you would like special permission to use, license, or purchase the image please contact me Peter Potrowl to negotiate terms. More free pictures in my website. Donations are accepted here and here.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shanghai_Ocean_Aquarium_-_Chitala_blanci_2.jpg",
-      "caption": "Royal knifefish (Chitala blanci) in Shanghai Ocean Aquarium (China).",
-      "thumb": "https://media.aquatome.com/commons/f4b642e1c1311797-480.webp"
+      "caption": "Royal knifefish (Chitala blanci) in Shanghai Ocean Aquarium (China)."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "wUwUYRO2W00",
+      "title": "giant Royal Clown Knifefish 'Chitala Blanci' (HD-1080p)",
+      "durationSec": 274,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vn-R5tA-b_o",
+      "title": "Royal Knifefish - Chitala blanci",
+      "durationSec": 93,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "m6GnmQx38TM",
+      "title": "Royal Clown Knifefish (Chitala blanci)",
+      "durationSec": 15,
+      "lang": "ur"
+    },
+    {
+      "youtubeId": "ILv2y3tvRxI",
+      "title": "PEZ CUCHILLO REAL | Cuidados y Alimentación | Chitala blanci | AcuariosLP",
+      "durationSec": 344,
+      "lang": "es"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -117,5 +260,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-02"
 }

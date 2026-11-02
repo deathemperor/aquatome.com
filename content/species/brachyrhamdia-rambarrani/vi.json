@@ -1,9 +1,11 @@
 {
   "slug": "ca-meo-gia-adolfoi",
-  "name": "Cá mèo giả Adolfoi",
+  "name": "Cá da trơn giả adolfoi",
   "altNames": [
     "Cá False Adolfoi",
-    "False Adolfoi"
+    "False Adolfoi",
+    "Cá mèo giả Adolfoi",
+    "Cá false adolfoi"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Brachyrhamdia rambarrani (Axelrod &amp; Burgess, 1987)</li><li>Tên thường gọi: False Adolfoi</li><li>Kích thước: 55 mm SL</li><li>Tên đồng nghĩa: Pimelodella rambarrani</li></ul>",
@@ -14,13 +16,26 @@
     "behaviour:planetcatfish": "<p>Đây là loài hiền, sống hòa thuận với cả đồng loại lẫn cá chuột Corydoras. Điểm trừ duy nhất là nó sẽ ăn tetra nhỏ và cá con. Cá dài hơn khoảng 2,5 cm thì đã quá to để nó ăn, và nó cũng không quấy phá gì những con cá đó.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận nào. Hiện cũng chưa có báo cáo nào về chuyện cho loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Loài duy nhất dễ bị nhầm với nó là Corydoras imitator hoặc những loài tương tự. Chỉ cần nhìn kỹ hơn một chút là bạn sẽ thấy bộ râu dài và hai bên thân trần, không có giáp. Phân biệt đực cái: chưa rõ. Fishbase ghi kích thước 70 mm TL. Danh sách đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2018).</p>",
-    "references:planetcatfish": "<p>Tropical Fish Hobbyist v. 35 (no. 12), pp 24, Figs.</p>"
+    "references:planetcatfish": "<p>Tropical Fish Hobbyist v. 35 (no. 12), pp 24, Figs.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá false adolfoi (Brachyrhamdia rambarrani) là một loài cá da trơn thuộc họ Heptapteridae. Quê của nó là sông Unini, một nhánh nước đen ở hạ lưu sông Negro, Brazil. Ngoài tự nhiên, loài này sống chung với Hoplisoma davidsandsi và bắt chước loài đó, nên hai loài có chung kiểu màu cơ bản. Còn cái tên thường gọi thì có là do nó trông giống H. adolfoi. Loài này hiếm thấy trên thị trường cá cảnh. Thường thì nó chỉ lẫn vào các lô hàng của loài khác.</p>",
+    "distribution:seriouslyfish": "<p>Loài này được mô tả từ mẫu thu ở sông Unini. Đây là một nhánh thuộc lưu vực hạ lưu sông Negro, bang Amazonas, tây bắc Brazil. Phần lớn con sông nằm trong khu bảo tồn. Có thể vì vậy mà dân chơi cá cảnh biết rất ít về loài này. Sông Unini cũng là điểm câu quen của dân câu cá thể thao săn các loài Cichla.</p><p>Lưu ý: nhiều nguồn ghi loài này có nguồn gốc ở thượng lưu sông Negro. Tuy vậy, mọi bản đồ đã đối chiếu đều đặt sông Unini ở phần hạ lưu của lưu vực, khoảng giữa Manaus và Barcelos.</p>",
+    "habitat:seriouslyfish": "<p>Unini là một hệ sông nước đen điển hình. Nước ở đây nghèo dinh dưỡng, rất mềm, pH thấp và có màu sẫm do tanin tiết ra từ chất hữu cơ đang phân hủy. B. rambarrani sống cùng một chỗ với Hoplisoma davidsandsi và bắt chước loài này, nên hai loài có chung kiểu màu cơ bản.</p><p>Hiện vẫn chưa rõ kiểu ngụy trang này hình thành để tránh kẻ săn mồi hay để kiếm ăn dễ hơn. Nếu là vì miếng ăn thì cá có thể ăn ké những thứ do đàn Corydoras bới lên, có khi cả trứng của chúng.</p>",
+    "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn (SL): 55 mm.</p><p>Đáy bể: 80 × 30 cm hoặc tương đương.</p><p>Thể tích: khoảng 72 lít.</p>",
+    "maintenance:seriouslyfish": "<p>Nền cát mịn là hợp nhất. Bạn có thể bày thêm rễ và cành lũa. Nơi loài này sống ngoài tự nhiên nhiều khả năng không có cây thủy sinh. Dù vậy, các cây thuộc những chi như Microsorum, Taxiphyllum, Cryptocoryne và Anubias vẫn có thể sống được nếu buộc lên lũa hay vật trang trí. Rải thêm ít lá khô thì bể càng giống tự nhiên. Lá dẻ gai, lá sồi hay lá bàng (Ketapang) đều dùng được.</p><p>Cá này không chịu được chất thải hữu cơ tích tụ. Muốn nó khỏe thì nước lúc nào cũng phải thật sạch. Vì thế bạn cần giữ lịch thay nước một phần mỗi tuần và vệ sinh bể thật đều đặn.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 24–28°C</li><li>pH: 4,0–7,0</li><li>Độ cứng: 0–10 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Ngoài tự nhiên, các loài Brachyrhamdia chủ yếu ăn động vật không xương sống sống ở đáy. Nuôi trong bể thì nên cho ăn thức ăn sống và đông lạnh thường xuyên, như Artemia, bo bo và ấu trùng muỗi lắc (trùng huyết). Cá cũng chịu ăn thức ăn khô loại chìm.</p>",
+    "behaviour:seriouslyfish": "<p>Nhìn chung đây là loài hiền. Tuy vậy, cá quá nhỏ có thể bị nó ăn. Những loài cá da trơn có dáng tương tự nhưng khác kiểu màu cũng có thể bị nó quấy, ví dụ các loài Corydoras có đốm. Tốt nhất là nuôi nó chung với một đàn Corydoras có kiểu màu giống nó, như Hoplisoma adolfoi, H. davidsandsi, H. duplicareum..., và không thả thêm loài cá tầng đáy nào khác. Tầng trên thì hợp nhất là các loài characid, gasteropelecid hoặc lebiasinid, miễn là chúng đủ lớn để không bị ăn.</p><p>Các loài Brachyrhamdia không thích sống bầy với đồng loại lắm. Dù vậy, nuôi vài con chung thường vẫn ổn, miễn là bể không quá nhỏ.</p>",
+    "dimorphism:seriouslyfish": "<p>Con cái trưởng thành thường có thân đầy đặn hơn hẳn con đực.</p>",
+    "reproduction:seriouslyfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản. Tuy nhiên, người ta đã quan sát được loài B. imitator đẻ. Có vẻ như nó đẻ theo một đàn Hoplisoma melanistium nuôi chung, vì đàn này bắt đầu đẻ ngay trước khi Brachyrhamdia đẻ.</p>",
+    "notes:seriouslyfish": "<p>Loài này hiếm thấy trên thị trường cá cảnh. Thường thì nó chỉ lẫn vào các lô hàng của loài khác. Cái tên thường gọi có là do nó trông giống Hoplisoma adolfoi, dù ngoài tự nhiên hai loài này có thể không hề sống chung với nhau.</p><p>Một số loài Brachyrhamdia có kiểu màu bắt chước các loài Corydoras sống cùng chỗ, và chúng giữ kiểu màu này suốt đời. Các loài còn lại thì có thể chỉ bắt chước Otocinclus hoặc các loài Corydoras nhỏ hơn khi còn non. Phân biệt chúng với Corydoras khá dễ. Râu của Brachyrhamdia dài hơn hẳn, và thân không có các tấm giáp như Corydoras.</p><p>Trong các nhóm cá da trơn, chúng gần nhất với chi Pimelodella. Điểm khác nằm ở thóp sọ sau. Ở Brachyrhamdia, thóp này khép lại và chỉ chừa hai lỗ nhỏ, còn ở Pimelodella thì nó mở rộng.</p><p>Trước đây, họ Heptapteridae từng bị xếp làm một phân họ (Rhamdiinae) của họ Pimelodidae. Các nghiên cứu phân tử sau này có vẻ đã xác nhận đây là một nhóm đơn ngành. Họ này gần nhất với các họ Pimelodidae, Pseudopimelodidae và chi Conorhynchos.</p>",
+    "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Baensch, H. A. and R. Riehl (1991). Aquarium Atlas volume 3 Mergus, Verlag für Natur- und Heimtierkunde, Germany, 1-1104</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li></ul>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "seriouslyfish": 0.8
     }
   }
 }

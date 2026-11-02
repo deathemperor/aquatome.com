@@ -7,10 +7,65 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "brazil"
+    "brazil",
+    "uruguay",
+    "paraguay",
+    "argentina"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 61
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<p>The pepper cory, Hoplisoma paleatum, long known as Corydoras paleatus, is an armoured catfish from southern Brazil, Uruguay, Paraguay and Argentina. Along with the bronze cory it is one of the most commonly found corys in the hobby. Most fish on sale are captive bred for the trade, and wild-caught specimens are much more vividly coloured. In nature it lives in rivers, tributaries and standing waters including pools and small lakes.</p>"
+    },
     {
       "key": "distribution",
       "source": "glaser",
@@ -18,14 +73,140 @@
       "html": "<p>Corydoras paleatus is widespread in southern South America. Wild-caught fish are only very rarely imported. Imports of this species did not appear for more than 10 years, because many export stations in southern Brazil had to close down when some of the most important ornamental fishes of the region were left off the Brazilian positive list, which regulated which species could be caught and exported as ornamental fish. Now a negative list is in effect, meaning that all species may again be caught and exported unless they are specially protected.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<p>Native to parts of southern Brazil, Uruguay, Paraguay and Argentina.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<p>Rivers, tributaries and standing waters including pools and small lakes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<p>Standard length: 70 mm SL. Aquarium base: 61 × 38 cm. Volume: ~70 litres (61 × 38 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<p>Corydoras species prefer sandy substrate as they enjoy rooting about in it looking for morsels of food. Can be prone to infection of the barbels if kept in poorly maintained gravel. Corydoras will appreciate some cover in the form of rocks or bogwood.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.0</li><li>Hardness: up to 12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<p>Gut analyses of wild specimens have shown it to be an opportunistic omnivore, consuming a range of worms, crustaceans, plant matter and other zoobenthos. It's similarly adaptable in the aquarium, accepting virtually anything offered. Feed a varied diet consisting of a good quality dried sinking food supplemented with regular meals of small live and frozen foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<p>Peaceful catfish for the smaller community aquarium. Does best kept in groups. Ideal tankmates would be other small fish such as tetras and dwarf cichlids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<p>Females grow considerably bigger and are much more rounded, particularly when in breeding condition.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<p>Adopts typical corydoras spawning behaviour. Cories are best bred in groups where there is a ratio of at least two males to every female. (Some breeders report greater success with difficult species when the ratio of males to females is increased.) The breeding group should be transferred to a breeding tank; one of 45 × 30 × 30 cm would suffice. Bring the fish into condition by feeding plenty of live or frozen foods such as bloodworm. When the fish are in condition and the females suitably ripened, perform a large water change with water approximately 5 °C cooler than the tank water. This may have to be repeated over several days before spawning is triggered. When the fish enter spawning mode, they will become much more active. A good indication of this is that the fish will swim up and down the front of the glass relentlessly. The males will begin to pursue the females until spawning begins. Corydoras adopt a T-shaped spawning position, by interlocking their pelvic fins. The female will release a clutch of eggs at a time and hold them between her pelvic fins, where they are then fertilised. The female then swims off and deposits the eggs, often on the aquarium glass or plant leaves. The process is repeated until all the eggs have been laid. As several pairs may spawn simultaneously, there can be several hundred eggs. Cories are not as likely as some fish to eat their eggs but it is still best to remove the adults when spawning is complete. Eggs hatch in around 3 days. Fry should be fed small foods such as microworm initially and from there progressed onto powdered food, brine shrimp nauplii and on to standard aquarium foods. Maintaining water quality is key to raising cory fry so ensure regular water changes take place. Be careful not to siphon out any fry!</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/coyrdoras-paleatus-wild-2/",
       "html": "<p>This veteran among aquarium fishes was already bred in 1878 by the Parisian aquarium pioneer Pierre Carbonnier. Outside France the species has been available since 1893. Since then there have always been offspring, and various breeding forms (long-finned, albino etc.) are always available in the trade.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-paleatum",
+      "html": "<p>Corydoras are members of the armoured catfish family. The genus name means \"helmet skin\" and the fish live up to this name as they are rather tough little fish. They also have spines in the leading rays of the pectoral fins to deter larger predators from eating them. Corydoras are sometimes observed taking a gulp of air at the water surface: this is because they can absorb oxygen through their gut. It is not known why cories do this even in oxygen-rich waters. Along with the bronze cory, the pepper cory is one of the most commonly found cories in the hobby. Most of the available fish are captive bred, specifically for the trade, but wild-caught specimens are occasionally available and are much more vividly coloured.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/52e28f524a1e37fb.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "Public domain",
+      "author": "NiKo at German Wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_paleatus_by_NiKo.jpg",
+      "caption": "Corydoras paleatus",
+      "thumb": "https://media.aquatome.com/commons/52e28f524a1e37fb-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/82b2febde4974391.webp",
+      "width": 960,
+      "height": 638,
+      "licence": "CC BY-SA 3.0",
+      "author": "Sychriscar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:19septe_(4).JPG",
+      "caption": "cory poivré",
+      "thumb": "https://media.aquatome.com/commons/82b2febde4974391-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ca2a8705dff4e31e.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Nate Wessel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pair_with_eggs.jpg",
+      "caption": "A pair of spawning Corydoras catfish. The larger fish holds eggs between her pelvic fins as she looks for a place to deposit them.",
+      "thumb": "https://media.aquatome.com/commons/ca2a8705dff4e31e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a5b6e56f0b64eb1b.webp",
+      "width": 960,
+      "height": 731,
+      "licence": "CC BY-SA 3.0",
+      "author": "Marrabbio2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_paleatus_matt.jpg",
+      "caption": "Corydoras paleatus",
+      "thumb": "https://media.aquatome.com/commons/a5b6e56f0b64eb1b-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "j7u-06vatZ4",
+      "title": "Breeding Corydoras paleatus",
+      "durationSec": 455,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "kKm0Q_KCKho",
+      "title": "Peppered Corydoras Species Profile And Care Guide Freshwater Tropicalfish Aquarium",
+      "durationSec": 455,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "wF372eSVBSY",
+      "title": "Everything You Should Know Before You Get Corydoras! 7 Tips for Keeping Corydoras in an Aquarium!",
+      "durationSec": 550,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NryeRF4e_PQ",
+      "title": "Easy Corydoras catfish breeding: Eggs to Cory Paleatus Fry!",
+      "durationSec": 573,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -56,5 +237,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-02"
 }

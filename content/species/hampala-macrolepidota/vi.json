@@ -1,27 +1,47 @@
 {
- "slug": "ca-ngua-nam",
- "name": "Cá ngựa nam",
- "altNames": [
-  "Cá hampala vảy lớn",
-  "Hampala barb"
- ],
- "sections": {
-  "quickFacts:glaser": "<p>Trong nhóm cá barb, số loài săn mồi chỉ đếm trên đầu ngón tay. Giống như mọi loài trong họ Cyprinidae, cá barb không có răng ở hàm. Răng của chúng chỉ nằm trong họng. Vì vậy, một con barb muốn ngoạm giữ được con cá mồi không phải chuyện dễ. Các loài barb thuộc giống Hampala là một trong số ít ngoại lệ. Giống này hiện có 6-7 loài được công nhận. H. macrolepidota là loài phân bố rộng nhất trong giống, rộng hơn hẳn các loài còn lại. Cá có thể dài tối đa khoảng 70 cm, còn ngoài tự nhiên chúng thường chỉ dài trung bình 20-30 cm.</p>",
-  "behaviour:glaser": "<p>Đây là loài cá sống theo đàn. Chúng rất hiền với mọi bạn cùng bể có kích thước tương đương.</p>",
-  "diet:glaser": "<p>Cá dễ ăn và chịu ăn mọi loại thức ăn cá thông thường.</p>"
- },
- "quality": {
-  "score": 0.85,
-  "indexable": true,
-  "bySource": {
-   "glaser": 0.85
+  "slug": "ca-ngua-nam",
+  "name": "Cá ngựa nam",
+  "altNames": [
+    "Cá hampala vảy lớn",
+    "Hampala barb",
+    "Cá barb hampala",
+    "Cá rô rừng",
+    "Cá barb sọc bên",
+    "Hampala Barb",
+    "Jungle perch",
+    "Sidebar barb"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Trong nhóm cá barb, số loài săn mồi chỉ đếm trên đầu ngón tay. Giống như mọi loài trong họ Cyprinidae, cá barb không có răng ở hàm. Răng của chúng chỉ nằm trong họng. Vì vậy, một con barb muốn ngoạm giữ được con cá mồi không phải chuyện dễ. Các loài barb thuộc giống Hampala là một trong số ít ngoại lệ. Giống này hiện có 6-7 loài được công nhận. H. macrolepidota là loài phân bố rộng nhất trong giống, rộng hơn hẳn các loài còn lại. Cá có thể dài tối đa khoảng 70 cm, còn ngoài tự nhiên chúng thường chỉ dài trung bình 20-30 cm.</p>",
+    "behaviour:glaser": "<p>Đây là loài cá sống theo đàn. Chúng rất hiền với mọi bạn cùng bể có kích thước tương đương.</p>",
+    "diet:glaser": "<p>Cá dễ ăn và chịu ăn mọi loại thức ăn cá thông thường.</p>",
+    "quickFacts:seriouslyfish": "<ul><li>Cần dòng chảy mạnh, lọc phải luân chuyển được lượng nước gấp 8–12 lần thể tích bể mỗi giờ</li><li>Cần bể dài tối thiểu 2 m</li></ul>",
+    "beforeYouBuy:seriouslyfish": "<p>Bể phải có nắp đậy khít vì loài này hay nhảy. Nên dùng nắp nặng và đậy thật kín. Các loài cá chép cỡ lớn đôi lúc rất dễ hoảng, và chúng thường bật nhảy rất mạnh.</p><p>Cá hampala (Hampala macrolepidota) là một loài cá chép, phân bố từ Myanmar qua Thái Lan tới sông Mekong, xuống phía nam tới Borneo, Sumatra và Java. Loài này còn có tên 'jungle perch' hoặc 'sidebar barb'. Cá có thể dài hơn 60 cm, nặng tới 5 kg và là kẻ săn mồi khỏe ở tầng nước mở. Trừ những trường hợp hết sức đặc biệt, đây không phải là cá để nuôi bể. Người ta chuộng nó làm cá thực phẩm và cá câu thể thao, nên nó đã được thả vào rất nhiều thủy vực.</p>",
+    "distribution:seriouslyfish": "<p>Hiện nay loài này được xem là phân bố về phía đông từ Myanmar, qua Thái Lan, tới lưu vực sông Mekong ở Lào, Campuchia, Việt Nam và tây nam Trung Quốc. Về phía nam, chúng có mặt ở bán đảo Malaysia và các đảo Sunda Lớn gồm Borneo, Sumatra và Java.</p><p>Như vậy, cá sống khắp các lưu vực Mekong, Chao Phraya và Mae Klong, cùng rất nhiều lưu vực sông nhỏ hơn, hồ tự nhiên và hồ chứa. Vùng phân bố của chúng mở rộng một phần là do con người. Cá được chuộng làm thực phẩm và cá câu thể thao, nên người ta đã thả nó vào rất nhiều thủy vực.</p><p>Nơi thu mẫu chuẩn là 'Bogor, Java, Indonesia'.</p>",
+    "habitat:seriouslyfish": "<p>Đây chủ yếu là cá sông. Chúng ưa nước chảy, trong và giàu oxy, nền là cát, sỏi, đá hoặc bùn. Tuy vậy, loài này dễ thích nghi, nên có thể gặp cả ở vùng cao lẫn vùng thấp, cả nước tĩnh lẫn nước chảy.</p><p>Vào mùa mưa, cá di cư vào rừng ngập nước để kiếm ăn và sinh sản. Hiện nay chúng còn sống ở nhiều thủy vực bị ngăn lại do hoạt động của con người, như làm nông nghiệp và đắp đập chặn dòng sông. Cá lớn có vẻ hay ở các vực sâu trên dòng chính, và thường tụ lại giữa những thân cây, cành cây chìm dưới nước.</p>",
+    "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn (SL): 700 mm.</p><p>Loài này chỉ hợp với bể trưng bày công cộng hoặc những bể cá nhân thuộc loại lớn nhất.</p>",
+    "maintenance:seriouslyfish": "<p>Bày trí bể không quan trọng bằng chất lượng nước và khoảng trống để cá bơi. Dù vậy, nếu bạn có điều kiện làm một bể đủ lớn và trang trí nó, nên dựng bể theo kiểu một dòng sông đang chảy. Nền là đá và sỏi nhiều cỡ, thêm vài tảng đá lớn bị nước mài nhẵn, và có thể đặt vài cành lũa.</p><p>Giống nhiều loài cá sống ở nước chảy, cá hampala không chịu được chất thải hữu cơ tích tụ. Nước lúc nào cũng phải thật sạch thì cá mới phát triển tốt. Cá cũng khỏe nhất khi nước nhiều oxy hòa tan và bể có dòng chảy kha khá. Vì thế bạn nên dùng lọc ngoài, máy tạo dòng và các thiết bị tương tự để có được điều kiện này.</p><p>Bể phải có nắp nặng, đậy thật kín. Các loài cá chép cỡ lớn đôi lúc rất dễ hoảng, và chúng thường bật nhảy rất mạnh.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–26°C</li><li>pH: 5,5–8,0</li><li>Độ cứng: 2–20 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Đây chủ yếu là cá săn mồi. Người ta phân tích dạ dày cá ngoài tự nhiên và thấy chúng ăn cá nhỏ hơn, côn trùng, nhiều loại giáp xác nước ngọt và cả thực vật. Phần thực vật nhiều khả năng nằm sẵn trong bụng con mồi.</p><p>Trong bể, cá chịu ăn thức ăn khô nhưng không nên chỉ cho ăn mỗi loại này. Muốn cá khỏe nhất thì bữa ăn hằng ngày phải có thức ăn sống và đông lạnh.</p><p>Cá nhỏ có thể ăn ấu trùng muỗi lắc (trùng huyết), giun đất nhỏ, tôm cắt khúc và các món tương tự. Cá trưởng thành thì ăn được tôm nguyên con, giun đất cỡ lớn, trai, cá con nhỏ (whitebait) và các loại khác. Đừng cho ăn quá nhiều, vì có cơ hội là cá sẽ ăn đến căng bụng.</p><p>Không nên cho cá ăn nhiều thịt động vật có vú hoặc gia cầm như tim bò hay thịt gà. Cá không chuyển hóa được đúng cách một số chất béo trong các loại thịt này. Chúng có thể gây tích mỡ quá mức, thậm chí làm thoái hóa nội tạng. Cá mồi như cá đẻ con hay cá vàng nhỏ cũng vậy. Chúng chẳng có lợi gì mà còn có nguy cơ mang ký sinh trùng hoặc mầm bệnh vào bể.</p><p>Các loài Hampala ăn rất phàm, nhất là khi nuôi nhiều con. Một số người nuôi thấy con đầu đàn ('alpha') dẫn cả nhóm đi săn theo kiểu bầy. Người đi câu kể rằng khi cả đàn ăn, mặt nước sôi lên thật sự. Cá lao vào thức ăn hăng đến mức đôi khi người ta khuyên nuôi chung nó với những loài kén ăn hoặc cá mới thả đang bỏ ăn.</p>",
+    "behaviour:seriouslyfish": "<p>Cá hampala bắt mồi bằng cách hút chứ không cắn xé hung hăng. Ngoài chuyện đó ra, nó hiền với mọi thứ nó không nuốt được. Có điều cá bơi nhanh và ăn hăng, nên cá chung bể chậm chạp hoặc nhút nhát có lẽ sẽ bị tranh hết phần ăn. Lúc còn nhỏ, cá dễ nuôi chung với loài khác. Càng lớn, chúng càng khỏe và càng lấn át khi có thức ăn, vì vậy bạn phải chọn cá chung bể cẩn thận.</p><p>Lựa chọn tốt nhất là các loài cá chép, cá characin, cá da trơn cùng cỡ, và có thể cả các loài cá heo botiid cỡ lớn. Một bể cộng đồng lớn theo chủ đề sông Mekong có thể là dự án thú vị. Bạn có thể chọn các loài Barbonymus, Cyclocheilichthys, Osteochilus, Hypsibarbus và nhiều loài khác.</p><p>Bản tính loài này thích sống theo nhóm. Tuy vậy, chúng chỉ tụ thành đàn lỏng chứ không bơi đồng loạt thành khối, và trong đàn hình thành thứ bậc rõ ràng. Vì thế lúc nào cũng nên nuôi nhóm từ năm con trở lên. Nếu chỉ có hai hoặc ba con, con yếu thế có thể bị bắt nạt quá mức. Còn nuôi một con riêng lẻ thì cá thường khá bồn chồn, dễ hoảng.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá cái trưởng thành nhiều khả năng có thân dày hơn cá đực.</p>",
+    "reproduction:seriouslyfish": "<p>Chưa có ghi nhận.</p>",
+    "notes:seriouslyfish": "<p>Loài này còn có tên thông dụng là 'jungle perch' hoặc 'sidebar barb'. Trừ những trường hợp hết sức đặc biệt, không nên coi nó là cá để nuôi bể. Cá có thể dài hơn 60 cm, nặng hơn 5 kg và là kẻ săn mồi khỏe ở tầng nước mở. Đây cũng là loài cá câu thể thao được ưa chuộng, nổi tiếng là đớp mồi rất mạnh.</p><p>Loài cùng chi H. dispar có cỡ dễ nuôi hơn và thỉnh thoảng có bán. Nó vẫn cần nhiều không gian, nhưng hợp với bể nuôi hơn nhiều.</p><p>Chi này hiện có bảy loài. Trong số đó, chỉ H. macrolepidota và, ở mức ít hơn, H. dispar là hay gặp trên thị trường cá cảnh. H. macrolepidota vừa phân bố rộng nhất vừa lớn nhất trong nhóm. Thoạt nhìn, các loài trong chi có thể trông khá giống nhau. Ngoại lệ là H. lopezi, loài đặc hữu của một hòn đảo duy nhất ở Philippines. Nó là loài duy nhất có vệt dạng dải chạy dọc hai bên thân.</p><p>H. macrolepidota cũng dễ nhận ra nhờ kiểu màu. Một dải sẫm thẳng đứng bắt đầu ngay trước vây lưng và kéo xuống quá đường bên. Cả hai thùy vây đuôi đều có sọc đen ở rìa. H. dispar thì chỉ có một đốm sẫm trên thân, và sọc rìa trên hai thùy đuôi kém rõ hơn.</p><p>Cá con của hai loài có thể trông rất giống nhau. Ở H. dispar non, đốm trên thân kéo dài theo chiều đứng. Cả hai loài đều có một dải sẫm khá rộng ngang cuống đuôi, một dải thứ hai mảnh hơn ngang gốc vây đuôi, và một đốm nhỏ phía trên vây hậu môn. Ở H. dispar, tất cả các vệt này đều nhạt hơn. Còn H. macrolepidota có thêm hoa văn sẫm phía trên và phía dưới mắt, cùng một vệt chạy từ gáy xuống vây bụng.</p><p>H. sabana cũng chỉ có một vệt trên thân. Tuy nhiên, so với các loài cùng chi, nó có nhiều vảy quanh cuống đuôi hơn (30-32) và tương đối ít vảy đường bên (12-15). H. ampalong, H. bimaculata và H. salweenensis khó phân biệt hơn một chút vì cả ba đều có hai đốm trên thân. H. ampalong có nhiều vảy đường bên hơn H. salweenensis (28-31 so với 26-27). Ở H. bimaculata, các vệt trên thân có hình yên ngựa, và đốm phía trước nằm dưới nửa sau vây lưng. Ở hai loài kia, đốm này nằm dưới điểm bắt đầu vây lưng.</p><p>Ở mọi loài Hampala, các vệt trên thân thường mờ dần khi cá đạt cỡ rất lớn. Trong tương lai có thể sẽ có thêm loài mới được mô tả. Ví dụ, một nghiên cứu phát sinh loài công bố năm 2006 kết luận rằng dạng H. bimaculata ở miền trung và miền nam bang Sarawak của Malaysia, trên đảo Borneo, nên được xem là một loài riêng.</p>",
+    "references:seriouslyfish": "<ul><li>Taki, Y. and A. Kawamoto (1977). Differentiation of the Cyprinids, Hampala macrolepidota and H. dispar. Japanese Journal of Icthyology 24(1), 61-65</li><li>Ryan, J. R. and Y. B. Esa (2006). Phylogenetic Analysis of Hampala Fishes (Subfamily Cyprininae) in Malaysia Inferred from Partial Mitochondrial Cytochrome b DNA Sequences. Zoological Science 23(10), 893-901</li><li>Doi, A. and Y. Taki (1994). A new cyprinid fish, Hampala salweenensis, from the Mae Pai River system, Salween Basin, Thailand. Japanese Journal of Ichthyology 40(4), 405-412</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>van Hasselt, J. C. (1823). Uittreksel uit een' brief van Dr. J. C. van Hasselt, aan den Heer C. J. Temminck. Algemeene Konst- en Letter-bode II Deel (no. 35), 130-133</li></ul>"
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-hampala",
+      "name": "Cá Hampala"
+    }
+  ],
+  "quality": {
+    "score": 0.8,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85,
+      "seriouslyfish": 0.8
+    }
   }
- },
- "nameFixed": true,
- "redirectFrom": [
-  {
-   "slug": "ca-hampala",
-   "name": "Cá Hampala"
-  }
- ]
 }

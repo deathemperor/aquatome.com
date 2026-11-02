@@ -7,13 +7,61 @@
   "group": "barbs",
   "places": [
     "asia",
-    "india"
+    "india",
+    "brahmaputra",
+    "pakistan",
+    "nepal",
+    "bangladesh",
+    "myanmar"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 240
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,52 +73,117 @@
       "html": "<p>Labeo boga is a peaceful, schooling species that can attain a length of about 30 cm. It is a much sought-after food fish in its home country.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-boga",
+      "html": "<p>The violet shark, Labeo boga, is a cyprinid from most major river systems in India, Pakistan, Nepal, Bangladesh and Myanmar. It inhabits major river channels and larger tributaries and grows to 25 cm SL, needing a tank of at least 240 × 60 cm. It is unsuitable for most home aquaria but turns up in the trade irregularly. L. boga as currently recognised probably represents a complex of closely-related species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-boga",
+      "html": "<p>This species occurs in most major river systems in India (excluding the western slopes of the Western Ghats mountains), Pakistan, Nepal, Bangladesh, and Myanmar.</p><p>Type locality is 'Brahmaputra River, India'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-boga",
+      "html": "<p>Inhabits major river channels and larger tributaries, and is also found in some man-made reservoirs and other impoundments.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-boga",
+      "html": "<p>An aquarium with base dimensions of 240 × 60 cm or equivalent (about 864 litres) should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-boga",
+      "html": "<p>Choice of décor is not as critical as water quality and the amount of open swimming-space provided.</p><p>However should you possess the means to provide and decorate a sufficiently-sized aquarium for long term care this species would look superb in a set-up designed to resemble a flowing river with a substrate of variably-sized rocks and gravel, some large water-worn boulders and driftwood branches.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-boga",
+      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-boga",
+      "html": "<p>Primarily a benthic feeder and will accept most sinking foods, including live or frozen chironomid larvae (bloodworm), Tubifex, and proprietary dried products.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-boga",
+      "html": "<p>Can be aggressive towards conspecifics and other similarly-shaped fishes, especially in small aquaria.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_boga_en/",
       "html": "<p>Fresh fish can be most easily recognized by the red gills. Thus the Labeo boga, which we currently obtained from India, must be very fresh. Why the gill covers in this peaceful, schooling species are that translucent is unknown.</p><p>For our customers: the animals have code 422453 on our stocklist. Please note that we exclusively supply the wholesale trade.</p><p>Text &amp; Photos: Frank Schäfer</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-boga",
+      "html": "<p>Despite its unsuitability for the majority of home aquaria, this species is available in the aquarium trade on an irregular basis, and has also been marketed as 'violet-gilled shark', 'red-gilled violet shark' and 'blushing violet shark'.</p><p>It appears likely that L. boga as currently recognised represents a complex of closely-related species.</p><p>The genus Labeo is an enigmatic grouping containing more than 100 species which is critically in need of revision. Members occur throughout much of Africa and Asia.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/aceb1e27399b71ac.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/aceb1e27399b71ac-480.webp",
+      "width": 664,
+      "height": 380,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-boga",
+      "caption": "Juvenile from the UK aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d120ce15f82d82e4.webp",
+      "thumb": "https://media.aquatome.com/commons/d120ce15f82d82e4-480.webp",
       "width": 960,
       "height": 382,
       "licence": "Public domain",
       "author": "C.L. Griesbach",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labeo_boga_Griesbach_128.jpg",
-      "caption": "The species names / identity need verification - original names from plate are included here. The original plates showed the fishes facing right and have been flipped here. Labeo boga",
-      "thumb": "https://media.aquatome.com/commons/d120ce15f82d82e4-480.webp"
+      "caption": "The species names / identity need verification - original names from plate are included here. The original plates showed the fishes facing right and have been flipped here. Labeo boga"
     },
     {
       "url": "https://media.aquatome.com/commons/bc831dcd86daa531.webp",
+      "thumb": "https://media.aquatome.com/commons/bc831dcd86daa531-480.webp",
       "width": 960,
       "height": 654,
       "licence": "Public domain",
       "author": "Berger, Daniel; Berger, F. G.; Bloch, Marcus Elieser; Bodenehr, G.; Bodenehr, George; Buchhandlung der Realschule; Darchow, C.; Gursch, C. F.; Hesse; Krüger; Rosenberg, F. C. W.; Schmidt, A. F.; Schmidt, F. G.; Schmidt, Friedrich Wilhelm; Schmidt, Johann Gottlieb; Schmidt, Ludwig",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:D._Marcus_Elieser_Bloch%27s,_aus%C3%BCbenden_Arztes_zu_Berlin_..._Oeconomische_Naturgeschichte_der_Fische_Deutschlands_(20903292536).jpg",
-      "caption": "D. Marcus Elieser Bloch's, ausübenden Arztes zu Berlin ... Oeconomische Naturgeschichte der Fische Deutschlands ...",
-      "thumb": "https://media.aquatome.com/commons/bc831dcd86daa531-480.webp"
+      "caption": "D. Marcus Elieser Bloch's, ausübenden Arztes zu Berlin ... Oeconomische Naturgeschichte der Fische Deutschlands ..."
     },
     {
       "url": "https://media.aquatome.com/commons/66756e48b27e8e5d.webp",
+      "thumb": "https://media.aquatome.com/commons/66756e48b27e8e5d-480.webp",
       "width": 960,
       "height": 412,
       "licence": "Public domain",
       "author": "Achilles",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labeo_bog_Achilles_131.jpg",
-      "caption": "The species names / identity need verification - original names from plate are included here. The original plates showed the fishes facing right and have been flipped here. Labeo bog",
-      "thumb": "https://media.aquatome.com/commons/66756e48b27e8e5d-480.webp"
+      "caption": "The species names / identity need verification - original names from plate are included here. The original plates showed the fishes facing right and have been flipped here. Labeo bog"
     },
     {
       "url": "https://media.aquatome.com/commons/fe437123303d3f0e.webp",
+      "thumb": "https://media.aquatome.com/commons/fe437123303d3f0e-480.webp",
       "width": 960,
       "height": 733,
       "licence": "Public domain",
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tylognathus_boga_-_1807-1822_-_Print_-_Iconographia_Zoologica_-_Special_Collections_University_of_Amsterdam_-_UBA01_IZ15000091.tif",
-      "caption": "Tylognathus boga",
-      "thumb": "https://media.aquatome.com/commons/fe437123303d3f0e-480.webp"
+      "caption": "Tylognathus boga"
     }
   ],
   "videos": [],
@@ -97,5 +210,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-02"
 }

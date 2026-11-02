@@ -10,13 +10,59 @@
     "india",
     "salween",
     "china",
-    "myanmar"
+    "myanmar",
+    "ayeyarwady",
+    "manipur",
+    "yunnan"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "loachesonline",
         "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 13
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -28,10 +74,52 @@
       "html": "<p>Botia histrionica (Blyth 1860) is sold in the hobby as the \"Golden (Gold) Zebra Loach\" and is sometimes called the Burmese Loach. The maximum size is slightly above 10 cm. It has a short nose, a convex head and 5 wide black bands (sometimes irregular and tending to split with age) that disappear towards the bottom of the body. The bands extend into the caudal fin as 2 or 3 vertical stripes on both lobes. A thinner black line runs through the eye, and a smaller line runs from the eye to the mouth; these help distinguish juveniles from the similar-looking young of Botia rostrata and Botia almorhae.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>Known in the trade as the 'Burmese loach', Botia histrionica is a botiid loach from Myanmar, Manipur in India and Yunnan, China. Young fish all carry five solid dark bars on each flank and are often confused with B. kubotai, but in B. histrionica the bars stay solid for longer and the central bar usually forms a 'y' shape. Adult patterning varies considerably between the Ayeyarwady, Salween, Manipur and Ataran forms, and there has been speculation that some represent distinct species.</p>"
+    },
+    {
       "key": "distribution",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/botia-histrionica-development-of-markings-during-growth",
       "html": "<p>Collected in the Salween Basin of India, China and Myanmar (Burma).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<p>Recorded from the Indian state of Manipur, Yunnan Province, China (upper Ayeyarwady River basin), and throughout much of Myanmar including the Ayeyarwady, Sittaung, Salween and Ataran river drainages. Type locality is 'Pegu, Tenasserim, Myanmar'.</p><p>Populations from different rivers vary in patterning and there has been speculation that some may turn out to represent distinct species in the future (see 'Notes').</p><p>Grant (2007) tentatively concluded that the specimen described by Blyth was from the Sittaung River and that this should be considered the 'true' form of the species pending further studies since the description is somewhat ambiguous and it's also possible the holotype originated from the Salween.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<p>We've been unable to obtain definitive information thus far but this species occurs sympatrically with B. kubotai in the Ataran River.</p><p>Images we've seen depict the latter inhabiting relatively slow-flowing sections of forest-shaded, seemingly well-oxygenated headwaters with clear water, a mixed sand and rock substrate plus lots of submerged driftwood and leaf litter.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<p>Standard length: 130 mm SL. Aquarium base: 120 × 45 cm. Volume: about 243 litres.</p><p>Base dimensions of 120 × 45 cm or equivalent should be the minimum considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<p>All botiids need a well-structured set-up although the actual choice of décor is more-or-less down to personal taste.</p><p>A natural-style arrangement could include a substrate of sand or fine gravel with lots of smooth, water-worn rocks and pebbles plus driftwood roots and branches.</p><p>Lighting can be relatively subdued and plants able to grow in such conditions like Microsorum pteropus (Java fern), Taxiphyllum barbieri ('Java' moss) or Anubias spp. can be added if you wish. These have an added benefit as they can be attached to pieces of décor in such a way as to provide useful shade.</p><p>Otherwise be sure to provide plenty of cover as botiids are inquisitive and seem to enjoy exploring their surroundings. Rocks, wood, flower pots and aquarium ornaments can be used in whichever combination to achieve the desired effect.</p><p>Bear in mind that they like to squeeze themselves into small gaps and crevices so items with sharp edges should be omitted, and any gaps or holes small enough for a fish to become trapped should be filled in with aquarium-grade silicone sealant. A tightly-fitting cover is also essential as these loaches do jump at times.</p><p>Although botiids don't require turbulent conditions they do best when the water is well-oxygenated with a degree of flow, are intolerant to accumulation of organic wastes and require spotless water in order to thrive.</p><p>For these reasons they should never be introduced to biologically immature set-ups and adapt most readily to stable, mature aquaria. In terms of maintenance weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<p>While Botia spp. appear to be chiefly carnivorous they will also eat vegetative matter if available, often including soft-leaved aquatic plants. The natural diet comprises aquatic molluscs, insects, worms, and other invertebrates.</p><p>They're largely unfussy feeders but must be offered a varied diet comprising quality dried products, live or frozen bloodworm, Tubifex, Artemia, etc., plus fresh fruit and vegetables such as cucumber, melon, blanched spinach, or courgette.</p><p>Home-made foods using a mixture of natural ingredients and bound with gelatin are also highly recommended.</p><p>Chopped earthworm can also provide a useful source of protein but should be used sparingly, and while most botiids also prey on aquatic snails, they should never be considered the answer to an infestation since they're not obligate molluscivores.</p><p>Once settled into an aquarium they're bold feeders and often rise into midwater at meal times.</p>"
     },
     {
       "key": "behaviour",
@@ -40,26 +128,125 @@
       "html": "<p>In the author's opinion this is one of the most fearless and active Botia species in the hobby. It is active during the day and is often found swimming freely in the middle of the tank, competing to some extent with relentless swimmers such as barbs.</p><p>Botia histrionica is generally very peaceful and social. A community tank with other loaches at the bottom and various barbs in the middle, well planted, with shelters made of coconut shells, driftwood or bamboo pipe pieces and a couple of oval stones, suits it well. The species usually does not make frequent use of hideouts and rests in open areas if undisturbed.</p><p>In the author's 200-litre \"Indian species tank\", four big Botia histrionica are kept with Botia dario (5), Botia striata (5), Botia rostrata (7), Botia almorhae (2), Syncrossus beauforti (1), Syncrossus hymenophysa (2) and a shoal of Puntius arulius (10), Puntius filamentosus (10) and Puntius pentazona (13). They have lived together for a long time without problems, although hierarchy is usually set by size and strength, with bigger specimens ranking higher.</p><p>In one smaller tank, two young specimens fought heavily for unknown reasons. The weaker fish was repeatedly hit in the same area, changed coloration completely (probably due to deep stress), and showed a dark blackish spot where it was struck, likely from the other fish's suborbital spines. A similar effect was once seen in Yasuhikotakia eos. This has no long-lasting harmful effect and is extremely rarely seen with proper tank and fish maintenance.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<p>Not especially aggressive but don't keep it with much smaller fishes as they may be intimidated by its size and sometimes very active behaviour.</p><p>Slow-moving, long-finned species such as ornamental bettas, guppies and many cichlids should also be avoided as trailing fins can be nipped.</p><p>More suitable tankmates include peaceful, open water-dwelling cyprinids, while in larger tanks members of Barilius, Luciosoma, Balantiocheilos and Barbonymus become options.</p><p>In terms of other bottom-dwellers they will do well alongside most other Botia and in very large tanks, Chromobotia macracanthus. Some cobitid and nemacheilid loaches are also possibilities as are members of Epalzeorhynchos, Crossocheilus and Garra and many catfishes.</p><p>As always, thorough research prior to selecting a community of fishes is the best way to avoid problems.</p><p>Botia spp. are gregarious, form complex social hierarchies and should be maintained in groups of at least 5 or 6 specimens, preferably 10 or more.</p><p>When kept singly they can become withdrawn or aggressive towards similarly-shaped fishes, and if only a pair or trio are purchased the dominant individual may stress the other(s) to the extent that they stop feeding.</p><p>That said they seemingly require regular contact with conspecifics, a fact exemplified by a number of behavioural rituals which have been recorded consistently in aquaria (see 'Notes').</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<p>Sexually mature females are normally fuller-bodied than males with a rounded snout, whereas males have an elongated snout with noticeably fleshier lips.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<p>Not known to have been bred in the hobby as with the majority of botiid loaches though some, including B. histrionica, are being produced on a commercial basis via the use of hormones.</p><p>Unfortunately this practice has been taken to a different level in recent years with a number of hybrids appearing on the market, even including an apparent cross between a form of B. histrionica and Chromobotia macracanthus.</p>"
+    },
+    {
       "key": "notes",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/botia-histrionica-development-of-markings-during-growth",
       "html": "<p>Juveniles show single black blotches on the tips of the dorsal and pectoral fins, subtle black dots at the base of the pelvic and anal fins, and single triangular markers on the caudal fin lobes. Differences in the band shape are already visible at this stage.</p><p>Fish photographed in early January 2002 were about 3 months old and 3 cm long. Later they measured 6–8 cm, and one-year-old specimens are likely to approach 10 cm. This growth rate is not often seen in other Botia species, but it depends on environmental conditions; in smaller, less spacious tanks growth is significantly slower.</p><p>The golden luster of juveniles steadily disappears as the fish mature. The author notes it is almost impossible to find two identical specimens, as the shape and thickness of the black stripes differ from fish to fish. At around one year old (10 cm), the lighter areas between the stripes retain remnants of golden luster but become increasingly grayish, and additional markings develop on the pectoral and caudal fins. At this stage the fish is easily recognised among other Botia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<p>This species is traded under various names including 'Burmese loach', 'golden zebra loach', 'Asian loach' and 'Burmese zebra loach'. Following Grant (2007) it's included in the B. histrionica complex of closely-related species within the genus alongside B. kubotai and B. udomritthiruji.</p><p>Adult patterning of the different geographical forms can vary considerably though young specimens all possess 5 solid dark bars on each flank and are often confused with those species exhibiting a similar juvenile pattern, particularly B. kubotai. However the horizontal dark bars on the flanks in B. kubotai typically split at quite a young age and/or develop horizontally-orientated 'peaks' whereas those in B. histrionica remain solid for longer and the central bar usually has a pale spot at the top so forms a 'y' shape.</p><p>According to Kottelat (2004) B. histrionica also has a lesser degree of black patterning in the fins e.g. the band at the base of the dorsal is either thin or absent rather than broad (although young specimens typically have a broad band) and there's usually only one stripe on the pelvic fins (vs. two).</p><p>In the Ayeyarwady form the dark body bars often stay quite solid although they do sometimes break up to form vertical rows of spot-like markings, and it usually has a yellowish body colour. The Salween form is normally paler/whiter and the body bars break apart in such a way that they contain one or more pale spots. The Manipur form has a similar adult patterning to the Salween form but the body colour is more reminiscent of the Ayeyarwady form. The Ataran form has been sold in the trade as B. sp. aff. rostrata or B. cf. histrionica and its patterning is described as 'intermediate between Salween B. histrionica, and B. kubotai' by Grant (2007). It's also said to be a deeper-bodied fish than B. kubotai.</p><p>Some behavioural routines exhibited by Botia spp. have been recorded often enough that they've been assigned non-scientific terms for ease of reference.</p><p>During dominance battles (these occur most frequently when the fish have been introduced to a new tank, or new individuals added to an existing group) the protagonists normally lose much of their body patterning and colouration, a phenomenon known as 'greying out'. Such displays will sometimes also happen within an established group as individuals seek to improve social ranking but are usually nothing to worry about.</p><p>'Shadowing' is a behaviour in which younger individuals swim flank-to-flank with older ones, mimicking their every movement. The reason for it is unknown. It has been observed in aquaria with both high and low water flow.</p><p>Sound also appears to be an important factor in communication since these loaches are able to produce audible clicking sounds, thought to be produced by grinding of the pharyngeal (throat) teeth or subocular spines.</p><p>The so-called 'loachy dance' involves an entire group swimming in a constant, restless fashion around the sides of the tank. The most common triggers appear to be the addition of food, fresh water or new conspecifics, and it can last anything from a few minutes to a day or more.</p><p>Botiids also often settle at peculiar angles, wedged vertically or sideways between items of décor, or even lying flat on the substrate. This is no cause for alarm and appears to be a natural resting behaviour.</p><p>Botia spp. also possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed. Care is therefore necessary as these can become entangled in aquarium nets and those of larger specimens can break human skin.</p><p>Botiids are also susceptible to a condition commonly referred to as 'skinny disease' and characterised by a loss of weight. This is especially common in newly-imported specimens and is thought to be caused by a species of the flagellate genus Spironucleus. It's treatable although the recommended medication varies depending on country. Hobbyists in the UK tend to use the antibiotic Levamisole and those in the United States Fenbendazole (aka Panacur).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "html": "<ul><li>Grant, S. (2007). Fishes of the genus Botia Gray, 1831, in the Indian region (Teleostei: Botiidae). Ichthyofile Number 2, 1-106</li><li>Kottelat, M. (2004). Botia kubotai, a new species of loach (Teleostei: Cobitidae) from the Ataran River basin (Myanmar), with comments on botiine nomenclature and diagnosis of a new genus. Zootaxa 401, 1-18</li><li>Nalbant, T. T. (2002). Sixty million years of evolution. Part one: family Botiidae (Pisces: Ostariophysi: Cobitoidea). Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 44, 309-333</li><li>Ng, H. H. (2007). Botia udomritthiruji, a new species of botiid loach from southern Myanmar (Teleostei: Botiidae). Zootaxa 1608, 41-49</li><li>Šlechtová, V., J. Bohlen, J. Freyhof and P. Ráb (2006). Molecular phylogeny of the Southeast Asian freshwater fish family Botiidae (Teleostei: Cobitoidea) and the origin of polyploidy in their evolution. Molecular Phylogenetics and Evolution 39(2), 529-541</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/ecc0ff1bd83bdac9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ecc0ff1bd83bdac9-480.webp",
+      "width": 1023,
+      "height": 680,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "caption": "In this subadult the vertical body bars have started to anastomose/break up. Pictured with a younger conspecific (right) and B. kubotai (left).",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c50dd6b12e8f26ee.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c50dd6b12e8f26ee-480.webp",
+      "width": 800,
+      "height": 532,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "caption": "Adult male of B. histrionica - Ataran form?",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/7922e28261a69a1e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7922e28261a69a1e-480.webp",
+      "width": 805,
+      "height": 534,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "caption": "This young specimen exhibits typical juvenile patterning for all forms of the species.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4fbb2a8dc8b63575.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4fbb2a8dc8b63575-480.webp",
+      "width": 799,
+      "height": 637,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/botia-histrionica",
+      "caption": "We think that this specimen is of the Ataran River form of the species which is said to possess similar patterning to B. kubotai.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/loachesonline/4ddd9e9b744ef709.webp",
+      "thumb": "https://media.aquatome.com/loachesonline/4ddd9e9b744ef709-480.webp",
       "width": 600,
       "height": 450,
       "licence": "dùng với sự cho phép",
       "author": "Loaches Online",
       "sourceUrl": "https://www.loaches.com/articles/botia-histrionica-development-of-markings-during-growth",
       "caption": "Botia histronica - 7 months old",
-      "source": "loachesonline",
-      "thumb": "https://media.aquatome.com/loachesonline/4ddd9e9b744ef709-480.webp"
+      "source": "loachesonline"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "EDYsFDsNvdk",
+      "title": "Botia histrionica, Burma Prachtschmerle #aquarium #shorts #snailkiller",
+      "durationSec": 16,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "hi0H4WNPq4M",
+      "title": "Is it gold? Is it a zebra? It's a Golden Zebra Loach! AC #3 (Botia histrionica) 伊洛瓦底沙鳅  ゴールド・ゼブラ・ローチ",
+      "durationSec": 208,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "16J4xpmtLRk",
+      "title": "Golden Zebra Loach Care Guide",
+      "durationSec": 300,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jYCoLcZMIj4",
+      "title": "Botia histrionica",
+      "durationSec": 19,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -82,5 +269,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-02"
 }

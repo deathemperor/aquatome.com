@@ -3252,11 +3252,14 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-rubra": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T07:14:30.753Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+    "entityIds": [
+      "species/betta-rubra"
+    ],
+    "updatedAt": "2026-11-02T12:04:52.851Z",
+    "hash": "458c4bc83d404c9dfe8f28c3a9eacf14e5a6de4ee7d3cbfd2fe74eddfb3fab3b",
+    "processedHash": "458c4bc83d404c9dfe8f28c3a9eacf14e5a6de4ee7d3cbfd2fe74eddfb3fab3b",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-rutilans": {
     "entityIds": [
@@ -3269,11 +3272,14 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-siamorientalis": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T07:14:40.038Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+    "entityIds": [
+      "species/betta-siamorientalis"
+    ],
+    "updatedAt": "2026-11-02T12:08:22.758Z",
+    "hash": "a111478ed1a7ebbae23e190cd346570bd2810bb73f93c60680ef72fb6ec655d9",
+    "processedHash": "a111478ed1a7ebbae23e190cd346570bd2810bb73f93c60680ef72fb6ec655d9",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-simorum": {
     "entityIds": [
@@ -3286,32 +3292,42 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-simplex": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T07:14:47.608Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+    "entityIds": [
+      "species/betta-simplex"
+    ],
+    "updatedAt": "2026-11-02T12:42:43.897Z",
+    "hash": "5038a3a0c52b55286b88556751869944fb6e4fd27b77c8b94f31eb21d8ba0df2",
+    "processedHash": "5038a3a0c52b55286b88556751869944fb6e4fd27b77c8b94f31eb21d8ba0df2",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-smaragdina": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T07:13:42.834Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+    "entityIds": [
+      "species/betta-smaragdina"
+    ],
+    "updatedAt": "2026-11-02T12:13:39.289Z",
+    "hash": "8ae03db21691665c573732711cd1ad673c76370d2b1a2529cd7fa60667a01901",
+    "processedHash": "8ae03db21691665c573732711cd1ad673c76370d2b1a2529cd7fa60667a01901",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-sp-antutabulungan": {
     "entityIds": [],
-    "updatedAt": "2026-10-29T04:08:01.336Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "updatedAt": "2026-11-02T12:45:14.382Z",
+    "hash": "ebf2a36a35eba01fb465f845cb62c9af343a1564db2f289d4aa52ccc1d36c434",
+    "processedHash": "ebf2a36a35eba01fb465f845cb62c9af343a1564db2f289d4aa52ccc1d36c434",
+    "status": "skipped",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-spilotogena": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:08:06.339Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-spilotogena"
+    ],
+    "updatedAt": "2026-11-02T12:46:41.212Z",
+    "hash": "a9f5b2f6b03ecf4e99e11a5be756ae9e242257819e9af60826e48fd40b91e872",
+    "processedHash": "a9f5b2f6b03ecf4e99e11a5be756ae9e242257819e9af60826e48fd40b91e872",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-splendens": {
     "entityIds": [
@@ -3324,25 +3340,34 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-stigmosa": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:08:16.342Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-stigmosa"
+    ],
+    "updatedAt": "2026-11-02T12:49:08.002Z",
+    "hash": "c789411d8f7cd4d01306c695a90d3c8d24c323f0abe2c14425f3cc4a99f46f36",
+    "processedHash": "c789411d8f7cd4d01306c695a90d3c8d24c323f0abe2c14425f3cc4a99f46f36",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-taeniata": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:08:21.346Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-taeniata"
+    ],
+    "updatedAt": "2026-11-02T12:51:48.900Z",
+    "hash": "c923caa4d31b109c542f37d9d37a77e3aacb3f544ed91d1c5de4ed6ee4b69bf0",
+    "processedHash": "c923caa4d31b109c542f37d9d37a77e3aacb3f544ed91d1c5de4ed6ee4b69bf0",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-tussyae": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:08:26.345Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/betta-tussyae"
+    ],
+    "updatedAt": "2026-11-02T12:54:13.072Z",
+    "hash": "32c943322b36693c45a0a08201fec98cbbf82aa1a92015a81d1147569ec731b9",
+    "processedHash": "32c943322b36693c45a0a08201fec98cbbf82aa1a92015a81d1147569ec731b9",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/betta-uberis": {
     "entityIds": [
@@ -3395,11 +3420,14 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/biotoecus-opercularis": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:08:56.359Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/biotoecus-opercularis"
+    ],
+    "updatedAt": "2026-11-02T12:57:05.993Z",
+    "hash": "3074c67a95dd38f7aded64fbbfdf2f58fdde2c41fefb0d8b5190800d15ef4ada",
+    "processedHash": "3074c67a95dd38f7aded64fbbfdf2f58fdde2c41fefb0d8b5190800d15ef4ada",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/boraras-brigittae": {
     "entityIds": [
@@ -3412,25 +3440,34 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/boraras-maculatus": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:09:06.366Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/boraras-maculatus"
+    ],
+    "updatedAt": "2026-11-02T12:16:07.951Z",
+    "hash": "e7b79cffd99b91cda685c12b326c044bef04ceb4e78416a145f5a0bfd35ecb9a",
+    "processedHash": "e7b79cffd99b91cda685c12b326c044bef04ceb4e78416a145f5a0bfd35ecb9a",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/boraras-merah": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:09:11.366Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/boraras-merah"
+    ],
+    "updatedAt": "2026-11-02T12:21:43.870Z",
+    "hash": "ed1e70b2d77a3c33dfb6adc360d0796f80bd842fe471ad16c3e35a95ba31c96e",
+    "processedHash": "ed1e70b2d77a3c33dfb6adc360d0796f80bd842fe471ad16c3e35a95ba31c96e",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/boraras-micros": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:09:16.373Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/boraras-micros"
+    ],
+    "updatedAt": "2026-11-02T12:59:22.441Z",
+    "hash": "bbcc039a4d972202a825740b5d7cae33d1a1f74810e200c25671707fa2d22257",
+    "processedHash": "bbcc039a4d972202a825740b5d7cae33d1a1f74810e200c25671707fa2d22257",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/boraras-naevus": {
     "entityIds": [
@@ -3473,11 +3510,14 @@
     "attempts": 0
   },
   "https://www.seriouslyfish.com/species/botia-histrionica": {
-    "entityIds": [],
-    "updatedAt": "2026-10-29T04:09:41.386Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "species/botia-histrionica"
+    ],
+    "updatedAt": "2026-11-02T12:28:25.789Z",
+    "hash": "ecabef3a8322dc317eda9294dd9630159316ca75346b93c6283124ce029fda50",
+    "processedHash": "ecabef3a8322dc317eda9294dd9630159316ca75346b93c6283124ce029fda50",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/botia-kubotai": {
     "entityIds": [
@@ -3709,6 +3749,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/brachyplatystoma-vaillantii": {
+    "entityIds": [
+      "species/brachyplatystoma-vaillantii"
+    ],
+    "updatedAt": "2026-11-02T12:36:28.598Z",
+    "hash": "2ff88587b717a22d112be5bd7548e62f8ee74de2a7648e423ec255b3ec1e54cd",
+    "processedHash": "2ff88587b717a22d112be5bd7548e62f8ee74de2a7648e423ec255b3ec1e54cd",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/brachyrhamdia-rambarrani": {
+    "entityIds": [
+      "species/brachyrhamdia-rambarrani"
+    ],
+    "updatedAt": "2026-11-02T12:38:28.080Z",
+    "hash": "7a0a6a960877e2399365be656d3500866cdb94468abc72133d7d2f11f65decd2",
+    "processedHash": "7a0a6a960877e2399365be656d3500866cdb94468abc72133d7d2f11f65decd2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/brevibora-cheeya": {
     "entityIds": [
       "species/brevibora-cheeya"
@@ -3719,6 +3779,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/brevibora-dorsiocellata": {
+    "entityIds": [
+      "species/brevibora-dorsiocellata"
+    ],
+    "updatedAt": "2026-11-02T12:39:45.955Z",
+    "hash": "97b3ec99268c1d8c0a7cb51147b7596c4476858acd65af8a14a1160c25417376",
+    "processedHash": "97b3ec99268c1d8c0a7cb51147b7596c4476858acd65af8a14a1160c25417376",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/brochis-splendens": {
     "entityIds": [
       "species/corydoras-splendens"
@@ -3726,6 +3796,16 @@
     "updatedAt": "2026-10-31T09:10:29.910Z",
     "hash": "5d8f6d7845107063db93cb688b697ad2700bf58afedd69dbdc6fd26793e9558e",
     "processedHash": "5d8f6d7845107063db93cb688b697ad2700bf58afedd69dbdc6fd26793e9558e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/bryconalestes-longipinnis": {
+    "entityIds": [
+      "species/brycinus-longipinnis"
+    ],
+    "updatedAt": "2026-11-02T13:55:58.929Z",
+    "hash": "4e07b6a06901339eaa470679a60b4ec9c4e4f303df4f14f0b5d49112ae837a23",
+    "processedHash": "4e07b6a06901339eaa470679a60b4ec9c4e4f303df4f14f0b5d49112ae837a23",
     "status": "processed",
     "attempts": 0
   },
@@ -3959,6 +4039,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/chitala-blanci": {
+    "entityIds": [
+      "species/chitala-blanci"
+    ],
+    "updatedAt": "2026-11-02T13:51:00.717Z",
+    "hash": "ff428bf57f984fca73bcb5e003c5495146bc57fe696adbe513a941a3971326f9",
+    "processedHash": "ff428bf57f984fca73bcb5e003c5495146bc57fe696adbe513a941a3971326f9",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/chitala-ornata": {
     "entityIds": [
       "species/chitala-ornata"
@@ -4006,6 +4096,16 @@
     "updatedAt": "2026-10-30T23:06:50.510Z",
     "hash": "bbe1ce1b2f16df18c8ba87bf5e9577b08e911e5e9477bcd8d2928d161c7c0743",
     "processedHash": "bbe1ce1b2f16df18c8ba87bf5e9577b08e911e5e9477bcd8d2928d161c7c0743",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/clypeobarbus-congicus": {
+    "entityIds": [
+      "species/clypeobarbus-congicus"
+    ],
+    "updatedAt": "2026-11-02T13:52:24.684Z",
+    "hash": "5edc9832539a227894eb28a62946096165c66a56f9d595d9edbb7b10ad1b8610",
+    "processedHash": "5edc9832539a227894eb28a62946096165c66a56f9d595d9edbb7b10ad1b8610",
     "status": "processed",
     "attempts": 0
   },
@@ -4159,6 +4259,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir": {
+    "entityIds": [
+      "species/cyclocheilichthys-janthochir"
+    ],
+    "updatedAt": "2026-11-02T13:57:15.915Z",
+    "hash": "1f645b2e5abe1db5bd41b6bbac7be23212e325a1b20114c7fab981477d986a09",
+    "processedHash": "1f645b2e5abe1db5bd41b6bbac7be23212e325a1b20114c7fab981477d986a09",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/cyphotilapia-frontosa": {
     "entityIds": [
       "species/cyphotilapia-frontosa"
@@ -4196,6 +4306,16 @@
     "updatedAt": "2026-10-31T04:48:57.999Z",
     "hash": "91419e9b11d8c8f34afb567ecfd020291d7f6446a570db9e92775ae6ced4e349",
     "processedHash": "91419e9b11d8c8f34afb567ecfd020291d7f6446a570db9e92775ae6ced4e349",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/danio-dangila": {
+    "entityIds": [
+      "species/danio-dangila"
+    ],
+    "updatedAt": "2026-11-02T13:59:13.346Z",
+    "hash": "126f418831879c5f8b2dfb410e0e73b4a65b27db62a188e7e082c50c76d91787",
+    "processedHash": "126f418831879c5f8b2dfb410e0e73b4a65b27db62a188e7e082c50c76d91787",
     "status": "processed",
     "attempts": 0
   },
@@ -4319,6 +4439,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/dawkinsia-denisonii": {
+    "entityIds": [
+      "species/sahyadria-denisonii"
+    ],
+    "updatedAt": "2026-11-02T13:09:21.167Z",
+    "hash": "22d4bcb2aa179f57b6ec1e00fabbf1bdf58cc16e2f72041dc3d0b87e2184df15",
+    "processedHash": "22d4bcb2aa179f57b6ec1e00fabbf1bdf58cc16e2f72041dc3d0b87e2184df15",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/dawkinsia-filamentosa": {
     "entityIds": [
       "species/dawkinsia-filamentosa"
@@ -4326,6 +4456,23 @@
     "updatedAt": "2026-10-30T20:14:49.476Z",
     "hash": "4bf9e15f5cb1b0c6bd4cd65749cc84e161c3eba0185aff08d6b6cf000ec7444e",
     "processedHash": "4bf9e15f5cb1b0c6bd4cd65749cc84e161c3eba0185aff08d6b6cf000ec7444e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/dawkinsia-rohani": {
+    "entityIds": [],
+    "updatedAt": "2026-11-02T14:02:21.491Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.seriouslyfish.com/species/dawkinsia-rohani\nCall log:\n  - navigating to \"https://www.seriouslyfish.com/species/dawkinsia-rohani\", waiting until \"domcontentloaded\"\n"
+  },
+  "https://www.seriouslyfish.com/species/desmopuntius-hexazona": {
+    "entityIds": [
+      "species/desmopuntius-hexazona"
+    ],
+    "updatedAt": "2026-11-02T14:02:21.637Z",
+    "hash": "f42c7cb172e3277480b3bd8b7c57a51e5af8998690eb1f67b7c5dbabe7bb1c2b",
+    "processedHash": "f42c7cb172e3277480b3bd8b7c57a51e5af8998690eb1f67b7c5dbabe7bb1c2b",
     "status": "processed",
     "attempts": 0
   },
@@ -4346,6 +4493,16 @@
     "updatedAt": "2026-10-30T19:38:07.844Z",
     "hash": "3cda7d8ed08d670df7bfc086716164ae4de35f68a9472c8d339e80ebbed1f21f",
     "processedHash": "3cda7d8ed08d670df7bfc086716164ae4de35f68a9472c8d339e80ebbed1f21f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/desmopuntius-rhomboocellatus": {
+    "entityIds": [
+      "species/desmopuntius-rhomboocellatus"
+    ],
+    "updatedAt": "2026-11-02T14:06:25.299Z",
+    "hash": "b8ac4d7ef62dfbe4226c27de119376b5e33e750db30cddbafb6ef550e3f291e1",
+    "processedHash": "b8ac4d7ef62dfbe4226c27de119376b5e33e750db30cddbafb6ef550e3f291e1",
     "status": "processed",
     "attempts": 0
   },
@@ -4379,6 +4536,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/devario-malabaricus": {
+    "entityIds": [
+      "species/devario-malabaricus"
+    ],
+    "updatedAt": "2026-11-02T14:10:52.134Z",
+    "hash": "176b2aa3c584e828d8a1f6d80ab0c698be821d41578336577223d674143bf6de",
+    "processedHash": "176b2aa3c584e828d8a1f6d80ab0c698be821d41578336577223d674143bf6de",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/devario-xyrops": {
     "entityIds": [
       "species/devario-xyrops"
@@ -4406,6 +4573,16 @@
     "updatedAt": "2026-10-30T17:58:03.519Z",
     "hash": "34ace10ee0db60edb06bcd9e91e4eb938b811347667f4e0d6852590ff3e99b1c",
     "processedHash": "34ace10ee0db60edb06bcd9e91e4eb938b811347667f4e0d6852590ff3e99b1c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/dicrossus-maculatus": {
+    "entityIds": [
+      "species/dicrossus-maculatus"
+    ],
+    "updatedAt": "2026-11-02T14:54:43.242Z",
+    "hash": "71dcce9769e47b6d9f1d81abe57db332d71a9469f557d21041ce2cf42b955c3d",
+    "processedHash": "71dcce9769e47b6d9f1d81abe57db332d71a9469f557d21041ce2cf42b955c3d",
     "status": "processed",
     "attempts": 0
   },
@@ -4459,6 +4636,36 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/enteromius-fasciolatus": {
+    "entityIds": [
+      "species/enteromius-fasciolatus"
+    ],
+    "updatedAt": "2026-11-02T14:13:36.456Z",
+    "hash": "c044eb8fbd8db6c7ce5ca649196ed7626dcc1e55eda390a50306e8ed2073c347",
+    "processedHash": "c044eb8fbd8db6c7ce5ca649196ed7626dcc1e55eda390a50306e8ed2073c347",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/enteromius-hulstaerti": {
+    "entityIds": [
+      "species/enteromius-hulstaerti"
+    ],
+    "updatedAt": "2026-11-02T14:15:38.380Z",
+    "hash": "2ab89935503cc35cc747e218ef2d91bd30a1d340be9a26caa9eccfd145737438",
+    "processedHash": "2ab89935503cc35cc747e218ef2d91bd30a1d340be9a26caa9eccfd145737438",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/enteromius-jae": {
+    "entityIds": [
+      "species/enteromius-jae"
+    ],
+    "updatedAt": "2026-11-02T14:18:00.592Z",
+    "hash": "fb206a9ebef2674f2cdf110368187f92f4e30a89832d22f7534dabad703689ae",
+    "processedHash": "fb206a9ebef2674f2cdf110368187f92f4e30a89832d22f7534dabad703689ae",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/epalzeorhynchos-bicolor": {
     "entityIds": [
       "species/epalzeorhynchos-bicolor"
@@ -4496,6 +4703,16 @@
     "updatedAt": "2026-10-31T05:18:36.335Z",
     "hash": "e393083a0556b183c53101712a1f9d2b077adb2c80e9ef3b168266da9d5c5ab8",
     "processedHash": "e393083a0556b183c53101712a1f9d2b077adb2c80e9ef3b168266da9d5c5ab8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/esomus-caudiocellatus": {
+    "entityIds": [
+      "species/esomus-caudiocellatus"
+    ],
+    "updatedAt": "2026-11-02T14:20:09.219Z",
+    "hash": "23b0a10eb7161c40e9cecd32cf1240a551da874c9fec848b22925564e6a9a5f0",
+    "processedHash": "23b0a10eb7161c40e9cecd32cf1240a551da874c9fec848b22925564e6a9a5f0",
     "status": "processed",
     "attempts": 0
   },
@@ -4829,6 +5046,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/hampala-macrolepidota": {
+    "entityIds": [
+      "species/hampala-macrolepidota"
+    ],
+    "updatedAt": "2026-11-02T14:22:03.537Z",
+    "hash": "96832a84d78da67295cb09ce615e88b9f3060431fd71a81420ffcd1c415436a3",
+    "processedHash": "96832a84d78da67295cb09ce615e88b9f3060431fd71a81420ffcd1c415436a3",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/hampala-salweenensis": {
     "entityIds": [
       "species/hampala-salweenensis"
@@ -4836,6 +5063,16 @@
     "updatedAt": "2026-10-30T20:17:45.971Z",
     "hash": "0fce6cfec2566fd714101f48b0d789fa6fe0cca202916add1422894b858d7d13",
     "processedHash": "0fce6cfec2566fd714101f48b0d789fa6fe0cca202916add1422894b858d7d13",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/hara-jerdoni": {
+    "entityIds": [
+      "species/hara-jerdoni"
+    ],
+    "updatedAt": "2026-11-02T14:24:17.147Z",
+    "hash": "a033ada781538bd306d5ab83cf8b12722c38fff003876b0a83ec3e4dd881c7af",
+    "processedHash": "a033ada781538bd306d5ab83cf8b12722c38fff003876b0a83ec3e4dd881c7af",
     "status": "processed",
     "attempts": 0
   },
@@ -4919,6 +5156,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/hemiodontichthys-acipenserinus": {
+    "entityIds": [
+      "species/hemiodontichthys-acipenserinus"
+    ],
+    "updatedAt": "2026-11-02T14:25:04.103Z",
+    "hash": "ae7a27bf77cf184ff62d9094384f744686393fe02d492352691cda206027d1bb",
+    "processedHash": "ae7a27bf77cf184ff62d9094384f744686393fe02d492352691cda206027d1bb",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/hemiodus-argenteus": {
     "entityIds": [
       "species/hemiodus-argenteus"
@@ -4936,6 +5183,16 @@
     "updatedAt": "2026-10-31T21:01:33.886Z",
     "hash": "b2cd341262aee4408036cc66ad649a1a47f73b6074c1735736d47816364cca60",
     "processedHash": "b2cd341262aee4408036cc66ad649a1a47f73b6074c1735736d47816364cca60",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/henicorhynchus-ornatipinnis": {
+    "entityIds": [
+      "species/henicorhynchus-ornatipinnis"
+    ],
+    "updatedAt": "2026-11-02T13:49:54.319Z",
+    "hash": "ca0a6ca0ec989072a1074d184a94677a7f792a85f7beb70509a0f3aeed798543",
+    "processedHash": "ca0a6ca0ec989072a1074d184a94677a7f792a85f7beb70509a0f3aeed798543",
     "status": "processed",
     "attempts": 0
   },
@@ -4959,6 +5216,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/homaloptera-parclitella": {
+    "entityIds": [
+      "species/homaloptera-parclitella"
+    ],
+    "updatedAt": "2026-11-02T14:28:59.867Z",
+    "hash": "ccef7796c46bba2cc0ecabfbbfe50a1dc02bfe936029e3c19728ea767aad82d5",
+    "processedHash": "ccef7796c46bba2cc0ecabfbbfe50a1dc02bfe936029e3c19728ea767aad82d5",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/homalopteroides-smithi": {
     "entityIds": [
       "species/homalopteroides-smithi"
@@ -4969,6 +5236,96 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/hoplisoma-adolfoi": {
+    "entityIds": [
+      "species/corydoras-adolfoi"
+    ],
+    "updatedAt": "2026-11-02T13:22:52.634Z",
+    "hash": "b8a3180e203cf9c4a56daa944f9e2ad9ca85db5248dcb059ab7b20c7041599ee",
+    "processedHash": "b8a3180e203cf9c4a56daa944f9e2ad9ca85db5248dcb059ab7b20c7041599ee",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/hoplisoma-atropersonatum": {
+    "entityIds": [
+      "species/corydoras-atropersonatus"
+    ],
+    "updatedAt": "2026-11-02T13:54:09.116Z",
+    "hash": "5f3143166e7aa31c1fe32becd335ccd04fd843b1e836a6d8988cc6db9c5daf52",
+    "processedHash": "5f3143166e7aa31c1fe32becd335ccd04fd843b1e836a6d8988cc6db9c5daf52",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/hoplisoma-caudimaculatum": {
+    "entityIds": [
+      "species/corydoras-caudimaculatus"
+    ],
+    "updatedAt": "2026-11-02T13:24:55.565Z",
+    "hash": "816f5dd5834a840eae921a1b058966145908d511c31013a1d21f7061618f74ab",
+    "processedHash": "816f5dd5834a840eae921a1b058966145908d511c31013a1d21f7061618f74ab",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/hoplisoma-leucomelas": {
+    "entityIds": [
+      "species/corydoras-leucomelas"
+    ],
+    "updatedAt": "2026-11-02T13:48:24.875Z",
+    "hash": "f54fab76fd3acb0119a5948355059285ef8d78b0a57bdb0665134287996c5801",
+    "processedHash": "f54fab76fd3acb0119a5948355059285ef8d78b0a57bdb0665134287996c5801",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/hoplisoma-paleatum": {
+    "entityIds": [
+      "species/corydoras-paleatus"
+    ],
+    "updatedAt": "2026-11-02T13:19:24.512Z",
+    "hash": "65fdff56ba317ee1d5d06ab4bc0a11038d8c09ab486f83cc79cc601bbd271336",
+    "processedHash": "65fdff56ba317ee1d5d06ab4bc0a11038d8c09ab486f83cc79cc601bbd271336",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/hoplisoma-panda": {
+    "entityIds": [
+      "species/corydoras-panda"
+    ],
+    "updatedAt": "2026-11-02T13:28:11.344Z",
+    "hash": "8f899d7fbbeceed535f48ad0bff1fe02c11dd6569d58efdc6213324c147cdc59",
+    "processedHash": "8f899d7fbbeceed535f48ad0bff1fe02c11dd6569d58efdc6213324c147cdc59",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/hoplisoma-simile": {
+    "entityIds": [
+      "species/corydoras-similis"
+    ],
+    "updatedAt": "2026-11-02T13:20:44.225Z",
+    "hash": "fac33dfa5270799a5784bea5bb51ef3e11a0413c8e0c9322e05e2b40206b7962",
+    "processedHash": "fac33dfa5270799a5784bea5bb51ef3e11a0413c8e0c9322e05e2b40206b7962",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/hoplisoma-sterbai": {
+    "entityIds": [
+      "species/corydoras-sterbai"
+    ],
+    "updatedAt": "2026-11-02T13:33:54.979Z",
+    "hash": "c36bf44318804c3b708abf0680873416c6bc34d2a36fee8c6d8448fdb728a22a",
+    "processedHash": "c36bf44318804c3b708abf0680873416c6bc34d2a36fee8c6d8448fdb728a22a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/hoplisoma-trilineatum": {
+    "entityIds": [
+      "species/corydoras-trilineatus"
+    ],
+    "updatedAt": "2026-11-02T13:16:13.429Z",
+    "hash": "46f5da51aaca6b4d37e64e3c76448a46529aefd8fca4be8f38370521e8f884b3",
+    "processedHash": "46f5da51aaca6b4d37e64e3c76448a46529aefd8fca4be8f38370521e8f884b3",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/horadandia-atukorali": {
     "entityIds": [
       "species/horadandia-atukorali"
@@ -4976,6 +5333,16 @@
     "updatedAt": "2026-10-31T01:43:49.807Z",
     "hash": "5695317536a2405c92d6c2d138a91fa900f1ec25310d882f8c79ef1b8b5bc151",
     "processedHash": "5695317536a2405c92d6c2d138a91fa900f1ec25310d882f8c79ef1b8b5bc151",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/hyphessobrycon-agulha": {
+    "entityIds": [
+      "species/hyphessobrycon-agulha"
+    ],
+    "updatedAt": "2026-11-02T14:34:38.197Z",
+    "hash": "74bcd78c784b2206f19569176dc1a223564db03fa632f629f2d35ddbf852de09",
+    "processedHash": "74bcd78c784b2206f19569176dc1a223564db03fa632f629f2d35ddbf852de09",
     "status": "processed",
     "attempts": 0
   },
@@ -5016,6 +5383,16 @@
     "updatedAt": "2026-10-30T23:39:15.026Z",
     "hash": "5cca5f18816a6bc8c086822a973dce1bb269e0fd5798e9eb096c116691d026a1",
     "processedHash": "5cca5f18816a6bc8c086822a973dce1bb269e0fd5798e9eb096c116691d026a1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/incisilabeo-behri": {
+    "entityIds": [
+      "species/bangana-behri"
+    ],
+    "updatedAt": "2026-11-02T13:44:32.539Z",
+    "hash": "b6f5e9c90ed649c1835b432dbf41ae325ea1fdf0766fd0c0f3a59036a19519c2",
+    "processedHash": "b6f5e9c90ed649c1835b432dbf41ae325ea1fdf0766fd0c0f3a59036a19519c2",
     "status": "processed",
     "attempts": 0
   },
@@ -5089,6 +5466,36 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/labeo-boga": {
+    "entityIds": [
+      "species/labeo-boga"
+    ],
+    "updatedAt": "2026-11-02T14:38:06.978Z",
+    "hash": "181f203b4f4902b62f525494327c3e8ff3e8c0317eff42b21ad9f4241529f81f",
+    "processedHash": "181f203b4f4902b62f525494327c3e8ff3e8c0317eff42b21ad9f4241529f81f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/labeo-chrysophekadion": {
+    "entityIds": [
+      "species/labeo-chrysophekadion"
+    ],
+    "updatedAt": "2026-11-02T14:39:05.866Z",
+    "hash": "37ec90bd8343c5a3e775e249b7115cb68d2965bd54936ff92e035077a37ce194",
+    "processedHash": "37ec90bd8343c5a3e775e249b7115cb68d2965bd54936ff92e035077a37ce194",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/labeo-cyclorhynchus": {
+    "entityIds": [
+      "species/labeo-cyclorhynchus"
+    ],
+    "updatedAt": "2026-11-02T14:42:15.233Z",
+    "hash": "febae11868b8dc5ed7e16ce5c72f8b649bc3c147637b691e425aca235e559eb4",
+    "processedHash": "febae11868b8dc5ed7e16ce5c72f8b649bc3c147637b691e425aca235e559eb4",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/labidochromis-caeruleus": {
     "entityIds": [
       "species/labidochromis-caeruleus"
@@ -5096,6 +5503,46 @@
     "updatedAt": "2026-10-30T17:20:55.268Z",
     "hash": "c5379d1af8af42f36ed1866b9c7a2f95ad1fe316d75a010155563d82a81fea32",
     "processedHash": "c5379d1af8af42f36ed1866b9c7a2f95ad1fe316d75a010155563d82a81fea32",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/labiobarbus-fasciatus": {
+    "entityIds": [
+      "species/labiobarbus-fasciatus"
+    ],
+    "updatedAt": "2026-11-02T14:55:51.504Z",
+    "hash": "e358d085bc1cf1f43a6e4cc9d90b56370376b55f80976ac82467f409c04800ea",
+    "processedHash": "e358d085bc1cf1f43a6e4cc9d90b56370376b55f80976ac82467f409c04800ea",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/ladigesia-roloffi": {
+    "entityIds": [
+      "species/ladigesia-roloffi"
+    ],
+    "updatedAt": "2026-11-02T14:44:05.983Z",
+    "hash": "470cba46dbb67f5a8e7a6b5f9812444d1bb6dcbf469d82062726f8c7dd11f2e2",
+    "processedHash": "470cba46dbb67f5a8e7a6b5f9812444d1bb6dcbf469d82062726f8c7dd11f2e2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/lamontichthys-filamentosus": {
+    "entityIds": [
+      "species/lamontichthys-filamentosus"
+    ],
+    "updatedAt": "2026-11-02T14:46:19.391Z",
+    "hash": "283e03e32ce30ec49f25acd9d73e276ac3193c93271a0dfe3bb6344c228611b9",
+    "processedHash": "283e03e32ce30ec49f25acd9d73e276ac3193c93271a0dfe3bb6344c228611b9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/lates-niloticus": {
+    "entityIds": [
+      "species/lates-niloticus"
+    ],
+    "updatedAt": "2026-11-02T14:26:33.913Z",
+    "hash": "149dc3e697b0093caaa2cf33719e8d9f0e3465c5a868b19ca7e178ebe3a4fb15",
+    "processedHash": "149dc3e697b0093caaa2cf33719e8d9f0e3465c5a868b19ca7e178ebe3a4fb15",
     "status": "processed",
     "attempts": 0
   },
@@ -5209,6 +5656,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/leptobotia-elongata": {
+    "entityIds": [
+      "species/leptobotia-elongata"
+    ],
+    "updatedAt": "2026-11-02T14:48:01.701Z",
+    "hash": "8bf7462bbf24f121f6b695ae5787b2b2998a41889a2508f2f2dec779a2abeb91",
+    "processedHash": "8bf7462bbf24f121f6b695ae5787b2b2998a41889a2508f2f2dec779a2abeb91",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/leptodoras-linnelli": {
+    "entityIds": [
+      "species/leptodoras-linnelli"
+    ],
+    "updatedAt": "2026-11-02T14:53:24.112Z",
+    "hash": "959b70d5c7248a5dd2e8dcf032764986eb447d8361d23ff08c85930443c130db",
+    "processedHash": "959b70d5c7248a5dd2e8dcf032764986eb447d8361d23ff08c85930443c130db",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/liniparhomaloptera-disparis": {
     "entityIds": [
       "species/liniparhomaloptera-disparis"
@@ -5316,6 +5783,26 @@
     "updatedAt": "2026-10-30T23:54:06.202Z",
     "hash": "6a7d38df9f9de443aee253283688b95f9c1fd528930cffae190ff4c8ab87ff5d",
     "processedHash": "6a7d38df9f9de443aee253283688b95f9c1fd528930cffae190ff4c8ab87ff5d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/megalamphodus-rosaceus": {
+    "entityIds": [
+      "species/hyphessobrycon-roseus"
+    ],
+    "updatedAt": "2026-11-02T13:42:33.225Z",
+    "hash": "380ca2d5141395f53dacddc4db36cfa671c2909dba211975db31bfdc230d3ca5",
+    "processedHash": "380ca2d5141395f53dacddc4db36cfa671c2909dba211975db31bfdc230d3ca5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/megalamphodus-sweglesi": {
+    "entityIds": [
+      "species/hyphessobrycon-sweglesi"
+    ],
+    "updatedAt": "2026-11-02T13:37:51.120Z",
+    "hash": "aee204cc52ab551946fd4a65923b1af55f6bbbb90bcd4276d23036eed1eaf705",
+    "processedHash": "aee204cc52ab551946fd4a65923b1af55f6bbbb90bcd4276d23036eed1eaf705",
     "status": "processed",
     "attempts": 0
   },
@@ -5459,6 +5946,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/microctenopoma-ansorgii": {
+    "entityIds": [
+      "species/microctenopoma-ansorgii"
+    ],
+    "updatedAt": "2026-11-02T14:57:04.053Z",
+    "hash": "d119d668f5767b36e4a0012aacdae032144e594ac6ad210bc78cc6de79d4b2af",
+    "processedHash": "d119d668f5767b36e4a0012aacdae032144e594ac6ad210bc78cc6de79d4b2af",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/microdevario-kubotai": {
     "entityIds": [
       "species/microdevario-kubotai"
@@ -5559,6 +6056,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/nannostomus-trifasciatus": {
+    "entityIds": [
+      "species/nannostomus-trifasciatus"
+    ],
+    "updatedAt": "2026-11-02T14:57:58.556Z",
+    "hash": "a1bdec632d42ab41b1efbfd83cbd7a47b448dbf36b919798d1a3a4475545d476",
+    "processedHash": "a1bdec632d42ab41b1efbfd83cbd7a47b448dbf36b919798d1a3a4475545d476",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/nemacheilus-binotatus": {
     "entityIds": [
       "species/nemacheilus-binotatus"
@@ -5629,6 +6136,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/nematobrycon-palmeri": {
+    "entityIds": [
+      "species/nematobrycon-palmeri"
+    ],
+    "updatedAt": "2026-11-02T15:03:43.753Z",
+    "hash": "af1492862e5eb4b5feaf08749bdb3fa261c3a39a0af2a75c4de7ff397a9dcfbd",
+    "processedHash": "af1492862e5eb4b5feaf08749bdb3fa261c3a39a0af2a75c4de7ff397a9dcfbd",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/neolamprologus-multifasciatus": {
     "entityIds": [
       "species/neolamprologus-multifasciatus"
@@ -5649,12 +6166,35 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/opsarius-bakeri": {
+    "entityIds": [
+      "species/barilius-bakeri"
+    ],
+    "updatedAt": "2026-11-02T13:46:04.596Z",
+    "hash": "164916a09822a35b8bd890894fd46d75fcfee613e3475609b83ca57ad95e9424",
+    "processedHash": "164916a09822a35b8bd890894fd46d75fcfee613e3475609b83ca57ad95e9424",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/opsarius-barna": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T11:19:04.605Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your 5-hour limit · resets 12:10pm (UTC)"
+    "entityIds": [
+      "species/opsarius-barna"
+    ],
+    "updatedAt": "2026-11-02T12:33:57.000Z",
+    "hash": "4cad9b72f17b304095ca67bb88fd021859552cb2efae878fffb3bd589d9116a4",
+    "processedHash": "4cad9b72f17b304095ca67bb88fd021859552cb2efae878fffb3bd589d9116a4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/opsarius-bernatziki": {
+    "entityIds": [
+      "species/opsarius-bernatziki"
+    ],
+    "updatedAt": "2026-11-02T15:06:37.671Z",
+    "hash": "f90d72c9c920c46c144827b076bdc9d8a85d2e2f7b2a95a176a1dc49c6e39222",
+    "processedHash": "f90d72c9c920c46c144827b076bdc9d8a85d2e2f7b2a95a176a1dc49c6e39222",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.seriouslyfish.com/species/opsarius-koratensis": {
     "entityIds": [
@@ -5663,6 +6203,26 @@
     "updatedAt": "2026-10-31T09:58:34.233Z",
     "hash": "2342ae2db3e620f2bd5b78e6c02e57ec16e7e72a15494f023ff93696f25b07c5",
     "processedHash": "2342ae2db3e620f2bd5b78e6c02e57ec16e7e72a15494f023ff93696f25b07c5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/opsarius-pulchellus": {
+    "entityIds": [
+      "species/opsarius-pulchellus"
+    ],
+    "updatedAt": "2026-11-02T15:08:48.911Z",
+    "hash": "3670bd16e2935022045ba78bdd8cc121d5ca4c225cbbeb0dc385e61b56ad6d62",
+    "processedHash": "3670bd16e2935022045ba78bdd8cc121d5ca4c225cbbeb0dc385e61b56ad6d62",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/oryzias-dancena": {
+    "entityIds": [
+      "species/oryzias-dancena"
+    ],
+    "updatedAt": "2026-11-02T15:10:55.374Z",
+    "hash": "fd027f8c9e1d393e3324a122c4d136d0f9d0bbb74b03666151816c89582233f9",
+    "processedHash": "fd027f8c9e1d393e3324a122c4d136d0f9d0bbb74b03666151816c89582233f9",
     "status": "processed",
     "attempts": 0
   },
@@ -5693,6 +6253,16 @@
     "updatedAt": "2026-10-30T19:43:00.262Z",
     "hash": "7882be2edb6af9efc396f9d5b7e1d748a11095e58ba2420c59c126c38e10474a",
     "processedHash": "7882be2edb6af9efc396f9d5b7e1d748a11095e58ba2420c59c126c38e10474a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/osteogaster-aenea": {
+    "entityIds": [
+      "species/corydoras-aeneus"
+    ],
+    "updatedAt": "2026-11-02T13:11:29.196Z",
+    "hash": "521d493d0ba2793c7eaed6046912dfd5f51d71b2ebfcf6ad6d20147b7ab9fdb5",
+    "processedHash": "521d493d0ba2793c7eaed6046912dfd5f51d71b2ebfcf6ad6d20147b7ab9fdb5",
     "status": "processed",
     "attempts": 0
   },
@@ -5883,6 +6453,16 @@
     "updatedAt": "2026-10-30T22:22:59.140Z",
     "hash": "e987500d5512da4b5ca203199979eb1701d086c176089e76716c9d696e73daa9",
     "processedHash": "e987500d5512da4b5ca203199979eb1701d086c176089e76716c9d696e73daa9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/petitella-bleheri": {
+    "entityIds": [
+      "species/hemigrammus-bleheri"
+    ],
+    "updatedAt": "2026-11-02T13:04:15.178Z",
+    "hash": "f429aeec139a8c0873647826ffc5f5d6e59aa44d02f7f2b2d152e4de2eaa1594",
+    "processedHash": "f429aeec139a8c0873647826ffc5f5d6e59aa44d02f7f2b2d152e4de2eaa1594",
     "status": "processed",
     "attempts": 0
   },

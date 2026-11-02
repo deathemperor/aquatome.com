@@ -11,8 +11,60 @@
     "orinoco",
     "venezuela"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<p>The red phantom tetra, Megalamphodus sweglesi, is a small characid endemic to the upper and middle Río Orinoco watershed in Colombia and Venezuela. It apparently favours minor tributaries, oxbows and flooded forests, and in Venezuela is often found in morichals. Bred commercially in several countries, it has been traded in more than one colour form, and Zarske (2014) concluded that the particularly red form sold as 'red' or 'var. rubra' is conspecific.</p>"
+    },
     {
       "key": "distribution",
       "source": "glaser",
@@ -20,14 +72,105 @@
       "html": "<p>Colombia, Venezuela, Orinoco.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<p>Endemic to the upper and middle Río Orinoco watershed in Colombia (departments of Meta, Casanare, Arauca, Vichada, and Guainía) and Venezuela (states of Amazonas, Apure, Guárico, and Bolivar). It has been collected from several major tributaries including the ríos Atabapo, Guaviare, Inirida, Ventuari, Meta, Cinaruco, Arauca, Apure, Capanaparo, and Caura.</p><p>Type locality was originally given as 'Leticia, Peru', but later corrected to 'Río Muco, upper Río Orinoco basin, Colombia' by Géry (1966).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<p>Apparently favours minor tributaries, smaller rivers, oxbows, and flooded forests rather than main river channels.</p><p>It occurs throughout the vast llanos regions of Colombia and Venezuela, and in the latter country is often associated with habitats known as morichals which tend to contain transparent, clear water and sandy substrates, often with dense growth of aquatic plants or riparian vegetation among which the fish take shelter.</p><p>In other parts of its range it has been collected from both flowing blackwater habitats and still floodplain lakes, while the majority of rivers and wetlands across its range are subject to extreme flooding during the annual rainy season.</p><p>One example of a natural habitat is the Río Cinaruco, a low nutrient, blackwater tributary of the Orinoco in southwestern Venezuela which comprises a meandering river channel with numerous interconnected lagoons and floodplain lakes.</p><p>The latter two biotope-types feature reduced water flow, increased turbidity and temperature, a greater accumulation of leaf litter, and higher densities of zooplankton than the main channel.</p><p>Other fishes occurring in the Río Orinoco basin and available in the trade include Brochis delphax, Platydoras costatus, Baryancistrus beggini, Hypancistrus inspector, Panqolus maccus, Panaque nigrolineatus, Hemigrammus rhodostomus, H. stictus, Paracheirodon axelrodi, Pristella maxillaris, Copella nattereri, Biotodoma wavrini, Heros severus, Mesonauta insignis, Satanoperca daemon and Uaru fernandezyepezi.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<p>An aquarium with base dimensions of 80 × 30 cm or equivalent should be the smallest considered (about 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<p>Perhaps looks best in an arrangement comprising a sandy substrate plus some driftwood roots and branches, or heavily-planted set-up.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>The latter are useful since they provide an additional food source for both adults and fry while the humic substances released by decaying leaves are also considered beneficial.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.5–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<p>Very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens since this species forms temporary dominance hierarchies within which males compete for female attention, and therefore displays more interesting behaviour and better colouration when maintained in numbers.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<p>Adult males develop extended dorsal and anal fins, while females are deeper-bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<p>An egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition adults will spawn often and in a mature aquarium it is possible that small numbers of fry may start to appear without intervention, but if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water. This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively, filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container and left in place until eggs are detected (typically the following morning).</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/red_phantom_tetra_hyphessobrycon_sweglesi_en/",
       "html": "<p>Until a few years ago Red Phantom tetra, Hyphessobrycon sweglesi was easy to identify, even though under the name of Megalamphodus sweglesi. Lately “Red Phantom Tetras” appear more often, which are very similar to it, but also show other characteristics. It stays (temporarily) unclear, if they are own species, subspecies or “local forms”.</p><p>Interested hobbyists, who would like to breed this tetra should know that the young fish are very small and prone to “infusorios” and that they require smallest live food in the beginning, if possible. Their growth is extremely slow during the first weeks/months. For this reason wild-caught ones are prevailingly put on the market.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<p>This small species is a popular aquarium fish and is bred on a commercial basis in several countries, with wild fishes relatively scarce in the ornamental trade.</p><p>At least two or three colour forms have been traded, of which one is particularly colourful and has been referred to as H. sweglesi 'red' or 'var. rubra'. The bright red pigmentation is retained in long-term captive specimens, suggesting that it is not an artefact of diet, but it might reflect conditions at the collection locality with the reddest fish putatively inhabiting blackwater and plainer forms clearwater environments. Zarske (2014) found the two forms to be identical in terms of morphology and meristics and therefore concluded that they are conspecific.</p><p>Following the most recent diagnosis by Zarske (2014), H. sweglesi can be diagnosed by the following combination of characters: body relatively shallow, its depth fitting 2.71-2.90 times in its SL; an irregular row of 9-10 premaxillary teeth; 3-6 maxillary teeth; 22-25 branched anal-fin rays; 31-33 longitudinal scales; 5/1/3-4 predorsal scales; sexual dimorphism evident in shape of dorsal and anal fins; humeral spot relatively large.</p><p>H. sweglesi was originally described as a member of the genus Megalamphodus Eigenmann 1915, which was diagnosed by possession of only a single row of teeth. This was synonymised with Hyphessobrycon by Weitzman and Palmer (1997) who found that some individuals of M. megalopterus, the type species, and the related M. micropterus possessed two rows of teeth as in some members of their 'rosy tetra' group (see below). In addition, most of the species formerly included in Megalamphodus display other characters associated with this putative assemblage, most obviously a dark humeral spot plus a similarly-coloured marking in the dorsal-fin.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-sweglesi",
+      "html": "<ul><li>Lasso, C. A., D. Lew, D. Taphorn, C. DoNascimiento, O. Lasso-Alcalá, F. Provenzano, and A. Machado-Allison (2004). Biodiversidad ictiológica continental de Venezuela. Parte I. Lista de especies y distribución por cuencas. Memoria de la Fundación La Salle de Ciencias Naturales 159-160, 105-195</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Weitzman, S. H. and L. Palmer (1997). A new species of Hyphessobrycon (Teleostei: Characidae) from the Neblina region of Venezuela and Brazil, with comments on the putative `rosy tetra clade'. Ichthyological Exploration of Freshwaters 7(3), 209-242</li><li>Zarske, A. (2014). Zur Systematik einiger Blutsalmler oder \"Rosy Tetras\" (Teleostei: Ostariophysi: Characidae). Vertebrate Zoology 64(2), 139-167</li><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Malabarba, L. R., V. A. Bertaco, F. R. Carvalho &amp; T. O. Litz. (2012). Revalidation of the genus Ectrepopterus Fowler (Teleostei: Characiformes), with the redescription of its type species, E. uruguayensis. Zootaxa 3204, 47-60</li><li>Géry, J. (1966). A review of certain Tetragonopterinae (Characoidei), with the description of two new genera. Ichthyologica, the Aquarium Journal 37(5), 211-236</li><li>Géry, J. (1961). Three new South – American Characids: Knodus savannensis, Hyphessobrycon herbertaxelrodi and Megalamphodus sweglesi, with a review of some Hyphessobrycon - group of species. Tropical Fish Hobbyist 9(9), 26-46</li><li>Taphorn P., D. C. (1992). The characiform fishes of the Apure River drainage, Venezuela. Biollania Edición Especial - No. 4. Monografias Cientificas del Museo de Ciencias Naturales, UNELLEZ - Guanara, estado Portuguesa, Venezuela, 1-537</li></ul>"
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "kHfiWJAP9Q0",
+      "title": "Red Phantom Tetra - Hyphessobrycon sweglesi",
+      "durationSec": 235,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "i_qT_zwk46M",
+      "title": "Roter Phantomsalmler, Megalamphodus sweglesi (Hyphessobrycon sweglesi)",
+      "durationSec": 104,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tk6LY2ZLH4E",
+      "title": "レッドファントムテトラ　Red phantom tetra　Hyphessobrycon sweglesi",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YOrMuJLjh_c",
+      "title": "School of Red Phantom Tetras - Hyphessobrycon sweglesi",
+      "durationSec": 88,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -44,5 +187,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }
