@@ -141,7 +141,10 @@ private struct Fine: View {
         .fixedSize(horizontal: false, vertical: true)
         // A list footer is grey already.
         .foregroundStyle(centered ? AnyShapeStyle(.secondary) : AnyShapeStyle(.primary))
-      Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan"))!)
+      HStack(spacing: 16) {
+        Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan"))!)
+        Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/vi/lien-he/"))!)
+      }
     }
     .multilineTextAlignment(centered ? .center : .leading)
     .font(.footnote)
