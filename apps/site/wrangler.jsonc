@@ -18,6 +18,9 @@
   "d1_databases": [{ "binding": "DB", "database_name": "thuysinh", "database_id": "3e477e5b-486e-4af0-8e10-130f8f57a747", "migrations_dir": "migrations" }],
   // Reader photos: raw uploads wait in the private bucket; screened WebP copies go to the public media bucket (readers/).
   "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "thuysinh-media" }],
+  // Fish ID's calls to Claude go out from the eastern US (worker/fishid/relay.ts): Anthropic refuses Cloudflare's Hong Kong location.
+  "durable_objects": { "bindings": [{ "name": "FISHID_RELAY", "class_name": "FishIdRelay" }] },
+  "migrations": [{ "tag": "v1-fishid-relay", "new_sqlite_classes": ["FishIdRelay"] }],
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
   "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }],
   "triggers": { "crons": ["17 20 * * *"] },

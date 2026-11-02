@@ -63,7 +63,8 @@ function messageOf(e: ApiErrorLike): string {
 }
 
 /**
- * Out of credit or over a spend limit: 24 h off. A bad or revoked key, or one not allowed: 24 h off. Rate-limited: off
+ * Out of credit or over a spend limit: 24 h off. A bad or revoked key, or one not allowed: 24 h off. Refused for where
+ * the call comes from (403 "Request not allowed"): the next key, none set aside. Rate-limited: off
  * for the retry-after the API gave (else 60 s). Overloaded or a server error, or no answer at all: the next key, this
  * one left as it is. A 404 too: the model may not be open to that organisation. Anything else (a 400 that isn't about
  * credit, a 413) is our request's fault: every key would refuse it, so stop.
@@ -75,6 +76,8 @@ export function classify(e: unknown): Verdict {
   if (s === undefined) return { next: true }
   if (s === 402 || e.type === 'billing_error') return { mark: { why: 'credit', ttlSec: DAY_SEC }, next: true }
   if (s === 400 && /credit balance|usage limit|spend(ing)? limit/i.test(messageOf(e))) return { mark: { why: 'credit', ttlSec: DAY_SEC }, next: true }
+  // Anthropic refusing where the call comes from (an unsupported region), not the key: every key would get the same.
+  if (s === 403 && (e.type === 'forbidden' || /request not allowed/i.test(messageOf(e)))) return { next: true }
   if (s === 401 || s === 403 || e.type === 'authentication_error' || e.type === 'permission_error') return { mark: { why: 'auth', ttlSec: DAY_SEC }, next: true }
   if (s === 429 || e.type === 'rate_limit_error') {
     const after = Number(e.headers?.get('retry-after'))
