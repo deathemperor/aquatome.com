@@ -364,7 +364,7 @@ const { t } = i18n(Astro.url)
     // What was just put on the tank without a page (and no page has its scientific name either): counted once saved. Not
     // what a photo named: the fish-ID endpoint counted that name already.
     const before = new Set((kept?.unlisted ?? []).map(u => u.id))
-    for (const u of added?.unlisted ?? []) if (!before.has(u.id) && !book?.match(u) && !editor?.fromPhoto(u.id)) wanted(u)
+    for (const u of added?.unlisted ?? []) if (!before.has(u.id) && !book?.match(u)) wanted(u) // a photo's guess too: the Worker counts a reader once a day per name, whichever sent it
     account.changed()
     close(t.id)
     document.getElementById(`be-${t.id}`)?.scrollIntoView({ block: 'nearest' })

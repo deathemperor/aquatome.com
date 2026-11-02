@@ -138,6 +138,14 @@ test('a fish Claude is fairly sure of with no page counts as a reader\'s request
   // The same reader again today: still one.
   await run(post(), sure.e, deps(claude({ [A]: () => message(harlequin(0.85)) }).fetch))
   expect(wanted(sure.kv)[0]!.readers).toBe(1)
+  // And the tank that reader then saves with it (POST /api/v1/wanted): the same reader, still one.
+  const tank = new Request('https://x.test/api/v1/wanted', { method: 'POST', body: JSON.stringify({ kind: 'fish', name: 'Harlequin rasbora', sci: 'Trigonostigma heteromorpha' }), headers: { origin: 'https://x.test', 'content-type': 'application/json', 'cf-connecting-ip': '203.0.113.7', 'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1', 'accept-language': 'vi-VN,vi;q=0.9' } })
+  expect((await run(tank, sure.e, deps(claude({}).fetch))).status).toBe(204)
+  expect(wanted(sure.kv)).toEqual([expect.objectContaining({ readers: 1, sources: { 'fish-id': 1 } })])
+  // Another reader's tank: two.
+  const other = new Request(tank.url, { method: 'POST', body: JSON.stringify({ kind: 'fish', name: 'Harlequin rasbora', sci: 'Trigonostigma heteromorpha' }), headers: { ...Object.fromEntries(tank.headers), 'cf-connecting-ip': '198.51.100.9' } })
+  expect((await run(other, sure.e, deps(claude({}).fetch))).status).toBe(204)
+  expect(wanted(sure.kv)[0]).toMatchObject({ readers: 2, sources: { 'fish-id': 1, tank: 1 } })
   for (const [answer, headers] of [[harlequin(0.4), {}], [NEON, {}], [harlequin(0.85), { cookie: 'aq_owner=1' }]] as const) {
     const other = env()
     await run(post(undefined, undefined, headers), other.e, deps(claude({ [A]: () => message(answer) }).fetch))

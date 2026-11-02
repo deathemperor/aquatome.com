@@ -361,7 +361,7 @@ test('a photo names a fish the handbook has: its page joins the tank as from the
   expect(errors).toEqual([])
 })
 
-test('a photo names a fish with no page: the "Thêm …" form comes filled in, the reader adds the count; not counted again, as a typed one is', async ({ page, errors }) => {
+test('a photo names a fish with no page: the "Thêm …" form comes filled in, the reader adds the count; counted like a typed one (the Worker counts a reader once a day per name)', async ({ page, errors }) => {
   const bodies = await countRequests(page)
   await fakeTurnstile(page)
   await mockFishId(page, ON, [{ status: 200, body: { verdict: 'fish', model: 'm', results: [
@@ -393,8 +393,8 @@ test('a photo names a fish with no page: the "Thêm …" form comes filled in, t
     { id: expect.stringMatching(/^[0-9a-f-]{36}$/), kind: 'fish', name: 'Aquatome goby', sci: 'Rhinogobius aquatomensis', count: 2 },
     { id: expect.stringMatching(/^[0-9a-f-]{36}$/), kind: 'fish', name: 'Cá bống suối thử' },
   ])
-  // The fish-ID endpoint counted the photo's name already: only the typed one is sent.
-  await expect.poll(() => bodies).toEqual([{ kind: 'fish', name: 'Cá bống suối thử' }])
+  // Both are sent: a second or unsure guess reaches the wanted list too, and the Worker doesn't count the fish-ID tool's own record of the same reader again.
+  await expect.poll(() => bodies).toEqual([{ kind: 'fish', name: 'Aquatome goby', sci: 'Rhinogobius aquatomensis' }, { kind: 'fish', name: 'Cá bống suối thử' }])
   expect(errors).toEqual([])
 })
 

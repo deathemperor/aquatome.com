@@ -49,8 +49,6 @@ export function initLife(root: HTMLElement, o: {
   let photo: Promise<ReturnType<typeof import('./life-photo').initPhoto>> | undefined
   /** The "Thêm …" form is filled in from a photo's guess. */
   let sheetFromPhoto = false
-  /** Entries without a page made from a photo's guess: the fish-ID endpoint counts such a name itself (worker/fishid/api.ts). */
-  const photoIds = new Set<string>()
 
   async function load() {
     const pages = await o.pages()
@@ -158,7 +156,6 @@ export function initLife(root: HTMLElement, o: {
     const e: UnlistedEntry = { id: crypto.randomUUID(), kind, name, ...(sci ? { sci } : {}), ...(kind !== 'plant' && n >= 1 ? { count: Math.min(9999, n) } : {}) }
     life.unlisted.push(e)
     const byPhoto = sheetFromPhoto
-    if (byPhoto) photoIds.add(e.id)
     touched = true
     closeNew()
     const p = o.match(e)
@@ -276,7 +273,6 @@ export function initLife(root: HTMLElement, o: {
       clear()
       closeNew()
       say('')
-      photoIds.clear()
       photoPanel.hidden = true
       photoOpen.setAttribute('aria-expanded', 'false')
       void photo?.then(t => t.reset(), () => {})
@@ -286,7 +282,5 @@ export function initLife(root: HTMLElement, o: {
     },
     /** What the form saves: the fish and plants when the reader changed them here, else nothing (the tank keeps its own). */
     value: (): Life | undefined => (touched ? life : undefined),
-    /** Whether an entry without a page came from a photo's guess (the fish-ID endpoint counts those names, not the page). */
-    fromPhoto: (id: string) => photoIds.has(id),
   }
 }
