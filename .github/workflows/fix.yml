@@ -52,12 +52,13 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
         # The owner's Claude accounts in turn (CLAUDE_CODE_OAUTH_TOKENS, one token a line; else CLAUDE_CODE_OAUTH_TOKEN), as
         # the engine does (claude-accounts.ts): the next one only when the agent stopped on this one's usage limit or its
-        # token was rejected, from a clean tree. The last answer stands.
+        # token was rejected, from a clean tree. The last answer stands. The agent can still read every token this job
+        # holds (this shell's /proc environ, sudo on GitHub's runners): docs/governance.md, layer 4, remaining risk.
         run: |
           schema='{"type":"object","required":["status","summary"],"additionalProperties":false,"properties":{"status":{"enum":["fixed","not-reproduced","needs-person"]},"summary":{"type":"string"},"check":{"type":"string"}}}'
           out='hit your .*limit|usage limit|limit reached|rate.?limit|Failed to authenticate|Invalid bearer token'
           tokens="${CLAUDE_CODE_OAUTH_TOKENS:-$CLAUDE_CODE_OAUTH_TOKEN}"
-          unset CLAUDE_CODE_OAUTH_TOKENS # the agent's environment gets its own account's token only
+          unset CLAUDE_CODE_OAUTH_TOKENS # out of the agent's own environment (not out of its reach, see above)
           n=0
           while IFS= read -r token; do
             token="${token//[$'\r\t ']/}"
