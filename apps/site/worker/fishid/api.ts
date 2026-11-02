@@ -4,6 +4,7 @@ import type { Catalog, Lang } from './catalog'
 import { askClaude, DEFAULT_MODEL, readAnswer, type Answer, type ImageType } from './claude'
 import { healthyKeys, loadKeys, parseKeys, rotate, type Attempt, type HealthStore, type KeyEntry, type KeyHealth, type KeyProblem } from './keys'
 import { matchGuesses } from './match'
+import { relayFetch } from './relay'
 import { readerOf, recordWanted } from '../wanted'
 
 /**
@@ -20,6 +21,8 @@ export type FishIdEnv = {
   /** One key per line, `<key>` or `<key> <workspaceId>` (worker/fishid/keys.ts). */
   ANTHROPIC_KEYS?: string
   FISH_ID_MODEL?: string
+  /** The Durable Object the calls to Claude go out through (relay.ts); without it, straight from the Worker. */
+  FISHID_RELAY?: DurableObjectNamespace
   /** Identifications per reader (IP) per day, and for the whole site per day (defaults 10 and 300). */
   FISH_ID_PER_IP?: string
   FISH_ID_PER_DAY?: string
@@ -186,7 +189,7 @@ export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, 
   const model = env.FISH_ID_MODEL || DEFAULT_MODEL
   const photo = { data: base64(up.bytes), type: type as ImageType }
   const t = Date.now()
-  const out = await rotate(healthy, store, (key, timeoutMs) => askClaude(key, photo, { model, lang: up.lang, timeoutMs, fetch: deps.fetch }), { random: deps.random })
+  const out = await rotate(healthy, store, (key, timeoutMs) => askClaude(key, photo, { model, lang: up.lang, timeoutMs, fetch: deps.fetch ?? (env.FISHID_RELAY ? relayFetch(env.FISHID_RELAY) : undefined) }), { random: deps.random })
   day.calls++
   for (const a of out.attempts) day.keys[a.hash] = (day.keys[a.hash] ?? 0) + 1
   await env.AB.put(dayKey(now), JSON.stringify(day), { expirationTtl: 3 * DAY_SEC })

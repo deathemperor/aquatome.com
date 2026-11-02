@@ -237,6 +237,9 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   return out
 }
 
+/** Durable Object classes the config binds (wrangler.jsonc). */
+export { FishIdRelay } from './fishid/relay'
+
 export default {
   fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, p => ctx.waitUntil(p)),
 
