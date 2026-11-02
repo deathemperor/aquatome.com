@@ -97,6 +97,26 @@ test('the index lists every guide the site lists, a page out of search engines t
   expect(shard.pages[path]).toMatchObject({ kind: 'guide', path, title: 'Thay nước đúng cách' })
 })
 
+test('the index lists every glossary term the glossary list shows, a page out of search engines too, each with its copy in a shard', async () => {
+  for (const lang of LANGS) {
+    const ix = index(lang)
+    const terms = ix.items.filter(i => i.kind === 'glossary').map(i => i.path)
+    const shown = page(localizePath(lang, '/vi/thuat-ngu/')).dom.querySelectorAll('dl.terms dt a').map(a => a.getAttribute('href')!)
+    expect([...terms].sort(), lang).toEqual(shown.sort())
+    for (const path of terms) {
+      const shard = PageShard.parse(JSON.parse(readFileSync(`${DIST}/app/pages/${lang}/glossary-${pageShard(path, ix.shards!.glossary!.n)}.json`, 'utf8')))
+      expect(shard.pages[path], path).toMatchObject({ kind: 'glossary', path })
+    }
+  }
+  // A translation that scored low (GH: 0.6) is out of search engines, not off the glossary list, nor the app's.
+  const path = '/vi/thuat-ngu/gh/'
+  expect(page(path).html).toMatch(/noindex/)
+  expect(index('vi').items.find(i => i.path === path)).toMatchObject({ kind: 'glossary', name: 'GH' })
+  // The fixture has no Indonesian or Thai term: its Vietnamese ones, listed as those languages' glossary lists them.
+  const c = await getContent('vi')
+  for (const lang of ['id', 'th'] as const) expect(appIndex(lang, c).items.filter(i => i.kind === 'glossary').map(slugOf), lang).toEqual(c.glossary.map(g => g.t.slug))
+})
+
 test('a plant or a species whose translation scored low is still listed, as the site\'s lists show it', async () => {
   const c = await getContent('vi')
   const low = { indexable: false, score: 0.2, reason: 'low' as const }

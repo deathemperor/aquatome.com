@@ -12,9 +12,9 @@ import { seriesGuides } from './video'
 
 /**
  * The handbook's index for the native app (/app/<lang>.json): the pages of one language that the app can search and
- * list. Fish, plants, guides and video series are every one the site's own lists show (a page out of search engines
- * too); glossary terms those in search engines. The app opens the page itself in a web view, so an item is only what a
- * search result shows and what the app browses it by. Fish come in the site's list order (the well-known ones first).
+ * list. Fish, plants, guides, glossary terms and video series are every one the site's own lists show (a page out of
+ * search engines too). The app opens the page itself in a web view, so an item is only what a search result shows and
+ * what the app browses it by. Fish come in the site's list order (the well-known ones first).
  */
 export type AppItem = {
   /** `video`: a series of video guides (/vi/video/<slug>/). */
@@ -96,9 +96,12 @@ export function appSpecies(lang: Lang, c: Content): Content['species'] {
 export function appPlants(lang: Lang, c: Content): Content['plants'] {
   return served(lang, '/vi/cay/x/') ? c.plants : []
 }
-/** The glossary terms the index lists in this language, and the app has pages of. */
+/**
+ * The glossary terms the index lists in this language, and the app has pages of: every one the glossary list shows
+ * (pages/vi/thuat-ngu/index.astro), a page out of search engines too.
+ */
 export function appGlossary(lang: Lang, c: Content): Content['glossary'] {
-  return served(lang, '/vi/thuat-ngu/x/') ? c.glossary.filter(g => g.t.quality.indexable) : []
+  return served(lang, '/vi/thuat-ngu/x/') ? c.glossary : []
 }
 /**
  * What the site's home page leads with, so the app leads with the same (lib/home.ts), in its order: the fish groups
