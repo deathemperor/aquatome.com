@@ -27,7 +27,8 @@ public struct VolumeForm: Equatable, Sendable {
     self.init(inches: inches)
     let items = URLComponents(string: "?" + query)?.queryItems ?? []
     guard items.contains(where: { $0.name == "hinh" }) else { return }
-    shape = items.last { $0.name == "hinh" }.flatMap { $0.value.flatMap(TankShape.init(rawValue:)) } ?? .box
+    // The first, as the page's URLSearchParams.get takes it.
+    shape = items.first { $0.name == "hinh" }.flatMap { $0.value.flatMap(TankShape.init(rawValue:)) } ?? .box
     sizes = [:]
     for i in items where i.name != "hinh" {
       guard let cm = i.value.flatMap(Double.init), cm.isFinite else { continue }
@@ -123,7 +124,8 @@ public struct Worked: Sendable {
   public func heaterPath(lang: String) -> String? {
     guard let b = box else { return nil }
     let tools = ["id": "/id/alat/", "th": "/th/tools/"][lang] ?? "/vi/cong-cu/"
-    let cm = { String(Int(TankVolume.jsRound($0))) }
+    // Written as a whole number without going through Int, which a side of 1e19 cm (typed, or in a link) overflows.
+    let cm = { String(format: "%.0f", TankVolume.jsRound($0)) }
     return "\(tools)?l=\(cm(b.l))&w=\(cm(b.w))&h=\(cm(b.h))#suoi"
   }
 }

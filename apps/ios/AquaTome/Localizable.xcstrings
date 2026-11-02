@@ -2881,6 +2881,22 @@
         }
       }
     },
+    "Dài × rộng × cao (cm)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panjang × lebar × tinggi (cm)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยาว × กว้าง × สูง (cm)"
+          }
+        }
+      }
+    },
     "Dùng lại": {
       "localizations": {
         "id": {

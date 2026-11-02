@@ -155,7 +155,11 @@ public enum TankVolume {
   }
 
   /// JavaScript's Math.round: halves up, toward +∞.
-  static func jsRound(_ x: Double) -> Double { (x + 0.5).rounded(.down) }
+  static func jsRound(_ x: Double) -> Double {
+    // Not (x + 0.5).rounded(.down): that sum rounds up 0.49999999999999994, and odd numbers past 2^52.
+    let r = x.rounded(.down)
+    return x - r >= 0.5 ? r + 1 : r
+  }
   /// To 0.1, as the page rounds a size it keeps or converts.
   public static func tenth(_ x: Double) -> Double { jsRound(x * 10) / 10 }
   /// A weight as the table gives it: to the nearest 5 kg.

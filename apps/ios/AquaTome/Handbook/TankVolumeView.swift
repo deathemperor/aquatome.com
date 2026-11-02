@@ -27,6 +27,10 @@ struct TankVolumeView: View {
   @State private var name = ""
   /// What the last save did, with the way to the tank.
   @State private var said: AttributedString?
+  /// A shape's button, wide enough for its name at the reader's text size.
+  @ScaledMetric(relativeTo: .caption) private var shapeWidth: CGFloat = 84
+  /// What it works out, to be said to VoiceOver once typing stops.
+  @State private var speak: Task<Void, Never>?
 
   var body: some View {
     ScrollViewReader { scroll in
@@ -35,7 +39,7 @@ struct TankVolumeView: View {
         AnyView(Section("Kiểu bể (nhìn từ trên xuống, mặt áp tường ở trên)") {
           // One row, so the sizes and the litres are on the first screen.
           ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 6) { ForEach(TankShape.allCases, id: \.self) { shapeButton($0) } }
+            HStack(spacing: 6) { ForEach(TankShape.allCases, id: \.self) { shapeButton($0).id($0) } }
           }
           .accessibilityIdentifier("shapes")
           .id("top")
@@ -46,6 +50,8 @@ struct TankVolumeView: View {
         AnyView(Section { Text(page) })
       }
       .scrollDismissesKeyboard(.interactively)
+      // A link's shape late in the row (the site shows all 12 at once): the row brought to it.
+      .onChange(of: form.shape) { withAnimation { scroll.scrollTo(form.shape, anchor: .center) } }
       // Links in the text: a ready-made tank sets the form, the tank saved opens its tab, the heater calculator its page.
       .environment(\.openURL, OpenURLAction { url in
         switch AppScreen.of(url, site: handbook.site) {
@@ -65,8 +71,19 @@ struct TankVolumeView: View {
       started = true
       form = query.map { VolumeForm(query: $0, inches: units == "imperial") } ?? VolumeForm(inches: units == "imperial")
     }
-    // The tool changed: what was saved is no longer what it shows.
-    .onChange(of: form) { said = nil }
+    // The tool changed: what was saved is no longer what it shows. What it now works out is said to VoiceOver a moment
+    // after the typing stops, as the site's result is read (aria-live): its first line, the litres or what's wrong.
+    .onChange(of: form) {
+      said = nil
+      speak?.cancel()
+      speak = Task {
+        try? await Task.sleep(for: .seconds(1))
+        guard !Task.isCancelled, let first = String(result.characters).split(separator: "\n").first else { return }
+        AccessibilityNotification.Announcement(String(first)).post()
+      }
+    }
+    // The tank picked to save to, deleted on the tanks tab meanwhile: a new one, as the site's picker resets.
+    .onChange(of: tanks.tanks.map(\.id)) { _, ids in if let t = target, !ids.contains(t) { target = nil } }
   }
 
   private var sizes: some View {
@@ -110,7 +127,7 @@ struct TankVolumeView: View {
         ShapeIcon(shape: s).stroke(lineWidth: 2).frame(width: 60, height: 40)
         Text(shapeName(s)).font(.caption).lineLimit(2, reservesSpace: true).multilineTextAlignment(.center)
       }
-      .frame(width: 84)
+      .frame(width: shapeWidth)
       .padding(.vertical, 6)
       .background(form.shape == s ? AnyShapeStyle(.fill.secondary) : AnyShapeStyle(.clear), in: .rect(cornerRadius: 10))
     }
@@ -152,6 +169,7 @@ struct TankVolumeView: View {
   private var page: AttributedString {
     var text = line(AttributedString(localized: "Đo lòng bể (trừ độ dày kính). Lượng nước thực tế tính bằng \(number(TankVolume.waterShare * 100, 0) + "%") thể tích, sau khi trải nền, đặt đá lũa và chừa mép trên. Độ dày kính tính cho kính thường (kính nổi, không phải kính cường lực), hệ số an toàn 3,8, chỉ áp dụng cho bể hộp; bể đặt làm nên hỏi thêm thợ."), .secondary)
     text += "\n\n" + heading(AttributedString(localized: "Bể bán sẵn: bao nhiêu lít, kính bao nhiêu mm"))
+    text += "\n" + line(AttributedString(localized: "Dài × rộng × cao (cm)"), .secondary)
     let head = [String(localized: "Thể tích (lít)"), String(localized: "Nước thực tế (lít)"), String(localized: "Kính (mm)"), String(localized: "Nặng khi đầy (kg)")]
     for r in TankVolume.readyMade {
       var size = link(AttributedString("\(Int(r.l)) × \(Int(r.w)) × \(Int(r.h))"), "/vi/cong-cu/the-tich-be/?hinh=chu-nhat&l=\(Int(r.l))&w=\(Int(r.w))&h=\(Int(r.h))")

@@ -13,6 +13,8 @@ private struct Vectors: Decodable, Sendable {
   struct GlassKg: Decodable, Sendable { let l: Double, w: Double, h: Double, mm: Int, kg: Double }
   struct Row: Decodable, Sendable { let l: Double, w: Double, h: Double, litres: Double, water: Double, glass: Int, kg: Double }
   let gallonL: Double, waterShare: Double
+  /// Each shape's sizes in the page's order: the first missing is the one it asks for.
+  let fields: [String: [String]]
   let shapes: [Shape], glass: [Glass], glassKg: [GlassKg], readyMade: [Row]
 }
 private let v: Vectors = {
@@ -29,6 +31,11 @@ private func near(_ a: Double?, _ b: Double?) -> Bool {
 @Test func theConstantsAreTheSites() {
   #expect(TankVolume.gallonL == v.gallonL)
   #expect(TankVolume.waterShare == v.waterShare)
+}
+
+@Test func eachShapeAsksForTheSitesSizesInItsOrder() {
+  #expect(Set(v.fields.keys) == Set(TankShape.allCases.map(\.rawValue)))
+  for s in TankShape.allCases { #expect(s.fields == v.fields[s.rawValue], "\(s.rawValue)") }
 }
 
 @Test func eachShapeGivesTheSitesLitresOrRefusesAsItDoes() {
@@ -189,4 +196,24 @@ private func near(_ a: Double?, _ b: Double?) -> Bool {
   // In inches, the sizes the link gives in cm.
   let i = VolumeForm(query: "hinh=chu-nhat&l=60&w=30&h=36", inches: true)
   #expect(near(i.cm["l"], 60) && near(i.cm["h"], 36))
+}
+
+@Test func aShapeGivenTwiceIsTheFirstAsThePageReadsIt() {
+  #expect(VolumeForm(query: "hinh=tru&hinh=chu-nhat&d=40&h=50", inches: false).shape == .cylinder)
+}
+
+/// A side no tank has, typed (20 digits) or in a link: the heater link written whole, not a crash.
+@Test func aHugeBoxStillLinksTheHeaterCalculator() throws {
+  var typed = VolumeForm()
+  typed.sizes["l"] = "12345678901234567890"
+  let w = try typed.outcome.get()
+  #expect(w.heaterPath(lang: "vi") == "/vi/cong-cu/?l=12345678901234567168&w=30&h=36#suoi")
+  let linked = try VolumeForm(query: "hinh=chu-nhat&l=1e19&w=30&h=36", inches: false).outcome.get()
+  #expect(linked.heaterPath(lang: "vi") == "/vi/cong-cu/?l=10000000000000000000&w=30&h=36#suoi")
+}
+
+@Test func roundingIsJavaScriptsMathRound() {
+  #expect(TankVolume.jsRound(0.49999999999999994) == 0)
+  #expect(TankVolume.jsRound(2.5) == 3 && TankVolume.jsRound(-2.5) == -2 && TankVolume.jsRound(-2.6) == -3)
+  #expect(TankVolume.jsRound(4503599627370497) == 4503599627370497)
 }

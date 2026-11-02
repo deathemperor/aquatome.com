@@ -79,7 +79,9 @@ final class TankVolumeFlowTests: XCTestCase {
     field(app, "f").clearAndType("70")
     XCTAssertEqual(result.label, "Kính trước phải ngắn hơn chiều dài.")
     keep(app, "refused")
-    XCTAssertFalse(app.buttons["save-volume"].exists, "offered to save")
+    // The result in sight, and so the row under it: a form draws only the rows on screen.
+    show(app, result)
+    XCTAssertFalse(saveRow(app).exists, "offered to save")
     field(app, "f").clearAndType("30")
     field(app, "fill").clearAndType("50")
     XCTAssertEqual(result.label, "Mực nước phải lớn hơn 0 và không cao hơn bể.")
@@ -87,6 +89,28 @@ final class TankVolumeFlowTests: XCTestCase {
     field(app, "fill").clearAndType("20")
     XCTAssertTrue(result.label.hasPrefix("48,6 lít"), result.label)
     XCTAssertTrue(result.label.contains("Tới mực nước: 27 lít."), result.label)
+    show(app, result)
+    XCTAssertTrue(saveRow(app).exists, "a tank it works out not offered to save")
+  }
+
+  /// Every other pane longer than the side it sits on, refused in the site's words.
+  func testEachPaneLongerThanItsSideIsRefusedInTheSitesWords() {
+    let app = openTool()
+    let result = self.result(app)
+    shape(app, "Bát giác")
+    field(app, "f").clearAndType("30")
+    field(app, "e").clearAndType("40")
+    XCTAssertEqual(result.label, "Kính hông phải ngắn hơn chiều rộng.")
+    shape(app, "Ngũ giác góc")
+    field(app, "a").clearAndType("40")
+    field(app, "b").clearAndType("50")
+    XCTAssertEqual(result.label, "Cạnh ngắn phải ngắn hơn cạnh áp tường.")
+    shape(app, "Chữ L")
+    for (key, cm) in [("l1", "60"), ("w1", "30"), ("l2", "50"), ("w2", "70")] { field(app, key).clearAndType(cm) }
+    XCTAssertEqual(result.label, "Rộng nhánh 2 phải ngắn hơn dài nhánh 1.")
+    field(app, "w2").clearAndType("20")
+    field(app, "w1").clearAndType("60")
+    XCTAssertEqual(result.label, "Rộng nhánh 1 phải ngắn hơn dài nhánh 2.")
   }
 
   /// A box keeps its sides on the tank, any other shape its litres, as the site's tools save.
@@ -172,6 +196,11 @@ final class TankVolumeFlowTests: XCTestCase {
     XCTAssertTrue(b.exists && b.isHittable, "no shape \(name)")
     b.tap()
     XCTAssertTrue(b.isSelected, "\(name) not picked")
+  }
+
+  /// "Lưu vào Bể của tôi": the first row of the save, there only when the tool offers it.
+  private func saveRow(_ app: XCUIApplication) -> XCUIElement {
+    app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Lưu vào Bể của tôi'")).firstMatch
   }
 
   /// What the tool works out, as one text.
