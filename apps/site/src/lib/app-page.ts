@@ -18,7 +18,7 @@ import { plantParts } from './plant-page'
 import { OFF_LABELS, sectionParts, type SectionProps } from './section-parts'
 import { QUESTION_LABELS } from './sections'
 import { speciesParts } from './species-page'
-import { commentsKey } from './talk'
+import { commentsKey, photosKey } from './talk'
 import { clock } from './video'
 
 /**
@@ -193,7 +193,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     ...(s.t.altNames.length ? { aka: t('Tên khác: {names}', { names: s.t.altNames.join(', ') }) } : {}),
     ...(p.firstSource ? { credit: [t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources, date: s.updatedAt })] } : {}),
     ...(lead ? { lead } : {}),
-    talk: { comments: commentsKey(lang, `species:${s.id}`), photos: `species:${s.id}` },
+    talk: { comments: commentsKey(lang, `species:${s.id}`), photos: photosKey(`species:${s.id}`) },
     blocks: [
       ...trustBlock(t, lang, s.dataCard, c.sources),
       mates,

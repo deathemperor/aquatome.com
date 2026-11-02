@@ -1,11 +1,12 @@
 ---
 // Readers' own photos of this species. Loaded client-side from the Worker; stays hidden until the API answers.
 import { i18n } from '../lib/i18n'
+import { photosKey } from '../lib/talk'
 interface Props { entity: string; name: string }
 const { entity, name } = Astro.props
 const { t } = i18n(Astro.url)
 ---
-<section class="wrap rp" data-reader-photos data-entity={entity} aria-labelledby="rp-h" hidden>
+<section class="wrap rp" data-reader-photos data-entity={photosKey(entity)} aria-labelledby="rp-h" hidden>
   <h2 id="rp-h">{t('Ảnh bạn đọc')}</h2>
   <ul class="list" data-list></ul>
   <p class="empty" data-empty>{t('Chưa có ảnh nào. Bạn nuôi {name}? Gửi một tấm ảnh cho mọi người cùng xem.', { name })}</p>
