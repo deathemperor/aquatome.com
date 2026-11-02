@@ -32,6 +32,17 @@ final class HandbookModel {
   /// Pages saved to read later, and the ones read last (kept in the app's settings, on this phone, one list per
   /// language: the pages are this language's).
   private(set) var reading: ReadingList
+  /// The pages kept for reading offline, each whole on the phone (KeepPages), newest first: on this phone, one list per
+  /// language.
+  private(set) var kept: [String]
+  /// Keeps on their way, by shelf (KeepOffline's key): how many pictures are in, of how many. Here, not on the shelf's
+  /// screen, so a shelf left and opened again still shows its keep and can stop it.
+  private(set) var keeping: [String: (done: Int, of: Int)] = [:]
+  private var runs: [String: Task<Void, Never>] = [:]
+  /// A keep that ended with some pages not kept (kept, of how many), for its shelf to say once.
+  private var short: [String: (Int, Int)] = [:]
+  /// Each kind's shard count when its pages were kept: with another, the kept shards are other files.
+  private var keptCounts: [String: Int]
   private let source: Source
   /// The pages the app draws itself, kept on the phone.
   private let drawn: PageCache
@@ -52,6 +63,8 @@ final class HandbookModel {
     self.source = source
     lang = preferred.first.flatMap { ["vi", "id", "th"].contains($0) ? $0 : nil } ?? "vi"
     reading = UserDefaults.standard.data(forKey: "handbook.reading.\(lang)").flatMap { try? JSONDecoder().decode(ReadingList.self, from: $0) } ?? ReadingList()
+    kept = UserDefaults.standard.stringArray(forKey: "handbook.kept.\(lang)") ?? []
+    keptCounts = UserDefaults.standard.dictionary(forKey: "handbook.kept.counts.\(lang)") as? [String: Int] ?? [:]
     drawn = Self.pageCache(source, site: site)
   }
 
@@ -66,6 +79,91 @@ final class HandbookModel {
 
   /// The page at a path the index lists ("/vi/ca/ca-neon/").
   func item(at path: String) -> HandbookIndex.Item? { byPath[path] }
+
+  /// Keeps these pages for reading offline: the shards they're in, read from the site now, then every picture in them,
+  /// telling how many pictures are kept so far. Returns how many of the pages are on the phone.
+  /// A stop (the task cancelled) ends it; a page counts as kept only once it's whole on the phone (KeepPages).
+  func keep(_ items: [HandbookIndex.Item], progress: (_ done: Int, _ of: Int) -> Void) async -> Int {
+    await KeepPages.run(items.map(\.path), docs: { _ in
+      var docs: [PageDoc] = []
+      for (kind, list) in Dictionary(grouping: items, by: \.kind) {
+        guard let count = shardCounts[kind.rawValue] else { continue }
+        docs += await drawn.keep(list.map(\.path), kind: kind.rawValue, lang: lang, count: count)
+      }
+      return docs
+    }, picture: { await PageImages.keep($0) }, kept: { path in
+      kept.removeAll { $0 == path }
+      kept.insert(path, at: 0)
+      if let kind = byPath[path]?.kind.rawValue { keptCounts[kind] = shardCounts[kind] }
+      saveKept()
+    }, progress: progress)
+  }
+
+  /// Starts keeping a shelf's pages (`shelf`: its key), unless that shelf's keep is on its way.
+  func startKeeping(_ items: [HandbookIndex.Item], shelf: String) {
+    guard runs[shelf] == nil else { return }
+    keeping[shelf] = (0, 0)
+    runs[shelf] = Task {
+      let n = await keep(items) { done, of in if !Task.isCancelled { keeping[shelf] = (done, of) } }
+      // Stopped: already off the list, and the pages kept so far are whole.
+      guard !Task.isCancelled else { return }
+      runs[shelf] = nil
+      keeping[shelf] = nil
+      if n < items.count { short[shelf] = (n, items.count) }
+    }
+  }
+
+  func stopKeeping(_ shelf: String) {
+    runs[shelf]?.cancel()
+    runs[shelf] = nil
+    keeping[shelf] = nil
+  }
+
+  /// How a shelf's last keep fell short (kept, of how many), once: then forgotten.
+  func takeShort(_ shelf: String) -> (Int, Int)? { short.removeValue(forKey: shelf) }
+
+  private func saveKept() {
+    UserDefaults.standard.set(kept, forKey: "handbook.kept.\(lang)")
+    UserDefaults.standard.set(keptCounts, forKey: "handbook.kept.counts.\(lang)")
+  }
+
+  func isKept(_ item: HandbookIndex.Item) -> Bool { kept.contains(item.path) }
+
+  /// The pages kept for offline that the index has now.
+  var keptItems: [HandbookIndex.Item] { ReadingList.items(kept, in: byPath, kind: nil) }
+
+  /// Pages no longer kept for offline: off the list, then their pictures and the shards no kept page is in deleted from
+  /// the phone (not what a page still kept needs).
+  /// A keep on its way is stopped first, and waited for: it would put back a shard or picture this deletes.
+  func unkeep(_ items: [HandbookIndex.Item]) async {
+    let running = Array(runs.values)
+    for shelf in Array(runs.keys) { stopKeeping(shelf) }
+    let gone = Set(items.map(\.path))
+    kept.removeAll { gone.contains($0) }
+    saveKept()
+    for t in running { await t.value }
+    for (kind, list) in Dictionary(grouping: items, by: \.kind) {
+      guard let count = shardCounts[kind.rawValue] else { continue }
+      await forget(list.map(\.path), kind: kind.rawValue, count: count)
+    }
+  }
+
+  private func forget(_ paths: [String], kind: String, count: Int) async {
+    let staying = kept.filter { byPath[$0]?.kind.rawValue == kind }
+    for src in await drawn.forget(paths, keeping: staying, kind: kind, lang: lang, count: count) { PageImages.forget(src) }
+  }
+
+  /// The site split a kind's pages anew: the kept shards are another count's files, so that kind's kept pages are no
+  /// longer on the phone as the app reads them. They come off the list (kept again from their shelf), and the old files go.
+  private func dropKeptOfOtherCounts() {
+    for (kind, old) in keptCounts where shardCounts[kind] != old {
+      let paths = kept.filter { byPath[$0]?.kind.rawValue == kind }
+      kept.removeAll { paths.contains($0) }
+      keptCounts[kind] = nil
+      saveKept()
+      Task { await forget(paths, kind: kind, count: old) }
+    }
+  }
 
   func url(_ item: HandbookIndex.Item) -> URL { URL(string: item.path, relativeTo: site)!.absoluteURL }
 
@@ -144,6 +242,7 @@ final class HandbookModel {
     pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
     byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
     shardCounts = ix.pages
+    dropKeptOfOtherCounts()
     shelves = HandbookShelves(ix)
     labels = ix.labels
     count = ix.items.count
@@ -159,7 +258,14 @@ final class HandbookModel {
     #if DEBUG
     let args = ProcessInfo.processInfo.arguments
     if args.contains("-large-handbook") { return .fixed(.large) }
-    if args.contains("-fixed-handbook") { return .fixed(.fixture) }
+    if args.contains("-fixed-handbook") {
+      // `-pages-count N`: the site has split its guides into N shards since the last launch.
+      if let i = args.firstIndex(of: "-pages-count"), i + 1 < args.count, let n = Int(args[i + 1]) {
+        let f = HandbookIndex.fixture
+        return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: ["guide": n]))
+      }
+      return .fixed(.fixture)
+    }
     #endif
     return .site
   }
@@ -224,7 +330,8 @@ extension HandbookIndex {
   /// UI tests' pages: the neon guide as the site writes it (/app/pages/vi/guide-0.json), with each kind of block, links
   /// to the fixture's pages and a tool, a word's tip, and two parts in a row from a newer site the app can't draw.
   static let fixturePages = Data(#"""
-  {"v":1,"pages":{"/vi/huong-dan/nuoi-ca-neon/":{"v":1,"kind":"guide","path":"/vi/huong-dan/nuoi-ca-neon/","title":"Nuôi cá neon trong bể nhỏ",
+  {"v":1,"pages":{"/vi/huong-dan/cach-han-che-reu-hai/":{"v":1,"kind":"guide","path":"/vi/huong-dan/cach-han-che-reu-hai/","title":"Cách hạn chế rêu hại","video":{"youtubeId":"abc123XYZ_-","title":"Hạn chế rêu hại","channel":"MJ Aquascaping","durationSec":1755},"blocks":[{"t":"p","c":["Ánh sáng vừa đủ, CO₂ đều, thay nước đúng lịch."]}]},
+  "/vi/huong-dan/nuoi-ca-neon/":{"v":1,"kind":"guide","path":"/vi/huong-dan/nuoi-ca-neon/","title":"Nuôi cá neon trong bể nhỏ",
    "meta":"Chăm sóc · đọc khoảng 4 phút","credit":["AquaTome tổng hợp từ ",{"text":"2 nguồn","href":"#nguon"}," rồi tự viết"],
    "lead":{"src":"https://media.aquatome.com/a/neon-lead.webp","w":1200,"h":800,"credit":{"text":"Ảnh: Aquarium Co-op","licence":"CC BY 4.0"}},
    "blocks":[

@@ -253,3 +253,44 @@ private func each<T>(_ v: Any?, _ f: (Any) -> T?) -> [T]? {
   }
   return out
 }
+
+extension PageDoc {
+  /// Every picture the page shows, in order: the video's or the lead photo, then each photo and video still in the text
+  /// (in lists too). What keeping the page for offline keeps with it.
+  public var pictures: [String] {
+    var out: [String] = []
+    if let video { out.append(Self.thumbnail(video.youtubeId)) } else if let lead { out.append(lead.src) }
+    func walk(_ blocks: [Block]) {
+      for b in blocks {
+        switch b {
+        case let .figure(img, _, _): out.append(img.src)
+        case let .moments(_, _, items): out += items.map(\.img.src)
+        case let .list(_, items): items.forEach(walk)
+        default: break
+        }
+      }
+    }
+    walk(blocks)
+    return out
+  }
+
+  /// A YouTube video's picture, as a page shows it.
+  public static func thumbnail(_ youtubeId: String) -> String { "https://i.ytimg.com/vi/\(youtubeId)/hqdefault.jpg" }
+}
+
+/// Whether to keep a shelf of pages for offline now: on Wi-Fi, go; on mobile data or in Low Data Mode, ask first; with
+/// no network or too little room on the phone, say so instead.
+public enum KeepPlan: Equatable, Sendable {
+  case go, ask, offline, noRoom
+
+  /// `freeBytes`: room for the app's important data (volumeAvailableCapacityForImportantUsage), nil if unknown.
+  public static func of(online: Bool, expensive: Bool, constrained: Bool, freeBytes: Int64?) -> KeepPlan {
+    guard online else { return .offline }
+    if let freeBytes, freeBytes < minimumFree { return .noRoom }
+    return expensive || constrained ? .ask : .go
+  }
+
+  /// The pictures' cache holds 200 MB at most; the pages themselves are small. With less room than that and some to
+  /// spare, keeping a shelf could fill the phone.
+  public static let minimumFree: Int64 = 250 << 20
+}

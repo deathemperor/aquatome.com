@@ -118,7 +118,7 @@ struct NativePage: View {
         line.link = youtube(v.youtubeId, at: ch.at)
         cap += line
       }
-      out.append(.photo(src: "https://i.ytimg.com/vi/\(v.youtubeId)/hqdefault.jpg", ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"), caption: cap,
+      out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"), caption: cap,
                         href: youtube(v.youtubeId, at: 0), play: true))
     } else if let lead = doc.lead {
       out.append(photo(lead, caption: [], href: nil))
@@ -319,13 +319,45 @@ enum PageImages {
     return URLSession(configuration: c)
   }()
 
+  /// The pictures of pages kept for offline: in Application Support, which the system doesn't empty when the phone is
+  /// short of room (the caches folder it does), and not in the phone's backup (they're the site's, read again).
+  static let kept: KeptPictures = {
+    var dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appending(path: "kept-pictures")
+    try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+    var values = URLResourceValues()
+    values.isExcludedFromBackup = true
+    try? dir.setResourceValues(values)
+    return KeptPictures(dir: dir)
+  }()
+
   static func load(_ src: String) async -> UIImage? {
     #if DEBUG
     // UI tests read no network.
     if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return nil }
     #endif
+    if let data = kept.data(src) { return UIImage(data: data) }
     guard let u = URL(string: src), let (data, _) = try? await session.data(from: u) else { return nil }
     return UIImage(data: data)
+  }
+
+  /// Kept on the phone now, for a page kept for offline: true when it's there.
+  static func keep(_ src: String) async -> Bool {
+    #if DEBUG
+    if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") {
+      // `-slow-keep`: each picture takes 20 s to come, so a test can act while a keep is on its way.
+      if ProcessInfo.processInfo.arguments.contains("-slow-keep") { try? await Task.sleep(for: .seconds(20)) }
+      return true
+    }
+    #endif
+    if kept.data(src) != nil { return true }
+    guard let u = URL(string: src), let (data, r) = try? await session.data(from: u), (r as? HTTPURLResponse)?.statusCode == 200 else { return false }
+    return kept.save(data, for: src)
+  }
+
+  /// Off the phone: a page no longer kept for offline.
+  static func forget(_ src: String) {
+    kept.remove(src)
+    if let u = URL(string: src) { session.configuration.urlCache?.removeCachedResponse(for: URLRequest(url: u)) }
   }
 }
 
