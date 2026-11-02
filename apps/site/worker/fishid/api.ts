@@ -78,12 +78,16 @@ let keysCache: { text: string; keys: Promise<{ keys: KeyEntry[]; bad: number }> 
 const keysOf = (text: string) => (keysCache?.text === text ? keysCache.keys : (keysCache = { text, keys: loadKeys(text) }).keys)
 
 let catalogCache: { at: number; origin: string; catalog: Promise<Catalog | null> } | undefined
-/** The pages to link to, from the deploy's own assets (built with the pages), kept 10 minutes per isolate. */
+/** The pages to link to, from the deploy's own assets (built with the pages), kept 10 minutes per isolate; a failed read isn't kept, so the next photo tries again. */
 function catalogOf(env: FishIdEnv, origin: string): Promise<Catalog | null> {
   if (catalogCache && catalogCache.origin === origin && Date.now() - catalogCache.at < 600_000) return catalogCache.catalog
-  const catalog = env.ASSETS.fetch(new Request(new URL('/app/fish-id.json', origin))).then(r => (r.ok ? (r.json() as Promise<Catalog>) : null)).catch(() => null)
-  catalogCache = { at: Date.now(), origin, catalog }
-  return catalog
+  const entry = { at: Date.now(), origin, catalog: Promise.resolve<Catalog | null>(null) }
+  entry.catalog = env.ASSETS.fetch(new Request(new URL('/app/fish-id.json', origin))).then(r => (r.ok ? (r.json() as Promise<Catalog>) : null)).catch(() => null).then(c => {
+    if (!c && catalogCache === entry) catalogCache = undefined
+    return c
+  })
+  catalogCache = entry
+  return entry.catalog
 }
 
 /** Bytes → base64 in slices (spreading a whole photo into fromCharCode overflows the stack). */

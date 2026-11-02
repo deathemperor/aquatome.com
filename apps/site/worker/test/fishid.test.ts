@@ -162,6 +162,27 @@ test('not a fish: no results, no pages; refused: the calm can\'t-tell answer', a
   expect([...kv.keys()].some(k => k.startsWith('fishid:key:'))).toBe(false)
 })
 
+test('the page list unreadable for a moment: guesses come back unlinked, and the next photo reads it again', async () => {
+  const { e } = env()
+  let reads = 0
+  ;(e as unknown as { ASSETS: { fetch: (r: Request) => Promise<Response> } }).ASSETS = { fetch: async () => (++reads === 1 ? new Response('busy', { status: 500 }) : Response.json(CATALOG)) }
+  // Its own origin: the page list is kept per isolate, and the other tests have already read x.test's.
+  const req = () => {
+    const f = new FormData()
+    f.set('file', new Blob([JPEG]), 'photo.jpg')
+    f.set('token', 't')
+    return new Request('https://catalog.test/api/fish-id', { method: 'POST', body: f, headers: { origin: 'https://catalog.test', 'cf-connecting-ip': '203.0.113.8' } })
+  }
+  const d = deps(claude({}).fetch)
+  const first = (await (await run(req(), e, d)).json()) as Body
+  expect(first.results![0]).toMatchObject({ scientificName: 'Paracheirodon innesi' })
+  expect(first.results![0]!.page).toBeUndefined()
+  expect(d.lines[0]).toMatchObject({ catalog: 'missing' })
+  const second = (await (await run(req(), e, d)).json()) as Body
+  expect(second.results![0]!.page).toMatchObject({ id: 'paracheirodon-innesi' })
+  expect(reads).toBe(2)
+})
+
 test('rotation: out of credit on key A falls to B, and A is skipped next time', async () => {
   const { e, kv } = env()
   // What an organisation with no credit answers (seen with a real key, 2026-11-02): a 400, not a 402.
