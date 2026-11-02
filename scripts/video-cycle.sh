@@ -26,6 +26,9 @@ COOKIES="$HOME/.config/thuysinh/yt-cookies-from"
 # Start from GitHub's main: anything this clone held unpushed was a run whose push failed, and is redone.
 git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
+# The photo caches and run records in engine-state, and new pages, merge as the GitHub cycle merges them (.gitattributes).
+git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
+git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 log "videos start"
 pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
@@ -42,10 +45,19 @@ if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then 
 if ! pnpm test >/tmp/thuysinh-videos-test.log 2>&1; then log "tests failed, not publishing (see /tmp/thuysinh-videos-test.log)"; exit 1; fi
 git add content engine-state docs/review
 git commit -q -m "content: videos $(date -u +%F)"
-# The GitHub engine pushes too; content/changelog.json merges through the driver above.
+# The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
+# review page) give way to this run's, as engine-cycle.sh does; then the tests run again on the merge.
 for _ in 1 2 3; do
-  if git pull -q --rebase && git push -q; then log "pushed (GitHub deploys it)"; exit 0; fi
-  git rebase --abort 2>/dev/null || true
+  if ! git pull -q --rebase; then
+    log "the GitHub engine changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
+    git rebase --abort 2>/dev/null || true
+    if git pull -q --rebase -X theirs; then
+      pnpm test >/tmp/thuysinh-videos-test.log 2>&1 || { log "tests failed after that merge, not publishing"; exit 1; }
+    else
+      git rebase --abort 2>/dev/null || true
+    fi
+  fi
+  if git push -q; then log "pushed (GitHub deploys it)"; exit 0; fi
   sleep 30
 done
 log "push failed three times"; exit 1
