@@ -150,7 +150,7 @@ public final class FakeAccounts {
         guard let text = f["body"], (2...2000).contains(text.count) else { return try fail(400, "comment must be 2–2000 characters") }
         posts.append((path, sub, f))
         if earlier >= 5 || text.contains("<") { return try reply(201, ["status": .string("held")]) }
-        let comment: [String: JSON] = ["id": .string("c\(posts.count)"), "name": .string(name), "body": .string(text), "helpful": .bool(false),
+        let comment: [String: JSON] = ["id": .string(UUID().uuidString), "name": .string(name), "body": .string(text), "helpful": .bool(false),
                                        "createdAt": .string(ISO8601DateFormatter().string(from: now()))]
         return try reply(201, ["status": .string("approved"), "comment": .object(comment)])
       }

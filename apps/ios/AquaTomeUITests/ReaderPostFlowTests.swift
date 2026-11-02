@@ -25,7 +25,7 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Đã đăng bình luận."].waitForExistence(timeout: 5), "the comment wasn't posted")
     app.buttons["Đóng"].tap()
     let mine = app.descendants(matching: .any).matching(identifier: "comment").matching(NSPredicate(format: "label BEGINSWITH %@ AND label ENDSWITH %@", "Hà  ", "\nĐàn 12 con khỏe.")).firstMatch
-    XCTAssertTrue(mine.waitForExistence(timeout: 5), "the comment isn't on the page")
+    XCTAssertTrue(mine.waitForExistence(timeout: 5), "the comment isn't on the page: \(app.descendants(matching: .any).matching(identifier: "comment").allElementsBoundByIndex.map { $0.label })")
   }
 
   /// A photo needs one picked, and the reader's consent, before it's sent: the site's words for each.
