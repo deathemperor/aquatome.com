@@ -1,4 +1,4 @@
-name: engine
+name: 'Engine: content cycle every 3 h'
 # The content engine, every 3 hours (was launchd on the owner's Mac, 6-hourly with twice the page time). macOS: face screening uses Apple's Vision
 # framework, and the page fetcher drives a real (headed) Chrome. Four parallel jobs (scripts/engine-cycle.sh <part>), each
 # testing, committing and deploying its own content, so a failure in one loses only that part's work.
@@ -35,7 +35,7 @@ jobs:
           # Only the model: no Chrome, no Vision.
           - part: rewrite
             os: ubuntu-latest
-    name: ${{ matrix.part }}
+    name: 'Content cycle: ${{ matrix.part }}'
     runs-on: ${{ matrix.os }}
     timeout-minutes: 355
     env:
@@ -50,15 +50,19 @@ jobs:
           # Pushes to main go over this deploy key: main's ruleset lets deploy keys (and admins) push straight to it,
           # GitHub Actions' own token can't be let through on a personal repo. Its pushes start deploy.yml themselves.
           ssh-key: ${{ secrets.ENGINE_DEPLOY_KEY }}
-      - uses: ./.github/actions/setup
-      - uses: ./.github/actions/engine-config
+      - name: Install Node, pnpm and the dependencies
+        uses: ./.github/actions/setup
+      - name: Claude CLI, the engine's config files, git identity
+        uses: ./.github/actions/engine-config
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
-      - if: runner.os == 'macOS'
+      - name: Install yt-dlp (macOS)
+        if: runner.os == 'macOS'
         run: brew install yt-dlp
-      - run: scripts/engine-cycle.sh ${{ matrix.part }}
+      - name: Run this part, test, commit, push, deploy
+        run: scripts/engine-cycle.sh ${{ matrix.part }}
         env:
           GH_TOKEN: ${{ github.token }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -69,7 +73,8 @@ jobs:
           # Gallery photos from Openverse: without these, anonymous (200 requests a day); a registered Openverse app gets more.
           OPENVERSE_CLIENT_ID: ${{ secrets.OPENVERSE_CLIENT_ID }}
           OPENVERSE_CLIENT_SECRET: ${{ secrets.OPENVERSE_CLIENT_SECRET }}
-      - if: failure()
+      - name: Keep the test log
+        if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: engine-test-log-${{ matrix.part }}

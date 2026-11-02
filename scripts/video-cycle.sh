@@ -8,9 +8,9 @@ export PATH="${PATH:+$PATH:}$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bi
 cd "$(dirname "$0")/.."
 log() { echo "$(date -u +%FT%TZ) $*"; }
 # Backstop for the GitHub engine: its cron dropped every slot on 2026-10-30, so start it when nothing ran for 3 hours.
-last="$(gh run list -R deathemperor/aquatome.com -w engine -L 1 --json createdAt -q '.[0].createdAt' 2>/dev/null || true)"
+last="$(gh run list -R deathemperor/aquatome.com -w engine.yml -L 1 --json createdAt -q '.[0].createdAt' 2>/dev/null || true)"
 if [ -n "$last" ] && [ $(( $(date -u +%s) - $(date -ju -f %Y-%m-%dT%H:%M:%SZ "$last" +%s) )) -gt 10800 ]; then
-  gh workflow run engine -R deathemperor/aquatome.com && log "engine: started on GitHub (last run $last)" || log "engine: could not start it"
+  gh workflow run engine.yml -R deathemperor/aquatome.com && log "engine: started on GitHub (last run $last)" || log "engine: could not start it"
 fi
 # Shared with manual engine runs in this clone, so the two never touch the tree at once.
 PIDFILE="${TMPDIR:-/tmp}/thuysinh-engine.pid"
