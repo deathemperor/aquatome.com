@@ -3809,6 +3809,22 @@
         }
       }
     },
+    "Thảo luận": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diskusi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "พูดคุย"
+          }
+        }
+      }
+    },
     "Thử màu trên đèn": {
       "localizations": {
         "id": {
@@ -3917,6 +3933,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เกิน 8 ชั่วโมงตะไคร่ขึ้นง่าย"
+          }
+        }
+      }
+    },
+    "Trả lời hay": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jawaban bagus"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คำตอบที่มีประโยชน์"
           }
         }
       }
@@ -6397,6 +6429,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟปิด"
+          }
+        }
+      }
+    },
+    "Ảnh bạn đọc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto pembaca"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ภาพจากผู้อ่าน"
+          }
+        }
+      }
+    },
+    "Ảnh của %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ภาพโดย %@"
           }
         }
       }

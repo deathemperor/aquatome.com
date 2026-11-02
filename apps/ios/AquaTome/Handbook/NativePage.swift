@@ -35,6 +35,8 @@ struct NativePage: View {
     case more(String, AttributedString)
     /// A part the app can't draw: the web page instead.
     case web
+    /// Its readers' photos and comments, read from the site when the page opens.
+    case readers(PageDoc.Talk)
   }
 
   /// A card for another page: `sub`, the line under its name (a breed's kind, why to keep a fish away).
@@ -129,6 +131,8 @@ struct NativePage: View {
       Button(action: web) { Label("Xem phần này trên web", systemImage: "safari") }
         .buttonStyle(.bordered)
         .accessibilityIdentifier("page-web")
+    case let .readers(talk):
+      ReadersPart(talk: talk)
     }
   }
 
@@ -187,6 +191,7 @@ struct NativePage: View {
       webBefore = false
       add(b, to: &out)
     }
+    if let talk = doc.talk { out.append(.readers(talk)) }
     return out
   }
 
@@ -335,7 +340,7 @@ private struct Tip {
 /// A photo's credit as the site gives it, wherever the app shows the photo: who took it, its licence, linking its own page.
 private func credit(_ img: PageDoc.Image) -> AttributedString? {
   guard let c = img.credit else { return nil }
-  var line = AttributedString(c.text + " · " + c.licence)
+  var line = AttributedString(c.licence.isEmpty ? c.text : c.text + " · " + c.licence)
   line.font = .caption2
   line.link = c.url.flatMap(URL.init(string:))
   return line
@@ -456,13 +461,47 @@ private struct GalleryViewer: View {
       }
       .tabViewStyle(.page(indexDisplayMode: .never))
       .safeAreaInset(edge: .bottom) {
-        Text(verbatim: "\(index + 1)/\(photos.count) · \(note)").font(.caption).foregroundStyle(.secondary).padding(8).frame(maxWidth: .infinity).background(.bar)
+        Text(verbatim: "\(index + 1)/\(photos.count)" + (note.isEmpty ? "" : " · \(note)")).font(.caption).foregroundStyle(.secondary).padding(8).frame(maxWidth: .infinity).background(.bar)
       }
       .navigationTitle(title)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { Button("Đóng") { dismiss() } }
       .accessibilityIdentifier("gallery")
     }
+  }
+}
+
+/// A page's readers' photos and comments (Readers), read when it opens: shown once the site has some, as its web page
+/// shows those sections only once the site answers. The photos are a gallery's row, each credited with the reader's name.
+private struct ReadersPart: View {
+  let talk: PageDoc.Talk
+  @Environment(HandbookModel.self) private var handbook
+  @State private var comments: [Readers.Comment] = []
+  @State private var photos: [Readers.Photo] = []
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 14) {
+      if !photos.isEmpty {
+        GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: photos.map {
+          PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: ($0.name, "", nil))
+        }, strip: Array(photos.indices.prefix(10)))
+      }
+      if !comments.isEmpty {
+        Text("Thảo luận").font(.title3.bold()).accessibilityAddTraits(.isHeader)
+        ForEach(comments, id: \.id) { c in
+          Text(line(c)).frame(maxWidth: .infinity, alignment: .leading).accessibilityIdentifier("comment")
+        }
+      }
+    }
+    .task(id: talk) { (comments, photos) = await handbook.readers(talk) }
+  }
+
+  /// Who, when, whether the site marks it a good answer, then what they wrote: as the site's comment.
+  private func line(_ c: Readers.Comment) -> AttributedString {
+    var out = styled(c.name, .body.bold())
+    out += styled("  " + Readers.day(c.createdAt, lang: handbook.lang), .footnote, secondary: true)
+    if c.helpful { out += styled("  " + String(localized: "Trả lời hay"), .footnote.bold()) }
+    return out + styled("\n" + c.body)
   }
 }
 
