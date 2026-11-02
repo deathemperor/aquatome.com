@@ -178,7 +178,9 @@ test('a species readers keep on their tanks without a page is fetched first; rep
   const r = await runEngine({ ...deps(root, { urls }).d, readersWanted }, { sources: ['seriouslyfish'], limit: 1 })
   expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1, errors: 0 })
   const report = JSON.parse(await readFile(join(root, 'engine-state/_readers-wanted.json'), 'utf8'))
-  expect(report).toEqual({ names: [expect.objectContaining({ name: 'Cá neon vua', readers: 2, status: 'queued', slug: 'paracheirodon-axelrodi' })], held: { names: 0, readers: 0 } })
+  // Two readers: the public report names the species, not the readers' words.
+  expect(report).toEqual({ names: [expect.objectContaining({ name: 'Paracheirodon axelrodi', readers: 2, status: 'queued', slug: 'paracheirodon-axelrodi' })], held: { names: 0, readers: 0 } })
+  expect(JSON.stringify(report)).not.toContain('Cá neon vua')
   expect(JSON.parse(await readFile(join(root, 'engine-state/_wanted.json'), 'utf8'))['paracheirodon-axelrodi']).toMatchObject({ readers: 2 })
 
   // No access to KV this run: the run goes on as without readers, and the last report stays.
