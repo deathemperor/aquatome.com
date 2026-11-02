@@ -1,6 +1,6 @@
 import XCTest
 
-/// A fish's facts above its page (FactsCard.swift), from the handbook's index on the phone: there without the network
+/// A fish's facts on its page, under its name (FactsCard.swift), from the handbook's index on the phone: there without the network
 /// (the fixed index), and a plant's care.
 final class FactsCardFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }

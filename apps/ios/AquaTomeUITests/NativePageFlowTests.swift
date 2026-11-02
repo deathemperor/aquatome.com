@@ -51,7 +51,9 @@ final class NativePageFlowTests: XCTestCase {
     for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
     guide.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the guide isn't drawn by the app")
-    app.links["neon"].firstMatch.tap()
+    let neon = app.links["neon"].firstMatch
+    reveal(app, neon)
+    neon.tap()
     XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "the link didn't open the fish")
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "not on the tanks tab")
   }
@@ -81,7 +83,10 @@ final class NativePageFlowTests: XCTestCase {
 
   func testALinkInTheTextOpensItsPageOnTheSameTab() {
     let app = openGuide()
-    app.links["neon"].firstMatch.tap()
+    // Below the guide's photo and name.
+    let neon = app.links["neon"].firstMatch
+    reveal(app, neon)
+    neon.tap()
     XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "the link didn't open the fish")
     app.navigationBars.buttons.element(boundBy: 0).tap()
     XCTAssertTrue(app.navigationBars["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "not back on the guide")
@@ -89,7 +94,9 @@ final class NativePageFlowTests: XCTestCase {
 
   func testAWordsTipShowsWhatItMeans() {
     let app = openGuide()
-    app.links["pH"].firstMatch.tap()
+    let word = app.links["pH"].firstMatch
+    reveal(app, word)
+    word.tap()
     let alert = app.alerts["Đệm pH"]
     XCTAssertTrue(alert.waitForExistence(timeout: 5), "no tip")
     XCTAssertTrue(alert.staticTexts["Khả năng giữ pH của nước khi có thêm axit."].exists)
@@ -228,7 +235,7 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-neon-vang/"].waitForExistence(timeout: 15), "not the breed's web page in the app")
   }
 
-  /// Readers' photos and comments at the end of a fish's page, as the site has them: each photo with its reader's name,
+  /// Readers' photos and comments on a fish's page, after its videos, as the site has them: each photo with its reader's name,
   /// each comment with who, the day as the site writes it, and the site's mark on a good answer. A plant the site has
   /// none for shows neither.
   func testAFishsReadersPhotosAndCommentsShowAndAPlantWithNoneShowsNeither() {
@@ -336,10 +343,14 @@ final class NativePageFlowTests: XCTestCase {
     app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch
   }
 
-  /// Scrolled into view: the page is longer than the screen.
+  /// Scrolled into view half a screen at a time, without a fling, so no part is scrolled past; only down, so parts found
+  /// one after another are in that order on the page.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
-    // A fish's page opens on its photo and facts: its readers are many screens down.
-    for _ in 0..<12 where !(e.exists && e.isHittable) { app.swipeUp() }
+    for _ in 0..<24 where !(e.exists && e.isHittable) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
+               thenHoldForDuration: 0.1)
+    }
     XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
   }
 }

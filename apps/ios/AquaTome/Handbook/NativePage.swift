@@ -26,9 +26,11 @@ struct NativePage: View {
     /// Text: a heading, paragraphs, a list, a table, questions, sources. `anchor` is the id a `#id` link scrolls to;
     /// `look`, its place on the page.
     case text(AttributedString, anchor: String? = nil, look: Look = .body)
-    /// A photo with its caption and credit; tapped, `href` (the page it shows, or the video at a moment). `hero`: the
-    /// page's own, across the screen above its name.
-    case photo(src: String, ratio: CGFloat, alt: String?, caption: AttributedString, href: URL?, play: Bool = false, hero: Bool = false)
+    /// A photo with its caption (its links live, as a video's moments and a figure's fish are) and its credit (a quiet
+    /// link); tapped, `href` (the page it shows, or the video at a moment). `hero`: the page's own, across the screen
+    /// above its name.
+    case photo(src: String, ratio: CGFloat, alt: String?, caption: AttributedString, credit: AttributedString? = nil, href: URL?, play: Bool = false,
+               hero: Bool = false)
     /// Other pages the index lists, each opening in the app.
     case pages(String, [String])
     /// Other pages as rows drawn from what they carry (tank-mates, breeds), each opening in the app, or else on the web;
@@ -72,7 +74,7 @@ struct NativePage: View {
       ScrollView {
         VStack(alignment: .leading, spacing: 0) {
           ForEach(pieces.indices, id: \.self) { i in
-            let hero = if case .photo(_, _, _, _, _, _, true) = pieces[i] { true } else { false }
+            let hero = if case .photo(_, _, _, _, _, _, _, true) = pieces[i] { true } else { false }
             piece(i).padding(.horizontal, hero ? 0 : nil).padding(.top, gap(i))
           }
         }
@@ -96,7 +98,7 @@ struct NativePage: View {
   /// pages it names, its readers) puts its own above what it shows.
   private func gap(_ i: Int) -> CGFloat {
     switch pieces[i] {
-    case .photo(_, _, _, _, _, _, true), .pages, .readers: 0
+    case .photo(_, _, _, _, _, _, _, true), .pages, .readers: 0
     case .text(_, _, .title): i == 0 ? 12 : 20
     case _ where i == 0: 12
     case .text(_, _, .line): 4
@@ -118,7 +120,7 @@ struct NativePage: View {
         .accessibilityAddTraits([.title, .heading, .subheading].contains(look) ? .isHeader : [])
         .accessibilityFocused($focus, equals: anchor ?? "piece-\(i)")
         .id(anchor ?? "piece-\(i)")
-    case let .photo(src, ratio, alt, caption, href, play, hero):
+    case let .photo(src, ratio, alt, caption, credit, href, play, hero):
       VStack(alignment: hero ? .trailing : .leading, spacing: 6) {
         // The page's own photo no taller than 4:3, cut to fit: a fish's side, not a screen of water.
         let image = PageImage(src: src, ratio: hero ? max(ratio, 4 / 3) : ratio, alt: alt, corner: hero ? 0 : 10)
@@ -127,14 +129,12 @@ struct NativePage: View {
           // Tapped, the page it shows or the video at that moment; read as its words, or else its caption.
           Button { _ = open(href, nil) } label: { image }
             .buttonStyle(.plain)
-            .accessibilityLabel(Text(verbatim: alt ?? String(caption.characters)))
+            .accessibilityLabel(Text(verbatim: alt ?? String((caption + (credit ?? AttributedString())).characters)))
         } else {
           image
         }
-        // A video's moments stay links to follow; a photo's credit, a quiet one.
-        if !caption.characters.isEmpty {
-          Text(caption).font(.footnote).foregroundStyle(.secondary).tint(play ? nil : Color.secondary).padding(.horizontal, hero ? nil : 0)
-        }
+        if !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
+        if let credit { Text(credit).foregroundStyle(.secondary).tint(Color.secondary).padding(.horizontal, hero ? nil : 0) }
       }
     case let .pages(title, paths):
       PagesBlock(title: title, paths: paths)
@@ -232,7 +232,11 @@ struct NativePage: View {
     let species = doc.kind == "fish" || doc.kind == "plant"
     if species { out.append(.facts) }
     // A species' parts in the order its reader asks (rank), its readers before where to go next; a guide's as written.
-    let blocks = species ? doc.blocks.enumerated().sorted { (rank($0.element), $0.offset) < (rank($1.element), $1.offset) }.map(\.element) : doc.blocks
+    // A paragraph before a species' summary and sections is the tank-mates tool's link, sent alone when the page shows
+    // no tank-mates: it goes where they would.
+    let lead = doc.blocks.firstIndex { if case .summary = $0 { true } else if case .heading = $0 { true } else { false } } ?? doc.blocks.count
+    let ranks = doc.blocks.indices.map { i in if case .paragraph = doc.blocks[i], i < lead { 2 } else { rank(doc.blocks[i]) } }
+    let blocks = species ? doc.blocks.indices.sorted { (ranks[$0], $0) < (ranks[$1], $1) }.map { doc.blocks[$0] } : doc.blocks
     var readers = doc.talk.map { Piece.readers($0, name: doc.title) }
     var webBefore = false
     for b in blocks {
@@ -291,8 +295,9 @@ struct NativePage: View {
       } else {
         out.append(.text(styled(items.map { "• " + $0 }.joined(separator: "\n")), look: .boxed))
       }
-      if let by { out.append(.text(styled(by, .footnote, secondary: true), look: .line)) }
+      // Then the mistakes keepers make, then whose summary it is, as the site's summary has them.
       if let m = mistakes { out.append(.notes(m.title, m.items.map { Note(ok: false, text: styled($0)) }, note: nil)) }
+      if let by { out.append(.text(styled(by, .footnote, secondary: true), look: mistakes == nil ? .line : .body)) }
     case let .faq(title, items):
       out.append(.text(styled(title, .pageHeading), look: .heading))
       for qa in items { out.append(.text(styled(qa.q, .body.bold()) + styled("\n" + qa.a))) }
@@ -392,9 +397,7 @@ struct NativePage: View {
 
 
   private static func photo(_ img: PageDoc.Image, caption: [PageDoc.Run], href: URL?, hero: Bool = false) -> Piece {
-    var cap = styled(caption)
-    if let c = credit(img) { cap += (cap.characters.isEmpty ? AttributedString() : AttributedString("\n")) + c }
-    return .photo(src: img.src, ratio: CGFloat(img.w) / CGFloat(img.h), alt: img.alt, caption: cap, href: href, hero: hero)
+    .photo(src: img.src, ratio: CGFloat(img.w) / CGFloat(img.h), alt: img.alt, caption: styled(caption), credit: credit(img), href: href, hero: hero)
   }
 }
 
