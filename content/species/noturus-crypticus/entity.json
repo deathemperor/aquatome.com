@@ -1,0 +1,68 @@
+{
+  "id": "noturus-crypticus",
+  "scientificName": "Noturus crypticus",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "french-broad"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1222",
+      "html": "<ul><li>Scientific name: Noturus crypticus Burr, Eisenhour &amp; Grady, 2005</li><li>Common name: Chucky Madtom</li><li>IUCN Red List: Critically Endangered (last assessed 2012)</li><li>Breeding: unreported</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1222",
+      "html": "<p>North America: USA. Gulf Coast Drainages, Mississippi, Ohio, Tennessee, French Broad. Type locality: Little Chucky Creek at mouth of Jackson Branch, Greene County, Tennessee, U.S.A.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1222",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1222",
+      "html": "<p>Etymology: from the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins. The epithet crypticus has two possible meanings: the first refers to its nocturnal ways, the second to this species keeping its identity a secret from researchers for so long.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1222",
+      "html": "<p>Copeia 2005 (no. 4), pp 794, Fig. 2C.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/e3d68bcd1d6f6b31.webp",
+      "width": 960,
+      "height": 508,
+      "licence": "Public domain",
+      "author": "J.R. Shute/USFWS",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Noturus_crypticus_(Chucky_madtom)_FWS_13686.jpg",
+      "caption": "Noturus crypticus (Chucky madtom)",
+      "thumb": "https://media.aquatome.com/commons/e3d68bcd1d6f6b31-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-02"
+}

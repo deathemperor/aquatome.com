@@ -11,13 +11,20 @@
     "dimorphism:planetcatfish": "<p>Cá đực có đầu to và bè hơn, hai bên bụng thon hơn, còn vây bụng thì to quá khổ so với thân. Cặp vây bụng to này có lẽ rất quan trọng khi thụ tinh cho trứng. Cá đực úp vây lên ổ trứng để dòng nước chảy xiết không cuốn tinh trùng đi mất.</p>",
     "equipment:planetcatfish": "<p>Bạn nên dùng đá tròn nhẵn xếp chồng lên nhau cho giống đáy sông, đồng thời tạo hang cho cá trú.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận. Hiện chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Proceedings of the American Philosophical Society v. 56 (no. 7), pp 681.</p>"
+    "references:planetcatfish": "<p>Proceedings of the American Philosophical Society v. 56 (no. 7), pp 681.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Patia và thượng nguồn sông Cauca, Colombia. Địa điểm mẫu chuẩn: Rio Patia, đoạn nằm giữa Rio Magui và Rio Telembi [Colombia].</p><p>Carl Eigenmann mô tả Chaetostoma leucomelas vào năm 1918, dựa trên mẫu thu ở sông Patia. Con sông này chảy dọc vùng bờ biển Thái Bình Dương ở phía nam Colombia.</p>",
+    "maintenance:scotcat": "<p>Bể nuôi loài này cần dòng chảy tốt, nền cát và nhiều chỗ cho cá ẩn nấp.</p><p>Các loài Chaetostoma không thuộc nhóm dễ nuôi. Những loài sống ở suối núi cần có dòng nước chảy liên tục để nước luôn giàu oxy.</p>",
+    "diet:scotcat": "<p>Cá ăn rêu tảo rất giỏi. Tuy vậy, chỉ ăn rêu trong bể thì không đủ, bạn sẽ phải cho ăn thêm viên tảo và rau củ như dưa chuột, bí ngòi, xà lách. Cá cũng chịu ăn thức ăn viên nén và các loại giun.</p>",
+    "dimorphism:scotcat": "<p>Con đực có màu đẹp hơn, đầu và môi cũng rộng hơn con cái. Khi trưởng thành, con đực còn có vây bụng dài hơn con cái.</p>",
+    "notes:scotcat": "<p>Từ nguyên: Tên loài 'leucomelas' có nghĩa là 'đen và trắng'. Cái tên này chỉ các dải sọc lẽ ra phải có trên tất cả các vây, trừ vây hậu môn.</p><p>Danh sách đỏ IUCN: Chaetostoma leucomelas có vùng phân bố rộng. Loài này có gặp một số mối đe dọa, nhưng người ta cho rằng chúng chưa tác động lên toàn bộ quần thể đến mức phải xếp loài vào nhóm bị đe dọa. Vì vậy, loài này được xếp ở mức Ít quan tâm.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (06/2021).</p><p>Lasso, C., Mesa-Salazar, L. &amp; Sanchez-Duarte, P. 2016. Chaetostoma leucomelas. The IUCN Red List of Threatened Species 2016.</p>"
   },
   "quality": {
     "score": 0.82,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.82
+      "planetcatfish": 0.82,
+      "scotcat": 0.85
     }
   }
 }

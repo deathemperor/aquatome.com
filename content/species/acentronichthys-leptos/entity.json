@@ -1,0 +1,61 @@
+{
+  "id": "acentronichthys-leptos",
+  "scientificName": "Acentronichthys leptos",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Acentronichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1211",
+      "html": "<p>Acentronichthys leptos Eigenmann &amp; Eigenmann, 1889. Type locality: Rio São Mateos at São Mateos [= São Mateus], Espírito Santo State, Brazil.</p><p>Size: 91 mm SL. FishBase lists 49 mm SL; the larger size is from CLOFFSCA.</p><p>IUCN Red List category: Least Concern (last assessed 2018).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1211",
+      "html": "<p>South America: coastal streams from Rio de Janeiro to Santa Catarina, Brazil. Also known from the type locality, São Mateus in Espírito Santo.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1211",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1211",
+      "html": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 29.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/64dc9b4d256af605.webp",
+      "width": 960,
+      "height": 1096,
+      "licence": "CC BY 4.0",
+      "author": "Cetra, M. et al.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ichthyofauna_of_the_Ribeira_de_Iguape_River_basin_in_Southeast_Brazil_(2020-0994-03).png",
+      "caption": "Some Siluriformes of the families Heptapteridae and Trichomycteridae sampled in this study. A: Acentronichthys leptos; B: Chasmocranus lopezae; C: Pimelodella transitoria; D: Rhamdioglanis transfascia",
+      "thumb": "https://media.aquatome.com/commons/64dc9b4d256af605-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-02"
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "ca-chach-song-aral",
+  "name": "Cá chạch sông Aral",
+  "altNames": [
+    "Cá chạch gai",
+    "Spiny eel",
+    "One-stripe spiny eel"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Loài cá chạch gai này có nguồn gốc từ Nam Á và Đông Nam Á. Vùng phân bố của chúng gồm Pakistan, Ấn Độ, Sri Lanka, Bangladesh, Nepal và kéo đến tận Myanmar, nơi xa nhất về phía nam.</p>",
+    "behaviour:glaser": "<p>Cá chạch gai hoạt động vào lúc rạng sáng và ban đêm. Chúng ăn cá nhỏ, vì vậy chỉ nên nuôi chung với những loài cá lớn hơn. Lúc mới thả, cá khá nhút nhát. Qua một thời gian, chúng sẽ chịu ra ngoài mỗi khi tới giờ cho ăn, thậm chí có thể trở thành một thành viên rất dễ gần trong bể.</p>",
+    "quickFacts:glaser": "<p>Ngoài tự nhiên, loài này có thể dài tới 65 cm. Nuôi trong bể thì có thể cá không đạt tới kích thước đó. Cá chạch gai hợp nuôi trong bể ở nhà và là loài rất thú vị để chơi.</p>",
+    "waterConditions:glaser": "<p>Bạn nên pha thêm một ít muối biển vào nước bể, khoảng 1-2 thìa cà phê cho mỗi 10 lít nước. Bể cũng cần được sục khí tốt.</p>",
+    "reproduction:glaser": "<p>Trong 40 năm qua, tài liệu viết về chuyện sinh sản của cá chạch gai chỉ thỉnh thoảng mới xuất hiện. Những ghi nhận đó cũng chỉ có ở các loài nhỏ hơn.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

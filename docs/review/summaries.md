@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (50)
+# Tóm tắt chờ duyệt (45)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -163,15 +163,6 @@ Cá betta unimaculata hợp với người muốn nuôi riêng một loài betta
 Kiểm tra:
 - Mistake 2 "Cho ăn toàn đồ khô ... nên xen giun đen và trùn chỉ đỏ đông lạnh với cám viên": the page only says the fish is fed live, frozen and dry foods (blackworms, frozen bloodworms, pellets). It does not say an all-dry diet is a mistake or that foods should be alternated. The fix is advice the page doesn't give.
 
-## Cá trê khổng lồ Piraíba (Brachyplatystoma filamentosum)
-id: `brachyplatystoma-filamentosum`
-
-Cá trê khổng lồ Piraíba (Brachyplatystoma filamentosum) chỉ hợp với thủy cung công cộng và rất ít người nuôi tư nhân, vì cá trưởng thành dài 250 cm và bể tối thiểu phải dài 200 cm. Nước 22–28 °C, pH 6–8, độ cứng 1–20 dGH, nhưng cần hệ lọc khổng lồ, đáng tin cậy và bảo dưỡng nghiêm ngặt. Điểm khó nhất là kích thước bể và việc giữ nước sạch; độ khó 5/8.
-
-- Nuôi chung với cá nhỏ: loài này gần như chỉ ăn cá, nên chỉ nuôi chung với loài đủ lớn để không bị săn.
-- Làm lọc và bảo dưỡng qua loa: hãy dùng hệ lọc khổng lồ, đáng tin cậy và bảo dưỡng nghiêm ngặt.
-- Mở đèn quá sáng: nên giữ ánh sáng dịu, bố trí đơn giản với nền cát và vài khúc lũa lớn, hoặc để bể trống.
-
 ## Cá trê lũa Centromochlus heckelii (Centromochlus heckelii)
 id: `centromochlus-heckelii`
 
@@ -205,15 +196,6 @@ Loài này hợp với người có chỗ đặt một bể thuộc loại lớn
 
 Kiểm tra:
 - "cá không chuyển hóa được chất béo trong các loại thịt này": the page says the fish cannot process "một số loại chất béo" (some kinds of fat) in these meats. The summary drops "some" and turns a limited claim into a blanket one.
-
-## Cá lóc bông (Channa micropeltes)
-id: `channa-micropeltes`
-
-Cá lóc bông (Channa micropeltes) lớn tới 130 cm, nên chỉ hợp với bể trưng bày công cộng hoặc bể nhà cỡ cực lớn, bể tối thiểu dài 200 cm. Nước 20–30 °C, pH 6–8, độ cứng 2–20 dGH, cá khá dễ tính về cách bày bể. Độ khó 6/8: khó nhất là chỗ nuôi quá lớn, nắp bể phải thật kín vì cá hay nhảy, và cá trưởng thành trở nên hung dữ.
-
-- Mua cá con đẹp về nuôi bể nhỏ: cá lớn tới 130 cm, nên chỉ mua khi đã có bể dài từ 200 cm trở lên.
-- Để nắp bể hở hoặc không đậy: cá hay nhảy, nên đậy nắp thật kín và chừa một khoảng trống giữa nắp và mặt nước cho cá thở.
-- Cho ăn tim bò hoặc thịt gà: cá không chuyển hóa hết chất béo, dễ tích mỡ, nên cho ăn cá cắt miếng, tôm nguyên con, vẹm hoặc trai.
 
 ## Cá lóc lùn Sri Lanka (Channa orientalis)
 id: `channa-orientalis`
@@ -287,18 +269,6 @@ Garra rakhinica là cá nhỏ, lớn tới 6 cm, độ khó 3/8 (dễ), cần nu
 Kiểm tra:
 - Mistake 2 "Bày bể trơn hoặc nền mịn ... nên lót sỏi và đá": the page gives no aquarium or substrate advice. It only describes the wild habitat at one collection site. Turning that into a mistake and a fix is advice the page doesn't give.
 - "nên dữ liệu nuôi còn ít": the page says nothing about how much husbandry data exists. It only says the species is recorded from one site and that Garra taxonomy is confused.
-
-## Cá cầu vồng đỏ (Glossolepis incisus)
-id: `glossolepis-incisus`
-
-Cá cầu vồng đỏ (Glossolepis incisus) hợp với người thích cá có màu đỏ óng ánh nổi bật và chịu chuẩn bị bể đủ rộng, vì cá đực dài tới 15 cm. Hồ sơ không nêu thông số nước hay bể tối thiểu, nên cần tìm thêm trước khi nuôi. Điểm khó nhất là phải tính chỗ cho cá trưởng thành, dù con nhỏ 6–7 cm mua về đã lên màu khá đẹp.
-
-- Mua cá chỉ vì màu rồi quên cá đực dài tới 15 cm; nên tính chỗ cho cá trưởng thành ngay từ đầu.
-- Chê con nhỏ vì chưa đủ đỏ; con dài 6–7 cm đã lên màu rất đẹp, và cá càng lớn càng rực hơn nên cứ nuôi tiếp.
-
-Kiểm tra:
-- "chịu chuẩn bị bể đủ rộng" and "Điểm khó nhất là phải tính chỗ cho cá trưởng thành": the page only gives the male's length (15 cm). It says nothing about tank space or about space being the hardest part, so this is advice the page does not give.
-- Mistake 1, "quên cá đực dài tới 15 cm; nên tính chỗ cho cá trưởng thành ngay từ đầu": the page gives no such mistake or fix about planning space for adults.
 
 ## Cá tetra đuôi bạc (Hasemania nana)
 id: `hasemania-nana`
@@ -403,15 +373,6 @@ Cá chạch sông (Mastacembelus armatus) hợp với người có bể dài t�
 - Thả chung với cá nhỏ: chọn cá nuôi chung đủ lớn để không bị coi là mồi.
 - Nuôi nhiều con trong một bể: mỗi bể chỉ nên một con, vì chúng có thể hung dữ với đồng loại.
 
-## Cá chạch lửa (Mastacembelus erythrotaenia)
-id: `mastacembelus-erythrotaenia`
-
-Cá chạch lửa (Mastacembelus erythrotaenia) hợp với người có bể dài từ 120 cm và chịu được cảnh cá trốn gần hết ban ngày. Cá lớn tới 100 cm, nên cần bể 120 × 60 × 60 cm (khoảng 432 lít), nền cát, nhiều lũa, hang đá hoặc ống PVC, nước 24–28 °C, pH 6–7, độ cứng 5–12 dGH, dòng chảy nhẹ. Độ khó 5/8; khó nhất là nắp bể phải thật khít và chọn cá nuôi chung đủ to để không bị coi là mồi.
-
-- Để nắp bể có khe hở: cá chui qua được khe rất nhỏ, nên đậy thật khít.
-- Nuôi chung với cá nhỏ: cá chạch lửa có ăn cá sống, nên chọn cá nuôi chung đủ to.
-- Nuôi nhiều con chạch lửa trong một bể: chúng có thể hung hăng với đồng loại, nên chỉ nuôi một con mỗi bể.
-
 ## Cá tetra mắt đỏ (Moenkhausia sanctaefilomenae)
 id: `moenkhausia-sanctaefilomenae`
 
@@ -422,15 +383,6 @@ Cá tetra mắt đỏ (Moenkhausia sanctaefilomenae) nhỏ, trưởng thành kho
 Kiểm tra:
 - The mistake "Nhầm lô cá đánh bắt ngoài tự nhiên ở Paraguay với cá nuôi trong bể thông thường" is not on the page. The page only says this lot is wild-caught, not captive-bred. It never calls mixing the two up a mistake.
 - The fix "nên hỏi rõ nguồn gốc trước khi mua" is advice the page doesn't give. It says nothing about asking sellers or about what to do before buying.
-
-## Lươn đồng (Monopterus albus)
-id: `monopterus-albus`
-
-Lươn đồng (Monopterus albus) hợp với người đã có kinh nghiệm, muốn nuôi riêng một con trong bể lớn; độ khó 6/8, không dành cho người chơi phổ thông. Cần bể dài tối thiểu 180 cm (đáy 180 × 60 cm, khoảng 648 lít), nước 25–28 °C, pH 6–8, độ cứng 3–25 dGH. Loài này dài tới 100 cm, ăn cá, hoạt động về đêm; khó nhất là giữ nó không trốn khỏi bể và không thả chung với cá khác.
-
-- Đậy nắp không khít: lươn chỉ cần hở một chút là trốn ra và bò đi khá xa, nên dùng nắp thật khít và thật nặng.
-- Thả chung với cá khác: lươn trưởng thành rất to và ăn cá, nên nuôi riêng một con.
-- Bố trí ít chỗ trốn: nên đặt thật nhiều lũa, đá, cây thủy sinh hoặc đoạn ống nhựa cho lươn núp.
 
 ## Cá hút bùn buồm Trung Quốc (Myxocyprinus asiaticus)
 id: `myxocyprinus-asiaticus`
@@ -561,11 +513,11 @@ Kiểm tra:
 ## Cá kiếm xanh (Xiphophorus hellerii)
 id: `xiphophorus-hellerii`
 
-Cá kiếm xanh (Xiphophorus hellerii) dễ tính, hợp với người mới chơi muốn một bể cộng đồng nhiều màu, độ khó 5/8. Cá lớn tới 14 cm, bơi nhiều nên cần bể dài tối thiểu 120 cm, nước 18–28 °C, pH 7–8, độ cứng 12–25 dGH. Khó nhất là cá đẻ con rất nhanh làm bể chật, và con đực có thể giành lãnh thổ với cá khác.
+Cá kiếm xanh (Xiphophorus hellerii) là cá cộng đồng dễ nuôi, hồ sơ nói hợp với người mới chơi, độ khó 5/8 (mức vừa). Cần bể dài tối thiểu 120 cm, nước 18–28 °C, pH 7–8, độ cứng 12–25 dGH, cá trưởng thành khoảng 14 cm và bơi nhiều nên phải chừa chỗ trống. Điểm khó nhất là cá đẻ con rất nhanh và đực dễ phân ngôi hoặc hung hăng khi bể chật.
 
-- Thả chung đực cái rồi để mặc, bể sẽ đầy cá con vì mỗi lứa tới 50 con và cá trưởng thành từ 3 tháng tuổi; nếu không muốn thêm cá, tách đực cái trước tuổi sinh sản.
-- Bày quá nhiều đồ trang trí chắn lối bơi; chỉ dồn đồ và cây vào khoảng nửa dưới đến 2/3 chiều cao bể, để phần trên trống cho cá bơi.
-- Để một đàn sinh sản mãi trong bể, cá con dễ chết nhiều và cá không sống lâu vì cận huyết; mua hoặc đổi thêm cá từ nguồn khác và cách ly cá mới trước khi thả vào.
+- Bày quá nhiều đồ trang trí chắn đường bơi; nên gom đồ và cây ở nửa dưới đến 2/3 chiều cao bể, để phần trên trống cho cá bơi.
+- Thả chung đực cái rồi để cá đẻ tràn lan, vì cá cái có thể đã mang bầu từ lúc mua và mỗi lứa đẻ tới 50 cá bột; không muốn thêm cá thì tách đực cái trước khi đến tuổi sinh sản.
+- Cho cá phối cận huyết qua nhiều thế hệ, dễ ra cá yếu và sống ngắn; nên mua thêm hoặc đổi cá với người chơi khác để bổ sung nguồn gen, và cách ly cá mới trước khi thả vào bể.
 
 Kiểm tra:
-- "dễ tính, hợp với người mới chơi ... độ khó 5/8": the card puts difficulty 5/8 in the medium band (vừa), but the summary frames the fish as easy and suited to beginners. That wording comes from the page's older "Dễ nuôi" claim, and the card wins.
+- "là cá cộng đồng dễ nuôi" describes the species as easy, but the card difficulty is 5/8, the medium band (vừa). The summary's own "mức vừa" contradicts this. The word for difficulty must fit the card.

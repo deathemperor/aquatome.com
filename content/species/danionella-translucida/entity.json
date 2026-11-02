@@ -1,0 +1,106 @@
+{
+  "id": "danionella-translucida",
+  "scientificName": "Danionella translucida",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Danionella",
+  "group": "danios",
+  "places": [
+    "asia",
+    "myanmar"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 1.2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "glaser",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
+      "html": "<p>Danionella translucida is one of the smallest vertebrate animals. The largest measured individual was only 12 mm long. Apart from their extreme smallness, the absence of scales and the high transparency of these dwarfs are noticeable.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
+      "html": "<p>They originate from Myanmar, the former Burma.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
+      "html": "<p>They inhabit slowly-flowing, well planted streams.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
+      "html": "<p>A small aquarium (50 cm) is sufficient for a group of these interesting fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
+      "html": "<p>According to the waters in their habitat, the water should be soft and slightly acidic.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
+      "html": "<p>They have no special care requirements, but naturally should not be kept with lively fish.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
+      "html": "<p>Breeding attempts should be undertaken if the fish are well fed with Artemia nauplii and sieved live food. Reports on successful breeding are not known.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/5c9962bf43299b70.webp",
+      "width": 960,
+      "height": 492,
+      "licence": "CC BY-SA 4.0",
+      "author": "Geni",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danionella_translucida_bolton_aquarium.JPG",
+      "caption": "A group of the cyprinid fish Danionella translucida at Bolton aquarium in Bolton, England",
+      "thumb": "https://media.aquatome.com/commons/5c9962bf43299b70-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia ấu trùng",
+        "thức ăn sống cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mini cho bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

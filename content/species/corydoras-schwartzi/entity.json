@@ -1,0 +1,67 @@
+{
+  "id": "corydoras-schwartzi",
+  "scientificName": "Corydoras schwartzi",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-purus"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_schwartzi_en/",
+      "html": "<p>A good old fashioned, but still very beautiful cory. The species belongs to the group of stout Corydoras with round noses. It can be quite easily recognized by the black spot under the dorsal fin. In contrast to other similar species, the dorsal spine is only occasionally cream-white. C. schwartzi becomes around 5 cm long. Available size: 4-5 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_schwartzi_en/",
+      "html": "<p>The species originates from the Rio Purus system in Brazil.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_schwartzi_en/",
+      "html": "<p>Corydoras: from ancient Greek, meaning \"with helmet and spear\", referring to the strong armor and fin spines. schwartzi: a dedication name for the exporter Willy Schwartz.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên chìm cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

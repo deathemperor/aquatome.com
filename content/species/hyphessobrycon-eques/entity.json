@@ -1,0 +1,108 @@
+{
+  "id": "hyphessobrycon-eques",
+  "scientificName": "Hyphessobrycon eques",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/megalamphodus-eques-hyphessobrycon-e-2/",
+      "html": "<ul><li>pH and hardness: not important for keeping (tap water), soft and acidic for breeding</li><li>Diet: omnivorous</li><li>Social behavior: schooling fish with a social hierarchy</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/megalamphodus-eques-hyphessobrycon-e-2/",
+      "html": "<p>Since all these fish can interbreed freely, just about every breeding facility has its own “house strain”; wild-caught specimens appear on the market only very sporadically and in small numbers. There is no trademark protection for common fish names, so anyone is free to name their Serpae tetras as they please. This sometimes makes it difficult—and sometimes even impossible—to find a specific variant in sales listings.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/megalamphodus-eques-hyphessobrycon-e-2/",
+      "html": "<p>All Serpae tetras are very attractive and easy to care for, but they also have an unpleasant trait: during their constant rivalries (which are, however, very beautiful to watch), they tend to ruffle each other’s fins—after all, Serpae tetras are, in a sense, small relatives of piranhas. It is therefore quite rare for all the fish in the aquarium to have undamaged fins at any given time. However, this fin damage is harmless and heals quickly. Serpae tetras should always be kept in as large a group as possible (10 or more). If this rule is not followed, they will pick fights with other fish and can even become true tyrants in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/megalamphodus-eques-hyphessobrycon-e-2/",
+      "html": "<p>The Serpae tetra (currently Megalamphodus eques, formerly Hyphessobrycon eques, and previously known as H. callistus or H. serpae) is one of the standard fish available at pet stores. They are, after all, beautiful fish with a crystal-red color. Since the 1930s, there has been considerable confusion regarding the correct classification of the various variants. Even wild Serpae tetras exhibit considerable variation within the same population. Only relatively few wild specimens consistently display the coveted blood-red coloration; many are normally brownish or greenish and turn red only during the breeding season. However, through careful selective breeding, it is possible to very quickly obtain genetically pure, color-stable forms of the Serpae tetra. These have been given various names within the hobby. The brownish-green variety with a relatively small, comma-shaped shoulder spot was called Hyphessobrycon serpae; the red variety with a large, comma-shaped shoulder spot was called H. callistus; a translucent-red form with a small, round shoulder spot—which also lacks the black edge on the anal fin—was called H. minor; however, modern “minor” strains usually do have a black anal fin edge. In addition, since at least the 1980s, there has also been a form known as “Brillant.” It matches the coloration of the old “minor,” but also has glittering scales, especially on the back. And, of course, there are also veil-type varieties… From a current scientific perspective, they are all the same species, namely M. eques.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "HaACjfmqAZ4",
+      "title": "Serpae Tetra – Hyphessobrycon eques | Biotope amazonien planté",
+      "durationSec": 246,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "fLOy1on4Y98",
+      "title": "Serpae tetra, Hyphessobrycon eques in nature ! The natural habitat of common tetras.",
+      "durationSec": 245,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VlY1vnXIiho",
+      "title": "The Serpae tetra isn't aggressive: Everything you need to know to care of them",
+      "durationSec": 978,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "Vye0cqyhCGA",
+      "title": "All About Serpae Tetra: The Not So Good Beginner Fish",
+      "durationSec": 483,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ dạng vảy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

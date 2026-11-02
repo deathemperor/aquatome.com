@@ -12,13 +12,36 @@
     "gabon",
     "ogowe",
     "republic-of-the-congo",
-    "congo"
+    "congo",
+    "democratic-republic-of-the-congo"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 35.6
+      },
+      {
+        "source": "scotcat",
+        "value": 35.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
       }
     ]
   },
@@ -30,10 +53,28 @@
       "html": "<p>Clarias pachynema Boulenger, 1903. Type locality: Ja River, southern Cameroon. Maximum size: 356 mm (14 in) SL. IUCN Red List: Least Concern (last assessed 2019).</p><p>Etymology: Clarias comes from the Greek chlaros, meaning lively, in reference to the ability of the fish to live for long periods out of water.</p><p>Identification: Clarias species have an elongated body; a soft-rayed dorsal fin extending to, or nearly to, the caudal fin base; a soft-rayed anal fin extending from just behind the anus to the caudal fin base; pectoral fins each with a serrated anterior bony spine; a depressed head covered largely by firmly sutured, surface-sculptured bony plates forming a protective helmet; four pairs of flagellate barbels; and air-breathing organs derived from the 2nd and 4th epibranchials within a superbranchial chamber. In this species the head is pointed in dorsal outline, the snout is short and the eyes are dorsally located. The frontal fontanelle is long and narrow (knife-shaped) and the occipital process is long and oval. The dermosphenotic and supraorbital bones are joined in specimens over 80 mm SL. Tooth plates are small, gill rakers are long, slender and distantly set, and the suprabranchial organ is well developed. Openings of the secondary sensory canals are regularly arranged on the flanks.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_pachynema.htm",
+      "html": "<ul><li>Common name: Abugu</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1130",
       "html": "<p>Africa: coastal rivers of south Cameroon (up to the Sanaga River); in the Ogowe system in Gabon and the Middle Congo system (including the Sangha and Dja/Ngoko).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_pachynema.htm",
+      "html": "<p>Western-central Africa: coastal rivers of Cameroon and Gabon, to the central Congo River system (Democratic Republic of Congo). Type locality: Ja River, southern Cameroon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_pachynema.htm",
+      "html": "<p>Found in the River Sanaga in Cameroon. From there the distribution extends southwards and includes the Ogowe drainage in Gabon and the central Congo system in Congo (Seegers 1996).</p>"
     },
     {
       "key": "behaviour",
@@ -60,10 +101,22 @@
       "html": "<p>Fishbase lists 356 mm TL. Synonyms: Clarias esamesae, Clarias oxycephalus.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_pachynema.htm",
+      "html": "<p>Description: Dorsal spines (total): 0; dorsal soft rays (total): 81-95; anal spines: 0; anal soft rays: 63-76; vertebrae: 65-67.</p><p>Diagnosis: head length 19.6-24.6% SL. Head pointed in dorsal outline; snout short; tooth plates small; eyes dorsally located; \"dermosphenotic\" and supraorbital bones joined in specimens over 80 mm SL. Frontal fontanella long and narrow (\"knife-shaped\"). Occipital process long and oval-shaped. Distance between occipital process and dorsal-fin base 4.3-10.5% SL (m = 8.1). Gill rakers long, slender and distantly set, 11-19 on 1st gill arch. Suprabranchial organ well developed. Pectoral spine serrated on both sides, strongly on posterior face, weakly on anterior face. 65-67 vertebrae.</p><p>Colouration: Preserved specimens uniformly dark brown on back and sides, and yellowish-brown on belly. Vertical series of small white spots on flanks.</p><p>Etymology: The specific name pachynema: pachys, thick; nema, thread, presumably referring to longer barbels compared to C. laeviceps.</p><p>Remarks: The species is widespread without any major threats. Therefore, it is assessed as Least Concern (IUCN 2020).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1130",
       "html": "<p>Annals and Magazine of Natural History (Series 7) v. 12 (no. 70) (art. 42), pp 438.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_pachynema.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2023). Lalèyè, P. &amp; Moelants, T. 2020. Clarias pachynema. The IUCN Red List of Threatened Species 2020. Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p. Teugels, G.G., 2003. Clariidae. p. 144-173 In C. Lévêque, D. Paugy and G.G. Teugels (eds.) Faune des poissons d'eaux douce et saumâtres de l'Afrique de l'Ouest, Tome 2. Coll. Faune et Flore tropicales 40. Musée Royal de l'Afrique Centrale, Tervuren, Belgique, Museum National d'Histoire Naturalle, Paris, France and Institut de Recherche pour le Développement, Paris, France. 815 p. Teugels, G.G., 1986. A systematic revision of the African species of the genus Clarias (Pisces; Clariidae). Ann. Mus. R. Afr. Centr., Sci. Zool., 247:199 p.</p>"
     }
   ],
   "photos": [
@@ -91,13 +144,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/1518b29e0a23796e.webp",
+      "thumb": "https://media.aquatome.com/commons/1518b29e0a23796e-480.webp",
       "width": 960,
       "height": 1490,
       "licence": "Public domain",
       "author": "G.A.Boulenger (text)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:PZSL1907Page1087.png",
-      "caption": "Lateral view (below), head from above (above left), premaxillary and vomerine dentition (above right, premaxillary on top).",
-      "thumb": "https://media.aquatome.com/commons/1518b29e0a23796e-480.webp"
+      "caption": "Lateral view (below), head from above (above left), premaxillary and vomerine dentition (above right, premaxillary on top)."
     }
   ],
   "videos": [],
@@ -124,5 +177,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

@@ -1,0 +1,80 @@
+{
+  "id": "schistura-beavani",
+  "scientificName": "Schistura beavani",
+  "order": "Cypriniformes",
+  "family": "Nemacheilidae",
+  "genus": "Schistura",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "india",
+    "darjeeling",
+    "nepal",
+    "bhutan"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura_beavani_wrong_determined_s_scaturigina__en/",
+      "html": "<p>This loach belongs to the family of river loaches (Balitoridae). It is a peaceful species that is suitable for a well-kept aquarium. The final length should not exceed 6 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura_beavani_wrong_determined_s_scaturigina__en/",
+      "html": "<p>It originates from Darjeeling and Assam in the eastern Himalayan mountains, Northern India, Nepal and Bhutan.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura_beavani_wrong_determined_s_scaturigina__en/",
+      "html": "<p>It lives in fast streaming rivers.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura_beavani_wrong_determined_s_scaturigina__en/",
+      "html": "<p>This loach should be kept in a well filtered and aerated fish tank with water having a high oxygen content.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura_beavani_wrong_determined_s_scaturigina__en/",
+      "html": "<p>They are omnivorous with a preference for mosquito larvae.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura_beavani_wrong_determined_s_scaturigina__en/",
+      "html": "<p>The genus Schistura includes more than 50 members, which are all very difficult to determine without thorough morphological investigation. The page title notes that this fish was wrongly determined as S. scaturigina.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc nước bể cá",
+        "bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bọ gậy đông lạnh",
+        "thức ăn cho cá chạch"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

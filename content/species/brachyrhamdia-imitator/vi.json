@@ -1,0 +1,25 @@
+{
+  "slug": "ca-meo-gia-chuot",
+  "name": "Cá mèo giả chuột",
+  "altNames": [
+    "Cá False Corydoras",
+    "False Cory",
+    "False Corydoras"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Brachyrhamdia imitator Myers, 1927</li><li>Tên thường gọi: False Cory, False Corydoras</li><li>Sách Đỏ IUCN: Ít quan ngại (lần đánh giá gần nhất năm 2017)</li></ul>",
+    "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong lưu vực sông Orinoco, vùng hạ lưu Orinoco và sông Caura. Mẫu chuẩn được thu ở Caño de Quiribana, gần Caicara, Venezuela.</p>",
+    "waterConditions:planetcatfish": "<ul><li>pH: 6,0 - 7,5</li><li>Nhiệt độ: 20-24°C</li><li>Độ cứng: tối đa 18 dGH</li></ul>",
+    "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Nguồn gốc tên gọi: tên chi ghép từ chữ Hy Lạp brachys, -eia (nghĩa là ngắn) với Nhamdia/Jamdia, tên dân gian ở Brazil. Tên họ Heptapteridae lấy từ hai chữ Hy Lạp là hepta (bảy) và pteron (vây).</p>",
+    "references:planetcatfish": "<p>Bulletin of the Museum of Comparative Zoology v. 68 (no. 3), pp 123.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.8
+    },
+    "reason": "thin"
+  }
+}

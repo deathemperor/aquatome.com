@@ -1,0 +1,23 @@
+{
+  "slug": "ca-bong-hiep-si",
+  "name": "Cá bống hiệp sĩ",
+  "altNames": [
+    "Cá bống Ấn Độ",
+    "Knight goby"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<ul><li>Xuất xứ: Ấn Độ</li><li>Kích thước khi mua: 5-7 cm</li></ul>",
+    "habitat:glaser": "<p>Cá bống hiệp sĩ sống ở vùng cửa sông. Chúng chịu được cả nước ngọt hoàn toàn lẫn nước biển hoàn toàn. Dù vậy, nuôi trong nước lợ vẫn là tốt nhất, khoảng 5-10 gram muối cho mỗi lít nước.</p>",
+    "behaviour:glaser": "<p>Phần lớn các loài cá bống sống sát đáy. Chỉ vài loài có thói quen bơi tự do ở tầng nước. Cá bống hiệp sĩ là một trong số ít ngoại lệ đó.</p>",
+    "reproduction:glaser": "<p>Loài này đẻ trứng lên đá, rễ cây và những chỗ tương tự. Tiếc là cá bột cực kỳ nhỏ và phải có nước biển đúng độ mặn mới sống được. Vì thế đến nay vẫn chưa có ai báo cáo cho sinh sản thành công.</p>",
+    "notes:glaser": "<p>Mắt cá bống hiệp sĩ có một lớp phản quang. Cũng vì đặc điểm này mà nhóm họ hàng của nó có tên gọi phổ biến là \"cá bống ngủ\" (sleeper gobies). Cách đây chưa lâu, người ta còn cho rằng nhóm cá bống ngủ là một họ riêng.</p><p>Cá trưởng thành dài khoảng 8-10 cm.</p><p>Giải nghĩa tên: Stigmatogobius nghĩa là \"cá bống có đốm\". Tên sadanundio lấy từ tên gọi địa phương của loài này ở vùng Bengal.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

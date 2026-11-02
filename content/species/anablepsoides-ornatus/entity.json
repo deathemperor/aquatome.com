@@ -1,0 +1,74 @@
+{
+  "id": "anablepsoides-ornatus",
+  "scientificName": "Anablepsoides ornatus",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Anablepsoides",
+  "group": "killifish",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_ornatus_en/",
+      "html": "<ul><li>Origin: Peru</li><li>Available size: 3-4 cm</li><li>Can live up to 3 years in the aquarium</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_ornatus_en/",
+      "html": "<p>This tiny jewel among the fishes, recently imported from Peru, causes some confusion among taxonomists. It is possible that this fish represents a still undescribed species and will be named separately in the future.</p><p>As in all Rivulus species, it is necessary to cover the tank absolutely tight, otherwise the fish will sooner or later end up on the floor. If more than one male is to be kept per tank, they should be introduced simultaneously, as these little fish can be quite aggressive towards conspecifics.</p><p>Despite its small size, this killifish can live up to 3 years in the aquarium, so it is not one of the short-lived but one of the long-lived killifishes.</p><p>Lexicon: Rivulus: Latin, means \"small brook\", referring to the biotope. ornatus: Latin, means \"decorated\".</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/a42d9b037d213b0a.webp",
+      "thumb": "https://media.aquatome.com/glaser/a42d9b037d213b0a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_ornatus_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/11d4c3e88f9594cc.webp",
+      "thumb": "https://media.aquatome.com/glaser/11d4c3e88f9594cc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_ornatus_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nắp kín",
+        "bể cá nhỏ 30cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá killifish",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

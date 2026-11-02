@@ -1,0 +1,80 @@
+{
+  "id": "pethia-phutunio",
+  "scientificName": "Pethia phutunio",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Pethia",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 14,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-phutunio-barbus-p-2/",
+      "html": "<p>The dwarf barb has delighted aquarium enthusiasts since it was first imported from India in 1906. This is not so much due to its magnificent colouring; dwarf barbs are pretty, but no colour miracles. Rather, the tiny animal, which only grows to 2-3 cm in size in nature, fitted wonderfully into the formerly common, relatively small aquariums.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-phutunio-barbus-p-2/",
+      "html": "<p>All this has changed fundamentally nowadays. In fact, Pethia phutunio is considered somewhat sensitive. The causes are easy to name: Control heaters prevent temperature fluctuations and there is no debris left in the clean aquariums. If you are looking for an ideal fish for a small, natural aquarium without technology, you will still find it in Pethia phutunio today.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-phutunio-barbus-p-2/",
+      "html": "<p>Since it lives at temperatures between 14 and 30°C, not even an aquarium heating was necessary in heated dwellings yet. And filtering and aeration was rarely practiced at that time anyway.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-phutunio-barbus-p-2/",
+      "html": "<p>Debris, i.e. dead plant remains, faeces and food remains, are an important food component of these and many other barbs.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá mini",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn cá barb"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh dễ trồng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

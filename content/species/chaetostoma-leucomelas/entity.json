@@ -15,6 +15,28 @@
       {
         "source": "planetcatfish",
         "value": 14.3
+      },
+      {
+        "source": "scotcat",
+        "value": 20
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -32,16 +54,40 @@
       "html": "<p>South America: Patía and upper Cauca River basins in Colombia (Colombian Pacific rivers: Patía; Colombian Caribbean rivers: Magdalena, Cauca).</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_leucomelas.htm",
+      "html": "<p>South America: Patia and upper Cauca River basins, Colombia. Type locality: Rio Patia, halfway between the Rios Magui and Telembi [Colombia].</p><p>Chaetostoma leucomelas was described by Carl Eigenmann in 1918, from the Patia River, along the southern Pacific Coast of Colombia.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_leucomelas.htm",
+      "html": "<p>Will need a good water flow in the aquarium with a sand substrate and plenty of hiding places.</p><p>The Chaetostoma species are not the easiest to maintain as the mountain stream species will need a water current to provide oxygen-rich water.</p>"
+    },
+    {
       "key": "equipment",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1172",
       "html": "<p>Well rounded stones stacked to replicate a river bottom and provide caves.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_leucomelas.htm",
+      "html": "<p>Great algae eater, but you will have to subsidise this food with algae wafers and vegetable foods such as cucumber, zucchini and lettuce. Will also accept tablet and worm foods.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1172",
       "html": "<p>Males have a larger and broader head, slimmer ventral sides and disproportionately large pelvic fins. The over-sized pelvic fins perhaps play a large role in fertilization of the eggs: by inverting them over the clutch, the males prevent the sperm cells being carried away by fast water current.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_leucomelas.htm",
+      "html": "<p>Males have better colour, a broader head and lips and adult males possess longer ventral fins than the females.</p>"
     },
     {
       "key": "reproduction",
@@ -56,10 +102,22 @@
       "html": "<p>Identification: The genus Chaetostoma is not straightforward to identify, but as a general rule, the species has spines behind the gill-cover (interopercular odontodes), no plates on the abdomen, and aside from C. platyrhynchus also lacks plates on the snout edge. It differs from Ancistrus by not having fleshy tentacles on the snout.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_leucomelas.htm",
+      "html": "<p>Etymology: The species name 'leucomelas' means 'black and white' and refers to bands that should be present in all the fins except the anal fin.</p><p>IUCN Red List: Chaetostoma leucomelas has a wide range. Although there are some threats, they are not thought to affect the population as a whole enough to warrant listing in a threatened category. Hence, it is listed as Least Concern.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1172",
       "html": "<p>Proceedings of the American Philosophical Society v. 56 (no. 7), pp 681.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/chaetostoma_leucomelas.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (06/2021).</p><p>Lasso, C., Mesa-Salazar, L. &amp; Sanchez-Duarte, P. 2016. Chaetostoma leucomelas. The IUCN Red List of Threatened Species 2016.</p>"
     }
   ],
   "photos": [
@@ -98,13 +156,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/63dcdb538a7ed1a4.webp",
+      "thumb": "https://media.aquatome.com/commons/63dcdb538a7ed1a4-480.webp",
       "width": 960,
       "height": 420,
       "licence": "CC BY 2.0",
       "author": "Ictiologia Universidad Católica de Oriente",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chaetostoma_leucomelas_(16519764731).jpg",
-      "caption": "Chaetostoma leucomelas",
-      "thumb": "https://media.aquatome.com/commons/63dcdb538a7ed1a4-480.webp"
+      "caption": "Chaetostoma leucomelas"
     }
   ],
   "videos": [],
@@ -131,5 +189,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

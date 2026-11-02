@@ -3,19 +3,29 @@
   "name": "Cá trê lũa Centromochlus heckelii",
   "altNames": [
     "Cá trê lũa",
-    "Driftwood catfish"
+    "Driftwood catfish",
+    "Cá da trơn Centromochlus heckelii"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Loài cá trê lũa này khá thú vị nhưng hiếm khi có hàng. Mà có thì cũng chỉ về số lượng ít. Cá dài tối đa khoảng 14-15 cm. Có hai đặc điểm nhìn là thấy ngay. Đó là đôi mắt to và cặp vây ngực lớn lúc nào cũng xòe rộng.</p>",
     "distribution:glaser": "<p>Loài này phân bố rộng ở lưu vực sông Amazon và sông Orinoco. Những cá thể mô tả ở đây có nguồn gốc từ Peru. Peru cũng là nơi thu mẫu chuẩn của loài.</p>",
     "notes:glaser": "<p>Bạn cần cẩn thận với gai vây ngực của loài này. Bị gai đâm phải thì đau khá nặng. Khi cần bắt cá, gai cũng hay mắc vào mắt lưới của vợt.</p>",
-    "dimorphism:glaser": "<p>Cách phân biệt đực cái dễ nhất là nhìn hình dạng râu hàm trên. Cá đực có râu cong, còn cá cái có râu thẳng.</p>"
+    "dimorphism:glaser": "<p>Cách phân biệt đực cái dễ nhất là nhìn hình dạng râu hàm trên. Cá đực có râu cong, còn cá cái có râu thẳng.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon và sông Orinoco. Nơi thu mẫu chuẩn là sông Marañon, thượng nguồn Amazon và sông Napo.</p>",
+    "behaviour:scotcat": "<p>Loài này bơi suốt trong bể. Có vẻ như chúng không nhận ra thành bể ở đâu. Chúng không bao giờ tìm chỗ trốn. Gần như 99% thời gian chúng đều bơi. Thi thoảng mới thấy chúng nằm nghỉ dưới nền, và cảnh này khá hiếm.</p>",
+    "beforeYouBuy:scotcat": "<p>Jeremy Basch của AmazonTropics.com là người rành nhóm cá da trơn này. Ông cho rằng tiếc là loài này không hợp để nuôi bể lắm, vì chúng bơi liên tục không nghỉ.</p>",
+    "equipment:scotcat": "<p>Nuôi trong bể có dòng nước chảy đều ngang qua bể thì có thể cho kết quả tốt hơn. Muốn tạo được dòng chảy như vậy, bạn cần một máy bơm khá lớn hoặc nhiều jet lifter.</p>",
+    "diet:scotcat": "<p>Ngoài tự nhiên, chúng ăn động vật không xương sống nhỏ và giáp xác. Nuôi trong bể thì cho gì chúng cũng ăn, chẳng hạn trùng huyết đông lạnh, viên chìm cho cá da trơn, giun trắng (cho ít thôi), tôm và tép.</p>",
+    "dimorphism:scotcat": "<p>Cách phân biệt đực cái chính xác nhất là nhìn hình dạng râu hàm trên. Con đực có râu cong, còn con cái có râu thẳng.</p>",
+    "notes:scotcat": "<p>Mees (1974) xếp loài này vào chi Tatia, nhưng sau đó Ferraris (2007) đưa nó về lại chi gốc Centromochlus.</p><p>Từ nguyên: tên chi Centromochlus ghép từ kentron (gai) và mochlus (đòn bẩy hoặc xà beng). Cái tên này có lẽ ám chỉ gai vây lưng có răng cưa rất rõ. Tên loài heckelii đặt để vinh danh Johann Jakob Heckel (1790-1857), người phụ trách bộ sưu tập cá ở Naturhistorisches Museum tại Vienna.</p><p>Loài cá này có hai đặc điểm rất dễ nhận ra: mắt to và đôi vây ngực lớn lúc nào cũng xòe rộng. Khi cầm cá, bạn phải cẩn thận với gai vây ngực vì có thể bị gai đâm. Lúc cần bắt cá, gai này cũng hay mắc vào mắt vợt.</p><p>Danh lục đỏ IUCN: thông tin về loài này còn ít, nhưng IUCN vẫn xếp nó ở mức Ít quan tâm vì loài phân bố rộng và không gặp mối đe dọa trực tiếp nào (IUCN 2023).</p>",
+    "references:scotcat": "<p>Basch, Jeremy. amazontropics.com pers. comm. 2021. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Centromochlus heckelii. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2019 ). Soares-Porto, L.M., 1998. Monophyly and interrelationships of the Centromochlinae (Siluriformes: Auchenipteridae). p. 331-350. In L.R. Malabarba, R.E. Reis, R.P. Vari, Z.M.S. Lucena and C.A.S. Lucena (eds.) Phylogeny and classification of neotropical fishes. Porto Alegre: EDIPUCRS. www.aquariumglaser.de (Frank Schäfer).</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.85,
+      "scotcat": 0.88
     }
   }
 }

@@ -1,0 +1,84 @@
+{
+  "id": "nannostomus-marginatus",
+  "scientificName": "Nannostomus marginatus",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Nannostomus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_marginatus_en/",
+      "html": "<ul><li>Common name: Dwarf pencil tetra</li><li>Origin: Brazil</li><li>Available size: 3-4 cm</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_marginatus_en/",
+      "html": "<p>Nannostomus: from ancient Greek, means \"with a tiny mouth\". marginatus: Latin, means \"bordered\".</p><p>The regular dwarf pencilfish from Brazil are among the most beautiful species of ornamental fish.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "4mcmcGUXioo",
+      "title": "Meet the Nano Dwarf Pencilfish - Nannostomus marginatus - Aquarium Fish",
+      "durationSec": 168,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Xl69xvhP5cA",
+      "title": "All About Dwarf Pencilfish: Adorable stationary, what more could you want?",
+      "durationSec": 462,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZX4DruMppLE",
+      "title": "Nannostomus marginatus 🍀☘️🌴🐠",
+      "durationSec": 18,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "1ygj3R1ag8w",
+      "title": "LEBENDE BLEISTIFTE | FISCHENZYKLOPÄDIE | ZOO ZAJAC",
+      "durationSec": 585,
+      "lang": "de"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể cá nhỏ thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -1,0 +1,86 @@
+{
+  "id": "hypostomus-isbrueckeri",
+  "scientificName": "Hypostomus isbrueckeri",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "uruguay-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 24.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1197",
+      "html": "<ul><li><strong>Scientific name:</strong> Hypostomus isbrueckeri Reis, Weber &amp; Malabarba, 1990</li><li><strong>Type locality:</strong> Rio Conceição, Ijui, Rio Grande do Sul, Brazil.</li><li><strong>Etymology:</strong> Greek, hypo = under + Greek, stoma = mouth. Named to honour Dr. Issaäc J.H. Isbrücker.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2018).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1197",
+      "html": "<p>South America: Middle and upper Uruguay River basin (La Plata basin).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1197",
+      "html": "<p>Breeding is unreported; there is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1197",
+      "html": "<p>Revue Suisse de Zoologie v. 97 (no. 3), pp 752, Figs. 1, 21-23.</p><p>Reis, R. E., C. Weber and L. R. Malabarba 1990 (Sept.) Review of the genus Hypostomus Lacepéde, 1803 from southern Brazil, with descriptions of three new species (Pisces: Siluriformes: Loricariidae). Rev. Suisse Zool. v. 97 (no. 3): 729-766.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "_-jsYkgGLUo",
+      "title": "Hypostomus Isbrueckeri (From Imperial Tropicals)",
+      "durationSec": 44,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HsnFMznnujI",
+      "title": "黃尾蛇紋天使Hypostomus isbrueckeri",
+      "durationSec": 47,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính",
+        "viên chìm cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

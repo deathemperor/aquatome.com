@@ -1,0 +1,22 @@
+{
+  "slug": "ca-pimelodella-hang-dong",
+  "name": "Cá pimelodella hang động",
+  "altNames": [
+    "Cave Pimelodella"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên thường gọi: Cave Pimelodella</li><li>Danh sách đỏ IUCN: Nguy cấp (đánh giá gần nhất năm 2018)</li></ul>",
+    "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong các sông thuộc bang São Paulo, gồm sông Iguape và Ribeira de Iguape, vùng Iporanga. Mẫu chuẩn được thu tại Cavernas das Areieas, Iporanga, thuộc thượng lưu lưu vực sông Ribeira, bang São Paulo, Brazil.</p>",
+    "behaviour:planetcatfish": "<p>Ban ngày, cá tụ thành đàn trong những vũng nước sâu có bóng râm ở suối và sông nhỏ.</p>",
+    "reproduction:planetcatfish": "<p>Hiện chưa có báo cáo nào ghi nhận loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Kosmos, Rio de Janeiro [Rev. Art. Sci. Litt.] v. 4 (no. 1), pp [1], Fig.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

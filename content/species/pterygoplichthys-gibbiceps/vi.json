@@ -4,20 +4,32 @@
   "altNames": [
     "Cá tỳ bà đỏ vây cao",
     "Cá dọn bể",
-    "Red highfin sucker"
+    "Red highfin sucker",
+    "Cá lau kiếng Gibby",
+    "Gibby",
+    "L083",
+    "L165",
+    "Sail fin Pleco"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Cá lau kiếng vây cao đỏ là loài kinh điển. Nó đã có người mê từ rất lâu, trước cả khi hệ thống mã L (L-number, mã số dùng để gọi các loài cá da trơn họ Loricariidae) ra đời. Cá con trông rất đáng yêu và ăn rêu cực giỏi. Thêm vào đó, cá cũng rất đẹp. Vấn đề là loài cá da trơn này lớn lên 30–40 cm dễ như không. Vì vậy dân chơi chia làm hai phe. Một phe chê nó vì kích thước lúc trưởng thành (\"ai rồi cũng từng dính bẫy con này\"). Phe còn lại thì coi đây là cái cớ để cuối cùng cũng sắm được chiếc bể lớn mình mong bấy lâu.</p>",
     "beforeYouBuy:glaser": "<p>Hiện nay, cá Glyptoperichthys gibbiceps bán ngoài thị trường gần như toàn bộ là cá sinh sản nhân tạo ở Đông Nam Á.</p>",
     "distribution:glaser": "<p>Ngoài tự nhiên, loài này phân bố rất rộng ở Nam Mỹ. Nó sống khắp thượng lưu và trung lưu lưu vực sông Amazon và sông Orinoco, trải qua Bolivia, Brazil, Ecuador, Peru, Colombia và Venezuela. Dù vậy, người ta gần như không bao giờ nhập cá từ Nam Mỹ về.</p>",
-    "maintenance:glaser": "<p>Loài cá này hiền và nuôi chẳng có gì khó. Điều kiện duy nhất là bạn phải cho nó đủ không gian.</p>"
+    "maintenance:glaser": "<p>Loài cá này hiền và nuôi chẳng có gì khó. Điều kiện duy nhất là bạn phải cho nó đủ không gian.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Gibby, Sail fin Pleco, L083, L165</li><li>Danh sách đỏ IUCN: Ít quan tâm (IUCN 2023). Thông tin về loài này còn ít, nhưng chúng phân bố rộng và chưa thấy mối đe dọa nào rõ ràng.</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: vùng trung và thượng lưu các lưu vực sông Amazon và Orinoco.</p>",
+    "notes:scotcat": "<p>P. gibbiceps thật sự là mã L165, có nguồn gốc từ sông Rio Negro (Brazil) và rất hiếm khi về hàng. Vây lưng của nó cao hơn hẳn những con nhập từ Venezuela và Colombia, còn màu sắc thì gần như giống nhau. Loài này phân bố rộng và có nhiều biến thể màu ở Brazil và Peru. Trong đó có L083 và L313 từ sông Rio Xingu, bang Pará, Brazil (ở phía nam và các hồ ngập lũ quanh Altamira), cùng L164 từ sông Rio Tefé, Brazil. Một vài mã trong số này có thể sau này sẽ hóa ra là loài mới chưa được mô tả, cũng có thể chỉ là biến thể màu của P. gibbiceps.</p><p>Muốn phân biệt một loài Pterygoplichthys với, chẳng hạn, Hypostomus thì bạn nhìn vây lưng. Vây lưng của Pterygoplichthys có nhiều tia hơn hẳn, có thể từ 10 tia trở lên.</p><p>Nguồn gốc tên: tên loài gibbiceps nghĩa là \"có bướu trên đầu\".</p>",
+    "maintenance:scotcat": "<p>Muốn con cá đẹp này luôn ở phong độ tốt nhất, bạn cần một cái bể tương đối rộng. Lúc cá còn nhỏ thì có thể bắt đầu với bể dài khoảng 90 cm. Bể nên có lọc ngoài mạnh để nước luôn giàu oxy. Lý do là cá thải rất nhiều phân khi bạn cho nó ăn rau củ đầy đủ.</p><p>Nếu nước không sạch, trên màng vây của cá có thể xuất hiện những lỗ nhỏ. Khi nước xuống cấp, bạn sẽ thấy cá chống vây và \"treo\" mình lơ lửng ngay sát nền. Thấy cảnh đó thì nên thay nước ngay.</p><p>Loài này hiền với cây thủy sinh. Rắc rối duy nhất là khi cá lớn lên, nó đi tuần quanh bể và có thể làm bật gốc cây.</p>",
+    "diet:scotcat": "<p>Cá chủ yếu ăn thực vật, và tảo là món chính của chúng. Tuy vậy, nuôi một con cá cỡ lớn chỉ bằng tảo là chuyện không thể. Vì thế bạn có thể cho ăn thêm rau bina, xà lách chần, dưa leo, bí ngòi. Cá cũng ăn được đồ không phải rau như thức ăn viên và tôm.</p>",
+    "references:scotcat": "<p>Rainer Stawikowski, André Werner &amp; Ingo Seidel. DATZ Special L-Numbers 2004. All L-numbers: Habitat, Care &amp; Diet.</p><p>Salvador, G.N. 2023. Pterygoplichthys gibbiceps. The IUCN Red List of Threatened Species 2023.</p>"
   },
   "quality": {
     "score": 0.7,
     "indexable": false,
     "bySource": {
-      "glaser": 0.7
+      "glaser": 0.7,
+      "scotcat": 0.72
     },
-    "reason": "thin"
+    "reason": "score"
   }
 }

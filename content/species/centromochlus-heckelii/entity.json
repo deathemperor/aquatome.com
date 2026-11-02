@@ -17,6 +17,28 @@
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 14
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -28,10 +50,40 @@
       "html": "<p>This interesting driftwood catfish is only rarely available and in small numbers. It reaches a maximum length of about 14-15 cm. Two features are very obvious: the large eyes and the large pectoral fins, which are always spread.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm",
+      "html": "<p>Jeremy Basch of AmazonTropics.com, an expert on these catfishes, states that unfortunately this species is not really a good aquarium candidate because of its constant swimming.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/centromochlus-heckelii-2/",
       "html": "<p>The species is widely distributed in the Amazon and Orinoco river basins. The specimens described here originate from Peru, which is also the type locality of the species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm",
+      "html": "<p>South America: Amazon and Orinoco River basins. Type locality: Marañon River, upper Amazon and Napo Rivers.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm",
+      "html": "<p>One might see better results in a tank with a constant stream of water that goes across the tank. This would require a fairly large pump or many jet lifters.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm",
+      "html": "<p>In its native habitat they feed on small invertebrates and crustaceans. In the aquarium they will eat anything given, such as frozen bloodworm, catfish tablets, white worm (sparingly), prawns and shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm",
+      "html": "<p>This species constantly swims in the aquarium and seems to be unable to detect the sides of the tank. It never goes and hides; they literally swim 99% of the time. They are only occasionally seen resting on the ground, which is uncommon.</p>"
     },
     {
       "key": "dimorphism",
@@ -40,10 +92,28 @@
       "html": "<p>The sexes can be distinguished best by the shape of the maxillary barbels: these barbels are curved in males and straight in females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm",
+      "html": "<p>The sexes can be distinguished best by the shape of the maxillary barbels: these barbels are curved in males and straight in females.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/centromochlus-heckelii-2/",
       "html": "<p>The spines of the pectoral fins should be handled with care: one can be stung nastily by them, and the spines also tend to tangle in the mesh of a net when the fish has to be caught.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm",
+      "html": "<p>Mees (1974) assigned this species to Tatia but Ferraris (2007) reverted it to the original genus Centromochlus.</p><p>Etymology: The genus name Centromochlus: kentron, thorn or spine; mochlus, lever or crowbar, presumably referring to the strongly serrated dorsal-fin spine. The specific name heckelii: in honour of Johann Jakob Heckel (1790-1857), curator of fishes, Naturhistorisches Museum in Vienna.</p><p>Two features of the fish are very obvious: the large eyes and the large pectoral fins, which are always spread. The pectoral-fin spines should be handled with care as one can be stung by them, and the spines also tend to tangle in the mesh of a net when the fish needs to be caught.</p><p>IUCN Red List: despite there being little information available on this species, it is assessed as Least Concern due to its wide range and no direct threat (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm",
+      "html": "<p>Basch, Jeremy. amazontropics.com pers. comm. 2021. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Centromochlus heckelii. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2019 ). Soares-Porto, L.M., 1998. Monophyly and interrelationships of the Centromochlinae (Siluriformes: Auchenipteridae). p. 331-350. In L.R. Malabarba, R.E. Reis, R.P. Vari, Z.M.S. Lucena and C.A.S. Lucena (eds.) Phylogeny and classification of neotropical fishes. Porto Alegre: EDIPUCRS. www.aquariumglaser.de (Frank Schäfer).</p>"
     }
   ],
   "photos": [
@@ -93,26 +163,39 @@
     },
     {
       "url": "https://media.aquatome.com/commons/63ca7233f4cd3ac6.webp",
+      "thumb": "https://media.aquatome.com/commons/63ca7233f4cd3ac6-480.webp",
       "width": 960,
       "height": 358,
       "licence": "CC BY 4.0",
       "author": "Ronaldo Souza da Silva et. al.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Centromochlus_heckelii.png",
-      "caption": "Centromochlus heckelii",
-      "thumb": "https://media.aquatome.com/commons/63ca7233f4cd3ac6-480.webp"
+      "caption": "Centromochlus heckelii"
     },
     {
       "url": "https://media.aquatome.com/commons/c41748bc1fa1cad9.webp",
+      "thumb": "https://media.aquatome.com/commons/c41748bc1fa1cad9-480.webp",
       "width": 960,
       "height": 646,
       "licence": "Public domain",
       "author": "Burkhardt, Jacques",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Centromochlus_heckelii_(Tajapuru,_Brazil,_28_August_1865).jpg",
-      "caption": "Taxonomic Classification: Animalia--Auchenipteridae--Centromochlus heckelii (De Filippi 1853). Common Name: Long-spined catfish",
-      "thumb": "https://media.aquatome.com/commons/c41748bc1fa1cad9-480.webp"
+      "caption": "Taxonomic Classification: Animalia--Auchenipteridae--Centromochlus heckelii (De Filippi 1853). Common Name: Long-spined catfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "0MzXUMSeQJw",
+      "title": "Centromochlus heckelii.mp4",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fA_VgBGYjuc",
+      "title": "Centromochlus heckelii",
+      "durationSec": 68,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -136,5 +219,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

@@ -18,7 +18,9 @@
     "niger",
     "burkina-faso",
     "central-african-republic",
-    "guinea"
+    "guinea",
+    "white-nile",
+    "lake-chad"
   ],
   "dataCard": {
     "tempC": [
@@ -34,6 +36,13 @@
         "value": {
           "min": 22,
           "max": 27
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
         }
       }
     ],
@@ -51,6 +60,13 @@
           "min": 6,
           "max": 7.5
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.6,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
@@ -60,6 +76,10 @@
       },
       {
         "source": "seriouslyfish",
+        "value": 30
+      },
+      {
+        "source": "planetcatfish",
         "value": 30
       }
     ],
@@ -82,6 +102,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "planetcatfish",
+        "value": 2
       }
     ]
   },
@@ -99,6 +123,12 @@
       "html": "<p>The featherfin Synodontis, Synodontis euptera, is a catfish from Nigeria, Cameroon, Mali, Ghana, Sudan, Chad and Niger. Juveniles are often sold as Synodontis 'Network' for their reticulated pattern, with no hint of an adult size of up to 300 mm SL. The pattern breaks up into simple spots with age as the long extensions of the 'feathered' dorsal fin develop. It can live for over 15 years in the aquarium.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=121",
+      "html": "<p>Synodontis eupterus Boulenger, 1901. Common names: Featherfin Syno, Featherfin Squeaker. Type locality: mouth of Lake No, White Nile, Sudan. Size: 300 mm SL. Peaceful and undemanding.</p>"
+    },
+    {
       "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/mochokidae/synodontis_eupterus_marbled.htm",
@@ -109,6 +139,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
       "html": "<p>Nigeria, Cameroon, Mali, Ghana, Sudan, Chad, Niger. It occurs in varying biotopes.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=121",
+      "html": "<p>Africa: White Nile, Chad, Volta and Niger basins, including the Bénoué.</p>"
     },
     {
       "key": "habitat",
@@ -135,6 +171,18 @@
       "html": "<ul><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 8–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=121",
+      "html": "<p>pH 5.6 - 7.5. Temperature 22-26°C. Other parameters: undemanding.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=121",
+      "html": "<p>Lots of rock caves and bogwood. Likes open spaces to patrol in the twilight / dark. Ensure the fish do not hide near a heater; they can burn themselves, which leaves a nasty scar.</p>"
+    },
+    {
       "key": "diet",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/mochokidae/synodontis_eupterus_marbled.htm",
@@ -145,6 +193,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
       "html": "<p>Synodontis are omnivorous and are most unfussy in terms of feeding. Frozen, live and dried foods are all accepted. It also relishes vegetable matter in the form of shelled peas, cucumber etc., which it will rasp at with the teeth in its lower jaw.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=121",
+      "html": "<p>Bloodworm, sinking catfish pellets, Doromin.</p>"
     },
     {
       "key": "behaviour",
@@ -159,10 +213,22 @@
       "html": "<p>Should not be kept with any fish so small as to be considered food. Ideal tankmates include Alestiid tetras, robust cichlids (particularly West African species), Mormyrids, Knifefish, Gouramis and larger rasboras and barbs. It tends to become slightly territorial as it matures, especially towards other Synos. However any aggression is usually far less pronounced than in some other members of the genus and it can be maintained in a small group in a suitably sized aquarium, provided each fish is given a refuge to call home. Not recommended for the general community due to its adult size.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=121",
+      "html": "<p>Peaceful. Can be kept singly or in groups given adequate refuge for each individual. A large multi-branched piece of bogwood is ideal.</p><p>Suitable tankmates: most medium or large community fish. Although commonly available as such, not a good species for the small community tank. For anything smaller than 1 metre long, go for Synodontis nigriventris instead.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-eupterus",
       "html": "<p>Adult females are much plumper than males. It can also be sexed by examining the genital papillae. This is not for the amateur however. The fish should be held ventral side up in the palm of your hand. The dorsal fin should be taken between your middle and ring fingers in order to avoid being pierced by the sharp dorsal fin rays. The genital area you are looking for is concealed beneath the pelvic fins. This can be exposed by pulling (gently) on the caudal fin. A male fish will exhibit an extended papillae which should be pointed and ridged. The spermatoduct can be seen on the caudal side. Females also have a clearly visible papillae but this is more rounded and the oviduct is on the opposite side to the male's spermatoduct. Most species of medium/large Synodontis can be sexed using this method but it should be noted that most species take 2 years or more to reach sexual maturity.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=121",
+      "html": "<p>Lay the fish in your hand with its head toward your palm and the tail toward your fingers. Hold the dorsal spine between your middle and ring finger so the fish is belly up. The genital pore is in a small furrow of tissue and is obstructed by the pelvic fins. Pull down gently on the tail to arch the spine; the pelvic fins will stand and the furrow open to display the genital pore and the anus. The male has a somewhat ridged genital papilla with the spermatoduct on the back side, facing the tail fin. A gravid female also shows an extended papilla, but the oviduct is on the ventral side of the papilla (and may show some redness if really gravid). A thin or emaciated female will have just two pink pores, the oviduct and the anus.</p>"
     },
     {
       "key": "reproduction",
@@ -177,6 +243,12 @@
       "html": "<p>Not achieved under natural conditions in aquaria, although captive breeding has occured on commercial fish farms via the use of hormone injections. Many of the young fish that come onto the market have been produced in this way. In nature, S. eupterus breeds in areas of seasonal flooding that are rich in micro-organisms. They are egg scatterers and exhibit no parental care.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=121",
+      "html": "<p>Breeding: unknown. There is but a single breeding report.</p>"
+    },
+    {
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/mochokidae/synodontis_eupterus_marbled.htm",
@@ -189,10 +261,22 @@
       "html": "<p>One of the most popular and commonly seen Synos in the hobby, S. eupterus is usually offered for sale as a small (1-3\") juvenile with no information regarding its potential size. These young fish are often sold as Synodontis \"Network\" due to their attractive reticulated patterning. This patterning breaks up as the fish mature and adult specimens have a simple spotted colouration. The characteristic 'feathered' dorsal also develops with age, with the first few rays developing long extensions. This species is relatively secretive in the aquarium, and can often be found in the classic Synodontis inverted position underneath overhanging rocks or driftwood. However, it will learn to emerge for food, even when the tank lights are on with time. It can survive for over 15 years in the aquarium if maintained properly. Also known as the Featherfin Squeaker.</p>"
     },
     {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=121",
+      "html": "<p>All species in the genus Synodontis have a hardened head cap with a process (humeral process) behind the gill opening, pointed towards the posterior. The dorsal and pectoral fins have a hardened, serrated first ray. The caudal fin is always forked. There is one pair of maxillary barbels, sometimes with membranes and occasionally branched. The two pairs of mandibular barbels are often branched and can have nodes. The cone-shaped teeth in the upper jaw are short; those in the lower jaw are S-shaped and movable. These fish produce audible sounds when disturbed by rubbing the base of the pectoral spine against the pectoral girdle.</p><p>Juvenile colouration is quite different from that of the adult. The change begins when the fish reach about 40 mm and continues gradually until they pass 100 mm.</p><p>IUCN Red List: Least Concern (assessed 2019).</p>"
+    },
+    {
       "key": "references",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/mochokidae/synodontis_eupterus_marbled.htm",
       "html": "<p>Gosse, J.-P., 1986. Mochokidae. p. 105-152. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISNB, Brussels, MRAC, Tervuren; and ORSTOM, Paris. Vol. 2.</p><p>Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2021).</p><p>ScotCat Factsheet no. 16. October 1997.</p><p>Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p><p>Woodward, Neil. pers. comm. 2026.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=121",
+      "html": "<p>Annals and Magazine of Natural History (Series 7) v. 8 (no. 43) (art. 2), pp 11.</p>"
     }
   ],
   "photos": [
@@ -278,5 +362,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

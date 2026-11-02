@@ -8,15 +8,68 @@
   "places": [
     "south-america",
     "peru",
-    "nanay"
+    "nanay",
+    "guyana",
+    "demerara-river",
+    "brazil",
+    "amazon"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ]
+  },
   "sections": [
     {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1113",
       "html": "<p>Amazon, Upper Amazon, Nanay. Photographed in the Rio Nanay near Iquitos, Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm",
+      "html": "<p>South America: Demerara River, Essequibo basin, Orinoco, and Amazon River basins. Type locality: Potaro Landing, British Guiana.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm",
+      "html": "<p>Provide plenty of hiding places to hide during the day.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm",
+      "html": "<p>No problem with eating all types of aquarium fare: flake, tablets, pellets, live and frozen foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm",
+      "html": "<p>This genus is predatory in the aquarium towards fish that are smaller. Best kept in a small group of 2-3. Very secretive in its surroundings.</p>"
     },
     {
       "key": "reproduction",
@@ -29,6 +82,18 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1113",
       "html": "<p>IUCN Red List category: Not Evaluated. A juvenile of 3-4 cm SL was sold as Microglanis.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm",
+      "html": "<p>Etymology: the specific name villosus is Latin for hairy or shaggy, referring to fine hair-like filaments over the entire body, especially abundant above the pectoral fin.</p><p>IUCN Red List: despite the limited information available on this species, it is assessed as Least Concern due to its wide range (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm",
+      "html": "<p>Brejão, G.L. 2022. Batrochoglanis villosus. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (11/2019).</p><p>Shibatta, O.A., 2003. Pseudopimelodidae (Bumblebee catfishes, dwarf marbled catfishes). p. 401-405. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -56,26 +121,51 @@
     },
     {
       "url": "https://media.aquatome.com/commons/a85200a40f94152c.webp",
+      "thumb": "https://media.aquatome.com/commons/a85200a40f94152c-480.webp",
       "width": 960,
       "height": 646,
       "licence": "Public domain",
       "author": "Burkhardt, Jacques",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Batrochoglanis_raninus_and_Batrochoglanis_villosus_(Tajapuru,_Brazil,_22_August_1865;_Teffe,_Brazil,_30_September_1865).jpg",
-      "caption": "Taxonomic Classification: Animalia--Pseudopimelodidae--Batrochoglanis raninus (Valenciennes 1840).Taxonomic Classification: Animalia--Pseudopimelodidae--Batrochoglanis villosus (Eigenmann 1912)",
-      "thumb": "https://media.aquatome.com/commons/a85200a40f94152c-480.webp"
+      "caption": "Taxonomic Classification: Animalia--Pseudopimelodidae--Batrochoglanis raninus (Valenciennes 1840).Taxonomic Classification: Animalia--Pseudopimelodidae--Batrochoglanis villosus (Eigenmann 1912)"
     },
     {
       "url": "https://media.aquatome.com/commons/cf4169566e5b133e.webp",
+      "thumb": "https://media.aquatome.com/commons/cf4169566e5b133e-480.webp",
       "width": 960,
       "height": 620,
       "licence": "Public domain",
       "author": "Burkhardt, Jacques",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Batrochoglanis_villosus_(Teffe,_Brazil,_30_September_1865).jpg",
-      "caption": "Taxonomic Classification: Animalia--Pseudopimelodidae--Batrochoglanis villosus (Eigenmann 1912). Common Name: Bumblebee catfish. Common Name: Dwarf marbled catfish. Specimen Collection Date: 1865-09-3",
-      "thumb": "https://media.aquatome.com/commons/cf4169566e5b133e-480.webp"
+      "caption": "Taxonomic Classification: Animalia--Pseudopimelodidae--Batrochoglanis villosus (Eigenmann 1912). Common Name: Bumblebee catfish. Common Name: Dwarf marbled catfish. Specimen Collection Date: 1865-09-3"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "215Jhioibiw",
+      "title": "Batrochoglanis cf. villosus",
+      "durationSec": 24,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "7E9HszqoMYk",
+      "title": "Batrochoglanis sp 1",
+      "durationSec": 65,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8edWwy9YXDc",
+      "title": "Batrochoglanis cf. villosus update.",
+      "durationSec": 39,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "ubTj_zpsRgE",
+      "title": "Batrochoglanis sp",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -99,5 +189,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-02"
 }

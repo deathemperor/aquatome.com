@@ -1,0 +1,82 @@
+{
+  "id": "harttia-kronei",
+  "scientificName": "Harttia kronei",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Harttia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "ribeira-de-iguape"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1215",
+      "html": "<p>Harttia kronei Miranda Ribeiro, 1908.</p><ul><li>IUCN Red List: Not Evaluated</li><li>Type locality: Rio Bethary of Rio Ribeira, São Paulo, Brazil.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1215",
+      "html": "<p>South America: Ribeira de Iguape River basin. Sao Paulo State Rivers, Iguape.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1215",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1215",
+      "html": "<p>Kosmos, Rio de Janeiro [Rev. Art. Sci. Litt.] v. 5 (no. 2) (for 1907), pp [2], Figs. 3-3a.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "rau câu cho cá ăn tảo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

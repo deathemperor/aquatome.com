@@ -10,13 +10,44 @@
     "madagascar",
     "fianarantsoa"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 22
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm",
+      "html": "<ul><li>Common name: Vaona</li><li>Dorsal spines: 2; dorsal soft rays: 6-7; anal spines: 0; anal soft rays: 14-15; vertebrae: 44-46.</li></ul>"
+    },
     {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1115",
       "html": "<p>Eastern Madagascar, Fianarantsoa (21.38169S, 47.89298E).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm",
+      "html": "<p>Africa: widely distributed along eastern-draining rivers of Madagascar. Type locality: Tohizona, Madagascar. Ancharius fuscus has by far the widest range of any member of the family, extending from the region of Maroansetra in the north to the southeastern highlands; all other Anchariidae are known from only a single basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm",
+      "html": "<p>Ancharius fuscus is restricted to the middle to upper reaches of several river basins of the eastern coast of Madagascar and to habitats that are not highly degraded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm",
+      "html": "<p>Diagnosis: Ancharius fuscus is distinguished from other Anchariidae by a shorter snout (40.1-45.8% of head length vs. 47.1-54.3), longer maxillary barbels reaching to the midpoint of the pectoral-fin base, a pectoral spine serrated along its entire posterior margin, and purplish-gray colouration. It differs from Ancharius griseus in having a shorter dorsal-fin spine (14.6-22.6% of standard length vs. 22.9-24.3%) and a larger eye (11.4-15.4% of head length vs. 9.3-10.1%).</p><p>Etymology: the genus name Ancharius comes from the Greek ánchi, near, referring to its similarity to Arius (Ariidae). The specific name fuscus is Latin for dark or dusky.</p><p>IUCN: population sizes and status are poorly known and this is not a common species anywhere in its range. Previously assessed as Data deficient, it is suggested to be reassessed as Least Concern, as the extent of occurrence is estimated at 63,000 km² and there is no sign of significant population decline.</p>"
     }
   ],
   "photos": [
@@ -32,7 +63,26 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "WRS7OgYPTzw",
+      "title": "Ancharius fuscus",
+      "durationSec": 43,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9ZNHTVGOPsk",
+      "title": "Ancharius fuscus",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AUEwyRvCwxU",
+      "title": "Chronicles of Catfishes 27 Malagasy Ancharids",
+      "durationSec": 354,
+      "lang": "en"
+    }
+  ],
   "productSlots": [],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-02"
 }

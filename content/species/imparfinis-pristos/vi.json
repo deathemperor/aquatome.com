@@ -1,0 +1,22 @@
+{
+  "slug": "ca-tre-tom",
+  "name": "Cá trê tôm",
+  "altNames": [
+    "Cá trê tôm (Shrimp Catfish)",
+    "Shrimp Catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên thường gọi: cá trê tôm (Shrimp Catfish)</li></ul>",
+    "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong lưu vực sông Negro và sông Orinoco.</p><p>Nơi thu mẫu chuẩn: phụ lưu thứ hai phía bờ trái, tính từ cửa sông Río Tomo, Vichada, Colombia.</p>",
+    "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về loài này sinh sản trong bể nuôi.</p>",
+    "references:planetcatfish": "<p>Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen (Series C, Biological and Medical Sciences) v. 92 (no. 3), pp 391, Fig. 3.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.7
+    },
+    "reason": "thin"
+  }
+}

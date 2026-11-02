@@ -1,0 +1,51 @@
+{
+  "id": "noturus-lachneri",
+  "scientificName": "Noturus lachneri",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "saline-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1208",
+      "html": "<ul><li>Scientific name: Noturus lachneri Taylor, 1969</li><li>Common name: Ouachita Madtom</li><li>IUCN Red List: Endangered (last assessed 2012)</li><li>Etymology: from the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins. The species was named to honour Ernest A. Lachner.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1208",
+      "html": "<p>North America: upper Saline River system and a small unnamed tributary of the Ouachita River in central Arkansas, USA. Type locality: Middle Fork of Saline River at the state highway 7 crossing, 11.2 miles north of Mountain Valley, Garland County, Arkansas.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1208",
+      "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1208",
+      "html": "<p>Bulletin of the United States National Museum No. 282, pp 54, Pl. 3 (fig. 2), Pl. 5 (fig. 2).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-02"
+}

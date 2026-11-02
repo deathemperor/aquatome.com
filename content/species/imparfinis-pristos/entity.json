@@ -1,0 +1,68 @@
+{
+  "id": "imparfinis-pristos",
+  "scientificName": "Imparfinis pristos",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Imparfinis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "orinoco",
+    "brazil",
+    "negro"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1210",
+      "html": "<ul><li>Common name: Shrimp Catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1210",
+      "html": "<p>South America: Negro and Orinoco River basins.</p><p>Type locality: Second tributary, left side, from mouth of Río Tomo, Vichada, Colombia.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1210",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1210",
+      "html": "<p>Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen (Series C, Biological and Medical Sciences) v. 92 (no. 3), pp 391, Fig. 3.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng mini",
+        "lọc sponge cho bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

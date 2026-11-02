@@ -1,0 +1,23 @@
+{
+  "slug": "ca-bong-mat-cong",
+  "name": "Cá bống mắt công",
+  "altNames": [
+    "Cá bống công",
+    "Peacock gudgeon",
+    "Cá bống ngủ",
+    "Peacock goby"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>T. ocellicauda dài khoảng 5-6 cm khi trưởng thành. Cá bán trên thị trường gần như toàn bộ là cá sinh sản nhân tạo.</p>",
+    "distribution:glaser": "<p>Loài bống này có nguồn gốc từ Papua New Guinea.</p>",
+    "notes:glaser": "<p>Loài này thuộc nhóm bống ngủ (sleeper goby). Cái tên này xuất phát từ lớp phản quang phủ trên mắt cá. Những người đầu tiên quan sát chúng nhìn lớp này và tưởng cá đang nhắm mắt ngủ.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

@@ -2,12 +2,14 @@
   "id": "hygrophila-difformis",
   "scientificName": "Hygrophila difformis",
   "difficulty": 1,
-  "light": "low",
+  "light": "medium",
   "co2": "optional",
   "growth": "fast",
   "placement": [
     "background",
-    "midground"
+    "midground",
+    "foreground",
+    "floating"
   ],
   "sections": [
     {
@@ -17,58 +19,126 @@
       "html": "<ul><li>Type: stem plant</li><li>Origin: Asia</li><li>Growth rate: high</li><li>Height: 20–30+ cm (average height after two months in the tank)</li><li>Light demand: low</li><li>CO2: low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
+      "html": "<p>Water wisteria (Hygrophila difformis) is a very popular aquarium plant because of its lacy leaves, bright green color, and rapid growth. Its care requirements are easy, but it is very prone to melting and losing its leaves when first purchased.</p><p>This aquatic stem plant can easily grow up to 51 cm tall and 25 cm across. At greater heights, light has difficulty reaching the base and the bottom leaves may begin to thin out. It is often used as a background plant, but can be planted in the foreground or midground if cut shorter.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
+      "html": "<p>Native to countries ranging between India and Thailand.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophiladifformis(051BDT)/4485",
       "html": "<p>A bundle of stems or young plants gathered in an anchor. Remove the anchor and split into separate plants. For stem plants, remove the leaves from the lowest 5 cm (2\"). Remove any damaged leaves. Plant the individual plants with some distance between them into the bottom substrate. Roots will develop soon and the plant starts growing.</p><p>Please note that bunches/bundled plants are currently NOT produced at Tropica's own nursery. We are unable to guarantee that they are free from harmful pesticides and thus recommend NOT putting them directly in tanks with shrimps and other delicate fish. Keep bundled plants in tanks where water is changed twice a week for 2 weeks before you add shrimps or fish.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
+      "html": "<h3>Planting</h3><ul><li>Carefully remove the stems from the rubber band, bundle, or rock wool inside the plastic pot, and trim any stems or leaves damaged in transport.</li><li>Using your fingers or tweezers, push the base of each stem as deeply as possible into the gravel or substrate.</li><li>Plant each stem separately about 2.5-5 cm apart so they have room to develop roots and anchor.</li><li>If fish dig in the substrate, protect newly planted stems with a ring of rocks, wood, or other decorations.</li><li>Wisteria can also be grown floating, where it rises to the surface and develops many hanging roots along the horizontal stem.</li></ul><h3>Melting after purchase</h3><p>After planting, expect it to look good for the first couple of days. Halfway through the first week, emersed leaves start turning yellow and then brown, especially near the bottom of the stems. Once the leaves are brown, you can remove them to avoid excess rotting organics in the aquarium. If the wisteria lacks light and/or nutrients, the stems may turn brown and melt away. Cut off the brown, soggy stems, replant the healthy green parts, and add more lighting or fertilizer as needed.</p><h3>Converting from emersed to submersed growth</h3><p>The conversion can take from a couple of weeks to a couple of months, depending on the tank's light, nutrient, and carbon dioxide (CO2) levels. In a low-tech tank with dim lighting and no CO2 injection, it may take about a month for the first submersed leaves to appear.</p><ul><li>Use medium to high lighting, place the wisteria directly under the light, and make sure other plants do not shade it.</li><li>Provide plenty of nutrients in the water column with an all-in-one liquid fertilizer, and add a mineral supplement if you have soft water with low GH.</li><li>CO2 injection is not required but greatly shortens the conversion time.</li><li>If planted in the substrate, try not to move it around; each time the ground is disturbed, it stops growing for a while.</li><li>Make sure the stems are not too tall and growing out of the water, or they may develop more emersed leaves instead of submersed ones.</li><li>If conversion is difficult, float some stems so they collect more light and CO2 at the surface, then replant them once they have grown a decent amount of roots.</li><li>Keep water parameters, lighting, and fertilizer stable, because wisteria easily melts when conditions fluctuate.</li></ul><h3>Propagation</h3><p>Once well-established, it can grow like a weed at 1-8 cm per day. To prevent it from blocking all the light and outcompeting other plants, cut off the top half of the stems and replant the trimmings. The bottom half can stay in the substrate and will eventually grow new leaves from the tip. If the bottom half is too leggy and lost most of its leaves, many people remove it and plant the top half in its place.</p><p>If the wisteria is floating, do not let it cover more than 50% of the water surface, or it may shade out other plants and cause stagnant, oxygen-deprived water.</p><p>When several centimeters of submersed leaves have grown, you can cut off the healthy tips and replant them to replace the old, emersed-grown sections.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophiladifformis(051BDT)/4485",
       "html": "<p>Hygrophila difformis from Asia is a beautiful and undemanding stem plant. Stems become 20–30 cm tall and 6–12 cm wide. It is a plant for beginners, which will help create balance in the aquarium from the start. Its rapid growth helps prevent algae because the plant absorbs a great number of nutrients from the water. A shortage of micronutrients leads to pale leaves, which may be an indication that the aquarium needs fertiliser. In large aquariums its lobed leaves can create a distinctive group.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
+      "html": "<h3>Emersed and submersed leaves</h3><p>Wisteria is often grown on commercial farms with leaves and stems out of water and roots in the water, which makes plants grow faster, bigger, and free of algae and pests. Emersed-grown plants have thicker stems and broader leaves that absorb carbon dioxide from the air. Emersed leaves look like strawberry leaves: oval, about 4 cm long, with grooved veins and slightly jagged edges.</p><p>Once placed in the tank, the plant drops its old emersed leaves and grows new submersed leaves, which draw carbon dioxide and nutrients from the water. Submersed leaves are thinner, narrower, and more delicate: bright green, feathery fronds up to 10 cm across. They look drastically different from emersed growth, but it is the same species adapting to different environments. Its bushy appearance adds visual texture to planted tanks and is good for hiding fish fry or shrimp.</p><h3>Water wisteria vs. water sprite</h3><p>Both have delicate, lacy leaves, but water sprite (Ceratopteris thalictroides) has thinner, more needle-like leaves. Water wisteria is a stem plant that can produce long branches all along the stem, whereas water sprite is a fern that creates new shoots from a central point at the base.</p><p>As a fast-growing plant, wisteria is often used to consume nitrogen waste compounds and outcompete algae. If it gets too little light or liquid fertilizer, it melts away from starvation.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumcoop/7d7047943a607589.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/7d7047943a607589-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
+      "caption": "How to Care for Water Wisteria (Hygrophila difformis) - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/d5844b8750d866c6.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/d5844b8750d866c6-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
+      "caption": "Water Wisteria - Aquarium Co - Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/b39d594e4e8ec5bd.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/b39d594e4e8ec5bd-480.webp",
+      "width": 1000,
+      "height": 623,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
+      "caption": "emersed-grown wisteria leaves",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/007ec8264c4c6402.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/007ec8264c4c6402-480.webp",
+      "width": 1000,
+      "height": 734,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/water-wisteria",
+      "caption": "Submersed-grown wisteria leaves",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/commons/049385ba98b3638b.webp",
+      "thumb": "https://media.aquatome.com/commons/049385ba98b3638b-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 3.0",
       "author": "Skvarlih",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wodorost3.JPG",
-      "caption": "Hygrophila difformis",
-      "thumb": "https://media.aquatome.com/commons/049385ba98b3638b-480.webp"
+      "caption": "Hygrophila difformis"
     },
     {
       "url": "https://media.aquatome.com/commons/f57d6c0f0d1f99db.webp",
+      "thumb": "https://media.aquatome.com/commons/f57d6c0f0d1f99db-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_difformis_kz03.jpg",
-      "caption": "Hygrophila difformis in the Botanischer Garten, Berlin-Dahlem",
-      "thumb": "https://media.aquatome.com/commons/f57d6c0f0d1f99db-480.webp"
+      "caption": "Hygrophila difformis in the Botanischer Garten, Berlin-Dahlem"
     },
     {
       "url": "https://media.aquatome.com/commons/43afb5813886e48a.webp",
+      "thumb": "https://media.aquatome.com/commons/43afb5813886e48a-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Vengolis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_difformis_8278.jpg",
-      "caption": "Hygrophila difformis",
-      "thumb": "https://media.aquatome.com/commons/43afb5813886e48a-480.webp"
+      "caption": "Hygrophila difformis"
     },
     {
       "url": "https://media.aquatome.com/commons/04ed5fb9cf1d5d87.webp",
+      "thumb": "https://media.aquatome.com/commons/04ed5fb9cf1d5d87-480.webp",
       "width": 960,
       "height": 638,
       "licence": "CC BY-SA 4.0",
       "author": "Vengolis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_difformis_8280.jpg",
-      "caption": "Hygrophila difformis",
-      "thumb": "https://media.aquatome.com/commons/04ed5fb9cf1d5d87-480.webp"
+      "caption": "Hygrophila difformis"
     }
   ],
   "productSlots": [
@@ -94,5 +164,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-02"
 }

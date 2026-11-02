@@ -1,0 +1,166 @@
+{
+  "id": "satanoperca-acuticeps",
+  "scientificName": "Satanoperca acuticeps",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Satanoperca",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 30,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5.5,
+          "max": 6
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 0,
+          "max": 4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/satanopera_acuticeps_en/",
+      "html": "<p>Brazil: Rio Branco, Negro, Solimões.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/satanopera_acuticeps_en/",
+      "html": "<p>Normally the durable care of Satanopera acuticeps is only possible in soft and sour pH-value. But as it was finally successful to breed this eartheater inside the aquarium, it could be that the bred ones are easier to keep and even easier to breed. So far the breeding was possible furthermore only in soft (&lt; 4 °dGH) and sour (pH 5.5-6.0) waters at 30°C. But as the bred ones can be unproblematically raised in hard and alkaline water, it is safe to assume that their care is not as critical anymore. Of course it would be better to use soft and sour water for their care.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/satanopera_acuticeps_en/",
+      "html": "<p>S. acuticeps is a cichlid which must be fed often (at least 3 times a day) and with variety.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/satanopera_acuticeps_en/",
+      "html": "<p>Keeping it with greedy or aggressive fish should be avoided, because S. acuticeps can only slightly assert itself despite its size (20 cm).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/153dc626e9a8ea38.webp",
+      "width": 960,
+      "height": 643,
+      "licence": "CC BY 4.0",
+      "author": "Whaldener Endo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Satanoperca_daemon_205600127.jpg",
+      "caption": "Threespot Eartheater (Satanoperca daemon)",
+      "thumb": "https://media.aquatome.com/commons/153dc626e9a8ea38-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2ac3b3a72a0ec779.webp",
+      "width": 960,
+      "height": 893,
+      "licence": "Public domain",
+      "author": "Burkhardt, Jacques",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Satanoperca_acuticeps_(Teffe,_Brazil,_16_October_1865).jpg",
+      "caption": "Taxonomic Classification: Animalia--Cichlidae--Satanoperca acuticeps (Heckel 1840). Common Name: Sharphead eartheater",
+      "thumb": "https://media.aquatome.com/commons/2ac3b3a72a0ec779-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ae2a0e15faf3055a.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "Public domain",
+      "author": "Burkhardt, Jacques",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Satanoperca_acuticeps_(Maues,_Brazil,_17_December_1865).jpg",
+      "caption": "Taxonomic Classification: Animalia--Cichlidae--Satanoperca acuticeps (cf.). Common Name: Cichlid. Original Name: Acara",
+      "thumb": "https://media.aquatome.com/commons/ae2a0e15faf3055a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c66f53de877c9973.webp",
+      "width": 960,
+      "height": 393,
+      "licence": "Public domain",
+      "author": "Burkhardt, Jacques",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Satanoperca_acuticeps_(Teffe,_Brazil,_27_September_1865).jpg",
+      "caption": "Taxonomic Classification: Animalia--Cichlidae--Satanoperca acuticeps (Heckel 1840). Common Name: Sharphead eartheater. Specimen Collection Date: 1865-09-27",
+      "thumb": "https://media.aquatome.com/commons/c66f53de877c9973-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "yA9xAQLeWow",
+      "title": "The Sharphead Eartheater (Satanoperca Acuticeps) | Amazing Aquatics",
+      "durationSec": 52,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AXpgA_e2QMw",
+      "title": "Biotodoma cf. cupido Rio Coari und Satanoperca acuticeps",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "T9N2sVxBrts",
+      "title": "Satanoperca acuticeps Prespawn?",
+      "durationSec": 5,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zLfsUHS0e1U",
+      "title": "Satanoperca acuticeps",
+      "durationSec": 46,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá cichlid lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá cichlid",
+        "thức ăn viên chìm cho cichlid"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

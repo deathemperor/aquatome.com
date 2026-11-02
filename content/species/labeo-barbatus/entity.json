@@ -1,0 +1,95 @@
+{
+  "id": "labeo-barbatus",
+  "scientificName": "Labeo barbatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Labeo",
+  "group": "barbs",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 60
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_barbatus_en/",
+      "html": "<p>Labeo barbatus is a new import from the Congo. It grows to about 60 cm and is a representative of the genus Labeo, which is represented in the Congo River with at least 34 species.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_barbatus_en/",
+      "html": "<p>Fishes of this size and vivacity need very roomy aquariums and are not suitable for beginners.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_barbatus_en/",
+      "html": "<p>Congo, Congo River.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_barbatus_en/",
+      "html": "<p>In its habitat it lives in sections of strongly flowing water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_barbatus_en/",
+      "html": "<p>Very roomy aquariums are needed.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_barbatus_en/",
+      "html": "<p>The fish usually place no high requirements on food and water chemistry, but they must be fed naturally and sufficiently, and the water filtered accordingly.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_barbatus_en/",
+      "html": "<p>Little is known about its behaviour in aquaria. Since Labeos generally become more aggressive with increasing age, a good aquarium structure is important: territory borders have to be offered and retreat areas created for suppressed individuals. Bogwood, stones, bamboo, plants etc. are suitable for this purpose.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/8c3ea50598f85f10.webp",
+      "width": 900,
+      "height": 485,
+      "licence": "Public domain",
+      "author": "Boulenger",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labeo_barbatus.jpg",
+      "caption": "Labeo barbatus",
+      "thumb": "https://media.aquatome.com/commons/8c3ea50598f85f10-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

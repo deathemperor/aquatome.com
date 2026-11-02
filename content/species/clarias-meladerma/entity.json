@@ -10,13 +10,36 @@
     "indonesia",
     "philippines",
     "vietnam",
-    "mekong"
+    "mekong",
+    "sumatra"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 28.1
+      },
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.2,
+          "max": 7
+        }
       }
     ]
   },
@@ -26,6 +49,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1204",
       "html": "<ul><li>Scientific name: Clarias meladerma Bleeker, 1846</li><li>Type locality: Jakarta, Java, Indonesia.</li><li>Synonyms: Clarias melanoderma, Clarias melanosoma, Clarias melasoma</li><li>Etymology: Clarias: from the Greek chlaros, meaning lively; in reference to the ability of the fish to live for long periods out of water.</li><li>Size: 28.1 cm SL (Fishbase lists 34 cm TL).</li><li>IUCN Red List: Least Concern (last assessed 2019).</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_meladerma.htm",
+      "html": "<ul><li>Common name: Blackskin catfish</li></ul><p>Can walk and leave the water to migrate to other water bodies using its auxiliary breathing organs.</p><p>Description: Dorsal spines (total): 0. Anterior edge of pectoral spine strongly serrated; head length (from tip of snout to extremity of occipital process) 4.0-4.3 times in SL; blackish body.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -38,6 +67,18 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1204",
       "html": "<p>Asia: Mekong to Indonesia and the Philippines.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_meladerma.htm",
+      "html": "<p>Asia: Mekong River basin, and Sumatra, Borneo and Java, also the Philippines. Type locality: Batavia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_meladerma.htm",
+      "html": "<p>Lives in lowland wetlands, bogs and peats. Found in swamps with slightly acidic water. Occur in standing water habitats.</p>"
     },
     {
       "key": "behaviour",
@@ -58,10 +99,22 @@
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_meladerma.htm",
+      "html": "<p>Etymology: The specific name meladerma: mélas (Gr.), black; dérma (Gr.), skin, referring to its blackish or dark body colouration, sometimes variegated with irregular, deeply black spots.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1204",
       "html": "<p>Verhandelingen van het Bataviaasch Genootschap van Kunsten en Wetenschappen. v. 21 (art. 5), pp 54 [178, 288].</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_meladerma.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Kottelat, M. 2001 Fishes of Laos. WHT Publications Ltd., Colombo 5, Sri Lanka. 198 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -77,7 +130,20 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "6dk_U9UDH1U",
+      "title": "Clarias meladerma @ Blackskin Catfish/Keli Mamah (Malaysia)",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vCkaipks6Y4",
+      "title": "Keli lembut/mokmoh (Clarias meladerma) antara sp keli boleh dijumpai di Kedah",
+      "durationSec": 61,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -100,5 +166,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

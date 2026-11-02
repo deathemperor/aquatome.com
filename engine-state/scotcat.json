@@ -518,11 +518,14 @@
     "attempts": 0
   },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T07:23:23.533Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+    "entityIds": [
+      "species/ancharius-fuscus"
+    ],
+    "updatedAt": "2026-11-02T12:18:40.852Z",
+    "hash": "97ec6f00d423bb2b4b5320ef5eb6975a03d94bda9cd01a3c0e758ddef317ddf0",
+    "processedHash": "97ec6f00d423bb2b4b5320ef5eb6975a03d94bda9cd01a3c0e758ddef317ddf0",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm": {
     "entityIds": [
@@ -531,6 +534,16 @@
     "updatedAt": "2026-10-31T19:33:09.192Z",
     "hash": "ebc2cf45b9776851e5e903ffc785b3e1f67744d011c12cfabc4e8249d444014f",
     "processedHash": "ebc2cf45b9776851e5e903ffc785b3e1f67744d011c12cfabc4e8249d444014f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm": {
+    "entityIds": [
+      "species/centromochlus-heckelii"
+    ],
+    "updatedAt": "2026-11-02T12:20:32.331Z",
+    "hash": "857fbb5d6caee731739194f506e54556240b3774987f4f75d0e9b4fc3d793174",
+    "processedHash": "857fbb5d6caee731739194f506e54556240b3774987f4f75d0e9b4fc3d793174",
     "status": "processed",
     "attempts": 0
   },
@@ -554,12 +567,35 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/clariidae/clarias_meladerma.htm": {
+    "entityIds": [
+      "species/clarias-meladerma"
+    ],
+    "updatedAt": "2026-11-02T12:25:35.166Z",
+    "hash": "7caabbbdb8993500d343f9a126b74020bd6d2e3a1e3327b56f029ec2f83c095c",
+    "processedHash": "7caabbbdb8993500d343f9a126b74020bd6d2e3a1e3327b56f029ec2f83c095c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/clariidae/clarias_pachynema.htm": {
+    "entityIds": [
+      "species/clarias-pachynema"
+    ],
+    "updatedAt": "2026-11-02T12:26:21.488Z",
+    "hash": "fea6f59241d06d0096dd16a3cbfa19e8b1ac98a232617ac493b787b64d35bab7",
+    "processedHash": "fea6f59241d06d0096dd16a3cbfa19e8b1ac98a232617ac493b787b64d35bab7",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/doradidae/anadoras_grypus.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T07:23:11.958Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+    "entityIds": [
+      "species/anadoras-grypus"
+    ],
+    "updatedAt": "2026-11-02T12:16:28.249Z",
+    "hash": "26039d931b3f15041ac17c04855b7b3a8cb541bf88619b3ffd37bae351072f84",
+    "processedHash": "26039d931b3f15041ac17c04855b7b3a8cb541bf88619b3ffd37bae351072f84",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/doradidae/centrochir_crocodili.htm": {
     "entityIds": [
@@ -591,6 +627,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/chaetostoma_fischeri.htm": {
+    "entityIds": [
+      "species/chaetostoma-fischeri"
+    ],
+    "updatedAt": "2026-11-02T12:22:08.922Z",
+    "hash": "f0cae420446e28d98a887b2335072d863330273329adfbb4edc2b63e0715bd15",
+    "processedHash": "f0cae420446e28d98a887b2335072d863330273329adfbb4edc2b63e0715bd15",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/chaetostoma_leucomelas.htm": {
+    "entityIds": [
+      "species/chaetostoma-leucomelas"
+    ],
+    "updatedAt": "2026-11-02T12:24:18.790Z",
+    "hash": "e491644268d1d6f5f18095beb63ff7a15206c15553d6a073ad35e3294a44c2ed",
+    "processedHash": "e491644268d1d6f5f18095beb63ff7a15206c15553d6a073ad35e3294a44c2ed",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",
@@ -610,11 +666,14 @@
     "attempts": 0
   },
   "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T07:22:57.524Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
+    "entityIds": [
+      "species/pterygoplichthys-gibbiceps"
+    ],
+    "updatedAt": "2026-11-02T12:14:02.155Z",
+    "hash": "cd69c8f690df887acdf22328638c0f9f1c676e55ce0ffdd12f1644bb4f853c2f",
+    "processedHash": "cd69c8f690df887acdf22328638c0f9f1c676e55ce0ffdd12f1644bb4f853c2f",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/loricariidae/pterygoplichthys_joselimaianus.htm": {
     "entityIds": [
@@ -663,6 +722,16 @@
     "updatedAt": "2026-10-31T19:39:45.131Z",
     "hash": "e86cce2a28fc6acdbea9858fafa7cdffde87a912178c58ef550737069501e1f8",
     "processedHash": "e86cce2a28fc6acdbea9858fafa7cdffde87a912178c58ef550737069501e1f8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm": {
+    "entityIds": [
+      "species/batrochoglanis-villosus"
+    ],
+    "updatedAt": "2026-11-02T12:19:34.312Z",
+    "hash": "ecc51aed72006ca7c265a118bbe60cdb6fade79a92692637bf2b26156cff5973",
+    "processedHash": "ecc51aed72006ca7c265a118bbe60cdb6fade79a92692637bf2b26156cff5973",
     "status": "processed",
     "attempts": 0
   }

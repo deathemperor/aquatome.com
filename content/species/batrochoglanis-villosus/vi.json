@@ -8,14 +8,20 @@
   "sections": {
     "distribution:planetcatfish": "<p>Lưu vực Amazon, vùng thượng Amazon, sông Nanay. Ảnh của loài này chụp ở sông Nanay, gần Iquitos, Peru.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi nhận. Đến nay chưa có báo cáo nào về việc cho loài này sinh sản.</p>",
-    "notes:planetcatfish": "<p>Phân hạng trong Sách Đỏ IUCN: Chưa đánh giá (Not Evaluated). Từng có một cá thể non dài 3-4 cm SL (chiều dài chuẩn) được bán dưới tên Microglanis.</p>"
+    "notes:planetcatfish": "<p>Phân hạng trong Sách Đỏ IUCN: Chưa đánh giá (Not Evaluated). Từng có một cá thể non dài 3-4 cm SL (chiều dài chuẩn) được bán dưới tên Microglanis.</p>",
+    "distribution:scotcat": "<p>Loài này sống ở Nam Mỹ, gồm sông Demerara, lưu vực sông Essequibo, lưu vực sông Orinoco và lưu vực sông Amazon. Địa điểm chuẩn là Potaro Landing, thuộc Guyana khi còn là thuộc địa Anh.</p>",
+    "behaviour:scotcat": "<p>Trong bể, các loài thuộc giống này sẽ săn những con cá nhỏ hơn chúng. Tốt nhất là nuôi một nhóm nhỏ 2-3 con. Cá rất nhát và hay lẩn trốn.</p>",
+    "maintenance:scotcat": "<p>Bạn nên bố trí thật nhiều chỗ trốn để ban ngày cá có nơi ẩn mình.</p>",
+    "diet:scotcat": "<p>Cá ăn được hết các loại thức ăn thường dùng cho cá cảnh: cám lá, cám viên nén, cám viên, thức ăn tươi sống và thức ăn đông lạnh.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài villosus trong tiếng Latin có nghĩa là có lông hoặc bờm xờm. Tên này chỉ những sợi mảnh như lông phủ khắp thân cá, mọc dày nhất ở phía trên vây ngực.</p><p>Sách Đỏ IUCN: thông tin về loài này còn ít, nhưng do vùng phân bố rộng nên loài vẫn được xếp vào mức Ít quan tâm (IUCN 2022).</p>",
+    "references:scotcat": "<p>Brejão, G.L. 2022. Batrochoglanis villosus. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (11/2019).</p><p>Shibatta, O.A., 2003. Pseudopimelodidae (Bumblebee catfishes, dwarf marbled catfishes). p. 401-405. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.9,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.85
+    }
   }
 }

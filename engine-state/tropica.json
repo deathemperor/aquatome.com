@@ -1147,6 +1147,14 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://tropica.com/en/plants/plantdetails/Macodessp.'SilverMine'(403TC)(1)/31487": {
+    "entityIds": [],
+    "updatedAt": "2026-11-02T13:34:29.543Z",
+    "hash": "9491774e7b66e2bcf2463d81f5066c34a0445b9a8f7f5eb0cd38e50777594fd6",
+    "processedHash": "9491774e7b66e2bcf2463d81f5066c34a0445b9a8f7f5eb0cd38e50777594fd6",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://tropica.com/en/plants/plantdetails/Marsileahirsuta(010TC)/4428": {
     "entityIds": [
       "plants/marsilea-hirsuta"
@@ -1364,6 +1372,16 @@
     "updatedAt": "2026-10-31T03:09:16.670Z",
     "hash": "144fa7a95fa1671f52c6a9bd213885b23c23ed2a31bada1a72dec13eb932e556",
     "processedHash": "144fa7a95fa1671f52c6a9bd213885b23c23ed2a31bada1a72dec13eb932e556",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://tropica.com/en/plants/plantdetails/Peperomiaemarginella(411TC)(1)/31488": {
+    "entityIds": [
+      "plants/peperomia-emarginella"
+    ],
+    "updatedAt": "2026-11-02T13:34:42.191Z",
+    "hash": "69cbf98137c00764afe96d93c6e20b54f7da4b813e10fea3f4de75caf7bbaa42",
+    "processedHash": "69cbf98137c00764afe96d93c6e20b54f7da4b813e10fea3f4de75caf7bbaa42",
     "status": "processed",
     "attempts": 0
   },

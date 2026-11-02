@@ -1,0 +1,115 @@
+{
+  "id": "scobinancistrus-aureatus",
+  "scientificName": "Scobinancistrus aureatus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Scobinancistrus",
+  "group": "catfish",
+  "lNumber": "L 14",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-xingu"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/scobiancistrus_aureatus_l_14_en/",
+      "html": "<p>A male Scobiancistrus aureatus of about 30 cm in length may have reached full growth. The strong spines on the gill cover (interopercular odontodes) and on the pectoral fins are remarkable.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/scobiancistrus_aureatus_l_14_en/",
+      "html": "<p>Brazil, Rio Xingu.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/scobiancistrus_aureatus_l_14_en/",
+      "html": "<p>Like most L-catfishes from the Rio Xingu, they prefer warm water. The water temperature should not fall durably below 26°C.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/scobiancistrus_aureatus_l_14_en/",
+      "html": "<p>Breeding has not yet succeeded as far as is known. It will surely require higher temperatures; most L-catfishes from the Xingu are bred at temperatures between 28°C and 30°C.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "EszA9vxLIv0",
+      "title": "L014 \"Sunshine\" Scobinancistrus aureatus \"Sao Felix\"",
+      "durationSec": 299,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sTuyoNPdZxU",
+      "title": "Scobinancistrus aureatus , L 14  #pleco #plecos #plecostomus #hekdiscus",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4P5fbIRAizY",
+      "title": "L014 Scobinancistrus Aureatus (Sunshine Pleco Goldie) Exploring",
+      "durationSec": 96,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "yhR5DXkZ2lg",
+      "title": "Scobinancistrus aureatus  L014 The sunshine pleco",
+      "durationSec": 173,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W",
+        "máy sưởi có chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá lau kính",
+        "thức ăn cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

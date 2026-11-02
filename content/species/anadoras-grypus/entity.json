@@ -7,7 +7,8 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "amazon"
   ],
   "dataCard": {
     "tempC": [
@@ -17,12 +18,32 @@
           "min": 20,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -32,6 +53,30 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/anadoras-grypus-2/",
       "html": "<ul><li>pH and hardness: not important for care (tap water), soft and acidic for breeding</li><li>Diet: omnivorous</li><li>Social behavior: peaceful toward conspecifics and other fish species; very small fish are viewed as food.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/anadoras_grypus.htm",
+      "html": "<ul><li>Common name: Dusky Doradid</li><li>IUCN Red List: Least Concern, because it is widely distributed, locally abundant, has no major threats and occurs in many protected areas (IUCN 2023).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/anadoras_grypus.htm",
+      "html": "<p>South America: Upper Amazon River basin: Peru. Type locality: Small streams tributary to the Ambyiacu, as well as the river itself, which empties into the Amazon near Pebas, in Eastern Ecuador, some distance east of the Napo.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/anadoras_grypus.htm",
+      "html": "<p>As this species can grow moderately large, it should be housed with species of the same size or close to it, as it could pick off small fish at night; like most dorads, it is reclusive during daylight hours.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/anadoras_grypus.htm",
+      "html": "<p>Tablet foods, frozen and live worms. Will also eat snails in the aquarium.</p>"
     },
     {
       "key": "behaviour",
@@ -44,10 +89,80 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/anadoras-grypus-2/",
       "html": "<p>The genus Anadoras currently comprises four accepted species, which, however, are virtually indistinguishable based on external characteristics. Since no scientific revision of the genus exists, a pragmatic approach is currently taken, and the species are named according to their origin. In the hobby, A. grypus from Peru is the most commonly encountered species, although it should be noted that none of the species are particularly common in the trade.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/anadoras_grypus.htm",
+      "html": "<p>Similar to Amblydoras nauticus, but this species has a serrated dorsal fin ray, whereas that of A. grypus is smooth. There are also differences in colour pattern and the shape of the head fontanels. The bony plates are also smaller than on Amblydoras.</p><p>Etymology: the specific name grypus comes from grypós (Greek), curved or hook-nosed, referring to its short, smoothly curved snout (Mark H. Sabaj Pérez, pers. comm.).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/anadoras_grypus.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p.</p><p>Correa, E., Chuctaya, J., Sarmiento, J., Carvajal, F., Sanchez-Duarte, P., Arguello, P. &amp; Salvador, G.N. 2023. Anadoras grypus. The IUCN Red List of Threatened Species 2023.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/60ec6839ecdfb597.webp",
+      "thumb": "https://media.aquatome.com/scotcat/60ec6839ecdfb597-480.webp",
+      "width": 500,
+      "height": 233,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/anadoras_grypus.htm",
+      "caption": "Anadoras grypus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/535e77eee24e3c11.webp",
+      "thumb": "https://media.aquatome.com/scotcat/535e77eee24e3c11-480.webp",
+      "width": 500,
+      "height": 347,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/anadoras_grypus.htm",
+      "caption": "Anadoras grypus: Close-up of Humeral Process",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4d8096b920bb40a5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4d8096b920bb40a5-480.webp",
+      "width": 500,
+      "height": 307,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/anadoras_grypus.htm",
+      "caption": "Anadoras grypus: Close-up of Caudal",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/43fd46002ce9479c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/43fd46002ce9479c-480.webp",
+      "width": 500,
+      "height": 337,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/anadoras_grypus.htm",
+      "caption": "Anadoras grypus: underside",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "8SUZy9TmfT4",
+      "title": "Anadoras grypus",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zfQINDALSRM",
+      "title": "Anadoras grypus",
+      "durationSec": 39,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -70,5 +185,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-02"
 }

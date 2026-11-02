@@ -1,0 +1,95 @@
+{
+  "id": "ossancora-punctata",
+  "scientificName": "Ossancora punctata",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Ossancora",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "brazil",
+    "bolivia",
+    "colombia",
+    "peru",
+    "paraguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/",
+      "html": "<ul><li>Maximum length about 10-12 cm</li><li>Origin: Paraguay</li><li>Available size: 4-6 cm</li><li>Scientifically known since 1855</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/",
+      "html": "<p>This thorny catfish has an enormous wide distribution in South America. It is reported from Argentina, Brazil, Bolivia, Colombia and Peru, where it is found both in white and black water. The imported fish came from Paraguay.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/",
+      "html": "<p>The fish are extremely undemanding regarding water chemistry.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/",
+      "html": "<p>They feed readily on any usual type of aquarium fish food. Plants are ignored.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/",
+      "html": "<p>Ossancora punctata are most active at dawn, so their tank should contain some hiding places. Nevertheless the fish are often visible at daytime, especially when fed. These thorny catfish are absolutely peaceful towards tankmates, whether they belong to their own or to different species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/",
+      "html": "<p>This pretty catfish is nice and hardy, yet it has always been a rarity in aquaria. The striped tailfin and the long \"beard\" are the most striking features. The body coloration is very variable: plain fish occur as well as finely spotted ones or animals with large spots on the flanks.</p><p>Etymology: Ossancora is Latin for \"anchor-shaped bone\", referring to a bone in the shoulder of the fish. punctata is Latin for \"spotted\".</p><p>Suggested common name: Emperor-Wilhelm-Catfish (referring to the \"beard\").</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "KeD5MdELJNw",
+      "title": "Ossancora punctata bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 33,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn viên chìm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

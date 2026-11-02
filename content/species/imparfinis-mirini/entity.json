@@ -1,0 +1,90 @@
+{
+  "id": "imparfinis-mirini",
+  "scientificName": "Imparfinis mirini",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Imparfinis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "parana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1209",
+      "html": "<ul><li><strong>Scientific name:</strong> Imparfinis mirini Haseman, 1911</li><li><strong>Common names:</strong> Shrimp Catfish (English name), Rejemalle (Denmark)</li><li><strong>Type locality:</strong> Above the falls of Rio Piracicaba-mirini, near Piracicaba, Brazil.</li><li><strong>Identification:</strong> Easily distinguished from Imparfinis piperatus by its conical instead of depressed head.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2018).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1209",
+      "html": "<p>South America: Upper Araguaia and Paraná River basins in Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1209",
+      "html": "<p>In nature, this species lives under stones in rapids.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1209",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1209",
+      "html": "<p>Annals of the Carnegie Museum v. 7 (nos 3-4) (17), pp 318, Pl. 47.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/f8798c07a3755cf0.webp",
+      "width": 960,
+      "height": 1112,
+      "licence": "CC BY 4.0",
+      "author": "Valter M. Azevedo-Santos, Fernando M. Pelicice, and Raoul Henry",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Actinopterygii_in_the_Guare%C3%AD_River_basin_03_(1676-0611-BN-2020-1031).jpg",
+      "caption": "(a) Oligosarcus paranensis, 144.3 mm SL; (b) Piabarchus cf. stramineus, 48.1 mm SL; (c) Piabina argentea, 58.2 mm SL; (d) Serrapinnus notomelas, 29.5 mm SL; (e) Gymnotus carapo, 108.6 mm TL; (f) Gymno",
+      "thumb": "https://media.aquatome.com/commons/f8798c07a3755cf0-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "đá cuội trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

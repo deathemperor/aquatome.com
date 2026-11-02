@@ -5,6 +5,7 @@
   "family": "Loricariidae",
   "genus": "Pterygoplichthys",
   "group": "catfish",
+  "lNumber": "L165",
   "places": [
     "south-america",
     "bolivia",
@@ -14,13 +15,43 @@
     "peru",
     "colombia",
     "orinoco",
-    "venezuela"
+    "venezuela",
+    "rio-negro"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 40
+      },
+      {
+        "source": "scotcat",
+        "value": 50
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 90,
+        "hidden": "shorter than twice the fish (50 cm)"
       }
     ]
   },
@@ -30,6 +61,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-gibbiceps-2/",
       "html": "<p>The red highfin sucker is a classic, which found its lovers long before the invention of the L-numbers. Juveniles are really adorable and excellent algae killers. In addition they look very beautiful. Since this catfish easily grows to 30-40 cm in length, there are two camps among aquarists. Some are critical of the animal because of its achievable final size (\"everyone must have fallen for it\"), others use the opportunity to finally acquire the long desired large tank.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm",
+      "html": "<ul><li>Common names: Gibby, Sail fin Pleco, L083, L165</li><li>IUCN Red List: Least Concern (IUCN 2023). Despite the little information available on this species, it has a wide range and no apparent threats.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -44,10 +81,40 @@
       "html": "<p>The wild species is very widespread in South America (the entire upper and middle basins of the Amazon and Orinoco: Bolivia, Brazil, Ecuador, Peru, Colombia and Venezuela), but is hardly ever imported from there.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm",
+      "html": "<p>South America: Middle and upper Amazon and Orinoco basins.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-gibbiceps-2/",
       "html": "<p>The care of the peaceful animals is completely problem-free, if one does justice to their space requirements.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm",
+      "html": "<p>To keep this fine looking animal in mint condition you will need a reasonably sized aquarium, starting off with a 3 footer when small, with good external filtration to facilitate a good oxygen content, as it excretes copious amounts of waste if fed properly on vegetable matter. If the water quality is not adhered to, small holes can appear in the fin membranes. You will notice when your water quality is not up to the mark as they \"hang\" in the water just off their fins, from the substrate, which means 'get that water change done'.</p><p>It is kind to plants in the aquarium, the only problem is when it gets bigger and can uproot them in its conquest around the tank.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm",
+      "html": "<p>They are mostly vegetarian with algae being their number one source of food but to keep a large fish fed on algae alone is impossible so you can feed also spinach, blanched lettuce, cucumber, courgette (zucchini) and also non veg food such as tablets and prawns.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm",
+      "html": "<p>The true P. gibbiceps, L165, is rarely imported and is from the Rio Negro (Brazil). It has a much higher dorsal fin than the specimens imported from Venezuela and Colombia but the colouration is much the same. There is a wide distribution and colour variants in Brazil and Peru for this species including L083 and L313 from Brazil, Pará, Rio Xingu (south and floodplain lakes at Altamira), and L164 from the Rio Tefé, Brazil. Some of these may turn out to be new undescribed species or just colour variants of P. gibbiceps.</p><p>You can identify a Pterygoplichthys species from Hypostomus for example due to the many more rays in the dorsal fin, which can be up to 10 or over.</p><p>Etymology: The specific name gibbiceps: With a hump on the head.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm",
+      "html": "<p>Rainer Stawikowski, André Werner &amp; Ingo Seidel. DATZ Special L-Numbers 2004. All L-numbers: Habitat, Care &amp; Diet.</p><p>Salvador, G.N. 2023. Pterygoplichthys gibbiceps. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
   "photos": [
@@ -96,7 +163,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "xp7USg7vJAk",
+      "title": "Gibbiceps #Gibbiceps #Pleco #Aquarium #AquariumFish #Fish #FishTank #Catfish #Shorts #YouTubeShorts",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Qn08Ys-3N2M",
+      "title": "Pterygoplichthys Gibbiceps in my Cichlids tank",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zwOpGczBCPY",
+      "title": "King of my aquarium - armored catfish - Pterygoplichthys gibbiceps",
+      "durationSec": 85,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "T4zeuWFdqko",
+      "title": "Pterygoplichthys gibbiceps - @Aquarium’as",
+      "durationSec": 52,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -120,5 +212,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-02"
 }

@@ -1,0 +1,122 @@
+{
+  "id": "pimelodella-kronei",
+  "scientificName": "Pimelodella kronei",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Pimelodella",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "ribeira-de-iguape"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 15,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1221",
+      "html": "<ul><li>Common name: Cave Pimelodella</li><li>IUCN Red List: Endangered (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1221",
+      "html": "<p>South America: São Paulo State rivers, Iguape and Ribeira de Iguape, Iporanga. Type locality: Cavernas das Areieas, Iporanga, upper River Ribeira basin, São Paulo state, Brazil.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1221",
+      "html": "<p>During the day, occurs in shoals in shaded, deeper pools in streams and smaller rivers.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1221",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1221",
+      "html": "<p>Kosmos, Rio de Janeiro [Rev. Art. Sci. Litt.] v. 4 (no. 1), pp [1], Fig.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/fa1229a768acc6c7.webp",
+      "width": 960,
+      "height": 522,
+      "licence": "CC BY 4.0",
+      "author": "Souza Silva M, Ferreira RL (2016) The first two hotspots of subterranean biodiversity in South America. Subterranean Biology 19: 1-21. https://doi.org/10.3897/subtbiol.19.8207",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodella_kronei_(10.3897-subtbiol.19.8207)_Figure_2_(cropped).jpg",
+      "caption": "Figure 2; Pimelodella kronei",
+      "thumb": "https://media.aquatome.com/commons/fa1229a768acc6c7-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b939fe0753963786.webp",
+      "width": 960,
+      "height": 1342,
+      "licence": "CC BY 4.0",
+      "author": "Souza Silva M, Ferreira RL (2016) The first two hotspots of subterranean biodiversity in South America. Subterranean Biology 19: 1-21. https://doi.org/10.3897/subtbiol.19.8207",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stygobiotic_and_troglobitic_species_(10.3897-subtbiol.19.8207)_Figure_2.jpg",
+      "caption": "Figure 2; Some of the stygobiotic and troglobitic species in Areias cave system, São Paulo, Brazil. Pimelodella kronei (A), Pachylospeleus strinatii (B), Pseudochthonius strinatii (C), Ideoroncus cavi",
+      "thumb": "https://media.aquatome.com/commons/b939fe0753963786-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Ta7-QABySiI",
+      "title": "troglofauna os animais das cavernas",
+      "durationSec": 478,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

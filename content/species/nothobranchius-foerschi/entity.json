@@ -1,0 +1,87 @@
+{
+  "id": "nothobranchius-foerschi",
+  "scientificName": "Nothobranchius foerschi",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Nothobranchius",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "tanzania"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_foerschi_en/",
+      "html": "<p>Nothobranchs (genus Nothobranchius) belong to the most colorful species of freshwater fish. This is true at least for the males, as female nothobranchs are all more or less unicolored.</p><p>Nothobranchs are typical seasonal fish. They outlive the desiccation of their habitat with eggs that can survive without water almost unlimited. Nothobranchius furzeri is world famous as the fish with the shortest lifespan of all: between hatching from the egg and natural death are only 3 months! This is the reason why N. furzeri is in focus of science: medics and biologists study the fish as a model organism to understand the mechanisms of aging.</p><p>Most species of Nothobranchius, however, live much longer and usually they can reach at least an age of 9 months in aquaria. Nothobranchius foerschi is a very beautiful species that originates from Tanzania. Males can reach around 5 cm in length, females stay smaller.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_foerschi_en/",
+      "html": "<p>Regarding water temperature there are differing philosophies among killifish enthusiasts. In nature, temperatures can change very quickly, so the fish are adapted to a wide range of temperatures: 18 – 30°C. However, when kept at the upper or the lower end of this range for longer times they become susceptible to diseases. On the other hand, the fish can have a longer life when kept relatively cool. Nothobranchs are basically undemanding regarding the other water parameters, but it is best to keep them in medium hard, slightly alkaline water, otherwise they are very susceptible to Piscinoodinium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_foerschi_en/",
+      "html": "<p>Due to their strong metabolism nothobranchs need extra strong food. The different types of frozen and live food are very suitable. Plants are ignored.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_foerschi_en/",
+      "html": "<p>Naturally fish that are as specialized as nothobranchs do not fit in usual community tanks. The most beautiful picture is to see several males together in a one-species tank. Nothobranchs are solitary fish and so the males are displaying every now and then.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_foerschi_en/",
+      "html": "<p>Males and females should be kept together only for spawning. They are bottom spawners. The eggs need only around 6-10 weeks after drying out to hatch. So it is possible to have these nice fish in your home aquarium the whole year through.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40cm",
+        "bể cá killi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn sống cho cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

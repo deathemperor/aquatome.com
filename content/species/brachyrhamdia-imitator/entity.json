@@ -1,0 +1,137 @@
+{
+  "id": "brachyrhamdia-imitator",
+  "scientificName": "Brachyrhamdia imitator",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Brachyrhamdia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 0,
+          "max": 18
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=119",
+      "html": "<ul><li>Scientific name: Brachyrhamdia imitator Myers, 1927</li><li>Common names: False Cory, False Corydoras</li><li>IUCN Red List: Least Concern (last assessed 2017)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=119",
+      "html": "<p>South America: Orinoco, Lower Orinoco and Caura. Type locality: Caño de Quiribana near Caicara, Venezuela.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=119",
+      "html": "<ul><li>pH: 6.0 - 7.5</li><li>Temperature: 20-24°C</li><li>Hardness: up to 18 dGH</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=119",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=119",
+      "html": "<p>Etymology: from the Greek brachys, -eia = short, plus the Brazilian vernacular name Nhamdia/Jamdia. The family name Heptapteridae comes from the Greek hepta, meaning seven, and pteron, meaning fin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=119",
+      "html": "<p>Bulletin of the Museum of Comparative Zoology v. 68 (no. 3), pp 123.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "HZQ0KRu0bD4",
+      "title": "Brachyrhamdia imitator (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sRjCvZ9L4GQ",
+      "title": "Imitation is the sincerest form of flattery, the Imitator Corydoras (2023) #shorts",
+      "durationSec": 31,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "tNNzhYTS5y4",
+      "title": "Brachyrhamdia spp",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "c1ezK6ZXU_I",
+      "title": "700 VIDEOS!!  The Master of Disguise not Dana Carvey, but the Imitator Cory (2022)",
+      "durationSec": 129,
+      "lang": "en-US"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc treo"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi mịn nền bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

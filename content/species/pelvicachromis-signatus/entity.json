@@ -1,0 +1,97 @@
+{
+  "id": "pelvicachromis-signatus",
+  "scientificName": "Pelvicachromis signatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Pelvicachromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "guinea"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_signatus_en/",
+      "html": "<p>A dwarf cichlid from Guinea, a close relative of P. humilis. Before its scientific description it was known in the hobby as P. sp. \"Bandi 1\". Males reach about 10 cm; females always stay smaller.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_signatus_en/",
+      "html": "<p>These fish originate from forest creeks.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_signatus_en/",
+      "html": "<p>They should be kept at comparatively low temperatures, around 22 to 24°C, in soft and slightly (!) acidic water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_signatus_en/",
+      "html": "<p>It is important to offer the fish sand rather than gravel, as they love to dig.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_signatus_en/",
+      "html": "<p>As in almost all Pelvicachromis there is an extreme sexual dichromatism. People not educated in the hobby can easily think that males and females belong to different species. The spot on the belly of the females looks incredible.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_signatus_en/",
+      "html": "<p>Lexicon: Pelvicachromis: the Latin word pelvis means \"pelvis\"; chromis is another genus of perch; the generic name refers to the coloration of the belly. signatus: Latin, means \"signed\". humilis: Latin, means \"depressed\".</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền mịn cho cichlid",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 50W"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}
