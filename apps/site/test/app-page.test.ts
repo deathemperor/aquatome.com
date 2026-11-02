@@ -139,14 +139,19 @@ test('in Indonesian: the Indonesian page\'s paths, links and words, and a Vietna
 
 test('a page the app index leaves out is in no "pages" block; a link to it in the text stays, for the web', async () => {
   const c = await getContent('vi')
+  const listed = listedPaths('vi', c)
   const g = appGuides('vi', c).find(g => g.id === 'aquariumcoop-thay-nuoc')!
   const fish = '/vi/ca/ca-neon-vua/'
-  expect(pagesOf(guideDoc('vi', c, g, listedPaths('vi', c)))).toContain(fish)
-  // The same content with that fish too thin to list (the index lists a thin page only above the quality bar).
-  const thin = { ...c, species: c.species.map(s => (`/vi/ca/${s.t.slug}/` === fish ? { ...s, t: { ...s.t, quality: { ...s.t.quality, indexable: false, reason: 'low', score: 0 } } } : s)) } as Content
-  const d = guideDoc('vi', thin, g, listedPaths('vi', thin))
+  expect(pagesOf(guideDoc('vi', c, g, listed))).toContain(fish)
+  // A fish the index doesn't list (another language's index has only the fish with a page there) leaves the block, not the text.
+  const d = guideDoc('vi', c, g, new Set([...listed].filter(p => p !== fish)))
   expect(pagesOf(d)).not.toContain(fish)
   expect(hrefsOf(d)).toContain(fish)
+  // A fish and a guide whose translations scored low (Cá boraras đỏ, Thay nước đúng cách) are on the site's lists, so in
+  // the index and in the blocks that name them.
+  const block = (id: string) => pagesOf(guideDoc('vi', c, appGuides('vi', c).find(x => x.id === id)!, listed))
+  expect(block('sprucepets-low-maintenance-freshwater-fish-4770223')).toContain('/vi/ca/ca-boraras-do/')
+  expect(block('loc-cho-be-nano')).toContain('/vi/huong-dan/thay-nuoc-dung-cach/')
 })
 
 test('each page of each kind is in the shard its path names, the shards hold nothing else, and every page they name is listed', async () => {

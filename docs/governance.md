@@ -29,6 +29,10 @@ that would have caught it).
     - A kind that needs a block no shipped app knows gets the next level.
     - `pages` (guides only) stays as it is for the apps already installed: the first app draws every kind it lists.
     - Guides are level 1. Fish, plant and glossary pages are level 2: the iOS app that reads `shards` knows level 2.
+  - The app index (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) against the built pages: its fish, plants and
+    guides are the site's lists', each with its page's copy in a shard; a species' `tax` and `from` lead to the taxon
+    and origin pages that list it, `places` are the origin pages with what each lists, and `labels` say what those pages
+    say.
   - The Worker's answers when the app posts readers' comments and photos (a bearer, no Turnstile) against
     `protocols/talk.openapi.json`: a status the contract lists and a body of its shape, the account's daily limits on
     top of the address's, and an account's posts and photo files deleted with it (`apps/site/worker/test/talk.test.ts`).
@@ -166,7 +170,8 @@ The layers above still check the result.
   - The build judges every species page (`loadAll`), so a page that gains an in-depth source, by an engine run or two
     jobs' work merged, goes back in search by itself. The engine records the verdict when it merges a source into a page.
   - Out of search means out of the sitemap, the home page's lists and other languages' alternates. A thin page stays in
-    the site's own search, the fish list and the app's index: its translation passed, it is only short.
+    the site's own search, the fish list and the app's index, which lists every fish and plant the site's lists show,
+    a low-scored translation too.
   - A heading with 5 words or fewer under it ("Mouthbrooder.") is shown as a line of the quick facts, or left out when
     they already say it or all it says is "Unknown.".
   - Thin species' profiles on in-depth sources are fetched before new species, most popular first. They are found by the
