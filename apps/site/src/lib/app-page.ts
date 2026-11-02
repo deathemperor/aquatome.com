@@ -13,14 +13,14 @@ import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
 import { isVietnamese, localizeLinks, localizePath, served, translator, type Lang, type T } from './i18n'
 import { smallSrc } from './img'
-import { guideImage } from './mentions'
 import { htmlBlocks } from './page-blocks'
 import { plantParts } from './plant-page'
 import { OFF_LABELS, sectionParts, type SectionProps } from './section-parts'
 import { QUESTION_LABELS } from './sections'
+import { seriesParts } from './series-page'
 import { speciesParts } from './species-page'
 import { commentsKey, photosKey } from './talk'
-import { clock, hours, seriesGuides, seriesSeconds } from './video'
+import { clock } from './video'
 
 /**
  * The app's copy of each content page (packages/schema/src/app-page.ts): the page's own pieces, as the site's template
@@ -252,30 +252,29 @@ export function glossaryDoc(lang: Lang, g: Localized<GlossaryEntity>): PageDoc {
 }
 
 /**
- * A video series' copy (pages/vi/video/[slug].astro): the page's line of counts above its name, its intro, the playlist
- * and channel it follows, then every guide as the page lists them, in its order, as cards: each one's subject, parts and
- * length under its name, its picture credited. A card for a guide the index doesn't list opens on the web. The page has
- * no heading over its list: the cards' title is its crumb's word.
+ * A video series' copy (pages/vi/video/[slug].astro, from the same parts): the page's line of counts above its name, the
+ * playlist and channel it follows as its credit, its intro, then every guide as the page lists them, in its order, as
+ * cards: each one's subject, parts and length under its name, its picture credited. A card for a guide the index doesn't
+ * list opens on the web. The page has no heading over its list: the cards' title is its crumb's word.
  */
 export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
   const t = translator(lang)
   const at = (viPath: string) => localizePath(lang, viPath)
-  const guides = seriesGuides(c, s)
+  const p = seriesParts(lang, c, s)
   return {
     v: PAGE_VERSION,
     kind: 'video',
     path: at(`/vi/video/${s.vi.slug}/`),
     title: s.vi.name,
-    meta: `${t('{n} bài', { n: guides.length })} · ${t('{time} video', { time: hours(lang, seriesSeconds(c, s)) })}`,
+    meta: p.counts,
+    credit: p.follows,
     blocks: [
       ...(s.vi.intro ? [{ t: 'p' as const, c: [s.vi.intro] }] : []),
-      { t: 'p', c: [t('theo playlist “'), { text: s.title, href: `https://www.youtube.com/playlist?list=${s.playlistId}` }, `${t('” của kênh')} `, { text: s.channel, href: s.channelUrl }] },
       {
         t: 'cards', title: t('Video'),
-        items: guides.map(g => {
-          const img = image(lang, guideImage(c, g), undefined, true)
-          const parts = g.video.chapters.length > 1 ? [t('{n} đoạn', { n: g.video.chapters.length })] : []
-          return { path: at(`/vi/huong-dan/${g.t.slug}/`), name: g.t.name, sub: [t(GUIDE_KIND_LABELS[g.kind]!), ...parts, clock(g.video.durationSec)].join(' · '), ...(img ? { img } : {}) }
+        items: p.guides.map(({ g, photo, about, length }) => {
+          const img = image(lang, photo, undefined, true)
+          return { path: at(`/vi/huong-dan/${g.t.slug}/`), name: g.t.name, sub: `${about} · ${length}`, ...(img ? { img } : {}) }
         }),
       },
     ],

@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import type { HTMLElement } from 'node-html-parser'
 import type { Content } from '@aq/schema'
@@ -24,15 +25,13 @@ test('each video series\' copy reads as its built page: name, counts, intro, pla
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
     const { dom } = page(d.path)
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
-    // The intro, then the page's one line: its counts (the copy's line above the name), then the playlist and channel
-    // it follows, both linked.
+    // The page's one line: its counts (the copy's line above the name), then the playlist and channel it follows, both
+    // linked (the copy's credit).
+    expect(`${d.meta} · ${text(d.credit)}`, d.path).toBe(txt(dom.querySelector('.meta')))
+    expect(links(d.credit), d.path).toEqual(dom.querySelectorAll('.meta a').map(a => [txt(a), a.getAttribute('href')]))
     const intro = dom.querySelector('.intro')
-    expect(d.blocks.map(b => b.t), d.path).toEqual([...(intro ? ['p'] : []), 'p', 'cards'])
-    const paras = d.blocks.filter((b): b is B<'p'> => b.t === 'p')
-    if (intro) expect(text(paras[0]!.c), d.path).toBe(txt(intro))
-    const follows = paras.at(-1)!
-    expect(`${d.meta} · ${text(follows.c)}`, d.path).toBe(txt(dom.querySelector('.meta')))
-    expect(links(follows.c), d.path).toEqual(dom.querySelectorAll('.meta a').map(a => [txt(a), a.getAttribute('href')]))
+    expect(d.blocks.map(b => b.t), d.path).toEqual([...(intro ? ['p'] : []), 'cards'])
+    if (intro) expect(text((d.blocks[0] as B<'p'>).c), d.path).toBe(txt(intro))
     // Each guide as the page lists it: its page, name, subject, parts and length, and picture.
     const cards = cardsOf(d)!
     expect(cards.items.map(i => [i.path, i.name, i.sub, i.img?.src]), d.path).toEqual(dom.querySelectorAll('.parts li').map(l => [
@@ -76,4 +75,10 @@ test('a series\' copy in Indonesian has the Indonesian pages\' paths only', asyn
     const paths = JSON.stringify(d).match(/"(href|path)":"[^"]*"/g) ?? []
     for (const p of paths) expect(p, `${s.id}: ${p}`).not.toMatch(/"\/vi\//)
   }
+})
+
+test('the series page and the app\'s copy are put together by the same code', () => {
+  const astro = readFileSync(new URL('../src/pages/vi/video/[slug].astro', import.meta.url), 'utf8')
+  expect(astro).toContain("from '../../../lib/series-page'")
+  for (const own of ['seriesGuides(', 'seriesSeconds(', 'guideImage(', 'clock(', 'GUIDE_KIND_LABELS']) expect(astro, own).not.toContain(own)
 })
