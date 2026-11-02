@@ -16,6 +16,8 @@ public enum Known {
   public static let brand = ["chihiros", "tuya", "ewelink"]
   /// What a plug's outlet powers (docs/smart-plugs.md).
   public static let outletRole = ["light", "co2", "filter", "heater", "air", "fan", "other"]
+  /// What an entry without a page is (UnlistedEntry).
+  public static let unlistedKind = ["fish", "plant"]
 }
 
 /// A new record id: a lowercase UUID.

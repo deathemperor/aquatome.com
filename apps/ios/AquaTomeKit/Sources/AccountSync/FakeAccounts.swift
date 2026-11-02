@@ -27,6 +27,8 @@ public final class FakeAccounts {
   public var now: () -> Date = Date.init
   /// Every request received, in order.
   public private(set) var requests: [URLRequest] = []
+  /// The names counted as wanted (POST /api/v1/wanted), each body as it came, in order.
+  public private(set) var wanted: [[String: JSON]] = []
 
   struct Account { let id: String; var kind = "apple"; var store = TankStore() }
   private var accounts: [String: Account] = [:] // by Apple sub, or `email:<address>`
@@ -109,6 +111,15 @@ public final class FakeAccounts {
       (try o.map { try JSON.object($0).data() } ?? Data(), HTTPURLResponse(url: r.url!, statusCode: status, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!)
     }
     let fail = { (status: Int, code: String) in try reply(status, ["error": .string(code)]) }
+    // Readers' demand (Wanted): no sign-in, accounts on or off; read as apps/site/worker/wanted.ts reads it.
+    if path == "/api/v1/wanted" {
+      guard method == "POST" else { return try fail(405, "method") }
+      guard isJSON else { return try fail(415, "json") }
+      guard let b = r.httpBody.flatMap({ try? JSON.parse($0).object }), let kind = b["kind"]?.string, Known.unlistedKind.contains(kind),
+            b["name"]?.string?.isEmpty == false else { return try fail(400, "bad_name") }
+      wanted.append(b)
+      return try reply(204)
+    }
     if !accountsOn { return path == "/api/v1/session" ? try reply(200, ["accounts": .bool(false)]) : try fail(404, "accounts_off") }
     if method == "POST" && body == nil { return try fail(400, "bad_request") }
 

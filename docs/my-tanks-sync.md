@@ -13,9 +13,8 @@ is never written over.
 
 - Schema: `packages/schema/src/tanks.ts` (zod). JSON Schema for other languages: `protocols/tanks.schema.json`
   (generated; a test fails when it is stale).
-- Test cases both clients run: `protocols/tanks-vectors.json` (`valid`, `invalid`, `merge`, `litres`; `invalidUnlisted`
-  for entries without a page, until the app reads them), and `protocols/unlisted-vectors.json` (which page such an entry
-  is shown as).
+- Test cases both clients run: `protocols/tanks-vectors.json` (`valid`, `invalid`, `merge`, `litres`), and
+  `protocols/unlisted-vectors.json` (which page an entry without a page is shown as).
 
 ## Records
 
