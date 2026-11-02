@@ -49,7 +49,7 @@ function failing(issues, { fp, path, title, details, runUrl, autofix = false }) 
   console.log(`opened ${url}: ${title}`)
   // Layer 4: hand a new page problem to fix.yml (a few per run; an issue opened with this token starts no workflow).
   const n = url.match(/\/issues\/(\d+)$/)?.[1]
-  if (n && autofix && dispatched < 3) { act('workflow', 'run', 'fix', '-f', `issue=${n}`); dispatched++ }
+  if (n && autofix && dispatched < 3) { act('workflow', 'run', 'fix.yml', '-f', `issue=${n}`); dispatched++ }
 }
 let dispatched = 0
 function passing(issues, fp, runUrl, what) {
@@ -131,7 +131,7 @@ if (cmd === 'prepare') {
   }
 } else if (cmd === 'deploy-failed') {
   ensureLabel()
-  failing(openIssues(), { fp: fingerprint('deploy'), title: 'Deploy failed', details: 'The last deploy did not finish: aquatome.com still shows the version before it. Open the run, fix the failing step, then run deploy again.', runUrl: args[0] })
+  failing(openIssues(), { fp: fingerprint('deploy'), title: 'Deploy failed', details: 'The last deploy did not finish: aquatome.com still shows the version before it. Open the run, fix the failing step, then run deploy.yml again.', runUrl: args[0] })
 } else if (cmd === 'deploy-ok') {
   passing(openIssues(), fingerprint('deploy'), args[0], 'A deploy finished')
 } else if (cmd === 'pr-comment') {

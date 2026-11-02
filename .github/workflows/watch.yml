@@ -1,10 +1,10 @@
-name: watch
+name: Live site checks (after each deploy, nightly)
 # Layer 2 of docs/governance.md: the browser checks against aquatome.com after every deploy and each night, a different
 # sample of pages each day plus every page with an open problem. Problems become issues (label site-check) and close
 # themselves once the check passes. A failed deploy opens one too (its run was started by the engine: nobody else hears).
 on:
   workflow_run:
-    workflows: [deploy]
+    workflows: ['Deploy aquatome.com'] # deploy.yml's name
     types: [completed]
   schedule:
     - cron: '0 22 * * *' # 05:00 in Vietnam
@@ -16,43 +16,55 @@ permissions:
   contents: read
   issues: write
   actions: write # starts fix.yml for a new problem (layer 4)
+env:
+  GH_TOKEN: ${{ github.token }}
 jobs:
   deploy-failed:
+    name: Open the "Deploy failed" issue
     if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - run: node scripts/site-watch.mjs deploy-failed "$DEPLOY_RUN"
+      - name: Open or update the issue
+        run: node scripts/site-watch.mjs deploy-failed "$DEPLOY_RUN"
         env:
-          GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN: ${{ github.event.workflow_run.html_url }}
-  check:
+  # Check what is live with the checks of that version: the commit the deploy just shipped, else the last deploy that
+  # succeeded. Main's newest checks against an older site fail on what isn't deployed yet. Found once for every job
+  # below, so they all check out the same commit.
+  live:
+    name: Find the version that is live
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
-    env:
-      GH_TOKEN: ${{ github.token }}
-      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    timeout-minutes: 5
+    outputs:
+      sha: ${{ steps.sha.outputs.sha }}
     steps:
-      # Check what is live with the checks of that version: the commit the deploy just shipped, else the last deploy
-      # that succeeded. Main's newest checks against an older site fail on what isn't deployed yet.
-      - id: live
-        if: github.event_name != 'workflow_run'
-        run: echo "sha=$(gh run list -R "$GITHUB_REPOSITORY" --workflow deploy --status success --limit 1 --json headSha --jq '.[0].headSha')" >> "$GITHUB_OUTPUT"
+      - id: sha
+        name: The deploy's commit, else the last deploy that succeeded
+        env:
+          DEPLOYED: ${{ github.event.workflow_run.head_sha }}
+        run: echo "sha=${DEPLOYED:-$(gh run list -R "$GITHUB_REPOSITORY" --workflow deploy.yml --status success --limit 1 --json headSha --jq '.[0].headSha')}" >> "$GITHUB_OUTPUT"
+  checks:
+    name: Browser checks on aquatome.com
+    needs: live
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.event.workflow_run.head_sha || steps.live.outputs.sha || github.sha }}
-      - uses: ./.github/actions/setup
-      - if: github.event_name == 'workflow_run'
-        run: node scripts/site-watch.mjs deploy-ok "$DEPLOY_RUN"
-        env:
-          DEPLOY_RUN: ${{ github.event.workflow_run.html_url }}
-      - run: pnpm --filter site exec playwright install --with-deps chromium
+          ref: ${{ needs.live.outputs.sha || github.sha }}
+      - name: Install Node, pnpm and the dependencies
+        uses: ./.github/actions/setup
+      - name: Install Chromium for Playwright
+        run: pnpm --filter site exec playwright install --with-deps chromium
       # The AI review (layer 3) runs at night and on demand, not after every deploy: it costs model time.
-      - if: github.event_name != 'workflow_run'
+      - name: Install Claude for the AI page review (nightly and by hand)
+        if: github.event_name != 'workflow_run'
         run: npm install -g @anthropic-ai/claude-code && echo E2E_REVIEW=1 >> "$GITHUB_ENV"
-      - run: node scripts/site-watch.mjs prepare https://aquatome.com apps/site
-      - name: checks
+      - name: List the sitemap's pages and the pages of open issues
+        run: node scripts/site-watch.mjs prepare https://aquatome.com apps/site
+      - name: Browser checks, today's sample of pages
         working-directory: apps/site
         run: E2E_SEED=$((10#$(date -u +%j))) pnpm e2e
         env:
@@ -61,9 +73,38 @@ jobs:
           E2E_RECHECK: e2e-recheck.json
           E2E_JSON: e2e-results.json
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-      # Lighthouse on the live pages, ads and all (what PageSpeed Insights measures), alone after the other checks.
-      - name: lighthouse
-        if: ${{ !cancelled() }}
+      - name: Hand the results to the report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: results-checks
+          path: apps/site/e2e-results.json
+          if-no-files-found: ignore
+      - name: Keep the browser checks' report
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: e2e-report
+          path: apps/site/e2e-report
+          if-no-files-found: ignore
+  # Lighthouse on the live pages, ads and all (what PageSpeed Insights measures), on a runner of its own: next to the
+  # other checks its timings would measure them.
+  lighthouse:
+    name: Lighthouse on aquatome.com
+    needs: live
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.live.outputs.sha || github.sha }}
+      - name: Install Node, pnpm and the dependencies
+        uses: ./.github/actions/setup
+      - name: Install Chromium for Playwright
+        run: pnpm --filter site exec playwright install --with-deps chromium
+      - name: List the sitemap's pages
+        run: node scripts/site-watch.mjs prepare https://aquatome.com apps/site
+      - name: Lighthouse, one page at a time
         working-directory: apps/site
         run: pnpm e2e --grep @lighthouse --workers=1
         env:
@@ -71,13 +112,44 @@ jobs:
           E2E_BASE_URL: https://aquatome.com
           E2E_PAGES: e2e-pages.json
           E2E_JSON: lighthouse-results.json
-          # Its own report, inside the uploaded one: in the same folder it would replace the checks' report and traces.
-          E2E_REPORT: e2e-report/lighthouse
-      - if: always()
-        run: node scripts/site-watch.mjs report apps/site/e2e-results.json,apps/site/lighthouse-results.json "$RUN_URL"
-      - if: failure()
+      - name: Hand the results to the report
+        if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: e2e-report
+          name: results-lighthouse
+          path: apps/site/lighthouse-results.json
+          if-no-files-found: ignore
+      - name: Keep Lighthouse's report
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: lighthouse-report
           path: apps/site/e2e-report
           if-no-files-found: ignore
+  # One report for both: results missing from either open "Site checks did not run", and a run hands at most 3 new
+  # problems to fix.yml.
+  report:
+    name: Open, update and close issues
+    needs: [live, checks, lighthouse]
+    if: always() && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.live.outputs.sha || github.sha }}
+      - name: Close the "Deploy failed" issue
+        if: github.event_name == 'workflow_run'
+        run: node scripts/site-watch.mjs deploy-ok "$DEPLOY_RUN"
+        env:
+          DEPLOY_RUN: ${{ github.event.workflow_run.html_url }}
+      - name: Fetch both jobs' results
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          pattern: results-*
+          merge-multiple: true
+          path: apps/site
+      - name: Turn the results into issues
+        run: node scripts/site-watch.mjs report apps/site/e2e-results.json,apps/site/lighthouse-results.json "$RUN_URL"

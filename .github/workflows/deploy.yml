@@ -1,5 +1,6 @@
-name: deploy
-# Merges to main go live, and the engine's pushes (over its deploy key, engine.yml) the same way.
+name: Deploy aquatome.com
+# Merges to main go live, and the engine's pushes (over its deploy key, engine.yml) the same way. watch.yml starts after
+# each run by this name: rename both together.
 on:
   push:
     branches: [main]
@@ -10,26 +11,33 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
+    name: Test, build, check in a browser, upload
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: ./.github/actions/setup
-      - uses: ./.github/actions/engine-config
+      - name: Install Node, pnpm and the dependencies
+        uses: ./.github/actions/setup
+      - name: Claude CLI, the engine's config files, git identity
+        uses: ./.github/actions/engine-config
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
-      - run: pnpm test
-      # The same browser checks as ci.yml, here too: engine content reaches this workflow without a pull request.
-      - run: pnpm --filter site exec playwright install --with-deps chromium
-      - run: pnpm --filter site e2e
-      - run: scripts/deploy.sh
+      # Some engine tests read content/, which the engine's pushes change. The fixture build's browser checks run in
+      # ci.yml (every PR, and main): the fixture doesn't read content/, and deploy.sh checks the real pages below.
+      - name: Unit tests
+        run: pnpm test
+      - name: Install Chromium for the browser checks before upload
+        run: pnpm --filter site exec playwright install --with-deps chromium
+      - name: Build the real site, check it in a browser, upload it to Cloudflare
+        run: scripts/deploy.sh
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           # deploy.sh checks a fixed sample of the real pages in a browser before uploading them.
           E2E_GATE: '1'
-      - if: failure()
+      - name: Keep the browser checks' report
+        if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: e2e-report

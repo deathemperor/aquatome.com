@@ -46,23 +46,27 @@ that would have caught it).
       the engine's sweep reading the same rule; a numbered run under it nests under it in the contents
     - `pnpm exec tsx scripts/page-check.ts <dist> <content>` (in `apps/site`) counts any build's problems, per check
   - **Lighthouse** (`lighthouse.spec.ts`, what PageSpeed Insights runs) on one page of each kind readers open most, as
-    PageSpeed's mobile and desktop tests, run alone (`E2E_LIGHTHOUSE=1 … --workers=1`). Each page has a budget:
+    PageSpeed's mobile and desktop tests, run alone (`E2E_LIGHTHOUSE=1 … --workers=1`), in a job of its own beside the
+    other checks. Each page has a budget:
     - accessibility, best practices and SEO at 100
     - layout shift, the site's own script weight (KB) and page elements: where they are now
     - performance, largest paint and blocking time: with room for run-to-run noise; a miss is measured again twice
       before it fails
     - pages that start below the budget are listed in `KNOWN` with the reason, held where they are until fixed
     - locally nothing from other sites loads (ads, analytics, photos); live, the page as readers get it
-- Deploys from GitHub Actions (`deploy.yml`, which engine runs start too) run the page checks and Lighthouse on the
-  **real** build before uploading (`deploy.sh` with `E2E_GATE=1`).
+- Deploys from GitHub Actions (`deploy.yml`, which engine runs start too) run `pnpm test`, then the page checks and
+  Lighthouse on the **real** build before uploading (`deploy.sh` with `E2E_GATE=1`). The fixture build's browser checks
+  run in `ci.yml` only: the engine's pushes change `content/`, which the fixture build doesn't read.
+- A pull request that changes only the iOS app (`apps/ios/`, `ios.yml`, `testflight.yml`) skips the site's checks;
+  `protocols/` is the site's too.
 - Not gated yet: `deploy.sh` run on the owner's Mac (the video cycle). Layer 2 watches production for what slips through.
 
 ### 2. Production watch (live)
 
 - `watch.yml` runs the same browser checks against aquatome.com after every finished deploy and at 05:00 (Vietnam),
-  then Lighthouse on the live pages, ads and all: a page that drops below its budget becomes an issue like any other.
-  (PageSpeed Insights' own API needs a key from the owner's Google Cloud project for its quota; Lighthouse here is the
-  same test.)
+  and beside them, in a job of its own, Lighthouse on the live pages, ads and all: a page that drops below its budget
+  becomes an issue like any other. (PageSpeed Insights' own API needs a key from the owner's Google Cloud project for
+  its quota; Lighthouse here is the same test.)
 - It checks a **different sample each day** (`E2E_SEED` = day of the year, from the sitemap), so in time it covers every
   page, not one or two per kind.
 - Every page with an **open problem is checked again each run**, until it passes.
@@ -351,7 +355,8 @@ The layers above still check the result.
 ### main's ruleset (GitHub)
 
 - `main` can't be deleted or force-pushed. Changes arrive by pull request, squash-merged, after the `test` check
-  (ci.yml) passes. Merged branches are deleted.
+  (ci.yml's last job, green when every site check passed or an iOS-only change skipped them) passes. Merged branches
+  are deleted.
 - Let through: repository admins (the owner, and the owner's Mac pushing video content), and deploy keys. The engine
   pushes content over its deploy key (`ENGINE_DEPLOY_KEY`, engine.yml), since GitHub Actions' own token can't be let
   through on a personal repository. That push starts deploy.yml like a merge does.

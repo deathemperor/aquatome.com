@@ -30,5 +30,5 @@ E2E_SEED=3 pnpm --filter site e2e --grep @invariants   # other pages of each kin
 - `E2E_JSON`: results as JSON too (what `site-watch.mjs report` reads).
 - `E2E_REPORT`: another folder for the HTML report (in CI; default `e2e-report`), so a second run doesn't replace the first's.
 
-A failure leaves a screenshot and a trace in `test-results/` (in CI: the `e2e-report` artifact).
+A failure leaves a screenshot and a trace in `test-results/` (in CI: the `e2e-report` artifact, or `lighthouse-report` for Lighthouse).
 `npx playwright show-trace <trace.zip>` replays it.

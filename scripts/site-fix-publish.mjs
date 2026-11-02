@@ -40,7 +40,7 @@ if (changed && OK === '1' && result.status === 'fixed' && !forbidden.length) {
     comment(`**Automatic fix: pushed, but no PR.** The change passed every check, on branch \`${branch}\`; opening the PR failed (${String(e.message).split('\n')[0].slice(0, 200)}). [Open it](${server}/${repo}/compare/main...${branch}?expand=1) · [run](${runUrl})`)
     throw e
   }
-  run('gh', 'workflow', 'run', 'ci', '-R', repo, '--ref', branch)
+  run('gh', 'workflow', 'run', 'ci.yml', '-R', repo, '--ref', branch)
   // GitHub still records a pull_request run for a PR this token opens, but never starts it: it sits there with no jobs
   // and turns into a failure when the PR is closed, a false alarm for every fix closed unmerged. Delete it once it shows
   // (not worth failing the published fix over: a leftover run is only noise).
