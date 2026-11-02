@@ -403,6 +403,8 @@ private struct GalleryRow: View {
   let note: String
   let photos: [PageDoc.Image]
   let strip: [Int]
+  /// Its "all photos" button's identifier: a page's own gallery's, or its readers'.
+  var all = "gallery-all"
   @State private var shown: Int?
 
   var body: some View {
@@ -426,7 +428,9 @@ private struct GalleryRow: View {
         }
       }
       Button("Xem tất cả \(photos.count) ảnh") { shown = strip.first ?? 0 }
-        .accessibilityIdentifier("gallery-all")
+        // Read with whose photos they are: a fish's page has its own and its readers'.
+        .accessibilityLabel(Text(verbatim: title + ", ") + Text("Xem tất cả \(photos.count) ảnh"))
+        .accessibilityIdentifier(all)
     }
     .sheet(isPresented: Binding(get: { shown != nil }, set: { if !$0 { shown = nil } })) {
       GalleryViewer(title: title, note: note, photos: photos, index: shown ?? 0)
@@ -484,7 +488,7 @@ private struct ReadersPart: View {
       if !photos.isEmpty {
         GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: photos.map {
           PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: ($0.name, "", nil))
-        }, strip: Array(photos.indices.prefix(10)))
+        }, strip: Array(photos.indices.prefix(10)), all: "readers-all")
       }
       if !comments.isEmpty {
         Text("Thảo luận").font(.title3.bold()).accessibilityAddTraits(.isHeader)
@@ -493,7 +497,13 @@ private struct ReadersPart: View {
         }
       }
     }
-    .task(id: talk) { (comments, photos) = await handbook.readers(talk) }
+    .task(id: talk) {
+      // Read again each time the page shows; one that fails (offline, or left before it came) keeps what was shown.
+      let (c, p) = await handbook.readers(talk)
+      guard !Task.isCancelled else { return }
+      if let c { comments = c }
+      if let p { photos = p }
+    }
   }
 
   /// Who, when, whether the site marks it a good answer, then what they wrote: as the site's comment.

@@ -138,10 +138,9 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(card(app, "Cá ngựa vằn").exists, "no fish to keep with it")
     XCTAssertTrue(app.links["Ảnh: Tác giả 5 · CC BY 4.0"].exists, "a card's photo without its credit")
     reveal(app, text(app, "Mùa đông miền Bắc"))
-    // The fish's own gallery: its readers' photos, further on, are one too.
-    let all = app.buttons.matching(identifier: "gallery-all").firstMatch
+    let all = app.buttons["gallery-all"]
     reveal(app, all)
-    XCTAssertEqual(all.label, "Xem tất cả 3 ảnh")
+    XCTAssertEqual(all.label, "Ảnh Cá neon, Xem tất cả 3 ảnh", "not read with whose photos they are")
     XCTAssertTrue(app.links["Ảnh: Tác giả 1 · CC BY 2.0"].exists, "a photo in the row without its credit")
     all.tap()
     XCTAssertTrue(app.descendants(matching: .any)["gallery"].waitForExistence(timeout: 5), "no gallery")
@@ -206,7 +205,7 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, first)
     XCTAssertTrue(text(app, "Ảnh bạn đọc").exists, "no readers' photos")
     XCTAssertTrue(app.buttons["Ảnh của Lan"].exists, "a reader's photo without its words")
-    XCTAssertTrue(app.buttons["Xem tất cả 2 ảnh"].exists, "the readers' photos don't open full size")
+    XCTAssertEqual(app.buttons["readers-all"].label, "Ảnh bạn đọc, Xem tất cả 2 ảnh", "the readers' photos don't open full size")
     XCTAssertTrue(text(app, "Thảo luận").exists, "no comments")
     XCTAssertEqual(first.label, "Lan  31/10/2026  Trả lời hay\nNuôi đàn 10 con, khỏe sau 2 năm.")
     XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "comment").element(boundBy: 1).label.hasPrefix("Minh  1/11/2026\n"))
@@ -216,7 +215,8 @@ final class NativePageFlowTests: XCTestCase {
     openItem(app, "rotala", "Rotala đỏ")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5))
     for _ in 0..<4 { app.swipeUp() }
-    XCTAssertFalse(text(app, "Thảo luận").exists, "comments shown for a plant that has none")
+    // Its readers' content is read once the page is open: given time to come, none does.
+    XCTAssertFalse(text(app, "Thảo luận").waitForExistence(timeout: 3), "comments shown for a plant that has none")
     XCTAssertFalse(text(app, "Ảnh bạn đọc").exists)
   }
 

@@ -62,9 +62,9 @@ public enum Readers {
     (((try? JSONSerialization.jsonObject(with: data)) as? [String: Any])?[key] as? [Any] ?? []).compactMap { $0 as? [String: Any] }
   }
 
-  /// The Worker's times (`toISOString()`), with or without the milliseconds.
+  /// The Worker's times (`toISOString()`), with or without the milliseconds, in UTC or at an offset.
   static func date(_ s: String) -> Date? {
-    (try? Date(s, strategy: .iso8601.year().month().day().time(includingFractionalSeconds: true))) ?? (try? Date(s, strategy: .iso8601))
+    (try? Date(s, strategy: Date.ISO8601FormatStyle(includingFractionalSeconds: true))) ?? (try? Date(s, strategy: .iso8601))
   }
 
   /// The day a comment was written, as the site writes it: the day in Vietnam, in figures, in the page's language (Thai

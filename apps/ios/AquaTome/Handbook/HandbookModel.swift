@@ -80,11 +80,12 @@ final class HandbookModel {
     return await drawn.doc(path: item.path, kind: item.kind.rawValue, lang: lang, count: count)
   }
 
-  /// A page's readers' comments and photos, from the site (Readers): none when it has none or the site doesn't answer.
-  func readers(_ talk: PageDoc.Talk) async -> ([Readers.Comment], [Readers.Photo]) {
+  /// A page's readers' comments and photos, from the site (Readers): each nil when the page has none to ask for or the
+  /// site doesn't answer.
+  func readers(_ talk: PageDoc.Talk) async -> ([Readers.Comment]?, [Readers.Photo]?) {
     async let comments = Self.readers(talk.comments.map { Readers.url(comments: $0, site: site) }, source)
     async let photos = Self.readers(talk.photos.map { Readers.url(photos: $0, site: site) }, source)
-    return (await comments.map(Readers.comments) ?? [], await photos.map(Readers.photos) ?? [])
+    return (await comments.map(Readers.comments), await photos.map(Readers.photos))
   }
 
   private nonisolated static func readers(_ url: URL?, _ source: Source) async -> Data? {

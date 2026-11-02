@@ -192,6 +192,10 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
     ("2026-10-30T18:30:00.000Z", ["31/10/2026", "31/10/2026", "31/10/2569"]),
     ("2026-01-05T03:00:00.000Z", ["5/1/2026", "5/1/2026", "5/1/2569"]),
     ("2026-12-31T17:30:00.000Z", ["1/1/2027", "1/1/2027", "1/1/2570"]),
+    // A time written at Vietnam's offset (late on the 31st there), and one without its milliseconds.
+    ("2026-12-31T23:30:00.000+07:00", ["31/12/2026", "31/12/2026", "31/12/2569"]),
+    ("2026-12-31T17:30:00Z", ["1/1/2027", "1/1/2027", "1/1/2570"]),
+    ("2026-12-31T16:59:59.000Z", ["31/12/2026", "31/12/2026", "31/12/2569"]),
   ]
   for (iso, want) in days {
     let d = try #require(Readers.comments(Data(#"{"comments":[{"id":"c","name":"n","body":"b","createdAt":"\#(iso)"}]}"#.utf8)).first?.createdAt)
