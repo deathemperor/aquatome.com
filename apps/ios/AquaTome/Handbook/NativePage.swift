@@ -153,13 +153,13 @@ struct NativePage: View {
         out.append(.photo(src: s.img.src, ratio: CGFloat(s.img.w) / CGFloat(s.img.h), alt: s.img.alt, caption: styled("\(clock(s.at)) · \(s.caption)"),
                           href: youtube(id, at: s.at), play: true))
       }
-    case let .summary(title, items):
+    case let .summary(title, items, _, _):
       out.append(.text(styled(title, .headline), header: true))
       out.append(.text(styled(items.map { "• " + $0 }.joined(separator: "\n")), boxed: true))
     case let .faq(title, items):
       out.append(.text(styled(title, .title3.bold()), header: true))
       for qa in items { out.append(.text(styled(qa.q, .body.bold()) + styled("\n" + qa.a))) }
-    case let .refs(title, id, items):
+    case let .refs(title, id, items, _):
       out.append(.text(styled(title, .title3.bold()), anchor: id, header: true))
       var text = AttributedString()
       for (i, r) in items.enumerated() {
@@ -170,7 +170,7 @@ struct NativePage: View {
       out.append(.text(text))
     case let .pages(title, paths):
       out.append(.pages(title, paths))
-    case .web:
+    case .web, .gallery, .trust, .mates, .climate, .cards, .videos:
       out.append(.web)
     }
   }

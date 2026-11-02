@@ -20,7 +20,12 @@ public struct PageDoc: Sendable {
   public let sub: String?
   /// The line above the title, as the site writes it ("Chăm sóc · đọc khoảng 6 phút").
   public let meta: String?
-  /// Whose page this is ("Theo Aquarium Breeder"), linked as on the site; empty when the page has none.
+  /// A fish's line above its name: its family and country, the country linked to its origin page; empty when none.
+  public let `where`: [Run]
+  /// Its other names, as the site writes them under the name ("Tên khác: …").
+  public let aka: String?
+  /// Whose page this is ("Theo Aquarium Breeder"; a fish's "Dịch và tổng hợp từ …"), linked as on the site; empty when
+  /// the page has none.
   public let credit: [Run]
   public let lead: Image?
   public let video: Video?
@@ -55,6 +60,8 @@ public struct PageDoc: Sendable {
     public let w: Int
     public let h: Int
     public let alt: String?
+    /// A smaller copy (about 480 px wide) for a grid of them: a gallery's photos have one.
+    public let thumb: String?
     /// The photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page.
     public let credit: (text: String, licence: String, url: String?)?
 
@@ -62,6 +69,7 @@ public struct PageDoc: Sendable {
       guard let o = v as? [String: Any], let src = o["src"] as? String, let w = o["w"] as? Int, let h = o["h"] as? Int, w > 0, h > 0 else { return nil }
       self.src = src; self.w = w; self.h = h
       alt = o["alt"] as? String
+      thumb = o["thumb"] as? String
       let c = o["credit"] as? [String: Any]
       if let text = c?["text"] as? String, let licence = c?["licence"] as? String { credit = (text, licence, c?["url"] as? String) } else { credit = nil }
     }
@@ -96,6 +104,84 @@ public struct PageDoc: Sendable {
     public let caption: String
   }
 
+  /// One figure's sources: `field` is the index's name for it (tempC, ph, gh, sizeCm, tankCm, difficulty); where the
+  /// sources disagree (`conflict`), each one's own figure and which the facts show (`note`).
+  public struct TrustRow: Sendable {
+    public let field: String
+    public let label: String
+    public let conflict: Bool
+    public let note: String?
+    public let items: [String]
+
+    init?(json v: Any) {
+      guard let o = v as? [String: Any], let field = o["field"] as? String, let label = o["label"] as? String, let items = o["items"] as? [String] else { return nil }
+      self.field = field; self.label = label; self.items = items
+      conflict = o["conflict"] as? Bool ?? false
+      note = o["note"] as? String
+    }
+  }
+
+  /// "Nuôi chung": fish to keep with this one (`good`) and away from it (`avoid`, each with why), what the suggestions
+  /// rest on (`note`), and the tank-mates tool set to this fish.
+  public struct Mates: Sendable {
+    public struct Mate: Sendable {
+      public let path: String
+      public let name: String
+      public let img: Image?
+      public let why: String?
+    }
+    public let title: String
+    public let good: (title: String, items: [Mate])?
+    public let avoid: (title: String, items: [Mate])?
+    public let note: String?
+    public let tool: (text: String, href: String)
+
+    init?(json o: [String: Any]) {
+      guard let title = o["title"] as? String, let t = o["tool"] as? [String: Any], let text = t["text"] as? String, let href = t["href"] as? String else { return nil }
+      func group(_ v: Any?) -> (title: String, items: [Mate])?? {
+        guard let v else { return .some(nil) }
+        guard let g = v as? [String: Any], let title = g["title"] as? String, let items = each(g["items"], { m -> Mate? in
+          guard let m = m as? [String: Any], let path = m["path"] as? String, let name = m["name"] as? String else { return nil }
+          return Mate(path: path, name: name, img: Image(json: m["img"]), why: m["why"] as? String)
+        }) else { return nil }
+        return (title, items)
+      }
+      guard let good = group(o["good"]), let avoid = group(o["avoid"]) else { return nil }
+      self.title = title; self.good = good; self.avoid = avoid
+      note = o["note"] as? String
+      tool = (text, href)
+    }
+  }
+
+  /// A card for another page: its path, name, the line under it (a breed's kind) and its photo.
+  public struct Card: Sendable {
+    public let path: String
+    public let name: String
+    public let sub: String?
+    public let img: Image?
+
+    init?(json v: Any) {
+      guard let o = v as? [String: Any], let path = o["path"] as? String, let name = o["name"] as? String else { return nil }
+      self.path = path; self.name = name
+      sub = o["sub"] as? String
+      img = Image(json: o["img"])
+    }
+  }
+
+  /// A video about a fish: `lang` is its language as the page names it ("EN", "tiếng Việt").
+  public struct VideoItem: Sendable {
+    public let youtubeId: String
+    public let title: String
+    public let durationSec: Int
+    public let lang: String
+
+    init?(json v: Any) {
+      guard let o = v as? [String: Any], let id = o["youtubeId"] as? String, let title = o["title"] as? String,
+            let d = o["durationSec"] as? Int, let lang = o["lang"] as? String else { return nil }
+      youtubeId = id; self.title = title; durationSec = d; self.lang = lang
+    }
+  }
+
   public indirect enum Block: Sendable {
     /// A heading; `id` is its anchor (the contents and `#id` links point at it).
     case heading(String, id: String?)
@@ -108,14 +194,29 @@ public struct PageDoc: Sendable {
     case figure(Image, caption: [Run], href: String?)
     /// Stills from the guide's video, each playing it from that moment.
     case moments(title: String, youtubeId: String, items: [Still])
-    case summary(title: String, items: [String])
+    /// A guide's key points; a fish's summary (one paragraph), the mistakes keepers make, and who wrote it.
+    case summary(title: String, items: [String], mistakes: (title: String, items: [String])?, by: String?)
     case faq(title: String, items: [(q: String, a: String)])
-    /// The sources the page cites; `id` is the anchor its credit links to.
-    case refs(title: String, id: String?, items: [(title: String, url: String)])
+    /// The sources the page cites; `id` is the anchor its credit links to. On a fish's or plant's page they're numbered
+    /// as the marks in its text, and `note` says on what terms the text uses them.
+    case refs(title: String, id: String?, items: [(title: String, url: String)], note: String?)
     /// Other pages by their paths, each one the app index lists.
     case pages(title: String, paths: [String])
     /// A part only the web page can show (or one this app can't read): the app offers to open the page there.
     case web
+    /// A fish's or plant's photo gallery, each photo credited. `strip`: the photos the page's row shows, by their place
+    /// in `photos`. `note`: where the photos come from and under what licences. `href`: the gallery's web page.
+    case gallery(title: String, note: String, photos: [Image], strip: [Int], href: String?)
+    /// What each figure of a fish's facts rests on (the figures themselves are the index's).
+    case trust(title: String, legend: String?, rows: [TrustRow])
+    /// Fish to keep with this one and away from it, and the tank-mates tool set to this fish.
+    case mates(Mates)
+    /// What a fish's temperatures mean for a tank in Vietnam with no heater or chiller, region by region.
+    case climate(title: String, items: [(label: String, ok: Bool, text: String)], note: String)
+    /// Cards for other pages, drawn from what they carry (a fish's breeds, which the index may not list).
+    case cards(title: String, items: [Card])
+    /// Videos about a fish (not guides), each played on YouTube.
+    case videos(title: String, items: [VideoItem])
 
     /// The block's `t` in the format.
     public var t: String {
@@ -131,6 +232,12 @@ public struct PageDoc: Sendable {
       case .refs: "refs"
       case .pages: "pages"
       case .web: "web"
+      case .gallery: "gallery"
+      case .trust: "trust"
+      case .mates: "mates"
+      case .climate: "climate"
+      case .cards: "cards"
+      case .videos: "videos"
       }
     }
 
@@ -176,7 +283,10 @@ public struct PageDoc: Sendable {
         self = .moments(title: title, youtubeId: id, items: items)
       case "summary":
         guard let title, let items = o["items"] as? [String] else { return nil }
-        self = .summary(title: title, items: items)
+        let m = o["mistakes"] as? [String: Any]
+        var mistakes: (title: String, items: [String])?
+        if let t = m?["title"] as? String, let i = m?["items"] as? [String] { mistakes = (t, i) }
+        self = .summary(title: title, items: items, mistakes: mistakes, by: o["by"] as? String)
       case "faq":
         let items = each(o["items"]) { i -> (q: String, a: String)? in
           guard let i = i as? [String: Any], let q = i["q"] as? String, let a = i["a"] as? String else { return nil }
@@ -190,11 +300,34 @@ public struct PageDoc: Sendable {
           return (t, u)
         }
         guard let title, let items else { return nil }
-        self = .refs(title: title, id: o["id"] as? String, items: items)
+        self = .refs(title: title, id: o["id"] as? String, items: items, note: o["note"] as? String)
       case "pages":
         guard let title, let paths = o["paths"] as? [String] else { return nil }
         self = .pages(title: title, paths: paths)
       case "web": self = .web
+      case "gallery":
+        guard let title, let note = o["note"] as? String, let photos = each(o["photos"], { Image(json: $0) }), let strip = o["strip"] as? [Int],
+              strip.allSatisfy(photos.indices.contains) else { return nil }
+        self = .gallery(title: title, note: note, photos: photos, strip: strip, href: o["href"] as? String)
+      case "trust":
+        guard let title, let rows = each(o["rows"], { TrustRow(json: $0) }) else { return nil }
+        self = .trust(title: title, legend: o["legend"] as? String, rows: rows)
+      case "mates":
+        guard let m = Mates(json: o) else { return nil }
+        self = .mates(m)
+      case "climate":
+        let items = each(o["items"]) { i -> (label: String, ok: Bool, text: String)? in
+          guard let i = i as? [String: Any], let l = i["label"] as? String, let ok = i["ok"] as? Bool, let t = i["text"] as? String else { return nil }
+          return (l, ok, t)
+        }
+        guard let title, let items, let note = o["note"] as? String else { return nil }
+        self = .climate(title: title, items: items, note: note)
+      case "cards":
+        guard let title, let items = each(o["items"], { Card(json: $0) }) else { return nil }
+        self = .cards(title: title, items: items)
+      case "videos":
+        guard let title, let items = each(o["items"], { VideoItem(json: $0) }) else { return nil }
+        self = .videos(title: title, items: items)
       default: return nil
       }
     }
@@ -214,6 +347,8 @@ public struct PageDoc: Sendable {
     // The parts around the text, read as leniently: one this app can't read is left out, never the page.
     sub = o["sub"] as? String
     meta = o["meta"] as? String
+    `where` = Run.list(o["where"]) ?? []
+    aka = o["aka"] as? String
     credit = Run.list(o["credit"]) ?? []
     lead = Image(json: o["lead"])
     video = Video(json: o["video"])
@@ -255,8 +390,9 @@ private func each<T>(_ v: Any?, _ f: (Any) -> T?) -> [T]? {
 }
 
 extension PageDoc {
-  /// Every picture the page shows, in order: the video's or the lead photo, then each photo and video still in the text
-  /// (in lists too). What keeping the page for offline keeps with it.
+  /// Every picture the page shows at first, in order: the video's or the lead photo, then each photo and video still in
+  /// the text (in lists too), a gallery's row (not every photo of it: the oscar's has 131), the tank-mates', breeds' and
+  /// videos' pictures. What keeping the page for offline keeps with it.
   public var pictures: [String] {
     var out: [String] = []
     if let video { out.append(Self.thumbnail(video.youtubeId)) } else if let lead { out.append(lead.src) }
@@ -266,6 +402,10 @@ extension PageDoc {
         case let .figure(img, _, _): out.append(img.src)
         case let .moments(_, _, items): out += items.map(\.img.src)
         case let .list(_, items): items.forEach(walk)
+        case let .gallery(_, _, photos, strip, _): out += strip.map { photos[$0].thumb ?? photos[$0].src }
+        case let .mates(m): out += ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap { $0.img?.src }
+        case let .cards(_, items): out += items.compactMap { $0.img?.src }
+        case let .videos(_, items): out += items.map { Self.thumbnail($0.youtubeId) }
         default: break
         }
       }
