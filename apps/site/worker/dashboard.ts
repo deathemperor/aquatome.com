@@ -49,6 +49,7 @@ export async function affSummary(db: D1Database, now: Date): Promise<AffSummary>
 }
 
 const HTML = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' }
+const badForm = () => new Response('expected a form', { status: 400, headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' } })
 const notFound = () => new Response('Not found', { status: 404, headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' } })
 const see = (location: string, cookies: string[] = []) => {
   const h = new Headers({ location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' })
@@ -116,12 +117,16 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   }
   if (path === '/_ab/photos') {
     if (req.method !== 'POST' || !authorise(req, env.AB_DASH_TOKEN).ok || !photosLive(env)) return notFound()
-    await removePhoto(env, String((await req.formData()).get('id') ?? ''), 'removed by owner', now)
+    const form = await req.formData().catch(() => null)
+    if (!form) return badForm()
+    await removePhoto(env, String(form.get('id') ?? ''), 'removed by owner', now)
     return see('/_ab/anh-ban-doc/')
   }
   if (path === '/_ab/hidden') {
     if (req.method !== 'POST' || !authorise(req, env.AB_DASH_TOKEN).ok) return notFound()
-    const err = await updateHidden(env.AB, await req.formData(), now)
+    const form = await req.formData().catch(() => null)
+    if (!form) return badForm()
+    const err = await updateHidden(env.AB, form, now)
     if (err) return new Response(err, { status: 400, headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' } })
     return see('/_ab/an-trang/')
   }

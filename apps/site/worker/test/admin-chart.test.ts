@@ -70,7 +70,11 @@ test('a count axis never shows a half: 0 and 5, not 2,5; money keeps its middle 
   expect(counts).toContain('text-anchor="end">5</text>')
   const money = dayChart({ id: 'u', title: 'Chi phí', days: days(3), series: [{ label: 'Chi phí', values: [0.1, 0.3, 0.45] }], kind: 'columns', format: usd, tickPrefix: '$' })
   expect(money).toContain('>$0,25<')
-  expect(money).toContain('>$0,50<')
+  expect(money).toContain('>$0,5<')
+  // Under a cent, each line says its own amount.
+  const cents = dayChart({ id: 'v', title: 'Chi phí', days: days(2), series: [{ label: 'Chi phí', values: [0.004, 0.01] }], kind: 'columns', format: usd, tickPrefix: '$' })
+  expect(cents).toContain('>$0,005<')
+  expect(cents).toContain('>$0,01<')
 })
 
 test('labels are escaped wherever they appear', () => {

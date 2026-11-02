@@ -35,7 +35,7 @@ export async function accountStats(db: D1Database, now: Date): Promise<AccountSt
   const [users, perDay, synced, open, credentials, comments, commentsPerDay] = await Promise.all([
     db.prepare('SELECT COUNT(*) AS n FROM users').first<{ n: number }>(),
     db.prepare('SELECT substr(created_at, 1, 10) AS d, COUNT(*) AS n FROM users WHERE created_at >= ? GROUP BY d').bind(days[0]).all<{ d: string; n: number }>(),
-    db.prepare('SELECT COUNT(DISTINCT user_id) AS n FROM tank_records').first<{ n: number }>(),
+    db.prepare("SELECT COUNT(DISTINCT user_id) AS n FROM tank_records WHERE kind = 'tank' AND deleted = 0").first<{ n: number }>(),
     db.prepare('SELECT COUNT(*) AS n FROM sessions WHERE expires_at > ?').bind(now.toISOString()).first<{ n: number }>(),
     db.prepare('SELECT kind, COUNT(*) AS n FROM credentials GROUP BY kind ORDER BY n DESC').all<{ kind: string; n: number }>(),
     db.prepare('SELECT status, COUNT(*) AS n FROM comments GROUP BY status ORDER BY n DESC').all<{ status: string; n: number }>(),

@@ -142,6 +142,9 @@ function recentHtml(xs: Call[], pages: Map<string, string>): string {
 
 // ——— Người đọc ———
 
+/** A path from the beacon is anything a script sent: a link only for one of the site's pages ("//other.site" stays text). */
+export const pageLink = (path: string) => (/^\/(?:vi|id|th)\//.test(path) ? `<a href="${esc(path)}">${esc(path)}</a>` : esc(path))
+
 export function readersPage(now: Date, r: Soft<Readers> | undefined): string {
   let body = '<h1>Người đọc thật</h1>'
   if (!r) body += '<p class="muted">Chưa cấu hình AE_API_TOKEN và CF_ACCOUNT_ID: chưa đọc được dữ liệu (Analytics Engine).</p>'
@@ -153,7 +156,7 @@ export function readersPage(now: Date, r: Soft<Readers> | undefined): string {
 ${tiles([{ label: 'Phiên', value: fmt(r.sessions) }, { label: 'Người đọc', value: fmt(r.readers) }, { label: 'Tỉ lệ người đọc', value: `${fmt(r.sessions ? (100 * r.readers) / r.sessions : 0, 1)}%` }])}
 <h2>Theo ngày và nguồn</h2><div class="charts">${dayChart({ id: 'r-daily', title: 'Phiên và người đọc mỗi ngày', days, series: [{ label: 'Người đọc', values: d.readers }, { label: 'Phiên', values: d.sessions }], kind: 'lines', partialLast: true, empty: 'Chưa có phiên nào.' })}
 <figure class="chart" aria-labelledby="r-src"><figcaption><h3 id="r-src">Nguồn truy cập</h3></figcaption>${rankTable(r.sources.map(x => ({ label: esc(x.source), value: x.sessions, cells: [fmt(x.readers)] })), ['Nguồn', 'Phiên', 'Người đọc'])}</figure></div>
-<div class="split"><section><h2>Trang người đọc xem nhiều nhất</h2>${rankTable(r.pages.map(x => ({ label: `<a href="${esc(x.path)}">${esc(x.path)}</a>`, value: x.views })), ['Trang', 'Lượt xem'])}</section>
+<div class="split"><section><h2>Trang người đọc xem nhiều nhất</h2>${rankTable(r.pages.map(x => ({ label: pageLink(x.path), value: x.views })), ['Trang', 'Lượt xem'])}</section>
 <section><h2>Quốc gia (người đọc)</h2>${rankTable(r.countries.map(x => ({ label: esc(x.cc), value: x.readers })), ['Nước', 'Người đọc'])}</section></div>`
   }
   return page('/_ab/doc-gia/', 'Người đọc', body)

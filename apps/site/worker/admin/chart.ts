@@ -26,8 +26,10 @@ export function niceTop(max: number): number {
   const p = 10 ** Math.floor(Math.log10(max))
   return [1, 2, 2.5, 5, 10].map(m => m * p).find(v => v >= max - 1e-12)!
 }
+/** The decimals that write `n` exactly, up to 4: an axis at $0,025 says so, not $0,03. */
+const places = (n: number) => [0, 1, 2, 3, 4].find(d => Math.abs(Math.round(n * 10 ** d) - n * 10 ** d) < 1e-6) ?? 4
 /** Axis numbers: in full under 10,000, then 12k. */
-const tick = (n: number) => (n >= 10_000 ? `${fmt(n / 1000, n % 1000 ? 1 : 0)}k` : fmt(n, n > 0 && n < 1 ? 2 : n % 1 ? 1 : 0))
+const tick = (n: number) => (n >= 10_000 ? `${fmt(n / 1000, places(n / 1000))}k` : fmt(n, places(n)))
 
 export type Series = { label: string; values: number[] }
 export type DayChart = {

@@ -28,6 +28,12 @@ test('readers: sessions that scrolled half a page or stayed 30 s; sources, top p
   expect(html).toContain('Người đọc thật')
   expect(html).toContain('/vi/ca/ca-betta/')
   expect(html).toContain('Phiên và người đọc mỗi ngày')
+  expect(html).toContain('<a href="/vi/ca/ca-betta/">')
+  // A path is whatever a script sent to the beacon: only the site's own pages become links.
+  const forged = readersPage(now, { ...r, pages: [{ path: '//evil.example/login', views: 9 }, { path: '/\\evil.example', views: 8 }] })
+  expect(forged).not.toContain('href="//evil')
+  expect(forged).not.toContain('href="/\\')
+  expect(forged).toContain('//evil.example/login')
   // The overview counts readers over 7 days and links to their page, which has the details.
   const dash = overviewPage({ now, readers: r.daily, clicks: unset('D1'), fish: unset('AE'), photos: unset('ảnh'), wanted: unset('KV') })
   expect(dash).toContain('href="/_ab/doc-gia/"')
