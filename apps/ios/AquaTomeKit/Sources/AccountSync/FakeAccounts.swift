@@ -29,6 +29,8 @@ public final class FakeAccounts {
   public private(set) var requests: [URLRequest] = []
   /// The names counted as wanted (POST /api/v1/wanted), each body as it came, in order.
   public private(set) var wanted: [[String: JSON]] = []
+  /// Readers' comments (`/_c`) and photos (`/_p`) posted from the app, each with its fields and its account.
+  public private(set) var posts: [(path: String, account: String, fields: [String: String])] = []
 
   struct Account { let id: String; var kind = "apple"; var store = TankStore() }
   private var accounts: [String: Account] = [:] // by Apple sub, or `email:<address>`
@@ -98,6 +100,19 @@ public final class FakeAccounts {
   /// Ends every session of an account, as signing out elsewhere or deleting it there would.
   public func endSessions(of sub: String) { tokens = tokens.filter { $0.value != sub } }
 
+  /// A multipart form's fields, by name, as text (a file's only to tell it has bytes).
+  static func form(_ r: URLRequest) -> [String: String] {
+    guard let boundary = r.value(forHTTPHeaderField: "Content-Type")?.firstMatch(of: /multipart\/form-data; boundary=(.+)/)?.1,
+          let body = r.httpBody else { return [:] }
+    var out: [String: String] = [:]
+    for part in body.split(separator: Data("--\(boundary)".utf8)) {
+      guard let head = part.range(of: Data("\r\n\r\n".utf8)),
+            let name = String(decoding: part[..<head.lowerBound], as: UTF8.self).firstMatch(of: /name="([^"]+)"/)?.1 else { continue }
+      out[String(name)] = String(decoding: part[head.upperBound...].dropLast(2), as: UTF8.self)
+    }
+    return out
+  }
+
   public func send(_ r: URLRequest) async throws -> (Data, HTTPURLResponse) {
     requests.append(r)
     if offline { throw URLError(.notConnectedToInternet) }
@@ -119,6 +134,35 @@ public final class FakeAccounts {
             b["name"]?.string?.isEmpty == false else { return try fail(400, "bad_name") }
       wanted.append(b)
       return try reply(204)
+    }
+    // Readers' comments and photos posted as the account, as apps/site/worker/comments and photos read them
+    // (protocols/talk.openapi.json): a session or 401 `session`; 5 of each a day per account, a comment past that held,
+    // a photo refused.
+    if path == "/_c" || path == "/_p" {
+      guard method == "POST" else { return try fail(405, "method") }
+      guard let sub, accountsOn, r.value(forHTTPHeaderField: "Cookie") == nil else { return try fail(401, "session") }
+      let earlier = posts.filter { $0.path == path && $0.account == sub }.count
+      if path == "/_c" {
+        let f = (body ?? [:]).compactMapValues(\.string).mapValues { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+        guard f["token"] == nil else { return try fail(400, "token") }
+        guard f["e"]?.isEmpty == false else { return try fail(400, "bad entity") }
+        guard let name = f["name"], (1...40).contains(name.count) else { return try fail(400, "name must be 1–40 characters") }
+        guard let text = f["body"], (2...2000).contains(text.count) else { return try fail(400, "comment must be 2–2000 characters") }
+        posts.append((path, sub, f))
+        if earlier >= 5 || text.contains("<") { return try reply(201, ["status": .string("held")]) }
+        let comment: [String: JSON] = ["id": .string("c\(posts.count)"), "name": .string(name), "body": .string(text), "helpful": .bool(false),
+                                       "createdAt": .string(ISO8601DateFormatter().string(from: now()))]
+        return try reply(201, ["status": .string("approved"), "comment": .object(comment)])
+      }
+      let f = Self.form(r)
+      guard f["token"] == nil else { return try fail(400, "token") }
+      guard f["e"]?.isEmpty == false else { return try fail(400, "bad entity") }
+      guard let name = f["name"]?.trimmingCharacters(in: .whitespaces), (1...40).contains(name.count) else { return try fail(400, "bad name") }
+      guard f["consent"] == "1" else { return try fail(400, "consent") }
+      guard f["file"]?.isEmpty == false else { return try fail(400, "no file") }
+      if earlier >= 5 { return try fail(429, "rate") }
+      posts.append((path, sub, f))
+      return try reply(201, ["status": .string("pending"), "id": .string("p\(posts.count)"), "deleteUrl": .string("/_p/xoa/?id=p\(posts.count)&t=x")])
     }
     if !accountsOn { return path == "/api/v1/session" ? try reply(200, ["accounts": .bool(false)]) : try fail(404, "accounts_off") }
     if method == "POST" && body == nil { return try fail(400, "bad_request") }
