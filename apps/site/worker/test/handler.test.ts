@@ -21,6 +21,15 @@ function env(over: Partial<Env> = {}) {
 }
 const get = (path: string, headers: Record<string, string> = browser) => new Request(`https://x.test${path}`, { headers })
 
+/** A test D1 with the owner's account and a reader's, each signed in on the web, and the owner's app session too. */
+async function signedIn(db = testD1()) {
+  const { createSession } = await import('../accounts/session')
+  for (const id of ['owner-1', 'reader-1']) await db.prepare('INSERT INTO users (id, created_at) VALUES (?, ?)').bind(id, '2026-11-01T00:00:00Z').run()
+  const now = new Date()
+  const cookie = async (id: string) => `__Host-aq_session=${await createSession(db, id, 'web', now)}`
+  return { db, owner: await cookie('owner-1'), reader: await cookie('reader-1'), app: await createSession(db, 'owner-1', 'app', now) }
+}
+
 test('bots get the untouched page, no cookie; staging header everywhere', async () => {
   const { e } = env()
   const r = await handle(get('/vi/', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }), e)
@@ -54,36 +63,39 @@ test('events: same-origin, not a bot, not the owner, small body', async () => {
   expect(points).toHaveLength(1)
 })
 
-test('dashboard: sign-in form without token, 303 strips token from URL', async () => {
-  const { e } = env()
-  const login = await handle(get('/_ab/'), e)
-  expect(login.status).toBe(200)
-  expect(await login.text()).toContain('action="/_ab/login"')
-  const form = (token: string) => new Request('https://x.test/_ab/login', { method: 'POST', body: new URLSearchParams({ token }) })
-  expect((await handle(form('wrong'), e)).status).toBe(403)
-  const ok = await handle(form('tok'), e)
-  expect(ok.status).toBe(303)
-  expect(ok.headers.getSetCookie()).toEqual([expect.stringMatching(/^ab_token=tok; Path=\/_ab;.*HttpOnly/), expect.stringMatching(/^aq_owner=1;/)])
-  const r = await handle(get('/_ab/?token=tok'), e)
-  expect(r.status).toBe(303)
-  expect(r.headers.get('location')).toBe('/_ab/')
-  expect((await handle(get('/_ab/doc-gia/'), e)).status).toBe(303) // the readers page needs the token cookie too
-  expect((await handle(get('/_ab/login'), e)).headers.get('location')).toBe('/_ab/')
+test('dashboard: signed out, the overview sends to the site\'s own sign-in; the old token opens nothing', async () => {
+  const { db } = await signedIn()
+  const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1' } as Partial<Env>)
+  for (const r of [await handle(get('/_ab/'), e), await handle(get('/_ab/?token=tok'), e), await handle(get('/_ab/', { ...browser, cookie: 'ab_token=tok' }), e)]) {
+    expect(r.status).toBe(200)
+    const html = await r.text()
+    expect(html).toContain('href="/vi/cong-cu/be-cua-toi/#tai-khoan"')
+    expect(html).not.toContain('<nav')
+    expect(r.headers.get('set-cookie')).toBeNull()
+  }
+  // The old token form: back to the overview, nothing set.
+  const form = await handle(new Request('https://x.test/_ab/login', { method: 'POST', body: new URLSearchParams({ token: 'tok' }) }), e)
+  expect([form.status, form.headers.get('location'), form.headers.get('set-cookie')]).toEqual([303, '/_ab/', null])
+  expect((await handle(get('/_ab/doc-gia/'), e)).headers.get('location')).toBe('/_ab/')
 })
 
-test('every /_ab route refuses without the token: pages ask for it or send to the sign-in, the actions and the JSON are not found', async () => {
+test('every /_ab route opens only to the owner\'s account signed in on the web: pages send to the sign-in, the actions and the JSON are not found', async () => {
   const { ADMIN_PAGES } = await import('../dashboard')
-  const { e } = env({ DB: testD1(), AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' } as Partial<Env>)
+  const { db, owner, reader, app } = await signedIn()
+  const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' } as Partial<Env>)
   expect(ADMIN_PAGES).toHaveLength(8)
-  for (const cookie of [undefined, 'ab_token=wrong']) {
-    const h = cookie ? { ...browser, cookie } : browser
+  // Nobody, the old token cookie, another reader's account, the owner's app session (a bearer), and the owner's cookie
+  // under the dashboard token as a bearer (a bearer is read first, and opens no page).
+  const visits: Record<string, string>[] = [browser, { ...browser, cookie: 'ab_token=tok' }, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }, { ...browser, authorization: 'Bearer tok', cookie: owner }]
+  for (const h of visits) {
     for (const path of ADMIN_PAGES) {
       for (const p of [path, path.replace(/\/$/, '')]) {
         const r = await handle(get(p, h), e)
         const body = await r.text()
         if (path === '/_ab/') {
-          expect(r.status, p).toBe(200)
-          expect(body).toContain('action="/_ab/login"')
+          expect(r.status, p).toBe(h.cookie === reader ? 403 : 200)
+          expect(body).toContain('/vi/cong-cu/be-cua-toi/#tai-khoan')
+          if (h.cookie === reader) expect(body).toContain('không phải tài khoản chủ trang')
           expect(body).not.toContain('<nav')
         } else {
           expect([r.status, r.headers.get('location')], p).toEqual([303, '/_ab/'])
@@ -92,37 +104,41 @@ test('every /_ab route refuses without the token: pages ask for it or send to th
         expect(r.headers.get('set-cookie'), p).toBeNull()
       }
     }
-    expect((await handle(get('/_ab/hidden.json', h), e)).status).toBe(404)
+    if (h.authorization !== 'Bearer tok') expect((await handle(get('/_ab/hidden.json', h), e)).status).toBe(404)
     for (const p of ['/_ab/photos', '/_ab/hidden']) expect((await handle(new Request(`https://x.test${p}`, { method: 'POST', body: new URLSearchParams({ id: 'x', url: '/vi/ca/x/', action: 'hide' }), headers: h }), e)).status, p).toBe(404)
     expect((await handle(get('/_ab/something-else/', h), e)).status).toBe(404)
   }
-  // With the token: a page, noindex, never stored.
-  const ok = await handle(get('/_ab/an-trang/', { ...browser, cookie: 'ab_token=tok' }), e)
+  // The owner signed in on the web: a page, noindex, never stored; the owner flag set and the old token cookie cleared.
+  const ok = await handle(get('/_ab/an-trang/', { ...browser, cookie: owner }), e)
   expect(ok.status).toBe(200)
   expect([ok.headers.get('cache-control'), ok.headers.get('x-robots-tag')]).toEqual(['no-store', 'noindex, nofollow'])
   expect(await ok.text()).toContain('aria-current="page">Ẩn trang<')
-  // The token in a sub-page's address: moved into the cookie, back to the same page.
-  const moved = await handle(get('/_ab/nhan-dien-ca/?token=tok'), e)
-  expect([moved.status, moved.headers.get('location')]).toEqual([303, '/_ab/nhan-dien-ca/'])
+  expect(ok.headers.getSetCookie()).toEqual([expect.stringMatching(/^aq_owner=1;/), expect.stringMatching(/^ab_token=; Path=\/_ab; Max-Age=0/)])
+  // The hidden list: the owner's session, or the dashboard token as a bearer (the build and the scripts).
+  for (const h of [{ cookie: owner }, { authorization: 'Bearer tok' }] as Record<string, string>[]) expect((await handle(get('/_ab/hidden.json', h), e)).status).toBe(200)
+  // No owner named: nobody is.
+  const { e: none } = env({ DB: db } as Partial<Env>)
+  expect(await (await handle(get('/_ab/', { ...browser, cookie: owner }), none)).text()).toContain('không phải tài khoản chủ trang')
 })
 
 test('dashboard: a part that can\'t load says why in its place; the rest of the page renders', async () => {
   const { vi } = await import('vitest')
   const db = testD1()
   await db.prepare("INSERT INTO clicks_daily VALUES (?, 'shopee', 'thuc-an', 'species:x', 'search', 4)").bind(new Date().toISOString().slice(0, 10)).run()
-  const { e } = env({ DB: db, AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' } as Partial<Env>)
+  const { owner } = await signedIn(db)
+  const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' } as Partial<Env>)
   // Analytics Engine refuses every query; KV can't list.
   const fetch = vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response('Unknown function', { status: 422 }))
   const err = vi.spyOn(console, 'error').mockImplementation(() => {})
   try {
-    const r = await handle(get('/_ab/', { ...browser, cookie: 'ab_token=tok' }), e)
+    const r = await handle(get('/_ab/', { ...browser, cookie: owner }), e)
     expect(r.status).toBe(200)
     const html = await r.text()
     expect(html).toContain('analytics engine sql 422: Unknown function')
     expect(html).toContain('Lượt bấm affiliate mỗi ngày') // from D1, still drawn
     expect(html).toContain('Lượt bấm affiliate · 14 ngày')
     expect(fetch.mock.calls.every(([u]) => String(u).startsWith('https://api.cloudflare.com/client/v4/accounts/acc/analytics_engine/sql'))).toBe(true)
-    const fish = await (await handle(get('/_ab/nhan-dien-ca/', { ...browser, cookie: 'ab_token=tok' }), e)).text()
+    const fish = await (await handle(get('/_ab/nhan-dien-ca/', { ...browser, cookie: owner }), e)).text()
     expect(fish).toContain('Không tải được nhật ký nhận diện cá')
     expect(fish).toContain('Key Anthropic')
   } finally {
@@ -253,8 +269,9 @@ test('agent discovery: API catalog as linkset+json; homepage redirect and /vi/ c
 test('hide a page from the dashboard: 410 for HTML, markdown and index.*; unhide brings it back', async () => {
   const store = new Map<string, string>()
   const AB = { get: async (k: string, o?: { type?: string } | string) => { const v = store.get(k); return v === undefined ? (k === 'hidden' ? null : { mix: 0, a: 0, b: 1, c: 0 }) : (o === 'json' || (typeof o === 'object' && o?.type === 'json')) ? JSON.parse(v) : v }, put: async (k: string, v: string) => { store.set(k, v) } }
-  const { e } = env({ AB: AB as unknown as KVNamespace })
-  const form = (fields: Record<string, string>, cookie = 'ab_token=tok') =>
+  const { db, owner } = await signedIn()
+  const { e } = env({ AB: AB as unknown as KVNamespace, DB: db, OWNER_ACCOUNTS: 'owner-1' } as Partial<Env>)
+  const form = (fields: Record<string, string>, cookie = owner) =>
     new Request('https://x.test/_ab/hidden', { method: 'POST', body: new URLSearchParams(fields), headers: { cookie, 'content-type': 'application/x-www-form-urlencoded' } })
 
   expect((await handle(form({ url: '/vi/ca/x/', action: 'hide' }, ''), e)).status).toBe(404) // no cookie
@@ -279,12 +296,11 @@ test('hide a page from the dashboard: 410 for HTML, markdown and index.*; unhide
   expect((await handle(get('/vi/ca/x/'), e)).status).toBe(200)
 })
 
-test('owner: opening /_ab/ sets the owner flag cookie; the taken-down page offers "bring back"', async () => {
-  const { e } = env({ AB: { get: async () => null, put: async () => {} } as unknown as KVNamespace })
-  const login = await handle(new Request('https://x.test/_ab/?token=tok'), e)
-  expect(login.headers.getSetCookie()).toEqual([expect.stringMatching(/^ab_token=tok; Path=\/_ab;/), expect.stringMatching(/^aq_owner=1; Path=\/;.*SameSite=Strict/)])
-  const dash = await handle(new Request('https://x.test/_ab/', { headers: { cookie: 'ab_token=tok' } }), e)
-  expect(dash.headers.get('set-cookie')).toMatch(/^aq_owner=1;/)
+test('owner: opening /_ab/ signed in sets the owner flag cookie; the taken-down page offers "bring back"', async () => {
+  const { db, owner } = await signedIn()
+  const { e } = env({ AB: { get: async () => null, put: async () => {} } as unknown as KVNamespace, DB: db, OWNER_ACCOUNTS: ' owner-1 , other-id' } as Partial<Env>)
+  const dash = await handle(new Request('https://x.test/_ab/', { headers: { cookie: owner } }), e)
+  expect(dash.headers.getSetCookie()[0]).toMatch(/^aq_owner=1; Path=\/;.*SameSite=Strict/)
   const gone = await gonePage().text()
   expect(gone).toContain('data-gone="1"')
   expect(gone).toContain('Hiện lại trang này')
