@@ -35,7 +35,7 @@ test('readers: sessions that scrolled half a page or stayed 30 s; sources, top p
   expect(forged).not.toContain('href="/\\')
   expect(forged).toContain('//evil.example/login')
   // The overview counts readers over 7 days and links to their page, which has the details.
-  const dash = overviewPage({ now, readers: r.daily, clicks: unset('D1'), fish: unset('AE'), keys: undefined, photos: unset('ảnh'), waiting: unset('D1'), wanted: unset('KV'), accounts: unset('D1'), hidden: unset('KV') })
+  const dash = overviewPage({ now, readers: r.daily, clicks: unset('D1'), fish: unset('AE'), keys: undefined, photos: unset('ảnh'), waiting: unset('D1'), wanted: unset('KV'), accounts: unset('D1'), hidden: unset('KV'), content: unset('ASSETS'), snapshots: unset('KV') })
   expect(dash).toContain('href="/_ab/doc-gia/"')
   expect(dash).toContain('người đọc · 7 ngày')
   expect(dash).not.toContain('/vi/ca/ca-betta/')
