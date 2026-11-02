@@ -392,6 +392,9 @@ struct NewUnlisted: View {
     Form {
       Section {
         Text("\(Text(verbatim: typed).bold()) chưa có trang trong cẩm nang. Vẫn thêm vào bể được: khi có trang, bể sẽ hiện trang đó.")
+      }
+      // A segmented picker doesn't show its own label, so the section's header says what it chooses, for VoiceOver too.
+      Section("Đây là") {
         Picker("Đây là", selection: $kind) {
           Text("Cá, tép hoặc ốc").tag("fish")
           Text("Cây").tag("plant")

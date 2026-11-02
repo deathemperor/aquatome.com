@@ -149,6 +149,8 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertEqual(name.value as? String, "Rhinogobius duospilus")
     XCTAssertEqual(sci.value as? String, "Rhinogobius duospilus", "the scientific name typed isn't taken as one")
     XCTAssertTrue(app.segmentedControls["new-kind"].buttons["Cá, tép hoặc ốc"].isSelected, "not a fish to begin with")
+    // A segmented picker doesn't show its own label, so VoiceOver read the two choices without saying what they choose.
+    XCTAssertTrue(app.staticTexts["Đây là"].exists, "nothing says what the fish-or-plant choice is")
     name.clearAndType("Ca bong mat tre")
     app.textFields["new-count"].tap()
     app.textFields["new-count"].typeText("3")

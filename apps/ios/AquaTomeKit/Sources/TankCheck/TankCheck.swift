@@ -63,6 +63,23 @@ public struct TankCheck: Decodable, Equatable, Sendable {
     public let litres: Double?
     public init(dims: Dims? = nil, litres: Double? = nil) { self.dims = dims; self.litres = litres }
   }
+
+  /// The fish to check, one per handbook page (by content id): a page on the tank twice, put on from the page and
+  /// again by name from before the page existed, is one fish, with the counts given added up. The check reads a fish
+  /// with no count as its school size, so while one of them has none, the fish counts at least that: adding a row never
+  /// lowers it. None given: none.
+  public static func onePerPage(_ fish: [(page: String, fish: Fish)]) -> [Fish] {
+    var order: [String] = [], rows: [String: [Fish]] = [:]
+    for (page, f) in fish {
+      if rows[page] == nil { order.append(page) }
+      rows[page, default: []].append(f)
+    }
+    return order.map { page in
+      let all = rows[page]!, first = all[0], given = all.compactMap(\.count), sum = given.reduce(0, +)
+      let count = given.isEmpty ? nil : given.count == all.count ? sum : max(sum, first.facts.schoolMin ?? 1)
+      return Fish(name: first.name, facts: first.facts, count: count)
+    }
+  }
 }
 
 /// Runs the site's check in one language ("vi", "id", "th"), with the site's translations. A JavaScript context: keep
