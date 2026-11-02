@@ -278,6 +278,7 @@ final class NativePageFlowTests: XCTestCase {
     openItem(app, "reu hai tu a", "Rêu hại từ A đến Z")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the series isn't drawn by the app")
     XCTAssertTrue(text(app, "1 bài · 29 phút video").exists, "no counts")
+    XCTAssertTrue(app.links["ALGAE! Everything you need to know!"].exists, "no playlist")
     XCTAssertTrue(app.links["MJ Aquascaping"].exists, "no channel")
     let guide = card(app, "Cách hạn chế rêu hại")
     reveal(app, guide)
