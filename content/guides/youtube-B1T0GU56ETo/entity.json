@@ -1,6 +1,6 @@
 {
   "id": "youtube-B1T0GU56ETo",
-  "kind": "setup",
+  "kind": "care",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=B1T0GU56ETo",
   "html": "",
@@ -12,7 +12,7 @@
     "trichopodus-trichopterus",
     "betta-splendens"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "B1T0GU56ETo",
     "title": "5 nguyên tắc chơi Thủy Sinh dành cho người \"LƯỜI\"",
@@ -32,15 +32,12 @@
     },
     "lang": "vi",
     "taxa": [
-      "Anubias nana",
+      "Anubias sp.",
+      "Cyperus alternifolius",
       "Paracheirodon innesi",
-      "Hyphessobrycon amandae",
       "Pterophyllum scalare",
       "Symphysodon sp.",
-      "Trichopodus trichopterus",
-      "Betta splendens",
-      "Spathiphyllum sp.",
-      "Epipremnum aureum"
+      "Macropodus sp."
     ],
     "gear": [
       {
@@ -51,7 +48,7 @@
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 150
+        "t": 160
       },
       {
         "category": "cay-thuy-sinh",
@@ -61,10 +58,11 @@
       {
         "category": "cay-thuy-sinh",
         "type": "noi",
-        "t": 510
+        "t": 505
       },
       {
         "category": "loc",
+        "type": "thung",
         "brand": "Atman",
         "model": "DF1300",
         "t": 381
@@ -73,83 +71,81 @@
         "category": "den",
         "type": "thuy-sinh",
         "t": 414
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 381
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao bể ít chăm không nên dùng phân nền",
+        "heading": "Có cần phân nền không",
         "moments": [
           {
-            "t": 133,
-            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t133.webp",
+            "t": 128,
+            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t128.webp",
             "width": 320,
             "height": 180,
-            "caption": "Bể thủy sinh cây lên dày, rậm và đỏ rực nhờ nhiều dinh dưỡng."
+            "caption": "Cây trồng trên lớp nền sỏi mỏng, nhìn gọn và đơn giản."
           },
           {
-            "t": 148,
-            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t148.webp",
+            "t": 158,
+            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t158.webp",
             "width": 320,
             "height": 180,
-            "caption": "Thay nước và hút cặn trong bể cây đã um tùm."
+            "caption": "Bể thủy sinh lên cây rất đẹp nhờ nền giàu dinh dưỡng."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/B1T0GU56ETo/p0-0ZXJfRmlzaC5wbmc.webp",
-          "thumb": "https://media.aquatome.com/video/B1T0GU56ETo/p0-0ZXJfRmlzaC5wbmc-480.webp",
-          "width": 940,
-          "height": 788,
-          "licence": "CC BY-SA 4.0",
-          "author": "Chamika Ranaweera",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_Algae_Eater_Fish.png",
-          "caption": "Bể thủy sinh nước ngọt với rêu và cây bám lũa, cá bơi quanh."
+          "url": "https://media.aquatome.com/video/B1T0GU56ETo/p0-RvbV9zYW5kLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/B1T0GU56ETo/p0-RvbV9zYW5kLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "kerinin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
+          "caption": "Lớp cát trải mỏng dưới đáy bể, kết hợp đá lũa làm cảnh."
         }
       },
       {
-        "heading": "Chọn cây thủy sinh nào cho bể lười",
+        "heading": "Chọn cây gì để ít phải chăm",
         "moments": [
           {
-            "t": 212,
-            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t212.webp",
+            "t": 222,
+            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t222.webp",
             "width": 320,
             "height": 180,
-            "caption": "Bể thủy sinh có lũa và đá, cây gài lên lũa và đá."
+            "caption": "Cụm ráy lá xanh mọc um tùm trong bể thủy sinh."
           },
           {
             "t": 232,
             "url": "https://media.aquatome.com/video/B1T0GU56ETo/t232.webp",
             "width": 320,
             "height": 180,
-            "caption": "Cây gài trên lũa, không cần cắm xuống nền."
+            "caption": "Ráy gắn trên lũa, không cần cắm xuống nền."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/B1T0GU56ETo/p1-YV9QZXRpdGUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/B1T0GU56ETo/p1-YV9QZXRpdGUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/B1T0GU56ETo/p1-hbmFfa3owMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/B1T0GU56ETo/p1-hbmFfa3owMS5qcGc-480.webp",
           "width": 960,
-          "height": 616,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_Nana_Petite.jpg",
-          "caption": "Một bụi ráy Anubias nana petite lá xanh, nhỏ gọn, sẵn sàng buộc lên lũa."
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Krzysztof Ziarnek, Kenraiz",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana_kz01.jpg",
+          "caption": "Cây ráy (Anubias) đặt trên đá trong bể, không cần cắm xuống nền."
         }
       },
       {
-        "heading": "Nuôi cá gì và nuôi bao nhiêu con",
+        "heading": "Nuôi cá gì và thả bao nhiêu",
         "moments": [
           {
-            "t": 311,
-            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t311.webp",
+            "t": 346,
+            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t346.webp",
             "width": 320,
             "height": 180,
-            "caption": "Bể thủy sinh thả thưa vài con cá dĩa, có lũa và cây."
-          },
-          {
-            "t": 321,
-            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t321.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đàn cá neon và cá nhỏ bơi giữa bể thủy sinh nhiều cây."
+            "caption": "Hai con cá nhỏ bơi giữa đám rong rậm trong bể."
           }
         ],
         "photo": {
@@ -160,25 +156,25 @@
           "licence": "CC BY-SA 4.0",
           "author": "Mikhaliov",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rainow_fish_betta.jpg",
-          "caption": "Cá betta bơi trong bể trồng thủy sinh, có ốc và hang trú ẩn."
+          "caption": "Cá lia thia xanh đỏ bơi trong bể trồng cây thật, có ốc và hang trú."
         }
       },
       {
-        "heading": "Lọc thừa, đèn thiếu nghĩa là gì",
+        "heading": "Lọc dư, đèn thiếu nghĩa là sao",
         "moments": [
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t400.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai lọc thùng đặt cạnh nhau, cận cảnh thân lọc."
-          },
           {
             "t": 410,
             "url": "https://media.aquatome.com/video/B1T0GU56ETo/t410.webp",
             "width": 320,
             "height": 180,
-            "caption": "Nhiều lọc thùng được nối ống chạy song song cho bể."
+            "caption": "Hai bộ lọc thùng đặt cạnh nhau dưới bể, nối ống dẫn nước."
+          },
+          {
+            "t": 415,
+            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t415.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Cận cảnh đầu lọc thùng với các van và ống nối."
           }
         ],
         "photo": {
@@ -189,25 +185,25 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh là xô và ống siphon."
+          "caption": "Lọc thùng đặt trong tủ bể, ống nước nối ra xô bên cạnh."
         }
       },
       {
-        "heading": "Dùng cây vươn lá và bèo để che sáng, hút dinh dưỡng thừa",
+        "heading": "Dùng cây vươn khỏi mặt nước và bèo để che sáng",
         "moments": [
           {
             "t": 484,
             "url": "https://media.aquatome.com/video/B1T0GU56ETo/t484.webp",
             "width": 320,
             "height": 180,
-            "caption": "Tán lá cây vươn cao khỏi mặt nước, che bớt ánh đèn."
+            "caption": "Cây vươn cao khỏi mặt nước, tán lá che bớt ánh sáng từ đèn."
           },
           {
-            "t": 504,
-            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t504.webp",
+            "t": 499,
+            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t499.webp",
             "width": 320,
             "height": 180,
-            "caption": "Bộ rễ trầu bà trắng dài, dày đặc trong nước, hút dinh dưỡng dư."
+            "caption": "Cây trầu bà gân trắng trồng gốc trong nước, rễ ra dưới bể."
           }
         ],
         "photo": {
@@ -218,21 +214,41 @@
           "licence": "CC BY-SA 4.0",
           "author": "AnonyManx",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pothos_in_aquarium.jpg",
-          "caption": "Cây trầu bà vươn lá lên khỏi nắp bể cá, rễ thả xuống nước."
+          "caption": "Cây trầu bà trồng trên nắp bể, tán lá vươn lên che bớt ánh sáng."
         }
       },
       {
-        "heading": "Cho ăn bao lâu một lần",
-        "moments": [],
+        "heading": "Cho cá ăn bao lâu một lần",
+        "moments": [
+          {
+            "t": 563,
+            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t563.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Đàn cá nhỏ bơi quanh lũa và cây thủy sinh trong hồ."
+          }
+        ]
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [
+          {
+            "t": 252,
+            "url": "https://media.aquatome.com/video/B1T0GU56ETo/t252.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Cây thủy sinh buộc trên lũa, lá mọc xum xuê trong bể."
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/B1T0GU56ETo/p5-ZWRfZm9vZDIuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/B1T0GU56ETo/p5-ZWRfZm9vZDIuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/B1T0GU56ETo/p6-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/B1T0GU56ETo/p6-NfUGxhbnRzLmpwZw-480.webp",
           "width": 960,
-          "height": 819,
-          "licence": "CC BY-SA 3.0",
-          "author": "Taken by User:Pinpin - fr:Utilisateur:Pinpin",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_-_dried_food2.jpg",
-          "caption": "Các loại thức ăn cho cá: vảy, viên, bánh khô và trùn khô."
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể trải cát mỏng, cây lá to buộc lũa, bày trí gọn gàng."
         }
       }
     ]

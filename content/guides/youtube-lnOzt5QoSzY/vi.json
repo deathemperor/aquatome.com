@@ -1,0 +1,45 @@
+{
+  "slug": "tu-che-den-led-wrgb-cho-be-thuy-sinh-1-2-m",
+  "name": "Tự chế đèn LED WRGB cho bể thủy sinh 1,2 m",
+  "altNames": [],
+  "sections": {},
+  "body": "<p>Bể thủy sinh dài 1,2 m cần một dàn đèn đủ dài và đủ sáng để cây lên đều. Một cách nhiều người chơi tự làm là chế đèn LED WRGB, tức đèn phối bóng trắng với đỏ, xanh lá và xanh dương, hàn trên các mạch tròn rồi gắn vào máng nhôm.</p><p>Bài này đi qua những linh kiện cần chuẩn bị, cách phối màu bóng, cách hàn mạch và tản nhiệt. Phần hàn cần có sơ đồ đi kèm. Bạn nên mở sơ đồ ra đối chiếu từng mạch trong lúc làm.</p><h3>Cần chuẩn bị những gì</h3><ul><li><strong>Máng đèn nhôm</strong>: dài bằng chiều dài bể. Bể 1,2 m thì dùng máng 1,2 m. Máng nhôm dùng để gắn các mạch LED và cũng là chỗ tản nhiệt cho bóng.</li><li><strong>Nguồn ổn dòng 48V</strong> (LED driver): loại dùng ở đây kéo được khoảng 200W.</li><li><strong>Mạch tròn để hàn LED</strong>: mỗi mạch gắn 15 bóng.</li><li><strong>Bóng LED 1W</strong> năm màu: đỏ, xanh dương, xanh lá, trắng 8500K và trắng 6500K.</li><li><strong>Keo silicon tản nhiệt</strong>: vừa dán chặt bóng vừa truyền nhiệt xuống mạch.</li><li><strong>Quạt tản nhiệt 12V</strong>: dùng 4 cái gắn sau lưng máng.</li><li><strong>Dây điện</strong> để nối các mạch với nhau. Nên chọn dây màu trắng cho đỡ lộ.</li></ul><p>Trước khi hàn, bạn nên cộng tổng công suất bóng định gắn và so với công suất nguồn. Tổng này cần thấp hơn mức nguồn chịu được, đừng để nguồn chạy sát giới hạn.</p><h3>Vì sao phải phối màu cho đúng</h3><p>Đèn WRGB đẹp hay không nằm ở phần phối màu. Nếu phối lệch, màu bể nhìn sai, cây lên không đẹp. Nặng hơn thì cây có thể yếu dần rồi chết.</p><p>Vì thế mỗi màu phải nằm đúng vị trí trên từng mạch như sơ đồ. Đừng tự thay bóng màu này sang màu khác chỉ vì thiếu linh kiện. Thiếu bóng màu nào thì mua thêm đúng màu đó.</p><h3>Bố trí mạch lẻ và mạch chẵn</h3><p>Các mạch tròn được đánh số rồi chia làm hai nhóm:</p><ul><li><strong>Mạch lẻ</strong>: 1, 3, 5, 7, 9, 11.</li><li><strong>Mạch chẵn</strong>: 2, 4, 6, 8, 10.</li></ul><p>Hai nhóm này đặt màu ở những vị trí khác nhau, và khi lắp vào máng thì các mạch nằm so le nhau. Để không nhầm, bạn nên quay chữ in trên mạch về cùng một hướng rồi dò theo sơ đồ. Trên mỗi mạch, bóng đỏ, xanh dương và xanh lá nằm ở những ô riêng. Bóng trắng 8500K và trắng 6500K chiếm các ô còn lại. Mạch chẵn cũng làm như vậy, chỉ cần đặt đúng màu vào đúng ô theo sơ đồ của nhóm chẵn.</p><h3>Hàn bóng lên mạch</h3><ol><li>Bắt đầu với nhóm mạch lẻ (1, 3, 5, 7, 9, 11) rồi làm tiếp nhóm chẵn.</li><li>Bôi keo tản nhiệt lên vị trí đặt bóng trên mạch.</li><li>Đặt bóng lên. Mạch có in dấu cộng để chỉ chân dương, phía còn lại là chân âm. Bóng phải nằm đúng chiều với dấu này.</li><li>Hàn hai chân bóng vào mạch. Làm lần lượt cho đủ 15 bóng trên mỗi mạch.</li></ol><p>Phần cực tính phải nhìn thật kỹ. LED hàn ngược chiều sẽ không sáng, và khi đã dán keo thì gỡ ra rất mất công.</p><h3>Gắn mạch vào máng và tản nhiệt</h3><p>Khi các mạch đã hàn xong, bạn dùng keo silicon tản nhiệt dán mạch vào lòng máng nhôm. Loại keo này khô cứng nên giữ mạch chắc, đồng thời truyền nhiệt từ bóng sang máng.</p><p>Bóng 1W gắn dày như vậy tỏa khá nhiều nhiệt. Vì thế sau lưng máng nên ốp thêm quạt 12V, ở đây dùng 4 cái. Các đoạn giữa máng thì bắt vít cho cố định.</p><h3>Nối các mạch với nguồn</h3><p>Các mạch tròn được hàn <strong>song song</strong> với nhau bằng dây điện, sau đó đấu vào nguồn ổn dòng 48V. Dây màu trắng nằm trong máng sáng màu sẽ ít lộ, nhìn gọn hơn khi treo đèn trên bể.</p><h3>Bắt đầu từ đâu</h3><ol><li>Đo chiều dài bể rồi mua máng nhôm dài tương ứng.</li><li>Tải sơ đồ hàn về, đếm số mạch và số bóng từng màu cần cho cả dàn. Sau đó cộng tổng công suất để chọn nguồn phù hợp.</li><li>Chuẩn bị keo silicon tản nhiệt và quạt 12V trước khi hàn, để có thể gắn mạch vào máng ngay sau khi hàn xong.</li><li>Hàn nhóm mạch lẻ trước, nhìn kỹ dấu cộng trên mạch ở từng bóng.</li></ol>",
+  "summary": [
+    "Máng nhôm dài bằng bể vừa là khung gắn LED vừa giúp tản nhiệt.",
+    "Đèn dùng nguồn ổn dòng 48V công suất khoảng 200W và các mạch tròn hàn 15 bóng LED 1W.",
+    "Bóng gồm năm màu: đỏ, xanh dương, xanh lá, trắng 8500K và trắng 6500K. Phối sai màu thì cây xấu, có khi chết.",
+    "Mạch đánh số lẻ và chẵn, mỗi nhóm bố trí màu khác nhau và lắp so le theo sơ đồ.",
+    "Bôi keo tản nhiệt trước khi gắn bóng, nhìn kỹ dấu cộng để hàn đúng cực.",
+    "Các mạch hàn song song với nhau, phía sau máng gắn thêm quạt 12V để tản nhiệt."
+  ],
+  "faq": [
+    {
+      "q": "Đèn LED WRGB tự chế cần những màu bóng nào?",
+      "a": "Bộ đèn này dùng bóng 1W năm màu: đỏ, xanh dương, xanh lá, trắng 8500K và trắng 6500K. Màu nào phải nằm đúng ô của màu đó theo sơ đồ hàn."
+    },
+    {
+      "q": "Phối sai màu bóng thì có sao không?",
+      "a": "Phối lệch thì màu bể nhìn không chuẩn và cây lên xấu. Nặng hơn thì cây có thể chết."
+    },
+    {
+      "q": "Dùng loại nguồn nào cho đèn này?",
+      "a": "Đèn dùng nguồn ổn dòng 48V công suất khoảng 200W. Bạn nên cộng tổng công suất bóng định gắn và giữ con số này thấp hơn mức nguồn chịu được."
+    },
+    {
+      "q": "Có cần gắn quạt cho đèn LED tự chế không?",
+      "a": "Nên gắn. Bóng 1W gắn dày tỏa nhiều nhiệt, nên ngoài máng nhôm và keo tản nhiệt, đèn này còn dùng 4 quạt 12V ốp sau lưng máng."
+    },
+    {
+      "q": "Các mạch LED nối với nhau kiểu gì?",
+      "a": "Các mạch được hàn song song với nhau rồi đấu vào nguồn ổn dòng. Dùng dây màu trắng thì dây ít lộ hơn."
+    }
+  ],
+  "cover": "Tự chế đèn WRGB cho bể 1m2",
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "youtube": 0.6
+    }
+  }
+}

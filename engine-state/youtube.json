@@ -31,6 +31,13 @@
     "attempts": 0,
     "updatedAt": "2026-11-02T00:34:54.061Z"
   },
+  "-szhwjfrtJw": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:31:58.172Z"
+  },
   "-xaquAyqkjw": {
     "status": "error",
     "entityIds": [],
@@ -90,6 +97,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-11-02T00:09:44.968Z"
+  },
+  "1TkcARfJKCQ": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-1TkcARfJKCQ"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:36:44.864Z"
   },
   "2GuzV47gCkM": {
     "status": "skipped",
@@ -159,6 +174,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-31T04:15:03.754Z"
   },
+  "5TtDfNZFJE4": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-5TtDfNZFJE4"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:42:38.483Z"
+  },
   "5ajPkl9rhKQ": {
     "status": "processed",
     "entityIds": [
@@ -226,6 +249,30 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T23:43:08.341Z"
   },
+  "7X823MgJlHo": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-7X823MgJlHo"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:42:35.907Z"
+  },
+  "7ZVrhWkpFDE": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-7ZVrhWkpFDE"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:46:03.261Z"
+  },
+  "85iF2nhleGM": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-85iF2nhleGM"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:13:28.209Z"
+  },
   "8EelCQTnsQ0": {
     "status": "processed",
     "entityIds": [
@@ -233,6 +280,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-11-02T00:41:38.747Z"
+  },
+  "8SwotDmf5eM": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-8SwotDmf5eM"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:30:25.118Z"
   },
   "8ZjRvJ_5pTE": {
     "status": "processed",
@@ -311,6 +366,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-31T04:36:31.725Z"
   },
+  "AosqrAxJMZA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:32:42.786Z"
+  },
   "AsK_yxCXVrY": {
     "status": "processed",
     "entityIds": [
@@ -318,6 +380,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T07:13:22.252Z"
+  },
+  "B1T0GU56ETo": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-B1T0GU56ETo"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:48:37.928Z"
   },
   "BiNf-SlKfLI": {
     "status": "processed",
@@ -350,6 +420,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-31T12:34:52.947Z"
   },
+  "CpZMGdXHu5E": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:39:06.867Z"
+  },
   "D8ZPJeMEXiY": {
     "status": "processed",
     "entityIds": [
@@ -365,12 +442,27 @@
     "attempts": 0,
     "updatedAt": "2026-10-31T12:20:56.474Z"
   },
+  "DKUhLdlg490": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:37:52.109Z"
+  },
   "DNRCu9CDwb4": {
     "status": "skipped",
     "entityIds": [],
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-10-31T12:15:53.345Z"
+  },
+  "DZ0JTLYiawU": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-DZ0JTLYiawU"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:51:29.493Z"
   },
   "EAjOb0V3Vnw": {
     "status": "skipped",
@@ -402,6 +494,14 @@
     "attempts": 0,
     "updatedAt": "2026-11-02T00:12:31.590Z"
   },
+  "EV1ZR6CjOzc": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-EV1ZR6CjOzc"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:48:00.465Z"
+  },
   "EXF0vtu0bqI": {
     "status": "processed",
     "entityIds": [
@@ -410,6 +510,21 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T22:35:59.694Z"
   },
+  "EaIrRD_QJuo": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-EaIrRD_QJuo"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:37:20.286Z"
+  },
+  "EgtqaR52YeA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:33:43.660Z"
+  },
   "Ejng2T-a2Gk": {
     "status": "processed",
     "entityIds": [
@@ -417,6 +532,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T05:02:36.476Z"
+  },
+  "F3OEx0pNBDA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:04:59.287Z"
   },
   "FAccJ8TTIAs": {
     "status": "processed",
@@ -539,6 +661,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-31T05:14:16.998Z"
   },
+  "HwD_FoRC2Ig": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-HwD_FoRC2Ig"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:55:44.838Z"
+  },
   "IAGN8lN997s": {
     "status": "processed",
     "entityIds": [
@@ -546,6 +676,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-31T13:16:42.418Z"
+  },
+  "IB6lV6eF2MY": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-IB6lV6eF2MY"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:19:26.408Z"
   },
   "I_KBOUM1RXM": {
     "status": "processed",
@@ -639,6 +777,14 @@
     "attempts": 3,
     "updatedAt": "2026-11-01T15:03:55.315Z"
   },
+  "KjUE_aid3BI": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-KjUE_aid3BI"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:34:02.558Z"
+  },
   "Kn3EUzI3Hp0": {
     "status": "skipped",
     "entityIds": [],
@@ -703,6 +849,13 @@
     "error": "not a guide",
     "attempts": 0,
     "updatedAt": "2026-10-31T12:29:20.368Z"
+  },
+  "M7sW4M0gNLc": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:01:23.463Z"
   },
   "MLuT3K5yg44": {
     "status": "processed",
@@ -812,6 +965,14 @@
     "attempts": 3,
     "updatedAt": "2026-11-01T15:04:29.277Z"
   },
+  "PF2i10T5JGM": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-PF2i10T5JGM"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:25:51.398Z"
+  },
   "PL9OWCLE2hM": {
     "status": "skipped",
     "entityIds": [],
@@ -841,6 +1002,14 @@
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-11-02T00:14:39.320Z"
+  },
+  "PnwEzP5x8eU": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-PnwEzP5x8eU"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:23:57.384Z"
   },
   "PtAjI8kCzGo": {
     "status": "skipped",
@@ -885,6 +1054,21 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-31T04:01:43.305Z"
+  },
+  "R03kvxBYx38": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:34:27.856Z"
+  },
+  "RBtMtrL4tAQ": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-RBtMtrL4tAQ"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:00:54.025Z"
   },
   "RJE1PUdhy6I": {
     "status": "processed",
@@ -948,6 +1132,22 @@
     "attempts": 0,
     "updatedAt": "2026-10-31T12:04:11.500Z"
   },
+  "TRpaZNjeRE4": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-TRpaZNjeRE4"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:07:39.243Z"
+  },
+  "UK4S3ZFTTS8": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-UK4S3ZFTTS8"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:45:50.132Z"
+  },
   "ULCBqSQYaOY": {
     "status": "processed",
     "entityIds": [
@@ -970,6 +1170,13 @@
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-11-02T00:14:15.608Z"
+  },
+  "VDO1Fopamxo": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:48:54.834Z"
   },
   "VJ_EZRwwFZg": {
     "status": "processed",
@@ -994,6 +1201,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-31T04:16:15.505Z"
   },
+  "Wn2pTnX55OI": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:52:19.247Z"
+  },
   "X-55vLo-F6M": {
     "status": "processed",
     "entityIds": [
@@ -1009,6 +1223,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-31T12:18:33.515Z"
+  },
+  "XaHIqAHi4MU": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-XaHIqAHi4MU"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:51:10.961Z"
   },
   "Y3YcnActXSs": {
     "status": "skipped",
@@ -1056,6 +1278,14 @@
     "attempts": 0,
     "updatedAt": "2026-11-02T00:07:25.000Z"
   },
+  "YIl9PLI2HAs": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-YIl9PLI2HAs"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:58:14.667Z"
+  },
   "YLGv95LMF6c": {
     "status": "processed",
     "entityIds": [
@@ -1079,6 +1309,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T05:33:58.953Z"
+  },
+  "YnloIslvwHA": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-YnloIslvwHA"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:53:24.039Z"
   },
   "Z2Wv0RxD67g": {
     "status": "processed",
@@ -1127,6 +1365,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T22:58:50.897Z"
   },
+  "_FeRgni8sik": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:38:53.695Z"
+  },
   "_LDwOyvHamI": {
     "status": "skipped",
     "entityIds": [],
@@ -1157,6 +1402,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T07:55:58.424Z"
+  },
+  "aiWRv2LoZus": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:38:42.517Z"
   },
   "apPiQrY9GIM": {
     "status": "processed",
@@ -1195,6 +1447,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T07:18:28.292Z"
   },
+  "cPBLU4VMwWU": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-cPBLU4VMwWU"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:16:56.312Z"
+  },
   "dEiOXBOzlgU": {
     "status": "processed",
     "entityIds": [
@@ -1203,6 +1463,13 @@
     "attempts": 0,
     "updatedAt": "2026-11-02T00:17:44.389Z"
   },
+  "dMSgn9lNLM0": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:31:37.866Z"
+  },
   "dTkvCEn1xHA": {
     "status": "processed",
     "entityIds": [
@@ -1210,6 +1477,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T05:39:37.578Z"
+  },
+  "dWX5azsrKSk": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-dWX5azsrKSk"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:31:33.115Z"
   },
   "ddIenwrxWgU": {
     "status": "processed",
@@ -1226,6 +1501,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T08:08:47.957Z"
+  },
+  "ev7zCikOokc": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:04:29.289Z"
   },
   "fR-INyQXdPM": {
     "status": "processed",
@@ -1249,6 +1531,21 @@
     "attempts": 0,
     "updatedAt": "2026-11-02T00:10:05.131Z"
   },
+  "fc2vp6Hvo2I": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-fc2vp6Hvo2I"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:04:00.633Z"
+  },
+  "fmD5VsO68a8": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:48:24.677Z"
+  },
   "g6Rqis9uO1Y": {
     "status": "processed",
     "entityIds": [
@@ -1256,6 +1553,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T07:21:03.949Z"
+  },
+  "gFv4q4_lEQw": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:33:23.376Z"
   },
   "glJgch3u4g8": {
     "status": "processed",
@@ -1302,6 +1606,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-31T12:59:36.194Z"
   },
+  "h_UXlf0XPTM": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-h_UXlf0XPTM"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:38:33.302Z"
+  },
   "hse29AkwWYw": {
     "status": "skipped",
     "entityIds": [],
@@ -1317,6 +1629,21 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T08:03:23.721Z"
   },
+  "iY8NEK9GGzo": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-iY8NEK9GGzo"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:55:40.401Z"
+  },
+  "iZmkfduIuD4": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:32:22.496Z"
+  },
   "i_kFn29YuRk": {
     "status": "skipped",
     "entityIds": [],
@@ -1330,6 +1657,20 @@
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-10-30T07:15:26.080Z"
+  },
+  "jMK7ExqnoKA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:43:10.106Z"
+  },
+  "jPwMUKxgIwo": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:31:13.429Z"
   },
   "joHaSHt_jPA": {
     "status": "skipped",
@@ -1370,6 +1711,13 @@
     "attempts": 0,
     "updatedAt": "2026-11-01T23:55:04.093Z"
   },
+  "kW3144yq8IA": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:13:57.480Z"
+  },
   "kYFZT3em8GU": {
     "status": "processed",
     "entityIds": [
@@ -1408,6 +1756,14 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T23:26:03.907Z"
   },
+  "lnOzt5QoSzY": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-lnOzt5QoSzY"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:09:58.407Z"
+  },
   "lzK_-_RFUqk": {
     "status": "skipped",
     "entityIds": [],
@@ -1429,6 +1785,21 @@
     "error": "too short",
     "attempts": 0,
     "updatedAt": "2026-10-31T12:26:25.011Z"
+  },
+  "mmND8O0j_Qo": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-mmND8O0j_Qo"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:27:54.441Z"
+  },
+  "nEKlOfg6t-0": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:39:38.057Z"
   },
   "nHctovIFxDM": {
     "status": "skipped",
@@ -1468,6 +1839,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-30T22:46:34.626Z"
   },
+  "oh2vtd7_p9U": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:30:53.127Z"
+  },
   "ohxFuNlRd2c": {
     "status": "processed",
     "entityIds": [
@@ -1475,6 +1853,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T04:29:17.303Z"
+  },
+  "opp6ngBRkP4": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-opp6ngBRkP4"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:21:53.265Z"
   },
   "oqjlfn3wxgA": {
     "status": "processed",
@@ -1506,6 +1892,14 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-10-30T23:17:54.903Z"
+  },
+  "qAQwhzHqh10": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-qAQwhzHqh10"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T13:01:30.126Z"
   },
   "qD5BkJhQDdw": {
     "status": "skipped",
@@ -1605,6 +1999,13 @@
     ],
     "attempts": 0,
     "updatedAt": "2026-11-02T00:27:54.613Z"
+  },
+  "tLASKA-m55w": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:51:53.680Z"
   },
   "tPkJ5PEBVYA": {
     "status": "processed",
@@ -1781,6 +2182,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-31T12:00:32.516Z"
   },
+  "xCN7t26zxYk": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:33:03.084Z"
+  },
   "xaMPVEEhQzU": {
     "status": "processed",
     "entityIds": [
@@ -1828,6 +2236,13 @@
     "attempts": 0,
     "updatedAt": "2026-10-31T13:14:18.350Z"
   },
+  "yIM7goSU3B8": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:58:23.078Z"
+  },
   "yKTNKEyuuig": {
     "status": "skipped",
     "entityIds": [],
@@ -1849,6 +2264,28 @@
     "error": "captions too short",
     "attempts": 0,
     "updatedAt": "2026-10-31T04:32:47.548Z"
+  },
+  "zNKnAklgF44": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "not a guide",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:52:47.780Z"
+  },
+  "zPvx7qEUYV0": {
+    "status": "skipped",
+    "entityIds": [],
+    "error": "captions too short",
+    "attempts": 0,
+    "updatedAt": "2026-11-02T12:34:07.604Z"
+  },
+  "zYfpvGHYlxQ": {
+    "status": "processed",
+    "entityIds": [
+      "youtube-zYfpvGHYlxQ"
+    ],
+    "attempts": 0,
+    "updatedAt": "2026-11-02T11:57:56.999Z"
   },
   "zfTnqG22oS8": {
     "status": "processed",

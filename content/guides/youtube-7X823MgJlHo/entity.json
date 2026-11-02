@@ -8,9 +8,10 @@
   "mentions": [
     "pterophyllum-scalare",
     "pethia-conchonius",
-    "microsorum-pteropus"
+    "microsorum-pteropus",
+    "bolbitis-heudelotii"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "7X823MgJlHo",
     "title": "Ngỡ ngàng bể CÁ THẦN TIÊN của anh bạn sau 4 tháng",
@@ -30,15 +31,16 @@
     },
     "lang": "vi",
     "taxa": [
-      "Pterophyllum scalare",
       "Pterophyllum altum",
+      "Pterophyllum scalare",
       "Symphysodon sp.",
-      "Pethia conchonius",
+      "Sawbwa resplendens",
+      "Hyphessobrycon sp.",
       "Corydoras sp.",
-      "Pterygoplichthys sp.",
+      "Hypostomus sp.",
       "Microsorum pteropus",
       "Anubias sp.",
-      "Ficus sp."
+      "Bolbitis heudelotii"
     ],
     "gear": [
       {
@@ -60,43 +62,41 @@
       {
         "category": "den",
         "brand": "Sirius",
-        "t": 249
+        "t": 244
       },
       {
         "category": "den",
         "brand": "Vivid",
-        "t": 249
+        "t": 250
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Seachem",
+        "model": "Matrix",
+        "t": 264
       },
       {
         "category": "khac",
-        "brand": "Seachem",
-        "model": "Matrix",
-        "t": 282
-      },
-      {
-        "category": "phan-nen",
-        "type": "cat",
-        "t": 375
+        "brand": "J mat",
+        "t": 255
       },
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 345
+        "t": 330
       },
       {
-        "category": "cay-thuy-sinh",
-        "type": "gan-lua",
-        "t": 465
-      },
-      {
-        "category": "suoi",
-        "t": 435
+        "category": "phan-nen",
+        "type": "cat",
+        "brand": "Nắng Vàng",
+        "t": 375
       },
       {
         "category": "thuc-an",
         "type": "kho",
         "brand": "Tetra",
-        "model": "Color",
+        "model": "Tetra Color",
         "t": 650
       },
       {
@@ -104,32 +104,26 @@
         "type": "kho",
         "brand": "Tropical",
         "model": "D-ALLIO Plus",
-        "t": 650
-      },
-      {
-        "category": "khac",
-        "brand": "Seachem",
-        "model": "Stability",
-        "t": 0
+        "t": 660
       }
     ],
     "figures": [
       {
-        "heading": "Bể công nghệ là gì, tốn bao nhiêu tiền",
+        "heading": "Bể công nghệ là gì và tốn bao nhiêu",
         "moments": [
           {
             "t": 134,
             "url": "https://media.aquatome.com/video/7X823MgJlHo/t134.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể kính đặt trên tủ gỗ, kiểu bể công nghệ."
+            "caption": "Bể kính trống đặt trên tủ gỗ, có ngăn kỹ thuật phía sau."
           },
           {
             "t": 263,
             "url": "https://media.aquatome.com/video/7X823MgJlHo/t263.webp",
             "width": 160,
             "height": 90,
-            "caption": "Ngăn lọc tràn và đường ống bên dưới tủ bể."
+            "caption": "Hệ lọc tràn đặt trong tủ bên dưới bể, có đường ống nước."
           }
         ],
         "photo": {
@@ -140,18 +134,18 @@
           "licence": "Public domain",
           "author": "Gtstricky",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Ngăn lọc tràn bằng kính nhiều ngăn đặt dưới tủ, kèm máy bơm."
+          "caption": "Hộp lọc tràn bằng acrylic nhiều ngăn kèm máy bơm, dùng đặt trong tủ dưới bể."
         }
       },
       {
-        "heading": "Xếp vật liệu trong ngăn lọc tràn thế nào",
+        "heading": "Xếp vật liệu lọc thế nào",
         "moments": [
           {
             "t": 292,
             "url": "https://media.aquatome.com/video/7X823MgJlHo/t292.webp",
             "width": 160,
             "height": 90,
-            "caption": "Các ngăn lọc tràn xếp bông lọc trắng, gạch đỏ và matrix."
+            "caption": "Các ngăn hộp lọc tràn xếp bông lọc, J-mat và vật liệu lọc."
           }
         ],
         "photo": {
@@ -162,44 +156,54 @@
           "licence": "CC BY-SA 3.0",
           "author": "Wikimedia Commons",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
-          "caption": "Các loại vật liệu lọc: bông lọc, sứ lọc, bio ball và sỏi nung."
+          "caption": "Các loại vật liệu lọc: bông lọc, sứ ống, bio ball và sỏi nung."
         }
       },
       {
-        "heading": "Chọn lũa và bố cục cho bể cá lớn",
+        "heading": "Chọn lũa và đá cho bố cục",
         "moments": [
+          {
+            "t": 337,
+            "url": "https://media.aquatome.com/video/7X823MgJlHo/t337.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cận cảnh thớ gỗ lũa sam đá được cầm trên tay."
+          },
           {
             "t": 342,
             "url": "https://media.aquatome.com/video/7X823MgJlHo/t342.webp",
             "width": 160,
             "height": 90,
-            "caption": "Một khúc lũa sam chưa xử lý đặt trên nền sân."
-          },
-          {
-            "t": 441,
-            "url": "https://media.aquatome.com/video/7X823MgJlHo/t441.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể lớn được bố cục bằng bộ lũa sam đá ghép lại."
+            "caption": "Bộ lũa sam đá đặt trên nền gạch, chưa thả vào bể."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/7X823MgJlHo/p2-YXJkc2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/7X823MgJlHo/p2-YXJkc2NhcGUuanBn-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
+          "caption": "Bể thủy sinh đang set với các bộ lũa ghép tạo bố cục trên nền cát trắng."
+        }
       },
       {
         "heading": "Vì sao chỉ nên trải cát mỏng",
         "moments": [
           {
-            "t": 372,
-            "url": "https://media.aquatome.com/video/7X823MgJlHo/t372.webp",
+            "t": 382,
+            "url": "https://media.aquatome.com/video/7X823MgJlHo/t382.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đáy bể trải một lớp cát mỏng, đang bố trí lũa."
+            "caption": "Bể lớn với lớp cát nền mỏng và lũa đã được bố trí."
           },
           {
-            "t": 421,
-            "url": "https://media.aquatome.com/video/7X823MgJlHo/t421.webp",
+            "t": 411,
+            "url": "https://media.aquatome.com/video/7X823MgJlHo/t411.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể đã xếp lũa, nền cát vẫn mỏng."
+            "caption": "Đang bày lũa trong bể, nền cát chỉ trải một lớp mỏng."
           }
         ],
         "photo": {
@@ -210,85 +214,110 @@
           "licence": "CC BY-SA 2.0",
           "author": "kerinin",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
-          "caption": "Lớp cát mỏng trải dưới đáy bể, cạnh đống đá."
+          "caption": "Lớp cát mỏng trải dưới đáy bể, cạnh khối đá."
         }
       },
       {
-        "heading": "Cây nào sống được trong bể cá không châm phân",
+        "heading": "Nhiệt độ và cây trồng",
         "moments": [
-          {
-            "t": 456,
-            "url": "https://media.aquatome.com/video/7X823MgJlHo/t456.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cây dương xỉ lá xanh bám trên lũa."
-          },
           {
             "t": 461,
             "url": "https://media.aquatome.com/video/7X823MgJlHo/t461.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cây gài trên tán lũa, xanh tốt mà không cần nền."
+            "caption": "Cây thủy sinh khỏe mọc trực tiếp trên tán lũa, không cần nền."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/7X823MgJlHo/p4-NfUGxhbnRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/7X823MgJlHo/p4-NfUGxhbnRzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/7X823MgJlHo/p4-cnUtSW5kaWEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/7X823MgJlHo/p4-cnUtSW5kaWEuanBn-480.webp",
           "width": 960,
-          "height": 638,
+          "height": 1280,
           "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Cây lá to gài vào kẽ lũa, sống khỏe mà không cần phân nền."
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leptochilus_pteropus-3-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cây dương xỉ Java khỏe mạnh trong chậu nhỏ, loại cây dễ chăm cho bể cá."
         }
       },
       {
-        "heading": "Thả cá gì và khi nào thả",
+        "heading": "Thả cá gì và khi nào",
         "moments": [
           {
             "t": 530,
             "url": "https://media.aquatome.com/video/7X823MgJlHo/t530.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đàn thần tiên bơi giữa lũa và cây thủy sinh trong bể lớn."
+            "caption": "Đàn thần tiên bơi giữa lũa và cây thủy sinh trong bể."
           },
           {
             "t": 550,
             "url": "https://media.aquatome.com/video/7X823MgJlHo/t550.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cá đĩa và đàn hồng mi bơi trên nền cát, bên lũa."
+            "caption": "Đàn hồng mi bơi trong bể lũa, nền cát sáng."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/7X823MgJlHo/p6-X0E3NDI1NzguanBn.webp",
-          "thumb": "https://media.aquatome.com/video/7X823MgJlHo/p6-X0E3NDI1NzguanBn-480.webp",
+          "url": "https://media.aquatome.com/video/7X823MgJlHo/p6-1bV9BbHR1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/7X823MgJlHo/p6-1bV9BbHR1bS5qcGc-480.webp",
           "width": 960,
-          "height": 664,
-          "licence": "CC BY 4.0",
-          "author": "Rjcastillo",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterophyllum_scalare_A742578.jpg",
-          "caption": "Cá thần tiên bơi cùng đàn cá nhỏ trong bể lớn."
+          "height": 638,
+          "licence": "CC BY-SA 2.0",
+          "author": "Jeff Kubina",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Group_of_Pterophyllum_Altum.jpg",
+          "caption": "Đàn thần tiên Altum sọc đậm, vây dài, bơi trong bể trồng cây."
         }
       },
       {
-        "heading": "Cho ăn thế nào để cá nhát không bị đói",
+        "heading": "Cho ăn và chuyện cá nhát bị đói",
         "moments": [
-          {
-            "t": 654,
-            "url": "https://media.aquatome.com/video/7X823MgJlHo/t654.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hũ thức ăn khô có bổ sung tỏi dùng cho cá trong bể."
-          },
           {
             "t": 659,
             "url": "https://media.aquatome.com/video/7X823MgJlHo/t659.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cá đĩa và cá thần tiên bơi giữa bể lũa cây thủy sinh."
+            "caption": "Cá đĩa và cá thần tiên bơi gần lũa trong bể trồng cây."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/7X823MgJlHo/p7-hc2NpYXR1cy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/7X823MgJlHo/p7-hc2NpYXR1cy5qcGc-480.webp",
+          "width": 960,
+          "height": 627,
+          "licence": "CC BY 2.0",
+          "author": "Brian Gratwicke",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_Discus_fish_Symphysodon_aequifasciatus.jpg",
+          "caption": "Cá đĩa vàng cam bơi trong bể trồng cây, thân hình đầy đặn."
+        }
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [
+          {
+            "t": 709,
+            "url": "https://media.aquatome.com/video/7X823MgJlHo/t709.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể thủy sinh với lũa, cây và cá đĩa, lớp cát trải mỏng."
+          },
+          {
+            "t": 713,
+            "url": "https://media.aquatome.com/video/7X823MgJlHo/t713.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cá đĩa và cá thần tiên bơi quanh khúc lũa phủ cây."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/7X823MgJlHo/p8-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/7X823MgJlHo/p8-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể có lũa, cây lá xanh và lớp cát trắng trải mỏng."
+        }
       }
     ]
   }

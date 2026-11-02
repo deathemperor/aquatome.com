@@ -1,0 +1,121 @@
+{
+  "id": "youtube-IB6lV6eF2MY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=IB6lV6eF2MY",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "betta-splendens",
+    "neocaridina-davidi"
+  ],
+  "updatedAt": "2026-11-02",
+  "video": {
+    "youtubeId": "IB6lV6eF2MY",
+    "title": "Hướng dẫn setup bình thủy sinh 20x12_ dễ chăm sóc và rẻ , đẹp mà không cần quá nhiều vật liệu",
+    "channel": "Tuấn Bonsai - Layout - Thủy Sinh",
+    "channelUrl": "https://www.youtube.com/channel/UCR5BywoF4sKUgN-X_l5S0Mw",
+    "durationSec": 1151,
+    "publishedAt": "2023-08-07",
+    "chapters": [],
+    "series": {
+      "id": "PLFeF3GJNgJ8rofe7Q9vR0DKwRtHKyQHQq",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/IB6lV6eF2MY/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+    },
+    "lang": "vi",
+    "taxa": [
+      "Betta splendens",
+      "Neocaridina davidi"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Aqua",
+        "model": "Basic Plus",
+        "t": 132
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 225
+      },
+      {
+        "category": "co2",
+        "type": "mini",
+        "brand": "Thủy Mộc",
+        "t": 1052
+      },
+      {
+        "category": "den",
+        "t": 955
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Chuẩn bị những gì",
+        "moments": [
+          {
+            "t": 0,
+            "url": "https://media.aquatome.com/video/IB6lV6eF2MY/t0.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bình thủy tinh nhỏ, vật liệu nền và đá đặt sẵn trên bàn."
+          }
+        ]
+      },
+      {
+        "heading": "Trồng cây theo từng tầng",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/IB6lV6eF2MY/p4-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/IB6lV6eF2MY/p4-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm cỏ tiền cảnh xanh mướt, xen cụm cây lá nhỏ bên các khối đá."
+        }
+      },
+      {
+        "heading": "Đèn, vi sinh và CO2",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/IB6lV6eF2MY/p5-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/IB6lV6eF2MY/p5-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh cây rậm rạp, xanh tốt dưới ánh đèn, có cá neon bơi giữa."
+        }
+      },
+      {
+        "heading": "Nuôi gì trong bình",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/IB6lV6eF2MY/p6-NoX2JldHRhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/IB6lV6eF2MY/p6-NoX2JldHRhLmpwZw-480.webp",
+          "width": 960,
+          "height": 750,
+          "licence": "CC BY-SA 4.0",
+          "author": "Mikhaliov",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rainow_fish_betta.jpg",
+          "caption": "Một con cá betta bơi trong bình có cây thủy sinh, ốc và hang trú."
+        }
+      }
+    ]
+  }
+}

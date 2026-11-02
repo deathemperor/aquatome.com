@@ -1,0 +1,45 @@
+{
+  "slug": "setup-be-thuy-sinh-co-co2-va-loc-thung-tu-dau-den-luc-tha-ca",
+  "name": "Setup bể thủy sinh có CO2 và lọc thùng từ đầu đến lúc thả cá",
+  "altNames": [],
+  "sections": {},
+  "body": "<p>Set một bể thủy sinh có CO2 và lọc thùng thì phải chuẩn bị khá nhiều món: lũa, đá, nền, bình CO2, lọc, đèn, công tắc hẹn giờ, rồi tới các loại thuốc châm sau khi đổ nước. Người mới thường lúng túng nhất ở chỗ không biết món nào làm trước, món nào lắp ra sao.</p><p>Bài này đi theo đúng trình tự một lần set bể thật: xử lý lũa, chuẩn bị nền, lắp hệ CO2 và lọc, cài giờ đèn, chống mất điện cho lọc, rồi chờ bể ổn định để thả cá.</p><h3>Cần chuẩn bị những gì</h3><ul><li><strong>Bố cục:</strong> lũa lớn, vài khúc lũa bonsai nhỏ, đá nham thạch, cát trải nền.</li><li><strong>Nền:</strong> phân nền (ở đây dùng phân nền GEX xanh, 4 túi 8 kg, tổng 32 kg), cốt nền JBL và vi sinh cho nền.</li><li><strong>Cây và rêu:</strong> rêu trải nền, rêu để gắn lên lũa, một số cây thủy sinh, keo dán rêu và nhíp trồng cây.</li><li><strong>CO2:</strong> bình CO2, van điện Mufan, cốc trộn CO2.</li><li><strong>Lọc:</strong> lọc thùng SunSun (loại HW-703A hay HW-3000 đều dùng được), vật liệu lọc, bộ đầu in/out.</li><li><strong>Phụ kiện:</strong> nhiệt kế dán thành bể, quạt làm mát gắn trên miệng bể, công tắc wifi hẹn giờ, UPS cho lọc.</li></ul><p>Có thể thêm một lọc phụ nhỏ hoặc chạy hai lọc. Ở đây chỉ dùng một lọc thùng lớn.</p><h3>Xử lý lũa, đá và cát trước khi cho vào bể</h3><p>Lũa mua về nên đun sôi khoảng 3–4 tiếng. Đun xong thì lũa sạch rêu hại, chất bẩn, vi khuẩn và nấm bám trên bề mặt. Lũa đã đun cũng dễ chìm hơn lũa khô.</p><p>Cát và đá cũng phải xử lý sạch trước khi trải. Chỉ khi lũa, đá, cát đều sạch thì mới bắt đầu dựng nền.</p><h3>Chuẩn bị bể và dựng nền</h3><ol><li>Vệ sinh bể và dán decal đen ở mặt sau.</li><li>Làm kệ hoặc khung chắc chắn để đặt bể.</li><li>Rắc cốt nền JBL và vi sinh nền ở lớp dưới, sau đó đổ phân nền lên.</li><li>Xếp lũa, đá nham thạch theo bố cục rồi trải cát ở phần cần trải.</li><li>Dùng keo dán rêu lên lũa và đá. Trải rêu ở vùng nền muốn phủ thảm. Dùng nhíp cắm cây vào nền.</li></ol><h3>Lắp CO2 thế nào cho tan tốt</h3><p>Hệ CO2 gồm bình, van điện Mufan và cốc trộn. Ống đầu ra của lọc nối vào cốc trộn, khí CO2 cũng dẫn vào cốc này. Nước từ lọc đi qua cốc sẽ hòa tan CO2 rồi mới chảy ra đầu out. Nhờ vậy CO2 lúc nào cũng trộn đều vào dòng nước.</p><p>Có thể gắn thêm sủi CO2 trong bể nếu thích, nhưng khi đã có cốc trộn thì không cần. Ở bể mẫu, sủi CO2 chỉ gắn tạm chứ không dùng.</p><h3>Lắp lọc và các đầu in/out</h3><ul><li>Đầu out dùng loại thủy tinh cho đẹp.</li><li>Đầu in có kèm lọc váng. Nên gắn luôn vì mặt nước sẽ sạch hẳn, không còn lớp bẩn nổi.</li><li>Quạt làm mát gắn trên miệng bể, thổi thẳng vào mặt nước. Quạt có hai cấp gió và chỉnh được góc.</li><li>Nhiệt kế dán lên thành bể để theo dõi nhiệt độ hằng ngày.</li></ul><p>Lọc HW-3000 có chế độ đèn UV để diệt rêu hại và nấm trong nước. Thời gian chạy UV chỉnh được nhiều mức như 2, 4, 8, 16, 18 hoặc 24 tiếng. Thông thường người ta để 8 hoặc 16 tiếng.</p><p>Tốc độ lọc cũng chỉnh được. Lúc bể mới set, nên để lọc chạy mạnh để lọc nước nhanh. Khi bể đã ổn định thì giảm tốc độ xuống.</p><h3>Hẹn giờ đèn và CO2 bằng công tắc wifi</h3><p>Công tắc wifi Sonoff quản lý van CO2, quạt tản nhiệt của đèn và driver đèn LED. Có thể bật tắt qua điện thoại hoặc cài lịch cố định.</p><p>Mỗi ngày bể sáng khoảng 8 tiếng, chia làm hai khung:</p><ul><li>10 giờ sáng đến 2 giờ chiều.</li><li>5 giờ chiều đến 9 giờ tối.</li></ul><p>Giờ bắt đầu có thể dời theo lịch sinh hoạt của bạn, miễn tổng thời gian sáng giữ quanh 8 tiếng.</p><h3>Giữ lọc chạy khi mất điện</h3><p>Lọc cắm qua một bộ UPS. Khi điện lưới mất, UPS chuyển sang chạy bằng ắc quy sau khoảng 3 giây, lọc vẫn chạy bình thường và cá không bị ngột. UPS ở đây chỉ dùng cho lọc.</p><p>Bể có sủi oxy thì có thể cắm sủi vào UPS. Còn bể thủy sinh nhiều cây thì không bắt buộc phải sủi, vì cây quang hợp sẽ tự nhả oxy vào nước.</p><h3>Châm thuốc và chờ bể ổn định</h3><p>Sau khi đổ nước, bể dùng hai loại chế phẩm: Magic Support để kích rêu mọc và cây phát triển, và một loại làm trong nước (clarity). Liều lượng thì theo hướng dẫn trên nhãn.</p><p>Bể mẫu chờ 15 ngày rồi mới thả cá, tép và ốc ăn rêu hại. Cách thả:</p><ol><li>Ngâm túi cá trong bể khoảng 30 phút cho cá quen với nước.</li><li>Tắt đèn bể.</li><li>Khi cá đã ổn định thì thả ra.</li></ol><p>Tép và ốc ở bể mẫu lấy từ bể cũ sang. Rêu trải nền cần khoảng 1–2 tháng mới phủ xanh kín. Cây thì lên nhanh hơn. Bể làm trước đó chỉ hơn một tháng đã um tùm, phải tỉa liên tục, cây mọc che cả cụm đá. Bạn nên tính trước công tỉa nếu trồng nhiều cây mọc nhanh.</p><h3>Bắt đầu từ đâu</h3><ul><li>Đun lũa 3–4 tiếng và xử lý sạch đá, cát trước khi làm bất cứ việc gì khác.</li><li>Gom đủ đồ cho nền, CO2 và lọc, nhất là cốc trộn CO2 và bộ đầu in có lọc váng.</li><li>Cài công tắc hẹn giờ cho đèn và CO2 khoảng 8 tiếng mỗi ngày ngay từ ngày đầu.</li><li>Cắm lọc qua UPS, chờ khoảng 15 ngày rồi mới thả cá theo cách ngâm túi 30 phút.</li></ul>",
+  "summary": [
+    "Lũa nên đun sôi khoảng 3–4 tiếng để sạch rêu hại, chất bẩn, nấm và dễ chìm hơn.",
+    "Nền gồm cát, đá đã xử lý, phân nền và cốt nền, kèm vi sinh cho nền.",
+    "CO2 đi qua van điện vào cốc trộn gắn ở đầu ra của lọc, nên khí tan thẳng vào dòng nước.",
+    "Công tắc wifi hẹn giờ quản lý đèn, van CO2 và quạt đèn, tổng cộng khoảng 8 tiếng sáng mỗi ngày.",
+    "Lọc cắm qua UPS để vẫn chạy khi mất điện. Bể nhiều cây quang hợp tốt thì không bắt buộc sủi oxy.",
+    "Khoảng 15 ngày sau khi set có thể thả cá, tép, ốc. Ngâm túi cá khoảng 30 phút và tắt đèn trước khi thả."
+  ],
+  "faq": [
+    {
+      "q": "Lũa mới mua có cần luộc không, luộc bao lâu?",
+      "a": "Nên đun sôi khoảng 3–4 tiếng. Đun xong lũa sạch rêu hại, chất bẩn, vi khuẩn, nấm và dễ chìm hơn."
+    },
+    {
+      "q": "Bể thủy sinh có cần sủi oxy không?",
+      "a": "Bể nhiều cây thì không bắt buộc, vì cây quang hợp tự nhả oxy vào nước. Thích thì vẫn có thể gắn sủi."
+    },
+    {
+      "q": "Set bể xong bao lâu thì thả cá được?",
+      "a": "Bể mẫu chờ 15 ngày rồi mới thả cá, tép và ốc. Trước khi thả nên ngâm túi cá khoảng 30 phút và tắt đèn bể."
+    },
+    {
+      "q": "Đèn bể thủy sinh nên bật mấy tiếng mỗi ngày?",
+      "a": "Khoảng 8 tiếng. Có thể chia làm hai khung, ví dụ 10 giờ sáng đến 2 giờ chiều và 5 giờ chiều đến 9 giờ tối, cài bằng công tắc wifi hẹn giờ."
+    },
+    {
+      "q": "Đèn UV trong lọc thùng nên bật bao lâu?",
+      "a": "Lọc HW-3000 cho chỉnh nhiều mức từ 2 đến 24 tiếng. Thông thường người ta để 8 hoặc 16 tiếng."
+    }
+  ],
+  "cover": "Từ bể trống đến lúc thả cá",
+  "quality": {
+    "score": 0.5,
+    "indexable": false,
+    "bySource": {
+      "youtube": 0.5
+    }
+  }
+}

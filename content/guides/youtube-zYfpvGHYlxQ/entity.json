@@ -8,7 +8,7 @@
   "mentions": [
     "cyprinus-rubrofuscus"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-02",
   "video": {
     "youtubeId": "zYfpvGHYlxQ",
     "title": "Chế Bể Cá Koi mini Từ 4 Thùng Nhựa",
@@ -40,11 +40,12 @@
       {
         "category": "loc",
         "type": "thung",
-        "t": 690
+        "t": 691
       },
       {
-        "category": "loc",
-        "t": 1301
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 723
       }
     ],
     "figures": [
@@ -56,52 +57,62 @@
             "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t49.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bốn thùng nhựa xanh cùng loại, cùng cỡ xếp thẳng hàng."
+            "caption": "Bốn thùng nhựa xanh giống nhau xếp sát nhau thành một khối."
           },
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t59.webp",
+            "t": 69,
+            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t69.webp",
             "width": 160,
             "height": 90,
-            "caption": "Dùng thước cuộn đo chiều dài các thùng xếp cạnh nhau."
+            "caption": "Dùng thước cuộn đo kích thước thùng nhựa trước khi cắt."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/p0-9hX3N0YWNrLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/zYfpvGHYlxQ/p0-9hX3N0YWNrLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ser Amantio di Nicolao",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_plastic_storage_container_on_top_of_a_stack.jpg",
+          "caption": "Những chiếc thùng nhựa cam xếp chồng sát nhau, dùng được để ghép hồ."
+        }
+      },
+      {
+        "heading": "Cắt và ghép các thùng",
+        "moments": [
+          {
+            "t": 119,
+            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t119.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Các thùng nhựa xếp tại chỗ, một thùng đã cắt bỏ phần thành."
+          },
+          {
+            "t": 307,
+            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t307.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Các thùng xếp sát nhau thành một hàng theo thứ tự dòng chảy."
           }
         ]
       },
       {
-        "heading": "Chia ngăn nuôi cá và ngăn lọc",
+        "heading": "Gia cố bằng khung hàn",
         "moments": [
           {
-            "t": 89,
-            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t89.webp",
+            "t": 831,
+            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t831.webp",
             "width": 160,
             "height": 90,
-            "caption": "Các thùng nhựa xanh xếp cạnh nhau để ghép thành khối hồ nhiều ngăn."
-          },
-          {
-            "t": 109,
-            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t109.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ghép các thùng nhựa lại với nhau thành khối nhiều ngăn."
-          }
-        ]
-      },
-      {
-        "heading": "Cắt, ghép và gia cố khung",
-        "moments": [
-          {
-            "t": 356,
-            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t356.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các thùng nhựa xanh được ghép sát vào nhau thành một khối."
+            "caption": "Thanh sắt hàn gia cố dọc thành thùng, người làm chỉ tay vào."
           },
           {
             "t": 841,
             "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t841.webp",
             "width": 160,
             "height": 90,
-            "caption": "Thanh kim loại đỡ được gia cố bên trong lòng khối thùng."
+            "caption": "Thanh sắt hàn chạy dọc đáy bên trong khối thùng nhựa xanh."
           }
         ],
         "photo": {
@@ -112,30 +123,49 @@
           "licence": "CC BY-SA 4.0",
           "author": "Art Graphics",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Welding_Aluminium_Picture_Frame.jpg",
-          "caption": "Cận cảnh hàn kim loại, tia lửa bắn ra khi hàn khung."
+          "caption": "Mối hàn kim loại đang bắn tia lửa, cảnh hàn khung thép."
         }
       },
       {
-        "heading": "Đi ống hút đáy và hút mặt",
+        "heading": "Trám kín bằng silicon",
         "moments": [
           {
-            "t": 682,
-            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t682.webp",
+            "t": 376,
+            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t376.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đường ống nhựa đặt sát đáy trong thùng nhựa xanh của hồ."
+            "caption": "Dùng súng bơm keo silicon trám mối nối giữa các thùng nhựa."
           },
+          {
+            "t": 405,
+            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t405.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Miết silicon dọc đường ghép các thùng để chặn nước."
+          }
+        ]
+      },
+      {
+        "heading": "Lắp ống hút đáy và hút mặt",
+        "moments": [
           {
             "t": 702,
             "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t702.webp",
             "width": 160,
             "height": 90,
-            "caption": "Ống dẫn nước chạy dọc sang các ngăn lọc bên cạnh."
+            "caption": "Mô hình bể với ống dẫn chạy dọc ngăn nuôi và các ngăn lọc."
+          },
+          {
+            "t": 722,
+            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t722.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Chỉ vào các ống nối trong ngăn lọc của mô hình bể."
           }
         ]
       },
       {
-        "heading": "Xếp vật liệu lọc theo thứ tự nào",
+        "heading": "Xếp vật liệu lọc",
         "moments": [
           {
             "t": 732,
@@ -145,61 +175,42 @@
             "caption": "Thùng nhựa xanh chia thành nhiều ngăn để làm hệ thống lọc."
           },
           {
-            "t": 761,
-            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t761.webp",
+            "t": 1325,
+            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t1325.webp",
             "width": 160,
             "height": 90,
-            "caption": "Các thùng nhựa xếp nối nhau thành bể lọc nhiều ngăn."
+            "caption": "Các ngăn lọc trong thùng xanh, nước đi lần lượt qua từng ngăn."
           }
         ]
       },
       {
-        "heading": "Hộp lọc thứ hai và cây trồng trên lọc",
-        "moments": [
-          {
-            "t": 1315,
-            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t1315.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây trầu bà và cây thủy canh trồng trên mặt hộp lọc."
-          },
-          {
-            "t": 1365,
-            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t1365.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh hộp lọc với bông lọc trắng và ống nước chảy vào."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/p5-bHlfZ3Jvd24uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/zYfpvGHYlxQ/p5-bHlfZ3Jvd24uanBn-480.webp",
-          "width": 960,
-          "height": 1280,
-          "licence": "CC BY-SA 4.0",
-          "author": "Kephalian",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spathiphyllum_wallisii_hydroponically_grown.jpg",
-          "caption": "Cây trồng thủy canh cạnh hồ cá, lá xanh tươi mọc trên hộp lọc."
-        }
-      },
-      {
-        "heading": "Chạy thử trước khi thả cá",
+        "heading": "Bộ lọc phụ phía trên và cây trang trí",
         "moments": [
           {
             "t": 1335,
             "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t1335.webp",
             "width": 160,
             "height": 90,
-            "caption": "Thùng lọc màu xanh đã có nước, nước chảy qua các ngăn lọc."
+            "caption": "Bộ lọc phụ màu xanh với cây trầu bà và chậu cây xung quanh."
           },
           {
-            "t": 1375,
-            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t1375.webp",
+            "t": 1365,
+            "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/t1365.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cận cảnh nước chảy tràn qua các ngăn trong hệ thống lọc."
+            "caption": "Cận cảnh ngăn lọc có bông lọc trắng và ống nước chảy vào."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/zYfpvGHYlxQ/p6-vbl93YXRlci5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/zYfpvGHYlxQ/p6-vbl93YXRlci5qcGc-480.webp",
+          "width": 960,
+          "height": 1572,
+          "licence": "CC BY-SA 4.0",
+          "author": "Joli Rumi",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pothos_plant_on_water.jpg",
+          "caption": "Cây trầu bà cắm rễ trong ống nước thủy tinh, treo trang trí."
+        }
       }
     ]
   }
