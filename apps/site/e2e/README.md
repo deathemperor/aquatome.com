@@ -39,6 +39,8 @@ E2E_SEED=3 pnpm --filter site e2e --grep @invariants   # other pages of each kin
   checkouts running checks, give each its own port or one tests the other's build.
 - `E2E_BASE_URL`: check a live site instead (no local server). Its pages come from `E2E_PAGES` (the sitemap as JSON) plus
   `E2E_RECHECK`. `scripts/site-watch.mjs prepare` writes both: `node scripts/site-watch.mjs prepare https://aquatome.com apps/site`.
+  Every browser adds `AquaTomeCheck/1` to its user agent (`playwright.config.ts`), so the Worker doesn't count a live run's
+  visits as readers, shop clicks or wanted names (`worker/bots.ts`).
 - `E2E_JSON`: results as JSON too (what `site-watch.mjs report` reads).
 - `E2E_REPORT`: another folder for the HTML report (in CI; default `e2e-report`), so a second run doesn't replace the first's.
 
