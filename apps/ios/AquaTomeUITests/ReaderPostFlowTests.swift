@@ -192,16 +192,6 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(comment(app, "Minh").waitForExistence(timeout: 5), "let back, still hidden")
   }
 
-  /// AquaTome's contact page is a tap away on the Tìm home, signed out with accounts off.
-  func testTheContactPageIsReachableSignedOut() {
-    let app = launch(accounts: "off")
-    XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no search field")
-    let contact = app.descendants(matching: .any)["contact"]
-    for _ in 0..<12 where !(contact.exists && contact.isHittable) { app.swipeUp() }
-    XCTAssertTrue(contact.exists && contact.isHittable, "no contact link on the home")
-    XCTAssertEqual(contact.label, "Liên hệ AquaTome")
-  }
-
   // MARK: Helpers
 
   private func launch(accounts: String = "on", reset: Bool = true, _ more: String...) -> XCUIApplication {
