@@ -38,8 +38,25 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(screen("https://aquatome.com/vi/cong-cu/the-tich-be/khac/") == nil)
 }
 
+@Test func theTankMatesToolInEachLanguageOpensTheAppsScreenSetAsItsLinkSets() {
+  #expect(screen("https://aquatome.com/vi/cong-cu/nuoi-chung/") == .tankMates(nil))
+  #expect(screen("https://www.aquatome.com/vi/cong-cu/nuoi-chung") == .tankMates(nil))
+  #expect(screen("https://aquatome.com/id/alat/kecocokan-ikan/") == .tankMates(nil))
+  #expect(screen("https://aquatome.com/th/tools/tank-mates/#mat-do") == .tankMates(nil))
+  // A fish page's link sets the tool to the fish; a shared result, to its fish and tank. In each language.
+  #expect(screen("https://aquatome.com/vi/cong-cu/nuoi-chung/?ca=ca-neon:6") == .tankMates("ca=ca-neon:6"))
+  #expect(screen("https://aquatome.com/id/alat/kecocokan-ikan/?ca=neon-tetra:6,discus:2&l=60&w=30&h=36") == .tankMates("ca=neon-tetra:6,discus:2&l=60&w=30&h=36"))
+  #expect(screen("https://aquatome.com/th/tools/tank-mates/?ca=pla-neon") == .tankMates("ca=pla-neon"))
+  #expect(screen("https://aquatome.com/vi/cong-cu/nuoi-chung/?") == .tankMates(nil))
+  // Whatever the index lists (the search's tool item), it's the tool's screen, not a page of the handbook.
+  #expect(AppScreen.of(URL(string: "https://aquatome.com/vi/cong-cu/nuoi-chung/")!, site: site, listed: { _ in true }) == .tankMates(nil))
+  #expect(AppScreen.of(URL(string: "https://aquatome.com/vi/cong-cu/nuoi-chung/?ca=ca-neon:6")!, site: site, listed: { _ in true }) == .tankMates("ca=ca-neon:6"))
+  #expect(screen("https://aquatome.com/vi/cong-cu/nuoi-chung/khac/") == nil)
+  #expect(screen("https://example.com/vi/cong-cu/nuoi-chung/?ca=ca-neon:6") == nil)
+}
+
 @Test func otherPagesAndOtherSitesStayPages() {
-  #expect(screen("https://aquatome.com/vi/cong-cu/nuoi-chung/") == nil)
+  #expect(screen("https://aquatome.com/vi/cong-cu/nhan-dien-ca/") == nil)
   #expect(screen("https://aquatome.com/vi/ca/ca-neon/") == nil)
   #expect(screen("https://aquatome.com/vi/cong-cu/be-cua-toi/khac/") == nil)
   #expect(screen("https://example.com/vi/cong-cu/be-cua-toi/") == nil)
@@ -56,10 +73,11 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(page("https://aquatome.com/vi/ca/ca-mong/") == nil)
   #expect(page("https://example.com/vi/ca/ca-neon/") == nil)
   #expect(page("https://aquatome.com/vi/cong-cu/den-chihiros/") == .lights)
-  // A link asking for more than the page (a tool set to a fish) is the web page, query and all: not the bare page.
-  let tool = { (s: String) in AppScreen.of(URL(string: s)!, site: site, listed: { $0 == "/vi/cong-cu/nuoi-chung/" }) }
-  #expect(tool("https://aquatome.com/vi/cong-cu/nuoi-chung/") == .page("/vi/cong-cu/nuoi-chung/"))
-  #expect(tool("https://aquatome.com/vi/cong-cu/nuoi-chung/?ca=ca-neon:6") == nil)
+  // A link asking for more than the page (the tools page set to a tank, as the volume tool's heater link) is the web
+  // page, query and all: not the bare page.
+  let tool = { (s: String) in AppScreen.of(URL(string: s)!, site: site, listed: { $0 == "/vi/cong-cu/" }) }
+  #expect(tool("https://aquatome.com/vi/cong-cu/") == .page("/vi/cong-cu/"))
+  #expect(tool("https://aquatome.com/vi/cong-cu/?l=60&w=30&h=36") == nil)
   // Without the index (a web page's own links), as before.
   #expect(screen("https://aquatome.com/vi/ca/ca-neon/") == nil)
 }

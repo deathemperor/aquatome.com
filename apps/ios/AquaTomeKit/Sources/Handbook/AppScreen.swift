@@ -10,6 +10,9 @@ public enum AppScreen: Equatable, Sendable {
   /// The tank volume tool, with the state its link gives (`hinh=tru&d=40&h=50`, as the site's page keeps it in its
   /// address), if any: the app's own screen, on the tab in front.
   case tankVolume(String?)
+  /// The tank-mates tool, with the fish and tank its link sets (`ca=ca-neon:6&l=60&w=30&h=36`, TankMatesLink), if any:
+  /// the app's own screen, on the tab in front.
+  case tankMates(String?)
   /// A page the app index lists, by its path ("/vi/ca/ca-neon/"): the app's screen for it, on the tab in front.
   case page(String)
   /// A group's page ("/vi/nhom/catfish/", and its numbered pages): the app's shelf of that group's fish.
@@ -29,9 +32,11 @@ public enum AppScreen: Equatable, Sendable {
       return .lights
     case "vi/cong-cu/the-tich-be", "id/alat/volume-akuarium", "th/tools/tank-volume":
       return .tankVolume(url.query(percentEncoded: true).flatMap { $0.isEmpty ? nil : $0 })
+    case "vi/cong-cu/nuoi-chung", "id/alat/kecocokan-ikan", "th/tools/tank-mates":
+      return .tankMates(url.query(percentEncoded: true).flatMap { $0.isEmpty ? nil : $0 })
     default:
-      // A link asking for more than the page (the tank-mates tool set to a fish, `?ca=ca-neon:6`) isn't the page as the
-      // app shows it: the web takes it whole.
+      // A link asking for more than the page (the tools page set to a tank, `?l=60&w=30&h=36`) isn't the page as the app
+      // shows it: the web takes it whole.
       guard url.query == nil else { return nil }
       if let g = Self.group(url.pathComponents.filter { $0 != "/" }), group(g) { return .group(g) }
       // The index's paths end in "/", as the site's pages do; a link may leave it off.
