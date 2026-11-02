@@ -136,14 +136,24 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(text(app, "Seriously Fish: 20–26°C").waitForExistence(timeout: 2), "the sources behind a figure don't open")
     reveal(app, text(app, "Lớn tới 15 cm, có thể ăn Cá neon"))
     XCTAssertTrue(card(app, "Cá ngựa vằn").exists, "no fish to keep with it")
+    XCTAssertTrue(app.links["Ảnh: Tác giả 5 · CC BY 4.0"].exists, "a card's photo without its credit")
     reveal(app, text(app, "Mùa đông miền Bắc"))
     let all = app.buttons["gallery-all"]
     reveal(app, all)
     XCTAssertEqual(all.label, "Xem tất cả 3 ảnh")
+    XCTAssertTrue(app.links["Ảnh: Tác giả 1 · CC BY 2.0"].exists, "a photo in the row without its credit")
     all.tap()
     XCTAssertTrue(app.descendants(matching: .any)["gallery"].waitForExistence(timeout: 5), "no gallery")
-    let credit = app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS %@", "Ảnh: Tác giả 1 · CC BY 2.0")).firstMatch
-    XCTAssertTrue(credit.waitForExistence(timeout: 3), "a photo without its credit")
+    // Its words once: under the photo, not as the photo's label too (the row's button for it, under the sheet, aside).
+    let words = app.descendants(matching: .any).matching(NSPredicate(format: "label == %@ AND elementType != %lu", "Đàn cá neon trong bể",
+                                                                     XCUIElement.ElementType.button.rawValue))
+    XCTAssertTrue(words.firstMatch.waitForExistence(timeout: 3))
+    XCTAssertEqual(words.count, 1, "the photo's words read twice")
+    // The last photo, not in the row: its credit is the viewer's.
+    app.swipeLeft()
+    app.swipeLeft()
+    XCTAssertTrue(app.staticTexts["3/3 · 3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở."].waitForExistence(timeout: 3), "not on the last photo")
+    XCTAssertTrue(app.links["Ảnh: Tác giả 3 · CC BY 4.0"].waitForExistence(timeout: 3), "a photo without its credit")
     app.buttons["Đóng"].tap()
     reveal(app, text(app, "Cá nhỏ, hiền, hợp bể cộng đồng"))
     XCTAssertTrue(text(app, "Thả vài con").exists, "no mistakes")
@@ -161,6 +171,28 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, mate)
     mate.tap()
     XCTAssertTrue(app.navigationBars["Cá ngựa vằn"].waitForExistence(timeout: 5), "the tank-mate's page didn't open")
+  }
+
+  /// The tank-mates tool, set to this fish by the page's link: its web page in the app, fish and all (not the tool left
+  /// empty, nor the browser).
+  func testTheTankMatesToolOpensSetToTheFish() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    let tool = app.links["Kiểm tra nuôi chung với loài khác →"].firstMatch
+    reveal(app, tool)
+    tool.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5), "not the web page in the app")
+    XCTAssertTrue(app.webViews.staticTexts["/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"].waitForExistence(timeout: 15), "the tool, not set to the fish")
+  }
+
+  /// A breed the index leaves out (the app can't draw it): its web page, in the app, not the browser.
+  func testABreedTheAppCantDrawOpensOnTheWebInTheApp() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    let breed = card(app, "Cá neon vàng")
+    reveal(app, breed)
+    breed.tap()
+    XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-neon-vang/"].waitForExistence(timeout: 15), "not the breed's web page in the app")
   }
 
   func testAFishPageSaysWhatEachPartIs() throws {

@@ -81,6 +81,37 @@ struct PageView: View {
   }
 }
 
+/// A page of the site at an address the app can't show itself (left out of the index, or asking for more than the page,
+/// as a tool set to a fish): the web page, kept for offline as any is.
+struct WebScreen: View {
+  let url: URL
+  @Environment(TanksModel.self) private var tanks
+  @Environment(\.openScreen) private var openScreen
+  @State private var offline = false
+  @State private var failed = false
+
+  var body: some View {
+    WebPage(url: url, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
+      .accessibilityIdentifier("page")
+      .ignoresSafeArea(edges: .bottom)
+      .navigationBarTitleDisplayMode(.inline)
+      .toolbar {
+        ShareLink(item: url)
+        Link(destination: url) { Image(systemName: "safari") }.accessibilityLabel(Text("Mở trong trình duyệt"))
+      }
+      .safeAreaInset(edge: .top) {
+        if offline || failed {
+          Text(failed ? "Không tải được trang. Kiểm tra kết nối mạng." : "Đang xem bản đã lưu (ngoại tuyến).")
+            .font(.footnote)
+            .padding(8)
+            .frame(maxWidth: .infinity)
+            .background(.bar)
+            .accessibilityIdentifier("page-status")
+        }
+      }
+  }
+}
+
 private struct WebPage: UIViewRepresentable {
   let url: URL
   @Binding var offline: Bool
@@ -120,8 +151,10 @@ private struct WebPage: UIViewRepresentable {
   }
 
   #if DEBUG
-  /// The site's page in UI tests: its path, for a test to tell which page opened.
-  static func standIn(_ url: URL) -> String { #"<!doctype html><meta name="viewport" content="width=device-width"><p>\#(url.path(percentEncoded: false))</p>"# }
+  /// The site's page in UI tests: its path and query, for a test to tell which page opened.
+  static func standIn(_ url: URL) -> String {
+    #"<!doctype html><meta name="viewport" content="width=device-width"><p>\#(url.path(percentEncoded: false))\#(url.query(percentEncoded: false).map { "?" + $0 } ?? "")</p>"#
+  }
   #endif
 
   func updateUIView(_ web: WKWebView, context: Context) {

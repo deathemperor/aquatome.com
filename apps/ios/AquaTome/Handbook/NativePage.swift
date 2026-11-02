@@ -11,6 +11,9 @@ struct NativePage: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @State private var tip: Tip?
+  /// A page of the site the app can't show itself (one the index leaves out, a tool set by the link): the web page, in
+  /// the app.
+  @State private var onSite: URL?
   /// VoiceOver's place: moved with a `#id` link, as the scroll is.
   @AccessibilityFocusState private var focus: String?
 
@@ -55,6 +58,7 @@ struct NativePage: View {
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
     }
     .accessibilityIdentifier("native-page")
+    .navigationDestination(item: $onSite) { WebScreen(url: $0) }
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
       if let h = t.href, let u = URL(string: h) { Button("Xem thêm") { _ = open(u, nil) } }
       Button("Đóng", role: .cancel) {}
@@ -100,7 +104,6 @@ struct NativePage: View {
               VStack(alignment: .leading, spacing: 2) {
                 Text(c.name).font(.body.weight(.semibold))
                 if let sub = c.sub { Text(sub).font(.subheadline).foregroundStyle(.secondary) }
-                if let credit = c.img?.credit { Text(verbatim: "\(credit.text) · \(credit.licence)").font(.caption2).foregroundStyle(.secondary) }
               }
               Spacer(minLength: 0)
               Image(systemName: "chevron.right").font(.footnote).foregroundStyle(.tertiary)
@@ -108,9 +111,9 @@ struct NativePage: View {
             .contentShape(.rect)
           }
           .buttonStyle(.plain)
-          // The photo's own page, as its credit links it on the site.
-          .contextMenu { if let u = c.img?.credit?.url.flatMap(URL.init(string:)) { Link("Nguồn ảnh", destination: u) } }
           .accessibilityIdentifier("card")
+          // Its photo's credit, linking the photo's own page, under the card (a link inside the card would be the card).
+          if let credit = c.img.flatMap(credit) { Text(credit) }
         }
       }
     case let .gallery(title, note, photos, strip):
@@ -145,7 +148,11 @@ struct NativePage: View {
         openScreen(screen)
         return .handled
       }
-      // Another site, or a page of the site the app index leaves out: the browser.
+      if PageRoute.of(u, site: handbook.site, mainFrame: true, newWindow: false) == .app {
+        onSite = u
+        return .handled
+      }
+      // Another site: the browser.
       UIApplication.shared.open(u)
       return .handled
     }
@@ -306,12 +313,7 @@ struct NativePage: View {
 
   private static func photo(_ img: PageDoc.Image, caption: [PageDoc.Run], href: URL?) -> Piece {
     var cap = styled(caption)
-    if let c = img.credit {
-      var line = AttributedString((cap.characters.isEmpty ? "" : "\n") + c.text + " · " + c.licence)
-      line.font = .caption2
-      line.link = c.url.flatMap(URL.init(string:))
-      cap += line
-    }
+    if let c = credit(img) { cap += (cap.characters.isEmpty ? AttributedString() : AttributedString("\n")) + c }
     return .photo(src: img.src, ratio: CGFloat(img.w) / CGFloat(img.h), alt: img.alt, caption: cap, href: href)
   }
 }
@@ -328,6 +330,15 @@ private struct Tip {
     guard let term = v("term"), let text = v("text") else { return nil }
     self.term = term; self.text = text; href = v("href")
   }
+}
+
+/// A photo's credit as the site gives it, wherever the app shows the photo: who took it, its licence, linking its own page.
+private func credit(_ img: PageDoc.Image) -> AttributedString? {
+  guard let c = img.credit else { return nil }
+  var line = AttributedString(c.text + " · " + c.licence)
+  line.font = .caption2
+  line.link = c.url.flatMap(URL.init(string:))
+  return line
 }
 
 private func styled(_ s: String, _ font: Font? = nil, secondary: Bool = false) -> AttributedString {
@@ -397,14 +408,15 @@ private struct GalleryRow: View {
           ForEach(strip, id: \.self) { i in
             let p = photos[i]
             let ratio = CGFloat(p.w) / CGFloat(p.h)
-            Button { shown = i } label: {
-              VStack(alignment: .leading, spacing: 2) {
-                PageImage(src: p.thumb ?? p.src, ratio: ratio, alt: p.alt).frame(height: 120)
-                if let c = p.credit { Text(verbatim: "\(c.text) · \(c.licence)").font(.caption2).foregroundStyle(.secondary).lineLimit(1) }
-              }
-              .frame(width: 120 * ratio)
+            VStack(alignment: .leading, spacing: 2) {
+              Button { shown = i } label: { PageImage(src: p.thumb ?? p.src, ratio: ratio, alt: p.alt).frame(height: 120) }
+                .buttonStyle(.plain)
+                // A photo without words of its own is still a button VoiceOver can name.
+                .accessibilityLabel(Text(verbatim: p.alt ?? title))
+              // Its credit whole, as narrow as the photo: the licence is never cut off.
+              if let c = credit(p) { Text(c).fixedSize(horizontal: false, vertical: true) }
             }
-            .buttonStyle(.plain)
+            .frame(width: 120 * ratio)
           }
         }
       }
@@ -432,15 +444,10 @@ private struct GalleryViewer: View {
           let p = photos[i]
           ScrollView {
             VStack(alignment: .leading, spacing: 8) {
-              PageImage(src: p.src, ratio: CGFloat(p.w) / CGFloat(p.h), alt: p.alt)
+              // Its words read once, under it, not as the picture's label too.
+              PageImage(src: p.src, ratio: CGFloat(p.w) / CGFloat(p.h))
               if let alt = p.alt, !alt.isEmpty { Text(alt).font(.subheadline) }
-              if let c = p.credit {
-                if let u = c.url.flatMap(URL.init(string:)) {
-                  Link(destination: u) { Text(verbatim: "\(c.text) · \(c.licence)") }.font(.footnote)
-                } else {
-                  Text(verbatim: "\(c.text) · \(c.licence)").font(.footnote).foregroundStyle(.secondary)
-                }
-              }
+              if let c = credit(p) { Text(c) }
             }
             .padding()
           }

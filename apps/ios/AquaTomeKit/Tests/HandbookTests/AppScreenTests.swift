@@ -43,6 +43,10 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(page("https://aquatome.com/vi/ca/ca-mong/") == nil)
   #expect(page("https://example.com/vi/ca/ca-neon/") == nil)
   #expect(page("https://aquatome.com/vi/cong-cu/den-chihiros/") == .lights)
+  // A link asking for more than the page (a tool set to a fish) is the web page, query and all: not the bare page.
+  let tool = { (s: String) in AppScreen.of(URL(string: s)!, site: site, listed: { $0 == "/vi/cong-cu/nuoi-chung/" }) }
+  #expect(tool("https://aquatome.com/vi/cong-cu/nuoi-chung/") == .page("/vi/cong-cu/nuoi-chung/"))
+  #expect(tool("https://aquatome.com/vi/cong-cu/nuoi-chung/?ca=ca-neon:6") == nil)
   // Without the index (a web page's own links), as before.
   #expect(screen("https://aquatome.com/vi/ca/ca-neon/") == nil)
 }

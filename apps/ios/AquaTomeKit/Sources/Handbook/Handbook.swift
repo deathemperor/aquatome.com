@@ -268,14 +268,15 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     shards.compactMapValues { s in s.level.flatMap { $0 <= level ? s.n : nil } }.filter { $0.value > 0 }
   }
 
-  /// A kind's entry in the site's `shards`: a part this app can't read is nil, and the kind stays on the web.
+  /// A kind's entry in the site's `shards`: a part this app can't read is nil (all of it, for an entry that isn't one),
+  /// and that kind alone stays on the web.
   struct Shards: Decodable {
     let n: Int?
     let level: Int?
-    init(from decoder: any Decoder) throws {
-      let c = try decoder.container(keyedBy: Keys.self)
-      n = try? c.decode(Int.self, forKey: .n)
-      level = try? c.decode(Int.self, forKey: .level)
+    init(from decoder: any Decoder) {
+      let c = try? decoder.container(keyedBy: Keys.self)
+      n = try? c?.decode(Int.self, forKey: .n)
+      level = try? c?.decode(Int.self, forKey: .level)
     }
     private enum Keys: String, CodingKey { case n, level }
   }

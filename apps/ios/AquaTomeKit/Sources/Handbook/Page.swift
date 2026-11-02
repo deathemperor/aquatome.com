@@ -408,8 +408,8 @@ extension PageDoc {
         case let .moments(_, _, items): out += items.map(\.img.src)
         case let .list(_, items): items.forEach(walk)
         case let .gallery(_, _, photos, strip, _): out += strip.map { photos[$0].thumb ?? photos[$0].src }
-        case let .mates(m): out += ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap { $0.img?.src }
-        case let .cards(_, items): out += items.compactMap { $0.img?.src }
+        case let .mates(m): out += ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap { $0.img.map { $0.thumb ?? $0.src } }
+        case let .cards(_, items): out += items.compactMap { $0.img.map { $0.thumb ?? $0.src } }
         case let .videos(_, items): out += items.map { Self.thumbnail($0.youtubeId) }
         default: break
         }

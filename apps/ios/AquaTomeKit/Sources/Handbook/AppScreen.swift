@@ -22,6 +22,9 @@ public enum AppScreen: Equatable, Sendable {
     case "vi/cong-cu/den-chihiros", "id/alat/lampu-chihiros", "th/tools/chihiros-light":
       return .lights
     default:
+      // A link asking for more than the page (the tank-mates tool set to a fish, `?ca=ca-neon:6`) isn't the page as the
+      // app shows it: the web takes it whole.
+      guard url.query == nil else { return nil }
       // The index's paths end in "/", as the site's pages do; a link may leave it off.
       let path = url.path(percentEncoded: false)
       let page = path.hasSuffix("/") ? path : path + "/"

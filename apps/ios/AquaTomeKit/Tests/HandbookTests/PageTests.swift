@@ -217,9 +217,10 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
 
 @Test func theAppDrawsTheKindsTheIndexGivesItsLevelOrALowerOneAndKeepsTheRestOnTheWeb() throws {
   // `pages` stays guides only, for apps older than levels; `shards` gives each kind its level.
-  let json = #"{"version":1,"lang":"vi","items":[],"pages":{"guide":32},"shards":{"guide":{"n":32,"level":1},"fish":{"n":128,"level":2},"plant":{"n":"x","level":2},"breed":{"n":8,"level":3}}}"#
+  let json = #"{"version":1,"lang":"vi","items":[],"pages":{"guide":32},"shards":{"guide":{"n":32,"level":1},"fish":{"n":128,"level":2},"plant":{"n":"x","level":2},"glossary":4,"breed":{"n":8,"level":3}}}"#
   let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(json.utf8))
-  // A kind it can't read (plant here) is left on the web; one of a later level too.
+  // A kind it can't read (plant's count, glossary not an entry at all) is left on the web, each on its own; one of a
+  // later level too.
   #expect(ix.pages == ["guide": 32, "fish": 128])
   // The copy kept on the phone reads back the same.
   #expect(try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(ix)).pages == ix.pages)
@@ -251,11 +252,13 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
     ["t": "gallery", "title": "Ảnh", "note": "3 ảnh", "strip": [2, 0],
      "photos": [img("https://x/g0.jpg").merging(["thumb": "https://x/g0-480.jpg"]) { a, _ in a }, img("https://x/g1.jpg"), img("https://x/g2.jpg")]],
     ["t": "mates", "title": "Nuôi chung", "tool": ["text": "Kiểm tra", "href": "/vi/cong-cu/nuoi-chung/"],
-     "good": ["title": "Hợp với", "items": [["path": "/vi/ca/a/", "name": "A", "img": img("https://x/m.jpg")], ["path": "/vi/ca/b/", "name": "B"]]]],
+     "good": ["title": "Hợp với", "items": [["path": "/vi/ca/a/", "name": "A", "img": img("https://x/m.jpg").merging(["thumb": "https://x/m-160.jpg"]) { a, _ in a }],
+                                              ["path": "/vi/ca/b/", "name": "B"]]]],
     ["t": "cards", "title": "Các dòng", "items": [["path": "/vi/ca/c/", "name": "C", "img": img("https://x/c.jpg")]]],
     ["t": "videos", "title": "Video", "items": [["youtubeId": "v1", "title": "V", "durationSec": 60, "lang": "EN"]]],
   ]
-  #expect(try doc(page(blocks)).pictures == ["https://x/g2.jpg", "https://x/g0-480.jpg", "https://x/m.jpg", "https://x/c.jpg", "https://i.ytimg.com/vi/v1/hqdefault.jpg"])
+  // A card's small photo when it has one: the one it shows.
+  #expect(try doc(page(blocks)).pictures == ["https://x/g2.jpg", "https://x/g0-480.jpg", "https://x/m-160.jpg", "https://x/c.jpg", "https://i.ytimg.com/vi/v1/hqdefault.jpg"])
 }
 
 @Test func aShelfIsKeptForOfflineOnWiFiAskedFirstOnMobileDataAndNotWithoutRoomOrNetwork() {

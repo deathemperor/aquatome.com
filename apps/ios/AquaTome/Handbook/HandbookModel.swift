@@ -325,6 +325,7 @@ extension HandbookIndex {
     .init(kind: .glossary, name: "Đệm pH", path: "/vi/thuat-ngu/dem-ph/"),
     .init(kind: .tool, name: "Đèn Chihiros", path: "/vi/cong-cu/den-chihiros/"),
     .init(kind: .tool, name: "Bể của tôi", path: "/vi/cong-cu/be-cua-toi/", words: ["Bể của tôi: sổ ghi bể cá, cây và lịch đèn"]),
+    .init(kind: .tool, name: "Kiểm tra nuôi chung", path: "/vi/cong-cu/nuoi-chung/"),
   ], home: .init(groups: [.init(id: "cichlids"), .init(id: "tetras"), .init(id: "danios")], fish: ["/vi/ca/ca-neon/", "/vi/ca/ca-dia/"],
                  plants: [], guides: ["/vi/huong-dan/nuoi-ca-neon/"]),
   labels: .init([
