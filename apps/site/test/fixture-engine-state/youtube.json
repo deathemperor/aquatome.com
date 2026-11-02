@@ -1,0 +1,7 @@
+{
+  "v1": { "status": "processed", "entityIds": ["youtube-v1"], "attempts": 0, "updatedAt": "2026-11-01T04:00:00.000Z" },
+  "v2": { "status": "skipped", "entityIds": [], "attempts": 0, "error": "not a guide", "updatedAt": "2026-11-01T05:00:00.000Z" },
+  "v3": { "status": "error", "entityIds": [], "attempts": 3, "error": "members only?", "updatedAt": "2026-11-01T06:00:00.000Z" },
+  "v4": { "status": "error", "entityIds": [], "attempts": 1, "error": "fetch failed", "updatedAt": "2026-11-01T07:00:00.000Z" },
+  "v9": { "status": "processed", "entityIds": ["youtube-v9"], "attempts": 0, "updatedAt": "2026-11-02T08:00:00.000Z" }
+}

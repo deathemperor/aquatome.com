@@ -1,0 +1,8 @@
+{
+  "startedAt": "2026-11-02T18:00:00.000Z",
+  "finishedAt": "2026-11-02T20:30:00.000Z",
+  "perSource": { "seriouslyfish": { "discovered": 1800, "fetched": 3, "processed": 2, "skipped": 0, "blocked": 0, "errors": 1 } },
+  "needsHuman": ["2hraquarist"],
+  "changed": [{ "date": "2026-11-02", "kind": "species", "id": "a", "source": "seriouslyfish", "action": "new" }, { "date": "2026-11-02", "kind": "species", "id": "b", "source": "seriouslyfish", "action": "updated" }],
+  "errors": ["https://www.seriouslyfish.com/species/e/: fetch failed"]
+}

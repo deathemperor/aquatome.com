@@ -9,7 +9,11 @@
     "./tanks": "./src/tanks.ts",
     "./tank-rules": "./src/tank-rules.ts",
     "./unlisted": "./src/unlisted.ts",
-    "./app-page": "./src/app-page.ts"
+    "./app-page": "./src/app-page.ts",
+    "./depth": "./src/depth.ts",
+    "./licence": "./src/licence.ts",
+    "./thumb": "./src/thumb.ts",
+    "./staples": "./src/staples.ts"
   },
   "scripts": {
     "test": "vitest run",

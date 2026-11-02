@@ -1,0 +1,9 @@
+{
+  "https://www.seriouslyfish.com/species/a/": { "status": "processed", "entityIds": ["species/a"], "attempts": 0, "updatedAt": "2026-11-01T10:00:00.000Z" },
+  "https://www.seriouslyfish.com/species/b/": { "status": "processed", "entityIds": ["species/b"], "attempts": 0, "updatedAt": "2026-11-02T09:00:00.000Z" },
+  "https://www.seriouslyfish.com/species/c/": { "status": "skipped", "entityIds": [], "attempts": 0, "updatedAt": "2026-10-30T10:00:00.000Z" },
+  "https://www.seriouslyfish.com/species/d/": { "status": "error", "entityIds": [], "attempts": 3, "error": "HTTP 404", "updatedAt": "2026-10-31T10:00:00.000Z" },
+  "https://www.seriouslyfish.com/species/e/": { "status": "error", "entityIds": [], "attempts": 1, "error": "fetch failed", "updatedAt": "2026-10-31T11:00:00.000Z" },
+  "https://www.seriouslyfish.com/species/f/": { "status": "new", "entityIds": [], "attempts": 0, "updatedAt": "2026-10-31T12:00:00.000Z" },
+  "https://www.seriouslyfish.com/species/g/": { "status": "blocked", "entityIds": [], "attempts": 0, "error": "challenge: Just a moment", "updatedAt": "2026-10-29T12:00:00.000Z" }
+}

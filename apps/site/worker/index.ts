@@ -6,6 +6,7 @@ import { applyDecisions, listComments, moderationQueue, postComment, purgeRemove
 import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
+import { recordSnapshot } from './admin/content'
 import { parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
 import { gonePage, isHidden, pagePath } from './hidden'
@@ -195,12 +196,16 @@ export { FishIdRelay } from './fishid/relay'
 export default {
   fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, p => ctx.waitUntil(p)),
 
-  /** Daily: the affiliate checker, the removed-comment purge and expired sign-in data — independent, so one failing never blocks the others. */
+  /**
+   * Daily: the affiliate checker, the removed-comment purge, expired sign-in data and the day's content totals (KV
+   * stats:YYYY-MM-DD, admin/content.ts) — independent, so one failing never blocks the others.
+   */
   async scheduled(_: ScheduledController, env: FullEnv): Promise<void> {
     const results = await Promise.allSettled([
       env.DB ? runChecks(env.DB, env, new Date()) : Promise.resolve(),
       env.DB ? purgeRemoved(env.DB, new Date()) : Promise.resolve(),
       env.DB ? purgeExpired(env.DB, new Date()) : Promise.resolve(),
+      recordSnapshot(env.AB, env.ASSETS, `https://${env.CANONICAL_HOST ?? 'aquatome.com'}`, new Date()),
     ])
     for (const r of results) if (r.status === 'rejected') console.error('scheduled task failed:', r.reason)
   },
