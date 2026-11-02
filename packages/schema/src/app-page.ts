@@ -52,12 +52,14 @@ export const Moments = z.object({
   items: z.array(z.object({ at: z.number().int().nonnegative(), img: Image, caption: z.string() })),
 })
 /**
- * A guide's key points, or a fish's summary (one paragraph). A fish's also has the mistakes keepers make (`mistakes`) and
- * who wrote it (`by`, "AquaTome tóm tắt từ các nguồn bên dưới.").
+ * A guide's key points (`items`), or a fish's summary: one paragraph (`text`), which `items` also holds as its only
+ * item, for apps that predate `text`. A fish's also has the mistakes keepers make (`mistakes`) and who wrote it (`by`,
+ * "AquaTome tóm tắt từ các nguồn bên dưới.").
  */
 export const Summary = z.object({
   t: z.literal('summary'),
   title: z.string(),
+  text: z.string().optional(),
   items: z.array(z.string()),
   mistakes: z.object({ title: z.string(), items: z.array(z.string()) }).optional(),
   by: z.string().optional(),

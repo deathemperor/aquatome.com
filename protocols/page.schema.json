@@ -682,6 +682,9 @@
             "title": {
               "type": "string"
             },
+            "text": {
+              "type": "string"
+            },
             "items": {
               "type": "array",
               "items": {

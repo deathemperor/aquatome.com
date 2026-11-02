@@ -170,7 +170,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     }
     : { t: 'p', c: [tool] }
   const summary = p.vn && p.summary ? [{
-    t: 'summary' as const, title: t('Tóm tắt nhanh'), items: [p.summary.summary],
+    t: 'summary' as const, title: t('Tóm tắt nhanh'), text: p.summary.summary, items: [p.summary.summary],
     ...(p.summary.mistakes.length ? { mistakes: { title: t('Lỗi hay gặp'), items: p.summary.mistakes } } : {}),
     by: t('AquaTome tóm tắt từ các nguồn bên dưới.'),
   }] : []

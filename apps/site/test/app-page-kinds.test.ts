@@ -144,7 +144,9 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     const guides = new Set(dom.querySelectorAll('.guides a, .vg a').map(a => a.getAttribute('href')))
     for (const p of all(d, 'pages').flatMap(b => b.paths)) expect(guides.has(p), `${d.path} names ${p}`).toBe(true)
     const summary = one(d, 'summary')
-    expect(summary ? [summary.items[0], ...(summary.mistakes?.items ?? []), summary.by] : [], d.path).toEqual(dom.querySelector('.qs') ? [txt(dom.querySelector('.qs .box > p')), ...dom.querySelectorAll('.qs li').map(txt), txt(dom.querySelector('.qs .by'))] : [])
+    expect(summary ? [summary.text, ...(summary.mistakes?.items ?? []), summary.by] : [], d.path).toEqual(dom.querySelector('.qs') ? [txt(dom.querySelector('.qs .box > p')), ...dom.querySelectorAll('.qs li').map(txt), txt(dom.querySelector('.qs .by'))] : [])
+    // An app that predates `text` shows `items`: the same paragraph.
+    if (summary) expect(summary.items, d.path).toEqual([summary.text])
   }
   // The fixture has every new block somewhere, and photos the footer credits.
   for (const t of ['trust', 'mates', 'climate', 'gallery', 'summary', 'cards', 'videos', 'refs', 'pages']) expect(seen.has(t), t).toBe(true)
@@ -193,7 +195,7 @@ test('a fish\'s copy: its blocks in page order, every one credited and sourced',
   expect(one(d, 'trust')!.rows[0]).toEqual({ field: 'tempC', label: 'Nhiệt độ', conflict: true, note: 'Mức mọi nguồn cùng khuyên', items: ['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'] })
   expect(one(d, 'gallery')).toMatchObject({ title: 'Ảnh Cá neon vua', note: '6 ảnh từ Wikimedia Commons, giấy phép mở.', href: '/vi/ca/ca-neon-vua/anh/' })
   expect(one(d, 'gallery')!.photos[0]).toMatchObject({ credit: { text: 'Ảnh: Tác giả 1', licence: 'CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' } })
-  expect(one(d, 'summary')).toEqual({ t: 'summary', title: 'Tóm tắt nhanh', items: ['Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.'], mistakes: { title: 'Lỗi hay gặp', items: ['Thả vài con: nên nuôi đàn từ 8 con trở lên.'] }, by: 'AquaTome tóm tắt từ các nguồn bên dưới.' })
+  expect(one(d, 'summary')).toEqual({ t: 'summary', title: 'Tóm tắt nhanh', text: 'Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.', items: ['Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.'], mistakes: { title: 'Lỗi hay gặp', items: ['Thả vài con: nên nuôi đàn từ 8 con trở lên.'] }, by: 'AquaTome tóm tắt từ các nguồn bên dưới.' })
   expect(one(d, 'refs')).toMatchObject({ title: 'Nguồn', id: 'nguon', items: [{ title: 'Seriously Fish', url: 'https://www.seriouslyfish.com/species/paracheirodon-axelrodi' }, { title: 'Aquarium Glaser' }, { title: 'Aquarium Glaser' }] })
   expect(one(d, 'h')).toEqual({ t: 'h', text: 'Thông tin nhanh', id: 'muc-quickFacts' })
   expect(one(d, 'videos')).toEqual({ t: 'videos', title: 'Video', items: [{ youtubeId: 'aaaaaaaaaaa', title: 'Video mẫu: đàn neon vua trong bể thủy sinh', durationSec: 724, lang: 'tiếng Việt' }] })
