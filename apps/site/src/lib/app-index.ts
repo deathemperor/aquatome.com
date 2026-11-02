@@ -104,6 +104,15 @@ export function appGlossary(lang: Lang, c: Content): Content['glossary'] {
   return served(lang, '/vi/thuat-ngu/x/') ? c.glossary : []
 }
 /**
+ * The video series the index lists in this language, with their guides in the page's order, and the app has pages of:
+ * every series /vi/video/ lists (one with a guide, its page out of search engines too), the biggest first, as it lists
+ * them.
+ */
+export function appSeries(lang: Lang, c: Content): { s: Content['series'][number]; guides: ReturnType<typeof seriesGuides> }[] {
+  if (!served(lang, '/vi/video/x/')) return []
+  return c.series.map(s => ({ s, guides: seriesGuides(c, s) })).filter(x => x.guides.length).sort((a, b) => b.guides.length - a.guides.length)
+}
+/**
  * What the site's home page leads with, so the app leads with the same (lib/home.ts), in its order: the fish groups
  * (with a photo of one of them), then fish, plants and guides by their path in this index.
  */
@@ -199,14 +208,10 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   if (served(lang, '/vi/thuat-ngu/x/')) {
     for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/thuat-ngu/${g.t.slug}/`) }))
   }
-  if (served(lang, '/vi/video/x/')) {
-    // Every series /vi/video/ lists (one with a guide, its page out of search engines too), as its page lists it, the
-    // biggest first.
-    const series = c.series.map(s => ({ s, guides: seriesGuides(c, s) })).filter(x => x.guides.length)
-    for (const { s, guides } of series.sort((a, b) => b.guides.length - a.guides.length)) {
-      const ph = guideImage(c, guides[0]!)
-      items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), parts: guides.length }))
-    }
+  // A series as its page lists it; the same series the app gets pages of.
+  for (const { s, guides } of appSeries(lang, c)) {
+    const ph = guideImage(c, guides[0]!)
+    items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), parts: guides.length }))
   }
   for (const [vi, name, own] of TOOLS) {
     if (served(lang, vi)) items.push({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)) })

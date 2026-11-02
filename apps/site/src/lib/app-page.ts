@@ -1,6 +1,6 @@
-import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
+import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
-import { appGlossary, appGuides, appIndex, appPlants, appSpecies, type AppIndex } from './app-index'
+import { appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, type AppIndex } from './app-index'
 import { BREED_KIND } from './breeds'
 import { photoCredit } from './cite'
 import { VN_WATER, vnClimate } from './climate'
@@ -13,18 +13,19 @@ import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
 import { isVietnamese, localizeLinks, localizePath, served, translator, type Lang, type T } from './i18n'
 import { smallSrc } from './img'
+import { guideImage } from './mentions'
 import { htmlBlocks } from './page-blocks'
 import { plantParts } from './plant-page'
 import { OFF_LABELS, sectionParts, type SectionProps } from './section-parts'
 import { QUESTION_LABELS } from './sections'
 import { speciesParts } from './species-page'
 import { commentsKey, photosKey } from './talk'
-import { clock } from './video'
+import { clock, hours, seriesGuides, seriesSeconds } from './video'
 
 /**
  * The app's copy of each content page (packages/schema/src/app-page.ts): the page's own pieces, as the site's template
- * puts them together, turned into blocks. Guides, fish, plants and the glossary; the comments, reader photos and shop
- * links of fish and plant pages are not in the copy yet.
+ * puts them together, turned into blocks. Guides, fish, plants, the glossary and video series; the comments, reader
+ * photos and shop links of fish and plant pages are not in the copy yet.
  */
 
 type Kind = PageDoc['kind']
@@ -250,6 +251,37 @@ export function glossaryDoc(lang: Lang, g: Localized<GlossaryEntity>): PageDoc {
   }
 }
 
+/**
+ * A video series' copy (pages/vi/video/[slug].astro): the page's line of counts above its name, its intro, the playlist
+ * and channel it follows, then every guide as the page lists them, in its order, as cards: each one's subject, parts and
+ * length under its name, its picture credited. A card for a guide the index doesn't list opens on the web. The page has
+ * no heading over its list: the cards' title is its crumb's word.
+ */
+export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
+  const t = translator(lang)
+  const at = (viPath: string) => localizePath(lang, viPath)
+  const guides = seriesGuides(c, s)
+  return {
+    v: PAGE_VERSION,
+    kind: 'video',
+    path: at(`/vi/video/${s.vi.slug}/`),
+    title: s.vi.name,
+    meta: `${t('{n} bài', { n: guides.length })} · ${t('{time} video', { time: hours(lang, seriesSeconds(c, s)) })}`,
+    blocks: [
+      ...(s.vi.intro ? [{ t: 'p' as const, c: [s.vi.intro] }] : []),
+      { t: 'p', c: [t('theo playlist “'), { text: s.title, href: `https://www.youtube.com/playlist?list=${s.playlistId}` }, `${t('” của kênh')} `, { text: s.channel, href: s.channelUrl }] },
+      {
+        t: 'cards', title: t('Video'),
+        items: guides.map(g => {
+          const img = image(lang, guideImage(c, g), undefined, true)
+          const parts = g.video.chapters.length > 1 ? [t('{n} đoạn', { n: g.video.chapters.length })] : []
+          return { path: at(`/vi/huong-dan/${g.t.slug}/`), name: g.t.name, sub: [t(GUIDE_KIND_LABELS[g.kind]!), ...parts, clock(g.video.durationSec)].join(' · '), ...(img ? { img } : {}) }
+        }),
+      },
+    ],
+  }
+}
+
 /** A guide's copy; `listed` is the app index's paths (listedPaths). */
 export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
@@ -310,6 +342,7 @@ export function appPages(lang: Lang, c: Content): Promise<Record<Kind, PageDoc[]
       fish: await Promise.all(appSpecies(lang, c).map(s => fishDoc(lang, c, s, listed))),
       plant: appPlants(lang, c).map(p => plantDoc(lang, c, p, listed)),
       glossary: appGlossary(lang, c).map(g => glossaryDoc(lang, g)),
+      video: appSeries(lang, c).map(({ s }) => videoDoc(lang, c, s)),
     }))())
   }
   return docs
@@ -317,9 +350,10 @@ export function appPages(lang: Lang, c: Content): Promise<Record<Kind, PageDoc[]
 
 /**
  * The level an app must know to draw each kind itself (packages/schema/src/app-page.ts, PageShard). Guides are the first
- * app's (level 1); fish, plant and glossary pages use blocks it shows as "open on the web", so they are level 2.
+ * app's (level 1); fish, plant, glossary and video series pages use blocks it shows as "open on the web", so they are
+ * level 2.
  */
-export const PAGE_LEVELS: Record<Kind, number> = { guide: 1, fish: 2, plant: 2, glossary: 2 }
+export const PAGE_LEVELS: Record<Kind, number> = { guide: 1, fish: 2, plant: 2, glossary: 2, video: 2 }
 
 /**
  * What the app index says of the shards: every kind's count and level (`shards`), and the counts of the level-1 kinds

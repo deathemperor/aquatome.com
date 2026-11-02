@@ -186,7 +186,7 @@ export const Video = z.object({
 
 export const PageDoc = z.object({
   v: z.literal(PAGE_VERSION),
-  kind: z.enum(['guide', 'fish', 'plant', 'glossary']),
+  kind: z.enum(['guide', 'fish', 'plant', 'glossary', 'video']),
   /** The web page: what "open on the web" and sharing use, and the app index's `path` for it. */
   path: z.string(),
   title: z.string(),
@@ -231,8 +231,8 @@ export type PageDoc = z.infer<typeof PageDoc>
  * - An app draws a kind itself only when the kind's `level` is at or below the level the app knows (`drawnKinds`).
  *   It opens the other kinds' pages on the web.
  * - Level 1 is the first app's: guides, the kind `pages` lists.
- * - Level 2: fish, plant and glossary pages, with the blocks gallery, trust, mates, climate, cards and videos. The iOS
- *   app that reads `shards` knows level 2.
+ * - Level 2: fish, plant and glossary pages, with the blocks gallery, trust, mates, climate, cards and videos, and video
+ *   series, whose guides are cards. The iOS app that reads `shards` knows level 2.
  * - A kind that needs a block no shipped app knows gets the next level: one above the highest an app has shipped
  *   knowing. An app that knows a lower level keeps that kind on the web.
  *
