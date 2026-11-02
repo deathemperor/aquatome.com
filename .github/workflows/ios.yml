@@ -93,7 +93,8 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
-      # The main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights' (job `lights`).
+      # The main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights' (job `lights`), and
+      # the App Store's screenshots (app-store.yml), which read the live site.
       # A failed test runs once more, as the site's journeys do on CI: the simulator on these runners sometimes stops
       # answering for 30 s, then drops the next tap or loses the app (PRs #234, #248 on 2026-10-31, in their
       # recordings). A test that fails twice fails the job; one that passed only on its retry is flagged below.
@@ -103,7 +104,8 @@ jobs:
           -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
           -retry-tests-on-failure -test-iterations 2 -skip-testing:AquaTomeUITests/PerformanceTests
-          -skip-testing:AquaTomeUITests/LightFlowTests $(printf -- '-skip-testing:AquaTomeUITests/%s ' $HANDBOOK_FLOWS)
+          -skip-testing:AquaTomeUITests/LightFlowTests -skip-testing:AquaTomeUITests/StoreShotsFlowTests
+          $(printf -- '-skip-testing:AquaTomeUITests/%s ' $HANDBOOK_FLOWS)
       # Flaky tests are seen, not hidden: each one that needed its retry is a warning on the run and in its summary.
       - name: Tests that passed only on a retry
         if: always()
