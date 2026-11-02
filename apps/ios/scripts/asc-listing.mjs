@@ -238,7 +238,9 @@ async function read(listing) {
   }
   s.schedule = await getOrNone(`v1/apps/${APP_ID}/appPriceSchedule`)
   if (s.schedule) {
+    // An app with no price yet has a schedule all the same, whose prices aren't there (404).
     const prices = await api('GET', `v1/appPriceSchedules/${s.schedule.id}/manualPrices?include=appPricePoint,territory&limit=200`)
+      .catch((e) => { if (e.status === 404) return { data: [] }; throw e })
     s.prices = prices.data.map((p) => ({
       territory: p.relationships?.territory?.data?.id,
       start: p.attributes.startDate,
@@ -247,7 +249,9 @@ async function read(listing) {
   }
   s.availability = await getOrNone(`v1/apps/${APP_ID}/appAvailabilityV2`)
   s.territories = await all('v1/territories?limit=200')
+  // As with prices, a list App Store Connect doesn't have yet answers 404.
   if (s.availability) s.territoryAvailabilities = await all(`v2/appAvailabilities/${s.availability.id}/territoryAvailabilities?include=territory&limit=200`)
+    .catch((e) => { if (e.status === 404) return []; throw e })
   return s
 }
 
@@ -299,7 +303,7 @@ function compare(listing, s) {
     row('Review demo account required', r?.demoAccountRequired, listing.review.demoAccountRequired)
     row('Review contact', r && [r.contactFirstName, r.contactLastName, r.contactPhone, r.contactEmail].every(Boolean) ? 'set' : 'not set', 'set on the website', true)
   }
-  row('Price', s.schedule ? (free(s) ? 'free' : `${s.prices.length} prices, not all free`) : 'none', listing.price, free(s))
+  row('Price', !s.prices?.length ? 'none' : free(s) ? 'free' : `${s.prices.length} prices, not all free`, listing.price, free(s))
   const available = s.territoryAvailabilities?.filter((t) => t.attributes.available).length ?? 0
   row('Territories available', s.availability ? `${available} of ${s.territories.length}` : 'none set', `all ${s.territories.length}`, !!s.availability && available === s.territories.length)
   row('Available in new territories', s.availability?.attributes.availableInNewTerritories, listing.availability.availableInNewTerritories)
