@@ -163,11 +163,13 @@ final class TankLifeFlowTests: XCTestCase {
     // Not checked with the fish the handbook has figures for: said so.
     let unchecked = app.staticTexts["unchecked"]
     for _ in 0..<4 where !(unchecked.exists && unchecked.isHittable) { app.swipeUp() }
-    XCTAssertEqual(unchecked.label, "Chưa kiểm tra Ca bong mat tre: cẩm nang chưa có trang nên chưa có số liệu để so.")
+    let line = "Chưa kiểm tra Ca bong mat tre: cẩm nang chưa có trang nên chưa có số liệu để so."
+    let said = expectation(for: NSPredicate(format: "label == %@", line), evaluatedWith: unchecked)
+    XCTAssertEqual(XCTWaiter.wait(for: [said], timeout: 5), .completed, "said instead: \(unchecked.label)")
 
     // Its number changed: not sent again.
     for _ in 0..<4 where !(fish.exists && fish.isHittable) { app.swipeDown() }
-    fish.swipeLeft()
+    swipeOpen(app, fish, "Số con")
     app.buttons["Số con"].tap()
     let count = app.textFields["put-count"]
     XCTAssertTrue(count.waitForExistence(timeout: 5))
@@ -198,12 +200,13 @@ final class TankLifeFlowTests: XCTestCase {
     app.buttons["new-save"].tap()
 
     let plant = life(app, "reu suoi")
+    XCTAssertTrue(plant.waitForExistence(timeout: 5), "not on the tank")
     for _ in 0..<4 where !(plant.exists && plant.isHittable) { app.swipeUp() }
     XCTAssertTrue(plant.exists && plant.label.contains("chưa có trang"), "not with the tank's plants: \(plant.label)")
     // Among the plants: after the tank's rotala, in the same section.
     XCTAssertGreaterThan(plant.frame.minY, life(app, "Rotala đỏ").frame.minY)
     XCTAssertTrue(waitForWanted(app, #"{"kind":"plant","name":"reu suoi"}"#), "not sent as wanted: \(wanted(app))")
-    plant.swipeLeft()
+    swipeOpen(app, plant, "Xóa")
     XCTAssertFalse(app.buttons["Số con"].exists, "a plant isn't counted")
     app.buttons["Xóa"].tap()
     XCTAssertTrue(life(app, "reu suoi").waitForNonExistence(timeout: 5), "still on the tank")
@@ -229,6 +232,14 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertFalse(waitForWanted(app, "{", timeout: 2), "the handbook has its page, yet it was sent: \(wanted(app))")
     danio.tap()
     XCTAssertTrue(app.navigationBars["Cá ngựa vằn"].waitForExistence(timeout: 5), "its page didn't open")
+    // One the handbook hasn't, put on after: it alone is sent (sent in order, the first would be there by now).
+    app.navigationBars.buttons.firstMatch.tap()
+    searchLife(app, "ca la").tap()
+    XCTAssertTrue(app.buttons["new-save"].waitForExistence(timeout: 5))
+    app.buttons["new-save"].tap()
+    let only = #"{"kind":"fish","name":"ca la"}"#
+    XCTAssertTrue(waitForWanted(app, only), "the one with no page wasn't sent: \(wanted(app))")
+    XCTAssertEqual(wanted(app), only, "the one with a page was sent too")
   }
 
   func testNothingIsPutIntoAStoreTheAppMustLeaveAlone() {
@@ -294,6 +305,14 @@ final class TankLifeFlowTests: XCTestCase {
   private func waitForWanted(_ app: XCUIApplication, _ text: String, timeout: TimeInterval = 5) -> Bool {
     let has = NSPredicate(format: "value CONTAINS %@", text)
     return XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: has, object: app.buttons["add-life"])], timeout: timeout) == .completed
+  }
+
+  /// Swipes a row open until `action` shows. A swipe that lands while the list is still moving only stops it: swiped
+  /// once more.
+  private func swipeOpen(_ app: XCUIApplication, _ row: XCUIElement, _ action: String, file: StaticString = #filePath, line: UInt = #line) {
+    row.swipeLeft()
+    if !app.buttons[action].waitForExistence(timeout: 3) { row.swipeLeft() }
+    XCTAssertTrue(app.buttons[action].waitForExistence(timeout: 3), "no \(action) on the row", file: file, line: line)
   }
 }
 

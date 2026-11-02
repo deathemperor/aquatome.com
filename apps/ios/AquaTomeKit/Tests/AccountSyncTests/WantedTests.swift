@@ -56,8 +56,11 @@ func entriesWithoutAPageSyncUnchanged() async throws {
   let api = client(fake)
   let s = try await signIn(api, "apple-1")
   var p = TankStore()
-  let id = try p.addTank(name: "Bể 60").id
-  try p.updateTank(id) {
+  // Stamped a minute back: an edit stamped ahead of the fake server's clock is brought back to its "now" (as the real
+  // one does), and the copies would differ in updatedAt alone.
+  let t0 = Date(timeIntervalSinceNow: -60)
+  let id = try p.addTank(name: "Bể 60", now: t0).id
+  try p.updateTank(id, now: t0.addingTimeInterval(1)) {
     $0.addUnlisted(UnlistedEntry(kind: "fish", name: "Cá bống mắt tre", sci: "Rhinogobius duospilus", count: 3))
     var later = UnlistedEntry(kind: "snail", name: "Ốc nerita")
     later.json["photoGuess"] = .object(["score": .number(0.4)])
