@@ -34,10 +34,29 @@ const { t } = i18n(Astro.url)
     <fieldset id="mt-life" class="life-edit" hidden>
       <legend>{t('Cá, tép và cây')}</legend>
       <ul class="life-rows" data-life-list hidden></ul>
-      <div class="combo">
-        <label for="mt-q" class="visually-hidden">{t('Tìm cá, tép hoặc cây để thêm')}</label>
-        <input id="mt-q" data-life-q type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="mt-opts" placeholder={t('Thêm cá hoặc cây: gõ tên Việt hoặc tên khoa học')} autocomplete="off" autocapitalize="off" spellcheck="false" />
-        <ul id="mt-opts" data-life-opts role="listbox" aria-label={t('Gợi ý')} hidden></ul>
+      <div class="find">
+        <div class="combo">
+          <label for="mt-q" class="visually-hidden">{t('Tìm cá, tép hoặc cây để thêm')}</label>
+          <input id="mt-q" data-life-q type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="mt-opts" placeholder={t('Thêm cá hoặc cây: gõ tên Việt hoặc tên khoa học')} autocomplete="off" autocapitalize="off" spellcheck="false" />
+          <ul id="mt-opts" data-life-opts role="listbox" aria-label={t('Gợi ý')} hidden></ul>
+        </div>
+        <button type="button" class="quiet" data-life-photo-open aria-expanded="false" aria-controls="mt-photo">{t('Chụp ảnh nhận diện')}</button>
+      </div>
+      {/* The fish-ID tool in the form (scripts/life-photo.ts): the camera or a photo, as on its page; each guess adds itself. */}
+      <div id="mt-photo" class="photo-id" data-life-photo hidden>
+        <div class="pick">
+          <label class="main"><input class="vh" type="file" name="camera" accept="image/*" capture="environment" /><span>{t('Chụp ảnh')}</span></label>
+          <label><input class="vh" type="file" name="file" accept="image/*" /><span>{t('Chọn ảnh có sẵn')}</span></label>
+        </div>
+        <div class="preview" data-preview hidden></div>
+        <div class="slot">
+          <div data-turnstile></div>
+          <p class="note" data-note></p>
+        </div>
+        <p><button type="button" class="primary" data-go disabled>{t('Nhận diện')}</button></p>
+        <p class="said" data-msg role="status" aria-live="polite"></p>
+        <div class="guesses" data-out aria-live="polite"></div>
+        <p class="privacy">{t('Ảnh không được lưu lại: ảnh được gửi tới Claude, mô hình AI của Anthropic, để nhận diện rồi bỏ đi.')} <a href="/vi/chinh-sach-bao-mat/#nhan-dien-ca">{t('Chính sách bảo mật')}</a></p>
       </div>
       <div class="new-entry" data-life-new hidden>
         <p><strong data-life-q-shown></strong> {t('chưa có trang trong cẩm nang. Vẫn thêm vào bể được: khi có trang, bể sẽ hiện trang đó.')}</p>
@@ -319,7 +338,8 @@ const { t } = i18n(Astro.url)
     if (err) return
     // The fish and plants as the form has them, when changed there; else the tank keeps its own (also when the form
     // couldn't show them, offline).
-    const added = lifeEditor && !$('mt-life').hidden ? (await life()).value() : undefined
+    const editor = lifeEditor && !$('mt-life').hidden ? await life() : undefined
+    const added = editor?.value()
     db = store.load()
     const kept = typeof editing === 'string' ? store.liveTanks(db).find(x => x.id === editing) : undefined
     if (typeof editing === 'string' && !kept) {
@@ -341,9 +361,10 @@ const { t } = i18n(Astro.url)
       ...(added ? { species: added.species, plants: added.plants, unlisted: added.unlisted.length ? added.unlisted : undefined } : {}),
     }, editing ?? undefined)
     store.save(db)
-    // What was just put on the tank without a page (and no page has its scientific name either): counted once saved.
+    // What was just put on the tank without a page (and no page has its scientific name either): counted once saved. Not
+    // what a photo named: the fish-ID endpoint counted that name already.
     const before = new Set((kept?.unlisted ?? []).map(u => u.id))
-    for (const u of added?.unlisted ?? []) if (!before.has(u.id) && !book?.match(u)) wanted(u)
+    for (const u of added?.unlisted ?? []) if (!before.has(u.id) && !book?.match(u) && !editor?.fromPhoto(u.id)) wanted(u)
     account.changed()
     close(t.id)
     document.getElementById(`be-${t.id}`)?.scrollIntoView({ block: 'nearest' })
@@ -462,7 +483,8 @@ const { t } = i18n(Astro.url)
   :global(.life-rows .qty input) { box-sizing: border-box; width: 5rem; min-height: 2.75rem; font: inherit; font-size: 1rem; text-align: right; padding: 0.25rem 0.5rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-mat); color: var(--c-ink); font-variant-numeric: tabular-nums; }
   :global(.editor .life-rows button.rm) { padding: 0.4rem 0.9rem; font-size: 0.9rem; }
   :global(.life-rows :is(a, input):focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
-  .life-edit .combo { position: relative; }
+  .find { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); }
+  .life-edit .combo { position: relative; flex: 1 1 14rem; min-width: 0; }
   .life-edit .combo input { width: 100%; }
   .life-edit .combo input[aria-expanded="true"] { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
   #mt-opts { position: absolute; z-index: 20; inset-inline: 0; top: 100%; margin: 0; padding: 0; list-style: none; background: var(--c-plate); border: 2px solid var(--c-focus); border-top: 1px solid var(--c-rule); border-radius: 0 0 8px 8px; box-shadow: 0 10px 24px -8px rgb(10 26 29 / 0.28); overflow: hidden; }
@@ -481,6 +503,33 @@ const { t } = i18n(Astro.url)
   .kind legend { font-size: 0.85rem; color: var(--c-ink-soft); padding: 0; margin-bottom: var(--space-1); }
   .editor .kind label { display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font-size: 1rem; color: var(--c-ink); cursor: pointer; }
   .editor .kind input { width: 1.25rem; height: 1.25rem; min-height: 0; margin: 0; padding: 0; accent-color: var(--c-moss); }
+  /* A photo's guesses: the fish-ID page's choice of camera or photo, in the form's own buttons. */
+  .photo-id { display: grid; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--c-rule); background: var(--c-mat); min-width: 0; }
+  .photo-id[hidden] { display: none; }
+  .photo-id p { margin: 0; }
+  .pick { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .editor .pick label { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0.6rem 1.15rem; border: 1px solid var(--c-rule); border-radius: 8px; font: 500 1rem var(--f-body); color: var(--c-ink); cursor: pointer; }
+  .editor .pick label.main { background: var(--c-ink); border-color: var(--c-ink); color: var(--c-paper); }
+  .editor .pick label:focus-within { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .editor .pick label[aria-disabled='true'] { opacity: 0.55; cursor: not-allowed; }
+  /* The file input stays focusable and announced; its label is the visible button. */
+  .editor .pick .vh { position: absolute; width: 1px; height: 1px; min-height: 0; padding: 0; border: 0; opacity: 0; overflow: hidden; clip-path: inset(50%); }
+  .preview :global(img) { display: block; max-width: min(100%, 16rem); height: auto; border: 1px solid var(--c-rule); }
+  /* Turnstile's widget (65 px), or a note in its place: the same room either way, so nothing below moves. */
+  .slot { min-height: 65px; }
+  .photo-id .note, .photo-id .privacy { color: var(--c-ink-soft); font-size: var(--step--1); }
+  .note:empty, .said:empty, .guesses:empty { display: none; }
+  :global(.editor .photo-id button:disabled) { opacity: 0.55; cursor: not-allowed; }
+  .said { font-size: 0.9rem; overflow-wrap: anywhere; }
+  .guesses :global(.lead) { color: var(--c-ink-soft); max-width: var(--measure); }
+  .guesses :global(ol) { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+  .guesses :global(li) { display: flex; gap: var(--space-3); align-items: flex-start; padding-top: var(--space-3); border-top: 1px solid var(--c-rule); }
+  .guesses :global(li img) { flex: none; width: 6rem; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--c-plate); }
+  .guesses :global(li > div) { min-width: 0; overflow-wrap: anywhere; }
+  .guesses :global(h3) { font: 600 var(--step-0) var(--f-body); margin: 0.1rem 0; }
+  .guesses :global(.sure) { font-size: var(--step--1); font-weight: 600; color: var(--c-moss); }
+  .guesses :global(.add) { color: var(--c-ink-soft); font-size: var(--step--1); }
+  .guesses :global(.act) { margin-top: var(--space-2); }
   .life-msg { margin: 0; font-size: 0.9rem; }
   .life-msg:empty { display: none; }
   .err { margin: 0; color: var(--c-cardinal); }

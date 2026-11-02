@@ -1,13 +1,16 @@
 import type { Tank, UnlistedEntry } from '@aq/schema'
 import { ct } from './ct'
+import type { Guessed } from './life-photo'
+import { msg } from '../i18n/msg'
 import { esc, type IndexItem } from './my-tanks'
 import { exactMatch, rankMatches, type MateItem } from './tankmates'
 
 /**
  * "Bể của tôi": the fish and plants on the tank being edited, in its form (loaded when the form opens). A handbook page
  * is found by name; anything the handbook has no page for is added by name as an entry without a page (`unlisted`,
- * packages/schema/src/tanks.ts), fish or plant, with its scientific name and count when the reader knows them. Nothing is
- * saved until the form is: `value()` is what the form saves.
+ * packages/schema/src/tanks.ts), fish or plant, with its scientific name and count when the reader knows them. A photo
+ * names one too ("Chụp ảnh nhận diện", life-photo.ts, loaded when opened). Nothing is saved until the form is: `value()`
+ * is what the form saves.
  */
 export type Life = Pick<Tank, 'species' | 'plants'> & { unlisted: UnlistedEntry[] }
 type Page = IndexItem & { id: string; kind: 'fish' | 'plant' }
@@ -18,6 +21,7 @@ const MAX_UNLISTED = 100
 const MAX_PAGES = 200
 /** Typed like a scientific name ("Rhinogobius duospilus"): offered as the new entry's scientific name too. */
 const LATIN = /^[A-Z][a-z]+ (?:(?:cf|aff)\.? )?[a-z]+$/
+const PHOTO_OFF = msg('Nhận diện qua ảnh tạm thời chưa dùng được. Bạn gõ tên cá hoặc cây vào ô tìm nhé.')
 
 export function initLife(root: HTMLElement, o: {
   /** The handbook's fish and plants (the app index), when they could be read. */
@@ -32,6 +36,8 @@ export function initLife(root: HTMLElement, o: {
   const sheet = $<HTMLElement>('[data-life-new]')
   const say = (s: string) => { $('[data-life-msg]').textContent = s }
   const field = (n: string) => sheet.querySelector(`[name=${n}]`) as HTMLInputElement
+  const photoOpen = $<HTMLButtonElement>('[data-life-photo-open]')
+  const photoPanel = $<HTMLElement>('[data-life-photo]')
   let life: Life = { species: [], plants: [], unlisted: [] }
   /** Changed in this form: only then does saving write the fish and plants (another tab may have added some meanwhile). */
   let touched = false
@@ -40,6 +46,11 @@ export function initLife(root: HTMLElement, o: {
   let shown: (Hit | 'new')[] = []
   let active = -1
   let loading: Promise<void> | undefined
+  let photo: Promise<ReturnType<typeof import('./life-photo').initPhoto>> | undefined
+  /** The "Thêm …" form is filled in from a photo's guess. */
+  let sheetFromPhoto = false
+  /** Entries without a page made from a photo's guess: the fish-ID endpoint counts such a name itself (worker/fishid/api.ts). */
+  const photoIds = new Set<string>()
 
   async function load() {
     const pages = await o.pages()
@@ -56,7 +67,7 @@ export function initLife(root: HTMLElement, o: {
     `<label class="qty"><input type="number" inputmode="numeric" min="1" max="9999" value="${n ?? ''}" data-${what}-count="${i}" aria-label="${esc(ct('Số con {name}', { name: label }))}" /><span aria-hidden="true">${ct('con')}</span></label>`
   const remove = (what: string, i: number, label: string) => `<button type="button" class="quiet rm" data-rm="${what}:${i}" aria-label="${esc(ct('Bỏ {name}', { name: label }))}">${ct('Bỏ')}</button>`
   const pageName = (id: string) => byId.get(id)?.name ?? id.replace(/-/g, ' ')
-  const linked = (id: string) => { const p = byId.get(id); return p ? `<a href="${esc(p.path)}">${esc(p.name)}</a>` : `<span>${esc(pageName(id))}</span>` }
+  const linked = (id: string) => { const p = byId.get(id); return p?.path ? `<a href="${esc(p.path)}">${esc(p.name)}</a>` : `<span>${esc(pageName(id))}</span>` }
 
   /** The rows: fish with their counts, plants, then what has no page (marked, or shown as the page that has its name). */
   function draw() {
@@ -114,21 +125,23 @@ export function initLife(root: HTMLElement, o: {
     draw()
   }
 
-  // Adding what has no page: a few fields under the search, asked only then.
-  function openNew(q: string) {
+  // Adding what has no page: a few fields under the search, asked only then; filled in from a photo's guess.
+  function openNew(q: string, guess?: { kind: 'fish' | 'plant'; sci: string }) {
     clear()
     field('uname').value = q
-    field('usci').value = LATIN.test(q) ? q : ''
+    field('usci').value = guess ? guess.sci : LATIN.test(q) ? q : ''
     field('ucount').value = ''
-    ;(sheet.querySelector('input[name=ukind][value=fish]') as HTMLInputElement).checked = true
+    ;(sheet.querySelector(`input[name=ukind][value=${guess?.kind ?? 'fish'}]`) as HTMLInputElement).checked = true
     $('[data-life-q-shown]').textContent = q
     sheet.hidden = false
+    sheetFromPhoto = !!guess
     kindChanged()
     sheet.querySelector<HTMLInputElement>('input[name=ukind]:checked')!.focus()
   }
   /** The fields go with it: a value left in a hidden field (a count of 0) would stop the form from saving. */
   function closeNew() {
     sheet.hidden = true
+    sheetFromPhoto = false
     for (const n of ['uname', 'usci', 'ucount']) field(n).value = ''
   }
   function kindChanged() {
@@ -144,12 +157,49 @@ export function initLife(root: HTMLElement, o: {
     if (life.unlisted.length >= MAX_UNLISTED) { say(ct('Đã đủ {n} loài chưa có trang trên bể này.', { n: MAX_UNLISTED })); return }
     const e: UnlistedEntry = { id: crypto.randomUUID(), kind, name, ...(sci ? { sci } : {}), ...(kind !== 'plant' && n >= 1 ? { count: Math.min(9999, n) } : {}) }
     life.unlisted.push(e)
+    const byPhoto = sheetFromPhoto
+    if (byPhoto) photoIds.add(e.id)
     touched = true
     closeNew()
     const p = o.match(e)
     say(p ? ct('Đã thêm {name}: cẩm nang có trang {page}. Bấm “Lưu bể” để lưu.', { name, page: p.name }) : ct('Đã thêm {name}. Bấm “Lưu bể” để lưu.', { name }))
     draw()
-    input.focus()
+    if (byPhoto) photoDone()
+    else input.focus()
+  }
+
+  // "Chụp ảnh nhận diện": the photo's guesses under the search (life-photo.ts), its code and Turnstile loaded when opened.
+  const photoShown = () => photoOpen.getAttribute('aria-expanded') === 'true'
+  function openPhoto() {
+    const open = !photoShown()
+    photoOpen.setAttribute('aria-expanded', String(open))
+    if (!open) { photoPanel.hidden = true; return }
+    // The handbook's pages too: a guess's page joins at its count for a school.
+    void (loading ??= load())
+    photo ??= import('./life-photo').then(m => m.initPhoto(photoPanel, { off: ct(PHOTO_OFF), has, add: addGuess }))
+    // Shown once its code listens: a photo picked before would be lost.
+    photo.then(() => { if (photoShown()) photoPanel.hidden = false }, () => {
+      // Offline before it ever loaded: tried again when opened next.
+      photo = undefined
+      photoOpen.setAttribute('aria-expanded', 'false')
+      say(ct(PHOTO_OFF))
+    })
+  }
+  /** A guess picked: its page as if picked from the search; without one, the "Thêm …" form filled in from it. */
+  async function addGuess(g: Guessed) {
+    if ('entry' in g) return openNew(g.entry.name, g.entry)
+    await (loading ??= load())
+    let p = byId.get(g.page.id)
+    // Not in the handbook's index (it couldn't be read, or lists no such page): as the guess names it.
+    if (!p) byId.set(g.page.id, (p = g.page))
+    if (has(p)) return say(ct('{name} đã có trong bể.', { name: p.name }))
+    addPage(p)
+    photoDone()
+  }
+  /** Back to the photo panel's first state, ready for the next fish. */
+  function photoDone() {
+    void photo?.then(t => t.reset())
+    photoPanel.querySelector<HTMLInputElement>('input[type=file]')?.focus()
   }
 
   input.addEventListener('input', () => { void (loading ??= load()); suggest() })
@@ -184,6 +234,7 @@ export function initLife(root: HTMLElement, o: {
     if (s === 'new') openNew(input.value.trim())
     else if (s) addPage(s.page)
   })
+  photoOpen.addEventListener('click', openPhoto)
   sheet.addEventListener('change', e => { if ((e.target as HTMLInputElement).name === 'ukind') kindChanged() })
   sheet.addEventListener('keydown', e => {
     if (e.key === 'Enter' && (e.target as HTMLElement).matches('input')) { e.preventDefault(); addNew() }
@@ -225,11 +276,17 @@ export function initLife(root: HTMLElement, o: {
       clear()
       closeNew()
       say('')
+      photoIds.clear()
+      photoPanel.hidden = true
+      photoOpen.setAttribute('aria-expanded', 'false')
+      void photo?.then(t => t.reset(), () => {})
       draw()
       root.hidden = false
       if (life.species.length || life.plants.length || life.unlisted.length) void (loading ??= load())
     },
     /** What the form saves: the fish and plants when the reader changed them here, else nothing (the tank keeps its own). */
     value: (): Life | undefined => (touched ? life : undefined),
+    /** Whether an entry without a page came from a photo's guess (the fish-ID endpoint counts those names, not the page). */
+    fromPhoto: (id: string) => photoIds.has(id),
   }
 }

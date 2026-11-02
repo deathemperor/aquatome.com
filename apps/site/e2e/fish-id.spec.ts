@@ -1,32 +1,9 @@
-import type { Page } from '@playwright/test'
 import { expect, test } from './fixtures'
+import { mockFishId as mockApi, fakeTurnstile, PNG } from './fish-id-api'
 
 // The fish-ID tool. The Worker's endpoint is always mocked here, so these hold on the fixture build (no Worker) and on
 // aquatome.com (watch.yml) alike, and no photo is ever sent to the real endpoint. Turnstile is a stand-in too.
 const PATH = '/vi/cong-cu/nhan-dien-ca/'
-// A 1×1 PNG: enough for the browser to decode, shrink and send as JPEG.
-const PNG = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==', 'base64')
-
-type Reply = { status: number; body: unknown }
-/** /api/fish-id: GET answers `status`; each POST the next of `posts`, its body kept in `sent`. */
-async function mockApi(page: Page, status: Reply, posts: Reply[] = []) {
-  const sent: string[] = []
-  await page.route('**/api/fish-id', async route => {
-    const req = route.request()
-    if (req.method() === 'GET') return route.fulfill({ status: status.status, json: status.body })
-    sent.push(req.postDataBuffer()?.toString('latin1') ?? '')
-    const r = posts.shift() ?? { status: 500, body: { error: 'x' } }
-    return route.fulfill({ status: r.status, json: r.body })
-  })
-  return sent
-}
-/** Turnstile's script: a widget that passes at once, and again after each reset. */
-async function fakeTurnstile(page: Page) {
-  await page.route('https://challenges.cloudflare.com/**', route => route.fulfill({
-    contentType: 'application/javascript',
-    body: `let cb; let n = 0; window.turnstile = { render(el, o) { cb = o.callback; setTimeout(() => cb('token-' + ++n), 10); return 'w' }, reset() { setTimeout(() => cb('token-' + ++n), 10) } }`,
-  }))
-}
 
 test('fish ID: the page says calmly that the tool is off when its endpoint is (no keys yet)', async ({ page, errors }) => {
   await mockApi(page, { status: 200, body: { on: false } })
