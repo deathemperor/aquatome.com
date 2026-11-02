@@ -77,6 +77,7 @@ test('fish ID: a photo goes out shrunk as JPEG with the Turnstile token; guesses
   expect(sent[0]).toContain('Content-Type: image/jpeg')
   expect(sent[0]).toContain('token-1')
   expect(sent[0]).toMatch(/name="lang"\r\n\r\nvi/)
+  expect(sent[0]).toMatch(/name="from"\r\n\r\npage/) // the Worker's log tells the tool's page from the tank's editor
   // A new token for the next photo; over the reader's limit, the page says so.
   await page.locator('[data-fish-id] input[name=file]').setInputFiles({ name: 'neon.png', mimeType: 'image/png', buffer: PNG })
   await expect(go).toBeEnabled()

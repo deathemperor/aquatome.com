@@ -31,5 +31,5 @@ function answerHtml(a: Answer): string {
 /** The tool's page: photo → shrink → Turnstile → identify (fish-id-client.ts) → the guesses with their pages. */
 export function mountFishId(root: HTMLElement) {
   const out = root.querySelector<HTMLElement>('[data-out]')!
-  return photoId(root, { off: ct(OFF), show: a => { out.innerHTML = answerHtml(a) }, clear: () => { out.innerHTML = '' } })
+  return photoId(root, { from: 'page', off: ct(OFF), show: a => { out.innerHTML = answerHtml(a) }, clear: () => { out.innerHTML = '' } })
 }

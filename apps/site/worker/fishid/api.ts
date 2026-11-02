@@ -1,9 +1,10 @@
 import { ipDayKey, siteverify as realSiteverify } from '../comments/api'
 import { sniff } from '../photos'
 import type { Catalog, Lang } from './catalog'
-import { askClaude, DEFAULT_MODEL, readAnswer, type Answer, type ImageType } from './claude'
+import { askClaude, costOf, DEFAULT_MODEL, readAnswer, type Answer, type ImageType } from './claude'
 import { healthyKeys, loadKeys, parseKeys, rotate, type Attempt, type HealthStore, type KeyEntry, type KeyHealth, type KeyProblem } from './keys'
-import { matchGuesses } from './match'
+import { emptyLog, FROM, toFishIdPoint, type CallLog, type From } from './log'
+import { matchGuesses, type Result } from './match'
 import { relayFetch } from './relay'
 import { readerOf, recordWanted } from '../wanted'
 
@@ -14,6 +15,7 @@ import { readerOf, recordWanted } from '../wanted'
  * GET: whether the tool is on ({ on: false } when off), and the Turnstile site key. POST (multipart: file, token, lang;
  * or JSON: image as base64, token, lang): the identification, 503 fish_id_off when off. Off without a key in the
  * ANTHROPIC_KEYS secret, Turnstile or the rate-limit key. The photo is never stored or logged; the log has counts, timings, the model, token usage and keys by hash only.
+ * Each POST also writes one data point to Analytics Engine (FISHID_LOG, log.ts) for the owner's dashboard.
  */
 export type FishIdEnv = {
   AB: KVNamespace
@@ -29,6 +31,8 @@ export type FishIdEnv = {
   TURNSTILE_SECRET?: string
   TURNSTILE_SITEKEY?: string
   COMMENT_HMAC_KEY?: string
+  /** Every POST's outcome, tokens and cost (log.ts); optional, as the readers' EVENTS is. */
+  FISHID_LOG?: AnalyticsEngineDataset
 }
 type Live = FishIdEnv & { ANTHROPIC_KEYS: string; TURNSTILE_SECRET: string; TURNSTILE_SITEKEY: string; COMMENT_HMAC_KEY: string }
 type Siteverify = typeof realSiteverify
@@ -129,21 +133,22 @@ async function readBytes(req: Request, max: number): Promise<Uint8Array | null> 
   return all
 }
 
-type Upload = { bytes: Uint8Array | null; token: string; lang: Lang }
+type Upload = { bytes: Uint8Array | null; token: string; lang: Lang; from: From | '' }
 async function parseUpload(req: Request, body: Uint8Array): Promise<Upload | null> {
   const type = req.headers.get('content-type') ?? ''
   const langOf = (v: unknown) => LANGS.find(l => l === v) ?? 'vi'
+  const fromOf = (v: unknown) => FROM.find(f => f === v) ?? ''
   if (type.startsWith('multipart/form-data')) {
     const form = await new Response(body, { headers: { 'content-type': type } }).formData().catch(() => null)
     if (!form) return null
     const file = form.get('file')
     const bytes = file instanceof Blob ? new Uint8Array(await file.arrayBuffer()) : null
-    return { bytes, token: String(form.get('token') ?? ''), lang: langOf(form.get('lang')) }
+    return { bytes, token: String(form.get('token') ?? ''), lang: langOf(form.get('lang')), from: fromOf(form.get('from')) }
   }
   if (type.startsWith('application/json')) {
     const raw = (() => { try { return JSON.parse(new TextDecoder().decode(body)) as Record<string, unknown> } catch { return null } })()
     if (!raw) return null
-    return { bytes: typeof raw.image === 'string' ? fromBase64(raw.image) : null, token: typeof raw.token === 'string' ? raw.token : '', lang: langOf(raw.lang) }
+    return { bytes: typeof raw.image === 'string' ? fromBase64(raw.image) : null, token: typeof raw.token === 'string' ? raw.token : '', lang: langOf(raw.lang), from: fromOf(raw.from) }
   }
   return null
 }
@@ -158,47 +163,77 @@ export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, 
     return json({ on: true, sitekey: env.TURNSTILE_SITEKEY, resting, perIp: limit(env.FISH_ID_PER_IP, PER_IP) })
   }
   if (req.method !== 'POST') return new Response(null, { status: 405 })
-  if (!live(env)) return json({ error: 'fish_id_off' }, 503)
+  // One data point per POST, however it ends; a fault of ours (a throw) is 'error'. Writing it never fails the request.
+  const arrived = Date.now()
+  const rec = emptyLog(env.FISH_ID_MODEL || DEFAULT_MODEL)
+  rec.country = String((req as { cf?: { country?: string } }).cf?.country ?? '')
+  try {
+    return await identify(req, url, env, now, deps, rec)
+  } finally {
+    rec.ms = Date.now() - arrived
+    rec.outcome ||= 'error'
+    try { env.FISHID_LOG?.writeDataPoint(toFishIdPoint(rec)) } catch (e) { console.error('fish-id log:', e) }
+  }
+}
+
+async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps: FishIdDeps, rec: CallLog): Promise<Response> {
+  /** A refusal before any call: the reader's error code is the outcome. */
+  const refuse = (error: string, status: number, extra: Record<string, unknown> = {}) => {
+    rec.outcome = error
+    return json({ error, ...extra }, status)
+  }
+  if (!live(env)) return refuse('fish_id_off', 503)
   // Browsers send Origin: another site's page may not use our quota. A native app sends none.
   const origin = req.headers.get('origin')
-  if (origin && origin !== url.origin) return json({ error: 'cross-origin' }, 403)
+  if (origin && origin !== url.origin) return refuse('cross-origin', 403)
   // Base64 in JSON is 4/3 of the photo, plus the form's other fields.
   const body = await readBytes(req, Math.ceil(MAX_IMAGE * 4 / 3) + 16 * 1024)
-  if (!body) return json({ error: 'too large' }, 413)
+  if (!body) return refuse('too large', 413)
   const up = await parseUpload(req, body)
-  if (!up) return json({ error: 'bad form' }, 400)
-  if (!up.bytes?.length) return json({ error: 'no file' }, 400)
-  if (up.bytes.length > MAX_IMAGE) return json({ error: 'too large' }, 413)
+  if (!up) return refuse('bad form', 400)
+  rec.lang = up.lang
+  rec.from = up.from
+  if (!up.bytes?.length) return refuse('no file', 400)
+  if (up.bytes.length > MAX_IMAGE) return refuse('too large', 413)
   const type = sniff(up.bytes)
-  if (!type) return json({ error: 'not an image' }, 415)
+  if (!type) return refuse('not an image', 415)
   const ip = req.headers.get('cf-connecting-ip')
-  if (!up.token || !(await (deps.siteverify ?? realSiteverify)(env.TURNSTILE_SECRET, up.token, ip, url.hostname))) return json({ error: 'turnstile' }, 403)
+  if (!up.token || !(await (deps.siteverify ?? realSiteverify)(env.TURNSTILE_SECRET, up.token, ip, url.hostname))) return refuse('turnstile', 403)
 
   // Limits, before any call: a reader's day, then the site's.
   const perIp = limit(env.FISH_ID_PER_IP, PER_IP)
   const ipKey = `fishid:ip:${(await ipDayKey(env.COMMENT_HMAC_KEY, ip ?? 'unknown', now)).slice(3)}`
   const used = Number((await env.AB.get(ipKey)) ?? 0)
-  if (used >= perIp) return json({ error: 'rate', limit: perIp }, 429)
+  if (used >= perIp) return refuse('rate', 429, { limit: perIp })
   const day = await readDay(env.AB, now)
-  if (day.calls >= limit(env.FISH_ID_PER_DAY, PER_DAY)) return json({ error: 'busy' }, 429)
+  if (day.calls >= limit(env.FISH_ID_PER_DAY, PER_DAY)) return refuse('busy', 429)
   const store = kvHealth(env.AB)
   const healthy = await healthyKeys((await keysOf(env.ANTHROPIC_KEYS)).keys, store, now.getTime())
-  if (!healthy.length) return json({ error: 'resting' }, 503)
+  if (!healthy.length) return refuse('resting', 503)
   await env.AB.put(ipKey, String(used + 1), { expirationTtl: DAY_SEC })
 
-  const model = env.FISH_ID_MODEL || DEFAULT_MODEL
+  const model = rec.model
   const photo = { data: base64(up.bytes), type: type as ImageType }
   const t = Date.now()
   const out = await rotate(healthy, store, (key, timeoutMs) => askClaude(key, photo, { model, lang: up.lang, timeoutMs, fetch: deps.fetch ?? (env.FISHID_RELAY ? relayFetch(env.FISHID_RELAY) : undefined) }), { random: deps.random })
   day.calls++
   for (const a of out.attempts) day.keys[a.hash] = (day.keys[a.hash] ?? 0) + 1
   await env.AB.put(dayKey(now), JSON.stringify(day), { expirationTtl: 3 * DAY_SEC })
-  const log = (outcome: string, extra: Record<string, unknown> = {}) =>
-    (deps.log ?? (l => console.log(JSON.stringify(l))))({ fishId: outcome, model, ms: Date.now() - t, attempts: out.attempts.map(slim), ...extra })
+  const line = deps.log ?? (l => console.log(JSON.stringify(l)))
+  const log = (outcome: string, extra: Record<string, unknown> = {}) => {
+    rec.outcome = outcome
+    line({ fishId: outcome, model, ms: Date.now() - t, attempts: out.attempts.map(slim), ...extra })
+  }
+  rec.attempts = out.attempts.length
+  rec.key = out.ok ? out.hash : (out.attempts.at(-1)?.hash ?? '')
   if (!out.ok) {
     log(out.reason)
     return out.reason === 'request' ? json({ error: 'failed' }, 502) : json({ error: out.reason }, 503)
   }
+  // Tokens from the message itself: an answer that can't be read was still paid for.
+  rec.input = out.value.usage?.input_tokens ?? 0
+  rec.output = out.value.usage?.output_tokens ?? 0
+  rec.cost = costOf(model, { input: rec.input, output: rec.output }) ?? 0
   let answer: Answer
   try {
     answer = readAnswer(out.value)
@@ -220,6 +255,8 @@ export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, 
   if (top && !('page' in top && top.page) && top.confidence >= WANTED_CONFIDENCE && !/(?:^|;\s*)aq_owner=1(?:;|$)/.test(req.headers.get('cookie') ?? '')) {
     await recordWanted(env, { kind: verdict, name: top.commonName || top.scientificName, sci: top.scientificName, source: 'fish-id', reader: await readerOf(req, env, now) }, now).catch(() => undefined)
   }
+  const first: Result | undefined = results[0]
+  Object.assign(rec, { verdict, top: first?.scientificName ?? '', confidence: first?.confidence ?? 0, page: first?.page?.id ?? '', guesses: results.length } satisfies Partial<CallLog>)
   log('ok', { ...usage, verdict, guesses: results.length, linked: results.filter(r => 'page' in r && r.page).length, ...(catalog || verdict === 'other' ? {} : { catalog: 'missing' }) })
   return json({ verdict, results, model })
 }
