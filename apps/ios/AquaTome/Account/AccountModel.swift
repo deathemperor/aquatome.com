@@ -3,8 +3,8 @@ import Foundation
 import Observation
 import Tanks
 
-/// Signing in to aquatome.com (Apple, a code sent by email, or a passkey added there) and syncing "Bể của tôi" with the account
-/// (protocols/accounts.openapi.json), as the
+/// Signing in to aquatome.com (Apple, a code sent by email, or a passkey), adding a passkey, and syncing "Bể của tôi" with
+/// the account (protocols/accounts.openapi.json), as the
 /// site's page does: right after signing in (the whole store, so tanks made before join the account), when the app
 /// comes to the front, a moment after each change, and on "Đồng bộ ngay". Optional: signed out, tanks stay on the phone.
 @Observable
@@ -33,6 +33,9 @@ final class AccountModel {
   private(set) var offersPasskey = false
   /// An email sign-in waiting for its code: the address it was sent to.
   private(set) var codeSentTo: String?
+  /// "Thêm passkey" long after signing in on this phone: the server wants a sign-in first, and one to this account adds
+  /// the passkey.
+  private(set) var signingInAgain = false
 
   // Not shown, so not observed.
   @ObservationIgnored private let tanks: TanksModel
@@ -71,6 +74,13 @@ final class AccountModel {
   var canSync: Bool { tanks.problem == nil || tanks.problem == .saveFailed }
   var user: AccountUser? { if case .signedIn(let u) = state { u } else { nil } }
   var signsInWithApple: Bool { user?.methods.contains { $0.kind == "apple" } ?? false }
+  /// The ways the account signs in, as the account section lists them ("Apple và passkey").
+  var ways: String {
+    let names = ["apple": "Apple", "google": "Google", "email": "email", "passkey": "passkey"]
+    var list: [String] = []
+    for m in user?.methods ?? [] { let w = names[m.kind] ?? m.kind; if !list.contains(w) { list.append(w) } }
+    return list.formatted(.list(type: .and, width: .narrow))
+  }
 
   /// At launch, and when the app comes to the front: who is signed in, then a sync.
   func refresh() async {
@@ -105,11 +115,7 @@ final class AccountModel {
     do {
       let nonce = try await api.nonce()
       let a = try await apple.authorize(nonceHash: sha256Hex(nonce))
-      let s = try await api.signInWithApple(idToken: a.idToken, nonce: nonce, replacing: token)
-      try keychain.save(s.token)
-      token = s.token
-      state = .signedIn(s.user)
-      await sync(first: true)
+      try await took(api.signInWithApple(idToken: a.idToken, nonce: nonce, replacing: token))
     } catch is AppleSignInCancelled {
     } catch {
       say(problem(error), bad: true)
@@ -125,12 +131,53 @@ final class AccountModel {
     message = nil
     do {
       let a = try await passkey.assert(try await api.passkeyChallenge())
-      let s = try await api.signInWithPasskey(a, replacing: token)
-      try keychain.save(s.token)
-      token = s.token
-      state = .signedIn(s.user)
-      await sync(first: true)
+      try await took(api.signInWithPasskey(a, replacing: token))
     } catch is PasskeySignInCancelled {
+    } catch {
+      say(problem(error), bad: true)
+    }
+  }
+
+  /// Signed in on this phone: the token kept, the passkey added when this was signing in again to its account for it,
+  /// then the whole store synced.
+  private func took(_ s: SignedIn) async throws {
+    try keychain.save(s.token)
+    let adding = signingInAgain && s.user.id == user?.id
+    signingInAgain = false
+    token = s.token
+    state = .signedIn(s.user)
+    if adding { await register(s.token) }
+    await sync(first: true)
+  }
+
+  /// "Thêm passkey": a passkey for the account signed in, made on this phone (kept in iCloud Keychain, so the reader's
+  /// other Apple devices have it too).
+  func addPasskey() async {
+    guard let token, user != nil, !working else { return }
+    working = true
+    defer { working = false }
+    message = nil
+    await register(token)
+  }
+
+  /// "Hủy" while signing in again: no passkey.
+  func cancelSigningInAgain() { signingInAgain = false }
+
+  private func register(_ token: String) async {
+    do {
+      let p = try await passkey.register(try await api.newPasskeyChallenge(token: token))
+      state = .signedIn(try await api.addPasskey(p, token: token))
+      say(String(localized: "Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy."))
+    } catch AccountError.refused("reauth_needed") {
+      signingInAgain = true
+    } catch is PasskeySignInCancelled {
+    } catch is PasskeyExists {
+      say(String(localized: "Máy này đã có passkey của tài khoản này."))
+    } catch AccountError.signedOut {
+      forget()
+      say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true)
+    } catch AccountError.refused("bad_passkey") {
+      say(String(localized: "Chưa thêm được passkey: thử lại."), bad: true)
     } catch {
       say(problem(error), bad: true)
     }
@@ -173,12 +220,9 @@ final class AccountModel {
     message = nil
     do {
       let s = try await api.emailVerify(flow: flow, code: code, replacing: token)
-      try keychain.save(s.token)
-      token = s.token
       // The code step stays until the sheet closes (`emailClosed`), so the address form doesn't flash in its place.
       self.flow = nil
-      state = .signedIn(s.user)
-      await sync(first: true)
+      try await took(s)
       return true
     } catch {
       say(problem(error), bad: true)
@@ -306,6 +350,7 @@ final class AccountModel {
   private func forget() {
     keychain.delete()
     token = nil
+    signingInAgain = false
     synced = nil
     syncedAt = nil
     later?.cancel()

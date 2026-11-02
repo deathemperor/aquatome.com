@@ -1009,6 +1009,22 @@
         }
       }
     },
+    "Chưa thêm được passkey: thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passkey belum berhasil ditambahkan: coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังเพิ่ม passkey ไม่สำเร็จ: ลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Chưa xác nhận: ổ cắm chưa báo đã đổi.": {
       "localizations": {
         "id": {
@@ -2929,6 +2945,22 @@
         }
       }
     },
+    "Máy này đã có passkey của tài khoản này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perangkat ini sudah memiliki passkey untuk akun ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อุปกรณ์นี้มี passkey ของบัญชีนี้อยู่แล้ว"
+          }
+        }
+      }
+    },
     "Mã 6 số trong email": {
       "localizations": {
         "id": {
@@ -3613,6 +3645,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่มปลาหรือไม้น้ำ"
+          }
+        }
+      }
+    },
+    "Thêm passkey": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan passkey"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม passkey"
           }
         }
       }
@@ -4333,6 +4381,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "วิดีโอ"
+          }
+        }
+      }
+    },
+    "Vì an toàn, đăng nhập lại trước khi thêm: chọn một cách tài khoản này đang dùng (%@).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demi keamanan, masuk lagi sebelum menambahkan: pilih cara yang sudah dipakai akun ini (%@)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพื่อความปลอดภัย โปรดเข้าสู่ระบบอีกครั้งก่อนเพิ่ม: เลือกวิธีที่บัญชีนี้ใช้อยู่ (%@)"
           }
         }
       }
@@ -5293,6 +5357,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่มตู้ปลา %lld ตู้จากบัญชีแล้ว"
+          }
+        }
+      }
+    },
+    "Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passkey sudah ditambahkan. Lain kali, ketuk “Masuk dengan passkey”, lalu buka kunci dengan Face ID, sidik jari, atau PIN perangkat."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม passkey แล้ว ครั้งต่อไปให้กด “เข้าสู่ระบบด้วย passkey” แล้วปลดล็อกด้วย Face ID ลายนิ้วมือ หรือรหัส PIN ของอุปกรณ์"
           }
         }
       }

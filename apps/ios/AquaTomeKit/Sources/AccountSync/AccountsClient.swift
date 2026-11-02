@@ -4,7 +4,7 @@ import Tanks
 
 // The app's side of accounts (protocols/accounts.openapi.json): the session, Sign in with Apple, with an emailed code or
 // with a passkey,
-// syncing "Bể của tôi" with the account, signing out and deleting the account. The app sends `client: "app"`, a bearer token, no cookie and
+// adding a passkey, syncing "Bể của tôi" with the account, signing out and deleting the account. The app sends `client: "app"`, a bearer token, no cookie and
 // no Origin; the server answers it a token instead of a cookie.
 
 public struct AccountMethod: Sendable, Equatable {
@@ -100,6 +100,36 @@ public struct PasskeyAssertion: Sendable, Equatable {
       "signature": .string(Base64URL.encode(signature)),
     ]
     if let userHandle { response["userHandle"] = .string(Base64URL.encode(userHandle)) }
+    return .object(["id": .string(id), "rawId": .string(id), "type": .string("public-key"), "response": .object(response), "clientExtensionResults": .object([:]), "authenticatorAttachment": .string("platform")])
+  }
+}
+
+/// Adding a passkey to the account signed in: the relying party, the bytes to sign (valid 5 minutes, once), the account's
+/// id the passkey is made for, the name passkey managers show, and the account's passkeys (not to be made again).
+public struct NewPasskeyChallenge: Sendable, Equatable {
+  public let rpId: String
+  public let challenge: Data
+  public let userId: Data
+  public let name: String
+  public let excluded: [Data]
+}
+
+/// The passkey the phone made for that challenge (AuthenticationServices' platform registration).
+public struct NewPasskey: Sendable, Equatable {
+  public let credentialId: Data
+  public let clientDataJSON: Data
+  public let attestationObject: Data
+
+  public init(credentialId: Data, clientDataJSON: Data, attestationObject: Data) {
+    self.credentialId = credentialId
+    self.clientDataJSON = clientDataJSON
+    self.attestationObject = attestationObject
+  }
+
+  /// As a browser sends it (WebAuthn's RegistrationResponseJSON), which the server checks.
+  var json: JSON {
+    let id = Base64URL.encode(credentialId)
+    let response: [String: JSON] = ["clientDataJSON": .string(Base64URL.encode(clientDataJSON)), "attestationObject": .string(Base64URL.encode(attestationObject))]
     return .object(["id": .string(id), "rawId": .string(id), "type": .string("public-key"), "response": .object(response), "clientExtensionResults": .object([:]), "authenticatorAttachment": .string("platform")])
   }
 }
@@ -228,6 +258,23 @@ public struct AccountsClient: Sendable {
     let o = try await call("POST", "/api/v1/auth/passkey", token: token, body: ["response": a.json, "client": .string("app")])
     guard let token = o["token"]?.string else { throw AccountError.badReply }
     return SignedIn(user: try AccountUser(o["user"]), token: token)
+  }
+
+  /// A challenge to add a passkey to the account signed in (403 `reauth_needed`: signed in on this phone more than 10
+  /// minutes ago, so sign in again first).
+  public func newPasskeyChallenge(token: String) async throws -> NewPasskeyChallenge {
+    let o = try await call("POST", "/api/v1/account/passkey/options", token: token, body: [:])
+    guard let rp = o["rp"]?.object?["id"]?.string, let c = o["challenge"]?.string.flatMap(Base64URL.decode), !c.isEmpty,
+          let user = o["user"]?.object, let id = user["id"]?.string.flatMap(Base64URL.decode), !id.isEmpty, let name = user["name"]?.string
+    else { throw AccountError.badReply }
+    let excluded = (o["excludeCredentials"]?.array ?? []).compactMap { $0.object?["id"]?.string.flatMap(Base64URL.decode) }
+    return NewPasskeyChallenge(rpId: rp, challenge: c, userId: id, name: name, excluded: excluded)
+  }
+
+  /// Adds the passkey made for that challenge to the account (400 `bad_passkey`: an answer the server can't check; 409
+  /// `credential_in_use`: it belongs to an account already). The answer is the account, with the passkey.
+  public func addPasskey(_ p: NewPasskey, token: String) async throws -> AccountUser {
+    try AccountUser(try await call("POST", "/api/v1/account/passkey", token: token, body: ["response": p.json])["user"])
   }
 
   /// Sends the phone's store and takes back the account's. Another sync of the account in progress (409 busy): tries

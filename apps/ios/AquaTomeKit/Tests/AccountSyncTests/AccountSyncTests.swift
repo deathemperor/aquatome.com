@@ -64,6 +64,7 @@ func requests() async throws {
   guard case .on(_, _, let user?) = try await api.session(token: s.token) else { Issue.record("not signed in"); return }
   #expect(user.methods.map(\.kind) == ["apple"])
   _ = try await api.sync(try phone("Bể 1"), token: s.token)
+  _ = try await api.addPasskey(FakeAccounts.newPasskey(for: try await api.newPasskeyChallenge(token: s.token), credentialId: Data("cred-0".utf8)), token: s.token)
   try await api.deleteAccount(token: s.token, appleCode: "good-apple-1")
   let s2 = try await signIn(api, "apple-2")
   try await api.signOut(token: s2.token)
@@ -84,7 +85,7 @@ func requests() async throws {
     let body = r.httpBody.flatMap { try? JSON.parse($0).object }
     if ["/api/v1/auth/apple", "/api/v1/auth/email/start", "/api/v1/auth/email/verify", "/api/v1/auth/passkey"].contains(r.url!.path) { #expect(body?["client"]?.string == "app", "\(what)") }
     if r.url!.path == "/api/v1/account" { #expect(body?["apple"]?.object?["clientId"]?.string == "com.aquatome.app") }
-    if ["/api/v1/tanks/sync", "/api/v1/account", "/api/v1/auth/logout"].contains(r.url!.path) {
+    if ["/api/v1/tanks/sync", "/api/v1/account", "/api/v1/auth/logout", "/api/v1/account/passkey/options", "/api/v1/account/passkey"].contains(r.url!.path) {
       #expect(r.value(forHTTPHeaderField: "Authorization")?.hasPrefix("Bearer token-") == true, "\(what)")
     }
   }
@@ -92,6 +93,7 @@ func requests() async throws {
     "GET /api/v1/session", "POST /api/v1/auth/nonce", "POST /api/v1/auth/apple", "POST /api/v1/tanks/sync",
     "DELETE /api/v1/account", "POST /api/v1/auth/logout", "POST /api/v1/auth/email/start", "POST /api/v1/auth/email/verify",
     "POST /api/v1/auth/passkey/options", "POST /api/v1/auth/passkey",
+    "POST /api/v1/account/passkey/options", "POST /api/v1/account/passkey",
   ])
   // The Turnstile page the web view opens is the contract's too.
   let page = api.turnstilePage(lang: "th")
@@ -168,6 +170,58 @@ func passkey() async throws {
   // Passkeys off on the server.
   fake.passkeysOn = false
   await #expect(throws: AccountError.refused("provider_off")) { _ = try await api.passkeyChallenge() }
+}
+
+@MainActor @Test("Adding a passkey: within 10 minutes of signing in, made for this account's id from its own challenge (once, from aquatome.com), then it signs in on its own; one an account has already is refused")
+func addPasskey() async throws {
+  let fake = FakeAccounts()
+  var now = Date()
+  fake.now = { now }
+  let api = client(fake)
+  let s = try await signIn(api, "apple-1")
+  let c = try await api.newPasskeyChallenge(token: s.token)
+  #expect(c.rpId == "aquatome.com" && c.userId == Data(s.user.id.utf8) && c.excluded.isEmpty)
+  let key = Data("cred-1".utf8)
+  let made = FakeAccounts.newPasskey(for: c, credentialId: key)
+  // As a browser sends it: SimpleWebAuthn refuses an answer whose id and rawId differ.
+  let sent = made.json.object!
+  #expect(sent["id"]?.string == Base64URL.encode(key) && sent["rawId"] == sent["id"] && sent["type"]?.string == "public-key")
+  #expect(Set(sent["response"]!.object!.keys) == ["clientDataJSON", "attestationObject"])
+  let user = try await api.addPasskey(made, token: s.token)
+  #expect(user.id == s.user.id && Set(user.methods.map(\.kind)) == ["apple", "passkey"])
+  // The same answer again: its challenge is used.
+  await #expect(throws: AccountError.refused("bad_passkey")) { _ = try await api.addPasskey(made, token: s.token) }
+  // The next challenge lists it, so the phone doesn't make a second one.
+  #expect(try await api.newPasskeyChallenge(token: s.token).excluded == [key])
+  // It signs in to the account on its own.
+  #expect(try await api.signInWithPasskey(FakeAccounts.assertion(for: try await api.passkeyChallenge(), credentialId: key, userHandle: c.userId)).user.id == s.user.id)
+
+  // Made for another origin, or from another account's challenge: refused. One another account has: in use.
+  let other = try await signIn(api, "apple-2")
+  let theirs = try await api.newPasskeyChallenge(token: other.token)
+  await #expect(throws: AccountError.refused("bad_passkey")) { _ = try await api.addPasskey(FakeAccounts.newPasskey(for: theirs, credentialId: Data("cred-2".utf8)), token: s.token) }
+  let elsewhere = FakeAccounts.newPasskey(for: try await api.newPasskeyChallenge(token: other.token), credentialId: Data("cred-2".utf8), origin: "https://aquatome.com.example")
+  await #expect(throws: AccountError.refused("bad_passkey")) { _ = try await api.addPasskey(elsewhere, token: other.token) }
+  await #expect(throws: AccountError.refused("credential_in_use")) { _ = try await api.addPasskey(FakeAccounts.newPasskey(for: try await api.newPasskeyChallenge(token: other.token), credentialId: key), token: other.token) }
+
+  // Signed in more than 10 minutes ago: sign in again first. Signed out: the token is gone.
+  now += 601
+  await #expect(throws: AccountError.refused("reauth_needed")) { _ = try await api.newPasskeyChallenge(token: s.token) }
+  let fresh = try await signIn(api, "apple-1", replacing: s.token)
+  #expect(try await api.newPasskeyChallenge(token: fresh.token).excluded == [key])
+  try await api.signOut(token: fresh.token)
+  await #expect(throws: AccountError.signedOut) { _ = try await api.newPasskeyChallenge(token: fresh.token) }
+}
+
+@Test("The server's options to add a passkey as SimpleWebAuthn writes them: the relying party, the user's id and name, the passkeys to leave out")
+func newPasskeyOptions() async throws {
+  // generateRegistrationOptions (@simplewebauthn/server 14) for the server's settings.
+  let options = #"{"challenge":"QyH1aoltiZdb-j7xm-hyhTbCVlhSRGKO1jvxzW9ejys","rp":{"name":"AquaTome","id":"aquatome.com"},"user":{"id":"MGI1ZTFjMmEtMTExMS00MjIyLTgzMzMtNDQ0NDU1NTU2NjY2","name":"AquaTome 0b5e1c2a","displayName":"AquaTome"},"pubKeyCredParams":[{"alg":-7,"type":"public-key"},{"alg":-257,"type":"public-key"}],"timeout":300000,"attestation":"none","excludeCredentials":[{"id":"-_8B","transports":["internal","hybrid"],"type":"public-key"}],"authenticatorSelection":{"residentKey":"required","userVerification":"required","requireResidentKey":true},"extensions":{"credProps":true},"hints":[]}"#
+  let c = try await client(Stub([(200, options)])).newPasskeyChallenge(token: "t")
+  #expect(c.rpId == "aquatome.com" && c.name == "AquaTome 0b5e1c2a" && c.excluded == [Data([0xfb, 0xff, 0x01])])
+  #expect(c.userId == Data("0b5e1c2a-1111-4222-8333-444455556666".utf8) && c.challenge.count == 32)
+  await #expect(throws: AccountError.badReply) { try await client(Stub([(200, #"{"challenge":"AQ","rp":{"id":"aquatome.com"}}"#)])).newPasskeyChallenge(token: "t") }
+  await #expect(throws: AccountError.refused("reauth_needed")) { try await client(Stub([(403, #"{"error":"reauth_needed"}"#)])).newPasskeyChallenge(token: "t") }
 }
 
 @Test("The server's passkey options as SimpleWebAuthn writes them; base64url as WebAuthn writes it: - and _, no padding")
@@ -345,6 +399,8 @@ func snapshot() async throws {
   let kept = FakeAccounts(snapshot: try JSON.parse(try fake.snapshot.data()))
   let api = client(kept)
   #expect(try await api.signInWithPasskey(FakeAccounts.assertion(for: try await api.passkeyChallenge(), credentialId: Data("cred-1".utf8), userHandle: nil)).user.methods.map(\.kind) == ["apple", "passkey"])
+  // A session kept from before the relaunch: signed in long ago, so adding a passkey signs in again first.
+  await #expect(throws: AccountError.refused("reauth_needed")) { _ = try await api.newPasskeyChallenge(token: token) }
   // New tokens don't repeat old ones.
   #expect(try await signIn(client(again), "apple-2").token != token)
 }
