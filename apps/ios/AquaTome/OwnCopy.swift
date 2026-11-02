@@ -17,10 +17,11 @@ enum OwnCopy {
   }
 
   /// Where this copy came from, asked of the App Store once a launch and kept for the next, so the pages opened before
-  /// the answer use the last one. TestFlight's copies are the sandbox's; an answer that can't be verified changes nothing.
+  /// the answer use the last one. TestFlight's copies are the sandbox's. No verified answer counts as a reader's copy,
+  /// so an App Store copy installed over a TestFlight one isn't left marked when StoreKit can't answer.
   static func check() async {
     #if !DEBUG
-    guard case .verified(let t)? = try? await AppTransaction.shared else { return }
+    guard case .verified(let t)? = try? await AppTransaction.shared else { return UserDefaults.standard.removeObject(forKey: key) }
     UserDefaults.standard.set(t.environment != .production, forKey: key)
     #endif
   }
