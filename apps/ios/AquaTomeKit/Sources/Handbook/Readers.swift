@@ -62,6 +62,74 @@ public enum Readers {
     (((try? JSONSerialization.jsonObject(with: data)) as? [String: Any])?[key] as? [Any] ?? []).compactMap { $0 as? [String: Any] }
   }
 
+  // Posting from the app (protocols/talk.openapi.json): as the reader's account, `Authorization: Bearer`, in place of the
+  // page's Origin and Turnstile token.
+
+  /// A comment to post on the page `key` names.
+  public static func post(comment key: String, name: String, body: String, site: URL, token: String, version: String) -> URLRequest {
+    var r = posting(site.appending(path: "_c"), token: token, version: version)
+    r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    r.httpBody = try? JSONSerialization.data(withJSONObject: ["e": key, "name": name, "body": body], options: [.sortedKeys])
+    return r
+  }
+
+  /// A reader's photo of the page's species (`jpeg`: shrunk, with no location or camera data), with their consent.
+  public static func post(photo key: String, name: String, jpeg: Data, site: URL, token: String, version: String, boundary: String = UUID().uuidString) -> URLRequest {
+    var r = posting(site.appending(path: "_p"), token: token, version: version)
+    r.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+    var body = Data()
+    func part(_ field: String, _ value: Data, file: Bool = false) {
+      body += Data("--\(boundary)\r\nContent-Disposition: form-data; name=\"\(field)\"\(file ? "; filename=\"photo.jpg\"\r\nContent-Type: image/jpeg" : "")\r\n\r\n".utf8)
+      body += value + Data("\r\n".utf8)
+    }
+    part("e", Data(key.utf8))
+    part("name", Data(name.utf8))
+    part("consent", Data("1".utf8))
+    part("file", jpeg, file: true)
+    body += Data("--\(boundary)--\r\n".utf8)
+    r.httpBody = body
+    return r
+  }
+
+  private static func posting(_ url: URL, token: String, version: String) -> URLRequest {
+    var r = request(url, version: version)
+    r.httpMethod = "POST"
+    r.httpShouldHandleCookies = false
+    r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    return r
+  }
+
+  /// What became of a post.
+  public enum Answer: Sendable, Equatable {
+    /// A comment shown at once, as it shows.
+    case shown(Comment)
+    /// A comment held for moderation.
+    case held
+    /// A photo received, to be moderated before it shows.
+    case received
+    /// The account's session is over: the reader signs in again.
+    case signedOut
+    /// Refused, with the site's code for why (`rate`, `bad name`, `too large`, …); `failed` with none.
+    case refused(String)
+  }
+
+  /// The Worker's answer to a post, by its status and body.
+  public static func answer(_ data: Data, status: Int) -> Answer {
+    let o = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+    if status == 201 {
+      switch o?["status"] as? String {
+      case "approved":
+        let shown = (o?["comment"]).flatMap { try? JSONSerialization.data(withJSONObject: ["comments": [$0]]) }.flatMap { comments($0).first }
+        return shown.map(Answer.shown) ?? .held
+      case "held": return .held
+      case "pending": return .received
+      default: return .refused("failed")
+      }
+    }
+    let code = o?["error"] as? String
+    return status == 401 && code == "session" ? .signedOut : .refused(code ?? "failed")
+  }
+
   /// The Worker's times (`toISOString()`), with or without the milliseconds, in UTC or at an offset.
   static func date(_ s: String) -> Date? {
     (try? Date(s, strategy: Date.ISO8601FormatStyle(includingFractionalSeconds: true))) ?? (try? Date(s, strategy: .iso8601))
