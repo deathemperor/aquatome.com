@@ -165,6 +165,9 @@ public typealias Send = @Sendable (URLRequest) async throws -> (Data, HTTPURLRes
 
 public struct AccountsClient: Sendable {
   public static let site = URL(string: "https://aquatome.com")!
+  /// What our own copies of the app (debug and test builds, TestFlight) add to their user agent, so the site leaves
+  /// their visits, clicks and wanted names out of its reader stats (apps/site/worker/bots.ts). A reader's copy never does.
+  public static let ourCopy = "AquaTomeCheck/1"
   /// The app's Sign in with Apple client id (its bundle id), one of the server's APPLE_CLIENT_IDS.
   public static let appleClientId = "com.aquatome.app"
 

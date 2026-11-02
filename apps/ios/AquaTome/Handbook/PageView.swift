@@ -1,3 +1,4 @@
+import AccountSync
 import CryptoKit
 import Handbook
 import SwiftUI
@@ -126,8 +127,9 @@ private struct WebPage: UIViewRepresentable {
 
   func makeUIView(context: Context) -> WKWebView {
     let config = WKWebViewConfiguration()
-    // The site can tell the app's visits from a browser's.
-    config.applicationNameForUserAgent = "AquaTomeApp/\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0")"
+    // The site can tell the app's visits from a browser's, and our own copies' from readers' (OwnCopy).
+    let name = "AquaTomeApp/\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0")"
+    config.applicationNameForUserAgent = OwnCopy.isOurs ? "\(name) \(AccountsClient.ourCopy)" : name
     // The handler goes through a weak link: the content controller keeps what it's given, and the coordinator keeps the
     // web view.
     config.userContentController.add(WeakHandler(context.coordinator), name: PageBridge.handler)
