@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Waits until App Store Connect has processed an uploaded build: exit 0 once it is ready for TestFlight, 1 if Apple
 // refused it. A build still processing after the wait is reported, not failed (processing sometimes takes an hour).
-// Once it's ready, WHATS_NEW (if any) becomes its "What to Test" for testers: in en-US, and in any language the build
-// already has one for, so a phone in Vietnamese shows it too. A note that can't be set is a warning: the build is up.
+// Once it's ready, WHATS_NEW (if any, already within TestFlight's limits: testflight-notes.py) becomes its "What to
+// Test" for testers: in en-US, in Vietnamese (the app's own language), and in any other language the build already
+// has one for. Each language is set on its own; one that can't be set is a warning, and the build is up anyway.
 //
 // Without BUILD (a pull request's dry run) it only reports the newest build, which checks the key and this script.
 // Env: KEY_PATH (the .p8), KEY_ID, ISSUER_ID, APP_ID, BUILD (the build number), WHATS_NEW. Prints nothing secret.
@@ -33,19 +34,28 @@ async function api(method, path, data) {
   const res = await fetch(`https://api.appstoreconnect.apple.com/v1/${path}`, {
     method, headers: { Authorization: `Bearer ${token()}`, 'Content-Type': 'application/json' }, body: data && JSON.stringify({ data }),
   })
-  if (!res.ok) throw new Error(`${method} ${path} answered ${res.status}`)
+  if (!res.ok) {
+    // Apple says why in the body (a limit, a character it refuses, a language it doesn't know): kept for the warning.
+    const why = await res.json().then((j) => j.errors?.map((e) => e.detail ?? e.title).join('; ')).catch(() => '')
+    throw new Error(`${method} ${path} answered ${res.status}${why ? `: ${why}` : ''}`)
+  }
   return res.status === 204 ? null : (await res.json()).data
 }
 
 async function whatToTest(id) {
-  const whatsNew = WHATS_NEW.slice(0, 4000)
+  const whatsNew = WHATS_NEW // within the limits already (testflight-notes.py)
   const have = await api('GET', `builds/${id}/betaBuildLocalizations`)
-  for (const l of have) await api('PATCH', `betaBuildLocalizations/${l.id}`, { type: 'betaBuildLocalizations', id: l.id, attributes: { whatsNew } })
-  if (!have.some((l) => l.attributes.locale === 'en-US'))
-    await api('POST', 'betaBuildLocalizations', {
-      type: 'betaBuildLocalizations', attributes: { locale: 'en-US', whatsNew }, relationships: { build: { data: { type: 'builds', id } } },
-    })
-  report(`What to Test set (${[...new Set(['en-US', ...have.map((l) => l.attributes.locale)])].join(', ')}).`)
+  const set = []
+  const each = async (locale, call) => {
+    try { await call(); set.push(locale) } catch (e) { console.log(`::warning title=What to Test not set (${locale})::${e.message}`) }
+  }
+  for (const l of have)
+    await each(l.attributes.locale, () => api('PATCH', `betaBuildLocalizations/${l.id}`, { type: 'betaBuildLocalizations', id: l.id, attributes: { whatsNew } }))
+  for (const locale of ['en-US', 'vi'].filter((x) => !have.some((l) => l.attributes.locale === x)))
+    await each(locale, () => api('POST', 'betaBuildLocalizations', {
+      type: 'betaBuildLocalizations', attributes: { locale, whatsNew }, relationships: { build: { data: { type: 'builds', id } } },
+    }))
+  report(set.length ? `What to Test set (${set.join(', ')}).` : 'What to Test not set: see the warnings.')
 }
 
 function report(line) {

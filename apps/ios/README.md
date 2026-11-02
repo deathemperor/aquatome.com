@@ -84,9 +84,9 @@ each time, until Apple's cap stops the build. The job signs a local copy first a
 `Config/` or the workflow signs and exports without uploading.
 
 Each upload's "What to Test" lists the pull requests merged into the app since the last upload, newest first, their
-titles in plain words (`scripts/testflight-notes.py`, at most TestFlight's 4,000 characters). It's set in English once
-Apple has processed the build, in en-US and any language the build already has; a note that can't be set is a warning,
-not a failed upload.
+titles in plain words (`scripts/testflight-notes.py`, at most TestFlight's 4,000 bytes, without the "<" and emoji it
+refuses). It's set in English once Apple has processed the build, in en-US, Vietnamese and any language the build
+already has; a note that can't be set is a warning, not a failed upload.
 
 ## Performance budgets
 
