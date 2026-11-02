@@ -148,12 +148,12 @@ public final class FakeAccounts {
       return try reply(204)
     }
     // A reader's report (POST /api/v1/report), signed in or not, accounts on or off, read as the Worker reads it
-    // (protocols/talk.openapi.json): a bearer gone, 401; no bearer and not the site's page, 403; 20 a day per address and
+    // (protocols/talk.openapi.json): a bearer gone, 401; no bearer and another site's Origin, 403; 20 a day per address and
     // per account; the same reporter reporting the same item again, received and nothing more.
     if path == "/api/v1/report" {
       guard method == "POST" else { return try fail(405, "method") }
       if let bearer, tokens[bearer] == nil || !accountsOn { return try fail(401, "session") }
-      if bearer == nil, r.value(forHTTPHeaderField: "Origin") != "https://aquatome.com" { return try fail(403, "cross-origin") }
+      if bearer == nil, let origin = r.value(forHTTPHeaderField: "Origin"), origin != "https://aquatome.com" { return try fail(403, "cross-origin") }
       guard let b = body, let kind = b["kind"]?.string, ["comment", "photo"].contains(kind), let id = b["id"]?.string, !id.isEmpty,
             Set(b.keys).isSubset(of: ["kind", "id", "reason"]), b["reason"] == nil || (b["reason"]?.string).map({ $0.utf16.count <= 500 }) == true
       else { return try fail(400, "bad report") }

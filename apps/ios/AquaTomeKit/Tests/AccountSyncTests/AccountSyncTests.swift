@@ -496,7 +496,8 @@ func readersReports() async throws {
   #expect(try await report(["kind": "comment", "id": "c1", "reason": String(repeating: "à", count: 501)]) == (400, "bad report"))
   #expect(try await report(["kind": "comment", "id": "c1", "more": "x"]) == (400, "bad report"))
   #expect(try await report(["kind": "comment", "id": "c1"], token: "gone", origin: nil) == (401, "session"))
-  #expect(try await report(["kind": "comment", "id": "c1"], origin: nil) == (403, "cross-origin"))
+  // No bearer and no Origin (not a browser): taken, as the Worker takes it; this reporter's again, nothing more.
+  #expect(try await report(["kind": "photo", "id": "p1"], origin: nil) == (202, "received") && fake.reports.count == 2)
   #expect(try await report(["kind": "comment", "id": "c1"], origin: "https://evil.example") == (403, "cross-origin"))
   for n in 1...18 { #expect(try await report(["kind": "comment", "id": "n\(n)"]).0 == 202) }
   #expect(try await report(["kind": "comment", "id": "n19"]) == (429, "rate"))
