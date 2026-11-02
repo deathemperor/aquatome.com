@@ -38,6 +38,7 @@ final class FactsCardFlowTests: XCTestCase {
     let app = launch()
     open(app, "Rotala") // it has a temperature in the fixed index: no card all the same
     XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5))
+    XCTAssertTrue(app.webViews.staticTexts["/vi/cay/rotala-do/"].waitForExistence(timeout: 5), "not the stand-in page")
     XCTAssertFalse(app.descendants(matching: .any)["facts-card"].exists, "a card on a plant")
   }
 

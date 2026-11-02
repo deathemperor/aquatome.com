@@ -105,10 +105,22 @@ private struct WebPage: UIViewRepresentable {
     // Ads stay out of the app: AdSense isn't allowed in an app's web view that isn't registered with Google.
     WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "no-ads", encodedContentRuleList: Self.noAds) { list, _ in
       if let list { web.configuration.userContentController.add(list) }
+      #if DEBUG
+      // UI tests (`-fixed-handbook`) read no network: a stand-in, at the page's own address.
+      if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") {
+        web.loadHTMLString(Self.standIn(url), baseURL: url)
+        return
+      }
+      #endif
       web.load(URLRequest(url: url))
     }
     return web
   }
+
+  #if DEBUG
+  /// The site's page in UI tests: its path, for a test to tell which page opened.
+  static func standIn(_ url: URL) -> String { #"<!doctype html><meta name="viewport" content="width=device-width"><p>\#(url.path(percentEncoded: false))</p>"# }
+  #endif
 
   func updateUIView(_ web: WKWebView, context: Context) {
     let was = context.coordinator.page.store
