@@ -2,14 +2,14 @@
   "id": "myriophyllum-mattogrossense",
   "photos": [
     {
-      "url": "https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp",
-      "thumb": "https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45-480.webp",
-      "width": 800,
-      "height": 600,
+      "url": "https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp",
+      "thumb": "https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6-480.webp",
+      "width": 750,
+      "height": 1000,
       "licence": "CC0 1.0",
       "author": "David Tempelman",
-      "sourceUrl": "https://www.gbif.org/occurrence/4410788833",
-      "caption": "Thảm Cây myriophyllum Mato Grosso mọc trong ao ngoài tự nhiên",
+      "sourceUrl": "https://www.gbif.org/occurrence/3905434571",
+      "caption": "Cây myriophyllum Mato Grosso nổi trên mặt nước ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -26,14 +26,14 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa.webp",
-      "thumb": "https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "CC0 1.0",
-      "author": "David Tempelman",
-      "sourceUrl": "https://www.gbif.org/occurrence/5283401603",
-      "caption": "Thảm Cây myriophyllum Mato Grosso mọc emersed xanh um",
+      "url": "https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp",
+      "thumb": "https://media.aquatome.com/gbif/2842166591-ced7b993d7101623-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "CC BY-SA 4.0",
+      "author": "Robert Top",
+      "sourceUrl": "https://www.gbif.org/occurrence/2842166591",
+      "caption": "Thảm Cây myriophyllum Mato Grosso mọc trên cạn, lá xanh dày",
       "best": true,
       "kind": "emersed"
     },
@@ -50,14 +50,26 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp",
-      "thumb": "https://media.aquatome.com/gbif/4410788833-7b64e4789efee984-480.webp",
+      "url": "https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp",
+      "thumb": "https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45-480.webp",
       "width": 800,
       "height": 600,
       "licence": "CC0 1.0",
       "author": "David Tempelman",
       "sourceUrl": "https://www.gbif.org/occurrence/4410788833",
-      "caption": "Ngọn Cây myriophyllum Mato Grosso mọc nổi trên mặt nước",
+      "caption": "Thảm Cây myriophyllum Mato Grosso mọc trong ao ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa.webp",
+      "thumb": "https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC0 1.0",
+      "author": "David Tempelman",
+      "sourceUrl": "https://www.gbif.org/occurrence/5283401603",
+      "caption": "Thảm Cây myriophyllum Mato Grosso mọc emersed xanh um",
       "best": true,
       "kind": "emersed"
     },
@@ -72,6 +84,18 @@
       "caption": "Cận cảnh lá và ngọn Cây myriophyllum Mato Grosso màu xanh tươi",
       "best": true,
       "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp",
+      "thumb": "https://media.aquatome.com/gbif/4410788833-7b64e4789efee984-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC0 1.0",
+      "author": "David Tempelman",
+      "sourceUrl": "https://www.gbif.org/occurrence/4410788833",
+      "caption": "Ngọn Cây myriophyllum Mato Grosso mọc nổi trên mặt nước",
+      "best": true,
+      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/gbif/5283401603-39c538f07966c055.webp",
@@ -110,7 +134,7 @@
       "kind": "detail"
     }
   ],
-  "seen": 15,
-  "updatedAt": "2026-11-01",
-  "builtAt": "2026-11-01"
+  "seen": 19,
+  "updatedAt": "2026-11-02",
+  "builtAt": "2026-11-02"
 }

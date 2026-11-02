@@ -2,6 +2,66 @@
   "id": "barbodes-semifasciolatus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/409249682.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/409249682-480.webp",
+      "width": 863,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/409249682",
+      "caption": "Đàn cá barb vàng trong bể cùng tôm",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/216640333.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/216640333-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/216640333",
+      "caption": "Cá barb vàng sống trong hộp chụp ảnh, nhìn nghiêng rõ",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/216640708.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/216640708-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/216640708",
+      "caption": "Cá barb vàng vây đuôi cam, chụp trong hộp trong suốt",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/405699757.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/405699757-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "naturalist132890",
+      "sourceUrl": "https://www.inaturalist.org/photos/405699757",
+      "caption": "Cá barb vàng nhìn nghiêng trong hộp có thước đo",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/405702403.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/405702403-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "naturalist132890",
+      "sourceUrl": "https://www.inaturalist.org/photos/405702403",
+      "caption": "Cá barb vàng có các đốm đen ở thân, trong hộp chụp",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/eca484e68b4fe804.webp",
       "thumb": "https://media.aquatome.com/commons/eca484e68b4fe804-480.webp",
       "width": 868,
@@ -200,8 +260,57 @@
       "author": "Yung-Lun Lin",
       "sourceUrl": "https://www.inaturalist.org/photos/298680650",
       "caption": "Cá barb vàng thân xanh vàng trong bể đo kích thước"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/415264971.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/415264971-480.webp",
+      "width": 506,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Agnes Trekker",
+      "sourceUrl": "https://www.inaturalist.org/photos/415264971",
+      "caption": "Cá barb vàng ngoài tự nhiên trên nền lá mục",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/405216431.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/405216431-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/405216431",
+      "caption": "Cá barb vàng trong hộp nhỏ cạnh thước đo",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/405699746.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/405699746-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "naturalist132890",
+      "sourceUrl": "https://www.inaturalist.org/photos/405699746",
+      "caption": "Cá barb vàng bên cạnh thước đo, thân ánh xanh vàng",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/405702363.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/405702363-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "naturalist132890",
+      "sourceUrl": "https://www.inaturalist.org/photos/405702363",
+      "caption": "Cá barb vàng với sọc đốm đen trên thân",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 61,
-  "updatedAt": "2026-10-30"
+  "seen": 100,
+  "updatedAt": "2026-11-02",
+  "builtAt": "2026-11-02"
 }

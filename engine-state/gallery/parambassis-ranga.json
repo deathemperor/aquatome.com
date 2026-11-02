@@ -15,9 +15,7 @@
  ],
  "hashes": {
   "https://media.aquatome.com/commons/81ecb46052a2524f.webp": "cdc91f273f3b8001",
-  "https://media.aquatome.com/commons/c0c66a46c6b3925b.webp": "0413130529b9d446",
-  "https://media.aquatome.com/commons/cb62edb4f38e4bae.webp": "0826e3eba98458cd",
-  "https://media.aquatome.com/commons/a501f5c9fa54ce76.webp": "0018b9d4bc302c00"
+  "https://media.aquatome.com/commons/c0c66a46c6b3925b.webp": "0413130529b9d446"
  },
  "inat": {
   "taxon": 1544998,
@@ -27,5 +25,9 @@
    "agree": 349233314
   }
  },
- "commons": "2026-11-01"
+ "commons": "2026-11-01",
+ "gbif": {
+  "key": 2387235,
+  "next": null
+ }
 }

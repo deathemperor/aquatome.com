@@ -6,16 +6,17 @@ Written by `pnpm engine gallery` (2026-11-02). Targets: packages/engine/src/gall
 | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 4 | 8 |
 | shop | 60 | 123 | 77 | 27 | 173 |
-| popular | 40 | 21 | 0 | 1 | 20 |
-| covered | 30 | 86 | 3 | 1 | 88 |
+| popular | 40 | 21 | 0 | 2 | 19 |
+| covered | 30 | 86 | 3 | 3 | 86 |
 | rest | 20 | 774 | 92 | 0 | 866 |
 
-## Short of target: every source read (16)
+## Short of target: every source read (17)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
 | Page | Tier | Photos | Target |
 | --- | --- | --- | --- |
+| species/paracheirodon-innesi | staple | 21 | 100 |
 | species/puntius-titteya | staple | 9 | 100 |
 | species/mikrogeophagus-ramirezi | staple | 28 | 100 |
 | species/hyphessobrycon-herbertaxelrodi | shop | 11 | 60 |
