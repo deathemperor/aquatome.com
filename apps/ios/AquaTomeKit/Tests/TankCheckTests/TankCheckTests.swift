@@ -83,3 +83,14 @@ private let cases: [Case] = {
   #expect(check?.stocking == nil)
   #expect(check?.unsized == "Chưa có kích thước của Cá la hán: chưa tính vào mật độ.")
 }
+
+@Test func aPageOnTheTankTwiceIsCheckedAsOneFishWithItsCountsAddedUp() {
+  // On the tank from its page, and again by name from before the page existed (an entry the page now matches).
+  func neon(_ n: Int?) -> TankCheck.Fish { .init(name: "Cá neon", facts: .init(), count: n) }
+  let betta = TankCheck.Fish(name: "Cá betta", facts: .init(), count: 1)
+  #expect(TankCheck.onePerPage([("neon", neon(10)), ("betta", betta), ("neon", neon(5))]) == [neon(15), betta])
+  // A count left out adds nothing; none given stays none.
+  #expect(TankCheck.onePerPage([("neon", neon(nil)), ("neon", neon(4))]) == [neon(4)])
+  #expect(TankCheck.onePerPage([("neon", neon(4)), ("neon", neon(nil))]) == [neon(4)])
+  #expect(TankCheck.onePerPage([("neon", neon(nil)), ("neon", neon(nil))]) == [neon(nil)])
+}

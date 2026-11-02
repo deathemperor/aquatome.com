@@ -48,16 +48,19 @@ struct TankCheckSection: View {
 
   private func make() -> TankCheck? {
     guard handbook.count > 0 else { return nil }
-    var fish = tank.species.map { s in
+    var fish: [(page: String, fish: TankCheck.Fish)] = tank.species.map { s in
       let page = handbook.page(s.id)
-      return TankCheck.Fish(name: page?.name ?? s.id, facts: page?.facts ?? .init(), count: s.count)
+      return (s.id, .init(name: page?.name ?? s.id, facts: page?.facts ?? .init(), count: s.count))
     }
     var unlisted: [String] = []
     for e in tank.unlisted where !e.isPlant {
-      if let page = handbook.page(for: e) { fish.append(.init(name: page.name, facts: page.facts, count: e.count)) } else { unlisted.append(e.name) }
+      if let page = handbook.page(for: e) {
+        fish.append((page.contentId ?? page.id, .init(name: page.name, facts: page.facts, count: e.count)))
+      } else { unlisted.append(e.name) }
     }
     guard !fish.isEmpty || !unlisted.isEmpty else { return nil }
-    return Checkers.of(handbook.lang).check(fish, size: .init(dims: tank.dims.map { .init(l: $0.l, w: $0.w, h: $0.h) }, litres: tank.litres), unlisted: unlisted)
+    let size = TankCheck.Size(dims: tank.dims.map { .init(l: $0.l, w: $0.w, h: $0.h) }, litres: tank.litres)
+    return Checkers.of(handbook.lang).check(TankCheck.onePerPage(fish), size: size, unlisted: unlisted)
   }
 }
 
