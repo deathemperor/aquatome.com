@@ -1,7 +1,7 @@
 import XCTest
 
 /// A fish's facts above its page (FactsCard.swift), from the handbook's index on the phone: there without the network
-/// (the fixed index; the page itself may never load in a test).
+/// (the fixed index; the page below it is a stand-in for the site's).
 final class FactsCardFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 

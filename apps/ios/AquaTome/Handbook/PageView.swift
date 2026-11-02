@@ -193,6 +193,10 @@ private struct WebPage: UIViewRepresentable {
       page.offline = false
       page.failed = false
       guard let u = web.url, PageRoute.of(u, site: page.url, mainFrame: true, newWindow: false) == .app, answered else { return }
+      #if DEBUG
+      // The stand-in isn't the page: not kept as its offline copy, which would outlast the test run.
+      if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return }
+      #endif
       web.createWebArchiveData { result in
         if case .success(let data) = result { try? data.write(to: PageStore.file(for: u), options: .atomic) }
       }
