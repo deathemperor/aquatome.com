@@ -47,8 +47,10 @@ const MEDIA = (url: URL) => url.hostname === 'media.aquatome.com'
 /** Pictures from other websites (Wikimedia, YouTube…) arrive as a grey box, as the prompt says; anything else blocked stays blocked. */
 const GREY = '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"><rect width="1" height="1" fill="#d6d6d6"/></svg>'
 async function realistic(p: import('@playwright/test').Page, own: string) {
-  await p.route(url => url.origin !== own && !MEDIA(url), r => (r.request().resourceType() === 'image' ? r.fulfill({ contentType: 'image/svg+xml', body: GREY }) : r.fallback()))
-  await p.route(MEDIA, r => r.continue()) // the site's own pictures, so the screenshots look like the real page
+  // A local build's pictures on the media host are the fixture's made-up addresses, which it doesn't have: grey boxes
+  // too, or every review reports their broken icons. On a live site they are the real page's.
+  await p.route(url => url.origin !== own && (!LIVE || !MEDIA(url)), r => (r.request().resourceType() === 'image' ? r.fulfill({ contentType: 'image/svg+xml', body: GREY }) : r.fallback()))
+  if (LIVE) await p.route(MEDIA, r => r.continue()) // the site's own pictures, so the screenshots look like the real page
 }
 type Finding = { severity: 'high' | 'medium' | 'low'; title: string; evidence: string; fix: string }
 

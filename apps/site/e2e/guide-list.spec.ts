@@ -96,3 +96,12 @@ test('on a phone, guides are compact rows: a small picture beside the title', as
   // Four rows to a phone screen at least (a full-width card was about one).
   expect((await first.boundingBox())!.height).toBeLessThan(page.viewportSize()!.height / 4)
 })
+
+// A guide with no picture keeps its picture's slot at every width, so the titles of a row of cards stay in line
+// (on a computer the slot was 0 px tall, its title above the others').
+test('guide list: every card keeps a picture slot of the same height as its neighbours', async ({ page }) => {
+  await page.goto('/vi/huong-dan/')
+  const slots = await page.locator('main .gc .img').evaluateAll(els => els.filter(e => (e as HTMLElement).offsetParent !== null).map(e => ({ h: Math.round(e.getBoundingClientRect().height), w: Math.round(e.getBoundingClientRect().width), pic: !!e.querySelector('img') })))
+  expect(slots.some(s => !s.pic), 'the fixture has a guide with no picture').toBe(true)
+  for (const s of slots) expect(s.h, JSON.stringify(s)).toBeGreaterThanOrEqual(Math.floor(s.w * 9 / 16))
+})
