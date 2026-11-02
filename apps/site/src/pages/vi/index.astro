@@ -180,6 +180,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   .groups a { display: block; text-decoration: none; color: inherit; font-size: 0.95rem; }
   .gp { display: block; padding: 4px; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: var(--space-2); }
   .gp img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .gp:empty::before { content: ''; display: block; aspect-ratio: 1; } /* a group without a photo: the same square, so every card is the same height */
   .groups b { font: 500 1.05rem var(--f-display); }
   .cnt { display: block; color: var(--c-ink-faint); font-size: 0.8rem; }
   .groups a:hover b { color: var(--c-moss); }
@@ -195,7 +196,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
     .steps { grid-template-columns: 1fr; }
     .steps li + li { border-left: 0; border-top: 1px solid var(--c-rule); }
     .groups { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--space-5); gap: var(--space-3); padding-bottom: var(--space-2); margin-inline: calc(-1 * var(--space-5)); padding-inline: var(--space-5); }
-    .groups li { flex: 0 0 116px; scroll-snap-align: start; }
+    .groups li { flex: 0 0 calc(100% / 3.3); scroll-snap-align: start; } /* three cards and a slice of the fourth: the row reads as one that scrolls */
     .block { padding-top: var(--space-6); }
     .h { font-size: var(--step-2); }
   }
