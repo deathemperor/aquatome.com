@@ -249,15 +249,17 @@ export async function readSingles(root: string): Promise<string[]> {
   return queueOrder(xs, v => v.by === 'owner')
 }
 
-/** Writing order: the owner's picks, then videos in the site's language (SOURCE_LANGS[0]), then the rest, each in file order. */
-const queueOrder = <T extends { id: string; lang?: string }>(xs: T[], mine: (x: T) => boolean) =>
-  [...xs.filter(mine), ...xs.filter(x => !mine(x) && x.lang === SOURCE_LANGS[0]), ...xs.filter(x => !mine(x) && x.lang !== SOURCE_LANGS[0])].map(x => x.id)
+/** Writing order: the owner's picks, then the known channels' (`next`), then videos in the site's language (SOURCE_LANGS[0]), then the rest, each in file order. */
+const queueOrder = <T extends { id: string; lang?: string }>(xs: T[], mine: (x: T) => boolean, next: (x: T) => boolean = () => false) => {
+  const rest = xs.filter(x => !mine(x) && !next(x))
+  return [...xs.filter(mine), ...xs.filter(x => !mine(x) && next(x)), ...rest.filter(x => x.lang === SOURCE_LANGS[0]), ...rest.filter(x => x.lang !== SOURCE_LANGS[0])].map(x => x.id)
+}
 
 /** Playlists to turn into guides: engine-state/youtube-playlists.json (seeded by hand; discovery appends). */
 export async function readPlaylists(root: string): Promise<string[]> {
   const raw = await readFile(join(root, 'engine-state/youtube-playlists.json'), 'utf8').catch(() => '[]')
   const xs = (JSON.parse(raw) as { id: string; by?: string; skip?: boolean; lang?: string }[]).filter(p => !p.skip)
-  return queueOrder(xs, p => p.by === 'owner' || p.by === 'seed')
+  return queueOrder(xs, p => p.by === 'owner' || p.by === 'seed', p => p.by === 'channel')
 }
 
 /** How a guide is written: the style guide in the writer's prompt, a separate editor pass for phrasing, the model. */
