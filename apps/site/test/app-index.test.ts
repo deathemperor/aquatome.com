@@ -1,8 +1,11 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { appIndex, breedGroup, type AppIndex } from '../src/lib/app-index'
+import type { Content } from '@aq/schema'
+import { pageShard, PageShard } from '@aq/schema/app-page'
+import { isVietnamese } from '@aq/schema/text'
+import { appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { getContent } from '../src/lib/content'
-import { LANGS } from '../src/lib/i18n'
+import { LANGS, localizePath } from '../src/lib/i18n'
 import { DIST, page } from './dist'
 
 // The native app searches these files and opens each item's page: every item must lead to a page that was built.
@@ -49,11 +52,140 @@ test('fish and plants carry their content id (the page folder), so a saved tank 
   }
 })
 
-test('a thin page (out of search engines) is still in the app: its translation passed, it is only short', () => {
-  expect(page('/vi/ca/ca-ong-tien/').html).toMatch(/noindex/)
-  expect(index('vi').items.find(i => i.id === 'pterophyllum-scalare')?.path).toBe('/vi/ca/ca-ong-tien/')
-  // A low score still keeps a page out (Cá boraras đỏ: 0.5).
-  expect(index('vi').items.some(i => i.id === 'boraras-brigittae')).toBe(false)
+/** The species a built list page shows (the cards of PagedSpecies and SpeciesGrid), by slug, in its order. */
+const listed = (path: string) => page(path).dom.querySelectorAll('[data-slug]').map(e => e.getAttribute('data-slug')!).filter(Boolean)
+const slugOf = (i: AppItem) => i.path.split('/').at(-2)!
+
+test('the index lists every fish and plant the site\'s lists show, a page out of search engines too, each with its copy in a shard', () => {
+  for (const lang of LANGS) {
+    const { items } = index(lang)
+    const data = (kind: string): { slug: string }[] => (existsSync(`${DIST}/data/${lang}/${kind}.json`) ? JSON.parse(readFileSync(`${DIST}/data/${lang}/${kind}.json`, 'utf8')) : [])
+    // The fish list's species and the plant list's plants, in the lists' order (their data files hold every one).
+    expect(items.filter(i => i.kind === 'fish' && i.sub).map(slugOf), lang).toEqual(data('species').map(s => s.slug))
+    expect(items.filter(i => i.kind === 'plant').map(slugOf), lang).toEqual(data('plants').map(p => p.slug))
+  }
+  // The breeds above the fish list.
+  const vi = index('vi').items
+  expect(vi.filter(i => i.kind === 'fish' && !i.sub).map(i => i.path).sort()).toEqual(page('/vi/ca/').dom.querySelectorAll('section.breeds li a').map(a => a.getAttribute('href')).sort())
+  // A thin page (its translation passed, it is only short), a translation that scored low (Cá boraras đỏ: 0.61) and a
+  // breed's that did (Cá la hán: 0.6) are out of search engines, not off the site's lists, nor the app's.
+  const shards = index('vi').shards!
+  for (const [id, path] of [['pterophyllum-scalare', '/vi/ca/ca-ong-tien/'], ['boraras-brigittae', '/vi/ca/ca-boraras-do/'], ['flowerhorn-cichlid', '/vi/ca/ca-la-han/']]) {
+    expect(page(path!).html, path).toMatch(/noindex/)
+    expect(vi.find(i => i.id === id)?.path).toBe(path)
+  }
+  // A species' copy is in the shard its path names (breeds have no copy yet).
+  const shard = PageShard.parse(JSON.parse(readFileSync(`${DIST}/app/pages/vi/fish-${pageShard('/vi/ca/ca-boraras-do/', shards.fish!.n)}.json`, 'utf8')))
+  expect(shard.pages['/vi/ca/ca-boraras-do/']).toMatchObject({ kind: 'fish', path: '/vi/ca/ca-boraras-do/' })
+})
+
+test('a plant or a species whose translation scored low is still listed, as the site\'s lists show it', async () => {
+  const c = await getContent('vi')
+  const low = { indexable: false, score: 0.2, reason: 'low' as const }
+  const off = { ...c, species: c.species.map((s, n) => (n ? s : { ...s, t: { ...s.t, quality: { ...s.t.quality, ...low } } })), plants: c.plants.map((p, n) => (n ? p : { ...p, t: { ...p.t, quality: { ...p.t.quality, ...low } } })) } as Content
+  expect(appSpecies('vi', off)).toHaveLength(c.species.length)
+  expect(appPlants('vi', off)).toEqual(off.plants)
+  const paths = appIndex('vi', off).items.map(i => i.path)
+  expect(paths).toContain(`/vi/ca/${c.species[0]!.t.slug}/`)
+  expect(paths).toContain(`/vi/cay/${c.plants[0]!.t.slug}/`)
+})
+
+/** A page's line, its placeholders filled as t() fills them. */
+const fill = (s: string, vars: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m))
+const RANK_KEYS = ['order', 'family', 'genus'] as const
+
+test('a species\' taxa are the taxon pages that list it: each page lists the species whose tax leads to it, with its rank\'s words', () => {
+  const { items, labels } = index('vi')
+  const species = items.filter(i => i.kind === 'fish' && i.sub)
+  expect(species.find(i => i.id === 'paracheirodon-axelrodi')?.tax).toEqual(['Characiformes', 'Characidae', 'Paracheirodon'])
+  // Each level's path: the names lowercased and joined with "/", as the taxon pages are addressed.
+  const under = (i: AppItem, depth: number) => i.tax!.slice(0, depth).map(x => x.toLowerCase()).join('/')
+  const taxa = new Set(species.flatMap(i => [1, 2, 3].map(d => under(i, d))))
+  // The pages built are the taxonomy index and those the species lead to, no other.
+  const built = (readdirSync(`${DIST}/vi/phan-loai`, { recursive: true }) as string[]).filter(f => f.endsWith('index.html')).map(f => f.replace(/\/?index\.html$/, ''))
+  expect(built.sort()).toEqual(['', ...taxa].sort())
+  expect(page('/vi/phan-loai/').dom.querySelector('h1')?.text.trim()).toBe(labels.taxon.title)
+  for (const k of taxa) {
+    const depth = k.split('/').length
+    const on = species.filter(i => under(i, depth) === k)
+    const { dom } = page(`/vi/phan-loai/${k}/`)
+    // The same species in the same order: the fish list's.
+    expect(listed(`/vi/phan-loai/${k}/`), k).toEqual(on.map(slugOf))
+    const name = on[0]!.tax![depth - 1]!
+    expect(dom.querySelector('h1')?.text.trim(), k).toBe(name)
+    expect(dom.querySelector('p.intro')?.text.trim(), k).toBe(fill(labels.taxon.intro!, { level: labels.taxon[RANK_KEYS[depth - 1]]!, name, n: on.length }))
+  }
+})
+
+test('a species\' places are the origin pages that list it: only places with a page, and each page lists those that name it', () => {
+  const { items, places, labels } = index('vi')
+  const species = items.filter(i => i.kind === 'fish' && i.sub)
+  // Rio Negro is a river: named on Brazil's page, with no page of its own.
+  expect(species.find(i => i.id === 'paracheirodon-axelrodi')?.from).toEqual(['south-america', 'brazil'])
+  // Breeds have neither: taxon and origin pages list species only.
+  const breed = items.find(i => i.id === 'pigeon-blood-discus')!
+  expect('tax' in breed || 'from' in breed).toBe(false)
+  for (const i of items.filter(x => x.kind !== 'fish' || !x.sub)) expect(Object.keys(i).filter(k => k === 'tax' || k === 'from'), i.path).toEqual([])
+  const pathOf = (id: string) => { const p = places.find(x => x.id === id)!; return p.parent ? `/vi/nguon-goc/${p.parent}/${id}/` : `/vi/nguon-goc/${id}/` }
+  // The pages built are the origin index and one for each place, no other.
+  const built = (readdirSync(`${DIST}/vi/nguon-goc`, { recursive: true }) as string[]).filter(f => f.endsWith('index.html')).map(f => `/vi/nguon-goc/${f.replace(/index\.html$/, '')}`)
+  expect(built.sort()).toEqual(['/vi/nguon-goc/', ...places.map(p => pathOf(p.id))].sort())
+  for (const i of species) for (const id of i.from ?? []) expect(places.some(p => p.id === id), `${i.id}: ${id}`).toBe(true)
+  for (const p of places) {
+    const on = species.filter(i => i.from?.includes(p.id))
+    const { dom } = page(pathOf(p.id))
+    expect(listed(pathOf(p.id)), p.id).toEqual(on.map(slugOf))
+    const name = labels.placeTitle[p.id] ?? p.name
+    expect(dom.querySelector('h1')?.text.trim(), p.id).toBe(name)
+    expect(dom.querySelector('p.intro')?.text.trim(), p.id).toBe(labels.placeIntro[p.id] ?? fill(labels.origin.intro!, { n: on.length, place: p.name }))
+  }
+})
+
+test('places are the origin pages\' places, in their order: continents, each country under its continent with its regions and rivers', () => {
+  const { places, labels } = index('vi')
+  expect(places.filter(p => p.kind === 'continent').map(p => p.id)).toEqual(['asia', 'south-america'])
+  expect(places.find(p => p.id === 'brazil')).toEqual({ id: 'brazil', name: 'Brazil', kind: 'country', parent: 'south-america', kids: ['Rio Negro'] })
+  expect(places.find(p => p.id === 'asia')).toEqual({ id: 'asia', name: 'Châu Á', kind: 'continent' })
+  // Rio Negro is a river: on Brazil's page, not a place of the index's own.
+  expect(places.some(p => p.id === 'rio-negro')).toBe(false)
+  const kids = (path: string) => page(path).dom.querySelectorAll('ul.kids li').map(li => li.text.trim())
+  const { dom } = page('/vi/nguon-goc/')
+  expect(dom.querySelector('h1')?.text.trim()).toBe(labels.origin.title)
+  expect(kids('/vi/nguon-goc/')).toEqual(places.filter(p => p.kind === 'continent').map(p => p.name))
+  for (const p of places) {
+    if (p.kind === 'continent') expect(kids(`/vi/nguon-goc/${p.id}/`), p.id).toEqual(places.filter(x => x.parent === p.id).map(x => x.name))
+    else expect(kids(`/vi/nguon-goc/${p.parent}/${p.id}/`), p.id).toEqual(p.kids ?? [])
+  }
+  expect(labels.placeTitle.vietnam).toBe('Cá Việt Nam')
+  expect(page('/vi/nguon-goc/asia/vietnam/').dom.querySelector('p.intro')?.text.trim()).toBe(labels.placeIntro.vietnam)
+})
+
+test('an id a species names with no place, or a place with no page of its own, is in no `from`', async () => {
+  const c = await getContent('vi')
+  const off = { ...c, species: c.species.map(s => (s.id === 'paracheirodon-axelrodi' ? { ...s, places: ['atlantis', 'rio-negro', 'south-america', 'brazil', 'brazil'] } : s)) } as Content
+  expect(appIndex('vi', off).items.find(i => i.id === 'paracheirodon-axelrodi')?.from).toEqual(['south-america', 'brazil'])
+})
+
+test('the taxon and origin pages\' words are in every language\'s labels, as its pages say them, placeholders kept', () => {
+  expect(index('id').labels).toMatchObject({
+    taxon: { title: 'Klasifikasi', order: 'Ordo', family: 'Famili', genus: 'Genus', intro: '{level} {name}: {n} spesies.' },
+    origin: { title: 'Asal', intro: '{n} spesies berasal dari {place}.' },
+    placeTitle: { vietnam: 'Ikan Vietnam' },
+  })
+  expect(index('th').labels.taxon).toMatchObject({ title: 'อนุกรมวิธาน', order: 'อันดับ', family: 'วงศ์', genus: 'สกุล' })
+  const marks = (s: string) => [...s.matchAll(/\{\w+\}/g)].map(m => m[0]).sort()
+  for (const lang of LANGS) {
+    const { labels } = index(lang)
+    // Each section's index page, built in every language, has the section's title as its heading.
+    expect(page(localizePath(lang, '/vi/phan-loai/')).dom.querySelector('h1')?.text.trim(), lang).toBe(labels.taxon.title)
+    expect(page(localizePath(lang, '/vi/nguon-goc/')).dom.querySelector('h1')?.text.trim(), lang).toBe(labels.origin.title)
+    expect(marks(labels.taxon.intro!), lang).toEqual(['{level}', '{name}', '{n}'])
+    expect(marks(labels.origin.intro!), lang).toEqual(['{n}', '{place}'])
+    expect(Object.keys(labels.placeTitle), lang).toEqual(['vietnam'])
+    expect(Object.keys(labels.placeIntro), lang).toEqual(['vietnam'])
+    if (lang === 'vi') continue
+    for (const words of [labels.taxon, labels.origin, labels.placeTitle, labels.placeIntro]) for (const w of Object.values(words)) expect(isVietnamese(w), `${lang}: ${w}`).toBe(false)
+  }
 })
 
 // The fixture build has fish pages in Vietnamese only (the other languages' indexes hold the tools).
@@ -83,7 +215,7 @@ test('guides carry their subject and the fish and plants they name, as their pag
   // A video guide names what it shows, even when its text doesn't.
   const video = guides.find(g => g.about?.includes('neocaridina-davidi') && g.section === 'plantCare')
   expect(video, 'the shrimp a plant video shows').toBeDefined()
-  // Content ids, as a saved tank lists its fish: one whose page isn't in the app (too thin) still matches a tank that has it.
+  // Content ids, as a saved tank lists its fish.
   for (const g of guides) for (const id of g.about ?? []) expect(id, g.path).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
   expect(guides.some(g => g.section === 'discovery' && g.about?.includes('boraras-brigittae'))).toBe(true)
   // Fish and plants have neither.
@@ -170,8 +302,8 @@ test('every index carries the site\'s words for groups, subjects and plant care 
 test('the home picks are the site home\'s, of what the index lists: groups with a photo, then fish, easy plants and the beginner guides', () => {
   const { items, home } = index('vi')
   const byPath = new Map(items.map(i => [i.path, i]))
-  // Biggest group first, as on the site's home; one the index lists nothing of (Rasbora: a page below the bar) isn't there.
-  expect(home.groups.map(g => g.id)).toEqual(['cichlids', 'tetras', 'danios', 'shrimp'])
+  // Biggest group first, as on the site's home (Rasbora's one fish too: the index lists every fish the site's lists show).
+  expect(home.groups.map(g => g.id)).toEqual(['cichlids', 'tetras', 'danios', 'rasboras', 'shrimp'])
   for (const g of home.groups) expect(g.img, g.id).toMatch(/^https:\/\//)
   expect(home.fish[0]).toBe('/vi/ca/ca-neon-xanh/')
   expect(home.fish.every(p => byPath.get(p)?.kind === 'fish')).toBe(true)

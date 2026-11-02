@@ -9,13 +9,14 @@ import { speciesLists } from '../../../lib/list-data'
 import { PAGE } from '../../../scripts/filter-list'
 import { i18n, langOf } from '../../../lib/i18n'
 import { alternatesWhere } from '../../../lib/alternates'
+import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES } from '../../../lib/taxa-places'
 
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const INTROS: Record<string, string> = {
-  vietnam: t('Những loài cá có nguồn gốc từ sông suối Việt Nam, từ đồng bằng Mekong đến suối núi phía Bắc.'),
-}
-const TITLES: Record<string, string> = { vietnam: t('Cá Việt Nam') }
+// A place's own heading and line (lib/taxa-places.ts, which the app index reads too).
+const own = (words: Record<string, string>): Record<string, string> => Object.fromEntries(Object.entries(words).map(([id, w]) => [id, t(w)]))
+const INTROS = own(PLACE_INTROS)
+const TITLES = own(PLACE_TITLES)
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const lang = langOf(routePattern)
@@ -33,9 +34,9 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
   return [index, ...continents, ...countries]
 }
 const { place, species, kids, parent } = Astro.props as { place?: Localized<PlaceEntity>; species: Localized<SpeciesEntity>[]; kids: Localized<PlaceEntity>[]; parent?: Localized<PlaceEntity> }
-const name = place ? TITLES[place.id] ?? place.t.name : t('Nguồn gốc')
-const crumbs: [string, string][] = place ? [['/vi/nguon-goc/', t('Nguồn gốc')], ...(parent ? [[`/vi/nguon-goc/${parent.id}/`, parent.t.name] as [string, string]] : [])] : []
-const intro = place ? INTROS[place.id] ?? t('{n} loài có nguồn gốc từ {place}.', { n: species.length, place: place.t.name }) : t('Duyệt loài theo châu lục, quốc gia và dòng sông nơi chúng sinh ra.')
+const name = place ? TITLES[place.id] ?? place.t.name : t(ORIGINS)
+const crumbs: [string, string][] = place ? [['/vi/nguon-goc/', t(ORIGINS)], ...(parent ? [[`/vi/nguon-goc/${parent.id}/`, parent.t.name] as [string, string]] : [])] : []
+const intro = place ? INTROS[place.id] ?? t(PLACE_INTRO, { n: species.length, place: place.t.name }) : t('Duyệt loài theo châu lục, quốc gia và dòng sông nơi chúng sinh ra.')
 // The same place in another language: named there (the index always is).
 const alternates = await alternatesWhere(Astro.url.pathname, c => !place || c.places.some(p => p.id === place.id))
 const href = (k: Localized<PlaceEntity>) => (k.kind === 'country' ? `/vi/nguon-goc/${k.parent}/${k.id}/` : k.kind === 'continent' ? `/vi/nguon-goc/${k.id}/` : undefined)

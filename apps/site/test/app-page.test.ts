@@ -140,13 +140,18 @@ test('in Indonesian: the Indonesian page\'s paths, links and words, and a Vietna
 test('a page the app index leaves out is in no "pages" block; a link to it in the text stays, for the web', async () => {
   const c = await getContent('vi')
   const g = appGuides('vi', c).find(g => g.id === 'aquariumcoop-thay-nuoc')!
-  const fish = '/vi/ca/ca-neon-vua/'
-  expect(pagesOf(guideDoc('vi', c, g, listedPaths('vi', c)))).toContain(fish)
-  // The same content with that fish too thin to list (the index lists a thin page only above the quality bar).
-  const thin = { ...c, species: c.species.map(s => (`/vi/ca/${s.t.slug}/` === fish ? { ...s, t: { ...s.t, quality: { ...s.t.quality, indexable: false, reason: 'low', score: 0 } } } : s)) } as Content
-  const d = guideDoc('vi', thin, g, listedPaths('vi', thin))
+  const [next, fish] = ['/vi/huong-dan/setup-be-thuy-sinh-dau-tien/', '/vi/ca/ca-neon-vua/']
+  expect(pagesOf(guideDoc('vi', c, g, listedPaths('vi', c)))).toEqual(expect.arrayContaining([next, fish]))
+  // A guide out of search engines is out of the index, and out of the next guides.
+  const off = { ...c, guides: c.guides.map(x => (`/vi/huong-dan/${x.t.slug}/` === next ? { ...x, t: { ...x.t, quality: { ...x.t.quality, indexable: false } } } : x)) } as Content
+  expect(pagesOf(guideDoc('vi', off, g, listedPaths('vi', off)))).not.toContain(next)
+  // A fish the index doesn't list (another language's index has only the fish with a page there) leaves the block, not the text.
+  const d = guideDoc('vi', c, g, new Set([...listedPaths('vi', c)].filter(p => p !== fish)))
   expect(pagesOf(d)).not.toContain(fish)
   expect(hrefsOf(d)).toContain(fish)
+  // A fish whose translation scored low (Cá boraras đỏ) is on the site's lists, so in the index and in the block.
+  const spruce = appGuides('vi', c).find(x => x.id === 'sprucepets-low-maintenance-freshwater-fish-4770223')!
+  expect(pagesOf(guideDoc('vi', c, spruce, listedPaths('vi', c)))).toContain('/vi/ca/ca-boraras-do/')
 })
 
 test('each page of each kind is in the shard its path names, the shards hold nothing else, and every page they name is listed', async () => {

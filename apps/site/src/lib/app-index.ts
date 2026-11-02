@@ -1,4 +1,4 @@
-import { QUALITY_THRESHOLD, type BreedEntity, type Content, type Photo, type PlantEntity, type Traits } from '@aq/schema'
+import type { BreedEntity, Content, Photo, PlantEntity, Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
@@ -7,12 +7,15 @@ import { smallSrc } from './img'
 import { localizePath, served, translator, type Lang } from './i18n'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
+import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES, RANKS, TAXON_INTRO } from './taxa-places'
 import { seriesGuides } from './video'
 
 /**
- * The handbook's index for the native app (/app/<lang>.json): every indexable page of one language that the app can
- * search and list. The app opens the page itself in a web view, so an item is only what a search result shows and
- * what the app browses it by. Fish come in the site's list order (the well-known ones first).
+ * The handbook's index for the native app (/app/<lang>.json): the pages of one language that the app can search and
+ * list. Fish and plants are every one the site's own fish and plant lists show (a page out of search engines too); guides,
+ * glossary terms and video series those in search engines. The app opens the page itself in a web view, so an item is
+ * only what a search result shows and what the app browses it by. Fish come in the site's list order (the well-known
+ * ones first).
  */
 export type AppItem = {
   /** `video`: a series of video guides (/vi/video/<slug>/). */
@@ -42,6 +45,17 @@ export type AppItem = {
   group?: string
   /** A plant's care, as its page gives it: difficulty 1 (easy) to 3, and the keys of `labels`. */
   plant?: Pick<PlantEntity, 'difficulty' | 'light' | 'co2' | 'growth' | 'placement'>
+  /**
+   * A species' order, family and genus, as the site writes them. Its taxon pages are these lowercased and joined with
+   * "/" (/vi/phan-loai/<order>/<family>/<genus>/, and each level above it), and list it; `labels.taxon` has each rank's
+   * word. Breeds have none: taxon pages list species only.
+   */
+  tax?: [string, string, string]
+  /**
+   * The places a species names that have a page of their own (`AppIndex.places`: continents, countries), by id, in the
+   * order it names them: the origin pages that list it. None when it names none of them; breeds have none.
+   */
+  from?: string[]
 } & Partial<Facts>
 /**
  * A species' figures and behaviour (fish), named as the tank-mates tool names them (SpeciesIndexItem), so the app checks
@@ -51,6 +65,11 @@ export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
 const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
 export type AppIndex = {
   version: 1; lang: Lang; items: AppItem[]; home: AppHome; labels: AppLabels
+  /**
+   * The places with an origin page, in the order the pages list them: the continents (/vi/nguon-goc/<id>/) and each
+   * continent's countries, those whose `parent` it is (/vi/nguon-goc/<parent>/<id>/). A species' `from` names them.
+   */
+  places: AppPlace[]
   /**
    * The shard counts of the first app's kind, guides (lib/app-page.ts). That app draws every kind listed here itself,
    * so no kind is ever added to it (packages/schema/src/app-page.ts, PageShard).
@@ -63,15 +82,17 @@ export type AppIndex = {
 export function appGuides(lang: Lang, c: Content): Content['guides'] {
   return served(lang, '/vi/huong-dan/x/') ? c.guides.filter(g => g.t.quality.indexable) : []
 }
-/** A thin page (depth.ts) is out of search engines, not out of the app: its translation passed, it is only short. */
-const listedFish = (q: Content['species'][number]['t']['quality']) => q.indexable || (q.reason === 'thin' && q.score >= QUALITY_THRESHOLD)
-/** The species the index lists in this language, in the site's list order, and the app has pages of (lib/app-page.ts). */
+/**
+ * The species the index lists in this language, and the app has pages of (lib/app-page.ts): every one the fish list shows
+ * (lib/list-data.ts fishList), in its order. A page out of search engines (thin, or a translation that scored low) is
+ * still on the site's lists, its taxon and origin pages too.
+ */
 export function appSpecies(lang: Lang, c: Content): Content['species'] {
-  return served(lang, '/vi/ca/x/') ? listOrder(lang, c).filter(s => listedFish(s.t.quality)) : []
+  return served(lang, '/vi/ca/x/') ? listOrder(lang, c) : []
 }
-/** The plants the index lists in this language, and the app has pages of. */
+/** The plants the index lists in this language, and the app has pages of: every one the plant list shows, as for species. */
 export function appPlants(lang: Lang, c: Content): Content['plants'] {
-  return served(lang, '/vi/cay/x/') ? c.plants.filter(p => p.t.quality.indexable) : []
+  return served(lang, '/vi/cay/x/') ? c.plants : []
 }
 /** The glossary terms the index lists in this language, and the app has pages of. */
 export function appGlossary(lang: Lang, c: Content): Content['glossary'] {
@@ -83,10 +104,30 @@ export function appGlossary(lang: Lang, c: Content): Content['glossary'] {
  */
 export type AppHome = { groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[] }
 /**
- * The site's words for each key the items carry (fish groups, guide subjects, plant care), in this language.
- * `difficulty` is a plant's (1–3, as a string key), not a fish's 1–8.
+ * The site's words, in this language, each entry a map of strings: for each key the items carry (fish groups, guide
+ * subjects, plant care), and those of the taxon and origin pages (lib/taxa-places.ts), which the app draws as shelves.
+ * `difficulty` is a plant's (1–3, as a string key), not a fish's 1–8. The pages' lines keep their placeholders, as
+ * t() has them, for the app to fill:
+ * - `taxon`: `title`, the taxonomy section's title ("Phân loại"); `order`, `family`, `genus`, the ranks of an item's
+ *   `tax[0]`, `tax[1]` and `tax[2]` ("Bộ", "Họ", "Chi"); `intro`, a taxon page's line, "{level} {name}: {n} loài."
+ *   ({level}: its rank's word; {name}: its name; {n}: how many species it lists).
+ * - `origin`: `title`, the origin section's title ("Nguồn gốc"); `intro`, a place page's line, "{n} loài có nguồn gốc từ
+ *   {place}." ({place}: the place's name).
+ * - `placeTitle` and `placeIntro`, by place id: a place's own heading, in place of its name, and its own line, in place
+ *   of `origin.intro` (Vietnam's: "Cá Việt Nam").
  */
-export type AppLabels = Record<'group' | 'section' | 'difficulty' | 'light' | 'co2' | 'growth' | 'placement', Record<string, string>>
+export type AppLabels = Record<'group' | 'section' | 'difficulty' | 'light' | 'co2' | 'growth' | 'placement' | 'taxon' | 'origin' | 'placeTitle' | 'placeIntro', Record<string, string>>
+
+/** A place with an origin page (AppIndex.places), named in this language. */
+export type AppPlace = {
+  id: string
+  name: string
+  kind: 'continent' | 'country'
+  /** A country's continent. */
+  parent?: string
+  /** A country's regions and rivers, by name, as its page lists them (they have no page of their own). */
+  kids?: string[]
+}
 
 /**
  * `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. `everySpecies`: the species of
@@ -100,7 +141,21 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
   const words = (labels: Record<string | number, string>) => Object.fromEntries(Object.entries(labels).map(([k, v]) => [k, t(v)]))
-  const labels: AppLabels = { group: words(GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Omit<AppLabels, 'group' | 'section'>) }
+  const labels: AppLabels = {
+    group: words(GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Pick<AppLabels, keyof typeof PLANT_LABELS>),
+    taxon: words({ title: RANKS[0], order: RANKS[1], family: RANKS[2], genus: RANKS[3], intro: TAXON_INTRO }),
+    origin: words({ title: ORIGINS, intro: PLACE_INTRO }),
+    placeTitle: words(PLACE_TITLES), placeIntro: words(PLACE_INTROS),
+  }
+  // The places with a page, as the origin pages list them (pages/vi/nguon-goc/[...path].astro): the continents, and the
+  // countries under one. A species is on those it names itself (lib/list-data.ts speciesLists).
+  const origins = served(lang, '/vi/nguon-goc/x/') ? c.places.filter(p => p.kind === 'continent' || (p.kind === 'country' && p.parent)) : []
+  const paged = new Set(origins.map(p => p.id))
+  const places: AppPlace[] = origins.map(p => {
+    const kids = p.kind === 'country' ? c.places.filter(x => x.parent === p.id).map(x => x.t.name) : []
+    return { id: p.id, name: p.t.name, kind: p.kind as AppPlace['kind'], ...(p.parent ? { parent: p.parent } : {}), ...(kids.length ? { kids } : {}) }
+  })
+  const taxa = served(lang, '/vi/phan-loai/x/')
   if (served(lang, '/vi/ca/x/')) {
     // A group the site has no word for (a handful of fish) is "Loài khác", as the app shows it.
     const groupOf = new Map(everySpecies.map(s => [s.id, s.group in GROUP_LABELS ? s.group : 'other']))
@@ -108,11 +163,14 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const s of appSpecies(lang, c)) {
       const f = toIndexItem(s, traits.get(s.id))
       const facts = Object.fromEntries(FACTS.map(k => [k, f[k]]))
-      items.push(clean({ kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), group: groupOf.get(s.id), ...facts }))
+      const from = [...new Set(s.places)].filter(id => paged.has(id))
+      items.push(clean({
+        kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), group: groupOf.get(s.id),
+        tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, ...facts,
+      }))
     }
-    for (const b of c.breeds) {
-      if (listedFish(b.t.quality)) items.push(clean({ kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds) }))
-    }
+    // Every breed, as the fish list shows them.
+    for (const b of c.breeds) items.push(clean({ kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds) }))
     home.groups = groupTiles(lang, c).map(g => (g.photo ? { id: g.group, img: smallSrc(g.photo) } : { id: g.group }))
     home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
   }
@@ -148,13 +206,13 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   for (const [vi, name, own] of TOOLS) {
     if (served(lang, vi)) items.push({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)) })
   }
-  // Only what the index lists (a well-known fish whose page is below the bar leads the site's home, not the app's): a
-  // row's worth of each.
+  // Only what the index lists (a lead guide out of search engines is on the site's home, not the app's): a row's worth
+  // of each.
   const paths = new Set(items.map(i => i.path))
   for (const [k, n] of [['fish', 8], ['plants', 6], ['guides', 8]] as const) home[k] = home[k].filter(p => paths.has(p)).slice(0, n)
   const groups = new Set(items.map(i => i.group))
   home.groups = home.groups.filter(g => groups.has(g.id))
-  return { version: 1, lang, items, home, labels }
+  return { version: 1, lang, items, home, labels, places }
 }
 
 /**
