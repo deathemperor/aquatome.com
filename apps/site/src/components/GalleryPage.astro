@@ -3,7 +3,7 @@ import type { Lang, Photo } from '@aq/schema'
 import Browse from '../layouts/Browse.astro'
 import { getContent } from '../lib/content'
 import { creditsFor } from '../lib/credits'
-import { licenceUrl, photoFrom } from '../lib/gallery'
+import { galleryNote, licenceUrl } from '../lib/gallery'
 import { smallSrc } from '../lib/img'
 import { i18n, licenceLabel } from '../lib/i18n'
 /**
@@ -14,9 +14,6 @@ interface Props { name: string; sci?: string; photos: Photo[]; page: string; bac
 const { name, sci, photos, page, back, crumbs, indexable, alternates } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const from = photoFrom(photos, c.sources).join(', ').replace(/, ([^,]*)$/, ` ${t('và')} $1`)
-// Photos a source let us use (not under an open licence) say so.
-const open = photos.every(p => !p.source)
 const jsonld = [{
   '@context': 'https://schema.org', '@type': 'ImageGallery', name: `${t('Ảnh {name}', { name })}${sci ? ` (${sci})` : ''}`,
   image: photos.slice(0, 60).map(p => ({
@@ -26,7 +23,7 @@ const jsonld = [{
 }]
 ---
 <Browse title={t('Ảnh {name}: {n} ảnh đẹp', { name, n: photos.length })} heading={t('Ảnh {name}', { name })} description={t('{n} ảnh {name}{sci}, ghi rõ tác giả và giấy phép.', { n: photos.length, name, sci: sci ? ` (${sci})` : '' })} crumbs={crumbs} noindex={!indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor(photos)} search={false}>
-  <p class="lead">{sci && <><span class="sci">{sci}</span> · </>}{t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}, giấy phép mở hoặc được phép dùng.', { n: photos.length, from })} <a href={page}>{back}</a></p>
+  <p class="lead">{sci && <><span class="sci">{sci}</span> · </>}{galleryNote(t, photos, c.sources)} <a href={page}>{back}</a></p>
   <ul class="grid" data-gallery>
     {photos.map((p, i) => (
       <li id={`a${i + 1}`}>

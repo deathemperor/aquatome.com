@@ -1,4 +1,5 @@
 import type { Photo, SourceId, SourceInfo } from '@aq/schema'
+import type { T } from './i18n'
 
 /** A licence's deed page, for structured data (Google Images shows "Licensable" with it). */
 export function licenceUrl(licence: string): string | undefined {
@@ -26,4 +27,14 @@ export function photoFrom(photos: Photo[], sources: Partial<Record<SourceId, Sou
     const host = new URL(p.sourceUrl).host
     return SITES.find(([re]) => re.test(host))?.[1] ?? host.replace(/^www\./, '')
   }))]
+}
+
+/**
+ * The gallery page's line about its photos: how many, from which sites, and that they are under open licences or used
+ * with permission (photos a source let us use say so). The app's copy of the gallery carries it too.
+ */
+export function galleryNote(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
+  const from = photoFrom(photos, sources).join(', ').replace(/, ([^,]*)$/, ` ${t('và')} $1`)
+  const open = photos.every(p => !p.source)
+  return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}, giấy phép mở hoặc được phép dùng.', { n: photos.length, from })
 }

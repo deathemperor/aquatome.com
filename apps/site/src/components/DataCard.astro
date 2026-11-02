@@ -1,19 +1,17 @@
 ---
-import { resolveDataCard, type DataCardField, type Range } from '@aq/schema'
+import type { DataCardField, Range } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
-import { FIELD_LABELS, FIELD_ORDER, fmt, isRange } from '../lib/format'
+import { cardRows } from '../lib/card-rows'
+import { FIELD_LABELS, fmt, isRange } from '../lib/format'
 import { i18n, isVietnamese } from '../lib/i18n'
 /** Species cite source ids (sources.json); breeds cite their own sources by position. */
 interface Props { card: Partial<Record<DataCardField, { source: string; value: Range | number }[]>>; sources: Partial<Record<string, { name: string }>> }
 const { card, sources } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
-const rows = FIELD_ORDER.flatMap(field => {
-  const vals = card[field] ?? []
-  const r = resolveDataCard(vals) // sources that disagree: the range they all accept; each source's own figure in "Nguồn và độ tin cậy"
-  return r ? [{ field, ...r, vals }] : []
-})
+// Sources that disagree: the range they all accept; each source's own figure in "Nguồn và độ tin cậy".
+const rows = cardRows(card)
 const marked = rows.some(r => r.conflict)
 const nameOf = (id: string) => sources[id]?.name ?? id
 const unitAttrs = (field: string, v: number | { min: number; max: number }) => {

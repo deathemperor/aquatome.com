@@ -1,5 +1,5 @@
 ---
-import type { Localized, SectionKey, SpeciesEntity } from '@aq/schema'
+import type { Localized, SpeciesEntity } from '@aq/schema'
 import Base from '../../../layouts/Base.astro'
 import Nav from '../../../components/Nav.astro'
 import DataCard from '../../../components/DataCard.astro'
@@ -14,24 +14,18 @@ import QuickSummary from '../../../components/QuickSummary.astro'
 import KeyFacts from '../../../components/KeyFacts.astro'
 import Companions from '../../../components/Companions.astro'
 import JumpChips from '../../../components/JumpChips.astro'
-import { companionsOf } from '../../../lib/companions'
+import { speciesParts } from '../../../lib/species-page'
 import GuideLinks from '../../../components/GuideLinks.astro'
 import RedirectNote from '../../../components/RedirectNote.astro'
-import { guidesMentioning } from '../../../lib/mentions'
 import VideoGuideGrid from '../../../components/VideoGuideGrid.astro'
 import GalleryStrip from '../../../components/GalleryStrip.astro'
 import BreedList from '../../../components/BreedList.astro'
-import { breedsOf } from '../../../lib/breeds'
-import { GALLERY_MIN, GALLERY_STRIP } from '../../../lib/gallery'
-import { approvedSummary } from '../../../lib/summaries'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
-import { distinctPhotos, pagePictures, takeEach } from '../../../lib/pictures'
 import { searchAliases } from '../../../lib/search'
 import { speciesDescription, speciesTitle } from '../../../lib/meta'
 import { i18n, langOf, served } from '../../../lib/i18n'
 import { alternatesOf } from '../../../lib/alternates'
-import { foldNearEmpty } from '../../../lib/sections'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -40,8 +34,6 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { s } = Astro.props as { s: Localized<SpeciesEntity> }
 const { lang, t } = i18n(Astro.url)
 const c = await getContent(lang)
-const places = s.places.map(id => c.places.find(p => p.id === id)).filter(p => p !== undefined)
-const country = places.find(p => p.kind === 'country')
 const url = new URL(Astro.url.pathname, Astro.site).href
 const jsonld = [
   { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, alternativeHeadline: s.scientificName, inLanguage: lang, dateModified: s.updatedAt, image: s.photos[0]?.url, mainEntityOfPage: url,
@@ -51,33 +43,9 @@ const jsonld = [
     ...(served(lang, '/vi/phan-loai/x/') ? [{ '@type': 'ListItem', position: 2, name: s.family, item: new URL(`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`, Astro.site).href }] : []),
     { '@type': 'ListItem', position: served(lang, '/vi/phan-loai/x/') ? 3 : 2, name: s.t.name, item: url } ] },
 ]
-const firstSource = s.sections[0]
-const summary = await approvedSummary(s.id)
-// Every picture once, in page order (lib/pictures.ts): the photo, the gallery's first photos, the photos between the
-// sections, the breeds' cards. The gallery as its page has it (each picture once), so a thumb opens its own photo there.
-const pics = pagePictures(c)
-pics.add(s.photos[0]?.url)
-const gallery = distinctPhotos(c, c.galleries[s.id] ?? [])
-const strip = gallery.length >= GALLERY_MIN && served(lang, `/vi/ca/${s.t.slug}/anh/`) ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
-const figures = s.photos.slice(1).filter(p => pics.take([p]))
-// Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes) stay on /vi/.
-const vn = lang === 'vi'
-const videos = vn ? s.videos : s.videos.filter(v => (v.lang ?? 'en') !== 'vi')
+// What the page shows, chosen in page order (lib/species-page.ts, which the app's copy reads too).
+const { country, firstSource, summary, gallery, galleryPath, strip, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
 const alternates = await alternatesOf('species', s.id)
-const breeds = breedsOf(lang, c, s.id)
-const breedPhotos = takeEach(pics, breeds, b => b.photos)
-const mates = await companionsOf(lang, c, s.id)
-const showMates = !!(mates.self.temperament || mates.self.schoolMin || mates.good.length || mates.avoid.length)
-const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
-// A heading over a few words ("Mouthbrooder.") is shown as a quick fact instead (lib/sections.ts).
-const text = foldNearEmpty(s.sections, s.t, t)
-// The jump row: the parts readers look for, in page order (the photo strip comes before the text).
-const written = (key: SectionKey) => text.sections.some(x => x.key === key && text.t.sections[`${key}:${x.source}`])
-const JUMPS: [SectionKey, string][] = [['aquariumSize', 'Bể'], ['waterConditions', 'Nước'], ['diet', 'Thức ăn'], ['behaviour', 'Nuôi chung'], ['reproduction', 'Sinh sản']]
-const jumps = [
-  ...(strip.some(Boolean) ? [{ href: '#gal-h', label: t('Ảnh') }] : []),
-  ...JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) })),
-]
 ---
 <Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...breedPhotos].map(p => p ?? undefined))}>
   <Nav slot="header" />
@@ -103,12 +71,12 @@ const jumps = [
   </header>
   <JumpChips items={jumps} />
 
-  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={`/vi/ca/${s.t.slug}/anh/`} name={s.t.name} />}
+  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} />}
   {vn && summary && <QuickSummary summary={summary} />}
   <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} />
   <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
-  <GuideLinks guides={guidesMentioning(c, `species:${s.id}`).filter(g => !g.video)} heading={t('Bài viết nhắc đến loài này')} />
-  <VideoGuideGrid guides={guidesMentioning(c, `species:${s.id}`).filter(g => g.video)} heading={t('Có trong video hướng dẫn')} />
+  <GuideLinks guides={guides} heading={t('Bài viết nhắc đến loài này')} />
+  <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />
 
   <VideoFacade videos={videos} />
   <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} />

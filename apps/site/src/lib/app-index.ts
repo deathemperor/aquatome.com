@@ -1,4 +1,5 @@
 import { QUALITY_THRESHOLD, type BreedEntity, type Content, type Photo, type PlantEntity, type Traits } from '@aq/schema'
+import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
@@ -50,12 +51,31 @@ export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
 const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
 export type AppIndex = {
   version: 1; lang: Lang; items: AppItem[]; home: AppHome; labels: AppLabels
-  /** How many shards of pages each kind has (lib/app-page.ts): the app draws those pages itself. */
-  pages?: Partial<Record<'guide' | 'fish' | 'plant' | 'glossary', number>>
+  /**
+   * The shard counts of the first app's kind, guides (lib/app-page.ts). That app draws every kind listed here itself,
+   * so no kind is ever added to it (packages/schema/src/app-page.ts, PageShard).
+   */
+  pages?: Partial<Record<PageDoc['kind'], number>>
+  /** Every kind's shard count (`n`, as `pages` gives it) and the level an app must know to draw that kind itself. */
+  shards?: Partial<Record<PageDoc['kind'], KindShards>>
 }
 /** The guides the index lists in this language, and the app has pages of (lib/app-page.ts). */
 export function appGuides(lang: Lang, c: Content): Content['guides'] {
   return served(lang, '/vi/huong-dan/x/') ? c.guides.filter(g => g.t.quality.indexable) : []
+}
+/** A thin page (depth.ts) is out of search engines, not out of the app: its translation passed, it is only short. */
+const listedFish = (q: Content['species'][number]['t']['quality']) => q.indexable || (q.reason === 'thin' && q.score >= QUALITY_THRESHOLD)
+/** The species the index lists in this language, in the site's list order, and the app has pages of (lib/app-page.ts). */
+export function appSpecies(lang: Lang, c: Content): Content['species'] {
+  return served(lang, '/vi/ca/x/') ? listOrder(lang, c).filter(s => listedFish(s.t.quality)) : []
+}
+/** The plants the index lists in this language, and the app has pages of. */
+export function appPlants(lang: Lang, c: Content): Content['plants'] {
+  return served(lang, '/vi/cay/x/') ? c.plants.filter(p => p.t.quality.indexable) : []
+}
+/** The glossary terms the index lists in this language, and the app has pages of. */
+export function appGlossary(lang: Lang, c: Content): Content['glossary'] {
+  return served(lang, '/vi/thuat-ngu/x/') ? c.glossary.filter(g => g.t.quality.indexable) : []
 }
 /**
  * What the site's home page leads with, so the app leads with the same (lib/home.ts), in its order: the fish groups
@@ -82,26 +102,24 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const words = (labels: Record<string | number, string>) => Object.fromEntries(Object.entries(labels).map(([k, v]) => [k, t(v)]))
   const labels: AppLabels = { group: words(GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Omit<AppLabels, 'group' | 'section'>) }
   if (served(lang, '/vi/ca/x/')) {
-    // A thin page (depth.ts) is out of search engines, not out of the app: its translation passed, it is only short.
-    const listed = (q: Content['species'][number]['t']['quality']) => q.indexable || (q.reason === 'thin' && q.score >= QUALITY_THRESHOLD)
     // A group the site has no word for (a handful of fish) is "Loài khác", as the app shows it.
     const groupOf = new Map(everySpecies.map(s => [s.id, s.group in GROUP_LABELS ? s.group : 'other']))
-    for (const s of listOrder(lang, c)) {
-      if (!listed(s.t.quality)) continue
+    // The same species the app gets pages of.
+    for (const s of appSpecies(lang, c)) {
       const f = toIndexItem(s, traits.get(s.id))
       const facts = Object.fromEntries(FACTS.map(k => [k, f[k]]))
       items.push(clean({ kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), group: groupOf.get(s.id), ...facts }))
     }
     for (const b of c.breeds) {
-      if (listed(b.t.quality)) items.push(clean({ kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds) }))
+      if (listedFish(b.t.quality)) items.push(clean({ kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds) }))
     }
     home.groups = groupTiles(lang, c).map(g => (g.photo ? { id: g.group, img: smallSrc(g.photo) } : { id: g.group }))
     home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
   }
   if (served(lang, '/vi/cay/x/')) {
-    for (const p of c.plants) {
+    for (const p of appPlants(lang, c)) {
       const plant = { difficulty: p.difficulty, light: p.light, co2: p.co2, growth: p.growth, placement: p.placement }
-      if (p.t.quality.indexable) items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), plant }))
+      items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), plant }))
     }
     home.plants = easyPlants(c, 30).map(p => at(`/vi/cay/${p.t.slug}/`))
   }
@@ -116,9 +134,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
   if (served(lang, '/vi/thuat-ngu/x/')) {
-    for (const g of c.glossary) {
-      if (g.t.quality.indexable) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/thuat-ngu/${g.t.slug}/`) }))
-    }
+    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/thuat-ngu/${g.t.slug}/`) }))
   }
   if (served(lang, '/vi/video/x/')) {
     // A series as its page lists it, when one of its guides is in the index (the page is out of search engines otherwise),

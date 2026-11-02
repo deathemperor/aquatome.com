@@ -5,10 +5,10 @@ import { getContent } from '../../../../lib/content'
 import { LANGS } from '../../../../lib/i18n'
 
 // The app's copy of each content page, in shards (lib/app-page.ts): /app/pages/<lang>/<kind>-<n>.json. The app index
-// says how many shards each kind has.
+// says how many shards each kind has (`shards`), and the level an app must know to draw it.
 export const getStaticPaths: GetStaticPaths = async () =>
   (await Promise.all(LANGS.map(async lang =>
-    shardsOf(appPages(lang, await getContent(lang))).shards.map(s => ({ params: { lang, shard: `${s.kind}-${s.n}` }, props: { shard: s.shard } })),
+    shardsOf(await appPages(lang, await getContent(lang))).shards.map(s => ({ params: { lang, shard: `${s.kind}-${s.n}` }, props: { shard: s.shard } })),
   ))).flat()
 
 export const GET: APIRoute = ({ props }) => Response.json((props as { shard: PageShard }).shard)
