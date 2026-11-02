@@ -8,7 +8,8 @@ import Tanks
 /// `<sub>|<nonce or its SHA-256>`, and a fresh Apple authorization code for an Apple user is `good-<sub>`. An email
 /// sign-in takes any Turnstile token once, and its code is always `emailCode`; that account is kept under
 /// `email:<address>`. A passkey (`addPasskey`, as one added on aquatome.com) signs in with an answer from `assertion`,
-/// checked as the server checks one, short of the signature. Records are merged as the server merges them, a time ahead of `now` set to `now` first.
+/// checked as the server checks one, short of the signature; one made with `newPasskey` is added within 10 minutes of a
+/// sign-in, as the server allows (a session kept from before a relaunch counts as signed in long ago). Records are merged as the server merges them, a time ahead of `now` set to `now` first.
 @MainActor
 public final class FakeAccounts {
   public var accountsOn = true
@@ -35,6 +36,8 @@ public final class FakeAccounts {
   private var flows: [String: (key: String, tries: Int)] = [:]
   private var passkeys: [String: String] = [:] // credential id (base64url) → its account's key
   private var challenges: Set<String> = [] // passkey challenges (base64url), used once each
+  private var creations: [String: String] = [:] // challenges to add a passkey (base64url) → the account's key, used once each
+  private var signedAt: [String: Date] = [:] // token → when it signed in (none: before a relaunch)
   private var issued = 0
   static let appleClientIds = ["com.aquatome.web", "com.aquatome.app"]
 
@@ -81,6 +84,13 @@ public final class FakeAccounts {
   public static func assertion(for c: PasskeyChallenge, credentialId: Data, userHandle: Data?, origin: String? = nil) -> PasskeyAssertion {
     let client: JSON = .object(["type": .string("webauthn.get"), "challenge": .string(Base64URL.encode(c.challenge)), "origin": .string(origin ?? "https://\(c.rpId)")])
     return PasskeyAssertion(credentialId: credentialId, clientDataJSON: (try? client.data()) ?? Data(), authenticatorData: Data(repeating: 1, count: 37), signature: Data("signed".utf8), userHandle: userHandle)
+  }
+
+  /// The passkey a phone makes for a challenge to add one: client data as iOS writes it (`webauthn.create`, the
+  /// challenge, the origin https://<rpId>), and a stand-in attestation.
+  public static func newPasskey(for c: NewPasskeyChallenge, credentialId: Data, origin: String? = nil) -> NewPasskey {
+    let client: JSON = .object(["type": .string("webauthn.create"), "challenge": .string(Base64URL.encode(c.challenge)), "origin": .string(origin ?? "https://\(c.rpId)")])
+    return NewPasskey(credentialId: credentialId, clientDataJSON: (try? client.data()) ?? Data(), attestationObject: Data(repeating: 2, count: 64))
   }
 
   /// Ends every session of an account, as signing out elsewhere or deleting it there would.
@@ -165,6 +175,32 @@ public final class FakeAccounts {
       else { return try fail(401, "bad_passkey") }
       if let handle = r["userHandle"]?.string, handle != Base64URL.encode(Data(account.id.utf8)) { return try fail(401, "bad_passkey") }
       return try reply(200, signedIn(key, account.kind, bearer: bearer))
+    case ("POST", "/api/v1/account/passkey/options"), ("POST", "/api/v1/account/passkey"):
+      guard let s = sub else { return try fail(401, "signed_out") }
+      guard passkeysOn else { return try fail(503, "provider_off") }
+      guard let at = signedAt[bearer!], now().timeIntervalSince(at) <= 600 else { return try fail(403, "reauth_needed") }
+      let account = accounts[s]!
+      if path.hasSuffix("/options") {
+        issued += 1
+        let c = Base64URL.encode(Data("create-\(issued)".utf8))
+        creations[c] = s
+        return try reply(200, [
+          "challenge": .string(c), "rp": .object(["name": .string("AquaTome"), "id": .string("aquatome.com")]),
+          "user": .object(["id": .string(Base64URL.encode(Data(account.id.utf8))), "name": .string("AquaTome \(account.id.prefix(8))"), "displayName": .string("AquaTome")]),
+          "excludeCredentials": .array(passkeys.filter { $0.value == s }.keys.sorted().map { .object(["id": .string($0), "type": .string("public-key")]) }),
+          "attestation": .string("none"), "timeout": .number(300_000),
+        ])
+      }
+      // As SimpleWebAuthn reads a new passkey: id and rawId the same base64url, its client data for a challenge this
+      // account asked for (used once), from https://aquatome.com; a passkey no account has yet.
+      guard let a = body!["response"]?.object, let id = a["id"]?.string, a["rawId"]?.string == id, a["type"]?.string == "public-key",
+            let r = a["response"]?.object, let cd = r["clientDataJSON"]?.string.flatMap(Base64URL.decode), let client = (try? JSON.parse(cd))?.object,
+            r["attestationObject"]?.string?.isEmpty == false, client["type"]?.string == "webauthn.create", let c = client["challenge"]?.string,
+            creations.removeValue(forKey: c) == s, client["origin"]?.string == "https://aquatome.com"
+      else { return try fail(400, "bad_passkey") }
+      guard passkeys[id] == nil else { return try fail(409, "credential_in_use") }
+      passkeys[id] = s
+      return try reply(200, ["user": user(account, s)])
     case ("POST", "/api/v1/tanks/sync"):
       guard let s = sub else { return try fail(401, "signed_out") }
       if busy > 0 { busy -= 1; return try fail(409, "busy") }
@@ -216,6 +252,7 @@ public final class FakeAccounts {
     issued += 1
     let token = "token-\(issued)-" + String(repeating: "x", count: 24)
     tokens[token] = key
+    signedAt[token] = now()
     return ["user": user(accounts[key]!, key), "token": .string(token)]
   }
 

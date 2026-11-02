@@ -1,8 +1,8 @@
 import AccountSync
 import SwiftUI
 
-/// "Đồng bộ giữa các thiết bị" at the end of the tank list, as on the site's page: signing in, the sync, signing out
-/// and deleting the account. Shown only when the server offers accounts.
+/// "Đồng bộ giữa các thiết bị" at the end of the tank list, as on the site's page: signing in, the sync, adding a
+/// passkey, signing out and deleting the account. Shown only when the server offers accounts.
 struct AccountSection: View {
   @Environment(AccountModel.self) private var account
   @State private var confirmDelete = false
@@ -24,12 +24,25 @@ struct AccountSection: View {
       } footer: {
         Fine()
       }
-    case .signedIn(let user):
+    case .signedIn:
       Section {
-        Text(status(user)).accessibilityIdentifier("account-status").accessibilityValue(syncsForTests)
+        Text(status).accessibilityIdentifier("account-status").accessibilityValue(syncsForTests)
         Button("Đồng bộ ngay") { Task { await account.sync() } }
           .disabled(account.syncing || !account.canSync)
           .accessibilityIdentifier("sync-now")
+        if account.offersPasskey {
+          Button("Thêm passkey") { Task { await account.addPasskey() } }
+            .disabled(account.working || account.signingInAgain)
+            .accessibilityIdentifier("passkey-add")
+        }
+        if account.signingInAgain {
+          Text("Vì an toàn, đăng nhập lại trước khi thêm: chọn một cách tài khoản này đang dùng (\(account.ways)).")
+            .accessibilityIdentifier("sign-in-again")
+          SignInButton()
+          Button("Hủy") { account.cancelSigningInAgain() }
+            .disabled(account.working)
+            .accessibilityIdentifier("cancel-sign-in-again")
+        }
         Button("Đăng xuất") { Task { await account.signOut() } }
           .disabled(account.working)
           .accessibilityIdentifier("sign-out")
@@ -57,11 +70,8 @@ struct AccountSection: View {
     #endif
   }
 
-  private func status(_ user: AccountUser) -> String {
-    let kinds = ["apple": "Apple", "google": "Google", "email": "email", "passkey": "passkey"]
-    var ways: [String] = []
-    for m in user.methods { let w = kinds[m.kind] ?? m.kind; if !ways.contains(w) { ways.append(w) } }
-    let list = ways.formatted(.list(type: .and, width: .narrow))
+  private var status: String {
+    let list = account.ways
     guard let at = account.syncedAt else { return String(localized: "Đã đăng nhập bằng \(list).") }
     return String(localized: "Đã đăng nhập bằng \(list). Đồng bộ lúc \(at.formatted(date: .omitted, time: .shortened)).")
   }

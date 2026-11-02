@@ -83,6 +83,43 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(waitForSyncs(app, 1), "no sync after signing in")
   }
 
+  func testAPasskeyAddedInTheAppOpensItsAccountAndLaterSigningInAgainComesFirst() {
+    // Signed in a moment ago: the passkey is made and added straight away, and it signs in on its own.
+    var app = launch(resetServer: true)
+    signIn(app)
+    tap(app, "passkey-add")
+    XCTAssertTrue(says(app, "Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy."), message(app))
+    XCTAssertTrue(app.staticTexts["account-status"].label.contains("passkey"), app.staticTexts["account-status"].label)
+    tap(app, "sign-out")
+    tap(app, "passkey-sign-in")
+    XCTAssertTrue(app.staticTexts["account-status"].waitForExistence(timeout: 5), "the passkey didn't sign in")
+    app.terminate()
+
+    // The same phone later (a session from before the relaunch counts as signed in long ago): signing in again comes
+    // first, then the add carries on, and finds the phone has this account's passkey already.
+    app = launch(newPhone: false)
+    tap(app, "passkey-add")
+    XCTAssertTrue(element(app, "sign-in-again").waitForExistence(timeout: 5), "not asked to sign in again")
+    tap(app, "apple-sign-in")
+    XCTAssertTrue(says(app, "Máy này đã có passkey của tài khoản này."), message(app))
+    XCTAssertFalse(element(app, "sign-in-again").exists, "still asked to sign in again")
+  }
+
+  func testWhatTheAddSaysAfterSigningInAgainByEmailStays() {
+    // The stand-in's one passkey belongs to the Apple account; this phone signs in by email, to another.
+    var app = launch(resetServer: true, "-seed-passkey")
+    emailSignIn(app, "reader@example.com")
+    app.terminate()
+
+    // Later: signing in again by email, then the add is refused, and says so (the sync after signing in doesn't clear it).
+    app = launch(newPhone: false)
+    tap(app, "passkey-add")
+    XCTAssertTrue(element(app, "sign-in-again").waitForExistence(timeout: 5), "not asked to sign in again")
+    emailSignIn(app, "reader@example.com")
+    XCTAssertTrue(says(app, "Cách đăng nhập này đã thuộc một tài khoản khác."), message(app))
+    XCTAssertFalse(element(app, "sign-in-again").exists, "still asked to sign in again")
+  }
+
   func testWithAccountsOffThereIsNoSignIn() {
     let app = launch(resetServer: true, accounts: "off")
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5))
@@ -99,10 +136,11 @@ final class AccountFlowTests: XCTestCase {
 
   // MARK: Helpers
 
-  private func launch(resetServer: Bool = false, accounts: String = "on", _ args: String...) -> XCUIApplication {
+  /// `newPhone`: as a new install (signed out, nothing saved); otherwise the phone as the last launch left it.
+  private func launch(resetServer: Bool = false, newPhone: Bool = true, accounts: String = "on", _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-fake-accounts", accounts]
-      + (resetServer ? ["-reset-fake-server"] : []) + args
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", accounts]
+      + (newPhone ? ["-reset-defaults"] : []) + (resetServer ? ["-reset-fake-server"] : []) + args
     app.launch()
     app.tabBars.buttons["Bể của tôi"].tap()
     return app
@@ -163,6 +201,12 @@ final class AccountFlowTests: XCTestCase {
   private func waitForSyncs(_ app: XCUIApplication, _ n: Int) -> Bool {
     let done = expectation(for: NSPredicate { _, _ in self.syncs(app) >= n }, evaluatedWith: nil)
     return XCTWaiter().wait(for: [done], timeout: 10) == .completed
+  }
+
+  /// Waits for the account's message to read `text`.
+  private func says(_ app: XCUIApplication, _ text: String) -> Bool {
+    let said = expectation(for: NSPredicate(format: "label == %@", text), evaluatedWith: app.staticTexts["account-message"].firstMatch)
+    return XCTWaiter().wait(for: [said], timeout: 5) == .completed
   }
 
   private func message(_ app: XCUIApplication) -> String {
