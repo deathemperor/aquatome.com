@@ -13,6 +13,8 @@ public enum Readers {
     /// Marked "Trả lời hay" on the site.
     public let helpful: Bool
     public let createdAt: Date
+    /// Who wrote it, opaque: the same for everything one account posts; nil from a Worker that doesn't say.
+    public let author: String?
   }
 
   public struct Photo: Sendable, Equatable {
@@ -22,6 +24,8 @@ public enum Readers {
     public let thumb: String
     public let width: Int
     public let height: Int
+    /// Who sent it, as a comment's `author`.
+    public let author: String?
   }
 
   /// Where the comments, or readers' photos, of the page `key` names are on `site`.
@@ -48,7 +52,7 @@ public enum Readers {
     entries(data, "comments").compactMap { o in
       guard let id = o["id"] as? String, let name = o["name"] as? String, let body = o["body"] as? String,
             let at = (o["createdAt"] as? String).flatMap(date) else { return nil }
-      return Comment(id: id, name: name, body: body, helpful: o["helpful"] as? Bool ?? false, createdAt: at)
+      return Comment(id: id, name: name, body: body, helpful: o["helpful"] as? Bool ?? false, createdAt: at, author: o["author"] as? String)
     }
   }
 
@@ -56,7 +60,7 @@ public enum Readers {
     entries(data, "photos").compactMap { o in
       guard let id = o["id"] as? String, let name = o["name"] as? String, let url = o["url"] as? String, let thumb = o["thumb"] as? String,
             let w = o["width"] as? Int, let h = o["height"] as? Int, w > 0, h > 0 else { return nil }
-      return Photo(id: id, name: name, url: url, thumb: thumb, width: w, height: h)
+      return Photo(id: id, name: name, url: url, thumb: thumb, width: w, height: h, author: o["author"] as? String)
     }
   }
 
@@ -145,6 +149,45 @@ public enum Readers {
     let code = o?["error"] as? String
     return status == 401 && code == "session" ? .signedOut : .refused(code ?? "failed")
   }
+
+  // Reporting (POST /api/v1/report): a reader's comment or photo, to moderation, which takes it off public pages at once.
+
+  /// A report of the comment or photo `id` (`kind`: "comment" or "photo"), with the reader's reason if they gave one: as
+  /// the account when signed in (`token`), else as the site's own page sends it (same-origin).
+  public static func report(_ kind: String, id: String, reason: String?, site: URL, token: String?, version: String) -> URLRequest {
+    var r = request(site.appending(path: "api/v1/report"), version: version)
+    r.httpMethod = "POST"
+    r.httpShouldHandleCookies = false
+    if let token {
+      r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    } else {
+      r.setValue(site.absoluteString.trimmingCharacters(in: ["/"]), forHTTPHeaderField: "Origin")
+    }
+    r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    r.httpBody = try? JSONSerialization.data(withJSONObject: ["kind": kind, "id": id].merging(reason.map { ["reason": $0] } ?? [:]) { a, _ in a },
+                                             options: [.sortedKeys])
+    return r
+  }
+
+  /// What became of a report: received (also one sent before, or of an item already gone from public pages), the
+  /// account's session over, or refused with the site's code (`rate`, `bad report`, …; `failed` with none).
+  public enum Reported: Sendable, Equatable {
+    case received, signedOut
+    case refused(String)
+  }
+
+  public static func reported(_ data: Data, status: Int) -> Reported {
+    let o = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+    if status == 202 && o?["status"] as? String == "received" { return .received }
+    // Not public any more: taken off by another report, or removed. The reader's wish is met.
+    if status == 404 { return .received }
+    let code = o?["error"] as? String
+    return status == 401 && code == "session" ? .signedOut : .refused(code ?? "failed")
+  }
+
+  /// What the reader blocks to hide a comment's or photo's poster on their phone: its `author`, or, from a Worker that
+  /// doesn't say, that one post.
+  public static func blockKey(author: String?, id: String) -> String { author ?? "post:\(id)" }
 
   /// The Worker's code for a comment it refuses unread (apps/site/worker/comments/rules.ts parseComment), or nil: a name
   /// of 1–40 and a comment of 2–2000, trimmed, counted as JavaScript counts them (UTF-16 units).

@@ -1,5 +1,6 @@
 #if DEBUG
 // Tests and the simulator only: not in a release build.
+import CryptoKit
 import Foundation
 import Tanks
 
@@ -31,6 +32,11 @@ public final class FakeAccounts {
   public private(set) var wanted: [[String: JSON]] = []
   /// Readers' comments (`/_c`) and photos (`/_p`) posted from the app, each with its fields and its account.
   public private(set) var posts: [(path: String, account: String, fields: [String: String])] = []
+  /// The comments and photos public on the site, as `comment:<id>` or `photo:<id>`: what POST /api/v1/report takes. A
+  /// comment posted and shown at once joins them.
+  public var reportable: Set<String> = []
+  /// The reports taken, in order: who sent each (an account, or nil from the page's way) and what they said.
+  public private(set) var reports: [(account: String?, kind: String, id: String, reason: String?)] = []
 
   struct Account { let id: String; var kind = "apple"; var store = TankStore() }
   private var accounts: [String: Account] = [:] // by Apple sub, or `email:<address>`
@@ -114,6 +120,11 @@ public final class FakeAccounts {
     return out
   }
 
+  /// An account's posts' `author`, as the Worker writes it: 16 hex characters from the account, the same for each post.
+  public static func author(account: String) -> String {
+    SHA256.hash(data: Data("fake-key|account:\(account)".utf8)).prefix(8).map { String(format: "%02x", $0) }.joined()
+  }
+
   public func send(_ r: URLRequest) async throws -> (Data, HTTPURLResponse) {
     requests.append(r)
     if offline { throw URLError(.notConnectedToInternet) }
@@ -135,6 +146,22 @@ public final class FakeAccounts {
             b["name"]?.string?.isEmpty == false else { return try fail(400, "bad_name") }
       wanted.append(b)
       return try reply(204)
+    }
+    // A reader's report (POST /api/v1/report), signed in or not, accounts on or off, read as the Worker reads it
+    // (protocols/talk.openapi.json): a bearer gone, 401; no bearer and not the site's page, 403; 20 a day per address and
+    // per account; the same reporter reporting the same item again, received and nothing more.
+    if path == "/api/v1/report" {
+      guard method == "POST" else { return try fail(405, "method") }
+      if let bearer, tokens[bearer] == nil || !accountsOn { return try fail(401, "session") }
+      if bearer == nil, r.value(forHTTPHeaderField: "Origin") != "https://aquatome.com" { return try fail(403, "cross-origin") }
+      guard let b = body, let kind = b["kind"]?.string, ["comment", "photo"].contains(kind), let id = b["id"]?.string, !id.isEmpty,
+            Set(b.keys).isSubset(of: ["kind", "id", "reason"]), b["reason"] == nil || (b["reason"]?.string).map({ $0.utf16.count <= 500 }) == true
+      else { return try fail(400, "bad report") }
+      guard reportable.contains("\(kind):\(id)") else { return try fail(404, "not found") }
+      if reports.contains(where: { $0.account == sub && $0.kind == kind && $0.id == id }) { return try reply(202, ["status": .string("received")]) }
+      if reports.count >= 20 || (sub != nil && reports.filter({ $0.account == sub }).count >= 20) { return try fail(429, "rate") }
+      reports.append((sub, kind, id, b["reason"]?.string))
+      return try reply(202, ["status": .string("received")])
     }
     // Readers' comments and photos posted as the account, checked as apps/site/worker/comments/api.ts and photos.ts check
     // them, in their order (protocols/talk.openapi.json). No Authorization header is the website, and from the app a
@@ -158,8 +185,10 @@ public final class FakeAccounts {
         let duplicate = posts.contains { $0.path == path && $0.fields["e"] == e && trim($0.fields["body"] ?? "") == text }
         posts.append((path, sub, f))
         if earlier.count >= 5 || held("\(name)\n\(text)") || duplicate { return try reply(201, ["status": .string("held")]) }
-        let comment: [String: JSON] = ["id": .string(UUID().uuidString), "name": .string(name), "body": .string(text), "helpful": .bool(false),
-                                       "createdAt": .string(ISO8601DateFormatter().string(from: now()))]
+        let id = UUID().uuidString
+        reportable.insert("comment:\(id)")
+        let comment: [String: JSON] = ["id": .string(id), "name": .string(name), "body": .string(text), "helpful": .bool(false),
+                                       "createdAt": .string(ISO8601DateFormatter().string(from: now())), "author": .string(Self.author(account: sub))]
         return try reply(201, ["status": .string("approved"), "comment": .object(comment)])
       }
       let maxBytes = 8 << 20

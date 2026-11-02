@@ -17,6 +17,8 @@ final class FakeServer {
     fake = (try? JSON.parse(Data(contentsOf: file))).map { FakeAccounts(snapshot: $0) } ?? FakeAccounts()
     fake.accountsOn = args.firstIndex(of: "-fake-accounts").map { $0 + 1 < args.count && args[$0 + 1] == "on" } ?? false
     if args.contains("-seed-passkey") { fake.addPasskey(FakePasskeySignIn.credentialId, to: "ui-apple") }
+    // The fixed pages' readers' comments and photos (HandbookIndex.fixtureReaders), as reports find them.
+    fake.reportable.formUnion(["comment:c1", "comment:c2", "photo:p1", "photo:p2"])
   }
 
   func send(_ r: URLRequest) async throws -> (Data, HTTPURLResponse) {

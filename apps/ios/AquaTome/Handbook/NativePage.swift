@@ -406,6 +406,8 @@ private struct GalleryRow: View {
   let strip: [Int]
   /// Its "all photos" button's identifier: a page's own gallery's, or its readers'.
   var all = "gallery-all"
+  /// Readers' photos, each as the reader can report it or block who sent it (in the viewer); a page's own, none.
+  var readers: [ReaderItem]?
   @State private var shown: Int?
 
   var body: some View {
@@ -434,7 +436,7 @@ private struct GalleryRow: View {
         .accessibilityIdentifier(all)
     }
     .sheet(isPresented: Binding(get: { shown != nil }, set: { if !$0 { shown = nil } })) {
-      GalleryViewer(title: title, note: note, photos: photos, index: shown ?? 0)
+      GalleryViewer(title: title, note: note, photos: photos, readers: readers, index: shown ?? 0)
     }
   }
 }
@@ -444,8 +446,11 @@ private struct GalleryViewer: View {
   let title: String
   let note: String
   let photos: [PageDoc.Image]
+  let readers: [ReaderItem]?
   @State var index: Int
   @Environment(\.dismiss) private var dismiss
+  @State private var reporting: ReaderItem?
+  @State private var blocking: ReaderItem?
 
   var body: some View {
     NavigationStack {
@@ -470,7 +475,14 @@ private struct GalleryViewer: View {
       }
       .navigationTitle(title)
       .navigationBarTitleDisplayMode(.inline)
-      .toolbar { Button("Đóng") { dismiss() } }
+      .toolbar {
+        ToolbarItem(placement: .primaryAction) { Button("Đóng") { dismiss() } }
+        // A reader's photo: report it, or block who sent it; then the viewer closes, and the row shows it no more.
+        if let readers, readers.indices.contains(index) {
+          ToolbarItem(placement: .topBarLeading) { ReaderMenu(item: readers[index], reporting: $reporting, blocking: $blocking) }
+        }
+      }
+      .readerActions(reporting: $reporting, blocking: $blocking) { dismiss() }
       .accessibilityIdentifier("gallery")
     }
   }
@@ -488,11 +500,17 @@ private struct ReadersPart: View {
   @State private var comments: [Readers.Comment]?
   @State private var photos: [Readers.Photo]?
   @State private var posting: ReaderPost.Kind?
+  @State private var reporting: ReaderItem?
+  @State private var blocking: ReaderItem?
+  @State private var managing = false
 
   var body: some View {
     // Posting needs an account: where the site has none, a section with nothing in it would only be empty.
     let open = account.state != .unknown && account.state != .off
-    let shownPhotos = photos ?? [], shownComments = comments ?? []
+    // Less what the reader reported or whose poster they blocked, on this phone.
+    let safety = handbook.safety
+    let shownPhotos = (photos ?? []).filter { !safety.hides(ReaderItem($0)) }, shownComments = (comments ?? []).filter { !safety.hides(ReaderItem($0)) }
+    let hidden = (photos ?? []).count - shownPhotos.count + (comments ?? []).count - shownComments.count
     VStack(alignment: .leading, spacing: 14) {
       if talk.photos != nil && (open || !shownPhotos.isEmpty) {
         if shownPhotos.isEmpty {
@@ -501,7 +519,7 @@ private struct ReadersPart: View {
         } else {
           GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map {
             PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: ($0.name, "", nil))
-          }, strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all")
+          }, strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all", readers: shownPhotos.map(ReaderItem.init))
         }
         if open { Button("Gửi ảnh \(name) của bạn") { posting = .photo }.accessibilityIdentifier("post-photo") }
       }
@@ -509,9 +527,29 @@ private struct ReadersPart: View {
         Text("Thảo luận").font(.title3.bold()).accessibilityAddTraits(.isHeader)
         if comments?.isEmpty == true { Text("Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.").foregroundStyle(.secondary) }
         ForEach(shownComments, id: \.id) { c in
-          Text(line(c)).frame(maxWidth: .infinity, alignment: .leading).accessibilityIdentifier("comment")
+          HStack(alignment: .top, spacing: 4) {
+            Text(line(c)).frame(maxWidth: .infinity, alignment: .leading).accessibilityIdentifier("comment")
+            ReaderMenu(item: ReaderItem(c), reporting: $reporting, blocking: $blocking)
+          }
         }
         if open { Button("Gửi bình luận") { posting = .comment }.accessibilityIdentifier("post-comment") }
+      }
+      if hidden > 0 {
+        // What's kept off this page, and where to let a poster back.
+        VStack(alignment: .leading, spacing: 4) {
+          Text("Đang ẩn \(hidden) mục bạn đã chặn hoặc báo cáo.").foregroundStyle(.secondary).accessibilityIdentifier("readers-hidden")
+          if !safety.blocked.isEmpty { Button("Người đã chặn") { managing = true }.accessibilityIdentifier("blocked-open") }
+        }
+        .font(.footnote)
+      }
+    }
+    .readerActions(reporting: $reporting, blocking: $blocking)
+    .sheet(isPresented: $managing) {
+      NavigationStack {
+        List { BlockedList() }
+          .navigationTitle("Người đã chặn")
+          .navigationBarTitleDisplayMode(.inline)
+          .toolbar { Button("Đóng") { managing = false } }
       }
     }
     .task(id: talk) {

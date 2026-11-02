@@ -30,6 +30,8 @@ final class HandbookModel {
   private(set) var shelves = HandbookShelves(HandbookIndex(lang: "vi", items: []))
   /// The reader's own comments shown at once, by page key, until the site's list has them (`readers`).
   @ObservationIgnored private var mine: [String: [Readers.Comment]] = [:]
+  /// The readers the reader blocks and the posts they report, kept off their screen on this phone.
+  let safety = ReaderSafety()
   /// The site's words for the keys items carry, in this language.
   private(set) var labels = HandbookIndex.Labels()
   /// How many shards of pages each kind has: the kinds the app draws itself (PageDoc).
@@ -408,13 +410,13 @@ extension HandbookIndex {
   /// readers' photos, as the site's Worker answers. The plant asks too, and the site has none for it.
   static let fixtureReaders: [String: Data] = [
     "https://aquatome.com/_c?e=species:paracheirodon-innesi": Data(#"""
-    {"comments":[{"id":"c1","name":"Lan","body":"Nuôi đàn 10 con, khỏe sau 2 năm.","helpful":true,"createdAt":"2026-10-30T18:30:00.000Z"},
-                 {"id":"c2","name":"Minh","body":"Nước mềm thì màu đẹp hơn.","helpful":false,"createdAt":"2026-11-01T02:00:00.000Z"}],
+    {"comments":[{"id":"c1","name":"Lan","body":"Nuôi đàn 10 con, khỏe sau 2 năm.","helpful":true,"createdAt":"2026-10-30T18:30:00.000Z","author":"a1a1a1a1a1a1a1a1"},
+                 {"id":"c2","name":"Minh","body":"Nước mềm thì màu đẹp hơn.","helpful":false,"createdAt":"2026-11-01T02:00:00.000Z","author":"b2b2b2b2b2b2b2b2"}],
      "sitekey":"k","verification":"none"}
     """#.utf8),
     "https://aquatome.com/_p?e=species:paracheirodon-innesi": Data(#"""
-    {"photos":[{"id":"p1","name":"Lan","url":"https://media.aquatome.com/r/p1.webp","thumb":"https://media.aquatome.com/r/p1-t.webp","width":1600,"height":1200,"createdAt":"2026-10-30T18:30:00.000Z"},
-               {"id":"p2","name":"Minh","url":"https://media.aquatome.com/r/p2.webp","thumb":"https://media.aquatome.com/r/p2-t.webp","width":1200,"height":1200,"createdAt":"2026-10-29T08:00:00.000Z"}],
+    {"photos":[{"id":"p1","name":"Lan","url":"https://media.aquatome.com/r/p1.webp","thumb":"https://media.aquatome.com/r/p1-t.webp","width":1600,"height":1200,"createdAt":"2026-10-30T18:30:00.000Z","author":"a1a1a1a1a1a1a1a1"},
+               {"id":"p2","name":"Minh","url":"https://media.aquatome.com/r/p2.webp","thumb":"https://media.aquatome.com/r/p2-t.webp","width":1200,"height":1200,"createdAt":"2026-10-29T08:00:00.000Z","author":"b2b2b2b2b2b2b2b2"}],
      "sitekey":"k","verification":"none"}
     """#.utf8),
     "https://aquatome.com/_c?e=plant:rotala-rotundifolia": Data(#"{"comments":[],"sitekey":"k","verification":"none"}"#.utf8),

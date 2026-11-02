@@ -1,7 +1,8 @@
 import XCTest
 
 /// A reader's comment or photo posted to a page from the app as their aquatome.com account, on the stand-in server
-/// (no network): signed out, the sign-in comes first.
+/// (no network): signed out, the sign-in comes first. And another reader's, reported or its poster blocked (App Store
+/// guideline 1.2), signed in or not.
 final class ReaderPostFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -104,13 +105,141 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertFalse(app.buttons["post-photo"].exists)
   }
 
+  // MARK: Reporting and blocking
+
+  /// Signed out, a comment reported is sent as the site's page sends it, thanked for, and kept off this phone from then
+  /// on, past a relaunch; the others stay.
+  func testAReportedCommentIsHiddenFromThenOn() {
+    var app = launch()
+    openNeon(app)
+    act(app, "Tùy chọn cho bình luận của Lan", "Báo cáo")
+    XCTAssertTrue(app.staticTexts["Báo cáo bình luận này?"].waitForExistence(timeout: 5), "not asked why")
+    app.buttons["Spam hoặc quảng cáo"].tap()
+    thanked(app)
+    XCTAssertTrue(gone(comment(app, "Lan")), "the reported comment still shows")
+    XCTAssertTrue(comment(app, "Minh").exists, "the other comment went too")
+    let note = app.descendants(matching: .any)["readers-hidden"]
+    XCTAssertTrue(note.waitForExistence(timeout: 5), "not said what's hidden")
+    XCTAssertEqual(note.label, "Đang ẩn 1 mục bạn đã chặn hoặc báo cáo.")
+    app.terminate()
+    app = launch(reset: false)
+    openNeon(app)
+    reveal(app, comment(app, "Minh"))
+    XCTAssertFalse(comment(app, "Lan").exists, "the reported comment is back after a relaunch")
+  }
+
+  /// A reader's photo reported from its viewer, with no reason given: the viewer closes on the thanks, the photo gone
+  /// from the page.
+  func testAReadersPhotoIsReportedFromItsViewer() {
+    let app = launch()
+    openNeon(app)
+    let photo = app.buttons["Ảnh của Lan"]
+    reveal(app, photo)
+    photo.tap()
+    let menu = readerMenu(app, "Tùy chọn cho ảnh của Lan")
+    XCTAssertTrue(menu.waitForExistence(timeout: 5), "no options in the photo's viewer")
+    menu.tap()
+    app.buttons["Báo cáo"].tap()
+    XCTAssertTrue(app.staticTexts["Báo cáo ảnh này?"].waitForExistence(timeout: 5), "not asked why")
+    app.buttons["Lý do khác"].tap()
+    thanked(app)
+    XCTAssertTrue(gone(app.descendants(matching: .any)["gallery"]), "the viewer stayed open")
+    XCTAssertFalse(app.buttons["Ảnh của Lan"].exists, "the reported photo still shows")
+    XCTAssertTrue(app.buttons["Ảnh của Minh"].exists, "the other photo went too")
+  }
+
+  /// Blocking who wrote a comment hides everything they posted, their photos too, until they're let back from the page.
+  func testABlockedPosterIsHiddenUntilLetBackFromThePage() {
+    let app = launch()
+    openNeon(app)
+    act(app, "Tùy chọn cho bình luận của Lan", "Chặn người này")
+    XCTAssertTrue(app.staticTexts["Chặn Lan?"].waitForExistence(timeout: 5), "not asked")
+    app.buttons["Chặn"].tap()
+    XCTAssertTrue(gone(comment(app, "Lan")), "the blocked poster's comment still shows")
+    XCTAssertFalse(app.buttons["Ảnh của Lan"].exists, "the blocked poster's photo still shows")
+    XCTAssertTrue(comment(app, "Minh").exists && app.buttons["Ảnh của Minh"].exists, "another's went too")
+    let note = app.descendants(matching: .any)["readers-hidden"]
+    reveal(app, note)
+    XCTAssertEqual(note.label, "Đang ẩn 2 mục bạn đã chặn hoặc báo cáo.")
+    app.buttons["blocked-open"].tap()
+    let unblock = app.buttons["unblock"]
+    XCTAssertTrue(unblock.waitForExistence(timeout: 5), "no one to unblock")
+    XCTAssertEqual(unblock.label, "Bỏ chặn Lan")
+    unblock.tap()
+    app.buttons["Đóng"].tap()
+    XCTAssertTrue(comment(app, "Lan").waitForExistence(timeout: 5), "let back, still hidden")
+    XCTAssertTrue(app.buttons["Ảnh của Lan"].exists, "let back, their photo still hidden")
+  }
+
+  /// The posters blocked are listed in the tanks tab, with no tanks and signed out, each to let back.
+  func testABlockedPosterIsListedInTheTanksTab() {
+    let app = launch()
+    openNeon(app)
+    act(app, "Tùy chọn cho bình luận của Minh", "Chặn người này")
+    let block = app.buttons["Chặn"]
+    XCTAssertTrue(block.waitForExistence(timeout: 5), "not asked")
+    block.tap()
+    XCTAssertTrue(gone(comment(app, "Minh")), "the blocked poster's comment still shows")
+    app.tabBars.buttons["Bể của tôi"].tap()
+    let header = app.descendants(matching: .any)["blocked-header"]
+    for _ in 0..<4 where !header.exists { app.swipeUp() }
+    XCTAssertTrue(header.waitForExistence(timeout: 5), "no blocked list in the tanks tab")
+    let unblock = app.buttons["unblock"]
+    XCTAssertEqual(unblock.label, "Bỏ chặn Minh")
+    unblock.tap()
+    XCTAssertTrue(gone(header), "the list stayed with no one in it")
+    app.tabBars.buttons["Tìm"].tap()
+    XCTAssertTrue(comment(app, "Minh").waitForExistence(timeout: 5), "let back, still hidden")
+  }
+
+  /// AquaTome's contact page is a tap away on the Tìm home, signed out with accounts off.
+  func testTheContactPageIsReachableSignedOut() {
+    let app = launch(accounts: "off")
+    XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no search field")
+    let contact = app.descendants(matching: .any)["contact"]
+    for _ in 0..<12 where !(contact.exists && contact.isHittable) { app.swipeUp() }
+    XCTAssertTrue(contact.exists && contact.isHittable, "no contact link on the home")
+    XCTAssertEqual(contact.label, "Liên hệ AquaTome")
+  }
+
   // MARK: Helpers
 
-  private func launch(accounts: String = "on", _ more: String...) -> XCUIApplication {
+  private func launch(accounts: String = "on", reset: Bool = true, _ more: String...) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", accounts, "-reset-fake-server"] + more
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN"] + (reset ? ["-reset-defaults"] : [])
+      + ["-fixed-handbook", "-fake-accounts", accounts, "-reset-fake-server"] + more
     app.launch()
     return app
+  }
+
+  /// A comment on the page by `name`.
+  private func comment(_ app: XCUIApplication, _ name: String) -> XCUIElement {
+    app.descendants(matching: .any).matching(identifier: "comment").matching(NSPredicate(format: "label BEGINSWITH %@", "\(name) ")).firstMatch
+  }
+
+  private func readerMenu(_ app: XCUIApplication, _ label: String) -> XCUIElement {
+    app.buttons.matching(identifier: "reader-menu").matching(NSPredicate(format: "label == %@", label)).firstMatch
+  }
+
+  /// A comment's "…", then one of its choices.
+  private func act(_ app: XCUIApplication, _ menu: String, _ choice: String) {
+    let button = readerMenu(app, menu)
+    reveal(app, button)
+    button.tap()
+    let item = app.buttons[choice]
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(choice) in \(menu)")
+    item.tap()
+  }
+
+  /// The report received, and the thanks closed.
+  private func thanked(_ app: XCUIApplication) {
+    let thanks = app.alerts["Đã gửi báo cáo. Cảm ơn bạn."]
+    XCTAssertTrue(thanks.waitForExistence(timeout: 5), "the report wasn't received")
+    thanks.buttons["Đóng"].tap()
+  }
+
+  private func gone(_ e: XCUIElement) -> Bool {
+    XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: e)], timeout: 5) == .completed
   }
 
   private func openNeon(_ app: XCUIApplication) {
