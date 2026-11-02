@@ -1,4 +1,4 @@
-name: ios
+name: "iOS app: build and tests"
 # The iOS app (apps/ios): its Chihiros protocol and tank store code are checked against the vectors the site uses
 # (protocols/).
 on:
@@ -33,7 +33,35 @@ env:
     testTheWriteBarStaysInViewAndSaysWhatWillBeWritten testWritesAPresetThenAnotherThenUndoesBackToTheFirst
     testWritingAScheduleEndsTheManualLevels
 jobs:
+  # Which of the two long flow jobs a pull request needs (apps/ios/scripts/flows-to-run.py says how it decides): a
+  # change the lights' flows can't reach doesn't hold a macOS runner for them, which the site's engine shares. Job
+  # `app` always runs, and main runs everything after a merge.
+  changes:
+    name: "iOS app: which flows this change needs"
+    runs-on: ubuntu-latest
+    outputs:
+      handbook: ${{ steps.pick.outputs.handbook }}
+      lights: ${{ steps.pick.outputs.lights }}
+    steps:
+      # A pull request is checked out as its merge with main: its first parent is main, so the diff is its change.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 2
+      # bash as `shell:` fails on any part of the pipe (pipefail): a script or diff that breaks fails the job, rather
+      # than leaving both flow jobs skipped on a green run. A moved file is listed at both ends (--no-renames), and a
+      # path with Vietnamese letters as itself (quotePath).
+      - id: pick
+        shell: bash
+        run: |
+          python3 apps/ios/scripts/flows-to-run.py --test
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
+            git -c core.quotePath=false diff --no-renames --name-only HEAD^1 HEAD |
+              python3 apps/ios/scripts/flows-to-run.py | tee -a "$GITHUB_OUTPUT"
+          else
+            printf 'handbook=true\nlights=true\n' | tee -a "$GITHUB_OUTPUT"
+          fi
   kit:
+    name: "iOS kit: unit tests"
     runs-on: macos-26
     timeout-minutes: 20
     steps:
@@ -43,6 +71,7 @@ jobs:
       - run: swift build && swift test
         working-directory: apps/ios/AquaTomeKit
   app:
+    name: "iOS app: other flows, strings, performance and size"
     runs-on: macos-26
     timeout-minutes: 60
     steps:
@@ -106,6 +135,9 @@ jobs:
   # `app` ran out of its hour on a slow runner, in the performance tests after 52 minutes of flows (15 of them the
   # build), with only the facts card added to main; the handbook stack (#313 to #341) adds more.
   handbook:
+    name: "iOS app: handbook and tank-life flows"
+    needs: changes
+    if: needs.changes.outputs.handbook == 'true'
     runs-on: macos-26
     timeout-minutes: 60
     steps:
@@ -131,6 +163,9 @@ jobs:
   # a minute or more): on two runners, beside jobs `app` and `handbook`. One runner outgrew its hour on 2026-11-01 (#312:
   # 58 minutes of flows, 37 of them the lights'), then the lights alone reached 51 minutes on a slow runner (#315).
   lights:
+    name: "iOS app: light flows (${{ matrix.half }} of 2)"
+    needs: changes
+    if: needs.changes.outputs.lights == 'true'
     runs-on: macos-26
     timeout-minutes: 60
     strategy:
