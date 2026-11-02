@@ -50,3 +50,23 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   // Without the index (a web page's own links), as before.
   #expect(screen("https://aquatome.com/vi/ca/ca-neon/") == nil)
 }
+
+@Test func aLinkToAGroupTheAppHasOpensItsShelfInEachLanguage() {
+  // apps/site/src/lib/i18n.ts: nhom, kelompok, groups; a group's numbered pages are the same shelf.
+  let hasGroup: (String) -> Bool = { ["catfish", "tetras"].contains($0) }
+  let group = { (s: String) in AppScreen.of(URL(string: s)!, site: site, group: hasGroup) }
+  #expect(group("https://aquatome.com/vi/nhom/catfish/") == .group("catfish"))
+  #expect(group("https://www.aquatome.com/vi/nhom/tetras") == .group("tetras"))
+  #expect(group("https://aquatome.com/id/kelompok/catfish/") == .group("catfish"))
+  #expect(group("https://aquatome.com/th/groups/catfish/") == .group("catfish"))
+  #expect(group("https://aquatome.com/vi/nhom/catfish/trang/2/") == .group("catfish"))
+  #expect(group("https://aquatome.com/id/kelompok/catfish/halaman/3/") == .group("catfish"))
+  // A group the app has no fish of, a segment of another language, or a link asking for more: the web page.
+  #expect(group("https://aquatome.com/vi/nhom/killifish/") == nil)
+  #expect(group("https://aquatome.com/vi/groups/catfish/") == nil)
+  #expect(group("https://aquatome.com/vi/nhom/catfish/?sort=size") == nil)
+  #expect(group("https://aquatome.com/vi/nhom/") == nil)
+  #expect(group("https://aquatome.com/vi/nhom/catfish/khac/") == nil)
+  // Without what the app has (a web page's own links), as before.
+  #expect(screen("https://aquatome.com/vi/nhom/catfish/") == nil)
+}

@@ -54,6 +54,7 @@ struct TanksView: View {
       .navigationTitle("Bể của tôi")
       .navigationDestination(for: String.self) { id in TankDetail(id: id) }
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
+      .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
           Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }
