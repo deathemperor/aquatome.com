@@ -7,7 +7,7 @@ import WebKit
 /// One of the site's pages, in the app, from either tab: drawn by the app from the site's blocks when the site publishes
 /// its kind that way (NativePage, kept on the phone by PageCache), else the web page. Each web page read is kept on the
 /// phone (a web archive) and shown from there when the phone is offline. The toolbar, the facts and "read" are the same
-/// for both.
+/// for both: the facts under the name on the app's page, across the top of the web page.
 struct PageView: View {
   let item: HandbookIndex.Item
   let url: URL
@@ -26,7 +26,7 @@ struct PageView: View {
     let native = handbook.drawsItself(item) && !onWeb
     Group {
       if native, let pieces {
-        NativePage(pieces: pieces) { onWeb = true }
+        NativePage(pieces: pieces, facts: facts(inPage: true)) { onWeb = true }
       } else if native && !tried {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {
@@ -63,10 +63,8 @@ struct PageView: View {
       }
       .safeAreaInset(edge: .top) {
         VStack(spacing: 0) {
-          // A fish's facts, from the index on the phone: there offline, with or without the page.
-          if item.kind == .fish, item.facts.any { FactsCard(facts: item.facts) }
-          // A plant's care, as its page lists it: not a temperature the index may also have for it.
-          if item.kind == .plant, let plant = item.plant, plant.any { FactsCard(facts: .init(), plant: plant) }
+          // Over the web page: the page the app draws has them under its name.
+          if !(native && (pieces != nil || !tried)), let facts = facts(inPage: false) { facts }
           if offline || failed {
             Text(failed ? "Không tải được trang. Kiểm tra kết nối mạng." : "Đang xem bản đã lưu (ngoại tuyến).")
               .font(.footnote)
@@ -79,6 +77,14 @@ struct PageView: View {
       }
       .onAppear { handbook.read(item) }
       .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+  }
+
+  /// A fish's facts, from the index on the phone (there offline, with or without the page); a plant's care, as its page
+  /// lists it, not a temperature the index may also have for it.
+  private func facts(inPage: Bool) -> FactsCard? {
+    if item.kind == .fish, item.facts.any { return FactsCard(facts: item.facts, inPage: inPage) }
+    if item.kind == .plant, let plant = item.plant, plant.any { return FactsCard(facts: .init(), plant: plant, inPage: inPage) }
+    return nil
   }
 }
 

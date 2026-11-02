@@ -1,40 +1,69 @@
 import Handbook
 import SwiftUI
 
-/// A species' facts above its page: size, temperature, pH, hardness, the shortest tank, temperament, difficulty, as the
-/// site's pages write them; a plant's care (difficulty, light, CO₂, growth, where it goes). They come from the
-/// handbook's index kept on the phone, so they show offline too, page or no page: the page's own copy doesn't repeat them.
+/// A species' facts: size, temperature, pH, hardness, the shortest tank, temperament, difficulty, as the site's pages
+/// write them; a plant's care (difficulty, light, CO₂, growth, where it goes). They come from the handbook's index kept
+/// on the phone, so they show offline too, page or no page: the page's own copy doesn't repeat them. On a page the app
+/// draws (`inPage`), all of them at once under its name; over a web page, a row across its top.
 struct FactsCard: View {
   let facts: HandbookIndex.Facts
   var plant: HandbookIndex.Plant?
+  var inPage = false
   @Environment(HandbookModel.self) private var handbook
+  @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
-    // Numbers as the page's language writes them, as the site does (format.ts), not as the phone's region would.
-    let locale = Locale(identifier: handbook.lang)
-    ScrollView(.horizontal, showsIndicators: false) {
-      HStack(alignment: .top, spacing: 16) {
-        if let plant {
-          // As the plant's page lists them, in the index's words for this language (PLANT_LABELS).
-          let word = { (key: String, value: String) in handbook.labels[key, value] ?? value }
-          if let d = plant.difficulty { Fact(label: "Độ khó", value: word("difficulty", "\(d)")) }
-          if let l = plant.light { Fact(label: "Ánh sáng", value: word("light", l)) }
-          if let c = plant.co2 { Fact(label: "CO₂", value: word("co2", c)) }
-          if let g = plant.growth { Fact(label: "Tốc độ mọc", value: word("growth", g)) }
-          if !plant.placement.isEmpty { Fact(label: "Vị trí", value: plant.placement.map { word("placement", $0) }.joined(separator: ", ")) }
+    let all = items
+    if inPage {
+      // As many to a row as fit the reader's text size: three, two, or one at the largest.
+      let n = size.isAccessibilitySize ? 1 : size >= .xxLarge ? 2 : 3
+      Grid(alignment: .topLeading, horizontalSpacing: 12, verticalSpacing: 16) {
+        ForEach(Array(stride(from: 0, to: all.count, by: n)), id: \.self) { start in
+          GridRow {
+            ForEach(start..<min(start + n, all.count), id: \.self) { i in
+              Fact(label: all[i].label, value: all[i].value, large: true).frame(maxWidth: .infinity, alignment: .leading)
+            }
+          }
         }
-        if let v = facts.sizeCm { Fact(label: "Kích thước", value: "\(HandbookIndex.Facts.number(v, locale)) cm") }
-        if let r = facts.tempC { Fact(label: "Nhiệt độ", value: "\(HandbookIndex.Facts.range(r, locale))°C") }
-        if let r = facts.ph { Fact(label: "pH", value: HandbookIndex.Facts.range(r, locale)) }
-        if let r = facts.gh { Fact(label: "Độ cứng (dGH)", value: HandbookIndex.Facts.range(r, locale)) }
-        if let v = facts.tankCm { Fact(label: "Bể tối thiểu", value: "\(HandbookIndex.Facts.number(v, locale)) cm") }
-        if let t = facts.temperament.flatMap(Self.temperament) { Fact(label: "Tính cách", value: t) }
-        if let d = facts.difficulty { Fact(label: "Độ khó", value: Self.level(d)) }
       }
-      .padding(.horizontal)
-      .padding(.vertical, 8)
+      .padding(16)
+      .background(.fill.quaternary, in: .rect(cornerRadius: 12))
+      .accessibilityElement(children: .contain)
+      .accessibilityIdentifier("facts-card")
+    } else {
+      ScrollView(.horizontal, showsIndicators: false) {
+        HStack(alignment: .top, spacing: 16) {
+          ForEach(all.indices, id: \.self) { i in Fact(label: all[i].label, value: all[i].value) }
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+      }
+      .accessibilityIdentifier("facts-card")
     }
-    .accessibilityIdentifier("facts-card")
+  }
+
+  /// Each fact and its value in the site's order, numbers as the page's language writes them, as the site does
+  /// (format.ts), not as the phone's region would.
+  private var items: [(label: LocalizedStringKey, value: String)] {
+    let locale = Locale(identifier: handbook.lang)
+    var out: [(label: LocalizedStringKey, value: String)] = []
+    if let plant {
+      // As the plant's page lists them, in the index's words for this language (PLANT_LABELS).
+      let word = { (key: String, value: String) in handbook.labels[key, value] ?? value }
+      if let d = plant.difficulty { out.append(("Độ khó", word("difficulty", "\(d)"))) }
+      if let l = plant.light { out.append(("Ánh sáng", word("light", l))) }
+      if let c = plant.co2 { out.append(("CO₂", word("co2", c))) }
+      if let g = plant.growth { out.append(("Tốc độ mọc", word("growth", g))) }
+      if !plant.placement.isEmpty { out.append(("Vị trí", plant.placement.map { word("placement", $0) }.joined(separator: ", "))) }
+    }
+    if let v = facts.sizeCm { out.append(("Kích thước", "\(HandbookIndex.Facts.number(v, locale)) cm")) }
+    if let r = facts.tempC { out.append(("Nhiệt độ", "\(HandbookIndex.Facts.range(r, locale))°C")) }
+    if let r = facts.ph { out.append(("pH", HandbookIndex.Facts.range(r, locale))) }
+    if let r = facts.gh { out.append(("Độ cứng (dGH)", HandbookIndex.Facts.range(r, locale))) }
+    if let v = facts.tankCm { out.append(("Bể tối thiểu", "\(HandbookIndex.Facts.number(v, locale)) cm")) }
+    if let t = facts.temperament.flatMap(Self.temperament) { out.append(("Tính cách", t)) }
+    if let d = facts.difficulty { out.append(("Độ khó", Self.level(d))) }
+    return out
   }
 
   /// The site's words for each temperament (TEMPERAMENT_LABELS).
@@ -60,11 +89,13 @@ struct FactsCard: View {
 private struct Fact: View {
   let label: LocalizedStringKey
   let value: String
+  /// In the page's grid: the value at a size to read at a glance.
+  var large = false
 
   var body: some View {
-    VStack(alignment: .leading, spacing: 2) {
+    VStack(alignment: .leading, spacing: large ? 4 : 2) {
       Text(label).font(.caption).foregroundStyle(.secondary)
-      Text(verbatim: value).font(.subheadline.weight(.semibold)).monospacedDigit()
+      Text(verbatim: value).font(large ? .title3.weight(.semibold) : .subheadline.weight(.semibold)).monospacedDigit()
     }
     .accessibilityElement(children: .combine)
     .accessibilityIdentifier("fact")
