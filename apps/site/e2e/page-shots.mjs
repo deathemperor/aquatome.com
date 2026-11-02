@@ -5,7 +5,7 @@
 //
 // Pages: the paths given, else a sample of the after build (one or two of each kind of page, e2e/pages.ts samplePages).
 // <out dir>/summary.md lists the pages that look different, new or gone; each different one has
-// <slug>/<phone|computer>/{before,after,side-by-side}.png. A page whose shots are the same bytes in both is left out.
+// <slug>/<phone|computer>/{before,after,side-by-side}.png. A page whose shots are the same in both (`differs`) is left out.
 import { spawn } from 'node:child_process'
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
@@ -58,6 +58,25 @@ async function shot(context, port, path) {
   return png
 }
 
+// Two shots the same but for a few pixels of a letter's smoothed edge (a font drawn a hair differently) aren't a change:
+// a pixel counts when a colour moved by more than PIXEL, a pair when more than PIXELS of them did.
+const PIXEL = 24
+const PIXELS = 8
+const scratch = await browser.newPage()
+async function differs(a, b) {
+  if (Buffer.compare(a, b) === 0) return false
+  return scratch.evaluate(async ([a, b, PIXEL, PIXELS]) => {
+    const load = src => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = `data:image/png;base64,${src}` })
+    const [x, y] = await Promise.all([load(a), load(b)])
+    if (x.width !== y.width || x.height !== y.height) return true
+    const pixels = i => { const c = new OffscreenCanvas(i.width, i.height).getContext('2d'); c.drawImage(i, 0, 0); return c.getImageData(0, 0, i.width, i.height).data }
+    const [p, q] = [pixels(x), pixels(y)]
+    let n = 0
+    for (let k = 0; k < p.length; k += 4) if (Math.max(Math.abs(p[k] - q[k]), Math.abs(p[k + 1] - q[k + 1]), Math.abs(p[k + 2] - q[k + 2])) > PIXEL && ++n > PIXELS) return true
+    return false
+  }, [a.toString('base64'), b.toString('base64'), PIXEL, PIXELS])
+}
+
 const slug = path => path.replace(/^\/|\/$/g, '').replace(/[^\w-]+/g, '-') || 'root'
 const changed = []
 const added = []
@@ -77,7 +96,7 @@ for (const [size, device] of Object.entries(SIZES)) {
   }
   for (const path of pages) {
     const [a, b] = shots.get(path)
-    if (!a || (b && Buffer.compare(a, b) === 0)) continue
+    if (!a || (b && !(await differs(a, b)))) continue
     const dir = join(out, slug(path), size)
     mkdirSync(dir, { recursive: true })
     writeFileSync(join(dir, 'after.png'), a)
