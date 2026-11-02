@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest'
 import { sourceOf, summariseReaders } from '../readers'
-import { renderDashboard, renderReaders } from '../dashboard'
+import { overviewPage, readersPage } from '../admin/pages'
+import { unset } from '../admin/shell'
 
 test('readers: sessions that scrolled half a page or stayed 30 s; sources, top pages and countries from readers', () => {
   const sessions = [
@@ -22,15 +23,26 @@ test('readers: sessions that scrolled half a page or stayed 30 s; sources, top p
   expect(r.countries).toEqual([{ cc: 'US', readers: 1 }, { cc: 'VN', readers: 1 }])
   expect(sourceOf('l.facebook.com')).toBe('facebook')
   expect(sourceOf('www.aquariumcoop.com')).toBe('aquariumcoop.com')
-  const html = renderReaders(r)
+  const now = new Date('2026-10-29T12:00:00Z')
+  const html = readersPage(now, r)
   expect(html).toContain('Người đọc thật')
   expect(html).toContain('/vi/ca/ca-betta/')
-  const dash = renderDashboard()
-  expect(dash).not.toContain('Phiên') // readers live on their own page, /_ab/ only links to it
+  expect(html).toContain('Phiên và người đọc mỗi ngày')
+  // The overview counts readers over 7 days and links to their page, which has the details.
+  const dash = overviewPage({ now, readers: r.daily, clicks: unset('D1'), fish: unset('AE'), photos: unset('ảnh'), wanted: unset('KV') })
   expect(dash).toContain('href="/_ab/doc-gia/"')
+  expect(dash).toContain('Người đọc · 7 ngày')
+  expect(dash).not.toContain('/vi/ca/ca-betta/')
+  // Not configured, or Analytics Engine failing: said in its place.
+  expect(readersPage(now, undefined)).toContain('Chưa cấu hình AE_API_TOKEN')
+  expect(readersPage(now, { failed: 'analytics engine sql 422: bad' })).toContain('analytics engine sql 422: bad')
 })
 
 test('Analytics Engine IF() needs one type: decimal columns default to 0.0 (an integer 0 is a 422)', async () => {
-  const src = (await import('node:fs')).readFileSync(new URL('../readers.ts', import.meta.url).pathname, 'utf8')
-  expect(src).not.toMatch(/double1, 0\)/)
+  const { readFileSync } = await import('node:fs')
+  for (const f of ['../readers.ts', '../admin/fishid.ts']) {
+    const src = readFileSync(new URL(f, import.meta.url).pathname, 'utf8')
+    expect(src, f).not.toMatch(/IF\([^()]*double\d+, 0\)/)
+    expect(src, f).not.toMatch(/IF\([^()]*, double\d+\)/)
+  }
 })

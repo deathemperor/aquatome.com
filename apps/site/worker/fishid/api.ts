@@ -79,8 +79,8 @@ export const kvHealth = (kv: KVNamespace): HealthStore => {
     },
   }
 }
-/** Today's (UTC) count: identifications, and calls per key. One KV value, written once per identification. */
-type Day = { calls: number; keys: Record<string, number> }
+/** Today's (UTC) count: identifications, calls per key, and the calls each key got an answer to. One KV value, written once per identification. */
+type Day = { calls: number; keys: Record<string, number>; ok?: Record<string, number> }
 const dayKey = (now: Date) => `fishid:day:${now.toISOString().slice(0, 10)}`
 const readDay = async (kv: KVNamespace, now: Date): Promise<Day> => (await kv.get<Day>(dayKey(now), 'json')) ?? { calls: 0, keys: {} }
 
@@ -89,7 +89,7 @@ const keysOf = (text: string) => (keysCache?.text === text ? keysCache.keys : (k
 
 let catalogCache: { at: number; origin: string; catalog: Promise<Catalog | null> } | undefined
 /** The pages to link to, from the deploy's own assets (built with the pages), kept 10 minutes per isolate; a failed read isn't kept, so the next photo tries again. */
-function catalogOf(env: FishIdEnv, origin: string): Promise<Catalog | null> {
+export function catalogOf(env: Pick<FishIdEnv, 'ASSETS'>, origin: string): Promise<Catalog | null> {
   if (catalogCache && catalogCache.origin === origin && Date.now() - catalogCache.at < 600_000) return catalogCache.catalog
   const entry = { at: Date.now(), origin, catalog: Promise.resolve<Catalog | null>(null) }
   entry.catalog = env.ASSETS.fetch(new Request(new URL('/app/fish-id.json', origin))).then(r => (r.ok ? (r.json() as Promise<Catalog>) : null)).catch(() => null).then(c => {
@@ -218,6 +218,7 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
   const out = await rotate(healthy, store, (key, timeoutMs) => askClaude(key, photo, { model, lang: up.lang, timeoutMs, fetch: deps.fetch ?? (env.FISHID_RELAY ? relayFetch(env.FISHID_RELAY) : undefined) }), { random: deps.random })
   day.calls++
   for (const a of out.attempts) day.keys[a.hash] = (day.keys[a.hash] ?? 0) + 1
+  if (out.ok) day.ok = { ...day.ok, [out.hash]: (day.ok?.[out.hash] ?? 0) + 1 }
   await env.AB.put(dayKey(now), JSON.stringify(day), { expirationTtl: 3 * DAY_SEC })
   const line = deps.log ?? (l => console.log(JSON.stringify(l)))
   const log = (outcome: string, extra: Record<string, unknown> = {}) => {
@@ -262,8 +263,8 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
 }
 const slim = (a: Attempt) => ({ key: a.hash, ms: a.ms, ...(a.status ? { status: a.status } : {}), ...(a.marked ? { marked: a.marked } : {}) })
 
-/** The owner's dashboard: each key by number and hash, whether it is in use or set aside (until when), today's calls. */
-export type KeyRow = { n: number; hash: string; workspace: boolean; state: 'ok' | KeyProblem; until?: string; calls: number }
+/** The owner's dashboard: each key by number and hash, whether it is in use or set aside (until when), today's calls with it and the answers among them. */
+export type KeyRow = { n: number; hash: string; workspace: boolean; state: 'ok' | KeyProblem; until?: string; calls: number; answered: number }
 export type FishIdStatus = { rows: KeyRow[]; bad: number; today: number; model: string }
 export async function fishIdStatus(env: FishIdEnv, now: Date): Promise<FishIdStatus | undefined> {
   const text = env.ANTHROPIC_KEYS
@@ -274,7 +275,7 @@ export async function fishIdStatus(env: FishIdEnv, now: Date): Promise<FishIdSta
   const rows = await Promise.all(keys.map(async (k, i): Promise<KeyRow> => {
     const h = await store.get(k.hash).catch(() => null)
     const off = h && h.until > now.getTime() ? h : null
-    return { n: i + 1, hash: k.hash, workspace: Boolean(k.workspace), state: off ? off.why : 'ok', ...(off ? { until: new Date(off.until).toISOString() } : {}), calls: day.keys[k.hash] ?? 0 }
+    return { n: i + 1, hash: k.hash, workspace: Boolean(k.workspace), state: off ? off.why : 'ok', ...(off ? { until: new Date(off.until).toISOString() } : {}), calls: day.keys[k.hash] ?? 0, answered: day.ok?.[k.hash] ?? 0 }
   }))
   return { rows, bad, today: day.calls, model: env.FISH_ID_MODEL || DEFAULT_MODEL }
 }
