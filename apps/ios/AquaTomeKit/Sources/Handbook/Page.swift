@@ -78,6 +78,11 @@ public struct PageDoc: Sendable {
     /// The photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page.
     public let credit: (text: String, licence: String, url: String?)?
 
+    /// A photo the page doesn't carry (a reader's): `credit`, who took it.
+    public init(src: String, w: Int, h: Int, alt: String?, thumb: String?, credit: (text: String, licence: String, url: String?)?) {
+      self.src = src; self.w = w; self.h = h; self.alt = alt; self.thumb = thumb; self.credit = credit
+    }
+
     init?(json v: Any?) {
       guard let o = v as? [String: Any], let src = o["src"] as? String, let w = o["w"] as? Int, let h = o["h"] as? Int, w > 0, h > 0 else { return nil }
       self.src = src; self.w = w; self.h = h

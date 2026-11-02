@@ -162,6 +162,47 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   }
 }
 
+@Test func readersCommentsAndPhotosAreReadAsTheWorkerAnswersAndALooseEntryIsLeftOut() {
+  let site = URL(string: "https://aquatome.com")!
+  #expect(Readers.url(comments: "id:species:betta-splendens", site: site).absoluteString == "https://aquatome.com/_c?e=id:species:betta-splendens")
+  #expect(Readers.url(photos: "species:betta-splendens", site: site).absoluteString == "https://aquatome.com/_p?e=species:betta-splendens")
+  // Named as the app's, for the site's logs.
+  #expect(Readers.request(site, version: "1.4").value(forHTTPHeaderField: "User-Agent") == "AquaTome-iOS/1.4")
+  // apps/site/worker/comments/api.ts and photos.ts: their answers, with one entry each missing a part.
+  let comments = Data(#"""
+  {"comments":[{"id":"c1","name":"Lan","body":"Nuôi đàn 10 con.\n\nỔn.","helpful":true,"createdAt":"2026-10-30T18:30:00.000Z"},
+               {"id":"c2","name":"Minh","helpful":false,"createdAt":"2026-10-31T01:00:00.000Z"},
+               {"id":"c3","name":"Hà","body":"https://x.example","helpful":false,"createdAt":"2026-10-31T01:00:00Z"}],
+   "sitekey":"k","verification":"none"}
+  """#.utf8)
+  let read = Readers.comments(comments)
+  #expect(read.map(\.id) == ["c1", "c3"])
+  #expect(read[0].helpful && read[0].body == "Nuôi đàn 10 con.\n\nỔn." && !read[1].helpful)
+  let photos = Data(#"""
+  {"photos":[{"id":"p1","name":"Lan","url":"https://media.aquatome.com/r/p1.webp","thumb":"https://media.aquatome.com/r/p1-t.webp","width":1600,"height":1200,"createdAt":"2026-10-30T18:30:00.000Z"},
+             {"id":"p2","name":"Minh","url":"https://media.aquatome.com/r/p2.webp","width":0,"height":1200}]}
+  """#.utf8)
+  #expect(Readers.photos(photos) == [.init(id: "p1", name: "Lan", url: "https://media.aquatome.com/r/p1.webp", thumb: "https://media.aquatome.com/r/p1-t.webp", width: 1600, height: 1200)])
+  #expect(Readers.comments(Data("off".utf8)).isEmpty && Readers.photos(Data(#"{"error":"bad entity"}"#.utf8)).isEmpty)
+}
+
+@Test func aCommentsDayIsTheSitesInEachLanguage() throws {
+  // What apps/site/src/scripts/comments.ts's date() gives, from node's Intl: the day in Vietnam, Buddhist years in Thai.
+  let days: [(String, [String])] = [
+    ("2026-10-30T18:30:00.000Z", ["31/10/2026", "31/10/2026", "31/10/2569"]),
+    ("2026-01-05T03:00:00.000Z", ["5/1/2026", "5/1/2026", "5/1/2569"]),
+    ("2026-12-31T17:30:00.000Z", ["1/1/2027", "1/1/2027", "1/1/2570"]),
+    // A time written at Vietnam's offset (late on the 31st there), and one without its milliseconds.
+    ("2026-12-31T23:30:00.000+07:00", ["31/12/2026", "31/12/2026", "31/12/2569"]),
+    ("2026-12-31T17:30:00Z", ["1/1/2027", "1/1/2027", "1/1/2570"]),
+    ("2026-12-31T16:59:59.000Z", ["31/12/2026", "31/12/2026", "31/12/2569"]),
+  ]
+  for (iso, want) in days {
+    let d = try #require(Readers.comments(Data(#"{"comments":[{"id":"c","name":"n","body":"b","createdAt":"\#(iso)"}]}"#.utf8)).first?.createdAt)
+    #expect(["vi", "id", "th"].map { Readers.day(d, lang: $0) } == want, "\(iso)")
+  }
+}
+
 @Test func aGalleryNamingAPhotoItLacksIsTheWebNotACrash() throws {
   let photo: [String: Any] = ["src": "https://x/1.jpg", "w": 4, "h": 3]
   let d = try doc(page([["t": "gallery", "title": "Ảnh", "note": "1 ảnh", "photos": [photo], "strip": [0, 3]]]))

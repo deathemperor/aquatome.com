@@ -140,7 +140,7 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, text(app, "Mùa đông miền Bắc"))
     let all = app.buttons["gallery-all"]
     reveal(app, all)
-    XCTAssertEqual(all.label, "Xem tất cả 3 ảnh")
+    XCTAssertEqual(all.label, "Ảnh Cá neon, Xem tất cả 3 ảnh", "not read with whose photos they are")
     XCTAssertTrue(app.links["Ảnh: Tác giả 1 · CC BY 2.0"].exists, "a photo in the row without its credit")
     all.tap()
     XCTAssertTrue(app.descendants(matching: .any)["gallery"].waitForExistence(timeout: 5), "no gallery")
@@ -193,6 +193,31 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, breed)
     breed.tap()
     XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-neon-vang/"].waitForExistence(timeout: 15), "not the breed's web page in the app")
+  }
+
+  /// Readers' photos and comments at the end of a fish's page, as the site has them: each photo with its reader's name,
+  /// each comment with who, the day as the site writes it, and the site's mark on a good answer. A plant the site has
+  /// none for shows neither.
+  func testAFishsReadersPhotosAndCommentsShowAndAPlantWithNoneShowsNeither() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    let first = app.descendants(matching: .any).matching(identifier: "comment").element(boundBy: 0)
+    reveal(app, first)
+    XCTAssertTrue(text(app, "Ảnh bạn đọc").exists, "no readers' photos")
+    XCTAssertTrue(app.buttons["Ảnh của Lan"].exists, "a reader's photo without its words")
+    XCTAssertEqual(app.buttons["readers-all"].label, "Ảnh bạn đọc, Xem tất cả 2 ảnh", "the readers' photos don't open full size")
+    XCTAssertTrue(text(app, "Thảo luận").exists, "no comments")
+    XCTAssertEqual(first.label, "Lan  31/10/2026  Trả lời hay\nNuôi đàn 10 con, khỏe sau 2 năm.")
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "comment").element(boundBy: 1).label.hasPrefix("Minh  1/11/2026\n"))
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    let field = app.searchFields.firstMatch
+    field.buttons.firstMatch.tap() // clears it
+    openItem(app, "rotala", "Rotala đỏ")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5))
+    for _ in 0..<4 { app.swipeUp() }
+    // Its readers' content is read once the page is open: given time to come, none does.
+    XCTAssertFalse(text(app, "Thảo luận").waitForExistence(timeout: 3), "comments shown for a plant that has none")
+    XCTAssertFalse(text(app, "Ảnh bạn đọc").exists)
   }
 
   func testAFishPageSaysWhatEachPartIs() throws {
