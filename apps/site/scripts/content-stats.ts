@@ -327,7 +327,8 @@ function engineStats(dir: string, sourcesInfo: Json, now: Date): Omit<EngineStat
     else if (s?.status === 'error' && (s.attempts ?? 0) >= MAX_ATTEMPTS) videos.failed++
     else videos.waiting++
   }
-  const days = Array.from({ length: 14 }, (_, i) => new Date(now.getTime() - (13 - i) * 86_400_000).toISOString().slice(0, 10))
+  // 31 days: the dashboard's 30 whole days and today, as its other lines.
+  const days = Array.from({ length: 31 }, (_, i) => new Date(now.getTime() - (30 - i) * 86_400_000).toISOString().slice(0, 10))
   const per = new Map(days.map(d => [d, 0]))
   for (const s of Object.values(yt)) if (s.status === 'processed' && per.has(String(s.updatedAt).slice(0, 10))) per.set(String(s.updatedAt).slice(0, 10), per.get(String(s.updatedAt).slice(0, 10))! + 1)
   videos.perDay = days.map(day => ({ day, n: per.get(day)! }))

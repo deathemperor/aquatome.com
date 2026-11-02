@@ -4,6 +4,8 @@ import type { Readers } from '../readers'
 import type { Wanted } from '../wanted'
 import { chip, dayChart, deltaHtml, esc, fmt, lastDays, rankTable, spark, tiles, usd } from './chart'
 import type { AccountStats, Waiting } from './data'
+import type { ContentStats, Snapshot } from './content'
+import { items as itemCount, KIND as PAGE_KIND, MAIN, perDay } from './content-page'
 import type { Call, FishIdStats, Totals } from './fishid'
 import { failedBox, ICON, isFailed, page, type Soft } from './shell'
 
@@ -36,12 +38,18 @@ export type Overview = {
   wanted: Soft<{ names: Wanted[]; more: boolean }>
   accounts: Soft<AccountStats>
   hidden: Soft<Hidden>
+  /** The build's content.json (admin/content.ts), and the totals kept each night. */
+  content: Soft<ContentStats>
+  snapshots: Soft<Snapshot[]>
 }
 
 const VS = '7 ngày trước đó'
 const MODERATION_RUNS = 'https://github.com/deathemperor/aquatome.com/actions/workflows/moderate.yml'
-/** 2026-11-03T21:05… → 03/11 21:05 */
-const short = (iso: string) => `${iso.slice(8, 10)}/${iso.slice(5, 7)} ${iso.slice(11, 16)}`
+/** A moment in Vietnam's time, as the bar shows the time: 2026-11-03T21:05Z → 04/11 04:05 */
+const short = (iso: string) => {
+  const d = new Date(Date.parse(iso) + 7 * 3_600_000).toISOString()
+  return `${d.slice(8, 10)}/${d.slice(5, 7)} ${d.slice(11, 16)}`
+}
 const WEEKDAY = ['Chủ nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy']
 /** The last value of each list is today's: the value `back` days before it. */
 const at = (vals: number[], back: number) => vals[vals.length - 1 - back] ?? 0
@@ -52,6 +60,7 @@ const parts = (o: Overview): [string, Soft<unknown>, string][] => [
   ['người đọc', o.readers, '/_ab/doc-gia/'], ['lượt bấm affiliate', o.clicks, '/_ab/affiliate/'], ['nhật ký nhận diện cá', o.fish, '/_ab/nhan-dien-ca/'],
   ['bình luận và tài khoản', o.accounts, '/_ab/tai-khoan/'], ['hàng chờ kiểm duyệt', o.waiting, '/_ab/tai-khoan/'], ['ảnh bạn đọc', o.photos, '/_ab/anh-ban-doc/'],
   ['danh sách bạn đọc muốn có', o.wanted, '/_ab/muon-co/'], ['danh sách trang ẩn', o.hidden, '/_ab/an-trang/'],
+  ['số liệu nội dung', o.content, '/_ab/noi-dung/'], ['số liệu nội dung từng ngày', o.snapshots, '/_ab/noi-dung/'],
 ]
 
 export type Todo = { title: string; text: string; href: string; action: string }
@@ -65,13 +74,20 @@ export function todos(o: Overview): Todo[] {
     const off = o.keys.rows.filter(r => r.state !== 'ok')
     if (off.length) {
       const all = off.length === o.keys.rows.length
-      out.push({ title: all ? 'Nhận diện cá không chạy: mọi key đang nghỉ' : `${fmt(off.length)} key Anthropic đang nghỉ`, text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)} UTC` : ''}`).join(' · '), ...key })
+      out.push({ title: all ? 'Nhận diện cá không chạy: mọi key đang nghỉ' : `${fmt(off.length)} key Anthropic đang nghỉ`, text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)}` : ''}`).join(' · '), ...key })
     }
     if (o.keys.bad) out.push({ title: `${fmt(o.keys.bad)} dòng trong ANTHROPIC_KEYS không đọc được`, text: 'Công cụ bỏ qua những dòng đó: sửa secret ANTHROPIC_KEYS.', ...key })
   }
   // The moderation runs at 21:00 UTC each night: anything still waiting after 30 hours means a night was missed.
   if (!isFailed(o.waiting) && o.waiting.oldest && o.now.getTime() - Date.parse(o.waiting.oldest) > 30 * 3_600_000) {
-    out.push({ title: 'Kiểm duyệt đêm chưa chạy', text: `${waitingText(o.waiting)} chờ từ ${short(o.waiting.oldest)} UTC. Kiểm duyệt chạy mỗi đêm lúc 4 giờ sáng giờ Việt Nam.`, href: MODERATION_RUNS, action: 'Xem lần chạy' })
+    out.push({ title: 'Kiểm duyệt đêm chưa chạy', text: `${waitingText(o.waiting)} chờ từ ${short(o.waiting.oldest)}. Kiểm duyệt chạy mỗi đêm lúc 4 giờ sáng giờ Việt Nam.`, href: MODERATION_RUNS, action: 'Xem lần chạy' })
+  }
+  // A source behind a browser check stops until the owner passes it in the engine's Chrome profile.
+  const engine = isFailed(o.content) ? null : o.content.engine
+  const human = engine?.needsHuman ?? []
+  if (human.length) {
+    const name = (id: string) => engine!.sources.find(r => r.id === id)?.name ?? id
+    out.push({ title: human.length > 1 ? `${fmt(human.length)} nguồn cần bạn qua kiểm tra trình duyệt` : `Nguồn ${name(human[0]!.source)} cần bạn qua kiểm tra trình duyệt`, text: `Engine dừng lấy trang từ ${human.map(h => `${name(h.source)} (từ ${short(h.since)})`).join(', ')} cho tới khi bạn mở nguồn đó trong hồ sơ Chrome của engine.`, href: '/_ab/noi-dung/#engine', action: 'Xem engine' })
   }
   for (const [label, part, href] of parts(o)) {
     if (isFailed(part)) out.push({ title: `Không tải được ${label}`, text: part.failed.slice(0, 160), href, action: 'Mở' })
@@ -89,6 +105,22 @@ export function areas(o: Overview): Area[] {
   else {
     const r = alignDaily(lastDays(o.now, 31), o.readers)
     out.push({ name: 'Người đọc', href: '/_ab/doc-gia/', fig: fmt(ago(r.readers, 7, 1)), sub: `người đọc · 7 ngày · ${fmt(ago(r.sessions, 7, 1))} phiên`, spark: whole(r.readers), chip: chip(ago(r.readers, 7, 1), ago(r.readers, 14, 8), VS, 'up') })
+  }
+  if (isFailed(o.content)) out.push(failedArea('Nội dung', '/_ab/noi-dung/', o.content))
+  else {
+    const c = o.content
+    const snaps = isFailed(o.snapshots) ? [] : o.snapshots
+    const daily = perDay(snaps, lastDays(o.now, 31), itemCount)
+    const total = MAIN.reduce((n, k) => n + (c.inventory[k]?.total ?? 0), 0)
+    out.push(snaps.length > 1
+      ? { name: 'Nội dung', href: '/_ab/noi-dung/', fig: fmt(ago(daily, 7, 1)), sub: `bài mới · 7 ngày · tổng ${fmt(total)} bài`, spark: whole(daily), chip: chip(ago(daily, 7, 1), ago(daily, 14, 8), VS, 'up') }
+      : { name: 'Nội dung', href: '/_ab/noi-dung/', fig: fmt(total), sub: 'bài · mỗi đêm lưu tổng số một lần, chưa đủ ngày để so' })
+    if (c.engine) {
+      // The build's days, put on the dashboard's: the build is at most a few hours old.
+      const per = new Map(c.engine.videos.perDay.map(x => [x.day, x.n]))
+      const written = lastDays(o.now, 31).map(d => per.get(d) ?? 0)
+      out.push({ name: 'Engine', href: '/_ab/noi-dung/#engine', fig: fmt(c.engine.videos.waiting), sub: `video chờ viết · ${fmt(ago(written, 7, 1))} bài từ video trong 7 ngày`, spark: whole(written), chip: chip(ago(written, 7, 1), ago(written, 14, 8), VS), warn: c.engine.needsHuman.length > 0 })
+    }
   }
   if (isFailed(o.clicks)) out.push(failedArea('Affiliate', '/_ab/affiliate/', o.clicks))
   else out.push({ name: 'Affiliate', href: '/_ab/affiliate/', fig: fmt(ago(o.clicks.clicks, 7, 1)), sub: 'lượt bấm sang sàn · 7 ngày', spark: whole(o.clicks.clicks), chip: chip(ago(o.clicks.clicks, 7, 1), ago(o.clicks.clicks, 14, 8), VS, 'up') })
@@ -124,9 +156,17 @@ export type LogDay = { day: string; label: string; partial: boolean; items: LogI
 export function log(o: Overview, n = 3): LogDay[] {
   const days = lastDays(o.now, n).reverse()
   const r = isFailed(o.readers) ? undefined : alignDaily(lastDays(o.now, 31), o.readers)
-  const { clicks, fish, accounts, wanted, hidden } = o
+  const { clicks, fish, accounts, wanted, hidden, snapshots } = o
+  const snaps = isFailed(snapshots) ? [] : snapshots
   return days.map((day, back) => {
     const items: LogItem[] = []
+    const kept = snaps.find(x => x.day === day)
+    const before = snaps.filter(x => x.day < day).at(-1)
+    if (kept && before) {
+      const added = MAIN.map(k => [k, (kept.totals.kinds[k]?.[0] ?? 0) - (before.totals.kinds[k]?.[0] ?? 0)] as const).filter(([, n]) => n > 0)
+      const n = added.reduce((a, [, x]) => a + x, 0)
+      if (n) items.push({ text: `${fmt(n)} bài mới`, small: added.map(([k, x]) => `${fmt(x)} ${PAGE_KIND[k].toLowerCase()}`).join(' · ') })
+    }
     if (r && (at(r.readers, back) || at(r.sessions, back))) items.push({ text: `${fmt(at(r.readers, back))} người đọc`, small: `${fmt(at(r.sessions, back))} phiên` })
     if (!isFailed(clicks) && at(clicks.clicks, back)) items.push({ text: `${fmt(at(clicks.clicks, back))} lượt bấm sang sàn` })
     if (!isFailed(fish)) {
@@ -161,7 +201,7 @@ export function overviewPage(o: Overview): string {
   const days = log(o).map(d => `<section><h3>${esc(d.label)}${d.partial ? ' <span class="muted">· chưa hết ngày</span>' : ''}</h3>${d.items.length ? `<ol>${d.items.map(i => `<li><p>${esc(i.text)}</p>${i.small ? `<small>${esc(i.small)}</small>` : ''}</li>`).join('')}</ol>` : '<p class="muted">Không có gì mới.</p>'}</section>`).join('')
   return page('/_ab/', 'Tổng quan', `<h1 class="vh">Tổng quan</h1><div class="home-grid"><div>
 <section aria-labelledby="h-todo"><h2 id="h-todo">Cần bạn${t.length ? ` <span class="badge">${fmt(t.length)}<span class="vh"> việc</span></span>` : ''}</h2>${todoHtml}</section>
-<section aria-labelledby="h-areas"><h2 id="h-areas">Các mục</h2><ul class="areas">${rows}</ul><p class="note">Số lớn: 7 ngày trọn đến hết hôm qua, so với 7 ngày trước đó. Đường nhỏ: 30 ngày trọn. Ngày theo giờ UTC (7 giờ sáng ở Việt Nam).</p></section>
+<section aria-labelledby="h-areas"><h2 id="h-areas">Các mục</h2><ul class="areas">${rows}</ul><p class="note">Số lớn: 7 ngày trọn đến hết hôm qua, so với 7 ngày trước đó. Đường nhỏ: 30 ngày trọn. Ngày theo giờ UTC (7 giờ sáng ở Việt Nam); giờ trong Cần bạn là giờ Việt Nam.</p></section>
 </div><div class="side"><section aria-labelledby="h-log"><h2 id="h-log">Mấy ngày qua</h2><div class="log">${days}</div></section></div></div>`, o.now)
 }
 

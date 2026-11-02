@@ -5,9 +5,11 @@ import { OWNER_COOKIE } from './owner'
 import { photosLive, recentPhotos, removePhoto, type PhotosEnv } from './photos'
 import { queryReaderDays, queryReaders } from './readers'
 import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
+import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
+import { contentPage } from './admin/content-page'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
 import { accountsPage, affiliatePage, fishIdPage, hiddenPage, overviewPage, photosPage, readersPage, wantedPage, type AffSummary } from './admin/pages'
-import { loginPage, soft, unset, type AdminPath } from './admin/shell'
+import { isFailed, loginPage, soft, unset, type AdminPath, type Soft } from './admin/shell'
 
 /**
  * The owner's dashboard, /_ab/: one page per part (admin/pages.ts), each open only to the owner signed in to the site,
@@ -68,14 +70,20 @@ const see = (location: string, cookies: string[] = []) => {
 
 const FONT = /^\/_ab\/fonts\/[a-z0-9-]+\.woff2$/
 const NO_AE = 'AE_API_TOKEN và CF_ACCOUNT_ID'
+/** This deploy's content.json (scripts/content-stats.ts): a build without it is a part that didn't load. */
+const contentOf = async (env: AdminEnv, origin: string) => {
+  if (!env.ASSETS) return unset('ASSETS')
+  const s = await soft('content', loadContentStats(env.ASSETS, origin))
+  return s === undefined ? { failed: 'Bản build này chưa có content.json.' } : s
+}
 const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
 
 /** Each page: its loaders, side by side, each failing on its own. */
 const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<string>> = {
-  '/_ab/': async (env, _url, now) => {
+  '/_ab/': async (env, url, now) => {
     const a = ae(env)
     const db = env.DB
-    const [readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden] = await Promise.all([
+    const [readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden, content, snapshots] = await Promise.all([
       a ? soft('readers', queryReaderDays(a.account, a.token, 31)) : unset(NO_AE),
       db ? soft('clicks', clicksByDay(db, now, 31)) : unset('D1'),
       a ? soft('fish-id', queryFishIdDays(a.account, a.token, now)) : unset(NO_AE),
@@ -85,8 +93,21 @@ const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<s
       soft('wanted', listWanted(env.AB)),
       db ? soft('accounts', accountStats(db, now)) : unset('D1'),
       soft('hidden', loadHidden(env.AB, true)),
+      contentOf(env, url.origin),
+      soft('snapshots', listSnapshots(env.AB)),
     ])
-    return overviewPage({ now, readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden })
+    return overviewPage({ now, readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden, content, snapshots })
+  },
+  '/_ab/noi-dung/': async (env, url, now) => {
+    const a = ae(env)
+    const [stats, snapshots] = await Promise.all([contentOf(env, url.origin), soft('snapshots', listSnapshots(env.AB))])
+    const off = (what: string): Soft<never> => (isFailed(stats) ? { failed: 'Không có content.json.' } : unset(what))
+    const [reads, talk, clicks] = await Promise.all([
+      a && !isFailed(stats) ? soft('content reads', queryContentReads(a.account, a.token, stats, 30)) : off(NO_AE),
+      env.DB && !isFailed(stats) ? soft('content talk', talkByPage(env.DB, stats)) : off('D1'),
+      env.DB && !isFailed(stats) ? soft('content clicks', clicksByKind(env.DB, stats, now)) : off('D1'),
+    ])
+    return contentPage({ now, stats, reads, talk, clicks, snapshots })
   },
   '/_ab/doc-gia/': async (env, _url, now) => {
     const a = ae(env)

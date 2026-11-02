@@ -4,6 +4,7 @@ import { esc } from './chart'
 
 export const NAV = [
   ['/_ab/', 'Tổng quan'],
+  ['/_ab/noi-dung/', 'Nội dung'],
   ['/_ab/doc-gia/', 'Người đọc'],
   ['/_ab/nhan-dien-ca/', 'Nhận diện cá'],
   ['/_ab/affiliate/', 'Affiliate'],
@@ -109,6 +110,20 @@ section>h2:first-child{margin-top:28px}
 .log p{margin:1px 0 0;font-size:14px}
 .log small{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
 .home-grid{display:grid;gap:8px 32px}
+/* Nội dung */
+.jump ul{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0;list-style:none}
+.jump a{display:inline-flex;align-items:center;min-height:36px;padding:6px 12px;border:1px solid var(--rule);border-radius:999px;font-size:13.5px;color:var(--ink-2);text-decoration:none;background:var(--plate)}
+.jump a:hover{border-color:var(--axis);color:var(--ink)}
+h3.sub-h{font:600 1.05rem/1.3 var(--serif);margin:22px 0 8px}
+.gaps{list-style:none;margin:0;padding:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r)}
+.gaps>li{padding:10px 14px}
+.gaps>li+li{border-top:1px solid var(--rule)}
+.gaps p{margin:0}
+.gaps b{font:600 1.1rem var(--serif);margin-right:4px}
+.gaps details{margin-top:2px}
+ol.pages{margin:4px 0 6px;padding-left:1.6em;columns:2 14rem;column-gap:24px;font-size:14px}
+ol.pages li{break-inside:avoid;padding:2px 0}
+.chart .kpis{border:0;border-radius:0;background:none}
 /* Detail pages: tiles, charts, tables, forms */
 table{border-collapse:collapse;width:100%}
 th,td{padding:.6rem .8rem;border-bottom:1px solid var(--rule);text-align:right;vertical-align:top}
@@ -194,7 +209,7 @@ main{padding:24px 24px 64px}
 .home-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
 .home-grid>.side h2:first-child{margin-top:28px}
 }
-@media (max-width:420px){.masthead time span{display:none}th,td{padding:.55rem .6rem}.chart{padding:12px 10px 4px}}`
+@media (max-width:420px){.masthead time span{display:none}th,td{padding:.55rem .6rem}.chart{padding:12px 10px 4px}.rank th{min-width:7rem}.rank td.bar span{max-width:3rem}}`
 
 const HEAD = (title: string) => `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a1a1d"><title>${esc(title)} · Quản trị AquaTome</title><link rel="preload" href="/_ab/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin><style>${CSS}</style></head>`
 
