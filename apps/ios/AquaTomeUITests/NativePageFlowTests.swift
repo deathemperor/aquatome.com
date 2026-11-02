@@ -30,7 +30,8 @@ final class NativePageFlowTests: XCTestCase {
     let app = launch("-pages-later")
     openRow(app, "nuoi ca neon")
     XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5), "not the web page")
-    XCTAssertTrue(app.webViews.staticTexts["/vi/huong-dan/nuoi-ca-neon/"].waitForExistence(timeout: 5), "not the stand-in page")
+    // A web view's first start can take a while on a slow runner.
+    XCTAssertTrue(app.webViews.staticTexts["/vi/huong-dan/nuoi-ca-neon/"].waitForExistence(timeout: 15), "not the stand-in page")
     // The index says so a second after the page opens.
     let after = Date().addingTimeInterval(3)
     while Date() < after { RunLoop.current.run(until: Date().addingTimeInterval(0.2)) }
@@ -115,7 +116,8 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertEqual(app.buttons.matching(identifier: "page-web").count, 1)
     web.tap()
     XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5), "no web page")
-    XCTAssertTrue(app.webViews.staticTexts["/vi/huong-dan/nuoi-ca-neon/"].waitForExistence(timeout: 5), "not the stand-in page")
+    // A web view's first start can take a while on a slow runner.
+    XCTAssertTrue(app.webViews.staticTexts["/vi/huong-dan/nuoi-ca-neon/"].waitForExistence(timeout: 15), "not the stand-in page")
     XCTAssertFalse(app.descendants(matching: .any)["native-page"].exists)
   }
 

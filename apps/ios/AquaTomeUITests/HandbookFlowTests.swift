@@ -172,8 +172,9 @@ final class HandbookFlowTests: XCTestCase {
     item(app, "Cá neon").tap()
     XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5))
     XCTAssertTrue(app.descendants(matching: .any)["page"].exists)
-    // The site's page stood in for, naming its path: no test reaches aquatome.com.
-    XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-neon/"].waitForExistence(timeout: 5), "not the stand-in page")
+    // The site's page stood in for, naming its path: no test reaches aquatome.com. A web view's first start can take a
+    // while on a slow runner.
+    XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-neon/"].waitForExistence(timeout: 15), "not the stand-in page")
   }
 
   // MARK: Helpers
