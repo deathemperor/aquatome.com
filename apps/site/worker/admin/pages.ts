@@ -83,9 +83,11 @@ export function todos(o: Overview): Todo[] {
     out.push({ title: 'Kiểm duyệt đêm chưa chạy', text: `${waitingText(o.waiting)} chờ từ ${short(o.waiting.oldest)}. Kiểm duyệt chạy mỗi đêm lúc 4 giờ sáng giờ Việt Nam.`, href: MODERATION_RUNS, action: 'Xem lần chạy' })
   }
   // A source behind a browser check stops until the owner passes it in the engine's Chrome profile.
-  const human = isFailed(o.content) ? [] : o.content.engine?.needsHuman ?? []
+  const engine = isFailed(o.content) ? null : o.content.engine
+  const human = engine?.needsHuman ?? []
   if (human.length) {
-    out.push({ title: human.length > 1 ? `${fmt(human.length)} nguồn cần bạn qua kiểm tra trình duyệt` : `Nguồn ${human[0]!.source} cần bạn qua kiểm tra trình duyệt`, text: `Engine dừng lấy trang từ ${human.map(h => `${h.source} (từ ${short(h.since)})`).join(', ')} cho tới khi bạn mở nguồn đó trong hồ sơ Chrome của engine.`, href: '/_ab/noi-dung/#engine', action: 'Xem engine' })
+    const name = (id: string) => engine!.sources.find(r => r.id === id)?.name ?? id
+    out.push({ title: human.length > 1 ? `${fmt(human.length)} nguồn cần bạn qua kiểm tra trình duyệt` : `Nguồn ${name(human[0]!.source)} cần bạn qua kiểm tra trình duyệt`, text: `Engine dừng lấy trang từ ${human.map(h => `${name(h.source)} (từ ${short(h.since)})`).join(', ')} cho tới khi bạn mở nguồn đó trong hồ sơ Chrome của engine.`, href: '/_ab/noi-dung/#engine', action: 'Xem engine' })
   }
   for (const [label, part, href] of parts(o)) {
     if (isFailed(part)) out.push({ title: `Không tải được ${label}`, text: part.failed.slice(0, 160), href, action: 'Mở' })
@@ -108,16 +110,16 @@ export function areas(o: Overview): Area[] {
   else {
     const c = o.content
     const snaps = isFailed(o.snapshots) ? [] : o.snapshots
-    const days = lastDays(o.now, 31)
-    const daily = perDay(snaps, days, itemCount)
-    const week = snaps.length > 1 ? `${fmt(ago(daily, 6, 0))} mới trong 7 ngày` : 'chưa đủ ngày để so'
+    const daily = perDay(snaps, lastDays(o.now, 31), itemCount)
     const total = MAIN.reduce((n, k) => n + (c.inventory[k]?.total ?? 0), 0)
-    // The line: each day's total, as kept (a day not kept holds the day before).
-    const line = days.slice(0, -1).map(d => { const t = snaps.filter(x => x.day <= d).at(-1); return t ? itemCount(t.totals) : 0 })
-    out.push({ name: 'Nội dung', href: '/_ab/noi-dung/', fig: fmt(total), sub: `bài · ${week}`, spark: snaps.length > 1 ? line.slice(line.findIndex(v => v > 0)) : undefined })
+    out.push(snaps.length > 1
+      ? { name: 'Nội dung', href: '/_ab/noi-dung/', fig: fmt(ago(daily, 7, 1)), sub: `bài mới · 7 ngày · tổng ${fmt(total)} bài`, spark: whole(daily), chip: chip(ago(daily, 7, 1), ago(daily, 14, 8), VS, 'up') }
+      : { name: 'Nội dung', href: '/_ab/noi-dung/', fig: fmt(total), sub: 'bài · mỗi đêm lưu tổng số một lần, chưa đủ ngày để so' })
     if (c.engine) {
-      const v = c.engine.videos
-      out.push({ name: 'Engine', href: '/_ab/noi-dung/#engine', fig: fmt(v.waiting), sub: `video chờ viết · ${fmt(v.perDay.slice(-7).reduce((a, x) => a + x.n, 0))} bài từ video trong 7 ngày`, spark: v.perDay.map(x => x.n), warn: c.engine.needsHuman.length > 0 })
+      // The build's days, put on the dashboard's: the build is at most a few hours old.
+      const per = new Map(c.engine.videos.perDay.map(x => [x.day, x.n]))
+      const written = lastDays(o.now, 31).map(d => per.get(d) ?? 0)
+      out.push({ name: 'Engine', href: '/_ab/noi-dung/#engine', fig: fmt(c.engine.videos.waiting), sub: `video chờ viết · ${fmt(ago(written, 7, 1))} bài từ video trong 7 ngày`, spark: whole(written), chip: chip(ago(written, 7, 1), ago(written, 14, 8), VS), warn: c.engine.needsHuman.length > 0 })
     }
   }
   if (isFailed(o.clicks)) out.push(failedArea('Affiliate', '/_ab/affiliate/', o.clicks))
@@ -199,7 +201,7 @@ export function overviewPage(o: Overview): string {
   const days = log(o).map(d => `<section><h3>${esc(d.label)}${d.partial ? ' <span class="muted">· chưa hết ngày</span>' : ''}</h3>${d.items.length ? `<ol>${d.items.map(i => `<li><p>${esc(i.text)}</p>${i.small ? `<small>${esc(i.small)}</small>` : ''}</li>`).join('')}</ol>` : '<p class="muted">Không có gì mới.</p>'}</section>`).join('')
   return page('/_ab/', 'Tổng quan', `<h1 class="vh">Tổng quan</h1><div class="home-grid"><div>
 <section aria-labelledby="h-todo"><h2 id="h-todo">Cần bạn${t.length ? ` <span class="badge">${fmt(t.length)}<span class="vh"> việc</span></span>` : ''}</h2>${todoHtml}</section>
-<section aria-labelledby="h-areas"><h2 id="h-areas">Các mục</h2><ul class="areas">${rows}</ul><p class="note">Số lớn: 7 ngày trọn đến hết hôm qua, so với 7 ngày trước đó. Đường nhỏ: 30 ngày trọn. Ngày theo giờ UTC (7 giờ sáng ở Việt Nam).</p></section>
+<section aria-labelledby="h-areas"><h2 id="h-areas">Các mục</h2><ul class="areas">${rows}</ul><p class="note">Số lớn: 7 ngày trọn đến hết hôm qua, so với 7 ngày trước đó. Đường nhỏ: 30 ngày trọn. Ngày theo giờ UTC (7 giờ sáng ở Việt Nam); giờ trong Cần bạn là giờ Việt Nam.</p></section>
 </div><div class="side"><section aria-labelledby="h-log"><h2 id="h-log">Mấy ngày qua</h2><div class="log">${days}</div></section></div></div>`, o.now)
 }
 

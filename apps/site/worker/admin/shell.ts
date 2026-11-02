@@ -209,7 +209,7 @@ main{padding:24px 24px 64px}
 .home-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
 .home-grid>.side h2:first-child{margin-top:28px}
 }
-@media (max-width:420px){.masthead time span{display:none}th,td{padding:.55rem .6rem}.chart{padding:12px 10px 4px}}`
+@media (max-width:420px){.masthead time span{display:none}th,td{padding:.55rem .6rem}.chart{padding:12px 10px 4px}.rank th{min-width:7rem}.rank td.bar span{max-width:3rem}}`
 
 const HEAD = (title: string) => `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a1a1d"><title>${esc(title)} · Quản trị AquaTome</title><link rel="preload" href="/_ab/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin><style>${CSS}</style></head>`
 

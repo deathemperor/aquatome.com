@@ -11,6 +11,7 @@ export const KIND: Record<PageKind, string> = {
 const ENTITY: EntityKind[] = ['fish', 'plant', 'breed', 'guide', 'videoGuide', 'series', 'glossary', 'equipment', 'place', 'product']
 /** What the home page counts as the handbook's items: the pages a reader comes for. */
 export const MAIN: EntityKind[] = ['fish', 'plant', 'breed', 'guide', 'videoGuide']
+const OTHER: EntityKind[] = ['glossary', 'place', 'equipment', 'series', 'product']
 const GAP: Record<GapKey, string> = {
   noPhoto: 'Chưa có ảnh', noViName: 'Tên tiếng Việt còn là tên khoa học', noSummary: 'Chưa có tóm tắt nhanh', noKeyFacts: 'Thiếu nhiệt độ, pH hoặc kích thước',
   thin: 'Trang mỏng, ẩn khỏi tìm kiếm', oldVi: 'Tiếng Việt chưa viết lại', noId: 'Chưa có tiếng Indonesia', noTh: 'Chưa có tiếng Thái',
@@ -65,6 +66,7 @@ function totalsHtml(s: ContentStats): string {
     { label: 'Bài (cá, cây, giống, bài viết)', value: fmt(main) },
     { label: 'Trang đã build', value: built === null ? '—' : fmt(built), sub: s.built ? `tiếng Việt ${fmt(s.built.total[0])} · Indonesia ${fmt(s.built.total[1])} · Thái ${fmt(s.built.total[2])}` : undefined },
     { label: 'Ảnh trên trang', value: fmt(s.photos.pages), sub: `${fmt(s.photos.gallery.photos)} ảnh ở ${fmt(s.photos.gallery.pages)} trang ảnh` },
+    { label: 'Mục khác', value: fmt(OTHER.reduce((n, k) => n + (s.inventory[k]?.total ?? 0), 0)), sub: OTHER.filter(k => s.inventory[k]?.total).map(k => `${KIND[k].toLowerCase()} ${fmt(s.inventory[k]!.total)}`).join(' · ') },
   ])}
 <div class="scroll"><table><thead><tr><th>Loại</th><th>Bài</th><th>Có tiếng Indonesia</th><th>Có tiếng Thái</th></tr></thead><tbody>${rows}</tbody></table></div></section>`
 }
@@ -94,19 +96,25 @@ function engineHtml(now: Date, s: ContentStats): string {
   let out = '<section aria-labelledby="engine"><h2 id="engine">Engine</h2>'
   const e = s.engine
   if (!e) return `${out}<p class="muted">Bản build này không có engine-state.</p></section>`
-  if (e.needsHuman.length) out += `<div class="failed" role="status">Cần bạn qua kiểm tra trình duyệt (Cloudflare, Turnstile) trong hồ sơ Chrome của engine: ${e.needsHuman.map(n => `<b>${esc(n.source)}</b> từ ${esc(vn(n.since))}`).join(', ')}.</div>`
+  const name = (id: string) => e.sources.find(r => r.id === id)?.name ?? id
+  const human = new Set(e.needsHuman.map(n => n.source))
+  if (e.needsHuman.length) out += `<div class="failed" role="status">Cần bạn qua kiểm tra trình duyệt (Cloudflare, Turnstile) trong hồ sơ Chrome của engine: ${e.needsHuman.map(n => `<b>${esc(name(n.source))}</b> từ ${esc(vn(n.since))}`).join(', ')}.</div>`
   const v = e.videos
-  const written7 = v.perDay.slice(-7).reduce((a, x) => a + x.n, 0)
+  const per = new Map(v.perDay.map(x => [x.day, x.n]))
+  const days = lastDays(now, 31)
+  const written = days.map(d => per.get(d) ?? 0)
+  const written7 = written.slice(-8, -1).reduce((a, b) => a + b, 0)
   out += `<h3 class="sub-h">Bài từ video YouTube</h3>${tiles([
     { label: 'Video chờ viết', value: fmt(v.waiting), sub: `trong ${fmt(v.listed)} video đã xếp hàng` },
     { label: 'Đã viết', value: fmt(v.written), sub: `${fmt(written7)} bài trong 7 ngày gần nhất` },
     { label: 'Bỏ qua', value: fmt(v.skipped), sub: 'không phải bài hướng dẫn, quá ngắn, chỉ cho hội viên…' },
     { label: 'Lỗi 3 lần', value: fmt(v.failed) },
   ])}
-<div class="charts">${dayChart({ id: 'n-videos', title: 'Bài từ video viết mỗi ngày · 14 ngày', days: v.perDay.map(x => x.day), series: [{ label: 'Bài', values: v.perDay.map(x => x.n) }], kind: 'columns', partialLast: v.perDay.at(-1)?.day === lastDays(now, 1)[0], empty: 'Chưa viết bài nào trong 14 ngày.' })}
+<div class="charts">${dayChart({ id: 'n-videos', title: 'Bài từ video viết mỗi ngày · 30 ngày', days: days.slice(1), series: [{ label: 'Bài', values: written.slice(1) }], kind: 'columns', partialLast: true, empty: 'Chưa viết bài nào trong 30 ngày.' })}
 <figure class="chart" aria-labelledby="n-rw"><figcaption><h3 id="n-rw">Viết lại tiếng Việt cũ</h3></figcaption>${tiles([{ label: 'Đã viết lại', value: fmt(e.rewrite.done), sub: `${pct(e.rewrite.done, e.rewrite.done + e.rewrite.waiting + e.rewrite.failed)} số trang cần viết lại` }, { label: 'Còn chờ', value: fmt(e.rewrite.waiting), sub: `${fmt(e.rewrite.failed)} lỗi` }])}</figure></div>`
-  const rows = e.sources.slice().sort((a, b) => b.waiting - a.waiting || b.found - a.found).map(r => `<tr><th>${esc(r.name)}</th><td>${fmt(r.found)}${r.discovered ? ` <span class="muted">/ ${fmt(r.discovered)}</span>` : ''}</td><td>${fmt(r.done)}</td><td>${fmt(r.skipped)}</td><td>${fmt(r.waiting)}</td><td>${fmt(r.failed)}</td><td>${fmt(r.blocked)}</td><td>${r.lastAt ? esc(vn(r.lastAt)) : '—'}</td></tr>`).join('')
-  out += `<h3 class="sub-h">Nguồn trang</h3><div class="scroll"><table class="wide"><thead><tr><th>Nguồn</th><th>Địa chỉ đã gặp</th><th>Thành trang</th><th>Bỏ qua</th><th>Còn chờ</th><th>Lỗi 3 lần</th><th>Bị chặn</th><th>Đổi gần nhất</th></tr></thead><tbody>${rows || '<tr><td colspan="8" class="none">Chưa có.</td></tr>'}</tbody></table></div>
+  // What's stuck first: a source waiting on the owner, then the most still to do.
+  const rows = e.sources.slice().sort((a, b) => Number(human.has(b.id)) - Number(human.has(a.id)) || b.waiting - a.waiting || b.found - a.found).map(r => `<tr><th>${esc(r.name)}${human.has(r.id) ? ' <span class="chip bad">cần bạn</span>' : ''}</th><td>${fmt(r.waiting)}</td><td>${fmt(r.failed)}</td><td>${fmt(r.blocked)}</td><td>${r.lastAt ? esc(vn(r.lastAt)) : '—'}</td><td>${fmt(r.found)}${r.discovered ? ` <span class="muted">/ ${fmt(r.discovered)}</span>` : ''}</td><td>${fmt(r.done)}</td><td>${fmt(r.skipped)}</td></tr>`).join('')
+  out += `<h3 class="sub-h">Nguồn trang</h3><div class="scroll"><table class="wide"><thead><tr><th>Nguồn</th><th>Còn chờ</th><th>Lỗi 3 lần</th><th>Bị chặn</th><th>Đổi gần nhất</th><th>Địa chỉ đã gặp</th><th>Thành trang</th><th>Bỏ qua</th></tr></thead><tbody>${rows || '<tr><td colspan="8" class="none">Chưa có.</td></tr>'}</tbody></table></div>
 <p class="note">Thành trang: viết thành trang, hoặc gộp vào một trang có sẵn. Bỏ qua: trang danh mục, trùng, không phải cá. Lỗi 3 lần: thôi thử cho tới khi trang nguồn đổi. Giờ Việt Nam.${e.lastRun ? ` Lần chạy gần nhất trên máy build: ${esc(vn(e.lastRun.startedAt))}–${esc(vn(e.lastRun.finishedAt).slice(6))}, đổi ${fmt(e.lastRun.changed)} mục, ${fmt(e.lastRun.errors)} lỗi.` : ''}</p></section>`
   return out
 }
@@ -136,7 +144,7 @@ function photosHtml(s: ContentStats): string {
 function readsHtml(r: Soft<ContentReads>): string {
   const out = '<section aria-labelledby="doc"><h2 id="doc">Người đọc theo loại trang</h2>'
   if (isFailed(r)) return `${out}${failedBox('người đọc theo trang', r)}</section>`
-  const rows = r.byKind.map(k => `<tr><th>${esc(KIND[k.kind])}</th><td>${fmt(k.pages)}</td><td>${fmt(k.read)} <span class="muted">${pct(k.read, k.pages)}</span></td><td>${fmt(k.readers)}</td><td>${fmt(k.views)}</td></tr>`).join('')
+  const rows = r.byKind.map(k => `<tr><th>${esc(KIND[k.kind])}</th><td>${fmt(k.pages)}</td><td>${fmt(k.read)}${k.read ? ` <span class="muted">${pct(k.read, k.pages)}</span>` : ''}</td><td>${fmt(k.readers)}</td><td>${fmt(k.views)}</td></tr>`).join('')
   const unread = Object.entries(r.unread.byKind).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${KIND[k as PageKind]} ${fmt(n)}`).join(' · ')
   return `${out}<p class="lede">${r.days} ngày gần nhất · người đọc: phiên cuộn ≥ 50% hoặc ở lại ≥ 30 giây, như trang Người đọc.</p>
 <div class="scroll"><table><thead><tr><th>Loại</th><th>Trang</th><th>Có người đọc</th><th>Người đọc</th><th>Lượt xem</th></tr></thead><tbody>${rows || '<tr><td colspan="5" class="none">Chưa có.</td></tr>'}</tbody></table></div>

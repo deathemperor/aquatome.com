@@ -17,7 +17,7 @@ const totals = (fish: number, plant = 0, guide = 0): Totals => ({ kinds: { fish:
 /** content.json as the home page reads it: the items, and the engine's queue. */
 const stats = (needsHuman: { source: string; since: string }[] = []) => ({
   inventory: { fish: { total: 100, id: 0, th: 0 }, plant: { total: 20, id: 0, th: 0 }, guide: { total: 5, id: 0, th: 0 } },
-  engine: { needsHuman, videos: { waiting: 40, perDay: lastDays(NOW, 14).map((day, i) => ({ day, n: i === 13 ? 3 : 1 })) } },
+  engine: { needsHuman, sources: [{ id: '2hraquarist', name: '2Hr Aquarist' }], videos: { waiting: 40, perDay: lastDays(NOW, 14).map((day, i) => ({ day, n: i === 13 ? 3 : 1 })) } },
 }) as unknown as ContentStats
 /** Every part loaded: no keys resting, nothing waiting, no days counted. */
 const well = (): Overview => {
@@ -57,16 +57,19 @@ test('overview: what needs the owner comes first, each with the one place to dea
 
 test('overview: a source behind a browser check is the owner\'s to pass; the content and engine rows count the items and the video queue', () => {
   const o = { ...well(), content: stats([{ source: '2hraquarist', since: '2026-11-02T04:00:00.000Z' }]) }
-  expect(todos(o)).toEqual([expect.objectContaining({ title: 'Nguồn 2hraquarist cần bạn qua kiểm tra trình duyệt', href: '/_ab/noi-dung/#engine' })])
-  expect(todos(o)[0]!.text).toContain('2hraquarist (từ 02/11 11:00)')
+  expect(todos(o)).toEqual([expect.objectContaining({ title: 'Nguồn 2Hr Aquarist cần bạn qua kiểm tra trình duyệt', href: '/_ab/noi-dung/#engine' })])
+  expect(todos(o)[0]!.text).toContain('2Hr Aquarist (từ 02/11 11:00)')
   const days = lastDays(NOW, 9)
   const snaps: Snapshot[] = [{ day: days[0]!, totals: totals(80, 18, 5) }, { day: days[1]!, totals: totals(90, 18, 5) }, { day: days[7]!, totals: totals(98, 20, 5) }, { day: days[8]!, totals: totals(100, 20, 5) }]
   const a = areas({ ...o, snapshots: snaps })
-  // 125 items. The 7 days to today: +10 on the day kept after a gap (it carries the days not kept), +2 today.
-  expect(a[1]).toMatchObject({ name: 'Nội dung', fig: '125', sub: 'bài · 12 mới trong 7 ngày' })
-  expect(a[2]).toMatchObject({ name: 'Engine', fig: '40', sub: 'video chờ viết · 9 bài từ video trong 7 ngày', warn: true })
-  // One night kept: nothing to compare yet.
-  expect(areas({ ...well(), snapshots: [snaps[3]!] })[1]!.sub).toBe('bài · chưa đủ ngày để so')
+  // The 7 whole days to yesterday: +10 seven days back and +10 yesterday (it carries the days not kept); today's +2 waits.
+  expect(a[1]).toMatchObject({ name: 'Nội dung', fig: '20', sub: 'bài mới · 7 ngày · tổng 125 bài' })
+  expect(a[1]!.spark).toHaveLength(30)
+  expect(a[1]!.chip).toContain('+20<')
+  expect(a[2]).toMatchObject({ name: 'Engine', fig: '40', sub: 'video chờ viết · 7 bài từ video trong 7 ngày', warn: true })
+  expect(a[2]!.spark).toHaveLength(30)
+  // One night kept: the total, nothing to compare yet.
+  expect(areas({ ...well(), snapshots: [snaps[3]!] })[1]).toMatchObject({ fig: '125', sub: 'bài · mỗi đêm lưu tổng số một lần, chưa đủ ngày để so' })
   // The log says what each day added.
   expect(log({ ...o, snapshots: snaps })[0]!.items[0]).toEqual({ text: '2 bài mới', small: '2 cá' })
   expect(perDay(snaps, days, t => t.kinds.fish[0])).toEqual([0, 10, 0, 0, 0, 0, 0, 8, 2])

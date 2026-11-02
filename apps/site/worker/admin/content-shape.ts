@@ -89,7 +89,7 @@ export type EngineStats = {
     failed: number
     playlists: { queued: number; skipped: number }
     singles: { queued: number; skipped: number }
-    /** Guides written per UTC day, the last 14 days, oldest first. */
+    /** Guides written per UTC day, the last 31 days to the build's, oldest first. */
     perDay: { day: string; n: number }[]
   }
   /** Older Vietnamese rewritten in the site's style, of the pages there is text to rewrite on. */
