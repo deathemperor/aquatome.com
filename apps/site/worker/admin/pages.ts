@@ -152,7 +152,7 @@ export function readersPage(now: Date, r: Soft<Readers> | undefined): string {
   else {
     const days = lastDays(now, r.days)
     const d = alignDaily(days, r.daily)
-    body += `<p class="lede">${r.days} ngày gần nhất · đếm từ trình duyệt chạy JavaScript của trang (bỏ bot đã biết và lượt của chủ trang) · <b>người đọc</b> = phiên cuộn ≥ 50% trang hoặc ở lại ≥ 30 giây. Ngày theo giờ UTC.</p>
+    body += `<p class="lede">${r.days} ngày gần nhất · đếm từ trình duyệt chạy JavaScript của trang (bỏ bot đã biết, các lượt kiểm tra tự động của AquaTome và lượt của chủ trang) · <b>người đọc</b> = phiên cuộn ≥ 50% trang hoặc ở lại ≥ 30 giây. Ngày theo giờ UTC.</p>
 ${tiles([{ label: 'Phiên', value: fmt(r.sessions) }, { label: 'Người đọc', value: fmt(r.readers) }, { label: 'Tỉ lệ người đọc', value: `${fmt(r.sessions ? (100 * r.readers) / r.sessions : 0, 1)}%` }])}
 <h2>Theo ngày và nguồn</h2><div class="charts">${dayChart({ id: 'r-daily', title: 'Phiên và người đọc mỗi ngày', days, series: [{ label: 'Người đọc', values: d.readers }, { label: 'Phiên', values: d.sessions }], kind: 'lines', partialLast: true, empty: 'Chưa có phiên nào.' })}
 <figure class="chart" aria-labelledby="r-src"><figcaption><h3 id="r-src">Nguồn truy cập</h3></figcaption>${rankTable(r.sources.map(x => ({ label: esc(x.source), value: x.sessions, cells: [fmt(x.readers)] })), ['Nguồn', 'Phiên', 'Người đọc'])}</figure></div>

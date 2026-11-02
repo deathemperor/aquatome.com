@@ -620,7 +620,7 @@ test('the app\'s Turnstile page: Cloudflare\'s script blocked, the app is told, 
 
 test.describe('inside the AquaTome app', () => {
   // The app's web view (apps/ios PageView): its user agent ends in AquaTomeApp/<version>.
-  test.use({ userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 AquaTomeApp/1.0' })
+  test.use({ userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 AquaTomeApp/1.0 AquaTomeCheck/1' })
 
   test('the app signs in and syncs: the page offers no sign-in and asks no session', async ({ page, errors }) => {
     const b = backend()

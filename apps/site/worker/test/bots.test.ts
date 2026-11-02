@@ -9,3 +9,12 @@ test('crawlers, tools and clients without accept-language are bots; a real brows
   expect(isBot(null, 'vi')).toBe(true)
   expect(isBot(CHROME, 'vi')).toBe(false)
 })
+
+test('our own browser checks are not readers: every Playwright project says so in its user agent', async () => {
+  const { default: config } = await import('../../playwright.config')
+  for (const p of config.projects ?? []) expect(isBot(p.use?.userAgent ?? null, 'vi'), p.name).toBe(true)
+  // The same phone and computer without the mark still count.
+  const { devices } = await import('@playwright/test')
+  expect(isBot(devices['Pixel 7']!.userAgent, 'vi')).toBe(false)
+  expect(isBot(devices['Desktop Chrome']!.userAgent, 'vi')).toBe(false)
+})
