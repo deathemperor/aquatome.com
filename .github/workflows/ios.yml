@@ -1,8 +1,12 @@
 name: "iOS app: build and tests"
 # The iOS app (apps/ios): its Chihiros protocol and tank store code are checked against the vectors the site uses
 # (protocols/).
+# A draft pull request holds no macOS runner: its jobs run once it's marked ready (ready_for_review), then on each
+# push. The site's engine shares the account's few macOS runners, and every push to a draft queued five jobs ahead of
+# it (2026-11-03: an engine cycle waited over 2 hours behind 8 iOS runs).
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
     paths: ['apps/ios/**', 'protocols/**', '.github/workflows/ios.yml']
   push:
     branches: [main]
@@ -33,13 +37,15 @@ env:
     testTheWriteBarStaysInViewAndSaysWhatWillBeWritten testWritesAPresetThenAnotherThenUndoesBackToTheFirst
     testWritingAScheduleEndsTheManualLevels
 jobs:
-  # Which of the two long flow jobs a pull request needs (apps/ios/scripts/flows-to-run.py says how it decides): a
-  # change the lights' flows can't reach doesn't hold a macOS runner for them, which the site's engine shares. Job
-  # `app` always runs, and main runs everything after a merge.
+  # Whether a pull request is ready (a draft runs nothing on macOS), and which of the two long flow jobs it needs
+  # (apps/ios/scripts/flows-to-run.py says how it decides): a change the lights' flows can't reach doesn't hold a macOS
+  # runner for them, which the site's engine shares. Jobs `kit` and `app` run on every ready pull request, and main
+  # runs everything after a merge.
   changes:
     name: "iOS app: which flows this change needs"
     runs-on: ubuntu-latest
     outputs:
+      ready: ${{ steps.pick.outputs.ready }}
       handbook: ${{ steps.pick.outputs.handbook }}
       lights: ${{ steps.pick.outputs.lights }}
     steps:
@@ -52,16 +58,24 @@ jobs:
       # path with Vietnamese letters as itself (quotePath).
       - id: pick
         shell: bash
+        env:
+          DRAFT: ${{ github.event.pull_request.draft }}
         run: |
           python3 apps/ios/scripts/flows-to-run.py --test
-          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
+          if [ "$GITHUB_EVENT_NAME" != pull_request ]; then
+            printf 'ready=true\nhandbook=true\nlights=true\n' | tee -a "$GITHUB_OUTPUT"
+          elif [ "$DRAFT" = true ]; then
+            printf 'ready=false\nhandbook=false\nlights=false\n' | tee -a "$GITHUB_OUTPUT"
+            echo "::notice title=Draft::the iOS jobs run once this pull request is marked ready"
+          else
+            echo ready=true | tee -a "$GITHUB_OUTPUT"
             git -c core.quotePath=false diff --no-renames --name-only HEAD^1 HEAD |
               python3 apps/ios/scripts/flows-to-run.py | tee -a "$GITHUB_OUTPUT"
-          else
-            printf 'handbook=true\nlights=true\n' | tee -a "$GITHUB_OUTPUT"
           fi
   kit:
     name: "iOS kit: unit tests"
+    needs: changes
+    if: needs.changes.outputs.ready == 'true'
     runs-on: macos-26
     timeout-minutes: 20
     steps:
@@ -72,6 +86,8 @@ jobs:
         working-directory: apps/ios/AquaTomeKit
   app:
     name: "iOS app: other flows, strings, performance and size"
+    needs: changes
+    if: needs.changes.outputs.ready == 'true'
     runs-on: macos-26
     timeout-minutes: 60
     steps:
@@ -163,7 +179,8 @@ jobs:
   # a minute or more): on two runners, beside jobs `app` and `handbook`. One runner outgrew its hour on 2026-11-01 (#312:
   # 58 minutes of flows, 37 of them the lights'), then the lights alone reached 51 minutes on a slow runner (#315).
   lights:
-    name: "iOS app: light flows (${{ matrix.half }} of 2)"
+    # No matrix value in the name: Actions adds "(1)" and "(2)", and a skipped job then reads as a plain name.
+    name: "iOS app: light flows"
     needs: changes
     if: needs.changes.outputs.lights == 'true'
     runs-on: macos-26
