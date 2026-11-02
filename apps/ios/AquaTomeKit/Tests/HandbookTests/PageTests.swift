@@ -25,6 +25,8 @@ private func json(_ d: PageDoc) -> [String: Any] {
   var o: [String: Any] = ["v": 1, "kind": d.kind, "path": d.path, "title": d.title, "blocks": d.blocks.map(json)]
   o["sub"] = d.sub
   o["meta"] = d.meta
+  if !d.where.isEmpty { o["where"] = d.where.map(json) }
+  o["aka"] = d.aka
   if !d.credit.isEmpty { o["credit"] = d.credit.map(json) }
   o["lead"] = d.lead.map(json)
   if let v = d.video {
@@ -47,6 +49,7 @@ private func json(_ r: PageDoc.Run) -> Any {
 private func json(_ i: PageDoc.Image) -> [String: Any] {
   var o: [String: Any] = ["src": i.src, "w": i.w, "h": i.h]
   o["alt"] = i.alt
+  o["thumb"] = i.thumb
   if let c = i.credit {
     var j: [String: Any] = ["text": c.text, "licence": c.licence]
     j["url"] = c.url
@@ -64,11 +67,44 @@ private func json(_ b: PageDoc.Block) -> [String: Any] {
   case let .figure(img, caption, href): o["img"] = json(img); if !caption.isEmpty { o["caption"] = caption.map(json) }; o["href"] = href
   case let .moments(title, youtubeId, items):
     o["title"] = title; o["youtubeId"] = youtubeId; o["items"] = items.map { ["at": $0.at, "img": json($0.img), "caption": $0.caption] }
-  case let .summary(title, items): o["title"] = title; o["items"] = items
+  case let .summary(title, items, text, mistakes, by):
+    o["title"] = title; o["items"] = items; o["text"] = text; o["by"] = by
+    o["mistakes"] = mistakes.map { ["title": $0.title, "items": $0.items] as [String: Any] }
   case let .faq(title, items): o["title"] = title; o["items"] = items.map { ["q": $0.q, "a": $0.a] }
-  case let .refs(title, id, items): o["title"] = title; o["id"] = id; o["items"] = items.map { ["title": $0.title, "url": $0.url] }
+  case let .refs(title, id, items, note): o["title"] = title; o["id"] = id; o["items"] = items.map { ["title": $0.title, "url": $0.url] }; o["note"] = note
   case let .pages(title, paths): o["title"] = title; o["paths"] = paths
   case .web: break
+  case let .gallery(title, note, photos, strip, href): o["title"] = title; o["note"] = note; o["photos"] = photos.map(json); o["strip"] = strip; o["href"] = href
+  case let .trust(title, legend, rows):
+    o["title"] = title; o["legend"] = legend
+    o["rows"] = rows.map { r in
+      var j: [String: Any] = ["field": r.field, "label": r.label, "items": r.items]
+      if r.conflict { j["conflict"] = true }
+      j["note"] = r.note
+      return j
+    }
+  case let .mates(m):
+    let group = { (g: (title: String, items: [PageDoc.Mates.Mate])) -> [String: Any] in
+      ["title": g.title, "items": g.items.map { x in
+        var j: [String: Any] = ["path": x.path, "name": x.name]
+        j["img"] = x.img.map(json)
+        j["why"] = x.why
+        return j
+      }]
+    }
+    o["title"] = m.title; o["good"] = m.good.map(group); o["avoid"] = m.avoid.map(group); o["note"] = m.note
+    o["tool"] = ["text": m.tool.text, "href": m.tool.href]
+  case let .climate(title, items, note): o["title"] = title; o["items"] = items.map { ["label": $0.label, "ok": $0.ok, "text": $0.text] }; o["note"] = note
+  case let .cards(title, items):
+    o["title"] = title
+    o["items"] = items.map { c in
+      var j: [String: Any] = ["path": c.path, "name": c.name]
+      j["sub"] = c.sub
+      j["img"] = c.img.map(json)
+      return j
+    }
+  case let .videos(title, items):
+    o["title"] = title; o["items"] = items.map { ["youtubeId": $0.youtubeId, "title": $0.title, "durationSec": $0.durationSec, "lang": $0.lang] }
   }
   return o
 }
@@ -91,6 +127,24 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
     // Each block this app can't read is one "open on the web", in its place: none merged, none lost.
     #expect(d.blocks.map(\.t) == c["blocks"] as! [String], "\(c["note"]!)")
   }
+}
+
+/// Fish, plant and glossary pages, with the blocks and fields added for them: this app reads every one as written (an
+/// older one shows the web for the blocks it doesn't know: the vectors' `older`, the site's and the schema's check).
+@Test func readsTheFishPlantAndGlossaryPagesAsWritten() throws {
+  let added = cases("added")
+  #expect(added.count >= 3)
+  for c in added {
+    let d = try doc(c["doc"]!)
+    #expect(same(json(d), c["doc"]!), "\(c["note"]!)")
+    #expect(!d.blocks.contains { $0.t == "web" }, "\(c["note"]!)")
+  }
+}
+
+@Test func aGalleryNamingAPhotoItLacksIsTheWebNotACrash() throws {
+  let photo: [String: Any] = ["src": "https://x/1.jpg", "w": 4, "h": 3]
+  let d = try doc(page([["t": "gallery", "title": "Ảnh", "note": "1 ảnh", "photos": [photo], "strip": [0, 3]]]))
+  #expect(d.blocks.map(\.t) == ["web"])
 }
 
 @Test func readsEveryHtmlCasesBlocksAsWritten() throws {
@@ -150,6 +204,31 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   #expect(read.pages.isEmpty && read.items.count == 1)
 }
 
+@Test func drawsTheKindsAtOrBelowItsLevelAsTheSitesCasesSay() throws {
+  let levels = cases("levels")
+  #expect(levels.count >= 3)
+  for c in levels {
+    let shards = try JSONDecoder().decode([String: HandbookIndex.Shards].self, from: JSONSerialization.data(withJSONObject: c["shards"]!))
+    #expect(Set(HandbookIndex.drawn(shards, level: c["appLevel"] as! Int).keys) == Set(c["draws"] as! [String]), "\(c["note"]!)")
+  }
+  // This app draws fish, plants and glossary terms: level 2.
+  #expect(PageDoc.level == 2)
+}
+
+@Test func theAppDrawsTheKindsTheIndexGivesItsLevelOrALowerOneAndKeepsTheRestOnTheWeb() throws {
+  // `pages` stays guides only, for apps older than levels; `shards` gives each kind its level.
+  let json = #"{"version":1,"lang":"vi","items":[],"pages":{"guide":32},"shards":{"guide":{"n":32,"level":1},"fish":{"n":128,"level":2},"plant":{"n":"x","level":2},"glossary":4,"breed":{"n":8,"level":3}}}"#
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(json.utf8))
+  // A kind it can't read (plant's count, glossary not an entry at all) is left on the web, each on its own; one of a
+  // later level too.
+  #expect(ix.pages == ["guide": 32, "fish": 128])
+  // The copy kept on the phone reads back the same.
+  #expect(try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(ix)).pages == ix.pages)
+  // A site with levels but none this app knows: nothing drawn, not its frozen `pages`.
+  let later = #"{"version":1,"lang":"vi","items":[],"pages":{"guide":32},"shards":{"guide":{"n":32,"level":9}}}"#
+  #expect(try JSONDecoder().decode(HandbookIndex.self, from: Data(later.utf8)).pages.isEmpty)
+}
+
 @Test func aPagesPicturesAreTheLeadThenEachPhotoAndStillInTheText() throws {
   let img = { (src: String) in ["src": src, "w": 4, "h": 3] as [String: Any] }
   let blocks: [Any] = [
@@ -165,6 +244,21 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   p["video"] = ["youtubeId": "abc", "title": "t", "channel": "c", "durationSec": 60]
   #expect(try doc(p).pictures.first == "https://i.ytimg.com/vi/abc/hqdefault.jpg")
   #expect(try doc(p).pictures.count == 4)
+}
+
+@Test func aFishPagesPicturesKeptForOfflineAreItsGalleryRowNotEveryPhotoAndItsMatesBreedsAndVideos() throws {
+  let img = { (src: String) in ["src": src, "w": 4, "h": 3] as [String: Any] }
+  let blocks: [Any] = [
+    ["t": "gallery", "title": "Ảnh", "note": "3 ảnh", "strip": [2, 0],
+     "photos": [img("https://x/g0.jpg").merging(["thumb": "https://x/g0-480.jpg"]) { a, _ in a }, img("https://x/g1.jpg"), img("https://x/g2.jpg")]],
+    ["t": "mates", "title": "Nuôi chung", "tool": ["text": "Kiểm tra", "href": "/vi/cong-cu/nuoi-chung/"],
+     "good": ["title": "Hợp với", "items": [["path": "/vi/ca/a/", "name": "A", "img": img("https://x/m.jpg").merging(["thumb": "https://x/m-160.jpg"]) { a, _ in a }],
+                                              ["path": "/vi/ca/b/", "name": "B"]]]],
+    ["t": "cards", "title": "Các dòng", "items": [["path": "/vi/ca/c/", "name": "C", "img": img("https://x/c.jpg")]]],
+    ["t": "videos", "title": "Video", "items": [["youtubeId": "v1", "title": "V", "durationSec": 60, "lang": "EN"]]],
+  ]
+  // A card's small photo when it has one: the one it shows.
+  #expect(try doc(page(blocks)).pictures == ["https://x/g2.jpg", "https://x/g0-480.jpg", "https://x/m-160.jpg", "https://x/c.jpg", "https://i.ytimg.com/vi/v1/hqdefault.jpg"])
 }
 
 @Test func aShelfIsKeptForOfflineOnWiFiAskedFirstOnMobileDataAndNotWithoutRoomOrNetwork() {

@@ -11,8 +11,10 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   public let home: Home?
   /// The site's words for the keys items carry, in this language; empty from a site older than that.
   public let labels: Labels
-  /// How many shards of pages each kind has (`/app/pages/<lang>/<kind>-<n>.json`, PageDoc.shard): the kinds the app
-  /// can draw itself. Empty from a site older than that.
+  /// How many shards of pages each kind has (`/app/pages/<lang>/<kind>-<n>.json`, PageDoc.shard): the kinds this app
+  /// draws itself. The site's `shards` gives each kind's level, and this app takes those at or below the one it knows
+  /// (PageDoc.level); a site without it, its `pages` (guides only: left as they were for apps older than levels). Empty
+  /// from a site older than both.
   public let pages: [String: Int]
 
   /// `video`: a series of video guides (its page lists them).
@@ -242,7 +244,9 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     // Read leniently: a home or words this app can't read are left out, never the index.
     home = (try? c.decodeIfPresent(Home.self, forKey: .home)) ?? nil
     labels = ((try? c.decodeIfPresent(Labels.self, forKey: .labels)) ?? nil) ?? Labels()
-    pages = ((try? c.decodeIfPresent([String: Int].self, forKey: .pages)) ?? nil) ?? [:]
+    // Each kind on its own: one this app can't read is left out, the others drawn.
+    let shards = ((try? c.decodeIfPresent([String: Shards].self, forKey: .shards)) ?? nil) ?? [:]
+    pages = !shards.isEmpty ? Self.drawn(shards, level: PageDoc.level) : ((try? c.decodeIfPresent([String: Int].self, forKey: .pages)) ?? nil) ?? [:]
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -255,8 +259,27 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     if !pages.isEmpty { try c.encode(pages, forKey: .pages) }
   }
 
-  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages }
+  // The copy kept on the phone writes `pages` alone: the kinds this app draws, already chosen.
+  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages, shards }
   private struct Skipped: Decodable { init(from decoder: any Decoder) {} }
+  /// The kinds an app knowing `level` draws itself, of the site's `shards`, with their shard counts: those at that level
+  /// or a lower one (protocols/page-vectors.json, `levels`).
+  static func drawn(_ shards: [String: Shards], level: Int) -> [String: Int] {
+    shards.compactMapValues { s in s.level.flatMap { $0 <= level ? s.n : nil } }.filter { $0.value > 0 }
+  }
+
+  /// A kind's entry in the site's `shards`: a part this app can't read is nil (all of it, for an entry that isn't one),
+  /// and that kind alone stays on the web.
+  struct Shards: Decodable {
+    let n: Int?
+    let level: Int?
+    init(from decoder: any Decoder) {
+      let c = try? decoder.container(keyedBy: Keys.self)
+      n = try? c?.decode(Int.self, forKey: .n)
+      level = try? c?.decode(Int.self, forKey: .level)
+    }
+    private enum Keys: String, CodingKey { case n, level }
+  }
 }
 
 /// A load that stopped because something else took its place (the reader moved on, the tab went away): not a failure

@@ -121,7 +121,116 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertFalse(app.descendants(matching: .any)["native-page"].exists)
   }
 
+  /// A fish's page as the site writes it for the app: where it's from and its other names, the summary as one paragraph
+  /// with the mistakes keepers make, the sources behind its figures, its tank-mates, the Vietnamese climate, its gallery
+  /// (each photo credited), the sources' terms, its breeds and its videos. All of it drawn: no part left to the web.
+  func testAFishIsDrawnByTheAppWithEachOfItsParts() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
+    XCTAssertTrue(text(app, "Characidae, Peru").exists, "no family and country")
+    XCTAssertTrue(text(app, "Tên khác: Neon tetra").exists, "no other names")
+    let sources = app.descendants(matching: .any)["page-more"]
+    reveal(app, sources)
+    sources.tap()
+    XCTAssertTrue(text(app, "Seriously Fish: 20–26°C").waitForExistence(timeout: 2), "the sources behind a figure don't open")
+    reveal(app, text(app, "Lớn tới 15 cm, có thể ăn Cá neon"))
+    XCTAssertTrue(card(app, "Cá ngựa vằn").exists, "no fish to keep with it")
+    XCTAssertTrue(app.links["Ảnh: Tác giả 5 · CC BY 4.0"].exists, "a card's photo without its credit")
+    reveal(app, text(app, "Mùa đông miền Bắc"))
+    let all = app.buttons["gallery-all"]
+    reveal(app, all)
+    XCTAssertEqual(all.label, "Xem tất cả 3 ảnh")
+    XCTAssertTrue(app.links["Ảnh: Tác giả 1 · CC BY 2.0"].exists, "a photo in the row without its credit")
+    all.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["gallery"].waitForExistence(timeout: 5), "no gallery")
+    // Its words once: under the photo, not as the photo's label too (the row's button for it, under the sheet, aside).
+    let words = app.descendants(matching: .any).matching(NSPredicate(format: "label == %@ AND elementType != %lu", "Đàn cá neon trong bể",
+                                                                     XCUIElement.ElementType.button.rawValue))
+    XCTAssertTrue(words.firstMatch.waitForExistence(timeout: 3))
+    XCTAssertEqual(words.count, 1, "the photo's words read twice")
+    // The last photo, not in the row: its credit is the viewer's.
+    app.swipeLeft()
+    app.swipeLeft()
+    XCTAssertTrue(app.staticTexts["3/3 · 3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở."].waitForExistence(timeout: 3), "not on the last photo")
+    XCTAssertTrue(app.links["Ảnh: Tác giả 3 · CC BY 4.0"].waitForExistence(timeout: 3), "a photo without its credit")
+    app.buttons["Đóng"].tap()
+    reveal(app, text(app, "Cá nhỏ, hiền, hợp bể cộng đồng"))
+    XCTAssertTrue(text(app, "Thả vài con").exists, "no mistakes")
+    reveal(app, text(app, "với sự cho phép của họ"))
+    reveal(app, card(app, "Cá neon vàng"))
+    reveal(app, text(app, "Đàn neon trong bể thủy sinh"))
+    XCTAssertFalse(app.buttons["page-web"].exists, "a part left to the web")
+  }
+
+  /// A fish to keep with it opens its own page in the app.
+  func testAFishsTankMateOpensItsPage() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    let mate = card(app, "Cá ngựa vằn")
+    reveal(app, mate)
+    mate.tap()
+    XCTAssertTrue(app.navigationBars["Cá ngựa vằn"].waitForExistence(timeout: 5), "the tank-mate's page didn't open")
+  }
+
+  /// The tank-mates tool, set to this fish by the page's link: its web page in the app, fish and all (not the tool left
+  /// empty, nor the browser).
+  func testTheTankMatesToolOpensSetToTheFish() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    let tool = app.links["Kiểm tra nuôi chung với loài khác →"].firstMatch
+    reveal(app, tool)
+    tool.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5), "not the web page in the app")
+    XCTAssertTrue(app.webViews.staticTexts["/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"].waitForExistence(timeout: 15), "the tool, not set to the fish")
+  }
+
+  /// A breed the index leaves out (the app can't draw it): its web page, in the app, not the browser.
+  func testABreedTheAppCantDrawOpensOnTheWebInTheApp() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    let breed = card(app, "Cá neon vàng")
+    reveal(app, breed)
+    breed.tap()
+    XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-neon-vang/"].waitForExistence(timeout: 15), "not the breed's web page in the app")
+  }
+
+  func testAFishPageSaysWhatEachPartIs() throws {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5))
+    try app.performAccessibilityAudit(for: .sufficientElementDescription)
+  }
+
+  func testAPlantAndAGlossaryTermAreDrawnByTheApp() {
+    let app = launch()
+    openItem(app, "rotala", "Rotala đỏ")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the plant isn't drawn by the app")
+    XCTAssertTrue(text(app, "Cần ánh sáng mạnh").exists)
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    let field = app.searchFields.firstMatch
+    field.buttons.firstMatch.tap() // clears it
+    openItem(app, "dem ph", "Đệm pH")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the term isn't drawn by the app")
+    XCTAssertTrue(text(app, "Khả năng giữ pH của nước").exists)
+  }
+
   // MARK: Helpers
+
+  /// A search's row by its name, opened.
+  private func openItem(_ app: XCUIApplication, _ query: String, _ name: String) {
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText(query)
+    let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no \(name)")
+    row.tap()
+  }
+
+  private func card(_ app: XCUIApplication, _ name: String) -> XCUIElement {
+    app.descendants(matching: .any).matching(identifier: "card").matching(NSPredicate(format: "label CONTAINS %@", name)).firstMatch
+  }
 
   private func launch(_ more: String...) -> XCUIApplication {
     let app = XCUIApplication()

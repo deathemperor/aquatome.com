@@ -817,6 +817,22 @@
         }
       }
     },
+    "CO₂": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CO₂"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CO₂"
+          }
+        }
+      }
+    },
     "Cao": {
       "localizations": {
         "id": {
@@ -4449,6 +4465,22 @@
         }
       }
     },
+    "Tốc độ mọc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kecepatan tumbuh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อัตราการเติบโต"
+          }
+        }
+      }
+    },
     "Tự nhiên": {
       "localizations": {
         "id": {
@@ -4541,6 +4573,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยังตั้งตารางเวลาด้านล่างได้: แอปจะจำตารางเวลาไว้ในเครื่องนี้เพื่อบันทึกลงโคมไฟภายหลัง"
+          }
+        }
+      }
+    },
+    "Vị trí": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Posisi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตำแหน่งปลูก"
           }
         }
       }
@@ -4669,6 +4717,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูในตู้ของฉัน →"
+          }
+        }
+      }
+    },
+    "Xem tất cả %lld ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat semua %lld foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูรูปภาพทั้งหมด %lld รูป"
           }
         }
       }
@@ -5069,6 +5133,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค่อยๆ หรี่ลง"
+          }
+        }
+      }
+    },
+    "Ánh sáng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cahaya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แสง"
           }
         }
       }
@@ -6221,6 +6301,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "นาฬิกาของโคมไฟตรงเวลา"
+          }
+        }
+      }
+    },
+    "Độ cứng (dGH)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kesadahan (dGH)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความกระด้าง (dGH)"
           }
         }
       }
