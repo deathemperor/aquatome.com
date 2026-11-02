@@ -166,6 +166,8 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   let site = URL(string: "https://aquatome.com")!
   #expect(Readers.url(comments: "id:species:betta-splendens", site: site).absoluteString == "https://aquatome.com/_c?e=id:species:betta-splendens")
   #expect(Readers.url(photos: "species:betta-splendens", site: site).absoluteString == "https://aquatome.com/_p?e=species:betta-splendens")
+  // Named as the app's, for the site's logs.
+  #expect(Readers.request(site, version: "1.4").value(forHTTPHeaderField: "User-Agent") == "AquaTome-iOS/1.4")
   // apps/site/worker/comments/api.ts and photos.ts: their answers, with one entry each missing a part.
   let comments = Data(#"""
   {"comments":[{"id":"c1","name":"Lan","body":"Nuôi đàn 10 con.\n\nỔn.","helpful":true,"createdAt":"2026-10-30T18:30:00.000Z"},

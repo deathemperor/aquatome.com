@@ -26,6 +26,14 @@ public enum Readers {
   public static func url(comments key: String, site: URL) -> URL { url("_c", key, site) }
   public static func url(photos key: String, site: URL) -> URL { url("_p", key, site) }
 
+  /// The request for one of those, named as the app's (`AquaTome-iOS/<version>`): the site's logs tell its reads from
+  /// the web page's.
+  public static func request(_ url: URL, version: String) -> URLRequest {
+    var r = URLRequest(url: url)
+    r.setValue("AquaTome-iOS/\(version)", forHTTPHeaderField: "User-Agent")
+    return r
+  }
+
   private static func url(_ path: String, _ key: String, _ site: URL) -> URL {
     var c = URLComponents(url: site.appending(path: path), resolvingAgainstBaseURL: false)!
     c.queryItems = [URLQueryItem(name: "e", value: key)]

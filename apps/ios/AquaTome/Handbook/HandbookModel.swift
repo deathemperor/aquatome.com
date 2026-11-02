@@ -93,7 +93,9 @@ final class HandbookModel {
     // UI tests read no network: the fixed answers.
     if case .fixed = source { return HandbookIndex.fixtureReaders[url.absoluteString] }
     #endif
-    guard let (data, response) = try? await URLSession.shared.data(from: url), (response as? HTTPURLResponse)?.statusCode == 200 else { return nil }
+    let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0"
+    guard let (data, response) = try? await URLSession.shared.data(for: Readers.request(url, version: version)),
+          (response as? HTTPURLResponse)?.statusCode == 200 else { return nil }
     return data
   }
 
