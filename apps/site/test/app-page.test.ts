@@ -2,9 +2,9 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import type { Content } from '@aq/schema'
-import { PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
+import { drawnKinds, PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
 import { appGlossary, appGuides, appPlants, appSpecies, type AppIndex } from '../src/lib/app-index'
-import { appPages, guideDoc, INDEXED_PAGE_KINDS, listedPaths, proseBlocks, shardsOf } from '../src/lib/app-page'
+import { appPages, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, shardsOf } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { GUIDE_KIND_LABELS } from '../src/lib/format'
 import { guideParts } from '../src/lib/guide-page'
@@ -153,9 +153,10 @@ test('each page of each kind is in the shard its path names, the shards hold not
     const c = await getContent(lang)
     const ix: AppIndex = JSON.parse(readFileSync(`${DIST}/app/${lang}.json`, 'utf8'))
     const listed = new Set(ix.items.map(i => i.path))
-    // The index gives the counts of the kinds the app draws itself; the others' shards are there all the same.
+    // The index gives every kind's count and level, and the first app's kind (guides) in `pages` too.
     const { counts } = shardsOf(await appPages(lang, c))
-    expect(ix.pages ?? {}, lang).toEqual(Object.fromEntries(Object.entries(counts).filter(([k]) => INDEXED_PAGE_KINDS.includes(k as PageDoc['kind']))))
+    expect(ix.shards ?? {}, lang).toEqual(Object.fromEntries(Object.entries(counts).map(([k, n]) => [k, { n, level: PAGE_LEVELS[k as PageDoc['kind']] }])))
+    expect(ix.pages ?? {}, lang).toEqual(counts.guide ? { guide: counts.guide } : {})
     // A kind's pages are the ones the index lists of it (a breed is listed as a fish, and has no page here yet).
     const at = (vi: string) => localizePath(lang, vi)
     const want: Record<PageDoc['kind'], string[]> = {
@@ -187,11 +188,15 @@ test('each page of each kind is in the shard its path names, the shards hold not
   expect(kinds).toBeGreaterThanOrEqual(4)
 })
 
-test('the index counts only the kinds an app draws itself; fish, plant and glossary shards are published but not counted yet', () => {
-  // Today's app draws a kind itself once the index counts it, and would offer the web for every block it doesn't know.
-  expect(INDEXED_PAGE_KINDS).toEqual(['guide'])
+test('the first app draws guides only; an app that knows level 2 draws fish, plant and glossary pages too', () => {
+  // The first app draws every kind `pages` counts, and would offer the web for every block it doesn't know: `pages` stays
+  // guides only, and the other kinds are in `shards` at level 2.
+  expect(PAGE_LEVELS).toEqual({ guide: 1, fish: 2, plant: 2, glossary: 2 })
   const ix: AppIndex = JSON.parse(readFileSync(`${DIST}/app/vi.json`, 'utf8'))
   expect(Object.keys(ix.pages ?? {})).toEqual(['guide'])
+  expect(ix.shards?.guide?.n).toBe(ix.pages?.guide)
+  expect(drawnKinds(ix.shards ?? {}, 1)).toEqual(Object.keys(ix.pages ?? {}))
+  expect(drawnKinds(ix.shards ?? {}, 2).sort()).toEqual(['fish', 'glossary', 'guide', 'plant'])
   const files = readdirSync(`${DIST}/app/pages/vi`)
   for (const kind of ['fish', 'plant', 'glossary']) expect(files.some(f => f.startsWith(`${kind}-`)), kind).toBe(true)
 })

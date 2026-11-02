@@ -1,5 +1,5 @@
 {
-  "$comment": "Cases for the app page format (packages/schema/src/app-page.ts, protocols/page.schema.json). html: a page's HTML as shown, and the blocks apps/site/src/lib/page-blocks.ts makes of it (unknown: what it could not convert). shards: which shard of /app/pages/<lang>/<kind>-<n>.json a path is in, for that many shards. docs: whole pages; valid ones are as the site writes them, the others a reader must still show, with the blocks it shows (web: \"open on the web\"). added: whole pages with the blocks and fields added after the first app that reads the format (fish, plant and glossary pages: gallery, trust, mates, climate, cards, videos; a fish's where and aka; a summary's mistakes and by; a source list's note; a gallery photo's thumb). Each is valid as the site writes it; older is what an app that predates them shows (web for each block it doesn't know, in its place; the fields it doesn't know left out).",
+  "$comment": "Cases for the app page format (packages/schema/src/app-page.ts, protocols/page.schema.json). html: a page's HTML as shown, and the blocks apps/site/src/lib/page-blocks.ts makes of it (unknown: what it could not convert). shards: which shard of /app/pages/<lang>/<kind>-<n>.json a path is in, for that many shards. docs: whole pages; valid ones are as the site writes them, the others a reader must still show, with the blocks it shows (web: \"open on the web\"). added: whole pages with the blocks and fields added after the first app that reads the format (fish, plant and glossary pages: gallery, trust, mates, climate, cards, videos; a fish's where and aka; a summary's mistakes and by; a source list's note; a gallery photo's thumb). Each is valid as the site writes it; older is what an app that predates them shows (web for each block it doesn't know, in its place; the fields it doesn't know left out). levels: the shards an app index gives (each kind's shard count n and level) and the kinds an app that knows appLevel draws itself (draws, in any order): those whose level is at or below its own; it opens the others' pages on the web.",
   "html": [
     {
       "note": "paragraphs and a heading with its table-of-contents id; spaces as a browser shows them",
@@ -1298,6 +1298,83 @@
       "older": [
         "p",
         "p"
+      ]
+    }
+  ],
+  "levels": [
+    {
+      "note": "the first app (level 1) draws guides and keeps fish, plant and glossary pages on the web",
+      "shards": {
+        "guide": {
+          "n": 32,
+          "level": 1
+        },
+        "fish": {
+          "n": 128,
+          "level": 2
+        },
+        "plant": {
+          "n": 32,
+          "level": 2
+        },
+        "glossary": {
+          "n": 8,
+          "level": 2
+        }
+      },
+      "appLevel": 1,
+      "draws": [
+        "guide"
+      ]
+    },
+    {
+      "note": "an app that knows level 2 draws all four kinds",
+      "shards": {
+        "guide": {
+          "n": 32,
+          "level": 1
+        },
+        "fish": {
+          "n": 128,
+          "level": 2
+        },
+        "plant": {
+          "n": 32,
+          "level": 2
+        },
+        "glossary": {
+          "n": 8,
+          "level": 2
+        }
+      },
+      "appLevel": 2,
+      "draws": [
+        "guide",
+        "fish",
+        "plant",
+        "glossary"
+      ]
+    },
+    {
+      "note": "fish pages that need a block no level-2 app knows are at level 3: an app that knows level 2 keeps them on the web and draws the rest",
+      "shards": {
+        "guide": {
+          "n": 32,
+          "level": 1
+        },
+        "fish": {
+          "n": 128,
+          "level": 3
+        },
+        "plant": {
+          "n": 32,
+          "level": 2
+        }
+      },
+      "appLevel": 2,
+      "draws": [
+        "guide",
+        "plant"
       ]
     }
   ]

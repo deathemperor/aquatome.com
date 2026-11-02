@@ -1,4 +1,5 @@
 import { QUALITY_THRESHOLD, type BreedEntity, type Content, type Photo, type PlantEntity, type Traits } from '@aq/schema'
+import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
@@ -50,8 +51,13 @@ export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
 const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
 export type AppIndex = {
   version: 1; lang: Lang; items: AppItem[]; home: AppHome; labels: AppLabels
-  /** How many shards of pages each kind has (lib/app-page.ts): the app draws those pages itself. */
-  pages?: Partial<Record<'guide' | 'fish' | 'plant' | 'glossary', number>>
+  /**
+   * The shard counts of the first app's kind, guides (lib/app-page.ts). That app draws every kind listed here itself,
+   * so no kind is ever added to it (packages/schema/src/app-page.ts, PageShard).
+   */
+  pages?: Partial<Record<PageDoc['kind'], number>>
+  /** Every kind's shard count (`n`, as `pages` gives it) and the level an app must know to draw that kind itself. */
+  shards?: Partial<Record<PageDoc['kind'], KindShards>>
 }
 /** The guides the index lists in this language, and the app has pages of (lib/app-page.ts). */
 export function appGuides(lang: Lang, c: Content): Content['guides'] {

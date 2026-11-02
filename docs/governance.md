@@ -20,8 +20,15 @@ that would have caught it).
     which the app's tests read too; every text in the real `content/` converts with nothing the app would have to send
     to the web. Each guide's, fish's, plant's and glossary term's copy is held to its built page: its header, every
     photo's credit (the footer's "Nguồn ảnh" included), its numbered sources, and for a fish the data card's sources,
-    tank mates, climate, gallery and breeds. The app index counts a kind's shards only once an app that draws its blocks
-    ships (`INDEXED_PAGE_KINDS` in `apps/site/src/lib/app-page.ts`).
+    tank mates, climate, gallery and breeds.
+  - Which app draws which kind: the app index's `shards` gives each kind's shard count and **level**
+    (`PAGE_LEVELS` in `apps/site/src/lib/app-page.ts`; the rule in `packages/schema/src/app-page.ts`, cases in
+    `page-vectors.json` `levels`):
+    - An app draws a kind itself only when the kind's level is at or below the level the app knows. It opens the other
+      kinds' pages on the web.
+    - A kind that needs a block no shipped app knows gets the next level.
+    - `pages` (guides only) stays as it is for the apps already installed: the first app draws every kind it lists.
+    - Guides are level 1. Fish, plant and glossary pages are level 2: the iOS app that reads `shards` knows level 2.
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools).

@@ -1,6 +1,6 @@
 import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
-import { appGlossary, appGuides, appIndex, appPlants, appSpecies } from './app-index'
+import { appGlossary, appGuides, appIndex, appPlants, appSpecies, type AppIndex } from './app-index'
 import { BREED_KIND } from './breeds'
 import { photoCredit } from './cite'
 import { VN_WATER, vnClimate } from './climate'
@@ -312,16 +312,22 @@ export function appPages(lang: Lang, c: Content): Promise<Record<Kind, PageDoc[]
 }
 
 /**
- * The kinds whose shard counts the app index gives (`pages`). The app draws a kind itself as soon as the index counts
- * it, and today's app shows "open on the web" for each block it doesn't know yet (gallery, trust, mates, climate, cards,
- * videos). So fish, plant and glossary shards are built and published but not counted, until an app that draws those
- * blocks ships: adding their kinds here is the switch.
+ * The level an app must know to draw each kind itself (packages/schema/src/app-page.ts, PageShard). Guides are the first
+ * app's (level 1); fish, plant and glossary pages use blocks it shows as "open on the web", so they are level 2.
  */
-export const INDEXED_PAGE_KINDS: readonly Kind[] = ['guide']
+export const PAGE_LEVELS: Record<Kind, number> = { guide: 1, fish: 2, plant: 2, glossary: 2 }
 
-/** The shard counts the app index gives: those of INDEXED_PAGE_KINDS. */
-export const indexedCounts = (counts: Partial<Record<Kind, number>>): Partial<Record<Kind, number>> =>
-  Object.fromEntries(Object.entries(counts).filter(([k]) => INDEXED_PAGE_KINDS.includes(k as Kind)))
+/**
+ * What the app index says of the shards: every kind's count and level (`shards`), and the counts of the level-1 kinds
+ * alone (`pages`, guides), as the first app reads them.
+ */
+export const indexedShards = (counts: Partial<Record<Kind, number>>): Pick<AppIndex, 'pages' | 'shards'> => {
+  const kinds = Object.entries(counts) as [Kind, number][]
+  return {
+    pages: Object.fromEntries(kinds.filter(([k]) => PAGE_LEVELS[k] === 1)),
+    shards: Object.fromEntries(kinds.map(([k, n]) => [k, { n, level: PAGE_LEVELS[k] }])),
+  }
+}
 
 /** How many shards each kind has (for the app index), and the shards themselves. */
 export function shardsOf(docs: Record<Kind, PageDoc[]>): { counts: Partial<Record<Kind, number>>; shards: { kind: Kind; n: number; shard: PageShard }[] } {

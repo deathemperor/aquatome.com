@@ -2,13 +2,14 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { Ajv2020 } from 'ajv/dist/2020.js'
 import { z } from 'zod'
-import { Block, PageDoc, PageShard } from '../src/app-page'
+import { Block, drawnKinds, PageDoc, PageShard, type KindShards } from '../src/app-page'
 
 // The app page format, shared with the iOS app (its decode test reads the same vectors).
 type Vectors = {
   html: { note: string; blocks: unknown[] }[]
   docs: { note: string; valid: boolean; doc: unknown }[]
   added: { note: string; doc: { blocks: { t: string }[] }; older: string[] }[]
+  levels: { note: string; shards: Partial<Record<PageDoc['kind'], KindShards>>; appLevel: number; draws: string[] }[]
 }
 const VECTORS = new URL('../../../protocols/page-vectors.json', import.meta.url)
 const SCHEMA_FILE = new URL('../../../protocols/page.schema.json', import.meta.url)
@@ -54,8 +55,8 @@ test('the site\'s pages are the format; a newer site\'s or a malformed page is n
 })
 
 // The blocks the first app that reads this format knows. A block added since (fish, plant and glossary pages') is
-// "open on the web" to it, in its place, and a field added since is nothing: the app index counts those kinds only once
-// an app that draws them ships (apps/site/src/lib/app-page.ts INDEXED_PAGE_KINDS).
+// "open on the web" to it, in its place, and a field added since is nothing: so those kinds are at level 2, which it
+// doesn't know (apps/site/src/lib/app-page.ts PAGE_LEVELS).
 const FIRST = new Set(['h', 'p', 'list', 'table', 'figure', 'moments', 'summary', 'faq', 'refs', 'pages', 'web'])
 const ADDED = ['gallery', 'trust', 'mates', 'climate', 'cards', 'videos']
 
@@ -71,4 +72,8 @@ test('the pages with blocks added after the first app are the format, and an old
   for (const t of ADDED) expect(used.has(t), t).toBe(true)
   const defs = (schema.$defs.Block.anyOf as { properties?: { t?: { const?: string } } }[]).map(b => b.properties?.t?.const)
   expect(defs.filter(t => t && !FIRST.has(t)).sort()).toEqual([...ADDED].sort())
+})
+
+test.each(v.levels)('levels: $note', c => {
+  expect(drawnKinds(c.shards, c.appLevel).sort(), c.note).toEqual([...c.draws].sort())
 })

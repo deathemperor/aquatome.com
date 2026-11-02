@@ -81,7 +81,7 @@ export const Pages = z.object({ t: z.literal('pages'), title: z.string(), paths:
 export const Web = z.object({ t: z.literal('web') })
 
 // Fish, plant and glossary pages (added after the first app that reads this format: it shows each block below as "open on
-// the web", so the app index lists those kinds only once an app that draws them ships).
+// the web", so those kinds are at level 2, which the first app doesn't know; see PageShard).
 
 /** A photo of a gallery: `thumb` is a smaller copy (about 480 px wide) for a grid of them. */
 export const GalleryPhoto = Image.extend({ thumb: z.string().optional() })
@@ -211,8 +211,25 @@ export type PageDoc = z.infer<typeof PageDoc>
 
 /**
  * Pages come in shards, not one file each (the site's static files stay few): `/app/pages/<lang>/<kind>-<n>.json` holds
- * every page of that kind whose path hashes to n. The app index says how many shards each kind has (`pages`, a power of
- * two). The hash is 32-bit FNV-1a over the path's UTF-8 bytes; protocols/page-vectors.json has cases.
+ * every page of that kind whose path hashes to n. The hash is 32-bit FNV-1a over the path's UTF-8 bytes;
+ * protocols/page-vectors.json has cases.
+ *
+ * The app index says how many shards each kind has, and which apps may draw it:
+ * - `shards`: every kind with pages, as `{ n, level }`. `n` is its shard count (a power of two); `level` is the level an
+ *   app must know to draw that kind itself.
+ * - `pages`: the shard counts alone, of guides only. The first app reads this and draws every kind it lists, so it stays
+ *   as it is, for the apps already installed: no kind is ever added to it.
+ *
+ * Levels:
+ * - An app draws a kind itself only when the kind's `level` is at or below the level the app knows (`drawnKinds`).
+ *   It opens the other kinds' pages on the web.
+ * - Level 1 is the first app's: guides, the kind `pages` lists.
+ * - Level 2: fish, plant and glossary pages, with the blocks gallery, trust, mates, climate, cards and videos. The iOS
+ *   app that reads `shards` knows level 2.
+ * - A kind that needs a block no shipped app knows gets the next level: one above the highest an app has shipped
+ *   knowing. An app that knows a lower level keeps that kind on the web.
+ *
+ * protocols/page-vectors.json `levels` has cases.
  */
 export const PageShard = z.object({ v: z.literal(PAGE_VERSION), pages: z.record(z.string(), PageDoc) })
 export type PageShard = z.infer<typeof PageShard>
@@ -228,4 +245,12 @@ export function shardCount(pages: number): number {
   let n = 1
   while (n * 8 < pages) n *= 2
   return n
+}
+
+/** A kind's entry in the app index's `shards`: how many shards it has, and the level an app must know to draw it. */
+export type KindShards = { n: number; level: number }
+
+/** The kinds an app that knows `appLevel` draws itself, in the order `shards` gives them; it opens the others on the web. */
+export function drawnKinds(shards: Partial<Record<PageDoc['kind'], KindShards>>, appLevel: number): PageDoc['kind'][] {
+  return (Object.entries(shards) as [PageDoc['kind'], KindShards][]).filter(([, s]) => s.level <= appLevel).map(([k]) => k)
 }
