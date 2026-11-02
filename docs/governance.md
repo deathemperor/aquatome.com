@@ -95,6 +95,10 @@ that would have caught it).
     once fixed.
   - On a PR that changes `apps/site/src/`, the same review runs on the fixture build and posts its findings as one PR
     comment (advisory).
+  - A review that hits Claude's usage limit (the owner's subscription; the engine's pattern, `e2e/claude-limit.ts`) did
+    not run: it is skipped, so it opens, updates and closes no issue, and the PR comment counts only the pages reviewed
+    and says how many did not run, and why. Found 2026-11-02: the weekly limit opened 17 issues, one per page, and two
+    PR comments read "Nothing serious found" with no page reviewed.
 - Calibrated on the real bug: with the old `/vi/ca/?q=chach` code back, it reported "search results pushed below an
   unrelated section" as high, with the fix that shipped. On the fixed site, the 11 key pages had no high findings.
 - Its first run found 2 small problems on the Chihiros page (fixed with it) and 3 content notes.
