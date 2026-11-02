@@ -12,10 +12,9 @@ import { seriesGuides } from './video'
 
 /**
  * The handbook's index for the native app (/app/<lang>.json): the pages of one language that the app can search and
- * list. Fish and plants are every one the site's own fish and plant lists show (a page out of search engines too); guides,
- * glossary terms and video series those in search engines. The app opens the page itself in a web view, so an item is
- * only what a search result shows and what the app browses it by. Fish come in the site's list order (the well-known
- * ones first).
+ * list. Fish, plants, guides and video series are every one the site's own lists show (a page out of search engines
+ * too); glossary terms those in search engines. The app opens the page itself in a web view, so an item is only what a
+ * search result shows and what the app browses it by. Fish come in the site's list order (the well-known ones first).
  */
 export type AppItem = {
   /** `video`: a series of video guides (/vi/video/<slug>/). */
@@ -78,9 +77,12 @@ export type AppIndex = {
   /** Every kind's shard count (`n`, as `pages` gives it) and the level an app must know to draw that kind itself. */
   shards?: Partial<Record<PageDoc['kind'], KindShards>>
 }
-/** The guides the index lists in this language, and the app has pages of (lib/app-page.ts). */
+/**
+ * The guides the index lists in this language, and the app has pages of (lib/app-page.ts): every one the site lists (the
+ * guide list, the discovery notes and each video series: lib/list-data.ts), a page out of search engines too.
+ */
 export function appGuides(lang: Lang, c: Content): Content['guides'] {
-  return served(lang, '/vi/huong-dan/x/') ? c.guides.filter(g => g.t.quality.indexable) : []
+  return served(lang, '/vi/huong-dan/x/') ? c.guides : []
 }
 /**
  * The species the index lists in this language, and the app has pages of (lib/app-page.ts): every one the fish list shows
@@ -195,9 +197,9 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/thuat-ngu/${g.t.slug}/`) }))
   }
   if (served(lang, '/vi/video/x/')) {
-    // A series as its page lists it, when one of its guides is in the index (the page is out of search engines otherwise),
-    // the biggest first, as /vi/video/ lists them.
-    const series = c.series.map(s => ({ s, guides: seriesGuides(c, s) })).filter(x => x.guides.some(g => g.t.quality.indexable))
+    // Every series /vi/video/ lists (one with a guide, its page out of search engines too), as its page lists it, the
+    // biggest first.
+    const series = c.series.map(s => ({ s, guides: seriesGuides(c, s) })).filter(x => x.guides.length)
     for (const { s, guides } of series.sort((a, b) => b.guides.length - a.guides.length)) {
       const ph = guideImage(c, guides[0]!)
       items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), parts: guides.length }))
@@ -206,8 +208,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   for (const [vi, name, own] of TOOLS) {
     if (served(lang, vi)) items.push({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)) })
   }
-  // Only what the index lists (a lead guide out of search engines is on the site's home, not the app's): a row's worth
-  // of each.
+  // Only what the index lists: a row's worth of each.
   const paths = new Set(items.map(i => i.path))
   for (const [k, n] of [['fish', 8], ['plants', 6], ['guides', 8]] as const) home[k] = home[k].filter(p => paths.has(p)).slice(0, n)
   const groups = new Set(items.map(i => i.group))

@@ -29,8 +29,8 @@ that would have caught it).
     - A kind that needs a block no shipped app knows gets the next level.
     - `pages` (guides only) stays as it is for the apps already installed: the first app draws every kind it lists.
     - Guides are level 1. Fish, plant and glossary pages are level 2: the iOS app that reads `shards` knows level 2.
-  - The app index (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) against the built pages: its fish and plants
-    are the fish and plant lists', each with its page's copy in a shard; a species' `tax` and `from` lead to the taxon
+  - The app index (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) against the built pages: its fish, plants and
+    guides are the site's lists', each with its page's copy in a shard; a species' `tax` and `from` lead to the taxon
     and origin pages that list it, `places` are the origin pages with what each lists, and `labels` say what those pages
     say.
   - The Worker's answers when the app posts readers' comments and photos (a bearer, no Turnstile) against

@@ -79,6 +79,24 @@ test('the index lists every fish and plant the site\'s lists show, a page out of
   expect(shard.pages['/vi/ca/ca-boraras-do/']).toMatchObject({ kind: 'fish', path: '/vi/ca/ca-boraras-do/' })
 })
 
+test('the index lists every guide the site lists, a page out of search engines too, each with its copy in a shard', () => {
+  for (const lang of LANGS) {
+    const { items } = index(lang)
+    // Every guide page built: the guide list's, the discovery notes and the video guides, each listed on the site.
+    const dir = `${DIST}${localizePath(lang, '/vi/huong-dan/')}`
+    const built = existsSync(dir) ? readdirSync(dir, { withFileTypes: true }).filter(d => d.isDirectory() && d.name !== 'trang').map(d => localizePath(lang, `/vi/huong-dan/${d.name}/`)) : []
+    expect(items.filter(i => i.kind === 'guide').map(i => i.path).sort(), lang).toEqual(built.sort())
+  }
+  // A translation that scored low (Thay nước đúng cách: 0.6) is out of search engines, not off the guide list, nor the app's.
+  const ix = index('vi')
+  const path = '/vi/huong-dan/thay-nuoc-dung-cach/'
+  expect(page(path).html).toMatch(/noindex/)
+  expect((JSON.parse(readFileSync(`${DIST}/data/vi/guides.json`, 'utf8')) as { slug: string }[]).map(g => g.slug)).toContain('thay-nuoc-dung-cach')
+  expect(ix.items.find(i => i.path === path)).toMatchObject({ kind: 'guide', name: 'Thay nước đúng cách', section: 'care' })
+  const shard = PageShard.parse(JSON.parse(readFileSync(`${DIST}/app/pages/vi/guide-${pageShard(path, ix.shards!.guide!.n)}.json`, 'utf8')))
+  expect(shard.pages[path]).toMatchObject({ kind: 'guide', path, title: 'Thay nước đúng cách' })
+})
+
 test('a plant or a species whose translation scored low is still listed, as the site\'s lists show it', async () => {
   const c = await getContent('vi')
   const low = { indexable: false, score: 0.2, reason: 'low' as const }
@@ -235,15 +253,16 @@ test('a video series is an item (Vietnamese only, as its page is), and a video g
   expect(index('vi').items.filter(i => i.kind !== 'guide').some(i => 'video' in i)).toBe(false)
 })
 
-test('a series none of whose guides is in the index isn\'t listed (its page is out of search engines); the biggest series first', async () => {
-  // The repository's content (the built site above is the fixture's): a series the index lists, its guides then left out.
+test('every series /vi/video/ lists is listed, one whose guides are all out of search engines too; the biggest series first', async () => {
   const c = await getContent('vi')
   const listed = appIndex('vi', c).items.filter(i => i.kind === 'video')
-  const s = c.series.find(x => listed.some(i => i.path === `/vi/video/${x.vi.slug}/`))
-  expect(s, 'a series in the index').toBeDefined()
-  const thin = { ...c, guides: c.guides.map(g => (g.video?.series?.id === s!.id ? { ...g, t: { ...g.t, quality: { ...g.t.quality, indexable: false } } } : g)) }
-  const after = appIndex('vi', thin).items.filter(i => i.kind === 'video')
-  expect(after.map(i => i.path)).toEqual(listed.map(i => i.path).filter(p => p !== `/vi/video/${s!.vi.slug}/`))
+  // The series /vi/video/ links (not its channels'), in its order.
+  const rows = page('/vi/video/').dom.querySelectorAll('a[href^="/vi/video/"]').map(a => a.getAttribute('href')!).filter(h => /^\/vi\/video\/[^/]+\/$/.test(h) && h !== '/vi/video/kenh/')
+  expect(listed.map(i => i.path)).toEqual([...new Set(rows)])
+  // A series whose guides are all out of search engines: its page is too, and /vi/video/ still lists it.
+  const s = c.series.find(x => listed.some(i => i.path === `/vi/video/${x.vi.slug}/`))!
+  const off = { ...c, guides: c.guides.map(g => (g.video?.series?.id === s.id ? { ...g, t: { ...g.t, quality: { ...g.t.quality, indexable: false } } } : g)) }
+  expect(appIndex('vi', off).items.filter(i => i.kind === 'video')).toEqual(listed)
   // As /vi/video/ lists them.
   const parts = listed.map(i => i.parts!)
   expect(parts).toEqual([...parts].sort((a, b) => b - a))

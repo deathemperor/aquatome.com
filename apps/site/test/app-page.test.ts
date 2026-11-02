@@ -139,19 +139,19 @@ test('in Indonesian: the Indonesian page\'s paths, links and words, and a Vietna
 
 test('a page the app index leaves out is in no "pages" block; a link to it in the text stays, for the web', async () => {
   const c = await getContent('vi')
+  const listed = listedPaths('vi', c)
   const g = appGuides('vi', c).find(g => g.id === 'aquariumcoop-thay-nuoc')!
-  const [next, fish] = ['/vi/huong-dan/setup-be-thuy-sinh-dau-tien/', '/vi/ca/ca-neon-vua/']
-  expect(pagesOf(guideDoc('vi', c, g, listedPaths('vi', c)))).toEqual(expect.arrayContaining([next, fish]))
-  // A guide out of search engines is out of the index, and out of the next guides.
-  const off = { ...c, guides: c.guides.map(x => (`/vi/huong-dan/${x.t.slug}/` === next ? { ...x, t: { ...x.t, quality: { ...x.t.quality, indexable: false } } } : x)) } as Content
-  expect(pagesOf(guideDoc('vi', off, g, listedPaths('vi', off)))).not.toContain(next)
+  const fish = '/vi/ca/ca-neon-vua/'
+  expect(pagesOf(guideDoc('vi', c, g, listed))).toContain(fish)
   // A fish the index doesn't list (another language's index has only the fish with a page there) leaves the block, not the text.
-  const d = guideDoc('vi', c, g, new Set([...listedPaths('vi', c)].filter(p => p !== fish)))
+  const d = guideDoc('vi', c, g, new Set([...listed].filter(p => p !== fish)))
   expect(pagesOf(d)).not.toContain(fish)
   expect(hrefsOf(d)).toContain(fish)
-  // A fish whose translation scored low (Cá boraras đỏ) is on the site's lists, so in the index and in the block.
-  const spruce = appGuides('vi', c).find(x => x.id === 'sprucepets-low-maintenance-freshwater-fish-4770223')!
-  expect(pagesOf(guideDoc('vi', c, spruce, listedPaths('vi', c)))).toContain('/vi/ca/ca-boraras-do/')
+  // A fish and a guide whose translations scored low (Cá boraras đỏ, Thay nước đúng cách) are on the site's lists, so in
+  // the index and in the blocks that name them.
+  const block = (id: string) => pagesOf(guideDoc('vi', c, appGuides('vi', c).find(x => x.id === id)!, listed))
+  expect(block('sprucepets-low-maintenance-freshwater-fish-4770223')).toContain('/vi/ca/ca-boraras-do/')
+  expect(block('loc-cho-be-nano')).toContain('/vi/huong-dan/thay-nuoc-dung-cach/')
 })
 
 test('each page of each kind is in the shard its path names, the shards hold nothing else, and every page they name is listed', async () => {

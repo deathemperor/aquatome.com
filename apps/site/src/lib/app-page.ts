@@ -264,8 +264,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
     p.series && p.pos >= 0 && t('phần {i}/{n}', { i: p.pos + 1, n: p.inSeries.length }),
   ].filter(Boolean).join(' · ')
   const { blocks } = proseBlocks(lang, p.prose)
-  // The page also shows cards for pages the app index leaves out (a guide out of search engines, a page not in this
-  // language): the app can't draw those.
+  // The page also shows cards for pages the app index leaves out (a page not in this language): the app can't draw those.
   const pages = (title: string, viPaths: string[]) => {
     const paths = viPaths.map(at).filter(x => listed.has(x))
     return paths.length ? [{ t: 'pages' as const, title, paths }] : []
