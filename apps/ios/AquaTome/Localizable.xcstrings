@@ -449,6 +449,54 @@
         }
       }
     },
+    "Bình luận": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komentar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความคิดเห็น"
+          }
+        }
+      }
+    },
+    "Bình luận đang chờ duyệt.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komentar sedang menunggu moderasi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความคิดเห็นกำลังรอการอนุมัติ"
+          }
+        }
+      }
+    },
+    "Bạn đã gửi đủ 5 ảnh hôm nay. Hãy quay lại ngày mai.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anda sudah mengirim 5 foto hari ini. Silakan kembali besok."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วันนี้คุณส่งรูปครบ 5 รูปแล้ว โปรดกลับมาใหม่พรุ่งนี้"
+          }
+        }
+      }
+    },
     "Bấm vào tên để đổi": {
       "localizations": {
         "id": {
@@ -897,6 +945,22 @@
         }
       }
     },
+    "Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada komentar. Jadilah yang pertama berbagi pengalaman."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีความคิดเห็น มาเป็นคนแรกที่แบ่งปันประสบการณ์"
+          }
+        }
+      }
+    },
     "Chưa có bể nào": {
       "localizations": {
         "id": {
@@ -925,6 +989,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยังไม่มีขนาด"
+          }
+        }
+      }
+    },
+    "Chưa có ảnh nào. Bạn nuôi %@? Gửi một tấm ảnh cho mọi người cùng xem.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada foto. Anda memelihara %@? Kirim fotonya agar semua bisa ikut melihat."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีรูปภาพ คุณเลี้ยง %@ อยู่หรือเปล่า ส่งรูปมาให้ทุกคนได้ดูกัน"
           }
         }
       }
@@ -1169,6 +1249,22 @@
         }
       }
     },
+    "Chỉ nhận ảnh JPEG, PNG hoặc WebP.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanya menerima gambar JPEG, PNG, atau WebP."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รองรับเฉพาะภาพ JPEG, PNG หรือ WebP"
+          }
+        }
+      }
+    },
     "Chỉnh giờ đèn": {
       "localizations": {
         "id": {
@@ -1245,6 +1341,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เลือกตารางเวลาและสี"
+          }
+        }
+      }
+    },
+    "Chọn một ảnh trước đã.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih gambar terlebih dahulu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กรุณาเลือกภาพก่อน"
           }
         }
       }
@@ -1985,6 +2097,22 @@
         }
       }
     },
+    "Gửi bình luận": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim komentar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งความคิดเห็น"
+          }
+        }
+      }
+    },
     "Gửi lại mã": {
       "localizations": {
         "id": {
@@ -2013,6 +2141,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรหัส"
+          }
+        }
+      }
+    },
+    "Gửi ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรูปภาพ"
+          }
+        }
+      }
+    },
+    "Gửi ảnh %@ của bạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim foto %@ Anda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรูป %@ ของคุณ"
           }
         }
       }
@@ -2337,6 +2497,22 @@
         }
       }
     },
+    "Không gửi được bình luận, vui lòng thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komentar gagal dikirim, silakan coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งความคิดเห็นไม่สำเร็จ โปรดลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Không gửi được lệnh tới đèn. Lại gần đèn rồi thử lại.": {
       "localizations": {
         "id": {
@@ -2349,6 +2525,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งคำสั่งไปยังโคมไฟไม่ได้ ขยับเข้าใกล้โคมไฟแล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không gửi được ảnh, vui lòng thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto gagal dikirim, silakan coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรูปไม่สำเร็จ โปรดลองอีกครั้ง"
           }
         }
       }
@@ -2509,6 +2701,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "อ่านข้อมูลตู้ปลาที่บันทึกไว้ในเครื่องนี้ไม่ได้ ข้อมูลยังอยู่ครบ"
+          }
+        }
+      }
+    },
+    "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto ini tidak dapat dibaca. Coba foto JPEG atau PNG lain."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อ่านภาพนี้ไม่ได้ โปรดลองใช้ภาพ JPEG หรือ PNG อื่น"
           }
         }
       }
@@ -4177,6 +4385,38 @@
         }
       }
     },
+    "Tên chỉ gồm chữ, 1–40 ký tự, không chứa đường link.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama hanya berisi huruf, 1–40 karakter, tanpa tautan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชื่อต้องเป็นตัวอักษรเท่านั้น ยาว 1–40 ตัวอักษร และไม่มีลิงก์"
+          }
+        }
+      }
+    },
+    "Tên hiển thị": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama tampilan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชื่อที่แสดง"
+          }
+        }
+      }
+    },
     "Tên khoa học (nếu biết)": {
       "localizations": {
         "id": {
@@ -4541,6 +4781,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "วิดีโอ"
+          }
+        }
+      }
+    },
+    "Vui lòng xác nhận ảnh do bạn chụp.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Harap konfirmasi bahwa foto ini Anda ambil sendiri."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โปรดยืนยันว่าคุณเป็นผู้ถ่ายภาพนี้"
           }
         }
       }
@@ -5265,6 +5521,22 @@
         }
       }
     },
+    "Đang gửi…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mengirim…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังส่ง…"
+          }
+        }
+      }
+    },
     "Đang kết nối lại…": {
       "localizations": {
         "id": {
@@ -5585,6 +5857,22 @@
         }
       }
     },
+    "Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto sudah diterima, terima kasih! Foto akan muncul di sini setelah disetujui, biasanya dalam satu hari."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ได้รับภาพแล้ว ขอบคุณ! ภาพจะแสดงที่นี่หลังผ่านการตรวจสอบ โดยปกติภายในหนึ่งวัน"
+          }
+        }
+      }
+    },
     "Đã quên đèn trên máy này.": {
       "localizations": {
         "id": {
@@ -5709,6 +5997,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ลบบัญชีแล้ว ตู้ปลายังคงอยู่ในอุปกรณ์นี้"
+          }
+        }
+      }
+    },
+    "Đã đăng bình luận.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komentar sudah diposting."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โพสต์ความคิดเห็นแล้ว"
           }
         }
       }
@@ -6177,6 +6481,22 @@
         }
       }
     },
+    "Đăng nhập tài khoản aquatome.com để bình luận và gửi ảnh.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masuk ke akun aquatome.com untuk berkomentar dan mengirim foto."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้าสู่ระบบบัญชี aquatome.com เพื่อแสดงความคิดเห็นและส่งภาพ"
+          }
+        }
+      }
+    },
     "Đăng xuất": {
       "localizations": {
         "id": {
@@ -6433,6 +6753,22 @@
         }
       }
     },
+    "Ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปภาพ"
+          }
+        }
+      }
+    },
     "Ảnh bạn đọc": {
       "localizations": {
         "id": {
@@ -6461,6 +6797,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ภาพโดย %@"
+          }
+        }
+      }
+    },
+    "Ảnh do tôi chụp. Tôi đồng ý để AquaTome đăng ảnh này kèm tên tôi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto ini saya ambil sendiri. Saya setuju AquaTome menerbitkan foto ini beserta nama saya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฉันเป็นผู้ถ่ายรูปนี้เอง และยินยอมให้ AquaTome เผยแพร่รูปนี้พร้อมชื่อของฉัน"
+          }
+        }
+      }
+    },
+    "Ảnh quá lớn (tối đa 8 MB).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto terlalu besar (maksimum 8 MB)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ภาพมีขนาดใหญ่เกินไป (สูงสุด 8 MB)"
           }
         }
       }

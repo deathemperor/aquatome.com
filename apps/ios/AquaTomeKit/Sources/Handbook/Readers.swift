@@ -1,4 +1,6 @@
 import Foundation
+import ImageIO
+import UniformTypeIdentifiers
 
 /// A page's readers' own comments and photos, read from the site's Worker as its web page reads them (`GET /_c?e=<key>`,
 /// `GET /_p?e=<key>`, apps/site/worker), by the keys the page names (PageDoc.Talk).
@@ -89,6 +91,18 @@ public enum Readers {
     body += Data("--\(boundary)--\r\n".utf8)
     r.httpBody = body
     return r
+  }
+
+  /// A photo as the app sends it, as the site's form does (apps/site/src/scripts/reader-photos.ts): at most `maxSide`
+  /// pixels, upright, a JPEG written anew, so none of the original's data (its GPS position, the camera) goes with it.
+  public static func shrink(_ photo: Data, maxSide: Int = 2000) -> Data? {
+    guard let source = CGImageSourceCreateWithData(photo as CFData, nil),
+          let image = CGImageSourceCreateThumbnailAtIndex(source, 0, [kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceCreateThumbnailWithTransform: true, kCGImageSourceThumbnailMaxPixelSize: maxSide] as CFDictionary) else { return nil }
+    let out = NSMutableData()
+    guard let dest = CGImageDestinationCreateWithData(out, UTType.jpeg.identifier as CFString, 1, nil) else { return nil }
+    CGImageDestinationAddImage(dest, image, [kCGImageDestinationLossyCompressionQuality: 0.88] as CFDictionary)
+    return CGImageDestinationFinalize(dest) ? out as Data : nil
   }
 
   private static func posting(_ url: URL, token: String, version: String) -> URLRequest {

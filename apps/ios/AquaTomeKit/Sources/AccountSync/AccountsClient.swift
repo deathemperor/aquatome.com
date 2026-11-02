@@ -169,7 +169,8 @@ public struct AccountsClient: Sendable {
   public static let appleClientId = "com.aquatome.app"
 
   let base: URL
-  let send: Send
+  /// Also how the app posts a reader's own comment or photo as the account (protocols/talk.openapi.json).
+  public let send: Send
   let wait: @Sendable (Duration) async -> Void
 
   public init(base: URL = site, send: @escaping Send = AccountsClient.urlSession(), wait: @escaping @Sendable (Duration) async -> Void = { try? await Task.sleep(for: $0) }) {

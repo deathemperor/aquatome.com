@@ -1,4 +1,5 @@
 import Foundation
+import ImageIO
 import Testing
 @testable import Handbook
 
@@ -65,4 +66,26 @@ private let site = URL(string: "https://aquatome.com")!
   // Every status read here is one the contract gives each post.
   for path in ["/_c", "/_p"] { #expect(statuses(path, "post").isSuperset(of: [201, 400, 401, 503]), "\(path)") }
   #expect(statuses("/_p", "post").contains(429))
+}
+
+@Test func aPhotoIsSentNoLargerThanTheSitesAndWithoutItsLocationOrCamera() throws {
+  // A 3000 × 1500 photo with a GPS position and a camera, as a phone takes one.
+  let ctx = try #require(CGContext(data: nil, width: 3000, height: 1500, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
+                                   bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue))
+  ctx.setFillColor(CGColor(red: 0.2, green: 0.5, blue: 0.3, alpha: 1))
+  ctx.fill(CGRect(x: 0, y: 0, width: 3000, height: 1500))
+  let original = NSMutableData()
+  let dest = try #require(CGImageDestinationCreateWithData(original, "public.jpeg" as CFString, 1, nil))
+  CGImageDestinationAddImage(dest, try #require(ctx.makeImage()), [
+    kCGImagePropertyGPSDictionary: [kCGImagePropertyGPSLatitude: 10.77, kCGImagePropertyGPSLatitudeRef: "N", kCGImagePropertyGPSLongitude: 106.7, kCGImagePropertyGPSLongitudeRef: "E"],
+    kCGImagePropertyTIFFDictionary: [kCGImagePropertyTIFFMake: "Phone", kCGImagePropertyTIFFModel: "Camera"],
+  ] as CFDictionary)
+  #expect(CGImageDestinationFinalize(dest))
+  let props = { (d: Data) in CGImageSourceCopyPropertiesAtIndex(CGImageSourceCreateWithData(d as CFData, nil)!, 0, nil) as! [CFString: Any] }
+  #expect(props(original as Data)[kCGImagePropertyGPSDictionary] != nil, "the stand-in photo has no position to take out")
+  let sent = try #require(Readers.shrink(original as Data))
+  let p = props(sent)
+  #expect(p[kCGImagePropertyPixelWidth] as? Int == 2000 && p[kCGImagePropertyPixelHeight] as? Int == 1000)
+  #expect(p[kCGImagePropertyGPSDictionary] == nil && (p[kCGImagePropertyTIFFDictionary] as? [CFString: Any])?[kCGImagePropertyTIFFModel] == nil)
+  #expect(Readers.shrink(Data("not a photo".utf8)) == nil)
 }

@@ -98,8 +98,8 @@ struct AccountSignIn: View {
 }
 
 /// Sign in with Apple, with a passkey added on aquatome.com, and with a code sent by email when the server offers them
-/// (the address used on aquatome.com, or with Google there, opens that account).
-private struct SignInButton: View {
+/// (the address used on aquatome.com, or with Google there, opens that account). Also where a reader posts to a page.
+struct SignInButton: View {
   @Environment(AccountModel.self) private var account
   @State private var email = false
   var body: some View {
@@ -123,7 +123,7 @@ private struct SignInButton: View {
   }
 }
 
-private struct AccountMessage: View {
+struct AccountMessage: View {
   @Environment(AccountModel.self) private var account
   var body: some View {
     if let m = account.message {
