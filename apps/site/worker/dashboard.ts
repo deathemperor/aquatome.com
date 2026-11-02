@@ -4,7 +4,7 @@ import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
 import { photosLive, recentPhotos, removePhoto, type PhotosEnv } from './photos'
 import { queryReaderDays, queryReaders } from './readers'
-import { accountStats, clicksByDay, listWanted, livePhotos } from './admin/data'
+import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
 import { accountsPage, affiliatePage, fishIdPage, hiddenPage, overviewPage, photosPage, readersPage, wantedPage, type AffSummary } from './admin/pages'
 import { loginPage, soft, unset, type AdminPath } from './admin/shell'
@@ -15,7 +15,7 @@ import { loginPage, soft, unset, type AdminPath } from './admin/shell'
  * OWNER_ACCOUNTS (a Worker secret): the owner's account ids, comma-separated. AB_DASH_TOKEN, as a bearer token, is the
  * build's and the scripts' key to /_ab/hidden.json; it no longer opens the dashboard, since a token can leak or be shared.
  */
-export type AdminEnv = FishIdEnv & PhotosEnv & { DB?: D1Database; AB_DASH_TOKEN?: string; OWNER_ACCOUNTS?: string; AE_API_TOKEN?: string; CF_ACCOUNT_ID?: string }
+export type AdminEnv = FishIdEnv & PhotosEnv & { DB?: D1Database; AB_DASH_TOKEN?: string; OWNER_ACCOUNTS?: string; AE_API_TOKEN?: string; CF_ACCOUNT_ID?: string; ASSETS?: Fetcher }
 export type { AffSummary }
 
 export function safeEqual(a: string, b: string): boolean {
@@ -66,6 +66,7 @@ const see = (location: string, cookies: string[] = []) => {
   return new Response(null, { status: 303, headers: h })
 }
 
+const FONT = /^\/_ab\/fonts\/[a-z0-9-]+\.woff2$/
 const NO_AE = 'AE_API_TOKEN và CF_ACCOUNT_ID'
 const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
 
@@ -73,14 +74,19 @@ const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account
 const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<string>> = {
   '/_ab/': async (env, _url, now) => {
     const a = ae(env)
-    const [readers, clicks, fish, photos, wanted] = await Promise.all([
+    const db = env.DB
+    const [readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden] = await Promise.all([
       a ? soft('readers', queryReaderDays(a.account, a.token, 31)) : unset(NO_AE),
-      env.DB ? soft('clicks', clicksByDay(env.DB, now)) : unset('D1'),
+      db ? soft('clicks', clicksByDay(db, now, 31)) : unset('D1'),
       a ? soft('fish-id', queryFishIdDays(a.account, a.token, now)) : unset(NO_AE),
+      soft('fish-id keys', fishIdStatus(env, now)),
       photosLive(env) ? soft('photos', livePhotos(env.DB!)) : unset('ảnh bạn đọc (D1, R2, Turnstile)'),
+      db ? soft('moderation', moderationWaiting(db)) : unset('D1'),
       soft('wanted', listWanted(env.AB)),
+      db ? soft('accounts', accountStats(db, now)) : unset('D1'),
+      soft('hidden', loadHidden(env.AB, true)),
     ])
-    return overviewPage({ now, readers, clicks, fish, photos, wanted })
+    return overviewPage({ now, readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden })
   },
   '/_ab/doc-gia/': async (env, _url, now) => {
     const a = ae(env)
@@ -113,6 +119,13 @@ export const ADMIN_PAGES = Object.keys(PAGES) as AdminPath[]
 export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = new Date()): Promise<Response> {
   const path = url.pathname
   const owner = async () => (await visitor(req, env, now)) === 'owner'
+  // The site's two faces for these pages (scripts/admin-fonts.ts): public, like the site's own copies.
+  if (FONT.test(path) && env.ASSETS) {
+    if (req.method !== 'GET' && req.method !== 'HEAD') return notFound()
+    const res = await env.ASSETS.fetch(new Request(url, { method: req.method }))
+    if (!res.ok) return notFound()
+    return new Response(res.body, { headers: { 'content-type': 'font/woff2', 'cache-control': 'public, max-age=604800' } })
+  }
   // The old token form's address: the dashboard signs in with the site's accounts now.
   if (path === '/_ab/login') return see('/_ab/')
   if (path === '/_ab/hidden.json') {

@@ -164,3 +164,29 @@ export type Tile = { label: string; value: string; sub?: string; delta?: Delta; 
 export function tiles(xs: Tile[]): string {
   return `<dl class="kpis">${xs.map(t => `<div class="kpi"><dt>${t.href ? `<a href="${esc(t.href)}">${esc(t.label)}</a>` : esc(t.label)}</dt><dd class="v">${esc(t.value)}</dd>${t.delta ? `<dd>${deltaHtml(t.delta)}</dd>` : ''}${t.sub ? `<dd class="sub">${esc(t.sub)}</dd>` : ''}</div>`).join('')}</dl>`
 }
+
+/** A row's 30 days as a small line, the shape only: the row's figure and chip say the numbers. */
+export function spark(values: number[], warn = false): string {
+  const n = values.length
+  if (n < 2 || values.every(v => !v)) return ''
+  const w = 96
+  const h = 30
+  const max = Math.max(...values)
+  const f = (v: number) => +v.toFixed(1)
+  const pts = values.map((v, i) => `${f(1 + (i * (w - 4)) / (n - 1))},${f(h - 3 - (v / max) * (h - 6))}`)
+  const [ex, ey] = pts[n - 1]!.split(',')
+  return `<svg class="spark${warn ? ' warn' : ''}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polygon class="ar" points="1,${h} ${pts.join(' ')} ${ex},${h}"/><polyline class="ln" points="${pts.join(' ')}"/><circle class="end" cx="${ex}" cy="${ey}" r="2.4"/></svg>`
+}
+
+/**
+ * A change as a chip: "+18%", or the difference itself while the counts are small ("+4"). Coloured only where more is
+ * plainly better (`good: 'up'`); `vs` is read out after it.
+ */
+export function chip(now: number, before: number, vs: string, good?: 'up'): string {
+  if (!now && !before) return ''
+  const d = now - before
+  const small = before < 10 || now < 10
+  const v = small ? Math.abs(d) : Math.round((Math.abs(d) / before) * 100)
+  const tone = !d || !v ? '' : good === 'up' ? (d > 0 ? ' good' : ' bad') : ''
+  return `<span class="chip${tone}">${d > 0 ? '+' : d < 0 ? '−' : '±'}${fmt(v)}${small ? '' : '%'}<span class="vh"> so với ${esc(vs)}</span></span>`
+}

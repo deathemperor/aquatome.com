@@ -135,8 +135,9 @@ test('dashboard: a part that can\'t load says why in its place; the rest of the 
     expect(r.status).toBe(200)
     const html = await r.text()
     expect(html).toContain('analytics engine sql 422: Unknown function')
-    expect(html).toContain('Lượt bấm affiliate mỗi ngày') // from D1, still drawn
-    expect(html).toContain('Lượt bấm affiliate · 14 ngày')
+    expect(html).toContain('Không tải được người đọc')
+    expect(html).toContain('lượt bấm sang sàn · 7 ngày') // from D1, still counted
+    expect(html).toContain('4 lượt bấm sang sàn') // today's, in the log
     expect(fetch.mock.calls.every(([u]) => String(u).startsWith('https://api.cloudflare.com/client/v4/accounts/acc/analytics_engine/sql'))).toBe(true)
     const fish = await (await handle(get('/_ab/nhan-dien-ca/', { ...browser, cookie: owner }), e)).text()
     expect(fish).toContain('Không tải được nhật ký nhận diện cá')

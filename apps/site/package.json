@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist && node scripts/markdown.ts",
+    "build": "astro build && pagefind --site dist && node scripts/markdown.ts && node scripts/admin-fonts.ts",
     "preview": "astro preview",
     "test": "CONTENT_ROOT=$PWD/test/fixture-content pnpm build && CONTENT_ROOT=$PWD/test/fixture-content vitest run",
     "typecheck": "astro check && tsc -p worker",
