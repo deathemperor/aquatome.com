@@ -1,10 +1,13 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import type { HTMLElement } from 'node-html-parser'
+import type { Content, Photo } from '@aq/schema'
 import { PageDoc, type Block, type Image, type Inline } from '@aq/schema/app-page'
 import { appGlossary, appPlants, appSpecies } from '../src/lib/app-index'
 import { fishDoc, glossaryDoc, listedPaths, plantDoc, sectionBlocks } from '../src/lib/app-page'
+import { photoCredit } from '../src/lib/cite'
 import { getContent } from '../src/lib/content'
+import { smallSrc } from '../src/lib/img'
 import { speciesParts } from '../src/lib/species-page'
 import { translator } from '../src/lib/i18n'
 import { page } from './dist'
@@ -32,16 +35,31 @@ function images(d: PageDoc): Image[] {
 /** Every run of the text that is a source's numbered mark. */
 const marks = (d: PageDoc) => kids(d.blocks).flatMap(b => (b.t === 'p' ? b.c : [])).filter(r => typeof r !== 'string' && /^\d+$/.test(r.text) && r.tip)
 
+/** Every photo the content has, by its own page (what a credit links): to tell which of the footer's the page shows. */
+const photosBySource = (c: Content) => {
+  const all: Photo[] = [...c.species.flatMap(s => s.photos), ...c.plants.flatMap(p => p.photos), ...c.breeds.flatMap(b => b.photos), ...Object.values(c.galleries).flat()]
+  const m = new Map<string, Photo[]>()
+  for (const p of all) m.set(p.sourceUrl, [...(m.get(p.sourceUrl) ?? []), p])
+  return m
+}
+let footerChecked = 0
 /** What every fish and plant copy owes its page: its pictures credited, the page's credits all there, its sources. */
-function credited(d: PageDoc, dom: HTMLElement) {
+function credited(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>) {
   for (const img of images(d)) {
     expect(img.credit?.text, `${d.path} ${img.src}`).toMatch(/^Ảnh: \S/)
     expect(img.credit?.licence, `${d.path} ${img.src}`).toBeTruthy()
     expect(img.credit?.url, `${d.path} ${img.src}`).toBeTruthy()
   }
-  // The footer's "Nguồn ảnh" names each photo the page shows by its own page: every one of them is in the copy, credited.
+  // The footer's "Nguồn ảnh" names each photo by its own page: every one the page shows is in the copy, credited. (The
+  // footer also credits a photo the text had no room for; the copy doesn't show that one either.)
   const ours = new Set(images(d).map(i => i.credit!.url))
-  for (const a of dom.querySelectorAll('#photo-credits li a')) expect(ours.has(a.getAttribute('href')!), `${d.path}: ${a.getAttribute('href')}`).toBe(true)
+  const shown = new Set(dom.querySelectorAll('img').map(i => i.getAttribute('src')))
+  for (const a of dom.querySelectorAll('#photo-credits li a')) {
+    const href = a.getAttribute('href')!
+    if (!(bySource.get(href) ?? []).some(p => shown.has(p.url) || shown.has(smallSrc(p)))) continue
+    footerChecked++
+    expect(ours.has(href), `${d.path}: ${href}`).toBe(true)
+  }
   // The numbered sources, as the page lists them, and each mark in the text with its source's card.
   const refs = one(d, 'refs')
   const li = dom.querySelectorAll('.body .refs li')
@@ -73,6 +91,7 @@ function gallery(d: PageDoc, dom: HTMLElement) {
 test('each fish\'s copy reads as its built page: header, credits, sources, card sources, tank mates, climate, gallery, breeds, videos', async () => {
   const c = await getContent('vi')
   const listed = listedPaths('vi', c)
+  const bySource = photosBySource(c)
   const fish = appSpecies('vi', c)
   expect(fish.length).toBeGreaterThan(5)
   const seen = new Set<string>()
@@ -90,7 +109,7 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     expect(text(d.credit), d.path).toBe(txt(dom.querySelector('.facts > .srcline')).startsWith('Dịch') ? txt(dom.querySelector('.facts > .srcline')) : '')
     expect(d.lead?.src, d.path).toBe(dom.querySelector('.photo img')?.getAttribute('src'))
     if (d.lead) expect(d.lead.credit?.text, d.path).toBe(dom.querySelector('.photo a.cite.pic')!.getAttribute('data-term'))
-    credited(d, dom)
+    credited(d, dom, bySource)
     // "Nguồn và độ tin cậy": every field's sources, each source's own figure where they disagree, and no figure else.
     const trust = one(d, 'trust')
     const rows = dom.querySelectorAll('.datacard .by > div')
@@ -127,8 +146,27 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     const summary = one(d, 'summary')
     expect(summary ? [summary.items[0], ...(summary.mistakes?.items ?? []), summary.by] : [], d.path).toEqual(dom.querySelector('.qs') ? [txt(dom.querySelector('.qs .box > p')), ...dom.querySelectorAll('.qs li').map(txt), txt(dom.querySelector('.qs .by'))] : [])
   }
-  // The fixture has every new block somewhere.
+  // The fixture has every new block somewhere, and photos the footer credits.
   for (const t of ['trust', 'mates', 'climate', 'gallery', 'summary', 'cards', 'videos', 'refs', 'pages']) expect(seen.has(t), t).toBe(true)
+  expect(footerChecked).toBeGreaterThan(0)
+})
+
+test('a fish\'s other photos go between its sections, each credited, as many as the page has room for', async () => {
+  // The fixture's fish have one photo each: two of them with five more.
+  const c0 = await getContent('vi')
+  const extra = (id: string) => Array.from({ length: 5 }, (_, i) => ({ url: `https://media.aquatome.com/t/${id}-${i}.webp`, width: 1200, height: 800, licence: 'CC BY 4.0', author: `Người chụp ${i}`, sourceUrl: `https://example.org/photo/${id}-${i}` }))
+  const c = { ...c0, species: c0.species.map(s => (['paracheirodon-axelrodi', 'boraras-brigittae'].includes(s.id) ? { ...s, photos: [...s.photos, ...extra(s.id)] } : s)) } as Content
+  for (const [id, room] of [['paracheirodon-axelrodi', 5], ['boraras-brigittae', 1]] as const) {
+    const s = c.species.find(x => x.id === id)!
+    const d = await fishDoc('vi', c, s, listedPaths('vi', c))
+    const figs = d.blocks.flatMap((b, i) => (b.t === 'figure' ? [{ b, next: d.blocks[i + 1] }] : []))
+    // The page spreads them over the gaps between its sections (never after the last one): as many as it has gaps.
+    expect(figs.map(f => f.b.img.src), id).toEqual(extra(id).slice(0, room).map(p => p.url))
+    for (const { b, next } of figs) {
+      expect(b.img.credit, id).toEqual(photoCredit('vi', extra(id).find(p => p.url === b.img.src)!))
+      expect(next?.t, id).toBe('h')
+    }
+  }
 })
 
 test('each fish\'s and plant\'s text converts with nothing the app would have to send to the web', async () => {
@@ -173,6 +211,7 @@ test('each plant\'s copy reads as its built page: header, credits, sources, gall
   const c = await getContent('vi')
   const listed = listedPaths('vi', c)
   const plants = appPlants('vi', c)
+  const bySource = photosBySource(c)
   expect(plants.length).toBeGreaterThan(2)
   for (const p of plants) {
     const d = plantDoc('vi', c, p, listed)
@@ -181,7 +220,7 @@ test('each plant\'s copy reads as its built page: header, credits, sources, gall
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
     expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
     expect(d.lead?.src, d.path).toBe(dom.querySelector('header .gallery img')?.getAttribute('src'))
-    credited(d, dom)
+    credited(d, dom, bySource)
     gallery(d, dom)
     const guides = new Set(dom.querySelectorAll('.guides a, .vg a').map(a => a.getAttribute('href')))
     for (const x of all(d, 'pages').flatMap(b => b.paths)) expect(guides.has(x), `${d.path} names ${x}`).toBe(true)

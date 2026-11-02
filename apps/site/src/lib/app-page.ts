@@ -293,14 +293,15 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
   }
 }
 
-const built = new WeakMap<Content, Promise<Record<Kind, PageDoc[]>>>()
+const built = new WeakMap<Content, Map<Lang, Promise<Record<Kind, PageDoc[]>>>>()
 
 /** Every page the app gets in this language, by kind (built once a build: the index and the shards both need them). */
 export function appPages(lang: Lang, c: Content): Promise<Record<Kind, PageDoc[]>> {
-  let docs = built.get(c)
+  const byLang = built.get(c) ?? built.set(c, new Map()).get(c)!
+  let docs = byLang.get(lang)
   if (!docs) {
     const listed = listedPaths(lang, c)
-    built.set(c, docs = (async () => ({
+    byLang.set(lang, docs = (async () => ({
       guide: appGuides(lang, c).map(g => guideDoc(lang, c, g, listed)),
       fish: await Promise.all(appSpecies(lang, c).map(s => fishDoc(lang, c, s, listed))),
       plant: appPlants(lang, c).map(p => plantDoc(lang, c, p, listed)),
