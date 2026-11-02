@@ -1,6 +1,7 @@
 import { spawn } from 'node:child_process'
 import { appendFileSync } from 'node:fs'
 import { dirname } from 'node:path'
+import { envFor, onAccounts } from './claude-accounts'
 import { MARKETPLACE_DOMAINS } from './marketplaces'
 
 /** The model call itself failed (CLI error, usage limit, bad output) — distinct from a page problem. */
@@ -9,12 +10,17 @@ export class LlmError extends Error {}
 /** model: per-call override of ENGINE_MODEL (default sonnet). */
 export type Llm = <T>(args: { system: string; prompt: string; schema: object; model?: string }) => Promise<T>
 
-function run<T>(system: string, prompt: string, schema: object, opts: { tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number }): Promise<T> {
+type RunOpts = { tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number }
+
+/** One call on the owner's Claude accounts, the next one when an account is out of its limit or rejected (claude-accounts.ts). */
+const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts) => onAccounts(token => once<T>(system, prompt, schema, opts, token), m => new LlmError(m))
+
+function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, token?: string): Promise<T> {
   return new Promise<T>((resolve, reject) => {
     const args = ['-p', '--model', opts.model ?? process.env.ENGINE_MODEL ?? 'sonnet', '--output-format', 'json', '--tools', opts.tools, ...(opts.tools ? ['--allowedTools', opts.tools] : []), ...(opts.deny?.length ? ['--disallowedTools', opts.deny.join(',')] : []),
       '--setting-sources', '', '--strict-mcp-config', '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
     const started = Date.now()
-    const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'] })
+    const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'], ...(token ? { env: envFor(token) } : {}) })
     let out = ''
     let err = ''
     const timer = setTimeout(() => child.kill('SIGTERM'), opts.timeoutMs ?? 10 * 60_000)

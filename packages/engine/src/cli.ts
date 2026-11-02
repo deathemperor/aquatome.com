@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { appendFileSync, readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { get as httpsGet } from 'node:https'
 import { homedir } from 'node:os'
@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { loadAll, SOURCE_IDS, type SourceId } from '@aq/schema'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
+import { accountReport, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
 import { readKit } from './video-items'
 import { auditPictures } from './audit'
@@ -130,6 +131,16 @@ const galleryDeps = (): GalleryDeps => ({
 })
 const cmd = positionals[0]
 
+// At the end of every command that called Claude: what each account answered, and which were set aside and why
+// (claude-accounts.ts), in the log and on the GitHub run's summary page. 'exit': some commands end with process.exit().
+process.on('exit', () => {
+  const lines = accountReport()
+  if (!lines.length) return
+  for (const l of lines) console.log(`claude: ${l}`)
+  if (process.env.GITHUB_ACTIONS && lines.some(l => l.endsWith('credential rejected'))) console.log(`::warning title=Claude credential rejected::replace ${rejectedTokens()}`)
+  if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `#### Claude accounts: engine ${cmd}\n\n${lines.map(l => `- ${l}`).join('\n')}\n\n`)
+})
+
 /** Thin species pages (depth.ts): how many, by the sources they're made from, and the most popular ones. */
 function printDepth(d: DepthReport) {
   console.log(`depth: ${d.thin} of ${d.pages} species pages are thin (out of search until an in-depth source or the depth bar)`)
@@ -188,7 +199,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
     }
     if (report.depth) printDepth(report.depth)
     // A rejected Claude credential stops every page: fail the cycle so the scheduler (GitHub Actions) reports it.
-    if (report.errors.some(e => /Failed to authenticate|Invalid bearer token/i.test(e))) { console.log('error: Claude rejected the credential — replace CLAUDE_CODE_OAUTH_TOKEN'); process.exitCode = 1 }
+    if (report.errors.some(e => /Failed to authenticate|Invalid bearer token/i.test(e))) { console.log(`error: Claude rejected the credential — replace ${rejectedTokens()}`); process.exitCode = 1 }
   } finally {
     await fetcher.close()
   }

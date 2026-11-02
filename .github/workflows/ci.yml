@@ -63,6 +63,8 @@ jobs:
         if: needs.changes.outputs.review == 'true' && github.event.pull_request.head.repo.full_name == github.repository
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
+          CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
         run: |
           npm install -g @anthropic-ai/claude-code
           cd apps/site && E2E_REVIEW=1 E2E_JSON=review-results.json pnpm e2e --grep @review --project=phone || true

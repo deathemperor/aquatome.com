@@ -66,6 +66,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
+          CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
           # Videos on species pages (YouTube Data API search, 10,000 units/day).
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           # Gallery photos from Unsplash (demo key: 50 requests an hour).
