@@ -87,4 +87,15 @@ func roundTrip(_ kind: String, _ v: JSON) throws -> JSON {
   #expect(k["deviceKind"]!.array!.compactMap(\.string) == Known.deviceKind)
   #expect(k["brand"]!.array!.compactMap(\.string) == Known.brand)
   #expect(k["outletRole"]!.array!.compactMap(\.string) == Known.outletRole)
+  #expect(k["unlistedKind"]!.array!.compactMap(\.string) == Known.unlistedKind)
+}
+
+@Test func entriesWithoutAPageReadAndWrittenBackThroughTheTankAreUnchanged() throws {
+  let tanks = cases("valid").filter { $0["kind"] == .string("tank") }
+  #expect(tanks.contains { $0["value"]?.object?["unlisted"] != nil })
+  for c in tanks {
+    var t = Tank(json: c["value"]!.object!)
+    t.unlisted = t.unlisted
+    #expect(JSON.object(t.json) == c["value"]!, note(c))
+  }
 }

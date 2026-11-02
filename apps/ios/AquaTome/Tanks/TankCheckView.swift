@@ -6,7 +6,9 @@ import Tanks
 /// "Nuôi chung": the tank's fish checked as the site's tank-mates tool checks them (TankCheck, the site's own code), the
 /// tank's size for the stocking: whether they go together, who may eat whom, whether the tank is big enough. A fish the
 /// handbook doesn't have goes in with no figures, so the check says what it couldn't count instead of leaving it out;
-/// plants never are, as in the tool. Worked out when the fish, the size or the index change, not on every redraw.
+/// plants never are, as in the tool. Fish put on the tank without a page are named as not checked (`unchecked`), unless
+/// a page has their scientific name: then they are checked as that page's fish. Worked out when the fish, the size or
+/// the index change, not on every redraw.
 struct TankCheckSection: View {
   let tank: Tank
   @Environment(HandbookModel.self) private var handbook
@@ -18,7 +20,7 @@ struct TankCheckSection: View {
     let key = Key(tank: tank, pages: handbook.count, status: handbook.status, lang: handbook.lang)
     if memo.key != key { memo.key = key; memo.check = make() }
     return Group {
-      if let check = memo.check, check.verdict != nil || check.stocking != nil || check.minTank != nil || check.unsized != nil {
+      if let check = memo.check, check.verdict != nil || check.stocking != nil || check.minTank != nil || check.unsized != nil || check.unchecked != nil {
         Section("Nuôi chung") {
           if let v = check.verdict {
             Label { Text(v.text) } icon: { Mark(level: v.level) }
@@ -33,6 +35,7 @@ struct TankCheckSection: View {
           }
           if let u = check.unsized { Text(u).font(.subheadline) }
           if let m = check.minTank { Text(m).font(.subheadline) }
+          if let u = check.unchecked { Text(u).font(.subheadline).accessibilityIdentifier("unchecked") }
         }
       }
     }
@@ -44,12 +47,17 @@ struct TankCheckSection: View {
   private final class Memo { var key: Key?; var check: TankCheck? }
 
   private func make() -> TankCheck? {
-    guard handbook.count > 0, !tank.species.isEmpty else { return nil }
-    let fish = tank.species.map { s in
+    guard handbook.count > 0 else { return nil }
+    var fish = tank.species.map { s in
       let page = handbook.page(s.id)
       return TankCheck.Fish(name: page?.name ?? s.id, facts: page?.facts ?? .init(), count: s.count)
     }
-    return Checkers.of(handbook.lang).check(fish, size: .init(dims: tank.dims.map { .init(l: $0.l, w: $0.w, h: $0.h) }, litres: tank.litres))
+    var unlisted: [String] = []
+    for e in tank.unlisted where !e.isPlant {
+      if let page = handbook.page(for: e) { fish.append(.init(name: page.name, facts: page.facts, count: e.count)) } else { unlisted.append(e.name) }
+    }
+    guard !fish.isEmpty || !unlisted.isEmpty else { return nil }
+    return Checkers.of(handbook.lang).check(fish, size: .init(dims: tank.dims.map { .init(l: $0.l, w: $0.w, h: $0.h) }, litres: tank.litres), unlisted: unlisted)
   }
 }
 

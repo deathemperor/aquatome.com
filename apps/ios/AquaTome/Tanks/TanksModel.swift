@@ -1,3 +1,4 @@
+import AccountSync
 import Foundation
 import Observation
 import Tanks
@@ -18,6 +19,14 @@ final class TanksModel {
   private(set) var store = TankStore()
   private(set) var problem: Problem?
   private let file: URL
+  /// Readers' demand (docs/my-tanks-sync.md): where a save sends what it put on a tank without a page, and whether the
+  /// handbook has a page for one (then it isn't sent). The app sets them.
+  @ObservationIgnored var wanted: Wanted?
+  @ObservationIgnored var hasPage: (UnlistedEntry) -> Bool = { _ in false }
+  #if DEBUG
+  /// What the server took as wanted since launch, each body as sent (the UI tests read it).
+  private(set) var wantedForTests: [String] = []
+  #endif
 
   init(file: URL = TanksModel.defaultFile()) {
     self.file = file
@@ -48,14 +57,32 @@ final class TanksModel {
     let t = try s.addTank(name: name)
     try s.updateTank(t.id) { change(&$0) }
     try commit(s)
+    saved(s.tank(t.id), before: nil)
     return s.tank(t.id) ?? t
   }
 
   /// A change to a tank (its fields, its fish and plants).
   func change(_ id: String, _ change: (inout Tank) -> Void) throws {
     var s = store
+    let before = s.tank(id)
     try s.updateTank(id) { change(&$0) }
     try commit(s)
+    saved(s.tank(id), before: before)
+  }
+
+  /// After a save: each entry it put on the tank without a page, that no page has, is sent as wanted, once (a number
+  /// changed later isn't new). Only the reader's own saves: not a sync, nor a page's (it sends its own).
+  private func saved(_ t: Tank?, before: Tank?) {
+    guard let wanted, let t else { return }
+    for e in t.unlistedAdded(since: before) where !hasPage(e) {
+      Task {
+        #if DEBUG
+        if await wanted.send(e) { wantedForTests.append(String(decoding: wanted.request(e).httpBody ?? Data(), as: UTF8.self)) }
+        #else
+        await wanted.send(e)
+        #endif
+      }
+    }
   }
 
   func delete(_ id: String) throws {

@@ -33,6 +33,8 @@ public struct TankCheck: Decodable, Equatable, Sendable {
   public let minTank: String?
   /// When no fish has a size: no meter (it would read 0%), only the fish it couldn't count.
   public let unsized: String?
+  /// The fish without a page (a tank's entries without one), named in one line: none of the checks counts them.
+  public let unchecked: String?
 
   /// A fish on the tank: its name, its figures from the handbook, and how many when the tank says.
   public struct Fish: Encodable, Equatable, Sendable {
@@ -83,10 +85,11 @@ public final class TankChecker {
     context.evaluateScript(script ?? "")
   }
 
-  /// The check of these fish in a tank of this size.
-  public func check(_ fish: [TankCheck.Fish], size: TankCheck.Size) -> TankCheck? {
-    struct Input: Encodable { let lang: String; let fish: [TankCheck.Fish]; let size: TankCheck.Size }
-    guard let input = try? JSONEncoder().encode(Input(lang: lang, fish: fish, size: size)),
+  /// The check of these fish in a tank of this size. `unlisted`: the names of the tank's fish without a page, which the
+  /// check can't count (no figures) and names instead.
+  public func check(_ fish: [TankCheck.Fish], size: TankCheck.Size, unlisted: [String] = []) -> TankCheck? {
+    struct Input: Encodable { let lang: String; let fish: [TankCheck.Fish]; let size: TankCheck.Size; let unlisted: [String] }
+    guard let input = try? JSONEncoder().encode(Input(lang: lang, fish: fish, size: size, unlisted: unlisted)),
           let out = context.objectForKeyedSubscript("aqTankCheck")?.call(withArguments: [String(decoding: input, as: UTF8.self)]),
           out.isString, let json = out.toString() else { return nil }
     do {

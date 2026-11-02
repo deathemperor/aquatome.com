@@ -61,6 +61,16 @@ struct Checker {
         c.field(s, "id", p) { c, v, p in c.contentId(v, p) }
       }
     }
+    field(o, "unlisted", p, optional: true) { c, v, p in
+      c.list(v, p, max: maxUnlisted) { c, v, p in
+        guard let e = c.object(v, p) else { return }
+        c.field(e, "id", p) { c, v, p in c.recordId(v, p) }
+        c.field(e, "kind", p) { c, v, p in c.string(v, p, min: 1, max: 40) }
+        c.field(e, "name", p) { c, v, p in c.label(v, p, max: 80) }
+        c.field(e, "sci", p, optional: true) { c, v, p in c.label(v, p, max: 120) }
+        c.field(e, "count", p, optional: true) { c, v, p in c.int(v, p, min: 1, max: 9999) }
+      }
+    }
     field(o, "notes", p, optional: true) { c, v, p in c.string(v, p, min: 0, max: 4000) }
     stamps(o, p)
   }

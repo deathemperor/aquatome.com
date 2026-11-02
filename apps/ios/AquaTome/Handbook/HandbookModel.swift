@@ -1,6 +1,7 @@
 import Foundation
 import Handbook
 import Observation
+import Tanks
 
 /// The handbook tab: the site's index for this language (kept on the phone for offline use), searched natively.
 @Observable
@@ -21,6 +22,8 @@ final class HandbookModel {
   private var search = HandbookSearch([])
   /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold.
   private var pages: [String: HandbookIndex.Item] = [:]
+  /// The page a tank's entry without a page is shown as, by its scientific name.
+  private var matcher = PageMatcher([])
   /// Every page by its path: what the reading list keeps.
   private var byPath: [String: HandbookIndex.Item] = [:]
   /// The index arranged to browse: groups, placements, subjects, the home's picks.
@@ -170,6 +173,9 @@ final class HandbookModel {
   /// The page of a fish or plant on a tank, once the index is here.
   func page(_ contentId: String) -> HandbookIndex.Item? { pages[contentId] }
 
+  /// The page a tank's entry without a page is shown as, once the index has one with its scientific name (PageMatcher).
+  func page(for e: UnlistedEntry) -> HandbookIndex.Item? { matcher.page(kind: e.kind, sci: e.sci).flatMap { pages[$0] } }
+
   /// The saved pages and the ones read last, of `kind` (all kinds for nil), as the index has them now.
   func saved(_ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] { ReadingList.items(reading.saved, in: byPath, kind: kind) }
   func recent(_ kind: HandbookIndex.Kind?, limit: Int = 5) -> [HandbookIndex.Item] { ReadingList.items(reading.recent, in: byPath, kind: kind, limit: limit) }
@@ -240,6 +246,7 @@ final class HandbookModel {
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
     pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
+    matcher = PageMatcher(index: ix.items)
     byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
     shardCounts = ix.pages
     dropKeptOfOtherCounts()

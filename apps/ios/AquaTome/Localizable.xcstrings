@@ -1,6 +1,22 @@
 {
   "sourceLanguage": "vi",
   "strings": {
+    "%@ chưa có trang trong cẩm nang. Vẫn thêm vào bể được: khi có trang, bể sẽ hiện trang đó.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ belum punya halaman di panduan. Tetap bisa ditambahkan ke akuarium: begitu halamannya ada, akuarium akan menampilkannya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ยังไม่มีหน้าในคู่มือ แต่ยังเพิ่มลงตู้ได้ เมื่อมีหน้าแล้ว ตู้จะแสดงหน้านั้นเอง"
+          }
+        }
+      }
+    },
     "%@ lít": {
       "localizations": {
         "id": {
@@ -1261,6 +1277,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลาและกุ้ง"
+          }
+        }
+      }
+    },
+    "Cá, tép hoặc ốc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan, udang, atau siput"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลา กุ้ง หรือหอย"
           }
         }
       }
@@ -3505,6 +3537,22 @@
         }
       }
     },
+    "Số con (nếu muốn)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jumlah ekor (opsional)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จำนวนตัว (ไม่บังคับ)"
+          }
+        }
+      }
+    },
     "Sủi khí": {
       "localizations": {
         "id": {
@@ -3693,6 +3741,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่มปลั๊กไฟ"
+          }
+        }
+      }
+    },
+    "Thêm “%@” (chưa có trong cẩm nang)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan “%@” (belum ada di panduan)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม “%@” (ยังไม่มีในคู่มือ)"
           }
         }
       }
@@ -4017,6 +4081,22 @@
         }
       }
     },
+    "Tên": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชื่อ"
+          }
+        }
+      }
+    },
     "Tên (không bắt buộc)": {
       "localizations": {
         "id": {
@@ -4045,6 +4125,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ชื่อตู้"
+          }
+        }
+      }
+    },
+    "Tên khoa học (nếu biết)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama ilmiah (jika tahu)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชื่อวิทยาศาสตร์ (ถ้าทราบ)"
           }
         }
       }
@@ -4413,6 +4509,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เช่น ตู้ 60 ห้องนั่งเล่น"
+          }
+        }
+      }
+    },
+    "Ví dụ: Rhinogobius duospilus": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contoh: Rhinogobius duospilus"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เช่น Rhinogobius duospilus"
           }
         }
       }
@@ -4801,6 +4913,22 @@
         }
       }
     },
+    "chưa có trang": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "belum ada halaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีหน้า"
+          }
+        }
+      }
+    },
     "chậm": {
       "localizations": {
         "id": {
@@ -5133,6 +5261,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "หินลาวา"
+          }
+        }
+      }
+    },
+    "Đây là": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ini adalah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นี่คือ"
           }
         }
       }
@@ -5517,6 +5661,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปลี่ยนชื่อโคมไฟแล้ว"
+          }
+        }
+      }
+    },
+    "Đã đủ %lld loài chưa có trang trên bể này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium ini sudah punya %lld jenis tanpa halaman."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้นี้มีชนิดที่ยังไม่มีหน้าครบ %lld ชนิดแล้ว"
           }
         }
       }
