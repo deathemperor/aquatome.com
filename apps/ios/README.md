@@ -73,7 +73,7 @@ each build by itself:
 - on every push to main that changes `apps/ios/` or `protocols/`
 - on Mondays at 09:00 Vietnam time, when `apps/ios/`, `protocols/` or the workflow changed since the last upload (or
   that build is 60 days old: TestFlight builds expire after 90)
-- by hand (Actions → testflight → Run workflow)
+- by hand (Actions → "iOS app: TestFlight upload" → Run workflow)
 
 Signing is Xcode's automatic, cloud-managed signing with the App Store Connect API key (secret
 `APP_STORE_CONNECT_API_KEY`; variables `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`, `APPLE_TEAM_ID`):

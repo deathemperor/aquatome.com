@@ -6,13 +6,16 @@ HANDBOOK_FLOWS from the environment; prints `handbook=true|false` and `lights=tr
 
 A path reaches the lights' flows alone, the handbook's alone, neither (it's outside the app, or only read by `kit` or
 `app`), or both: anything not listed, such as the tanks tab (where accounts, plugs, lights and the tank-mates check all
-show), the app's start, the project, or these workflows. A UI test file runs in one job only. The string catalog holds
-the Indonesian and Thai text only (the Vietnamese the flows read is in the code), so it reaches no flow."""
+show), the Lights screens and the Chihiros modules under them (a handbook flow opens the tab from the Chihiros tool and
+finds its scan button, which the simulator's radio, built on FakeLight, brings up), the app's start, the project, or
+these workflows. A flow file runs in one job only; any other file among the UI tests (a helper they share) runs both.
+The string catalog holds the Indonesian and Thai text only (the Vietnamese the flows read is in the code), so it
+reaches no flow."""
 import os, re, sys
 
 KIT = 'apps/ios/AquaTomeKit/Sources/'
 TESTS = 'apps/ios/AquaTomeUITests/'
-LIGHTS = ('apps/ios/AquaTome/Lights/', KIT + 'Chihiros/', KIT + 'ChihirosBLE/', KIT + 'light-harness/')
+LIGHTS = (KIT + 'light-harness/',)
 HANDBOOK = ('apps/ios/AquaTome/Handbook/', KIT + 'Handbook/')
 NEITHER = ('protocols/', 'apps/ios/AquaTomeKit/Tests/', 'apps/ios/README.md', 'apps/ios/perf-budgets.json',
            'apps/ios/AquaTome/Localizable.xcstrings', 'apps/ios/scripts/check-perf.py',
@@ -31,6 +34,8 @@ def pick(paths, handbook_flows):
                 run['lights'] = True
             elif name in handbook_flows:
                 run['handbook'] = True
+            elif not (name.endswith('FlowTests') or name == 'PerformanceTests'):
+                run = {'handbook': True, 'lights': True}
         elif p.startswith(LIGHTS):
             run['lights'] = True
         elif p.startswith(HANDBOOK):
@@ -44,7 +49,11 @@ def test():
     flows = {'HandbookFlowTests', 'TankLifeFlowTests'}
     cases = [
         (['apps/ios/AquaTome/Handbook/HomeView.swift', KIT + 'Handbook/Blocks.swift'], (True, False)),
-        (['apps/ios/AquaTome/Lights/LightsView.swift', KIT + 'ChihirosBLE/Link.swift'], (False, True)),
+        ([KIT + 'light-harness/main.swift'], (False, True)),
+        (['apps/ios/AquaTome/Lights/LightsView.swift'], (True, True)),
+        ([KIT + 'Chihiros/Frames.swift'], (True, True)),
+        ([KIT + 'ChihirosBLE/Link.swift'], (True, True)),
+        ([TESTS + 'FlowHelpers.swift'], (True, True)),
         ([TESTS + 'TankLifeFlowTests.swift'], (True, False)),
         ([TESTS + 'LightFlowTests.swift'], (False, True)),
         ([TESTS + 'AccountFlowTests.swift', 'protocols/tanks-vectors.json', 'apps/ios/perf-budgets.json',

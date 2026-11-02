@@ -47,11 +47,16 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 2
+      # bash as `shell:` fails on any part of the pipe (pipefail): a script or diff that breaks fails the job, rather
+      # than leaving both flow jobs skipped on a green run. A moved file is listed at both ends (--no-renames), and a
+      # path with Vietnamese letters as itself (quotePath).
       - id: pick
+        shell: bash
         run: |
           python3 apps/ios/scripts/flows-to-run.py --test
           if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
-            git diff --name-only HEAD^1 HEAD | python3 apps/ios/scripts/flows-to-run.py | tee -a "$GITHUB_OUTPUT"
+            git -c core.quotePath=false diff --no-renames --name-only HEAD^1 HEAD |
+              python3 apps/ios/scripts/flows-to-run.py | tee -a "$GITHUB_OUTPUT"
           else
             printf 'handbook=true\nlights=true\n' | tee -a "$GITHUB_OUTPUT"
           fi
