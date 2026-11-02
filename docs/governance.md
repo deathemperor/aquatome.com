@@ -18,10 +18,11 @@ that would have caught it).
 - `pnpm test`: the site built from `apps/site/test/fixture-content`, checked as HTML (vitest).
   - The app's copy of each page (`/app/pages/`, `protocols/page.schema.json`) against `protocols/page-vectors.json`,
     which the app's tests read too (its fish, plant and video series pages are the fixture build's, and the test fails
-    when they drift: `UPDATE_VECTORS=1` rewrites them); every text in the real `content/` converts with nothing the app would have to send
-    to the web. Each guide's, fish's, plant's, glossary term's and video series' copy is held to its built page: its
-    header, every photo's credit (the footer's "Nguồn ảnh" included), its numbered sources, for a fish the data card's
-    sources, tank mates, climate, gallery and breeds, and for a series its playlist and channel and its guides in order.
+    when they drift: `UPDATE_VECTORS=1` rewrites them); every text in the real `content/` converts with nothing the app
+    would have to send to the web. Each guide's, fish's, plant's, glossary term's and video series' copy is held to its
+    built page: its header, every photo's credit (the footer's "Nguồn ảnh" included), its numbered sources, for a fish
+    the data card's sources, tank mates, climate, gallery and breeds, and for a series its whole line (counts, playlist
+    and channel) as its credit and its guides in order.
   - Which app draws which kind: the app index's `shards` gives each kind's shard count and **level**
     (`PAGE_LEVELS` in `apps/site/src/lib/app-page.ts`; the rule in `packages/schema/src/app-page.ts`, cases in
     `page-vectors.json` `levels`):

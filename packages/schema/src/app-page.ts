@@ -198,7 +198,10 @@ export const PageDoc = z.object({
   where: Text.optional(),
   /** Its other names, as the site writes them under the name ("Tên khác: …"). */
   aka: z.string().optional(),
-  /** Whose page this is ("Theo Aquarium Breeder"; a fish's "Dịch và tổng hợp từ …"), linked as on the site. */
+  /**
+   * Whose page this is ("Theo Aquarium Breeder"; a fish's "Dịch và tổng hợp từ …"; a video series' whole line, its
+   * counts then the playlist and channel it follows), linked as on the site.
+   */
   credit: Text.optional(),
   lead: Image.optional(),
   video: Video.optional(),

@@ -252,10 +252,10 @@ export function glossaryDoc(lang: Lang, g: Localized<GlossaryEntity>): PageDoc {
 }
 
 /**
- * A video series' copy (pages/vi/video/[slug].astro, from the same parts): the page's line of counts above its name, the
- * playlist and channel it follows as its credit, its intro, then every guide as the page lists them, in its order, as
- * cards: each one's subject, parts and length under its name, its picture credited. A card for a guide the index doesn't
- * list opens on the web. The page has no heading over its list: the cards' title is its crumb's word.
+ * A video series' copy (pages/vi/video/[slug].astro, from the same parts): the page's one line (its counts, the playlist
+ * and channel it follows) as its credit, its intro, then every guide as the page lists them, in its order, as cards: each
+ * one's subject, parts and length under its name, its picture credited. A card for a guide the index doesn't list opens
+ * on the web. The page has no heading over its list: the cards' title is its crumb's word.
  */
 export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
   const t = translator(lang)
@@ -266,8 +266,7 @@ export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
     kind: 'video',
     path: at(`/vi/video/${s.vi.slug}/`),
     title: s.vi.name,
-    meta: p.counts,
-    credit: p.follows,
+    credit: p.line,
     blocks: [
       ...(s.vi.intro ? [{ t: 'p' as const, c: [s.vi.intro] }] : []),
       {

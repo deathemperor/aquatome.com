@@ -7,16 +7,16 @@ import { clock, hours, seriesGuides, seriesSeconds } from './video'
 
 /**
  * What a video series' page shows, put together once for the page (pages/vi/video/[slug].astro) and for the app's copy
- * of it (lib/app-page.ts), so the two can't differ: its line of counts, the playlist and channel it follows (linked), and
- * its guides in the playlist's order, each with its picture, its subject and parts (`about`), and its length.
+ * of it (lib/app-page.ts), so the two can't differ: its one line (its counts, then the playlist and channel it follows,
+ * linked), and its guides in the playlist's order, each with its picture, its subject and parts (`about`), and its length.
  */
 export function seriesParts(lang: Lang, c: Content, s: Series) {
   const t = translator(lang)
   const guides = seriesGuides(c, s)
-  const follows: Inline[] = [t('theo playlist “'), { text: s.title, href: `https://www.youtube.com/playlist?list=${s.playlistId}` }, `${t('” của kênh')} `, { text: s.channel, href: s.channelUrl }]
+  const counts = `${t('{n} bài', { n: guides.length })} · ${t('{time} video', { time: hours(lang, seriesSeconds(c, s)) })}`
+  const line: Inline[] = [`${counts} · ${t('theo playlist “')}`, { text: s.title, href: `https://www.youtube.com/playlist?list=${s.playlistId}` }, `${t('” của kênh')} `, { text: s.channel, href: s.channelUrl }]
   return {
-    counts: `${t('{n} bài', { n: guides.length })} · ${t('{time} video', { time: hours(lang, seriesSeconds(c, s)) })}`,
-    follows,
+    line,
     guides: guides.map(g => ({
       g,
       photo: guideImage(c, g),

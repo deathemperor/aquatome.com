@@ -1661,15 +1661,14 @@
       ]
     },
     {
-      "note": "a video series' page: its counts, the playlist and channel it follows as its credit, its intro, then its guides as cards, each picture credited: an older app shows the intro, and the web for the cards",
+      "note": "a video series' page: its one line (its counts, the playlist and channel it follows) as its credit, its intro, then its guides as cards, each picture credited: an older app shows the intro, and the web for the cards",
       "doc": {
         "v": 1,
         "kind": "video",
         "path": "/vi/video/reu-hai-tu-a-den-z/",
         "title": "Rêu hại từ A đến Z",
-        "meta": "1 bài · 29 phút video",
         "credit": [
-          "theo playlist “",
+          "1 bài · 29 phút video · theo playlist “",
           {
             "text": "ALGAE! Everything you need to know!",
             "href": "https://www.youtube.com/playlist?list=PLtest"

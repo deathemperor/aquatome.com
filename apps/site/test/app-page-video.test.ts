@@ -16,7 +16,7 @@ const links = (c: Inline[] = []) => c.flatMap(r => (typeof r === 'string' || !r.
 const txt = (el: HTMLElement | null | undefined) => clean(el?.textContent ?? '')
 const cardsOf = (d: PageDoc) => d.blocks.find((b): b is B<'cards'> => b.t === 'cards')
 
-test('each video series\' copy reads as its built page: name, counts, intro, playlist and channel, its guides in order, each picture credited', async () => {
+test('each video series\' copy reads as its built page: name, its line of counts, playlist and channel, intro, its guides in order, each picture credited', async () => {
   const c = await getContent('vi')
   const series = appSeries('vi', c)
   expect(series.length).toBeGreaterThan(0)
@@ -25,9 +25,8 @@ test('each video series\' copy reads as its built page: name, counts, intro, pla
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
     const { dom } = page(d.path)
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
-    // The page's one line: its counts (the copy's line above the name), then the playlist and channel it follows, both
-    // linked (the copy's credit).
-    expect(`${d.meta} · ${text(d.credit)}`, d.path).toBe(txt(dom.querySelector('.meta')))
+    // The page's one line, whole, is the copy's credit: its counts, then the playlist and channel it follows, both linked.
+    expect([d.meta, text(d.credit)], d.path).toEqual([undefined, txt(dom.querySelector('.meta'))])
     expect(links(d.credit), d.path).toEqual(dom.querySelectorAll('.meta a').map(a => [txt(a), a.getAttribute('href')]))
     const intro = dom.querySelector('.intro')
     expect(d.blocks.map(b => b.t), d.path).toEqual([...(intro ? ['p'] : []), 'cards'])
@@ -57,7 +56,7 @@ test('a series\' guides go in its order, with their counts; a guide of one part 
   const second = { ...first!, id: 'youtube-phan-hai', t: { ...first!.t, slug: 'phan-hai', name: 'Phần hai' }, video: { ...first!.video, youtubeId: 'bbbbbbbbbbb', thumb: undefined, chapters: first!.video.chapters.slice(0, 1), series: { id: s.id, position: 1 } } }
   const c = { ...c0, guides: [second, ...c0.guides] } as Content
   const d = videoDoc('vi', c, s)
-  expect(d.meta).toBe('2 bài · 59 phút video')
+  expect(text(d.credit)).toMatch(/^2 bài · 59 phút video · theo playlist “/)
   expect(cardsOf(d)!.items.map(i => [i.path, i.name, i.sub])).toEqual([
     ['/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/', 'Cách hạn chế rêu hại trong bể thủy sinh', 'Chăm cây · 3 đoạn · 29:15'],
     ['/vi/huong-dan/phan-hai/', 'Phần hai', 'Chăm cây · 29:15'],
