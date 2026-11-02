@@ -414,6 +414,54 @@
     ],
     "ruled": "d78bf7c0c613c977"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-air-pump": {
+    "at": "2026-11-02",
+    "hash": "97c9cf33bc872dc4",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bạn cắt dây dẫn khí ở một chỗ giữa lọc bọt biển và thiết bị, rồi gắn van một chiều vào giữa.",
+        "problem": "The check valve has to go between the air pump and the device, not between \"the sponge filter and the device\". The source has the same slip, and as written the step makes no sense to a reader following along.",
+        "fix": "Bạn cắt dây dẫn khí ở một chỗ giữa máy sục khí và thiết bị, rồi gắn van một chiều vào giữa.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cửa hàng cá và các phòng nuôi cá dùng máy sục khí piston tuyến tính Medo LA-45",
+        "problem": "The source only says the writers use this pump in their own store and fish rooms. The page turns that into a claim that fish stores and fish rooms in general use it.",
+        "fix": "Máy sục khí piston tuyến tính Medo LA-45 là loại được dùng ở cửa hàng cá và phòng nuôi cá của Aquarium Co-Op để chạy hệ thống khí trung tâm, cấp khí cho từng bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "97c9cf33bc872dc4"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-airline-accessories": {
+    "at": "2026-11-02",
+    "hash": "d1280689326c79c6",
+    "findings": [],
+    "ruled": "d1280689326c79c6"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-siphon": {
+    "at": "2026-11-02",
+    "hash": "c7b9fe633d433f99",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-02",
+        "field": "body",
+        "score": 0.93,
+        "kept": true,
+        "problems": [
+          "To aquarium hobbyists, \"đầu sủi\" means an air stone, so it is the wrong word for a faucet aerator and will confuse readers. The same wording appears again in the next step."
+        ]
+      }
+    ],
+    "ruled": "c7b9fe633d433f99"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-baby-brine-shrimp": {
     "at": "2026-11-01",
     "hash": "eda2e01adbcba2e6",
@@ -445,6 +493,22 @@
     "hash": "fecc016282b72978",
     "findings": [],
     "ruled": "fecc016282b72978"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-betta-fish-enrichment": {
+    "at": "2026-11-02",
+    "hash": "c27d77d496b7fbfb",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Make Your Betta Fish Happy with 5 Enrichment Ideas - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of the photo, so it doesn't say what the image shows.",
+        "rule": "A caption that matches the source page's title or contains the site name after a dash.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "c27d77d496b7fbfb"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-betta-fish-foods": {
     "at": "2026-11-01",
@@ -662,11 +726,135 @@
     ],
     "ruled": "b57e2096763257ea"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-plant-anubias-or-java-fern-on-rocks": {
+    "at": "2026-11-02",
+    "hash": "e7cf738e523b1413",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Gắn lên đá là cách bền nhất và cũng dễ làm nhất.",
+        "problem": "The source says the two plants are the hardiest and easiest to work with. It does not say that gluing them to rock is the most durable or easiest method.",
+        "fix": "Đây là hai loại cây khỏe nhất và dễ làm nhất.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Phết một đường keo mỏng lên đá, dài bằng thân rễ và dày hơn một chút.",
+        "problem": "The sentence calls the glue line thin and then says it should be a little thicker, without saying thicker than what, so the reader is left confused.",
+        "fix": "Phết một đường keo lên đá, dài bằng thân rễ, hơi dày tay một chút.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e7cf738e523b1413"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-treat-ich-on-freshwater-fish": {
+    "at": "2026-11-02",
+    "hash": "956c9e2984f803f9",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lặp lại bước 3 mỗi 24 giờ cho đến khi không còn thấy dấu hiệu của ich.",
+        "problem": "The treatment steps are an unnumbered bullet list, but the text tells the reader to repeat \"bước 3\", so the reader has to count the bullets to find which step is meant.",
+        "fix": "Đánh số các bước 1–5 thay cho gạch đầu dòng.",
+        "rule": "A list item mentions 'bước N' while the list uses bullets instead of numbers.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hình hiển vi cho thấy ich ở giai đoạn trophont, đang ăn bên dưới lớp da của cá.",
+        "problem": "This is a photo caption left over from the web page. It sits in the body text with no image next to it.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đây có thể là ich do stress và không nhất thiết hiệu quả với cách điều trị nêu dưới đây",
+        "problem": "The disease is described as being \"hiệu quả\" (effective) with a treatment. That is the wrong way round and garbles the meaning.",
+        "fix": "đây có thể là ich do stress và chưa chắc đáp ứng với cách điều trị nêu dưới đây",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vì bạn không muốn bị buộc phải chạy ra cửa hàng vào đêm khuya",
+        "problem": "This is a word-for-word calque of \"you don't want to be forced to\" and reads like machine translation.",
+        "fix": "để khỏi phải chạy ra cửa hàng lúc nửa đêm",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Treat Ich or White Spot Disease on Freshwater Fish - Aquarium Co-Op",
+        "problem": "The caption is the article's title, so it says nothing about what the photo shows.",
+        "rule": "A caption that matches the page or source title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "956c9e2984f803f9"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-treat-sick-aquarium-fish": {
+    "at": "2026-11-02",
+    "hash": "f36d91fd801d8905",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C2",
+        "quote": "Chart of quarantine medication trio for fish",
+        "problem": "The caption describes a chart of the three medications, not a photo of a fish or a tank.",
+        "rule": "A caption containing 'chart', 'diagram', 'map' or 'infographic'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "f36d91fd801d8905"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-is-a-nano-aquarium-right-for-me": {
     "at": "2026-11-01",
     "hash": "a4b06ab0f991a4a8",
     "findings": [],
     "ruled": "a4b06ab0f991a4a8"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-livebearer-disease": {
+    "at": "2026-11-02",
+    "hash": "63774f027a7ba1bf",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Treat Livebearer Disease - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and site name, so it says nothing about what the photo shows.",
+        "rule": "A caption that contains the source site's name or matches an article title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "63774f027a7ba1bf"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-mini-outdoor-pond": {
+    "at": "2026-11-02",
+    "hash": "111a9a2ce43dce0c",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C4",
+        "quote": "molly in hand",
+        "problem": "The photo shows a person's hand holding a molly, and mollies are not among the species the page recommends.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "111a9a2ce43dce0c"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-neon-tetra-disease": {
     "at": "2026-11-01",
@@ -722,6 +910,12 @@
     ],
     "ruled": "a250a5d0607f28e1"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-pothos": {
+    "at": "2026-11-02",
+    "hash": "15cc566a47fef903",
+    "findings": [],
+    "ruled": "15cc566a47fef903"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-quarantine-tank": {
     "at": "2026-11-01",
     "hash": "5ef4837ff88a0da1",
@@ -736,6 +930,12 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-root-tabs": {
+    "at": "2026-11-02",
+    "hash": "fa3baf729f492d9e",
+    "findings": [],
+    "ruled": "fa3baf729f492d9e"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners": {
     "at": "2026-11-01",
@@ -786,6 +986,31 @@
       }
     ],
     "ruled": "4451c27f1aff0996"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-slow-aquarium-flow": {
+    "at": "2026-11-02",
+    "hash": "fb5717a90cb244f8",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Gắn mút chặn hoặc ống phun vào đầu ra của lọc để triệt bớt áp lực nước.",
+        "problem": "Photo captions from the source were left in the body text as standalone lines, and each one repeats the paragraph just before it.",
+        "rule": "A one-sentence body line that sits between paragraphs and repeats words from the paragraph just before it.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Slow the Flow in Your Aquarium - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of the photo.",
+        "rule": "A caption that contains the source site's name after a dash.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "fb5717a90cb244f8"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-betta-fish-plants-for-your-aquarium": {
     "at": "2026-11-01",
@@ -3351,6 +3576,22 @@
       }
     ]
   },
+  "vi/guides/youtube-kFOeiak-Q0k": {
+    "at": "2026-11-02",
+    "hash": "d07139bac22219d9",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L1",
+        "quote": "Rêu hại lấm tấm trên kính và lũa đá là thức ăn cho otocinclus, tép, chỉ cần cạo khi nó bắt đầu che tầm nhìn.",
+        "problem": "The summary applies the glass rule (scrape once it blocks the view) to algae on rocks and driftwood too, but the body says to leave that algae alone and only clean it when it spreads widely or covers plants.",
+        "fix": "Rêu hại lấm tấm trên kính là thức ăn cho otocinclus và tép, chỉ cần cạo khi nó bắt đầu che tầm nhìn. Rêu ít trên lũa, đá thì cứ để yên.",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "d07139bac22219d9"
+  },
   "vi/guides/youtube-M0kds6giFrU": {
     "at": "2026-11-01",
     "hash": "1041f0afad999dfe",
@@ -3376,6 +3617,33 @@
       }
     ],
     "ruled": "1041f0afad999dfe"
+  },
+  "vi/guides/youtube-NNbR0grp8iE": {
+    "at": "2026-11-02",
+    "hash": "cc7d99ab51d8a6e5",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhờ vậy việc ghép các viên lại với nhau dễ hơn nhiều.",
+        "problem": "The sentence uses 'việc + verb' as its subject, a calque from English that the site's style guide bans.",
+        "fix": "Nhờ vậy ghép các viên lại với nhau dễ hơn nhiều.",
+        "rule": "A sentence where 'việc' followed by a verb is the subject.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mục tiêu là khối núi thấp dần, nhỏ dần một cách tự nhiên.",
+        "problem": "'một cách + adjective' is a translated construction that the site's style guide bans.",
+        "fix": "Mục tiêu là khối núi thấp dần, nhỏ dần cho tự nhiên.",
+        "rule": "The phrase 'một cách' followed by an adjective.",
+        "field": "body"
+      }
+    ],
+    "ruled": "cc7d99ab51d8a6e5"
   },
   "vi/guides/youtube-NOEpK-M6av4": {
     "at": "2026-11-01",
@@ -3457,6 +3725,22 @@
     ],
     "ruled": "788f6e44801add2e"
   },
+  "vi/guides/youtube-SKB7ImWt9Fc": {
+    "at": "2026-11-02",
+    "hash": "3e492530a270f49b",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Với vòi trong ví dụ, hai lần bấm bằng một nắp đầy.",
+        "problem": "The text points to an example pump that never appears on the page. It is left over from the original source, which showed a specific pump.",
+        "fix": "Ví dụ, với một số loại vòi, hai lần bấm bằng một nắp đầy.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3e492530a270f49b"
+  },
   "vi/guides/youtube-t0uqYP60WJA": {
     "at": "2026-11-01",
     "hash": "0d25ccae740e0ad6",
@@ -3529,6 +3813,12 @@
     "hash": "a1c3a9d2755bff38",
     "findings": [],
     "ruled": "a1c3a9d2755bff38"
+  },
+  "vi/guides/youtube-VJ_EZRwwFZg": {
+    "at": "2026-11-02",
+    "hash": "8491f489a82eac90",
+    "findings": [],
+    "ruled": "8491f489a82eac90"
   },
   "vi/guides/youtube-vLqQpjxKAgU": {
     "at": "2026-11-01",
@@ -3605,6 +3895,34 @@
     ],
     "ruled": "4b3b5c1a739240ee"
   },
+  "vi/guides/youtube-xuc03DuJ9o4": {
+    "at": "2026-11-02",
+    "hash": "3dd7b06bbb1bfc5c",
+    "findings": [],
+    "ruled": "3dd7b06bbb1bfc5c"
+  },
+  "vi/guides/youtube-YCRZbn1Wbrg": {
+    "at": "2026-11-02",
+    "hash": "a3dda0b2719c817a",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cách làm này thường phải khoan một lỗ gần miệng bể để nước tự tràn ra khi chạm mức đó.",
+        "problem": "This sentence comes right after the bucket-pump bullet, so 'mức đó' reads as the bucket's preset level. It actually means the tank's own water level, which is where the drilled overflow hole goes.",
+        "fix": "Với hệ thống nhỏ giọt, nước trong bể thường xả ra qua một lỗ khoan gần miệng bể, nước dâng tới lỗ thì tự tràn ra.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a3dda0b2719c817a"
+  },
+  "vi/guides/youtube-YCvm1zTtY9c": {
+    "at": "2026-11-02",
+    "hash": "2b0cf5ed3142ed2b",
+    "findings": [],
+    "ruled": "2b0cf5ed3142ed2b"
+  },
   "vi/guides/youtube-yDXX3b4sJ2g": {
     "at": "2026-11-01",
     "hash": "77cf97026ba57d38",
@@ -3660,6 +3978,43 @@
       }
     ],
     "ruled": "dbd313a7eeca5c83"
+  },
+  "vi/guides/youtube-zYfpvGHYlxQ": {
+    "at": "2026-11-02",
+    "hash": "441bdd728433938d",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Chiều rộng nghe trong phụ đề có vẻ là khoảng 42 cm, nhưng con số này không rõ",
+        "problem": "The page mentions the source video's subtitles, which the reader never sees, so the hedge reads like a leftover note from the writer.",
+        "fix": "Chiều rộng thùng khoảng 42 cm, nhưng bạn cứ đo lại thùng của mình cho chắc.",
+        "rule": "Flag page text containing the word \"phụ đề\" (subtitles), which points to the source video.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Phụ đề chỗ này khá lộn xộn, nhưng nhiều khả năng ba ngăn dùng để nuôi cá",
+        "problem": "The page again points to unclear subtitles in a video the reader cannot see, instead of just giving the likely layout.",
+        "fix": "Nhiều khả năng ba ngăn dùng để nuôi cá, phần còn lại làm lọc.",
+        "rule": "Flag page text containing the word \"phụ đề\" (subtitles), which points to the source video.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Phụ đề không nói rõ bơm này dùng để làm gì",
+        "problem": "A third mention of the source video's subtitles, which means nothing to the reader.",
+        "fix": "Bơm này nhiều khả năng dùng để đẩy nước qua hộp lọc thứ hai.",
+        "rule": "Flag page text containing the word \"phụ đề\" (subtitles), which points to the source video.",
+        "field": "body"
+      }
+    ],
+    "ruled": "441bdd728433938d"
   },
   "vi/plants/anubias-barteri": {
     "at": "2026-11-01",

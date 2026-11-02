@@ -955,6 +955,56 @@
       "\"ใบที่ซีดจางมาก\": \"Very light leaves\" means very pale or light-coloured leaves. \"ซีดมาก\" or \"สีอ่อนมาก\" is more natural; \"จาง\" is slightly off."
     ]
   },
+  "helanthium-tenellum": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "Helanthium tenellum 'Green'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"ถิ่นกำเนิด: สายพันธุ์ปรับปรุง (cultivar)\" – the origin label is acceptable, but \"ลงตู้ปลา\" is slightly off for a plant tank; consider \"ลงตู้\" or \"ปลูกในตู้\".",
+      "Item 2: \"ใบแตกออกเป็นกอแบบกุหลาบซ้อน\" is awkward for rosulate; consider \"ไม้น้ำที่ใบเรียงเป็นกระจุกแบบโรเซ็ตต์\".",
+      "Item 2: \"พื้นปลูก\" for \"bottom layer\" is fine, but \"เพียงพอ\" weakens \"nutritious\"; consider \"อุดมด้วยสารอาหาร\".",
+      "Item 2: \"ไม่ค่อยเรื่องมาก\" is colloquial; consider \"ไม่ต้องดูแลมาก\"."
+    ]
+  },
+  "heteranthera-zosterifolia": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "สตาร์กราส",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"Water roots\" was translated as \"รากอากาศ\" (aerial roots). These roots grow on the stem underwater, so use \"รากที่งอกตามลำต้น\" or \"รากน้ำ\" instead.",
+      "\"ภายใต้แสงแรงจะโตเร็วมาก\" is a bit stiff. \"ถ้าแสงแรงจะโตเร็วมาก\" would read more naturally. This is a minor point."
+    ]
+  },
+  "hottonia-palustris": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "ฮอทโทเนีย",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 3: English says \"10-30 cm high\" while item 1 lists 10–20+ cm; Thai faithfully follows each, so no fix needed on numbers, but \"ใบแผ่เป็นรูปพัด\" for \"fanned\" is a bit interpretive; consider \"ใบแผ่ออกคล้ายพัด\".",
+      "Item 3: \"unassuming\" translated as \"ไม่จุกจิก\" is slightly colloquial; \"ดูแลง่าย ไม่เรื่องมาก\" or \"ไม่ต้องการการดูแลมาก\" reads more naturally.",
+      "Item 3: \"ช่วยตัดกับสีอื่นได้สวยงาม\" is awkward; use \"สร้างความตัดกันอย่างสวยงาม\".",
+      "Item 3: \"แนวเปลี่ยนผ่าน\" for \"passage\" is somewhat stiff; consider \"ช่วงเชื่อมระหว่าง\"."
+    ]
+  },
+  "hydrocotyle-tripartita": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "บัวบกญี่ปุ่น",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ไม้ข้อ\" is acceptable, but \"Hydrocotyle sp. 'Japan'\" is a creeping carpet plant. Consider clarifying the type, e.g. \"ไม้ข้อ/ไม้คลุมพื้น\", since \"stem plant\" in the original is unusual here.",
+      "\"เป็นฟอร์มหนึ่งของ\" for \"variant\" is fine, but \"ชะลอการเติบโตด้วยแรงกด\" for \"mechanical retardation\" is stiff. Consider \"การควบคุมการเจริญเติบโตด้วยวิธีกล\".",
+      "\"ทรงพุ่มแน่นและเตี้ย\" adds \"เตี้ย\" (low), which is not in the original. It only says compact growth.",
+      "\"แสงแรงเพียงพอ\" for \"good light\" slightly shifts the meaning. Prefer \"แสงที่ดี/แสงเพียงพอ\"."
+    ]
+  },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
     "from": "2026-10-30",

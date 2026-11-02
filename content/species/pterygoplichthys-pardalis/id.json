@@ -4,22 +4,29 @@
   "altNames": [
     "Sapu-sapu",
     "Pleco",
-    "Amazon sailfin catfish",
-    "Sailfin pleco"
+    "Common Pleco",
+    "Amazon sailfin catfish"
   ],
   "sections": {
     "quickFacts:glaser": "<ul><li>Asal: Brasil, Peru</li><li>Ukuran: lebih dari 40 cm</li></ul>",
-    "beforeYouBuy:glaser": "<p>Di Asia Tenggara ikan ini diternakkan dalam jumlah besar, jadi ikan tangkapan alam hanya sesekali diperdagangkan. Karena itu, mendapatkan beberapa anakan tangkapan alam dengan corak yang indah terasa makin istimewa.</p>",
+    "quickFacts:scotcat": "<ul><li>Nama umum: Common Pleco, L021, L023, Albino pleco</li><li>Daftar Merah IUCN: Risiko Rendah (Least Concern/LC) (IUCN 2023)</li></ul>",
+    "beforeYouBuy:glaser": "<p>Di Asia Tenggara ikan ini dibudidayakan dalam jumlah besar, jadi ikan tangkapan alam hanya sesekali saja diperdagangkan. Karena itu, makin menyenangkan kalau bisa mendapatkan beberapa anakan tangkapan alam dengan corak yang indah.</p>",
     "distribution:glaser": "<p>Liposarcus pardalis punya daerah asal yang sangat luas, mencakup hampir seluruh lembah Sungai Amazon.</p>",
+    "distribution:scotcat": "<p>Amerika Selatan: lembah Sungai Amazon bagian hilir, tengah, dan hulu. Sudah diintroduksi ke negara-negara di luar daerah sebaran aslinya.</p>",
     "habitat:glaser": "<p>Ikan ini ditemukan di berbagai tipe perairan.</p>",
-    "maintenance:glaser": "<p>Karena ditemukan di berbagai tipe perairan, ikan ini sangat mudah beradaptasi saat dipelihara di akuarium.</p>",
-    "diet:glaser": "<p>Dengan ukurannya (lebih dari 40 cm), ikan ini menghabiskan pakan dalam jumlah yang sangat banyak.</p>"
+    "aquariumSize:scotcat": "<p>Tumbuh terlalu besar untuk kebanyakan akuarium rumahan, jadi perlu dipelihara di akuarium berukuran 180 cm atau lebih. Karena badannya kokoh, ikan ini bisa dicampur dengan sebagian besar ikan berukuran besar.</p>",
+    "maintenance:glaser": "<p>Karena ditemukan di berbagai tipe perairan, ikan ini sangat mudah beradaptasi untuk dipelihara di akuarium.</p>",
+    "diet:glaser": "<p>Dengan ukurannya (lebih dari 40 cm), jumlah pakan yang dihabiskan sangat banyak.</p>",
+    "diet:scotcat": "<p>Omnivora; beri pakan nabati dan pakan berbahan daging, ditambah pakan serpihan, tablet, dan pelet. Waktu masih kecil mau makan alga, tetapi setelah besar tidak terlalu.</p>",
+    "notes:scotcat": "<p>Dulu ikan ini diberi dua nomor L, yaitu L021 dan L023. Termasuk kelompok P. multiradiatus karena tidak punya punuk di kepala, ciri yang berkaitan dengan kelompok P. lituratus. Nama genusnya kini sudah dikembalikan dari Liposarcus ke Pterygoplichthys berkat penelitian J.W. Armbruster tahun 2004. Masih ada beberapa publikasi yang tetap memakai Liposarcus sebagai nama genus.</p><p>Spesies Pterygoplichthys bisa dibedakan dari kelompok Hypostomus dari jumlah jari-jari sirip punggungnya yang lebih banyak, biasanya lebih dari 10. Mungkin inilah sebabnya ikan ini sering kali keliru dijual sebagai Hypostomus plecostomus di kalangan hobi.</p><p>Varian albino pertama kali masuk ke Inggris pada awal tahun sembilan puluhan lewat program penangkaran di Republik Ceko, dan sekarang menjadi spesies yang umum dibudidayakan di peternakan ikan di Timur Jauh serta di Florida, Amerika Serikat. Spesies ini juga sudah diintroduksi ke Filipina bersama P. disjunctivus, kemungkinan besar dari ikan akuarium yang dibuang pemiliknya.</p><p>Etimologi: Nama spesies pardalis berasal dari párdalis, macan tutul, merujuk pada bintik atau titik bulat cokelat tua seperti tutul macan di atas warna dasar kuning muda.</p>",
+    "references:scotcat": "<p>Armbruster, J.W, 2004. Phylogenetic relationships of the suckermouth armoured catfishes (Loricariidae) with emphasis on the Hypostominae and the Ancistrinae.</p><p>Chavez, J.M., R.M. de la Paz, S.K. Manohar, R.C. Pagulayan and R. Carandang VI, 2006. New Philippine record of south american sailfin catfishes (Pisces: Loricariidae). Zootaxa 1109:57-68.</p><p>Salvador, G.N. 2023. Pterygoplichthys pardalis. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.75,
     "indexable": true,
     "bySource": {
-      "glaser": 0.9
+      "glaser": 0.75,
+      "scotcat": 0.75
     }
   }
 }
