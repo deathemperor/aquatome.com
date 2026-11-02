@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 """The App Store's screenshots out of a result bundle of StoreShotsFlowTests (named `store-<lang>-<nn>-<screen>`), as
 OUT_DIR/<lang>/<nn>-<screen>.png, the last try's when a test ran again: the layout apps/ios/scripts/asc-listing.mjs
-uploads from, one OUT_DIR per screenshot set. Usage: store-shots.py RESULT_BUNDLE OUT_DIR."""
+uploads from, one OUT_DIR per screenshot set. Fails unless each of listing.json's languages has all six screens (what
+it found is copied all the same). Usage: store-shots.py RESULT_BUNDLE OUT_DIR."""
 import json, os, re, shutil, subprocess, sys, tempfile
+
+SCREENS = 6  # StoreShotsFlowTests' screens in each language
+LISTING = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'store', 'listing.json')
 
 bundle, out = sys.argv[1], sys.argv[2]
 with tempfile.TemporaryDirectory() as raw:
@@ -23,3 +27,8 @@ with tempfile.TemporaryDirectory() as raw:
         os.makedirs(os.path.join(out, lang), exist_ok=True)
         shutil.copy(os.path.join(raw, file), os.path.join(out, lang, name + '.png'))
     print(f'{len(best)} screenshots in {out}')
+with open(LISTING) as f:
+    langs = json.load(f)['locales']
+short = {lang: SCREENS - sum(1 for l, _ in best if l == lang) for lang in langs}
+if any(short.values()):
+    sys.exit('missing: ' + ', '.join(f'{n} of {lang}' for lang, n in short.items() if n))

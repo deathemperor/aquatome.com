@@ -294,7 +294,7 @@ function compare(listing, s) {
       for (const type of Object.keys(listing.screenshots)) {
         const have = s.sets[locale]?.[type]?.shots.length ?? 0
         const files = shotFiles(type, locale)
-        row(`${locale} ${type} screenshots`, String(have), files ? String(files.length) : '(made by the workflow)', files ? sameShots(s.sets[locale]?.[type]?.shots ?? [], files) : true)
+        row(`${locale} ${type} screenshots`, String(have), files ? String(files.length) : '(made by the workflow)', files ? !!files.length && sameShots(s.sets[locale]?.[type]?.shots ?? [], files) : true)
       }
     }
     // Never the contact or demo account: personal details, in a public log.
@@ -310,16 +310,18 @@ function compare(listing, s) {
   return rows
 }
 
-/** A set's screenshots from SHOTS_DIR, in order (null without one). */
+/** A set's screenshots from SHOTS_DIR, in order: none when it has none, null without a SHOTS_DIR. */
 function shotFiles(type, locale) {
-  const dir = SHOTS_DIR && join(SHOTS_DIR, type, locale)
-  if (!dir || !existsSync(dir)) return null
+  if (!SHOTS_DIR) return null
+  const dir = join(SHOTS_DIR, type, locale)
+  if (!existsSync(dir)) return []
   return readdirSync(dir).filter((f) => f.endsWith('.png')).sort().map((name) => {
     const data = readFileSync(join(dir, name))
     return { name, data, md5: createHash('md5').update(data).digest('hex') }
   })
 }
-const sameShots = (have, files) => have.length === files.length && have.every((h, i) => h.attributes.sourceFileChecksum === files[i].md5)
+// Apple's checksum is kept from the commit on, processed or not: only a screenshot it finished counts as there.
+const sameShots = (have, files) => have.length === files.length && have.every((h, i) => h.attributes.sourceFileChecksum === files[i].md5 && h.attributes.assetDeliveryState?.state === 'COMPLETE')
 
 function report(rows) {
   const width = rows.reduce((w, r) => Math.max(w, chars(r[0])), 0)
@@ -343,6 +345,15 @@ async function apply(listing, project) {
     } catch (e) {
       failed.push(what)
       console.log(`::error title=${what}::${e.message}`)
+    }
+  }
+  // The screenshots first: a set that's missing or wrong stops the run before anything is written.
+  if (SHOTS_DIR) {
+    const problems = Object.entries(listing.screenshots).flatMap(([type, slot]) => Object.keys(listing.locales).flatMap((locale) =>
+      shotProblems(shotFiles(type, locale), slot).map((p) => `${locale} ${type}: ${p}`)))
+    if (problems.length) {
+      for (const p of problems) console.log(`::error title=Screenshots::${p}`)
+      process.exit(1)
     }
   }
   let s = await read(listing)
@@ -442,6 +453,7 @@ async function apply(listing, project) {
       s.territories.map((t) => ({ type: 'territoryAvailabilities', id: local(t), attributes: { available: true }, relationships: { territory: id('territories', t.id) } })))
       return `all ${s.territories.length} territories`
     }
+    if (!s.territoryAvailabilities.length) throw new Error('App Store Connect lists no territories for the app\'s availability')
     const off = s.territoryAvailabilities.filter((t) => !t.attributes.available)
     for (const t of off) await api('PATCH', `v1/territoryAvailabilities/${t.id}`, { type: 'territoryAvailabilities', id: t.id, attributes: { available: true } })
     // The API can't change this once set (no PATCH for appAvailabilities): the website can.
@@ -450,7 +462,8 @@ async function apply(listing, project) {
     return off.length ? `${off.length} more territories` : 'already everywhere'
   })
 
-  if (s.version) await screenshots(listing, s, step)
+  // Again: the version's localizations just made, which the screenshot sets go on.
+  if (s.version) await screenshots(listing, await read(listing), step)
   if (failed.length) {
     console.log(`Not written: ${failed.join('; ')}.`)
     process.exit(1)
@@ -464,10 +477,7 @@ async function screenshots(listing, s, step) {
   for (const [type, slot] of Object.entries(listing.screenshots)) {
     for (const locale of Object.keys(listing.locales)) {
       await step(`Screenshots, ${locale} ${type}`, async () => {
-        const files = shotFiles(type, locale)
-        if (!files) throw new Error(`none in ${join(SHOTS_DIR, type, locale)}`)
-        const problems = shotProblems(files, slot)
-        if (problems.length) throw new Error(problems.join('; '))
+        const files = shotFiles(type, locale) // checked before anything was written
         const loc = s.versionLocs.find((x) => x.attributes.locale === locale)
         if (!loc) throw new Error(`the version has no ${locale} copy`)
         let set = s.sets[locale]?.[type]

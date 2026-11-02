@@ -123,7 +123,9 @@ final class StoreShotsFlowTests: XCTestCase {
     let outlet = app.switches["outlet-switch_3"]
     XCTAssertTrue(shows(app, outlet), "the plug isn't on the tank")
     outlet.tap()
-    XCTAssertTrue(app.staticTexts["outlet-status-switch_3"].waitForExistence(timeout: 15), "the filter wasn't switched")
+    // On once the strip says so (its note shows while the command is on its way too).
+    let on = expectation(for: NSPredicate(format: "value == '1'"), evaluatedWith: outlet)
+    XCTAssertEqual(XCTWaiter().wait(for: [on], timeout: 15), .completed, "the filter wasn't switched")
     XCTAssertTrue(shows(app, element(app, "plug-name")))
     shoot(l, 6, "plugs")
   }
@@ -146,8 +148,8 @@ final class StoreShotsFlowTests: XCTestCase {
     let confirm = app.alerts.buttons[l.write]
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
     confirm.tap()
-    let written = expectation(for: NSPredicate(format: "enabled == false"), evaluatedWith: write)
-    XCTAssertEqual(XCTWaiter().wait(for: [written], timeout: 20), .completed, "the schedule wasn't written")
+    // Written once the light reported it: listed as the one in use (the button is off while it's being written, too).
+    XCTAssertTrue(element(app, "in-use").waitForExistence(timeout: 20), "the schedule wasn't written")
     // The day's timeline near the top, the light above it.
     XCTAssertTrue(shows(app, element(app, "day")), "no timeline")
     shoot(l, 5, "light")
