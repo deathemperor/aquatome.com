@@ -5,7 +5,8 @@ import type { Llm } from './claude'
 const TEMPLATE = readFileSync(new URL('./prompts/moderate.md', import.meta.url), 'utf8')
 const BATCH = 50
 
-export type QueueItem = { id: string; entity_ref: string; name: string; body: string; status: 'approved' | 'held'; reason: string | null; created_at: string }
+/** `reports`: readers' reasons for reporting it ('' for none); absent from a Worker older than reports. */
+export type QueueItem = { id: string; entity_ref: string; name: string; body: string; status: 'approved' | 'held'; reason: string | null; created_at: string; reports?: string[] }
 const Decision = z.object({ id: z.string(), action: z.enum(['approve', 'remove', 'keep_held']), helpful: z.boolean(), reason: z.string() })
 export type Decision = z.infer<typeof Decision>
 const Output = z.object({ decisions: z.array(Decision) })
@@ -21,7 +22,7 @@ export type CommentsAdmin = { queue: () => Promise<QueueItem[] | null>; decide: 
 /** Empty when the model gave no usable decision twice; the batch waits for the next run. */
 async function decideBatch(llm: Llm, items: QueueItem[]): Promise<Decision[]> {
   const ids = new Set(items.map(i => i.id))
-  const prompt = `${TEMPLATE}\n\n${JSON.stringify(items.map(i => ({ id: i.id, page: i.entity_ref, name: i.name, body: i.body, status: i.status, rule: i.reason })), null, 1)}`
+  const prompt = `${TEMPLATE}\n\n${JSON.stringify(items.map(i => ({ id: i.id, page: i.entity_ref, name: i.name, body: i.body, status: i.status, rule: i.reason, ...(i.reports?.length ? { reports: i.reports } : {}) })), null, 1)}`
   for (let attempt = 0; attempt < 2; attempt++) {
     const parsed = Output.safeParse(await llm({ system: 'You are a careful, fair community moderator. Reply only with JSON.', prompt, schema: SCHEMA }))
     // Only ids we asked about; a comment left out simply waits for the next run.

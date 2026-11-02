@@ -43,3 +43,17 @@ test('a failed download leaves the photo pending; photos off → nothing to do',
   expect(await moderatePhotos({ ...api, queue: async () => null }, deps)).toEqual({ off: true })
   expect(judgePrompt({ name: 'A', scientificName: 'B' })).not.toContain('{{SPECIES}}')
 })
+
+test('a reported photo\'s reasons reach the judge, as claims to check; an unreported photo\'s prompt has none', async () => {
+  const prompts: string[] = []
+  const raw = await jpeg(800, 600)
+  const api: PhotoAdmin = {
+    queue: async () => [{ id: 'r', entity_ref: 'species:neon', name: 'n', created_at: '', reports: ['không phải cá neon', ''] }, { id: 'u', entity_ref: 'species:neon', name: 'n', created_at: '' }],
+    raw: async () => raw, put: async () => {}, decide: async d => ({ applied: d.length, ignored: 0 }),
+  }
+  await moderatePhotos(api, { species: () => ({ name: 'A', scientificName: 'B' }), faces: async f => f.map(() => 0), judge: async (_f, p) => { prompts.push(p); return { approve: true, reason: 'ok' } } })
+  expect(prompts[0]).toContain('["không phải cá neon",""]')
+  expect(prompts[0]).toContain('untrusted claims')
+  expect(prompts[1]).toBe(judgePrompt({ name: 'A', scientificName: 'B' }))
+  expect(prompts[1]).not.toContain('reported')
+})

@@ -10,7 +10,7 @@ export type CommentsEnv = {
   /** Decree 147 hook: 'phone' requires a verified commenter (no provider wired yet). */
   COMMENT_VERIFICATION?: string
 }
-export type PublicComment = { id: string; name: string; body: string; helpful: boolean; createdAt: string }
+export type PublicComment = { id: string; name: string; body: string; helpful: boolean; createdAt: string; author: string }
 type Siteverify = (secret: string, token: string, ip: string | null, host: string) => Promise<boolean>
 
 const DAY_MS = 86_400_000
@@ -68,8 +68,25 @@ export const accountDayKey = (secret: string, account: string, now: Date) => day
 export const dayKeys = async (secret: string, ip: string | null, account: string | undefined, now: Date) =>
   [await ipDayKey(secret, ip ?? 'unknown', now), ...(account ? [await accountDayKey(secret, account, now)] : [])]
 
+/** HMAC(secret, message) in hex, `bytes` long; one key import for many messages. */
+export async function signer(secret: string, bytes: number): Promise<(message: string) => Promise<string>> {
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'])
+  return async message => [...new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(message))).slice(0, bytes)].map(b => b.toString(16).padStart(2, '0')).join('')
+}
+
+/**
+ * A public post's `author` (protocols/talk.openapi.json), 16 hex characters: the same for everything one account posts,
+ * and for a post without an account its own, so blocking it hides only that post. Never a name, email or address.
+ */
+export async function authors(secret: string): Promise<(post: { id: string; account_id: string | null }) => Promise<string>> {
+  const sign = await signer(secret, 8)
+  return p => sign(p.account_id ? `account:${p.account_id}` : `post:${p.id}`)
+}
+
 const live = (env: CommentsEnv): env is CommentsEnv & { DB: D1Database; TURNSTILE_SECRET: string; TURNSTILE_SITEKEY: string; COMMENT_HMAC_KEY: string } =>
   Boolean(env.DB && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY)
+
+export { live as commentsLive }
 
 /** GET /_c?e=species:x → approved comments only, plus what the form needs. */
 export async function listComments(url: URL, env: CommentsEnv): Promise<Response> {
@@ -77,9 +94,10 @@ export async function listComments(url: URL, env: CommentsEnv): Promise<Response
   const e = url.searchParams.get('e') ?? ''
   if (!ENTITY_RE.test(e)) return json({ error: 'bad entity' }, 400)
   const { results } = await env.DB.prepare(
-    `SELECT id, name, body, helpful, created_at FROM comments WHERE entity_ref = ? AND status = 'approved' ORDER BY created_at LIMIT 200`,
-  ).bind(e).all<{ id: string; name: string; body: string; helpful: number; created_at: string }>()
-  const comments: PublicComment[] = results.map(r => ({ id: r.id, name: r.name, body: r.body, helpful: r.helpful === 1, createdAt: r.created_at }))
+    `SELECT id, name, body, helpful, created_at, account_id FROM comments WHERE entity_ref = ? AND status = 'approved' ORDER BY created_at LIMIT 200`,
+  ).bind(e).all<{ id: string; name: string; body: string; helpful: number; created_at: string; account_id: string | null }>()
+  const author = await authors(env.COMMENT_HMAC_KEY)
+  const comments: PublicComment[] = await Promise.all(results.map(async r => ({ id: r.id, name: r.name, body: r.body, helpful: r.helpful === 1, createdAt: r.created_at, author: await author(r) })))
   return json({ comments, sitekey: env.TURNSTILE_SITEKEY, verification: env.COMMENT_VERIFICATION === 'phone' ? 'phone' : 'none' }, 200, { 'cache-control': 'public, max-age=60' })
 }
 
@@ -140,22 +158,26 @@ export async function postComment(req: Request, env: CommentsEnv, now: Date, ver
   const createdAt = now.toISOString()
   await env.DB.prepare(`INSERT INTO comments (id, entity_ref, name, body, status, helpful, reason, created_at, account_id) VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?)`)
     .bind(id, c.entityRef, c.name, c.body, status, 'held' in v ? v.held : null, createdAt, account ?? null).run()
-  const comment: PublicComment | undefined = status === 'approved' ? { id, name: c.name, body: c.body, helpful: false, createdAt } : undefined
+  const comment: PublicComment | undefined = status === 'approved' ? { id, name: c.name, body: c.body, helpful: false, createdAt, author: await (await authors(env.COMMENT_HMAC_KEY))({ id, account_id: account ?? null }) } : undefined
   return json({ status, comment }, 201)
 }
 
-export type QueueItem = { id: string; entity_ref: string; name: string; body: string; status: 'approved' | 'held'; reason: string | null; created_at: string }
+/** `reports`: each reader's reason for reporting it ('' when they gave none). */
+export type QueueItem = { id: string; entity_ref: string; name: string; body: string; status: 'approved' | 'held'; reason: string | null; created_at: string; reports: string[] }
 export type Decision = { id: string; action: 'approve' | 'remove' | 'keep_held'; helpful: boolean; reason: string }
 const ACTIONS = ['approve', 'remove', 'keep_held']
 
-/** Everything the moderator hasn't seen, plus held comments it deferred over a week ago; unseen first. */
+/** Everything the moderator hasn't seen, comments reported since it last looked, and held comments it deferred over a week ago; unseen first. */
 export async function moderationQueue(db: D1Database, now: Date): Promise<QueueItem[]> {
   const { results } = await db.prepare(
-    `SELECT id, entity_ref, name, body, status, reason, created_at FROM comments
-     WHERE (status != 'removed' AND decided_at IS NULL) OR (status = 'held' AND decided_at < ?)
+    `SELECT id, entity_ref, name, body, status, reason, created_at,
+       (SELECT json_group_array(COALESCE(reason, '')) FROM reports WHERE kind = 'comment' AND item_id = comments.id) AS reports
+     FROM comments
+     WHERE (status != 'removed' AND (decided_at IS NULL OR EXISTS (SELECT 1 FROM reports WHERE kind = 'comment' AND item_id = comments.id AND created_at > comments.decided_at)))
+       OR (status = 'held' AND decided_at < ?)
      ORDER BY decided_at IS NOT NULL, created_at LIMIT 500`,
-  ).bind(new Date(now.getTime() - 7 * DAY_MS).toISOString()).all<QueueItem>()
-  return results
+  ).bind(new Date(now.getTime() - 7 * DAY_MS).toISOString()).all<Omit<QueueItem, 'reports'> & { reports: string }>()
+  return results.map(r => ({ ...r, reports: JSON.parse(r.reports) as string[] }))
 }
 
 /** Apply moderator decisions; malformed entries and unknown ids are ignored. */
@@ -176,8 +198,9 @@ export async function applyDecisions(db: D1Database, items: unknown[], now: Date
   return { applied, ignored: items.length - applied }
 }
 
-/** Removed comments are kept 30 days for appeal, then deleted. */
+/** Removed comments are kept 30 days for appeal, then deleted; so are the reports of comments and photos no longer kept. */
 export async function purgeRemoved(db: D1Database, now: Date): Promise<number> {
   const r = await db.prepare(`DELETE FROM comments WHERE status = 'removed' AND decided_at < ?`).bind(new Date(now.getTime() - 30 * DAY_MS).toISOString()).run()
+  await db.prepare(`DELETE FROM reports WHERE item_id NOT IN (SELECT id FROM comments UNION ALL SELECT id FROM photos WHERE status != 'removed')`).run()
   return r.meta.changes ?? 0
 }
