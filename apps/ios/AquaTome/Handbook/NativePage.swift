@@ -484,29 +484,31 @@ private struct ReadersPart: View {
   let name: String
   @Environment(HandbookModel.self) private var handbook
   @Environment(AccountModel.self) private var account
-  @State private var comments: [Readers.Comment] = []
-  @State private var photos: [Readers.Photo] = []
+  /// What the site answered: nil until it has (still reading, or offline), so "none yet" is said only of a page that has none.
+  @State private var comments: [Readers.Comment]?
+  @State private var photos: [Readers.Photo]?
   @State private var posting: ReaderPost.Kind?
 
   var body: some View {
     // Posting needs an account: where the site has none, a section with nothing in it would only be empty.
     let open = account.state != .unknown && account.state != .off
+    let shownPhotos = photos ?? [], shownComments = comments ?? []
     VStack(alignment: .leading, spacing: 14) {
-      if talk.photos != nil && (open || !photos.isEmpty) {
-        if photos.isEmpty {
+      if talk.photos != nil && (open || !shownPhotos.isEmpty) {
+        if shownPhotos.isEmpty {
           Text("Ảnh bạn đọc").font(.title3.bold()).accessibilityAddTraits(.isHeader)
-          Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary)
+          if photos != nil { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
         } else {
-          GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: photos.map {
+          GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map {
             PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: ($0.name, "", nil))
-          }, strip: Array(photos.indices.prefix(10)), all: "readers-all")
+          }, strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all")
         }
         if open { Button("Gửi ảnh \(name) của bạn") { posting = .photo }.accessibilityIdentifier("post-photo") }
       }
-      if talk.comments != nil && (open || !comments.isEmpty) {
+      if talk.comments != nil && (open || !shownComments.isEmpty) {
         Text("Thảo luận").font(.title3.bold()).accessibilityAddTraits(.isHeader)
-        if comments.isEmpty { Text("Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.").foregroundStyle(.secondary) }
-        ForEach(comments, id: \.id) { c in
+        if comments?.isEmpty == true { Text("Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.").foregroundStyle(.secondary) }
+        ForEach(shownComments, id: \.id) { c in
           Text(line(c)).frame(maxWidth: .infinity, alignment: .leading).accessibilityIdentifier("comment")
         }
         if open { Button("Gửi bình luận") { posting = .comment }.accessibilityIdentifier("post-comment") }
@@ -520,7 +522,10 @@ private struct ReadersPart: View {
       if let p { photos = p }
     }
     .sheet(item: $posting) { kind in
-      ReaderPost(kind: kind, key: (kind == .comment ? talk.comments : talk.photos) ?? "", name: name) { comments.append($0) }
+      ReaderPost(kind: kind, key: (kind == .comment ? talk.comments : talk.photos) ?? "", name: name) { c in
+        if let key = talk.comments { handbook.posted(c, on: key) }
+        comments = (comments ?? []) + [c]
+      }
     }
   }
 

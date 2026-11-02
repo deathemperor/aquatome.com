@@ -75,8 +75,10 @@ public enum Readers {
     return r
   }
 
-  /// A reader's photo of the page's species (`jpeg`: shrunk, with no location or camera data), with their consent.
-  public static func post(photo key: String, name: String, jpeg: Data, site: URL, token: String, version: String, boundary: String = UUID().uuidString) -> URLRequest {
+  /// A reader's photo of the page's species (`jpeg`: shrunk, with no location or camera data), with their consent if they
+  /// gave it (the site's form sends its box's `1` only when it's ticked).
+  public static func post(photo key: String, name: String, consent: Bool, jpeg: Data, site: URL, token: String, version: String,
+                          boundary: String = UUID().uuidString) -> URLRequest {
     var r = posting(site.appending(path: "_p"), token: token, version: version)
     r.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
     var body = Data()
@@ -86,7 +88,7 @@ public enum Readers {
     }
     part("e", Data(key.utf8))
     part("name", Data(name.utf8))
-    part("consent", Data("1".utf8))
+    if consent { part("consent", Data("1".utf8)) }
     part("file", jpeg, file: true)
     body += Data("--\(boundary)--\r\n".utf8)
     r.httpBody = body
@@ -119,8 +121,8 @@ public enum Readers {
     case shown(Comment)
     /// A comment held for moderation.
     case held
-    /// A photo received, to be moderated before it shows.
-    case received
+    /// A photo received, to be moderated before it shows, with the path that takes it back (`deleteUrl`, given once).
+    case received(delete: String?)
     /// The account's session is over: the reader signs in again.
     case signedOut
     /// Refused, with the site's code for why (`rate`, `bad name`, `too large`, …); `failed` with none.
@@ -136,13 +138,30 @@ public enum Readers {
         let shown = (o?["comment"]).flatMap { try? JSONSerialization.data(withJSONObject: ["comments": [$0]]) }.flatMap { comments($0).first }
         return shown.map(Answer.shown) ?? .held
       case "held": return .held
-      case "pending": return .received
+      case "pending": return .received(delete: o?["deleteUrl"] as? String)
       default: return .refused("failed")
       }
     }
     let code = o?["error"] as? String
     return status == 401 && code == "session" ? .signedOut : .refused(code ?? "failed")
   }
+
+  /// The Worker's code for a comment it refuses unread (apps/site/worker/comments/rules.ts parseComment), or nil: a name
+  /// of 1–40 and a comment of 2–2000, trimmed, counted as JavaScript counts them (UTF-16 units).
+  public static func refusal(comment name: String, body: String) -> String? {
+    if !(1...40).contains(trimmed(name).utf16.count) { return "name must be 1–40 characters" }
+    if !(2...2000).contains(trimmed(body).utf16.count) { return "comment must be 2–2000 characters" }
+    return nil
+  }
+
+  /// The Worker's code for a photo's name it refuses (apps/site/worker/photos.ts), or nil: 1–40, trimmed, in UTF-16
+  /// units, with no "<" (which holds a comment). The Worker's other rules (links, blocked words) it says itself.
+  public static func refusal(photoName name: String) -> String? {
+    let t = trimmed(name)
+    return (1...40).contains(t.utf16.count) && !t.contains("<") ? nil : "bad name"
+  }
+
+  private static func trimmed(_ s: String) -> String { s.trimmingCharacters(in: .whitespacesAndNewlines) }
 
   /// The Worker's times (`toISOString()`), with or without the milliseconds, in UTC or at an offset.
   static func date(_ s: String) -> Date? {

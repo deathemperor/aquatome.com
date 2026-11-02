@@ -34,22 +34,46 @@ private let site = URL(string: "https://aquatome.com")!
 
 @Test func aPhotoIsSentAsTheAccountAsTheFormTheContractTakesWithConsentAndNoTurnstileToken() throws {
   let jpeg = Data([0xFF, 0xD8, 0xFF, 0xD9])
-  let r = Readers.post(photo: "species:betta-splendens", name: "Lan", jpeg: jpeg, site: site, token: "tok", version: "1.4", boundary: "B")
+  let r = Readers.post(photo: "species:betta-splendens", name: "Lan", consent: true, jpeg: jpeg, site: site, token: "tok", version: "1.4", boundary: "B")
   #expect(r.httpMethod == "POST" && r.url?.absoluteString == "https://aquatome.com/_p")
   #expect(r.value(forHTTPHeaderField: "Authorization") == "Bearer tok")
   #expect(r.value(forHTTPHeaderField: "Content-Type") == "multipart/form-data; boundary=B")
   // The form's fields, by name, as a server reads them.
   let body = try #require(r.httpBody)
   var fields: [String: Data] = [:]
+  var heads: [String: String] = [:]
   for part in body.split(separator: Data("--B".utf8)).dropLast() {
-    guard let head = part.range(of: Data("\r\n\r\n".utf8)), let name = String(data: part[..<head.lowerBound], encoding: .utf8)?
-      .firstMatch(of: /name="([^"]+)"/)?.1 else { continue }
+    guard let head = part.range(of: Data("\r\n\r\n".utf8)), let h = String(data: part[..<head.lowerBound], encoding: .utf8),
+          let name = h.firstMatch(of: /name="([^"]+)"/)?.1 else { continue }
     fields[String(name)] = part[head.upperBound...].dropLast(2)
+    heads[String(name)] = h
   }
+  // A file only as a part with a filename and its type: the Worker reads no other part as one.
+  #expect(heads["file"]?.contains(#"filename="photo.jpg""#) == true && heads["file"]?.contains("Content-Type: image/jpeg") == true, "\(heads)")
   #expect(fields.mapValues { String(decoding: $0, as: UTF8.self) }.filter { $0.key != "file" } == ["e": "species:betta-splendens", "name": "Lan", "consent": "1"])
   #expect(fields["file"] == jpeg)
   let s = schema("NewPhoto")
   #expect(Set(s["required"] as! [String]) == Set(fields.keys) && fields["token"] == nil)
+  // Not given: not sent, as the site's form leaves out a box not ticked.
+  let without = Readers.post(photo: "species:betta-splendens", name: "Lan", consent: false, jpeg: jpeg, site: site, token: "tok", version: "1.4", boundary: "B")
+  let sent = String(decoding: try #require(without.httpBody), as: UTF8.self)
+  #expect(!sent.contains(#"name="consent""#) && sent.contains(#"name="file""#))
+}
+
+@Test func whatTheWorkerRefusesUnreadIsToldBeforeSendingCountedAsItCounts() {
+  #expect(Readers.refusal(comment: "Lan", body: "Ổn") == nil)
+  #expect(Readers.refusal(comment: "  ", body: "Nuôi đàn 10 con.") == "name must be 1–40 characters")
+  #expect(Readers.refusal(comment: String(repeating: "a", count: 41), body: "Nuôi đàn.") == "name must be 1–40 characters")
+  #expect(Readers.refusal(comment: "Lan", body: " a ") == "comment must be 2–2000 characters")
+  #expect(Readers.refusal(comment: "Lan", body: String(repeating: "ạ", count: 2000)) == nil)
+  // JavaScript's length: a fish emoji is two units, so 1001 of them are 2002, one too many.
+  #expect(Readers.refusal(comment: "Lan", body: String(repeating: "🐟", count: 1000)) == nil)
+  #expect(Readers.refusal(comment: "Lan", body: String(repeating: "🐟", count: 1001)) == "comment must be 2–2000 characters")
+  #expect(Readers.refusal(comment: String(repeating: "🐟", count: 21), body: "Nuôi đàn.") == "name must be 1–40 characters")
+  #expect(Readers.refusal(photoName: "Lan") == nil)
+  #expect(Readers.refusal(photoName: " ") == "bad name")
+  #expect(Readers.refusal(photoName: "<b>Lan</b>") == "bad name")
+  #expect(Readers.refusal(photoName: String(repeating: "a", count: 41)) == "bad name")
 }
 
 @Test func eachAnswerToAPostIsReadAsTheContractWritesIt() {
@@ -58,7 +82,7 @@ private let site = URL(string: "https://aquatome.com")!
   guard case let .shown(c) = shown else { Issue.record("\(shown)"); return }
   #expect(c.id == "c9" && c.body == "Ổn.")
   #expect(a(201, #"{"status":"held"}"#) == .held)
-  #expect(a(201, #"{"status":"pending","id":"p9","deleteUrl":"/_p/xoa/?id=p9&t=x"}"#) == .received)
+  #expect(a(201, #"{"status":"pending","id":"p9","deleteUrl":"/_p/xoa/?id=p9&t=x"}"#) == .received(delete: "/_p/xoa/?id=p9&t=x"))
   #expect(a(401, #"{"error":"session"}"#) == .signedOut)
   #expect(a(429, #"{"error":"rate"}"#) == .refused("rate"))
   #expect(a(400, #"{"error":"bad name"}"#) == .refused("bad name"))
@@ -88,4 +112,20 @@ private let site = URL(string: "https://aquatome.com")!
   #expect(p[kCGImagePropertyPixelWidth] as? Int == 2000 && p[kCGImagePropertyPixelHeight] as? Int == 1000)
   #expect(p[kCGImagePropertyGPSDictionary] == nil && (p[kCGImagePropertyTIFFDictionary] as? [CFString: Any])?[kCGImagePropertyTIFFModel] == nil)
   #expect(Readers.shrink(Data("not a photo".utf8)) == nil)
+}
+
+@Test func aPhoneHEICPhotoIsSentAsAJPEG() throws {
+  let ctx = try #require(CGContext(data: nil, width: 2400, height: 3200, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
+                                   bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue))
+  ctx.setFillColor(CGColor(red: 0.1, green: 0.3, blue: 0.6, alpha: 1))
+  ctx.fill(CGRect(x: 0, y: 0, width: 2400, height: 3200))
+  let heic = NSMutableData()
+  // A runner that can't write HEIC has nothing to try.
+  guard let dest = CGImageDestinationCreateWithData(heic, "public.heic" as CFString, 1, nil) else { return }
+  CGImageDestinationAddImage(dest, try #require(ctx.makeImage()), nil)
+  guard CGImageDestinationFinalize(dest) else { return }
+  let sent = try #require(Readers.shrink(heic as Data))
+  #expect(sent.starts(with: [0xFF, 0xD8, 0xFF]), "not a JPEG")
+  let p = CGImageSourceCopyPropertiesAtIndex(CGImageSourceCreateWithData(sent as CFData, nil)!, 0, nil) as! [CFString: Any]
+  #expect(p[kCGImagePropertyPixelWidth] as? Int == 1500 && p[kCGImagePropertyPixelHeight] as? Int == 2000)
 }

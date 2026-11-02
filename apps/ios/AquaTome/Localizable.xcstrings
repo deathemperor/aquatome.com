@@ -465,6 +465,22 @@
         }
       }
     },
+    "Bình luận cần xác minh người dùng theo quy định; tính năng này sẽ sớm mở.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesuai ketentuan, komentar memerlukan verifikasi pengguna; fitur ini akan segera tersedia."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การแสดงความคิดเห็นต้องยืนยันตัวตนผู้ใช้ตามข้อกำหนด ฟีเจอร์นี้จะเปิดให้ใช้งานเร็ว ๆ นี้"
+          }
+        }
+      }
+    },
     "Bình luận đang chờ duyệt.": {
       "localizations": {
         "id": {
@@ -477,6 +493,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ความคิดเห็นกำลังรอการอนุมัติ"
+          }
+        }
+      }
+    },
+    "Bình luận được kiểm duyệt; quảng cáo và thông tin cá nhân sẽ bị gỡ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komentar dimoderasi; iklan dan informasi pribadi akan dihapus."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความคิดเห็นทุกรายการจะผ่านการตรวจสอบ โฆษณาและข้อมูลส่วนบุคคลจะถูกลบออก"
           }
         }
       }
@@ -3121,6 +3153,22 @@
         }
       }
     },
+    "Muốn gỡ ảnh sau này? Lưu link riêng này (chỉ hiện một lần):": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingin menghapus foto nanti? Simpan tautan pribadi ini (hanya ditampilkan sekali):"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ต้องการลบรูปภายหลัง? บันทึกลิงก์ส่วนตัวนี้ไว้ (แสดงเพียงครั้งเดียว):"
+          }
+        }
+      }
+    },
     "Muốn xem các bể này trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.": {
       "localizations": {
         "id": {
@@ -4429,6 +4477,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ชื่อวิทยาศาสตร์ (ถ้าทราบ)"
+          }
+        }
+      }
+    },
+    "Tên từ 1 đến 40 ký tự, bình luận từ 2 đến 2.000 ký tự.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nama 1–40 karakter, komentar 2–2.000 karakter."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชื่อยาว 1–40 ตัวอักษร ความคิดเห็นยาว 2–2,000 ตัวอักษร"
           }
         }
       }
@@ -6845,6 +6909,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปในบทความจะถูกดาวน์โหลดด้วย อาจใช้หลายสิบ MB"
+          }
+        }
+      }
+    },
+    "Ảnh được kiểm duyệt trước khi hiện: ảnh có người, không đúng loài hoặc không phù hợp sẽ bị loại. Vị trí GPS và thông tin máy trong ảnh được xóa trước khi gửi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto dimoderasi sebelum ditampilkan: foto yang memuat orang, bukan spesies yang sesuai, atau tidak pantas akan ditolak. Lokasi GPS dan informasi perangkat dalam foto dihapus sebelum dikirim."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปภาพจะผ่านการตรวจสอบก่อนแสดง รูปที่มีคน ไม่ตรงสายพันธุ์ หรือไม่เหมาะสมจะถูกตัดออก ตำแหน่ง GPS และข้อมูลกล้องในรูปจะถูกลบก่อนส่ง"
           }
         }
       }

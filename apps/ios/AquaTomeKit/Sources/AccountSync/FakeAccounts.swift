@@ -100,15 +100,16 @@ public final class FakeAccounts {
   /// Ends every session of an account, as signing out elsewhere or deleting it there would.
   public func endSessions(of sub: String) { tokens = tokens.filter { $0.value != sub } }
 
-  /// A multipart form's fields, by name, as text (a file's only to tell it has bytes).
-  static func form(_ r: URLRequest) -> [String: String] {
+  /// A multipart form's parts, by name: each one's bytes, and its filename when it's a file.
+  static func parts(_ r: URLRequest) -> [String: (filename: String?, data: Data)] {
     guard let boundary = r.value(forHTTPHeaderField: "Content-Type")?.firstMatch(of: /multipart\/form-data; boundary=(.+)/)?.1,
           let body = r.httpBody else { return [:] }
-    var out: [String: String] = [:]
+    var out: [String: (filename: String?, data: Data)] = [:]
     for part in body.split(separator: Data("--\(boundary)".utf8)) {
-      guard let head = part.range(of: Data("\r\n\r\n".utf8)),
-            let name = String(decoding: part[..<head.lowerBound], as: UTF8.self).firstMatch(of: /name="([^"]+)"/)?.1 else { continue }
-      out[String(name)] = String(decoding: part[head.upperBound...].dropLast(2), as: UTF8.self)
+      guard let head = part.range(of: Data("\r\n\r\n".utf8)) else { continue }
+      let h = String(decoding: part[..<head.lowerBound], as: UTF8.self)
+      guard let name = h.firstMatch(of: /; name="([^"]+)"/)?.1 else { continue }
+      out[String(name)] = (h.firstMatch(of: /; filename="([^"]*)"/).map { String($0.1) }, Data(part[head.upperBound...].dropLast(2)))
     }
     return out
   }
@@ -135,33 +136,52 @@ public final class FakeAccounts {
       wanted.append(b)
       return try reply(204)
     }
-    // Readers' comments and photos posted as the account, as apps/site/worker/comments and photos read them
-    // (protocols/talk.openapi.json): a session or 401 `session`; 5 of each a day per account, a comment past that held,
-    // a photo refused.
+    // Readers' comments and photos posted as the account, checked as apps/site/worker/comments/api.ts and photos.ts check
+    // them, in their order (protocols/talk.openapi.json). No Authorization header is the website, and from the app a
+    // cross-origin post; a session gone, 401 `session`. 5 of each a day per account: a comment past that held, a photo
+    // refused. Of the Worker's rules, the word lists are left out.
     if path == "/_c" || path == "/_p" {
       guard method == "POST" else { return try fail(405, "method") }
-      guard let sub, accountsOn, r.value(forHTTPHeaderField: "Cookie") == nil else { return try fail(401, "session") }
-      let earlier = posts.filter { $0.path == path && $0.account == sub }.count
+      guard let bearer else { return try fail(403, "cross-origin") }
+      guard let sub = tokens[bearer], accountsOn, r.value(forHTTPHeaderField: "Cookie") == nil else { return try fail(401, "session") }
+      let earlier = posts.filter { $0.path == path && $0.account == sub }
+      // As JavaScript trims and counts (UTF-16 units); a name or comment with "<" or more than one link is held.
+      let trim = { (s: String) in s.trimmingCharacters(in: .whitespacesAndNewlines) }
+      let held = { (s: String) in s.contains("<") || s.matches(of: /(?i)https?:\/\/\S+|www\.\S+|\b[a-z0-9-]+\.(com|net|vn|id|th|io|xyz|top|shop)\b\S*/).count > 1 }
       if path == "/_c" {
-        let f = (body ?? [:]).compactMapValues(\.string).mapValues { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-        guard f["token"] == nil else { return try fail(400, "token") }
-        guard f["e"]?.isEmpty == false else { return try fail(400, "bad entity") }
-        guard let name = f["name"], (1...40).contains(name.count) else { return try fail(400, "name must be 1–40 characters") }
-        guard let text = f["body"], (2...2000).contains(text.count) else { return try fail(400, "comment must be 2–2000 characters") }
+        guard (r.httpBody?.count ?? 0) <= 8192 else { return try fail(413, "too large") }
+        let f = (body ?? [:]).compactMapValues(\.string)
+        guard let e = f["e"], e.wholeMatch(of: /(?:(?:id|th):)?(species|breed|plant|guide):[A-Za-z0-9_-]{1,140}/) != nil else { return try fail(400, "bad entity") }
+        let name = trim(f["name"] ?? ""), text = trim(f["body"] ?? "")
+        guard (1...40).contains(name.utf16.count) else { return try fail(400, "name must be 1–40 characters") }
+        guard (2...2000).contains(text.utf16.count) else { return try fail(400, "comment must be 2–2000 characters") }
+        let duplicate = posts.contains { $0.path == path && $0.fields["e"] == e && trim($0.fields["body"] ?? "") == text }
         posts.append((path, sub, f))
-        if earlier >= 5 || text.contains("<") { return try reply(201, ["status": .string("held")]) }
+        if earlier.count >= 5 || held("\(name)\n\(text)") || duplicate { return try reply(201, ["status": .string("held")]) }
         let comment: [String: JSON] = ["id": .string(UUID().uuidString), "name": .string(name), "body": .string(text), "helpful": .bool(false),
                                        "createdAt": .string(ISO8601DateFormatter().string(from: now()))]
         return try reply(201, ["status": .string("approved"), "comment": .object(comment)])
       }
-      let f = Self.form(r)
-      guard f["token"] == nil else { return try fail(400, "token") }
-      guard f["e"]?.isEmpty == false else { return try fail(400, "bad entity") }
-      guard let name = f["name"]?.trimmingCharacters(in: .whitespaces), (1...40).contains(name.count) else { return try fail(400, "bad name") }
-      guard f["consent"] == "1" else { return try fail(400, "consent") }
-      guard f["file"]?.isEmpty == false else { return try fail(400, "no file") }
-      if earlier >= 5 { return try fail(429, "rate") }
-      posts.append((path, sub, f))
+      let maxBytes = 8 << 20
+      guard (r.httpBody?.count ?? 0) <= maxBytes + 64 * 1024 else { return try fail(413, "too large") }
+      let parts = Self.parts(r)
+      guard !parts.isEmpty else { return try fail(400, "bad form") }
+      let text = { (k: String) in parts[k].map { String(decoding: $0.data, as: UTF8.self) } ?? "" }
+      guard text("e").wholeMatch(of: /(species|breed):[a-z0-9-]{1,140}/) != nil else { return try fail(400, "bad entity") }
+      let name = trim(text("name"))
+      guard (1...40).contains(name.utf16.count), !held(name) else { return try fail(400, "bad name") }
+      guard text("consent") == "1" else { return try fail(400, "consent") }
+      // A file only as a part with a filename; an image only by its first bytes (JPEG, PNG, WebP).
+      guard let file = parts["file"], file.filename != nil, !file.data.isEmpty else { return try fail(400, "no file") }
+      guard file.data.count <= maxBytes else { return try fail(413, "too large") }
+      let b = [UInt8](file.data.prefix(12))
+      let image = b.starts(with: [0xFF, 0xD8, 0xFF]) || b.starts(with: [0x89, 0x50, 0x4E, 0x47])
+        || (b.count == 12 && b[0..<4].elementsEqual("RIFF".utf8) && b[8..<12].elementsEqual("WEBP".utf8))
+      guard image else { return try fail(415, "not an image") }
+      if earlier.count >= 5 { return try fail(429, "rate") }
+      var fields = parts.filter { $0.value.filename == nil }.mapValues { String(decoding: $0.data, as: UTF8.self) }
+      fields["file"] = "\(file.data.count) bytes"
+      posts.append((path, sub, fields))
       return try reply(201, ["status": .string("pending"), "id": .string("p\(posts.count)"), "deleteUrl": .string("/_p/xoa/?id=p\(posts.count)&t=x")])
     }
     if !accountsOn { return path == "/api/v1/session" ? try reply(200, ["accounts": .bool(false)]) : try fail(404, "accounts_off") }
