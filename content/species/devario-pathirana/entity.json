@@ -1,0 +1,97 @@
+{
+  "id": "devario-pathirana",
+  "scientificName": "Devario pathirana",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Devario",
+  "group": "danios",
+  "places": [
+    "asia",
+    "sri-lanka"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_pathirana_en/",
+      "html": "<p>Devario (formerly: Danio) pathirana is easy to keep and breeding is no problem either. Adult size is 8 cm. Origin: Sri Lanka.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_pathirana_en/",
+      "html": "<p>This endemic species, which was only described in the late 1980s, occurs exclusively in a small area in Sri Lanka.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_pathirana_en/",
+      "html": "<p>This species is as demanding as the far better-known Devario malabaricus. They are quite suitable for a community tank, but require free room to swim.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Ef0GVU15Ppk",
+      "title": "Spotlight on the Critically Endangered Barred Danio (Devario pathirana)!#BarredDanio",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aUXqHR47zN0",
+      "title": "Barred Danio (Devario pathirana)  🐟🌿 #BarredDanio #DevarioPathirana #danio #daniofish #devario #fish",
+      "durationSec": 16,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "rgtANsCp5v8",
+      "title": "Devario pathirana (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 70,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DLfyjiZrym4",
+      "title": "A shoal of Barred Danio. 😊",
+      "durationSec": 12,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc treo"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn khô cho cá danio"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

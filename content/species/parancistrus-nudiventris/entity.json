@@ -1,0 +1,88 @@
+{
+  "id": "parancistrus-nudiventris",
+  "scientificName": "Parancistrus nudiventris",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Parancistrus",
+  "group": "catfish",
+  "lNumber": "L31",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-xingu"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parancistrus-nudiventris-l31-lda4-peppermint-pleco-2/",
+      "html": "<p>This pleco from the Rio Xingu is an old friend, however, it received a scientific name only in 2005. It received the L-number 31 already in 1989.</p><p>The genus Parancistrus is closely related to the genus Spectracanthicus; the formerly often used genus Oligancistrus is invalid and declared synonymous with Spectracanthicus. The only difference between Parancistrus and Spectracanthicus is the size of the gill opening, which is significantly smaller in Spectracanthicus than in Parancistrus. Unfortunately, this is not visible in living animals.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parancistrus-nudiventris-l31-lda4-peppermint-pleco-2/",
+      "html": "<p>The Peppermint Pleco reaches a respectable size of almost 25 cm; however, in nature the animals usually remain smaller by a third; in an aquarium, where the fish live much longer than in nature, a more significant size can be reached, therefore P. nudiventris can only be recommended to owners of large aquariums. There it is a peaceful and beautiful inhabitant.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parancistrus-nudiventris-l31-lda4-peppermint-pleco-2/",
+      "html": "<p>Like all species from the Rio Xingu, it requires comparatively high temperatures of 26-30°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parancistrus-nudiventris-l31-lda4-peppermint-pleco-2/",
+      "html": "<p>L31 feeds on Aufwuchs and accepts almost every common fish food in the aquarium, as long as it is lying on the bottom.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá lau kính",
+        "viên rau củ cho cá lau kính"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

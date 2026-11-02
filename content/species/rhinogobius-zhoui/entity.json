@@ -1,0 +1,99 @@
+{
+  "id": "rhinogobius-zhoui",
+  "scientificName": "Rhinogobius zhoui",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Rhinogobius",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "china"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 22
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
+      "html": "<p>This freshwater goby, which attains a maximum length of 4-5 cm, is one of the most attractive discoveries of ornamental fish of the last years. In the beginning the fish were extremely expensive, but they are now available at a comparably moderate price.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
+      "html": "<p>Rhinogobius zhoui originates from China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
+      "html": "<p>In the natural habitat, brooks, it lives along with the well known goby Rhinogobius duospilus (often better known under the synonymous name R. wui) and other species. R. zhoui is a pure freshwater goby.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
+      "html": "<p>Keeping and feeding the fish is otherwise unproblematical.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
+      "html": "<p>Due to the subtropical region the fish come from, keep them in unheated aquaria (16-22°C). The water should be clean and have some current.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
+      "html": "<p>The small fish change their coloration quite often and quickly. It is a lot of fun to observe an aquarium containing these tiny gobies, which are always in the mood for a harmless quarrel.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
+      "html": "<p>Males are distinguished from the females by the broad white seams in the fins and the more intensive colours.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá bống",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

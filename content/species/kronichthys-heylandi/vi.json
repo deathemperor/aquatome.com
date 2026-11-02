@@ -1,0 +1,19 @@
+{
+  "slug": "ca-kronichthys-heylandi",
+  "name": "Cá Kronichthys heylandi",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Kronichthys heylandi (Boulenger, 1900)</li><li><strong>Tên đồng nghĩa:</strong> Plecostomus heylandi</li><li><strong>Nơi thu mẫu chuẩn:</strong> Một con suối núi gần Santos, bang São Paulo, Brazil, ở độ cao 122 m.</li><li><strong>Nguồn gốc tên:</strong> Tên giống ghép từ tên ông Ricard Krone với chữ ichthys trong tiếng Hy Lạp, nghĩa là cá.</li></ul>",
+    "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong các con suối ven biển miền đông Brazil, đoạn từ Santos đến Rio de Janeiro.</p>",
+    "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản. Cũng chưa ai báo cáo cho đẻ thành công.</p>",
+    "references:planetcatfish": "<p>Annals and Magazine of Natural History (Series 7) v. 5 (no. 26) (art. 19), tr. 165.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.8
+    },
+    "reason": "thin"
+  }
+}

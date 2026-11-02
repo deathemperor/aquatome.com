@@ -9,13 +9,19 @@
     "dimorphism:planetcatfish": "<p>Con đực nhỏ hơn con cái. Vây lưng của con đực có tia kéo dài thành sợi, và vây ngực thường cũng vậy.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận nào.</p>",
     "notes:planetcatfish": "<p>Loài này dễ phân biệt với các loài khác cùng giống nhờ kiểu màu riêng. Lưng cá màu nâu sẫm. Hai bên thân có thể chỉ lấm tấm đốm hoặc sẫm hẳn. Bụng màu sáng, các vây nhạt màu, và nửa phía gốc vây lưng có một đốm sẫm lớn.</p>",
-    "references:planetcatfish": "<p>Copeia 1991 (no. 1), pp 162, Fig. 1.</p>"
+    "references:planetcatfish": "<p>Copeia 1991 (no. 1), pp 162, Fig. 1.</p>",
+    "distribution:scotcat": "<p>Loài này sống ở Nam Mỹ, tại sông Baria thuộc lưu vực thượng nguồn sông Negro, Venezuela. Địa điểm thu mẫu chuẩn là trại căn cứ Neblina bên sông Río Mawarinuma, thuộc lưu vực Río Baria, Territorio Federal Amazonas, miền nam Venezuela (0º55'N, 66º10'W), ở độ cao 120 m.</p>",
+    "habitat:scotcat": "<p>Denticetopsis praecox được mô tả từ hệ thống sông Río Baria ở chân núi Cerro de la Neblina, miền nam Venezuela. Mẫu vật được bắt ở những đoạn suối nước đen có nền đá cuội và sỏi. pH ở đó dao động từ 4,3 đến 5,0.</p>",
+    "diet:scotcat": "<p>Ngoài tự nhiên, loài này ăn chủ yếu là côn trùng thủy sinh.</p>",
+    "notes:scotcat": "<p>Loài gần giống nhất với loài này là C. plumbea (Schultz, 1944) ở hệ thống sông Río Orinoco. Tuy vậy, nó có ít đốt sống hơn và nhiều tia màng nắp mang hơn. Kiểu màu của nó cũng chưa từng gặp ở loài nào khác trong họ. So với các loài cùng giống, cá rất dễ nhận ra nhờ lưng nâu sẫm, hai bên thân từ lốm đốm cho đến sẫm hẳn, bụng sáng màu, các vây nhạt và một đốm sẫm lớn ở nửa gốc vây lưng. Vây lưng có 1 gai và 6 tia mềm. Vây hậu môn có 25-30 tia mềm. Cột sống có 39-40 đốt.</p><p>Đây là một trong những loài nhỏ nhất họ. Cá đã trưởng thành khi mới đạt 30-40 mm chiều dài chuẩn (SL). Tên loài praecox lấy từ tiếng Latinh, nghĩa là \"sớm phát triển\", ý nói cá thành thục sinh dục khi kích thước còn nhỏ. Tên giống ghép từ hai phần. Phần đầu là dentis (tiếng Latinh nghĩa là răng), chỉ những chiếc răng nhô cao ở chỗ hai nửa xương hàm dưới nối với nhau. Phần sau là Cetopsis, giống chuẩn của họ.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.9
     }
   }
 }

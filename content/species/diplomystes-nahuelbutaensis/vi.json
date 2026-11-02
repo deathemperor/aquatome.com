@@ -1,18 +1,25 @@
 {
   "slug": "ca-da-tron-diplomystes-nahuelbutaensis",
   "name": "Cá da trơn Diplomystes nahuelbutaensis",
-  "altNames": [],
+  "altNames": [
+    "Cá da trơn Chile"
+  ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Diplomystes nahuelbutaensis Arratia, 1987</li><li><strong>Địa điểm mẫu chuẩn:</strong> Río Cautín, Lautaro, Chile.</li><li><strong>Kích thước:</strong> 220 mm SL (chiều dài chuẩn, đo từ mõm đến gốc vây đuôi)</li><li><strong>Phân hạng Sách Đỏ IUCN:</strong> Thiếu dữ liệu (đánh giá lần cuối năm 1996)</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: Chile, ở lưu vực sông Bío-Bío và sông Loncomilla.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Hiện chưa có báo cáo nào ghi nhận loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Bonner Zoologische Monographien No. 24, tr. 33, Hình 8, 10–18.</p>"
+    "references:planetcatfish": "<p>Bonner Zoologische Monographien No. 24, tr. 33, Hình 8, 10–18.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Bío-Bío và sông Loncomilla ở Chile.</p>",
+    "habitat:scotcat": "<p>D. nahuelbutaensis là loài đặc hữu của Chile và hiện còn khá ít ngoài tự nhiên. Những gì đã biết về sinh học của loài này cho thấy cá con và cá trưởng thành sống ở hai kiểu môi trường khác nhau. Cá lớn ở chỗ nước sâu và chảy xiết hơn. Cá con thì hay ở vùng ven bờ, nơi dòng chảy nhẹ hơn. Người ta cũng ghi nhận loài này ở đoạn suối thượng nguồn (rhithron), chủ yếu trong các vực sâu có sinh vật đáy. Nền ở đó gồm sỏi đến đá tảng, nước lạnh và giàu oxy (Habit, 1994).</p>",
+    "notes:scotcat": "<p>Mô tả: Thân cá thuôn dài và không có vảy. Da trơn, có những nhú ngắn. Mắt nhỏ. Cá có một đôi râu hàm trên, và quanh lỗ mũi có một nếp da ở phía sau. Răng xương lá mía ngắn, rộng, hình nón. Vây lưng thứ hai là vây mỡ, mọc ngang chỗ cuối gốc vây hậu môn. Vây lưng thứ nhất và vây ngực đều có một tia đã hóa xương. Tia này nhọn ở đầu ngoài và mép sau có răng cưa. Vây ngực còn có một gai. Vây bụng nằm ở vị trí bụng. Vây đuôi hơi chẻ, chia thành hai thùy rõ ràng.</p><p>Màu sắc: Phần lưng của đầu và thân có màu sẫm, tím hoặc đen. Hai bên sườn và phần bụng màu cam (Arratia, 1987).</p><p>Nguồn gốc tên: Tên loài nahuelbutaensis ghép từ hậu tố Latin -ensis, dùng để chỉ nơi chốn. Nơi chốn ở đây là Cordillera de Nahuelbuta, \"một vùng địa chất và sinh thái đặc biệt\" thuộc dãy Cordillera de la Costa ở Chile. Đây cũng là nơi thu mẫu chuẩn của loài.</p><p>Ghi chú: Nghiên cứu của Muñoz-Ramírez và cộng sự (2020) là lần tìm lại các loài diplomystid ở những lưu vực ven biển sau một thế kỷ vắng bóng (kể từ năm 1919). Đây cũng là những ghi nhận đầu tiên của nhóm cá này ở lưu vực Laraquete và Carampangue (Muñoz-Ramírez CP. et al. 2020).</p>",
+    "references:scotcat": "<p>Arratia G, Quezada-Romegialli C. (2017) Understanding morphological variability in a taxonomic context in Chilean diplomystids (Teleostei: Siluriformes), including the description of a new species.</p><p>de Pinna, M.C.C., 1998. Phylogenetic relationships of neotropical Siluriformes (Teleostei: Ostariophysi): historical overview and synthesis of hypotheses. p. 279-330. In L.R. Malabarba, R.E. Reis, R.P. Vari, Z.M.S. Lucena and C.A.S. Lucena (eds.) Phylogeny and classification of neotropical fishes. Porto Alegre: EDIPUCRS.</p><p>Froese, R. and D. Pauly. Editors. 2018. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2018 ).</p><p>Muñoz-Ramírez CP, Briones R, Colin N, Fierro P, Górski K, Jara A, Manosalva A. A Century after! Rediscovery of the ancient catfish Diplomystes Bleeker 1858 (Siluriformes: Diplomystidae) in coastal river basins of Chile and its implications for conservation. Neotrop Ichthyol. 2020; 18(1):e190073.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.8
     }
   }
 }

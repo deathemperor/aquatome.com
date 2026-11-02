@@ -567,6 +567,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/cetopsidae/denticetopsis_praecox.htm": {
+    "entityIds": [
+      "species/denticetopsis-praecox"
+    ],
+    "updatedAt": "2026-11-02T18:15:33.951Z",
+    "hash": "66a7ee7913d3a8027ecc2dbc848a486b786da40cf14fe8ce6500ac39ee663c67",
+    "processedHash": "66a7ee7913d3a8027ecc2dbc848a486b786da40cf14fe8ce6500ac39ee663c67",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/cetopsidae/denticetopsis_seducta.htm": {
+    "entityIds": [
+      "species/denticetopsis-seducta"
+    ],
+    "updatedAt": "2026-11-02T18:17:00.257Z",
+    "hash": "99ef3a704768f7f72428bcbe786cb99de8e3b27dffd77195ef43db100eba7f95",
+    "processedHash": "99ef3a704768f7f72428bcbe786cb99de8e3b27dffd77195ef43db100eba7f95",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/clariidae/clarias_meladerma.htm": {
     "entityIds": [
       "species/clarias-meladerma"
@@ -584,6 +604,26 @@
     "updatedAt": "2026-11-02T12:26:21.488Z",
     "hash": "fea6f59241d06d0096dd16a3cbfa19e8b1ac98a232617ac493b787b64d35bab7",
     "processedHash": "fea6f59241d06d0096dd16a3cbfa19e8b1ac98a232617ac493b787b64d35bab7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/cranoglanididae/cranoglanis_henrici.htm": {
+    "entityIds": [
+      "species/cranoglanis-henrici"
+    ],
+    "updatedAt": "2026-11-02T18:14:56.657Z",
+    "hash": "a16b290738e08030a3b9810446993119c1dedb7718f8e4422e6b244c13900e1e",
+    "processedHash": "a16b290738e08030a3b9810446993119c1dedb7718f8e4422e6b244c13900e1e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/diplomystidae/diplomystes_nahuelbutaensis.htm": {
+    "entityIds": [
+      "species/diplomystes-nahuelbutaensis"
+    ],
+    "updatedAt": "2026-11-02T18:18:21.583Z",
+    "hash": "fdd1bdf3dcd21a8399cf95a924514584733538d8f2e722175d5f829d512481a8",
+    "processedHash": "fdd1bdf3dcd21a8399cf95a924514584733538d8f2e722175d5f829d512481a8",
     "status": "processed",
     "attempts": 0
   },
@@ -607,6 +647,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm": {
+    "entityIds": [
+      "species/acentronichthys-leptos"
+    ],
+    "updatedAt": "2026-11-02T18:07:35.620Z",
+    "hash": "7173fc50c1463b2582950e76541526887c5ecb32c63a3345771bf51fc3d67701",
+    "processedHash": "7173fc50c1463b2582950e76541526887c5ecb32c63a3345771bf51fc3d67701",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/heptapteridae/brachyrhamdia_heteropleura.htm": {
     "entityIds": [
       "species/brachyrhamdia-heteropleura"
@@ -614,6 +664,26 @@
     "updatedAt": "2026-10-31T19:41:43.773Z",
     "hash": "63aadf2c475b4ac65a73d8f833771c40ddfd289ec12e0e6975a690b8f8cacc79",
     "processedHash": "63aadf2c475b4ac65a73d8f833771c40ddfd289ec12e0e6975a690b8f8cacc79",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm": {
+    "entityIds": [
+      "species/brachyrhamdia-imitator"
+    ],
+    "updatedAt": "2026-11-02T18:12:07.220Z",
+    "hash": "e7bf311c5afc938d22ca5023dce9a1094fb1f8bcda808829fdc0c39bd2a8b069",
+    "processedHash": "e7bf311c5afc938d22ca5023dce9a1094fb1f8bcda808829fdc0c39bd2a8b069",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm": {
+    "entityIds": [
+      "species/ancistrus-macrophthalmus"
+    ],
+    "updatedAt": "2026-11-02T18:09:48.684Z",
+    "hash": "396be8d7cfe0d269969de085f8a87b15dd7ebc7182db0571fb703f16be9cc1dd",
+    "processedHash": "396be8d7cfe0d269969de085f8a87b15dd7ebc7182db0571fb703f16be9cc1dd",
     "status": "processed",
     "attempts": 0
   },
@@ -722,6 +792,16 @@
     "updatedAt": "2026-10-31T19:39:45.131Z",
     "hash": "e86cce2a28fc6acdbea9858fafa7cdffde87a912178c58ef550737069501e1f8",
     "processedHash": "e86cce2a28fc6acdbea9858fafa7cdffde87a912178c58ef550737069501e1f8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/pimelodidae/duopalatinus_peruanus.htm": {
+    "entityIds": [
+      "species/duopalatinus-peruanus"
+    ],
+    "updatedAt": "2026-11-02T18:19:53.887Z",
+    "hash": "55c2b5f6ee20807df0f609c5ddcb96eda3fba81048f358017b0cc19c0f3d686a",
+    "processedHash": "55c2b5f6ee20807df0f609c5ddcb96eda3fba81048f358017b0cc19c0f3d686a",
     "status": "processed",
     "attempts": 0
   },

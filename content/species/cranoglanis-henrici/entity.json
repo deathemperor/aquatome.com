@@ -9,13 +9,36 @@
     "asia",
     "vietnam",
     "da-river",
-    "china"
+    "china",
+    "red-river"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 29
+      },
+      {
+        "source": "scotcat",
+        "value": 29
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -27,10 +50,22 @@
       "html": "<ul><li><strong>Scientific name:</strong> Cranoglanis henrici (Vaillant, 1893)</li><li><strong>Family:</strong> Cranoglanididae</li><li><strong>Synonym:</strong> Anopleutropius henrici</li><li><strong>Etymology:</strong> Greek kranion = skull + Greek glanis = a cat fish</li><li><strong>Size:</strong> 290 mm (11.4 in) SL</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2010)</li></ul>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cranoglanididae/cranoglanis_henrici.htm",
+      "html": "<p>There is not much information on the keeping of Cranoglanis species but they are predators, so this would need to be taken into account if purchasing. Not seen very often in the hobby.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1187",
       "html": "<p>Asia: Viet Nam and China. Type locality: Black River, Upper Tonkin [= Song Da], northern Vietnam.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cranoglanididae/cranoglanis_henrici.htm",
+      "html": "<p>Asia: Vietnam and China, Red River (Song Hong).</p>"
     },
     {
       "key": "reproduction",
@@ -39,10 +74,22 @@
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cranoglanididae/cranoglanis_henrici.htm",
+      "html": "<p>Description: Vertebrae: 46-47. Snout width 34.5-36.4% HL; interorbital distance 47-55% HL; length of anal fin base 30.2-35% SL. Branched anal-fin rays 34-39. Humeral process broad.</p><p>Etymology: The specific name henrici honours Prince Henri d'Orléans (1867-1901), British-born French aristocrat and explorer, who helped collect the holotype.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1187",
       "html": "<p>Bulletin de la Société philomathique de Paris (8th Série) v. 5 (no. 4), pp 199 [3].</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cranoglanididae/cranoglanis_henrici.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (03/2012). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [],
@@ -61,5 +108,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

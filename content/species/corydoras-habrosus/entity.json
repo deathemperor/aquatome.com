@@ -1,0 +1,93 @@
+{
+  "id": "corydoras-habrosus",
+  "scientificName": "Corydoras habrosus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "orinoco",
+    "venezuela"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/",
+      "html": "<p>The chessboard dwarf cory, Corydoras habrosus, grows to a maximum of 4 cm. It is completely peaceful and leaves plants alone, so it is very suitable for community aquariums.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/",
+      "html": "<p>C. habrosus originates from the Orinoco drainage (Colombia and Venezuela).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/",
+      "html": "<p>The usual care recommendations for Corydoras apply: they should be kept in groups and at least some areas of the bottom should be covered with fine sand.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/",
+      "html": "<p>Since it is very warm in the Orinoco drainage, the water temperature should be somewhat higher than usual: 26-30°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/",
+      "html": "<p>Any usual fish food is eaten, as long as it fits into the little mouth.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "nền cát bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 50w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

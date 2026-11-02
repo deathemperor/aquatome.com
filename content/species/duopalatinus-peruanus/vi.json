@@ -7,14 +7,19 @@
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Amazon và sông Orinoco.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi nhận. Hiện chưa có báo cáo nào về việc loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Cá dài tối đa khoảng 15 cm SL (chiều dài chuẩn).</p>",
-    "references:planetcatfish": "<p>Fishes of western South America, pp 107, Pl. 4 (fig. 4).</p>"
+    "references:planetcatfish": "<p>Fishes of western South America, pp 107, Pl. 4 (fig. 4).</p>",
+    "quickFacts:scotcat": "<ul><li>Sách Đỏ IUCN: Ít quan ngại (LC)</li></ul>",
+    "distribution:scotcat": "<p>Loài này sống ở Nam Mỹ, trong lưu vực sông Amazon và sông Orinoco. Nơi thu mẫu chuẩn là Rio Puinagua, đoạn cửa sông Rio Pacaya [thuộc hệ thống Río Ucayali, Peru].</p>",
+    "habitat:scotcat": "<p>Loài này có mặt ở tiểu lưu vực Orthon (lưu vực Amazon). Người ta cũng ghi nhận nó ở hai tiểu lưu vực Madre de Dios và Beni, cũng thuộc lưu vực Amazon (Torrico et al. 2020).</p>",
+    "notes:scotcat": "<p>Giống này có hai loài là D. peruanus và D. emarginatus. Duopalatinus nằm trong \"nhánh Calophysus-Pimelodus\". Trong nhánh đó, nó thuộc \"nhóm Pimelodus\" của họ Pimelodidae. Nhóm này còn có Pimelodus, Exallodontus, Cheirocerus, Iheringichthys, Bergiaria, Bagropsis, Parapimelodus, Platysilurus, Platystomatichthys và Propimelodus.</p><p>Màu sắc: Thân và đầu cá màu xám nhạt, phần lưng sẫm hơn một chút. Phần bụng trắng nhạt. Vây mỡ xám nhạt, còn các vây khác đều ngả vàng.</p><p>Nguồn gốc tên gọi: Tên loài peruanus có nghĩa là \"thuộc về Peru\".</p><p>Thông tin về loài này còn rất ít. Dù vậy, nó phân bố rộng và chưa thấy mối đe dọa nào rõ ràng. Vì thế IUCN xếp loài này vào mức Ít quan ngại (LC) (IUCN 2024).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (12/2019).</p><p>Hitomi Torrico-Destre, Matías Careaga, Mabel Maldonado, Fernando M. Carvajal-Vallejos, Revision of the catfish family Pimelidae (Teleostei: Siluriformes) of Bolivia, Neotropical Hydrobiology &amp; Aquatic Conservation (2024) Vol. 5 (2).</p><p>Ortega, H. and R.P. Vari, 1986. Annotated checklist of the freshwater fishes of Peru. Smithson. Contrib. Zool. (437):1-25.</p><p>Salvador, G.N. 2024. Duopalatinus peruanus. The IUCN Red List of Threatened Species 2024.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.9
+    }
   }
 }

@@ -1,9 +1,9 @@
 {
   "id": "alternanthera-reineckii",
   "scientificName": "Alternanthera reineckii",
-  "difficulty": 1,
-  "light": "medium",
-  "co2": "optional",
+  "difficulty": 3,
+  "light": "high",
+  "co2": "required",
   "growth": "medium",
   "placement": [
     "midground",
@@ -17,58 +17,128 @@
       "html": "<ul><li>Origin: South America (cultivars arise or are bred in cultivation)</li><li>Growth rate: medium</li><li>Height: 20 - 30+ cm after two months in the tank</li><li>Light demand: medium</li><li>CO2: medium (6-14 mg/L)</li><li>Supplied as a plant in a 5 cm pot</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Common name: Alternanthera reineckii</li><li>Other names: Scarlet Temple, Reineckia, Ruby Red, Water hedge, AR</li><li>Lighting: moderate to high</li><li>Substrate: nutrient-rich</li><li>Growth form: stem</li><li>Can be grown emersed: yes</li><li>Growth rate: low to moderate</li><li>Placement in tank: midground and background ('mini' version – foreground)</li><li>Height: 5 – 30 cm</li><li>Fertilizers: needed</li><li>CO2: needed</li><li>Propagation: cut stem</li><li>Colour: red, purple and pink</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Alternanthera reineckii is a freshwater ornamental plant found in South America. It is native to Bolivia (Santa Cruz), Argentina (Buenos Aires, Chaco, Corrientes, Entre Rios, Formosa, Misiones, Salta, Santa Fe), south Brazil (Parana, Rio Grande do Sul, Santa Catarina), Paraguay (Cordillera) and Uruguay (Artigas, Paysandu, Rivera, Salto, Treinta y Tres).</p><p>In South America, Alternanthera reineckii is generally known as the \"Pequeña Hoja\" plant (small leaves).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Alternanthera reineckii occurs in two forms, semi-terrestrial and aquatic. It is abundant in and a little out of very shallow waters of swamps, ponds, bogs, lakes and slow-moving streams.</p><p>Water and waterlogged conditions are well known to be associated with the presence of this species.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The optimal tank size depends on the variation chosen. Alternanthera reineckii 'mini' can be kept in a small nano tank, while other variations need significantly more space, with a minimum recommendation of 40 litres.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Alternantherareineckii'Pink'(023CLP)/30568",
       "html": "<p>Stems become 25-50 cm tall. Good light encourages the leaves to turn red. Easy to propagate by nipping off the terminal bud and planting it in the substrate. This also makes the mother plant more bushy, because more side shoots are formed.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Alternanthera reineckii is a challenging plant that requires specific conditions for optimal growth and appearance. It is not recommended for beginners because it requires close attention to initial pruning and to regulation of light, CO2 and nutrients.</p><p>To keep this plant healthy and red:</p><ul><li>Do regular water changes of 30-40%. Otherwise the plant may cease its growth.</li><li>Control your water parameters. Any changes should be slow and gradual.</li><li>Provide plenty of light with a higher red/blue spectrum and apply effective fertilization.</li></ul><p>Growth rate: Do not expect this plant to grow right from the start. It does not grow until its roots have adjusted to the new surroundings, and this adjustment can take a while. To minimize the impact on growth, limit moving it as much as possible. Under suboptimal conditions, submerged growth is very slow. If the plant receives all the necessary resources, its growth rate increases significantly, reaching a moderate level.</p><p>Pruning: Carry out formation pruning by cutting secondary lateral branches or leaves if elongated growth is desired. Do not let the shoots grow above the water level. If the plant reaches the surface, it will shed its underwater leaves and leave a bare stem underwater. To prevent this, regularly trim the top and prevent it from transitioning to an aerial environment. The trimmed stem can be used for replanting.</p><p>Planting: The plant has long stems (except the 'mini' version) and is generally planted along the sides of the aquarium, in the midground or background. Do not plant the stems too close to each other (keep them 5 cm apart); in cramped conditions the plant often drops its leaves. Use tweezers to gently place the stems into the substrate to avoid damage.</p><p>Propagation: It is very easy to propagate, in two ways: by side stems and through cuttings.</p><ul><li>Side stems: as soon as the plant has lateral shoots (with their own root system), separate the mother stem from the daughter stem. One of the main drawbacks is that by this moment the root system may already be very developed, so it may be very problematic to pull out the mother plant in order to divide it.</li><li>Cuttings: take a stem and cut it from the top (it should have at least 4 leaves on the stem). Insert the new stem into the substrate to root.</li></ul><p>As the plant grows, aerial roots start to form from the nodes along the stem. Cut a piece of the plant with these roots and plant it in the soil. Even if the cutting has no roots yet, you can let it float in water; in a few days such roots will grow.</p><p>Dry start method: the plant is grown without any water initially. This allows an increased concentration of carbon dioxide in the tank and does not require any additional equipment.</p><ol><li>Instead of immediately filling the tank with water after planting, add only enough water to reach the surface of the lowest part of the substrate.</li><li>Use tweezers to plant Alternanthera reineckii and sprinkle them on top of the substrate.</li><li>Cover the top of the tank with cling wrap to increase humidity.</li><li>In about 5 to 8 weeks you can flood the tank.</li></ol>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Temperature: This plant is not tolerant of very low temperatures and is sensitive to temperature fluctuations. The ideal range is 22 – 28°C. If the temperature drops below 20°C, growth slows down significantly. A temperature above 28°C can cause changes in the shape of the leaves.</p><p>pH: It prefers slightly acidic water with a pH between 6.0 and 7.0. In alkaline water, the leaves age and deteriorate quickly.</p><p>Hardness: It can grow in moderate to hard water (from 6 to 12 GH). In very hard water it often melts.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Lighting: Alternanthera reineckii requires powerful illumination (&gt;40 PAR). Strong light gives this plant its decorative red colour. Although the plant can tolerate moderate lighting, this eventually has consequences: after some time it will lose its bright colour under insufficient lighting. If your light is really low, you will not have any success with this plant.</p><p>The photoperiod needs to be chosen individually so that, on the one hand, the plant has enough light and, on the other hand, it does not cause an algae outbreak. Usually 8-10 hours a day is sufficient.</p><p>Substrate: Alternanthera reineckii is a relatively versatile plant. Despite having a powerful root system, it can also obtain nutrients from the water column. Even though some aquarists plant and propagate it in sand and even gravel substrates, the author's view is that this plant requires nutrient-rich substrates. If it is planted in inert substrates, it grows a great number of aerial roots, and its growth rate is inconsistent, as if the plant were trying to find additional sources of nutrition. When planted in nutrient-rich soil, the situation changes fundamentally, so a nutrient-rich substrate is preferable.</p><p>CO2: The use of CO2 for this plant is a highly debated topic, with some aquarists successfully growing it even without CO2. However, in most cases using CO2 significantly improves the plant's quality, including faster growth, a desirable red hue and a more lush appearance, rather than just a single stem growing upward. Without CO2 the colouration and speed of growth will be poor and slow.</p><p>Fertilizer: The plant also requires periodic supplementation. If there is a lack of micronutrients, the leaves will turn pale. The basic necessary elements are nitrogen (N), phosphorus (P), potassium (K) and iron (Fe). At the same time, the plant does not tolerate too much of either micro or macro elements in the water (for example, nitrate should be &lt;5 ppm). Overdosing with fertilizers can, at best, cause plants to stop growing. Liquid fertilizers are more suitable than root tabs.</p><p>If you keep shrimp in the tank with this plant: a high level of CO2 and copper (most fertilizers contain copper) is extremely dangerous to shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Compatible tankmates: Amano shrimp. Some aquarists have complained that Amano shrimp ate their plants, but this is probably not the shrimp's fault: they are voracious algae eaters and were most likely eating algae growing on the plants. The damage to the leaves was most likely the result of algae and/or nutrient deficiency in the plant.</p><p>Avoid or be careful: avoid fish that may damage the plant or find it too tasty, such as silver dollars, Buenos Aires tetras, koi, goldfish, oscars, rainbowfish, Jack Dempsey, clown loaches and African cichlids. Most types of crayfish or freshwater crabs are also not compatible, as they may cut, eat and uproot everything in the tank.</p><p>Benefits: In aquascaping it is an excellent choice for adding a focal point and decorative touch to jungle or Dutch style aquascapes due to its unique colour and form. It helps generate oxygen in the tank water: the leaves produce small pearls or bubbles of oxygen. It serves as a hiding place and source of shade for small fish and invertebrates, with a tunnel-like structure that provides refuge from predators and serves as a nursery area. It acts as a buffet of biofilm, an ideal first food for newly hatched fry and shrimplets. Its well-developed root system helps break up anaerobic pockets in the substrate; hydrogen sulfide pockets (H2S, a gas smelling like rotten eggs) can be really dangerous to fish or shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Alternantherareineckii'Pink'(023CLP)/30568",
       "html": "<p>The pink underside of the leaves of Alternanthera reineckii 'Pink' provides an effective contrast to the many green plants in an aquarium - particularly when planted in groups.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Etymology: The genus name Alternanthera comes from the Latin words \"Alternans\" (alternating) and \"Anthera\" (anther), in reference to the alternate barren anthers found in this genus. John Isaac Briquet named this species after the German botanist Eduard Martin Reineck (1869 – 1931).</p><p>Description:</p><ul><li>Growth form: can be grown emersed (in a paludarium) or submersed (in aquariums).</li><li>Stem: the pubescent stem can be 5 – 30 cm in height.</li><li>Leaves: depending on the morph, elongated and wide leaves 3 – 8 cm long. They are attached directly to the stem or have a short petiole, and are arranged in pairs, with neighbouring pairs arranged perpendicularly to each other.</li><li>Colour: leaves vary from shades of red and pink to yellow, depending on the form.</li><li>Flowers: flowers when grown emersed. The inflorescence is axial and appears in clusters of 1 to 5 spikes, each filled with many densely arranged flowers, usually white or blue-pink and ovoid.</li><li>Roots: weak in the beginning but become massive when the plant settles.</li></ul><p>Variations: The number of variations is not certain. Christel Kasselmann describes five forms in her books, among which 'roseafolia' (also known as 'Pink') is the easiest to cultivate and the most common in the trade. Others in the trade:</p><table><tr><th>Form</th><th>Colour</th><th>Size</th></tr><tr><td>'Mini'</td><td>crimson, bright red, purple and pink</td><td>5 – 10 cm</td></tr><tr><td>Rosanervig</td><td>mostly pink with lightly coloured veins</td><td>15 – 30 cm</td></tr><tr><td>Rosaefolia</td><td>reddish to olive</td><td>15 – 20 cm</td></tr><tr><td>Lilacina</td><td>brownish-green (copper-like) with hues of pink to red</td><td>7 – 15 cm</td></tr><tr><td>Cardinalis</td><td>dark red</td><td>15 – 30 cm</td></tr><tr><td>Ocipus</td><td>yellowish-green with a pink underside</td><td>15 – 30 cm</td></tr><tr><td>Variegated</td><td>purple-red</td><td>15 – 30 cm</td></tr></table><p>Note: these forms are not actual subspecies. They are trade names used to identify aquarium plants that do not have any recognized botanical classification; they are basically the same plant with minor differences.</p><p>Problems and solutions:</p><ul><li>Not very resilient: it cannot absorb heavy metals (water pollutants) without taking damage. In a study, it showed the lowest viability, only 26.67% survival, whereas Bacopa sp. absorbed large amounts of heavy metals with 100% survival. Solution: check your water quality; use RO systems if needed.</li><li>Colour loss (chlorosis): when the plant becomes yellowish and/or pale, it indicates a lack of light, CO2 and/or nutrients, mainly nitrogen and iron (Fe). Solution: improve lighting and filter the water, apply NPK.</li><li>Rotting (necrosis): holes or spots of decay on the leaves, usually from a lack of micronutrients or light, and less often a change in pH. Solution: remove withered leaves and prune for sanitation, leaving only healthy green stems and leaves; improve lighting and filter the water, apply NPK.</li><li>Melting: a transition from emersed to submersed form may trigger melting of the green foliage, but the plant recovers once fully settled in the tank. Solution: be patient.</li><li>Algae: it is susceptible to algae, especially if the light is excessive and nutrients are plentiful. Solution: adjust the lighting intensity, do regular water changes and add algae eaters.</li><li>Relocation: it does not like to be moved. Be cautious if you relocate or remove it, as its massive root system can even damage the stem. Take it out gradually to avoid pulling up too much substrate. There is no alternative solution; just proceed with care.</li><li>Aerial roots: it has lots of aerial roots, especially in the lower part of the plant, and they look rather ugly. Solution: trim them off, or plant it behind other plants so they are not visible. Aerial roots usually grow in 3 scenarios: it is planted in an inert substrate (sand, gravel, etc.); the plant is in shade and does not receive adequate light, particularly at its lower nodes; or the stems begin to grow horizontally instead of vertically. With proper lighting and the plant kept upright, it should not be a significant issue.</li></ul><p>Interesting fact: Alternanthera reineckii has medicinal properties. In the community it is used to treat digestive problems and diarrhea.</p><p>Quarantine: If you are unsure of the source or quality of the plants, quarantine allows you to ensure they are healthy and free of potential threats. The plant can carry parasites and hitchhikers such as pest snails, or even predators (dragonfly, damselfly nymphs, etc.). It could also have been treated with chemicals (pesticides) to remove parasites, snails, etc., which are extremely poisonous to fish, shrimp and other invertebrates. According to a study, a 10% hydrogen peroxide solution (for 1-2 minutes) is a good way to do so.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Chalenko, Yulia V., and Mikhail Yu Cherednichenko. “In vitro Introduction and Cultivation of Aquatic Plant Alternanthera reineckii Briq.” (2017).</li><li>Mulyaningsih, Th Rina. “Heavy Metal Uptake Test by Aquatic Plants Tissue Culture Products with Neutron Activation Analysis in Ciliwung River.”</li><li>Константинов, А. В., and И. В. Грищенко. “Разработка методики акклиматизации регенерантов некоторых декоративных аквариумных растений.” In Клеточная биология и биотехнология растений, pp. 120-121. 2018.</li><li>Allgayer, Robert. Plantes d’aquarium. Editions Artemis, 2006</li><li>dos Santos, Giulia Frias. “FITOGEOGRAFIA DAS ESPÉCIES DE ALTERNANTHERA FORSSK.(AMARANTHACEAE) NO RIO GRANDE DO SUL.”</li><li>Chango Lagla, María del Consuelo. “Identificación de plantas nativas con uso medicinal en la parroquia Toacazo comunidad San Ignacio.” Bachelor’s thesis, Ecuador, Latacunga: Universidad Técnica de Cotopaxi (UTC), 2018.</li><li>Mears, J.A., 1977. The nomenclature and Type collections of the widespread taxa of Alternanthera (Amaranthaceae). Proceedings of the Academy of Natural Sciences of Philadelphia 129.</li><li>Niemann, Hendrik J. A preliminary assessment of the role of aquarium trade in the spread of non-native aquatic plants in South Africa: a DNA barcoding approach. University of Johannesburg (South Africa), 2019.</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/5657e75f11295d25.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/5657e75f11295d25-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/3a267e23b958bfdc.webp",
+      "thumb": "https://media.aquatome.com/commons/3a267e23b958bfdc-480.webp",
       "width": 960,
       "height": 1440,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alternanthera_reineckii_%27Liliacina%27_kz02.jpg",
-      "caption": "Alternanthera reineckii 'Liliacina' in Wrocław University Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/3a267e23b958bfdc-480.webp"
+      "caption": "Alternanthera reineckii 'Liliacina' in Wrocław University Botanical Garden"
     },
     {
       "url": "https://media.aquatome.com/commons/2804f9f9b29c2a60.webp",
+      "thumb": "https://media.aquatome.com/commons/2804f9f9b29c2a60-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Agnieszka Kwiecień, Nova",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alternanthera_reineckii_%27Roseifolia%27_2023-07-30_02.jpg",
-      "caption": "Alternanthera reineckii 'Roseifolia' cultivated in a greenhouse of the Wrocław University Botanical Garden, Wrocław, Poland.",
-      "thumb": "https://media.aquatome.com/commons/2804f9f9b29c2a60-480.webp"
+      "caption": "Alternanthera reineckii 'Roseifolia' cultivated in a greenhouse of the Wrocław University Botanical Garden, Wrocław, Poland."
     },
     {
       "url": "https://media.aquatome.com/commons/d9581b9ac7c798c0.webp",
+      "thumb": "https://media.aquatome.com/commons/d9581b9ac7c798c0-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Agnieszka Kwiecień, Nova",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alternanthera_reineckii_%27Roseifolia%27_2023-07-30_01.jpg",
-      "caption": "Alternanthera reineckii 'Roseifolia' cultivated in a greenhouse of the Wrocław University Botanical Garden, Wrocław, Poland.",
-      "thumb": "https://media.aquatome.com/commons/d9581b9ac7c798c0-480.webp"
+      "caption": "Alternanthera reineckii 'Roseifolia' cultivated in a greenhouse of the Wrocław University Botanical Garden, Wrocław, Poland."
     },
     {
       "url": "https://media.aquatome.com/commons/1255ff3782e46d9d.webp",
+      "thumb": "https://media.aquatome.com/commons/1255ff3782e46d9d-480.webp",
       "width": 960,
       "height": 1343,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alternanthera_reineckii_%27Liliacina%27_kz03.jpg",
-      "caption": "Alternanthera reineckii 'Liliacina' in Wrocław University Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/1255ff3782e46d9d-480.webp"
+      "caption": "Alternanthera reineckii 'Liliacina' in Wrocław University Botanical Garden"
     }
   ],
   "productSlots": [
@@ -99,5 +169,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-02"
 }

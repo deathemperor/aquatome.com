@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "venezuela",
-    "rio-negro"
+    "rio-negro",
+    "rio-baria"
   ],
   "dataCard": {
     "ph": [
@@ -18,12 +19,32 @@
           "min": 4.3,
           "max": 5
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 5.3
+      },
+      {
+        "source": "scotcat",
+        "value": 5.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ]
   },
@@ -41,10 +62,28 @@
       "html": "<p>South America: upper Negro River basin. Type locality: Neblina base camp, Río Mawarinuma, Río Baria drainage, Territory Fed. Amazonas, southern Venezuela, 0°55'N, 66°10'W, elevation 120 meters.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_praecox.htm",
+      "html": "<p>South America: Venezuela; Baria River, Upper Negro River basin. Type locality: Neblina base camp, Río Mawarinuma of the Río Baria drainage, Territorio Federal Amazonas, southern Venezuela, 0º55'N, 66º10'W, elevation 120 m.</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1006",
       "html": "<p>Known from cobble-pebble bottom river habitats.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_praecox.htm",
+      "html": "<p>Denticetopsis praecox is described from the Río Baria system at the base of Cerro de la Neblina, southern Venezuela. Specimens were captured in a cobble-pebble habitat of blackwater streams that ranged in pH from 4.3-5.0.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_praecox.htm",
+      "html": "<p>Feeds mostly on aquatic insects in its natural habitat.</p>"
     },
     {
       "key": "dimorphism",
@@ -65,10 +104,22 @@
       "html": "<p>Readily distinguished from other members of the genus by its colour pattern consisting of a dark brown back, speckled to dark sides, light belly, pale fins and a large dark spot on the basal half of the dorsal fin.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_praecox.htm",
+      "html": "<p>This species is most similar to C. plumbea (Schultz, 1944) from the Río Orinoco system but has fewer vertebrae, a greater number of branchiostegal rays, and a colour pattern otherwise unknown in the family. It is readily distinguished from other members of the genus by a dark brown dorsum, speckled to dark sides, light belly, pale fins and a large dark spot on the basal half of the dorsal fin. Dorsal spines: 1; dorsal soft rays: 6; anal soft rays: 25-30; vertebrae: 39-40.</p><p>Among the smallest species in the family, maturing at 30-40 mm SL. The specific name praecox derives from the Latin for precocious, referring to the small size at sexual maturity. The genus name derives from dentis (Latin, tooth), referring to the elevated symphyseal teeth of the dentary, and Cetopsis, the type genus of the family.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1006",
       "html": "<p>Copeia 1991 (no. 1), pp 162, Fig. 1.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_praecox.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</p>"
     }
   ],
   "photos": [
@@ -112,5 +163,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-02"
 }

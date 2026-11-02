@@ -1,0 +1,87 @@
+{
+  "id": "corydoras-reynoldsi",
+  "scientificName": "Corydoras reynoldsi",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "caqueta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-reynoldsi-corydoras-tukano-2/",
+      "html": "<ul><li>Described in 1960.</li><li>Hardly reaches 5 cm.</li><li>Should be kept by experienced aquarists only, as it is rather delicate and easily gets bacterial infections.</li><li>Needs high temperatures (26-28°C) and soft, acidic water.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-reynoldsi-corydoras-tukano-2/",
+      "html": "<p>Corydoras reynoldsi was collected in the Caquetà province, eastern Colombia. It remained unknown in the hobby for quite a long time, as this area is far away from the usual collecting areas. Only in 2004 did the real Corydoras reynoldsi appear in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-reynoldsi-corydoras-tukano-2/",
+      "html": "<p>In 1997 cory enthusiasts became aware of another, quite similar Corydoras species exported from Brazil. Although it looked very much like Corydoras reynoldsi, there were also many differences, so it was called Corydoras sp. aff. reynoldsi (= similar species to reynoldsi). Another usual trade name was Corydoras „Asher“, after the exporter. Once the real C. reynoldsi appeared in 2004, it was clear that these were two different species. The „Asher“ had in the meantime (2003) been scientifically described as Corydoras tukano. Its natural distribution is the Rio Tique in Brazil, a tributary of the Rio Negro basin.</p><p>Both Corydoras species are really nice and stay relatively small.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini thủy sinh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy sưởi bể cá 100W",
+        "sưởi cá cảnh có thermostat"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền mịn cho cá chuột"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

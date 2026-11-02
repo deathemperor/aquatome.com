@@ -1,0 +1,83 @@
+{
+  "id": "harttia-carvalhoi",
+  "scientificName": "Harttia carvalhoi",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Harttia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraiba-do-sul"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1214",
+      "html": "<ul><li>Scientific name: Harttia carvalhoi Miranda Ribeiro, 1939</li><li>Type locality: Rio Paquequer, Estado do Rio de Janeiro, Brazil.</li><li>IUCN Red List: Not Evaluated.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1214",
+      "html": "<p>South America: Paquequer River basin in the Paraíba do Sul River drainage, Rio de Janeiro State, Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1214",
+      "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1214",
+      "html": "<p>Boletim Biológico, São Paulo (Nova Série) v. 4 (no. 1), pp 11, Pl. 2 (upper).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/6bfa815a6d6cf01e.webp",
+      "width": 960,
+      "height": 701,
+      "licence": "CC BY 4.0",
+      "author": "Victor de Brito and Paulo Andreas Buckup",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_fauna_of_the_upper_Pira%C3%AD_drainage_(2).png",
+      "caption": "A collection of fish species from the upper Piraí drainage, a transposed mountain river system in southeastern Brazil. Per the source: A. Harttia carvalhoi, MNRJ 43816, 78.1 mm SL. B. Harttia loricari",
+      "thumb": "https://media.aquatome.com/commons/6bfa815a6d6cf01e-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

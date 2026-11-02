@@ -15,6 +15,28 @@
       {
         "source": "planetcatfish",
         "value": 22
+      },
+      {
+        "source": "scotcat",
+        "value": 20
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -32,16 +54,40 @@
       "html": "<p>South America: Chile, Bío-Bío River basin and Loncomilla River.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/diplomystidae/diplomystes_nahuelbutaensis.htm",
+      "html": "<p>South America: Bío-Bío River basin and Loncomilla River in Chile.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/diplomystidae/diplomystes_nahuelbutaensis.htm",
+      "html": "<p>D. nahuelbutaensis is an endemic species of Chile, with reduced abundance. Background on their biology indicates that there is a separation between juveniles and adults in terms of habitat: adults live in more torrential and deep waters, while juveniles are associated preferably with less torrential riparian areas. They have also been described in rhithron environments, mainly in areas of deep pools with benthos, with substrates of gravel to boulders, low temperatures and high oxygenation (Habit, 1994).</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1152",
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/diplomystidae/diplomystes_nahuelbutaensis.htm",
+      "html": "<p>Description: Body without scales and elongated, with smooth skin and short papillae. The eye is small. It has a pair of maxillary barbels, and the nasal openings are surrounded by a fold of posterior skin. Vomerian teeth are short, wide and conical. The second dorsal fin is adipose and is inserted at the end of the base of the anal fin. The first dorsal fin and the pectorals contain an ossified ray, pointed at its distal end and with a dentate posterior margin. The pectoral fin also has a spine, the pelvic fins are in an abdominal position and the caudal fin is slightly forked, with two well-marked lobes.</p><p>Colouration: The back of the head and trunk are dark, violet or blackish, with orange flanks and ventral part (Arratia, 1987).</p><p>Etymology: The specific name nahuelbutaensis: -ensis, Latin suffix denoting place: Cordillera de Nahuelbuta, \"an especial geological and ecological region\" of the Cordillera de la Costa, Chile, the type locality.</p><p>Remarks: The present study represents the rediscovery of diplomystids from coastal basins after a century (since 1919) and the first records in the Laraquete and Carampangue basins (Muñoz-Ramírez CP. et al. 2020).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1152",
       "html": "<p>Bonner Zoologische Monographien No. 24, pp 33, Figs. 8, 10-18.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/diplomystidae/diplomystes_nahuelbutaensis.htm",
+      "html": "<p>Arratia G, Quezada-Romegialli C. (2017) Understanding morphological variability in a taxonomic context in Chilean diplomystids (Teleostei: Siluriformes), including the description of a new species.</p><p>de Pinna, M.C.C., 1998. Phylogenetic relationships of neotropical Siluriformes (Teleostei: Ostariophysi): historical overview and synthesis of hypotheses. p. 279-330. In L.R. Malabarba, R.E. Reis, R.P. Vari, Z.M.S. Lucena and C.A.S. Lucena (eds.) Phylogeny and classification of neotropical fishes. Porto Alegre: EDIPUCRS.</p><p>Froese, R. and D. Pauly. Editors. 2018. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2018 ).</p><p>Muñoz-Ramírez CP, Briones R, Colin N, Fierro P, Górski K, Jara A, Manosalva A. A Century after! Rediscovery of the ancient catfish Diplomystes Bleeker 1858 (Siluriformes: Diplomystidae) in coastal river basins of Chile and its implications for conservation. Neotrop Ichthyol. 2020; 18(1):e190073.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -80,6 +126,20 @@
     }
   ],
   "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-10-31"
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
 }

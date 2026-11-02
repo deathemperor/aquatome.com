@@ -1,0 +1,100 @@
+{
+  "id": "rhadinocentrus-ornatus",
+  "scientificName": "Rhadinocentrus ornatus",
+  "order": "Atheriniformes",
+  "family": "Melanotaeniidae",
+  "genus": "Rhadinocentrus",
+  "group": "rainbowfish",
+  "places": [
+    "oceania",
+    "australia",
+    "queensland"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/rhadinocentrus-ornatus-2/",
+      "html": "<ul><li>Group of at least 10, preferably 20 or more</li><li>Peaceful, does not harm plants</li><li>Plant spawner</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/rhadinocentrus-ornatus-2/",
+      "html": "<p>An absolute rarity among the rainbowfish relatives is the ornate rainbowfish Rhadinocentrus ornatus. Within the genus Rhadinocentrus there is only one species, of which however several local variants exist. The reasons for the rarity of this fish in the hobby are that it is a subtropical species, so in the long run it needs certain seasonal variations in temperature (16-17°C on the one hand and 26-28°C on the other) and the water chemistry in its natural habitat, which is unusual for rainbowfish. The animals do not die if they are kept in normal tap water at the usual 25°C, but in the long run this is nothing and the reason why strains of the beautiful fish are lost again and again. Since there are no exports from Australia, it can take many years before animals are available again for the hobby once a strain has become extinct.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/rhadinocentrus-ornatus-2/",
+      "html": "<p>Australia: from Fraser Island (southern Queensland) southward to Evans Head (northern New South Wales).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/rhadinocentrus-ornatus-2/",
+      "html": "<p>In its natural habitat the water is usually soft and acidic.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/rhadinocentrus-ornatus-2/",
+      "html": "<p>Seasonal temperature variation: 16-17°C and 26-28°C. Soft, acidic water is preferred.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/rhadinocentrus-ornatus-2/",
+      "html": "<p>These very slender, somewhat nervous fish absolutely must be kept in a group of at least 10, preferably 20 or more specimens. They are absolutely peaceful and do not harm plants.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/rhadinocentrus-ornatus-2/",
+      "html": "<p>As plant spawners they show their full color only in well planted tanks, most likely early in the morning when the sun rises.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh 80cm",
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc treo nhỏ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh rậm",
+        "rong đuôi chồn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -1,0 +1,134 @@
+{
+  "id": "doryichthys-martensii",
+  "scientificName": "Doryichthys martensii",
+  "order": "Syngnathiformes",
+  "family": "Syngnathidae",
+  "genus": "Doryichthys",
+  "group": "other",
+  "places": [
+    "asia",
+    "indonesia",
+    "malaysia",
+    "thailand"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/doryichthys-martensii-2/",
+      "html": "<p>Doryichthys martensii grows up to 15 cm long. Freshwater pipefish are care objects for advanced aquarists.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/doryichthys-martensii-2/",
+      "html": "<p>The species is widespread in southeast Asia and is known from Indonesia, Malaysia and Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/doryichthys-martensii-2/",
+      "html": "<p>In nature, it is mainly found in flowing waters (streams, small rivers), where the animals live in the undergrowth of riparian vegetation. The adults live exclusively in freshwater, but it is not known whether the freshly born young may spend a period of their life in brackish water or in the sea.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/doryichthys-martensii-2/",
+      "html": "<p>The water temperature can be between 22 and 28°C. The chemical composition of the water is not important, but the pH should be above 7 if possible.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/doryichthys-martensii-2/",
+      "html": "<p>The needles only eat live food, such as Artemia nauplii, Cyclops, small water fleas etc. Freshwater pipefish have high food requirements.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/doryichthys-martensii-2/",
+      "html": "<p>D. martensii lives more bottom-orientated than many other long-nosed pipefish species, but also often swims in open water.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/doryichthys-martensii-2/",
+      "html": "<p>The males have the thick belly (the brood pouch), the females are always slim.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/doryichthys-martensii-2/",
+      "html": "<p>As with all pipefish, the male takes care of the brood and carries the eggs in the large and easily recognizable brood pouch until the young hatch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/doryichthys-martensii-2/",
+      "html": "<p>The species can easily be confused with Hippichthys spicifer, which looks very similar and occurs in the same area. In H. spicifer the dorsal fin starts behind the anus (in Doryichthys before the anus) and H. spicifer has 9 caudal fin rays, Doryichthys 10.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia sống",
+        "bo bo sống",
+        "cyclops"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ dòng chảy nhẹ"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100w"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

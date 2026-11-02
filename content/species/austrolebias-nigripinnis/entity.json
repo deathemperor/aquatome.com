@@ -1,0 +1,97 @@
+{
+  "id": "austrolebias-nigripinnis",
+  "scientificName": "Austrolebias nigripinnis",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Austrolebias",
+  "group": "killifish",
+  "places": [
+    "south-america",
+    "argentina",
+    "paraguay",
+    "uruguay",
+    "brazil"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 18
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/austolebias-nigripinnis-2/",
+      "html": "<p>The Blackfin pearlfish (Austrolebias nigripinnis, formerly Cynolebias n.) is a true classic among killifish. Since its first importation in 1908, this small natural wonder has delighted fish lovers. It is only a maximum of 4.5 cm long (females remain smaller) a typical seasonal fish, which lives in nature only a few weeks. It uses this time continuously to feed, grow, bicker with conspecifics and spawn.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/austolebias-nigripinnis-2/",
+      "html": "<p>They originate from the south of South America (Argentina, Paraguay, Uruguay and southern Brazil), but are exclusively traded as offspring.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/austolebias-nigripinnis-2/",
+      "html": "<p>In the aquarium, the little jewels can live a considerably longer life than in nature. A life span of up to one year can be observed in the aquarium, especially if they are kept at room temperature (about 18°C). Higher temperatures shorten the life and increase the susceptibility of these fish to disease.</p><p>Water maintenance must not be neglected! In dirty broth killies inevitably fall ill.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/austolebias-nigripinnis-2/",
+      "html": "<p>Important in the care is above all to take into account the enormous food requirements of these animals. Normally one cannot warn enough about the dangers of overfeeding aquarium fish, but here one may feed as often and as heartily as one likes.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/austolebias-nigripinnis-2/",
+      "html": "<p>The sexes are very different in color; but don't be fooled by pale males! After a losing fight, previously black fish become very, very pale. Females are also light colored, but have irregular brownish spots all over their bodies, which are always absent even in pale colored males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/austolebias-nigripinnis-2/",
+      "html": "<p>For spawning, both partners dive deep into the bottom. The eggs laid there can remain alive in the dried out soil for up to 3 years. Fully developed, the larvae wait for the next rain. Once the puddle is filled, they hatch and the game begins again.</p><p>The eggs require special treatment. Without a dry period for the eggs it is not possible to breed this species successfully.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể nuôi cá killi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia",
+        "thức ăn sống cho cá killi"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền",
+        "than bùn cho cá killi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

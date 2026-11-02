@@ -1,0 +1,119 @@
+{
+  "id": "indostomus-paradoxus",
+  "scientificName": "Indostomus paradoxus",
+  "order": "Gasterosteiformes",
+  "family": "Indostomidae",
+  "genus": "Indostomus",
+  "group": "other",
+  "places": [
+    "asia",
+    "myanmar"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/20-sticklebacks/indostomus-paradoxus-4/",
+      "html": "<p>The Burmese Dwarf Stickleback or Paradox Fish, Indostomus paradoxus, is a tiny species. It grows only 2-3 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/20-sticklebacks/indostomus-paradoxus-4/",
+      "html": "<p>It originates from the northern parts of Burma.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/20-sticklebacks/indostomus-paradoxus-4/",
+      "html": "<p>The species should be kept in single species tanks; so-called nano-tanks fit perfectly.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/20-sticklebacks/indostomus-paradoxus-4/",
+      "html": "<p>The species is best kept at room temperature (18-22°C). The water should be medium hard to hard and the pH should be around 6.5 – 8.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/20-sticklebacks/indostomus-paradoxus-4/",
+      "html": "<p>The Paradox Fish feeds exclusively on small live food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/20-sticklebacks/indostomus-paradoxus-4/",
+      "html": "<p>Indostomus are very peaceful towards conspecifics, but they are too weak to compete with other species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/20-sticklebacks/indostomus-paradoxus-4/",
+      "html": "<p>Females become larger than males, otherwise the sexes are difficult to distinguish.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/20-sticklebacks/indostomus-paradoxus-4/",
+      "html": "<p>It has been bred occasionally. The Burmese Dwarf Stickleback breeds in caves such as bamboo stems.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/20-sticklebacks/indostomus-paradoxus-4/",
+      "html": "<p>Despite its diminutiveness the fish is rather hardy and can live for a long time in aquaria.</p><p>Etymology: Indostomus means roughly \"with a very tiny mouth\"; paradoxus means \"very strange, paradox\".</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nano 20 lít",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn sống cho cá nhỏ",
+        "artemia"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mini cho bể nano"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "devario-sondhii",
+  "scientificName": "Devario sondhii",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Devario",
+  "group": "danios",
+  "places": [
+    "asia",
+    "myanmar"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario-sondhii-2/",
+      "html": "<p>This beautiful danio comes from Burma. It looks like the big brother of Microrasbora rubescens. Males become wonderful red. It is a peaceful schooling fish that reaches a maximum length of around 5-7 cm.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario-sondhii-2/",
+      "html": "<p>Temperature: 18-28 °C. The water should preferably be rather hard and alkaline than soft and acidic.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario-sondhii-2/",
+      "html": "<p>A peaceful schooling fish.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá thủy sinh 100 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "lọc treo bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá danio",
+        "thức ăn viên nhỏ cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -7,13 +7,36 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "brazil"
+    "brazil",
+    "espirito-santo"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 9.1
+      },
+      {
+        "source": "scotcat",
+        "value": 11
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -25,10 +48,28 @@
       "html": "<p>Acentronichthys leptos Eigenmann &amp; Eigenmann, 1889. Type locality: Rio São Mateos at São Mateos [= São Mateus], Espírito Santo State, Brazil.</p><p>Size: 91 mm SL. FishBase lists 49 mm SL; the larger size is from CLOFFSCA.</p><p>IUCN Red List category: Least Concern (last assessed 2018).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm",
+      "html": "<p>Family: Heptapteridae. Size: 11 cm TL. Temperature: 22-25°C. pH: 6.0-7.5.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1211",
       "html": "<p>South America: coastal streams from Rio de Janeiro to Santa Catarina, Brazil. Also known from the type locality, São Mateus in Espírito Santo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm",
+      "html": "<p>South America: coastal streams from Rio de Janeiro to Santa Catarina State, and in São Mateus, in Espírito Santo State, Brazil. Type locality: São Mateus, State of Espírito Santo, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm",
+      "html": "<p>A. leptos is a demersal (living at or near the bottom of the water body) species that inhabits streams. It occurs in small coastal creeks and streams with submerged roots and vegetation debris.</p>"
     },
     {
       "key": "reproduction",
@@ -37,25 +78,74 @@
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm",
+      "html": "<p>Etymology: the genus name Acentronichthys: a-, without and centron, thorn or spine, referring to spineless dorsal and pectoral fins; ichthys, fish. The specific name leptos: fine or thin, referring to the extremely elongate body.</p><p>IUCN Red List: although it is possible that it is a species complex, Acentronichthys leptos was assessed as a single specific entity due to its wide distribution (from Santa Catarina to northern Rio de Janeiro and northern Espírito Santo, above the mouth of the Doce River to southern Bahia). However, the high degree of degradation of the basins where it occurs imposes diffuse threats on the different subpopulations of the species, which cannot yet be quantified but must be monitored. As current knowledge of these threats does not indicate a risk of extinction, it was listed in the Least Concern (LC) category (IUCN 2022).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1211",
       "html": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 29.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm",
+      "html": "<p>Bockmann, F.A. and G.M. Guazzelli, 2003. Heptapteridae (Heptapterids). p. 406-431. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, (07/2024).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Acentronichthys leptos. The IUCN Red List of Threatened Species 2022.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/b2682ae50d4dfc2c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b2682ae50d4dfc2c-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Ivan Sazima / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm",
+      "caption": "Acentronichthys leptos",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/cb7df4b00a22b004.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cb7df4b00a22b004-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Diogo Luiz / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm",
+      "caption": "Acentronichthys leptos: Tinguá, Nova Iguaçu - RJ, Brasil",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/64dc9b4d256af605.webp",
+      "thumb": "https://media.aquatome.com/commons/64dc9b4d256af605-480.webp",
       "width": 960,
       "height": 1096,
       "licence": "CC BY 4.0",
       "author": "Cetra, M. et al.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ichthyofauna_of_the_Ribeira_de_Iguape_River_basin_in_Southeast_Brazil_(2020-0994-03).png",
-      "caption": "Some Siluriformes of the families Heptapteridae and Trichomycteridae sampled in this study. A: Acentronichthys leptos; B: Chasmocranus lopezae; C: Pimelodella transitoria; D: Rhamdioglanis transfascia",
-      "thumb": "https://media.aquatome.com/commons/64dc9b4d256af605-480.webp"
+      "caption": "Some Siluriformes of the families Heptapteridae and Trichomycteridae sampled in this study. A: Acentronichthys leptos; B: Chasmocranus lopezae; C: Pimelodella transitoria; D: Rhamdioglanis transfascia"
     }
   ],
   "videos": [],
-  "productSlots": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-02"
 }

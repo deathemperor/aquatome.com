@@ -1,0 +1,84 @@
+{
+  "id": "amatitlania-sajica",
+  "scientificName": "Amatitlania sajica",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Amatitlania",
+  "group": "cichlids",
+  "places": [
+    "north-america",
+    "costa-rica",
+    "pacific-slope"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-sajica-2/",
+      "html": "<p>Amatitlania sajica can become up to 12 cm in the male sex and up to 9 cm in the female, and is regarded as one of the smallest species of the genus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-sajica-2/",
+      "html": "<p>Amatitlania sajica comes from the Pacific side of Costa Rica.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-sajica-2/",
+      "html": "<p>Most Central American cichlids, earlier grouped in the collective genus Cichlasoma, are kept by experienced aquarists who prefer a big aquarium with few, characterful fishes. They do not make compromises and show complex and varied behaviour.</p><p>Some relatively peaceful and comparatively small species show the exciting behaviour of their bigger and rougher cousins, but can also be kept in a well chosen community of other fish, such as catfish, barbs, tetras and livebearers, especially as they treat plants rather gently. A. sajica is among these species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-sajica-2/",
+      "html": "<p>These cichlids have not been imported for a long time; all specimens in the hobby are bred ones. They are productive open breeders. The sight of such a pair leading their young has often turned community tank aquarists into breeders.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/91250ccece9ac688.webp",
+      "thumb": "https://media.aquatome.com/glaser/91250ccece9ac688-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-sajica-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá rô phi",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "thức ăn viên cho cá rô phi cảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

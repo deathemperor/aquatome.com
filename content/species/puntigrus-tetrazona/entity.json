@@ -18,6 +18,13 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -25,6 +32,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 5,
+          "max": 8
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6,
           "max": 8
         }
       }
@@ -42,6 +56,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -54,6 +72,10 @@
       {
         "source": "seriouslyfish",
         "value": 3
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
       }
     ]
   },
@@ -63,6 +85,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
       "html": "<ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 5.0–8.0</li><li>Hardness: 1–20 dGH</li></ul><p>The tiger barb, Puntigrus tetrazona, is a small cyprinid probably endemic to central and southern Sumatra, Indonesia. Among the most ubiquitous species in the aquarium trade, it is seen mostly as commercially-produced fish and ornamental strains, and wild examples are rarely traded. The identity of the 'aquarium' tiger barb is the subject of ongoing confusion, and many farmed fish are weak or deformed through inbreeding.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "html": "<p><em>Puntigrus tetrazona</em> is a 6-8 cm barb that originally comes from Indonesia and surrounding areas in Southeast Asia. It is known for its hardiness, low cost and striking appearance, which comes in many color variations.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "html": "<p>Tiger barbs are often sold at pet store chains to beginners because of their bright colors and strong schooling behavior, but they sometimes get a bad reputation for fin nipping other fish.</p><p>The regular or wild-type tiger barb has black vertical bands with an orange-tipped nose and fins, with approximately four black stripes. Other selectively bred patterns include:</p><ul><li>Albino: light orange body with white stripes</li><li>Green: solid emerald green body with orange and black fins</li><li>Long fin: flowy fins that are longer than usual</li><li>GloFish: fluorescent colors such as electric green, purple, and more</li></ul><p>The many color variations are all of the same species, so you can make a school of tiger barbs with multiple colors to create a kaleidoscope effect. Other hobbyists like to stay with the same type of tiger barb to create a more unified look when they are schooling together.</p>"
     },
     {
       "key": "distribution",
@@ -83,6 +117,12 @@
       "html": "<p>Standard length: 60 mm SL (2.4 in). Aquarium base: 80 × 30 cm (31 × 12 in). Volume: ~72 litres (~19 US gal).</p><p>Base dimensions of 80 × 30 cm (31 × 12 in) or equivalent should be the smallest considered.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "html": "<p>This super active fish would do well in a 110-litre (29-gallon) aquarium or larger with plenty of aquarium plants and decorations.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
@@ -95,10 +135,22 @@
       "html": "<p>Temperature: 20–26°C (68–79°F)</p><p>pH: 5.0–8.0; commercial strains tend to be adaptable, but acidic to neutral conditions are recommended for wild stock.</p><p>Hardness: 1–20 dGH. Wild fish will do best towards the lower end of this range.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "html": "<p>Tiger barbs can handle a wide range of water parameters, such as pH of 6.0-8.0 and temperatures from 20-28°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
       "html": "<p>Probably an omnivore feeding primarily on aquatic invertebrates, as well as smaller amounts of plant material and organic detritus in nature.</p><p>In the aquarium it is easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant content.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "html": "<p>They are not picky eaters and will devour almost any omnivore fish food. Because they eat so quickly, try feeding smaller foods that scatter quickly, such as flakes and small pellets, to ensure that everyone gets a bite. They also enjoy freeze-dried foods, Repashy gel food, and frozen fish food.</p><p>Too many bloodworms can sometimes cause the females to swell up, so add some roughage to the diet for smoother digestion, such as daphnia, brine shrimp, and even blanched vegetables. Provide a good variety of foods to ensure that the fish get all the essential nutrients they need.</p>"
     },
     {
       "key": "behaviour",
@@ -107,16 +159,34 @@
       "html": "<p>This species is notoriously aggressive with a reputation for biting the fins of other fishes, although this behaviour only seems to be pronounced when insufficient numbers are purchased or space is limited.</p><p>That said, it is relatively boisterous and does not make an ideal companion for timid, slow-moving, or long-finned species such as many livebearers, cichlids, and anabantoids.</p><p>Robust fishes inhabiting similar biotopes in nature, especially comparably-sized, pelagic cyprinids perhaps constitute the best choices but other options include balitorid, cobitid, and nemacheilid loaches as well as benthic cyprinids such as Crossocheilus or Garra species. If geography is not an issue many rainbowfishes and tetras are also suitable, but be sure to research your choices thoroughly before purchase.</p><p>It is a gregarious species forming loose hierarchies, with rival males continually battling with each other for female attention and hierarchical position within the group.</p><p>A group of at least 8-10 specimens should be considered the minimum purchase since this increases the likelihood that the fish will be distracted by each other rather than their tankmates and will result in a more natural-looking display. Males will also show better colouration in the presence of conspecific rivals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "html": "<p>Traditionally, this species is classified as semi-aggressive because they are very curious and like to pick on other animals to see what happens. Think of them as a gang of rowdy teenagers that like to roughhouse with each other and anything that catches their attention. This environment may be too stressful for certain fish.</p><p>By providing some obstacles that block line of sight, weaker fish can hide from the more belligerent fish if needed.</p><p>The more you can buy, the better. A minimum of seven is highly recommended, and more than 12 is preferred if possible. A big group spreads out the aggression among themselves and towards other fish. People who only want five barbs often don't have enough room for them when they grow to adult size or are not truly invested in them. Be prepared to either get a huge school or try another, more peaceful species like cherry barbs.</p><p>Getting a large group of tiger barbs (even with different colors) can help keep them preoccupied and decrease fin nipping.</p><p>In general, avoid tiny fish that are small enough to get eaten by tiger barbs. Keep them away from long-finned fish like bettas and angelfish that may get nibbled. Barbs gobble their food as fast as possible and can easily outcompete slow or timid fish at feeding time, potentially starving them over time. Instead, choose other speedy swimmers (e.g., zebra danios and silver tip tetras) or larger fish that won't eat them (e.g., clown loaches and certain South American cichlids). Tiger barbs swim all over the place but tend to stay in the middle of the aquarium, so they can be paired with active bottom dwellers, such as Botia loaches.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
       "html": "<p>Adult males tend to be smaller, slimmer, and possess a more intense colour pattern than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "html": "<p>Males are generally more colorful, whereas females have slightly bigger and wider bodies.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
       "html": "<p>Like most small cyprinids Puntigrus spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often, and in a mature aquarium it is possible that small numbers of fry may start to appear without intervention. If you wish to maximise yield a more controlled approach is required, however.</p><p>The adult group can be conditioned together but an additional aquarium should be set up and filled with mature water. This should be dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through, but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively, filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the females appear gravid one or two pairs can then be introduced, and spawning should take place the following morning. A second option is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults should be removed post-spawning. The eggs should hatch in 24 - 48 hours with fry swimming freely around 24 hours later. They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "html": "<p>When given plenty of quality foods and clean water, they frequently lay sticky eggs on plant leaves and various surfaces in the aquarium. However, the adults show no parental care and will eat the eggs on sight.</p><p>To increase the fry survival rate, put the fish in a well-established aquarium with lots of dense cover, like water sprite, wisteria, java moss, or spawning mops made of yarn. Once you spot breeding behavior, you can either remove the parents or remove the plants or spawning mop with the eggs to place in a hatching container.</p><p>The fry usually hatch in 1-2 days and require tiny foods like infusoria, vinegar eels, and powder fry food. Eventually, they can graduate to larger foods such as crushed flakes, micro worms, and live baby brine shrimp.</p>"
     },
     {
       "key": "notes",
@@ -164,6 +234,50 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
       "caption": "Wild-collected adult female from the U.K. aquarium trade.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/51e82010e33a67fe.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/51e82010e33a67fe-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "caption": "Care Guide for Tiger Barbs – Colorful and Rowdy Schooling Fish - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/c25efca352993696.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/c25efca352993696-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "caption": "tiger barb in planted aquarium",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/9e84c0ede8b080b0.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/9e84c0ede8b080b0-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "caption": "Long fin tiger barbs - both regular and albino types",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/ab8efad57484cccb.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/ab8efad57484cccb-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
+      "caption": "green tiger barb",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [
@@ -222,5 +336,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-02"
 }

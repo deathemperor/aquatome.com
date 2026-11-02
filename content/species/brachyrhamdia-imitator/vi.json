@@ -4,7 +4,8 @@
   "altNames": [
     "Cá False Corydoras",
     "False Cory",
-    "False Corydoras"
+    "False Corydoras",
+    "Cá false cory"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Brachyrhamdia imitator Myers, 1927</li><li>Tên thường gọi: False Cory, False Corydoras</li><li>Sách Đỏ IUCN: Ít quan ngại (lần đánh giá gần nhất năm 2017)</li></ul>",
@@ -12,14 +13,22 @@
     "waterConditions:planetcatfish": "<ul><li>pH: 6,0 - 7,5</li><li>Nhiệt độ: 20-24°C</li><li>Độ cứng: tối đa 18 dGH</li></ul>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên gọi: tên chi ghép từ chữ Hy Lạp brachys, -eia (nghĩa là ngắn) với Nhamdia/Jamdia, tên dân gian ở Brazil. Tên họ Heptapteridae lấy từ hai chữ Hy Lạp là hepta (bảy) và pteron (vây).</p>",
-    "references:planetcatfish": "<p>Bulletin of the Museum of Comparative Zoology v. 68 (no. 3), pp 123.</p>"
+    "references:planetcatfish": "<p>Bulletin of the Museum of Comparative Zoology v. 68 (no. 3), pp 123.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: False Cory</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Caura, thuộc hệ thống sông Orinoco.</p>",
+    "behaviour:scotcat": "<p>Cái tên 'False Cory' (Cory giả) có là vì loài này hay bơi chung đàn với các loài Corydoras. Đây là loài cá da trơn không có vảy. Nhiều khả năng nó nhập đàn để núp nhờ đám Corydoras có giáp, vì cá săn mồi lớn thường ngại các gai vây ngực và vây lưng dựng khóa cứng của Corydoras.</p><p>Cũng có giả thuyết cho rằng Brachyrhamdia bơi đàn theo kiểu bắt chước Bates. Theo cách giải thích này, chúng trà trộn vào đàn để ăn ké thức ăn mà Corydoras bới lên từ nền, và còn ăn trộm cả trứng của chúng.</p><p>Chúng có vẻ hợp với những loài Corydoras có sọc đen ngang mắt như Hoplisoma (Corydoras) melanistium hơn. Với các loài trơn màu như Osteogaster (Corydoras) aenea thì chúng hay cắn và đuổi mấy con này ra khỏi đàn.</p><p>Bạn có thể nuôi chúng trong bể riêng loài. Nếu muốn nuôi chung thì chọn Corydoras, kèm các loài tetra cỡ lớn hơn hoặc cá mê cung bơi ở nửa trên bể. Đừng thả chung với cá nhỏ như neon, vì chúng có thể săn những con cá nhỏ này.</p>",
+    "aquariumSize:scotcat": "<p>Bể cho loài này nên dài từ 60 cm trở lên. Nền nên rải xen kẽ từng mảng cát và sỏi. Bạn nên chừa một khu trồng cây trong bể.</p>",
+    "diet:scotcat": "<p>Chúng ăn được viên nén chìm và thức ăn dạng viên. Chúng cũng ăn thức ăn đông lạnh và thức ăn sống như trùng huyết, ấu trùng côn trùng. Loài này không kén ăn.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: Brachy nghĩa là ngắn. Rhamdia lấy từ tên gọi địa phương 'Nhamdia' hoặc 'Jamdia'. Tên loài 'imitator' nghĩa là kẻ bắt chước loài khác.</p>",
+    "references:scotcat": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (05/2012). Morris, J.T.; ScotCat Article: An Observation On a Spawning of Brachyrhamdia imitator, Myers 1927. Sands, David; Catfishes of the World. Vol. 3 Auchenipteridae &amp; Pimelodidae. Dunure Publications 1984.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.4,
     "indexable": false,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.4
     },
-    "reason": "thin"
+    "reason": "score"
   }
 }

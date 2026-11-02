@@ -10,7 +10,9 @@
     "peru",
     "iquitos",
     "brazil",
-    "amazonas"
+    "amazonas",
+    "ucayali",
+    "madeira"
   ],
   "dataCard": {
     "tempC": [
@@ -19,6 +21,13 @@
         "value": {
           "min": 22,
           "max": 27
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 28
         }
       }
     ],
@@ -29,12 +38,23 @@
           "min": 5,
           "max": 7
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 5.1
+      },
+      {
+        "source": "scotcat",
+        "value": 5
       }
     ]
   },
@@ -52,30 +72,43 @@
       "html": "<p>South America: Upper Amazon and Middle Amazon (Solimoes). Type locality: Caño \"Sabalito,\" a small creek on terra firma about 40 kilometers south of Iquitos, Loreto, Peru. Also recorded at Reserva Florestal Adolfo Ducke, Amazonas State, Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_seducta.htm",
+      "html": "<p>South America: Western Amazon River basin, and possibly southwestern Orinoco River basin. Type locality: Peru. Loreto: Caño “Sabalito,” small creek on terra firma approximately 25 km S of Iquitos (4º14'45\"S, 73º24'57\"W).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_seducta.htm",
+      "html": "<p>This species has a relatively wide, albeit scattered, distribution in the central and western portions of the Amazon basin and possibly the southwestern portions of the Río Orinoco basin. The type series that originated in the Río Ucayali basin and in the region of Iquitos in northeastern Peru, and the non-type population samples of the species from the Rio Aripuanã in the rio Madeira basin, Brazil agree in all examined features.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1159",
       "html": "<ul><li>pH: 5.0 - 7.0</li><li>Temperature: 22.0-27.0°C (71.6-80.6°F)</li></ul>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_seducta.htm",
+      "html": "<p>A single specimen from the upper Río Napo in eastern Ecuador (ANSP 139105), tentatively identified as Denticetopsis seducta, has a slightly higher number of total vertebrae (43) than the 39 to 42 total vertebrae in the other examined specimens assigned to the species. Additional population samples of Denticetopsis from the upper Río Napo basin are necessary to determine whether this specimen represents yet another undescribed species.</p><p>Etymology: the specific name seducta is Latin for remote or apart, referring to its disjunct or scattered distribution relative to congeners.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1159",
       "html": "<p>Neotropical Ichthyology v. 3 (no. 2), pp 218, Fig. 53.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_seducta.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/be3985fc9cd6fe2d.webp",
-      "thumb": "https://media.aquatome.com/scotcat/be3985fc9cd6fe2d-480.webp",
-      "width": 500,
-      "height": 331,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_seducta.htm",
-      "caption": "Denticetopsis seducta",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/fd108b399fc94d0e.webp",
       "thumb": "https://media.aquatome.com/scotcat/fd108b399fc94d0e-480.webp",
@@ -83,6 +116,17 @@
       "height": 201,
       "licence": "dùng với sự cho phép",
       "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_seducta.htm",
+      "caption": "Denticetopsis seducta",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/be3985fc9cd6fe2d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/be3985fc9cd6fe2d-480.webp",
+      "width": 500,
+      "height": 331,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
       "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_seducta.htm",
       "caption": "Denticetopsis seducta",
       "source": "scotcat"
@@ -122,5 +166,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

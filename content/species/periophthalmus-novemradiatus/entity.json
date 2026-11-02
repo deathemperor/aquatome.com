@@ -1,0 +1,115 @@
+{
+  "id": "periophthalmus-novemradiatus",
+  "scientificName": "Periophthalmus novemradiatus",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Periophthalmus",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "india",
+    "bengal"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-novemradiatus-2/",
+      "html": "<p>The Indian Dwarf Mudskipper, Periophthalmus novemradiatus, is the ideal aquarium mudskipper with its usually 6 cm length (in literature up to 10 cm are given, but large specimens of that size have never been seen, probably this statement is based on confusion with other species). It is much more peaceful than most other mudskippers, it is not very shy, and it is hardly susceptible to disease.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-novemradiatus-2/",
+      "html": "<p>The specimens come from Bengal in India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-novemradiatus-2/",
+      "html": "<p>Periophthalmus novemradiatus is a coastal dweller and feeds on organic debris, small animals and algae left on the muddy bottom at low tide. Like all mudskippers, it is capable of living in pure freshwater and pure seawater.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-novemradiatus-2/",
+      "html": "<p>In practice, maintenance in brackish water (5-15 g sea salt/l) has proven best. Basically, the pH should not fall below 7. Water temperatures should be kept in the range of 20-28°C, even if the animals tolerate a little less and a little more without harm.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-novemradiatus-2/",
+      "html": "<p>Care is best done in an aqua-terrarium in a larger group. In such a tank there is always something to observe.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-novemradiatus-2/",
+      "html": "<p>The animals are fed on a dry food basis; for variety all small frozen and live foods can be given. The smallest crickets and flies are also taken from time to time with pleasure.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-novemradiatus-2/",
+      "html": "<p>As with most mudskippers, males can be easily distinguished from females by dorsal fin size. In males, the first dorsal-fin ray is elongate, the fin itself is larger and more colorful, and, when attached, extends well past the base of the second dorsal fin; in females, the attached first dorsal fin ends before the base of the second.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-novemradiatus-2/",
+      "html": "<p>Breeding is complex (see the article by Hans-Georg Rupp in the magazine Koralle, issue 87 (2014)), but at least in principle possible.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy cạn",
+        "bể aqua-terrarium nuôi cá thòi lòi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn khô cho cá thòi lòi",
+        "thức ăn đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể nước lợ",
+        "muối biển pha nước lợ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

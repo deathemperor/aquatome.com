@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (45)
+# Tóm tắt chờ duyệt (46)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -152,6 +152,18 @@ Cá betta rutilans (Betta rutilans) dài tối đa 3,8 cm, cần nước ấm 24
 Kiểm tra:
 - "Cá bán ra là cá đánh bắt ngoài tự nhiên, ăn thịt, nên cần chuẩn bị bể xong trước khi mua": the page gives no reason for preparing the tank first. It doesn't link this advice to the fish being wild-caught or carnivorous. The "nên" invents that causal link.
 
+## Cá betta tussyae (Betta tussyae)
+id: `betta-tussyae`
+
+Cá betta tussyae (Betta tussyae) hợp với người chịu làm nước axit, mềm và nuôi riêng hoặc chung với loài thật hiền. Cá nhỏ, trưởng thành 3,7 cm, bể tối thiểu dài 45 cm (đáy 45 × 30 cm, khoảng 41 lít), nhiệt độ 22–27 °C, pH 3–6, độ cứng 1–5 dGH, ánh sáng khá tối, lọc nhẹ. Độ khó 6/8 (khó), và khó nhất là có nước đủ axit và mềm, có thể phải dùng máy lọc RO.
+
+- Đừng thả vào bể cộng đồng thông thường; hãy nuôi riêng hoặc chung với loài thật hiền, vì cá to hơn hoặc hiếu động hơn sẽ bắt nạt và giành hết thức ăn.
+- Đừng nuôi trong nước không đủ axit và mềm; hãy làm nước axit, KH không đáng kể, GH rất thấp, có thể phải dùng máy lọc RO.
+- Đừng để bể hở hay đổ nước đầy tới miệng vì cá nhảy rất giỏi; hãy đậy nắp kín và chừa khoảng không khí ẩm trên mặt nước.
+
+Kiểm tra:
+- Mistake 1: "cá to hơn hoặc hiếu động hơn sẽ bắt nạt và giành hết thức ăn" turns the page's hedge ("nhiều khả năng sẽ bắt nạt", and only fish "to hơn nhiều" or "hiếu động hơn nhiều") into a certainty.
+
 ## Cá betta unimaculata (Betta unimaculata)
 id: `betta-unimaculata`
 
@@ -162,6 +174,14 @@ Cá betta unimaculata hợp với người muốn nuôi riêng một loài betta
 
 Kiểm tra:
 - Mistake 2 "Cho ăn toàn đồ khô ... nên xen giun đen và trùn chỉ đỏ đông lạnh với cám viên": the page only says the fish is fed live, frozen and dry foods (blackworms, frozen bloodworms, pellets). It does not say an all-dry diet is a mistake or that foods should be alternated. The fix is advice the page doesn't give.
+
+## Cá piramutaba (Brachyplatystoma vaillantii)
+id: `brachyplatystoma-vaillantii`
+
+Cá da trơn Laulao (Brachyplatystoma vaillantii) lớn tới 150 cm, nên gần như không hợp với bể nhà thông thường; chỉ hợp người có hồ rất lớn hoặc cơ sở chuyên nuôi cá khổng lồ. Cần nước 24–27 °C, pH 6–7,6. Hồ sơ không nêu bể tối thiểu hay độ khó, và chưa có báo cáo nhân giống. Điểm khó nhất là kích thước khi trưởng thành.
+
+- Mua cá nhỏ về nuôi mà không tính trước chỗ cho cá dài tới 150 cm; chỉ nuôi khi đã có hồ đủ lớn cho cỡ trưởng thành.
+- Để nước ngoài khoảng 24–27 °C hoặc pH 6–7,6; nên giữ ổn định trong khoảng này.
 
 ## Cá trê lũa Centromochlus heckelii (Centromochlus heckelii)
 id: `centromochlus-heckelii`
@@ -330,7 +350,7 @@ Cá chạch Lepidocephalichthys annandalei hợp người muốn nuôi cá đáy
 Kiểm tra:
 - "Dùng sỏi thô làm nền thì cá stress, dễ tự làm mình bị thương khi đào và ăn kém": the page hedges this with "cá có thể bị stress hoặc tự làm mình bị thương" and "Cá cũng có thể ăn kém đi". The summary states it as certain.
 
-## Cá chạch hoàng đế (Leptobotia elongata)
+## Cá chạch hoa hoàng gia (Leptobotia elongata)
 id: `leptobotia-elongata`
 
 Cá chạch hoàng đế (Leptobotia elongata) hợp với người nuôi có điều kiện chơi bể rất lớn hoặc ao, vì cá trưởng thành đạt 50 cm. Hồ sơ không nêu nhiệt độ, pH hay bể tối thiểu, nên cần tìm thêm trước khi mua. Khó nhất là chỗ nuôi cho con cá cỡ đó, và loài này đang bị đe dọa nghiêm trọng ngoài tự nhiên.
@@ -509,15 +529,3 @@ Cá rasbora hengel (Trigonostigma hengeli) hợp với người mới: độ kh�
 Kiểm tra:
 - "ánh sáng yếu và nền tối thì cá lên màu đẹp hơn" và "Bể sáng, nền nhạt làm cá lên màu kém": the page links colour to a dark substrate, a fully decorated tank and brownish water. It only says the fish suit fairly weak light best ("có vẻ hợp nhất"). It never says bright light makes the colour worse, so that cause is invented.
 - "nên dùng ánh sáng yếu, nền tối, thêm cây nổi": the page hedges floating plants ("cũng có thể có tác dụng"), and the summary states them as a firm fix for colour.
-
-## Cá kiếm xanh (Xiphophorus hellerii)
-id: `xiphophorus-hellerii`
-
-Cá kiếm xanh (Xiphophorus hellerii) là cá cộng đồng dễ nuôi, hồ sơ nói hợp với người mới chơi, độ khó 5/8 (mức vừa). Cần bể dài tối thiểu 120 cm, nước 18–28 °C, pH 7–8, độ cứng 12–25 dGH, cá trưởng thành khoảng 14 cm và bơi nhiều nên phải chừa chỗ trống. Điểm khó nhất là cá đẻ con rất nhanh và đực dễ phân ngôi hoặc hung hăng khi bể chật.
-
-- Bày quá nhiều đồ trang trí chắn đường bơi; nên gom đồ và cây ở nửa dưới đến 2/3 chiều cao bể, để phần trên trống cho cá bơi.
-- Thả chung đực cái rồi để cá đẻ tràn lan, vì cá cái có thể đã mang bầu từ lúc mua và mỗi lứa đẻ tới 50 cá bột; không muốn thêm cá thì tách đực cái trước khi đến tuổi sinh sản.
-- Cho cá phối cận huyết qua nhiều thế hệ, dễ ra cá yếu và sống ngắn; nên mua thêm hoặc đổi cá với người chơi khác để bổ sung nguồn gen, và cách ly cá mới trước khi thả vào bể.
-
-Kiểm tra:
-- "là cá cộng đồng dễ nuôi" describes the species as easy, but the card difficulty is 5/8, the medium band (vừa). The summary's own "mức vừa" contradicts this. The word for difficulty must fit the card.

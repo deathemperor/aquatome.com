@@ -1,0 +1,103 @@
+{
+  "id": "dicrossus-filamentosus",
+  "scientificName": "Dicrossus filamentosus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Dicrossus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro",
+    "colombia",
+    "orinoco",
+    "venezuela"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-filamentosus-2/",
+      "html": "<p>The checkerboard cichlid (Dicrossus filamentosus) is the most typical dwarf cichlid in the habitat of the cardinal tetra (Paracheirodon axelrodi). Males have a lyre-shaped caudal fin and grow to almost 8 cm long; the caudal fin of females is rounded. Females always remain smaller than males.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-filamentosus-2/",
+      "html": "<p>It is found in Brazil (Rio Negro drainage) as well as in Colombia and Venezuela (Orinoco drainage).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-filamentosus-2/",
+      "html": "<p>In feeding, Dicrossus filamentosus (formerly known as Crenicara filamentosa) is unproblematic.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-filamentosus-2/",
+      "html": "<p>This dwarf cichlid lives in harem associations, one male caring for several females. In community tanks, however, the fry are usually eaten by Cardinal and Co. despite the good brood care by the female.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-filamentosus-2/",
+      "html": "<p>Males have a lyre-shaped caudal fin; the caudal fin of females is rounded. Females always remain smaller than males. Females that have already spawned can be recognized by their blood red pelvic fins. In virgin animals the pelvic fins are colorless.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-filamentosus-2/",
+      "html": "<p>In the wild, they probably spawn for the first time at about 3 cm in length. The species is an open-breeder, so spawns on the surface of solid objects, preferably plant leaves. Reproduction is only successful in water that is very close to natural conditions: practically no hardness and pH around 5.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cichlid lùn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid lùn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test KH GH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

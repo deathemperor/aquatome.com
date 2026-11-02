@@ -1,0 +1,80 @@
+{
+  "id": "panaque-bathyphilus",
+  "scientificName": "Panaque bathyphilus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Panaque",
+  "group": "catfish",
+  "lNumber": "L90a",
+  "places": [
+    "south-america",
+    "peru",
+    "tingo-maria"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 60
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l90a-panaque-bathyphilus-2/",
+      "html": "<p>The large-growing, magnificent Panaque bathyphilus is very variable in coloration. Specimens 16-20 cm long are about half grown, as the maximum length given for P. bathyphilus is about 60 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l90a-panaque-bathyphilus-2/",
+      "html": "<p>P. bathyphilus occurs in Peru (surroundings of Tingo Maria).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l90a-panaque-bathyphilus-2/",
+      "html": "<p>These large fish should only be kept in large aquariums with strong filtration.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l90a-panaque-bathyphilus-2/",
+      "html": "<p>Like all Panaque, P. bathyphilus is predominantly a wood eater. The amount of feces produced by this nutrient-poor diet is enormous, which is another reason why large tanks with strong filtration are necessary.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l90a-panaque-bathyphilus-2/",
+      "html": "<p>Among themselves Panaque are not quite without aggression and can become quite rough. However, L90 is considered one of the more tolerant species in this regard.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 400 lít",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài công suất lớn",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhớt ăn gỗ",
+        "lũa cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

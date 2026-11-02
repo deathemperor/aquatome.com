@@ -1,0 +1,28 @@
+{
+  "slug": "ca-ngheo",
+  "name": "Cá nghéo",
+  "altNames": [
+    "Cá cigar shark",
+    "Cá mad barb",
+    "Cigar Shark",
+    "Mad Barb"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Leptobarbus hoevenii, còn gọi là cá cigar shark hay mad barb, là một gã khổng lồ trong nhóm cá barb. Cá dài khoảng 1 m và nặng tới 10 kg, nên chúng cần rất nhiều chỗ bơi.</p>",
+    "distribution:glaser": "<p>Loài cá này có nguồn gốc từ Đông Nam Á, trải từ Thái Lan xuống tới Borneo.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, chúng hay sống nhất ở sông suối có dòng chảy tự do. Vào mùa nước lên, chúng còn tràn ra các vùng đồng bằng ngập lũ.</p>",
+    "aquariumSize:glaser": "<p>Muốn nuôi cá trưởng thành, bạn cần một bể dài ít nhất 3 m.</p>",
+    "waterConditions:glaser": "<p>Loài này không đòi hỏi gì đặc biệt về thông số nước.</p>",
+    "diet:glaser": "<p>Chúng là cá ăn tạp, nên chuyện cho ăn không có gì khó.</p>",
+    "behaviour:glaser": "<p>Đây là cá sống theo đàn. Bạn nên nuôi một nhóm ít nhất 7 con, khi đó chúng có thể bơi thành một đàn rất đẹp.</p>",
+    "reproduction:glaser": "<p>Hiện chưa có thông tin nào về việc cá sinh sản trong bể nuôi. Ở châu Á, người ta cho cá đẻ nhân tạo để lấy cá giống nuôi trong các trại thủy sản.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

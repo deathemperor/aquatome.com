@@ -6,14 +6,19 @@
     "quickFacts:planetcatfish": "<p>Acentronichthys leptos Eigenmann &amp; Eigenmann, 1889. Nơi thu mẫu chuẩn: sông Rio São Mateos tại São Mateos [= São Mateus], bang Espírito Santo, Brazil.</p><p>Kích thước: 91 mm SL (chiều dài chuẩn). FishBase ghi 49 mm SL. Con số lớn hơn lấy theo CLOFFSCA.</p><p>Danh sách Đỏ IUCN: Ít quan tâm (lần đánh giá gần nhất năm 2018).</p>",
     "distribution:planetcatfish": "<p>Nam Mỹ: các con suối ven biển Brazil, từ Rio de Janeiro xuống Santa Catarina. Loài này còn có mặt ở nơi thu mẫu chuẩn là São Mateus, bang Espírito Santo.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa được ghi nhận. Hiện chưa có báo cáo nào về chuyện loài cá này sinh sản.</p>",
-    "references:planetcatfish": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 29.</p>"
+    "references:planetcatfish": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 29.</p>",
+    "quickFacts:scotcat": "<p>Họ: Heptapteridae. Kích thước: 11 cm TL. Nhiệt độ: 22-25°C. pH: 6,0-7,5.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ. Loài này sống ở các dòng suối ven biển từ Rio de Janeiro đến bang Santa Catarina, và ở São Mateus thuộc bang Espírito Santo, Brazil. Địa điểm mẫu chuẩn là São Mateus, bang Espírito Santo, Brazil.</p>",
+    "habitat:scotcat": "<p>A. leptos là loài sống tầng đáy, tức là sống ở đáy hoặc sát đáy thủy vực. Ngoài tự nhiên, chúng sống ở suối, cụ thể là các con lạch và suối nhỏ ven biển có rễ cây ngập trong nước và xác thực vật vụn.</p>",
+    "notes:scotcat": "<p>Về từ nguyên, tên chi Acentronichthys ghép từ a- (không có), centron (gai) và ichthys (cá). Phần \"không có gai\" ám chỉ vây lưng và vây ngực của cá không có gai. Tên loài leptos nghĩa là mảnh hoặc mỏng, ám chỉ thân hình cực kỳ thon dài của nó.</p><p>Về Danh sách Đỏ IUCN, Acentronichthys leptos có thể là một phức hợp loài. Dù vậy, IUCN vẫn đánh giá nó như một loài duy nhất vì vùng phân bố rất rộng, từ Santa Catarina đến bắc Rio de Janeiro và bắc Espírito Santo, phía trên cửa sông Doce, cho tới nam Bahia. Tuy nhiên, các lưu vực nơi loài này sống đang bị suy thoái nặng. Tình trạng đó gây ra những mối đe dọa rải rác lên từng quần thể con của loài. Hiện chưa ai định lượng được các mối đe dọa này, nhưng chúng cần được theo dõi. Với hiểu biết hiện nay, các mối đe dọa này chưa cho thấy nguy cơ tuyệt chủng, nên IUCN xếp loài vào nhóm Ít quan tâm (LC) (IUCN 2022).</p>",
+    "references:scotcat": "<p>Bockmann, F.A. and G.M. Guazzelli, 2003. Heptapteridae (Heptapterids). p. 406-431. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, (07/2024).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Acentronichthys leptos. The IUCN Red List of Threatened Species 2022.</p>"
   },
   "quality": {
-    "score": 0.9,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.85
+    }
   }
 }

@@ -1,0 +1,84 @@
+{
+  "id": "oryzias-javanicus",
+  "scientificName": "Oryzias javanicus",
+  "order": "Beloniformes",
+  "family": "Adrianichthyidae",
+  "genus": "Oryzias",
+  "group": "killifish",
+  "places": [
+    "asia",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-javanicus-2/",
+      "html": "<p>Oryzias javanicus is a pretty, peaceful, small (3-4 cm) and easy-to-care-for rice fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-javanicus-2/",
+      "html": "<p>Most species of the genus Oryzias, which comprises more than 30 species, occur quite locally. Two species, however, have a wide distribution because they are so salt-tolerant that they can even tolerate pure seawater: Oryzias dancena and O. javanicus. They are therefore found in nature not only in fresh water, but also in brackish water and along the coasts of South and Southeast Asia. Wild Oryzias imported from Sumatra were identified as O. javanicus.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-javanicus-2/",
+      "html": "<p>Oryzias dancena and O. javanicus are very similar, and females can hardly be distinguished. In O. dancena the males have silver-white fin seams, but lack the yellow stripes in the caudal fin that distinguish the males of O. javanicus. In both species the males develop long, free fin rays in the anal fin, the edge of which is smooth in the females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-javanicus-2/",
+      "html": "<p>They are easy to breed. The females carry the eggs in the form of grape-like bundles for a while before they shed them in plants etc., as is common with Oryzias.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-javanicus-2/",
+      "html": "<p>Both species can crossbreed, and the hybrids often have many deformations and are not breedable in the long run, so it is better not to mix the two species in the aquarium.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nhỏ",
+        "artemia"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

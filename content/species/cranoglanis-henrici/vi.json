@@ -6,13 +6,18 @@
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Cranoglanis henrici (Vaillant, 1893)</li><li><strong>Họ:</strong> Cranoglanididae</li><li><strong>Tên đồng nghĩa:</strong> Anopleutropius henrici</li><li><strong>Nguồn gốc tên:</strong> ghép từ tiếng Hy Lạp kranion (hộp sọ) và glanis (cá da trơn)</li><li><strong>Kích thước:</strong> 29 cm SL (chiều dài chuẩn, đo từ mõm đến gốc vây đuôi)</li><li><strong>Sách Đỏ IUCN:</strong> Ít quan ngại (đánh giá gần nhất năm 2010)</li></ul>",
     "distribution:planetcatfish": "<p>Loài này sống ở châu Á, cụ thể là Việt Nam và Trung Quốc. Mẫu chuẩn được thu ở sông Đà (Black River), vùng Thượng Bắc Kỳ (Upper Tonkin), miền Bắc Việt Nam.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: hiện chưa có tài liệu nào ghi nhận loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Bulletin de la Société philomathique de Paris (8th Série) v. 5 (no. 4), pp 199 [3].</p>"
+    "references:planetcatfish": "<p>Bulletin de la Société philomathique de Paris (8th Série) v. 5 (no. 4), pp 199 [3].</p>",
+    "beforeYouBuy:scotcat": "<p>Tài liệu về cách nuôi các loài Cranoglanis hiện còn rất ít. Điều chắc chắn là chúng là cá săn mồi, nên bạn cần tính đến chuyện này trước khi mua. Loài này cũng ít khi xuất hiện trong giới chơi cá cảnh.</p>",
+    "distribution:scotcat": "<p>Châu Á: Việt Nam và Trung Quốc, trên sông Hồng.</p>",
+    "notes:scotcat": "<p>Mô tả: Cá có 46-47 đốt sống. Chiều rộng mõm bằng 34,5-36,4% HL. Khoảng cách giữa hai mắt bằng 47-55% HL. Chiều dài gốc vây hậu môn bằng 30,2-35% SL. Vây hậu môn có 34-39 tia phân nhánh. Mấu vai rộng.</p><p>Nguồn gốc tên: Tên loài henrici đặt để vinh danh Hoàng tử Henri d'Orléans (1867-1901). Ông là quý tộc kiêm nhà thám hiểm người Pháp, sinh ra ở Anh, và đã góp tay thu thập mẫu chuẩn (holotype) của loài này.</p>",
+    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (03/2012). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.8
     }
   }
 }

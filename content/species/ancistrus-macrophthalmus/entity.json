@@ -12,7 +12,32 @@
     "orinoco",
     "venezuela"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -21,10 +46,34 @@
       "html": "<p>Ancistrus macrophthalmus has the LDA number 74. It is a very flat-bodied Ancistrus from the Orinoco drainage in Colombia and Venezuela.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "html": "<p>Family: Loricariidae. Size: 12 cm. Temperature: 25-29°C. pH: 6.0-7.5. LDA074.</p><p>Adult males have long tentacles on the front of the head, which is unique to this family. Females usually have short tentacles around the mouth.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-macrophthalmus-lda74-2/",
       "html": "<p>From time to time a very flat-bodied Ancistrus from the Orinoco drainage in Colombia and Venezuela is imported under the name A. ranunculus/L 34. However, this species does not exist there. A. ranunculus is only known from the Amazon tributaries Xingu and Tocantins/Araguaia; the Orinoco species is Ancistrus macrophthalmus, which has received the LDA number 74.</p><p>The easiest way to distinguish between the two is by the caudal fin, which in A. macrophthalmus is always distinctly pointed above and below and has white tips. In A. ranunculus the caudal fin appears truncated, sometimes even slightly rounded above and below. In males there is another easily recognizable difference: A. ranunculus never has \"antennae\" on the middle of the snout towards the forehead, A. macrophthalmus does.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "html": "<p>Venezuela: upper Orinoco River system from the río Cinaruco and further upstream to the río Casiquiare. Type locality: l'Orénoque, Venezuela.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "html": "<p>The Ancistrus genus makes good community fish where they do not grow too big for the aquarium. Some species have different requirements in the aquarium, so it is best to read up on the species you have, whether they need higher oxygen levels or prefer cooler water if they originate from the southern parts of South America rather than from further north.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "html": "<p>Vegetable foods such as cucumber and courgette, as well as tablet and meaty foods.</p>"
     },
     {
       "key": "behaviour",
@@ -39,13 +88,71 @@
       "html": "<p>Males have \"antennae\" on the middle of the snout towards the forehead.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "html": "<p>Adult males have long tentacles on the front of the head; females usually have short tentacles around the mouth.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "html": "<p>The female lays her eggs as a cluster in caves or crevices that the male has chosen and cleaned. The male usually guards the eggs after driving the female away. The fry cling to the sides of the cave and, when they have used up their yolk sac after around four to seven days, they are ready to feed on infusoria, vegetable matter, brine shrimp nauplii or micro worms. In a community tank a few will survive if enough hiding places are provided.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/ancistrus-macrophthalmus-lda74-2/",
       "html": "<p>Regarding coloration, most A. macrophthalmus are pure black (with a bluish tinge under suitable light), but they may also have small white spots. Both color forms can be found mixed in the same import. When A. macrophthalmus is nervous, light transverse stripes appear over the back.</p><p>Otherwise the usual care conditions for Ancistrus apply, with the restriction that A. macrophthalmus likes it warm and is comparatively oxygen-demanding.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "html": "<p>Colouration: dorsum dark grey, with small cream to yellowish dots on the plateless area of the snout, top of the head, tentacles and the entire length of the body. Dots on the head are more numerous, smaller and closer together on top of the head than on the dorsum of the body. Sides of head and body dark grey with white dots to the caudal fin. Ventrum of head and body white. Oral disk and adjacent area on chest light. Spines, rays and fin membranes grey with white dots. Caudal-fin spine, rays and fin membrane light grey with no dots.</p><p>Etymology: the specific name macrophthalmus: macro-, large; ophthalmus, eye; its diameter is 5 times in the length of the head, compared to 6-7 times in the similar A. occidentalis (=malacops).</p><p>IUCN Red List: Ancistrus macrophthalmus is one of the most commonly encountered species of the genus in areas where it occurs and several large collections are available. The area it occupies is largely intact, indicating no conservation concern. The species is Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "html": "<p>Armbruster, J.W. 2023. Ancistrus macrophthalmus. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, Ingo; Back to Nature guide to L-catfishes 208 p.</p><p>Souza, LS de; Taphorn, DC &amp; Armbruster, JW, 2019 \"Review of Ancistrus (Siluriformes: Loricariidae) from the northwestern Guiana Shield, Orinoco Andes, and adjacent basins with description of six new species\" (abstract) (Zootaxa, Vol. 4552 No. 1).</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/447f85c04d783a15.webp",
+      "thumb": "https://media.aquatome.com/scotcat/447f85c04d783a15-480.webp",
+      "width": 500,
+      "height": 325,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "caption": "Ancistrus macrophthalmus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/62c950df55fec2ee.webp",
+      "thumb": "https://media.aquatome.com/scotcat/62c950df55fec2ee-480.webp",
+      "width": 500,
+      "height": 327,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "caption": "Ancistrus macrophthalmus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/55cf4084262f6608.webp",
+      "thumb": "https://media.aquatome.com/scotcat/55cf4084262f6608-480.webp",
+      "width": 500,
+      "height": 299,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm",
+      "caption": "Ancistrus macrophthalmus",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "OZGwKoVIYhI",

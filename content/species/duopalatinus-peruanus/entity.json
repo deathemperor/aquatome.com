@@ -8,13 +8,37 @@
   "places": [
     "south-america",
     "peru",
-    "ucayali"
+    "ucayali",
+    "bolivia",
+    "madre-de-dios"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -26,10 +50,28 @@
       "html": "<p>Duopalatinus peruanus Eigenmann &amp; Allen, 1942. Family Pimelodidae. Type locality: Río Puinagua, mouth of Río Pacaya, Río Ucayali system, Peru. Etymology: Latin Duo = two + palatum = roof of the mouth. IUCN Red List: Not Evaluated.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/duopalatinus_peruanus.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (LC)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1180",
       "html": "<p>South America: Amazon and Orinoco River basins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/duopalatinus_peruanus.htm",
+      "html": "<p>South America: Amazon and Orinoco River basins. Type locality: Rio Puinagua, mouth of Rio Pacaya [Río Ucayali system, Peru].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/duopalatinus_peruanus.htm",
+      "html": "<p>Present in the Orthon sub-basin (Amazon Basin). Also recorded in the Madre de Dios and Beni sub-basins (Amazon Basin) (Torrico et al. 2020).</p>"
     },
     {
       "key": "reproduction",
@@ -44,10 +86,22 @@
       "html": "<p>Maximum size 150 mm (5.9\") SL.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/duopalatinus_peruanus.htm",
+      "html": "<p>There are two species in this genus, D. peruanus and D. emarginatus. Duopalatinus is classified under the \"Calophysus-Pimelodus clade\". Within this clade, it is considered a part of the \"Pimelodus-group\" of Pimelodids, which also includes Pimelodus, Exallodontus, Cheirocerus, Iheringichthys, Bergiaria, Bagropsis, Parapimelodus, Platysilurus, Platystomatichthys, and Propimelodus.</p><p>Colouration: Body and head pale grey, with the dorsal region slightly darker. Ventral region whitish. Adipose fin pale grey; all other fins yellowish.</p><p>Etymology: The specific name peruanus means belonging to Peru.</p><p>Despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (LC) (IUCN 2024).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1180",
       "html": "<p>Fishes of western South America, pp 107, Pl. 4 (fig. 4).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/duopalatinus_peruanus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (12/2019).</p><p>Hitomi Torrico-Destre, Matías Careaga, Mabel Maldonado, Fernando M. Carvajal-Vallejos, Revision of the catfish family Pimelidae (Teleostei: Siluriformes) of Bolivia, Neotropical Hydrobiology &amp; Aquatic Conservation (2024) Vol. 5 (2).</p><p>Ortega, H. and R.P. Vari, 1986. Annotated checklist of the freshwater fishes of Peru. Smithson. Contrib. Zool. (437):1-25.</p><p>Salvador, G.N. 2024. Duopalatinus peruanus. The IUCN Red List of Threatened Species 2024.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -112,5 +166,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-02"
 }

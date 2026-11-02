@@ -1,0 +1,51 @@
+{
+  "id": "denticetopsis-macilenta",
+  "scientificName": "Denticetopsis macilenta",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Denticetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "essequibo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1213",
+      "html": "<ul><li><strong>Scientific name:</strong> Denticetopsis macilenta (Eigenmann, 1912)</li><li><strong>Type locality:</strong> Creek below Potaro Landing (5°23'N, 59°08'W), Guyana.</li><li><strong>Synonyms:</strong> Hemicetopsis macilentus, Pseudocetopsis macilentus</li><li><strong>IUCN Red List category:</strong> Least Concern. Last assessed 2020.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1213",
+      "html": "<p>South America: Essequibo River basin in Guyana.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1213",
+      "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1213",
+      "html": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 211, Pl. 23 (fig. 1).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-02"
+}

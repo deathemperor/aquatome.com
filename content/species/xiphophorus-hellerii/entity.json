@@ -34,6 +34,13 @@
           "min": 18,
           "max": 28
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -49,6 +56,13 @@
         "value": {
           "min": 7,
           "max": 8.5
+        }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
         }
       }
     ],
@@ -66,6 +80,13 @@
           "min": 12,
           "max": 30
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
       }
     ],
     "sizeCm": [
@@ -76,6 +97,10 @@
       {
         "source": "sprucepets",
         "value": 10
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -92,6 +117,10 @@
       {
         "source": "sprucepets",
         "value": 2
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 2
       }
     ]
   },
@@ -107,6 +136,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
       "html": "<ul><li><strong>Life expectancy:</strong> 3-5 years</li><li><strong>Origin:</strong> Mexico and Central America</li><li><strong>Social:</strong> Peaceful</li><li><strong>Tank level:</strong> Top and mid-dweller</li><li><strong>Minimum tank size:</strong> 20 gallons (about 75 litres)</li><li><strong>Diet:</strong> Omnivore</li><li><strong>Breeding:</strong> Livebearer</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Swordtail (Green Swordtail)</li><li>Family: Poeciliidae, freshwater livebearer</li><li>Minimum tank: 60 litres</li><li>Keeping: easy; breeding: easy</li><li>Nitrate: less than 60</li><li>Dwellers: top and middle</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Lifespan: up to 5 years</li><li>Colour: wild form olive-green or light brown; ornamental forms red, orange, black, gold, spotted, neon, albino, silver, blue, etc.</li></ul><h3>Description</h3><p>Xiphophorus hellerii is a medium-sized, colourful and active fish. Adult males are typically smaller than females, growing to 8–9 cm, while females are usually about 10–12 cm.</p><ul><li>The body is elongated and laterally compressed, with a slightly curved back.</li><li>The mouth is small and upturned, with small teeth used for grasping and shredding food.</li><li>The body shape is similar to other livebearers, with a prominent anal fin, dorsal fin and caudal fin.</li><li>The base colour is typically olive-green or light brown.</li><li>Both sexes have a distinctive dusky, brownish or red mid-lateral stripe running horizontally along the body from the base of the tail to the head. In some varieties 2 additional reddish stripes may be present above the mid-lateral line and one beneath.</li><li>Males have a very long straight caudal appendage that can sometimes grow almost as long as the body. The lower rays of the caudal fin are elongated into a conspicuous, usually pigmented \"sword\".</li></ul><h3>Varieties</h3><p>Over many years swordtails have been selectively bred for various colours (red, orange, black, gold, spotted, neon, albino, silver, blue, etc.) and fin forms (hifin, sailfin, lyretail, etc.). More than 50 strains are currently offered, with new ones added regularly. Most existing varieties were produced mainly by hybridising swordtails with platies.</p><h3>Lifespan</h3><p>There are no exact data on how long the species lives in the wild; wild specimens are presumed to live about 2–3 years. In captivity, with proper care and a suitable environment, they can live up to 5 years or slightly more. Lifespan varies with predation, genetics, water quality, diet and overall care.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -139,10 +174,22 @@
       "html": "<p>Swordtails originate from Mexico and Central America and have been bred in captivity for countless generations. Many varieties are widely available, including the naturally coloured green swordtail, as well as neon, pineapple, painted, marigold wag, red wag and hi-fin lyretail.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Although considered native to Belize, Guatemala, Honduras and Mexico, this species is now found in more than 35 countries worldwide.</p><p>It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.</p><p>This is partly due to aquarists releasing the fish into local water bodies. Although swordtails are not considered a \"pest\" because of their popularity as ornamental fish, the species is still listed in invasive species databases. Any alien species can alter ecosystems, causing the loss of native species and major economic consequences.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
       "html": "<p>Natural populations are found in various types of habitat from sea level to around 1500 m altitude, including fast-flowing, rocky streams, to springs, ditches, ponds, and rivers containing clear to turbid water. In most cases the water is less than 1.5 m deep and there is no aquatic vegetation.</p><p>In flowing water adults tend to congregate in areas with greater current, while juveniles and subadults display a preference for quiet marginal zones.</p><p>Introduced populations may occur in springs, streams, rivers, canals, ditches, pools, artificial reservoirs and other environments, and the species exhibits a degree of tolerance to polluted conditions. Where X. hellerii occurs in large numbers outside its natural range it is thought to exert a number of negative impacts on native species and ecosystems.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Xiphophorus hellerii is a versatile species that thrives in a wide range of habitats, from fast-flowing streams and rivers rich in vegetation to slow springs and their outflows.</p><p>It is also found in weedy canals, ponds and other waters such as rocky arroyos, ditches and open lagoons with various substrates.</p><p>Despite varying water conditions, these fish adapt to clear, murky or muddy water and can even survive in heavily polluted areas. This flexibility allows swordtails to colonise diverse aquatic environments.</p><p>Although most abundant in fresh water, the species is occasionally reported in brackish water (up to 15 ppt). Such salinity is outside its habitat preference, but swordtails can tolerate it for some time.</p>"
     },
     {
       "key": "aquariumSize",
@@ -157,6 +204,12 @@
       "html": "<p>Minimum tank size is 20 gallons (about 75 litres). They are active fish, so make sure there are not too many decorative items in their way. Keep decor and plants to the lower half to two thirds of the tank and leave the top open for swimming.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Swordtails should not be kept in small tanks because of their size. The minimum tank size is 60 litres for 1 male and 3–4 females.</p><p>Swordtails are very jumpy. To prevent this: use a lid on the tank, lower the water level, keep floating plants and avoid stressing the fish.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
@@ -169,10 +222,28 @@
       "html": "<p>Swordtails do well in many different aquarium setups. These easygoing fish are good for beginners and a colourful addition to any community tank. Adding artificial or live plants gives the fish more hiding places.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Change 20–25% of the water every week, though the right percentage may differ depending on the filter and other tank factors. Any water added should at least be dechlorinated; dechlorinators (e.g. Seachem Prime) can be bought at any pet store.</p><p>Salt: some hobbyists recommend 1–1.5 teaspoons of aquarium salt per 4.5 litres (for disease-preventing benefits, etc.), but this is not mandatory. If salt is used, replace water only with salted water during water changes, because evaporating water leaves the salt behind, so adding more salt when topping off evaporated water is unnecessary.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
       "html": "<ul><li>Temperature: 16–28°C (61–82°F)</li><li>pH: 7.0–8.0</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Swordtails tolerate a wide range of temperature, salinity, hardness and dissolved oxygen. Although quite hardy, their core needs should still be met. Cycle the tank before bringing the fish home, then check water quality with a test kit.</p><ul><li>Temperature: swordtails withstand widely varying temperatures; according to one study, lethal minimum temperatures ranged from 5.5 to 11.3°C. This does not mean the tank temperature may fluctuate that much within short periods: tolerance is strongly influenced by acclimation temperature, so fish acclimated to lower temperatures can tolerate lower minimums than those acclimated to higher temperatures. In the aquarium they thrive at 22–26°C.</li><li>pH: slightly alkaline conditions are preferred; ideal pH is 7.0–8.0.</li><li>Hardness: they can live in any water but appreciate GH 5–20.</li><li>Water flow: not a requirement. Swordtails prefer moderate flow but are fine anywhere.</li></ul><p>Temperature also affects body shape during early development: at high temperatures the fish has a deeper head and body, while lower temperatures lead to a pointy head, longer tail and a dorsal position of the pectoral fin, forming a fusiform body.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Lighting: no special requirements. Swordtails are diurnal, with activity synchronised with light/dark and feeding cycles. Adapt lighting to the needs of the plants in the tank.</li><li>Substrate: no special requirements. Any substrate can be used, but a dark one makes the fish look more contrasting.</li><li>Plants and decorations: the natural habitat is rich in vegetation, and plants provide good hiding spots, which makes the fish happy and playful. Replicate this in the tank. Floating plants, artificial plants, driftwood, leaves and small rocks can provide additional hiding spots.</li><li>Fry tank: a separate fry tank with a sponge filter and gentle water flow is recommended.</li></ul>"
     },
     {
       "key": "diet",
@@ -187,6 +258,12 @@
       "html": "<p>Swordtails are omnivores that enjoy a varied diet. Depending on water temperature, you may need to feed 2-3 times per day. Many tropical fish forage throughout the day, so fewer feedings are not ideal. They do well on most micropelleted community diets and also enjoy occasional frozen and freeze-dried treats.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Xiphophorus hellerii is a diurnal omnivore. Studies of stomach contents show that both terrestrial and aquatic insects are eaten along with phytoplankton and some macroalgae. Juveniles eat more aquatic invertebrates, zooplankton and phytoplankton, whereas adults eat more plant material.</p><p>In the aquarium, swordtails can be fed a wide variety of foods such as spirulina, brine shrimp (Artemia salina), Artemia nauplii, daphnia, fruit flies and cyclops.</p><p>Experiments on different levels of Spirulina (0, 1, 3, 5 and 8%) showed that growth rate, mean body length and weight increased as the Spirulina level increased; fish fed 8% performed better than those fed lower levels. Spirulina contains 60–70% protein by weight, is the richest source of vitamin B12 and beta-carotene, and is rich in essential fatty acids and minerals. Essential amino acids (62%) such as isoleucine, leucine, lysine, methionine, phenylalanine, threonine, tryptophan and valine are present. Other experiments showed that low-protein diets (20% and 30%) produced the lowest specific growth rates compared with 40% and 60%, with no significant difference between 40% and 60%.</p><h3>Improving coloration</h3><p>Carotenoids are natural lipid-soluble pigments synthesised mainly in plants, including phytoplankton and algae, and give yellow, orange and red shades. Fish cannot produce carotenoids themselves and must obtain them from food. Feeds containing colour enhancers such as astaxanthin are therefore recommended, for example Arctic copepods or TetraColor®.</p><h3>Feeding frequency and amount</h3><p>Feed adults twice a day and fry 3 times a day; fry eat a lot and grow fast. Follow the \"five-minute rule\": the fish should consume all the food within 3–5 minutes.</p><h3>Plants</h3><p>Swordtails are completely plant safe: they do not eat healthy living plants.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
@@ -197,6 +274,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
       "html": "<p>Swordtails do best in a group, so plan on at least 4-5 individuals per aquarium. Different varieties can be mixed. Potential tankmates include neon tetras, coolie loaches or Corydoras.</p><p>Male swordtails may take up territory and become aggressive towards other fish. Provide plenty of room for all your swordtails despite their small size.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<h3>Sociality</h3><p>Swordtails are social fish that can be kept in community tanks with other peaceful species. Keep them in groups of at least 3–4, ideally 3–4 females per male. Being in a group allows natural behaviour, reducing stress and improving well-being.</p><h3>Temper</h3><p>The temper is generally peaceful, but swordtails may bite the fins of other fish regardless of size. Males can be somewhat aggressive toward each other, especially with females present and in small groups; they establish dominance hierarchies and compete for access to females. In a contest that usually lasts more than an hour, winners and losers can be identified by behavioural and physical traits:</p><ul><li>The loser is typically marked by darker coloration, optional vertical stripes, folded fins, a head-down position, and stays at the edge of the tank.</li><li>The winner typically shows spread fins, no darkening or vertical stripes, and moves actively around the tank.</li></ul><p>It is generally recommended to keep only one male with several females, or a group of males with plenty of space and hiding places to reduce aggression. Restricted food early in life has long-term consequences: such males often become subordinate to size-matched opponents.</p><h3>Activity and placement</h3><p>Swordtails are active swimmers, so it is not advisable to keep them with fish that are too calm or small, as these can be intimidated by their sudden movements. They occupy the upper and middle parts of the tank, visiting the bottom only occasionally.</p><ul><li>Social: yes</li><li>Activity: moderate</li><li>Peaceful: yes</li><li>Nippers: yes</li><li>Jumpers: yes</li></ul><h3>Tankmates</h3><p>Swordtails can coexist with various peaceful fish with similar water requirements, but can become nippy, especially with long-finned fish such as Betta. Suggested options: southern platyfish, neons, Endlers, pygmy corydoras, zebra danio, guppies, harlequin rasboras, dwarf chain loaches, ghost glass catfish, mollies, etc.</p><p>Dwarf shrimp: not recommended. Swordtails are much larger and may eat them; shrimplets and molting shrimp are easy snacks. If you still keep them together, provide plenty of hiding places and cover such as dense planting, driftwood and caves.</p><p>Freshwater snails: generally fine, and they help keep the tank clean by eating uneaten food and algae.</p><p>Avoid large and/or aggressive and/or boisterous fish, as well as all crayfish and most freshwater crabs.</p>"
     },
     {
       "key": "dimorphism",
@@ -217,6 +300,12 @@
       "html": "<p>Males have the characteristic \"sword\" on the lower edge of the tail fin (caudal fin) and a pointed anal fin. Females have a rounded tail edge, a fan-shaped anal fin and tend to have thicker bodies. The anal fin can be used to sex young fish before males develop their long sword. Some varieties have elongated dorsal, pectoral and tail fins.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Xiphophorus hellerii is sexually dimorphic, and adult males and females are very easy to tell apart.</p><ul><li>Size: females are larger than males.</li><li>Belly: females have rounded bellies, compared with the slim males.</li><li>Gonopodium: males have a modified anal fin called a gonopodium, used in mating to transfer sperm to females, which have internal fertilisation and sperm storage.</li></ul>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
@@ -227,6 +316,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
       "html": "<p>Swordtails are livebearers and can easily overpopulate an aquarium. Females may already be pregnant when purchased, and even one pregnant female can cause a sudden population explosion.</p><p>They can mature as early as 3 months old and give birth to up to 50 fry per spawning. To avoid more fry, separate males from females before they reach sexual maturity.</p><p>Over several generations you may notice more fry deaths or shorter lifespans, from inbreeding. The best fix is adding genetic diversity by buying new fish or trading with another hobbyist. Unless you know the health history of new fish, quarantine them before adding them to your aquarium.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding is very easy, even for beginners. Swordtails are livebearers: females give birth to fully formed, swimming fry instead of laying eggs. They reproduce as long as adequate food is available and suitable temperatures are maintained.</p><h3>Maturity</h3><p>Sexual maturity is reached at 2.5–3 cm, at about 10–12 weeks of age.</p><p>\"Early\" and \"late\" males: there is a long-standing debate among hobbyists, some claiming late males are infertile and others attributing this to unfavourable conditions such as high or low temperature, acidity, etc. However, science and practice indicate that early males carry more male genes: breeding from early males gives more male offspring, while breeding from late males gives more females.</p><p>Female to male change: some adult females, including those that have given birth several times, can transform into males, and their fin becomes similar to that of males. This usually happens due to sudden fluctuations in water parameters, which can cause hormonal imbalances, though some hobbyists believe it occurs when there are not enough males in the aquarium. Such individuals cannot fertilise or carry fry.</p><h3>Mating</h3><p>Swordtails do not form monogamous pairs and are completely polygamous. Males will court and mate with females of their own species as well as other poeciliids, resulting in hybridisation. Experiments showed female preference for large males with a longer, conspicuous \"sword\". A good rule of thumb is a male to female ratio of 1:4 in the breeding tank, so that males do not overzealously pursue a single female and there is enough diversity in the fry's gene pool.</p><h3>Fertilisation</h3><p>Fertilisation is internal: the male deposits sperm inside the female. Some sperm may remain in the folds of the oviducts to fertilise mature eggs later, allowing females to reproduce again without a male. According to one study, from a single mating a female can give birth to up to 9 consecutive broods, as viable sperm can be supplied for up to 2 years.</p><h3>Gestation</h3><p>Embryonic development lasts 26 to 63 days depending on temperature. At 24–26°C the gestation period usually ranges from 26 to 30 days. The number of fry also correlates with temperature: on average, the number of fry per spawn increases by 3 with every one-degree rise in water temperature.</p><ul><li>The highest average number of fry is found at 29°C.</li><li>Below 15°C, fry production is reported to cease.</li><li>Below 18°C or above 30°C, production slows significantly.</li></ul><p>Under optimal conditions, all adult females carry embryos at different stages of development.</p><h3>Fecundity</h3><p>These fish are prolific breeders; up to 242 fry per female has been reported. Young females usually have few fry (20–50) compared with experienced females (100–150), but the fry of mature females are significantly smaller.</p><h3>Fry</h3><p>Ensuring fry survival is perhaps the most important part of breeding. When the female is about to give birth, it is better to move her to a breeding hatchery box; the fry fall and slip through a gap in the bottom of the box. Parents often eat their own fry, which are relatively large and brightly coloured, causing substantial losses. In the wild, swordtails rarely see their fry, since the current carries them away immediately. Once born, the fry should therefore be separated from the mother and other fish to avoid predation.</p><p>A separate fry tank with a sponge filter and gentle water flow is recommended. Feed the fry a high-quality diet (rotifers, microworms, artemia, cyclops, chopped blackworms, etc.) 3 times a day and change the water frequently. The fry grow rapidly: by the 2nd month the anal fin of the males begins to change, and by the 3rd month the \"sword\" starts to grow.</p>"
     },
     {
       "key": "notes",
@@ -241,33 +336,25 @@
       "html": "<p>This species is among the world's most recognisable aquarium fishes and ubiquitous in the ornamental trade, although its name is often misspelled X. helleri (with only a single i, vs. correct spelling X. hellerii) in both scientific and hobbyist literature.</p><p>Selective breeding has led to the development of a bewildering array of ornamental forms which tend to display colours, and often fin morphology, that are not present in wild fish. Some of these forms are also the result of artificial hybridisation with other members of the genus, particularly X. maculatus and X. variatus.</p><p>Xiphophorus species are naturally distributed throughout the Atlantic slope of Mexico and adjacent portions of Central America, although a number of members have been introduced to and become established in other countries and territories. In English they are commonly referred to as 'platyfishes' and 'swordtails', and are considered important in several fields of scientific research, including behavioural, genetic, and biomedical (including the cause and genetics of cancers) studies.</p><p>The genus is split into three main phylogeographic clades: the platies, or platyfishes, which occur throughout eastern Mexico and Central America; the northern swordtails, endemic to the Río Pánuco and Río Tuxpan watersheds in the Sierra Madre Oriental mountains of northeastern Mexico, and the southern swordtails of southern Mexico and northern Central America.</p><p>The relationships within these groups have also been studied in depth. X. hellerii is a member of the southern swordtail clade,</p>"
     },
     {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<h3>Etymology</h3><p>The genus name Xiphophorus derives from the Greek 'xiphos' meaning 'sword' and 'pherein' meaning 'to bear', in reference to the elongated shape of the male's tail fin. The source page says the species name hellerii honours Arnold Edward Ortmann; this appears to be an error, as the name honours the naturalist Carl Bartholomäus Heller.</p><h3>Health problems</h3><p>Although generally resilient, swordtails are susceptible to infections caused by protozoa (Trichodina), monogeneans (Dactylogyrus and Gyrodactylidae) and fungi (Saprolegnia). To prevent illness, keep new fish in a separate container for 10–14 days before adding them to the main tank. To avoid fungal infections, keep the environment clean and avoid build-up of waste and uneaten food. Buy live food from specialised stores and rinse it under running water before feeding.</p><p>Symptoms typically include lethargy, loss of appetite, floating at the top, sinking to the bottom, and damaged fins (they may split or stick together). If fish show these signs, isolate them in a separate container to prevent spread. A formalin bath at 250 ppm for 1 hour/day for five consecutive days is recommended for treatment.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xiphophorus-hellerii",
       "html": "<ul><li>Heckel, J. J. (1848). Eine neue Gattung von Poecilien mit rochenartigem Anklammerungs-Organe. Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 1 (pts 1-5), 289-303</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Page, L. M. and B. M. Burr (2011). Peterson Field Guide to Freshwater Fishes of North America North of Mexico (Second Edition). Houghton Mifflin Harcourt, 1-688</li><li>Larson, H. K., R. S. Williams and M. P. Hammer (2013). An annotated checklist of the fishes of the Northern Territory, Australia. Zootaxa 3696(1), 1-293</li><li>Eskmaeili, H. R. , B. W. Coad and A. Gholamifard, N. Nazari, A. Teimory (2010). Annotated checklist of the freshwater fishes of Iran. Zoosystematica Rossica 19(2), 361-386</li><li>Matamoros, W. A., J. F. Schaefer and B. R. Kreiser (2009). Annotated checklist of the freshwater fishes of continental and insular Honduras. Zootaxa 2307, 1-38</li><li>Miller, R. R. (2005). Freshwater fishes of México. University of Chicago Press, xxvi + 1-490</li><li>Rosen, D. E. (1960). Middle-American poeciliid fishes of the genus Xiphophorus. Bulletin of the Florida State Museum Biological Sciences 5(4), 57-242</li><li>Rosenthal, G. G, and F. J. García de León (2006). Sexual Behavior, Genes, and Evolution in Xiphophorus. Zebrafish 3(1), 85-90</li><li>Kazianis, S. (2006). Historical, Present, and Future Use of Xiphophorus Fishes for Research. Zebrafish 3(1), 9-10</li><li>McLennan, D. A. and M. J. Ryan (2008). Female swordtails, Xiphophorus continens, prefer the scent of heterospecific males. Animal Behaviour 75, 1731-1737</li><li>Kang, J. H., M. Schartl, R. B. Walter, and A. Meyer (2013). Comprehensive phylogenetic analysis of all species of swordtails and platies (Pisces: Genus Xiphophorus) uncovers a hybrid origin of a swordtail fish, Xiphophorus monticolus, and demonstrates that the sexually selected sword originated in the ancestral lineage of the genus, but was lost again secondarily. BMC Evolutionary Biology, 25</li><li>Kallman, K. D. and Steven Kazianis (2006). The genus Xiphophorus in Mexico and Central America. Zebrafish 3(3), 271-285</li><li>Cui, R., M. Schumer, K. Kruesi, R. Walter, P. Andolfatto, and G. G. Rosenthal (2013). Phylogenomics reveals extensive reticulate evolution in Xiphophorus fishes. Evolution 67(8), 2166-2179</li><li>Earley, R. L. and L. A. Dugatkin (2006). Merging social hierarchies: Effects on dominance rank in male green swordtail fish (Xiphophorus helleri). Behavioural Processes 73(3), 290-298</li><li>Franck, D., B. Klamroth, A. Taebel-Hellwig, and M. Schartl (1998). Home ranges and satellite tactics of male green swordtails (Xiphophorus helleri) in nature. Behavioural Processes 43(2), 115-123</li><li>Jones, J. C., S. Fan, P. Franchini, M. Schartl, and A. Meyer (2013). The evolutionary history of Xiphophorus fish and their sexually selected sword: a genome‐wide approach using restriction site‐associated DNA sequencing. Molecular Ecology 22(11), 2986-3001</li><li>Kallman, K. D., R. B. Walter, D. C. Morizot, and S. Kazianis (2004). Two new species of Xiphophorus (Poeciliidae) from the Isthmus of Tehuantepec, Oaxaca, Mexico, with a discussion of the distribution of the X. clemenciae clade. American Museum Novitates 3441, 1-34</li><li>Basolo, A. L. (1990). Female preference for male sword length in the green swordtail, Xiphophorus helleri (Pisces: Poeciliidae). Animal Behaviour 40(2), 332-338</li><li>Rauchenberger, M., K. D. Kallman, and D. C. Morizot (1990). Monophyly and geography of the Río Pánuco Basin swordtails (genus Xiphophorus) with descriptions of four new species. American Museum Novitates 2975, 1-41</li><li>Meyer, A., W. Salzburger, and M. Schartl (2006). Hybrid origin of a swordtail species (Teleostei: Xiphophorus clemenciae) driven by sexual selection. Molecular Ecology 15(3), 721-730</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Maddern, M. G., H. S. Gill, and D. L. Morgan. “Biology and invasive potential of the introduced swordtail Xiphophorus hellerii Heckel (Poeciliidae) in Western Australia.” Aquatic Conservation: Marine and Freshwater Ecosystems 21, no. 3 (2011): 282-291.</li><li>Rosenthal, Gil G., and Christopher S. Evans. “Female preference for swords in Xiphophorus helleri reflects a bias for large apparent size.” Proceedings of the National Academy of Sciences 95, no. 8 (1998): 4431-4436.</li><li>Basolo, Alexandra L. “Female preference for male sword length in the green swordtail, Xiphophorus helleri (Pisces: Poeciliidae).” Animal Behaviour 40, no. 2 (1990): 332-338.</li><li>Tamaru, Clyde S., Brian Cole, Rich Bailey, Christopher Brown, and Harry Ako. A manual for commercial production of the swordtail, Xiphophorus helleri. Center for Tropical and Subtropical Aquaculture, 2001.</li><li>James, Raja, Kunchitham Sampath, Ramasamy Thangarathinam, and Iyyadurai Vasudevan. “Effect of dietary Spirulina level on growth, fertility, coloration and leucocyte count in red swordtail, Xiphophorus helleri.” Israeli Journal of Aquaculture-Bamidgeh 58 (2006).</li><li>Chong, Alexander SC, Saraitul Dahlianis Ishak, Zulfaizuddin Osman, and Roshada Hashim. “Effect of dietary protein level on the reproductive performance of female swordtails Xiphophorus helleri (Poeciliidae).” Aquaculture 234, no. 1-4 (2004): 381-392.</li><li>Benson, Kari E., and Alexandra L. Basolo. “Male–male competition and the sword in male swordtails, Xiphophorus helleri.” Animal Behaviour 71, no. 1 (2006): 129-134.</li><li>Rashidian, Ghasem, Simona Rainis, Marko D. Prokić, and Caterina Faggio. “Effects of different levels of carotenoids and light sources on swordtail fish (Xiphophorus helleri) growth, survival rate and reproductive parameters.” Natural Product Research 35, no. 21 (2021): 3675-3686.</li><li>Tuckett, Quenton M., Jared L. Ritch, Katelyn M. Lawson, Larry L. Lawson, and Jeffrey E. Hill. “Variation in cold tolerance in escaped and farmed non-native green swordtails (Xiphophorus hellerii) revealed by laboratory trials and field introductions.” Biological invasions 18 (2016): 45-56.</li><li>Royle, Nick J., Jan Lindström, and Neil B. Metcalfe. “A poor start in life negatively affects dominance status in adulthood independent of body size in green swordtails Xiphophorus helleri.” Proceedings of the Royal Society B: Biological Sciences 272, no. 1575 (2005): 1917-1922.</li><li>Beaugrand, Jacques P., and René Zayan. “An experimental model of aggressive dominance in Xiphophorus Helleri (pisces, poeciliidae).” Behavioural Processes 10, no. 1-2 (1985): 1-52.</li><li>KALLMAN, KLAUS &amp; Walter, Ronald &amp; MORIZOT, DONALD &amp; KAZIANIS, STEVEN. (2009). Two New Species of Xiphophorus (Poeciliidae) from the Isthmus of Tehuantepec, Oaxaca, Mexico, with a Discussion of the Distribution of the X. clemenciae Clade. American Museum Novitates. 3441. 1-34. 10.1206/0003-0082(2004)441&lt;0001:TNSOXP&gt;2.0.CO;2.</li><li>First confirmed record of an established population of green swordtail (Xiphophorus hellerii Heckel, 1848) in Europe. Pencho Pandakov, Zhivko Barzov, Radoslav Moldovanski and Helena Huđek. Manag. Aquat. Ecosyst., 422 (2021) 31.</li><li>H. Hieronimus, Guppies, Mollies, and Platies, Complete Pet Owners Manual Series, Barron’s, 2009</li></ul>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/a5d2543179c2137b.webp",
-      "thumb": "https://media.aquatome.com/commons/a5d2543179c2137b-480.webp",
-      "width": 960,
-      "height": 349,
-      "licence": "CC BY-SA 2.5",
-      "author": "André Karwath aka Aka",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_helleri_(aka).jpg",
-      "caption": "This image shows a Green swordtail (Xiphophorus helleri)."
-    },
-    {
-      "url": "https://media.aquatome.com/commons/fc467aa2fef340c2.webp",
-      "thumb": "https://media.aquatome.com/commons/fc467aa2fef340c2-480.webp",
-      "width": 960,
-      "height": 493,
-      "licence": "CC BY-SA 4.0",
-      "author": "Corydoras-adolfoi",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DSC_0690_-_Edited.jpg",
-      "caption": "A male swordtail (Xiphophorus hellerii) fish."
-    },
     {
       "url": "https://media.aquatome.com/sprucepets/bc3d2ac8090215ea.webp",
       "thumb": "https://media.aquatome.com/sprucepets/bc3d2ac8090215ea-480.webp",
@@ -289,6 +376,36 @@
       "sourceUrl": "https://www.thesprucepets.com/swordtail-fish-species-profile-5078361",
       "caption": "Swordtail male and female",
       "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/00a561e807a2e151.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/00a561e807a2e151-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a5d2543179c2137b.webp",
+      "thumb": "https://media.aquatome.com/commons/a5d2543179c2137b-480.webp",
+      "width": 960,
+      "height": 349,
+      "licence": "CC BY-SA 2.5",
+      "author": "André Karwath aka Aka",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_helleri_(aka).jpg",
+      "caption": "This image shows a Green swordtail (Xiphophorus helleri)."
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fc467aa2fef340c2.webp",
+      "thumb": "https://media.aquatome.com/commons/fc467aa2fef340c2-480.webp",
+      "width": 960,
+      "height": 493,
+      "licence": "CC BY-SA 4.0",
+      "author": "Corydoras-adolfoi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DSC_0690_-_Edited.jpg",
+      "caption": "A male swordtail (Xiphophorus hellerii) fish."
     },
     {
       "url": "https://media.aquatome.com/commons/68801199a60ac1b4.webp",
@@ -366,5 +483,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-02"
 }

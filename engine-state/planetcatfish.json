@@ -2131,18 +2131,24 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1213": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T13:46:13.902Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/denticetopsis-macilenta"
+    ],
+    "updatedAt": "2026-11-02T19:28:49.862Z",
+    "hash": "17d1e979cbf50bc1103ddb5a6062ca61b443a7a6bc3b427996fa8a7d561c1d32",
+    "processedHash": "17d1e979cbf50bc1103ddb5a6062ca61b443a7a6bc3b427996fa8a7d561c1d32",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1214": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T13:46:15.130Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/harttia-carvalhoi"
+    ],
+    "updatedAt": "2026-11-02T19:29:46.670Z",
+    "hash": "e1904dbbb5ce53a8f318f78abee4ec747aa64b18ac4935e86d535e0c5aff7d21",
+    "processedHash": "e1904dbbb5ce53a8f318f78abee4ec747aa64b18ac4935e86d535e0c5aff7d21",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1215": {
     "entityIds": [
@@ -2165,17 +2171,20 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1217": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T13:47:13.569Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/kronichthys-heylandi"
+    ],
+    "updatedAt": "2026-11-02T19:30:21.209Z",
+    "hash": "6b72bfd650f9beca656a852329eebec1cc6db4138335fafe6fecf630788a156a",
+    "processedHash": "6b72bfd650f9beca656a852329eebec1cc6db4138335fafe6fecf630788a156a",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1218": {
     "entityIds": [],
-    "updatedAt": "2026-11-02T13:47:17.898Z",
+    "updatedAt": "2026-11-02T19:31:17.520Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=122": {
@@ -2220,16 +2229,16 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1223": {
     "entityIds": [],
-    "updatedAt": "2026-11-02T13:48:51.205Z",
+    "updatedAt": "2026-11-02T19:31:23.016Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1225": {
     "entityIds": [],
-    "updatedAt": "2026-11-02T13:48:52.964Z",
+    "updatedAt": "2026-11-02T19:31:28.075Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1226": {

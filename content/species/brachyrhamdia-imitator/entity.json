@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "venezuela",
-    "orinoco"
+    "orinoco",
+    "caura-river"
   ],
   "dataCard": {
     "tempC": [
@@ -18,11 +19,25 @@
           "min": 20,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
       }
     ],
     "ph": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 6,
           "max": 7.5
@@ -42,6 +57,16 @@
       {
         "source": "planetcatfish",
         "value": 5.4
+      },
+      {
+        "source": "scotcat",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 60
       }
     ]
   },
@@ -53,16 +78,46 @@
       "html": "<ul><li>Scientific name: Brachyrhamdia imitator Myers, 1927</li><li>Common names: False Cory, False Corydoras</li><li>IUCN Red List: Least Concern (last assessed 2017)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm",
+      "html": "<ul><li>Common name: False Cory</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=119",
       "html": "<p>South America: Orinoco, Lower Orinoco and Caura. Type locality: Caño de Quiribana near Caicara, Venezuela.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm",
+      "html": "<p>South America: Caura River basin in the Orinoco River drainage.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm",
+      "html": "<p>House in aquaria of 60 cm or over with an alternating sand and gravel substrate. Provide a planted area.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=119",
       "html": "<ul><li>pH: 6.0 - 7.5</li><li>Temperature: 20-24°C</li><li>Hardness: up to 18 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm",
+      "html": "<p>Sinking tablet foods and pellet foods. Frozen and live foods such as bloodworm, and insect larvae. Not a fussy eater.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm",
+      "html": "<p>The common name 'False Cory' comes from its habit of schooling with Corydoras species. This habit probably stems from the protection this scaleless catfish gets from large predators through the armoured Corydoras, as predators are wary of their locked pectoral and dorsal spines.</p><p>Another scenario is that Brachyrhamdia practise a Batesian form of shoaling, in which they take food that the Corydoras dig up from the substrate and also steal the eggs of these species.</p><p>They seem to do better with Corydoras that have a black eye stripe, such as Hoplisoma (Corydoras) melanistium, than with plain species such as Osteogaster (Corydoras) aenea, which tend to be nipped and driven out of the shoal.</p>\n<p>Keep in a species tank, or with Corydoras and larger characins or anabantoids in the top half of the tank, as they can be predatory towards small species such as Neon Tetras.</p>"
     },
     {
       "key": "reproduction",
@@ -77,13 +132,59 @@
       "html": "<p>Etymology: from the Greek brachys, -eia = short, plus the Brazilian vernacular name Nhamdia/Jamdia. The family name Heptapteridae comes from the Greek hepta, meaning seven, and pteron, meaning fin.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm",
+      "html": "<p>Etymology: Brachy = short; rhamdia = from the vernacular name 'Nhamdia' or 'Jamdia'. The specific epithet 'imitator' means to imitate another.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=119",
       "html": "<p>Bulletin of the Museum of Comparative Zoology v. 68 (no. 3), pp 123.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (05/2012). Morris, J.T.; ScotCat Article: An Observation On a Spawning of Brachyrhamdia imitator, Myers 1927. Sands, David; Catfishes of the World. Vol. 3 Auchenipteridae &amp; Pimelodidae. Dunure Publications 1984.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e58ed6cde9a9d755.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e58ed6cde9a9d755-480.webp",
+      "width": 500,
+      "height": 297,
+      "licence": "dùng với sự cho phép",
+      "author": "David Sands / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm",
+      "caption": "Brachyrhamdia imitator",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/51dabc3a04c070df.webp",
+      "thumb": "https://media.aquatome.com/scotcat/51dabc3a04c070df-480.webp",
+      "width": 500,
+      "height": 379,
+      "licence": "dùng với sự cho phép",
+      "author": "Daniel Blom / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm",
+      "caption": "Brachyrhamdia imitator",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d8144be6a0256c4b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d8144be6a0256c4b-480.webp",
+      "width": 500,
+      "height": 342,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_imitator.htm",
+      "caption": "Brachyrhamdia imitator",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "HZQ0KRu0bD4",

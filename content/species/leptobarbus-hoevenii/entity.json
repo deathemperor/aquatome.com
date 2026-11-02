@@ -1,0 +1,135 @@
+{
+  "id": "leptobarbus-hoevenii",
+  "scientificName": "Leptobarbus hoevenii",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Leptobarbus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "thailand",
+    "malaysia",
+    "borneo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 100
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "glaser",
+        "value": 300
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
+      "html": "<p>Leptobarbus hoevenii, the Cigar Shark or Mad Barb, is a giant among the barbs. With a length of approx. 1 m and a weight of up to 10 kg it needs a lot of space.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
+      "html": "<p>They originate from Southeast Asia (Thailand to Borneo).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
+      "html": "<p>They are found most often in freely flowing rivers and streams and seasonally on floodplains.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
+      "html": "<p>For the maintenance of adults one should own a tank of at least 3 m length.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
+      "html": "<p>In terms of water chemistry they place no special requirements.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
+      "html": "<p>As omnivorous fish they are unproblematic in their nutrition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
+      "html": "<p>Since they are schooling fish, one should keep a group of at least 7 individuals, which can form a magnificent swarm.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
+      "html": "<p>Nothing is known about breeding in aquariums. In Asia they are artificially bred for raising in aquacultures.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c8bfaf17ac77346e.webp",
+      "width": 960,
+      "height": 639,
+      "licence": "CC BY-SA 3.0",
+      "author": "Haplochromis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siambarbe_(Leptobarbus_hoevenii).jpg",
+      "caption": "Siambarbe (Leptobarbus hoevenii)",
+      "thumb": "https://media.aquatome.com/commons/c8bfaf17ac77346e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/63d594abd592bc43.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "CC BY-SA 4.0",
+      "author": "Zahar AZ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Juvenile_Leptobarbus_hoevenii.jpg",
+      "caption": "A juvenile Leptobarbus hoevenii in aquaria, lacks the mid lateral black line (unlike L. rubripinnis)",
+      "thumb": "https://media.aquatome.com/commons/63d594abd592bc43-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e9dff2b0ab798607.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 3.0",
+      "author": "This illustration was made by Citron You must credit this : Citron / CC-BY-SA-3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbonymus_schwanenfeldii3.jpg",
+      "caption": "Barbonymus schwanenfeldii",
+      "thumb": "https://media.aquatome.com/commons/e9dff2b0ab798607-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 3m",
+        "bể cá kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng công suất lớn",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lớn",
+        "thức ăn viên nổi cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -1,0 +1,114 @@
+{
+  "id": "melanotaenia-nigrans",
+  "scientificName": "Melanotaenia nigrans",
+  "order": "Atheriniformes",
+  "family": "Melanotaeniidae",
+  "genus": "Melanotaenia",
+  "group": "rainbowfish",
+  "places": [
+    "oceania",
+    "australia",
+    "kimberley"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 19,
+          "max": 35
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-nigrans-2/",
+      "html": "<p>This slender rainbowfish usually grows to around 7 cm in length, but older aquarium specimens can reach lengths of around 12 cm. Like so many rainbowfish, this species is also very variable in color. Its slender body shape and unusually strong shoaling behavior make it a beautiful contrast to other rainbowfish species.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-nigrans-2/",
+      "html": "<p>Since there are no exports from Australia, all animals in the trade are captive-bred specimens.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-nigrans-2/",
+      "html": "<p>Melanotaenia nigrans comes from northern Australia, where it is irregularly distributed: from the Kimberley region in Western Australia through the northern part of the Northern Territory to the Cape York Peninsula in northern Queensland, including a number of offshore islands such as Groote Eylandt in the Gulf of Carpentaria and some islands in the Torres Strait. There are persistent rumors that the species also occurs in New Guinea, but it has never been scientifically proven there. The species is said to be naturalized in the Philippines.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-nigrans-2/",
+      "html": "<p>M. nigrans has no special requirements in terms of water parameters and nutrition. In nature, it is found in relatively soft water (maximum 135 µS/cm) with pH values between 5 and 8 and temperatures between 19 and 35°C. It is therefore generally highly adaptable, but this should not tempt you to expose the animals to sudden changes in their environment. They cannot tolerate this at all!</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-nigrans-2/",
+      "html": "<p>In nature, the species occurs together with M. trifasciata, M. australis, and M. inornata.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-nigrans-2/",
+      "html": "<p>In 1982, Gerald R. Allen and Norbert J. Cross published the first modern comprehensive overview of the rainbowfish known at that time. Today, 89 Melanotaenia species are generally accepted. The very first species ever described was Melanotaenia nigrans, which was described as Atherina nigrans in 1843. Older aquarium literature up to the early 1980s states that M. nigrans was imported in 1927 as the first Australian ornamental fish species, but this identification was incorrect: it was in reality the similar species M. duboulayi. The first genuine imports of M. nigrans did not take place until around 1976.</p><p>The species is not entirely insensitive and is more suitable for advanced enthusiasts.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài nuôi cá cầu vồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cầu vồng",
+        "thức ăn cá nhỏ dạng hạt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

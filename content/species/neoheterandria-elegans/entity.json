@@ -1,0 +1,111 @@
+{
+  "id": "neoheterandria-elegans",
+  "scientificName": "Neoheterandria elegans",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Neoheterandria",
+  "group": "livebearers",
+  "places": [
+    "south-america",
+    "colombia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
+      "html": "<p>Neoheterandria elegans is among the smallest livebearing toothcarps regularly kept in the aquarium. Males grow to about 1-2 cm long, females up to 3 cm, but usually around 2 cm. The Teddy Livebearer, as it is called to distinguish it from the actual Dwarf Livebearer Heterandria formosa, originates from Colombia.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
+      "html": "<p>The animals offered originate from German breeding.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
+      "html": "<p>The animals do not have high care requirements, which even beginners can fulfill well.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
+      "html": "<p>The species likes it cozy and warm with 24-28°C. The water values (hardness, pH etc.) hardly play a role.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
+      "html": "<p>Everything is eaten that fits into the small mouth.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
+      "html": "<p>The species is completely peaceful.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
+      "html": "<p>The females have only 1-2 young per day during a litter period, but this takes several days. Therefore, they should not be placed in spawning boxes, but in densely planted, small extra aquariums, from which the young are collected daily and transferred to a rearing aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
+      "html": "<p>Lexicon: Heterandria means \"different male\". Neoheterandria means \"new heterandria\". elegans means \"elegant\".</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể nuôi cá con"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh rậm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá bột",
+        "thức ăn cho cá miệng nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

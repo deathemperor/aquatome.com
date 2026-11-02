@@ -1,0 +1,51 @@
+{
+  "id": "kronichthys-heylandi",
+  "scientificName": "Kronichthys heylandi",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Kronichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "sao-paulo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1217",
+      "html": "<ul><li><strong>Scientific name:</strong> Kronichthys heylandi (Boulenger, 1900)</li><li><strong>Synonym:</strong> Plecostomus heylandi</li><li><strong>Type locality:</strong> Mountain stream near Santos, São Paulo State, Brazil, elevation 122 m.</li><li><strong>Etymology:</strong> Named for Mr. Ricard Krone + (Greek) ichthys = fish.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1217",
+      "html": "<p>South America: coastal streams of eastern Brazil between Santos and Rio de Janeiro.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1217",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1217",
+      "html": "<p>Annals and Magazine of Natural History (Series 7) v. 5 (no. 26) (art. 19), pp 165.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-02"
+}
