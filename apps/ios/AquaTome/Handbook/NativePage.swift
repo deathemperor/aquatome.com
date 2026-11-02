@@ -12,6 +12,8 @@ struct NativePage: View {
   /// A fish's facts or a plant's care (FactsCard), where the page puts them (`.facts`).
   var facts: FactsCard?
   let web: () -> Void
+  /// Told whether the page's name is on the screen (iOS 18 on): the bar shows it only once it has scrolled away.
+  var nameInView: (Bool) -> Void = { _ in }
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @State private var tip: Tip?
@@ -120,6 +122,7 @@ struct NativePage: View {
         .accessibilityAddTraits([.title, .heading, .subheading].contains(look) ? .isHeader : [])
         .accessibilityFocused($focus, equals: anchor ?? "piece-\(i)")
         .id(anchor ?? "piece-\(i)")
+        .modifier(InView(report: look == .title ? nameInView : nil))
     case let .photo(src, ratio, alt, caption, credit, href, play, hero):
       VStack(alignment: hero ? .trailing : .leading, spacing: 6) {
         // The page's own photo no taller than 4:3, cut to fit: a fish's side, not a screen of water.
@@ -859,4 +862,16 @@ private func youtube(_ id: String, at: Int) -> URL { URL(string: "https://www.yo
 /// phone's own time style, which writes "1.15" in Indonesian.
 func clock(_ s: Int) -> String {
   s >= 3600 ? String(format: "%d:%02d:%02d", s / 3600, s / 60 % 60, s % 60) : String(format: "%d:%02d", s / 60, s % 60)
+}
+
+/// Reports whether a view is on the screen as the page scrolls, where the system can say (iOS 18 on).
+private struct InView: ViewModifier {
+  let report: ((Bool) -> Void)?
+  func body(content: Content) -> some View {
+    if #available(iOS 18, *), let report {
+      content.onScrollVisibilityChange(threshold: 0.3, report)
+    } else {
+      content
+    }
+  }
 }
