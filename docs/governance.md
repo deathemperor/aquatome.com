@@ -397,7 +397,9 @@ The layers above still check the result.
 ## Mobile apps
 
 The iOS app (`apps/ios`, SwiftUI) is checked by `ios.yml` on every PR and push that touches `apps/ios/**` or
-`protocols/**`. Android (`apps/android`) will follow the same pattern.
+`protocols/**`. A draft PR runs none of its macOS jobs: they run once it's marked ready, then on each push, so the
+site's engine isn't queued behind every push to a draft. Mark a PR ready when it's done and checked locally, and merge
+it when the iOS jobs pass. Android (`apps/android`) will follow the same pattern.
 
 | Check | Catches | Where |
 | --- | --- | --- |
