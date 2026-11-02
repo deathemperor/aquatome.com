@@ -5,18 +5,18 @@ import { usageLimit } from './claude-limit'
 /**
  * Headless Claude Code on the owner's Claude subscription accounts, as the engine uses them
  * (packages/engine/src/claude-accounts.ts, copied: the site doesn't import from the engine). One OAuth token an account,
- * one a line in CLAUDE_CODE_OAUTH_TOKENS; else the single CLAUDE_CODE_OAUTH_TOKEN; else the CLI's own login. A call goes to
+ * one a line in CLAUDE_CODE_OAUTH_TOKENS, then the single CLAUDE_CODE_OAUTH_TOKEN; with neither, the CLI's own login. A call goes to
  * the first account not set aside; out of its usage limit, or with its token rejected, the account is set aside for the
  * rest of this process (a Playwright worker) and the same call goes to the next. A token is never printed: the log names
  * it by its number in the list and the first 8 hex of its SHA-256.
  */
 
-/** The tokens, one a line (blank lines, spaces and CRLF ignored); with none, the single secret; with neither, none. */
+/**
+ * The tokens: CLAUDE_CODE_OAUTH_TOKENS one a line (blank lines, spaces and CRLF ignored), then the single
+ * CLAUDE_CODE_OAUTH_TOKEN at the end when it isn't already listed (the owner's first account stays in the turn); each once.
+ */
 export function parseTokens(list?: string, single?: string): string[] {
-  const tokens = [...new Set((list ?? '').split(/\r?\n/).map(t => t.trim()).filter(Boolean))]
-  if (tokens.length) return tokens
-  const one = single?.trim()
-  return one ? [one] : []
+  return [...new Set([...(list ?? '').split(/\r?\n/), single ?? ''].map(t => t.trim()).filter(Boolean))]
 }
 
 const AUTH = /Failed to authenticate|Invalid bearer token/i

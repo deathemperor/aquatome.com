@@ -50,8 +50,10 @@ afterEach(() => {
   vi.restoreAllMocks()
 })
 
-test('parseTokens: one a line, blank lines, spaces and CRLF ignored; else the single secret', () => {
-  expect(parseTokens(' tok-a \r\n\r\n  \ntok-b\r\n', 'tok-x')).toEqual(['tok-a', 'tok-b'])
+test('parseTokens: the list one a line (blank lines, spaces and CRLF ignored), then the single secret; each once', () => {
+  expect(parseTokens(' tok-a \r\n\r\n  \ntok-b\r\n', 'tok-x')).toEqual(['tok-a', 'tok-b', 'tok-x'])
+  expect(parseTokens('tok-a\ntok-x\n', 'tok-x')).toEqual(['tok-a', 'tok-x'])
+  expect(parseTokens('tok-a\ntok-b', undefined)).toEqual(['tok-a', 'tok-b'])
   expect(parseTokens('', 'tok-x')).toEqual(['tok-x'])
   expect(parseTokens(undefined, '')).toEqual([])
 })

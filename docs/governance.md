@@ -127,10 +127,9 @@ that would have caught it).
      - it refuses patches to `.github/` or to the fix and watch scripts
      - it needs the repository setting "Allow GitHub Actions to create and approve pull requests" (on since
        2026-10-31); if opening the PR fails anyway, the issue gets a link to the pushed branch
-- Remaining risk: the agent job holds the Claude tokens, every account's, and the agent can run commands: it can read
-  them all (its own environment has only the token it runs on, but the step's shell and sudo on GitHub's runners are in
-  reach). Its input is the bot's own issues, or issues a collaborator labelled `autofix`. To narrow it to one account,
-  give `fix.yml` a single token instead of `CLAUDE_CODE_OAUTH_TOKENS`, and lose its rotation.
+- Remaining risk: the agent job holds one Claude token (`CLAUDE_CODE_OAUTH_TOKEN`, never the account list, so it can
+  reach only that account) and can run commands. Its input is the bot's own issues, or issues a collaborator labelled
+  `autofix`. It doesn't rotate accounts: when that account is out of its limit, the fix waits for the next issue.
 - **Merging is a review**, by the owner or an agent working for them, after CI. When the fix is live, the next watch
   run closes the issue.
 

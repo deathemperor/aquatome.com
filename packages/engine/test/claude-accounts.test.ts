@@ -52,8 +52,10 @@ afterEach(() => {
   vi.restoreAllMocks()
 })
 
-test('parseTokens: one a line, blank lines, spaces and CRLF ignored, duplicates once; else the single secret', () => {
-  expect(parseTokens(' tok-a \r\n\r\n   \ntok-b\r\ntok-a\n', 'tok-x')).toEqual(['tok-a', 'tok-b'])
+test('parseTokens: the list one a line (blank lines, spaces and CRLF ignored), then the single secret; each once', () => {
+  expect(parseTokens(' tok-a \r\n\r\n   \ntok-b\r\ntok-a\n', 'tok-x')).toEqual(['tok-a', 'tok-b', 'tok-x'])
+  expect(parseTokens('tok-a\ntok-x\n', 'tok-x')).toEqual(['tok-a', 'tok-x']) // the single secret already listed
+  expect(parseTokens('tok-a\ntok-b', undefined)).toEqual(['tok-a', 'tok-b'])
   expect(parseTokens('', 'tok-x')).toEqual(['tok-x'])
   expect(parseTokens('\r\n \n', ' tok-x\n')).toEqual(['tok-x'])
   expect(parseTokens(undefined, '')).toEqual([])
@@ -121,7 +123,15 @@ test('every token rejected: the rejection, which fails the cycle (cli.ts)', asyn
   const e = await call().catch(e => e)
   expect(e).toBeInstanceOf(LlmError)
   expect(e.message).toMatch(/Failed to authenticate/)
-  expect(rejectedTokens()).toBe('CLAUDE_CODE_OAUTH_TOKEN') // from the single secret: that is what to replace
+  expect(rejectedTokens()).toBe(`token 1 (${h('tok-bad')}) in CLAUDE_CODE_OAUTH_TOKEN`) // the single secret: that is what to replace
+})
+
+test('the list, then the single secret: the first account takes its turn last, and a rejection names its secret', async () => {
+  setTokens('tok-weekly', 'tok-bad')
+  const e = await call().catch(e => e)
+  expect(spawned.map(s => s.token)).toEqual(['tok-weekly', 'tok-bad'])
+  expect(errorKind(e.message)).toBe('usage')
+  expect(rejectedTokens()).toBe(`token 2 (${h('tok-bad')}) in CLAUDE_CODE_OAUTH_TOKEN`)
 })
 
 test('any other failure fails the call on its own account, which stays in use', async () => {
