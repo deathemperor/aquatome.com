@@ -2,7 +2,7 @@ name: "iOS app: App Store listing"
 # The App Store listing (apps/ios/store/listing.json) and App Store Connect, through apps/ios/scripts/asc-listing.mjs.
 # A pull request that changes the listing or what makes it checks the listing against Apple's limits, then reports what
 # App Store Connect has beside it. By hand (Actions → "iOS app: App Store listing" → Run workflow) it makes the
-# screenshots on both simulators and keeps them with the run; with "apply" ticked it also writes the listing and the
+# screenshots on each set's simulator (listing.json's `screenshots`) and keeps them with the run; with "apply" ticked it also writes the listing and the
 # screenshots to App Store Connect. Nothing here submits the app for review, attaches a build or releases it: the script
 # refuses to. Never on a push or a schedule.
 on:
@@ -62,7 +62,8 @@ jobs:
     name: "iOS app: App Store screenshots, and the listing written when asked"
     if: github.event_name == 'workflow_dispatch'
     runs-on: macos-26
-    timeout-minutes: 150
+    # Three simulators' worth of flows (6.9" and 6.3" iPhones, a 13" iPad), each up to about 45 minutes, and the build.
+    timeout-minutes: 210
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:

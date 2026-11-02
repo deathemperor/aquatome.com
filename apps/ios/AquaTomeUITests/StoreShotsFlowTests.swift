@@ -1,9 +1,9 @@
 import XCTest
 
 /// The App Store's screenshots (apps/ios/store/listing.json): six screens in each of the listing's languages, on the
-/// simulator the run is given (an iPhone 17 Pro Max for the 6.9" set, an iPad Pro 13-inch for the 13"). Each is kept
-/// with the run as `store-<lang>-<nn>-<screen>`, and apps/ios/scripts/store-shots.py exports them for
-/// apps/ios/scripts/asc-listing.mjs. The handbook is aquatome.com's own, read over the network, so the pages are real;
+/// simulator the run is given (an iPhone 17 Pro Max for the 6.9" set, an iPhone 17 for the 6.3", an iPad Pro 13-inch
+/// for the 13"). Each is kept with the run as `store-<lang>-<nn>-<screen>`, and apps/ios/scripts/store-shots.py exports
+/// them for apps/ios/scripts/asc-listing.mjs. The handbook is aquatome.com's own, read over the network, so the pages are real;
 /// the light, the plugs and the accounts are the simulator's stand-ins. The status bar (9:41, full battery and signal)
 /// is set on the simulator before the run (.github/workflows/app-store.yml).
 ///

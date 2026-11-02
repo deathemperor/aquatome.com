@@ -35,9 +35,15 @@ const AGE_FREQUENCY = ['alcoholTobaccoOrDrugUseOrReferences', 'contests', 'gambl
   'violenceRealisticProlongedGraphicOrSadistic']
 const AGE_OVERRIDE = ['NONE', 'NINE_PLUS', 'THIRTEEN_PLUS', 'SIXTEEN_PLUS', 'EIGHTEEN_PLUS', 'UNRATED']
 const CONTENT_RIGHTS = ['DOES_NOT_USE_THIRD_PARTY_CONTENT', 'USES_THIRD_PARTY_CONTENT']
+// The help's "iPhone with Dynamic Island" sets: the large display (1320×2868 and others) is APP_IPHONE_67 and the
+// medium one (1206×2622, 1179×2556) APP_IPHONE_61, as the help's own icons for them are named (devices-6-7-inch,
+// devices-6-1-inch); the API lists the types without sizes. Apple's processing of an upload is the proof.
 const DISPLAY_TYPES = ['APP_IPHONE_67', 'APP_IPHONE_65', 'APP_IPHONE_61', 'APP_IPHONE_58', 'APP_IPHONE_55',
   'APP_IPHONE_47', 'APP_IPHONE_40', 'APP_IPHONE_35', 'APP_IPAD_PRO_3GEN_129', 'APP_IPAD_PRO_3GEN_11', 'APP_IPAD_PRO_129',
   'APP_IPAD_105', 'APP_IPAD_97']
+// The sets the help requires before a submission: the medium iPhone, and the 13" iPad for an app that runs on iPad.
+const REQUIRED_IPHONE = 'APP_IPHONE_61'
+const REQUIRED_IPAD = 'APP_IPAD_PRO_3GEN_129'
 const TOP = ['primaryLocale', 'categories', 'price', 'availability', 'contentRightsDeclaration', 'ageRating', 'review',
   'screenshots', 'locales']
 // A version App Store Connect lets us edit: never one in review, waiting for it, or on sale.
@@ -126,7 +132,11 @@ function check(listing, project) {
   // Nine digits or more in a run (a date has eight).
   if ((r.notes ?? '').match(/\+?\d[\d ().-]{7,}\d/g)?.some((m) => m.replace(/\D/g, '').length >= 9)) no('review.notes: a phone number')
 
-  for (const [type, s] of Object.entries(listing.screenshots ?? {})) {
+  const sets = listing.screenshots ?? {}
+  if (!sets[REQUIRED_IPHONE]) no(`screenshots: no ${REQUIRED_IPHONE}, the iPhone set Apple requires`)
+  // TARGETED_DEVICE_FAMILY 2 is the iPad.
+  if (project && /TARGETED_DEVICE_FAMILY = "[^"]*2/.test(project) && !sets[REQUIRED_IPAD]) no(`screenshots: no ${REQUIRED_IPAD}, which Apple requires of an app that runs on iPad`)
+  for (const [type, s] of Object.entries(sets)) {
     if (!DISPLAY_TYPES.includes(type)) no(`screenshots.${type}: not an iPhone or iPad screenshot display type`)
     if (typeof s.simulator !== 'string' || !s.simulator) no(`screenshots.${type}.simulator: missing`)
     if (!Array.isArray(s.sizes) || !s.sizes.length || !s.sizes.every((z) => Array.isArray(z) && z.length === 2 && z.every(Number.isInteger))) no(`screenshots.${type}.sizes: not [[width, height], …]`)
@@ -583,6 +593,9 @@ function test() {
   fails((l) => { l.review.contactEmail = 'x' }, 'a review contact in the repository', /review\.contactEmail: entered on the App Store Connect website/)
   fails((l) => { l.screenshots.APP_IPHONE_69 = { simulator: 'x', sizes: [[1, 2]] } }, 'a display type Apple doesn\'t have', /APP_IPHONE_69: not an iPhone/)
   fails((l) => { l.screenshots.APP_IPHONE_67.sizes = [[1320]] }, 'a size without a height', /sizes: not/)
+  fails((l) => { delete l.screenshots.APP_IPHONE_61 }, 'no medium iPhone set', /no APP_IPHONE_61, the iPhone set Apple requires/)
+  fails((l) => { delete l.screenshots.APP_IPAD_PRO_3GEN_129 }, 'no 13" iPad set for an iPad app', /no APP_IPAD_PRO_3GEN_129/)
+  passes((l) => { delete l.screenshots.APP_IPHONE_67 }, 'no 6.9" set, which Apple doesn\'t require')
   fails((l) => { l.extra = 1 }, 'a top-level field the script doesn\'t know', /extra: not a field/)
 
   // A version every target shares, or none.
@@ -601,6 +614,9 @@ function test() {
   }
   const phone = real.screenshots.APP_IPHONE_67
   assert(!shotProblems([header(1320, 2868, 2)], phone).length, 'a 1320×2868 RGB screenshot refused')
+  const medium = real.screenshots.APP_IPHONE_61
+  assert(!shotProblems([header(1206, 2622, 2)], medium).length, 'a 1206×2622 screenshot refused for the 6.3" set')
+  assert(shotProblems([header(1320, 2868, 2)], medium).some((p) => /1320×2868, not 1206×2622/.test(p)), 'a 6.9" screenshot taken for the 6.3" set')
   assert(shotProblems([header(1320, 2868, 6)], phone).some((p) => /alpha/.test(p)), 'an alpha channel not caught')
   assert(shotProblems([header(2868, 1320, 2)], phone).some((p) => /2868×1320, not 1320×2868/.test(p)), 'a landscape screenshot not caught')
   assert(shotProblems([header(2064, 2752, 2)], real.screenshots.APP_IPAD_PRO_3GEN_129).length === 0, 'a 2064×2752 iPad screenshot refused')
