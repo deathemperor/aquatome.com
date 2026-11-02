@@ -21,7 +21,7 @@ export const UNMATCHED_SQL = `SELECT blob5 AS sci, SUM(_sample_interval) AS n, S
 FROM aquatome_fishid WHERE blob1 = 'ok' AND blob5 != '' AND blob6 = '' AND timestamp > NOW() - INTERVAL '30' DAY GROUP BY sci FORMAT JSON`
 export const RECENT_SQL = `SELECT timestamp AS t, blob1 AS outcome, blob2 AS model, blob3 AS kh, blob4 AS verdict, blob5 AS sci, blob6 AS page, blob7 AS lang,
   blob8 AS src, blob9 AS cc, double1 AS tin, double2 AS tout, double3 AS usd, double4 AS ms, double5 AS attempts, double6 AS conf, double7 AS guesses
-FROM aquatome_fishid WHERE timestamp > NOW() - INTERVAL '31' DAY ORDER BY timestamp DESC LIMIT 100 FORMAT JSON`
+FROM aquatome_fishid WHERE timestamp > NOW() - INTERVAL '31' DAY ORDER BY t DESC LIMIT 100 FORMAT JSON`
 
 /**
  * requests: every POST. calls: those that reached Claude; ok: those with an answer, the rest of calls had none (Claude

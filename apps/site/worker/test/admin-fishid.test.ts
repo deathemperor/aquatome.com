@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
+import { DAYS_SQL, RECENT_SQL, UNMATCHED_SQL, summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
 import { fishIdPage } from '../admin/pages'
 
 const NOW = new Date('2026-11-02T10:00:00Z')
@@ -75,4 +75,12 @@ test('unmatched guesses most first with their mean confidence; the last calls wi
   const unknown = fishIdPage({ now: NOW, stats: s, keys: undefined, pages: new Map() })
   expect(unknown).not.toContain('href="paracheirodon')
   expect(unknown).toContain('(paracheirodon-innesi)')
+})
+
+test('no query sorts or groups by a column it renamed: Analytics Engine refuses that ("unable to find type of column")', () => {
+  for (const sql of [DAYS_SQL, UNMATCHED_SQL, RECENT_SQL]) {
+    const renamed = [...sql.matchAll(/\b(timestamp|blob\d+|double\d+)\s+AS\s+\w+/gi)].map(m => m[1]!.toLowerCase())
+    const after = (sql.match(/\b(?:ORDER|GROUP)\s+BY\s+([\s\S]*?)(?:\bLIMIT\b|\bFORMAT\b|$)/gi) ?? []).join(' ').toLowerCase()
+    for (const col of renamed) expect(after, sql).not.toMatch(new RegExp(`\\b${col}\\b`))
+  }
 })
