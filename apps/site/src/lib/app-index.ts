@@ -178,6 +178,11 @@ const TOOLS: readonly (readonly [string, string, readonly string[]])[] = [
     'Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng. Trang nhớ đèn và lịch của bạn trên máy này.',
     'Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.',
   ]],
+  ['/vi/cong-cu/nhan-dien-ca/', 'Đây là cá gì?', [
+    'Nhận diện cá qua ảnh',
+    'Chụp hoặc chọn ảnh một con cá, tép, ốc hay cây thủy sinh. Công cụ đoán tên loài và mở hồ sơ của nó trong cẩm nang.',
+    'Nhận diện cá cảnh, tép, ốc và cây thủy sinh từ một tấm ảnh: tên loài, dòng (betta halfmoon, guppy koi…) và hồ sơ cách nuôi trong cẩm nang AquaTome.',
+  ]],
   ['/vi/cong-cu/be-cua-toi/', 'Bể của tôi', [
     'Bể của tôi: sổ ghi bể cá, cây và lịch đèn',
     'Ghi lại từng bể: kích thước, nền, cá, cây và đèn với lịch đã đặt. Lưu ngay trên máy này, không cần đăng ký.',

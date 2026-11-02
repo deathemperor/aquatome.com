@@ -9,8 +9,10 @@ import { i18n } from '../../../lib/i18n'
 const { lang, t } = i18n(Astro.url)
 // The heater's default room temperature: unheated tank water in a northern Vietnamese winter; elsewhere a neutral 20 °C to change.
 const room = lang === 'vi' ? VN_WATER.northWinter : 20
-// Every tool, drawn: three have pages of their own, the other three are calculators further down this page.
+// Every tool, drawn: five have pages of their own, the other three are calculators further down this page.
 const TOOLS: { href: string; name: string; what: string; icon: string }[] = [
+  { href: '/vi/cong-cu/nhan-dien-ca/', name: t('Nhận diện cá'), what: t('Chụp ảnh con cá, tép hay cây: công cụ đoán tên loài và mở hồ sơ.'),
+    icon: '<rect x="5" y="13" width="38" height="26" rx="3"/><path d="M17 13l3-5h8l3 5"/><path d="M14 26c4-5 11-5 15 0-4 5-11 5-15 0z"/><path d="M29 26l5-4v8z"/>' },
   { href: '/vi/cong-cu/nuoi-chung/', name: t('Nuôi chung'), what: t('Các loài có hợp nước, hợp tính không; thả bao nhiêu con là vừa.'),
     icon: '<path d="M5 19c6-8 17-8 22 0-5 8-16 8-22 0z"/><path d="M27 19l7-6v12z"/><path d="M21 34c3-4 9-4 12 0-3 4-9 4-12 0z"/><path d="M33 34l5-4v8z"/>' },
   { href: '/vi/cong-cu/the-tich-be/', name: t('Thể tích bể'), what: t('Bể bao nhiêu lít, 12 kiểu bể, kính dày bao nhiêu.'),

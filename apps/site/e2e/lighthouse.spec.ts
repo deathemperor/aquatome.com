@@ -34,10 +34,11 @@ const KNOWN: Record<string, Partial<Budget>> = {
 // One page of each kind, the first in the build (or the sitemap), so the same page is measured each time. The plant and
 // guide lists too: their filters and chips must not shift the page as it loads.
 const KINDS = ['vi//1', 'vi/ca/2', 'vi/ca/3', 'vi/cay/2', 'vi/cay/3', 'vi/huong-dan/2', 'vi/huong-dan/3', 'vi/cong-cu/2', 'vi/cong-cu/3', 'th//1']
-// Plus the pages whose weight isn't their kind's: search, and tank-mates (every species' index inline).
+// Plus the pages whose weight isn't their kind's: search, tank-mates (every species' index inline), and fish ID (its
+// script and the slot its Turnstile widget fills).
 // A kind's first page that search engines are offered: a noindex page (a thin species or plant) fails SEO by design
 // (deploy 41244864797 sampled ammannia-gracilis, new and thin, on a local build).
-const pages = onePerKind(sourcePages(), KINDS, ['/vi/tim-kiem/?q=neon', '/vi/cong-cu/nuoi-chung/'], p => indexed(p))
+const pages = onePerKind(sourcePages(), KINDS, ['/vi/tim-kiem/?q=neon', '/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/nhan-dien-ca/'], p => indexed(p))
 
 test.describe.configure({ retries: 2 })
 for (const path of pages) {
@@ -57,9 +58,9 @@ for (const path of pages) {
         skipAudits: ['robots-txt'],
         // Never the site's visit counter (a check is not a reader). Locally, nothing from other sites either (ads,
         // analytics, photos: the build is served over http, everything else is https), nor the Worker's answers the
-        // pages ask for (likes, comments, products, accounts: the files alone have none, and a 404 is a console error).
+        // pages ask for (likes, comments, products, accounts, fish ID: the files alone have none, and a 404 is a console error).
         // Live, the page as readers get it.
-        blockedUrlPatterns: ['*/_e', ...(LIVE ? [] : ['https://*', '*/_p?*', '*/_c?*', '*/_aff/*', '*/api/v1/*'])],
+        blockedUrlPatterns: ['*/_e', ...(LIVE ? [] : ['https://*', '*/_p?*', '*/_c?*', '*/_aff/*', '*/api/v1/*', '*/api/fish-id'])],
       }, form === 'desktop' ? desktopConfig : undefined)
       const lhr = result!.lhr
       await info.attach('lighthouse.json', { body: result!.report as string, contentType: 'application/json' })

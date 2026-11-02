@@ -1,0 +1,81 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import { i18n } from '../../../lib/i18n'
+
+const { t } = i18n(Astro.url)
+// What makes a photo easy to name: the fish's shape, fins and markings, sharp and large in the frame.
+const tips = [
+  t('Chụp ngang thân, thấy rõ vây và đuôi.'),
+  t('Đến gần, để con vật chiếm phần lớn khung hình.'),
+  t('Áp máy sát kính sạch cho bớt lóa và vết bẩn.'),
+  t('Tắt đèn flash, bật đèn bể.'),
+  t('Mỗi ảnh một con là dễ nhận nhất.'),
+]
+---
+<Browse title={t('Nhận diện cá qua ảnh')} heading={t('Đây là cá gì?')} intro={t('Chụp hoặc chọn ảnh một con cá, tép, ốc hay cây thủy sinh. Công cụ đoán tên loài và mở hồ sơ của nó trong cẩm nang.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Nhận diện cá cảnh, tép, ốc và cây thủy sinh từ một tấm ảnh: tên loài, dòng (betta halfmoon, guppy koi…) và hồ sơ cách nuôi trong cẩm nang AquaTome.')}>
+  <section class="fid" data-fish-id aria-label={t('Nhận diện qua ảnh')}>
+    <form data-form>
+      <div class="pick">
+        <label class="btn main"><input class="vh" type="file" name="camera" accept="image/*" capture="environment" /><span>{t('Chụp ảnh')}</span></label>
+        <label class="btn"><input class="vh" type="file" name="file" accept="image/*" /><span>{t('Chọn ảnh có sẵn')}</span></label>
+      </div>
+      <div class="preview" data-preview hidden></div>
+      <div class="slot">
+        <div data-turnstile></div>
+        <p class="note" data-note></p>
+      </div>
+      <button type="submit" class="go" data-go disabled>{t('Nhận diện')}</button>
+      <p class="msg" data-msg role="status" aria-live="polite"></p>
+    </form>
+    <div class="out" data-out aria-live="polite"></div>
+    <p class="privacy">{t('Ảnh không được lưu lại: ảnh được gửi tới Claude, mô hình AI của Anthropic, để nhận diện rồi bỏ đi.')} <a href="/vi/chinh-sach-bao-mat/#nhan-dien-ca">{t('Chính sách bảo mật')}</a></p>
+  </section>
+
+  <section class="tips" aria-labelledby="tips-h">
+    <h2 id="tips-h">{t('Chụp sao cho dễ nhận')}</h2>
+    <ul>{tips.map(x => <li>{x}</li>)}</ul>
+    <p class="note">{t('Công cụ chỉ đoán từ ảnh và có thể nhầm giữa các loài giống nhau. Đọc hồ sơ để đối chiếu màu, vây và kích thước trước khi mua hay thả chung.')}</p>
+  </section>
+</Browse>
+<script>
+  import { mountFishId } from '../../../scripts/fish-id'
+  document.querySelectorAll<HTMLElement>('[data-fish-id]').forEach(s => void mountFishId(s))
+</script>
+<style>
+  .fid { max-width: 44rem; }
+  form { display: grid; gap: var(--space-3); }
+  .pick { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .btn { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--space-5); border: 1px solid var(--c-ink); background: var(--c-plate); color: var(--c-ink); font-weight: 600; cursor: pointer; }
+  .btn.main { background: var(--c-ink); color: var(--c-paper); }
+  .btn:focus-within { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+  .btn[aria-disabled='true'] { opacity: 0.5; cursor: not-allowed; }
+  /* The file input stays focusable and announced; its label is the visible button. */
+  .vh { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; clip-path: inset(50%); }
+  .preview :global(img) { display: block; max-width: min(100%, 20rem); height: auto; border: 1px solid var(--c-rule); }
+  /* Turnstile's widget (65 px), or a note in its place: the same room either way, so nothing below moves. */
+  .slot { min-height: 65px; }
+  .note { color: var(--c-ink-soft); font-size: var(--step--1); max-width: var(--measure); }
+  .note:empty { display: none; }
+  .go { justify-self: start; min-height: 48px; font: 600 var(--step-0) var(--f-body); padding: 0 var(--space-6); border: 0; background: var(--c-moss); color: var(--c-paper); cursor: pointer; }
+  .go:disabled { opacity: 0.5; cursor: not-allowed; }
+  .go:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+  .msg { min-height: 1.5em; overflow-wrap: anywhere; }
+  .privacy { margin-top: var(--space-4); font-size: var(--step--1); color: var(--c-ink-soft); max-width: var(--measure); }
+  .out:empty { display: none; }
+  .out { margin-top: var(--space-4); }
+  .out :global(h2) { font-size: var(--step-2); margin-bottom: var(--space-3); }
+  .out :global(.lead) { color: var(--c-ink-soft); max-width: var(--measure); }
+  .out :global(ol) { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); }
+  .out :global(li) { display: flex; gap: var(--space-3); align-items: flex-start; padding-top: var(--space-3); border-top: 1px solid var(--c-rule); }
+  .out :global(li img) { flex: none; width: 7.5rem; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--c-plate); }
+  .out :global(li > div) { min-width: 0; }
+  .out :global(h3) { font-size: var(--step-1); margin: 0.1rem 0; }
+  .out :global(.sure) { font-size: var(--step--1); font-weight: 600; color: var(--c-moss); }
+  .out :global(.sci) { color: var(--c-ink-soft); }
+  .out :global(.why), .out :global(.also), .out :global(.miss .add) { max-width: var(--measure); }
+  .out :global(.open) { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+  .out :global(.miss .add) { color: var(--c-ink-soft); font-size: var(--step--1); }
+  .tips { max-width: 52rem; margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--c-rule); }
+  .tips h2 { font-size: var(--step-2); margin-bottom: var(--space-2); }
+  .tips ul { max-width: var(--measure); }
+</style>

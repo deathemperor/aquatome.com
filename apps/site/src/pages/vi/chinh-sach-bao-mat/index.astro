@@ -5,7 +5,7 @@ import { i18n } from '../../../lib/i18n'
 const { t } = i18n(Astro.url)
 const mail = `mailto:${CONTACT_EMAIL}`
 ---
-<Doc title={t('Chính sách bảo mật')} updated="31/10/2026" intro={t('AquaTome thu thập rất ít dữ liệu. Trang này nói rõ dữ liệu nào, để làm gì và bạn có quyền gì.')}>
+<Doc title={t('Chính sách bảo mật')} updated="02/11/2026" intro={t('AquaTome thu thập rất ít dữ liệu. Trang này nói rõ dữ liệu nào, để làm gì và bạn có quyền gì.')}>
   <p><a href="#english" lang="en">English version below.</a></p>
 
   <h2>{t('1. Chúng tôi là ai')}</h2>
@@ -16,6 +16,8 @@ const mail = `mailto:${CONTACT_EMAIL}`
   <p>{t('Khi bình luận, bạn nhập tên hiển thị và nội dung. Hai thông tin này được lưu và hiển thị công khai ngay nếu qua bộ lọc tự động; bình luận bị bộ lọc giữ lại sẽ chờ duyệt. Bình luận vi phạm bị gỡ khi kiểm duyệt hằng ngày. Chúng tôi không yêu cầu email hay tài khoản và không lưu địa chỉ IP của bạn. Để chống spam, chúng tôi lưu một mã băm một chiều của địa chỉ IP kèm ngày (không thể đảo ngược ra IP) trong 24 giờ để giới hạn số bình luận mỗi ngày.')}</p>
   <h3>{t('Ảnh bạn đọc')}</h3>
   <p>{t('Khi gửi ảnh cá lên trang loài, bạn chọn ảnh, nhập tên hiển thị và xác nhận ảnh do bạn chụp. Trình duyệt thu nhỏ ảnh và xóa thông tin kèm theo (vị trí GPS, đời máy) trước khi gửi. Ảnh gốc chờ duyệt được lưu riêng, không công khai; mỗi đêm hệ thống kiểm tra tự động (ảnh có người, đúng loài, phù hợp) bằng máy tính của chúng tôi và mô hình AI Claude của Anthropic, rồi đăng bản đã nén kèm tên bạn hoặc xóa ảnh. Ảnh gốc bị xóa ngay sau bước này. Không cần email hay tài khoản; khi gửi, bạn nhận một link riêng để tự gỡ ảnh bất cứ lúc nào.')}</p>
+  <h3 id="nhan-dien-ca">{t('Nhận diện cá qua ảnh')}</h3>
+  <p>{t('Ở công cụ nhận diện cá, trình duyệt thu nhỏ ảnh bạn chọn (bỏ luôn thông tin kèm theo như vị trí GPS) rồi gửi tới máy chủ của chúng tôi, nơi ảnh được chuyển ngay tới Claude, mô hình AI của Anthropic, để nhận diện. Chúng tôi không lưu ảnh và không ghi ảnh vào nhật ký. Anthropic xử lý ảnh theo')} <a href="https://www.anthropic.com/legal/privacy" rel="noopener">{t('chính sách bảo mật của Anthropic')}</a>. {t('Công cụ cũng dùng Cloudflare Turnstile chống bot và đếm số lượt mỗi ngày bằng mã băm một chiều của địa chỉ IP kèm ngày, lưu 24 giờ, như ô bình luận.')}</p>
   <h3>{t('Kiểm tra chống spam (Cloudflare Turnstile)')}</h3>
   <p>{t('Ô bình luận và ô gửi ảnh dùng Cloudflare Turnstile để phân biệt người thật với bot. Turnstile tải trên các trang có các ô này và xử lý một số tín hiệu từ trình duyệt theo')} <a href="https://www.cloudflare.com/turnstile-privacy-policy/" rel="noopener">{t('chính sách bảo mật của Cloudflare')}</a>.</p>
   <h3>{t('Thống kê ẩn danh')}</h3>
@@ -64,6 +66,7 @@ const mail = `mailto:${CONTACT_EMAIL}`
     <li>{t('Bình luận chờ duyệt: lưu đến khi được duyệt hoặc gỡ.')}</li>
     <li>{t('Bình luận bị gỡ: xóa vĩnh viễn sau 30 ngày.')}</li>
     <li>{t('Ảnh bạn đọc: ảnh gốc đến lần kiểm duyệt kế tiếp (thường dưới một ngày); ảnh đã đăng lưu trong thời gian hiển thị, xóa ngay khi bạn hoặc chúng tôi gỡ.')}</li>
+    <li>{t('Ảnh gửi để nhận diện cá: không lưu.')}</li>
     <li>{t('Mã băm chống spam: 24 giờ.')}</li>
     <li>{t('Thống kê ẩn danh: tối đa 3 tháng.')}</li>
     <li>{t('Tài khoản và các bể trong tài khoản: đến khi bạn xóa bể hoặc xóa tài khoản. Phiên đăng nhập: 180 ngày (ứng dụng: 365 ngày) kể từ lần dùng cuối, hoặc đến khi đăng xuất. Mã đăng nhập qua email: 15 phút.')}</li>
@@ -80,11 +83,12 @@ const mail = `mailto:${CONTACT_EMAIL}`
 
   <section id="english" lang="en">
     <h2>Privacy policy (English)</h2>
-    <p>Last updated: 31 October 2026. AquaTome (aquatome.com) is a Vietnamese-language aquarium fish and plant guide. Contact: <a href={mail}>{CONTACT_EMAIL}</a>.</p>
+    <p>Last updated: 2 November 2026. AquaTome (aquatome.com) is a Vietnamese-language aquarium fish and plant guide. Contact: <a href={mail}>{CONTACT_EMAIL}</a>.</p>
     <h3>What we process</h3>
     <ul>
       <li><strong>Comments:</strong> the display name and text you enter, shown publicly at once if they pass automatic filters; flagged comments wait for review, and comments that break the rules are removed in daily moderation. No email, account or IP address is stored. To limit spam, a one-way hash of your IP address plus the date is kept for 24 hours.</li>
       <li><strong>Reader photos:</strong> the photo, display name and your confirmation that you took it. Your browser shrinks the photo and strips its metadata (GPS position, phone model) before sending. The original waits in private storage until the nightly automatic check (people in the photo, right species, appropriate) run on our computer with Anthropic's Claude model, which publishes a compressed copy with your name or deletes it; the original is deleted right after. No email or account; you get a private link to remove the photo at any time.</li>
+      <li id="fish-id"><strong>Fish identifier:</strong> your browser shrinks the photo you pick (dropping its metadata, such as GPS position) and sends it to our server, which passes it straight to Claude, Anthropic's AI model, to identify it. We don't store the photo or write it to our logs. Anthropic processes it under <a href="https://www.anthropic.com/legal/privacy" rel="noopener">Anthropic's privacy policy</a>. The tool also uses Cloudflare Turnstile and counts uses per day with a one-way hash of your IP address plus the date, kept for 24 hours, as for comments.</li>
       <li><strong>Spam check:</strong> the comment and photo forms use Cloudflare Turnstile, which loads on pages with those forms and processes browser signals under <a href="https://www.cloudflare.com/turnstile-privacy-policy/" rel="noopener">Cloudflare's Turnstile privacy policy</a>.</li>
       <li><strong>Anonymous statistics:</strong> page path, referring site (if any), country, scroll depth, reading time, shop-link clicks and a random session ID held in session storage (cleared when you close the tab). No IP or identifying data; kept up to 3 months.</li>
       <li><strong>Shop links:</strong> clicks to Shopee, Lazada or Tiki are counted per day, page and product. The link passes through the ACCESSTRADE affiliate network (go.isclix.com), which records the click and may set a cookie to attribute the commission (<a href="https://accesstrade.vn/chinh-sach-bao-mat/" rel="noopener">ACCESSTRADE privacy policy</a>). The shop's own policy applies once you reach it.</li>
@@ -115,7 +119,7 @@ const mail = `mailto:${CONTACT_EMAIL}`
     <h3>Videos</h3>
     <p>YouTube videos load only after you press play: the player from youtube-nocookie.com and YouTube's player-control script (youtube.com/iframe_api), used to turn on Vietnamese captions and jump to chapters. Before that only a preview image from YouTube's image server is shown.</p>
     <h3>Retention</h3>
-    <p>Approved comments: while they are shown. Comments awaiting review: until approved or removed. Removed comments: deleted after 30 days. Reader photos: originals until the next moderation run (usually under a day); published photos while shown, deleted at once when you or we remove them. Spam-check hash: 24 hours. Anonymous statistics: up to 3 months. Accounts and the tanks in them: until you delete the tank or the account. Sign-in sessions: 180 days (app: 365 days) from last use, or until you sign out. Email sign-in codes: 15 minutes. Automatic database backups: up to 30 days, after which deleted data is gone for good.</p>
+    <p>Approved comments: while they are shown. Comments awaiting review: until approved or removed. Removed comments: deleted after 30 days. Reader photos: originals until the next moderation run (usually under a day); published photos while shown, deleted at once when you or we remove them. Photos sent to the fish identifier: not stored. Spam-check hash: 24 hours. Anonymous statistics: up to 3 months. Accounts and the tanks in them: until you delete the tank or the account. Sign-in sessions: 180 days (app: 365 days) from last use, or until you sign out. Email sign-in codes: 15 minutes. Automatic database backups: up to 30 days, after which deleted data is gone for good.</p>
     <h3>Your rights</h3>
     <p>You can access, correct or delete your data, or withdraw consent, under Vietnam's Personal Data Protection Law (2025) and Decree 356/2025/ND-CP and, where it applies, the GDPR. With an account, export your data, edit your tanks and delete the account yourself on the My tanks page. Comments and photos are not tied to an email or account: include the page URL, display name and comment text in your request to <a href={mail}>{CONTACT_EMAIL}</a>.</p>
   </section>
