@@ -1,6 +1,6 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-01). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-02). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | At target | Below |
 | --- | --- | --- | --- | --- | --- |

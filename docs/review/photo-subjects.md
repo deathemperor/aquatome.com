@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-01), most-read pages first. Rules: docs/governance.md, "Photos".
-2381 verdicts. Shows it: 1804; its habitat: 40; something else: 82; not a photo of it: 47; can't tell: 402.
+Written by `pnpm engine check-photos` (2026-11-02), most-read pages first. Rules: docs/governance.md, "Photos".
+2381 verdicts. Shows it: 1804; its habitat: 40; something else: 82; not a photo of it: 47; can't tell: 400.
 
 ## Left with no photo (4)
 
@@ -10,7 +10,7 @@ Written by `pnpm engine check-photos` (2026-11-01), most-read pages first. Rules
 - plants/vesicularia-montagnei
 - species/nemacheilus-guentheri
 
-## Can't tell: still shown (402)
+## Can't tell: still shown (400)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -225,7 +225,6 @@ Written by `pnpm engine check-photos` (2026-11-01), most-read pages first. Rules
 | species/maylandia-estherae | [photo](https://media.aquatome.com/inaturalist/258281751.webp) | pale pinkish-white mbuna, possibly washed-out red zebra but could be another pink/albino mbuna |
 | plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/cryptspages/nur_B802_x_2494.webp) | dark narrow-leaved Cryptocoryne in dry grass in the wild; can't confirm the species |
 | species/hyphessobrycon-amandae | [photo](https://media.aquatome.com/inaturalist/63005894.webp) | dull, blurry greenish-brown tetra; poor view |
-| species/hyphessobrycon-amandae | [photo](https://media.aquatome.com/seriouslyfish/781b2d38d6c9d934.webp) | two dull brownish-gold small tetras, little orange; can't confirm ember |
 | plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B195_834.webp) | close-up of green Cryptocoryne spathe only; can't identify species |
 | plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B195_835.webp) | dissected Cryptocoryne spathe kettle showing spadix; not identifiable |
 | plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B31_206.webp) | emersed potted Cryptocoryne with pale twisted spathe; species not verifiable |
@@ -362,7 +361,6 @@ Written by `pnpm engine check-photos` (2026-11-01), most-read pages first. Rules
 | species/betta-raja | [photo](https://media.aquatome.com/seriouslyfish/28633fdb649634f5.webp) | Clear side view of a golden-brown mouthbrooding betta with rows of spots and a yellow throat, but no turquoise gill-cove |
 | species/betta-uberis | [photo](https://media.aquatome.com/bwaquatics/7de3e867c1a9cce1.webp) | slender red coccina-group betta with green flank patch; could be B. coccina-type, not sure it's uberis |
 | species/boraras-merah | [photo](https://media.aquatome.com/commons/0100ace42ee6de22.webp) | pale fish with long dark mid-lateral band instead of the round blotch; possibly a female or another Boraras |
-| species/boraras-naevus | [photo](https://media.aquatome.com/glaser/b2f884dbe64c959e.webp) | pale, washed-out fish with no clear body blotch; could be Boraras micros |
 | species/brachyplatystoma-vaillantii | [photo](https://media.aquatome.com/commons/fe091f77544a4b75.webp) | silvery long-snouted catfish; could be another Brachyplatystoma or a related look-alike |
 | species/brachyrhamdia-heteropleura | [photo](https://media.aquatome.com/scotcat/9e89565040d8857e.webp) | slender greenish long-whiskered catfish, no clear black side stripe; could be a Pimelodella-type look-alike |
 | species/brachyrhamdia-heteropleura | [photo](https://media.aquatome.com/scotcat/d6468868164d0851.webp) | pale tan heptapterid catfish on sand with dark shoulder blotch; no clear black side stripe for B. heteropleura |
