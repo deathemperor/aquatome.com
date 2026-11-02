@@ -14,8 +14,8 @@
       "test": "PerformanceTests/testFlingingThroughTheFish()",
       "metric": "com.apple.dt.XCTMetric_CPU-com.aquatome.app.time",
       "unit": "s",
-      "max": 3.4,
-      "reason": "raised 2026-11-01 from 2.2 s: not slower code but other runners. Main and the commit before the tanks tab measure the same on one machine (1.97 s vs 1.94 s), while CI medians on different hosted runners ran 1.44–2.72 s. Budget: the slowest seen, 2.72 s, ×1.25. It catches a list that gets about half again slower; anything finer needs both builds measured on one runner"
+      "max": 4.4,
+      "reason": "raised 2026-11-02 from 3.4 s: other runners again, not slower code. The same app measured 2.846 s on PR #383 (6956b0b8) and 3.466 s on main after it (5c64e307); #375 measured 2.873 s on its PR (b041bcc4) and 3.527 s on main after it (2cd2ee1d), where its only change runs when a test opens a web page, which this test doesn't. Launch rose on the same runners (5.21 and 5.86 s, against 3.79–4.62 s on the others). Hosted runners have now read 2.12–3.53 s with nothing in the fling changed. Raised on 2026-11-01 from 2.2 s for the same reason (1.44–2.72 s then). Budget: the slowest seen, 3.527 s, ×1.25. Next: measure the fling against a fixed piece of work on the same runner, so the runner's speed cancels out and a smaller slowdown is caught"
     },
     {
       "name": "Memory at its peak while flinging through 800 fish",
