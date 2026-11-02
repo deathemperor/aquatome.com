@@ -7,12 +7,8 @@ set -euo pipefail
 export PATH="${PATH:+$PATH:}$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 cd "$(dirname "$0")/.."
 log() { echo "$(date -u +%FT%TZ) $*"; }
-# Backstop for the GitHub engine: its cron dropped every slot on 2026-10-30, so start it when nothing ran for 3 hours.
-# A cycle is a run over 10 minutes long or still going: engine.yml's hourly checks that found none due end in seconds.
-last="$(gh run list -R deathemperor/aquatome.com -w engine.yml -L 30 --json createdAt,updatedAt,status -q '[.[] | select(.status != "completed" or ((.updatedAt | fromdateiso8601) - (.createdAt | fromdateiso8601)) > 600) | .createdAt] | max // empty' 2>/dev/null || true)"
-if [ -n "$last" ] && [ $(( $(date -u +%s) - $(date -ju -f %Y-%m-%dT%H:%M:%SZ "$last" +%s) )) -gt 10800 ]; then
-  gh workflow run engine.yml -R deathemperor/aquatome.com && log "engine: started on GitHub (last run $last)" || log "engine: could not start it"
-fi
+# The GitHub engine's clock (it also runs hourly on its own, when installed): a cycle when none started for 2 h 50 min.
+scripts/engine-due.sh || log "engine: the due check failed"
 # Shared with manual engine runs in this clone, so the two never touch the tree at once.
 PIDFILE="${TMPDIR:-/tmp}/thuysinh-engine.pid"
 if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then log "another engine job (pid $(cat "$PIDFILE")) is running"; exit 0; fi
