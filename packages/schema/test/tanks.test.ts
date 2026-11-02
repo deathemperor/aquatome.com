@@ -10,6 +10,7 @@ type Rec = { id: string; updatedAt: string; deletedAt?: string }
 type Vectors = {
   valid: { note: string; kind: Kind; value: unknown }[]
   invalid: { note: string; kind: Kind; value: unknown; path: (string | number)[] }[]
+  invalidUnlisted: Vectors['invalid']
   merge: { note: string; kept: Rec[]; incoming: Rec[]; expected: Rec[] }[]
   mergeStores: { note: string; kept: TankStore; incoming: TankStore; expected: TankStore }[]
   stamp: { note: string; now: string; prev: string | null; updatedAt: string }[]
@@ -26,10 +27,17 @@ test.each(v.valid)('accepts $note', ({ kind, value }) => {
   expect(SCHEMAS[kind].parse(value)).toEqual(value)
 })
 
-test.each(v.invalid)('rejects $note', ({ kind, value, path }) => {
+test.each([...v.invalid, ...v.invalidUnlisted])('rejects $note', ({ kind, value, path }) => {
   const r = SCHEMAS[kind].safeParse(value)
   expect(r.success).toBe(false)
   expect(r.error!.issues.map(i => i.path)).toContainEqual(path)
+})
+
+// An app from before entries without a page keeps them as a key it doesn't know: saving its copy loses none of them.
+const older = Tank.omit({ unlisted: true })
+test.each(v.valid.filter(c => c.kind === 'tank' && 'unlisted' in (c.value as object)))('a decoder older than `unlisted` keeps it: $note', ({ value }) => {
+  expect(older.shape).not.toHaveProperty('unlisted')
+  expect(JSON.parse(JSON.stringify(older.parse(value)))).toEqual(value)
 })
 
 test.each(v.merge)('merge: $note', ({ kept, incoming, expected }) => {
@@ -113,6 +121,6 @@ test('the JSON Schema accepts every valid case and refuses the invalid ones it c
   ajv.addSchema(doc, 'tanks')
   const check = (kind: Kind, value: unknown) => ajv.validate({ $ref: `tanks#/$defs/${({ tank: 'Tank', device: 'Device', tankRecord: 'TankRecord', store: 'TankStore' })[kind]}` }, value)
   for (const c of v.valid) expect(check(c.kind, c.value), c.note).toBe(true)
-  const accepted = v.invalid.filter(c => check(c.kind, c.value)).map(c => c.note)
+  const accepted = [...v.invalid, ...v.invalidUnlisted].filter(c => check(c.kind, c.value)).map(c => c.note)
   expect(accepted.sort()).toEqual(Object.keys(LOOSER).sort())
 })

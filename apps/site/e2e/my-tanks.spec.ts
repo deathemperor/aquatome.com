@@ -173,3 +173,118 @@ test('drawn before the page script runs, so nothing jumps: a first visit has the
   await expect(page.locator('#mt-empty')).toBeVisible()
   await expect(page.locator('#mt-loading')).toBeHidden()
 })
+
+// Entries without a page: what the handbook has no page for yet, added by name. The count request is answered here, never
+// sent: the same check runs on aquatome.com (watch.yml), where it would count a test as a reader.
+async function countRequests(page: import('@playwright/test').Page) {
+  const bodies: unknown[] = []
+  await page.route('**/api/v1/wanted', async route => { bodies.push(route.request().postDataJSON()); await route.fulfill({ status: 204 }) })
+  return bodies
+}
+const seeded = (page: import('@playwright/test').Page, store: object) =>
+  page.addInitScript(s => { if (!sessionStorage.getItem('seeded')) { localStorage.setItem('aq.tanks', s); sessionStorage.setItem('seeded', '1') } }, JSON.stringify(store))
+
+test('a fish the handbook has no page for: added by name, marked, counted once saved (its names only); taken off again', async ({ page, errors }) => {
+  const bodies = await countRequests(page)
+  await seeded(page, { v: 1, tanks: [{ id: id(1), name: 'Bể suối', species: [], plants: [], createdAt: at, updatedAt: at }], devices: [] })
+  await page.goto(PAGE)
+  await page.locator('.tank [data-edit]').first().click()
+  const q = page.locator('#mt-q')
+  await q.fill('Cá bống suối thử')
+  // Always the last suggestion: what was typed, without a page.
+  const add = page.locator('#mt-opts [role=option].new')
+  await expect(add).toHaveText('Thêm “Cá bống suối thử” (chưa có trong cẩm nang)')
+  await expect(page.locator('#mt-opts [role=option]').last()).toHaveClass(/new/)
+  await add.click()
+  const sheet = page.locator('[data-life-new]')
+  await expect(sheet).toBeVisible()
+  await expect(sheet.locator('input[name=uname]')).toHaveValue('Cá bống suối thử')
+  await expect(sheet.locator('input[name=ukind][value=fish]')).toBeChecked()
+  await sheet.locator('input[name=usci]').fill('Rhinogobius aquatomensis')
+  await sheet.locator('input[name=ucount]').fill('3')
+  await sheet.locator('[data-life-add]').click()
+  await expect(sheet).toBeHidden()
+  const row = page.locator('.life-rows li', { hasText: 'Cá bống suối thử' })
+  await expect(row.locator('.tag')).toHaveText('chưa có trang')
+  await expect(row.locator('input[type=number]')).toHaveValue('3')
+  // The form fits a phone with its new rows (no sideways scroll).
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
+  expect(bodies).toEqual([]) // nothing is sent before the tank is saved
+
+  await page.locator('#mt-form button[type=submit]').click()
+  const chip = page.locator('.tank .chips li.unlisted')
+  await expect(chip).toContainText('Cá bống suối thử')
+  await expect(chip).toContainText('× 3')
+  await expect(chip.locator('.tag')).toHaveText('chưa có trang')
+  await expect.poll(() => bodies).toEqual([{ kind: 'fish', name: 'Cá bống suối thử', sci: 'Rhinogobius aquatomensis' }])
+  const saved = (await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))).tanks[0]
+  expect(saved.unlisted).toEqual([{ id: expect.stringMatching(/^[0-9a-f-]{36}$/), kind: 'fish', name: 'Cá bống suối thử', sci: 'Rhinogobius aquatomensis', count: 3 }])
+  await page.reload()
+  await expect(page.locator('.tank .chips li.unlisted')).toContainText('Cá bống suối thử')
+
+  // Taken off like any fish: in the tank's form, then saved. Nothing more is sent.
+  await page.locator('.tank [data-edit]').first().click()
+  await page.locator('.life-rows li', { hasText: 'Cá bống suối thử' }).locator('[data-rm]').click()
+  await expect(page.locator('.life-rows li')).toHaveCount(0)
+  await page.locator('#mt-form button[type=submit]').click()
+  await expect(page.locator('.tank .chips')).toHaveCount(0)
+  const after = (await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))).tanks[0]
+  expect(after).not.toHaveProperty('unlisted')
+  expect(bodies).toHaveLength(1)
+  expect(errors).toEqual([])
+})
+
+test('an entry a page has the scientific name of is shown as that page; a plant without a page goes with the plants; a page fish added by search', async ({ page, errors }) => {
+  const bodies = await countRequests(page)
+  // A fish the handbook has a page for, as this site's own index lists it (fixture build and live alike).
+  const index = (await (await page.request.get('/app/vi.json')).json()) as { items: { kind: string; id?: string; name: string; sub?: string; path: string; schoolMin?: number }[] }
+  const fish = index.items.find(i => i.kind === 'fish' && i.id && i.sub)!
+  await seeded(page, {
+    v: 1, devices: [],
+    tanks: [{
+      id: id(1), name: 'Bể hỗn hợp', species: [], plants: [], createdAt: at, updatedAt: at,
+      unlisted: [
+        { id: id(2), kind: 'fish', name: 'Cá ông chủ cho', sci: `  ${fish.sub!.toLowerCase()} `, count: 4 },
+        { id: id(3), kind: 'plant', name: 'Rêu suối thử' },
+      ],
+    }],
+  })
+  await page.goto(PAGE)
+  const tank = page.locator('.tank')
+  const linked = tank.locator('.chips li', { has: page.locator(`a[href="${fish.path}"]`) })
+  await expect(linked.locator('a')).toHaveText(fish.name)
+  await expect(linked).toContainText('× 4')
+  const plants = tank.locator('.life', { has: page.locator('h3', { hasText: 'Cây' }) })
+  await expect(plants.locator('li.unlisted')).toContainText('Rêu suối thử')
+  await expect(plants.locator('.tag')).toHaveText('chưa có trang')
+
+  // The same fish found by its name: a page entry, at its school size; the tank keeps what the reader wrote as well.
+  await page.locator('.tank [data-edit]').first().click()
+  await page.locator('#mt-q').fill(fish.name)
+  const hit = page.locator('#mt-opts [role=option]:not(.new)', { hasText: fish.name }).first()
+  await expect(hit).toBeVisible()
+  await hit.click()
+  await expect(page.locator(`.life-rows a[href="${fish.path}"]`)).toHaveCount(2)
+  await page.locator('#mt-form button[type=submit]').click()
+  await expect(tank.locator('.chips a', { hasText: fish.name })).toHaveCount(2)
+  const saved = (await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))).tanks[0]
+  expect(saved.species).toEqual([{ id: fish.id, count: fish.schoolMin ?? 1 }])
+  expect(saved.unlisted).toHaveLength(2)
+  expect(bodies).toEqual([]) // only entries added now, without a page, are counted
+  expect(errors).toEqual([])
+})
+
+test('fish another tab put on the tank while its form was open stay when the form saves without touching its fish', async ({ page, errors }) => {
+  await seeded(page, { v: 1, tanks: [{ id: id(1), name: 'Bể', species: [], plants: [], createdAt: at, updatedAt: at }], devices: [] })
+  await page.goto(PAGE)
+  await page.locator('.tank [data-edit]').first().click()
+  await expect(page.locator('#mt-life')).toBeVisible()
+  await page.locator('#mt-form input[name=name]').fill('Bể đổi tên')
+  // The tank-mates tool, in another tab, saves fish onto the same tank.
+  await page.evaluate(([tid, when]) => localStorage.setItem('aq.tanks', JSON.stringify({ v: 1, tanks: [{ id: tid, name: 'Bể', species: [{ id: 'paracheirodon-axelrodi', count: 10 }], plants: [], createdAt: when, updatedAt: '2026-10-31T09:00:00.000Z' }], devices: [] })), [id(1), at])
+  await page.locator('#mt-form button[type=submit]').click()
+  await expect(page.locator('.tank h2')).toHaveText('Bể đổi tên')
+  const t = (await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))).tanks[0]
+  expect(t.species).toEqual([{ id: 'paracheirodon-axelrodi', count: 10 }])
+  expect(errors).toEqual([])
+})

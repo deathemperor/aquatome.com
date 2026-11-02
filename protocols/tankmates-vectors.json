@@ -1,5 +1,5 @@
 {
-  "$comment": "A saved tank checked as the site's tank-mates tool checks the fish chosen there (apps/site/src/scripts/tank-check.ts, from tankmates.ts, stocking.ts and calc.ts). The site's tests run that code on these cases, and the iOS app's tests run the same code bundled (apps/ios/AquaTomeKit/Sources/TankCheck/tank-check.js) in JavaScriptCore: both must answer `check` exactly. `fish`: each one's name and tank-mates figures as the app index gives them, and `count` when the tank has one. `size`: the tank's inside size (cm) and its own litres, either or both.",
+  "$comment": "A saved tank checked as the site's tank-mates tool checks the fish chosen there (apps/site/src/scripts/tank-check.ts, from tankmates.ts, stocking.ts and calc.ts). The site's tests run that code on these cases, and the iOS app's tests run the same code bundled (apps/ios/AquaTomeKit/Sources/TankCheck/tank-check.js) in JavaScriptCore: both must answer `check` exactly. `fish`: each one's name and tank-mates figures as the app index gives them, and `count` when the tank has one. `size`: the tank's inside size (cm) and its own litres, either or both. `unlisted`: the names of the tank's fish without a page (its entries without one), which no check counts; `check.unchecked` names them.",
   "cases": [
     {
       "note": "a discus could eat harlequins and wants warmer water than neons; the tank is too short for it",
@@ -583,6 +583,64 @@
             "Cá oscar cần bể dài từ 180 cm."
           ]
         }
+      }
+    },
+    {
+      "note": "a fish without a page (an entry the reader added by name) is left out of every check and named in one line",
+      "lang": "vi",
+      "fish": [
+        {
+          "name": "Cá neon",
+          "tempC": {
+            "min": 20,
+            "max": 26
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "sizeCm": 4,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 6,
+          "count": 10
+        }
+      ],
+      "unlisted": [
+        "Cá bống mắt tre",
+        "Cá lạ"
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [],
+        "stocking": {
+          "percent": 37,
+          "level": "light",
+          "text": "37% · Còn thưa: thả thêm được.",
+          "notes": []
+        },
+        "unchecked": "Chưa kiểm tra Cá bống mắt tre, Cá lạ: cẩm nang chưa có trang nên chưa có số liệu để so."
+      }
+    },
+    {
+      "note": "only fish without a page: nothing to check, the line says why",
+      "lang": "vi",
+      "fish": [],
+      "unlisted": [
+        "Cá bống mắt tre"
+      ],
+      "size": {
+        "litres": 54
+      },
+      "check": {
+        "warnings": [],
+        "unchecked": "Chưa kiểm tra Cá bống mắt tre: cẩm nang chưa có trang nên chưa có số liệu để so."
       }
     },
     {

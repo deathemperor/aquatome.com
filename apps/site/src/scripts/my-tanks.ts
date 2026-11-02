@@ -1,5 +1,6 @@
-import type { Device, SavedSchedule, Tank } from '@aq/schema'
+import type { Device, SavedSchedule, Tank, UnlistedEntry } from '@aq/schema'
 import { tankLitres } from '@aq/schema/tank-rules'
+import { pageMatcher } from '@aq/schema/unlisted'
 import { modelOf, type Channel } from './chihiros'
 import { css, curve, mix, toMin } from './light-view'
 import { msg } from '../i18n/msg'
@@ -39,3 +40,23 @@ export function dayPicture(s: Pick<SavedSchedule, 'on' | 'off' | 'ramp' | 'level
   const light = mix(channels, s.levels)
   return { path: curve(on, off, s.ramp, Math.max(0.15, light.power), h), colour: css(light.rgb), hours: (off - on) / 60 }
 }
+
+/** An item of the handbook's index (/app/<lang>.json, lib/app-index.ts) as this page reads it. */
+export type IndexItem = { kind: string; id?: string; name: string; sub?: string; aka?: string[]; path: string; schoolMin?: number }
+type Page = IndexItem & { id: string; kind: 'fish' | 'plant' }
+/** A plant's other names hold its former scientific names (lib/app-index.ts): those that read like one. */
+const LATIN = /^[A-Z][a-z]+ [a-z]/
+
+/**
+ * The index's fish and plants, and the page an entry without a page is shown as (@aq/schema/unlisted: the page with its
+ * scientific name, or a plant's former one). Only what is shown: the tank keeps the entry as the reader wrote it.
+ */
+export function handbook(items: IndexItem[]) {
+  const pages = items.filter((i): i is Page => !!i.id && (i.kind === 'fish' || i.kind === 'plant'))
+  const find = pageMatcher(pages.map(p => ({ ...p, sci: p.sub, synonyms: p.kind === 'plant' ? p.aka?.filter(a => LATIN.test(a)) : undefined })))
+  return { pages, match: (e: Pick<UnlistedEntry, 'kind' | 'sci'>) => find(e.kind, e.sci) }
+}
+
+/** Which of a tank's entries without a page go with its fish (anything that isn't a plant, a kind from a newer app too). */
+export const unlistedOf = (t: Pick<Tank, 'unlisted'>, plants: boolean) => (t.unlisted ?? []).filter(u => (u.kind === 'plant') === plants)
+

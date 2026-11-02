@@ -62,6 +62,7 @@ import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
 import { ArchiveFetcher } from './archive'
 import { localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
 import { addShopNames, makeShopList, popularFirst, type ShopLang } from './shops'
+import { abNamespace, listReaderWants } from './readers-wanted'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
@@ -81,6 +82,21 @@ const media = () => r2Media({
   accountId: conf('CF_ACCOUNT_ID', 'cf-account'), token: conf('CLOUDFLARE_API_TOKEN', 'cf-token'),
   bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
+
+/**
+ * Names readers keep on their tanks without a page, from the site's KV (readers-wanted.ts), with the Cloudflare token
+ * (env, else ~/.config/thuysinh/cf-token; never printed). Without one the engine goes on without them, saying nothing.
+ */
+const readersWanted = (() => {
+  let token: string | undefined
+  try { token = conf('CLOUDFLARE_API_TOKEN', 'cf-token') || undefined } catch { /* no token here */ }
+  if (!token) return undefined
+  return async () => {
+    const namespace = await abNamespace(ROOT)
+    if (!namespace) throw new Error('no AB namespace in apps/site/wrangler.jsonc')
+    return listReaderWants({ accountId: conf('CF_ACCOUNT_ID', 'cf-account'), namespace, token })
+  }
+})()
 
 const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' } } })
 
@@ -149,7 +165,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   await fetcher.open()
   try {
     const report = await runEngine(
-      { fetcher, archive: new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA }), llm: claudeCli, http, media: media(), root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)) },
+      { fetcher, archive: new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA }), llm: claudeCli, http, media: media(), root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), readersWanted },
       // card-fill: CARD_FILL_LIMIT (engine-cycle.sh) pages a source, 10 by default.
       { sources, limit: values.limit ? Number(values.limit) : cmd === 'card-fill' ? 10 : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined, only: values.only ? new RegExp(values.only) : undefined, retryBlocked: values['retry-blocked'], force: values.force, cardFill: cmd === 'card-fill' },
     )
@@ -318,7 +334,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // docs/review/content-rules.md (reports only; nothing is hidden). --fix: first the rules' safe fixes on the stored text,
   // as the engine makes them when it writes a page (after a fix is added to sanitize.ts tidyHtml).
   if (values.fix) for (const f of await fixStored(join(ROOT, 'content'))) console.log(`fixed: ${f}`)
-  const { rows, markdown } = await auditPictures(join(ROOT, 'content'), join(ROOT, 'engine-state/_wanted.json'))
+  const { rows, markdown } = await auditPictures(join(ROOT, 'content'), join(ROOT, 'engine-state/_wanted.json'), join(ROOT, 'engine-state/_readers-wanted.json'))
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
   await writeFile(join(ROOT, 'docs/review/content-audit.md'), markdown)
   console.log(`audit: ${rows.length} pages, ${rows.filter(r => !r.photos).length} without a photo, ${rows.filter(r => r.missingThumbs).length} missing thumbs, ${rows.filter(r => r.photos === 1).length} with one photo`)

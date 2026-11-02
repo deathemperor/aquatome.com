@@ -17,3 +17,4 @@ export { headingRoles, OWN_NUMBER, ownNumber, type HeadingRole } from './heading
 export { COOKIE_PHOTO_HOSTS, MEDIA_HOST, setsCookies, THUMB_WIDTH, thumbOf } from './thumb'
 export { hashDistance, PictureSet, pictureOf, SAME_PICTURE, type PictureHashes } from './pictures'
 export * from './tanks'
+export { pageMatcher, sciKey, type MatchPage } from './unlisted'

@@ -24,6 +24,7 @@ import { BROWSER_GONE, attemptsAfter, errorKind, loadState, needsFetch, saveStat
 import { findVideos } from './videos'
 import { popularFirst } from './shops'
 import { acceptedNames, addSourceNames, candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
+import { addReaders, readersReport, type ReaderRow, type ReaderWant } from './readers-wanted'
 
 export type Deps = {
   fetcher: Pick<ChromeFetcher, 'get' | 'text' | 'links' | 'bytes'>
@@ -35,6 +36,8 @@ export type Deps = {
   now: () => Date
   root: string
   sleep: (ms: number) => Promise<void>
+  /** Names readers keep on their tanks without a page (readers-wanted.ts): absent without the Cloudflare token. */
+  readersWanted?: () => Promise<ReaderWant[]>
 }
 type Counts = { discovered: number; fetched: number; processed: number; skipped: number; blocked: number; errors: number }
 export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport }
@@ -158,10 +161,15 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   // Shops' species first, then the most-kept fish (shops.ts), under the names GBIF accepts, as their pages would be kept.
   const listed = await popularFirst(root)
   const popular = await soft('popular names', () => acceptedNames(listed, gbif), listed)
+  /** Readers' names and what became of them; undefined when they couldn't be read (the last report stays). */
+  let readerRows: ReaderRow[] | undefined
   const wanted = await soft('wanted species', async () => {
     const words = new Set((await readFile('/usr/share/dict/words', 'utf8').catch(() => '')).split('\n').map(w => w.trim().toLowerCase()))
     const have = new Set([...(await s.ids('species')), ...(await s.ids('plants'))])
     const w = withPopular(await resolveWanted(await candidates(contentRoot, x => words.has(x)), have, gbif, n => n in gbifNames), have, popular)
+    // What readers keep on their tanks without a page, most readers first (they go before every other wanted page).
+    const wants = deps.readersWanted ? await soft('readers wanted', deps.readersWanted, undefined) : undefined
+    if (wants) readerRows = await addReaders(w, wants, have, gbif, n => n in gbifNames)
     await keepGbifNames()
     return w
   }, new Map() as Wanted)
@@ -382,6 +390,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     }
   }
   report.depth = await soft('depth report', async () => { const t = await thinSpecies(contentRoot, popularityOrder(popular)); return depthReport(t.pages, t.thin) }, undefined)
-  await soft('wanted report', () => writeJson(join(root, 'engine-state/_wanted.json'), Object.fromEntries([...wanted].map(([slug, w]) => [slug, { name: w.name, mentionedIn: w.mentionedIn.slice(0, 5), mentions: w.mentionedIn.length, ...(onSource[slug] ? { onSource: onSource[slug] } : {}) }]))), undefined)
+  await soft('wanted report', () => writeJson(join(root, 'engine-state/_wanted.json'), Object.fromEntries([...wanted].map(([slug, w]) => [slug, { name: w.name, mentionedIn: w.mentionedIn.slice(0, 5), mentions: w.mentionedIn.length, ...(w.readers ? { readers: w.readers } : {}), ...(onSource[slug] ? { onSource: onSource[slug] } : {}) }]))), undefined)
+  if (readerRows) { const rows = readerRows; await soft('readers wanted report', () => writeJson(join(root, 'engine-state/_readers-wanted.json'), readersReport(rows)), undefined) }
   return report
 }

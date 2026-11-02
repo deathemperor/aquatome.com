@@ -91,6 +91,45 @@
             "additionalProperties": {}
           }
         },
+        "unlisted": {
+          "maxItems": 100,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "name": {
+                "type": "string",
+                "maxLength": 80,
+                "pattern": "\\S"
+              },
+              "sci": {
+                "type": "string",
+                "maxLength": 120,
+                "pattern": "\\S"
+              },
+              "count": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9999
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "name"
+            ],
+            "additionalProperties": {}
+          }
+        },
         "notes": {
           "type": "string",
           "maxLength": 4000

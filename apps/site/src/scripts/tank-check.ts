@@ -28,6 +28,8 @@ export type TankCheck = {
   minTank?: string
   /** No fish with a size: nothing to fill the tank with, so no meter; the fish it couldn't count. */
   unsized?: string
+  /** Fish on the tank the handbook has no page for (its entries without a page): which ones weren't checked, and why. */
+  unchecked?: string
 }
 
 type Esc = (s: string) => string
@@ -50,8 +52,12 @@ export const stockingNotes = (s: ReturnType<typeof stocking>, ct: T, fmt: (n: nu
 ]
 const unsizedNote = (names: string[], ct: T, esc: Esc = same) => ct('Chưa có kích thước của {names}: chưa tính vào mật độ.', { names: names.map(esc).join(', ') })
 
-/** `fmt`: numbers as the page writes them in its language (Intl.NumberFormat, at most `d` decimals). */
-export function tankCheck(fish: TankFish[], size: TankSize, ct: T, fmt: (n: number, d?: number) => string): TankCheck {
+/**
+ * `fmt`: numbers as the page writes them in its language (Intl.NumberFormat, at most `d` decimals). `unlisted`: the names
+ * of the tank's fish without a page (`unlisted` in the tank model): no figures to check them by, so they're left out of
+ * every check and named in `unchecked`.
+ */
+export function tankCheck(fish: TankFish[], size: TankSize, ct: T, fmt: (n: number, d?: number) => string, unlisted: string[] = []): TankCheck {
   // The tool's checks read only these fields.
   const mates = fish as SpeciesIndexItem[]
   const r = checkTankmates(mates, ct)
@@ -76,6 +82,7 @@ export function tankCheck(fish: TankFish[], size: TankSize, ct: T, fmt: (n: numb
   if (!size.dims && r.minTankCm) {
     out.minTank = ct('Bể dài tối thiểu cho cả nhóm: <strong>{n} cm</strong>.', { n: fmt(r.minTankCm) }).replace(/<\/?strong>/g, '')
   }
+  if (unlisted.length) out.unchecked = ct('Chưa kiểm tra {names}: cẩm nang chưa có trang nên chưa có số liệu để so.', { names: unlisted.join(', ') })
   return out
 }
 

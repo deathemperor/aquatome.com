@@ -95,7 +95,7 @@ export function forget(s: TankStore, id: string, env: Env = browser()) {
 export const activeSchedule = (d: Device) => d.schedules?.find(x => x.id === d.activeScheduleId)
 
 /** The fields of a tank a reader edits on "Bể của tôi", or a tool saves to it (save-to-tank.ts). */
-export type TankFields = Pick<Tank, 'name'> & Partial<Pick<Tank, 'dims' | 'litres' | 'substrate' | 'notes' | 'species'>>
+export type TankFields = Pick<Tank, 'name'> & Partial<Pick<Tank, 'dims' | 'litres' | 'substrate' | 'notes' | 'species' | 'plants' | 'unlisted'>>
 
 /**
  * A new tank, or the saved one with the given fields changed (a field given as undefined is removed; other keys stay).
@@ -110,7 +110,7 @@ export function putTank(s: TankStore, fields: TankFields, id?: string, env: Env 
   // `dims` is merged, not replaced: keys another client added to it stay (docs/my-tanks-sync.md).
   const dims = fields.dims ? { dims: { ...kept?.dims, ...fields.dims } } : {}
   const next = { species: [], plants: [], createdAt: at, ...kept, ...fields, ...dims, id: kept?.id ?? id ?? env.uuid(), name: fields.name.trim(), updatedAt: at } as Tank
-  for (const k of ['dims', 'litres', 'substrate', 'notes'] as const) if (k in fields && (fields[k] === undefined || fields[k] === '')) delete next[k]
+  for (const k of ['dims', 'litres', 'substrate', 'notes', 'unlisted'] as const) if (k in fields && (fields[k] === undefined || fields[k] === '')) delete next[k]
   if (i >= 0) s.tanks[i] = next
   else s.tanks.push(next)
   return next

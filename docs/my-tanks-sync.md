@@ -13,7 +13,9 @@ is never written over.
 
 - Schema: `packages/schema/src/tanks.ts` (zod). JSON Schema for other languages: `protocols/tanks.schema.json`
   (generated; a test fails when it is stale).
-- Test cases both clients run: `protocols/tanks-vectors.json` (`valid`, `invalid`, `merge`, `litres`).
+- Test cases both clients run: `protocols/tanks-vectors.json` (`valid`, `invalid`, `merge`, `litres`; `invalidUnlisted`
+  for entries without a page, until the app reads them), and `protocols/unlisted-vectors.json` (which page such an entry
+  is shown as).
 
 ## Records
 
@@ -22,7 +24,7 @@ levels on the phone can't overwrite the tank's notes edited on the web at the sa
 
 | Record | Holds |
 | --- | --- |
-| Tank | name, `dims` (inside L × W × H, cm) and/or `litres`, substrate, species `{id, count?}` and plants `{id}` by page id, notes |
+| Tank | name, `dims` (inside L × W × H, cm) and/or `litres`, substrate, species `{id, count?}` and plants `{id}` by page id, `unlisted` (fish and plants with no page yet), notes |
 | Device | `tankId`, kind (`light`, `plug`), brand, model, nickname. Lights: Bluetooth name, saved schedules, last manual levels, last clock sync. Plugs: the maker's device id (`remoteId`) and the outlets named on the tank (`outlets`: code, role, label; docs/smart-plugs.md) |
 | Tombstone | `{ id, updatedAt, deletedAt }` and nothing else: what is left of a deleted tank or device |
 
@@ -37,6 +39,7 @@ What we wrote is the only record of them: `schedules`, `activeScheduleId` and `m
 - **Timestamps**: real UTC instants with milliseconds, exactly `2026-10-31T12:00:00.000Z`. One form only, so comparing the strings
   compares the times on every platform.
 - **Species and plants** are page ids (`paracheirodon-axelrodi`), the same in every language, never slugs or names.
+  What the handbook has no page for yet goes in `unlisted`, by name (below).
 - **Litres**: `litres` when set (round and corner tanks, from the volume tool), else `l × w × h / 1000` of `dims`.
 - **Open values**: `kind`, `brand`, `substrate` and an outlet's `role` are strings with known values (`KNOWN` in the schema). A client shows
   a value it doesn't know as it is and keeps it.
@@ -51,6 +54,40 @@ What we wrote is the only record of them: `schedules`, `activeScheduleId` and `m
 - **Schedules**: `on`/`off` as `HH:MM`; `off` of `00:00` means midnight at the end of the day; `off` after `on` the same
   day; the ramp at most half the time lit; levels 0–100 in the light's channel order (Chihiros: the model's channels,
   from the Bluetooth name's prefix, as in `protocols/chihiros-vectors.json` `modelOf`).
+
+## Entries without a page
+
+A reader can put on a tank a fish or plant the handbook has no page for yet (about 1,000 species and 170 plants so far).
+It goes in the tank's `unlisted`, left out when there are none:
+
+```json
+{ "id": "…lowercase UUID…", "kind": "fish", "name": "Cá bống mắt tre", "sci": "Rhinogobius duospilus", "count": 3 }
+```
+
+- `id`: made by the client, as for records. `kind`: `fish` or `plant` (`KNOWN.unlistedKind`); open like a device's
+  `kind`, so a client shows a kind it doesn't know as it is and keeps it (shrimp and snails are `fish`). `name`: up to 80,
+  as typed (trimmed). `sci`: the scientific name, up to 120, only when the reader gives one. `count`: 1–9999, fish only,
+  optional. Up to 100 entries a tank (`MAX_UNLISTED`). Unknown keys inside an entry are kept, as everywhere.
+- Adding the field changed nothing else: `v` stays 1, and a client from before it keeps `unlisted` as a key it doesn't
+  know (the `valid` cases hold it to that).
+- **Shown as a page once one has its name.** When an entry's `sci` is a page's scientific name, the entry is shown as
+  that page (its name and link, like a page entry; the count stays the entry's). Compared without letter case, extra
+  spaces, `cf.` or `aff.`; a plant's former names (`synonyms`) count when no other page has them. One word (a genus), a
+  name two pages share, or another kind of page: no match. Nothing is written back: the entry stays as the reader wrote
+  it, and the page shows when the page exists. One rule everywhere: `sciKey` and `pageMatcher` in
+  `packages/schema/src/unlisted.ts`, with the site's index items as pages (`sub` the scientific name; a plant's `aka`
+  entries that read like scientific names as its former ones), held to `protocols/unlisted-vectors.json`.
+- **Checks skip them.** The tank-mates check and the stocking meter have no figures for them: `tankCheck` takes their
+  names (`unlisted`, a fish's only) and says in one line which weren't checked and why (`unchecked`,
+  `protocols/tankmates-vectors.json`). They are not counted in the meter.
+- **Readers' demand.** When a reader saves a tank with an entry that is new and that no page matches, the client sends
+  `POST /api/v1/wanted` with `{ "kind": "fish", "name": "…", "sci": "…" }` (`sci` only when given) as
+  `application/json`, and nothing else: no tank, no id, no account. Once per entry, when it is first saved; a failure is
+  dropped. The Worker counts each name once a reader a day (an HMAC of the network and the day, never the address; at
+  most 30 names a reader a day) and the engine fetches pages for the most-wanted names first
+  (`apps/site/worker/wanted.ts`, `packages/engine/src/readers-wanted.ts`). Answers: 204 (counted, or not: said before
+  today, a bot), 400 a name not worth keeping (an address, a phone number, no letter), 413, 415, 429, 503 off. Not part
+  of the accounts contract: it needs no sign-in.
 
 ## Writing
 
