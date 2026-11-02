@@ -1,0 +1,124 @@
+name: "iOS app: App Store listing"
+# The App Store listing (apps/ios/store/listing.json) and App Store Connect, through apps/ios/scripts/asc-listing.mjs.
+# A pull request that changes the listing or what makes it checks the listing against Apple's limits, then reports what
+# App Store Connect has beside it. By hand (Actions → "iOS app: App Store listing" → Run workflow) it makes the
+# screenshots on both simulators and keeps them with the run; with "apply" ticked it also writes the listing and the
+# screenshots to App Store Connect. Nothing here submits the app for review, attaches a build or releases it: the script
+# refuses to. Never on a push or a schedule.
+on:
+  pull_request:
+    paths: ['apps/ios/store/**', 'apps/ios/scripts/asc-listing.mjs', 'apps/ios/scripts/store-shots.py',
+            'apps/ios/AquaTomeUITests/StoreShotsFlowTests.swift', '.github/workflows/app-store.yml']
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Write the listing and the screenshots to App Store Connect (never submits the app)"
+        type: boolean
+        default: false
+concurrency:
+  # One write to App Store Connect at a time, and never one stopped halfway.
+  group: ${{ github.event_name == 'pull_request' && format('app-store-pr-{0}', github.event.pull_request.number) || 'app-store' }}
+  cancel-in-progress: false
+permissions:
+  contents: read
+env:
+  KEY_ID: ${{ vars.APP_STORE_CONNECT_KEY_ID }}
+  ISSUER_ID: ${{ vars.APP_STORE_CONNECT_ISSUER_ID }}
+  APP_ID: '6829188547'
+jobs:
+  check:
+    name: "iOS app: listing within Apple's limits, beside App Store Connect"
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check the listing
+        run: node apps/ios/scripts/asc-listing.mjs --test && node apps/ios/scripts/asc-listing.mjs --check
+      # Secrets don't reach a fork's pull request: it's checked, not reported.
+      - name: App Store Connect key
+        id: key
+        env:
+          P8: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+        run: |
+          if [ -z "$P8" ]; then
+            echo "::notice title=App Store Connect::no key for this pull request: the report is skipped"
+            echo have=no >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          umask 077
+          printf '%s\n' "$P8" > "$RUNNER_TEMP/asc.p8"
+          echo have=yes >> "$GITHUB_OUTPUT"
+      - name: App Store Connect now
+        if: steps.key.outputs.have == 'yes'
+        run: KEY_PATH="$RUNNER_TEMP/asc.p8" node apps/ios/scripts/asc-listing.mjs --report
+      - name: Remove the key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/asc.p8"
+  shots:
+    name: "${{ inputs.apply && 'iOS app: App Store screenshots, written to App Store Connect' || 'iOS app: App Store screenshots' }}"
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: macos-26
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check the listing
+        run: node apps/ios/scripts/asc-listing.mjs --test && node apps/ios/scripts/asc-listing.mjs --check
+      - name: Build
+        run: >-
+          xcodebuild build-for-testing -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          -destination 'generic/platform=iOS Simulator' -derivedDataPath build/dd CODE_SIGNING_ALLOWED=NO
+      # Each set's simulator (listing.json's `screenshots`), made for the run with the status bar at 9:41, full battery
+      # and signal, then removed. Retried once, as ios.yml's flows are: the runners' simulators sometimes stall.
+      - name: Screenshots
+        shell: bash
+        run: |
+          # Read from fd 3: xcodebuild reads stdin, and would take the list's next lines.
+          while IFS=$'\t' read -r type device <&3; do
+            udid=$(xcrun simctl create "aq-store-$type" "$device")
+            xcrun simctl boot "$udid"
+            xcrun simctl bootstatus "$udid" -b
+            xcrun simctl status_bar "$udid" override --time 9:41 --dataNetwork wifi --wifiMode active --wifiBars 3 \
+              --cellularMode active --cellularBars 4 --batteryState charged --batteryLevel 100
+            xcodebuild test-without-building -project apps/ios/AquaTome.xcodeproj -scheme AquaTome \
+              -destination "platform=iOS Simulator,id=$udid" -derivedDataPath build/dd \
+              -resultBundlePath "build/$type.xcresult" CODE_SIGNING_ALLOWED=NO \
+              -test-timeouts-enabled YES -default-test-execution-time-allowance 600 \
+              -retry-tests-on-failure -test-iterations 2 -only-testing:AquaTomeUITests/StoreShotsFlowTests
+            python3 apps/ios/scripts/store-shots.py "build/$type.xcresult" "build/shots/$type"
+            xcrun simctl shutdown "$udid"
+            xcrun simctl delete "$udid"
+          done 3< <(jq -r '.screenshots | to_entries[] | "\(.key)\t\(.value.simulator)"' apps/ios/store/listing.json)
+      - if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: app-store-screenshots
+          path: build/shots
+          if-no-files-found: ignore
+      - if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: app-store-screenshots-results
+          path: build/*.xcresult
+          if-no-files-found: ignore
+      - name: App Store Connect key
+        env:
+          P8: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+        run: |
+          umask 077
+          printf '%s\n' "$P8" > "$RUNNER_TEMP/asc.p8"
+      - name: App Store Connect now
+        run: KEY_PATH="$RUNNER_TEMP/asc.p8" SHOTS_DIR=build/shots node apps/ios/scripts/asc-listing.mjs --report
+      - name: Write the listing to App Store Connect
+        if: inputs.apply
+        run: KEY_PATH="$RUNNER_TEMP/asc.p8" SHOTS_DIR=build/shots node apps/ios/scripts/asc-listing.mjs --apply
+      - name: App Store Connect after
+        if: inputs.apply
+        run: KEY_PATH="$RUNNER_TEMP/asc.p8" SHOTS_DIR=build/shots node apps/ios/scripts/asc-listing.mjs --report
+      - name: Remove the key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/asc.p8"

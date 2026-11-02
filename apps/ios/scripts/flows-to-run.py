@@ -20,7 +20,8 @@ HANDBOOK = ('apps/ios/AquaTome/Handbook/', KIT + 'Handbook/')
 NEITHER = ('protocols/', 'apps/ios/AquaTomeKit/Tests/', 'apps/ios/README.md', 'apps/ios/perf-budgets.json',
            'apps/ios/AquaTome/Localizable.xcstrings', 'apps/ios/scripts/check-perf.py',
            'apps/ios/scripts/check-strings.py', 'apps/ios/scripts/asc-build-state.mjs',
-           'apps/ios/scripts/testflight-notes.py')
+           'apps/ios/scripts/testflight-notes.py',
+           'apps/ios/store/', 'apps/ios/scripts/asc-listing.mjs', 'apps/ios/scripts/store-shots.py')
 
 
 def pick(paths, handbook_flows):
@@ -61,6 +62,9 @@ def test():
           'apps/ios/AquaTome/Localizable.xcstrings', 'apps/ios/AquaTomeKit/Tests/TanksTests/StoreTests.swift',
           'apps/ios/scripts/testflight-notes.py'],
          (False, False)),
+        # The App Store's screenshots and listing (app-store.yml): no flow job runs or reads them.
+        ([TESTS + 'StoreShotsFlowTests.swift', 'apps/ios/store/listing.json', 'apps/ios/scripts/asc-listing.mjs',
+          'apps/ios/scripts/store-shots.py'], (False, False)),
         (['apps/ios/AquaTome/Handbook/HomeView.swift', 'apps/ios/AquaTome/Tanks/TanksView.swift'], (True, True)),
         (['apps/ios/AquaTome/Account/AccountSection.swift'], (True, True)),
         (['.github/workflows/ios.yml'], (True, True)),

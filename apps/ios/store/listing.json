@@ -1,0 +1,95 @@
+{
+  "primaryLocale": "vi",
+  "categories": {
+    "primary": "REFERENCE",
+    "secondary": "LIFESTYLE"
+  },
+  "price": "free",
+  "availability": {
+    "territories": "all",
+    "availableInNewTerritories": true
+  },
+  "contentRightsDeclaration": "USES_THIRD_PARTY_CONTENT",
+  "ageRating": {
+    "advertising": false,
+    "ageAssurance": false,
+    "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+    "contests": "NONE",
+    "gambling": false,
+    "gamblingSimulated": "NONE",
+    "gunsOrOtherWeapons": "NONE",
+    "healthOrWellnessTopics": false,
+    "horrorOrFearThemes": "NONE",
+    "lootBox": false,
+    "matureOrSuggestiveThemes": "NONE",
+    "medicalOrTreatmentInformation": "NONE",
+    "messagingAndChat": false,
+    "parentalControls": false,
+    "profanityOrCrudeHumor": "NONE",
+    "sexualContentGraphicAndNudity": "NONE",
+    "sexualContentOrNudity": "NONE",
+    "socialMedia": false,
+    "unrestrictedWebAccess": false,
+    "userGeneratedContent": true,
+    "violenceCartoonOrFantasy": "NONE",
+    "violenceRealistic": "NONE",
+    "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+    "ageRatingOverrideV2": "NONE"
+  },
+  "review": {
+    "notes": "AquaTome is a handbook of aquarium fish, shrimp, snails and plants in Vietnamese, Indonesian and Thai, with the same content as aquatome.com. The app is in Vietnamese unless the device is set to Indonesian or Thai.\n\nNo account is needed. The handbook, search, saved pages and the tanks tab (\"Bể của tôi\", My tanks) all work without signing in, and tanks are kept on the device. Signing in is optional and only syncs tanks with aquatome.com. Sign in with Apple works for you as the reviewer; no demo account is needed.\n\nTwo features need hardware of the reader's own:\n- Lights (the \"Đèn\" tab) control a Chihiros aquarium light over Bluetooth, so they need a Chihiros light.\n- Smart plugs (\"Ổ cắm\", on a tank's screen) switch Smart Life (Tuya) power strips through Tuya's cloud, with the reader's own Tuya project keys from platform.tuya.com. No AquaTome account is involved.\nA video showing both working with real hardware is provided with this submission.\n\nReaders' comments and photos on handbook pages are approved by a moderator before anyone sees them.",
+    "demoAccountRequired": false
+  },
+  "screenshots": {
+    "APP_IPHONE_67": {
+      "simulator": "iPhone 17 Pro Max",
+      "sizes": [
+        [
+          1320,
+          2868
+        ]
+      ]
+    },
+    "APP_IPAD_PRO_3GEN_129": {
+      "simulator": "iPad Pro 13-inch (M5)",
+      "sizes": [
+        [
+          2064,
+          2752
+        ]
+      ]
+    }
+  },
+  "locales": {
+    "vi": {
+      "name": "AquaTome",
+      "subtitle": "Cẩm nang cá cảnh và thủy sinh",
+      "promotionalText": "Tra cứu cá, tép, ốc và cây thủy sinh bằng tiếng Việt, xem loài nào nuôi chung được trong bể của bạn, và hẹn giờ đèn Chihiros ngay trên điện thoại.",
+      "keywords": "bể cá,tép,ốc,cây,betta,neon,guppy,aquarium,aquascape,đèn bể,nuôi chung,CO2,pH,rêu",
+      "description": "AquaTome là cẩm nang cá cảnh và thủy sinh bằng tiếng Việt, cùng nội dung với aquatome.com, kèm bể và đèn của bạn trong một ứng dụng.\n\nTRA CỨU\n• Hồ sơ cá, tép, ốc và cây thủy sinh: kích thước, nhiệt độ, pH, độ cứng, bể tối thiểu, tính tình, độ khó. Cây có ánh sáng, CO₂, tốc độ mọc và chỗ trồng.\n• Tìm không cần gõ dấu, theo tên thường gọi hoặc tên khoa học. Lọc cá theo bể, nước và độ khó.\n• Hướng dẫn nuôi, thuật ngữ và video hướng dẫn.\n• Lưu trang để đọc sau. Trang đã đọc vẫn mở được khi không có mạng.\n\nBỂ CỦA TÔI\n• Ghi lại từng bể: kích thước, số lít, nền, ghi chú, cá và cây đang nuôi.\n• Kiểm tra nuôi chung: loài nào hợp nhau, loài nào có thể ăn loài nào, bể đã đủ chỗ chưa.\n• Thêm cả loài chưa có trong cẩm nang, theo tên.\n• Đăng nhập bằng Apple, passkey hoặc email để đồng bộ bể với aquatome.com. Không bắt buộc.\n\nĐÈN CHIHIROS\n• Kết nối đèn Chihiros qua Bluetooth: hẹn giờ bật tắt có bình minh và hoàng hôn, chỉnh từng kênh màu, chỉnh giờ cho đèn.\n• Lịch chạy ngay trên đèn, không cần mở ứng dụng.\n\nỔ CẮM THÔNG MINH\n• Bật tắt từng ổ của ổ cắm Smart Life (Tuya) cho lọc, sủi, máy sưởi hay CO₂, ngay trong bể, bằng khóa Tuya của chính bạn.\n\nTài khoản không lưu tên hay số điện thoại. Địa chỉ email chỉ lưu ở dạng mã hóa một chiều.\n\nAquaTome không liên quan tới hãng Chihiros hay Tuya.",
+      "supportUrl": "https://aquatome.com/vi/lien-he/",
+      "marketingUrl": "https://aquatome.com/vi/",
+      "privacyPolicyUrl": "https://aquatome.com/vi/chinh-sach-bao-mat/"
+    },
+    "id": {
+      "name": "AquaTome",
+      "subtitle": "Panduan ikan hias & aquascape",
+      "promotionalText": "Cari ikan, udang, siput, dan tanaman air dalam Bahasa Indonesia, cek mana yang bisa dipelihara bersama di akuarium Anda, dan atur jadwal lampu Chihiros dari ponsel.",
+      "keywords": "akuarium,aquarium,udang,siput,tanaman air,cupang,betta,neon,guppy,lampu akuarium,CO2,lumut",
+      "description": "AquaTome adalah panduan ikan hias dan aquascape dalam Bahasa Indonesia, dengan konten yang sama seperti aquatome.com, ditambah akuarium dan lampu Anda dalam satu aplikasi.\n\nCARI\n• Profil ikan, udang, siput, dan tanaman air: ukuran, suhu, pH, kesadahan, akuarium minimum, perilaku, tingkat kesulitan. Untuk tanaman: cahaya, CO₂, kecepatan tumbuh, dan posisi tanam.\n• Cari berdasarkan nama umum atau nama ilmiah. Saring ikan sesuai akuarium, air, dan tingkat kesulitan.\n• Panduan perawatan dan istilah.\n• Simpan halaman untuk dibaca nanti. Halaman yang sudah dibaca tetap bisa dibuka tanpa internet.\n\nAKUARIUM SAYA\n• Catat setiap akuarium: ukuran, liter, substrat, catatan, serta ikan dan tanaman di dalamnya.\n• Cek teman satu akuarium: spesies mana yang cocok, mana yang bisa memangsa yang lain, dan apakah akuarium masih cukup luas.\n• Tambahkan juga spesies yang belum ada di panduan, dengan namanya.\n• Masuk dengan Apple, passkey, atau email untuk menyinkronkan akuarium dengan aquatome.com. Opsional.\n\nLAMPU CHIHIROS\n• Hubungkan lampu Chihiros lewat Bluetooth: jadwal nyala dan mati dengan terang dan redup bertahap, atur tiap kanal warna, dan samakan jam lampu.\n• Jadwal berjalan di lampu itu sendiri, tanpa perlu membuka aplikasi.\n\nSTOPKONTAK PINTAR\n• Nyalakan dan matikan tiap colokan stopkontak Smart Life (Tuya) untuk filter, aerator, pemanas, atau CO₂, langsung dari akuarium, dengan kunci Tuya milik Anda sendiri.\n\nAkun tidak menyimpan nama atau nomor telepon. Alamat email hanya disimpan dalam bentuk hash satu arah.\n\nAquaTome tidak berafiliasi dengan Chihiros maupun Tuya.",
+      "supportUrl": "https://aquatome.com/id/kontak/",
+      "marketingUrl": "https://aquatome.com/id/",
+      "privacyPolicyUrl": "https://aquatome.com/id/kebijakan-privasi/"
+    },
+    "th": {
+      "name": "AquaTome",
+      "subtitle": "คู่มือปลาสวยงามและตู้ไม้น้ำ",
+      "promotionalText": "ค้นหาปลา กุ้ง หอย และไม้น้ำเป็นภาษาไทย ดูว่าชนิดไหนเลี้ยงรวมในตู้ของคุณได้ และตั้งเวลาโคมไฟ Chihiros ได้จากโทรศัพท์",
+      "keywords": "ตู้ปลา,ไม้น้ำ,กุ้ง,หอย,ปลากัด,betta,neon,guppy,CO2",
+      "description": "AquaTome คือคู่มือปลาสวยงามและตู้ไม้น้ำภาษาไทย เนื้อหาเดียวกับ aquatome.com พร้อมตู้และโคมไฟของคุณในแอปเดียว\n\nค้นหา\n• ข้อมูลปลา กุ้ง หอย และไม้น้ำ: ขนาด อุณหภูมิ pH ความกระด้าง ตู้ขั้นต่ำ นิสัย ความยาก ส่วนไม้น้ำมีแสง CO₂ อัตราการเติบโต และตำแหน่งปลูก\n• ค้นหาด้วยชื่อสามัญหรือชื่อวิทยาศาสตร์ กรองปลาตามตู้ ค่าน้ำ และความยาก\n• คู่มือการเลี้ยงและคำศัพท์\n• บันทึกหน้าไว้อ่านทีหลัง หน้าที่อ่านแล้วยังเปิดได้แม้ไม่มีอินเทอร์เน็ต\n\nตู้ของฉัน\n• บันทึกแต่ละตู้: ขนาด จำนวนลิตร วัสดุปูพื้น หมายเหตุ ปลาและไม้น้ำที่เลี้ยงอยู่\n• ตรวจการเลี้ยงรวม: ชนิดไหนเข้ากันได้ ชนิดไหนอาจกินชนิดไหน และตู้ยังมีที่พอไหม\n• เพิ่มชนิดที่ยังไม่มีในคู่มือได้ด้วยชื่อ\n• เข้าสู่ระบบด้วย Apple, passkey หรืออีเมล เพื่อซิงค์ตู้กับ aquatome.com ไม่บังคับ\n\nโคมไฟ CHIHIROS\n• เชื่อมต่อโคมไฟ Chihiros ผ่าน Bluetooth: ตั้งเวลาเปิดปิดโดยค่อยๆ สว่างขึ้นและค่อยๆ มืดลง ปรับแต่ละช่องสี และตั้งเวลาโคมไฟ\n• ตารางเวลาทำงานบนโคมไฟเอง ไม่ต้องเปิดแอป\n\nปลั๊กไฟอัจฉริยะ\n• เปิดปิดแต่ละช่องของปลั๊กไฟ Smart Life (Tuya) สำหรับระบบกรอง ปั๊มออกซิเจน ฮีตเตอร์ หรือ CO₂ ได้จากหน้าตู้ ด้วยคีย์ Tuya ของคุณเอง\n\nบัญชีไม่เก็บชื่อหรือเบอร์โทรศัพท์ ส่วนอีเมลจะเก็บในรูปแบบเข้ารหัสทางเดียวเท่านั้น\n\nAquaTome ไม่มีส่วนเกี่ยวข้องกับบริษัท Chihiros หรือ Tuya",
+      "supportUrl": "https://aquatome.com/th/contact/",
+      "marketingUrl": "https://aquatome.com/th/",
+      "privacyPolicyUrl": "https://aquatome.com/th/privacy/"
+    }
+  }
+}
