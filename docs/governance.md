@@ -27,6 +27,9 @@ that would have caught it).
     - An app draws a kind itself only when the kind's level is at or below the level the app knows. It opens the other
       kinds' pages on the web.
     - A kind that needs a block no shipped app knows gets the next level.
+    - Each level's blocks are `LEVEL_BLOCKS` (`packages/schema/src/app-page.ts`). Every copy the fixture builds uses only
+      the blocks its kind's level reads, blocks inside lists too: a newer block fails the test until the kind's level
+      goes up.
     - `pages` (guides only) stays as it is for the apps already installed: the first app draws every kind it lists.
     - Guides are level 1. Fish, plant, glossary and video series pages are level 2: the iOS app that reads `shards`
       knows level 2.
