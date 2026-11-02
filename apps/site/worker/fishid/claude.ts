@@ -6,7 +6,8 @@ import type { KeyEntry } from './keys'
  * Claude names the fish freely (it is not given the handbook's list: ~20k tokens a call, mostly uncached at this
  * traffic); match.ts then finds the handbook's pages for its guesses.
  */
-export const DEFAULT_MODEL = 'claude-sonnet-5-5'
+/** Opus 5.5: the most right in the 200-photo test (docs/review/fish-id-accuracy.md), at about $14 per 1,000 photos. */
+export const DEFAULT_MODEL = 'claude-opus-5-5'
 /** The models the accuracy test compares, with list prices in USD per million tokens (input, output), from the SDK skill's models.md (2026-11). Haiku's is for prompts of 100K tokens or fewer. */
 export const PRICES: Record<string, { input: number; output: number }> = {
   'claude-haiku-5-5': { input: 0.1, output: 0.5 },

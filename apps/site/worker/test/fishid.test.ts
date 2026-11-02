@@ -119,7 +119,7 @@ test('happy path: the photo goes to Claude with the workspace header for an orga
   expect(fake.calls[0]).toMatchObject({ key: A, workspace: 'wrkspc_orgA' })
   const content = (fake.calls[0]!.body.messages as { content: { type: string; source?: { media_type: string; data: string } }[] }[])[0]!.content
   expect(content[0]).toMatchObject({ type: 'image', source: { media_type: 'image/jpeg', data: btoa(String.fromCharCode(...JPEG)) } })
-  expect(fake.calls[0]!.body).toMatchObject({ model: 'claude-sonnet-5-5', output_config: { effort: 'low', format: { type: 'json_schema' } } })
+  expect(fake.calls[0]!.body).toMatchObject({ model: 'claude-opus-5-5', output_config: { effort: 'low', format: { type: 'json_schema' } } })
   expect(fake.calls[0]!.body).not.toHaveProperty('thinking')
   // The image is in no log line, nor the key, nor the IP; usage and the key's hash are.
   const logged = JSON.stringify(d.lines)
@@ -127,6 +127,22 @@ test('happy path: the photo goes to Claude with the workspace header for an orga
   expect(d.lines[0]).toMatchObject({ fishId: 'ok', in: 1500, out: 120, attempts: [{ key: await keyHash(A) }] })
   // Counted: the reader's day and the site's, with the key's call.
   expect(JSON.parse(kv.get(`fishid:day:${new Date().toISOString().slice(0, 10)}`)!.v)).toEqual({ calls: 1, keys: { [await keyHash(A)]: 1 } })
+})
+
+test('a fish Claude is fairly sure of with no page counts as a reader\'s request; a matched, unsure or owner\'s one does not', async () => {
+  const wanted = (kv: Map<string, { v: string }>) => [...kv].filter(([k]) => k.startsWith('wanted:n:')).map(([, x]) => JSON.parse(x.v) as { name: string; sci?: string; readers: number; sources: Record<string, number> })
+  const harlequin = (confidence: number) => ({ verdict: 'fish', guesses: [{ scientificName: 'Trigonostigma heteromorpha', commonName: 'Harlequin rasbora', variety: null, confidence, reason: 'Mảng đen hình nêm.' }] })
+  const sure = env()
+  await run(post(), sure.e, deps(claude({ [A]: () => message(harlequin(0.85)) }).fetch))
+  expect(wanted(sure.kv)).toEqual([expect.objectContaining({ name: 'Harlequin rasbora', sci: 'Trigonostigma heteromorpha', readers: 1, sources: { 'fish-id': 1 } })])
+  // The same reader again today: still one.
+  await run(post(), sure.e, deps(claude({ [A]: () => message(harlequin(0.85)) }).fetch))
+  expect(wanted(sure.kv)[0]!.readers).toBe(1)
+  for (const [answer, headers] of [[harlequin(0.4), {}], [NEON, {}], [harlequin(0.85), { cookie: 'aq_owner=1' }]] as const) {
+    const other = env()
+    await run(post(undefined, undefined, headers), other.e, deps(claude({ [A]: () => message(answer) }).fetch))
+    expect(wanted(other.kv)).toEqual([])
+  }
 })
 
 test('a workspace key sends no workspace header; the reader\'s language reaches the prompt and picks the page\'s address', async () => {

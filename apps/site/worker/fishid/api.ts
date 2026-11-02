@@ -4,6 +4,7 @@ import type { Catalog, Lang } from './catalog'
 import { askClaude, DEFAULT_MODEL, readAnswer, type Answer, type ImageType } from './claude'
 import { healthyKeys, loadKeys, parseKeys, rotate, type Attempt, type HealthStore, type KeyEntry, type KeyHealth, type KeyProblem } from './keys'
 import { matchGuesses } from './match'
+import { readerOf, recordWanted } from '../wanted'
 
 /**
  * /api/fish-id: a reader's photo → Claude's guesses → the handbook's pages for them (the page
@@ -40,6 +41,8 @@ export type FishIdDeps = {
 export const MAX_IMAGE = 1.5 * 1024 * 1024
 const PER_IP = 10
 const PER_DAY = 300
+/** How sure Claude must be of a guess with no page for it to count as a reader's request. */
+const WANTED_CONFIDENCE = 0.6
 const DAY_SEC = 86_400
 
 const json = (data: unknown, status = 200) => Response.json(data, { status, headers: { 'cache-control': 'no-store' } })
@@ -208,6 +211,12 @@ export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, 
   const { verdict, guesses } = answer.id
   const catalog = verdict === 'other' ? null : await catalogOf(env, url.origin)
   const results = verdict === 'other' ? [] : catalog ? matchGuesses(guesses, catalog, up.lang) : guesses
+  // A fish or plant Claude is fairly sure of that has no page: a reader's request, as a tank's entry without a page is
+  // (worker/wanted.ts), counted once a reader a day. Not the owner trying it out.
+  const top = catalog && (verdict === 'fish' || verdict === 'plant') ? results[0] : undefined
+  if (top && !('page' in top && top.page) && top.confidence >= WANTED_CONFIDENCE && !/(?:^|;\s*)aq_owner=1(?:;|$)/.test(req.headers.get('cookie') ?? '')) {
+    await recordWanted(env, { kind: verdict, name: top.commonName || top.scientificName, sci: top.scientificName, source: 'fish-id', reader: await readerOf(req, env, now) }, now).catch(() => undefined)
+  }
   log('ok', { ...usage, verdict, guesses: results.length, linked: results.filter(r => 'page' in r && r.page).length, ...(catalog || verdict === 'other' ? {} : { catalog: 'missing' }) })
   return json({ verdict, results, model })
 }
