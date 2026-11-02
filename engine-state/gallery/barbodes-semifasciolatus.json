@@ -54,13 +54,10 @@
  "hashes": {
   "https://media.aquatome.com/commons/e1b2263441dee11d.webp": "010d0510080808c0",
   "https://media.aquatome.com/commons/3e141ae373bb0030.webp": "2733639a9eca634b",
-  "https://media.aquatome.com/seriouslyfish/c90cba9cb52def74.webp": "f9dbd91c1e5c79f0",
-  "https://media.aquatome.com/seriouslyfish/3d8e5ea706712251.webp": "b6254be78ccf370f",
   "https://media.aquatome.com/sprucepets/3e5cfc03b5d982b4.webp": "e7662e0281854169",
   "https://media.aquatome.com/sprucepets/3213eda1134f0646.webp": "ead8581cb080e6e7",
   "https://media.aquatome.com/commons/917f68395aec5dbc.webp": "05961f4ece67331e",
   "https://media.aquatome.com/commons/270e0528ebbed75f.webp": "0303070b090d0c0e",
-  "https://media.aquatome.com/seriouslyfish/a20e3c888d54cb48.webp": "4f9f1707270f7c78",
   "https://media.aquatome.com/seriouslyfish/cfe066057ba2c0fc.webp": "2919e4ca8f0d0d3e",
   "https://media.aquatome.com/commons/eca484e68b4fe804.webp": "03412301060e4e1e",
   "https://media.aquatome.com/inaturalist/256965820.webp": "0c8c042481030303",
@@ -78,15 +75,15 @@
   "https://media.aquatome.com/inaturalist/298311263.webp": "6b634f0e0647070f",
   "https://media.aquatome.com/inaturalist/216641008.webp": "d6367774fd643d67",
   "https://media.aquatome.com/inaturalist/298680650.webp": "d3d4b6f3fbffe037",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/216640333/large.jpeg": "d696b6f0b492ce37",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/216640708/large.jpeg": "6e76e5f4f9ed3cfb",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/405216431/large.jpeg": "628b73684828129c",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/405699746/large.jpeg": "f8fc586cdc9efcfc",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/405699757/large.jpeg": "8c6ce49c0c26fce4",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/405702363/large.jpeg": "3b353a3b091d177b",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/405702403/large.jpeg": "0b0b0b0b1b0f4169",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/415264971/large.jpeg": "ca2637b390098100",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/409249682/large.jpg": "151c740d3c399f1f"
+  "https://media.aquatome.com/inaturalist/409249682.webp": "1c14540d3c3d961b",
+  "https://media.aquatome.com/inaturalist/216640333.webp": "9716b6f8b4129e37",
+  "https://media.aquatome.com/inaturalist/216640708.webp": "ae56e5f4f9ec3dd7",
+  "https://media.aquatome.com/inaturalist/405699757.webp": "8cecd89c0c266ce4",
+  "https://media.aquatome.com/inaturalist/405702403.webp": "830b0b0b1b0f4161",
+  "https://media.aquatome.com/inaturalist/415264971.webp": "c32677b280098101",
+  "https://media.aquatome.com/inaturalist/405216431.webp": "66eb736962b8189c",
+  "https://media.aquatome.com/inaturalist/405699746.webp": "fafc586cde9efcfc",
+  "https://media.aquatome.com/inaturalist/405702363.webp": "3b3d3b3309170f3b"
  },
  "inat": {
   "taxon": 549770,
@@ -96,5 +93,9 @@
    "agree": 332679507
   }
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "gbif": {
+  "key": 9515715,
+  "next": 0
+ }
 }

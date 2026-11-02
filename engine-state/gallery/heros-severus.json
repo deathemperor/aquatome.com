@@ -27,16 +27,20 @@
   "https://media.aquatome.com/commons/6a2706e2b8f924f2.webp": "7afede9eaebebe36",
   "https://media.aquatome.com/commons/dba42229282514f4.webp": "90938387a1b93333",
   "https://media.aquatome.com/commons/5c0d18d3b3d08dad.webp": "60e0a04c6cf4f49c",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/41813261/large.jpeg": "0c27e1e961e363e6",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/41813277/large.jpeg": "4c8d1e2f273f8f09",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Heros_notatus01.jpg/1280px-Heros_notatus01.jpg": "01533078dc988ec2",
-  "https://upload.wikimedia.org/wikipedia/commons/0/08/Green_Severum_002.jpg": "f6eecf3f3e8c6019",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Severum_2.JPG/1280px-Severum_2.JPG": "1670f0e070707850",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Cichlasoma_severum_DSC00552_2200.jpg/1280px-Cichlasoma_severum_DSC00552_2200.jpg": "c7bfa666cb97dfe4",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/%E9%87%91%E6%B3%A2%E7%BE%85_Heros_severus_Gold_-_panoramio.jpg/1280px-%E9%87%91%E6%B3%A2%E7%BE%85_Heros_severus_Gold_-_panoramio.jpg": "0607331b0b0e0587",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/%E9%87%91%E6%B3%A2%E7%BE%85_Heros_severus_Gold_-_panoramio_%281%29.jpg/1280px-%E9%87%91%E6%B3%A2%E7%BE%85_Heros_severus_Gold_-_panoramio_%281%29.jpg": "154f4f0f9bbb39ce",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Heros_severum_%E9%87%91%E6%B3%A2%E7%BE%85_-_panoramio.jpg/1280px-Heros_severum_%E9%87%91%E6%B3%A2%E7%BE%85_-_panoramio.jpg": "3b6d4e1f7d7c7868",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Heros_severus_in_Yekaterinburg_Zoo_%28March_2023%29_-_2.jpg/1280px-Heros_severus_in_Yekaterinburg_Zoo_%28March_2023%29_-_2.jpg": "ec69f0346eac7697"
+  "https://media.aquatome.com/commons/088d3927003c8b22.webp": "010130f8dc98ce80",
+  "https://media.aquatome.com/commons/05c4f4528ddffbc2.webp": "7f6d4e1f7c7c7862",
+  "https://media.aquatome.com/commons/136061f57f5aab16.webp": "0970f0e070703850",
+  "https://media.aquatome.com/commons/081da551ac33fe27.webp": "174f0f9f1b3b79ce",
+  "https://media.aquatome.com/commons/42686d325642c111.webp": "0617331b0b0e0587",
+  "https://media.aquatome.com/commons/225023e08147e554.webp": "6c69f03066ac66d6",
+  "https://media.aquatome.com/commons/77ee7b8d8cbdcf90.webp": "f6eecf1f3e8d6019",
+  "https://media.aquatome.com/inaturalist/41813261.webp": "0d23e1e1e1e363e6",
+  "https://media.aquatome.com/commons/10678e3b67d33047.webp": "c7fe2666cb97dee4",
+  "https://media.aquatome.com/inaturalist/41813277.webp": "4d8e1e2f273f8d01",
+  "https://images.unsplash.com/photo-1521407889699-e935b107754d?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Nnx8QmFuZGVkJTIwY2ljaGxpZHxlbnwxfHx8fDE3OTM2MjQ1MDl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "08405c0e06170b0f",
+  "https://images.unsplash.com/photo-1686001622710-1a07af00e81c?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTR8fEJhbmRlZCUyMGNpY2hsaWR8ZW58MXx8fHwxNzkzNjI0NTA5fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "04600e06168c4208",
+  "https://images.unsplash.com/photo-1724925903972-b53bba3651da?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTV8fEJhbmRlZCUyMGNpY2hsaWR8ZW58MXx8fHwxNzkzNjI0NTA5fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "98e09b1a0c0c0c6f",
+  "https://images.unsplash.com/photo-1775145885673-13e41d212875?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fEJhbmRlZCUyMGNpY2hsaWR8ZW58MXx8fHwxNzkzNjI0NTA5fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "9992cc1d361949c7"
  },
  "inat": {
   "taxon": 221213,
@@ -46,5 +50,9 @@
    "agree": 384717882
   }
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "gbif": {
+  "key": 5208367,
+  "next": 0
+ }
 }

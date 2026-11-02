@@ -5,14 +5,14 @@ Indonesian and Thai (`packages/engine/src/content-rules.ts`, docs/governance.md)
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 2608 (Vietnamese 1713, Indonesian 444, Thai 451). Imperial units
+Pages checked: 2836 (Vietnamese 1919, Indonesian 455, Thai 462). Imperial units
 beside a metric figure: feet 2, gallon 7.
 
-## Numbered headings broken or miscounted (0)
+## Numbered headings broken or miscounted (1)
 
 A heading with no number between two numbered ones that follow each other ("#3 …", "Xtreme Betta Pellets", "#4 …") becomes its item's bold lead line when the engine writes the page (listed until then); a number skipped or repeated is listed.
 
-- none
+- [vi · Ánh sáng, CO2 và dinh dưỡng: Vì sao cây thủy sinh khó phát triển](https://aquatome.com/vi/huong-dan/anh-sang-co2-va-dinh-duong-vi-sao-cay-thuy-sinh-kho-phat/) — numbers go 5 twice
 
 ## Title promises a count the text doesn't have (0)
 
@@ -94,7 +94,7 @@ A species or plant photo whose caption names another species the site has a page
 
 - none
 
-## A photo caption that may name another fish (21)
+## A photo caption that may name another fish (23)
 
 A caption naming a Latin name in a genus the site has, that no page has, or another page's species with words saying the fish may still be the page's ("in a batch of", "here with"). Listed, not removed: `pnpm engine check-photos --only <id>` looks again. Checked on the Vietnamese page.
 
@@ -111,7 +111,9 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 - [vi · Cá chạch lá guntea](https://aquatome.com/vi/ca/ca-heo-guntea/) — Garra flavatra: "...and are peaceful with other species. Here with Garra flavatra."
 - [vi · Cá julie vàng](https://aquatome.com/vi/ca/ca-julie-vang/) — Julidochromis regani: "Picture taken in the zoo of Wrocław (Poland): Julidochromis regani (Poll, 1942)"
 - [vi · Cá killifish Bouala lyretail](https://aquatome.com/vi/ca/ca-killifish-bouala-lyretail/) — Aphyosemion elberti: "Male Aphyosemion elberti "Red T", a West African Killifish from Cameroon. This…"
+- [vi · Cá nghéo](https://aquatome.com/vi/ca/ca-ngheo/) — Barbonymus schwanenfeldii: "Barbonymus schwanenfeldii"
 - [vi · Cá nheo Synodontis frontosus](https://aquatome.com/vi/ca/ca-nheo-synodontis-frontosus/) — Synodontis caudovittatus: "Synodontis caudovittatus"
+- [vi · Cá Satanopera acuticeps](https://aquatome.com/vi/ca/ca-satanopera-acuticeps/) — Satanoperca daemon: "Threespot Eartheater (Satanoperca daemon)"
 - [vi · Cá trê lũa](https://aquatome.com/vi/ca/ca-tre-lua/) — Leiarius marmoratus: "Taxonomic Classification: Animalia--Pimelodidae--Leiarius marmoratus (Gill 1870…"
 - [vi · Cá trê nói chuyện cẩm thạch](https://aquatome.com/vi/ca/ca-tre-noi-chuyen-cam-thach/) — Platydoras hancockii: "This species is often traded as A. hancockii, a name currently regarded synonym…"
 - [vi · Cá trê nói chuyện nâu sô-cô-la](https://aquatome.com/vi/ca/ca-tre-noi-chuyen-nau-so-co-la/) — Platydoras armatulus: "This species is most often seen among shipments of Platydoras armatulus or Agam…"

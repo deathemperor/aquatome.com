@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-02), most-read pages first. Rules: docs/governance.md, "Photos".
-2494 verdicts. Shows it: 1907; its habitat: 41; something else: 85; not a photo of it: 47; can't tell: 401.
+2611 verdicts. Shows it: 2001; its habitat: 41; something else: 85; not a photo of it: 47; can't tell: 424.
 
 ## Left with no photo (4)
 
@@ -10,7 +10,7 @@ Written by `pnpm engine check-photos` (2026-11-02), most-read pages first. Rules
 - plants/vesicularia-montagnei
 - species/nemacheilus-guentheri
 
-## Can't tell: still shown (401)
+## Can't tell: still shown (424)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -214,6 +214,8 @@ Written by `pnpm engine check-photos` (2026-11-02), most-read pages first. Rules
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/57266711.webp) | a few peltate leaves among grasses; partial view |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/6860110.webp) | dense pennywort mat growing out of water; no flowers, so the species can't be confirmed |
 | plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/inaturalist/628894758.webp) | emersed carpet with small white star flowers and thumb; leaves look rather large, could be another carpeting plant |
+| species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/3842c3b3366920ed.webp) | dull brownish fish with faint lateral stripe on rock; lacks flying fox's bold black stripe and dark-edged fins, possibly |
+| species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/4978ce7ceab738d2.webp) | slender fish with black stripe into tail but clear pelvic/anal fins; looks more like Siamese algae eater than flying fox |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/242436884.webp) | two pale silvery fish over weed, too murky to confirm mono |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/242436915.webp) | single silvery deep-bodied fish in murky water, no clear marks |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/59838f064cc6671f.webp) | Emersed flowering turf of fine sedge with pale fluffy heads; could be E. parvula, but other small sedges (e.g. Isolepis, |
@@ -263,8 +265,12 @@ Written by `pnpm engine check-photos` (2026-11-02), most-read pages first. Rules
 | species/botia-almorhae | [photo](https://media.aquatome.com/commons/71be289cdae71b35.webp) | dull brownish loach with faded blotches among plants; pattern unclear, may be an older yo-yo loach |
 | species/botia-almorhae | [photo](https://media.aquatome.com/commons/fa03ec707ba1a28e.webp) | small banded loach on white gravel; could be a yo-yo loach, but a striped Botia can't be ruled out |
 | species/botia-almorhae | [photo](https://media.aquatome.com/inaturalist/411470254.webp) | blurry view of a loach hiding in a cave ornament; lohachata-type netted pattern |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/9cf5f820c1bfd232.webp) | top view of mixed small pale fish; some may be other species |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/a81e5a564c071170.webp) | greenish killifish with dark eye, no clear lampeye shine; ID uncertain |
 | plants/littorella-uniflora | [photo](https://media.aquatome.com/commons/d115b2f77faabc33.webp) | dense turf on a muddy shore; too far away to tell it apart from other turf-forming plants |
 | plants/murdannia-keisak | [photo](https://media.aquatome.com/inaturalist/25068301.webp) | dense mat with many tiny pale pink flowers; may be a different small Murdannia |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp) | emersed Myriophyllum creeping on mud; can't rule out M. aquaticum or another milfoil |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp) | Myriophyllum shoot tip at pond surface among duckweed; could be parrot feather (M. aquaticum), can't confirm species |
 | plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp) | emersed feathery rosette at surface, typical of parrot's feather look-alike |
 | plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp) | emersed shoot tip in pond; parrot's feather-like |
 | plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp) | pond full of emersed Myriophyllum; looks like parrot's feather (M. aquaticum), can't rule out |
@@ -327,13 +333,30 @@ Written by `pnpm engine check-photos` (2026-11-02), most-read pages first. Rules
 | species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/97ed36b806f0a84b.webp) | Ancistrus on gravel, olive-brown with fine pale dots and no white fin edges; looks more like a common bristlenose than b |
 | species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/b984f7ac451dfa80.webp) | brown Ancistrus with yellowish spots, no white fin edges; may be a different Ancistrus species |
 | species/hemigrammus-erythrozonus | [photo](https://media.aquatome.com/commons/213696c7a2ad8eec.webp) | black-and-white image of a preserved specimen; no colour marks, species can't be confirmed |
+| species/poecilia-wingei | [photo](https://media.aquatome.com/commons/4ed2042725466dba.webp) | blue-red guppy-like male; may be a fancy guppy or Endler hybrid, not the classic Endler pattern |
 | species/poecilia-wingei | [photo](https://media.aquatome.com/inaturalist/358769752.webp) | distant yellowish males in green water; maybe yellow Endler form or guppy hybrid |
 | species/poecilia-wingei | [photo](https://media.aquatome.com/inaturalist/471890936.webp) | pinkish male with large black spots; may be an Endler line strain or a guppy hybrid, blurry |
 | species/poecilia-wingei | [photo](https://media.aquatome.com/inaturalist/643307274.webp) | very blurry group of small livebearers, can't confirm Endler vs guppy |
 | species/macropodus-opercularis | [photo](https://media.aquatome.com/inaturalist/654836322.webp) | dull brownish anabantoid on wet substrate; could be a female/young paradise fish or a related Macropodus species |
+| species/labidochromis-caeruleus | [photo](https://media.aquatome.com/commons/0c5670f2f7a40286.webp) | pale yellow cichlid without black dorsal band or black pelvic fins; can't confirm yellow lab |
+| species/labidochromis-caeruleus | [photo](https://media.aquatome.com/commons/28772a4a23323c95.webp) | yellow cichlid with only a thin dotted dorsal edge, no solid black band; possibly another mbuna or hybrid |
+| species/labidochromis-caeruleus | [photo](https://media.aquatome.com/commons/2e3623660bd7d8f9.webp) | single yellow cichlid on gravel; lab-like shape, but the black dorsal and pelvic fin marks can't be seen |
+| species/labidochromis-caeruleus | [photo](https://media.aquatome.com/commons/842e84b2301c1f0c.webp) | red-eyed albino yellow cichlids without the black fin edges; could be albino yellow lab or another albino mbuna |
 | species/heros-severus | [photo](https://media.aquatome.com/commons/5c0d18d3b3d08dad.webp) | Heros with red belly and a dark bar at the tail base; could be the Rotkeil (red-shoulder) form or H. efasciatus |
+| species/rocio-octofasciata | [photo](https://media.aquatome.com/commons/8c9c9ddbc141c2bd.webp) | cichlid with black squiggly marks on blue-green; can't confirm species |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/commons/1d46c71f97c1a1ce.webp) | brownish snakehead with dark chevron bars, looks more like Channa striata than giant snakehead |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/commons/bb8bff362f94eebd.webp) | close-up of a large plain grey snakehead head, no clear diagnostic markings |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/inaturalist/563378799.webp) | snakehead seen from above in murky water; chevron bars, species marks unclear |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/inaturalist/591552903.webp) | distant view from above of a pale snakehead at the water surface |
 | species/datnioides-microlepis | [photo](https://media.aquatome.com/seriouslyfish/ddb802f08d11f201.webp) | orange spiny fish with scattered black spots and thin bars, mouth open; doesn't match the broad tiger bars of D. microle |
+| species/datnioides-pulcher | [photo](https://media.aquatome.com/commons/3648721bcece0c66.webp) | tiger perch with narrower bars; could be D. microlepis or another Datnioides |
+| species/datnioides-pulcher | [photo](https://media.aquatome.com/commons/3c736744cee17c47.webp) | tiger perch with broad bars on orange body, dim view; D. microlepis not ruled out |
 | species/datnioides-pulcher | [photo](https://media.aquatome.com/seriouslyfish/11754bae2dbfb786.webp) | Tiger perch on black background; bars narrower and more numerous than usual for D. pulcher, so it could be D. microlepis |
+| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/337329997.webp) | archerfish, possibly a juvenile, with short round blotches rather than wedge-shaped bars and yellow fins; species unclea |
+| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/337330025.webp) | school of archerfish in shallow water; spots fairly many and small, could be T. chatareus |
+| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/337801605.webp) | archerfish over sand; rounded spots, could be seven-spot archerfish |
+| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/376731428.webp) | archerfish group in a mangrove; many smaller spots look more like T. chatareus, hard to tell at this distance |
+| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/376731436.webp) | two archerfish near surface; alternating large and small spots suggest possible T. chatareus |
 | species/barbodes-semifasciolatus | [photo](https://media.aquatome.com/inaturalist/673322750.webp) | silvery barb with short bars on black background; could be wild type but other barbs can't be ruled out |
 | species/barbodes-semifasciolatus | [photo](https://media.aquatome.com/sprucepets/3213eda1134f0646.webp) | reddish checkered barb with red fins; looks more like a checker barb (Pethia oligolepis) than a golden barb |
 | species/boraras-merah | [photo](https://media.aquatome.com/commons/0100ace42ee6de22.webp) | pale fish with long dark mid-lateral band instead of the round blotch; possibly a female or another Boraras |

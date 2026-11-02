@@ -5,18 +5,20 @@ Written by `pnpm engine gallery` (2026-11-02). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | At target | Below |
 | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 4 | 8 |
-| shop | 60 | 123 | 77 | 27 | 173 |
+| shop | 60 | 124 | 77 | 27 | 174 |
 | popular | 40 | 21 | 0 | 2 | 19 |
-| covered | 30 | 86 | 3 | 3 | 86 |
-| rest | 20 | 774 | 92 | 0 | 866 |
+| covered | 30 | 145 | 3 | 4 | 144 |
+| rest | 20 | 840 | 93 | 0 | 933 |
 
-## Short of target: every source read (17)
+## Short of target: every source read (19)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
 | Page | Tier | Photos | Target |
 | --- | --- | --- | --- |
 | species/paracheirodon-innesi | staple | 21 | 100 |
+| species/paracheirodon-axelrodi | staple | 29 | 100 |
+| species/trigonostigma-heteromorpha | staple | 18 | 100 |
 | species/puntius-titteya | staple | 9 | 100 |
 | species/mikrogeophagus-ramirezi | staple | 28 | 100 |
 | species/hyphessobrycon-herbertaxelrodi | shop | 11 | 60 |
