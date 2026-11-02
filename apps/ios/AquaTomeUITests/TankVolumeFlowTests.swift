@@ -29,14 +29,15 @@ final class TankVolumeFlowTests: XCTestCase {
     }
 
     // Inches: what's typed converted, the same tank.
-    above(app, app.buttons["inch"]).tap()
+    show(app, app.buttons["inch"], up: false)
+    app.buttons["inch"].tap()
     XCTAssertEqual(app.textFields["l"].value as? String, "23,6")
     XCTAssertTrue(result.label.hasPrefix("64,8 lít"), result.label)
     app.buttons["cm"].tap()
 
     // The heater calculator for this box, on the site's page of calculators (not drawn by the app yet).
     let heater = app.links["Cần sưởi bao nhiêu W cho bể này →"]
-    reveal(app, heater)
+    show(app, heater)
     heater.tap()
     XCTAssertTrue(app.webViews.staticTexts["/vi/cong-cu/?l=60&w=30&h=36"].waitForExistence(timeout: 15), "not the heater calculator for this box")
   }
@@ -64,7 +65,7 @@ final class TankVolumeFlowTests: XCTestCase {
 
     // A ready-made tank from the table: the form set to it, as the site's link sets the page.
     let row = app.links["100 × 50 × 50"]
-    reveal(app, row)
+    show(app, row)
     row.tap()
     XCTAssertTrue(result.waitForExistence(timeout: 5))
     XCTAssertTrue(result.label.hasPrefix("250 lít"), result.label)
@@ -82,19 +83,21 @@ final class TankVolumeFlowTests: XCTestCase {
     field(app, "f").clearAndType("30")
     field(app, "fill").clearAndType("50")
     XCTAssertEqual(result.label, "Mực nước phải lớn hơn 0 và không cao hơn bể.")
+    // Its height left at the box's 36 cm: 30 × (60 + 30) / 2 × 36 → 48.6 litres, 27 to the water line.
     field(app, "fill").clearAndType("20")
-    XCTAssertTrue(result.label.hasPrefix("54 lít"), result.label)
+    XCTAssertTrue(result.label.hasPrefix("48,6 lít"), result.label)
+    XCTAssertTrue(result.label.contains("Tới mực nước: 27 lít."), result.label)
   }
 
   /// A box keeps its sides on the tank, any other shape its litres, as the site's tools save.
   func testSavesToANewTankThenToItAgain() {
     let app = openTool()
     let name = app.textFields["tank-name"]
-    reveal(app, name)
+    show(app, name)
     name.tap()
     name.typeText("Bể đo")
     let save = app.buttons["save-volume"]
-    reveal(app, save)
+    show(app, save)
     save.tap()
     XCTAssertTrue(read(app, "saved").hasPrefix("Đã lưu vào “Bể đo”."))
     keep(app, "saved")
@@ -108,7 +111,7 @@ final class TankVolumeFlowTests: XCTestCase {
     shape(app, "Trụ tròn")
     field(app, "d").clearAndType("40")
     field(app, "h").clearAndType("50")
-    reveal(app, save)
+    show(app, save)
     XCTAssertFalse(app.textFields["tank-name"].exists, "a new tank's name asked for the tank picked")
     save.tap()
     XCTAssertTrue(read(app, "saved").hasPrefix("Đã lưu vào “Bể đo”."))
@@ -130,7 +133,7 @@ final class TankVolumeFlowTests: XCTestCase {
     guide.tap()
     XCTAssertTrue(app.navigationBars["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "the guide didn't open")
     let tool = app.descendants(matching: .any)["native-page"].buttons.matching(NSPredicate(format: "label BEGINSWITH 'Bể bao nhiêu lít?'")).firstMatch
-    reveal(app, tool)
+    show(app, tool)
     tool.tap()
     XCTAssertTrue(app.navigationBars["Bể bao nhiêu lít?"].waitForExistence(timeout: 5), "the tool's screen didn't open")
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "not on the tanks tab")
@@ -157,12 +160,15 @@ final class TankVolumeFlowTests: XCTestCase {
     return app
   }
 
-  /// A shape from the row of shapes, scrolled along to it.
+  /// A shape from the row of shapes, dragged along to it.
   private func shape(_ app: XCUIApplication, _ name: String) {
     let row = app.scrollViews["shapes"]
-    for _ in 0..<6 where !(row.exists && row.isHittable) { app.swipeDown() }
+    show(app, row, up: false)
     let b = row.buttons.matching(identifier: "shape").matching(NSPredicate(format: "label == %@", name)).firstMatch
-    for _ in 0..<4 where !(b.exists && b.isHittable) { row.swipeLeft() }
+    for _ in 0..<6 where !(b.exists && b.isHittable) {
+      let most = row.frame.width / 2 - 20
+      drag(app, from: CGPoint(x: row.frame.midX, y: row.frame.midY), by: CGVector(dx: min(max(row.frame.midX - b.frame.midX, -most), most), dy: 0))
+    }
     XCTAssertTrue(b.exists && b.isHittable, "no shape \(name)")
     b.tap()
     XCTAssertTrue(b.isSelected, "\(name) not picked")
@@ -174,29 +180,41 @@ final class TankVolumeFlowTests: XCTestCase {
   /// The saved line's link to the tank.
   private func openTank(_ app: XCUIApplication) {
     let link = app.links["Xem trong Bể của tôi →"]
-    reveal(app, link)
+    show(app, link)
     link.tap()
   }
 
   /// A text, scrolled to: a form draws only the rows on screen.
   private func read(_ app: XCUIApplication, _ id: String) -> String {
     let e = app.staticTexts[id].firstMatch
-    reveal(app, e)
+    show(app, e)
     return e.label
   }
 
-  /// A size's box, scrolled back up to.
-  private func field(_ app: XCUIApplication, _ key: String) -> XCUIElement { above(app, app.textFields[key]) }
-
-  private func above(_ app: XCUIApplication, _ e: XCUIElement) -> XCUIElement {
-    for _ in 0..<8 where !(e.exists && e.isHittable) { app.swipeDown() }
-    XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
+  /// A size's box, scrolled to, above the keyboard.
+  private func field(_ app: XCUIApplication, _ key: String) -> XCUIElement {
+    let e = app.textFields[key]
+    show(app, e, up: false)
     return e
   }
 
-  private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
-    for _ in 0..<10 where !(e.exists && e.isHittable) { app.swipeUp() }
+  /// `e` scrolled into sight, clear of the bars and the keyboard. Dragged slowly, so the screen stops where it's let go
+  /// (a swipe flings past), towards where `e` lies, or `up` (on down the screen) while the form hasn't drawn it.
+  private func show(_ app: XCUIApplication, _ e: XCUIElement, up: Bool = true) {
+    for _ in 0..<12 where !(e.exists && e.isHittable) {
+      let keyboard = app.keyboards.firstMatch
+      let top = app.frame.minY + 120, bottom = keyboard.exists ? keyboard.frame.minY : app.frame.maxY - 100
+      let middle = (top + bottom) / 2, most = (bottom - top) / 2 - 20
+      let by = e.exists ? min(max(middle - e.frame.midY, -most), most) : (up ? -most : most)
+      // From the labels' side, clear of the boxes (a drag from a box moves its cursor) and of the edge's swipe back.
+      drag(app, from: CGPoint(x: app.frame.minX + 44, y: middle), by: CGVector(dx: 0, dy: by))
+    }
     XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
+  }
+
+  private func drag(_ app: XCUIApplication, from p: CGPoint, by v: CGVector) {
+    let start = app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: p.x, dy: p.y))
+    start.press(forDuration: 0.05, thenDragTo: start.withOffset(v), withVelocity: .slow, thenHoldForDuration: 0.2)
   }
 
   /// A screenshot kept with the results, to look at.
@@ -209,10 +227,14 @@ final class TankVolumeFlowTests: XCTestCase {
 }
 
 private extension XCUIElement {
-  /// Taps at the end of the text, deletes it all, then types.
+  /// Its number replaced: picked whole by a double tap, as where a tap leaves the cursor varies, then typed over.
   func clearAndType(_ text: String) {
-    let old = value as? String ?? ""
-    coordinate(withNormalizedOffset: CGVector(dx: 0.98, dy: 0.5)).tap()
-    typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: old.count) + text)
+    tap()
+    if let old = value as? String, !old.isEmpty, old != placeholderValue {
+      doubleTap()
+      typeText(XCUIKeyboardKey.delete.rawValue)
+    }
+    typeText(text)
+    XCTAssertEqual(value as? String, text, "not typed over")
   }
 }
