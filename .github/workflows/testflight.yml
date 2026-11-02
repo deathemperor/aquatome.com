@@ -1,4 +1,4 @@
-name: testflight
+name: "iOS app: TestFlight upload"
 # The iOS app, signed and uploaded to TestFlight, whose internal group "Owner" gets every build by itself. Signing is
 # Xcode's automatic, cloud-managed signing with the App Store Connect API key: no certificate or profile in the
 # repository. A pull request that changes signing signs and exports without uploading.
@@ -22,6 +22,7 @@ permissions:
   actions: read
 jobs:
   check:
+    name: "iOS app: decide whether to upload"
     runs-on: ubuntu-latest
     outputs:
       upload: ${{ steps.decide.outputs.upload }}
@@ -35,12 +36,13 @@ jobs:
           EVENT: ${{ github.event_name }}
         run: |
           if [ "$EVENT" != schedule ]; then echo upload=yes >> "$GITHUB_OUTPUT"; exit 0; fi
-          # The last run on main whose upload job succeeded: its commit and when.
+          # The last run on main whose upload job succeeded: its commit and when. The job was named "upload" until
+          # 2026-11-02.
           last=""
           for run in $(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/testflight.yml/runs?branch=main&status=success&per_page=50" \
             --jq '.workflow_runs[] | select(.event != "pull_request") | "\(.id),\(.head_sha),\(.created_at)"'); do
             if gh api "repos/$GITHUB_REPOSITORY/actions/runs/${run%%,*}/jobs" \
-              --jq '.jobs[] | select(.name == "upload" and .conclusion == "success") | .id' | grep -q .; then last=$run; break; fi
+              --jq '.jobs[] | select((.name == "upload" or .name == "iOS app: sign and upload to TestFlight") and .conclusion == "success") | .id' | grep -q .; then last=$run; break; fi
           done
           sha=$(echo "$last" | cut -d, -f2)
           days=$(( ($(date +%s) - $(date -d "$(echo "$last" | cut -d, -f3 | grep . || echo 1970-01-01T00:00:00Z)" +%s)) / 86400 ))
@@ -53,6 +55,8 @@ jobs:
             echo upload=yes >> "$GITHUB_OUTPUT"
           fi
   upload:
+    # The weekly check above finds the last upload by this name: change both together.
+    name: "${{ github.event_name == 'pull_request' && 'iOS app: sign and export, not uploaded' || 'iOS app: sign and upload to TestFlight' }}"
     needs: check
     # Secrets don't reach a fork's pull request: those have nothing to sign with.
     if: >-
