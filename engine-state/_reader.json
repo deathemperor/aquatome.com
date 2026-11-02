@@ -123,6 +123,85 @@
     ],
     "ruled": "48e7162bd9225701"
   },
+  "vi/guides/aquariumbreeder-how-to-remove-green-dust-algae-in-aquariums": {
+    "at": "2026-11-02",
+    "hash": "3c94cdf99cd4fe84",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "phốt pho cao (trên 0,8 g/L) trong khi nitơ thấp (dưới 5 mg/L)",
+        "problem": "A phosphorus level of 0.8 g/L is about a thousand times too high for an aquarium and doesn't fit next to the mg/L figure for nitrogen. It is almost certainly a slip for mg/L, even though the source has the same figure.",
+        "fix": "phốt pho cao (trên 0,8 mg/L) trong khi nitơ thấp (dưới 5 mg/L)",
+        "rule": "A concentration in g/L inside a list of mg/L nutrient values.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tảo bụi xanh xuất hiện có thể do một trong các yếu tố sau, tùy từng bể",
+        "problem": "Here the algae is said to come from one of the listed factors, but a few lines later the page says it usually comes from several factors together, not just one.",
+        "fix": "tảo bụi xanh xuất hiện có thể do các yếu tố sau, tùy từng bể",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lượng đa lượng châm vào tính theo mức nitrat 7.",
+        "problem": "The figures for nitrate (7) and iron (0,07) have no units, so a reader can't use them to dose.",
+        "rule": "A dosing figure with no unit after it.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3c94cdf99cd4fe84"
+  },
+  "vi/guides/aquariumbreeder-how-to-remove-red-algae-in-aquariums": {
+    "at": "2026-11-02",
+    "hash": "1eabd945c9efb4d5",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Vệ sinh nền mỗi tháng.",
+        "problem": "The prevention list says to clean the substrate monthly, but the earlier section says to vacuum it once a week.",
+        "fix": "Hút đáy nền mỗi tuần.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nhìn biểu đồ có thể thấy một số sản phẩm có tác dụng ngay",
+        "problem": "The text points to a chart that does not appear on the page.",
+        "fix": "Một số sản phẩm có tác dụng ngay, nhưng chỉ trong thời gian ngắn.",
+        "rule": "Flag text that mentions a chart or graph (biểu đồ) when the page has no matching image.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Hóa chất (Glutaraldehyde hoặc Monolinuron)",
+        "problem": "The individual treatment methods (chemicals, filtration, lighting, CO2, etc.) are top-level headings, so they no longer read as parts of 'Cách diệt tảo đỏ' and look like sections of the same rank as it.",
+        "fix": "### Hóa chất (Glutaraldehyde hoặc Monolinuron)",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dùng hóa chất diệt tảo không phải lựa chọn được nhiều người ủng hộ.",
+        "problem": "The source gives only the writer's own reluctance about chemicals. It says nothing about what many hobbyists think.",
+        "fix": "Dùng hóa chất diệt tảo không phải cách nên ưu tiên.",
+        "field": "body"
+      }
+    ],
+    "ruled": "1eabd945c9efb4d5"
+  },
   "vi/guides/aquariumbreeder-lava-rocks-in-aquariums-pros-and-cons": {
     "at": "2026-11-01",
     "hash": "1d1f6742338f84f9",
@@ -205,6 +284,22 @@
         "field": "caption"
       }
     ]
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-10-gallon-oddball-fish": {
+    "at": "2026-11-02",
+    "hash": "f0be274ba1aa0886",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 5 Oddball Fish for a 10-Gallon Aquarium - Aquarium Co-Op",
+        "problem": "This caption is the source article's title and says nothing about what the photo shows, so it is likely a banner image, not a photo of a fish.",
+        "rule": "a caption that matches the source page title or contains the publisher's site name",
+        "field": "caption"
+      }
+    ],
+    "ruled": "f0be274ba1aa0886"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-10-holiday-gift-ideas-for-your-favorite-fish-keeper": {
     "at": "2026-11-01",
@@ -540,6 +635,12 @@
     ],
     "ruled": "6ce566fbb681c780"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-blue-green-algae": {
+    "at": "2026-11-02",
+    "hash": "59e023352970c7b3",
+    "findings": [],
+    "ruled": "59e023352970c7b3"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-breeder-box": {
     "at": "2026-11-01",
     "hash": "37a47dce87f311d4",
@@ -589,11 +690,43 @@
     ],
     "ruled": "4152147377d9d65d"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-cloudy-fish-tank": {
+    "at": "2026-11-02",
+    "hash": "8f9d1fb14657ab3e",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Clear Up a Cloudy Fish Tank - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and does not describe the photo, so the image is likely a title graphic rather than a photo of a tank.",
+        "rule": "A caption that matches the source article's title or contains a site name such as 'Aquarium Co-Op'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "8f9d1fb14657ab3e"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-coldwater-fish": {
     "at": "2026-11-01",
     "hash": "be7e6b71965db191",
     "findings": [],
     "ruled": "be7e6b71965db191"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-diy-plant-background-wall": {
+    "at": "2026-11-02",
+    "hash": "0cf05bfa9a5982b2",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tường chỉ toàn rêu thường khó thành công.",
+        "problem": "The source says only that its own moss-only walls didn't go well, and the page turns that into a general rule.",
+        "fix": "Tường chỉ toàn rêu không phải lúc nào cũng dễ thành công.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0cf05bfa9a5982b2"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-easy-aquarium-plants": {
     "at": "2026-11-01",
@@ -688,6 +821,37 @@
       }
     ],
     "ruled": "5000a33e48875b93"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-high-tech-plants": {
+    "at": "2026-11-02",
+    "hash": "f9db00ba7c4b53a7",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "5 Best Aquarium Plants for High Tech Planted Tanks with CO2 - Aquarium Co-Op",
+        "problem": "This caption is the source article's title. It doesn't say what the photo shows.",
+        "rule": "A caption that ends with a site name after ' - ' and matches the page title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "f9db00ba7c4b53a7"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-care-for-aquarium-fish-while-on-vacation": {
+    "at": "2026-11-02",
+    "hash": "1ad4cd896e4e6a92",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "man cleaning his aquarium",
+        "problem": "The photo shows a person, not fish or the tank alone.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "1ad4cd896e4e6a92"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-change-aquarium-water-correctly": {
     "at": "2026-11-01",
@@ -819,6 +983,22 @@
     ],
     "ruled": "f36d91fd801d8905"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-hydra": {
+    "at": "2026-11-02",
+    "hash": "84573ff55404c169",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Get Rid of Hydra in Your Aquarium - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of the photo, so it may be a banner or title graphic rather than a photo of hydra.",
+        "rule": "A caption that contains the source site's name after a dash, like a page title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "84573ff55404c169"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-is-a-nano-aquarium-right-for-me": {
     "at": "2026-11-01",
     "hash": "a4b06ab0f991a4a8",
@@ -930,6 +1110,48 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-raise-baby-fish": {
+    "at": "2026-11-02",
+    "hash": "b9c082fd5faf3828",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Raise Baby Fish Fry in Your Aquarium - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of a photo, so the image is likely a title graphic rather than a photo of fry.",
+        "rule": "A caption that ends with ' - ' followed by a site or brand name, or that equals the source article's title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "b9c082fd5faf3828"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-repashy-gel-fish-food": {
+    "at": "2026-11-02",
+    "hash": "0728e1be6e3e4af3",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- Nước\n- Cho 1 muỗng canh (khoảng 15 ml) bột gel pha sẵn vào hộp đựng.",
+        "problem": "The materials list and the preparation steps run together as one bulleted list, so the steps read as more items to gather and lose their order.",
+        "fix": "Thêm dòng \"Các bước làm\" sau mục \"Nước\" và đánh số các bước từ 1 đến 5.",
+        "rule": "A bullet list under a 'Chuẩn bị dụng cụ' line that has imperative sentences of several clauses after short noun items.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Make Gel Fish Food in 7 Minutes - Aquarium Co-Op",
+        "problem": "This caption is the source article's title and site name. It does not describe what the photo shows.",
+        "rule": "A caption that ends with ' - ' followed by a site name, matching an article title pattern.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "0728e1be6e3e4af3"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-root-tabs": {
     "at": "2026-11-02",
@@ -1599,6 +1821,22 @@
       }
     ],
     "ruled": "1538eb685a2ae3b5"
+  },
+  "vi/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh": {
+    "at": "2026-11-02",
+    "hash": "e61d6f3928b7bce6",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "L6",
+        "quote": "Mức thấp nhất là 2 tuần (14–21 ngày)",
+        "problem": "The bracket gives a 14–21 day range (2–3 weeks) as if it were the 2-week minimum, which blurs the minimum the page states elsewhere.",
+        "fix": "Mức thấp nhất là 2 tuần (có nguồn ghi 14–21 ngày)",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "e61d6f3928b7bce6"
   },
   "vi/guides/aquatome-chon-ca-khoe-khi-mua-o-cua-hang-dau-hieu-ca-benh-can-tranh-va-cau-hoi-nen-hoi": {
     "at": "2026-11-01",
@@ -3408,6 +3646,42 @@
     ],
     "ruled": "d086c8552fdab84a"
   },
+  "vi/guides/youtube-EV1ZR6CjOzc": {
+    "at": "2026-11-02",
+    "hash": "837515679073ebbf",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "mới bắt đầu uốn dần đá lên để tạo vòm",
+        "problem": "'Uốn' (bend) is the wrong verb for stones. It should be 'xếp' (stack).",
+        "fix": "mới bắt đầu xếp dần đá lên để tạo vòm",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L3",
+        "quote": "sau đó mới uốn dần lên thành vòm",
+        "problem": "'Uốn' (bend) is the wrong verb for stacking stones.",
+        "fix": "sau đó mới xếp dần đá lên thành vòm",
+        "field": "summary.2"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-02",
+        "field": "body",
+        "score": 0.88,
+        "kept": true,
+        "problems": [
+          "The sentence is illogical: it says the step is quick 'especially' with heavy stones, when it should say the step matters most then."
+        ]
+      }
+    ],
+    "ruled": "837515679073ebbf"
+  },
   "vi/guides/youtube-FAccJ8TTIAs": {
     "at": "2026-11-01",
     "hash": "5f22003c77b417b3",
@@ -3592,6 +3866,12 @@
     ],
     "ruled": "d07139bac22219d9"
   },
+  "vi/guides/youtube-LFIB7o9BnFA": {
+    "at": "2026-11-02",
+    "hash": "4b725d9b27967785",
+    "findings": [],
+    "ruled": "4b725d9b27967785"
+  },
   "vi/guides/youtube-M0kds6giFrU": {
     "at": "2026-11-01",
     "hash": "1041f0afad999dfe",
@@ -3684,6 +3964,39 @@
     "findings": [],
     "ruled": "b1f25d6b555d1a45"
   },
+  "vi/guides/youtube-oHh1FU_k1jo": {
+    "at": "2026-11-02",
+    "hash": "ad38fd2aa9ab0d58",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-02",
+        "field": "body",
+        "score": 0.8,
+        "kept": true,
+        "problems": [
+          "Earlier on the page, 'ống hút' means the intake tube inside the tank, so readers may think they should suck on the intake rather than on the lowered OUT hose."
+        ]
+      }
+    ],
+    "ruled": "ad38fd2aa9ab0d58"
+  },
+  "vi/guides/youtube-PnwEzP5x8eU": {
+    "at": "2026-11-02",
+    "hash": "119104fde2aacb1d",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khi rêu lên, tán sẽ thành chỗ lá của cây bonsai.",
+        "problem": "\"Chỗ lá\" is an unnatural phrase; Vietnamese readers would say \"tán lá\".",
+        "fix": "Khi rêu lên, nó sẽ thành tán lá của cây bonsai.",
+        "field": "body"
+      }
+    ],
+    "ruled": "119104fde2aacb1d"
+  },
   "vi/guides/youtube-qqHJr-5enM8": {
     "at": "2026-11-01",
     "hash": "cec8ab7f2af4b477",
@@ -3740,6 +4053,22 @@
       }
     ],
     "ruled": "3e492530a270f49b"
+  },
+  "vi/guides/youtube-t-QbuMlXLIg": {
+    "at": "2026-11-02",
+    "hash": "4719f9848cf5d776",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Với loại van điện này, núm tinh chỉnh luôn ở trạng thái mở.",
+        "problem": "\"Luôn ở trạng thái mở\" means the knob is always open and cannot be closed, which clashes with the next advice to close it tightly. It should say the knob is often left open, or is open by default.",
+        "fix": "Với loại van điện này, núm tinh chỉnh thường đang để mở sẵn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4719f9848cf5d776"
   },
   "vi/guides/youtube-t0uqYP60WJA": {
     "at": "2026-11-01",
@@ -3847,6 +4176,22 @@
     ],
     "ruled": "c28c19e3449e077c"
   },
+  "vi/guides/youtube-vuxSFbYgmtg": {
+    "at": "2026-11-02",
+    "hash": "ba16f9865e9e2370",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có thể chọn bộ có thùng nhỏ hơn bộ phi 280, khoảng phi 220",
+        "problem": "The page compares to a 'phi 280' set it has never introduced, so the reader can't tell that this is the size of the combo described above.",
+        "fix": "Bộ hướng dẫn ở trên dùng thùng phi 280. Với bể nhỏ, bạn có thể chọn bộ thùng nhỏ hơn, khoảng phi 220.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ba16f9865e9e2370"
+  },
   "vi/guides/youtube-vZVXVNavk4g": {
     "at": "2026-11-01",
     "hash": "d446aa1dd886a9e6",
@@ -3929,6 +4274,31 @@
     "findings": [],
     "ruled": "77cf97026ba57d38"
   },
+  "vi/guides/youtube-YIl9PLI2HAs": {
+    "at": "2026-11-02",
+    "hash": "76f88ded0927ca3a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dương xỉ tổ phượng (Phoenix nest fern)",
+        "problem": "The English gloss is a bad back-translation: 'dương xỉ tổ phượng' is the bird's nest fern, not a 'Phoenix nest fern'.",
+        "fix": "Dương xỉ tổ phượng (bird's nest fern)",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Với những cây hoang dã đã trồng trên lũa",
+        "problem": "'Cây hoang dã' is a literal rendering of 'wild plants' and reads oddly. Vietnamese hobbyists would say 'cây rừng'.",
+        "fix": "Với những cây rừng đã trồng trên lũa",
+        "field": "body"
+      }
+    ],
+    "ruled": "76f88ded0927ca3a"
+  },
   "vi/guides/youtube-YLGv95LMF6c": {
     "at": "2026-11-01",
     "hash": "d59f847242944e15",
@@ -3953,6 +4323,22 @@
       }
     ],
     "ruled": "d59f847242944e15"
+  },
+  "vi/guides/youtube-YnloIslvwHA": {
+    "at": "2026-11-02",
+    "hash": "3c99b9958d85d475",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "chuẩn bị nền, buộc rêu và ráy lên lũa, giấu dây buộc, trồng cây nền rồi châm CO2 và cho nước vào",
+        "problem": "The intro promises steps on preparing the substrate, planting the carpet, adding CO2 and filling the tank, but the page never covers them.",
+        "fix": "Bài này đi qua các bước chọn ráy, buộc rêu và ráy lên lũa rồi giấu dây buộc.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3c99b9958d85d475"
   },
   "vi/guides/youtube-YXhZnSTaUW0": {
     "at": "2026-11-01",

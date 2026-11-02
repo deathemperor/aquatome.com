@@ -1005,6 +1005,53 @@
       "\"แสงแรงเพียงพอ\" for \"good light\" slightly shifts the meaning. Prefer \"แสงที่ดี/แสงเพียงพอ\"."
     ]
   },
+  "hydrocotyle-verticillata": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "แว่นแก้ว",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 2: \"soft, slightly acidic water\" became \"น้ำอ่อนที่มีค่า pH เป็นกรดอ่อนเท่านั้น\". The added \"pH\" and the misplaced \"เท่านั้น\" make it read as if only weakly acidic water works. Rephrase: \"เติบโตได้ดีที่สุดเมื่อได้รับแสงจัดและอยู่ในน้ำอ่อนที่เป็นกรดเล็กน้อยเท่านั้น\".",
+      "Item 2: \"but can be used as a floating plant\" is rendered \"ปล่อยให้เป็นไม้ลอยน้ำได้\". This is acceptable, but \"แต่สามารถใช้เป็นไม้ลอยน้ำได้\" is more faithful.",
+      "Item 3: \"Verticillata originates from America\" is rendered \"ทวีปอเมริกา\". Fine, but the bare \"Verticillata\" stays in Latin as a sentence subject. Use \"H. verticillata\" or \"ไม้น้ำชนิดนี้\" for clarity.",
+      "Item 3: \"definitely a foreground plant\" is rendered \"ไม้หน้าตู้อย่างแน่นอน\". Prefer \"ไม้ปูพื้น/ไม้หน้าตู้โดยแท้\", since \"อย่างแน่นอน\" is stiff.",
+      "Item 3: \"garden ponds\" is rendered \"บ่อในสวน\". Prefer \"บ่อน้ำในสวน\".",
+      "Item 3: \"indoor plant\" is rendered \"ไม้ประดับในบ้าน\", which is fine. \"รักษาให้ดินชุ่มชื้น\" is slightly unnatural. Prefer \"ทำให้ดินชื้นอยู่เสมอ\". \"อยู่เสมอ\" is an added word, since the English says only \"kept moist\"."
+    ]
+  },
+  "hygrophila-angustifolia": {
+    "at": "2026-11-02",
+    "from": "2026-10-31",
+    "name": "ไฮโกรใบหลิว",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "In 'อายุหลายปี เป็นไม้ล้มลุก', the 'perennial herbaceous' wording is slightly awkward. Consider 'ไม้ล้มลุกอายุหลายปี'.",
+      "'ต้นไม้สามารถเพิ่มมวลชีวภาพ' uses 'ต้นไม้' for the plant. 'ไม้น้ำชนิดนี้' reads more naturally.",
+      "'บรรจุภัณฑ์ยังไม่ถูกเปิด' for 'pot is intact' is a loose rendering. Consider 'ภาชนะ/ถ้วยปลูกยังปิดผนึกสมบูรณ์'."
+    ]
+  },
+  "hygrophila-corymbosa": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "ไฮโกรฟิลา คอริมโบซา",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": []
+  },
+  "hygrophila-costata": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "ไฮโกรฟิลา คอสตาตา",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "\"ข้อห่างกว่า\" (gaps between leaves): the English says larger gaps between the leaves, but this reads as nodes/stems. Prefer \"ใบห่างกันมากกว่า\" or \"ช่องว่างระหว่างใบกว้างกว่า\".",
+      "\"เพาะเลี้ยงแบบบก\" is slightly awkward. Prefer \"เลี้ยงแบบเหนือน้ำ\" or \"ปลูกแบบโผล่เหนือน้ำ\" (emersed).",
+      "\"ไม้น้ำแบบต้น (ไม้ข้อ)\" is acceptable but a bit wordy. Consider \"ไม้ลำต้น\" or \"ไม้ข้อ\" alone."
+    ]
+  },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
     "from": "2026-10-30",

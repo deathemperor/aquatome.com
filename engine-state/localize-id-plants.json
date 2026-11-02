@@ -1046,6 +1046,58 @@
       "\"penghambatan mekanis\" for \"mechanical retardation\" is a bit stiff; consider \"pemangkasan/penekanan mekanis\" or keep the English term in brackets."
     ]
   },
+  "hydrocotyle-verticillata": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "Hydrocotyle verticillata",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 3: \"tanaman hias dalam ruangan\" is a bit off for \"indoor plant\"; prefer \"tanaman dalam ruangan\" (minor).",
+      "Item 3: \"Kalau tanahnya...\" is colloquial for a handbook; prefer \"Jika media tanamnya dijaga tetap lembap\" (minor).",
+      "Item 3: \"tanaman latar depan (foreground)\" is acceptable, but \"tanaman latar depan\" alone suffices; \"jelas merupakan\" is slightly stiff for \"definitely\" (minor).",
+      "Item 2: \"tidak perlu ditanam di substrat\" is fine, but \"Pertumbuhan optimal hanya bisa dicapai dengan cahaya kuat\" could read more naturally as \"di bawah cahaya kuat\" (minor)."
+    ]
+  },
+  "hygrophila-angustifolia": {
+    "at": "2026-11-02",
+    "from": "2026-10-31",
+    "name": "Hygrophila angustifolia",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 5: \"Pinching stem tips\" translated as \"Memotong ujung batang (pucuk)\" is fine, but \"Regular propagation by trimming and replanting stems\" became \"Memperbanyak secara rutin dengan memangkas...\" with no subject; reads awkward and ambiguous.",
+      "Item 5: \"at least three nodes\" is rendered correctly, but \"Do not allow it to grow above the surface\" conflicts with the earlier emersed info; no issue. However \"Leggy growth\" translated as \"kurus memanjang (leggy)\" is fine; \"Relocation ... uproot a large part of the tank\" became \"mengangkat sebagian besar isi akuarium\", which changes the meaning (it uproots plants and substrate, not tank contents). Use \"mencabut sebagian besar tanaman/substrat di akuarium\".",
+      "Item 7: \"It is a heavy root feeder\" rendered as \"rakus menyerap nutrisi lewat akar\". Acceptable, but \"feeds from the water column\" as \"menyerap makanan\" is imprecise; use \"menyerap nutrisi\".",
+      "Item 8: \"Flowers: petals usually white\" translated as \"kelopaknya\" (sepals/calyx). Should be \"mahkota bunga\" (petals).",
+      "Item 8: \"Stems: hard\" described as \"keras\" but the plant is called \"berbatang lunak (herba)\" in the first bullet, a contradiction. Use \"berbatang basah/herba\" or \"tidak berkayu\".",
+      "Item 8: \"Quarantine ... quarantine and disinfect it\" uses a noun-like \"karantina dan disinfeksi tanaman\", which is awkward. Use \"karantina dan disinfeksi dahulu tanaman\" or \"lakukan karantina...\".",
+      "Item 2: \"Papua (New Guinea)\" for New Guinea narrows the region to Indonesian Papua. Use \"Nugini\" / \"Papua Nugini\" as appropriate.",
+      "Item 8: \"fry\" given as \"burayak\", acceptable, but \"Fast growth lets it absorb ammonia, nitrates\" — the study figures lack units, left unchanged; fine."
+    ]
+  },
+  "hygrophila-corymbosa": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "Hygrophila corymbosa",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "Item 2: 'potong pucuknya lalu tanam ulang' repeats 'pucuknya' in two consecutive clauses; could be smoother, e.g. 'potong pucuknya lalu tanam kembali'.",
+      "Item 2: 'Sangat tangguh' in item 1 is fine, but 'jadi' in 'daunnya jadi hijau kebiruan' is colloquial for a handbook; 'menjadi' is more suitable."
+    ]
+  },
+  "hygrophila-costata": {
+    "at": "2026-11-02",
+    "from": "2026-10-30",
+    "name": "Hygrophila costata",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"jadi daunnya lebih bulat\": the added \"jadi\" makes a causal link that the English does not state. Use \"dan daunnya lebih bulat\" or \"serta berdaun lebih bulat\".",
+      "\"(emersed)\": this is an added English gloss. It is acceptable, but \"emers\" or \"di atas permukaan air\" alone is more natural."
+    ]
+  },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
     "from": "2026-10-30",
