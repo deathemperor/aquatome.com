@@ -30,8 +30,8 @@
       "test": "bundle",
       "metric": "AquaTome.app",
       "unit": "kB",
-      "max": 2541,
-      "reason": "raised 2026-11-01 from 2261 kB for the fish and plant shelf filters (#317), the first of the handbook stack over it: each PR measured on one Mac (Release archive) on main with the lights (8ba3696a): main 2092.8, the facts card (#313) 2127.4, saved and recent pages (#314) 2145.1, a tank's guides (#315) 2161.9, the Tìm home (#316) 2250.8, the filters 2309.6 kB. The filters' +58.8 kB: the filter forms and the filtered shelf 64.3 kB of code, the kit's filter 5.5, less 3.9 for the grid they replace. Worth it: the owner asked for the site's fish and plant filters in the app. Budget: 2309.6 kB ×1.1"
+      "max": 2890,
+      "reason": "raised 2026-11-02 from 2541 kB for fish and plants with no page put on a tank (#380), the first PR over it: CI read 2539.0 kB on main after adding a passkey in the app (#373) and 2627.2 kB on #380 (e89045de). #380 measured on one Mac (Release archive, main 2550.2 → 2638.5 kB): the binary +86.0 kB, the Indonesian and Thai strings +2.2. Of the code, the tank's “Thêm cá hoặc cây” 51.9 kB (the form for a fish or plant with no page 17.6, its count sheet 11.7, its row 5.5, the list and the search 8.9, closures and metadata 9.9), the kit's tank model and validator 12.1, the page matcher 7.8, the tanks model, the handbook model and the sender of what readers want 3.0 each, the tank-mates check 2.1, the rest under 1 kB each. Main already sat at the budget with accounts (237 kB of 2080 kB of linked code, spread over small symbols: not trimmed). Worth it: the owner asked that readers can put their whole stock on a tank, pages or not. Budget: CI's 2627.2 kB ×1.1"
     }
   ]
 }
