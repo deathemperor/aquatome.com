@@ -58,6 +58,16 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   The lights flows (`AquaTomeUITests/LightFlowTests`) follow the site's Chihiros page; the fake light's launch arguments
   (a slow or lost clock, old firmware, a drop, no Bluetooth…) are listed on `FakeRadio` (`AquaTome/Lights/Radio.swift`).
 
+  A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
+  `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant and a guide top to bottom, light and dark, and CI's
+  job `handbook` uploads them as the `ios-page-shots` artifact. Locally:
+
+  ```sh
+  xcodebuild test -project AquaTome.xcodeproj -scheme AquaTome -destination 'platform=iOS Simulator,name=iPhone 17' \
+    -resultBundlePath /tmp/shots.xcresult -only-testing:AquaTomeUITests/PageShotsFlowTests
+  python3 scripts/shots.py /tmp/shots.xcresult /tmp/shots
+  ```
+
 - **A real iPhone:** copy `Config/Local.xcconfig.example` to `Config/Local.xcconfig` and put your team ID in it. The
   public project never holds the team ID.
 

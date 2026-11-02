@@ -23,7 +23,7 @@ permissions:
 env:
   HANDBOOK_FLOWS: >-
     HandbookFlowTests FactsCardFlowTests ReadingFlowTests NativePageFlowTests OfflineFlowTests TankCheckFlowTests
-    TankLifeFlowTests
+    TankLifeFlowTests PageShotsFlowTests
   # The light flows' first half, run by `lights (1)`; `lights (2)` runs the rest of LightFlowTests, so a flow added later
   # or misspelled here runs there. Split by their times on main's run of 2026-11-01 (1,034 s and 1,017 s).
   LIGHT_FLOWS_FIRST: >-
@@ -171,6 +171,17 @@ jobs:
       - name: Tests that passed only on a retry
         if: always()
         run: apps/ios/scripts/retried-tests.py build/handbook.xcresult
+      # The pages' screenshots (PageShotsFlowTests), a pull request's before (its base's run) or after (its own): see
+      # docs/governance.md.
+      - name: Page screenshots
+        if: always()
+        run: apps/ios/scripts/shots.py build/handbook.xcresult build/shots
+      - if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ios-page-shots
+          path: build/shots
+          if-no-files-found: ignore
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
