@@ -86,5 +86,8 @@ export async function addReaders(wanted: Wanted, wants: ReaderWant[], have: Set<
 export function readersReport(rows: ReaderRow[]): { names: ReaderRow[]; held: { names: number; readers: number } } {
   const shown = (r: ReaderRow) => r.status !== 'unknown' || r.readers >= PUBLIC_MIN_READERS
   const held = rows.filter(r => !shown(r))
-  return { names: rows.filter(shown), held: { names: held.length, readers: held.reduce((n, r) => n + r.readers, 0) } }
+  // Below PUBLIC_MIN_READERS a row is shown for its species, so it shows the species' name, never the reader's own words
+  // ("Cá nhà Lan" given with Paracheirodon innesi lists as Paracheirodon innesi).
+  const names = rows.filter(shown).map(r => (r.readers < PUBLIC_MIN_READERS && r.sci ? { ...r, name: r.sci } : r))
+  return { names, held: { names: held.length, readers: held.reduce((n, r) => n + r.readers, 0) } }
 }

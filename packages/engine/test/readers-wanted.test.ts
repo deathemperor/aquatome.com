@@ -87,10 +87,10 @@ test('wanted pages go most readers first, then popular, then most-mentioned', ()
 
 test(`the public report lists species GBIF knows and names ${PUBLIC_MIN_READERS} readers gave; the rest only as counts`, async () => {
   const rows = await addReaders(new Map(), [
-    want('Cá chuột sterbai', 1, { sci: 'Corydoras sterbai' }), want('Cá bống lạ', PUBLIC_MIN_READERS), want('Cá của Lan', 1), want('Tên riêng', 2, { sci: 'John Smith' }),
+    want('Cá chuột sterbai', 1, { sci: 'Corydoras sterbai' }), want('Cá bống lạ', PUBLIC_MIN_READERS), want('Cá của Lan', 1), want('Tên riêng', 2, { sci: 'John Smith' }), want('Cá nhà Lan', 1, { sci: 'Paracheirodon innesi' }),
   ], new Set(), gbif, () => true)
   const report = readersReport(rows)
-  expect(report.names.map(r => r.name)).toEqual(['Cá bống lạ', 'Cá chuột sterbai'])
+  expect(report.names.map(r => r.name)).toEqual(['Cá bống lạ', 'Corydoras sterbai', 'Paracheirodon innesi'])
   expect(report.held).toEqual({ names: 2, readers: 3 })
   expect(JSON.stringify(report)).not.toMatch(/Lan|John/)
 
@@ -98,9 +98,9 @@ test(`the public report lists species GBIF knows and names ${PUBLIC_MIN_READERS}
   await writeFile(join(root, 'readers.json'), JSON.stringify(report))
   await writeFile(join(root, 'wanted.json'), JSON.stringify({ 'corydoras-sterbai': { name: 'Corydoras sterbai', mentions: 0, mentionedIn: [], readers: 1, onSource: 'https://x/species/corydoras-sterbai/' } }))
   const { markdown } = await auditPictures(root, join(root, 'wanted.json'), join(root, 'readers.json'))
-  expect(markdown).toContain('## Readers keep these on their tanks, no page yet (2)')
+  expect(markdown).toContain('## Readers keep these on their tanks, no page yet (3)')
   expect(markdown).toContain('- Cá bống lạ, fish — 3 readers — no species GBIF knows by this name: a person decides')
-  expect(markdown).toContain('- Cá chuột sterbai (Corydoras sterbai), fish — 1 reader — queued first (corydoras-sterbai)')
+  expect(markdown).toContain('- Corydoras sterbai, fish — 1 reader — queued first (corydoras-sterbai)')
   expect(markdown).toContain('- and 2 more names (3 readers) that GBIF doesn\'t know and fewer than 3 readers gave: kept out of this public file')
   expect(markdown).toContain('- Corydoras sterbai — kept by 1 reader — queued first: https://x/species/corydoras-sterbai/')
 })
