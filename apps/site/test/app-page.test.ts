@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import type { Content } from '@aq/schema'
 import { drawnKinds, PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
-import { appGlossary, appGuides, appPlants, appSpecies, type AppIndex } from '../src/lib/app-index'
+import { appGlossary, appGuides, appPlants, appSeries, appSpecies, type AppIndex } from '../src/lib/app-index'
 import { appPages, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, shardsOf } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { GUIDE_KIND_LABELS } from '../src/lib/format'
@@ -171,6 +171,7 @@ test('each page of each kind is in the shard its path names, the shards hold not
       fish: appSpecies(lang, c).map(s => at(`/vi/ca/${s.t.slug}/`)),
       plant: appPlants(lang, c).map(p => at(`/vi/cay/${p.t.slug}/`)),
       glossary: appGlossary(lang, c).map(g => at(`/vi/thuat-ngu/${g.t.slug}/`)),
+      video: appSeries(lang, c).map(({ s }) => at(`/vi/video/${s.vi.slug}/`)),
     }
     for (const p of Object.values(want).flat()) expect(listed.has(p), `${p} is in the index`).toBe(true)
     const files = existsSync(`${DIST}/app/pages/${lang}`) ? readdirSync(`${DIST}/app/pages/${lang}`) : []
@@ -192,20 +193,20 @@ test('each page of each kind is in the shard its path names, the shards hold not
       if (paths.length) kinds++
     }
   }
-  expect(kinds).toBeGreaterThanOrEqual(4)
+  expect(kinds).toBeGreaterThanOrEqual(5)
 })
 
-test('the first app draws guides only; an app that knows level 2 draws fish, plant and glossary pages too', () => {
+test('the first app draws guides only; an app that knows level 2 draws fish, plant, glossary and video series pages too', () => {
   // The first app draws every kind `pages` counts, and would offer the web for every block it doesn't know: `pages` stays
   // guides only, and the other kinds are in `shards` at level 2.
-  expect(PAGE_LEVELS).toEqual({ guide: 1, fish: 2, plant: 2, glossary: 2 })
+  expect(PAGE_LEVELS).toEqual({ guide: 1, fish: 2, plant: 2, glossary: 2, video: 2 })
   const ix: AppIndex = JSON.parse(readFileSync(`${DIST}/app/vi.json`, 'utf8'))
   expect(Object.keys(ix.pages ?? {})).toEqual(['guide'])
   expect(ix.shards?.guide?.n).toBe(ix.pages?.guide)
   expect(drawnKinds(ix.shards ?? {}, 1)).toEqual(Object.keys(ix.pages ?? {}))
-  expect(drawnKinds(ix.shards ?? {}, 2).sort()).toEqual(['fish', 'glossary', 'guide', 'plant'])
+  expect(drawnKinds(ix.shards ?? {}, 2).sort()).toEqual(['fish', 'glossary', 'guide', 'plant', 'video'])
   const files = readdirSync(`${DIST}/app/pages/vi`)
-  for (const kind of ['fish', 'plant', 'glossary']) expect(files.some(f => f.startsWith(`${kind}-`)), kind).toBe(true)
+  for (const kind of ['fish', 'plant', 'glossary', 'video']) expect(files.some(f => f.startsWith(`${kind}-`)), kind).toBe(true)
 })
 
 test('the guide page and the app\'s copy are put together by the same code', () => {

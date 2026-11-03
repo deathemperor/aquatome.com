@@ -368,12 +368,14 @@ extension HandbookIndex {
     "co2": ["none": "Không cần", "optional": "Tùy chọn", "required": "Bắt buộc"],
     "growth": ["slow": "Chậm", "medium": "Vừa", "fast": "Nhanh"],
     "difficulty": ["1": "Dễ", "2": "Trung bình", "3": "Khó"],
-  ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1])
+  ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1, "video": 1])
 
   /// UI tests' pages: the neon guide as the site writes it (/app/pages/vi/guide-0.json), with each kind of block, links
-  /// to the fixture's pages and a tool, a word's tip, and two parts in a row from a newer site the app can't draw.
+  /// to the fixture's pages and a tool, a word's tip, and two parts in a row from a newer site the app can't draw; a
+  /// fish, a plant, a term and a video series, each as the site writes it.
   static let fixturePages = Data(#"""
   {"v":1,"pages":{"/vi/huong-dan/cach-han-che-reu-hai/":{"v":1,"kind":"guide","path":"/vi/huong-dan/cach-han-che-reu-hai/","title":"Cách hạn chế rêu hại","video":{"youtubeId":"abc123XYZ_-","title":"Hạn chế rêu hại","channel":"MJ Aquascaping","durationSec":1755},"blocks":[{"t":"p","c":["Ánh sáng vừa đủ, CO₂ đều, thay nước đúng lịch."]}]},
+  "/vi/video/reu-hai-tu-a-den-z/":{"v":1,"kind":"video","path":"/vi/video/reu-hai-tu-a-den-z/","title":"Rêu hại từ A đến Z","meta":"1 bài · 29 phút video","credit":["theo playlist “",{"text":"ALGAE! Everything you need to know!","href":"https://www.youtube.com/playlist?list=PLtest"},"” của kênh ",{"text":"MJ Aquascaping","href":"https://www.youtube.com/@MJAquascaping"}],"blocks":[{"t":"p","c":["Từng loại rêu hại: vì sao mọc và cách hạn chế."]},{"t":"cards","title":"Video","items":[{"path":"/vi/huong-dan/cach-han-che-reu-hai/","name":"Cách hạn chế rêu hại","sub":"Chăm cây · 29:15","img":{"src":"https://i.ytimg.com/vi/abc123XYZ_-/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: MJ Aquascaping","licence":"YouTube","url":"https://www.youtube.com/watch?v=abc123XYZ_-"}}}]}]},
   "/vi/huong-dan/nuoi-ca-neon/":{"v":1,"kind":"guide","path":"/vi/huong-dan/nuoi-ca-neon/","title":"Nuôi cá neon trong bể nhỏ",
    "meta":"Chăm sóc · đọc khoảng 4 phút","credit":["AquaTome tổng hợp từ ",{"text":"2 nguồn","href":"#nguon"}," rồi tự viết"],
    "lead":{"src":"https://media.aquatome.com/a/neon-lead.webp","w":1200,"h":800,"credit":{"text":"Ảnh: Aquarium Co-op","licence":"CC BY 4.0"}},

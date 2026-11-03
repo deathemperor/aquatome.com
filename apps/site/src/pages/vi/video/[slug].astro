@@ -3,10 +3,8 @@ import type { Series } from '@aq/schema'
 import Browse from '../../../layouts/Browse.astro'
 import { getContent } from '../../../lib/content'
 import { creditsFor } from '../../../lib/credits'
-import { guideImage } from '../../../lib/mentions'
 import { smallSrc } from '../../../lib/img'
-import { GUIDE_KIND_LABELS } from '../../../lib/format'
-import { clock, hours, seriesGuides, seriesSeconds } from '../../../lib/video'
+import { seriesParts } from '../../../lib/series-page'
 import { i18n, langOf } from '../../../lib/i18n'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
@@ -16,7 +14,8 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { s } = Astro.props as { s: Series }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-const guides = seriesGuides(c, s)
+const p = seriesParts(lang, c, s)
+const guides = p.guides.map(x => x.g)
 const site = Astro.site!
 const jsonld = [{
   '@context': 'https://schema.org', '@type': 'ItemList', name: s.vi.name,
@@ -25,19 +24,18 @@ const jsonld = [{
 const indexable = guides.some(g => g.t.quality.indexable)
 ---
 <Browse title={s.vi.name} heading={s.vi.name} intro={s.vi.intro} crumbs={[['/vi/video/', t('Video')]]} noindex={!indexable} jsonld={jsonld}
-  image={guides[0] && guideImage(c, guides[0])?.url} credits={creditsFor(guides.map(g => guideImage(c, g)))}>
-  <p class="meta">{t('{n} bài', { n: guides.length })} · {t('{time} video', { time: hours(lang, seriesSeconds(c, s)) })} · {t('theo playlist “')}<a href={`https://www.youtube.com/playlist?list=${s.playlistId}`} rel="noopener">{s.title}</a>{t('” của kênh')} <a href={s.channelUrl} rel="noopener">{s.channel}</a></p>
+  image={p.guides[0]?.photo?.url} credits={creditsFor(p.guides.map(x => x.photo))}>
+  <p class="meta">{p.counts} · {p.follows.map(r => (typeof r === 'string' ? r : <a href={r.href} rel="noopener">{r.text}</a>))}</p>
   <ol class="parts">
-    {guides.map((g, i) => {
-      const ph = guideImage(c, g)
+    {p.guides.map(({ g, photo: ph, about, length }, i) => {
       return (
         <li>
           <a href={`/vi/huong-dan/${g.t.slug}/`}>
             <span class="n">{i + 1}</span>
-            <span class="img">{ph && <img src={smallSrc(ph)} width="480" height="270" alt="" loading={i < 4 ? 'eager' : 'lazy'} />}{g.t.cover && <span class="cover">{g.t.cover}</span>}<span class="dur">{clock(g.video.durationSec)}</span></span>
+            <span class="img">{ph && <img src={smallSrc(ph)} width="480" height="270" alt="" loading={i < 4 ? 'eager' : 'lazy'} />}{g.t.cover && <span class="cover">{g.t.cover}</span>}<span class="dur">{length}</span></span>
             <span class="txt">
               <strong>{g.t.name}</strong>
-              <small>{t(GUIDE_KIND_LABELS[g.kind])}{g.video.chapters.length > 1 && ` · ${t('{n} đoạn', { n: g.video.chapters.length })}`}</small>
+              <small>{about}</small>
               {g.t.summary?.[0] && <span class="first">{g.t.summary[0]}</span>}
             </span>
           </a>
