@@ -28,7 +28,8 @@ struct PageView: View {
     let native = handbook.drawsItself(item) && !onWeb
     Group {
       if native, let pieces {
-        NativePage(pieces: pieces, facts: facts(inPage: true), web: { onWeb = true }, nameInView: { nameInView = $0 })
+        NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, web: { onWeb = true },
+                   nameInView: { nameInView = $0 })
       } else if native && !tried {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {
@@ -58,8 +59,9 @@ struct PageView: View {
           }
         }
         ToolbarItemGroup(placement: .primaryAction) {
-          // A fish or plant page: onto one of the reader's tanks (TankLife.swift).
-          if Life(item) != nil {
+          // A fish or plant page: onto one of the reader's tanks (TankLife.swift); the page the app draws has it under
+          // the name (none in the bar while it is read, to come and go).
+          if Life(item) != nil, !(native && (inPagePut || !tried)) {
             // Not into a store this app must leave alone (newer, unreadable).
             Button { putting = true } label: { Label("Thêm vào bể", systemImage: "plus.circle") }
               .disabled(!tanks.canEdit).accessibilityIdentifier("put-on-tank")
@@ -89,6 +91,11 @@ struct PageView: View {
       }
       .onAppear { handbook.read(item) }
       .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+  }
+
+  /// The page the app draws has a place for putting the fish or plant on a tank, under its name (`.facts`).
+  private var inPagePut: Bool {
+    Life(item) != nil && pieces?.contains { if case .facts = $0 { true } else { false } } == true
   }
 
   /// A fish's facts, from the index on the phone (there offline, with or without the page); a plant's care, as its page

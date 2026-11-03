@@ -11,6 +11,8 @@ struct NativePage: View {
   let pieces: [Piece]
   /// A fish's facts or a plant's care (FactsCard), where the page puts them (`.facts`).
   var facts: FactsCard?
+  /// A fish's or plant's: onto one of the reader's tanks, from under its name (`.facts`), not a button in the bar.
+  var put: (() -> Void)?
   let web: () -> Void
   /// Told whether the page's name is on the screen (iOS 18 on): the bar shows it only once it has scrolled away.
   var nameInView: (Bool) -> Void = { _ in }
@@ -173,7 +175,10 @@ struct NativePage: View {
         if let note { Text(note).font(.footnote).foregroundStyle(.secondary) }
       }
     case .facts:
-      if let facts { facts }
+      VStack(alignment: .leading, spacing: 16) {
+        if let put { PutButton(put: put) }
+        if let facts { facts }
+      }
     case .web:
       Button(action: web) { Label("Xem phần này trên web", systemImage: "safari") }
         .buttonStyle(.bordered)
@@ -885,5 +890,20 @@ private struct InView: ViewModifier {
     } else {
       content
     }
+  }
+}
+
+/// A fish's or plant's page: onto one of the reader's tanks (TankLife.swift), under its name, to see on opening.
+private struct PutButton: View {
+  let put: () -> Void
+  @Environment(TanksModel.self) private var tanks
+
+  var body: some View {
+    Button(action: put) { Label("Thêm vào bể", systemImage: "plus").frame(maxWidth: .infinity) }
+      .buttonStyle(.bordered)
+      .controlSize(.large)
+      // Not into a store this app must leave alone (newer, unreadable).
+      .disabled(!tanks.canEdit)
+      .accessibilityIdentifier("put-on-tank")
   }
 }

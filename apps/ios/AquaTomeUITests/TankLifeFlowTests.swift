@@ -8,6 +8,9 @@ final class TankLifeFlowTests: XCTestCase {
   func testPutsAFishFromItsPageOnATankStartingAtItsSchoolSize() {
     let app = launch("-seed-tanks", "litres") // one tank, "Bể cũ", no fish
     openPage(app, "Cá neon")
+    // On the page the app draws, under the fish's name, not in the bar.
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].buttons["put-on-tank"].exists, "not on the page")
+    XCTAssertFalse(app.navigationBars.buttons["put-on-tank"].exists, "in the bar as well")
     app.buttons["put-on-tank"].tap()
     let count = app.textFields["put-count"]
     XCTAssertTrue(count.waitForExistence(timeout: 5))
