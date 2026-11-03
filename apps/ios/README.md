@@ -88,6 +88,22 @@ titles in plain words (`scripts/testflight-notes.py`, at most TestFlight's 4,000
 refuses). It's set in English once Apple has processed the build, in en-US, Vietnamese and any language the build
 already has; a note that can't be set is a warning, not a failed upload.
 
+## App Store listing
+
+`store/listing.json` is the App Store listing: its copy in Vietnamese (the primary language), Indonesian and Thai, the
+categories, a free price in every territory, the content rights, the age rating answers and the notes for App Review.
+`.github/workflows/app-store.yml` applies it with `scripts/asc-listing.mjs`:
+
+- a pull request that changes it is checked against Apple's limits (`--check`, whose own test is `--test`), and gets
+  what App Store Connect has now beside it (`--report`)
+- by hand (Actions → "iOS app: App Store listing" → Run workflow), it makes the screenshots and keeps them with the run:
+  `AquaTomeUITests/StoreShotsFlowTests`, six screens in each language, on an iPhone 17 Pro Max (6.9"), an iPhone 17
+  (6.3", the iPhone set Apple requires) and an iPad Pro 13-inch, from aquatome.com's handbook and the simulator's stand-in light and plugs (`scripts/store-shots.py` exports
+  them). With "apply" ticked, it also writes the listing and the screenshots to App Store Connect (`--apply`).
+
+The script never submits the app for review, attaches a build or releases it: its requests for those are refused before
+they're sent. The App Review contact is entered on the App Store Connect website, never here.
+
 ## Performance budgets
 
 `AquaTomeUITests/PerformanceTests` measures launch (to the first screen answering touches) and flinging through 800 fish
