@@ -661,7 +661,9 @@ private struct GalleryViewer: View {
           ToolbarItem(placement: .topBarLeading) { ReaderMenu(item: readers[index], reporting: $reporting, blocking: $blocking) }
         }
       }
-      .readerActions(reporting: $reporting, blocking: $blocking) { dismiss() }
+      .readerActions(reporting: $reporting, blocking: $blocking, inViewer: true) { dismiss() }
+      // A photo reported, the viewer closed some other way than its thanks: hidden all the same.
+      .onDisappear { handbook.safety.hidePending() }
       .accessibilityIdentifier("gallery")
     }
   }

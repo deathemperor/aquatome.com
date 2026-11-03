@@ -15,6 +15,9 @@ final class ReaderSafety {
 
   private(set) var blocked: [Blocked]
   private(set) var reported: Set<String>
+  /// Reported from a photo's viewer: kept, and hidden once the viewer closes (`hidePending`), so the viewer stays to
+  /// show the thanks.
+  @ObservationIgnored private var pending: Set<String> = []
   /// The reader's own `author`s, from the comments they posted that showed at once: no "…" on their own.
   private(set) var own: Set<String>
   @ObservationIgnored private let defaults: UserDefaults
@@ -53,9 +56,17 @@ final class ReaderSafety {
     defaults.set(try? JSONEncoder().encode(blocked), forKey: "readers.blocked")
   }
 
-  func reported(_ item: ReaderItem) {
-    reported.insert("\(item.kind):\(item.id)")
-    defaults.set(Array(reported).sorted(), forKey: "readers.reported")
+  /// Kept at once, as the app may close before the thanks does; hidden now, or with `hide: false` at `hidePending`.
+  func reported(_ item: ReaderItem, hide: Bool = true) {
+    let key = "\(item.kind):\(item.id)"
+    if hide { reported.insert(key) } else { pending.insert(key) }
+    defaults.set(Array(reported.union(pending)).sorted(), forKey: "readers.reported")
+  }
+
+  func hidePending() {
+    guard !pending.isEmpty else { return }
+    reported.formUnion(pending)
+    pending = []
   }
 }
 
@@ -90,15 +101,17 @@ struct ReaderMenu: View {
 
 extension View {
   /// The report and block a ReaderMenu starts: asked, sent, and said, on the view that stays while the item goes.
-  /// `done`: after the item is reported or blocked (a photo's viewer closes).
-  func readerActions(reporting: Binding<ReaderItem?>, blocking: Binding<ReaderItem?>, done: @escaping () -> Void = {}) -> some View {
-    modifier(ReaderActions(reporting: reporting, blocking: blocking, done: done))
+  /// `done`: after the item is reported or blocked (a photo's viewer closes). `inViewer`: a reported item stays until its
+  /// thanks closes; hidden at once, a page's last photo would take its viewer, and the thanks on it, away first.
+  func readerActions(reporting: Binding<ReaderItem?>, blocking: Binding<ReaderItem?>, inViewer: Bool = false, done: @escaping () -> Void = {}) -> some View {
+    modifier(ReaderActions(reporting: reporting, blocking: blocking, inViewer: inViewer, done: done))
   }
 }
 
 private struct ReaderActions: ViewModifier {
   @Binding var reporting: ReaderItem?
   @Binding var blocking: ReaderItem?
+  let inViewer: Bool
   let done: () -> Void
   @Environment(HandbookModel.self) private var handbook
   @Environment(AccountModel.self) private var account
@@ -129,7 +142,10 @@ private struct ReaderActions: ViewModifier {
       }
       .alert(said ?? "", isPresented: Binding(get: { said != nil }, set: { if !$0 { said = nil } })) {
         Button("Đóng") {
-          if sent { done() }
+          if sent {
+            handbook.safety.hidePending()
+            done()
+          }
           sent = false
         }
       }
@@ -147,9 +163,9 @@ private struct ReaderActions: ViewModifier {
       }.map { Readers.reported($0.0, status: $0.1) }
       switch answer {
       case .received?:
-        // Hidden at once, and kept so: the page or the app may close before the thanks does. A photo that was the
-        // page's last takes its viewer, and the thanks, with it; the page then says what it hides.
-        handbook.safety.reported(item)
+        // Kept at once: the page or the app may close before the thanks does. Hidden at once on the page; from a
+        // photo's viewer, as the thanks closes, or a page's last photo would take its viewer and the thanks with it.
+        handbook.safety.reported(item, hide: !inViewer)
         sent = true
         said = String(localized: "Đã gửi báo cáo. Cảm ơn bạn.")
       case .refused("rate")?:
