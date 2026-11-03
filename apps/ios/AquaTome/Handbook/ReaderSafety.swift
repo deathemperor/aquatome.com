@@ -18,6 +18,8 @@ final class ReaderSafety {
   /// Reported from a photo's viewer: kept, and hidden once the viewer closes (`hidePending`), so the viewer stays to
   /// show the thanks.
   @ObservationIgnored private var pending: Set<String> = []
+  /// A photo's viewer on screen: a report from it waits for it to close. Its answer may come after it has.
+  @ObservationIgnored var viewing = false
   /// The reader's own `author`s, from the comments they posted that showed at once: no "…" on their own.
   private(set) var own: Set<String>
   @ObservationIgnored private let defaults: UserDefaults
@@ -56,10 +58,11 @@ final class ReaderSafety {
     defaults.set(try? JSONEncoder().encode(blocked), forKey: "readers.blocked")
   }
 
-  /// Kept at once, as the app may close before the thanks does; hidden now, or with `hide: false` at `hidePending`.
+  /// Kept at once, as the app may close before the thanks does; hidden now, or with `hide: false` at `hidePending`
+  /// while a viewer is still open.
   func reported(_ item: ReaderItem, hide: Bool = true) {
     let key = "\(item.kind):\(item.id)"
-    if hide { reported.insert(key) } else { pending.insert(key) }
+    if hide || !viewing { reported.insert(key) } else { pending.insert(key) }
     defaults.set(Array(reported.union(pending)).sorted(), forKey: "readers.reported")
   }
 

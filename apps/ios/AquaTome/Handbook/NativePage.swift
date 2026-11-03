@@ -662,8 +662,13 @@ private struct GalleryViewer: View {
         }
       }
       .readerActions(reporting: $reporting, blocking: $blocking, inViewer: true) { dismiss() }
-      // A photo reported, the viewer closed some other way than its thanks: hidden all the same.
-      .onDisappear { handbook.safety.hidePending() }
+      // A photo reported, the viewer closed some other way than its thanks, or before the report's answer came: hidden
+      // all the same.
+      .onAppear { handbook.safety.viewing = true }
+      .onDisappear {
+        handbook.safety.viewing = false
+        handbook.safety.hidePending()
+      }
       .accessibilityIdentifier("gallery")
     }
   }
