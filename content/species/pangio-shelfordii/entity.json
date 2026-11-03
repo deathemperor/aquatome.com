@@ -1,0 +1,96 @@
+{
+  "id": "pangio-shelfordii",
+  "scientificName": "Pangio shelfordii",
+  "order": "Cypriniformes",
+  "family": "Cobitidae",
+  "genus": "Pangio",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "malaysia",
+    "indonesia",
+    "sumatra",
+    "borneo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pangio-shelfordii-2/",
+      "html": "<p>One of the most unusual species of coolie loach. Grows to a maximum length of 8 cm but is very thin, with markings reminiscent of leopard skin. Some color morphs of Pangio alternans are similarly colored, but those loaches are significantly more stocky in build.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pangio-shelfordii-2/",
+      "html": "<p>As far as known, Pangio shelfordii is distributed across parts of the Malay Peninsula, Sumatra (including some small offshore islands), and Borneo. However, it is not found throughout the entire area, but rather in localized locations. This explains why these animals are found in the trade from time to time, but not regularly.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pangio-shelfordii-2/",
+      "html": "<p>For decades, all kinds of Pangio have proven themselves to be attractive and harmless scavengers for Asian aquariums with peaceful species. The only disadvantage is that you often don’t see them for weeks, and usually the only way to catch them again is to completely empty the aquarium. Give these loaches a spot with soft sandy soil where they can burrow.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pangio-shelfordii-2/",
+      "html": "<p>They prefer soft and slightly acidic water, but practical experience has shown that they can live happily for many years even in “rock-hard” water with a pH above 8. The water temperature can be between 22 and 28°C, and it does not matter if it is slightly higher or lower at times.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pangio-shelfordii-2/",
+      "html": "<p>They will eat anything that fits in their mouths. It is important to provide a mulm corner. Mulm – the brown sludge consisting of feces, food and plant residues that appears in every aquarium at some point – is not a bad thing. In nature, it is an important food source for many small fish. Without mulm, the intestinal flora of such fish suffers and they become increasingly emaciated, despite otherwise good food supply.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pangio-shelfordii-2/",
+      "html": "<p>They are often exported under the name “Pangio muraeniformis”. This species does exist and also has a similarly slender build. The two species P. shelfordii and P. muraeniformis were temporarily synonymized (in which case P. shelfordii is the valid name because it is significantly older). However, it is now believed again that they are separate species, with P. muraeniformis typically having a longitudinal band along the middle of its body (in reality, many dots that visually merge into a longitudinal band) and inhabiting Johore and Singapore. As with so many Pangio species, the great variety of markings makes it very difficult to distinguish between species.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chạch",
+        "nền cát hồ thủy sinh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -1,0 +1,111 @@
+{
+  "id": "garra-ceylonensis",
+  "scientificName": "Garra ceylonensis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Garra",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "sri-lanka"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-ceylonensis-2/",
+      "html": "<p>Garra ceylonensis is endemic to Sri Lanka. The maximum length is given as 15 cm, but even in the wild animals larger than 8 cm are very rarely found.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-ceylonensis-2/",
+      "html": "<p>Wild fish from Sri Lanka may only be exported with a special permit. At first glance G. ceylonensis looks a little like a Siamese algae-eater (Gyrinocheilus aymonieri), but it clearly differs from it by the presence of two pairs of barbels. It can be easily distinguished from the other Garra species on the market by its yellow fins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-ceylonensis-2/",
+      "html": "<p>Endemic to Sri Lanka, so it only exists there.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-ceylonensis-2/",
+      "html": "<p>No special requirements are placed on the water composition. The water temperature can range from 22-28°C. Provide some current in the aquarium, in which the animals like to play.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-ceylonensis-2/",
+      "html": "<p>G. ceylonensis is an excellent algae eater.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-ceylonensis-2/",
+      "html": "<p>The peaceful Garra ceylonensis is ideal for community aquaria. In contrast to the Siamese algae-eater, it is a sociable fish that is best kept in a group (six animals or more). The body color can change rapidly depending on the mood. Usually a dark longitudinal band is shown, accompanied by a lighter band towards the back, but the animals can also be plain dark-colored.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-ceylonensis-2/",
+      "html": "<p>Colour changes are mood-dependent and have nothing to do with gender. Sexual differences are only slightly pronounced; females are somewhat plumper and fuller.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-ceylonensis-2/",
+      "html": "<p>Garra species are free spawners without brood care.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài tạo dòng chảy",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn tảo",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

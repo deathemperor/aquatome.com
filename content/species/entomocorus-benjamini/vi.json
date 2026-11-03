@@ -4,20 +4,33 @@
   "altNames": [
     "Cá nheo ngủ",
     "Sleeper Catfish",
-    "Schlafwels"
+    "Schlafwels",
+    "Cá da trơn ngủ",
+    "Benjamin's catfish",
+    "Sleeping catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Entomocorus benjamini Eigenmann, 1917</li><li><strong>Họ:</strong> Auchenipteridae</li><li><strong>Tên thường gọi:</strong> Sleeper Catfish, Schlafwels (Đức)</li><li><strong>Nơi thu mẫu chuẩn:</strong> San Joaquin, Bolivia</li><li><strong>Kích thước:</strong> 70 mm SL</li><li><strong>Nhiệt độ:</strong> 24,0–27,0°C</li><li><strong>Sách đỏ IUCN:</strong> Ít quan tâm (đánh giá lần gần nhất năm 2020)</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: thượng lưu lưu vực sông Madeira (Amazon, trung lưu Amazon (Solimoes), Madeira).</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có tài liệu nào ghi nhận loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên gọi: Entomocorus ghép từ hai từ Hy Lạp là entome (vết khía) và kopus (mũ trụ), nghĩa là \"mũ trụ có khía\". Tên loài đặt theo Marcus Benjamin, biên tập viên các ấn phẩm của Bảo tàng Quốc gia Hoa Kỳ.</p><p>Cách đọc: ent tow MOCK oh russ.</p>",
-    "references:planetcatfish": "<p>Annals of the Carnegie Museum v. 11 (nos 3-4) (art. 14), pp 403, Pl. 41.</p>"
+    "references:planetcatfish": "<p>Annals of the Carnegie Museum v. 11 (nos 3-4) (art. 14), pp 403, Pl. 41.</p>",
+    "quickFacts:scotcat": "<p>Họ: Auchenipteridae. Tên thường gọi: Benjamin's catfish, Sleeping catfish. Kích thước: 7 cm. Nhiệt độ: 25–29°C. pH: 6,0–7,5.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: vùng thượng lưu sông Madeira, Bolivia. Nơi thu mẫu chuẩn: San Joaquin, Bolivia.</p>",
+    "maintenance:scotcat": "<p>Ban ngày cá ít hoạt động, nên về lý thì phải cho ăn vào ban đêm. Nhưng dân chơi cá đều biết cá trong họ này sẽ tự đi tìm thức ăn thừa từ những bữa cho ăn ban ngày.</p>",
+    "diet:scotcat": "<p>Cá không kén ăn. Bạn cho ăn lăng quăng (ấu trùng muỗi), Artemia, thức ăn dạng mảnh, viên nén hay viên chìm thì cá đều nhận.</p>",
+    "behaviour:scotcat": "<p>Cá có tên Sleeping catfish (cá trê ngủ) vì hay nằm nghiêng trên nền hoặc giữa đám cây.</p>",
+    "dimorphism:scotcat": "<p>Cá đực có vây bụng dài ra, còn vây lưng thì dài và cong.</p>",
+    "reproduction:scotcat": "<p>Loài này đẻ vào tháng 7 và tháng 8, lúc mùa lũ trong năm lên cao nhất.</p>",
+    "notes:scotcat": "<p>Một số tài liệu định danh nhầm loài này, lẫn nó với E. gameroi phổ biến hơn. E. gameroi có một dải đen ở thùy trên vây đuôi.</p><p>Nguồn gốc tên gọi: tên chi Entomocorus ghép từ hai chữ Hy Lạp là entome (vết khía) và kore (con ngươi). Tên này chỉ cái rãnh sâu ở mép dưới mắt, chỗ râu hàm trên gập vào. Tên loài benjamini đặt để vinh danh Marcus Benjamin, biên tập viên các ấn phẩm của Bảo tàng Quốc gia Hoa Kỳ.</p><p>Danh sách đỏ IUCN: thông tin về loài này còn ít và nó có thể đang gặp mối đe dọa. Dù vậy, loài vẫn được xếp vào nhóm Ít quan tâm vì vùng phân bố rộng (IUCN 2023).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Frederico, R.G. 2023. Entomocorus benjamini. The IUCN Red List of Threatened Species 2023.</p><p>Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2016).</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.82,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.82
     }
   }
 }

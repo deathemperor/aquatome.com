@@ -1,0 +1,100 @@
+{
+  "id": "pao-palembangensis",
+  "scientificName": "Pao palembangensis",
+  "order": "Tetraodontiformes",
+  "family": "Tetraodontidae",
+  "genus": "Pao",
+  "group": "other",
+  "places": [
+    "asia",
+    "indonesia",
+    "sumatra",
+    "malaysia",
+    "borneo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
+      "html": "<p>Pao palembangensis (= Tetraodon palembangensis) is a pure freshwater pufferfish that never enters brackish or marine environments. It attains a maximum length of 12-15 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
+      "html": "<p>This species is quite specialized. It occurs only on Sumatra and Borneo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
+      "html": "<p>It lives in very soft and acidic water.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
+      "html": "<p>The unusual pattern on the belly serves to lure prey. Pao palembangensis is a predator that imitates a dead fish while hunting. It hangs around like carrion. If a small fish or a shrimp tries to feed on the carrion it becomes food itself.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
+      "html": "<p>Rumors say that the females' hump on the back is much smaller than the males' hump.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
+      "html": "<p>The species has already been bred in aquaria, where it proved to be a cave brooder.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
+      "html": "<p>In older aquarium literature Pao palembangensis (formerly Tetraodon palembangensis) has often been confused with the \"Figure eight puffer\", Dichotomyctere ocellatus (formerly known as Tetraodon biocellatus), although both species look totally different. The latter attains a maximum length of about 8 cm and is a brackish water species. Due to this confusion Pao palembangensis is also known as the \"dragon puffer\" in the international trade.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

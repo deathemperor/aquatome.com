@@ -1,0 +1,83 @@
+{
+  "id": "trichomycterus-itatiayae",
+  "scientificName": "Trichomycterus itatiayae",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Trichomycterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraiba-do-sul"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1234",
+      "html": "<ul><li><strong>Scientific name:</strong> Trichomycterus itatiayae Miranda Ribeiro, 1906</li><li><strong>Synonym:</strong> Trichomycterus brasiliensis itatiayae</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1234",
+      "html": "<p>South America: rivers in the Itatiaia mountains, upper reaches of the Paraíba do Sul River basin in Brazil, Rio de Janeiro State.</p><p>Type locality: Ribeirão da Tapera, Mont-Serrat, Itatiaia, about 22°27'S, 44°50'W, Rio de Janeiro State, Brazil, elevation about 800 meters.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1234",
+      "html": "<p>This genus takes live or frozen food, and commercial dry prepared foods are also well accepted. Be careful not to overfeed. In nature, they feed on small invertebrates living at the bottom.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1234",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1234",
+      "html": "<p>Etymology: Trichomycterus comes from the Greek trichos, meaning hair, and mykter, meaning nose, in reference to the barbels.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1234",
+      "html": "<p>Arquivos do Museu Nacional de Rio de Janeiro v. 13, pp p.? [15], Pl. 1 (figs. a-c).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -27,6 +27,13 @@
           "min": 7,
           "max": 8.5
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6.5,
+          "max": 8.5
+        }
       }
     ],
     "gh": [
@@ -42,6 +49,10 @@
       {
         "source": "seriouslyfish",
         "value": 2.5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 4.5
       }
     ],
     "tankCm": [
@@ -54,6 +65,10 @@
       {
         "source": "seriouslyfish",
         "value": 3
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
       }
     ]
   },
@@ -63,6 +78,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
       "html": "<p>Endler's livebearer, Poecilia wingei, is a small livebearer from the Campoma and Buena Vista lagoons in northeastern Venezuela. It hybridises with the guppy, P. reticulata, to produce fertile offspring, but Schories et al. (2009) confirmed it as a valid species. The fish are thought to be extinct at Laguna de Patos, the type locality, after the lake became polluted, and much of the species' natural variability has been lost through inbreeding in the hobby.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "html": "<p><em>Poecilia wingei</em> is named after Dr. John Endler, who rediscovered the species in Venezuela and introduced it into the pet trade. Males grow up to 2.5 cm, are slender and carry the vibrant colours and patterns. Females reach 4.5 cm, have a rounder abdomen and are usually tannish-silver.</p><p>Endlers are closely related to guppies (<em>Poecilia reticulata</em>) and can interbreed with them to produce fertile offspring; the hybrid is called an Endler guppy. Common types of Endler's livebearers and hybrids include black bar, tiger, cobra, El Silverado and lime green.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "html": "<p>Wild Endlers are already quite colourful and did not require as much line breeding to create attractive strains, so they are very hardy beginner fish that are easier to care for than guppies and many other livebearers. Pure-bred Endlers are called class N Endlers; care for hybrids is somewhat similar.</p>"
     },
     {
       "key": "distribution",
@@ -83,6 +110,12 @@
       "html": "<p>A tank measuring 45 × 30 × 30 cm (18 × 12 × 12 in) - ~41 litres (~11 US gal) is big enough to house quite a substantial colony of these.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "html": "<p>The minimum tank size is 19-38 litres, but a bigger tank is recommended because of the many fry they produce. For a 38-litre aquarium, start with a trio of one male and two females. For a 76-litre aquarium, buy six to nine.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
@@ -95,10 +128,22 @@
       "html": "<ul><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 7.0–8.5</li><li>Hardness: 15–35 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "html": "<p>Endlers tolerate a wide range of water parameters. They can be kept at room temperature without a heater, tolerate pH from 6.5 to 8.5 and almost any water hardness (GH). Like any fish, they can be prone to bacterial and fungal infections if the pH becomes too acidic or the nitrate level is extremely high.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
       "html": "<p>An omnivorous species, feeding on a variety of zoobenthos and detritus in the wild. Will eat most foods offered but should have some vegetation in the diet.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "html": "<p>Endlers are not picky and eat anything small enough to fit in their mouths, such as flakes, pellets, Repashy gel food and daphnia. They scavenge at the surface and substrate and may pick at algae if hungry. Feed a variety of foods to supply the nutrients for a strong immune system and vibrant colours.</p>"
     },
     {
       "key": "behaviour",
@@ -107,16 +152,34 @@
       "html": "<p>Not suitable for a general community due to their small size and should be kept alone if breeding is to be attempted. Good tankmates are other small peaceful species such as dwarf corydoras, small rainbowfish such as Iratherina werneri or Pseudomugil sp. and peaceful tetras. While males are peaceful towards one another, females may act quite territorially and so several should be kept in order to disperse potential bullying. Should not be kept with guppies as they will crossbreed.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "html": "<p>Endlers are more comfortable in a group of their own kind. Because of the males' strong drive to mate, keep one male for every 2-3 females so the females get a break. They get along with almost any peaceful community fish too big to eat them, such as smaller tetras, danios and corydoras. If the population grows out of control, African dwarf frogs or other predatory fish can eat some fry while leaving the adults alone.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
       "html": "<p>Males are smaller and are far more colourful than females. Females are also much plumper being almost perpetually gravid.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "html": "<p>Males are slender and colourful, up to 2.5 cm. Females are larger, up to 4.5 cm, with a rounder abdomen and usually tannish-silver colouring.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
       "html": "<p>Very easy. Endler's will breed in the community tank and are incredibly prolific. If you're not interested in breeding them, buy only male fish. Otherwise breeding is much the same as for many other livebearers. Several females should be kept to every male in order to dissipate vigorous harassment by males. Areas of dense planting will also help. Males constantly display to females, spreading their fins and quivering in front of them. They can produce new broods every 23-24 days. Brood size can be anything from 5-25 depending on the female's age and size. The adult fish will rarely eat their young but the best method of raising them is still to remove the gravid female to a separate tank and allow her to give birth there before returning her to the main aquarium. The use of breeding nets or traps is not recommended as their small size is not suitable for raising fry. The fry are quite large and will accept brine shrimp nauplii or powdered flake from birth. They grow very quickly if fed 2-3 times per day, with males exhibiting adult colouration in only 3-5 weeks and females being able to produce young at 2 months of age.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "html": "<p>With clean water, good food and at least one fish of each sex, young appear every 23-30 days, depending on temperature. Parents eat their own young, so provide plenty of cover such as decorations or dense plants like water sprite, wisteria, <em>Pogostemon stellatus</em> and guppy grass. Use a sponge filter or cover the filter intake with a pre-filter sponge so fry are not sucked up.</p><p>Once the fry are roughly 1.3-2.5 cm long they can be sold or given away. Baby Endlers usually have little colour at first so they blend in with their surroundings and escape predation.</p>"
     },
     {
       "key": "notes",
@@ -133,37 +196,106 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumcoop/1ecd8edbd3be4a96.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/1ecd8edbd3be4a96-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "caption": "Care Guide for Endler’s Livebearers – The Guppy’s Little Cousin - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/fe5723ff2df7f1f3.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/fe5723ff2df7f1f3-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "caption": "male and female endler's livebearer",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/9b4a3e1632703a82.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/9b4a3e1632703a82-480.webp",
+      "width": 1200,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "caption": "Endlers vs guppies",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/9c5445ef407fa163.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/9c5445ef407fa163-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "caption": "female endler surrounded by male endlers",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/commons/889d6007f3a606a9.webp",
+      "thumb": "https://media.aquatome.com/commons/889d6007f3a606a9-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Dgrummon",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Campoma_Bridge_number_28_Poecilia_Wingei.jpg",
-      "caption": "Campoma Bridge number 28 Poecilia Wingei",
-      "thumb": "https://media.aquatome.com/commons/889d6007f3a606a9-480.webp"
+      "caption": "Campoma Bridge number 28 Poecilia Wingei"
     },
     {
       "url": "https://media.aquatome.com/commons/c223819f3c9b569e.webp",
+      "thumb": "https://media.aquatome.com/commons/c223819f3c9b569e-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Dgrummon",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Campoma_Bridge_number_8_Poecilia_Wingei.jpg",
-      "caption": "Campoma Bridge number 8 Poecilia Wingei",
-      "thumb": "https://media.aquatome.com/commons/c223819f3c9b569e-480.webp"
+      "caption": "Campoma Bridge number 8 Poecilia Wingei"
     },
     {
       "url": "https://media.aquatome.com/commons/fee654493691fdbb.webp",
+      "thumb": "https://media.aquatome.com/commons/fee654493691fdbb-480.webp",
       "width": 960,
       "height": 531,
       "licence": "CC BY-SA 3.0",
       "author": "Marrabbio2",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_wingei_male_%22black_ba%22r.JPG",
-      "caption": "Poecilia wingei male, var. \"black bar\"",
-      "thumb": "https://media.aquatome.com/commons/fee654493691fdbb-480.webp"
+      "caption": "Poecilia wingei male, var. \"black bar\""
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "OiGYcLoEOfI",
+      "title": "El Tigre Endlers - Poecilia wingei Aquarium Fish Species Profile & Care Guide",
+      "durationSec": 243,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BVHJkiUKavA",
+      "title": "Blue Star Endlers (Poecilia wingei) Aquarium Fish Species Profile & Care Guide",
+      "durationSec": 189,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "roExSjWNkQI",
+      "title": "Santa Maria Endlers, Poecilia Wingei/Poecilia Reticulata Aquarium Fish Species Profile & Care Guide",
+      "durationSec": 205,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3ZXuN1gBJmM",
+      "title": "Endlers! Everything You Need to Know!",
+      "durationSec": 577,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -193,5 +325,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-02"
 }

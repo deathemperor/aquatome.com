@@ -1,0 +1,82 @@
+{
+  "id": "chilatherina-bleheri",
+  "scientificName": "Chilatherina bleheri",
+  "order": "Atheriniformes",
+  "family": "Melanotaeniidae",
+  "genus": "Chilatherina",
+  "group": "rainbowfish",
+  "places": [
+    "oceania",
+    "indonesia",
+    "lake-holmes"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chilatherina-bleheri-2/",
+      "html": "<ul><li>pH and hardness: not critical for care (tap water), but not soft and/or acidic</li><li>Diet: Omnivorous</li><li>Social behavior: Peaceful schooling fish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chilatherina-bleheri-2/",
+      "html": "<p>C. bleheri occurs only in a very limited area in Irian Jaya (the Indonesian part of New Guinea), specifically around Lake Holmes (called Danau Biru in Indonesian). This makes the species vulnerable to threats. In fact, it is listed as “Endangered” on the International Red List of Threatened Species. The causes include the introduction of non-native fish and the increased use of gillnets for commercial fishing. Capture for the aquarium trade plays no role, especially since all animals available commercially are captive-bred. By purchasing and caring for these fish, you are therefore actively contributing to species conservation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chilatherina-bleheri-2/",
+      "html": "<p>The rainbowfish of the genus Chilatherina are found exclusively in New Guinea. The genus differs from the closely related genus Melanotaenia mainly in its jaw structure. To date, 11 species have been classified under the genus Chilatherina. Among the distinctive features of some species in this genus is that they undergo significant color changes as they age, and the males can develop very high backs. Males always grow larger than the females. Otherwise, the general guidelines for the care and breeding of Chilatherina are the same as those for Melanotaenia.</p><p>Chilatherina bleheri was first collected as early as 1982, but was initially mistaken for a color variant of C. fasciata. It was not until 1985 that G. Allen decided to describe it as a separate species. The differences from C. fasciata lie in scale size and coloration.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "lọc treo"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cầu vồng",
+        "thức ăn cá nhỏ dạng hạt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

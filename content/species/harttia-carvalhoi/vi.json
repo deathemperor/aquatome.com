@@ -6,14 +6,21 @@
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Harttia carvalhoi Miranda Ribeiro, 1939</li><li>Nơi thu mẫu chuẩn: Rio Paquequer, bang Rio de Janeiro, Brazil.</li><li>Sách đỏ IUCN: Chưa được đánh giá.</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Paquequer, thuộc hệ thống sông Paraíba do Sul, bang Rio de Janeiro, Brazil.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: Chưa có ghi nhận.</p>",
-    "references:planetcatfish": "<p>Boletim Biológico, São Paulo (Nova Série) v. 4 (no. 1), pp 11, Pl. 2 (upper).</p>"
+    "references:planetcatfish": "<p>Boletim Biológico, São Paulo (Nova Série) v. 4 (no. 1), pp 11, Pl. 2 (upper).</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Paquequer, thuộc hệ thống sông Paraíba do Sul, đông nam Brazil.</p>",
+    "habitat:scotcat": "<p>Harttia carvalhoi phân bố rộng khắp lưu vực sông Paraíba do Sul ở đông nam Brazil (Ferraris Jr. 2003). Ngoài ra, loài này còn được ghi nhận ở nhiều điểm khác trong cùng lưu vực. Ở bang São Paulo, người ta gặp chúng tại Córrego dos Buenos thuộc lưu vực Buenos, cùng Córrego Taquaral và Córrego Pirutinga, cả hai đều thuộc các lưu vực Guaratinguetá (Rondineli et al. 2011). Chúng cũng có mặt ở sông Piracuama và sông Grande trong lưu vực sông Paraíba do Sul (Ingenito và Buckup 2007), và ở suối Grande, một nhánh đổ vào bờ trái sông Paraíba do Sul (Centofante et al. 2006). Tại Nucleus Santa Virgínia của Công viên Bang Serra do Mar, thuộc đô thị São Luís do Paraitinga, São Paulo, loài này được ghi nhận ở các sông Paraibuna, Ipiranga và Grande (Gomiero và Braga 2006). Một ghi nhận khác nằm ở tiểu lưu vực suối Grande (Braga và Andrade 2005). Ở bang Minas Gerais, chúng có mặt tại suối Três Pontes trên sông Paraibuna, trong hồ chứa Chapéu d'Uvas, gần đập và ở cửa suối Tabuões (Oliveira và Lacerda 2004).</p>",
+    "maintenance:scotcat": "<p>Đây không phải nhóm cá dễ nuôi. Chúng cần nước sạch, giàu oxy và dòng chảy mạnh. Vì quê gốc của chúng nằm ở vùng phía nam, nhiệt độ trong bể cũng phải để thấp hơn bình thường. Cá nhập về thường yếu, do chúng chịu đựng rất kém quãng đường vận chuyển trong thùng.</p>",
+    "dimorphism:scotcat": "<p>Cá đực thường có odontode (những gai nhỏ trông như lông) trên tia đầu tiên của vây ngực. Đầu cá đực cũng rộng hơn đầu cá cái.</p>",
+    "diet:scotcat": "<p>Ngoài tự nhiên, loài này gặm tảo cực nhỏ, chủ yếu là tảo silic và tảo lục mọc trên đá sần sùi, màu sáng và trên cây thủy sinh mọc chìm. Trong thức ăn của chúng còn có ấu trùng muỗi chironomid và simuliid, cùng các loài giáp xác tí hon. Lúc cạo tảo trên nền, cá đớp miệng rất mạnh và cử động giật cục. Nhiều khả năng là do miệng cá vừa gặm vừa bám vào nền, luân phiên liên tục.</p><p>Trong bể, bạn có thể cho ăn thức ăn khô, viên tảo, Spirulina và thức ăn viên thông thường. Chúng cũng ăn thức ăn đông lạnh, Artemia mới nở, trùng thủy tinh (glass worm) và bo bo.</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài carvalhoi đặt để vinh danh Antenor Leitão de Carvalho (1910–1985), nhà ngư học kiêm bò sát học người Brazil. Chính ông là người thu thập mẫu chuẩn (holotype).</p><p>Ghi chú: Harttia carvalhoi phân bố rộng trong lưu vực sông Paraíba do Sul, thường gặp và có số lượng nhiều. Chưa ghi nhận mối đe dọa đáng kể nào đến quần thể, vì vậy loài này được xếp vào nhóm Ít quan tâm (LC) (IUCN 2018).</p>",
+    "references:scotcat": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Harttia carvalhoi. The IUCN Red List of Threatened Species 2022.</p>"
   },
   "quality": {
-    "score": 0.93,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.93
-    },
-    "reason": "thin"
+      "planetcatfish": 0.93,
+      "scotcat": 0.8
+    }
   }
 }

@@ -9,13 +9,36 @@
     "south-america",
     "suriname",
     "maroni",
-    "guyana"
+    "guyana",
+    "french-guiana"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 39
+      },
+      {
+        "source": "scotcat",
+        "value": 34
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -33,10 +56,34 @@
       "html": "<p>South America: Maroni River basin. Guyana Waters, Coastal Rivers of Guyanas, Suriname Coastal Rivers, Marowijne.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm",
+      "html": "<p>South America: Rivière Marouini, Maroni system, French Guiana. Known from the main channel of the Maroni/Marowijne River in French Guiana and Suriname. The extent of occurrence (EOO) is estimated at 45,647 km2, and the area of occupancy (AOO) at 17,848 km2.</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1171",
       "html": "<p>Lives among rocks in fast, deep water.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm",
+      "html": "<p>Lives in the main jets of rapids where the current is very strong. The substrate consists of bulky rocks which gives them shelter. Occurs together with the following species: Leporinus granti, Astyanax meunieri, Bryconops caudomaculatus; Parodon guyanensis, Harttia surinamensis, Hypostomus gymnorhynchus, Lasiancistrus brevipinnis and Heptapterus longior.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm",
+      "html": "<p>Good aquarium inhabitants for a large tank, and you can also house more than one species. They like water movement in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm",
+      "html": "<p>Mainly a vegetarian diet but can also be fed tablet foods and frozen and live foods such as mosquito larvae, brine shrimp and shrimps.</p>"
     },
     {
       "key": "reproduction",
@@ -45,10 +92,22 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm",
+      "html": "<p>Etymology: The specific name medians is Latin for 'in the middle', presumed to be an intermediate form between long and short-finned Ancistrus, its presumed genus at the time.</p><p>Hemiancistrus is also known in some literature as Ancistomus but is also similar to the Peckoltia genera but has a longer body and a naked ventral region.</p><p>IUCN: Negative impacts in the distributional area are related to urban centres along the Maroni/Marowijni River basin, in which forestry, agricultural activities, pollution and sediments are increasing. Illegal gold mining is the major threat, because it leads to a high sediment load in the main river channel of the upper Maroni, which is detrimental to the ecosystem and therefore to the species, which inhabits well-oxygenated water. Additionally, the species is used for local consumption. Monitoring is strongly recommended. Assessed as Least Concern (IUCN 2022).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1171",
       "html": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 7, pp (256) 281 [6, 31].</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm",
+      "html": "<p>Calegari, B.B. 2022. Hemiancistrus medians. The IUCN Red List of Threatened Species 2022. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Froese, R. and D. Pauly. Editors. 2016. FishBase. Le Bail, P.-Y., P. Keith and P. Planquette, 2000. Atlas des poissons d'eau douce de Guyane. Tome 2, Fascicule II: Siluriformes. Paris: Publications scientifiques du Muséum national d'Histoire naturelle. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -64,23 +123,23 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/273bb47747712874.webp",
-      "thumb": "https://media.aquatome.com/scotcat/273bb47747712874-480.webp",
-      "width": 500,
-      "height": 281,
-      "licence": "dùng với sự cho phép",
-      "author": "Raphael Covain / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm",
-      "caption": "Hemiancistrus medians",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/b8d6e6ce4b9d2606.webp",
       "thumb": "https://media.aquatome.com/scotcat/b8d6e6ce4b9d2606-480.webp",
       "width": 500,
       "height": 281,
       "licence": "dùng với sự cho phép",
       "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm",
+      "caption": "Hemiancistrus medians",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/273bb47747712874.webp",
+      "thumb": "https://media.aquatome.com/scotcat/273bb47747712874-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "Raphael Covain / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm",
       "caption": "Hemiancistrus medians",
       "source": "scotcat"
@@ -103,5 +162,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

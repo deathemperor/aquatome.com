@@ -1,0 +1,66 @@
+{
+  "id": "pethia-narayani",
+  "scientificName": "Pethia narayani",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Pethia",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "india",
+    "cauvery"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_narayani_en/",
+      "html": "<p>This extraordinary barb originates from the South of India. It is a very close relative to the well known Black Ruby Barb (Barbus nigrofasciatus) from the nearby island of Sri Lanka, from which it differs mainly by coloration. What makes B. narayani so attractive is the unique lilac-blue hue that is shining on the body when the fish swims.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_narayani_en/",
+      "html": "<p>Regarding keeping and breeding Barbus narayani no essential differences to the Black Ruby Barb exist. It is also of a comparable size, eg it reaches about 5-6 cm total length.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_narayani_en/",
+      "html": "<p>Lexicon: Barbus: Latin, means \"the bearded one\", referring to the barbels. narayani: dedication name for C. R. Narayan Rao, who donated the collection of fishes from the Chauvery river to the Zoological Survey of India that contained among others this species that was then new to science.</p><p>Suggestion of a common name: Lilac barb</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá barb",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

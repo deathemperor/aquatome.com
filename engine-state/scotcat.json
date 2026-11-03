@@ -547,6 +547,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenipteridae/entomocorus_benjamini.htm": {
+    "entityIds": [
+      "species/entomocorus-benjamini"
+    ],
+    "updatedAt": "2026-11-02T21:42:25.911Z",
+    "hash": "d8a376b0fb15b15a328d255019d71a65be6601c8c866c3eaaea26060441d1df8",
+    "processedHash": "d8a376b0fb15b15a328d255019d71a65be6601c8c866c3eaaea26060441d1df8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/bagridae/bagrichthys_hypselopterus.htm": {
     "entityIds": [
       "species/bagrichthys-hypselopterus"
@@ -564,6 +574,16 @@
     "updatedAt": "2026-11-01T00:30:29.045Z",
     "hash": "e64348b77307142af3b570dc541818e1723f610456c1b16afc32dd54da753d95",
     "processedHash": "e64348b77307142af3b570dc541818e1723f610456c1b16afc32dd54da753d95",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/cetopsidae/denticetopsis_macilenta.htm": {
+    "entityIds": [
+      "species/denticetopsis-macilenta"
+    ],
+    "updatedAt": "2026-11-02T21:40:58.047Z",
+    "hash": "40bb9f225ce26895235df8121d3c1c98eb3b415e6e688e0f3f2c678347e66d27",
+    "processedHash": "40bb9f225ce26895235df8121d3c1c98eb3b415e6e688e0f3f2c678347e66d27",
     "status": "processed",
     "attempts": 0
   },
@@ -717,6 +737,56 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm": {
+    "entityIds": [
+      "species/farlowella-platorynchus"
+    ],
+    "updatedAt": "2026-11-02T21:45:34.168Z",
+    "hash": "d0143fea946a25af5014560d928acc1878cf54464a169d6ad55cda97090f86f0",
+    "processedHash": "d0143fea946a25af5014560d928acc1878cf54464a169d6ad55cda97090f86f0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm": {
+    "entityIds": [
+      "species/harttia-carvalhoi"
+    ],
+    "updatedAt": "2026-11-02T21:47:05.020Z",
+    "hash": "e0433f267d048e856ff71d452dc46aca650ea726b840c55f8a1415cfeed2dcd3",
+    "processedHash": "e0433f267d048e856ff71d452dc46aca650ea726b840c55f8a1415cfeed2dcd3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/harttia_kronei.htm": {
+    "entityIds": [
+      "species/harttia-kronei"
+    ],
+    "updatedAt": "2026-11-02T21:48:59.447Z",
+    "hash": "028a936a1a4bfb620e573548f2d9c3fd7c14c025ba02c8dbe74e964733e0e65d",
+    "processedHash": "028a936a1a4bfb620e573548f2d9c3fd7c14c025ba02c8dbe74e964733e0e65d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm": {
+    "entityIds": [
+      "species/hemiancistrus-medians"
+    ],
+    "updatedAt": "2026-11-02T21:50:28.724Z",
+    "hash": "7189b7a121a5a65300001b43c10f365b1b8f1667fe74bcac35b30f6245aa28fd",
+    "processedHash": "7189b7a121a5a65300001b43c10f365b1b8f1667fe74bcac35b30f6245aa28fd",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypancistrus_contradens.htm": {
+    "entityIds": [
+      "species/hypancistrus-contradens"
+    ],
+    "updatedAt": "2026-11-02T21:52:51.269Z",
+    "hash": "e7fa73172360dc9b66a534cdb54f9001d2b07209496b52c928c579ffc73a411a",
+    "processedHash": "e7fa73172360dc9b66a534cdb54f9001d2b07209496b52c928c579ffc73a411a",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",
@@ -812,6 +882,26 @@
     "updatedAt": "2026-11-02T12:19:34.312Z",
     "hash": "ecc51aed72006ca7c265a118bbe60cdb6fade79a92692637bf2b26156cff5973",
     "processedHash": "ecc51aed72006ca7c265a118bbe60cdb6fade79a92692637bf2b26156cff5973",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/siluridae/hemisilurus_moolenburghi.htm": {
+    "entityIds": [
+      "species/hemisilurus-moolenburghi"
+    ],
+    "updatedAt": "2026-11-02T21:52:04.133Z",
+    "hash": "97770cdd52040dad8e61169a40f8adec4757983f0ddc25c2085fc22e8ce725d5",
+    "processedHash": "97770cdd52040dad8e61169a40f8adec4757983f0ddc25c2085fc22e8ce725d5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm": {
+    "entityIds": [
+      "species/erethistes-pusillus"
+    ],
+    "updatedAt": "2026-11-02T21:43:18.805Z",
+    "hash": "ebf447eaf1bc29e8ab796a4e2bb2804093d9277114a74ff49d9578f0b530a539",
+    "processedHash": "ebf447eaf1bc29e8ab796a4e2bb2804093d9277114a74ff49d9578f0b530a539",
     "status": "processed",
     "attempts": 0
   }

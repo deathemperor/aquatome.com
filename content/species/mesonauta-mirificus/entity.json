@@ -1,0 +1,99 @@
+{
+  "id": "mesonauta-mirificus",
+  "scientificName": "Mesonauta mirificus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Mesonauta",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "peru",
+    "upper-amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/mesonauta-mirificus-2/",
+      "html": "<ul><li>pH and hardness: not important for general care (tap water), but soft and acidic for breeding</li><li>Diet: omnivorous</li><li>Social behavior: peaceful cichlid with a social hierarchy</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/mesonauta-mirificus-2/",
+      "html": "<p>The Mesonauta species from the upper Amazon is M. mirificus. The fish are sourced from Peru.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/mesonauta-mirificus-2/",
+      "html": "<p>Mesonauta are close relatives of angelfish, with which they coexist in the wild and whose behavior they closely resemble. Just like angelfish, Mesonauta are peaceful, somewhat shy cichlids that do not dig and leave plants usually undamaged.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/mesonauta-mirificus-2/",
+      "html": "<p>Unfortunately, the sexes—much like with angelfish—are difficult to distinguish. However, it appears that the fish with very long pelvic fins are the males and those with shorter pelvic fins are the females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/mesonauta-mirificus-2/",
+      "html": "<p>All Mesonauta like to lay their eggs on rocks or in larger flower pots (which, of course, are only found in aquariums). Both parents care for the eggs and the hatched fry together.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/mesonauta-mirificus-2/",
+      "html": "<p>Flag cichlids (Mesonauta) have been delighting aquarists since 1911. At that time, they were still known as Cichlasoma festivum, and it was believed that there was only this one, widely distributed, variable species. However, upon closer examination, these \"variants\" have turned out to be distinct species. Today, there are 7 scientifically recognized species, and the status of several others still needs to be clarified. The Mesonauta species from the upper Amazon is M. mirificus.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cảnh cao"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá rô phi cảnh",
+        "thức ăn cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

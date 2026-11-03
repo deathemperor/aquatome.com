@@ -1,0 +1,94 @@
+{
+  "id": "corydoras-semiaquilus",
+  "scientificName": "Corydoras semiaquilus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-semiaquilus-2/",
+      "html": "<p>Corydoras semiaquilus is a very pointed-headed, comparatively large Corydoras (around 6 cm, sometimes up to 8 cm) from Peru. In the past it was occasionally referred to as “Black Peru”.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-semiaquilus-2/",
+      "html": "<p>All of the species mentioned are demanding aquarium fish that require excellent water quality.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-semiaquilus-2/",
+      "html": "<p>Even if hardness and pH value are generally of secondary importance for the fish, it has been clearly shown in practice that soft and slightly acidic water usually results in considerably less bacterial development. These Corydoras are very sensitive to a high bacterial load. As they live in relatively cool streams in the wild, a water temperature of 26°C should not be exceeded permanently if possible. Keeping them at room temperature (18-22°C) at least some of the time seems to have a very positive effect on their health.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-semiaquilus-2/",
+      "html": "<p>Three magnificent Corydoras species from Peru undoubtedly form a closely related group: C. fowleri, C. coriatae and C. semiaquilus. The independence of C. coriatae is often doubted, as numerous locality variants of C. fowleri have become known and, in the opinion of numerous specialists, C. coriatae is merely one of them. However, hardly anyone doubts C. semiaquilus.</p><p>C. semiaquilus can be distinguished from C. fowleri in the broadest sense by looking at the nuchal region. In C. fowleri in the broad sense, the dark eye band and the body band beginning below the dorsal fin are clearly separated from each other, whereas in C. semiaquilus both markings are connected by a black band.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "lọc ngoài bể thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "nền cát bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên chìm cho cá đáy"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước pH",
+        "test nitrat nitrit amoniac"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

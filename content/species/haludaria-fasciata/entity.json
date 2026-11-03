@@ -8,33 +8,34 @@
   "places": [
     "asia",
     "india",
-    "deccan"
+    "deccan",
+    "deccan-plateau"
   ],
   "dataCard": {
     "tempC": [
-      {
-        "source": "glaser",
-        "value": {
-          "min": 26,
-          "max": 26
-        }
-      },
       {
         "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 8
-      },
-      {
         "source": "seriouslyfish",
         "value": 7
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "ph": [
@@ -65,16 +66,14 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
   "sections": [
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
-      "html": "<p>A typical fish of this region is the melon barb, Haludaria (formerly Barbus or Puntius) fasciata. There are many colour strains of it in the different rivers. The most attractive varieties from an aquaristic point of view are red, but there are also yellow and orange varieties.</p><p>Wild-caught specimens can have a fantastically deep red as base colour. The males seem to glow from the inside. The melon barb becomes about 8 cm long and is completely peaceful.</p>"
-    },
     {
       "key": "quickFacts",
       "source": "seriouslyfish",
@@ -82,16 +81,22 @@
       "html": "<p>The melon barb, Haludaria fasciata, is a small cyprinid endemic to the Western Ghats of southern India, in Goa, Karnataka, Kerala and Tamil Nadu. It exists in a number of colour forms, and it is undecided whether they are geographical variants or a complex of closely-related species. Also traded as the 'ember barb', 'banded barb' and 'black spot barb', it is relatively peaceful and hardy, but a vigorous feeder that may outcompete slower or more timid fishes.</p><ul><li>Max size: 70 mm SL (2.8 in)</li><li>Aquarium size: 90 × 30 cm (36 × 12 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
     },
     {
-      "key": "distribution",
+      "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
-      "html": "<p>In the south of India rises the ancient high plateau of the Deccan, which was already formed when India was still part of Africa. From here numerous small rivers flow directly into the Indian Ocean and in many of these rivers own colour variations, subspecies or species of freshwater fish have formed due to the geographical isolation. Barbs and loaches in particular can be found here in a great variety of forms, which has not yet been scientifically researched.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/haludaria-fasciata-formerly-barbus-fasciatus-b-melanampyx/",
+      "html": "<p>Haludaria fasciata grows to around 8 cm in length and is completely peaceful. Wild-caught specimens have a deep red base color, and the males seem to glow from within. Offspring already develop coloration at a small size (3-4 cm).</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
       "html": "<p>Endemic to the Western Ghats mountains in the south Indian states of Goa, Karnataka, Kerala and Tamil Nadu where it ranges from Kanyakumari district at the southern tip of the country almost as far as Maharashtra state to the north.</p><p>It's more common on the western slopes of the range and has been recorded in numerous river drainages from mouth to near source though it's more common at sea level and in the foothills.</p><p>There are a number of geographically-isolated variants which differ in both colour and patterning depending on locality and habitat-type. Populations from highland environments (headwaters, hill streams, etc.) typically display an orangey base colour whereas at lower altitudes they are normally purple or reddish, for example.</p><p>The number and positioning of dark bars on the body is also variable; populations from Goa have five, Karnataka/northern Kerala four, central/southern Kerala three.</p><p>Some from southern Kerala only have two and the much sought after fish from Kanyakumari uniquely display none at all (R. Kumar, pers. comm.).</p><p>Since genetic differences are also likely to exist it's important not to mix the forms in aquaria to avoid hybridisation.</p><p>Unfortunately this may already have occurred in the trade so it's wise to ask about the origins of your fish prior to purchase.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/haludaria-fasciata-formerly-barbus-fasciatus-b-melanampyx/",
+      "html": "<p>In southern India lies the ancient Deccan Plateau, which was formed when India was still part of Africa. Numerous small rivers flow directly into the Indian Ocean from here, and due to their geographical isolation, many of these rivers have developed their own color variations, subspecies, or species of freshwater fish. Barbs and loaches in particular are found here in a wide variety of forms, which have been virtually unexplored by science to date.</p>"
     },
     {
       "key": "habitat",
@@ -113,27 +118,27 @@
     },
     {
       "key": "waterConditions",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
-      "html": "<p>The water composition is secondary; the temperature should be around 26°C. A \"hibernation\" of 6-8 weeks at temperatures between 18 and 22°C has a very positive effect on the fish, but is not absolutely necessary.</p>"
-    },
-    {
-      "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
       "html": "<ul><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
     },
     {
-      "key": "diet",
+      "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/",
-      "html": "<p>As a barb it nibbles on delicate plant parts if it is not sufficiently supplied with plant food.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/haludaria-fasciata-formerly-barbus-fasciatus-b-melanampyx/",
+      "html": "<p>The water composition is irrelevant, but the temperature should be around 26°C. A \"winter rest\" of 6-8 weeks at temperatures between 18 and 22°C has a very positive effect on the fish, but is not absolutely necessary.</p>"
     },
     {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
       "html": "<p>Wild fish are foraging omnivores feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/haludaria-fasciata-formerly-barbus-fasciatus-b-melanampyx/",
+      "html": "<p>As a barb, it will occasionally nibble on tender plant parts if it is not provided with sufficient plant food.</p>"
     },
     {
       "key": "behaviour",
@@ -158,6 +163,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/haludaria-fasciata",
       "html": "<p>This species is traded under various vernacular names including 'ember barb', 'banded barb' and 'black spot barb', and is perhaps among the more undervalued small cyprinids in the aquarium hobby being relatively peaceful, hardy, colourful, and with interesting behaviour.</p><p>It exists in a number of colour forms but as yet it's undecided whether they should be thought of as geographical variants or a complex of closely-related species since no exhaustive phylogenetic studies have been conducted.</p><p>Four populations have have been raised to specific or subspecific status but only H. pradhani (Tilak, 1973), a coastal form from Maharashtra and Goa with 5 bars and purple body and H. kannikkatiensis, a blackish, black-finned form from Tamil Nadu state with two body markings, one beneath the dorsal-fin and the other on the caudal peduncle, are currently accepted to be valid (R. Kumar, pers. comm.).</p><p>The taxa considered synonymous with H. fasciata are H. afasciata (Jayaram, 1990), a plain-bodied form from Kanyakumari; H. melanampyx (Day, 1865), a three-striped form found in central and southern Kerala and H. grayi (Day, 1867), a highland form with 3 bars, the posterior of which at the base of the caudal-fin is often indistinct, and olive-green to crimson body.</p><p>H. fasciata itself was described from Malabar (corresponding to modern-day northern Kerala), and although no type specimens are known Jerdon did mention it had four bars.</p><p>It's possible that the 'group' is in the process of speciation and it seems feasible that some of these names may be revalidated, or additional populations raised to full species status, in the future.</p><p>All these nominal species were moved to new genus Dravidia by Pethiyagoda et al. (2012) but it subsequently became clear that the name was already preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>Haludaria species are defined by the following combination of characters: size small, usually less than 60 mm (2.4 in) SL; presence of rostral and maxillary barbels; lateral line complete, with 18-26 pored scales on body; 4 unbranched and 8 branched dorsal-fin rays, of which the last unbranched ray is weak and smooth; 3 unbranched and 5 branched anal-fin rays; gill rakers simple, acuminate (not branched or laminate); no antrorse predorsal spinous ray; infraorbital 3 deep, partly overlapping preoperculum; free uroneural and post-epiphysial fontanelle absent; presence of one or two broad, black bars on each flank, between the bases of dorsal and anal fins.</p><p>The genus Puntius was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Haludaria, and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>No species from Indochina, China, or Indonesia were included in the study meaning a significant number of former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement, and this also applies to a number of South Asian species of unresolved status.</p><p>They're perhaps best referred to as 'Puntius' for the time being whereby the genus name is surrounded by quotation marks to denote its questionable usage, and that is the convention used here on SF at the moment.</p><p>Thanks to Rahul Kumar.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/haludaria-fasciata-formerly-barbus-fasciatus-b-melanampyx/",
+      "html": "<p>According to current research, the genus Haludaria, which was previously classified as Barbus, Puntius, or Dravidia, comprises six described species: H. afasciata, H. fasciata, H. grayi, H. kannikattiensis, H. melanampyx, and H. pradhani. Colloquially, they are also known as melon barbs; the German name translates \"glowing coal barbs\". Unfortunately, there is no revision that would allow the validity of these species to be assessed. For this reason, the strains available in the hobby are all grouped under Haludaria fasciata, even though there are sometimes significant differences in color.</p><p>A frequently encountered name is H. melanampyx. The barb described under this name has no tail root spot, in contrast to the forms kept and bred in the hobby. So if H. melanampyx is a valid species, it is not represented in the hobby. However, the black markings in Haludaria can be switched on and off depending on the fish's mood, so differences in markings are particularly difficult to assess within this genus.</p>"
     },
     {
       "key": "references",
@@ -260,5 +271,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

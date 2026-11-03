@@ -1,0 +1,74 @@
+{
+  "id": "trichogenes-longipinnis",
+  "scientificName": "Trichogenes longipinnis",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Trichogenes",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "sao-paulo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 14
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1230",
+      "html": "<ul><li>Scientific name: Trichogenes longipinnis Britski &amp; Ortega, 1983</li><li>Type locality: Cachoeira do Amor, kilometer 3 of the Parati-Ubatuba road, São Paulo, Brazil.</li><li>Breeding: unreported.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1230",
+      "html": "<p>South America: coastal streams between Rio de Janeiro and São Paulo States, Southeastern Brazil. Due to restricted distribution, specialized habitat, and differentiated populations, the vulnerable (VU B1+2bc) status in the IUCN List is proposed.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1230",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1230",
+      "html": "<p>Revista Brasileira de Zoologia v. 1 (no. 3), pp 212, Figs. 1-2.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

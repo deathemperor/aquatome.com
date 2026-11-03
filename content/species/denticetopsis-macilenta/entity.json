@@ -8,13 +8,38 @@
   "places": [
     "south-america",
     "guyana",
-    "essequibo"
+    "essequibo",
+    "potaro-river",
+    "venezuela",
+    "peru"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 6.7
+      },
+      {
+        "source": "scotcat",
+        "value": 6.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -26,10 +51,28 @@
       "html": "<ul><li><strong>Scientific name:</strong> Denticetopsis macilenta (Eigenmann, 1912)</li><li><strong>Type locality:</strong> Creek below Potaro Landing (5°23'N, 59°08'W), Guyana.</li><li><strong>Synonyms:</strong> Hemicetopsis macilentus, Pseudocetopsis macilentus</li><li><strong>IUCN Red List category:</strong> Least Concern. Last assessed 2020.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_macilenta.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern. Despite little information being available, it is unlikely to have severe threats and occupies a large range (IUCN 2023).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1213",
       "html": "<p>South America: Essequibo River basin in Guyana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_macilenta.htm",
+      "html": "<p>South America: Potaro River, Essequibo River basin (Guyana and Venezuela); Peru. Type locality: Creek below Potaro Landing, British Guiana.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_macilenta.htm",
+      "html": "<p>This species can be found primarily in the Potaro River, across the Essequibo River basin, Guyana. The species was first collected in the creek below Potaro Landing, Guyana (Fricke et al. 2020). Specific information on the species' habitat and ecology is limited.</p>"
     },
     {
       "key": "reproduction",
@@ -38,10 +81,22 @@
       "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_macilenta.htm",
+      "html": "<p>Etymology: The specific name macilenta is Latin for thin or lean, referring to \"sides with numerous chromatophores, whose rays branch forward and backward from the center of the cell, giving a strigose effect and looking like little bundles of sticks tied in the middle, hence the name\" (presumably the \"sticks\" are thin or lean).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1213",
       "html": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 211, Pl. 23 (fig. 1).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_macilenta.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Denticetopsis macilenta. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2026. FishBase. www.fishbase.org. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</p>"
     }
   ],
   "photos": [
@@ -69,6 +124,20 @@
     }
   ],
   "videos": [],
-  "productSlots": [],
+  "productSlots": [
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test nước bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-02"
 }

@@ -1,0 +1,121 @@
+{
+  "id": "glyptothorax-fuscus",
+  "scientificName": "Glyptothorax fuscus",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Glyptothorax",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "malaysia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 12.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1241",
+      "html": "<p>Glyptothorax fuscus Fowler, 1934. Type locality: Chantaburi, southeastern Thailand. Size: 121 mm SL. A stout-bodied species with a relatively slender caudal peduncle and a fairly uniformly coloured, rusty brown body with a few scattered darker spots. A distinct, thin pale midlateral band is often present.</p><p>Sisorid catfishes of the genus Glyptothorax are benthic inhabitants of torrential waters of rivers and streams in montane and submontane parts of tropical Asia. They attach themselves to rocks and boulders against strong currents by means of a thoracic adhesive apparatus made of grooves and folded pleats of skin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1241",
+      "html": "<p>Asia: Chao Phraya and Mekong basins, and the Malay Peninsula. This is the common lowland species found throughout the Malay Peninsula, and is probably the only Glyptothorax species inhabiting small, forested streams.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1241",
+      "html": "<ul><li>pH: 6.0 - 7.2</li><li>Temperature: 21 - 26°C</li><li>Strong current preferred. Good oxygenation necessary.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1241",
+      "html": "<p>A bottom of coarse sand/fine gravel and enough hiding spaces to partially deflect the current and for the fish to hide in, in the form of driftwood and/or leaf litter.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1241",
+      "html": "<p>Will feed on live/frozen food, but does not appear to take prepared foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1241",
+      "html": "<p>A peaceful species suitable for a fast water tank. Best kept in a well-oxygenated tank with strong current.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1241",
+      "html": "<p>Males have a longer genital papilla.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1241",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1241",
+      "html": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 86, pp 89, Figs. 31-33.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát thô bể cá",
+        "sỏi mịn bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

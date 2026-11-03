@@ -18,12 +18,32 @@
           "min": 24,
           "max": 27
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 7
+      },
+      {
+        "source": "scotcat",
+        "value": 7
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -35,10 +55,46 @@
       "html": "<ul><li><strong>Scientific name:</strong> Entomocorus benjamini Eigenmann, 1917</li><li><strong>Family:</strong> Auchenipteridae</li><li><strong>Common names:</strong> Sleeper Catfish, Schlafwels (Germany)</li><li><strong>Type locality:</strong> San Joaquin, Bolivia</li><li><strong>Size:</strong> 70 mm (2.8\") SL</li><li><strong>Temperature:</strong> 24.0–27.0°C (75.2–80.6°F)</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/entomocorus_benjamini.htm",
+      "html": "<p>Family: Auchenipteridae. Common names: Benjamin's catfish, Sleeping catfish. Size: 7 cm. Temperature: 25–29°C. pH: 6.0–7.5.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1111",
       "html": "<p>South America: upper Madeira River basin (Amazon, Middle Amazon (Solimoes), Madeira).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/entomocorus_benjamini.htm",
+      "html": "<p>South America: upper Madeira River basin, Bolivia. Type locality: San Joaquin, Bolivia.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/entomocorus_benjamini.htm",
+      "html": "<p>Inactive during the day so it would need feeding at night, but as aquarists know, this family will find food left over from daytime feedings.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/entomocorus_benjamini.htm",
+      "html": "<p>Not a fussy eater. Accepts mosquito larvae, artemia, flake food, tablet and pellet foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/entomocorus_benjamini.htm",
+      "html": "<p>Given its common name of Sleeping catfish due to its habit of lying on its side on the substrate or in plants.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/entomocorus_benjamini.htm",
+      "html": "<p>The males have elongated ventral fins and the dorsal fin becomes long and curved.</p>"
     },
     {
       "key": "reproduction",
@@ -47,16 +103,34 @@
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/entomocorus_benjamini.htm",
+      "html": "<p>This species spawns in July and August, in the period of maximal annual flooding.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1111",
       "html": "<p>Etymology: Entomocorus comes from the Greek entome, meaning notch, and kopus, meaning helmet - \"notched helmet\". The species is named after Marcus Benjamin, Editor of the publications of the United States National Museum.</p><p>Pronunciation: ent tow MOCK oh russ.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/entomocorus_benjamini.htm",
+      "html": "<p>Misidentified in some literature and confused with the more common E. gameroi, which has a black band on the upper caudal fin lobe.</p><p>Etymology: the genus name Entomocorus comes from Greek entome, meaning notch, and kore, meaning pupil, in reference to the deep groove at the lower margin of the eye in which the maxillary barbels fit. The specific name benjamini honours Marcus Benjamin, editor of the publications of the United States National Museum.</p><p>IUCN Red List: despite little available information and a potential threat, it is assessed as Least Concern due to its wide range (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1111",
       "html": "<p>Annals of the Carnegie Museum v. 11 (nos 3-4) (art. 14), pp 403, Pl. 41.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/entomocorus_benjamini.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Frederico, R.G. 2023. Entomocorus benjamini. The IUCN Red List of Threatened Species 2023.</p><p>Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2016).</p>"
     }
   ],
   "photos": [
@@ -93,5 +167,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

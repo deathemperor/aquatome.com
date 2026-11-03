@@ -8,13 +8,36 @@
   "places": [
     "asia",
     "india",
-    "bengal"
+    "bengal",
+    "ganges"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "scotcat",
+        "value": 4
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -24,6 +47,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hara-hara-erethistes-pusillus-2/",
       "html": "<p>All species of the Erethistes/Hara group grow to 4-5 cm and are excellent, peaceful and easy to care aquarium fishes.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "html": "<ul><li>Common name: Moth Catfish</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -38,13 +67,100 @@
       "html": "<p>They are imported from India (Bengal).</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "html": "<p>Asia: India, Ganges River basin, Assam. Type locality: Assam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "html": "<p>Occurs mainly in hill streams and muddy parts of rivers overgrown with vegetation.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "html": "<p>A tank with a sandy bottom and rounded stones and pebbles with a good water flow, as befits an Asian hillstream setup. Good water quality is a must for this family. Keep the water temperature on the cool side of a tropical aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "html": "<p>Prefers live foods such as bloodworm, grindal worm and daphnia.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "html": "<p>Tank mates such as the zebra danio (Brachydanio rerio) and Asian fish of the same small size will make good tankmates.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hara-hara-erethistes-pusillus-2/",
       "html": "<p>The animals are called moth catfishes because their coloration and the broadly extending pectoral fins remind of night butterflies.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "html": "<p>In Ferraris 2007, Erithistes has been moved back to its original placement in the Sisoridae family, where de Pinna placed it in 1996, along with Conta, Erethistoides, Hara and Pseudolaguvia.</p><p>Etymology: Erithistes, etymology not explained, presumably erethizon, porcupine, and -istes, adjectival suffix, i.e. porcupine-like, referring to strong and serrated dorsal and pectoral-fin spines. The species epithet pusillus means very small, presumably referring to size (4 cm SL).</p><p>IUCN Red List: Although the exact distribution of this species is not known, Erethistes pusillus appears to be relatively common wherever it occurs. Collection for the ornamental fish trade is currently at a level not projected to adversely affect the global population, so it is assessed as Least Concern, although future monitoring of harvest levels and identification of potential threats to its habitat is probably required (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "html": "<ul><li>Adrian Taylor: pers.comm.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Ng, H.H. 2010. Erethistes pusillus. The IUCN Red List of Threatened Species 2010.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li><li>The ETYFish Project. Fish Name Etymology Database © Christopher Scharpf.</li><li>Thomson A.W. &amp; Page L.M. 2006. Genera of the Asian Catfish Families Sisoridae and Erethistidae (Teleostei: Siluriformes) Zootaxa 1345: 1–96.</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/ad74649df912be39.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ad74649df912be39-480.webp",
+      "width": 500,
+      "height": 223,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "caption": "Erethistes pusillus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0750d9efc06db60e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0750d9efc06db60e-480.webp",
+      "width": 500,
+      "height": 361,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "caption": "Erethistes pusillus: close up of head",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3d15b946a39cf28a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3d15b946a39cf28a-480.webp",
+      "width": 500,
+      "height": 260,
+      "licence": "dùng với sự cho phép",
+      "author": "Jeff Wood / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "caption": "Erethistes pusillus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/70b7eb86b1602d0f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/70b7eb86b1602d0f-480.webp",
+      "width": 588,
+      "height": 449,
+      "licence": "dùng với sự cho phép",
+      "author": "Jeff Wood / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/erethistes_pusillus.htm",
+      "caption": "Erethistes pusillus: Close up of barbel arrangements",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -69,5 +185,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

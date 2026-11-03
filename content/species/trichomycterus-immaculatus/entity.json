@@ -1,0 +1,71 @@
+{
+  "id": "trichomycterus-immaculatus",
+  "scientificName": "Trichomycterus immaculatus",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Trichomycterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraiba-do-sul"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1233",
+      "html": "<ul><li>Scientific name: Trichomycterus immaculatus (Eigenmann &amp; Eigenmann, 1889)</li><li>Type locality: Rio São Matheos, Rio Doce basin, Espírito Santo, Brazil.</li><li>Synonym: Pygidium immaculatum</li><li>IUCN Red List: Least Concern (last assessed 2018)</li><li>Etymology: Trichomycterus, from the Greek trichos, meaning hair, and mykter, meaning nose; in reference to the barbels.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1233",
+      "html": "<p>South America: Paraíbuna River, Paraíba do Sul River basin; Rio de Janeiro State rivers, Paraíba do Sul, Paraibuna (Minas Gerais).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1233",
+      "html": "<p>This genus takes live or frozen food, which is well accepted, as are commercial dry prepared foods. Be careful not to overfeed. In nature, they feed on small invertebrates living at the bottom.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1233",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1233",
+      "html": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 52.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

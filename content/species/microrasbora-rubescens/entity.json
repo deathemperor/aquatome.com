@@ -1,0 +1,127 @@
+{
+  "id": "microrasbora-rubescens",
+  "scientificName": "Microrasbora rubescens",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Microrasbora",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "myanmar",
+    "inle-lake"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 21,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7.1,
+          "max": 8.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
+      "html": "<p>This dwarf rasbora only reaches a total length of 2-3 cm. Microrasbora rubescens was imported and bred for the aquarium hobby as early as 1962, but has always led a shadowy existence. In bare dealer tanks the animals appear quite colorless; in full color they look not unlike a neon fish (Paracheirodon).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
+      "html": "<p>Microrasbora rubescens is found exclusively in Inle Lake and the surrounding area in Burma. A recent study (Fuke et al., 2022) has shown an unexpectedly large genetic diversity in Microrasbora rubescens in Inle Lake and the surrounding waters, without these populations being externally distinguishable. At least two evolutionary lineages have been identified in the surrounding waters of Inle Lake, which are estimated to have diverged from the lake population 2.7 and 1.9 million years ago.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
+      "html": "<p>The water there is hard, the pH slightly alkaline (central part of the lake: pH 7.6 – 8.8, tributary of the lake: pH 7.1 – 7.2). The water temperature during the day is in the range of 21.3 – 28.8°C, the air temperature can fluctuate between 5°C (minimum) and 38°C (maximum) (all data according to Khaung et al., 2021).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
+      "html": "<p>Microrasbora rubescens is easy to keep in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
+      "html": "<p>They will eat any ornamental fish food of a suitable size; plants are not eaten.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
+      "html": "<p>These completely peaceful fish can easily be kept with shrimps and, like them, prefer cooler rather than higher water temperatures. They should be kept in groups of 10 specimens or more in well-planted aquaria.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
+      "html": "<p>The females grow larger than the males, are fuller and have less red in their coloration.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
+      "html": "<p>Spawning takes place in fine plants; Java moss is particularly popular as a spawning plant. Breeding is something for experienced breeders due to the small size of the young, but is generally not difficult.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
+      "html": "<p>Fuke, Y., Y. Kano, S. Tun, L. K. C. Yun, S. S. Win &amp; K. Watanabe (2022): Cryptic genetic divergence of the red dwarf rasbora, Microrasbora rubescens, in and around Inle Lake: implications for the origin of endemicity in the ancient lake in Myanmar. Journal of Fish Biology v. 101 (no. 5): 1235-1247</p><p>Khaung, T., Iwai, C. B. &amp; T. Chuasavathi (2021): Water Quality Monitoring in Inle Lake, Myanmar from the floating Garden Activity. Malaysian Journal of Fundamental and Applied Sciences, Vol. 17: 593-608</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh mini",
+        "bể cá 40cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nhỏ",
+        "thức ăn cá neon"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh lá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

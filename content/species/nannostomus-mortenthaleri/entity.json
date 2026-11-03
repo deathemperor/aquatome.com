@@ -1,0 +1,118 @@
+{
+  "id": "nannostomus-mortenthaleri",
+  "scientificName": "Nannostomus mortenthaleri",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Nannostomus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "peru",
+    "rio-nany"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
+      "html": "<p>Nannostomus mortenthaleri from Peru was the most beautiful new discovery in aquatics in 2000. The close relative of the dwarf pencil, N. marginatus, remains small – approx. 4 cm – and is breathtakingly beautiful in color in the male sex. At least sometimes.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
+      "html": "<p>Peru (Rio Nany tributary in the province of Loreto).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
+      "html": "<p>A group of 10-20 specimens is recommended, kept in a larger, heavily structured aquarium (with lots of roots and dense planting).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
+      "html": "<p>N. mortenthaleri are relatively easy to care for.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
+      "html": "<p>They adapt well to different water parameters, although soft and slightly acidic water best corresponds to their natural conditions. The water temperature can be between 22 and 28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
+      "html": "<p>They will eat any standard ornamental fish food of a suitable size.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
+      "html": "<p>Apart from anatomical details, N. mortenthaleri exhibits behavior that clearly differs from most Nannostomus species. Among conspecifics, it forms a distinct hierarchy or pecking order.</p><p>Dominant males display an intense red color between the dark longitudinal bands. Lower-ranking males fade and take on the coloration of females. Conversely, dominant females can develop a significant amount of red. Its behavior is therefore more similar to that of a small Malawi cichlid (Mbuna) than to that of a pencil fish. It is therefore essential to keep this species in a larger group, as otherwise, just like with Mbunas, a tyrant may develop that oppresses all conspecifics so severely that it can even lead to deaths. The gender composition is irrelevant for keeping them in a community aquarium.</p><p>They are usually peaceful towards other fish species, but caution should be exercised with closely related Nannostomus species with a similar body shape and coloration.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
+      "html": "<p>In all pencil fish, the shape of the anal fin has proven to be the most reliable sexual characteristic. Unfortunately, the differences are very slight in N. mortenthaleri. The anal fin of adult males is always slightly convex at the front edge, whereas in females it is straight. In addition, females lack the light stripe at the base of the dorsal fin. However, the most reliable way to distinguish between the sexes is by their behavior.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
+      "html": "<p>The fish will certainly spawn in a larger, heavily structured aquarium (with lots of roots and dense planting); they are open spawners over fine-leaved plants. Although there is hardly any offspring in community tanks, as the adult fish are very cannibalistic, at least you know whether there are really females in the group and can catch them specifically for breeding.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh 60cm",
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn vi cá cảnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh lá nhỏ",
+        "rêu java"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

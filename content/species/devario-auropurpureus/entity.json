@@ -1,0 +1,120 @@
+{
+  "id": "devario-auropurpureus",
+  "scientificName": "Devario auropurpureus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Devario",
+  "group": "danios",
+  "places": [
+    "asia",
+    "myanmar",
+    "inle-lake"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
+      "html": "<p>Inlecypris auropurpureus is a Danio with vertical stripes on a golden band. The number and shape of the stripes are slightly different in each individual. The genus is closely related to the malabar danio (Devario) and has at times been declared a synonym of Devario; however, most scientists do not currently agree with this. The maximum length of the species is 8-10 cm, but animals over 5 cm in length are rarely found in the wild.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
+      "html": "<p>Lake Inle in Burma has a high proportion of endemic fish species, i.e. those that are found exclusively there. Inlecypris auropurpureus is one of them.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
+      "html": "<p>The water in Inle Lake is hard and the pH value is slightly alkaline (central part of the lake: pH 7.6 – 8.8, tributary of the lake: pH 7.1 – 7.2). The water temperature during the day is in the range of 21.3 – 28.8°C, the air temperature can fluctuate between 5°C (minimum) and 38°C (maximum) (all data according to: Khaung et al., 2021).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
+      "html": "<p>Inlecypris auropurpureus is very undemanding in terms of aquarium care. It is a very peaceful schooling fish that should be kept in aquaria that are not too small so that its swimming abilities can be fully appreciated.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
+      "html": "<p>Inlecypris can and should therefore be kept in normal tap water. For many species from Inle Lake it has also proven to be a good idea not to heat the aquarium at times, i.e. to keep the animals at room temperature (18-22°C). This has a positive effect on the immune system.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
+      "html": "<p>A good flake food serves as a basic diet; the animals go wild for approach food (e.g. Drosophila) and black mosquito larvae. Such food should be given whenever possible. The animals will thank you with bright colors and liveliness.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
+      "html": "<p>The sexes differ mainly in terms of body shape; females are somewhat paler in color and rounder in the abdominal area.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
+      "html": "<p>They are prolific spawners; spawning takes place on or near fine plants. Inlecypris do not practice brood care.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
+      "html": "<p>Khaung, T., Iwai, C. B. &amp; T. Chuasavathi (2021): Water Quality Monitoring in Inle Lake, Myanmar from the floating Garden Activity. Malaysian Journal of Fundamental and Applied Sciences, Vol. 17: 593-608</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/14217afb1e37206c.webp",
+      "thumb": "https://media.aquatome.com/glaser/14217afb1e37206c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá danio"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn vảy cho cá nhỏ",
+        "ruồi giấm cho cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "lọc treo bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

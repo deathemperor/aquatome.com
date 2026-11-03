@@ -1,0 +1,106 @@
+{
+  "id": "melanotaenia-picta",
+  "scientificName": "Melanotaenia picta",
+  "order": "Atheriniformes",
+  "family": "Melanotaeniidae",
+  "genus": "Melanotaenia",
+  "group": "rainbowfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "aru-islands"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 11
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-picta-2/",
+      "html": "<p>Visually, it is almost impossible for a non-specialist to tell Melanotaenia kolaensis, M. picta, M. senckenbergianus and M. wokamensis apart. It is therefore highly advisable to keep them strictly in separate aquariums to avoid unwanted hybrids. They are all very beautiful fish, but for a number of reasons they are only kept and bred by specialists, and they are extremely rare in the trade. As with all rainbowfish, the colors of this species become more intense with age.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-picta-2/",
+      "html": "<p>M. picta was described from the drainage of the Mareremar River on the island of Kobroor. Kobroor belongs to the Aru Islands, which are politically part of Indonesia. A small group of rainbowfish species closely related to the Melanotaenia goldiei group of New Guinea lives there: Melanotaenia kolaensis, M. picta, M. senckenbergianus and M. wokamensis. They were only scientifically revised in 2015 (Allen et al.). Even before its scientific description, M. picta was present in the hobby as M. sp. \"Aru II.\"</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-picta-2/",
+      "html": "<p>The animals live in the crystal-clear water of small forest streams. There is hardly any vegetation there, but plenty of hiding places.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-picta-2/",
+      "html": "<p>The water should not be too soft, the pH should be in the neutral range, and the temperature should be between 22-26°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-picta-2/",
+      "html": "<p>They will eat any standard ornamental fish food of a suitable size.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-picta-2/",
+      "html": "<p>In terms of care and breeding, this species, which grows to about 11 cm in length, is comparable to most other rainbowfish.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-picta-2/",
+      "html": "<p>Allen, G. R., Hadiaty, R. K., Unmack,P. J. &amp; M. V. Erdmann (2015): Rainbowfishes (Melanotaenia: Melanotaeniidae) of the Aru Islands, Indonesia, with description of five new species and redescription of M. patoti Weber and M senkenbergianus Weber. aqua, International Journal of Ichthyology v. 21 (no. 2): 66-108.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài cho cá cầu vồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 200 lít",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cầu vồng",
+        "thức ăn hạt cho cá cảnh nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -1,0 +1,150 @@
+{
+  "id": "retroculus-lapidifer",
+  "scientificName": "Retroculus lapidifer",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Retroculus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-tocantins"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5.5,
+          "max": 6.8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "glaser",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<ul><li>pH and hardness: soft and slightly acidic for care and breeding</li><li>Diet: omnivorous</li><li>Social behavior: relatively peaceful cichlid with a distinct social structure</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<p>Retroculus species—of which there are four—have always been and remain extremely rare in the aquarium hobby. From time to time, the beautiful Retroculus lapidifer from Brazil (Rio Tocantins/Rio Araguaia) is offered, though always in very limited quantities.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<p>Brazil (Rio Tocantins/Rio Araguaia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<p>In the wild, these fish live in close proximity to rapids. When danger threatens, they flee into the strong current, where it is difficult for predators to follow them. Once the danger has passed, they like to rest in calm or still water. In their natural habitat, temperatures ranging from 21.5 to 35°C have been recorded.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<p>For breeding, an aquarium with a base area of at least 150 x 80 cm (preferably larger) is required, since the nest pit is approximately 60 cm in diameter. Retroculus lapidifer grows to about 20–25 cm in length.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<p>The swim bladder in Retroculus is atrophied, making it impossible for them to float freely in the water. Strong filtration and good water flow are important in the aquarium—also because Retroculus are very sensitive to pollution—but it is essential to provide resting areas as well. The substrate should consist mainly of fine sand, which the fish often sift through in search of food.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<p>The water should be soft and slightly acidic (pH 5.5 to 6.8). These fish are adaptable when it comes to water temperature: in an aquarium, 22–28°C is appropriate; for breeding, the temperature should be about 2°C higher.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<p>These fish are not picky eaters; they will consume any standard fish food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<p>Retroculus should always be kept in a group of at least four individuals; otherwise, they become shy. Relatively peaceful cichlid with a distinct social structure.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<p>The scientific species name “lapidifer” means “stone-bearer,” because it was already known as early as 1855 that these animals spawn in nests made of stones. The fish carry stones to the nest one by one in their mouths. In the aquarium, these fish have spawned on several occasions, and it has also been possible to raise the fry.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
+      "html": "<p>Despite their outward resemblance, Retroculus are not closely related to the Geophagus species but form their own subfamily, the Retroculinae. They are considered the most primitive cichlids among the New World species.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150x80 cm",
+        "bể cá lớn cho cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng công suất lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

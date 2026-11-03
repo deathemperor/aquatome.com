@@ -1,0 +1,121 @@
+{
+  "id": "telmatherina-bonti",
+  "scientificName": "Telmatherina bonti",
+  "order": "Atheriniformes",
+  "family": "Telmatherinidae",
+  "genus": "Telmatherina",
+  "group": "rainbowfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "lake-towuti"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 28,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 8,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "html": "<p>Telmatherina bonti (most likely; identification of Telmatherina species is highly complex) grows to about 8 cm. It is a very peaceful, lively and easy-to-keep fish that should always be kept in a school.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "html": "<p>The Malili Lake System on Sulawesi (formerly Celebes) consists of five lakes, three large and two small: Matano, Towuti, Mahalona, Lontoa and Masapi. The species is endemic to this area.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "html": "<p>The water in the Malili Lakes is always relatively warm (approx. 28°C) and its pH is always above 8. Both conditions should be replicated in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "html": "<p>They will eat any dry or frozen food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "html": "<p>In the aquarium, T. bonti are very peaceful and lively fish. They captivate with their lively nature and constant courtship displays. It never gets boring to watch a school of these fish, and with this species it should always be a school.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "html": "<p>Like many Malilian silversides, this species is polychromatic: both males and females occur in various colour variations. In T. bonti there are yellow, white and yellow-white individuals. In the wild they occur in a colourful mix and also interbreed, so they are by no means distinct breeds or subspecies. The purpose of this polychromatism is unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "html": "<p>Spawning takes place among fine-leaved plants. The fish are continuous spawners.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/telmatherina-bonti-2/",
+      "html": "<p>Lexicon: Telmatherina comes from the ancient Greek \"telma\", meaning \"swamp\"; Atherina is another genus of silverside. bonti is named after the local name of the species, \"bonti-bonti\", at Lake Towuti.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn khô cho cá nhỏ",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test KH GH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -15,6 +15,34 @@
       {
         "source": "planetcatfish",
         "value": 7.1
+      },
+      {
+        "source": "scotcat",
+        "value": 7
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 6
       }
     ]
   },
@@ -32,28 +60,103 @@
       "html": "<p>South America: Paquequer River basin in the Paraíba do Sul River drainage, Rio de Janeiro State, Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm",
+      "html": "<p>South America: Paquequer River basin in Paraíba do Sul River drainage, southeastern Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm",
+      "html": "<p>Harttia carvalhoi is a species widely distributed in the Paraíba do Sul River basin, southeastern Brazil (Ferraris Jr. 2003). Other records of the species in the Paraíba do Sul River basin include the Córrego dos Buenos, Buenos Basin, in the Córrego Taquaral and in the Córrego Pirutinga, both in the Guaratinguetá Basins, São Paulo state (Rondineli et al. 2011); in the Piracuama and Grande rivers, in the Paraíba do Sul River Basin (Ingenito and Buckup 2007), in the Grande stream, a tributary of the left bank of the Paraíba do Sul River (Centofante et al. 2006), in the Paraibuna, Ipiranga and Grande rivers, points located in the Santa Virgínia Nucleus of the Serra do Mar State Park, in the municipality of São Luís do Paraitinga, São Paulo (Gomiero and Braga 2006), in the Grande stream microbasin (Braga and Andrade 2005) and in the Três Pontes stream, in the Paraibuna River, in the Chapéu d'Uvas reservoir and close to the dam and at the mouth of the Tabuões stream, in the state of Minas Gerais (Oliveira and Lacerda 2004).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm",
+      "html": "<p>Not the easiest genera to keep as they will need clean, oxygen rich water and a strong current. They will also need reduced temperatures in the aquarium due to their southern habitats. Does not do well in imports due to its difficulty in traveling containers.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm",
+      "html": "<p>Grazes on microscopic algae, mostly diatoms and green algae growing on rugged and light-coloured rocks, and submersed vegetation. Chironomid and simuliid larvae, as well as tiny crustaceans, are recorded in its diet. When scraping algae off the substrate, the fish makes vigorous mouth movements and jerky movements, probably related to its mouth making alternate grazing and attaching to the substrate.</p><p>In the aquarium feed dry foods, algae wafers, Spirulina and normal tablet foods. Frozen foods, Artemia nauplii, glass worms and Daphnia.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm",
+      "html": "<p>Males tend to have odontodes (hair like structures) on the first ray of the pectoral fins and the head in males is broader.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1214",
       "html": "<p>Breeding: Unreported.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm",
+      "html": "<p>Etymology: The specific name carvalhoi is in honour of Brazilian ichthyologist-herpetologist Antenor Leitão de Carvalho (1910–1985), who collected the holotype.</p><p>Remarks: Harttia carvalhoi is a species widely distributed in the Paraíba do Sul river basin, frequent and abundant. As no significant threats that put its population at risk have been detected, the species was listed in the Least Concern (LC) category (IUCN 2018).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1214",
       "html": "<p>Boletim Biológico, São Paulo (Nova Série) v. 4 (no. 1), pp 11, Pl. 2 (upper).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Harttia carvalhoi. The IUCN Red List of Threatened Species 2022.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/40d977a63b8679a1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/40d977a63b8679a1-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Ivan Sazima / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm",
+      "caption": "Harttia carvalhoi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8903df0c6c3da3f3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8903df0c6c3da3f3-480.webp",
+      "width": 500,
+      "height": 359,
+      "licence": "dùng với sự cho phép",
+      "author": "Henry Miller Alexandre / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm",
+      "caption": "Harttia carvalhoi: Ubatuba - SP, 11680-000, Brasil",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8ea77ce9ce57f350.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8ea77ce9ce57f350-480.webp",
+      "width": 500,
+      "height": 324,
+      "licence": "dùng với sự cho phép",
+      "author": "Henry Miller Alexandre / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_carvalhoi.htm",
+      "caption": "Harttia carvalhoi: Ventral view-Ubatuba - SP, 11680-000, Brasil",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/6bfa815a6d6cf01e.webp",
+      "thumb": "https://media.aquatome.com/commons/6bfa815a6d6cf01e-480.webp",
       "width": 960,
       "height": 701,
       "licence": "CC BY 4.0",
       "author": "Victor de Brito and Paulo Andreas Buckup",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_fauna_of_the_upper_Pira%C3%AD_drainage_(2).png",
-      "caption": "A collection of fish species from the upper Piraí drainage, a transposed mountain river system in southeastern Brazil. Per the source: A. Harttia carvalhoi, MNRJ 43816, 78.1 mm SL. B. Harttia loricari",
-      "thumb": "https://media.aquatome.com/commons/6bfa815a6d6cf01e-480.webp"
+      "caption": "A collection of fish species from the upper Piraí drainage, a transposed mountain river system in southeastern Brazil. Per the source: A. Harttia carvalhoi, MNRJ 43816, 78.1 mm SL. B. Harttia loricari"
     }
   ],
   "videos": [],

@@ -2242,46 +2242,61 @@
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1226": {
+    "entityIds": [
+      "species/listrura-nematopteryx"
+    ],
+    "updatedAt": "2026-11-02T23:02:09.523Z",
+    "hash": "b69673ee2df1148db989f942390327a275ad7f757bdafc7c5e7e5c90778c81d9",
+    "processedHash": "b69673ee2df1148db989f942390327a275ad7f757bdafc7c5e7e5c90778c81d9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1227": {
+    "entityIds": [
+      "species/ituglanis-passensis"
+    ],
+    "updatedAt": "2026-11-02T23:02:53.531Z",
+    "hash": "bc6e43d91121bf88d41d0929dcd25c71e263a92b7c28e32b0935e932e69a2426",
+    "processedHash": "bc6e43d91121bf88d41d0929dcd25c71e263a92b7c28e32b0935e932e69a2426",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1228": {
+    "entityIds": [
+      "species/parastegophilus-paulensis"
+    ],
+    "updatedAt": "2026-11-02T23:03:36.660Z",
+    "hash": "aebd0f5b4d4c9bc2f026f2388654b3dffb9b3bc67766eade989df1fbd70daae2",
+    "processedHash": "aebd0f5b4d4c9bc2f026f2388654b3dffb9b3bc67766eade989df1fbd70daae2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1229": {
+    "entityIds": [
+      "species/paravandellia-oxyptera"
+    ],
+    "updatedAt": "2026-11-02T23:04:04.587Z",
+    "hash": "b7d6f91514f60df4dd47d9f7f6858e04933a329b542c3b926670d810cccef653",
+    "processedHash": "b7d6f91514f60df4dd47d9f7f6858e04933a329b542c3b926670d810cccef653",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=123": {
     "entityIds": [],
-    "updatedAt": "2026-11-02T13:48:58.021Z",
+    "updatedAt": "2026-11-02T23:05:12.999Z",
     "status": "error",
     "attempts": 2,
     "error": "fetch failed"
   },
-  "https://www.planetcatfish.com/common/species.php?species_id=1227": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T16:40:24.482Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
-  },
-  "https://www.planetcatfish.com/common/species.php?species_id=1228": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T16:40:29.493Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
-  },
-  "https://www.planetcatfish.com/common/species.php?species_id=1229": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T16:40:34.508Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
-  },
-  "https://www.planetcatfish.com/common/species.php?species_id=123": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T16:40:39.520Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
-  },
   "https://www.planetcatfish.com/common/species.php?species_id=1230": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T16:40:44.537Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/trichogenes-longipinnis"
+    ],
+    "updatedAt": "2026-11-02T23:05:17.979Z",
+    "hash": "fc332e98ba359a5e240ee6204fdce29bb19c8b4e3ce86ee8e53a14fa525e99b9",
+    "processedHash": "fc332e98ba359a5e240ee6204fdce29bb19c8b4e3ce86ee8e53a14fa525e99b9",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1231": {
     "entityIds": [
@@ -2295,86 +2310,131 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1232": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T16:41:31.828Z",
+    "updatedAt": "2026-11-02T23:05:53.281Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1233": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T16:41:37.170Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/trichomycterus-immaculatus"
+    ],
+    "updatedAt": "2026-11-02T23:05:57.840Z",
+    "hash": "67ac4437a65a2d578d2bc3606207dca811c40aea89888a3acd14593590903fe3",
+    "processedHash": "67ac4437a65a2d578d2bc3606207dca811c40aea89888a3acd14593590903fe3",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1234": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T16:41:42.439Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/trichomycterus-itatiayae"
+    ],
+    "updatedAt": "2026-11-02T23:07:01.521Z",
+    "hash": "0e85ecd61b6871dccdb58d753180bb1b400260c1a05779107dbc66a4adafde61",
+    "processedHash": "0e85ecd61b6871dccdb58d753180bb1b400260c1a05779107dbc66a4adafde61",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1235": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T16:41:47.565Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "claude failed (1): You've hit your 5-hour limit · resets 5:10pm (UTC)"
+    "entityIds": [
+      "species/trichomycterus-mirissumba"
+    ],
+    "updatedAt": "2026-11-02T23:07:42.464Z",
+    "hash": "1825d16cc9d90c67e04c0aaafdb4515e7d1ec5fb76d7f42755fb142388a4ecb4",
+    "processedHash": "1825d16cc9d90c67e04c0aaafdb4515e7d1ec5fb76d7f42755fb142388a4ecb4",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1236": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T16:42:04.953Z",
+    "updatedAt": "2026-11-02T23:08:52.645Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1237": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T16:42:04.968Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/ariopsis-felis"
+    ],
+    "updatedAt": "2026-11-02T23:08:57.166Z",
+    "hash": "1ac23d6ef8685c6904f9e3d141a23bbef0363e3b89fb85ec12e4da0ca1a02d11",
+    "processedHash": "1ac23d6ef8685c6904f9e3d141a23bbef0363e3b89fb85ec12e4da0ca1a02d11",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1238": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T16:42:09.975Z",
+    "updatedAt": "2026-11-02T23:09:50.874Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1239": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T16:42:14.992Z",
+    "updatedAt": "2026-11-02T23:09:51.856Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=124": {
-    "entityIds": [],
-    "updatedAt": "2026-10-31T16:42:20.008Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/dianema-urostriatum"
+    ],
+    "updatedAt": "2026-11-02T23:09:56.931Z",
+    "hash": "6db0731d271cd568ac5d8d4845318090683a9a21bba88b7b4c327492d1b085aa",
+    "processedHash": "6db0731d271cd568ac5d8d4845318090683a9a21bba88b7b4c327492d1b085aa",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1240": {
+    "entityIds": [
+      "species/clarias-leiacanthus"
+    ],
+    "updatedAt": "2026-11-02T23:11:20.252Z",
+    "hash": "f515755d11d247f39a5f7496495779e501d37b90e7b0217df53be33e77a6dca9",
+    "processedHash": "f515755d11d247f39a5f7496495779e501d37b90e7b0217df53be33e77a6dca9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1241": {
+    "entityIds": [
+      "species/glyptothorax-fuscus"
+    ],
+    "updatedAt": "2026-11-02T23:12:25.320Z",
+    "hash": "aabb975e060a4e2147f1dbae528c5d6ddc74f52c09c3b5881cbe9d75eaf9254c",
+    "processedHash": "aabb975e060a4e2147f1dbae528c5d6ddc74f52c09c3b5881cbe9d75eaf9254c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1242": {
+    "entityIds": [
+      "species/pareiorhina-rudolphi"
+    ],
+    "updatedAt": "2026-11-02T23:13:22.118Z",
+    "hash": "e8818941f80b221e23e053c8a1651d9c95939406b90137883657c056491cc2c4",
+    "processedHash": "e8818941f80b221e23e053c8a1651d9c95939406b90137883657c056491cc2c4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1243": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T16:42:25.019Z",
+    "updatedAt": "2026-11-02T23:13:55.563Z",
     "status": "error",
     "attempts": 1,
     "error": "fetch failed"
   },
-  "https://www.planetcatfish.com/common/species.php?species_id=1241": {
+  "https://www.planetcatfish.com/common/species.php?species_id=1244": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T16:42:30.033Z",
+    "updatedAt": "2026-11-02T23:14:00.171Z",
     "status": "error",
     "attempts": 1,
-    "error": "claude failed (1): You've hit your 5-hour limit · resets 5:10pm (UTC)"
+    "error": "fetch failed"
   },
-  "https://www.planetcatfish.com/common/species.php?species_id=1242": {
+  "https://www.planetcatfish.com/common/species.php?species_id=1245": {
     "entityIds": [],
-    "updatedAt": "2026-10-31T16:42:38.761Z",
+    "updatedAt": "2026-11-02T23:14:05.245Z",
     "status": "error",
     "attempts": 1,
-    "error": "claude failed (1): You've hit your 5-hour limit · resets 5:10pm (UTC)"
+    "error": "fetch failed"
   }
 }

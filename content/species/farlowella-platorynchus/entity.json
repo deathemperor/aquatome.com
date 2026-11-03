@@ -18,12 +18,38 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 19.4
+      },
+      {
+        "source": "scotcat",
+        "value": 19.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 7
       }
     ]
   },
@@ -35,10 +61,40 @@
       "html": "<ul><li>Scientific name: Farlowella platorynchus Retzer &amp; Page, 1997</li><li>Common names: Broadsnout Twig Catfish</li><li>Size: 194 mm (7.6\") SL</li><li>Temperature: 22.0-27.0°C</li><li>Habitat: Blackwater</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul><p>This species of Farlowella has a long broad rostrum with a reticulated pattern above and a circular pattern on the ventral side.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
+      "html": "<p>Not an easy catfish to keep as there have been many unexplained deaths attributed to this species (and other Farlowella) and as such would need dedicated care from an experienced catfish keeper who has worked with this species or its close cousins from the easier kept Sturisoma genera.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
       "html": "<p>South America: Upper and lower Amazon River basin, including the Upper Amazon, Marañón and Ucayali. Type locality: Yarinachocha, Río Ucayali drainage, Ucayali Dept., Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
+      "html": "<p>South America: Upper and lower Amazon River basin. Type locality: Peru, Ucayali Department, Pucallpa, Yari-nachocha, Río Ucayali drainage, 8º23'S, 74º32'W.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
+      "html": "<p>Needs a high oxygen content in the aquarium with regular water changes to keep the water in pristine condition. Prefers a dark substrate with dense vegetation, floating and long-leaved plants which they will hang on to.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
+      "html": "<p>They are mostly vegetarian, with algae being the main food source for adults and young fry, so vegetable-laden tablets should suffice.</p>"
     },
     {
       "key": "behaviour",
@@ -47,10 +103,22 @@
       "html": "<p>Suggested tankmates: Tetras or Rasboras are best. Avoid fast or \"nippy\" fishes such as Danios or Barbs. Will do well with Corydoras catfish, but larger catfish or cichlids are to be avoided.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
+      "html": "<p>This is a very timid species. If housed with other inhabitants, avoid boisterous fish such as some of the Barb species (such as tigers) and definitely Cichlids. Better companions would be the unobtrusive Corydoras species and small Characins or Rasboras.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
       "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
+      "html": "<p>Eggs are placed on the aquarium glass or on a leaf and cared for by the male, which can be recognised by its nose odontodes.</p>"
     },
     {
       "key": "notes",
@@ -59,24 +127,25 @@
       "html": "<p>Identification: The genus Farlowella is distinguished by its elongate and slender body with a pronounced rostrum (of variable length), having the dorsal fin located near the middle of the body and only slightly anterior to the anal fin, and having a brownish color with two lateral dark stripes beginning at the tip of the rostrum, passing through the eyes and ending at the tail.</p><p>Etymology: The genus is named after W. G. Farlow, from Harvard University. The specific epithet refers to its broad (platys = broad) snout (rhynchos = snout).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
+      "html": "<p>Etymology: The specific name platorynchus refers to its broad (platys = broad) snout (rhynchos = snout).</p><p>In Eschmeyer's Catalog of Fishes, Farlowella platorynchus is now considered a synonym of F. amazonum.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1190",
       "html": "<p>Proc. Acad. Nat. Sci. Phila. v. 147 71 Fig. 44</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
+      "html": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/b6f2605de0517dda.webp",
-      "thumb": "https://media.aquatome.com/scotcat/b6f2605de0517dda-480.webp",
-      "width": 500,
-      "height": 375,
-      "licence": "dùng với sự cho phép",
-      "author": "Lars Jamne / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
-      "caption": "Farlowella platorynchus: Eggs on glass cared for by the male",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/61e13c1eba3c259d.webp",
       "thumb": "https://media.aquatome.com/scotcat/61e13c1eba3c259d-480.webp",
@@ -108,6 +177,17 @@
       "author": "ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
       "caption": "Farlowella platorynchus: Ventral view of head",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b6f2605de0517dda.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b6f2605de0517dda-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Lars Jamne / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
+      "caption": "Farlowella platorynchus: Eggs on glass cared for by the male",
       "source": "scotcat"
     }
   ],
@@ -141,5 +221,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

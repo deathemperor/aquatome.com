@@ -18,11 +18,25 @@
           "min": 25,
           "max": 28
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      },
+      {
+        "source": "planetcatfish",
         "value": {
           "min": 6,
           "max": 8
@@ -42,6 +56,10 @@
       {
         "source": "seriouslyfish",
         "value": 12.5
+      },
+      {
+        "source": "planetcatfish",
+        "value": 8.4
       }
     ],
     "tankCm": [
@@ -65,10 +83,22 @@
       "html": "<p>The flagtail catfish, Dianema urostriatum, is a peaceful callichthyid catfish from parts of the Brazilian Amazon basin. It lives away from the main river channels in slower creeks, tributaries, floodplain lakes and ponds. All specimens in the trade are wild-caught and new imports can be delicate, but once acclimatised it usually proves very hardy and adaptable, and suits the larger community tank.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
+      "html": "<p>Size: 84 mm SL. Identification: horizontal black and white alternating stripes on the tail fin; the only other member of the genus has a clear caudal fin and is generally smaller.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dianema-urostriatum",
       "html": "<p>Parts of the Brazilian Amazon basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
+      "html": "<p>South America: Amazon River basin. Type locality: Manaus, Amazonas, Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -95,10 +125,28 @@
       "html": "<ul><li>Temperature: 25–28°C (77–82°F)</li><li>pH: 6.0–8.0, ideally towards the lower end of this range</li><li>Hardness: 5–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
+      "html": "<p>pH 6.0 - 8.0. Temperature 25.0-28.0°C. Somewhat fussy, this fish should be acclimatized in slightly soft water, pH around 6.0 - 6.5. Once settled it is much more accommodating.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
+      "html": "<p>Caves (rock or pipe); plants are often used as resting places in mid-water.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dianema-urostriatum",
       "html": "<p>An unfussy feeder. Offer a varied diet consisting of dried sinking pellets and small live and frozen foods such as bloodworm, brineshrimp and chopped earthworms. Once settled, it will often feed from the surface.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
+      "html": "<p>Will take a variety of prepared foods, flake and frozen, for maintenance.</p>"
     },
     {
       "key": "behaviour",
@@ -107,10 +155,22 @@
       "html": "<p>A very peaceful fish that is suitable for many communities. It will not harm even the smallest of tankmates, although tiny fry may be hoovered up. Ideal tankmates include other Amazonian species such as tetras, peaceful cichlids, Corydoras and smaller Loricariids. It is less suitable for a community of much larger or aggressive species, although it is a little more robust than its relative D. longibarbis. It is totally unaggressive towards conspecifics. Although it can be kept as a single specimen, it is far more outgoing and active in a small group of 3-6 fish. Oddly for a catfish, it will sometimes be seen swimming in a shoal in midwater when maintained in this way.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
+      "html": "<p>Very docile fish, mid-water swimmer; an ideal larger catfish for the community aquarium.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dianema-urostriatum",
       "html": "<p>The leading few rays of the pectoral fins are thickened slightly in males. Mature females are likely to be rounder in the body than males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
+      "html": "<p>Females are more heavily bodied than males.</p>"
     },
     {
       "key": "reproduction",
@@ -119,10 +179,22 @@
       "html": "<p>Very scant information exists regarding the spawning of this fish in captivity, yet it has been achieved on numerous occasions. It's reportedly a bubblenesting species, although some conflicting information suggests that the eggs are laid in pits excavated from the substrate. If you want to try breeding these, it's probably best to begin with a small group of 4-6 fish. Add a piece of polystyrene or plastic lid to float at the surface and provide a potential nest-building site. With the closely related Hoplosternum genus, the most success has been had using a yellow-coloured object, so this may be worth considering. Ideally, the object should also be secured in one place. Apparently, copious amounts of live food are important to bring the fish into condition, as are large, cool water changes. Once eggs are noticed, the adults should be removed, as they may eat them. The fry should be big enough to take Artemia nauplii and/or microworm once their yolk sacs have been absorbed.</p><p>If you're having trouble inducing a spawn, you could attempt a full simulation of the dry and wet seasons that occur in its natural waters. The fish spawn at the onset of the wet season, so first lower the water level in the tank, increase the temperature by a few degrees and starve the fish for a few weeks to simulate the dry season. You could also remove the filter (keep it running on another tank so it remains mature) and increase the hardness of the water slightly. An increase in both organic compounds and dissolved salts is associated with the dry season, simply because there is less water around to dissolve them. After a few weeks, increase the water level using cooler water and begin to feed the fish heavily. Replace the filter if you removed it, and if the hardness of the water was increased, use very soft (preferably RO) water for topping up.</p><p>In the unlikely event of the fish still being unwilling to spawn, bear in mind that aspects such as barometric pressure and time of year can also affect breeding activity in many South American species. The wet season occurs roughly between September and April, depending on geography, so some species may spawn only during these months.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
+      "html": "<p>Possible. Must feed live foods and run through dry season / wet season cycle. Eggs attached to floating cover, placed in circular grouping similar to Corys with similarly sized eggs. No bubble nest was present at time of spawning.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dianema-urostriatum",
       "html": "<p>A good choice for the larger community tank. Newly imported fish tend to be a little delicate and can be susceptible to disease. This is at least in part because all specimens sold for the trade are wild caught. Once acclimatised it usually proves very hardy and adaptable.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
+      "html": "<p>Loricariidae, Callichthyidae, Doradidae e Trichomycteridae Annexo no. 5, pp 15.</p>"
     }
   ],
   "photos": [
@@ -149,7 +221,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "zeC8BQ2WWOc",
+      "title": "dianema urostriatum",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3BHRQCwXnNk",
+      "title": "Dianema urostriatum",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Y_0avx6Hrvs",
+      "title": "Dianema urostriatum Catfish #shortvideo #aquariumfish",
+      "durationSec": 6,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AfxTZq9mvcA",
+      "title": "Unique footage from a Dianema urostriata spawn.",
+      "durationSec": 36,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -178,5 +275,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-02"
 }

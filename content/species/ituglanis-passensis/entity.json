@@ -1,0 +1,100 @@
+{
+  "id": "ituglanis-passensis",
+  "scientificName": "Ituglanis passensis",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Ituglanis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1227",
+      "html": "<ul><li>Described by Fernández &amp; Bichuette, 2002.</li><li>IUCN Red List: Vulnerable (last assessed 2018).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1227",
+      "html": "<p>South America: known only from Passa Três cave, Brazil (Tocantins drainage). Type locality: subterranean stream in the Tocantins drainage, Passa Três cave, São Domingos, Goiás State, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1227",
+      "html": "<p>Occurs in small riffles with slow current, 15-20 cm deep on average.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1227",
+      "html": "<p>Exhibits crypto-biotic habits, hiding in the gravel bottom or under limestone blocks. No agonistic behaviour has been observed.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1227",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1227",
+      "html": "<p>Identification: reduced dark pigmentation on the head and body, with colour varying from yellowish to light gray and scattered melanophores limited to the dorsal region. The eyes range from black dots to externally invisible. Maxillary barbel extends to the anterior margin of the pectoral fin. First pectoral-fin ray is a short filament. Ribs 7. Head length 16-17% SL.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1227",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 13 (no. 3), pp 274, Fig. 1.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/afb8f1bc13bc155e.webp",
+      "width": 960,
+      "height": 939,
+      "licence": "CC BY 4.0",
+      "author": "[Photo author: Sandro Secutti] Secutti S, Trajano E (2021) Reproduction, development, asymmetry and late eye regression in the Brazilian cave catfish Ituglanis passensis (Siluriformes, Trichomycteridae): evidence contributing to the neutral mutation theory. Subterranean Biology 38: 91-112. https://doi.org/10.3897/subtbiol.31.60691",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ituglanis_passensis_(10.3897-subtbiol.31.60691)_Figure_3.jpg",
+      "caption": "Figure 3; Juvenile Ituglanis passensis (200 days, 15.4 mm SL), detail of head and eyes showing melanophores and asymmetry in eyes shape. Arrow…. degeneration of round shape in left eye.",
+      "thumb": "https://media.aquatome.com/commons/afb8f1bc13bc155e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c03cd2b1d9e7e963.webp",
+      "width": 960,
+      "height": 260,
+      "licence": "CC BY 4.0",
+      "author": "[Photos author: Sandro Secutti] Secutti S, Trajano E (2021) Reproduction, development, asymmetry and late eye regression in the Brazilian cave catfish Ituglanis passensis (Siluriformes, Trichomycteridae): evidence contributing to the neutral mutation theory. Subterranean Biology 38: 91-112. https://doi.org/10.3897/subtbiol.31.60691",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ituglanis_passensis_(10.3897-subtbiol.31.60691)_Figure_2.jpg",
+      "caption": "Figure 2; A Ituglanis passensis, newly laid eggs B newly hatched free-swimming larva, with visible eyes and melanophores C same, in zoom.",
+      "thumb": "https://media.aquatome.com/commons/c03cd2b1d9e7e963-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9a906f577069bb76.webp",
+      "width": 960,
+      "height": 399,
+      "licence": "CC BY 4.0",
+      "author": "[Photos author: Alexandre Lopes Camargo] Secutti S, Trajano E (2021) Reproduction, development, asymmetry and late eye regression in the Brazilian cave catfish Ituglanis passensis (Siluriformes, Trichomycteridae): evidence contributing to the neutral mutation theory. Subterranean Biology 38: 91-112. https://doi.org/10.3897/subtbiol.31.60691",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ituglanis_passensis_(10.3897-subtbiol.31.60691)_Figure_1.jpg",
+      "caption": "Figure 1; A Ituglanis passensis mature female (73.1 mm SL), eggs seen by transparency B detail of male head.",
+      "thumb": "https://media.aquatome.com/commons/9a906f577069bb76-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-02"
+}

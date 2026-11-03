@@ -1,0 +1,98 @@
+{
+  "id": "ctenopoma-kingsleyae",
+  "scientificName": "Ctenopoma kingsleyae",
+  "order": "Perciformes",
+  "family": "Anabantidae",
+  "genus": "Ctenopoma",
+  "group": "labyrinth",
+  "places": [
+    "africa",
+    "niger"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
+      "html": "<p>The tailspot bushfish (Ctenopoma kingsleyae) originates from wooded areas in western Africa. It was one of the first labyrinth fish exported from Africa for aquariums. The first specimens from the lower Niger region arrived in Germany as early as 1912. This calm, peaceful species was described at the time as very aggressive and incompatible, an observation that was never made again later on. With a maximum length of almost 20 cm (usually 12-15 cm), C. kingsleyae is one of the largest labyrinth fish in Africa.</p><p>The tail root spot, which gives the common name, is found in several species. Depending on its mood, it can fade significantly or even appear white – normally it is black. In young fish up to about 5 cm in length, the tail root spot has a golden border. Typical of C. kingsleyae is the large silver spot directly below the eye, which is absent in all other similar species.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
+      "html": "<p>The chemical composition of the water is irrelevant; any drinking water is suitable for care and breeding. The temperature can range between 20 and 30°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
+      "html": "<p>They will eat any standard ornamental fish food of a suitable size, whether dry, frozen, or live. The animals can be particularly pleased by throwing land insects (fat flies, grasshoppers, etc.) onto the water surface. This is the bushfish's absolute favorite food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
+      "html": "<p>Although Ctenopoma kingsleyae may seem unattractive at first glance, these calmly swimming fish with their silvery-white fin edges are a wonderful contrast to colorful tetras, barbs, or cichlids. Very small fish (2-3 cm) and shrimp are regarded as food, but otherwise tank mates, whether animal or plant, are usually completely ignored. The fish are also very peaceful among themselves, regardless of gender.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
+      "html": "<p>The sexes differ only slightly in appearance. Sexually mature C. kingsleyae (from approx. 8 cm total length) have spiny fields behind the eye and on the caudal peduncle, which help the male to wrap himself around the female in a U-shape during mating and turn her onto her back into the spawning position. The spiny field behind the eye is often difficult to see, while the spiny field on the caudal peduncle immediately in front of the caudal root spot appears faintly reddish and therefore often allows gender identification with the naked eye.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
+      "html": "<p>In terms of reproductive behavior, Ctenopoma kingsleyae is one of the primitive labyrinth fish. This species does not care for its young. The eggs drift on the water surface due to oil deposits and are left to fend for themselves after spawning. To stimulate breeding, which is best attempted in winter, a dry period must be simulated.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cảnh dạng viên",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

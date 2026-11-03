@@ -1,0 +1,108 @@
+{
+  "id": "epiplatys-chevalieri",
+  "scientificName": "Epiplatys chevalieri",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Epiplatys",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chevalieri-2/",
+      "html": "<p>Epiplatys chevalieri was introduced into the aquarium hobby as early as 1950 and was given a popular name (German: Zierhechtling, meaning ornamental panchax), which is by no means common for killifish. It has not become established on a broad basis. The maximum length is given as 6 cm (total length, i.e. including caudal fin).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chevalieri-2/",
+      "html": "<p>This killifish originates from the central Congo.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chevalieri-2/",
+      "html": "<p>Successful maintenance is not possible in heavily stocked community aquariums with a motley assortment of fish. Epiplatys chevalieri are a real feast for the eyes in well-planted jungle aquariums with hand-picked companion fish. The fact that these fish prefer room temperature saves energy.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chevalieri-2/",
+      "html": "<p>Like the butterfly barb (Enteromius hulstaerti), which originates from the same waters, it requires relatively low water temperatures (18-22°C) and low-germ water. Long-term care and breeding are only possible if these two basic requirements are met.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chevalieri-2/",
+      "html": "<p>E. chevalieri is unproblematic when it comes to food. They will take any ornamental fish food that is suitable in terms of size. However, like all Epiplatys species, the fish are surface-oriented and are reluctant to forage in the lower water layers.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chevalieri-2/",
+      "html": "<p>Males and females are best distinguished by the shape of the anal fin, which is pointed in males and rounded in females. Both sexes can show a dark longitudinal band depending on their mood, but especially when they are under stress.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chevalieri-2/",
+      "html": "<p>E. chevalieri is a typical adhesive spawner that lays its eggs in fine aquatic plants, roots of floating plants, etc.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh 60cm",
+        "bể cá killifish"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi nhẹ cho bể nhỏ",
+        "lọc bọt khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cảnh nhỏ",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh lá nhỏ",
+        "cây thủy sinh nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

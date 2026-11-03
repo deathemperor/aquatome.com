@@ -1,0 +1,82 @@
+{
+  "id": "dichotomyctere-fluviatilis",
+  "scientificName": "Dichotomyctere fluviatilis",
+  "order": "Tetraodontiformes",
+  "family": "Tetraodontidae",
+  "genus": "Dichotomyctere",
+  "group": "other",
+  "places": [
+    "asia",
+    "india",
+    "sri-lanka"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 8,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/dichotomyctere-fluviatilis-formerly-tetraodon-fluviatilis/",
+      "html": "<p>The Green Puffers have recently been split from the catch-all genus Tetraodon and placed in a genus of their own, Dichotomyctere. Usually three different species are found in the trade: the Palembang or Figure-8 Puffer (D. ocellatus, formerly Tetraodon biocellatus), the Spotted Green Puffer (D. nigroviridis), and the Real Green Puffer (D. fluviatilis). Further species exist, but they are hardly ever found in the trade.</p><p>Apart from coloration, the three species differ mainly in the size they reach. D. ocellatus is the smallest and hardly ever grows larger than 6 cm, D. fluviatilis is the largest and can reach 20 cm. D. nigroviridis is in between and grows to 12-15 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/dichotomyctere-fluviatilis-formerly-tetraodon-fluviatilis/",
+      "html": "<p>The actual green pufferfish (D. fluviatilis) is only found in India and offshore islands (e.g. Sri Lanka).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/dichotomyctere-fluviatilis-formerly-tetraodon-fluviatilis/",
+      "html": "<p>All three species are typical brackish water fishes that also tolerate pure freshwater and pure seawater. If kept in freshwater, the water should be hard and (this is of real importance!) the pH should not sink below 8. In such water biological filtration is essential. Puffers are heavy eaters, and if the biological filtration does not work well there is a great danger of highly toxic ammonia developing.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/dichotomyctere-fluviatilis-formerly-tetraodon-fluviatilis/",
+      "html": "<p>Green puffers are usually peaceful, both towards conspecifics and other fishes, but sadly individual fin biters sometimes appear that can be a real plague for the whole fish community. To avoid this, it is recommended to use aquaria as large as possible, to keep the puffers in social groups (4-8 specimens), and to feed heavily and diversely, but no guarantee against fin biters can be given.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài bể nước lợ",
+        "vật liệu lọc sinh học"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test amoniac",
+        "bút đo pH"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nóc",
+        "ốc sống cho cá nóc"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

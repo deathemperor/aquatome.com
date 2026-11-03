@@ -20,11 +20,25 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 27
+        }
       }
     ],
     "ph": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 6,
           "max": 7
@@ -35,6 +49,10 @@
       {
         "source": "planetcatfish",
         "value": 50
+      },
+      {
+        "source": "scotcat",
+        "value": 40
       }
     ]
   },
@@ -52,6 +70,12 @@
       "html": "<p>Asia: Sumatra and western Borneo. Type locality: Batang Hari River, Sumatra, Indonesia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/hemisilurus_moolenburghi.htm",
+      "html": "<p>Asia: Batang Hari, Sumatra, and western Borneo. Type locality: Batang Hari, Sumatra. This species is reported only from the Batang Hari drainage in Sumatra and the Kapuas River drainage in Borneo.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1002",
@@ -64,16 +88,34 @@
       "html": "<p>Females are deeper bodied and have longer maxillary barbels (reaching just to the opercle) with feathery extensions at the tip. Males are more slender, have shorter, simple maxillary barbels (not reaching the opercle), and prominent serrations on the posterior edge of the pectoral spine.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/hemisilurus_moolenburghi.htm",
+      "html": "<p>The females of H. moolenburghi have longer barbels.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1002",
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/hemisilurus_moolenburghi.htm",
+      "html": "<p>As with all three species in this genus, H. heterorhynchus, H. mekongensis, and H. moolenburghi, they do not have a dorsal fin and have two barbels.</p><p>Etymology: The specific name moolenburghi honours Pieter Eliza Moolenburgh (1872–1944), ethnographer and government official in the Dutch East Indies, who gave a large collection of fishes from Sumatra to the authors, presumably including the holotype of this one.</p><p>IUCN Red List: potential threats include habitat degradation resulting from deforestation due to logging and land conversion for plantation agriculture. However, the direct impact of these threats on habitat extent and population status is unknown, because the effects of anthropogenic threats on the populations of many tropical large-river fish species are very poorly studied. Although the extent of occurrence (EOO) falls within the range for a threatened category, there is insufficient information on the direct impact of existing threats and their impact on population trend. Hemisilurus moolenburghi is thus assessed as Data Deficient (IUCN 2020).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1002",
       "html": "<p>Fishes Indo-Australian Archipelago v. 2, pp 212, Figs. 84-85.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/hemisilurus_moolenburghi.htm",
+      "html": "<ul><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2010).</li><li>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</li><li>Ng, H.H. 2020. Hemisilurus moolenburghi. The IUCN Red List of Threatened Species 2020.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
     }
   ],
   "photos": [],
@@ -94,5 +136,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-02"
 }

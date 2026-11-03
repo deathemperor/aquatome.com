@@ -7,13 +7,20 @@
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Maroni. Loài này có ở vùng nước Guyana, các sông ven biển vùng Guiana, các sông ven biển Suriname và Marowijne.</p>",
     "habitat:planetcatfish": "<p>Cá sống giữa các tảng đá, ở những đoạn sông sâu và nước chảy xiết.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 7, pp (256) 281 [6, 31].</p>"
+    "references:planetcatfish": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 7, pp (256) 281 [6, 31].</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: sông Marouini, thuộc hệ thống sông Maroni, Guyane thuộc Pháp. Loài này đã được ghi nhận ở dòng chính sông Maroni/Marowijne, cả phía Guyane thuộc Pháp lẫn phía Suriname. Phạm vi xuất hiện (EOO) ước tính khoảng 45.647 km2, còn diện tích cư trú (AOO) khoảng 17.848 km2.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở những luồng nước xiết chính của thác ghềnh, nơi dòng chảy rất mạnh. Đáy sông toàn đá tảng lớn, và chúng trú ẩn giữa các tảng đá này. Sống cùng khu vực với chúng có các loài: Leporinus granti, Astyanax meunieri, Bryconops caudomaculatus, Parodon guyanensis, Harttia surinamensis, Hypostomus gymnorhynchus, Lasiancistrus brevipinnis và Heptapterus longior.</p>",
+    "maintenance:scotcat": "<p>Đây là loài nuôi tốt trong bể lớn, và bạn có thể nuôi chung nhiều loài trong cùng một bể. Chúng thích bể có dòng chảy.</p>",
+    "diet:scotcat": "<p>Chúng ăn chủ yếu thức ăn thực vật. Ngoài ra bạn vẫn có thể cho ăn thức ăn viên chìm, thức ăn đông lạnh và thức ăn sống như bọ gậy, Artemia và tôm.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên: tên loài medians trong tiếng Latin nghĩa là “ở giữa”. Người đặt tên cho rằng đây là dạng trung gian giữa Ancistrus vây dài và Ancistrus vây ngắn, vì thời đó loài này được xếp vào chi Ancistrus.</p><p>Một số tài liệu gọi Hemiancistrus là Ancistomus. Chi này cũng khá giống chi Peckoltia, nhưng thân dài hơn và phần bụng không có tấm xương che.</p><p>IUCN: Các tác động tiêu cực trong vùng phân bố đến từ những đô thị dọc lưu vực sông Maroni/Marowijni. Ở đó, hoạt động lâm nghiệp, nông nghiệp, ô nhiễm và trầm tích đều đang tăng lên. Mối đe dọa lớn nhất là khai thác vàng trái phép. Hoạt động này đẩy lượng trầm tích ở dòng chính thượng nguồn Maroni lên rất cao, gây hại cho hệ sinh thái và kéo theo cả loài này, vốn sống ở vùng nước giàu oxy. Người dân địa phương cũng bắt loài này làm thực phẩm. Loài này rất cần được giám sát. IUCN xếp loài này vào nhóm Ít quan tâm (IUCN 2022).</p>",
+    "references:scotcat": "<p>Calegari, B.B. 2022. Hemiancistrus medians. The IUCN Red List of Threatened Species 2022. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Froese, R. and D. Pauly. Editors. 2016. FishBase. Le Bail, P.-Y., P. Keith and P. Planquette, 2000. Atlas des poissons d'eau douce de Guyane. Tome 2, Fascicule II: Siluriformes. Paris: Publications scientifiques du Muséum national d'Histoire naturelle. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.8
     }
   }
 }

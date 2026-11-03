@@ -1,0 +1,100 @@
+{
+  "id": "synodontis-flavitaeniatus",
+  "scientificName": "Synodontis flavitaeniatus",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "pool-malebo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
+      "html": "<p>This attractive squeaker catfish reaches a final size of around 20 cm, making it one of the medium-sized species of the genus. It can be kept in aquariums for decades without much effort.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
+      "html": "<p>Synodontis flavitaeniatus is by no means a common fish, but that is usually due to low demand. At present this catfish is becoming a rarity, as importing fish from the Congo is becoming increasingly complicated and breeding such catfish on a commercial basis is hardly worthwhile, since this requires consistently high demand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
+      "html": "<p>This catfish originates from the lower Congo, for example in the Pool Malebo area (formerly known as Stanley Pool).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
+      "html": "<p>It prefers to sit in relatively finely branched roots, where it visually disappears into nothingness. The reddish-yellow-brown striping that is so conspicuous in swimming animals is perfect camouflage in this environment.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
+      "html": "<p>The chemical composition of the water is irrelevant; any drinking water is suitable. The water temperature can range from 22-28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
+      "html": "<p>They will eat any standard ornamental fish food of a suitable size. The teeth, which already begin on the outside of the upper lip, indicate that in nature it feeds on animals sitting in depressions, which it can pick out with its special teeth.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
+      "html": "<p>Like most squeaker catfish, they form a hierarchy among themselves. This regularly results in skin abrasions, but these heal easily and without complications. The animals are relatively peaceful towards other species. Tank mates should not be too delicate, but they are a wonderful addition to a West African aquarium with medium-sized tetras, barbs, and cichlids. These crepuscular fish need daytime hiding places, but after a certain acclimatization period they are also very active during the day, especially at feeding times.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cảnh lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc ngoài cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá nheo",
+        "thức ăn cá cảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

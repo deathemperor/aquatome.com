@@ -1,0 +1,76 @@
+{
+  "id": "hemiodus-immaculatus",
+  "scientificName": "Hemiodus immaculatus",
+  "order": "Characiformes",
+  "family": "Hemiodontidae",
+  "genus": "Hemiodus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "bolivia",
+    "amazon",
+    "brazil",
+    "colombia",
+    "orinoco",
+    "venezuela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hemiodus-immaculatus-2/",
+      "html": "<p>Hemiodus immaculatus reaches a length of about 25 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hemiodus-immaculatus-2/",
+      "html": "<p>Hemiodus immaculatus is widely distributed in the two large rivers Amazon and Orinoco and their tributaries in Bolivia, Brazil, Colombia and Venezuela. However, there are indications that some of these species are cryptic (= externally unrecognizable but genetically distinct). The specimens described here come from Colombia.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hemiodus-immaculatus-2/",
+      "html": "<p>The species is not quite as skittish as its prettier conspecific H. gracilis. The peaceful animals therefore fit well in larger community aquariums.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hemiodus-immaculatus-2/",
+      "html": "<p>In the past, a few Hemiodus immaculatus came as bycatch together with the very rarely imported Argonectes longiceps. Both fish look very similar and apparently form a symbiotic relationship in nature. How exactly this symbiosis works is still completely unexplored. The typical horizontal swimming style (Hemiodus species usually swim at an angle, like Thayeria spp.) and the coloration matched Argonectes, but a close-up of the teeth showed the fish were Hemiodus. The imitation of the two species is phenomenal. Other differences: Hemiodus immaculatus has comparatively larger scales and a dark V-pattern in the caudal fin with a transparent fin margin, whereas in Argonectes longiceps the caudal fin (which is relatively smaller) has a dark margin and the dark pattern elements are mainly confined to the caudal fin lobes.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm",
+        "bể cá lớn nuôi cá đàn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra lớn",
+        "thức ăn viên cá ăn tạp"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

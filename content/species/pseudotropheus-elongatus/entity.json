@@ -1,0 +1,120 @@
+{
+  "id": "pseudotropheus-elongatus",
+  "scientificName": "Pseudotropheus elongatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Pseudotropheus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "tanzania",
+    "mbamba-bay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 8,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
+      "html": "<p>The former large genus Pseudotropheus is currently divided into four genera: Pseudotropheus, Maylandia, Tropheops and Chindongo.</p><p>The type species of the genus Chindongo, C. bellicosus, which was described together with the genus in 2016, is one of the most combative mbuna of all. The species name \"bellicosus\" means \"belligerent\"! Chindongo includes the species C. ater, C. bellicosus, C. cyaneus, C. demasoni, C. elongatus, C. flavus, C. heteropictus, C. longior, C. minutus, C. saulosi and C. socolofi.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
+      "html": "<p>Chindongo elongatus was described in 1956 on the basis of specimens from Mbamba Bay (Tanzania).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
+      "html": "<p>Aquaria should be as large and well-structured as possible.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
+      "html": "<p>Temperatures of 22-26°C, good water care, pH above 8.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
+      "html": "<p>A high-fiber diet that does not neglect the plant component.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
+      "html": "<p>A beautiful but aggressive species. Keep in groups, ideally from 10 specimens upwards.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
+      "html": "<p>Chindongo species are among the smallest mbuna and, at least in the wild, barely grow to over 8 cm in length. In the aquarium, however, they can grow 50% larger. Care and breeding are simple if the basic rules of mbuna care are complied with. Captive-bred specimens from South-East Asia are available.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cichlid mbuna",
+        "thức ăn nhiều chất xơ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -1,0 +1,82 @@
+{
+  "id": "pareiorhina-rudolphi",
+  "scientificName": "Pareiorhina rudolphi",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pareiorhina",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraiba-do-sul"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1242",
+      "html": "<ul><li>Scientific name: Pareiorhina rudolphi (Miranda Ribeiro, 1911)</li><li>IUCN Red List: Not Evaluated</li><li>Type locality: Piquete (Lorena), upper reaches of the rio Paraíba do Sul basin, São Paulo State, Brazil.</li><li>Etymology: Greek Pareia = jaw + Greek rhinos = nose.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1242",
+      "html": "<p>South America: rivers of Rio de Janeiro State, Paraíba do Sul basin, Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1242",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1242",
+      "html": "<p>Arquivos do Museu Nacional de Rio de Janeiro v. 16, pp 84.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo cho bể 60cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông cho bể cá",
+        "sỏi nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

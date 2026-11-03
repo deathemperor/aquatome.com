@@ -1,0 +1,115 @@
+{
+  "id": "nemacheilus-corica",
+  "scientificName": "Nemacheilus corica",
+  "order": "Cypriniformes",
+  "family": "Nemacheilidae",
+  "genus": "Nemacheilus",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "nepal",
+    "india",
+    "pakistan",
+    "bangladesh"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 14,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
+      "html": "<p>Among the many loach species (mainly the genera Nemacheilus and Schistura, but there are more genera) that exist in India, one in particular has proven itself as an aquarium fish: Nemacheilus corica. It remains small (5-6 cm), is peaceful, looks nice, eats all common ornamental fish foods, is lively and very adaptable. It is the ideal bottom fish for Indian tanks, but can also live in community tanks.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
+      "html": "<p>It is native to the hilly landscapes at the foot of the Himalayas in Nepal, India, Pakistan and Bangladesh.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
+      "html": "<p>It inhabits a wide variety of rivers and streams. Because the distribution area is in the subtropics, temperatures are subject to seasonal fluctuations.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
+      "html": "<p>N. corica does not normally need heating in the indoor aquarium, as it is well adapted to temperatures between around 14°C and 26°C. No sudden temperature changes should be brought about, as this can lead to illness and, in the worst case, death of the fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
+      "html": "<p>It eats all common ornamental fish foods.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
+      "html": "<p>It is easy to tell the sexes apart, but only in adults. The easiest way is from a top view, where the much larger pectoral fins of the male can be seen. Viewed from the side, the female appears stockier and much fuller.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
+      "html": "<p>N. corica has probably not yet been bred in the aquarium, but breeding should not be a real problem. Nemacheilus species are usually free spawners without brood care, the eggs developing in the gap system of gravel. The spawning season is in the rainy monsoon months, i.e. our summer through to October, when there is heavy rainfall along the Himalayas.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
+      "html": "<p>There are 172 described species of these loaches, but many are undescribed and it is often unclear whether described species are valid or synonyms.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

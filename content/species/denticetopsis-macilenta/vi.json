@@ -6,14 +6,19 @@
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Denticetopsis macilenta (Eigenmann, 1912)</li><li><strong>Nơi thu mẫu định danh:</strong> Con suối phía dưới Potaro Landing (5°23'N, 59°08'W), Guyana.</li><li><strong>Tên đồng nghĩa:</strong> Hemicetopsis macilentus, Pseudocetopsis macilentus</li><li><strong>Phân hạng Sách Đỏ IUCN:</strong> Ít lo ngại. Lần đánh giá gần nhất là năm 2020.</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Essequibo ở Guyana.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: Chưa có ghi nhận. Hiện chưa có báo cáo nào về chuyện nhân giống loài này.</p>",
-    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 211, Pl. 23 (fig. 1).</p>"
+    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp 211, Pl. 23 (fig. 1).</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Ít quan tâm. Thông tin về loài này còn rất ít. Dù vậy, nó khó gặp mối đe dọa nghiêm trọng nào và có vùng phân bố rộng (IUCN 2023).</li></ul>",
+    "distribution:scotcat": "<p>Loài này sống ở Nam Mỹ, gồm sông Potaro thuộc lưu vực sông Essequibo (Guyana và Venezuela) và Peru. Mẫu chuẩn được thu ở con suối phía dưới Potaro Landing, thuộc British Guiana.</p>",
+    "habitat:scotcat": "<p>Loài này sống chủ yếu ở sông Potaro, thuộc lưu vực sông Essequibo, Guyana. Mẫu đầu tiên được thu ở con suối phía dưới Potaro Landing, Guyana (Fricke et al. 2020). Hiện chưa có nhiều thông tin cụ thể về môi trường sống và tập tính sinh thái của loài.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: macilenta là tiếng Latin, nghĩa là gầy hoặc mảnh. Tên này ám chỉ đặc điểm \"hai bên thân có nhiều tế bào sắc tố, các tia của chúng tỏa ra phía trước và phía sau từ tâm tế bào, trông lởm chởm như lông cứng và giống những bó que nhỏ buộc ở giữa, vì thế mới có tên này\". Nhiều khả năng những \"que\" ấy là thứ được ví là gầy, mảnh.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Denticetopsis macilenta. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2026. FishBase. www.fishbase.org. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.8
+    }
   }
 }

@@ -1,0 +1,57 @@
+{
+  "id": "parastegophilus-paulensis",
+  "scientificName": "Parastegophilus paulensis",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Parastegophilus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "parana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1228",
+      "html": "<ul><li>Scientific name: Pseudostegophilus paulensis (Miranda-Ribeiro, 1946)</li><li>Breeding: unreported</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1228",
+      "html": "<p>South America: upper Paraná River basin. Type locality: Avanhandava, Rio Tieté, Estado de São Paulo, Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1228",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1228",
+      "html": "<p>Etymology: Pseudostegophilus comes from the Greek pseudes, meaning false, stego, meaning cover and philein, meaning to like; in reference to the resemblance to Stegophilus (\"lover of cover\", in reference to the secretive nature), another trichomycterid genus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1228",
+      "html": "<p>Rev. Mus. Paulista v. 10 727 [22]</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-02"
+}

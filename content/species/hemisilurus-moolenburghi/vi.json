@@ -8,13 +8,18 @@
     "waterConditions:planetcatfish": "<ul><li>pH: 6,0 - 7,0</li><li>Nhiệt độ: 22-27°C</li></ul>",
     "dimorphism:planetcatfish": "<p>Cá cái thân cao hơn. Râu hàm trên của cá cái dài hơn, vừa chạm tới nắp mang, và phần đầu râu tòe ra như lông vũ. Cá đực thì thon hơn. Râu hàm trên của cá đực ngắn, trơn, không có phần tòe ở đầu và không chạm tới nắp mang. Mép sau gai vây ngực của cá đực có răng cưa nhìn thấy rõ.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có tài liệu nào ghi nhận loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Fishes Indo-Australian Archipelago v. 2, pp 212, Figs. 84-85.</p>"
+    "references:planetcatfish": "<p>Fishes Indo-Australian Archipelago v. 2, pp 212, Figs. 84-85.</p>",
+    "distribution:scotcat": "<p>Loài này phân bố ở châu Á, gồm Batang Hari trên đảo Sumatra và miền tây đảo Borneo. Mẫu chuẩn được thu ở Batang Hari, Sumatra. Cho đến nay, người ta chỉ ghi nhận loài này ở lưu vực sông Batang Hari tại Sumatra và lưu vực sông Kapuas tại Borneo.</p>",
+    "dimorphism:scotcat": "<p>Con cái của H. moolenburghi có râu dài hơn con đực.</p>",
+    "notes:scotcat": "<p>Chi này có ba loài là H. heterorhynchus, H. mekongensis và H. moolenburghi. Cả ba loài đều không có vây lưng và có hai sợi râu.</p><p>Tên loài moolenburghi đặt theo Pieter Eliza Moolenburgh (1872–1944). Ông là nhà dân tộc học và là quan chức chính quyền ở Đông Ấn Hà Lan. Ông đã tặng các tác giả mô tả loài một bộ sưu tập lớn gồm nhiều loài cá từ Sumatra. Nhiều khả năng mẫu chuẩn của loài này cũng nằm trong bộ sưu tập đó.</p><p>Trong Danh lục đỏ IUCN, loài này có thể bị đe dọa vì môi trường sống xuống cấp. Nguyên nhân là rừng bị chặt để lấy gỗ và đất bị chuyển sang làm đồn điền. Tuy vậy, chưa ai biết rõ những mối đe dọa này tác động trực tiếp đến đâu lên diện tích môi trường sống và tình trạng quần thể. Lý do là ảnh hưởng của con người lên quần thể của nhiều loài cá sông lớn vùng nhiệt đới hầu như chưa được nghiên cứu. Phạm vi xuất hiện (EOO) của loài này nằm trong ngưỡng của các nhóm bị đe dọa. Dù vậy, hiện vẫn thiếu thông tin về tác động trực tiếp của các mối đe dọa đang có và ảnh hưởng của chúng lên xu hướng quần thể. Vì thế, IUCN xếp Hemisilurus moolenburghi vào nhóm Thiếu dữ liệu (IUCN 2020).</p>",
+    "references:scotcat": "<ul><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2010).</li><li>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</li><li>Ng, H.H. 2020. Hemisilurus moolenburghi. The IUCN Red List of Threatened Species 2020.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.95
+      "planetcatfish": 0.95,
+      "scotcat": 0.85
     }
   }
 }

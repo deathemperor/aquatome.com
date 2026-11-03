@@ -1,0 +1,51 @@
+{
+  "id": "listrura-nematopteryx",
+  "scientificName": "Listrura nematopteryx",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Listrura",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-estrela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1226",
+      "html": "<ul><li>Described by de Pinna, 1988</li><li>IUCN Red List: Critically Endangered (assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1226",
+      "html": "<p>South America: marsh that is the source of a creek later joining Imbariê Creek, tributary of the Estrela River, Piabetá, Rio de Janeiro, and similar habitats in Picinguaba, São Paulo, Brazil.</p><p>Type locality: marsh which is source of creek later joining Ribeirão Imbariê, tributary of Rio Estrela, Localidade de Piabetá, Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1226",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1226",
+      "html": "<p>Revue Suisse de Zoologie v. 95 (no. 1), pp 115, Figs. 1-2.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-02"
+}

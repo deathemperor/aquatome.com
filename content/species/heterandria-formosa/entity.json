@@ -15,12 +15,47 @@
       {
         "source": "glaser",
         "value": 3
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 3.5
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
       }
     ]
   },
@@ -32,10 +67,46 @@
       "html": "<p>Dwarf livebearers are the smallest livebearing fish commonly kept in aquaria. Males reach only 2 cm, females 3 cm. Heterandria formosa is also known as the \"Least killifish\". The related Neoheterandria elegans is known as the \"Teddy livebearer\".</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Least Killifish</li><li>Other names: Dwarf topminnow, Mosquito fish, Midget livebearer</li><li>Tank size (optimal): 40 litres</li><li>Breeding: easy</li><li>Dwellers: top and middle</li><li>Nitrate: less than 40</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Lifespan: up to 1.5 years</li><li>Colour: olivaceous or yellowish brown with a black streak</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Tankmates: it is very difficult to find good neighbours for these fish. Larger fish can eat them, while peaceful small species risk having their fins and tails nipped. The ideal situation is a small species-only tank, which also significantly improves breeding chances.</p><p>Fish: if you keep them in a community tank, all tankmates should have at least a gentle temperament and enjoy the same water parameters (for example Endler's livebearers, pygmy corydoras (Corydoras pygmaeus), zebra danio, guppies, brilliant rummynose tetras (Hemigrammus bleheri), platies (Xiphophorus maculatus), chili rasboras, etc.).</p><p>Dwarf shrimp: keeping them with dwarf shrimp is risky. They are curious fish that look into every nook and cranny and will find shrimplets and molting shrimp even in heavily planted tanks. Their small size should not mislead you; in most cases they will eventually harm shrimp. There are many reports of people gradually losing their shrimp colony over several months.</p><p>Freshwater snails: compatible with any freshwater snail.</p><p>Avoid: large, aggressive and/or boisterous fish; all types of crayfish and most freshwater crabs; even small African dwarf frogs will try to catch them whenever possible.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/heterandria_formosa_and_neoheterandria_elegans_en/",
       "html": "<p>Heterandria formosa originates from Florida and neighbouring states of the USA. N. elegans originates from Colombia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Heterandria formosa is restricted to low-elevation Coastal Plain areas of subtropical humid climate zones, and the tropical Everglades. It is commonly found throughout the south-eastern United States, from at least as far west as the western Mississippi river drainage in West Baton Rouge Parish, Louisiana, throughout the Florida peninsula, and as far north as the Cape Fear River, North Carolina.</p><p>It is reported in North Carolina, Georgia, South Carolina, Florida, Alabama, Mississippi, Louisiana and even Texas.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Heterandria formosa occurs almost exclusively in shallow, still (or slow-moving), heavily vegetated waters such as ponds, canal margins, lakes, swamps, rivers and streams. Although most abundant in freshwater, it is occasionally reported in brackish water (up to 20 ppt).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Least Killifish are small and do not need much volume. They can easily be housed in a 20-litre tank. Ideally a 40-litre tank suits them much better, and this volume is enough even for 20–30 fish.</p><p>In larger tanks they will be 'lost' and difficult to see. However, the main problem with nano tanks is that water parameters can be very difficult to keep stable, so unless you are already an expert, small setups are best avoided.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Introduce the Least Killifish to the tank gradually. Sudden changes in habitat can harm them. Give them time to acclimatise or quarantine before adding them to the main tank. Do not rush; go very slowly to prevent unnecessary stress.</p>"
     },
     {
       "key": "waterConditions",
@@ -44,10 +115,28 @@
       "html": "<p>H. formosa can be kept best at room temperature and does not need an additional heater, whereas N. elegans needs rather high temperatures, e.g. 24-28°C. Water conditions (hardness, pH etc.) are of no particular importance.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>If you are buying captive-bred (over several generations) Least Killifish, find out the water parameters they were bred in. If you cannot find this information, you have to take the risk and presume the breeder kept them in parameters close to natural ones.</p><p>Temperature: in the aquarium they thrive at 20–26°C. In nature the species is eurythermal and is found in waters from 7 to 39°C, but it is intolerant of cold-seasonal temperatures. This does not mean the temperature in your tank can fluctuate that much over short periods: the tolerance range is strongly influenced by acclimation temperature. Fish acclimated to lower temperatures can extend their lower tolerance further than fish acclimated to higher temperatures.</p><p>pH: the ideal range is 6.5–8.0.</p><p>Hardness: they can live in any water but appreciate an optimal GH of 5–20.</p><p>Water changes: change 20–30% of the water every week, though you may need a different percentage depending on your filter and other tank factors. Any water added should at least be dechlorinated.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cycle your tank before bringing these fish home, then check the water quality with a test kit.</p><p>Filtration and water flow: these fish prefer still or slow-moving water, so choose filters with adjustable flow (set as low as possible for your tank). Keep the fish's size in mind: some filter intakes can suck in such tiny fish, so use an extra sponge pre-filter to prevent this.</p><p>Lighting: no special requirements. The fish have a distinct diurnal activity pattern synchronised with light/dark and feeding cycles. Lighting should be adapted to the needs of the plants in the tank.</p><p>Substrate: no special requirements.</p><p>Plants and decorations: because of its size, it needs protective cover against predation by most cohabiting fish. In nature it is most abundant in water with leaf litter, thick vegetation and near-complete vegetative cover on the surface, and this should be replicated in the aquarium. Floating plants, fake plants, driftwood, leaves and small rocks make good hiding spots.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/heterandria_formosa_and_neoheterandria_elegans_en/",
       "html": "<p>The fish feed readily on any type of fish food that is small enough for their tiny mouths.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Heterandria formosa is a diurnal omnivore, selectively feeding on algae, attached zooplankton and insect larvae in densely vegetated areas. Although it may eat even green algae, it strongly prefers high-protein food. The fish will eat at any time and in any volume, with an insatiable, constant appetite.</p><p>In the aquarium they can be fed a wide variety of foods:</p><ul><li>adult brine shrimp (Artemia salina),</li><li>Artemia nauplii,</li><li>moina,</li><li>daphnia (water fleas),</li><li>fruit flies,</li><li>mosquito larvae,</li><li>cyclops.</li></ul><p>They go crazy for live newly hatched brine shrimp. They will take any small live or frozen food that is small enough to fit in the mouth, so large worms (bloodworms, blackworms, grindal worms, etc.) should be chopped into small pieces and flake food crumbled.</p><p>They do not require only live foods. They also accept frozen and commercial foods, such as:</p><ul><li>Fluval Bug Bites,</li><li>Hikari First Bites,</li><li>TetraMin Crisps,</li><li>any really small crushed-up flake food.</li></ul><p>How often: to keep them happy and avoid potential cannibalism of the young, feed twice a day. This is very important for this species. These tiny fish have a huge appetite, and keeping them full reduces most problems.</p><p>How much: follow the 'five-minute rule', meaning the fish should consume all the food within 5–7 minutes.</p>"
     },
     {
       "key": "behaviour",
@@ -56,19 +145,54 @@
       "html": "<p>Both species are absolutely peaceful. Their demands can easily be fulfilled even by beginners.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Sociality: the Least Killifish are very social and in nature are generally found in large groups. In aquariums, keep at least 6 to start; large groups (15 or more) make them more confident, richer in life and less stressed. Ideally keep 3–4 males per female, as in their natural habitat there are more males than females.</p><p>Temper: they are not aggressive, but not completely harmless as some sources claim. They chase each other at times but usually no damage is done. The main problem is that in community tanks, despite their tiny size, they become fin-nippers, so keeping them in a community tank may not be a good idea.</p><p>Activity: they can be very shy at first or in a small group (especially males), but once settled and numerous they become very bold and outgoing, actively scavenging every crevice for food. They do not swim wildly, but when they do they are quite quick. They are also good jumpers when stressed or scared.</p><p>Placement in the tank: adults usually stay in the top, middle and bottom parts of the tank and visit the bottom periodically, though it is not their favourite place. Fry and juveniles prefer to stay closer to the bottom. Adults generally do not bully the young, but the young do not swim with adults anyway.</p><ul><li>Social: yes</li><li>Activity: moderate</li><li>Placement: top and middle</li><li>Peaceful: yes</li><li>Fin-nippers: yes</li><li>Jumpers: yes</li></ul>\n"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Heterandria formosa is sexually dimorphic, with several easily distinguishable features:</p><ul><li>Size: males are significantly smaller than females.</li><li>Belly: females have rounded bellies, compared with slim males.</li><li>Reproductive organs: males have a really big gonopodium, a modified anal fin used to transfer sperm to females, which have internal fertilisation and sperm storage.</li></ul>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/heterandria_formosa_and_neoheterandria_elegans_en/",
       "html": "<p>The females give birth to young fish over a period of several days, with only one or two babies born each day. They should therefore be kept in a small separate aquarium with dense planting during that period. The babies should be removed every day.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Least Killifish breed easily in freshwater aquaria. All you need is acceptable water parameters and daily feeding. They are superfetative livebearers, not egg scatterers. Superfetation is when a new pregnancy occurs during an initial pregnancy.</p><h3>Maturity</h3><p>According to a study, this species is among the world's smallest vertebrates at maturity. Females mature at about 30–40 days old and 8–10 mm in length. Males mature at a slightly larger size, 10–14 mm, and take longer (40–50 days). In females, sexual maturity is indicated by a small black dot on the anal fin; in males, by the development of the gonopodium.</p><h3>Mating</h3><p>According to a study, there is no complicated courtship behaviour because males can force matings and insemination. Nonetheless, when given a choice between a large and a small male, females prefer the larger male, and this preference is highly repeatable.</p><h3>Fertilisation</h3><p>The species has internal fertilisation and sperm storage. Embryo mass increases by as much as 3000%.</p><h3>Brooding</h3><p>Females brood embryos internally and show the most advanced levels of superfetation, unlike normal ovoviviparous livebearers. Eggs are fertilised each day and females can have multiple pregnancies at once, each brood at a different stage of development, so they are almost permanently pregnant. Females can potentially have up to 6 broods at different stages, so fry are born spread over a number of days. They give birth to small clutches (1–8 fry) at intervals of a few days to two weeks.</p><p>According to a study, in nature reproduction typically begins in March and continues through October, resulting in at least 2–4 generations per year.</p><h3>Fry</h3><p>Unlike many other livebearers, the Least Killifish ordinarily do not prey on the young of their own species, though this also depends on how hungry they are. If you plan to breed them, it is imperative to feed adults live brine shrimp at least twice a day. When well fed, adults simply ignore the young.</p><p>Although the fry can eat the same foods as adults, it is better to focus on:</p><ul><li>microworms,</li><li>vinegar eels,</li><li>moina,</li><li>finely crushed flakes, etc.</li></ul>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/heterandria_formosa_and_neoheterandria_elegans_en/",
       "html": "<p>Lexicon: Heterandria means \"different man\"; formosa means \"pretty, nice looking\"; Neoheterandria means \"new Heterandria\"; elegans means \"elegant\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Least Killifish (Heterandria formosa) is prolific, live-bearing, and one of the smallest fish in North America. Although native and very hardy, it is not common in pet stores. It is an excellent choice for nano tanks: tiny, omnivorous and very easy to care for, so it can be recommended even for beginners.</p><h3>Etymology</h3><p>The name Heterandria is of Greek origin: 'heteros' means 'other or different' and 'andros' means 'male'. Formosa comes from the Latin 'formosus', meaning 'beautifully formed'. In 1853 the name Heterandria was proposed for this species because of the difference between the sexes.</p><h3>Description</h3><p>Heterandria formosa is a very small fish. The mean standard length of males is about 1.5–2 cm. Fully grown females are generally 3–3.5 cm long.</p><ul><li>The body is compressed and fusiform.</li><li>The head is a little less than ¼ of the entire length.</li><li>The snout is very short.</li><li>The mouth is quite protractile, with the lower jaw slightly projecting below the upper one.</li><li>The eyes are very large.</li><li>The dorsal fin is higher than long.</li><li>The ventral fins are very short, small and broad.</li><li>The ground colour is olivaceous or yellowish brown above.</li><li>A black streak extends from the snout along the middle of the flanks to the caudal fin.</li><li>The fish may have 6 to 8 brownish-black vertical streaks along the sides.</li><li>A jet black spot exists at the base of the caudal, dorsal and anal fins, except in males, in which the anal fin has a yellowish tint.</li></ul><h3>Lifespan</h3><p>Some studies indicate that in the wild the Least Killifish live at most 120–150 days. In captivity, under optimal conditions and at lower temperatures, they generally live up to 1.5 years. Temperature greatly affects lifespan: high temperature increases the metabolic rate and reduces lifespan.</p><h3>Plant safety</h3><p>The Least Killifish are completely plant safe and do not eat healthy plants. According to studies, ingested plant material is mostly the result of foraging on attached zooplankton.</p><h3>Conclusion</h3><p>The Least Killifish is a fun, miniature, prolific, live-bearing fish and can be an ideal candidate for small planted tanks because of its hardiness and ease of care. Because of its relatively dull coloration it is not particularly popular in the hobby, but this is compensated by its interesting behaviour and unique reproduction.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/a07822aa736dcf60.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/a07822aa736dcf60-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "IfdVzYPZY2w",

@@ -3,7 +3,9 @@
   "name": "Cá chuột cành cây mõm rộng",
   "altNames": [
     "Cá Farlowella mõm rộng",
-    "Broadsnout Twig Catfish"
+    "Broadsnout Twig Catfish",
+    "Cá que Farlowella",
+    "Crosshair twig catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Farlowella platorynchus Retzer &amp; Page, 1997</li><li>Tên thường gọi: Broadsnout Twig Catfish</li><li>Kích thước: 194 mm (chiều dài chuẩn, SL)</li><li>Nhiệt độ: 22,0-27,0°C</li><li>Môi trường sống: Nước đen</li></ul>",
@@ -11,13 +13,23 @@
     "behaviour:planetcatfish": "<p>Bạn cùng bể: hợp nhất là các loài tetra hoặc rasbora. Những loài bơi nhanh hoặc hay rỉa vây như danio, barb thì nên tránh. Cá sống tốt với cá chuột Corydoras. Còn các loài cá da trơn cỡ lớn hơn hay cichlid thì không nên nuôi chung.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: Chưa có ghi nhận.</p>",
     "notes:planetcatfish": "<p>Nhận dạng: Giống Farlowella có thân dài và mảnh, phần mõm kéo dài thành chóp rõ rệt, độ dài chóp mõm tùy con. Vây lưng nằm gần giữa thân, chỉ lệch lên phía trước vây hậu môn một chút. Thân cá màu nâu, có hai sọc sẫm chạy dọc hai bên. Hai sọc này bắt đầu từ chóp mõm, đi qua mắt và kết thúc ở đuôi.</p><p>Từ nguyên: Tên giống đặt theo W. G. Farlow của Đại học Harvard. Tên loài nói đến cái mõm rộng của cá (platys = rộng, rhynchos = mõm).</p>",
-    "references:planetcatfish": "<p>Proc. Acad. Nat. Sci. Phila. v. 147 71 Fig. 44</p>"
+    "references:planetcatfish": "<p>Proc. Acad. Nat. Sci. Phila. v. 147 71 Fig. 44</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Chưa đánh giá</li></ul><p>Loài Farlowella này có mõm dài và rộng. Mặt trên mõm có hoa văn dạng lưới, còn mặt bụng có hoa văn hình tròn.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực thượng và hạ lưu sông Amazon. Địa điểm chuẩn: Peru, tỉnh Ucayali, Pucallpa, Yari-nachocha, lưu vực Río Ucayali, 8º23'S, 74º32'W.</p>",
+    "beforeYouBuy:scotcat": "<p>Đây không phải loài cá da trơn dễ nuôi. Đã có nhiều ca cá chết không rõ nguyên nhân ở loài này (và cả các loài Farlowella khác). Vì vậy nó cần một người nuôi cá da trơn có kinh nghiệm chăm sóc kỹ lưỡng. Người đó nên từng nuôi chính loài này, hoặc các họ hàng gần của nó thuộc chi Sturisoma, vốn dễ nuôi hơn.</p>",
+    "behaviour:scotcat": "<p>Đây là loài rất nhát. Nếu nuôi chung bể, bạn nên tránh các loài cá hiếu động, hay quậy như một số loài barb (ví dụ cá tứ vân). Cichlid thì tuyệt đối không nên thả chung. Bạn cùng bể hợp hơn là các loài cá chuột Corydoras hiền lành, ít làm phiền, cùng các loài characin hoặc rasbora cỡ nhỏ.</p>",
+    "maintenance:scotcat": "<p>Loài này cần nước giàu oxy. Bạn phải thay nước thường xuyên để nước lúc nào cũng thật sạch. Chúng thích nền màu tối và cây trồng dày, có cả cây thả nổi lẫn cây lá dài để chúng bám vào.</p>",
+    "diet:scotcat": "<p>Chúng chủ yếu ăn thực vật. Tảo là nguồn thức ăn chính của cả cá trưởng thành lẫn cá bột. Vì vậy cho ăn thức ăn viên nhiều thành phần rau là đủ.</p>",
+    "reproduction:scotcat": "<p>Cá đẻ trứng lên kính bể hoặc lên lá cây, sau đó cá đực ở lại chăm trứng. Bạn có thể nhận ra cá đực nhờ các odontode trên mõm.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: Tên loài platorynchus nói về cái mõm rộng của cá (platys = rộng, rhynchos = mõm).</p><p>Trong Eschmeyer's Catalog of Fishes, Farlowella platorynchus hiện được xếp là tên đồng nghĩa của F. amazonum.</p>",
+    "references:scotcat": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.85
     }
   }
 }

@@ -6,14 +6,21 @@
     "quickFacts:planetcatfish": "<p>Harttia kronei Miranda Ribeiro, 1908.</p><ul><li>Sách đỏ IUCN: chưa đánh giá</li><li>Nơi thu mẫu chuẩn: sông Bethary thuộc hệ sông Ribeira, bang São Paulo, Brazil.</li></ul>",
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong lưu vực sông Ribeira de Iguape. Chúng có mặt ở các con sông thuộc bang São Paulo, vùng Iguape.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi nhận. Đến nay vẫn chưa có báo cáo nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Kosmos, Rio de Janeiro [Rev. Art. Sci. Litt.] v. 5 (no. 2) (for 1907), pp [2], Figs. 3-3a.</p>"
+    "references:planetcatfish": "<p>Kosmos, Rio de Janeiro [Rev. Art. Sci. Litt.] v. 5 (no. 2) (for 1907), pp [2], Figs. 3-3a.</p>",
+    "distribution:scotcat": "<p>Loài này sống ở Nam Mỹ, tại lưu vực sông Ribeira de Iguapé, Brazil. Địa điểm thu mẫu chuẩn là Rio Bethary, Brazil.</p><p>Harttia kronei có mặt ở lưu vực hai sông Ribeira de Iguape và Paranapanema, thuộc hai bang São Paulo và Paraná. Người ta gặp loài này thường xuyên, nhưng số lượng không nhiều. Hiện chưa thấy mối đe dọa đáng kể nào đặt quần thể của nó vào nguy cơ. Vì vậy loài được xếp vào mức Ít quan tâm (LC) (IUCN 2022).</p>",
+    "habitat:scotcat": "<p>Cá sống ở các con suối có đáy đá và cát. Chúng ở cả vùng nước nông lẫn chỗ sâu hơn, sâu đến 0,7 m, nơi dòng chảy có thể đạt 70 cm mỗi giây. Cá kiếm ăn vào ban đêm, dù đôi khi người ta cũng thấy chúng hoạt động ban ngày. Trước khi gặm một mảng có nhiều trầm tích, cá chúi đầu xuống và lắc người. Động tác này khuấy trầm tích lên cho dòng nước cuốn đi. Mật độ cá có thể lên tới khoảng 0,1 con trên mỗi mét vuông, ở đoạn suối có bóng râm cũng như đoạn có nắng.</p>",
+    "maintenance:scotcat": "<p>Đây không phải nhóm cá dễ nuôi. Chúng cần nước sạch, giàu oxy và dòng chảy mạnh. Vì quê gốc ở vùng phía nam, cá cũng cần nhiệt độ trong bể thấp hơn bình thường. Cá nhập về thường yếu, do chúng khó chịu nổi quãng đường nằm trong thùng vận chuyển.</p>",
+    "diet:scotcat": "<p>Ngoài tự nhiên, cá gặm các loại tảo cực nhỏ, chủ yếu là tảo cát và tảo lục. Đám tảo này mọc trên những hòn đá gồ ghề, màu sáng và trên thực vật ngập nước. Người ta cũng tìm thấy ấu trùng chironomid, ấu trùng simuliid và các loài giáp xác nhỏ trong thức ăn của cá. Lúc cạo tảo khỏi bề mặt, cá cử động miệng rất mạnh và người giật từng cơn. Nhiều khả năng là do miệng cá phải luân phiên vừa gặm vừa bám vào bề mặt.</p><p>Trong bể, bạn có thể cho cá ăn thức ăn khô, viên tảo, Spirulina và thức ăn viên thông thường. Cá cũng ăn thức ăn đông lạnh, ấu trùng Artemia, trùng thủy tinh và bo bo.</p>",
+    "dimorphism:scotcat": "<p>Con đực thường có odontode, tức những gai nhỏ trông như sợi lông, mọc trên tia đầu tiên của vây ngực. Đầu con đực cũng rộng hơn đầu con cái.</p>",
+    "notes:scotcat": "<p>Tên loài kronei được đặt để vinh danh ông Ricardo Krone.</p>",
+    "references:scotcat": "<ul><li>Buck, S. and I. Sazima, 1995. An assemblage of mailed catfishes (Loricariidae) in southeastern Brazil: distribution, activity and feeding. Ichthyol. Explor. Freshwat. 6(4):325-332.</li><li>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Harttia kronei. The IUCN Red List of Threatened Species 2022.</li><li>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2011. FishBase. www.fishbase.org.</li></ul>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.82
+    }
   }
 }

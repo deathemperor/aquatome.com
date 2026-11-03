@@ -1,0 +1,16 @@
+---
+url: https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/
+title: Microrasbora rubescens - Aquarium Glaser GmbH
+fetchedAt: 2026-11-02T23:15:52.459Z
+hash: fd09d8f012ccdcd6c2db4de51d9ba2ecda72896f9a023c81a8875a6da1ffd08f
+---
+
+This dwarf rasbora – it only reaches a total length of 2-3 cm – is right in line with the current trend. There have always been fashions in aquaristics, just like in any other hobby. Sometimes it’s the characins, then it’s the Malawi cichlids or the discus, the L-catfish or the West African dwarf cichlids. Most recently, dwarf shrimps have played a major role. Such trends come and go. However, it is difficult to predict which species will establish themselves permanently in the hobby.
+Microrasbora rubescens was imported and bred for the aquarium hobby as early as 1962, but has always led a shadowy existence. Unfortunately, the animals appear quite colorless in bare dealer tanks. In full color, however, they look not unlike a neon fish (Paracheirodon). As these completely peaceful fish can easily be kept with shrimps and, like them, prefer cooler rather than higher water temperatures, they have experienced a real renaissance with the dwarf shrimp boom.
+Microrasbora rubescens is found exclusively in Inle Lake and the surrounding area in Burma. The water there is hard, the pH value slightly alkaline (central part of the lake: pH 7.6 – 8.8, tributary of the lake: pH 7.1 – 7.2). The water temperature during the day is in the range of 21.3 – 28.8°C, the air temperature can fluctuate between 5°C (minimum temperature) and 38°C (maximum temperature) (all data according to: Khaung et al., 2021). A recent study (Fuke et al., 2022) has shown that there is an unexpectedly large genetic diversity in Microrasbora rubescens in Inle Lake and the surrounding waters, without these populations being externally distinguishable. At least two evolutionary lineages have been identified in the surrounding waters of Inle Lake, which are estimated to have diverged from the lake population 2.7 and 1.9 million years ago.
+Microrasbora rubescens is easy to keep in the aquarium. They should be kept in groups of 10 specimens or more in well-planted aquaria. They will eat any ornamental fish food of a suitable size, plants are not eaten. The females grow larger than the males, are fuller and have less red in their coloration. Spawning takes place in fine plants, Java moss is particularly popular as a spawning plant. Breeding is something for experienced breeders due to the small size of the young, but is generally not difficult.
+For our customers: the animals have code 430942 on our stock list. Please note that we only supply the wholesale trade.
+Text & photos: Frank Schäfer
+Literature:
+Fuke, Y., Y. Kano, S. Tun, L. K. C. Yun, S. S. Win & K. Watanabe (2022): Cryptic genetic divergence of the red dwarf rasbora, Microrasbora rubescens, in and around Inle Lake: implications for the origin of endemicity in the ancient lake in Myanmar. Journal of Fish Biology v. 101 (no. 5): 1235-1247
+Khaung, T., Iwai, C. B. & T. Chuasavathi (2021): Water Quality Monitoring in Inle Lake, Myanmar from the floating Garden Activity. Malaysian Journal of Fundamental and Applied Sciences, Vol. 17: 593-608

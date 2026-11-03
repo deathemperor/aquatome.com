@@ -147,6 +147,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/blackworms-profile-and-culture-guide/": {
+    "lastmod": "2026-06-06T17:36:30+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-blackworms-profile-and-culture-guide"
+    ],
+    "updatedAt": "2026-11-02T22:12:30.212Z",
+    "hash": "97343e7f75a46296a26f3abb7648eabdaa6d5cdbcb9768412300d3a7f439a85a",
+    "processedHash": "97343e7f75a46296a26f3abb7648eabdaa6d5cdbcb9768412300d3a7f439a85a",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/": {
     "lastmod": "2026-06-06T17:35:39+00:00",
     "entityIds": [
@@ -233,6 +244,24 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/coenobita-compressus-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:36:30+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-02T22:07:18.842Z",
+    "hash": "4957351270ce5ed45650eabb58fb9fbe1c9bda06649236d648360b309b5aedc1",
+    "processedHash": "4957351270ce5ed45650eabb58fb9fbe1c9bda06649236d648360b309b5aedc1",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/coenobita-variabilis-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:36:12+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-02T21:55:26.516Z",
+    "hash": "54e3de537438ae88679e03a4ab8f56958edf49d9b043930e005b058f56ff0176",
+    "processedHash": "54e3de537438ae88679e03a4ab8f56958edf49d9b043930e005b058f56ff0176",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/coenobita-violascens-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:34:57+00:00",
     "entityIds": [],
@@ -264,6 +293,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/cyclops-profile-and-culture-guide/": {
+    "lastmod": "2026-06-06T17:36:12+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-cyclops-profile-and-culture-guide"
+    ],
+    "updatedAt": "2026-11-02T22:01:01.193Z",
+    "hash": "6dfd471c2d213b783c8013fa88a038012c7de10a03a8b890e93d7d548e2c2496",
+    "processedHash": "6dfd471c2d213b783c8013fa88a038012c7de10a03a8b890e93d7d548e2c2496",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-11T09:11:13+00:00",
     "entityIds": [
@@ -284,6 +324,15 @@
     "hash": "29e89548870f367a6bd2d3ba06b412bd615198f70c1bc9bc83f6608e2e517020",
     "processedHash": "29e89548870f367a6bd2d3ba06b412bd615198f70c1bc9bc83f6608e2e517020",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/desert-hairy-scorpion-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:36:12+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-02T21:55:37.566Z",
+    "hash": "61d0ccd590546f12641d701c932548601ae170d0f7527e15af9e2bd741cd8d86",
+    "processedHash": "61d0ccd590546f12641d701c932548601ae170d0f7527e15af9e2bd741cd8d86",
+    "status": "skipped",
     "attempts": 0
   },
   "https://aquariumbreeder.com/dwarf-gourami-detailed-guide-care-diet-and-breeding/": {
@@ -469,6 +518,17 @@
     "updatedAt": "2026-10-28T16:10:47.764Z",
     "hash": "c8d904c5d162dd96222ea3d5af3223cad69c8c991c63b75eac96f2dac50b2ae9",
     "processedHash": "c8d904c5d162dd96222ea3d5af3223cad69c8c991c63b75eac96f2dac50b2ae9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:36:30+00:00",
+    "entityIds": [
+      "species/heterandria-formosa"
+    ],
+    "updatedAt": "2026-11-02T22:07:27.612Z",
+    "hash": "94145b1403be8f4093542a67626a44135e40fca63a1f40a85fc9c89fd04b38d5",
+    "processedHash": "94145b1403be8f4093542a67626a44135e40fca63a1f40a85fc9c89fd04b38d5",
     "status": "processed",
     "attempts": 0
   },
@@ -970,6 +1030,17 @@
     "updatedAt": "2026-10-29T07:31:50.826Z",
     "hash": "280eb310083c9ec915465753e967d33968c1a7baceed0579b5a3b6a0f2e26a10",
     "processedHash": "280eb310083c9ec915465753e967d33968c1a7baceed0579b5a3b6a0f2e26a10",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/tubifex-worms-profile-and-culture-guide/": {
+    "lastmod": "2026-06-06T17:36:12+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-tubifex-worms-profile-and-culture-guide"
+    ],
+    "updatedAt": "2026-11-02T21:55:44.833Z",
+    "hash": "866e58a42e60bc342454856ce7e2d7cadf9b24333b2d89684c405052310f3fb4",
+    "processedHash": "866e58a42e60bc342454856ce7e2d7cadf9b24333b2d89684c405052310f3fb4",
     "status": "processed",
     "attempts": 0
   },

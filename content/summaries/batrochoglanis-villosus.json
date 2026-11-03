@@ -1,8 +1,14 @@
 {
   "id": "batrochoglanis-villosus",
-  "summary": "Hồ sơ chưa có thông tin về bể, nước, thức ăn hay độ khó của cá Batrochoglanis (Batrochoglanis villosus), nên chưa đủ cơ sở để nói loài này hợp với ai. Chỉ biết cá sống ở lưu vực Amazon, vùng thượng Amazon, sông Nanay, và chưa có báo cáo nào về việc cho sinh sản. Điểm khó nhất là thiếu dữ liệu nuôi.",
-  "mistakes": [],
-  "speciesUpdatedAt": "2026-11-01",
-  "generatedAt": "2026-11-01T02:31:47.131Z",
-  "review": "approved"
+  "summary": "Cá Batrochoglanis (Batrochoglanis villosus) hợp với người muốn nuôi cá đáy nhát, ưa ẩn nấp, dài tới 15 cm, trong nước 24–28 °C và pH 6–7,5. Bể cần thật nhiều chỗ trốn để ban ngày cá có nơi ẩn mình; nên nuôi nhóm nhỏ 2–3 con, cá ăn được các loại thức ăn thường dùng cho cá cảnh. Điểm khó nhất là cá săn những con cá nhỏ hơn mình, và hồ sơ chưa có báo cáo nào về việc cho sinh sản.",
+  "mistakes": [
+    "Thả chung với cá nhỏ hơn chúng thì cá nhỏ sẽ bị săn, nên đừng nuôi chung với cá bé.",
+    "Bố trí ít chỗ trốn cho loài cá nhát này là sai, nên làm thật nhiều chỗ trốn để ban ngày cá có nơi ẩn mình."
+  ],
+  "speciesUpdatedAt": "2026-11-02",
+  "generatedAt": "2026-11-03T00:07:53.395Z",
+  "review": "pending",
+  "problems": [
+    "\"cá đáy nhát\": the page never says the fish lives or feeds at the bottom of the tank. It only says the fish is shy and hides, so \"cá đáy\" is an unsupported claim."
+  ]
 }

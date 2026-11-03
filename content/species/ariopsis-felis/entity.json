@@ -1,0 +1,123 @@
+{
+  "id": "ariopsis-felis",
+  "scientificName": "Ariopsis felis",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Ariopsis",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "mexico"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 70
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1237",
+      "html": "<ul><li><strong>Scientific name:</strong> Ariopsis felis (Linnaeus, 1766)</li><li><strong>Common names:</strong> Hardhead Sea Catfish, Vestatlantisk Havmalle (Denmark)</li><li><strong>Type locality:</strong> Charleston Harbor, South Carolina, U.S.A.</li></ul><p>Commonly captured from catwalks, bridges and piers, particularly in passes and inland waterways.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1237",
+      "html": "<p>Western Atlantic: Massachusetts and northern Gulf of Mexico to southern Florida in USA and Mexico.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1237",
+      "html": "<p>This is a marine/brackish fish. Inhabits continental waters and enters estuaries. Found in turbid waters over muddy bottoms.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1237",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1237",
+      "html": "<p>Systema naturae sive regna tria naturae v. 1 (pt 1), pp 503.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/4c3c7b66f3ed8a5e.webp",
+      "width": 960,
+      "height": 352,
+      "licence": "Public domain",
+      "author": "Edgar R. Waite",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arius_felis.jpg",
+      "caption": "Ariopsis felis syn. Arius felis",
+      "thumb": "https://media.aquatome.com/commons/4c3c7b66f3ed8a5e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/668bda1939ff3411.webp",
+      "width": 960,
+      "height": 1022,
+      "licence": "Public Domain",
+      "author": "Yinan Chen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gfp-hardhead-catfish.jpg",
+      "caption": "Different types of fishes One of the two species of Catfish found in the Florida Keys. Arius Felis.",
+      "thumb": "https://media.aquatome.com/commons/668bda1939ff3411-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3d812e5524112238.webp",
+      "width": 960,
+      "height": 360,
+      "licence": "Public domain",
+      "author": "Barton Warren Evermann",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_33340_Galeichthys_Felis_(Linnaeus).jpeg",
+      "caption": "Galeichthys Felis (Linnaeus) Sea Catfish); \"catfish\" Subject: Catfishes Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/3d812e5524112238-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/509366400e80ecfc.webp",
+      "width": 960,
+      "height": 425,
+      "licence": "Public domain",
+      "author": "H. L. Todd",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_51138_Salt-Water_Catfish.jpeg",
+      "caption": "Salt-Water Catfish Arius felis (L.), J. & G. Subject: Hardhead catfish Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/509366400e80ecfc-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "kUfI6_9t37U",
+      "title": "Hand feeding Hardhead catfish. (Ariopsis Felis)",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HrSYO7iMkUM",
+      "title": "Hardhead Catfish and Bread  - Ariopsis felis",
+      "durationSec": 114,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "c3LiiIk12gw",
+      "title": "Hard head Catfish feeding at biloxi dock fish cleaning",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "36bHDwu_kbU",
+      "title": "Mangrove Fishes",
+      "durationSec": 192,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-02"
+}

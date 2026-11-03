@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (46)
+# Tóm tắt chờ duyệt (50)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -129,6 +129,17 @@ Cá sấu hỏa tiễn nhiệt đới (Atractosteus tropicus) không hợp với
 - Cho ăn tim bò hoặc thịt gà: dùng tôm, cá đông lạnh hoặc cá nguyên con, vì thịt động vật có vú làm cá tích mỡ và thoái hóa cơ quan.
 - Thả chung với cá nhỏ: nuôi riêng, hoặc chỉ ghép cá không hung dữ, cỡ tương đương và không bị nuốt vừa.
 
+## Cá Batrochoglanis (Batrochoglanis villosus)
+id: `batrochoglanis-villosus`
+
+Cá Batrochoglanis (Batrochoglanis villosus) hợp với người muốn nuôi cá đáy nhát, ưa ẩn nấp, dài tới 15 cm, trong nước 24–28 °C và pH 6–7,5. Bể cần thật nhiều chỗ trốn để ban ngày cá có nơi ẩn mình; nên nuôi nhóm nhỏ 2–3 con, cá ăn được các loại thức ăn thường dùng cho cá cảnh. Điểm khó nhất là cá săn những con cá nhỏ hơn mình, và hồ sơ chưa có báo cáo nào về việc cho sinh sản.
+
+- Thả chung với cá nhỏ hơn chúng thì cá nhỏ sẽ bị săn, nên đừng nuôi chung với cá bé.
+- Bố trí ít chỗ trốn cho loài cá nhát này là sai, nên làm thật nhiều chỗ trốn để ban ngày cá có nơi ẩn mình.
+
+Kiểm tra:
+- "cá đáy nhát": the page never says the fish lives or feeds at the bottom of the tank. It only says the fish is shy and hides, so "cá đáy" is an unsupported claim.
+
 ## Cá betta ocellata (Betta ocellata)
 id: `betta-ocellata`
 
@@ -152,6 +163,18 @@ Cá betta rutilans (Betta rutilans) dài tối đa 3,8 cm, cần nước ấm 24
 Kiểm tra:
 - "Cá bán ra là cá đánh bắt ngoài tự nhiên, ăn thịt, nên cần chuẩn bị bể xong trước khi mua": the page gives no reason for preparing the tank first. It doesn't link this advice to the fish being wild-caught or carnivorous. The "nên" invents that causal link.
 
+## Cá betta simplex (Betta simplex)
+id: `betta-simplex`
+
+Cá betta simplex (Betta simplex) hợp với người thích bể trồng nhiều cây, ánh sáng dịu, mặt nước che phủ nhiều, nuôi riêng hoặc theo cặp, nhóm nhỏ. Cá trưởng thành 6 cm, cần bể tối thiểu 60 cm (đáy 60 × 30 cm), nhiệt độ 20–28 °C, pH 7–8, độ cứng 3–12 dGH, độ khó 5/8. Điểm khó nhất là cá không hợp bể cộng đồng thông thường, nhảy rất giỏi nên phải đậy nắp kín, lại dễ béo phì nếu cho ăn nhiều.
+
+- Thả chung vào bể cộng đồng thông thường: nên nuôi riêng, hoặc chỉ nuôi chung với loài thật hiền sau khi đã tìm hiểu kỹ.
+- Để bể hở hoặc đổ nước đầy tới miệng: cá nhảy rất giỏi, nên đậy nắp kín và chừa khoảng trống để cá ngoi lên hớp lớp không khí ẩm trên mặt nước.
+- Cho ăn quá nhiều: cho ăn vừa phải, xen thức ăn sống hoặc đông lạnh cỡ nhỏ như Daphnia, Artemia, vì Betta dễ bị béo phì.
+
+Kiểm tra:
+- "dễ béo phì" / "vì Betta dễ bị béo phì": the page hedges this ("có vẻ đặc biệt dễ bị béo phì", meaning "seem particularly prone"). The summary states it as a certainty.
+
 ## Cá betta tussyae (Betta tussyae)
 id: `betta-tussyae`
 
@@ -174,26 +197,6 @@ Cá betta unimaculata hợp với người muốn nuôi riêng một loài betta
 
 Kiểm tra:
 - Mistake 2 "Cho ăn toàn đồ khô ... nên xen giun đen và trùn chỉ đỏ đông lạnh với cám viên": the page only says the fish is fed live, frozen and dry foods (blackworms, frozen bloodworms, pellets). It does not say an all-dry diet is a mistake or that foods should be alternated. The fix is advice the page doesn't give.
-
-## Cá piramutaba (Brachyplatystoma vaillantii)
-id: `brachyplatystoma-vaillantii`
-
-Cá da trơn Laulao (Brachyplatystoma vaillantii) lớn tới 150 cm, nên gần như không hợp với bể nhà thông thường; chỉ hợp người có hồ rất lớn hoặc cơ sở chuyên nuôi cá khổng lồ. Cần nước 24–27 °C, pH 6–7,6. Hồ sơ không nêu bể tối thiểu hay độ khó, và chưa có báo cáo nhân giống. Điểm khó nhất là kích thước khi trưởng thành.
-
-- Mua cá nhỏ về nuôi mà không tính trước chỗ cho cá dài tới 150 cm; chỉ nuôi khi đã có hồ đủ lớn cho cỡ trưởng thành.
-- Để nước ngoài khoảng 24–27 °C hoặc pH 6–7,6; nên giữ ổn định trong khoảng này.
-
-## Cá trê lũa Centromochlus heckelii (Centromochlus heckelii)
-id: `centromochlus-heckelii`
-
-Cá trê lũa Centromochlus heckelii dài tối đa 15 cm, nhận ra ngay nhờ đôi mắt to và cặp vây ngực lớn luôn xòe rộng. Hồ sơ không nêu thông số nước hay bể tối thiểu, nên chưa đủ để nói bể thế nào là hợp. Điểm khó nhất là gai vây ngực: đâm phải thì đau khá nặng, và gai hay mắc vào mắt lưới khi bắt cá. Loài này cũng hiếm khi có hàng, số lượng ít.
-
-- Bắt cá bằng vợt thì gai vây ngực hay mắc vào mắt lưới; làm chậm và để ý chỗ gai mắc trước khi kéo vợt lên.
-- Bắt hay chạm vào cá mà không để ý gai vây ngực thì dễ bị đâm, đau khá nặng; luôn xác định vị trí gai trước khi chạm vào cá.
-
-Kiểm tra:
-- The first mistake's fix, "làm chậm và để ý chỗ gai mắc trước khi kéo vợt lên", is advice the page doesn't give. The page only says the spines often snag in the net mesh. It gives no technique for netting the fish, such as going slowly or checking where the spine is caught.
-- The second mistake's fix, "luôn xác định vị trí gai trước khi chạm vào cá", goes beyond the page. The page only says to be careful with the spine and that a sting hurts quite a lot. It doesn't say to locate the spines before touching the fish.
 
 ## Cá chaetostoma hổ Magdalena (Chaetostoma leucomelas)
 id: `chaetostoma-leucomelas`
@@ -338,6 +341,31 @@ Kiểm tra:
 - The mistake "Mua cá khi còn nhỏ mà chỉ chuẩn bị bể nhỏ... nên tính bể đủ rộng ngay từ đầu" gives tank-sizing advice that the page never gives. The page has no tank, housing or purchase guidance, only the 31 cm size, temperature, distribution and a note that there are no breeding reports.
 - "nên hợp với người có bể to và chịu nuôi cá cỡ lớn" claims a suitability and tank requirement that the page does not state. The page does not say anything about tank size or who the fish suits.
 
+## Cá barb Jerdon (Hypselobarbus jerdoni)
+id: `hypselobarbus-jerdoni`
+
+Cá barb Jerdon (Hypselobarbus jerdoni) là loài barb cỡ lớn, trưởng thành tới 50 cm, rất hiếm khi được nhập về, nên chỉ hợp người có bể thật sự lớn. Cá hiền, thích nước chảy, bơi khỏe và không nhát; hồ sơ không nêu số liệu về nước hay bể tối thiểu. Khó nhất là chỗ nuôi đủ rộng cho cá 50 cm và việc cá bật khỏi mặt nước rất mạnh.
+
+- Nuôi trong bể nhỏ dù cá có thể dài tới 50 cm; nên chuẩn bị bể thật sự lớn ngay từ đầu.
+- Để bể hở khi vợt bắt cá; cá có thể bật thẳng lên hơn 50 cm mà không cần lấy đà, nên đậy kín nắp bể.
+- Nuôi nước đứng, ít dòng chảy; loài này thích nước chảy và bơi rất khỏe, nên tạo dòng chảy cho cá.
+
+Kiểm tra:
+- Mistake 2: "nên đậy kín nắp bể" and "Để bể hở khi vợt bắt cá" – the page never mentions a lid or covering the tank. It only says the fish can jump over 50 cm when netted. The lid fix is advice the page doesn't give.
+
+## Cá cichlid ốc meeli (Lepidiolamprologus meeli)
+id: `lepidiolamprologus-meeli`
+
+Cá cichlid ốc meeli (Lepidiolamprologus meeli) hợp với người thích cá Tanganyika nhỏ sống trong vỏ ốc. Cá trưởng thành dài 7 cm, và cá bán ra là cá nhân giống trong điều kiện nuôi. Hồ sơ chưa nêu bể tối thiểu, thông số nước hay độ khó, nên cần tìm thêm trước khi mua. Điểm khó nhất là nhận đúng loài, vì nó rất giống N. boulengeri và N. hecqui.
+
+- Cho rằng cá mua về chắc chắn là meeli, trong khi dòng "Zambia" đang được nuôi vẫn chưa rõ là meeli hay chỉ là dạng màu của hecqui. Nên hỏi rõ nguồn gốc dòng cá và đừng khẳng định chắc tên loài khi bán hay trao đổi.
+- Phân biệt loài chỉ dựa vào viền đen ở các vây, trong khi cả ba loài meeli, boulengeri và hecqui đều có đặc điểm này. Đừng dùng riêng đặc điểm đó để kết luận.
+- Bỏ bể không có vỏ ốc rỗng, trong khi cá cái chủ yếu chui vào vỏ ốc để ẩn nấp. Nên có sẵn vỏ ốc rỗng cho cá cái.
+
+Kiểm tra:
+- Mistake 1 fix: "Nên hỏi rõ nguồn gốc dòng cá ... khi bán hay trao đổi" is advice the page does not give. The page only says the Zambia strain is disputed. It says nothing about asking sellers about origin or about selling or trading fish.
+- "nên cần tìm thêm trước khi mua" is advice that is not on the page.
+
 ## Cá chạch Lepidocephalichthys annandalei (Lepidocephalichthys annandalei)
 id: `lepidocephalichthys-annandalei`
 
@@ -413,6 +441,17 @@ Cá hút bùn buồm Trung Quốc (Myxocyprinus asiaticus) chỉ hợp người 
 - Để nước ấm gần ngưỡng trên trong thời gian dài: giữ 15,5–21 °C, vì có báo cáo cá bị nấm trong bể và nguyên nhân có thể là nước quá nóng.
 - Để chất thải hữu cơ tích tụ và dòng yếu: dùng lọc ngoài, bơm tạo dòng, lọc quay vòng nước bể 8–12 lần mỗi giờ để nước luôn sạch và giàu oxy.
 
+## Cá mini pangasius (Pachypterus atherinoides)
+id: `pachypterus-atherinoides`
+
+Cá mini pangasius (Pachypterus atherinoides) hợp với người muốn một loài cá nhỏ, trưởng thành 8 cm, tính rất hiền, ăn được các loại thức ăn thông thường và không phá cây. Hồ sơ không nêu bể tối thiểu hay thông số nước, nên chưa đủ để chốt cỡ bể và nước cụ thể. Điểm cần cẩn thận nhất là dễ nhầm với các loài cá mập da trơn Pangasius thật, vì loài này không phải họ hàng gần của giống đó.
+
+- Nhầm cá với Pangasius thật vì cùng tên gọi: kiểm tra kỹ tên khoa học trước khi mua, vì Pangasius thật lớn rất nhanh còn loài này chỉ khoảng 8 cm.
+
+Kiểm tra:
+- The fix "kiểm tra kỹ tên khoa học trước khi mua" is advice the page never gives. The page also uses two different scientific names (Pachypterus and Eutropius), so this check would not be a clear one.
+- The claim that the fish is "dễ nhầm" with true Pangasius, and the mistake "Nhầm cá với Pangasius thật vì cùng tên gọi", are not stated on the page. The page only says the "mini-pangasius" are not close relatives of Pangasius and that true Pangasius grow large.
+
 ## Cá paro Anjungan (Parosphromenus anjunganensis)
 id: `parosphromenus-anjunganensis`
 
@@ -448,6 +487,19 @@ Cá da trơn Robocop (Physopyxis lyra) hợp với người muốn nuôi cá r�
 Kiểm tra:
 - Mistake 2: "Nuôi chung với cá to hoặc loài coi nó là mồi sẽ bị ăn thịt" – the page only says tank mates should be fairly small because the fish is tiny. It doesn't say big fish will eat it, so this states a certainty the page doesn't give.
 - Summary: "phải thả thức ăn chìm sau khi trời tối thì cá mới ăn đủ" – the page only says this is the best way ("tốt nhất") to make sure the fish eats enough. "Phải ... mới" turns that recommendation into a strict requirement.
+
+## Cá tetra weitzmani (Poecilocharax weitzmani)
+id: `poecilocharax-weitzmani`
+
+Cá tetra weitzmani (Poecilocharax weitzmani) dài tới 4 cm, hiền, hợp người muốn nuôi chung với cá neon vua (Paracheirodon axelrodi). Nuôi bình thường thì chăm như neon vua, nước máy thường vẫn ổn, không cần chỉnh nước thật mềm và thật chua. Điểm khó nhất là cho sinh sản: nước phải gần giống ngoài tự nhiên, rất mềm và rất chua, giữ ổn định lâu nên đòi hỏi kinh nghiệm.
+
+- Đừng cố chỉnh nước thật mềm, thật chua khi chỉ nuôi bình thường; chỉ làm vậy khi định cho sinh sản.
+- Đừng nghĩ cá nhát rồi bài trí rườm rà; hồ sơ ghi cá mới nhập vài ngày trong bể sơ sài với vài khúc lũa và ít lá cây vẫn bơi tự nhiên.
+- Đừng bỏ qua hang nếu muốn cá đẻ; hãy cho đoạn tre rỗng để cá đực chiếm làm ổ.
+
+Kiểm tra:
+- "nước máy thường vẫn ổn": the page says the fish adapts well to tap water in Central Europe ("nước máy ở Trung Âu"). The summary makes this a general claim about ordinary tap water, which the page doesn't support.
+- "Đừng nghĩ cá nhát rồi bài trí rườm rà": the page doesn't say elaborate decor is a mistake. It only says the fish swam naturally in a sparse tank, so this advice is invented.
 
 ## Cá chép đuôi vàng Lào (Poropuntius laoensis)
 id: `poropuntius-laoensis`

@@ -1,0 +1,14 @@
+---
+url: https://www.aquariumglaser.de/en/fisharchive/sturisoma-nigrirostrum-2/
+title: Sturisoma nigrirostrum - Aquarium Glaser GmbH
+fetchedAt: 2026-11-02T23:47:15.426Z
+hash: 1ba1a84e80db393dc439c805396f882cf120308a7841fba8d2c1246fec946cfc
+---
+
+The genera Sturisoma (15 scientifically described and accepted species, east of the Andes = cis-Andean) and Sturisomatichthys (13 scientifically described and accepted species, west of the Andes = trans-Andean) are referred to in German as Störwelse (= sturgeon catfish), in English as Royal Farlowellas.
+Sturisoma nigrirostrum from Peru is imported more or less regularly. The species is easily recognizable by the jet-black underside of its “beak,” a feature that also led to its scientific name. The type locality of the species is Contamana, Río Ucayali, Peru. Another similar species, also with a black rostrum underside from Peru, is the species Sturisoma graffini from the Madre de Dios region, which was only newly described in 2018. For various reasons, fish from this region are considerably more expensive than those from the Ucayali, so S. graffini is rarely found in the ornamental fish trade.
+For unknown reasons, some of the Sturisoma nigrirostrum imports have an upward-curving rostrum. Ingo Seidel (personal communication) caught both forms—those with a normal nose and those with a hooked nose—together at the same location in Peru. This is a quirk of nature whose purpose is completely unclear.
+Caring for Sturisoma and Sturisomatichthys does not usually pose any major difficulties. Any tap water suitable for drinking is suitable for this purpose. These relatively large fish (20-25 cm) appreciate current and clean water, which is why powerful filtration must be provided and regular, generous partial water changes are mandatory. They eat all the usual foods for ornamental fish, with food tablets and similar forms being particularly suitable. In addition, plant-based food must always be offered (vegetable slices, crushed frozen peas, lettuce, dandelion leaves, etc.). The water temperature can be between 24 and 28°C.
+As far as has been attempted to date, all Sturisoma species can be bred in aquariums. In any case, they spawn readily. As open breeders, they often spawn on the front glass of the aquarium, where the male, recognizable by a “sideburn” of odontodes that grows during the breeding season, looks after the eggs. It is usually quite easy to get the young fish to hatch, and rearing them is not difficult for the first one to two weeks. However, many breeders then experience massive losses. Those who succeed in rearing the young fish keep their methods a closely guarded secret, so that the cause of failure among those who do not succeed is still not entirely clear.
+For our customers: the animals have code 294853 on our stock list. Please note that we only supply wholesale customers.
+Text & photos: Frank Schäfer

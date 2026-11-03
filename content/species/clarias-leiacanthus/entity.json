@@ -1,0 +1,146 @@
+{
+  "id": "clarias-leiacanthus",
+  "scientificName": "Clarias leiacanthus",
+  "order": "Siluriformes",
+  "family": "Clariidae",
+  "genus": "Clarias",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "borneo",
+    "thailand",
+    "singapore"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 4,
+          "max": 7.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 33
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<ul><li>Scientific name: Clarias leiacanthus Bleeker, 1851</li><li>Common name: Forest Walking Catfish</li><li>Type locality: Sambas, Kalimantan, western Borneo, Indonesia.</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<p>Asia: Sumatra and Borneo. Reported from Thailand. Also found in Greater Sunda Island rivers and Singapore waters.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<p>This species is found in forested, more pristine habitats than the sympatric C. batrachus, which is usually found in more open, disturbed habitats.</p><p>Zaid et al. (2018) collected this species in a small stream with clear water flowing at slow to medium water currents. Water parameters were pH 6.5-6.6, dissolved oxygen 7.7-8.5 mg/l, conductivity 27.2-28.2 μS/cm, and TDS 17.4-18.4 mg/L.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<ul><li>pH: 4.0-7.6</li><li>Temperature: 20-28°C</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<p>Very well rooted plants and large structures that provide some shade. Appropriately sized clay pipes seem to provide a readily accepted, if less cosmetically pleasing, hideaway for these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<p>Anything; this fish is totally omnivorous and will gorge itself on most offerings.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<p>Keep with large robust fish; anything small enough will be eaten. Suggested tankmates: large cyprinids (silver sharks, tinfoil or spanner barbs for example) or Central American cichlids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<p>Males have an elongate genital papilla.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<p>Clarias species are characterized by an elongated body; a soft rayed dorsal fin extending to, or nearly to, the caudal fin base; a soft rayed anal fin extending from just behind the anus to the caudal fin base; pectoral fins each with a serrated anterior bony spine; head depressed, covered largely by bony plates forming a protective helmet; four pairs of barbels; and air breathing organs.</p><p>It can be distinguished from congeners in the region by a combination of: smooth pectoral spine, 68-78 dorsal-fin rays, 58-64 anal-fin rays, a moderately broad supraoccipital process, and a distinct pattern of white spots on the sides of the body.</p><p>Etymology: Clarias comes from the Greek chlaros, meaning lively, in reference to the ability of the fish to live for long periods out of water. The specific epithet comes from the Greek leios, meaning smooth, and akanthus, meaning spine, in reference to the smooth pectoral spine.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1240",
+      "html": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 2 (no. 3), pp 430.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/49fb502779b8e691.webp",
+      "width": 960,
+      "height": 403,
+      "licence": "CC BY 4.0",
+      "author": "Aqmal-Naser et al. (2023)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clarias_leiacanthus_(10.3897-BDJ.11.e100337)_Figure_20.jpg",
+      "caption": "Figure 20 Clarias leiacanthus.",
+      "thumb": "https://media.aquatome.com/commons/49fb502779b8e691-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn cho cá trê"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước hồ cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn tạp cỡ lớn",
+        "thức ăn viên cho cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}

@@ -1,0 +1,111 @@
+{
+  "id": "knodus-borki",
+  "scientificName": "Knodus borki",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Knodus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "peru",
+    "iquitos"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
+      "html": "<ul><li>Very peaceful, highly active schooling fish</li><li>Keep in groups of at least 10</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
+      "html": "<p>In the hobby, the blue Peru tetra is part of the standard range. It is available all year round, mostly as a captive-bred specimen, but occasionally also as a wild catch. There is also an albino breed.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
+      "html": "<p>Any tap water suitable for drinking is suitable for keeping these fish, and the water temperature can be between 22 and 26°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
+      "html": "<p>They will eat any commercially available ornamental fish food of a suitable size.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
+      "html": "<p>Knodus borki is a very peaceful, highly active schooling fish. Plants and any other inhabitants of the aquarium are not disturbed. These lively animals are easy to care for. They should be kept in groups of at least 10. Their somewhat \"hanging\" swimming style is typical of the species. It is not as extreme as that of the Penguin tetras, but it is particularly noticeable when the fish pause briefly.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
+      "html": "<p>Males and females differ only slightly in color, but the light areas at the tips of the tail fin are more pronounced in males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
+      "html": "<p>They are open spawners without brood care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
+      "html": "<p>In 2008, while examining a newly imported species (previously referred to as Boehlkea sp. \"Sky Blue\"), Dr. Axel Zarske discovered that it was actually Boehlkea fredcochui. The fish that had been referred to as B. fredcochui for decades, on the other hand, represented a species of the genus Knodus that had not yet been scientifically recorded and was described as Knodus borki in honor of Dieter Bork.</p><p>The common name Blue Peru Tetra has remained. The animals were first imported around 1956. The location \"Leticia\" (Colombia) referred to at the time was the city from which the export took place. To this day, Leticia, located in the border triangle of Peru, Brazil, and Colombia, is one of the most important trading centers for ornamental fish in the Amazon region. Many rarities are even shipped exclusively via Leticia, even though they come from relatively distant areas, simply because Leticia has the infrastructure that makes it possible to market the animals. In fact, Knodus borki occurs in the vicinity of Iquitos.</p><p>The \"real\" Boehlkea fredcochui is very rarely found in the trade.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh 80cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra",
+        "thức ăn cá nhỏ dạng hạt"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-02"
+}
