@@ -5,7 +5,7 @@ import type { Wanted } from '../wanted'
 import { chip, dayChart, deltaHtml, esc, fmt, lastDays, rankTable, spark, tiles, usd } from './chart'
 import type { AccountStats, Waiting } from './data'
 import type { ContentStats, Snapshot } from './content'
-import { items as itemCount, KIND as PAGE_KIND, MAIN, perDay } from './content-page'
+import { inLang, items as itemCount, KIND as PAGE_KIND, MAIN, perDay } from './content-page'
 import type { Call, FishIdStats, Totals } from './fishid'
 import { failedBox, ICON, isFailed, page, type Soft } from './shell'
 
@@ -166,6 +166,9 @@ export function log(o: Overview, n = 3): LogDay[] {
       const added = MAIN.map(k => [k, (kept.totals.kinds[k]?.[0] ?? 0) - (before.totals.kinds[k]?.[0] ?? 0)] as const).filter(([, n]) => n > 0)
       const n = added.reduce((a, [, x]) => a + x, 0)
       if (n) items.push({ text: `${fmt(n)} bài mới`, small: added.map(([k, x]) => `${fmt(x)} ${PAGE_KIND[k].toLowerCase()}`).join(' · ') })
+      const id = inLang(kept.totals, 1) - inLang(before.totals, 1)
+      const th = inLang(kept.totals, 2) - inLang(before.totals, 2)
+      if (id > 0 || th > 0) items.push({ text: `${fmt(Math.max(id, 0))} bài tiếng Indonesia, ${fmt(Math.max(th, 0))} bài tiếng Thái mới` })
     }
     if (r && (at(r.readers, back) || at(r.sessions, back))) items.push({ text: `${fmt(at(r.readers, back))} người đọc`, small: `${fmt(at(r.sessions, back))} phiên` })
     if (!isFailed(clicks) && at(clicks.clicks, back)) items.push({ text: `${fmt(at(clicks.clicks, back))} lượt bấm sang sàn` })

@@ -13,7 +13,7 @@ test('safeEqual compares whole strings', () => {
 })
 const NOW = new Date('2026-11-02T10:00:00Z')
 const nothing: Overview = { now: NOW, readers: unset('x'), clicks: unset('x'), fish: unset('x'), keys: unset('x'), photos: unset('x'), waiting: unset('x'), wanted: unset('x'), accounts: unset('x'), hidden: unset('x'), content: unset('x'), snapshots: unset('x') }
-const totals = (fish: number, plant = 0, guide = 0): Totals => ({ kinds: { fish: [fish, 0, 0], plant: [plant, 0, 0], guide: [guide, 0, 0] } as Totals['kinds'], built: null, sources: {}, photos: { pages: 0, gallery: 0 } })
+const totals = (fish: number, plant = 0, guide = 0, idFish = 0, thFish = 0): Totals => ({ kinds: { fish: [fish, idFish, thFish], plant: [plant, 0, 0], guide: [guide, 0, 0] } as Totals['kinds'], built: null, sources: {}, photos: { pages: 0, gallery: 0 } })
 /** content.json as the home page reads it: the items, and the engine's queue. */
 const stats = (needsHuman: { source: string; since: string }[] = []) => ({
   inventory: { fish: { total: 100, id: 0, th: 0 }, plant: { total: 20, id: 0, th: 0 }, guide: { total: 5, id: 0, th: 0 } },
@@ -72,6 +72,9 @@ test('overview: a source behind a browser check is the owner\'s to pass; the con
   expect(areas({ ...well(), snapshots: [snaps[3]!] })[1]).toMatchObject({ fig: '125', sub: 'bài · mỗi đêm lưu tổng số một lần, chưa đủ ngày để so' })
   // The log says what each day added.
   expect(log({ ...o, snapshots: snaps })[0]!.items[0]).toEqual({ text: '2 bài mới', small: '2 cá' })
+  // Indonesian and Thai pages that night, apart: the Vietnamese count says nothing of them.
+  const translated: Snapshot[] = [{ day: days[7]!, totals: totals(100, 20, 5, 10, 12) }, { day: days[8]!, totals: totals(100, 20, 5, 30, 32) }]
+  expect(log({ ...o, snapshots: translated })[0]!.items[0]).toEqual({ text: '20 bài tiếng Indonesia, 20 bài tiếng Thái mới' })
   expect(perDay(snaps, days, t => t.kinds.fish[0])).toEqual([0, 10, 0, 0, 0, 0, 0, 8, 2])
 })
 

@@ -18,8 +18,10 @@ const GAP: Record<GapKey, string> = {
 }
 const FACT: Record<string, string> = { tempC: 'nhiệt độ', ph: 'pH', sizeCm: 'kích thước' }
 
+/** Items of the main kinds in a day's totals, in one language (0 Vietnamese, 1 Indonesian, 2 Thai). */
+export const inLang = (t: Totals, lang: 0 | 1 | 2) => MAIN.reduce((s, k) => s + (t.kinds[k]?.[lang] ?? 0), 0)
 /** Items (Vietnamese) of the main kinds in a day's totals. */
-export const items = (t: Totals) => MAIN.reduce((s, k) => s + (t.kinds[k]?.[0] ?? 0), 0)
+export const items = (t: Totals) => inLang(t, 0)
 /** A Vietnam time for a build or a run: 03/11 09:40. */
 const vn = (iso: string) => {
   const d = new Date(Date.parse(iso) + 7 * 3_600_000).toISOString()
@@ -81,6 +83,10 @@ function growthHtml(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>): string
     id: 'n-added', title: 'Bài mới mỗi ngày (tiếng Việt)', days, kind: 'columns', partialLast: true,
     series: [{ label: 'Cá', values: perDay(snaps, days, v('fish')) }, { label: 'Cây', values: perDay(snaps, days, v('plant')) }, { label: 'Bài viết, bài từ video', values: perDay(snaps, days, t => v('guide')(t) + v('videoGuide')(t)) }],
     empty: 'Chưa có bài mới nào trong những ngày đã lưu.',
+  })}${dayChart({
+    id: 'n-langs', title: 'Bài tiếng Indonesia và tiếng Thái mới mỗi ngày', days, kind: 'lines', partialLast: true,
+    series: [{ label: 'Indonesia', values: perDay(snaps, days, t => inLang(t, 1)) }, { label: 'Thái', values: perDay(snaps, days, t => inLang(t, 2)) }],
+    empty: 'Chưa có bài dịch mới nào trong những ngày đã lưu.',
   })}`
   // What each source added over the last 7 days kept (or since the first day kept).
   const last = snaps.at(-1)!
