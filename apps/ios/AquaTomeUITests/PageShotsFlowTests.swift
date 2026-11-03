@@ -1,0 +1,72 @@
+import XCTest
+
+/// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
+/// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
+/// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
+/// Each checks only that its page opened: what a page shows, the other flows check.
+final class PageShotsFlowTests: XCTestCase {
+  override func setUp() { continueAfterFailure = false }
+
+  func testAFish() { shoot("fish-light", "ca neon", "Cá neon") }
+  func testAFishInTheDark() { shoot("fish-dark", "ca neon", "Cá neon", dark: true) }
+  func testAFishInLargeText() { shoot("fish-large", "ca neon", "Cá neon", large: true, screens: 3) }
+  func testAPlant() { shoot("plant-light", "rotala", "Rotala đỏ") }
+  func testAGuide() { shoot("guide-light", "nuoi ca neon", "Nuôi cá neon trong bể nhỏ") }
+
+  /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
+  private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12) {
+    let app = XCUIApplication()
+    // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
+      + (dark ? ["-dark"] : [])
+      + (large ? ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"] : [])
+    app.launch()
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText(query)
+    let item = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", row)).firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(row)")
+    item.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
+    var seen: Set<Data> = []
+    for n in 1...screens {
+      settle()
+      let shot = XCUIScreen.main.screenshot()
+      // The end of the page: a screen already kept (scrolling there moves nothing, or bounces between two).
+      guard seen.insert(shot.pngRepresentation).inserted else { break }
+      // Shot in the appearance asked for: a dark run that came out light (as the runner's own setting left it) fails.
+      if n == 1 { XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))") }
+      let a = XCTAttachment(screenshot: shot)
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
+      from.press(forDuration: 0.1, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25)), withVelocity: .slow,
+                 thenHoldForDuration: 0.2)
+    }
+  }
+
+  /// How light a screen is on average, from 0 (black) to 1 (white).
+  private func lightness(_ image: UIImage) -> CGFloat {
+    let n = 16
+    var px = [UInt8](repeating: 0, count: n * n * 4)
+    guard let cg = image.cgImage, let ctx = CGContext(data: &px, width: n, height: n, bitsPerComponent: 8, bytesPerRow: n * 4,
+      space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return -1 }
+    ctx.interpolationQuality = .high
+    ctx.draw(cg, in: CGRect(x: 0, y: 0, width: n, height: n))
+    // A plain loop: the closure form took CI's compiler past its time to type-check it.
+    var sum = 0
+    for i in stride(from: 0, to: px.count, by: 4) {
+      let r = Int(px[i]), g = Int(px[i + 1]), b = Int(px[i + 2])
+      sum += r + g + b
+    }
+    return CGFloat(sum) / CGFloat(n * n * 3 * 255)
+  }
+
+  /// Photos drawn and the scroll at rest.
+  private func settle() {
+    let until = Date().addingTimeInterval(0.8)
+    while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
+  }
+}

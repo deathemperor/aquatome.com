@@ -624,7 +624,8 @@ enum PageImages {
 
   static func load(_ src: String) async -> UIImage? {
     #if DEBUG
-    // UI tests read no network.
+    // UI tests read no network; their screenshots (`-fixed-pictures`) show a stand-in where each photo goes.
+    if ProcessInfo.processInfo.arguments.contains("-fixed-pictures") { return fixedPicture(src) }
     if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return nil }
     #endif
     if let data = kept.data(src) { return UIImage(data: data) }
@@ -645,6 +646,24 @@ enum PageImages {
     guard let u = URL(string: src), let (data, r) = try? await session.data(from: u), (r as? HTTPURLResponse)?.statusCode == 200 else { return false }
     return kept.save(data, for: src)
   }
+
+  #if DEBUG
+  /// A photo's stand-in in screenshots: water colours with a few soft lights, picked by its address, the same each run.
+  static func fixedPicture(_ src: String) -> UIImage {
+    let seed = src.unicodeScalars.reduce(UInt32(2166136261)) { ($0 ^ $1.value) &* 16777619 }
+    let hue = 0.45 + CGFloat(seed % 100) / 500
+    return UIGraphicsImageRenderer(size: CGSize(width: 600, height: 400)).image { c in
+      let colors = [UIColor(hue: hue, saturation: 0.7, brightness: 0.6, alpha: 1), UIColor(hue: hue + 0.05, saturation: 0.8, brightness: 0.2, alpha: 1)]
+      let gradient = CGGradient(colorsSpace: nil, colors: colors.map(\.cgColor) as CFArray, locations: nil)!
+      c.cgContext.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: 0, y: 400), options: [])
+      UIColor(white: 1, alpha: 0.12).setFill()
+      for i in 0..<6 {
+        let x = CGFloat(seed >> (i * 5) % 600), y = CGFloat(seed >> (i * 3) % 400), r = CGFloat(20 + seed >> i % 50)
+        c.cgContext.fillEllipse(in: CGRect(x: x - r, y: y - r, width: 2 * r, height: 2 * r))
+      }
+    }
+  }
+  #endif
 
   /// Off the phone: a page no longer kept for offline.
   static func forget(_ src: String) {
