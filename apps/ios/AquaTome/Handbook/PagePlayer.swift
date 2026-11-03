@@ -7,7 +7,8 @@ import WebKit
 /// site plays them), not in the YouTube app. Nothing from YouTube loads before the reader presses play: until then a
 /// video is its thumbnail. One plays at a time: another pressed stops the first. A chapter or a still seeks the page's
 /// player to its time, starting it there if it isn't loaded yet. Full screen moves the same web view into a cover, so
-/// the video plays on without loading again; closed, it goes back to its place on the page.
+/// the video plays on without loading again; closed, it goes back to its place on the page. Only a video id as YouTube
+/// gives them plays here (`PageDoc.isYouTubeId`); any other opens on YouTube, as every video did before.
 @MainActor @Observable
 final class PagePlayer {
   /// The video loaded now, and the web view playing it.
@@ -15,43 +16,62 @@ final class PagePlayer {
   private(set) var web: WKWebView?
   /// Its player answered: until then its thumbnail stays, with a spinner.
   private(set) var ready = false
-  /// The video that couldn't load (offline, or YouTube's script blocked): its thumbnail again, with a note.
+  /// The video that couldn't load (offline, YouTube's script blocked, or its player never came up): its thumbnail
+  /// again, with a note, to try again.
   private(set) var failed: String?
   var full = false
   /// Counts the times a chapter or a still asked for the video, for the page to bring it into view.
   private(set) var asked = 0
+  /// A time asked for before the player was ready (a chapter tapped as it loads, its page perhaps not there yet): sought
+  /// once it is.
+  @ObservationIgnored private var wanted: Int?
+  /// The web view's delegate, which the web view doesn't keep.
+  @ObservationIgnored private var watcher: Watcher?
+
+  /// How long YouTube's player may take to come up, on slow mobile data too, before its thumbnail comes back.
+  static let patience = Duration.seconds(30)
 
   /// Pressed play: the video from `t` (seconds); the one loaded already, seeked there.
   func play(_ id: String, at t: Int, lang: String, site: URL) {
+    guard PageDoc.isYouTubeId(id) else { return }
     failed = nil
     if self.id == id, let web {
-      web.evaluateJavaScript("seek(\(t))")
+      if ready { web.evaluateJavaScript("seek(\(t))") } else { wanted = t }
       return
     }
     // The video playing before stops with its web view.
-    web?.removeFromSuperview()
+    drop()
+    let watcher = Watcher(self, page: site)
     let config = WKWebViewConfiguration()
     config.allowsInlineMediaPlayback = true
     // The reader's tap was on the thumbnail, in the app: the player starts without another in the page.
     config.mediaTypesRequiringUserActionForPlayback = []
     // Nothing YouTube stores outlives the page.
     config.websiteDataStore = .nonPersistent()
-    config.userContentController.add(Messages(self), name: "player")
+    config.userContentController.add(watcher, name: "player")
     let web = WKWebView(frame: .zero, configuration: config)
+    web.navigationDelegate = watcher
+    web.uiDelegate = watcher
     web.isOpaque = false
     web.backgroundColor = .clear
     web.scrollView.isScrollEnabled = false
     web.scrollView.showsVerticalScrollIndicator = false
     web.scrollView.showsHorizontalScrollIndicator = false
     web.scrollView.contentInsetAdjustmentBehavior = .never
-    (self.id, self.web, ready) = (id, web, false)
-    var api = #"<script src="https://www.youtube.com/iframe_api" onerror="tell('failed')"></script>"#
-    #if DEBUG
-    // UI tests read no network: a stand-in for YouTube's script, which shows what the page asked of it.
-    if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { api = Self.standIn }
-    #endif
-    // At the site's address, as the site embeds the video: YouTube's player wants to know which page it's on.
-    web.loadHTMLString(Self.page(id, at: t, lang: lang, api: api), baseURL: site)
+    (self.id, self.web, self.watcher) = (id, web, watcher)
+    let test = Self.standIn
+    let html = Self.page(id, at: t, lang: lang, api: test?.api ?? #"<script src="https://www.youtube.com/iframe_api" onerror="tell('failed')"></script>"#)
+    let (late, patience) = (test?.late ?? .zero, test?.patience ?? Self.patience)
+    Task { [weak self, weak web] in
+      if late > .zero { try? await Task.sleep(for: late) }
+      guard let web, self?.web === web else { return }
+      // At the site's address, as the site embeds the video: YouTube's player wants to know which page it's on.
+      web.loadHTMLString(html, baseURL: site)
+      // YouTube's script came but its player never did: the thumbnail again, to try again.
+      try? await Task.sleep(for: patience)
+      guard let self, self.web === web, !self.ready else { return }
+      self.drop(failed: true)
+    }
   }
 
   /// A chapter or a still tapped: the video at its time, brought into view.
@@ -60,25 +80,42 @@ final class PagePlayer {
     asked += 1
   }
 
-  /// Its place on the page went away (another page on top, another tab): paused, but not for full screen.
+  /// Its place on the page went away (another page on top, another tab): paused, but not for full screen. Not ready
+  /// yet, there's nothing to pause, and it would start once ready, off the screen: its thumbnail again instead.
   func leave(_ id: String) {
     guard self.id == id, !full else { return }
-    web?.evaluateJavaScript("pause()")
+    if ready { web?.evaluateJavaScript("pause()") } else { drop() }
+  }
+
+  /// No player: its thumbnail again, with the note when it failed.
+  private func drop(failed note: Bool = false) {
+    web?.removeFromSuperview()
+    failed = note ? id : nil
+    (id, web, watcher, ready, wanted, full) = (nil, nil, nil, false, nil, false)
   }
 
   fileprivate func heard(_ message: String, from web: WKWebView) {
     guard web === self.web else { return }
     switch message {
-    case "ready": ready = true
-    case "failed":
-      web.removeFromSuperview()
-      (failed, self.id, self.web, full) = (id, nil, nil, false)
+    case "ready":
+      ready = true
+      if let t = wanted { web.evaluateJavaScript("seek(\(t))") }
+      wanted = nil
+    case "failed": drop(failed: true)
     default: break
     }
   }
 
-  /// A chapter's or a still's link, which the page's `open` hands to the player.
+  /// iOS ended the web view's process (the app in the background a while, short of memory): the player is gone with
+  /// it. Its thumbnail again, without the note (it's not the network); not loaded again, which would play from the start.
+  fileprivate func ended(_ web: WKWebView) {
+    if web === self.web { drop() }
+  }
+
+  /// A chapter's or a still's link, which the page's `open` hands to the player; a video that can't play here, on
+  /// YouTube.
   static func link(_ id: String, at t: Int) -> URL {
+    guard PageDoc.isYouTubeId(id) else { return youtube(id, at: t) }
     var c = URLComponents()
     c.scheme = "page-video"
     c.path = id
@@ -98,7 +135,8 @@ final class PagePlayer {
   /// The player's page, as the site's (components/VideoPlayer.astro): YouTube's player from youtube-nocookie.com,
   /// playing at once, inline, from `t`, with no other channels' videos at the end, captions on in the page's language
   /// (YouTube's translation of the original track when the video has none in it) and YouTube's own words in it too.
-  /// `api` loads YouTube's script, which calls `onYouTubeIframeAPIReady`.
+  /// `api` loads YouTube's script, which calls `onYouTubeIframeAPIReady`. The app calls `seek` and `pause` only once
+  /// the page has said it's ready.
   private static func page(_ id: String, at t: Int, lang: String, api: String) -> String {
     """
     <!doctype html><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -107,7 +145,7 @@ final class PagePlayer {
     <script>
     const lang = \(js(lang)), names = {vi: 'Tiếng Việt', id: 'Bahasa Indonesia', th: 'ภาษาไทย'}
     const tell = m => webkit.messageHandlers.player.postMessage(m)
-    let player, ready = false, wanted = null
+    let player
     function captions(p) {
       const list = p.getOption('captions', 'tracklist') ?? []
       if (list.some(t => t.languageCode === lang)) return p.setOption('captions', 'track', {languageCode: lang})
@@ -120,7 +158,7 @@ final class PagePlayer {
         host: 'https://www.youtube-nocookie.com', videoId: \(js(id)), width: '100%', height: '100%',
         playerVars: {autoplay: 1, start: \(t), rel: 0, playsinline: 1, cc_load_policy: 1, cc_lang_pref: lang, hl: lang},
         events: {
-          onReady: e => { ready = true; if (wanted !== null) e.target.seekTo(wanted, true); e.target.playVideo(); tell('ready') },
+          onReady: e => { e.target.playVideo(); tell('ready') },
           onStateChange: e => {
             if (e.data !== YT.PlayerState.PLAYING || captioned) return
             captioned = true
@@ -129,57 +167,107 @@ final class PagePlayer {
         },
       })
     }
-    // A chapter tapped before the player is ready: there once it is.
-    function seek(t) { if (ready) { player.seekTo(t, true); player.playVideo() } else wanted = t }
-    function pause() { if (ready) player.pauseVideo() }
+    function seek(t) { player.seekTo(t, true); player.playVideo() }
+    function pause() { player.pauseVideo() }
     </script>
     \(api)
     """
   }
 
   #if DEBUG
-  /// UI tests' YouTube (`-fixed-handbook`): a player that shows what it was asked, a line each, for a test to read: the
-  /// video, from when, the captions' language and the player's host, then each seek and pause.
-  private static let standIn = """
-    <script>
-    document.body.style.cssText = 'background:#000;color:#fff;font:15px -apple-system;padding:4px 8px'
-    const line = s => document.body.append(Object.assign(document.createElement('p'), {textContent: s}))
-    window.YT = {PlayerState: {PLAYING: 1}, Player: function (el, o) {
-      line(`video ${o.videoId} from ${o.playerVars.start} · ${o.playerVars.cc_lang_pref} · ${o.host}`)
-      Object.assign(this, {seekTo: t => line(`seek ${t}`), playVideo() {}, pauseVideo: () => line('paused'), getOption: () => [], setOption() {}})
-      setTimeout(() => o.events.onReady({target: this}))
-    }}
-    onYouTubeIframeAPIReady()
-    </script>
-    """
+  /// UI tests' YouTube (`-fixed-handbook`): a player that shows what it was asked, a line each, for a test to read (the
+  /// video, from when, the captions' language and the player's host, then each play, seek and pause), and a link out of
+  /// it, as YouTube's title is. `-slow-player`: its page comes 5 s late (as a web view's first start can be slow) and
+  /// its player 2 s after that, so a test can act before it's ready. `-silent-player`: its player never comes up, and
+  /// the time limit is 3 s, not 30.
+  private static var standIn: (api: String, late: Duration, patience: Duration)? {
+    let args = ProcessInfo.processInfo.arguments
+    guard args.contains("-fixed-handbook") else { return nil }
+    let slow = args.contains("-slow-player"), silent = args.contains("-silent-player")
+    let api = """
+      <script>
+      document.body.style.cssText = 'background:#000;color:#fff;font:13px -apple-system'
+      let box
+      const line = s => box.append(Object.assign(document.createElement('p'), {textContent: s, style: 'margin:2px 0'}))
+      window.YT = {PlayerState: {PLAYING: 1}, Player: function (el, o) {
+        // Where YouTube's player goes, as its iframe does.
+        box = document.getElementById(el)
+        box.style.padding = '4px 8px'
+        line(`video ${o.videoId} from ${o.playerVars.start} · ${o.playerVars.cc_lang_pref} · ${o.host}`)
+        box.append(Object.assign(document.createElement('a'), {href: 'about:blank', textContent: 'YouTube', style: 'color:#fff'}))
+        Object.assign(this, {seekTo: t => line(`seek ${t}`), playVideo: () => line('play'), pauseVideo: () => line('paused'), getOption: () => [], setOption() {}})
+        if (\(!silent)) setTimeout(() => o.events.onReady({target: this}), \(slow ? 2000 : 0))
+      }}
+      onYouTubeIframeAPIReady()
+      </script>
+      """
+    return (api, slow ? .seconds(5) : .zero, silent ? .seconds(3) : patience)
+  }
+  #else
+  private static let standIn: (api: String, late: Duration, patience: Duration)? = nil
   #endif
 }
 
 /// A string as a JavaScript string literal.
 private func js(_ s: String) -> String { (try? JSONEncoder().encode(s)).flatMap { String(data: $0, encoding: .utf8) } ?? "''" }
 
-/// A video on YouTube, from a moment (`at`, seconds): each player's credit, and a still of a video its page doesn't show.
-func youtube(_ id: String, at: Int) -> URL { URL(string: "https://www.youtube.com/watch?v=\(id)" + (at > 0 ? "&t=\(at)s" : ""))! }
+/// A video on YouTube, from a moment (`at`, seconds): each player's credit, and a video that can't play in the page.
+func youtube(_ id: String, at: Int) -> URL {
+  var c = URLComponents(string: "https://www.youtube.com/watch")!
+  c.queryItems = [.init(name: "v", value: id)] + (at > 0 ? [.init(name: "t", value: "\(at)s")] : [])
+  return c.url!
+}
 
-/// The player's messages, passed on without keeping it alive (the web view's configuration keeps its handlers).
-private final class Messages: NSObject, WKScriptMessageHandler {
+/// The player's web view's delegate, telling the player without keeping it alive (the web view's configuration keeps
+/// its message handlers): its messages, its links, its process.
+@MainActor
+private final class Watcher: NSObject, WKScriptMessageHandler, WKNavigationDelegate, WKUIDelegate {
   weak var player: PagePlayer?
-  init(_ player: PagePlayer) { self.player = player }
+  /// The player's page's address (the site's): its own load.
+  let page: URL
+
+  init(_ player: PagePlayer, page: URL) {
+    self.player = player
+    self.page = page
+  }
+
   func userContentController(_ content: WKUserContentController, didReceive message: WKScriptMessage) {
     guard let web = message.webView, let text = message.body as? String else { return }
     player?.heard(text, from: web)
   }
+
+  /// The player's page and whatever loads inside YouTube's frame stay; anything else that would take the page's place
+  /// (a link out of YouTube's player) opens outside the app.
+  func webView(_ web: WKWebView, decidePolicyFor action: WKNavigationAction) async -> WKNavigationActionPolicy {
+    guard let u = action.request.url else { return .cancel }
+    if action.targetFrame?.isMainFrame == false || (action.navigationType == .other && u.scheme == page.scheme && u.host() == page.host()) {
+      return .allow
+    }
+    if ["http", "https"].contains(u.scheme) { await UIApplication.shared.open(u) }
+    return .cancel
+  }
+
+  /// A link YouTube opens in a new window (its title, its logo, "Watch on YouTube" for a video that can't be embedded):
+  /// outside the app, no window here.
+  func webView(_ web: WKWebView, createWebViewWith config: WKWebViewConfiguration, for action: WKNavigationAction,
+               windowFeatures: WKWindowFeatures) -> WKWebView? {
+    if let u = action.request.url, ["http", "https"].contains(u.scheme) { UIApplication.shared.open(u) }
+    return nil
+  }
+
+  func webViewWebContentProcessDidTerminate(_ web: WKWebView) { player?.ended(web) }
 }
 
 /// A video where the page puts it: its thumbnail until the reader presses play, then YouTube's player in its place, the
 /// same size. Under it the way to YouTube (the video's credit, as the site's "Video gốc") and, once it plays, full
-/// screen; then its caption, whose chapters seek it.
+/// screen; then its caption, whose chapters seek it. A video id the player won't take: its thumbnail opens YouTube.
 struct VideoSlot: View {
   let id: String
   let title: String
   let caption: AttributedString
   @Environment(PagePlayer.self) private var player
   @Environment(HandbookModel.self) private var handbook
+  @Environment(\.openURL) private var openURL
 
   var body: some View {
     let web = player.id == id ? player.web : nil
@@ -187,7 +275,9 @@ struct VideoSlot: View {
       ZStack {
         if let web { PlayerHost(web: web, holds: !player.full, label: String(localized: "Video: \(title)"), name: "video-player") }
         if web == nil || !player.ready {
-          Button { player.play(id, at: 0, lang: handbook.lang, site: handbook.site) } label: {
+          Button {
+            if PageDoc.isYouTubeId(id) { player.play(id, at: 0, lang: handbook.lang, site: handbook.site) } else { openURL(youtube(id, at: 0)) }
+          } label: {
             PageImage(src: PageDoc.thumbnail(id), ratio: 16 / 9, corner: 0)
               .overlay {
                 if web == nil {

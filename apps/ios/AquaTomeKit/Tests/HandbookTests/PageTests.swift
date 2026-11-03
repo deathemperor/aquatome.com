@@ -360,3 +360,15 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   #expect(KeepPlan.of(online: true, expensive: false, constrained: false, freeBytes: nil) == .go, "room unknown")
   #expect(KeepPlan.of(online: false, expensive: false, constrained: false, freeBytes: room) == .offline)
 }
+
+@Test func onlyAVideoIdAsYouTubeGivesThemPlaysInThePage() {
+  #expect(PageDoc.isYouTubeId("oHh1FU_k1jo"))
+  #expect(PageDoc.isYouTubeId("abc123XYZ_-"))
+  #expect(!PageDoc.isYouTubeId("neonVid_01"), "10 characters")
+  #expect(!PageDoc.isYouTubeId("oHh1FU_k1jo1"), "12 characters")
+  #expect(!PageDoc.isYouTubeId("//h1FU_k1jo"), "no link can be made of it")
+  #expect(!PageDoc.isYouTubeId("<!--<script"), "markup in the player's page")
+  #expect(!PageDoc.isYouTubeId("oHh1FU k1jo"), "a space")
+  #expect(!PageDoc.isYouTubeId("oHh1FU_k1j\u{00F3}"), "a letter outside A–Z")
+  #expect(!PageDoc.isYouTubeId(""))
+}

@@ -257,9 +257,10 @@ struct NativePage: View {
       var cap = styled("\(v.title) · \(v.channel) · \(clock(v.durationSec))")
       if let s = v.subtitles { cap += styled("\n" + s, .caption.bold()) }
       for ch in v.chapters ?? [] {
-        var line = AttributedString("\n\(clock(ch.at))  \(ch.title)")
+        // The link its line alone, not the line break before it: tapped and read where it shows.
+        var line = AttributedString("\(clock(ch.at))  \(ch.title)")
         line.link = PagePlayer.link(v.youtubeId, at: ch.at)
-        cap += line
+        cap += AttributedString("\n") + line
       }
       out.append(.video(id: v.youtubeId, title: v.title, caption: cap))
     }

@@ -36,7 +36,9 @@ aquatome.com; `-real-accounts` tries the real server from the simulator.
 Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`PlugsModel.forSimulator`;
 `-seed-tuya-keys` starts with its keys entered), so no test reaches Tuya; `-real-tuya` tries Tuya itself.
 And for the handbook: `-fixed-handbook` gives a small fixed index and guide pages (`HandbookIndex.fixture`), and each of
-the site's web pages opens as a stand-in page naming its path (`WebPage.standIn`), so no test reaches aquatome.com.
+the site's web pages opens as a stand-in page naming its path (`WebPage.standIn`), so no test reaches aquatome.com. A
+video's player gets a stand-in for YouTube's script that shows what the page asked of it (`PagePlayer.standIn`;
+`-slow-player` makes it late, `-silent-player` never ready), so no test reaches YouTube.
 
 ## The app
 

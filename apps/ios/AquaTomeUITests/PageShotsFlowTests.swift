@@ -2,9 +2,10 @@ import XCTest
 
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
-/// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size. Each checks
-/// only that its screen opened: what it shows, the other flows check.
+/// and a guide, in light and in dark, the fish's top at a large text size, and a guide's video playing in its page (the
+/// stand-in player); photos as stand-ins (`-fixed-pictures`). And a search's results under the kinds it finds, light and
+/// dark, at the default and the largest text size. Each checks only that its screen opened: what it shows, the other flows
+/// check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -20,8 +21,17 @@ final class PageShotsFlowTests: XCTestCase {
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
 
-  /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
-  private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12) {
+  func testAVideoPlaying() {
+    shoot("video-playing", "han che reu", "Cách hạn chế rêu hại") { app in
+      app.buttons["Phát video: Hạn chế rêu hại"].tap()
+      XCTAssertTrue(app.webViews.staticTexts["play"].waitForExistence(timeout: 15), "no player")
+    }
+  }
+
+  /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end;
+  /// `then`, what's done on it first.
+  private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12,
+                     then: (XCUIApplication) -> Void = { _ in }) {
     let app = launch(dark: dark, size: large ? "UICTContentSizeCategoryAccessibilityL" : nil)
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
@@ -31,6 +41,7 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(row)")
     item.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
+    then(app)
     var seen: [[UInt8]] = []
     var ended = false
     for n in 1...screens {
