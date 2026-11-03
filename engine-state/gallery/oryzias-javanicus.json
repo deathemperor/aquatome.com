@@ -2,10 +2,34 @@
  "queue": [],
  "judged": [
   "File:Oryzias javanicus 2.jpg",
-  "File:Oryzias javanicus 3.jpg"
+  "File:Oryzias javanicus 3.jpg",
+  "inat:277794138",
+  "inat:277794072",
+  "inat:277794102",
+  "inat:313765283",
+  "inat:330417115",
+  "inat:330417141",
+  "inat:330417127",
+  "inat:363093154",
+  "inat:363093165",
+  "inat:363093175",
+  "inat:468517468",
+  "inat:470816791"
  ],
  "hashes": {
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Oryzias_javanicus_3.jpg/1280px-Oryzias_javanicus_3.jpg": "ec4cccecfc0800fe"
+  "https://media.aquatome.com/commons/b141c258130b27c5.webp": "684d8cfcfc00e0fc",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/277794138/large.jpeg": "35999c4dcf4451e6",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/330417115/large.jpeg": "cde7b1b2b4eafbc5",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/363093154/large.jpg": "0100000001000000",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/470816791/large.jpg": "6d33a9b432a77062"
  },
- "commons": "2026-11-03"
+ "commons": "2026-11-03",
+ "inat": {
+  "taxon": 607860,
+  "pass": "done",
+  "after": {
+   "research": 262020633,
+   "agree": 144905081
+  }
+ }
 }

@@ -14,6 +14,18 @@
       "kind": "juvenile"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/563557335.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/563557335-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Donald Davesne",
+      "sourceUrl": "https://www.inaturalist.org/photos/563557335",
+      "caption": "Cá leporinus ba chấm bơi trên đáy sỏi trong nước trong",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/66b6c6d8e328b08f.webp",
       "thumb": "https://media.aquatome.com/commons/66b6c6d8e328b08f-480.webp",
       "width": 1200,
@@ -24,9 +36,33 @@
       "caption": "Cá leporinus ba chấm bơi trong bể kính lớn",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/632862901.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/632862901-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nicola Crockford",
+      "sourceUrl": "https://www.inaturalist.org/photos/632862901",
+      "caption": "Cá leporinus ba chấm giữa cây thủy sinh trong tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/651015101.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/651015101-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nicola Crockford",
+      "sourceUrl": "https://www.inaturalist.org/photos/651015101",
+      "caption": "Cá leporinus ba chấm vàng với các đốm đen, nhìn gần",
+      "best": true,
+      "kind": "habitat"
     }
   ],
-  "seen": 12,
-  "updatedAt": "2026-11-02",
-  "builtAt": "2026-11-02"
+  "seen": 23,
+  "updatedAt": "2026-11-03",
+  "builtAt": "2026-11-03"
 }

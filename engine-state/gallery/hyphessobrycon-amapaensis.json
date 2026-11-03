@@ -6,7 +6,15 @@
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/d983d0f1fe65e08a.webp": "992dc61e1b1b39fd",
   "https://media.aquatome.com/seriouslyfish/724df160a6123ec0.webp": "9a2e3ff7d3da4e4f",
-  "https://upload.wikimedia.org/wikipedia/commons/5/5c/Hyphessobrycon_amapaenis.jpg": "3c0c864761342468"
+  "https://media.aquatome.com/commons/13f62a01c97b2691.webp": "340c8653616c2428"
  },
- "commons": "2026-11-03"
+ "commons": "2026-11-03",
+ "inat": {
+  "taxon": 610626,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

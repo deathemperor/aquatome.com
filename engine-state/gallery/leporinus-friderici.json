@@ -12,14 +12,36 @@
   "File:Leporinus friderici 58731424.jpg",
   "File:Leporinus friderici 60892985.jpg",
   "File:Leporinus friderici 41535351.jpg",
-  "File:Leporinus friderici 325924873.jpg"
+  "File:Leporinus friderici 325924873.jpg",
+  "inat:41535351",
+  "inat:58731424",
+  "inat:60892985",
+  "inat:325924873",
+  "inat:455175163",
+  "inat:563557335",
+  "inat:566734833",
+  "inat:566734838",
+  "inat:632862901",
+  "inat:651015101",
+  "inat:743992418"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/a69e6a8ce812dd37.webp": "1932379f1f4f0d07",
   "https://media.aquatome.com/seriouslyfish/3daa1ca4a24e844a.webp": "10b3e6b0a0c1f000",
   "https://media.aquatome.com/seriouslyfish/e096141fc9e4111e.webp": "96f39c960698d0f0",
   "https://media.aquatome.com/commons/0b20737f3323627c.webp": "ffffe1e1f9b68204",
-  "https://media.aquatome.com/commons/66b6c6d8e328b08f.webp": "0f1e4f0f530d1adc"
+  "https://media.aquatome.com/commons/66b6c6d8e328b08f.webp": "0f1e4f0f530d1adc",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/563557335/large.jpg": "333126b9f1c1d0c8",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/632862901/large.jpg": "232ca0e856276a24",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/651015101/large.jpg": "7deadbf1677171a2"
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "inat": {
+  "taxon": 608134,
+  "pass": "done",
+  "after": {
+   "research": 405083141,
+   "agree": 356967911
+  }
+ }
 }

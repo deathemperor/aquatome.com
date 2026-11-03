@@ -3,7 +3,11 @@
  "judged": [
   "File:Labeo chrysophekadion.jpg",
   "File:Labeo chrysophekadion Bleeker.jpg",
-  "File:Black Sharkminnow (Labeo chrysophekadion) (8683050709).jpg"
+  "File:Black Sharkminnow (Labeo chrysophekadion) (8683050709).jpg",
+  "inat:257275827",
+  "inat:257275815",
+  "inat:330904351",
+  "inat:446241890"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/2c53f8f15cd6dede.webp": "084d0c3d7b1d0e0a",
@@ -11,5 +15,13 @@
   "https://media.aquatome.com/seriouslyfish/be9601f55b3ff8a3.webp": "3f2b4b47ce9c968a",
   "https://media.aquatome.com/seriouslyfish/154cfcf63af0867d.webp": "0c0c0d3d3f3c0a08"
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "inat": {
+  "taxon": 187591,
+  "pass": "done",
+  "after": {
+   "research": 249612623,
+   "agree": 406630547
+  }
+ }
 }

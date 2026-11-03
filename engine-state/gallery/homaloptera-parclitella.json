@@ -1,14 +1,26 @@
 {
  "queue": [],
  "judged": [
-  "File:Homaloptera parclitella.jpg"
+  "File:Homaloptera parclitella.jpg",
+  "inat:154549834",
+  "inat:154549847"
  ],
  "hashes": {
   "https://media.aquatome.com/glaser/76b373d0ef000900.webp": "f1f377668e18c3c6",
   "https://media.aquatome.com/seriouslyfish/0cde1529d439626e.webp": "62e4ce5716579c88",
   "https://media.aquatome.com/seriouslyfish/a25224d8940f9679.webp": "5d5c524765236852",
   "https://media.aquatome.com/seriouslyfish/4a9515508ac51588.webp": "a830c870705c7e4e",
-  "https://media.aquatome.com/commons/4d246666636493dd.webp": "7f7f7fb3b4b506bd"
+  "https://media.aquatome.com/commons/4d246666636493dd.webp": "7f7f7fb3b4b506bd",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/154549834/large.jpg": "7fff8f33b4b416bd",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/154549847/large.jpg": "68020534fc9515b4"
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "inat": {
+  "taxon": 187541,
+  "pass": "done",
+  "after": {
+   "research": 93263850,
+   "agree": 0
+  }
+ }
 }

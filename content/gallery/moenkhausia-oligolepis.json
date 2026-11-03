@@ -2,6 +2,18 @@
   "id": "moenkhausia-oligolepis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/11831777.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/11831777-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/11831777",
+      "caption": "Đàn cá tetra thủy tinh bơi trong môi trường tự nhiên",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/71084a5c8fadf2f3.webp",
       "thumb": "https://media.aquatome.com/commons/71084a5c8fadf2f3-480.webp",
       "width": 1200,
@@ -14,7 +26,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 5,
-  "updatedAt": "2026-11-02",
-  "builtAt": "2026-11-02"
+  "seen": 21,
+  "updatedAt": "2026-11-03",
+  "builtAt": "2026-11-03"
 }

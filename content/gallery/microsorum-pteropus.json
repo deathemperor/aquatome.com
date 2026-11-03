@@ -86,6 +86,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/flickr/3087685284.webp",
+      "thumb": "https://media.aquatome.com/flickr/3087685284-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY 2.0",
+      "author": "ictheostega",
+      "sourceUrl": "https://www.flickr.com/photos/31539658@N05/3087685284",
+      "caption": "Dương xỉ Java bám trên lũa trong bể thủy sinh",
+      "best": true,
+      "kind": "submersed"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/363134008.webp",
       "thumb": "https://media.aquatome.com/inaturalist/363134008-480.webp",
       "width": 1024,
@@ -386,7 +398,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 74,
-  "updatedAt": "2026-11-01",
-  "builtAt": "2026-11-01"
+  "seen": 77,
+  "updatedAt": "2026-11-03",
+  "builtAt": "2026-11-03"
 }

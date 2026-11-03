@@ -1,7 +1,56 @@
 {
   "id": "oryzias-dancena",
-  "photos": [],
-  "seen": 1,
-  "updatedAt": "2026-11-02",
-  "builtAt": "2026-11-02"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/304682978.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/304682978-480.webp",
+      "width": 1024,
+      "height": 1023,
+      "licence": "CC BY",
+      "author": "Paulmathi Vinod",
+      "sourceUrl": "https://www.inaturalist.org/photos/304682978",
+      "caption": "Nhóm cá lúa Ấn Độ bơi trong bể thủy sinh",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/420679416.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/420679416-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Ramesh Shenai",
+      "sourceUrl": "https://www.inaturalist.org/photos/420679416",
+      "caption": "Đàn cá lúa Ấn Độ nhỏ trong vùng nước nông tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/599969768.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/599969768-480.webp",
+      "width": 1024,
+      "height": 695,
+      "licence": "CC BY",
+      "author": "Ronith Urs",
+      "sourceUrl": "https://www.inaturalist.org/photos/599969768",
+      "caption": "Cá lúa Ấn Độ trong bể kính, nhìn nghiêng",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/250977958.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/250977958-480.webp",
+      "width": 1024,
+      "height": 526,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/250977958",
+      "caption": "Cá lúa Ấn Độ cái trong bể, nhìn nghiêng",
+      "best": false,
+      "kind": "female"
+    }
+  ],
+  "seen": 13,
+  "updatedAt": "2026-11-03",
+  "builtAt": "2026-11-03"
 }

@@ -7,18 +7,29 @@
   "File:Tierpark Hellabrunn 006.jpg",
   "File:Tierpark Hellabrunn 007.jpg",
   "File:Tierpark Hellabrunn 008.jpg",
-  "File:Tierpark Hellabrunn 009.jpg"
+  "File:Tierpark Hellabrunn 009.jpg",
+  "inat:371600190",
+  "inat:371600200"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/082fba088934e0a6.webp": "62315c474b419a5b",
   "https://media.aquatome.com/commons/96ad6deb60e9d3a7.webp": "f8b8eaf8f8f3f6f6",
   "https://media.aquatome.com/commons/5f31b4c45af13577.webp": "fef6c7b9fcf8e16b",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Giant_red_tail_gourami_%28Osphronemus_laticlavius%29.jpg/1280px-Giant_red_tail_gourami_%28Osphronemus_laticlavius%29.jpg": "47313890c1c16020",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Osphronemus_laticlavius.jpg/1280px-Osphronemus_laticlavius.jpg": "1b0f4759dd7f5b02",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Tierpark_Hellabrunn_006.jpg/1280px-Tierpark_Hellabrunn_006.jpg": "01434f0e864f37a6",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Tierpark_Hellabrunn_007.jpg/1280px-Tierpark_Hellabrunn_007.jpg": "0d0e264f67464d9f",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Tierpark_Hellabrunn_008.jpg/1280px-Tierpark_Hellabrunn_008.jpg": "0d0613b1aece7c42",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Tierpark_Hellabrunn_009.jpg/1280px-Tierpark_Hellabrunn_009.jpg": "9fb79f0e2eadc96b"
+  "https://media.aquatome.com/commons/d60c4207a9a541ad.webp": "1b0f474ddd7f5b26",
+  "https://media.aquatome.com/commons/eb72d93a287f310c.webp": "0343170ec64f37a6",
+  "https://media.aquatome.com/commons/ba8d207d708aca64.webp": "0d0613b18fcc7e42",
+  "https://media.aquatome.com/commons/80f37121133baf2e.webp": "0d0e460e674e4d9f",
+  "https://media.aquatome.com/commons/f27b1295f7044218.webp": "47713890c1c16020",
+  "https://media.aquatome.com/commons/c5ff8ff2d2c78db1.webp": "9f9f9f0eaeade96b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/371600200/large.jpg": "63f4584c6e368fec"
  },
- "commons": "2026-11-03"
+ "commons": "2026-11-03",
+ "inat": {
+  "taxon": 618898,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 210049465
+  }
+ }
 }

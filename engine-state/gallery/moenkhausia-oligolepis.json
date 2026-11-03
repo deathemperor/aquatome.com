@@ -5,13 +5,38 @@
   "File:Stream fish from recently deforested basins in the Meridional Amazon.jpg",
   "File:Moenkhausia oligolepis specimens 3.jpg",
   "File:Stream fish from Araguaia and Rio da Mortes basin.png",
-  "File:Moenkhausia oligolepis 11831765.jpg"
+  "File:Moenkhausia oligolepis 11831765.jpg",
+  "inat:11831777",
+  "inat:11831765",
+  "inat:18549966",
+  "inat:18550002",
+  "inat:18550007",
+  "inat:188918748",
+  "inat:242761917",
+  "inat:242761925",
+  "inat:242762076",
+  "inat:602806688",
+  "inat:602806744",
+  "inat:602806667",
+  "inat:603251970",
+  "inat:603251963",
+  "inat:603251956",
+  "inat:749447543"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/6f8de1ac4e713448.webp": "191262d0e0e23b5e",
   "https://media.aquatome.com/commons/b0f832d8dcd1777e.webp": "8c9d8d8e4e676304",
   "https://media.aquatome.com/commons/af7aea8d64bdff10.webp": "cc9c566762732340",
-  "https://media.aquatome.com/commons/71084a5c8fadf2f3.webp": "ffff8f1f1f1f3f3f"
+  "https://media.aquatome.com/commons/71084a5c8fadf2f3.webp": "ffff8f1f1f1f3f3f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/11831777/large.jpg": "131b71731fbfff7f"
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "inat": {
+  "taxon": 1580602,
+  "pass": "done",
+  "after": {
+   "research": 407788917,
+   "agree": 386138986
+  }
+ }
 }

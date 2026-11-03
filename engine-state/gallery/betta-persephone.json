@@ -6,7 +6,6 @@
  ],
  "hashes": {
   "https://media.aquatome.com/bwaquatics/6ce8d9d422981dd9.webp": "254308183e2c0fff",
-  "https://media.aquatome.com/commons/eae3a49459290e2b.webp": "792b07030358e01a",
   "https://media.aquatome.com/inaturalist/251431809.webp": "400a0714e0e23b0b"
  },
  "inat": {
@@ -17,5 +16,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "gbif": {
+  "key": 2394050,
+  "next": null
+ }
 }

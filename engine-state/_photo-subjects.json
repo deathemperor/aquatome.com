@@ -11897,6 +11897,11 @@
       "ok": "unsure",
       "typical": false,
       "note": "small red-brown betta with blue-green fins, coccina-group look; blurry top-down tank shot, can't confirm miniopinna vs o"
+    },
+    "betta-persephone": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "two dark maroon-brown small bettas with dark bluish fins, could be coccina-group like persephone; blurry view through a "
     }
   },
   "https://media.aquatome.com/inaturalist/25146997.webp": {
@@ -18276,6 +18281,12 @@
       "ok": "unsure",
       "typical": false,
       "note": "pale golden fish with faint stripes; possibly golden zebra danio but can't confirm"
+    },
+    "danio-albolineatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "matches its caption: pale, pearly pearl danio near plants; faded colours",
+      "guide": true
     }
   },
   "https://media.aquatome.com/sprucepets/4f99b8d126153251.webp": {
@@ -19286,6 +19297,943 @@
       "ok": "yes",
       "typical": false,
       "note": "Asian arowana, gold/red-tail colour form, side view in a dark bare tank with light from above; a little floating leaf at",
+      "guide": true
+    }
+  },
+  "https://images.unsplash.com/photo-1576469156683-912fcb231955?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTl8fFNpYW1lc2UlMjB0aWdlcmZpc2h8ZW58MXx8fHwxNzkzNjgyNTYwfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
+    "datnioides-pulcher": {
+      "ok": "other",
+      "typical": false,
+      "note": "not Datnioides: narrow red-orange oblique bands on silver, small pointed snout; probably a marine banded perch-like fish"
+    }
+  },
+  "https://images.unsplash.com/photo-1775145885932-1e2bff3643ad?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fFNpYW1lc2UlMjB0aWdlcmZpc2h8ZW58MXx8fHwxNzkzNjgyNTYwfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
+    "datnioides-pulcher": {
+      "ok": "other",
+      "typical": false,
+      "note": "old wife (Enoplosus armatus), marine; tall split dorsal fin, black-and-white bands; pineapplefish below"
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/664e9ab65339c046.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "three-line cory on gravel, others blurred behind",
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/8eab5ff4404cfb8f.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "pale, washed-out three-line (leopard) cory on dark soil substrate",
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/f896e74d34316d89.webp": {
+    "brochis-multiradiatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Adult Brochis in aquarium, side view, matches caption; others blurred behind",
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/commons/0292910e674aae08.webp": {
+    "cleithracara-maronii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult keyhole cichlid side view: keyhole spot below dorsal, eye bar, long fins"
+    }
+  },
+  "https://media.aquatome.com/commons/111c942ede0a2ae7.webp": {
+    "botia-histrionica": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Group with a complex net-like body pattern and striped tails; could be B. rostrata or another Botia"
+    }
+  },
+  "https://media.aquatome.com/commons/1122be171e8c447c.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Small, dim view of one fish on mixed gravel; pattern fits trilineatus"
+    }
+  },
+  "https://media.aquatome.com/commons/16e035d5b55bf322.webp": {
+    "corydoras-atropersonatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "spotted cory with a dark eye mask, sifting white sand"
+    }
+  },
+  "https://media.aquatome.com/commons/1a940185230f27cb.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Two adults on a rock in a planted tank; typical maze pattern"
+    }
+  },
+  "https://media.aquatome.com/commons/1f843db94c2c4396.webp": {
+    "cleithracara-maronii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "clear side view of adult, yellow body, keyhole spot, eye bar"
+    }
+  },
+  "https://media.aquatome.com/commons/230425642fcdc2de.webp": {
+    "cleithracara-maronii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "yellowish adult with keyhole spot and eye bar among plants"
+    }
+  },
+  "https://media.aquatome.com/commons/23fa4829e8bac6a2.webp": {
+    "corydoras-schwartzi": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "cory seen head-on from above on driftwood, markings not visible enough to identify"
+    }
+  },
+  "https://media.aquatome.com/commons/24568acefb8ea8de.webp": {
+    "corydoras-habrosus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "two spotted dwarf corys from the front; markings too unclear to confirm"
+    }
+  },
+  "https://media.aquatome.com/commons/367c202bbe22612e.webp": {
+    "corydoras-habrosus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark mottled cory from the front on sand; key markings not clearly visible"
+    }
+  },
+  "https://media.aquatome.com/commons/384a4622827d9bb2.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Two adults foraging on sand, seen from the front and three-quarter angle"
+    }
+  },
+  "https://media.aquatome.com/commons/39f36612c8684522.webp": {
+    "channa-marulioides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of head: yellow body, dark blotches, orange eye"
+    }
+  },
+  "https://media.aquatome.com/commons/3b83c57aaadccbb0.webp": {
+    "corydoras-habrosus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark mottled dwarf cory, close side view; markings too dark and blurred to confirm habrosus"
+    }
+  },
+  "https://media.aquatome.com/commons/3b9792d5a4efd0ec.webp": {
+    "danio-erythromicron": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Group of adults in a planted tank: blue-purple bars, orange fins"
+    }
+  },
+  "https://media.aquatome.com/commons/3bd500a873967b13.webp": {
+    "channa-marulius": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Dark, red-eyed snakehead guarding a swarm of fry underwater; murky view, can't confirm the species"
+    }
+  },
+  "https://media.aquatome.com/commons/3ddecb9ce8493f72.webp": {
+    "betta-rubra": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male among plants, red fins and barred body"
+    }
+  },
+  "https://media.aquatome.com/commons/3e08c5929d51946c.webp": {
+    "channa-marulioides": {
+      "ok": "yes",
+      "typical": false,
+      "note": "yellow-green snakehead with dark blotches and orange eye, head-on, partly blurred"
+    }
+  },
+  "https://media.aquatome.com/commons/3f86e3957a3e18db.webp": {
+    "danio-dangila": {
+      "ok": "none",
+      "typical": false,
+      "note": "scientific line drawing, not a photo"
+    }
+  },
+  "https://media.aquatome.com/commons/407a83407c0434ed.webp": {
+    "channa-marulius": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Adult in planted tank, cream body with dark blotches and black-edged scale patches"
+    }
+  },
+  "https://media.aquatome.com/commons/459ccd95664ceec2.webp": {
+    "channa-marulius": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Close-up of the head of a plain dark-grey snakehead; no marks visible to confirm the species"
+    }
+  },
+  "https://media.aquatome.com/commons/46588947d861dfce.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Adult side view on sand; reticulated pattern with three-line body markings"
+    }
+  },
+  "https://media.aquatome.com/commons/4ac0d44d1f0e87b7.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Adult side view on sand; maze-like head pattern, dark midlateral stripe, black dorsal tip"
+    }
+  },
+  "https://media.aquatome.com/commons/5316fc7e3e54926d.webp": {
+    "dawkinsia-rohani": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Side view of a golden Dawkinsia with a long black bar running back onto the caudal peduncle, which fits D. rohani"
+    }
+  },
+  "https://media.aquatome.com/commons/5c9962bf43299b70.webp": {
+    "danionella-translucida": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Blurry small transparent fish in a planted tank; too unclear to confirm the species"
+    }
+  },
+  "https://media.aquatome.com/commons/63ca7233f4cd3ac6.webp": {
+    "centromochlus-heckelii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "preserved specimen, faded colours"
+    }
+  },
+  "https://media.aquatome.com/commons/6aa9c3e3a5912b3e.webp": {
+    "boraras-naevus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Pair on white background: red male with mid-body blotch in front, paler female behind"
+    }
+  },
+  "https://media.aquatome.com/commons/73822b3a70ab21ef.webp": {
+    "brochis-multiradiatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Adult hog-nosed brochis, side view on white background; long pointed snout, long-based dorsal fin"
+    }
+  },
+  "https://media.aquatome.com/commons/784d0b9a794b2773.webp": {
+    "corydoras-eques": {
+      "ok": "yes",
+      "typical": true,
+      "note": "two fish over green plants"
+    }
+  },
+  "https://media.aquatome.com/commons/7bf0ebde1bf98cae.webp": {
+    "corydoras-eques": {
+      "ok": "yes",
+      "typical": true,
+      "note": "cut-out of an adult on a white background"
+    }
+  },
+  "https://media.aquatome.com/commons/812004a48f81c4cf.webp": {
+    "cleithracara-maronii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "head-on view of brown keyhole cichlid with eye bar, reflection at surface"
+    }
+  },
+  "https://media.aquatome.com/commons/850ab388afd08a84.webp": {
+    "boraras-maculatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Pale, washed-out fish, perhaps a female or stressed, with large dark spots; pattern still matches"
+    }
+  },
+  "https://media.aquatome.com/commons/90ccf625ecd59619.webp": {
+    "corydoras-schwartzi": {
+      "ok": "unsure",
+      "typical": true,
+      "note": "striped/dashed cory side view; could be schwartzi but similar to C. trilineatus/julii-group look-alikes"
+    }
+  },
+  "https://media.aquatome.com/commons/9d6904b7f2d7a98e.webp": {
+    "chitala-blanci": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Whole featherback, side view, with many small dark spots that turn into dashes and stripes toward the tail, the Chitala "
+    }
+  },
+  "https://media.aquatome.com/commons/a5db7ed585d54b08.webp": {
+    "cyclocheilichthys-janthochir": {
+      "ok": "none",
+      "typical": false,
+      "note": "Same drawing as photo 1 with a cleaned-up background; an illustration, not a photo"
+    }
+  },
+  "https://media.aquatome.com/commons/ae6db82c859bca17.webp": {
+    "dario-dario": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark purplish fish with blue scale spots; looks more like a Badis species than Dario dario"
+    }
+  },
+  "https://media.aquatome.com/commons/b9c9f54b7eb9d843.webp": {
+    "corydoras-habrosus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "front close-up of a small cory with a speckled face; body pattern not visible"
+    }
+  },
+  "https://media.aquatome.com/commons/bd55041cd560b400.webp": {
+    "cleithracara-maronii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult side view, keyhole spot and eye bar, reddish lighting"
+    }
+  },
+  "https://media.aquatome.com/commons/bd62890f723261dd.webp": {
+    "chaetostoma-fischeri": {
+      "ok": "yes",
+      "typical": true,
+      "note": "live adult held in hand by a rocky river, grey with dark spots"
+    }
+  },
+  "https://media.aquatome.com/commons/c2e13c1750562c3a.webp": {
+    "danio-dangila": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "greenish danio with spot rows and humeral spot; barbels not clear, could be a related Danio"
+    }
+  },
+  "https://media.aquatome.com/commons/c41748bc1fa1cad9.webp": {
+    "centromochlus-heckelii": {
+      "ok": "none",
+      "typical": false,
+      "note": "historical watercolour drawing labelled Centromochlus heckelii"
+    }
+  },
+  "https://media.aquatome.com/commons/c4f20a3ddc025f1a.webp": {
+    "corydoras-habrosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "side view on sand, dark blotches along lateral line"
+    }
+  },
+  "https://media.aquatome.com/commons/ccc7e347a7908023.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "three-line cory on gravel, clear side view, black dorsal blotch and midline stripe"
+    }
+  },
+  "https://media.aquatome.com/commons/ccf1cdcebfa7ed51.webp": {
+    "cyclocheilichthys-janthochir": {
+      "ok": "none",
+      "typical": false,
+      "note": "Old hand-coloured scientific drawing (Bleeker-style plate) of a green-backed barb with a dotted lateral line, not a phot"
+    }
+  },
+  "https://media.aquatome.com/commons/cdd9062beec2f8b0.webp": {
+    "cleithracara-maronii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "pale keyhole cichlid over gravel: eye bar and dark flank spot"
+    }
+  },
+  "https://media.aquatome.com/commons/cde892b3e0644eca.webp": {
+    "boraras-naevus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Adult male, side view on white background: orange-red body, mid-body blotch, red-and-black fins"
+    }
+  },
+  "https://media.aquatome.com/commons/d01e942875483c03.webp": {
+    "channa-marulioides": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark brown snakehead with white-spotted lower flank; can't be sure it's marulioides"
+    }
+  },
+  "https://media.aquatome.com/commons/d058ff951f35c04c.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Clear close-up showing reticulated head, black dorsal blotch and lateral stripe"
+    }
+  },
+  "https://media.aquatome.com/commons/d8145a0542d349e6.webp": {
+    "corydoras-eques": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult on white sand, dark body with orange patch on head"
+    }
+  },
+  "https://media.aquatome.com/commons/d87b68156d89fe35.webp": {
+    "corydoras-habrosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult on a leaf, spotted body with dark lateral blotches"
+    }
+  },
+  "https://media.aquatome.com/commons/d8ac8c40cb3b9bf2.webp": {
+    "heterandria-formosa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult in clear side view: dark lateral stripe, dark spot on dorsal fin"
+    }
+  },
+  "https://media.aquatome.com/commons/e7bf84fe794c6b0a.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "three-line cory on sand under a leaf, reticulated pattern"
+    }
+  },
+  "https://media.aquatome.com/commons/eae3a49459290e2b.webp": {
+    "betta-persephone": {
+      "ok": "other",
+      "typical": false,
+      "note": "looks like a wild Betta from the splendens group (e.g. B. smaragdina/imbellis): greyish scaled body, red pelvic fins, al"
+    }
+  },
+  "https://media.aquatome.com/commons/f1e7a234d0cd9e4a.webp": {
+    "corydoras-schwartzi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult cory on sand, dark eye mask and rows of dark spots/dashes, fits schwartzi"
+    }
+  },
+  "https://media.aquatome.com/commons/f4b642e1c1311797.webp": {
+    "chitala-blanci": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Close-up of the head and front of the body with small dark spots, likely the same fish; only part of it shows"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/182122346.webp": {
+    "heterandria-formosa": {
+      "ok": "yes",
+      "typical": false,
+      "note": "female at an angle in a container; bars and dorsal spot visible"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/254555011.webp": {
+    "danio-albolineatus": {
+      "ok": "habitat",
+      "typical": false,
+      "note": "underwater shot of a wild stream with a few small danios over the rocks"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/254555018.webp": {
+    "danio-albolineatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "pale golden pearl danio with barbels and a thin orange stripe; washed-out colours"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/254555029.webp": {
+    "danio-albolineatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of the back half of a golden pearl danio with an orange stripe; only part of the fish shown"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/259005268.webp": {
+    "danio-erythromicron": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Single pale, washed-out fish, blurry; faint bars and spot at the tail base"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/311676389.webp": {
+    "heterandria-formosa": {
+      "ok": "yes",
+      "typical": false,
+      "note": "pregnant female out of water on a mesh net"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/369305065.webp": {
+    "channa-marulioides": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "distant snakehead in murky green water, species can't be confirmed"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/386790975.webp": {
+    "heterandria-formosa": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "top-down view of a small striped fish on gravel; poor view"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/459163645.webp": {
+    "heterandria-formosa": {
+      "ok": "yes",
+      "typical": false,
+      "note": "small striped fish seen from a distance in a container"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/46220972.webp": {
+    "betta-rubra": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "small dark fish in a cloudy tank, too dull to identify"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/46220989.webp": {
+    "betta-rubra": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Slim brownish Betta-like fish with a blue spot on the gill cover, seen murky through the tank glass. Could be Betta rubr"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/604374120.webp": {
+    "heterandria-formosa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "two adults in a viewing box next to a ruler, stripe and bars visible"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/604913306.webp": {
+    "heterandria-formosa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Least killifish females in a measuring container with a scale; dark side stripe and bars"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/643288116.webp": {
+    "corydoras-habrosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult side view on wood; broken dark band along the side and dark blotches, the typical salt-and-pepper pattern"
+    }
+  },
+  "https://media.aquatome.com/inaturalist/712255295.webp": {
+    "heterandria-formosa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Two least killifish; side stripe and dorsal fin with a black and orange spot"
+    }
+  },
+  "https://media.aquatome.com/scotcat/191beabe86450775.webp": {
+    "denticetopsis-macilenta": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "brownish speckled catfish resting on glass; cetopsid-like but colour and view don't confirm the species"
+    }
+  },
+  "https://media.aquatome.com/scotcat/2f663a9653d438f0.webp": {
+    "chaetostoma-leucomelas": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Ventral view of a Chaetostoma-type suckermouth catfish specimen; species can't be confirmed from the belly side"
+    }
+  },
+  "https://media.aquatome.com/scotcat/5075655210ab82d3.webp": {
+    "centromochlus-heckelii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "clear side view, golden-green body, large eye, dark mark at tail base"
+    }
+  },
+  "https://media.aquatome.com/scotcat/51dabc3a04c070df.webp": {
+    "brachyrhamdia-imitator": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "spotted catfish with a dark eye band and dorsal blotch; deep, Corydoras-like body, so a Corydoras can't be ruled out"
+    }
+  },
+  "https://media.aquatome.com/scotcat/658d3e1382473b36.webp": {
+    "chaetostoma-fischeri": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "preserved Chaetostoma-type specimen, dorsal view; species can't be confirmed"
+    }
+  },
+  "https://media.aquatome.com/scotcat/840aa3a98d672b59.webp": {
+    "centromochlus-heckelii": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark driftwood catfish held in hand; eye and markings unclear, can't confirm species"
+    }
+  },
+  "https://media.aquatome.com/scotcat/8b94cb681ce7756c.webp": {
+    "brachyrhamdia-rambarrani": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Adult side view on sand: smooth body, long adipose fin, black eye band, orange shoulder patch and dark stripe along the "
+    }
+  },
+  "https://media.aquatome.com/scotcat/8cc93a19c06dcc34.webp": {
+    "centromochlus-heckelii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "live fish in hand: silvery body, dark back, large eye, long dorsal spine"
+    }
+  },
+  "https://media.aquatome.com/scotcat/a31fa2e9205a7c41.webp": {
+    "denticetopsis-praecox": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "front view of a small catfish's head and mouth held in fingers; species can't be confirmed"
+    }
+  },
+  "https://media.aquatome.com/scotcat/a4e3fb532f58049c.webp": {
+    "denticetopsis-praecox": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "speckled whale-catfish-like fish held in hand; can't confirm Denticetopsis vs other cetopsids"
+    }
+  },
+  "https://media.aquatome.com/scotcat/ccf443ac953c5ac9.webp": {
+    "chaetostoma-fischeri": {
+      "ok": "none",
+      "typical": false,
+      "note": "drawing of a loricariid catfish, not a photo"
+    }
+  },
+  "https://media.aquatome.com/scotcat/d8144be6a0256c4b.webp": {
+    "brachyrhamdia-imitator": {
+      "ok": "yes",
+      "typical": true,
+      "note": "slender smooth-skinned catfish, long barbels, black eye band and black dorsal blotch: Brachyrhamdia"
+    }
+  },
+  "https://media.aquatome.com/scotcat/e58ed6cde9a9d755.webp": {
+    "brachyrhamdia-imitator": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark, murky catfish among Corydoras on gravel; can't tell if it's the smooth-skinned mimic or a Corydoras"
+    }
+  },
+  "https://media.aquatome.com/scotcat/ec36bfe1f2833240.webp": {
+    "chaetostoma-fischeri": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "preserved specimen, ventral view showing sucker mouth; species can't be confirmed"
+    }
+  },
+  "https://media.aquatome.com/scotcat/ee708405b7aedcd3.webp": {
+    "centromochlus-heckelii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "specimen on black background, golden body, dorsal spine raised"
+    }
+  },
+  "https://media.aquatome.com/scotcat/fe863224f3d99f32.webp": {
+    "denticetopsis-macilenta": {
+      "ok": "yes",
+      "typical": true,
+      "note": "elongate pinkish speckled whale catfish on gravel, side view"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/077338bca1f6c089.webp": {
+    "corydoras-habrosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "group of three among plants"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/0bedabe8ec77860f.webp": {
+    "boraras-maculatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Adult in red-orange colour, large mid-body spot plus spots at the anal fin and tail base, on a black background"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/0ffb4d4c59b1704a.webp": {
+    "danionella-translucida": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Side view of a single transparent adult on a black background"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/166845e1f89de9ae.webp": {
+    "corydoras-eques": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult on sand, metallic green body, orange head"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/17b06bcf80f86c0c.webp": {
+    "betta-rubra": {
+      "ok": "yes",
+      "typical": true,
+      "note": "side view on black, reddish with dark bars"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/1fdbfaf2373f9657.webp": {
+    "corydoras-eques": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult side view, greenish body with orange head"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/28f5360bfd4a3c2a.webp": {
+    "dario-dario": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "plain grey fish with blue pelvic fins; possibly a female or subdued Dario, but other Dario species can't be ruled out"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/40eb62f2783721c1.webp": {
+    "corydoras-atropersonatus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "spotted cory digging in the substrate; mask not visible, so a look-alike can't be ruled out"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/472c2d2313f5c341.webp": {
+    "channa-marulius": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Same spotted, blotched snakehead resting on sand, side view"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/4b05ec34b4363557.webp": {
+    "channa-marulius": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Young adult snakehead in tank, white-speckled with dark blotches and an eye-spot near the tail"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/4fbb2a8dc8b63575.webp": {
+    "botia-histrionica": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Mottled, spotted loach with pale centres in its dark marks; could be B. kubotai or B. rostrata"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/501bf0b149934e2b.webp": {
+    "corydoras-atropersonatus": {
+      "ok": "habitat",
+      "typical": false,
+      "note": "Amazonian river with sandy banks and forest"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/51339d13f52952c0.webp": {
+    "dario-dario": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "red fish with spotted scales and blue-edged fins but no vertical bars; could be Dario hysginon or another Dario"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/57fb358f03575f8d.webp": {
+    "betta-smaragdina": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male Smaragdina Guitar: red body and fins with turquoise scale spots, clear side view"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/6579d2c32d6ebf2e.webp": {
+    "cleithracara-maronii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "keyhole cichlid in dark mood colours with broad body band, dim lighting"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/6b53a1ec6e311642.webp": {
+    "danionella-translucida": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Transparent adult; swim bladder and organs show through the body"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/74092b4e0c9e3b61.webp": {
+    "danio-albolineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult pearl danio, iridescent blue-violet body with orange rear stripe, clear side view"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/7922e28261a69a1e.webp": {
+    "botia-histrionica": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Young fish with clean, wide dark bands on a golden body and banded fins"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/99ddb5342d77ba78.webp": {
+    "betta-smaragdina": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "preserved-style specimen photo with ruler, dark wild betta with blue scale rows; could be smaragdina or a related specie"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/9d65e8e6140e952d.webp": {
+    "corydoras-eques": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "pale, washed-out fish with metallic body and orange head; could be a C. aeneus form"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/a15822ac64841c6c.webp": {
+    "danio-dangila": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult with ringed pattern, dark humeral spot and long barbels"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/a4f055307e42539b.webp": {
+    "danio-dangila": {
+      "ok": "yes",
+      "typical": true,
+      "note": "two adults in aquarium, long barbels, pale spot pattern"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/ad1f68028d8b14e9.webp": {
+    "corydoras-atropersonatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult side view: pale body with dark spots and a dark mask band across the eye"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/af8777b43f80e5d1.webp": {
+    "brevibora-dorsiocellata": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "slender silvery fish with a blue eye and a dark-streaked dorsal fin; it lacks the clear black, white-edged dorsal spot o"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/b0d948b7718e0f01.webp": {
+    "betta-siamorientalis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Adult male in side view: dark body, iridescent green fin rays, red edges on the anal and tail fins, red pelvic fins"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/b771dda61cbb7c10.webp": {
+    "betta-smaragdina": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "striped female betta specimen with ruler; species can't be confirmed"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/b9249d1333d852e3.webp": {
+    "corydoras-habrosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult side view, mottled body with broken dark lateral band, banded tail"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/c4badcf80b4cc2a6.webp": {
+    "betta-rubra": {
+      "ok": "yes",
+      "typical": true,
+      "note": "bright red-barred fish over a leaf"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/c50dd6b12e8f26ee.webp": {
+    "botia-histrionica": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Older adult whose bands have broken up into a mottled, ringed pattern"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/d299ed026d4cfd86.webp": {
+    "boraras-maculatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Two adults over plants, showing the typical three-spot pattern"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/d8cb6d518874f8d6.webp": {
+    "danio-albolineatus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "danio with a red stripe along the full body; possibly a pearl danio in breeding colour, but a look-alike danio can't be "
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/d8ed7b0f06ae591e.webp": {
+    "betta-smaragdina": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark male betta specimen with ruler, blue-spotted scales; smaragdina-complex look-alike can't be ruled out"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/dcffef3255479bdd.webp": {
+    "cleithracara-maronii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult keyhole cichlid side view, eye bar and keyhole spot below dorsal, reddish tint from lighting"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/ec249daf9b64ccef.webp": {
+    "danio-dangila": {
+      "ok": "yes",
+      "typical": true,
+      "note": "single adult, golden body with ring/reticulated pattern and humeral spot"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/ecc0ff1bd83bdac9.webp": {
+    "botia-histrionica": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Group of gold zebra loaches with dark split bands on a golden body, over gravel"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/ede2911f6bdbdc7f.webp": {
+    "dario-dario": {
+      "ok": "yes",
+      "typical": true,
+      "note": "two red-barred Dario dario, blue-white fin edges, on sand by a clay pot"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/efaaa53a600d7519.webp": {
+    "dario-dario": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult male: orange-red vertical bars, tall red dorsal fin, blue-white pelvic edge"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/f8805eaf36c7937b.webp": {
+    "betta-rubra": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult male, red body with dark vertical bars"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/fbdf329b08ced52b.webp": {
+    "cleithracara-maronii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "keyhole cichlid seen from the front, guarding eggs on slate"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/fc69c0717350ce1d.webp": {
+    "betta-rubra": {
+      "ok": "yes",
+      "typical": false,
+      "note": "duller fish, likely female or stressed colouring"
+    }
+  },
+  "https://media.aquatome.com/sprucepets/20633b72c7a0aa49.webp": {
+    "danio-albolineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult pearl danio side view, pale pearly body with faint orange stripe",
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/sprucepets/89c0033b07426ee0.webp": {
+    "danio-albolineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "pearl danio side view, orange stripe from mid-body to tail, iridescent sheen",
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/sprucepets/f43b896982881c15.webp": {
+    "corydoras-trilineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "three-line cory resting on pebbles, clear side view",
       "guide": true
     }
   }

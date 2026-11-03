@@ -1,8 +1,33 @@
 {
  "queue": [],
  "judged": [
-  "File:Adult male Oryzias Dancena.png"
+  "File:Adult male Oryzias Dancena.png",
+  "inat:148390749",
+  "inat:148390743",
+  "inat:250977958",
+  "inat:352628200",
+  "inat:420679416",
+  "inat:420679596",
+  "inat:537953335",
+  "inat:599969768",
+  "inat:649396764",
+  "inat:649396757",
+  "inat:649396763",
+  "inat:304682978"
  ],
- "hashes": {},
- "commons": "2026-11-02"
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/250977958/large.jpg": "676766c74f2c303e",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/420679416/large.jpeg": "275254448e92e666",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/599969768/large.jpg": "536cec3818838820",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/304682978/large.jpeg": "0204cec0cc002008"
+ },
+ "commons": "2026-11-02",
+ "inat": {
+  "taxon": 108006,
+  "pass": "done",
+  "after": {
+   "research": 356117914,
+   "agree": 175323876
+  }
+ }
 }
