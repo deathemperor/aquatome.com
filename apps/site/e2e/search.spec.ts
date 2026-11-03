@@ -41,17 +41,17 @@ test('typing a name and pressing Lọc filters the list and keeps the search in 
 // The site search (/vi/tim-kiem/, Pagefind). The bugs these guard (design critique 2026-10-31, #6, #7, #18): excerpts
 // made of the accent-free alias list, redirect notes and the gallery's lightbox buttons; photo galleries outranking the
 // species they show; and a nonsense word reported as "4 kết quả" from fragments of authors' initials ("X.-Y.").
-/** Every result of a search, after "Xem thêm kết quả" has loaded them all. */
-async function siteSearch(page: import('@playwright/test').Page, path: string) {
+/** A search's results, after "Xem thêm kết quả" has loaded them all, or its first `pages` pages of 10. */
+async function siteSearch(page: import('@playwright/test').Page, path: string, pages = Infinity) {
   await page.goto(path)
   await expect(page.locator('[data-status]')).not.toHaveText(/^$|…/)
   const more = page.locator('[data-more]')
-  while (await more.isVisible()) { const n = await page.locator('[data-hits] li').count(); await more.click(); await expect(page.locator('[data-hits] li')).not.toHaveCount(n) }
+  for (let shown = 1; shown < pages && await more.isVisible(); shown++) { const n = await page.locator('[data-hits] li').count(); await more.click(); await expect(page.locator('[data-hits] li')).not.toHaveCount(n) }
   return page.$$eval('[data-hits] li', lis => lis.map(li => ({ href: li.querySelector('a')!.getAttribute('href')!, title: li.querySelector('a')!.textContent!, text: li.querySelector('p')!.textContent! })))
 }
 
 test('a site search for a name lists that species first, without photo galleries', async ({ page, errors }) => {
-  const hits = await siteSearch(page, '/vi/tim-kiem/?q=neon')
+  const hits = await siteSearch(page, '/vi/tim-kiem/?q=neon', 3)
   expect(hits.length).toBeGreaterThan(1)
   expect(hits[0]!.href, 'the first result').toMatch(/^\/vi\/ca\/ca-neon-[a-z-]+\/$/)
   for (const h of hits) expect(h.href, 'a gallery page among the results').not.toMatch(/\/(anh|foto|photos)\/$/)
@@ -60,7 +60,9 @@ test('a site search for a name lists that species first, without photo galleries
 
 test('site search excerpts carry no alias lists, redirect notes or lightbox buttons', async ({ page }) => {
   for (const q of ['neon', 'tetra', 'cardinal']) {
-    for (const h of await siteSearch(page, `/vi/tim-kiem/?q=${q}`)) {
+    // The first 30 results a word (one builder makes every excerpt): all of the live site's hundreds took the test past
+    // its time as pages were added. The neon search below reads its first 30 too, where a gallery outranking its species shows.
+    for (const h of await siteSearch(page, `/vi/tim-kiem/?q=${q}`, 3)) {
       // The alias list is the title without accents ("ca neon vua cardinal tetra"): the page's real text has them.
       if (fold(h.title) !== h.title.toLowerCase()) expect(h.text, `excerpt of ${h.href}`).not.toContain(fold(h.title))
       expect(h.text, `excerpt of ${h.href}`).not.toMatch(/Chuyển hướng từ|[‹›×]/)
@@ -69,7 +71,7 @@ test('site search excerpts carry no alias lists, redirect notes or lightbox butt
 })
 
 test('a site search by scientific name finds the species first', async ({ page }) => {
-  const hits = await siteSearch(page, '/vi/tim-kiem/?q=Paracheirodon+axelrodi')
+  const hits = await siteSearch(page, '/vi/tim-kiem/?q=Paracheirodon+axelrodi', 1)
   expect(hits[0]?.href).toBe('/vi/ca/ca-neon-vua/')
 })
 
