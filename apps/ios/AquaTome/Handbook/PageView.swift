@@ -304,6 +304,6 @@ private struct PageMore: View {
     } label: {
       Label("Khác", systemImage: "ellipsis")
     }
-    .accessibilityIdentifier("page-more")
+    .accessibilityIdentifier("page-actions")
   }
 }

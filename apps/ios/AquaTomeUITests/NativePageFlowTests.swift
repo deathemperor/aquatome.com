@@ -122,6 +122,27 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, mark)
     mark.tap()
     XCTAssertTrue(app.alerts["Seriously Fish"].waitForExistence(timeout: 5), "the mark doesn't name its source")
+
+  /// The page's name under its photo, so not in the bar as well: the bar names the page once that has scrolled away.
+  func testTheBarNamesThePageOnceItsNameScrollsAway() {
+    let app = launch()
+    openRow(app, "ca neon")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
+    let title = app.navigationBars["Cá neon"].staticTexts["Cá neon"]
+    XCTAssertFalse(title.exists, "named twice: in the bar and under the photo")
+    app.swipeUp()
+    app.swipeUp()
+    XCTAssertTrue(title.waitForExistence(timeout: 3), "the bar doesn't name the page once its name has scrolled away")
+  }
+
+  /// Sharing and the browser, used less than the page's own buttons, in one menu in the bar.
+  func testSharingAndTheBrowserAreInOneMenu() {
+    let app = launch()
+    openRow(app, "ca neon")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
+    XCTAssertFalse(app.navigationBars.buttons["Mở trong trình duyệt"].exists, "the browser still a button of its own")
+    app.buttons["page-actions"].tap()
+    XCTAssertTrue(app.buttons["Mở trong trình duyệt"].waitForExistence(timeout: 5), "no browser in the menu")
   }
 
   func testTheCreditsSourcesLinkScrollsToTheSources() {
