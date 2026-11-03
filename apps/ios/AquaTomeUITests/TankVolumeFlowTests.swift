@@ -227,10 +227,16 @@ final class TankVolumeFlowTests: XCTestCase {
     return e
   }
 
+  /// In view and clear of the bars: a row scrolled under the status bar still reads as hittable, and a drag there moves
+  /// nothing (the shapes' row, once typing has scrolled the form up).
+  private func shown(_ app: XCUIApplication, _ e: XCUIElement) -> Bool {
+    e.exists && e.isHittable && e.frame.minY >= app.frame.minY + 100
+  }
+
   /// `e` scrolled into sight, clear of the bars and the keyboard. Dragged slowly, so the screen stops where it's let go
   /// (a swipe flings past), towards where `e` lies, or `up` (on down the screen) while the form hasn't drawn it.
   private func show(_ app: XCUIApplication, _ e: XCUIElement, up: Bool = true) {
-    for _ in 0..<12 where !(e.exists && e.isHittable) {
+    for _ in 0..<12 where !shown(app, e) {
       let keyboard = app.keyboards.firstMatch
       let top = app.frame.minY + 120, bottom = keyboard.exists ? keyboard.frame.minY : app.frame.maxY - 100
       let middle = (top + bottom) / 2, most = (bottom - top) / 2 - 20
@@ -238,7 +244,7 @@ final class TankVolumeFlowTests: XCTestCase {
       // From the labels' side, clear of the boxes (a drag from a box moves its cursor) and of the edge's swipe back.
       drag(app, from: CGPoint(x: app.frame.minX + 44, y: middle), by: CGVector(dx: 0, dy: by))
     }
-    XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
+    XCTAssertTrue(shown(app, e), "\(e) not found")
   }
 
   private func drag(_ app: XCUIApplication, from p: CGPoint, by v: CGVector) {
