@@ -372,4 +372,8 @@ test('kept fish-ID photos: only the owner sees them, each image and its result, 
   const del = await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: { ...browser, cookie: owner }, body: new URLSearchParams({ who: 'anon', id: anon }) }), e)
   expect([del.status, del.headers.get('location')]).toEqual([303, '/_ab/anh-nhan-dien/'])
   expect([...r2.m.keys()]).toEqual([`fish-id/reader-1/${id}`])
+  // A key is only ever built from an account id and a photo id.
+  await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: { ...browser, cookie: owner }, body: new URLSearchParams({ who: '../pending', id }) }), e)
+  await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: { ...browser, cookie: owner }, body: new URLSearchParams({ who: 'reader-1', id: '../x' }) }), e)
+  expect(r2.m.size).toBe(1)
 })

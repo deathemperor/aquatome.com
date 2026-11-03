@@ -10,6 +10,9 @@ export const KEEP_DAYS = 183
 const PREFIX = 'fish-id/'
 const ANON = 'anon'
 const ID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
+/** An account id as accounts/users.ts makes them (randomUUID), and only such: a key is never built from anything else. */
+const ACCOUNT = /^[0-9a-z-]{1,64}$/
+const named = (account: string | undefined, id: string) => ID.test(id) && (account === undefined || (account !== ANON && ACCOUNT.test(account)))
 
 export type KeptGuess = { scientificName: string; commonName: string; variety: string | null; confidence: number }
 /** A kept photo as its reader sees it: no image, no key. */
@@ -85,7 +88,7 @@ export async function listKept(bucket: R2Bucket, account: string): Promise<Kept[
 
 /** Deletes one of a reader's photos (or, for the owner, anyone's: `account` undefined is a signed-out one); false when there was none. */
 export async function deleteKept(bucket: R2Bucket, account: string | undefined, id: string): Promise<boolean> {
-  if (!ID.test(id) || (account !== undefined && account === ANON)) return false
+  if (!named(account, id)) return false
   const k = key(account, id)
   if (!(await bucket.head(k))) return false
   await bucket.delete(k)
@@ -113,6 +116,6 @@ export async function recentKept(bucket: R2Bucket, limit = 120): Promise<KeptRow
 
 /** One photo's bytes, for the owner's dashboard only. */
 export async function keptImage(bucket: R2Bucket, account: string | undefined, id: string): Promise<R2ObjectBody | null> {
-  if (!ID.test(id) || account === ANON) return null
+  if (!named(account, id)) return null
   return bucket.get(key(account, id))
 }
