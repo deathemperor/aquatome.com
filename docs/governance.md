@@ -279,9 +279,9 @@ The layers above still check the result.
     rewrite job: the research of `pnpm engine topic`, with the shops' posts on the topic as leads it is told never to
     copy, to check elsewhere (shops sell what they write about), and to cite only for a Vietnamese name or what is sold
     in Vietnam. An idea written or found to have nothing reliable is not tried again.
-  - Chợ Thủy Sinh's fish, shrimp and snails are mapped into the private Vietnamese shop list
-    (`engine-state/shop-lists/vi.json`): which species come first, and the names shops use. A shop's list seeded
-    later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,
+  - Chợ Thủy Sinh's fish, shrimp and snails go into the private Vietnamese shop list (`engine-state/shop-lists/vi.json`:
+    which species come first, and the names shops use) by a seeded run, `pnpm engine shop-list --lang vi --seed`. A
+    shop's list seeded later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,
     use=reference`.
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.

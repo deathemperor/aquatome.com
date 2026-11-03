@@ -182,8 +182,13 @@ if part rewrite; then
     pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}" || log "localize-captions $lang: failed"
     pnpm engine localize-equipment --lang "$lang" || log "localize-equipment $lang: failed"
   done
-  # AquaTome's own guides on the most asked ideas, IDEAS_PER_DAY a day, last: each is a full research run.
-  pnpm engine write-ideas --limit "${IDEAS_PER_DAY:-2}" || log "write-ideas: failed"
+  # AquaTome's own guides on the most asked ideas, IDEAS_PER_DAY a day, last: each is a full research run (up to ~25
+  # min), so only with an hour and a half left of the job's 355 minutes (a rewrite job has taken 266).
+  if [ "$SECONDS" -lt $(( ${IDEAS_BEFORE_MINUTES:-260} * 60 )) ]; then
+    pnpm engine write-ideas --limit "${IDEAS_PER_DAY:-2}" || log "write-ideas: failed"
+  else
+    log "write-ideas: skipped, the cycle has run $(( SECONDS / 60 )) min"
+  fi
   # UI text those pages need that src/i18n lacks (a label no page used before): translated now, committed with the content.
   if I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1 \
     && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
