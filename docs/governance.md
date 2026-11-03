@@ -268,6 +268,21 @@ The layers above still check the result.
     the Vietnamese terms it uses, and its pictures (own only in an original post, on the forum's host). Breed research
     gets the Vietnamese names as leads to check and cite; guide research gets the threads on its topic, and is told to
     find and cite a translation's original. Each cycle's rewrite job reads 10 threads (`FORUM_LIMIT`).
+- **Shops' blogs: ideas only.** On 2026-11-03 the owner gave AquaZone, Aqua House and Cá Cảnh Tài Lộc's blogs as
+  "sources for content ideas/writing", and Chợ Thủy Sinh's fish list. No permission for their text or photos was
+  stated, so `content/sources.json` records them as `"publish": false`, scoped as the forum's text is.
+  - The engine reads only their posts' titles (`pnpm engine ideas`, `packages/engine/src/ideas.ts`), a week apart: the
+    blogs' sitemaps, and Aqua House's news category through WordPress's own API, 5 s between requests. The model turns
+    the titles into topics the handbook has no guide on (no species profiles, products, ponds, koi, saltwater or feng
+    shui), most asked first, in `engine-state/_ideas.json`.
+  - `pnpm engine write-ideas` writes AquaTome's own guide on the most asked ones, `IDEAS_PER_DAY` a day (2), last in the
+    rewrite job: the research of `pnpm engine topic`, with the shops' posts on the topic as leads it is told never to
+    copy, to check elsewhere (shops sell what they write about), and to cite only for a Vietnamese name or what is sold
+    in Vietnam. An idea written or found to have nothing reliable is not tried again.
+  - Chợ Thủy Sinh's fish, shrimp and snails go into the private Vietnamese shop list (`engine-state/shop-lists/vi.json`:
+    which species come first, and the names shops use) by a seeded run, `pnpm engine shop-list --lang vi --seed`. A
+    shop's list seeded later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,
+    use=reference`.
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped, and so is a minimum tank length that
