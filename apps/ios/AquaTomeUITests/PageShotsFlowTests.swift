@@ -1,10 +1,10 @@
 import XCTest
 
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
-/// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
-/// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size. Each checks
-/// only that its screen opened: what it shows, the other flows check.
+/// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
+/// a guide and a video series, in light, the fish in dark too, and the fish's top at a large text size; photos as
+/// stand-ins (`-fixed-pictures`). And a search's results under the kinds it finds, light and dark, at the default and the
+/// largest text size. Each checks only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -13,6 +13,7 @@ final class PageShotsFlowTests: XCTestCase {
   func testAFishInLargeText() { shoot("fish-large", "ca neon", "Cá neon", large: true, screens: 3) }
   func testAPlant() { shoot("plant-light", "rotala", "Rotala đỏ") }
   func testAGuide() { shoot("guide-light", "nuoi ca neon", "Nuôi cá neon trong bể nhỏ") }
+  func testAVideoSeries() { shoot("series-light", "reu hai tu a", "Rêu hại từ A đến Z") }
   func testASearch() { shootSearch("search-light") }
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }

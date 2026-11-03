@@ -475,7 +475,7 @@ private extension Font {
 }
 
 /// Other pages as rows in one panel (tank-mates, breeds), each with its photo, opening in the app or else on the web;
-/// under the rows, each photo's credit once, linking its own page (a link inside a row would be the row).
+/// under the rows, the photos' credits, linking each photo's own page (a link inside a row would be the row).
 private struct CardsPart: View {
   let title: String?
   let cards: [NativePage.Card]
@@ -483,10 +483,13 @@ private struct CardsPart: View {
   let good: Bool?
   let open: (URL) -> Void
   @ScaledMetric(relativeTo: .body) private var thumb: CGFloat = 56
+  /// The width each of a credit's numbers takes, so a finger can tell them apart.
+  @ScaledMetric(relativeTo: .caption2) private var number: CGFloat = 32
+  private typealias CreditRow = (line: AttributedString, who: String, licence: String, urls: [String?])
 
   var body: some View {
     let thumbs = cards.contains { $0.img != nil }
-    let credits = cards.compactMap { $0.img.flatMap(credit) }.reduce(into: [AttributedString]()) { if !$0.contains($1) { $0.append($1) } }
+    let credits = creditRows
     VStack(alignment: .leading, spacing: 8) {
       if let title {
         HStack(spacing: 6) {
@@ -508,7 +511,47 @@ private struct CardsPart: View {
       }
       .background(.fill.quaternary, in: .rect(cornerRadius: 12))
       if !credits.isEmpty {
-        Text(credits.dropFirst().reduce(credits[0]) { $0 + AttributedString("\n") + $1 }).foregroundStyle(.secondary).tint(Color.secondary)
+        VStack(alignment: .leading, spacing: 0) {
+          ForEach(credits.indices, id: \.self) { creditRow(credits[$0]) }
+        }
+        .foregroundStyle(.secondary).tint(Color.secondary)
+      }
+    }
+  }
+
+  /// The cards' photos as the site's credits list has them: one row per author and licence, first seen first, each with
+  /// its line (linking the photo's page while it's the only one), who took them and every photo's own page, the same
+  /// page once (nil: a photo without one).
+  private var creditRows: [CreditRow] {
+    cards.compactMap(\.img).reduce(into: []) { rows, img in
+      guard let line = credit(img), let c = img.credit else { return }
+      if let i = rows.firstIndex(where: { $0.who == c.text && $0.licence == c.licence }) {
+        if c.url == nil || !rows[i].urls.contains(c.url) {
+          rows[i].urls.append(c.url)
+          rows[i].line.link = nil
+        }
+      } else {
+        rows.append((line, c.text, c.licence, [c.url]))
+      }
+    }
+  }
+
+  /// One photo: its line, linking its page. Several: the line once with how many, then a number for each linking its
+  /// own page (none for a photo without one), each read to VoiceOver as whose photo it is, as the site's are.
+  @ViewBuilder private func creditRow(_ row: CreditRow) -> some View {
+    if row.urls.count == 1 {
+      Text(row.line)
+    } else {
+      Text(row.line) + Text(verbatim: " · ").font(.caption2) + Text("\(row.urls.count) ảnh").font(.caption2)
+      LazyVGrid(columns: [GridItem(.adaptive(minimum: number), spacing: 0, alignment: .leading)], alignment: .leading, spacing: 0) {
+        ForEach(Array(row.urls.compactMap { $0.flatMap(URL.init(string:)) }.enumerated()), id: \.offset) { i, url in
+          Link(destination: url) {
+            Text(verbatim: String(i + 1)).font(.caption2).padding(.vertical, 4).frame(maxWidth: .infinity, alignment: .leading).contentShape(.rect)
+          }
+          .accessibilityLabel(Text("\(row.who), ảnh \(i + 1)"))
+          .accessibilityRemoveTraits(.isButton)
+          .accessibilityAddTraits(.isLink)
+        }
       }
     }
   }
