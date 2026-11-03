@@ -64,6 +64,7 @@ struct AquaTomeApp: App {
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
       .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
+      .task { await OwnCopy.check() }
       // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).
       .onChange(of: phase) { if phase == .background { lights.leave() } else if phase == .active { lights.returned() } }
     }
@@ -100,10 +101,10 @@ struct AquaTomeApp: App {
       let fake = FakeServer(args)
       let send: Send = { try await fake.send($0) }
       return (AccountModel(tanks: tanks, api: AccountsClient(send: send), apple: FakeAppleSignIn(), passkey: FakePasskeySignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true),
-              Wanted(send: send))
+              Wanted(send: send, ours: { OwnCopy.isOurs }))
     }
     #endif
-    return (AccountModel(tanks: tanks), Wanted())
+    return (AccountModel(tanks: tanks), Wanted(ours: { OwnCopy.isOurs }))
   }
 
   /// The reader's Tuya plugs, with their own project's keys. A debug build on the simulator (every UI test) never

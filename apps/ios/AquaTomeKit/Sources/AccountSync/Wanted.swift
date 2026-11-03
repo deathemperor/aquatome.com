@@ -8,10 +8,14 @@ import Tanks
 public struct Wanted: Sendable {
   let base: URL
   let send: Send
+  /// Whether this copy of the app is one of ours (`AccountsClient.ourCopy`), asked at each send: the app learns it
+  /// after launch.
+  let ours: @Sendable () -> Bool
 
-  public init(base: URL = AccountsClient.site, send: @escaping Send = AccountsClient.urlSession()) {
+  public init(base: URL = AccountsClient.site, send: @escaping Send = AccountsClient.urlSession(), ours: @escaping @Sendable () -> Bool = { false }) {
     self.base = base
     self.send = send
+    self.ours = ours
   }
 
   /// POST /api/v1/wanted with `{ kind, name, sci? }` as JSON, and nothing else.
@@ -20,6 +24,7 @@ public struct Wanted: Sendable {
     r.httpMethod = "POST"
     r.httpShouldHandleCookies = false
     r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    if ours() { r.setValue("AquaTome-iOS \(AccountsClient.ourCopy)", forHTTPHeaderField: "User-Agent") }
     var body: [String: JSON] = ["kind": .string(e.kind), "name": .string(e.name)]
     if let sci = e.sci { body["sci"] = .string(sci) }
     r.httpBody = try? JSON.object(body).data()

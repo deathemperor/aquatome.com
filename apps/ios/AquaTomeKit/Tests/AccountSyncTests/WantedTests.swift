@@ -71,3 +71,12 @@ func entriesWithoutAPageSyncUnchanged() async throws {
   #expect(fake.store(of: "apple-1")?.tanks == sent)
   #expect(p.tanks == sent)
 }
+
+@Test("Our own copies of the app mark what they send, so the site doesn't count it; a reader's copy sends no mark")
+func ourCopiesMarkTheirRequests() {
+  let fish = UnlistedEntry(kind: "fish", name: "Cá bống mắt tre")
+  #expect(Wanted(send: { _ in throw URLError(.notConnectedToInternet) }).request(fish).value(forHTTPHeaderField: "User-Agent") == nil)
+  let ours = Wanted(send: { _ in throw URLError(.notConnectedToInternet) }, ours: { true })
+  #expect(ours.request(fish).value(forHTTPHeaderField: "User-Agent")?.hasSuffix(" AquaTomeCheck/1") == true)
+  #expect(AccountsClient.ourCopy == "AquaTomeCheck/1")
+}
