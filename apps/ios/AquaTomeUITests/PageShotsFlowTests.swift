@@ -3,8 +3,9 @@ import XCTest
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
 /// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size. Each checks
-/// only that its screen opened: what it shows, the other flows check.
+/// Also the ways to sign in, in light and in dark, where they first show: the tanks tab on a new phone. And a search's
+/// results under the kinds it finds, light and dark, at the default and the largest text size. Each checks only that its
+/// screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -17,8 +18,31 @@ final class PageShotsFlowTests: XCTestCase {
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+  func testSigningIn() { shootSignIn("sign-in-light") }
+  func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
+
+  /// "Bể của tôi" on a new phone, signed out, with each way to sign in the stand-in server offers: the screen as it
+  /// opens, then scrolled to its end, where every sign-in button is in view.
+  private func shootSignIn(_ name: String, dark: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
+                           "-reset-fake-server"] + (dark ? ["-dark"] : [])
+    app.launch()
+    app.openTab("Bể của tôi")
+    XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].waitForExistence(timeout: 5), "no sign-in")
+    for n in 1...2 {
+      if n == 2 { app.swipeUp(); app.swipeUp() }
+      settle()
+      let shot = XCUIScreen.main.screenshot()
+      XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
+      let a = XCTAttachment(screenshot: shot)
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+  }
 
   /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
   private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12) {

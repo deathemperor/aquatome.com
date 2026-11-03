@@ -20,16 +20,20 @@ the app's tanks, merged record by record, and each page sees them. A link to "B�
 those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "Xem trong Bể của tôi →" opens the tank
 just saved.
 
-Signing in (Sign in with Apple, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
-the site's page does: the token is in the Keychain, on this phone only. "Thêm passkey" adds one made on the phone, as on
+Signing in (Sign in with Apple, Google, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
+the site's page does: the token is in the Keychain, on this phone only. Google's sign-in has no Google SDK (the size
+budget): Google's own page opens in the system's browser sheet (`ASWebAuthenticationSession`, OAuth 2.0 for installed
+apps, a code with PKCE), the app exchanges the code at Google for the ID token (an iOS client has no secret), and the
+server checks that token as it checks Apple's (`GoogleOAuth`). "Thêm passkey" adds one made on the phone, as on
 the site: more than 10 minutes after signing in, the server asks for a sign-in first, and one to the same account
 carries on. The email sign-in's
 Turnstile check runs in a web view on the site's page for it (`/api/v1/auth/email/turnstile`), since Turnstile runs
 only in a web page on the site's host. Passkeys are aquatome.com's, shared with the app through its webcredentials
 association (`Config/AquaTome.entitlements` and the site's `/.well-known/apple-app-site-association`); only a signed
 build on an iPhone can use them, so the simulator never runs the real passkey sheet.
-A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, passkey sheet and
-Turnstile check inside the app instead (`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`;
+A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, Google page and token
+endpoint (`FakeGoogle`; `-fake-google cancel` closes the page), passkey sheet and Turnstile check inside the app instead
+(`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`;
 every emailed code is `123456`; `-seed-passkey` gives an account the stand-in's passkey; a session kept from an earlier
 launch counts as signed in long ago), so no test reaches
 aquatome.com; `-real-accounts` tries the real server from the simulator.
@@ -140,7 +144,7 @@ Debug builds, so they don't see it.
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`) |
 | `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
 | `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code |
-| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
+| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; Google's sign-in without its SDK (`GoogleOAuth`: its page, its answer, the code exchanged with PKCE); `FakeAccounts`, the server in process, and `FakeGoogle`, Google's page and token endpoint in process (tests, simulator) |
 | `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
 
 ```sh
