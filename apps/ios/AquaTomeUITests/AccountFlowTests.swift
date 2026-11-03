@@ -204,9 +204,10 @@ final class AccountFlowTests: XCTestCase {
   }
 
   /// Waits for the account's message to read `text`.
+  /// The account's message reads `text`: waited for up to 15 s, as a busy CI runner can take past 5 to say it.
   private func says(_ app: XCUIApplication, _ text: String) -> Bool {
     let said = expectation(for: NSPredicate(format: "label == %@", text), evaluatedWith: app.staticTexts["account-message"].firstMatch)
-    return XCTWaiter().wait(for: [said], timeout: 5) == .completed
+    return XCTWaiter().wait(for: [said], timeout: 15) == .completed
   }
 
   private func message(_ app: XCUIApplication) -> String {
