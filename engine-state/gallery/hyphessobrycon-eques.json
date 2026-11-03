@@ -30,12 +30,13 @@
   "File:Hyphessobrycon eques 347048436.jpg"
  ],
  "hashes": {
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/347048436/large.jpeg": "86d2f070d2f071e5",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/651012788/large.jpg": "3c3233273e9cedd2",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/552749189/large.jpg": "909327d5d39b7be9",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Serpae_tetra.JPG/1280px-Serpae_tetra.JPG": "160f92191c9a99e3",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Akvarijn%C3%AD_rybka.jpg/1280px-Akvarijn%C3%AD_rybka.jpg": "b46cac8e8747673d",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Hyphessobrycon_serpae_-_Serpae_Tetra.jpg/1280px-Hyphessobrycon_serpae_-_Serpae_Tetra.jpg": "44691011360c4471"
+  "https://media.aquatome.com/seriouslyfish/f3415ec4ff6babd6.webp": "e7a3b34f5df9985a",
+  "https://media.aquatome.com/inaturalist/552749189.webp": "919367d1d39b73eb",
+  "https://media.aquatome.com/commons/117f7e3709f3c801.webp": "366cac8e87477735",
+  "https://media.aquatome.com/commons/11f47fe29e06233f.webp": "46691011360c4431",
+  "https://media.aquatome.com/commons/551d0bdb3f541228.webp": "060710891c9ad9e3",
+  "https://media.aquatome.com/inaturalist/347048436.webp": "86d1f070f2f073e1",
+  "https://media.aquatome.com/inaturalist/651012788.webp": "383236272e9cedd2"
  },
  "inat": {
   "taxon": 1579666,
@@ -48,6 +49,6 @@
  "commons": "2026-11-02",
  "gbif": {
   "key": 2354612,
-  "next": 0
+  "next": null
  }
 }

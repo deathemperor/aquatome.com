@@ -1,14 +1,26 @@
 {
  "queue": [],
  "judged": [
-  "File:D.erythromicron crop.jpg"
+  "File:D.erythromicron crop.jpg",
+  "inat:259005230",
+  "inat:259005253",
+  "inat:259005268"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/eee1a9c6b7c7cf23.webp": "1d1133e1609c6ebf",
   "https://media.aquatome.com/seriouslyfish/ac26db164fb14127.webp": "e6c9634625b1c965",
   "https://media.aquatome.com/seriouslyfish/5c29737d2b90fdc1.webp": "7166721af427b58c",
   "https://media.aquatome.com/seriouslyfish/2ff4915754ec192c.webp": "1e1d1f0f1b090242",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/D.erythromicron_crop.jpg/1280px-D.erythromicron_crop.jpg": "0d8b899c5939ae07"
+  "https://media.aquatome.com/commons/3b9792d5a4efd0ec.webp": "0bcb999c5939a707",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/259005268/large.jpeg": "9b5b1f133b63c1e3"
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "inat": {
+  "taxon": 99076,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 150232979
+  }
+ }
 }

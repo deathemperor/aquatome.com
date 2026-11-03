@@ -1,15 +1,24 @@
 {
  "queue": [],
  "judged": [
-  "File:Danio dangila.jpg"
+  "File:Danio dangila.jpg",
+  "inat:515201135",
+  "inat:515201253"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/a4f055307e42539b.webp": "3c3e1e431b1e0ecf",
   "https://media.aquatome.com/seriouslyfish/ec249daf9b64ccef.webp": "8c9c3d3339995948",
   "https://media.aquatome.com/seriouslyfish/a15822ac64841c6c.webp": "53e6248e07033e16",
   "https://media.aquatome.com/commons/3f86e3957a3e18db.webp": "0058e992d2ea2800",
-  "https://media.aquatome.com/commons/c2e13c1750562c3a.webp": "498b1b3139838539",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Danio_dangila.jpg/1280px-Danio_dangila.jpg": "83090b1703b31bc0"
+  "https://media.aquatome.com/commons/c2e13c1750562c3a.webp": "498b1b3139838539"
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "inat": {
+  "taxon": 99075,
+  "pass": "done",
+  "after": {
+   "research": 286575149,
+   "agree": 0
+  }
+ }
 }

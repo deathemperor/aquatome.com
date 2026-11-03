@@ -10,10 +10,10 @@
  ],
  "hashes": {
   "https://media.aquatome.com/bwaquatics/dbedea062a9f8bb4.webp": "090c090913018504",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Betta_albimarginata_060311_1.jpg/1280px-Betta_albimarginata_060311_1.jpg": "94c9eb97ceec7131",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Betta_albimarginata_060311_8.jpg/1280px-Betta_albimarginata_060311_8.jpg": "0d49613c2e82e172",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Betta_albimarginata_060311.jpg/1280px-Betta_albimarginata_060311.jpg": "d3154d168e8a3c1d",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Betta_albimarginata_060311_7.jpg/1280px-Betta_albimarginata_060311_7.jpg": "1b26373b78901c5c"
+  "https://media.aquatome.com/commons/0e7f3bebce7fea33.webp": "d3354d168e8e3cbd",
+  "https://media.aquatome.com/commons/c481446684993faf.webp": "0f49613826c2e1f2",
+  "https://media.aquatome.com/commons/b87ec9c35ddc4183.webp": "94c9fb97ceec7139",
+  "https://media.aquatome.com/commons/e74b8cc7388e3356.webp": "1b26373a68901c1c"
  },
  "inat": {
   "taxon": 618844,
@@ -23,5 +23,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "gbif": {
+  "key": 2394012,
+  "next": null
+ }
 }

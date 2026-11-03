@@ -2,6 +2,18 @@
   "id": "devario-malabaricus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/467341034.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/467341034-480.webp",
+      "width": 1024,
+      "height": 566,
+      "licence": "CC BY",
+      "author": "Vsevolod Rudyi",
+      "sourceUrl": "https://www.inaturalist.org/photos/467341034",
+      "caption": "Cá danio khổng lồ bơi thành nhóm trong nước tự nhiên",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/a70950776eced725.webp",
       "thumb": "https://media.aquatome.com/commons/a70950776eced725-480.webp",
       "width": 800,
@@ -14,7 +26,7 @@
       "kind": "group"
     }
   ],
-  "seen": 7,
-  "updatedAt": "2026-11-02",
-  "builtAt": "2026-11-02"
+  "seen": 23,
+  "updatedAt": "2026-11-03",
+  "builtAt": "2026-11-03"
 }

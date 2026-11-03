@@ -4,7 +4,25 @@
   "File:Hampal macrol 111013-18311 mtp.JPG",
   "File:Hampal macrol 111013-18312 mtp.JPG",
   "File:Barbon schwanen 101016-7840 mp.JPG",
-  "File:Barbus macrolepidotus Mintern 142.jpg"
+  "File:Barbus macrolepidotus Mintern 142.jpg",
+  "inat:119109713",
+  "inat:119109705",
+  "inat:119109719",
+  "inat:251680991",
+  "inat:260836398",
+  "inat:283313793",
+  "inat:311239551",
+  "inat:359985582",
+  "inat:453417722",
+  "inat:454397939",
+  "inat:455005249",
+  "inat:457514851",
+  "inat:477438992",
+  "inat:571230730",
+  "inat:637705907",
+  "inat:637706593",
+  "inat:637706940",
+  "inat:664413950"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/1dc8daf06a3a4150.webp": "101073f0e2e29580",
@@ -12,7 +30,19 @@
   "https://media.aquatome.com/commons/37cf4a368f5ffcc3.webp": "858ce19e061ee7cc",
   "https://media.aquatome.com/commons/2f28881880b45f97.webp": "b725891e060ed205",
   "https://media.aquatome.com/seriouslyfish/6ed0b3085ac32f38.webp": "8d8e4646173f397a",
-  "https://media.aquatome.com/seriouslyfish/f4afdcf16d5228e5.webp": "0f4604673966a602"
+  "https://media.aquatome.com/seriouslyfish/f4afdcf16d5228e5.webp": "0f4604673966a602",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/119109719/large.jpeg": "0f0f930f5e1d192f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/637705907/large.jpg": "470e1e1f1d1f2f3f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/637706593/large.jpg": "4d8d1f2f0e4f371f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/637706940/large.jpg": "2e3c2e3ccc9b1b1f"
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "inat": {
+  "taxon": 102099,
+  "pass": "done",
+  "after": {
+   "research": 363966190,
+   "agree": 394858271
+  }
+ }
 }
