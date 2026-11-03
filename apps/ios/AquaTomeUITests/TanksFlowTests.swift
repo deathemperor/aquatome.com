@@ -138,10 +138,25 @@ final class TanksFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "the tank is still listed")
   }
 
+  // The + in the bar above was easy to miss: a second tank is added from the list itself.
+  func testAddsAnotherTankFromTheList() {
+    let app = launch()
+    add(app, "Bể 60")
+    let more = app.buttons["add-row"]
+    XCTAssertTrue(more.waitForExistence(timeout: 5) && more.isHittable, "no “Thêm bể” in the list")
+    more.tap()
+    type(app, "name", "Bể 90")
+    app.buttons["save"].tap()
+    XCTAssertTrue(app.buttons.matching(identifier: "tank").matching(NSPredicate(format: "label CONTAINS 'Bể 90'")).firstMatch
+      .waitForExistence(timeout: 5), "the second tank isn't listed")
+    XCTAssertEqual(app.buttons.matching(identifier: "tank").count, 2)
+  }
+
   func testLeavesAStoreFromANewerAppAlone() {
     let app = launch("-seed-tanks", "newer")
     XCTAssertTrue(text(app, "bản ứng dụng mới hơn").waitForExistence(timeout: 5))
     XCTAssertFalse(app.buttons["add"].isEnabled, "it could be written over")
+    XCTAssertFalse(app.buttons["add-row"].isEnabled, "it could be written over from the list")
     XCTAssertFalse(app.buttons["add-first"].exists)
   }
 

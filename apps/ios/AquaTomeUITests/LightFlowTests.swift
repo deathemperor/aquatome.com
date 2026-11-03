@@ -99,6 +99,23 @@ final class LightFlowTests: XCTestCase {
                   "the schedule written wasn't kept with its preset's name")
   }
 
+  // A light on a tank was shown there but did nothing when tapped.
+  func testALightOnATankOpensOnTheLightsTabAndConnects() {
+    let app = launch()
+    connect(app)
+    tap(app, "disconnect")
+    XCTAssertTrue(element(app, "scan").waitForExistence(timeout: 5), "not disconnected")
+    app.tabBars.buttons["Bể của tôi"].tap()
+    let tank = app.buttons["tank"].firstMatch
+    XCTAssertTrue(tank.waitForExistence(timeout: 5), "the light wasn't kept on a tank")
+    tank.tap()
+    let light = app.buttons["tank-light"].firstMatch
+    XCTAssertTrue(light.waitForExistence(timeout: 5), "the light on the tank can't be tapped")
+    light.tap()
+    XCTAssertTrue(app.tabBars.buttons["Đèn"].isSelected, "the light didn't open on the Đèn tab")
+    expect(app, "notice", contains: "Đã kết nối")
+  }
+
   func testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten() {
     var app = launch()
     connect(app)
