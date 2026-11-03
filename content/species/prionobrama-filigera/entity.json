@@ -46,6 +46,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -58,6 +62,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 1
       }
     ]
   },
@@ -69,10 +77,28 @@
       "html": "<p>The glass bloodfin tetra, Prionobrama filigera, is a characid recorded from the Amazon drainage in Ecuador, Colombia, Peru, Bolivia and Brazil. It is told from the other bloodfin tetra, Aphyocharax anisitsi, by its more elongate body and the lack of red in the anal and ventral fins. An active, pelagic species of the upper water layers, it grows to around 6 cm and should be kept in groups of at least six to eight.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/prionobrama-filigera/",
+      "html": "<ul><li>Very easy to maintain, completely peaceful</li><li>No special demands regarding water chemistry</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/prionobrama-filigera/",
+      "html": "<p>The Red Tailed Glass Tetra was imported as early as 1931. Hardly ever a wild-collected specimen can be found in the trade. The photographed specimens, for example, were bred in Hong Kong.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/prionobrama-filigera",
       "html": "<p>Recorded from various sections of the Amazon drainage in Ecuador, Colombia, Peru, Bolivia and Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/prionobrama-filigera/",
+      "html": "<p>The species comes from South America, where it is widespread over the Amazon basin in Bolivia, Brazil, Colombia, Ecuador and Peru.</p>"
     },
     {
       "key": "habitat",
@@ -111,6 +137,12 @@
       "html": "<p>Generally a peaceable species that can be kept with many other species enjoying similar conditions. Rival males can sometimes squabble amongst themselves, and this is one of several very good reasons why it should always be kept in groups of at least 6-8. It makes an excellent tankmate for loads of commonly imported South American species such as other similarly-sized characins, Corydoras, smaller Loricariid catfish, Apistogramma, Mikrogeophagus and in a suitably-sized tank even slightly larger cichlids such as angelfish or discus. Avoid bigger, fast-swimming species that inhabit similar areas of the tank as it tends not to do so well if competition for space and food is fierce.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/prionobrama-filigera/",
+      "html": "<p>One of the most attractive features of the fish is its behaviour, as it often swims in a dense school through the tank. The fish is completely peaceful.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/prionobrama-filigera",
@@ -127,6 +159,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/prionobrama-filigera",
       "html": "<p>The genus Prionobrama currently contains only one other valid species, P. paraguayensis. It is very similar in appearance to P. filigera, but lacks any red pigmentation in the caudal fin. It's probably never been imported for the hobby, although it may show up as occasional bycatch amongst shipments of more popular species. P. filigera can be easily distinguished from the \"other\" bloodfin tetra, Aphyocharax anisitsi by its more elongate body shape and the fact that it exhibits no red pigmentation in the anal and ventral fins. For some reason it remains a relatively unpopular species in the hobby, probably due to its lack of gaudy colouring. It is an excellent choice for beginners, being relatively unfussy regarding water chemistry, food and tankmates. It also develops into a very attractive fish once settled into an aquarium, is easily obtainable and usually inexpensive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/prionobrama-filigera/",
+      "html": "<p>Depending on the light in the tank, the body of the fish is transparent like glass or shines in all pastel colours of the rainbow.</p>"
     }
   ],
   "photos": [
@@ -172,5 +210,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-03"
 }

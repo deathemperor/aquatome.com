@@ -4,21 +4,29 @@
   "altNames": [
     "Cá da trơn biển đầu cứng",
     "Hardhead Sea Catfish",
-    "Vestatlantisk Havmalle"
+    "Vestatlantisk Havmalle",
+    "Cá trê biển hardhead",
+    "Hardhead sea catfish",
+    "Hardhead catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Ariopsis felis (Linnaeus, 1766)</li><li><strong>Tên thường gọi:</strong> Hardhead Sea Catfish, Vestatlantisk Havmalle (Đan Mạch)</li><li><strong>Nơi thu mẫu chuẩn:</strong> Cảng Charleston, South Carolina, Hoa Kỳ</li></ul><p>Người ta hay câu được loài cá này từ lối đi trên cao, trên cầu và cầu tàu, nhất là ở các lạch thông ra biển và các tuyến đường thủy nội địa.</p>",
     "distribution:planetcatfish": "<p>Tây Đại Tây Dương: từ Massachusetts và phía bắc Vịnh Mexico xuống đến nam Florida, thuộc Hoa Kỳ và Mexico.</p>",
     "habitat:planetcatfish": "<p>Đây là loài cá sống ở nước mặn và nước lợ. Cá sống ở vùng biển ven lục địa và có bơi vào các cửa sông. Chúng thường ở những vùng nước đục có nền bùn.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Systema naturae sive regna tria naturae v. 1 (pt 1), pp 503.</p>"
+    "references:planetcatfish": "<p>Systema naturae sive regna tria naturae v. 1 (pt 1), pp 503.</p>",
+    "distribution:scotcat": "<p>Đông Nam Bắc Mỹ, gồm Hoa Kỳ và Mexico. Nơi thu mẫu chuẩn (của Silurus felis) là cảng Charleston, South Carolina, Hoa Kỳ.</p>",
+    "habitat:scotcat": "<p>Cá da trơn hardhead sống chủ yếu ở vùng nước gần bờ phía tây Đại Tây Dương. Chúng có mặt dọc bờ biển đông nam Hoa Kỳ, quanh quần đảo Florida Keys và ven bờ vịnh Mexico. Người ta cũng gặp chúng ở các cửa sông và vùng nước lợ có đáy cát hoặc bùn, nhưng chúng chỉ thỉnh thoảng mới vào nước ngọt. Đến các tháng mùa đông, cá thường rời vùng nước nông ra chỗ sâu hơn. Trong vùng phân bố, loài này nhìn chung khá phổ biến, có nơi rất nhiều.</p>",
+    "behaviour:scotcat": "<p>Cá da trơn hardhead có bốn sợi râu dưới cằm và thêm hai sợi ở khóe miệng. Cá dùng mấy sợi râu này để dò tìm cua, cá và tôm trong các vịnh bùn nơi chúng sống. Vây lưng và hai vây ngực đều có một gai cứng, sắc, có ngạnh và phủ nhớt. Khi cá bị kích động, gai lưng thường dựng đứng lên. Lúc đó giày thể thao, thậm chí giày đế da, cũng không che chắn được bao nhiêu. Cá da trơn gafftopsail trông khá giống cá hardhead. Điểm khác là gai lưng và gai ngực của cá gafftopsail có một phần thịt kéo dài rất đặc trưng.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài felis nghĩa là con mèo (ý chỉ cá da trơn, tiếng Anh là catfish, tức \"cá mèo\"). Đây là tên bản thảo do Alexander Garden (1730-1791) đặt ra. Ông là bác sĩ kiêm nhà tự nhiên học người Scotland, sống ở Charleston, South Carolina (Hoa Kỳ), và từng gửi da cá cho Linnaeus.</p><p>Danh sách Đỏ IUCN: loài này phân bố rộng, phổ biến và có số lượng lớn ở những vùng ven biển nông và cửa sông nơi chúng sinh sống. Cá hay dính vào lưới kéo và lưỡi câu của người câu cá biển, nhưng ngư dân cố tình tránh bắt vì chúng gây phiền toái. Quần thể dọc bờ biển phía đông Hoa Kỳ có vẻ đã giảm, nhưng nguyên nhân vẫn chưa rõ. Vì loài này phân bố rộng và quần thể ở vịnh Mexico ổn định, nhìn tổng thể nó không bị coi là đang suy giảm đáng kể. Do đó loài được xếp vào mức Ít quan tâm, nhưng đánh giá này cần được cập nhật (IUCN 2015).</p>",
+    "references:scotcat": "<p>Betancur, R. 2015. Ariopsis felis. The IUCN Red List of Threatened Species 2015.</p><p>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.9,
-    "indexable": false,
+    "score": 0.88,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.88
+    }
   }
 }

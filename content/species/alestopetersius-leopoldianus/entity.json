@@ -1,0 +1,61 @@
+{
+  "id": "alestopetersius-leopoldianus",
+  "scientificName": "Alestopetersius leopoldianus",
+  "order": "Characiformes",
+  "family": "Alestidae",
+  "genus": "Alestopetersius",
+  "group": "tetras",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lake-mai-ndombe"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/alestopetersius_cf_leopoldianus_en/",
+      "html": "<p>Many species of African tetra have never been photographed alive or kept in aquaria, so it is often very difficult to determine a species of that group. This tetra was obtained for the first time from Lac Mai Ndombe (formerly known as Lake Leopold). It has wonderful shining colours in the right light. Most probably the fish belong to the species Alestopetersius leopoldianus.</p><p>Currently the fish are 6-7 cm long. They are expected not to grow larger than 9 cm. The fish have an orange longitudinal band, the large scales of the back and the belly shine blue-green, and the dorsal and caudal fins have an orange tinge.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/alestopetersius_cf_leopoldianus_en/",
+      "html": "<p>It is extremely difficult to take photos with a flash that show the colours correctly. Photos taken under natural daylight show the colours of the fish accurately, although they are a little unsharp.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn viên cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

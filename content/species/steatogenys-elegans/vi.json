@@ -1,0 +1,23 @@
+{
+  "slug": "ca-dao-steatogenys-elegans",
+  "name": "Cá dao Steatogenys elegans",
+  "altNames": [
+    "Elegant knifefish",
+    "Banded knifefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Giống Steatogenys có ba loài, và cả ba đều mang sọc vằn giống ngựa vằn. S. elegans dài tổng cộng khoảng 20 cm, thuộc loại khá nhỏ. Chỉ có S. ocellatus là lớn hơn hẳn, đạt tới 30 cm. Màu sắc của ba loài này rất giống nhau. Cách phân biệt dễ nhất là nhìn màu vây hậu môn. Vây hậu môn của S. elegans gần như không có màu. Ở S. duidae, vây này có vân loang như đá cẩm thạch rất rõ. Còn ở S. ocellatus, vây có màu sẫm và có một hàng đốm sáng chạy dọc theo bụng.</p>",
+    "distribution:glaser": "<p>Ngoài tự nhiên, các loài cá dao này sống trong những khu rừng Terra firme (rừng đất cao, không bị ngập theo mùa) trên toàn bộ lưu vực sông Amazon và sông Orinoco. Những cá thể mô tả ở đây có nguồn gốc từ Peru.</p>",
+    "diet:glaser": "<p>Thức ăn chính của chúng là các loài động vật không xương sống nhỏ như bọ gậy, giáp xác hay giun.</p>",
+    "behaviour:glaser": "<p>Steatogenys được xem là loài khá hiền. Chúng ít gây sự với nhau và cũng không gây sự với các loài cá khác.</p>",
+    "notes:glaser": "<p>Quanh miệng của chúng có những hố cảm giác rất phát triển. Nhờ các hố này, cá cảm nhận được cả dòng điện phát ra từ cơ bắp của một con giun đang ngọ nguậy. Mắt cá bị một lớp da mỏng phủ lên và gần như không nhìn được mấy. Như vậy có thể thấy rõ cá dao không dùng mắt để tìm mồi. Chúng tìm mồi bằng các giác quan khác.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

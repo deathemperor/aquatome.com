@@ -10,7 +10,8 @@
     "brazil",
     "madeira",
     "peru",
-    "ucayali"
+    "ucayali",
+    "colombia"
   ],
   "dataCard": {
     "tempC": [
@@ -44,6 +45,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ],
     "tankCm": [
@@ -67,6 +72,12 @@
       "html": "<p>Axelrodia stigmatias is a tiny characid from the western Amazon region in Brazil and Peru, sometimes traded as the 'white star' or 'pepper' tetra. It resembles A. riesei but has a more elongate body and is silvery yellow in life where that species is red. It is said to inhabit blackwater environments, and given its small size and somewhat specialised requirements it is best kept alone or with diminutive, non-aggressive characids and small catfishes.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_stigmatias_colombia_en/",
+      "html": "<p>The genus Axelrodia contains only three species, but it is quite difficult to distinguish two of them, namely A. stigmatias and A. riesei. Most probably the genus contains more, still undescribed species. Ruby tetras recently received from Colombia correspond very well with Axelrodia stigmatias in body proportions and caudal pattern, but are closer to A. riesei in their ruby red colours.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-stigmatias",
@@ -83,6 +94,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-stigmatias",
       "html": "<p>Despite its small size minimum base dimensions of 60 × 30 cm (24 × 12 in) or equivalent are recommended for long-term care, though smaller aquaria can be used for breeding. Volume is about 54 litres.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_stigmatias_colombia_en/",
+      "html": "<p>The charming tetra grows only up to 2 cm long. These tiny fish are ideal inhabitants of so-called nano tanks.</p>"
     },
     {
       "key": "maintenance",
@@ -107,6 +124,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-stigmatias",
       "html": "<p>Peaceful with other species but does not make an ideal community fish due to its small size and somewhat specialised requirements.</p><p>Ideally it should be maintained alone or at most with diminutive, non-aggressive characids and smaller callichthyid or loricariid catfishes.</p><p>Though gregarious by nature it is a shoaling rather than schooling species with rival males forming small territories and sparring on a regular basis.</p><p>8-10 specimens should be the minimum purchase since the fish will be less shy and display more interesting behaviour.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_stigmatias_colombia_en/",
+      "html": "<p>The fish are hardly shy and prefer not to swim too much.</p>"
     },
     {
       "key": "dimorphism",
@@ -188,5 +211,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-03"
 }

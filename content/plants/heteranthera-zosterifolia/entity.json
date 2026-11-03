@@ -1,12 +1,14 @@
 {
   "id": "heteranthera-zosterifolia",
   "scientificName": "Heteranthera zosterifolia",
-  "difficulty": 1,
-  "light": "low",
-  "co2": "optional",
-  "growth": "medium",
+  "synonyms": [
+    "Heteranthera zosteraefolia"
+  ],
+  "difficulty": 3,
+  "light": "high",
+  "co2": "required",
+  "growth": "fast",
   "placement": [
-    "midground",
     "background"
   ],
   "sections": [
@@ -17,58 +19,128 @@
       "html": "<ul><li>Origin: South America</li><li>Height: 20 - 30+ cm</li><li>Light demand: Low</li><li>CO2: Medium</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Other names: Stargrass</li><li>Difficulty: Medium</li><li>Lighting: Moderate to high</li><li>Substrate: Any</li><li>Growth form: Stem</li><li>Can be grown emersed: Yes</li><li>Growth rate: Very fast</li><li>Placement: Background</li><li>Fertilizers: Needed</li><li>CO2: Needed</li><li>Propagation: Cut stem</li><li>Colour: Light green</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Heteranthera zosterifolia is native to Brazil (states of Tocantins, Rondônia, Bahia, Rio Grande do Norte, Mato Grosso, Mato Grosso do Sul, Goiás, Distrito Federal, Minas Gerais, São Paulo, Rio de Janeiro, Paraná, Santa Catarina, and Rio Grande do Sul), Bolivia (El Chaco boliviano), northeastern Argentina, Uruguay, and Paraguay (Sierra de Amambay), with disjunctive populations in Colombia.</p><p>Note: Many aquatic plants from northern South America are misidentified as Heteranthera zosteraefolia, but are actually Eichhornia diversifolia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Heteranthera zosterifolia grows in slow and calm waters of streams and rivers.</p><p>It is a mostly submersed plant, but it sometimes develops emersed.</p><p>In the wild, it generally grows in dense colonies which may result in floating (but still rooted) mats.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The plant requires a lot of space because of its growth potential. The recommended tank size is a minimum of about 120 litres; the bigger the better.</p><p>Long tanks are better than tall ones: in long tanks the plant gets more light and becomes bushy. In tall tanks (deeper than 40 cm) it grows upward and loses its form.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Heterantherazosterifolia(096TC)/4544",
       "html": "<p>Stems can become 30-50 cm tall and 6-12 cm wide. In strong light growth is intensive, and the plant must be pruned before it becomes so compact that no light reaches the lower leaves. Water roots often form on the stem. Those are easily cut and replanted.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "html": "<p>In optimal conditions the plant grows so fast that it must be trimmed at least once a week. Do not let it reach the surface, or it forms a tangled mass. Start trimming when the tips are 10-15 cm from the surface; you can safely shorten it by half.</p><p>Planting: it is generally used in the background. Plant the stems in 5 – 7 cm of substrate, spaced about 7 – 10 cm apart. Avoid planting too close to the glass. Do not glue it onto driftwood or anything else, as it will not survive. Although it can grow emersed, it is not good for the dry start method.</p><p>Propagation: cut stems with 4 – 6 leaves and plant them. Stems from regular trimmings can be used.</p><p>Common problems:</p><ul><li>Melting: caused by sudden changes in water parameters, hard and/or alkaline water, low light, shading, short photoperiod, or insufficient fertilization and CO2.</li><li>Fragile stems: handle carefully.</li><li>Discoloration: may be caused by deficiency of nitrogen (NO3) or phosphate (PO4); black dots mean it needs iron. Use liquid fertilizers regularly and test the water.</li><li>Leggy bottom leaves: lower leaves die back when upper leaves block light. Prune and check lighting and CO2.</li><li>Overgrowth: under high light and CO2 it can fill the tank within weeks and needs regular trimming.</li><li>Long aerial roots may appear.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Temperature: 20 – 26 °C. It does not like cold; at lower temperatures growth slows significantly.</p><p>pH: 5.5 – 7.5. The pH affects nutrient uptake, so monitor it regularly.</p><p>Hardness: soft water is required, 1 – 6 GH. Alkaline and/or hard water can cause the plant to melt.</p><p>Flow: it does not like high flow; too much flow may make it melt in days.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Lighting: needs good lighting; provide at least medium-high light (30-50 PAR). Under low light, leaves become smaller and the plant grows thin and leggy, and usually melts.</p><p>Substrate: any substrate works, as the plant absorbs nutrients from the water column. It grows mainly in loose substrates and does not root deeply.</p><p>CO2 and fertilization: CO2 supplementation is highly recommended; without it the plant looks flaccid, leggy and stretched. Strong light without CO2 leads to algae. Regular dosing of liquid fertilizer (2-3 times a week) with macro and micronutrients is required.</p><p>If you keep shrimp, note that high CO2 and copper (found in most fertilizers) are extremely dangerous to them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Benefits: it suits jungle or Dutch style aquascapes; it produces small bubbles of oxygen on the plant; it provides cover and shade for invertebrates and small fish; and it supports biofilm, an ideal first food for newly hatched fry and shrimplets.</p><p>Tankmates: keep it with docile fish and invertebrates, such as neon tetras, killifish, swordtails, white cloud mountain minnows, zebra danio, cherry barb, platies, Endlers, mollies, otocinclus, pygmy corydoras, crystal red shrimp, blue bolt shrimp and, if pH is close to 7.0, most snails.</p><p>Avoid fish that disturb the substrate or eat the plant, such as silver dollars, Buenos Aires tetras, koi, goldfish, oscars, Jack Dempsey, clown loaches and African cichlids. Crayfish and freshwater crabs will cut, eat and uproot it.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Heterantherazosterifolia(096TC)/4544",
       "html": "<p>Heteranthera zosterifolia from South America is an extremely beautiful plant, which forms a lot of side shoots and thus quickly forms a bushy plant group. Leaves often become black on the back. In open aquariums, it forms small blue flowers if some shoots are allowed to spread on the surface.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Etymology: Heteranthera comes from the Greek 'heteros' (different) and 'antheros' (anther), from the unequal anthers of most species. Zosterifolia comes from the Latin 'Zostera' (sea grass) and 'folium' (leaf).</p><p>Description: a delicate long-stemmed plant, 20 – 50 cm tall, with narrow light green leaves about 5 cm long and 5 mm wide. Leaves are densest at the stem tip, resembling a star. It can be grown emersed or submersed; submersed stems have elongated internodes. Roots are thin, white and weak. It forms blue or white flowers only when the peduncles grow above the surface.</p><p>Conclusion: it looks very nice as a bush, but it is not easy to maintain. It needs soft, acidic water, CO2, regular fertilization and strong light, otherwise it melts or becomes leggy, and it needs frequent trimming. It is more suitable for experienced aquarists.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Pavlova, Anna A., and Mikhail Yu Cherednichenko. “In vitro Cultivation of Aquatic Plant Heteranthera zosterifolia Mart.” (2017).</li><li>Pellegrini, Marco Octávio de Oliveira, and Julia Cristina Guarnier. “Flora of Espírito Santo: Pontederiaceae.” Rodriguésia 73 (2022).</li><li>Horn, Charles Norman. A SYSTEMATIC REVISION OF THE GENUS HETERANTHERA (SENSU LATO; PONTEDERIACEAE)(ECOLOGY, DISTRIBUTION). The University of Alabama, 1985.</li><li>Rodriguez, Estela Elizabeth, Alberto Carlos Slanis, and Pablo Gilberto Aceñolaza. “Nuevas adiciones a la flora de la provincia de Entre Ríos (Argentina).” (2013).</li><li>Simpson, Michael G., and Darren H. Burton. “Systematic floral anatomy of Pontederiaceae.” Aliso: A Journal of Systematic and Floristic Botany 22, no. 1 (2006): 499-519.</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/faf3666d70af5566.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/faf3666d70af5566-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/2c59d9ea2506f986.webp",
+      "thumb": "https://media.aquatome.com/commons/2c59d9ea2506f986-480.webp",
       "width": 960,
       "height": 686,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heteranthera_zosterifolia_kz1.JPG",
-      "caption": "Heteranthera zosterifolia in Wrocław University Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/2c59d9ea2506f986-480.webp"
+      "caption": "Heteranthera zosterifolia in Wrocław University Botanical Garden"
     },
     {
       "url": "https://media.aquatome.com/commons/b6603402a1100676.webp",
+      "thumb": "https://media.aquatome.com/commons/b6603402a1100676-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC0",
       "author": "Daderot",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heteranthera_zosterifolia_-_Copenhagen_Botanical_Garden_-_DSC07959.JPG",
-      "caption": "Definitely it is not Heteranthera zosterifolia. Botanical specimen in the University of Copenhagen Botanical Garden, Copenhagen, Denmark.",
-      "thumb": "https://media.aquatome.com/commons/b6603402a1100676-480.webp"
+      "caption": "Definitely it is not Heteranthera zosterifolia. Botanical specimen in the University of Copenhagen Botanical Garden, Copenhagen, Denmark."
     },
     {
       "url": "https://media.aquatome.com/commons/012032af3c9b10db.webp",
+      "thumb": "https://media.aquatome.com/commons/012032af3c9b10db-480.webp",
       "width": 960,
       "height": 1344,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heteranthera_zosterifolia_kz01.jpg",
-      "caption": "Heteranthera zosterifolia in Wrocław University Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/012032af3c9b10db-480.webp"
+      "caption": "Heteranthera zosterifolia in Wrocław University Botanical Garden"
     },
     {
       "url": "https://media.aquatome.com/commons/375217b4a006bb97.webp",
+      "thumb": "https://media.aquatome.com/commons/375217b4a006bb97-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heteranthera_zosterifolia_kz02.jpg",
-      "caption": "Heteranthera zosterifolia in Wrocław University Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/375217b4a006bb97-480.webp"
+      "caption": "Heteranthera zosterifolia in Wrocław University Botanical Garden"
     }
   ],
   "productSlots": [
@@ -92,5 +164,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-03"
 }

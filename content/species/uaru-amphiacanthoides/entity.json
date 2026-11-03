@@ -9,7 +9,10 @@
     "south-america",
     "brazil",
     "rio-negro",
-    "guyana"
+    "guyana",
+    "santarem",
+    "colombia",
+    "orinoco"
   ],
   "dataCard": {
     "tempC": [
@@ -18,6 +21,13 @@
         "value": {
           "min": 27,
           "max": 30
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 32
         }
       }
     ],
@@ -43,6 +53,10 @@
       {
         "source": "seriouslyfish",
         "value": 25.4
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -54,6 +68,10 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
+        "value": 5
+      },
+      {
+        "source": "glaser",
         "value": 5
       }
     ]
@@ -124,6 +142,54 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
       "html": "<p>A large, peaceful South American cichlid. Uaru can make very interesting aquarium subjects. They require clean, well filtered water on the higher end of the temperature scale. Avoid keeping with overly aggressive fish; Uaru are happiest when kept in groups or pairs.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/uaru-amphiacanthoides-2/",
+      "html": "<p>The triangle cichlids (Uaru) are a small genus of cichlids in terms of the number of species, with only two scientifically accepted species: U. amphiacanthoides from the Amazon basin and upper Orinoco (Brazil and Colombia) and U. fernandezyepezi from the Rio Atabapo (Venezuela). Both species reach a total length of 20-30 cm and are therefore large cichlids. They are close relatives of the discus cichlids (Symphysodon), with which they also have a few things in common. Outside the spawning season, both genera are sociable animals that like to swim in groups with their own kind, both prefer higher water temperatures (26-32°C) and both initially feed their young with skin mucus. In contrast to discus, however, Uaru are predominantly vegetarians.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/uaru-amphiacanthoides-2/",
+      "html": "<p>Both wild-caught and captive-bred specimens are available in the trade. While the comparatively rarely imported wild-caught specimens almost always consist of adult or sexually mature animals that are over 12 cm long, the reverse is true for captive-bred specimens, which are almost always young and under 12 cm. Uaru amphiacanthoides are anything but rare in the wild and are traded everywhere in the region as comparatively cheap food fish. However, ornamental fish collectors rarely take the trouble to acclimatize the initially somewhat timid animals, especially as demand is not very high. Understandably, large wild-caught fish are always relatively expensive, as the freight costs are considerable.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/uaru-amphiacanthoides-2/",
+      "html": "<p>U. amphiacanthoides occurs in the Amazon basin and upper Orinoco (Brazil and Colombia). The type locality is the Rio Negro in Brazil.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/uaru-amphiacanthoides-2/",
+      "html": "<p>In contrast to discus, Uaru are predominantly vegetarians. It is important to cover their plant food requirements.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/uaru-amphiacanthoides-2/",
+      "html": "<p>Uaru are usually peaceful towards other fish. It is important to cover their plant food requirements. Planting Uaru aquariums is usually not successful for obvious reasons. It is always best to purchase a group of 6-8 specimens (or more if space permits), from which pairs will form.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/uaru-amphiacanthoides-2/",
+      "html": "<p>Males and females cannot normally be distinguished with certainty in Uaru. Females remain somewhat smaller, are fuller and have shorter pelvic fins, but in individual cases you cannot rely on these generalized differences.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/uaru-amphiacanthoides-2/",
+      "html": "<p>These fish are open breeders with biparental brood care. The young initially eat skin particles from the parents, but they are not dependent on this food and can also be reared with the usual foods. The species was first bred in 1916.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/uaru-amphiacanthoides-2/",
+      "html": "<p>There is a debate in the hobby as to whether there are one or two species of triangle cichlids under the name U. amphiacanthoides. Normally in U. amphiacanthoides the prominent large black triangle spot is below the upper lateral line branch. This applies to the Uaru usually kept in the aquarium; wild-caught specimens of this species from the Rio Negro in Brazil, the type locality, also corresponded quite characteristically to this pattern. Many years ago, however, adult Uaru were imported from the vicinity of Manacapuru, about 100 km upstream of the confluence of the Rio Negro with the Amazon, which had a different appearance. Four of the five specimens had a significantly larger wedge-shaped spot that extended into the upper branch of the lateral line. The fifth specimen looked completely “normal”. Werner Schmettkamp first introduced the form with the enlarged wedge-shaped spot to the aquarium literature in 1980 as the “orange-colored triangle cichlid”. It is still unclear and controversial whether this orange triangle cichlid from Manacapuru is an independent species or a local variant of U. amphiacanthoides.</p><p>There are probably only a few fish species that change their coloration as strikingly as Uaru amphiacanthoides in the course of their growth. There are several very different-looking coloration phases, which already caused enormous confusion when first imported (1913) and first bred (1916). Uninitiated observers undoubtedly consider the different age stages to be different species due to their coloration, especially as the body shape also changes considerably from the 2-3 cm long juvenile to the over 20 cm long adult. Please note that there are of course transitional phases.</p>"
     }
   ],
   "photos": [
@@ -174,13 +240,17 @@
       "category": "be-ca",
       "keywords": [
         "bể cá 120cm",
-        "bể cá lớn 200 lít"
+        "bể cá lớn 200 lít",
+        "bể cá 150cm",
+        "bể cá lớn cho cichlid"
       ]
     },
     {
       "category": "loc",
       "keywords": [
-        "lọc thùng bể lớn"
+        "lọc thùng bể lớn",
+        "lọc thùng ngoài",
+        "lọc cho bể cá lớn"
       ]
     },
     {
@@ -193,7 +263,8 @@
       "category": "thuc-an",
       "keywords": [
         "thức ăn cá cichlid",
-        "thức ăn thực vật cho cá"
+        "thức ăn thực vật cho cá",
+        "thức ăn spirulina cho cichlid"
       ]
     }
   ],

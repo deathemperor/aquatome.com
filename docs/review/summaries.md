@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (50)
+# Tóm tắt chờ duyệt (51)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -243,6 +243,19 @@ Cá minnow bụng đỏ phương Nam hợp với người muốn nuôi cá bắt
 Kiểm tra:
 - "Tính bể theo cỡ cá hiện có rồi quên cá lớn tới 12 cm; nên tính chỗ cho con trưởng thành": the page says nothing about sizing a tank or planning space for adults. It only gives the current size (5-7 cm) and the maximum size. This mistake and its fix are advice the page does not give.
 
+## Cá bụi đốm đuôi (Ctenopoma kingsleyae)
+id: `ctenopoma-kingsleyae`
+
+Cá bụi đốm đuôi (Ctenopoma kingsleyae) hợp người mới nuôi: độ khó 2/8, chịu nhiệt 20–30 °C, và nước uống được là dùng được. Cá lớn tới 20 cm, nên cần bể đủ rộng để nuôi chung với tetra, barb hay cichlid. Điểm khó nhất là cá bơi chậm nhưng vẫn coi cá rất nhỏ và tép là mồi, còn muốn cá đẻ thì phải mô phỏng mùa khô.
+
+- Thả chung với cá rất nhỏ hoặc tép thì chúng bị coi là mồi, nên chọn bạn cùng bể cỡ lớn hơn như tetra, barb hay cichlid.
+- Cho ăn mồi quá to so với miệng cá, nên chọn thức ăn khô, đông lạnh hay mồi sống cỡ vừa miệng.
+- Chờ cá tự đẻ trong điều kiện bể bình thường, trong khi muốn kích thích đẻ phải mô phỏng mùa khô và nên thử vào mùa đông.
+
+Kiểm tra:
+- "nên cần bể đủ rộng": the page gives no tank-size requirement and the card has no minimum tank, so this advice is not supported.
+- "nên chọn bạn cùng bể cỡ lớn hơn như tetra, barb hay cichlid": the page never says tetras, barbs or cichlids are larger tank mates. It only says the fish looks striking next to them and that fish of 2-3 cm and shrimp get eaten.
+
 ## Cá Cyclocheilichthys armatus (Cyclocheilichthys armatus)
 id: `cyclocheilichthys-armatus`
 
@@ -308,15 +321,14 @@ Kiểm tra:
 ## Cá nheo Hemisilurus moolenburghi (Hemisilurus moolenburghi)
 id: `hemisilurus-moolenburghi`
 
-Cá nheo Hemisilurus moolenburghi lớn tới 50 cm. Nước 22–27 °C, pH 6–7. Điểm khó nhất là hồ sơ không có thông tin về bể tối thiểu, thức ăn hay tính khí, và chưa có tài liệu nào ghi nhận loài này sinh sản.
+Cá nheo Hemisilurus moolenburghi lớn tới 50 cm, nên cần bể thật rộng; hồ sơ không ghi bể tối thiểu hay độ khó. Nước giữ ở pH 6–7, nhiệt độ 22–27 °C. Điểm khó nhất là thiếu thông tin nuôi, và chưa có tài liệu nào ghi nhận loài này sinh sản.
 
-- Đừng chọn bể theo cỡ cá lúc mua: cá lớn tới 50 cm, nên tính bể cho kích thước trưởng thành ngay từ đầu.
-- Đừng để nước ngoài khoảng 22–27 °C và pH 6–7: giữ trong khoảng này.
-- Đừng mua với kỳ vọng nhân giống: chưa có tài liệu nào ghi nhận loài này sinh sản.
+- Nuôi như cá nhỏ trong bể vừa: cá lớn tới 50 cm, nên chuẩn bị bể thật rộng ngay từ đầu.
+- Để nước lệch khỏi pH 6–7 hoặc nhiệt độ 22–27 °C: nên giữ nước trong khoảng này.
+- Mua về với hy vọng nhân giống: chưa có tài liệu ghi nhận loài này sinh sản, nên đừng tính chuyện cho đẻ.
 
 Kiểm tra:
-- "nên tính bể cho kích thước trưởng thành ngay từ đầu": the page gives no tank-sizing advice and no minimum tank. It only gives the maximum size. The mistake and its fix are invented advice.
-- "Đừng mua với kỳ vọng nhân giống": the page only says breeding is undocumented. It gives no advice about buying for breeding. This is mild, but it also goes beyond the page.
+- "nên cần bể thật rộng" and the mistake "Nuôi như cá nhỏ trong bể vừa... chuẩn bị bể thật rộng ngay từ đầu": the page gives no tank or space advice, only the 50 cm size. This is an inference and advice the page doesn't give.
 
 ## Cá rô phi Texas (Herichthys cyanoguttatus)
 id: `herichthys-cyanoguttatus`
@@ -452,7 +464,7 @@ Kiểm tra:
 - The fix "kiểm tra kỹ tên khoa học trước khi mua" is advice the page never gives. The page also uses two different scientific names (Pachypterus and Eutropius), so this check would not be a clear one.
 - The claim that the fish is "dễ nhầm" with true Pangasius, and the mistake "Nhầm cá với Pangasius thật vì cùng tên gọi", are not stated on the page. The page only says the "mini-pangasius" are not close relatives of Pangasius and that true Pangasius grow large.
 
-## Cá paro Anjungan (Parosphromenus anjunganensis)
+## Cá liquorice gourami Anjungan (Parosphromenus anjunganensis)
 id: `parosphromenus-anjunganensis`
 
 Cá paro Anjungan (Parosphromenus anjunganensis) hợp với người muốn nuôi nhóm nhỏ 3–6 con trong bể khoảng 19–38 lít, ghép với cá nước đen nhỏ. Nước cần 22–28 °C, pH 3–6,5, độ cứng 1–4 dGH. Loài này hiền, nhút nhát, hay trốn giữa cây nên bể cần nhiều chỗ trốn.
@@ -465,7 +477,7 @@ Kiểm tra:
 - Mistake 1: "nên chỉ ghép với cá nước đen nhỏ như Boraras hoặc betta ấp trứng bằng miệng" – the page only says "Bạn có thể cho chúng ở chung với…" (a permitted option). Turning it into an exclusive rule ("chỉ") is advice the page doesn't give.
 - Mistake 1: "cá paro dễ bị lấn át" – the page never says the fish get bullied or outcompeted by other tank mates. It only says they are gentle and shy. This risk is invented.
 
-## Cá cichlid Pelvicachromis humilis (Pelvicachromis humilis)
+## Cá cichlid kribensis vàng (Pelvicachromis humilis)
 id: `pelvicachromis-humilis`
 
 Hồ sơ này chưa đủ để nói loài hợp với ai. Thẻ chỉ ghi kích thước trưởng thành 12 cm, còn bể tối thiểu, nhiệt độ, pH, độ cứng và độ khó đều không có. Hồ sơ cũng gộp nhiều dạng trong nhóm P. humilis nên chưa chắc thông tin áp dụng đúng cho Pelvicachromis humilis, và con cái luôn nhỏ hơn con đực nhưng có màu đẹp hơn.
@@ -511,7 +523,7 @@ Cá chép đuôi vàng Lào (Poropuntius laoensis) hợp với người thích l
 Kiểm tra:
 - Mistake "Nuôi trong bể nhỏ vì thấy cá hiền... nên chuẩn bị bể đủ rộng ngay từ đầu": the page gives no tank-size or space advice, and the card has no minimum tank. The mistake and its fix are invented advice, not stated or clearly implied by the page.
 
-## Cá đuối nước ngọt Potamotrygon scobina (Potamotrygon scobina)
+## Cá đuối Potamotrygon scobina (Potamotrygon scobina)
 id: `potamotrygon-scobina`
 
 Cá đuối nước ngọt Potamotrygon scobina là loài đuối tương đối nhỏ, đường kính thân khoảng 35 cm. Hồ sơ không nêu bể tối thiểu, nhiệt độ hay pH nên không có số để so với bể nhà. Khó nhất là kiếm cá: loài này chỉ phân bố ở sông Rio Tocantins tại Brazil, nhà cung cấp chỉ bán buôn và số lượng rất hạn chế.

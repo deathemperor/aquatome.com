@@ -1,0 +1,79 @@
+{
+  "id": "steatogenys-elegans",
+  "scientificName": "Steatogenys elegans",
+  "order": "Gymnotiformes",
+  "family": "Hypopomidae",
+  "genus": "Steatogenys",
+  "group": "other",
+  "places": [
+    "south-america",
+    "peru",
+    "amazon"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/steatogenys-elegans-2/",
+      "html": "<p>The genus Steatogenys comprises three species, which are all zebra-like striped. With a total length of approximately 20 cm, S. elegans remains comparatively small; only S. ocellatus clearly becomes bigger, at 30 cm. The three species are very similar in colour. They can be distinguished best on the basis of anal-fin colouring: S. elegans has a largely colourless anal fin, the fin is strongly marbled in S. duidae and dark in S. ocellatus with light spots along the belly.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/steatogenys-elegans-2/",
+      "html": "<p>These knife fish are found in nature in the Terra firme forests of the entire Amazon and Orinoco river basins. The specimens described here were received from Peru.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/steatogenys-elegans-2/",
+      "html": "<p>They mainly feed on small invertebrates such as mosquito larvae, crustaceans or worms.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/steatogenys-elegans-2/",
+      "html": "<p>Steatogenys are considered comparatively peaceful among each other and towards other fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/steatogenys-elegans-2/",
+      "html": "<p>Around the mouth the animals show extremely pronounced sensory pits. With these, they can perceive the electrical activity of the muscles of a wriggling worm. The eyes are overgrown with a fine skin and not very functional. This clearly shows that these knife fish do not seek and find their food optically but by sensory means.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "trùng chỉ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc ngoài"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

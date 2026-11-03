@@ -1,0 +1,11 @@
+---
+url: https://www.aquariumglaser.de/en/10-catfishes/corydoras-punctatus-nanay-2/
+title: Corydoras "punctatus" Nanay - Aquarium Glaser GmbH
+fetchedAt: 2026-11-03T06:38:40.111Z
+hash: 2df0b53a9f19335ef28211d17e9e0f3544def7a6fe581dde4df199020ff8befb
+---
+
+There is a saying: “The Internet forgets nothing”. This may be true, but books are even more durable, especially if errors have been printed in them. These are often so stubborn that one could almost despair. This is what happened to a very pretty armored catfish that occurs in huge numbers in the tri-border area of Peru-Colombia-Brazil, i.e. in the upper Amazon. Because it is so common, it was also brought to Europe early, to Germany in 1935, when it was misidentified as Corydoras punctatus (which is a completely different species that looks similar to C. julii), an error that was carried over into the most important identification book on exotic ornamental fishes at the time, the “Arnold-Ahl”, in 1936. Since then, this error has apparently stuck, and exporters still send this species (and some close relatives that look very similar) under this misnomer. In reality it is a species from the close relationship of C. agassizii and C. ambiacus. Since this group of species is scientifically very poorly researched, nothing can be said for sure, but it is very probable that this particular Corydoras is scientifically still undescribed and best named Corydoras sp. aff. agassizii.
+The species is, as already mentioned, widespread in the entire upper Amazonas drainage up to at least Manaus in Brazil and appears here in huge swarms. A particularly nice variety comes from the Rio Nanay in Peru, which we currently have . The Rio Nanay is a left bank Amazon tributary and about 450 km long. It is considered a blackwater river. Concerning the water values and the care Corydoras “punctatus” Nanay is however everything else than demanding. Only breeding has not been successful yet, which is probably due to the fact that the animals spawn at night and are strong spawn predators, which is why the egg blessing has already landed in the stomach of the parents before the breeder notices anything.
+For our customers: the fish have code 242053 on our stocklist. Please note that we only supply wholesale.
+Text & photos: Frank Schäfer

@@ -1,0 +1,60 @@
+{
+  "id": "moenkhausia-phaeonota",
+  "scientificName": "Moenkhausia phaeonota",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Moenkhausia",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "mato-grosso"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota/",
+      "html": "<p>This small (about 4 cm) species of tetra originates from the Mato Grosso region in Brazil. It is the only species of Moenkhausia with such a colour pattern.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-phaeonota/",
+      "html": "<p>Already in the original scientific description (1979), the author mentioned that this generic placement could only be provisional. This makeshift stands until today. Sadly, this charming tetra is only very rarely available. If one observes the live fish, the behaviour is reminiscent of croaking tetras (Stevardiinae).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ dạng vảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

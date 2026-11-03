@@ -1,0 +1,72 @@
+{
+  "id": "serrasalmus-geryi",
+  "scientificName": "Serrasalmus geryi",
+  "order": "Characiformes",
+  "family": "Serrasalmidae",
+  "genus": "Serrasalmus",
+  "group": "characins",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-tocantins"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_geryi_en/",
+      "html": "<p>Serrasalmus geryi is a rare piranha restricted to the basin of the Rio Tocantins in Brazil. According to the scientific literature it reaches around 20 cm. Specimens measuring 16 to 22 cm are most probably fully grown already. It is unmistakable due to its reddish-brown stripe over the head and parts of the back.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_geryi_en/",
+      "html": "<p>This species is restricted to the basin of the Rio Tocantins in Brazil.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_geryi_en/",
+      "html": "<p>In the wild it feeds mostly on fin pieces. In aquaria it readily accepts small pieces of fish, whole smelt, frozen shrimps etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_geryi_en/",
+      "html": "<p>S. geryi is a solitary living fish. In very large tanks these fish can be kept even in small groups, as one customer reports.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 300 lít",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn thịt",
+        "cá con đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

@@ -8,13 +8,38 @@
   "places": [
     "south-america",
     "peru",
-    "loreto"
+    "loreto",
+    "brazil",
+    "amazon",
+    "ucayali"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "scotcat",
+        "value": 10.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -24,6 +49,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypoptopoma-gulare-2/",
       "html": "<p>The genus Hypoptopoma comprises small to medium sized loricariids. The largest species known becomes about 10 cm long. At first glance they look much like an Otocinclus, but larger. Typical for members of Hypoptopoma is the position of the eyes. They are placed at the side of the head in such a way that the fish can look over almost 360° when it sits on a plant. Among the loricariids this feature is found only in Hypoptopoma and Oxyropsis. The latter, however, has a flattened caudal peduncle, while in Hypoptopoma the caudal peduncle is oval in cross section.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypoptopoma_gulare.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (IUCN 2023). Despite the little information available on this species, it has a wide range and no apparent threats.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -38,16 +69,34 @@
       "html": "<p>Peru. The species was scientifically described from the surroundings of Loreto, where collectors of ornamental fish often work.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypoptopoma_gulare.htm",
+      "html": "<p>South America: Upper Amazon River in Brazil; lower and upper Rio Ucayali. Type locality: Peruvian Amazon.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypoptopoma-gulare-2/",
       "html": "<p>Maintaining Hypoptopoma is comparable to that of the much better known Otocinclus, but the larger Hypoptopoma of course need more food.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypoptopoma_gulare.htm",
+      "html": "<p>Will not bother other fish in the aquarium. They like to hang on to thin stalks of plants so they can see around it with their laterally located eyes. Provide shaded hiding areas in the tank with rocks or cave-like structures.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypoptopoma-gulare-2/",
       "html": "<p>If not enough algae grow in the tank, feed the fish with food tablets or slices of vegetables to make sure they find enough to eat.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypoptopoma_gulare.htm",
+      "html": "<p>Feed an all round diet but prefers a vegetable diet such as algae, spirulina tablets and cucumber/courgette.</p>"
     },
     {
       "key": "behaviour",
@@ -62,10 +111,28 @@
       "html": "<p>It is not possible to distinguish the sexes externally.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypoptopoma_gulare.htm",
+      "html": "<p>Male urogenital papilla short and conical, covered by anterior flaplike anus. Males with patch of tightly arranged small odontodes, variably covering first to fourth plates of ventral series, lateral to urogenital papilla. Males with poorly developed soft-tissue flap along posterior margin of pelvic spine. Female anus tubular, without separate urogenital papilla. In females, size and arrangement of odontodes on plates lateral to anus similar to adjacent plates, without distinct patch of differentially arranged odontodes. Female pelvic spine without flap of soft tissue on posterior surface.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypoptopoma-gulare-2/",
       "html": "<p>They are open spawners; the male guards the eggs until they hatch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypoptopoma_gulare.htm",
+      "html": "<p>This genus is recognised by the flat head and large eyes that are set laterally on the head and their heavy body armour. The ventral region is also armored and you can sometimes identify a species by the pattern on the underbelly. The species in this genus are notoriously difficult to identify and most of the time the location of the catchment area, or even the river itself, is needed to pinpoint a certain species.</p><p>Hypoptopoma gulare is distinguished from all congeners, with the exception of H. machadoi, by the presence of a single paranasal plate separating the lateral process of the lateral ethmoid from the second infraorbital and the nasal organ. In contrast, in all other species of Hypoptopoma, except H. steindachneri, the paranasal plates are absent and the lateral process of the lateral ethmoid contacts the second infraorbital. In H. steindachneri, there are two or more paranasal plates.</p><p>Hypoptopoma gulare is distinguished from H. machadoi by a slender caudal peduncle (caudal-peduncle depth 7.2–9.1 (8.3) vs. 9.0–12.0 (10.3)); by fewer premaxillary (12–16 (14) vs. 16–25 (20)) and dentary teeth (10–14 (12) vs. 14–21 (17)); by lanceolate plates at the base of the caudal fin with dark spot, asymmetrically shaped and slightly more extended over lower lobe branched rays, followed by two V-shaped bars pointing forward, with the anterior bar variably developed on the upper lobe but always connected at its angle with the basal spot (vs. lanceolate plates at the base of the caudal fin with a light brown spot, symmetrically shaped and shortly extended over the branched rays, typically followed by three vertical bands variably defined, with the anterior band not continuous in the middle with the basal spot); by dorsal fin with dark brown, roughly triangular spot extended over base of anterior 3–4 branched rays, followed typically by 2–3 bars (vs. dorsal fin without triangular spot at base; dorsal fin typically with 4–7 bars).</p><p>Etymology: The specific name gulare is Latin for \"of the throat\"; the allusion is not explained, perhaps referring to plates or scutes on the throat.</p><p>Cope (1878) described Hypoptopoma gulare based on a single specimen collected in 1877 near Pebas by Orton.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypoptopoma_gulare.htm",
+      "html": "<p>Aquino, A.E. and S.A. Schaefer 2010 Systematics of the genus Hypoptopoma Günther, 1868 (Siluriformes, Loricariidae). Bull. Amer. Mus. Nat. Hist. 336:1-110. Salvador, G.N. 2023. Hypoptopoma gulare. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -104,23 +171,23 @@
     },
     {
       "url": "https://media.aquatome.com/commons/233a97be869da0b6.webp",
+      "thumb": "https://media.aquatome.com/commons/233a97be869da0b6-480.webp",
       "width": 960,
       "height": 928,
       "licence": "CC BY 4.0",
       "author": "Renata Bartolette, Carolina Santos Vieira, amille Ferreira Lima Santos, Carlos Danillo Costa Santos, Jefferson Santos Vitória Luduvice, Tamires Silva Passos, Thiago D’avilla, Bruna Oliveira Nascimento, Dário Ernesto, Fernando Henrique Argolo, Alexandre José Mendonça Aguiar, Fernanda Argolo, Marlene Silva Almeida Pereira, Tainara Farias Santos, and Marcelo Fulgêncio Guedes Brito",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Species_from_the_Lajeado_reservoir_(2_of_2).png",
-      "caption": "Fish species in the influence area of the Lajeado reservoir (upper-middle Tocantins river basin, Tocantins state, Brazil).(A) Auchenipterus nuchalis;(B) Hypophthalmus marginatus;(C) Pseudoplatystoma f",
-      "thumb": "https://media.aquatome.com/commons/233a97be869da0b6-480.webp"
+      "caption": "Fish species in the influence area of the Lajeado reservoir (upper-middle Tocantins river basin, Tocantins state, Brazil).(A) Auchenipterus nuchalis;(B) Hypophthalmus marginatus;(C) Pseudoplatystoma f"
     },
     {
       "url": "https://media.aquatome.com/commons/d427f7eb8fd4810f.webp",
+      "thumb": "https://media.aquatome.com/commons/d427f7eb8fd4810f-480.webp",
       "width": 960,
       "height": 1315,
       "licence": "Public domain",
       "author": "Burkhardt, Jacques",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypoptopoma_gulare_and_Pseudacanthicus_spinosus_(Teffe,_Brazil,_11_October_1865).jpg",
-      "caption": "Taxonomic Classification: Animalia--Hypoptopoma gulare (Cope 1878).Taxonomic Classification: Animalia--Pseudacanthicus spinosus (Castelnau 1855)",
-      "thumb": "https://media.aquatome.com/commons/d427f7eb8fd4810f-480.webp"
+      "caption": "Taxonomic Classification: Animalia--Hypoptopoma gulare (Cope 1878).Taxonomic Classification: Animalia--Pseudacanthicus spinosus (Castelnau 1855)"
     }
   ],
   "videos": [
@@ -170,5 +237,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-03"
 }

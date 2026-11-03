@@ -1,0 +1,60 @@
+{
+  "id": "pyrrhulina-filamentosa",
+  "scientificName": "Pyrrhulina filamentosa",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Pyrrhulina",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "guyana",
+    "colombia"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_filamentosa_en/",
+      "html": "<ul><li>Origin: Guyana</li><li>Available size: 8-10 cm</li><li>Maximum size reported: 10 cm</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_filamentosa_en/",
+      "html": "<p>The fish have recently been received from Guyana and sometimes also from Colombia. The species has a very wide distribution.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_filamentosa_en/",
+      "html": "<p>This beautiful Pyrrhulina can be recognized best by the broad dark lateral band. The maximum size reported for P. filamentosa is 10 cm. It is a beautiful, representative aquarium fish.</p><p>Suggestion of a common name: Broadband-Pyrrhulina.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn cá tetra"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

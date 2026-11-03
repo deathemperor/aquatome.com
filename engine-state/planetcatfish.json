@@ -2282,11 +2282,14 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=123": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T23:05:12.999Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/corydoras-oiapoquensis"
+    ],
+    "updatedAt": "2026-11-03T06:11:58.062Z",
+    "hash": "74da866b4091727760f12bb49830ae48d3599b4d345f7bf4a39a49086bb25480",
+    "processedHash": "74da866b4091727760f12bb49830ae48d3599b4d345f7bf4a39a49086bb25480",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1230": {
     "entityIds": [
@@ -2309,11 +2312,14 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1232": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T23:05:53.281Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/trichomycterus-auroguttatus"
+    ],
+    "updatedAt": "2026-11-03T06:12:41.437Z",
+    "hash": "36ffe32b1e017e9b5c3f6bfd405d33559dd1357dc330d04d524fb65778eed9cf",
+    "processedHash": "36ffe32b1e017e9b5c3f6bfd405d33559dd1357dc330d04d524fb65778eed9cf",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1233": {
     "entityIds": [
@@ -2346,11 +2352,14 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1236": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T23:08:52.645Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/vandellia-sanguinea"
+    ],
+    "updatedAt": "2026-11-03T06:13:17.980Z",
+    "hash": "005a7688f7aa02b6f6931112184105a30b8cc4f03b89de6dc8aace4d04255440",
+    "processedHash": "005a7688f7aa02b6f6931112184105a30b8cc4f03b89de6dc8aace4d04255440",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1237": {
     "entityIds": [
@@ -2363,17 +2372,20 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1238": {
-    "entityIds": [],
-    "updatedAt": "2026-11-02T23:09:50.874Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "species/corydoras-sarareensis"
+    ],
+    "updatedAt": "2026-11-03T06:13:44.238Z",
+    "hash": "d6352f37be5d7fdf746b4a93c4333b0ed466586f3790ee154918dabbb1fd02c0",
+    "processedHash": "d6352f37be5d7fdf746b4a93c4333b0ed466586f3790ee154918dabbb1fd02c0",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1239": {
     "entityIds": [],
-    "updatedAt": "2026-11-02T23:09:51.856Z",
+    "updatedAt": "2026-11-03T06:14:59.222Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=124": {
@@ -2418,16 +2430,16 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1243": {
     "entityIds": [],
-    "updatedAt": "2026-11-02T23:13:55.563Z",
+    "updatedAt": "2026-11-03T06:15:03.909Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1244": {
     "entityIds": [],
-    "updatedAt": "2026-11-02T23:14:00.171Z",
+    "updatedAt": "2026-11-03T06:15:08.926Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "fetch failed"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1245": {

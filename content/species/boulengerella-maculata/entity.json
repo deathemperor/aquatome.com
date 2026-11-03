@@ -49,12 +49,20 @@
       {
         "source": "seriouslyfish",
         "value": 32.9
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 240
+      },
+      {
+        "source": "glaser",
+        "value": 250
       }
     ],
     "difficulty": [
@@ -72,6 +80,12 @@
       "html": "<ul><li><strong>Max size:</strong> 329 mm SL (13 in SL)</li><li><strong>Aquarium size:</strong> 240 × 90 cm (96 × 36 in)</li><li><strong>Temperature:</strong> 22–28°C (72–82°F)</li><li><strong>pH:</strong> 5.0–7.5</li><li><strong>Hardness:</strong> 1–12 dGH</li><li><strong>Difficulty:</strong> 7 of 8 (difficult). Rated difficult because it needs a tank at least 2 m long.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/boulengerella_maculata_en/",
+      "html": "<p>The Spotted Pike Characin, Boulengerella maculata, is one of the most popular predatory fish species in the freshwater aquarium. The species grows up to 30 cm long and is very peaceful. All other tankmates (as long as they don't fit in its mouth) are simply ignored.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
@@ -84,6 +98,12 @@
       "html": "<p>Type locality is given simply as 'Amazon River, Brazil', but this species is currently understood to be distributed throughout much of the Amazon, Orinoco and Tocantins river systems with records existing from Ecuador, Colombia, Peru, Brazil and Venezuela.</p><p>Populations from Peru, the area around Leticia, Colombia, and the rio Javari basin in Brazil differ in the number of vertebrae and pored lateral line scales compared with those from the lower Amazon and Río Orinoco.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/boulengerella_maculata_en/",
+      "html": "<p>B. maculata has an exceptionally wide distribution and occurs in almost the entire Amazon and Orinoco systems. It is therefore quite often seen in the trade.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
@@ -94,6 +114,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
       "html": "<ul><li>Standard length: 329 mm SL (13 in SL)</li><li>Aquarium base: 240 × 90 cm (96 × 36 in)</li><li>Volume: ~1944 litres (~514 US gal)</li></ul><p>An aquarium with base dimensions of 240 × 90 cm (96 × 36 in) or more is recommended.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/boulengerella_maculata_en/",
+      "html": "<p>A 2.5 m long tank should be provided to keep a larger group of these fish.</p>"
     },
     {
       "key": "maintenance",
@@ -114,10 +140,22 @@
       "html": "<p>An obligate predator feeding mostly on smaller fishes and insects in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Smaller specimens can be offered bloodworm, small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc.</p><p>Insects such as crickets are also suitable to use although it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian or avian meat such as beef heart or chicken.</p><p>Some of the lipids contained in these cannot be properly metabolised by the fish and can cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/boulengerella_maculata_en/",
+      "html": "<p>In the wild the species feeds exclusively on live fish and occasionally crustaceans and insects. In the aquarium, however, they usually accept frozen food items quite quickly.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
       "html": "<p>Peaceful with anything too large to swallow and can be maintained in a community provided tankmates are chosen with care.</p><p>Aggressively territorial or very competitive species should be avoided with the best choices being similarly-sized, placid fishes such as Geophagus or Acestrorhynchus spp. and many doradid or loricariid catfishes.</p><p>This species is not aggressive towards conspecifics with juveniles in particular exhibiting a marked schooling instinct.</p><p>Older individuals tend to be more solitary but still group together from time-to-time, and it's best maintained in numbers of four or more.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/boulengerella_maculata_en/",
+      "html": "<p>The schooling behaviour of these fish is wonderful to look at. They move like a single organism and are always in perfect alignment with the other individuals.</p>"
     },
     {
       "key": "reproduction",
@@ -141,25 +179,25 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/bffb3c257a9ef582.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bffb3c257a9ef582-480.webp",
       "width": 718,
       "height": 684,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
       "caption": "Pigmentation varies somewhat and this may be related to distribution or different water types in nature.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/bffb3c257a9ef582-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/4f0252178d07cac1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4f0252178d07cac1-480.webp",
       "width": 799,
       "height": 534,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boulengerella-maculata",
       "caption": "This species appreciates woody structures around the surface of its aquarium.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/4f0252178d07cac1-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -192,5 +230,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-03"
 }

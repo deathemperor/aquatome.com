@@ -1,0 +1,65 @@
+{
+  "id": "moenkhausia-agnesae",
+  "scientificName": "Moenkhausia agnesae",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Moenkhausia",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_agnesae_en-2/",
+      "html": "<p>Moenkhausia agnesae is a larger species that can be kept ideally along with cichlids and catfish. The maximum length reported is about 8 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_agnesae_en-2/",
+      "html": "<p>The fish were received from Peru.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_agnesae_en-2/",
+      "html": "<p>Formerly this species has often been confused with M. simulata. However, the horizontal stripes in M. simulata are all black, whereas in M. agnesae these stripes are reddish in the upper portions of the body.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra",
+        "thức ăn viên cho cá nhiệt đới"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

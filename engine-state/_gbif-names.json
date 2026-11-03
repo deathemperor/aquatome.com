@@ -18287,5 +18287,76 @@
     "family": "Pimelodidae",
     "genus": "Zungaro",
     "matchType": "EXACT"
+  },
+  "Aegla platensis": {
+    "canonicalName": "Aegla platensis",
+    "order": "Decapoda",
+    "family": "Aeglidae",
+    "genus": "Aegla",
+    "matchType": "EXACT"
+  },
+  "Brachyrhamdia marthae": {
+    "canonicalName": "Brachyrhamdia marthae",
+    "order": "Siluriformes",
+    "family": "Heptapteridae",
+    "genus": "Brachyrhamdia",
+    "matchType": "EXACT"
+  },
+  "Characidium steindachneri": {
+    "canonicalName": "Characidium steindachneri",
+    "order": "Characiformes",
+    "family": "Crenuchidae",
+    "genus": "Characidium",
+    "matchType": "EXACT"
+  },
+  "Macrobrachium brasiliense": {
+    "canonicalName": "Macrobrachium brasiliense",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "matchType": "EXACT"
+  },
+  "Macrobrachium brasiliensis": {
+    "canonicalName": "Macrobrachium brasiliense",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "matchType": "FUZZY"
+  },
+  "Micropoecilia parae": {
+    "canonicalName": "Poecilia parae",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Poecilia",
+    "matchType": "EXACT"
+  },
+  "Myleus rubripinnis": {
+    "canonicalName": "Myloplus rubripinnis",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Myloplus",
+    "matchType": "EXACT"
+  },
+  "Nothobranchius rubripinnis": {
+    "canonicalName": "Nothobranchius rubripinnis",
+    "order": "Cyprinodontiformes",
+    "family": "Nothobranchiidae",
+    "genus": "Nothobranchius",
+    "matchType": "EXACT"
+  },
+  "Procatopus similis": {
+    "canonicalName": "Procatopus similis",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Procatopus",
+    "matchType": "EXACT"
+  },
+  "Sanchezi para": null,
+  "Semaprochilodus laticeps": {
+    "canonicalName": "Semaprochilodus laticeps",
+    "order": "Characiformes",
+    "family": "Prochilodontidae",
+    "genus": "Semaprochilodus",
+    "matchType": "EXACT"
   }
 }

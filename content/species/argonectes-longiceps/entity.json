@@ -1,0 +1,65 @@
+{
+  "id": "argonectes-longiceps",
+  "scientificName": "Argonectes longiceps",
+  "order": "Characiformes",
+  "family": "Hemiodontidae",
+  "genus": "Argonectes",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "colombia"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/argonectes-longiceps-2/",
+      "html": "<p>Argonectes longiceps is an unusual tetra that was imported for the first time in a few specimens from Colombia. Although inconspicuously colored, it looks quite attractive with its black and white tail fin pattern. The maximum length given in the scientific literature is approx. 25 cm standard length (without caudal fin).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/argonectes-longiceps-2/",
+      "html": "<p>With their small mouths Argonectes pick up food particles from the ground. Feeding with frozen and dry food does not cause any problems.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/argonectes-longiceps-2/",
+      "html": "<p>They are peaceful animals which, in contrast to the closely related Hemiodus species, have a normal, i.e. horizontal swimming posture, while Hemiodus typically swim with their heads upwards.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

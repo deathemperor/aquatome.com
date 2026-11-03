@@ -9,7 +9,9 @@
     "south-america",
     "peru",
     "amazon",
-    "brazil"
+    "brazil",
+    "rio-solimoes",
+    "rio-ucayali"
   ],
   "dataCard": {
     "tempC": [
@@ -26,6 +28,13 @@
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
@@ -35,6 +44,10 @@
       },
       {
         "source": "seriouslyfish",
+        "value": 8
+      },
+      {
+        "source": "scotcat",
         "value": 8
       }
     ],
@@ -54,6 +67,13 @@
         "value": {
           "min": 6,
           "max": 7
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
         }
       }
     ],
@@ -163,6 +183,42 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-semiaquilus",
       "html": "<p>There are currently over 180 described species of Corydoras (commonly shortened to \"cory\"), making it one of the most speciose of all South American fish genera. There are also loads of undescribed species, many of which have been assigned a \"C number\" for identification purposes. This is a very simple system of numbering and is similar to the L number scheme used to identify undescribed Loricariids. Both systems were implemented by the German aquarium magazine DATZ (Die Aquarien und Terrarienzeitschrift), but have proved to be invaluable tools and are now used widely by aquarists worldwide.</p><p>It's partly this tremendous diversity (along with their undeniably cute looks) that puts corys among the most popular fish in the hobby. They're also very peaceful aquarium residents. Although they'll consume bite-sized items such as eggs or fry, aggression towards other species is virtually unheard of. Intraspecific hostility is similarly unusual, occurring in only a handful of species (mainly being confined to the \"long-nosed\" varieties). Provided space isn't an issue this rarely results in physical damage, though. In nature most species occur in large schools and as such do best when kept in a group in captivity.</p><p>Most corys are primarily benthic (bottom dwelling), although a handful of exceptions do spend the majority of their time in open water. Unfortunately this behaviour often means that they're purchased and sold as scavengers that will \"clean the bottom\" of your community tank. While they'll certainly polish off any uneaten morsels that reach the substrate, they won't keep the substrate \"clean\" as such. In fact maintenance of the substrate becomes more of a primary concern if your tank contains a few corys, as they can develop nasty infections of the barbels if kept in dirty or otherwise unfavourable conditions. It should also be said that they won't do well if expected to survive on the scraps of food that escape the fish above. Always use sinking varieties to ensure your corys receive the right amount of food.</p><p>All corys are facultative air breathers, meaning they have the ability to breathe atmospheric air to a certain extent if necessary. They possess a modified, highly vascularised intestine to aid in the uptake of atmospheric oxygen. This adaptation allows them to survive if their habitat becomes oxygen-deprived for any reason. In the aquarium you'll see them darting to the surface to take in gulps of air on occasion. This is perfectly natural and no cause for concern unless water conditions are deteriorating, in which case the frequency of visits to the surface will usually rise correspondingly.</p><p>Corys are part of the \"armoured\" catfish group, and instead of scales possess two rows of bony plates running along the flanks. The genus name is composed of the Greek words cory, meaning helmet and doras, meaning skin (here used incorrectly to denote \"armour\"). They also have very sharp pectoral fin spines, which are easily caught in the mesh of aquarium nets and can also produce a painful \"sting\" if they penetrate the skin. Care should therefore be exercised when handling or moving corys for any reason.</p><p>There are a few colour forms of this species available in the trade. These are sometimes given invalid names such as C. \"huanta\" or C. \"milagros\" in order to shift more units.</p><p>Name change: the spelling of the epithet was corrected to semiaquilus, as Weitzman (1964) wrote it.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_semiaquilus.htm",
+      "html": "<ul><li>Size: male 7.5 cm, female 8.0 cm</li><li>Can be very variable in its body markings. Sympatric with C. fowleri.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_semiaquilus.htm",
+      "html": "<p>Brazil: In Igarapé Preto, a tributary of the Rio Solimoes (Rio Amazonas River system). Peru: tributaries of the Rio Ucayali, near Genero Herrera.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_semiaquilus.htm",
+      "html": "<p>As this is one of the longer snouted species it will be well suited to most community tanks. A well planted tank with a soft substrate such as sand so they can bury their snouts while searching out food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_semiaquilus.htm",
+      "html": "<p>Readily accepts a mixed and varied diet which includes granular foods, tablet food, frozen bloodworm and a good quality flake.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_semiaquilus.htm",
+      "html": "<p>Lineage: Placed in Lineage 1 and when there is a revision they will stay as Corydoras (Lacépède, 1803) with the type species of C. geoffroy La Cépède, 1803. As of the latest update (Dias et al 2024), Corydoras semiaquilus has been placed in Lineage 1 and has retained the genus name of Corydoras.</p><p>Etymology: The specific name semiaquilus: From the Latin semi = 'half' and quilus = 'dark coloured', pertaining to the dark colour on the upper body scutes on this Corydoras.</p><p>Remarks: The penultimate thumbnail image shows a specimen on a black substrate hence the colour difference, so this may also be C. semiaquilus, but this has not yet been confirmed.</p><p>IUCN Red List: Despite there being little information available on this species, it has a wide range, which is unlikely to have severe threats. It is therefore assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_semiaquilus.htm",
+      "html": "<p>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited. Angelica C Dias, Luiz F C Tencatt, Fabio F Roxo, Gabriel de Souza da Costa Silva, Sérgio A Santos, Marcelo R Britto, Martin I Taylor, Claudio Oliveira, Phylogenomic analyses in the complex Neotropical subfamily Corydoradinae (Siluriformes: Callichthyidae) with a new classification based on morphological and molecular data, Zoological Journal of the Linnean Society, 2024;, zlae053. Frederico, R.G. 2023. Corydoras semiaquilus. The IUCN Red List of Threatened Species 2023. Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises. Seus, Werner: Corydoras, The most Popular armoured catfishes of South America.</p>"
     }
   ],
   "photos": [

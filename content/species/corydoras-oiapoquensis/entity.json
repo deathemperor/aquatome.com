@@ -1,0 +1,111 @@
+{
+  "id": "corydoras-oiapoquensis",
+  "scientificName": "Corydoras oiapoquensis",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "oyapock"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=123",
+      "html": "<ul><li>Common name: Flag Tailed Panda Cory</li><li>Type locality: Cumuri Creek at left bank of Oyapock R., French Guiana.</li><li>Etymology: named after the main river that the type specimen was collected in.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=123",
+      "html": "<p>South America: Oyapock River basin.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=123",
+      "html": "<p>Temperature: 23.0-28.0°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=123",
+      "html": "<p>Ideally, and close to mandatory, substrate should be sand, but rounded gravel is an imperfect alternative. Avoid keeping over rough edged (chipped) gravel or sharp sand, as this increases the risk of damage to the fish's barbels when it tries to dig. Substrate should be bordered with driftwood and aquatic plants, leaving an open area for them to search for food and swim. The shade provided by overhanging rock work, arching bogwood, tall or floating plants is all that is required to settle a group of these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=123",
+      "html": "<p>Will readily accept all prepared foods that reach the bottom of the aquarium such as tablets, granules and larger flakes. Live (or frozen) foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fish for spawning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=123",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=123",
+      "html": "<p>Females grow larger and are more full-bodied, which is best observed from above. Males typically have more pointed rather than rounded fin tips as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=123",
+      "html": "<p>Has been bred in the aquarium.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=123",
+      "html": "<p>Netherlands Journal of Zoology v. 21 (no. 4), pp 425, Fig. 7.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

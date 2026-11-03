@@ -1,0 +1,73 @@
+{
+  "id": "alestopetersius-hilgendorfi",
+  "scientificName": "Alestopetersius hilgendorfi",
+  "order": "Characiformes",
+  "family": "Alestidae",
+  "genus": "Alestopetersius",
+  "group": "tetras",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lukeni"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/a_new_wonderful_congo_tetra__en/",
+      "html": "<p>This Congo tetra was imported from the Congo under the name \"Phenacogrammus sp. Lukeni River\". The systematics of this group of tetras are quite complicated, so a correct determination was initially impossible; it is now considered quite certain that the fish belong to the species Alestopetersius hilgendorfi. They reach a maximum length of 6-7 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/a_new_wonderful_congo_tetra__en/",
+      "html": "<p>They should be kept by experienced keepers only, as they need very clean, bacteria-poor water.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/a_new_wonderful_congo_tetra__en/",
+      "html": "<p>The fish are very beautiful. Small red cells are scattered all over the body, looking a bit like spread ink. The fish can widen or contract these colour cells depending on its mood. Under strong lighting the fish contracted the colour cells and looked less red, while when caught they looked much deeper red.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá nhỏ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước hồ cá",
+        "test nitrit amoniac"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ dạng hạt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

@@ -1,0 +1,102 @@
+{
+  "id": "hoplias-aimara",
+  "scientificName": "Hoplias aimara",
+  "order": "Characiformes",
+  "family": "Erythrinidae",
+  "genus": "Hoplias",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "amapa",
+    "french-guiana",
+    "venezuela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 100
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplias_aimara_amapa_brazil_en/",
+      "html": "<p>Hoplias aimara belongs to the fighters. Without any fear they attack even humans. H. aimara attains a length of more than one meter, so one should be really careful with these fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplias_aimara_amapa_brazil_en/",
+      "html": "<p>This species has been known so far only from French Guyana and Venezuela. It has now been imported for the first time from the Brazilian state of Amapa.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplias_aimara_amapa_brazil_en/",
+      "html": "<p>H. aimara differs from all other species of Hoplias by the very large eye. The specimens from Amapa are also much more colorful than any Hoplias seen so far.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c505acab20021134.webp",
+      "width": 960,
+      "height": 1703,
+      "licence": "Public domain",
+      "author": "Pavabidule",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aymara.JPG",
+      "caption": "Aymara caught in the French Guiana (Hoplias aimara, 78cm, ~8kg)",
+      "thumb": "https://media.aquatome.com/commons/c505acab20021134-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3e0261ed86f1294e.webp",
+      "width": 960,
+      "height": 485,
+      "licence": "CC BY-SA 3.0",
+      "author": "Lars Simonsen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hoplias_macropthalmus.jpg",
+      "caption": "Hoplias macropthalmus in a pet shop",
+      "thumb": "https://media.aquatome.com/commons/3e0261ed86f1294e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ce6bec729b4aef27.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY-SA 4.0",
+      "author": "Secundus Zephyrus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrolycus_armatus.jpg",
+      "caption": "Hydrolycus armatus, photo taken at the Berlin Tiergarten (Aquarium Berlin).",
+      "thumb": "https://media.aquatome.com/commons/ce6bec729b4aef27-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b66360e4e42c998a.webp",
+      "width": 960,
+      "height": 451,
+      "licence": "CC BY-SA 4.0",
+      "author": "Secundus Zephyrus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrolycus_armatus_cropped.jpg",
+      "caption": "Hydrolycus armatus, photo taken at the Berlin Tiergarten (Aquarium Berlin). Cropped and flipped to meet the taxobox image guidelines of WikiProject Fishes",
+      "thumb": "https://media.aquatome.com/commons/b66360e4e42c998a-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

@@ -12,7 +12,10 @@
     "colombia",
     "putumayo",
     "peru",
-    "loreto"
+    "loreto",
+    "ecuador",
+    "bolivia",
+    "rio-madeira"
   ],
   "dataCard": {
     "tempC": [
@@ -46,6 +49,10 @@
       {
         "source": "seriouslyfish",
         "value": 50
+      },
+      {
+        "source": "glaser",
+        "value": 85
       }
     ],
     "tankCm": [
@@ -133,6 +140,42 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-tigrinum",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Lundberg, J. G. and A. Akama (2005). Brachyplatystoma capapretum: a new species of goliath catfish from the Amazon basin, with a reclassification of allied catfishes. Copeia 2005(3), 492-516</li><li>M. Petrere Jr., R. B. Barthem, E. A. Córdoba and B. Corrales Gómez (2004). Review of the large catfish fisheries in the upper Amazon and the stock depletion of piraíba (Brachyplatystoma filamentosum Lichtenstein). Reviews in Fish Biology and Fisheries 14, 403-414</li><li>Alcántara, F., F. Chu, L. Rodriguez, C. Chávez, A. Bernuy, T. Barbarán, S. Tello, G. Murrieta, C. García-Dávila, and J. Nuñez (2009). Notas sobre la Biología y Pesca del Zúngaro Tigrinis Brachyplatystoma tigrinum (Britski, 1981) en el Río Amazonas, Perú. Folia Amazonica 18(1-2), 15-22</li><li>Alcántara, F., F. Chu-Koo, L. Rodríguez, C. Chávez, S. Tello, A. García, G. Murrieta, J. Mori, J. Nuñez, C. García-Dávila, and F. Duponchelle (2009). Plan de Manejo del Zúngaro Tigrinus Brachyplatystoma tigrinum en la Amazonía Peruana. Folia Amazonica 18(1-2), 59-66</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-tigrinum-formerly-merodontotus-tigrinus/",
+      "html": "<p>This striking, large catfish reaches a final length of approx. 85 cm. It is widely distributed in Amazonia (Ecuador, Peru, Colombia, Bolivia, Brazil) and was only discovered in 1981. It was described in the genus Merodontotus, which was created especially for it, but is now considered a synonym of Brachyplatystoma.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-tigrinum-formerly-merodontotus-tigrinus/",
+      "html": "<p>In the mid-1980s, there was a real hype about this strikingly marked animal. It was (and still is) a high-priced fish because its preferred habitat is rapids, where it is difficult to catch.</p><p>Small juveniles up to around 5 cm in length are unspectacularly grey in color, only then do vertical stripes slowly develop. It therefore takes a relatively long time for the species to take on a sales-promoting coloration at 10-15 cm, and larger fish that are demanding in terms of water quality are already very costly to transport.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-tigrinum-formerly-merodontotus-tigrinus/",
+      "html": "<p>Its preferred habitat is rapids. Initially, it was only known from the Teotonio rapids in the Rio Madeira, which is now drowned in a reservoir due to the construction of dams to generate electricity. Fortunately, the zebra shovelnose was not only found there. Nevertheless, dam construction is disrupting the migration routes of large catfish (including B. tigrinum), with some species migrating thousands of kilometers to their spawning grounds, to such an extent that some species are seriously endangered.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-tigrinum-formerly-merodontotus-tigrinus/",
+      "html": "<p>They need comparatively huge aquariums, not so much to swim in as to guarantee good water quality. After all, what a half-meter catfish devours is returned to the water in a different form – and that's no small amount!</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-tigrinum-formerly-merodontotus-tigrinus/",
+      "html": "<p>Keeping these beautiful catfish is not particularly difficult. The wholesaler keeps them individually to prevent all eventualities, but they are usually compatible with each other.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-tigrinum-formerly-merodontotus-tigrinus/",
+      "html": "<p>Successful breeding in human care has not yet been reported. On the other hand, a number of close relatives of this species are kept in aquaculture and propagated very effectively, so that this would be possible without great effort if required. However, this is hardly worthwhile for aquaristic purposes, as only a few specialists still keep such large fish these days.</p>"
     }
   ],
   "photos": [
@@ -154,14 +197,18 @@
       "category": "loc",
       "keywords": [
         "lọc thùng công suất lớn",
-        "máy bơm tạo dòng chảy mạnh"
+        "máy bơm tạo dòng chảy mạnh",
+        "lọc thùng ngoài công suất lớn",
+        "máy lọc bể cá lớn"
       ]
     },
     {
       "category": "be-ca",
       "keywords": [
         "bể cá kính cỡ lớn",
-        "bể cá đặt làm theo kích thước"
+        "bể cá đặt làm theo kích thước",
+        "bể cá lớn",
+        "bể cá 500 lít"
       ]
     },
     {
@@ -175,7 +222,8 @@
       "category": "thuc-an",
       "keywords": [
         "thức ăn cá săn mồi",
-        "tôm cá đông lạnh cho cá"
+        "tôm cá đông lạnh cho cá",
+        "thức ăn cá trê"
       ]
     }
   ],

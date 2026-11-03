@@ -8,13 +8,36 @@
   "places": [
     "north-america",
     "united-states",
-    "mexico"
+    "mexico",
+    "gulf-of-mexico"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 70
+      },
+      {
+        "source": "scotcat",
+        "value": 60
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 35
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
       }
     ]
   },
@@ -32,10 +55,28 @@
       "html": "<p>Western Atlantic: Massachusetts and northern Gulf of Mexico to southern Florida in USA and Mexico.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_felis.htm",
+      "html": "<p>Southeastern North America: United States and Mexico. Type locality: (for Silurus felis) Charleston Harbor, South Carolina, U.S.A.</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1237",
       "html": "<p>This is a marine/brackish fish. Inhabits continental waters and enters estuaries. Found in turbid waters over muddy bottoms.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_felis.htm",
+      "html": "<p>Hardhead catfish are found mostly in the near-shore waters of the Western Atlantic Ocean, around the southeast coast of the United States, around the Florida Keys and the coast of the Gulf of Mexico. They are also found in brackish estuaries and river mouths where the bottom is sandy or muddy, but only occasionally enter freshwater. It tends to move from shallower to deeper waters in the winter months. The species is generally common to abundant within its range.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_felis.htm",
+      "html": "<p>The hardhead catfish has four barbels under the chin, with two more at the corners of the mouth. These barbels help the catfish find crabs, fish, and shrimp in the muddy bays where they live. The dorsal and pectoral fins each are supported by a sharp, slime-covered, barbed spine. The dorsal spine is normally erect when the fish is excited and a tennis shoe or even a leather-soled shoe offers little protection. The gafftopsail catfish looks similar to the hardhead catfish, but its dorsal and pectoral spines have a distinctive fleshy extension.</p>"
     },
     {
       "key": "reproduction",
@@ -44,52 +85,97 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_felis.htm",
+      "html": "<p>Etymology: the specific name felis means cat (i.e., catfish); it is a manuscript name coined by Scottish physician-naturalist Alexander Garden (1730-1791) of Charleston, South Carolina (USA), who sent fish skins to Linnaeus.</p><p>IUCN Red List: this widely distributed species is common and abundant where it occurs in shallow coastal and estuarine areas. It frequently occurs as bycatch in trawl and saltwater angler catches, but is purposefully avoided for nuisance reasons. The population appears to have declined along the eastern U.S. seaboard, but the drivers are not yet well understood. Due to its wide distribution and stable population in the Gulf of Mexico, it is not considered to be experiencing significant overall declines. Therefore, it is listed as Least Concern, but needs updating (IUCN 2015).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1237",
       "html": "<p>Systema naturae sive regna tria naturae v. 1 (pt 1), pp 503.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_felis.htm",
+      "html": "<p>Betancur, R. 2015. Ariopsis felis. The IUCN Red List of Threatened Species 2015.</p><p>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/0defdc029bdc1bca.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0defdc029bdc1bca-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Paul A. Scharf / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_felis.htm",
+      "caption": "Ariopsis felis: Caught in the Gulf Shores, Gulf Of Mexico Baldwin County , Alabama 17thOct 2000",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/7eef1fa8ac9979f6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7eef1fa8ac9979f6-480.webp",
+      "width": 500,
+      "height": 364,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_felis.htm",
+      "caption": "Ariopsis felis: Catfish stamp",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/993434fa9fc1dcf5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/993434fa9fc1dcf5-480.webp",
+      "width": 500,
+      "height": 377,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_felis.htm",
+      "caption": "Ariopsis felis: Catfish stamp",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/4c3c7b66f3ed8a5e.webp",
+      "thumb": "https://media.aquatome.com/commons/4c3c7b66f3ed8a5e-480.webp",
       "width": 960,
       "height": 352,
       "licence": "Public domain",
       "author": "Edgar R. Waite",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arius_felis.jpg",
-      "caption": "Ariopsis felis syn. Arius felis",
-      "thumb": "https://media.aquatome.com/commons/4c3c7b66f3ed8a5e-480.webp"
+      "caption": "Ariopsis felis syn. Arius felis"
     },
     {
       "url": "https://media.aquatome.com/commons/668bda1939ff3411.webp",
+      "thumb": "https://media.aquatome.com/commons/668bda1939ff3411-480.webp",
       "width": 960,
       "height": 1022,
       "licence": "Public Domain",
       "author": "Yinan Chen",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gfp-hardhead-catfish.jpg",
-      "caption": "Different types of fishes One of the two species of Catfish found in the Florida Keys. Arius Felis.",
-      "thumb": "https://media.aquatome.com/commons/668bda1939ff3411-480.webp"
+      "caption": "Different types of fishes One of the two species of Catfish found in the Florida Keys. Arius Felis."
     },
     {
       "url": "https://media.aquatome.com/commons/3d812e5524112238.webp",
+      "thumb": "https://media.aquatome.com/commons/3d812e5524112238-480.webp",
       "width": 960,
       "height": 360,
       "licence": "Public domain",
       "author": "Barton Warren Evermann",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_33340_Galeichthys_Felis_(Linnaeus).jpeg",
-      "caption": "Galeichthys Felis (Linnaeus) Sea Catfish); \"catfish\" Subject: Catfishes Tag: Fish",
-      "thumb": "https://media.aquatome.com/commons/3d812e5524112238-480.webp"
+      "caption": "Galeichthys Felis (Linnaeus) Sea Catfish); \"catfish\" Subject: Catfishes Tag: Fish"
     },
     {
       "url": "https://media.aquatome.com/commons/509366400e80ecfc.webp",
+      "thumb": "https://media.aquatome.com/commons/509366400e80ecfc-480.webp",
       "width": 960,
       "height": 425,
       "licence": "Public domain",
       "author": "H. L. Todd",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_51138_Salt-Water_Catfish.jpeg",
-      "caption": "Salt-Water Catfish Arius felis (L.), J. & G. Subject: Hardhead catfish Tag: Fish",
-      "thumb": "https://media.aquatome.com/commons/509366400e80ecfc-480.webp"
+      "caption": "Salt-Water Catfish Arius felis (L.), J. & G. Subject: Hardhead catfish Tag: Fish"
     }
   ],
   "videos": [
@@ -118,6 +204,25 @@
       "lang": "en"
     }
   ],
-  "productSlots": [],
-  "updatedAt": "2026-11-02"
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
 }

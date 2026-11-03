@@ -1,0 +1,98 @@
+{
+  "id": "pseudobagrus-trilineatus",
+  "scientificName": "Pseudobagrus trilineatus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Pseudobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "dong-jiang"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudobagrus_trilineatus_en/",
+      "html": "<p>This catfish originates from China. It grows to about 7.5 cm and is endemic (occurs nowhere else) to the Dong Jiang in the Chinese province of Guangdong. Ichthyologists do not agree on the genus: most place trilineatus in Pseudobagrus, but some in Tachysurus.</p><p>Suggested common name: Golden brook catfish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudobagrus_trilineatus_en/",
+      "html": "<p>Endemic to the Dong Jiang in Guangdong province, China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudobagrus_trilineatus_en/",
+      "html": "<p>The tank should be furnished with sand and stones, resembling a small river or larger brook. This environment suits the catfish best.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudobagrus_trilineatus_en/",
+      "html": "<p>It is best to keep these fish at room temperature. Provide a separate hiding place for each individual.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudobagrus_trilineatus_en/",
+      "html": "<p>P. trilineatus are carnivorous; they readily take all types of flake, frozen and live food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudobagrus_trilineatus_en/",
+      "html": "<p>Towards each other the specimens are rather peaceful, but they look for some individual distance. Do not keep them with very small fish, as these could be taken for food.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudobagrus_trilineatus_en/",
+      "html": "<p>Pseudobagrus means \"wrong Bagrus\" (Bagrus is another catfish genus). trilineatus means \"with three lines\".</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá",
+        "đá sỏi suối trang trí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn thịt",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

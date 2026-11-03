@@ -1,0 +1,113 @@
+{
+  "id": "trichomycterus-auroguttatus",
+  "scientificName": "Trichomycterus auroguttatus",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Trichomycterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraiba-do-sul"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1232",
+      "html": "<p>Scientific name: Trichomycterus auroguttatus Costa, 1992.</p><p>Size: 61 mm SL.</p><p>Type locality: Rio Marimbondo, tributary of Rio Preto, Rio Paraiba basin, 1 kilometer west of Visconde de Mauá, Rio de Janeiro, Brazil.</p><p>Etymology: Trichomycterus comes from the Greek trichos, meaning hair, and mykter, meaning nose; in reference to the barbels.</p><p>IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1232",
+      "html": "<p>South America: Marimbondo River, tributary of the Preto River, Paraíba do Sul River basin. Rio de Janeiro State.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1232",
+      "html": "<p>This genus takes live or frozen food, as well as commercial dry prepared foods. Be careful not to overfeed. In nature, they feed on small invertebrates living at the bottom.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1232",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1232",
+      "html": "<p>Revue française d'Aquariologie Herpétologie v. 18 (no. 4) [for 1991], pp 105, Fig. 6.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/8bb0fbad87baee99.webp",
+      "width": 960,
+      "height": 1254,
+      "licence": "CC BY 4.0",
+      "author": "Costa et al. (2022)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichomycterus_(10.3390-taxonomy2040032)_Figure_4.png",
+      "caption": "Figure 4. Left jaw suspensorium and opercular series, lateral view: (A) Trichomycterus auroguttatus; (B) Trichomycterus longibarbatus; (C) Trichomycterus puriventris; (D) Trichomycterus saquarema Cost",
+      "thumb": "https://media.aquatome.com/commons/8bb0fbad87baee99-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/af33249ef79b7bdc.webp",
+      "width": 960,
+      "height": 1447,
+      "licence": "CC BY 4.0",
+      "author": "Costa et al. (2022)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichomycterus_(10.3390-taxonomy2040032)_Figure_2.png",
+      "caption": "Figure 2. Mesethmoidal region, middle and left portions, dorsal view: (A) Trichomycterus auroguttatus; (B) Trichomycterus goeldii'; (C) Trichomycterus puriventris; (D) Trichomycterus saquarema Costa, ",
+      "thumb": "https://media.aquatome.com/commons/af33249ef79b7bdc-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e85434e38d0c64d3.webp",
+      "width": 960,
+      "height": 1328,
+      "licence": "CC BY 4.0",
+      "author": "Costa et al. (2022)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichomycterus_(10.3390-taxonomy2040032)_Figure_9.png",
+      "caption": "Figure 9. Head, dorsal view: (A) Trichomycterus goeldii, UFRJ 7938, 57.9 mm SL; (B) Trichomycterus auroguttatus, UFRJ 11675, 59.2 mm SL. Black arrows, S6 pores; white arrows, S3 pores.",
+      "thumb": "https://media.aquatome.com/commons/e85434e38d0c64d3-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/168c53c4f251bd86.webp",
+      "width": 960,
+      "height": 298,
+      "licence": "CC BY 4.0",
+      "author": "Costa et al. (2022)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichomycterus_(10.3390-taxonomy2040032)_Figure_3.png",
+      "caption": "Figure 3. Partial ventral branchial skeleton, mid-left portion, dorsal view: (A) Trichomycterus auroguttatus; (B) Trichomycterus jacupiranga; (C) Trichomycterus saquarema Costa, Katz, Vilardo and Amor",
+      "thumb": "https://media.aquatome.com/commons/168c53c4f251bd86-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi nhỏ cho cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

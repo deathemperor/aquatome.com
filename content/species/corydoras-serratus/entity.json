@@ -10,13 +10,62 @@
     "brazil",
     "rio-negro"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 6.5
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-serratus-4/",
       "html": "<p>The saddle-snouted Corydoras serratus from the upper Rio Negro region in Brazil is one of the most sought-after armored catfish. Because the saddle-snouted Corydoras, in contrast to the long-snouted and round-snouted former (now assigned to other genera) Corydoras, tend to be solitary fish, they cannot be caught economically in large numbers. This and the fact that incredible prices were sometimes paid for these fish in Japan made them top rarities on the ornamental fish market for a long time.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_serratus.htm",
+      "html": "<p>This species can be variable in colouration and is also quite rare in the hobby. C146, C038 and CW075 are the same species as C. serratus.</p><ul><li>Size: male 6.0 cm, female 6.5 cm</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_serratus.htm",
+      "html": "<p>South America: Brazil, Rio Poranga, 8 kilometres north of the Nobua oba, where the two streams join a small tributary of the Upper Rio Negro.</p><p>IUCN Red List: Corydoras serratus is endemic to Brazil and known only from the holotype, collected in the upper Rio Negro basin, in the state of Amazonas. Although collection for commercial purposes is authorized, this activity does not appear to harm the species' survival in the wild. Although population information is not available, the region is in good conservation status and no significant threats have been identified. Therefore, C. serratus has been categorised as Least Concern (IUCN 2022).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_serratus.htm",
+      "html": "<p>As this is one of the longer snouted species it will be well suited to most community tanks. A well planted tank with a soft substrate such as sand so they can bury their snouts while searching out food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_serratus.htm",
+      "html": "<p>Readily accepts a mixed and varied diet which includes granular foods, tablet food, frozen bloodworm and a good quality flake.</p>"
     },
     {
       "key": "reproduction",
@@ -29,6 +78,18 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-serratus-4/",
       "html": "<p>Such variance has also been observed in wild-caught specimens, but there was still uncertainty as to whether these were not other, closely related species. This question was clarified by the captive bred specimens. Nowadays, of course, the initial fuss made about this Corydoras has long since given way to a more sober approach, but word has still not got around that C. serratus is a very variably colored species.</p><p>Adult wild-caught specimens of this armored catfish are received from time to time. They show the described variance in coloration, but most of them have the broad and long dorsal stripe.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_serratus.htm",
+      "html": "<p>Etymology: The specific name serratus: Latin for toothed like a saw, referring to “distinctively serrated or toothed” pectoral-fin spines.</p><p>Lineage: Placed in Lineage 1, and when there is a revision they will stay as Corydoras (Lacépède, 1803) with the type species of C. geoffroy La Cépède, 1803. As of the latest update (Dias et al 2024), Corydoras serratus has been placed in Lineage 1 and has retained the genus name of Corydoras.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_serratus.htm",
+      "html": "<ul><li>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited.</li><li>Angelica C Dias, Luiz F C Tencatt, Fabio F Roxo, Gabriel de Souza da Costa Silva, Sérgio A Santos, Marcelo R Britto, Martin I Taylor, Claudio Oliveira, Phylogenomic analyses in the complex Neotropical subfamily Corydoradinae (Siluriformes: Callichthyidae) with a new classification based on morphological and molecular data, Zoological Journal of the Linnean Society, 2024;, zlae053.</li><li>Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises.</li><li>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio) 2022. Corydoras serratus. The IUCN Red List of Threatened Species 2022.</li></ul>"
     }
   ],
   "photos": [
@@ -108,5 +169,6 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03",
+  "lNumber": "C146"
 }

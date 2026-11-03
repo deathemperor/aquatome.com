@@ -1,0 +1,23 @@
+{
+  "slug": "ca-dorado",
+  "name": "Cá dorado",
+  "altNames": [
+    "Cá hồi vàng Nam Mỹ",
+    "Dorado",
+    "Golden dorado",
+    "Cá tetra săn mồi Salminus"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Chi Salminus hiện có bốn loài. Đây là những loài tetra có thể lớn rất to. Loài nhiều màu sắc nhất trong chi là S. brasiliensis, còn có tên gọi \"Dorado\". Loài này có thể dài tới một mét.</p>",
+    "distribution:glaser": "<p>Những con cá non nói đến ở đây có xuất xứ từ Paraguay, dài 7–10 cm.</p>",
+    "notes:glaser": "<p>Khi về già, cá lên màu vàng óng khắp thân, đẹp đến nghẹt thở. Loài này còn có một tên cũ là S. maxillosus, nhưng tên này nay không còn hợp lệ.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

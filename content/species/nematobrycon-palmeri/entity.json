@@ -42,6 +42,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.2
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -60,33 +64,33 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nematobrycon_palmeri_wild_en/",
-      "html": "<p>The emperor tetra (Nematobrycon palmeri) has for decades been one of the most beloved tetra species of all, thanks to its great beauty and interesting behaviour.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nematobrycon-palmeri",
       "html": "<p>The emperor tetra, Nematobrycon palmeri, is a characid endemic to the San Juan and Atrato basins in Colombia. Virtually all fish in the trade are captive bred, and it is hardy and unfussy about water chemistry. Males are told apart from N. lacortei by their blue iris, and the smaller Inpaichthys kerri, often misidentified as this species, has an adipose fin, which Nematobrycon lacks.</p>"
     },
     {
-      "key": "beforeYouBuy",
+      "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nematobrycon_palmeri_wild_en/",
-      "html": "<p>The species is available all year round as captive-bred fish. Wild-collected fish, on the other hand, are available only seasonally. Wild-collected and captive-bred emperor tetras differ, as in most tetra species, mainly in body shape: wild fish are much more slender than captive-bred ones, because food in the wild is far less abundant than it usually is in aquaria. In coloration there is no difference between wild and captive-bred fish: both are very beautiful.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/emperor_tetras_in_show_size_arrived_en/",
+      "html": "<p>The Emperor tetra (Nematobrycon palmeri) is one of the most popular tetra species of all. The fish found in the ornamental fish trade are almost exclusively bred ones.</p>"
     },
     {
-      "key": "distribution",
+      "key": "beforeYouBuy",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nematobrycon_palmeri_wild_en/",
-      "html": "<p>Wild fish are imported from Colombia.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/emperor_tetras_in_show_size_arrived_en/",
+      "html": "<p>Due to the great demand, breeders usually sell their fish at a comparatively small size. Fully grown specimens with a total length of almost 5 cm have now been received.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nematobrycon-palmeri",
       "html": "<p>Endemic to the San Juan and Atrato river basins in Colombia with type locality 'Condoto, Río Condoto and Novita, Río Tamana, southwestern Colombia'. Wild examples are not as common as they once were in the aquarium hobby, however, with the majority of those in the trade produced on a commercial basis.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/emperor_tetras_in_show_size_arrived_en/",
+      "html": "<p>The species originates from Colombia.</p>"
     },
     {
       "key": "habitat",
@@ -167,5 +171,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

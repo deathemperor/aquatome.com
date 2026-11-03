@@ -1,0 +1,65 @@
+{
+  "id": "salminus-brasiliensis",
+  "scientificName": "Salminus brasiliensis",
+  "order": "Characiformes",
+  "family": "Bryconidae",
+  "genus": "Salminus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "paraguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 100
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_arrived__en/",
+      "html": "<p>The genus Salminus currently comprises four species. These tetras can become very large. The most colorful of them is S. brasiliensis, also known as \"Dorado\". The species can become one meter long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_arrived__en/",
+      "html": "<p>The juveniles described here originate from Paraguay and are 7-10 cm long.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_arrived__en/",
+      "html": "<p>Old fish get a breathtakingly beautiful golden colour all over the body. This species is also known under the old, invalid name S. maxillosus.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300 cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "thức ăn cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

@@ -1,0 +1,14 @@
+---
+url: https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-tigrinum-formerly-merodontotus-tigrinus/
+title: Brachyplatystoma tigrinum (formerly: Merodontotus tigrinus) - Aquarium Glaser GmbH
+fetchedAt: 2026-11-03T06:23:50.692Z
+hash: 9b15b416e6d80bb750e3402b689c55b6f4f8b72a033964c7ae90bb1de2d75b93
+---
+
+It’s hard to believe, but this striking and large catfish – the species reaches a final length of approx. 85 cm – which is also widely distributed in Amazonia (Ecuador, Peru, Colombia, Bolivia, Brazil) was only discovered in 1981! It was described in the genus Merodontotus, which was created especially for it, but is now considered a synonym of Brachyplatystoma.
+In the mid-1980s, there was a real hype about this strikingly marked animal. It was (and still is) a high-priced fish because its preferred habitat is rapids, where it is difficult to catch. Initially, it was only known from the Teotonio rapids in the Rio Madeira, which is now drowned in a reservoir due to the construction of dams to generate electricity. Fortunately, the zebra shovelnose was not only found there. Nevertheless, dam construction is disrupting the migration routes of large catfish (including B. tigrinum), with some species migrating thousands of kilometers to their spawning grounds, to such an extent that some species are seriously endangered.
+Keeping these beautiful catfish is not particularly difficult. Of course, they need comparatively huge aquariums, not so much to swim in as to guarantee good water quality. After all, what a half-meter catfish devours is returned to the water in a different form – and that’s no small amount! We in the wholesale trade keep these treasures individually to prevent all eventualities, but they are usually compatible with each other. Successful breeding in human care has not yet been reported. On the other hand, a number of close relatives of M. tigrinum are kept in aquaculture and propagated very effectively, so that this would be possible without great effort if required.
+However, this is hardly worthwhile for aquaristic purposes. After all, only a few specialists still keep such hummers these days. Small juveniles up to around 5 cm in length are unspectacularly grey in color, only then do vertical stripes slowly develop, so that on the one hand it takes a relatively long time for the species to take on a sales-promoting coloration at 10-15 cm and on the other hand the transport costs for larger fish that are demanding in terms of water quality are already very high. The animals we can currently offer are 20-25 cm long and beautifully colored!
+We have also made a small film about these fish, which you can watch here
+For our customers: the animals have code 267604 on our stocklist. Please note that we only supply the wholesale trade.
+Text & Photos: Frank Schäfer

@@ -3,7 +3,9 @@
   "name": "Cá đầu chúi sọc vàng",
   "altNames": [
     "Cá đầu chúi vàng",
-    "Gold-Striped Headstander"
+    "Gold-Striped Headstander",
+    "Cá đầu chúc Ternetz",
+    "Golden Striped Headstander"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá đầu chúi sọc vàng, Anostomus ternetzi, là một loài thuộc họ Anostomidae, sống ở hệ thống Río Orinoco và vùng ven biển Guyana, Suriname và Guiana thuộc Pháp. Chúng sống ở các khu vực nhiều đá ven những đoạn sông, suối chảy xiết, gặm tảo và động vật không xương sống nhỏ. Giống như A. anostomus, chúng hay gây gổ với đồng loại khi chỉ nuôi vài con. Vùng phân bố ở Brazil chưa rõ ràng, chỉ có những ghi nhận rời rạc từ các lưu vực Araguaia và Xingu.</p>",
@@ -17,13 +19,19 @@
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Chưa có ghi nhận.</p>",
     "notes:seriouslyfish": "<p>Hiện nay Anostomus có năm loài hợp lệ, tuy nhiên chỉ A. anostomus và A. ternetzi được biết đến rộng rãi trong thú chơi cá cảnh.</p><p>Một nghiên cứu phát sinh loài của Sidlauskas và Vari (2008) cho thấy chi này, theo cách phân loại lúc bấy giờ, là một nhóm đa phyletic (không đơn ngành, polyphyletic).</p><p>Ba loài là A. intermedius, A. plicatus và A. spiloclistron được xác định có quan hệ gần với các chi Gnathodolus, Sartor và Synaptolaemus hơn so với các loài còn lại trong chi, do đó được xếp vào chi mới Petulanos, với P. plicatus là loài định danh (type species).</p><p>Họ Anostomidae phân bố khắp phần lớn khu vực nhiệt đới và cận nhiệt đới Nam Mỹ, từ tây bắc Colombia đến trung Argentina.</p><p>Phần lớn các loài có thân khá thon dài và hơi tròn, dù có một số ngoại lệ, ví dụ Abramites với thân tương đối cao.</p><p>Tuy nhiên, sự đa dạng rõ rệt hơn ở hình thái miệng, các thành viên có nhiều thích nghi khác nhau về răng và cấu trúc hàm.</p><p>Nhiều loài anostomid có xu hướng bơi nghiêng theo tư thế 'chúi đầu xuống', nên được gọi chung bằng thuật ngữ thông dụng 'headstanders' (cá đầu chúi).</p>",
-    "references:seriouslyfish": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Sidlauskas, B. L. and R. P. Vari (2008). Phylogenetic relationships within the South American fish family Anostomidae (Teleostei, Ostariophysi, Characiformes). Zoological Journal of the Linnean Society 154, 70–210</li></ul>"
+    "references:seriouslyfish": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Sidlauskas, B. L. and R. P. Vari (2008). Phylogenetic relationships within the South American fish family Anostomidae (Teleostei, Ostariophysi, Characiformes). Zoological Journal of the Linnean Society 154, 70–210</li></ul>",
+    "distribution:glaser": "<p>Cá đầu chúc vằn vàng (Anostomus ternetzi) phân bố rất rộng ở Nam Mỹ. Loài này có mặt ở Brazil, Guiana thuộc Pháp, Guyana, Suriname và Venezuela. Những mẫu vật dùng để mô tả loài lần đầu được thu từ Venezuela.</p>",
+    "behaviour:glaser": "<p>Đây là một loài cá đẹp, và cũng thuộc nhóm hiền nhất trong các loài cá đầu chúc.</p>",
+    "quickFacts:glaser": "<p>Loài này nhỏ con hơn Anostomus anostomus. A. anostomus có thể dài hơn 16 cm, còn A. ternetzi lớn hết cỡ cũng chỉ khoảng 12 cm.</p>",
+    "dimorphism:glaser": "<p>Khi A. ternetzi còn rất nhỏ, dải sọc rộng chạy dọc thân có mép lượn sóng. Nhìn kỹ, dải sọc giống như do nhiều đốm nhỏ liền lại với nhau. Lớn lên, nhiều con có mép sọc thẳng ra, nhưng cũng có những con vẫn giữ mép lượn sóng. Có thể đây là một đặc điểm giới tính thứ cấp. Ở nhiều loài cá, người ta đã biết rằng hoa văn của con cái thường giống hoa văn lúc còn nhỏ hơn so với con đực.</p>",
+    "notes:glaser": "<p>Trong một lô hàng từng có lẫn một con Pseudanos winterbottomi, loài mới được mô tả năm 2005. Bắt lẫn được loài này là chuyện cực kỳ hiếm. Điều đó cho thấy hai loài sống chung ở cùng một chỗ ngoài tự nhiên. P. winterbottomi có thể dài hơn 15 cm.</p><p>Nguồn gốc tên gọi: Anostomus nghĩa là \"con cá có miệng hếch lên\". Tên ternetzi đặt để vinh danh Carl Ternetz (1870-1928). Pseudanos nghĩa là \"Anostomus giả\". Tên winterbottomi đặt để vinh danh Richard Winterbottom, giám tuyển danh dự ngành ngư học tại Bảo tàng Hoàng gia Ontario, Canada.</p>"
   },
   "quality": {
-    "score": 0.82,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.82
+      "seriouslyfish": 0.82,
+      "glaser": 0.8
     }
   }
 }

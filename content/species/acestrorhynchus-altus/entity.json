@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "amazon"
+    "amazon",
+    "para"
   ],
   "dataCard": {
     "tempC": [
@@ -42,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 23.3
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -65,6 +70,12 @@
       "html": "<ul><li><strong>Max size:</strong> 233 mm SL (9 in SL)</li><li><strong>Aquarium size:</strong> 250 × 90 cm (98 × 36 in)</li><li><strong>Temperature:</strong> 22–28°C (72–82°F)</li><li><strong>pH:</strong> 6.0–7.5</li><li><strong>Hardness:</strong> 1–12 dGH</li><li><strong>Difficulty:</strong> 7 of 8 (Difficult) – rated difficult because it needs a tank at least 2 m long.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_altus_en/",
+      "html": "<p>Acestrorhynchus altus becomes about 25 cm long. One should keep this splendid predator best in a group, for against conspecifics the fish are very peaceful.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-altus",
@@ -75,6 +86,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-altus",
       "html": "<p>Type locality is 'Rio Arari, at Cachoeira do Arari, Ilha de Marajó, Pará State, Brazil', and this species was originally thought to also inhabit the lower Paraná and Uruguay river basins in Brazil, Paraguay, Argentina and Uruguay.</p><p>The latter populations are currently recognised as A. pantaneiro, however, meaning A. altus may be restricted to the lower Amazon and some of its tributaries.</p><p>Ongoing confusion regarding the precise identities of this and certain other closely-related members of the genus mean the full extent of its range is unclear at present (see 'Notes').</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_altus_en/",
+      "html": "<p>The fish were obtained from the state of Pará in Brazil, which is also the type locality of Acestrorhynchus altus.</p>"
     },
     {
       "key": "habitat",
@@ -131,6 +148,12 @@
       "html": "<p>This species is a member of the putative A. lacustris group of closely-related species within the genus alongside A. abbreviatus, A. lacustris and A. pantaneiro.</p><p>These are all characterised by possession of a blackish, more-or-less circular-shaped, humeral spot, i.e., the dark marking located just behind the gill cover, and can therefore be distinguished from A. falcatus which has a much larger marking shaped somewhat like an inverted teardrop.</p><p>Members of this group are occasionally available in the trade but unless collection data is known are virtually impossible to tell apart.</p><p>The specimens in our images above were collected near the type locality so are tentatively identified as A. altus.</p><p>Menezes' (1969) diagnosed A. altus using the following combination of characters: 2 spinous and 9 soft dorsal-fin rays; 5 spinous and 21-27 soft anal-fin rays; 15-19 pectoral-fin rays; 8 ventral-fin rays; 98-115 pored lateral-line scales; 27-34 scale rows between lateral line and dorsal-fin origin; 15-18 scale rows between lateral line and anal-fin origin; 20-27 rakers on lower part of first gill arch; conspicuous, nearly round black blotch at the caudal-fin base.</p><p>Recent morphological (Toledo-Piza, 2007) and molecular (Pretti et al., 2009) phylogenetic studies have been similarly unable to recover the precise relationships existing both within the A. lacustris group plus A. falcatus, which together appear to form a clade with the latter basal and sister to the rest.</p><p>Acestrorhynchus spp. cannot always be separated on the basis of morphology and are also very similar genetically leading Pretti et al. (2009) to conclude that a detailed revision of the group containing material collected across their distribution range is necessary in order to better understand the systematics involved.</p><p>The remainder of the genus is currently composed as follows:</p><ul><li>A. microlepis group: A. britskii, A. grandoculis, A. microlepis, A. minimus</li><li>A. nasutus group: A. falcirostris, A. nasutus, A. isalineae, possibly A. maculipinnis</li><li>Not assignable to any group: A. heterolepis</li></ul><p>The family Acestrorhynchidae appears most closely-related to the Cynodontidae which contains the genera Cynodon, Hydrolycus and Rhaphiodon.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_altus_en/",
+      "html": "<p>They look very similar to the fish sometimes obtained from Paraguay. However, the species from Paraguay has been described scientifically as Acestrorhynchus pantaneiro. If Acestrorhynchus pantaneiro and A. altus should prove to belong to the same species, the older name, A. altus, would be valid. Both species are still presumed to be valid, although they look like twins. The snout in A. altus seems to be shorter than in A. pantaneiro.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-altus",
@@ -140,36 +163,36 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/cbd81f673a5b7a1d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/cbd81f673a5b7a1d-480.webp",
       "width": 870,
       "height": 653,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-altus",
       "caption": "This is one of four species in the genus to possess a dark, roughly circular humeral spot.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/cbd81f673a5b7a1d-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/9e0ea741a2b1d392.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9e0ea741a2b1d392-480.webp",
       "width": 870,
       "height": 641,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-altus",
       "caption": "Adult female.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9e0ea741a2b1d392-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/18fd763749741980.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/18fd763749741980-480.webp",
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-altus",
       "caption": "Captive-bred fry at around 1 cm TL.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/18fd763749741980-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -202,5 +225,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-03"
 }

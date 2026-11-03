@@ -1,0 +1,22 @@
+{
+  "slug": "ca-tetra-tucano",
+  "name": "Cá tetra tucano",
+  "altNames": [
+    "Tucano tetra"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là một loài tetra lùn bé xíu, rất đẹp và cực kỳ hiếm. Cá chỉ dài tối đa khoảng 2 cm. Với kích thước này, nó là lựa chọn lý tưởng cho bể nano.</p>",
+    "distribution:glaser": "<p>Tucanoichthys là loài đặc hữu của vùng thượng lưu sông Rio Negro. Chính xác hơn, cá chỉ sống ở sông Rio Uaupés.</p>",
+    "waterConditions:glaser": "<p>Cá đến từ vùng này cần nước rất mềm và axit mạnh, khoảng pH 5. Nước nên ngả màu nâu nhờ axit humic.</p>",
+    "dimorphism:glaser": "<p>Cá đực có màu đỏ ở vây đuôi và vây hậu môn. Cá cái không có màu đỏ này.</p>",
+    "notes:glaser": "<p>Màu của cá nhạt kiểu pastel nhưng óng ánh. Thả trong bể tối màu thì màu cá lên đẹp nhất.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

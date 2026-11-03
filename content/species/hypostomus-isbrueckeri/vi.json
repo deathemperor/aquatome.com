@@ -6,14 +6,21 @@
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Hypostomus isbrueckeri Reis, Weber &amp; Malabarba, 1990</li><li><strong>Nơi thu mẫu chuẩn:</strong> Rio Conceição, Ijui, Rio Grande do Sul, Brazil.</li><li><strong>Từ nguyên:</strong> Tên chi ghép từ hai chữ Hy Lạp: hypo nghĩa là bên dưới, stoma nghĩa là miệng. Tên loài đặt để vinh danh Tiến sĩ Issaäc J.H. Isbrücker.</li><li><strong>Sách Đỏ IUCN:</strong> Ít quan tâm (đánh giá lần gần nhất năm 2018).</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: vùng trung lưu và thượng lưu sông Uruguay, thuộc lưu vực La Plata.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Revue Suisse de Zoologie v. 97 (no. 3), pp 752, Figs. 1, 21-23.</p><p>Reis, R. E., C. Weber and L. R. Malabarba 1990 (Sept.) Review of the genus Hypostomus Lacepéde, 1803 from southern Brazil, with descriptions of three new species (Pisces: Siluriformes: Loricariidae). Rev. Suisse Zool. v. 97 (no. 3): 729-766.</p>"
+    "references:planetcatfish": "<p>Revue Suisse de Zoologie v. 97 (no. 3), pp 752, Figs. 1, 21-23.</p><p>Reis, R. E., C. Weber and L. R. Malabarba 1990 (Sept.) Review of the genus Hypostomus Lacepéde, 1803 from southern Brazil, with descriptions of three new species (Pisces: Siluriformes: Loricariidae). Rev. Suisse Zool. v. 97 (no. 3): 729-766.</p>",
+    "quickFacts:scotcat": "<p>Họ: Loricariidae. Kích thước: 30 cm. Nhiệt độ: 20-24°C. pH: 6,5-7,2.</p><p>Chi Hypostomus có 7 tia mềm ở vây lưng. Các loài Pterygoplichthys nhìn khá giống nhưng có tới 10 tia mềm ở vây lưng.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực trung và thượng lưu sông Uruguay. Địa điểm mẫu chuẩn: Rio Conceição, Ijui, Rio Grande do Sul, Brazil.</p><p>Hypostomus isbrueckeri là loài đặc hữu của Brazil, sống ở lưu vực thượng và trung lưu sông Uruguay. Loài này phân bố rộng, thường gặp và có số lượng dồi dào. Vì chưa ghi nhận mối đe dọa đáng kể nào với quần thể, loài được xếp vào mức Ít quan tâm (LC) (IUCN 2022).</p>",
+    "maintenance:scotcat": "<p>Giống phần lớn các loài cùng chi, cá sống khỏe trong bể lớn. Bể cũng cần lọc thật tốt. Các loài trong chi này chịu được khoảng thông số nước khá rộng.</p>",
+    "diet:scotcat": "<p>Cá ăn tạp. Chúng thích thức ăn xanh, thức ăn viên và thức ăn đông lạnh.</p>",
+    "dimorphism:scotcat": "<p>Cá đực trưởng thành có viền màu trắng đến vàng ở mép ngoài vây đuôi.</p>",
+    "notes:scotcat": "<p>Mô tả: Mặt lưng của đầu phủ các mảnh xương bì, trừ một vùng da trần hình bầu dục ở chóp mõm. Bờ trên hốc mắt không nhô hoặc chỉ nhô rất nhẹ, rồi kéo dài thành một gờ rất mờ trên tấm sau thái dương. Mép sau xương chẩm trên thường có ba tấm vảy xương bao quanh. Đôi khi các tấm này vỡ thành bốn hoặc năm mảnh nhỏ. Thân cá rất thấp. Đường lưng dốc thoải từ gốc vây lưng xuống cuối cuống đuôi. Mặt cắt ngang của cuống đuôi gần như hình trứng, hơi dẹt ở phía bụng. Các tấm vảy xương trên lưng, nằm giữa cuối gốc vây lưng và gai vây mỡ, có phần trên phẳng. Những tấm nằm gần vây lưng đôi khi có một vùng ở giữa không có gai răng nhỏ (odontode).</p><p>Nguồn gốc tên loài: Tên loài isbrueckeri đặt để vinh danh nhà ngư học nổi tiếng Dr. Isaäc J. H. Isbrücker.</p>",
+    "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Hypostomus isbrueckeri. The IUCN Red List of Threatened Species 2022.</p><p>Froese, R. and D. Pauly. Editors. 2017. FishBase. www.fishbase.org, (10/2018).</p><p>Loureiro M, González-Bergonzoni I, Teixeira de Mello F. 2023. Freshwater Fishes of Uruguay. Second edition. Vertebrate Zoology Laboratory, Faculty of Sciences, University of the Republic.</p><p>Reis, Roberto E.; Weber, Claude &amp; Malabarba, Luiz R., 1990 \"Review of the Genus Hypostomus Lacépède, 1803 from Southern Brazil, with descriptions of three new species (Pisces, Siluriformes, Loricariidae)\" (Revue Suisse de Zoologie, Vol. 97 Fas: 3-4, P. 752).</p><p>suedamerikafans.de</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.88
+    }
   }
 }

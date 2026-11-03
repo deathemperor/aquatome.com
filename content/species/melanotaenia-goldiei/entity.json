@@ -1,0 +1,87 @@
+{
+  "id": "melanotaenia-goldiei",
+  "scientificName": "Melanotaenia goldiei",
+  "order": "Atheriniformes",
+  "family": "Melanotaeniidae",
+  "genus": "Melanotaenia",
+  "group": "rainbowfish",
+  "places": [
+    "oceania",
+    "papua-new-guinea"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 14
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-goldiei-kafiamke-2/",
+      "html": "<p>This species of rainbowfish from Papua New Guinea was scientifically described as early as 1883. However, it was not until around 100 years later that the first specimens were introduced into aquaria outside Australia, although M. goldiei is one of the most common and widespread species in the southern part of the island. As is usual with rainbowfishes with a wide distribution, there are numerous locality variants, some of which differ considerably in color. As these animals grow slowly and juveniles are inconspicuously silvery, this species is rarely found in the trade. The adult specimens that we can currently offer are captive-bred from Indonesia; we have no further information on these impressive animals.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-goldiei-kafiamke-2/",
+      "html": "<p>In most M. goldiei habitats, the water is slightly alkaline or neutral and the temperature is between 24 and 30°C. The fish are generally considered to be very adaptable and well suited to aquarium maintenance.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-goldiei-kafiamke-2/",
+      "html": "<p>Old males are extremely high-backed. Color differences between the sexes are often only slightly pronounced; it is best to look at the second dorsal fin, which is significantly less colorful in females than in males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-goldiei-kafiamke-2/",
+      "html": "<p>Like all rainbowfishes, this species spawns in fine plants etc. and does not breed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-goldiei-kafiamke-2/",
+      "html": "<p>With a maximum total length of around 14 cm – females generally remain somewhat smaller – M. goldiei is one of the larger species, but they usually only grow to a maximum length of 12 cm.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cầu vồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cầu vồng",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

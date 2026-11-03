@@ -11,7 +11,8 @@
     "guangdong",
     "vietnam",
     "quang-ninh",
-    "pearl-river"
+    "pearl-river",
+    "white-cloud-mountain"
   ],
   "dataCard": {
     "tempC": [
@@ -28,6 +29,13 @@
           "min": 14,
           "max": 22
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 18,
+          "max": 25
+        }
       }
     ],
     "ph": [
@@ -42,6 +50,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 6,
+          "max": 8.5
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6.5,
           "max": 8.5
         }
       }
@@ -70,6 +85,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 4
       }
     ],
     "difficulty": [
@@ -80,6 +99,10 @@
       {
         "source": "seriouslyfish",
         "value": 3
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 1
       }
     ],
     "tankCm": [
@@ -101,6 +124,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
       "html": "<p>The White Cloud Mountain minnow, Tanichthys albonubes, is a small cyprinid from Guangdong and Hainan in southern China and from northeastern Vietnam. It appears to have been extirpated from White Cloud Mountain itself and is considered endangered in China, but all the fish on sale are commercially bred. Inbreeding among farm-bred stock has left many genetically weak and prone to disease or deformity, and permanent exposure to warmer conditions is likely to shorten its life.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "html": "<p>Tanichthys albonubes gets its common name from White Cloud Mountain in southern China where it was first discovered. This 4 cm minnow has a darker body with a white horizontal stripe and reddish fins. It is easy to care for, always lively and capable of breeding without a lot of work.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -127,6 +156,12 @@
       "html": "<p>Little published information exists but one of the populations rediscovered close to the type locality in Guangdong inhabits a sluggish, spring-fed mountain stream with clear, shallow water and dense growths of aquatic vegetation (Yi et al. 2004).</p><p>Macropodus opercularis and introduced Gambusia affinis were the only other fish species recorded.</p><p>The Hainan Island fish occupy a clear, slow-moving coastal stream and its tributaries with substrates of sand, pebbles and leaf litter and maximum water depth of only 60 cm even during the wet season.</p><p>They were observed swimming in schools in calmer zones and backwaters close to patches of dense, trailing marginal vegetation.</p><p>pH was 6.4 with low hardness values and plant species included Blyxa japonica, Rotala rotundifolia, Ludwigia prostrata, Ceratopteris thalictroides and Limnophila sp.</p><p>Sympatric fishes were Puntius semifasciolatus, Misgurnus anguillicaudatus, Macropodus opercularis, and Channa gachua as well as non-native Gambusia and Oreochromis.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "html": "<p>In nature, it feeds on plankton and insect larvae in slow-moving streams filled with thick aquatic plant growth. The species is endangered in the wild, so the white clouds sold in stores are all bred in captivity.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
@@ -137,6 +172,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
       "html": "<p>Standard length: 40 mm SL (4 cm).</p><p>Aquarium base: 60 × 30 cm. Volume: approximately 54 litres.</p><p>Minimum base dimensions of 60 × 30 cm or equivalent are required.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "html": "<p>As a schooling fish, they feel most comfortable in a group of at least six kept in a tank of 40 litres or larger. White clouds are pretty inexpensive, so buying a large group is affordable.</p>"
     },
     {
       "key": "maintenance",
@@ -163,6 +204,12 @@
       "html": "<ul><li>Temperature: 14–22°C</li><li>pH: 6.0–8.5</li><li>Hardness: 5–20 dGH</li></ul><p>Temperature: This species is subject to seasonal temperature fluctuations in nature and is most comfortable between 14–22°C.</p><p>Permanent exposure to warmer conditions is likely to result in a shortened lifespan and in many countries or well-insulated homes it's best-maintained without artificial heating year-round.</p><p>In tests the wild fish from Hainan Island showed a reduced tolerance to cooler temperatures compared with tank-bred specimens, presumably due to their more southerly, i.e., tropical, distribution.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "html": "<p>White clouds are extremely hardy and can live in a wide range of pH from 6.5-8.5 and temperatures from 18-25°C. They may get stressed if the water gets too warm but can readily live in a fish tank with no heater. They have even been overwintered outside in ponds covered with 5 cm of ice.</p>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
@@ -173,6 +220,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
       "html": "<p>Stomach analyses of wild specimens have revealed it to be a micropredator feeding on small insects, worms, crustaceans and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "html": "<p>White clouds eat almost any fish food small enough to fit in their mouths, including flakes, nano pellets and small-fish foods. They also enjoy small frozen foods, such as daphnia, cyclops and frozen baby brine shrimp. Live micro worms and live baby brine shrimp are favourite extra treats. Offer a variety of foods so they get all the essential nutrients.</p>"
     },
     {
       "key": "behaviour",
@@ -187,6 +240,12 @@
       "html": "<p>Very peaceful indeed and an ideal resident of a well-maintained community set-up provided its temperature requirements are considered.</p><p>Other species that enjoy comparable conditions include Pethia conchonius, P. padamya, 'Puntius' semifasciolatus, and Macropodus opercularis (it occurs sympatrically with the latter two in nature) but it doesn't make a suitable companion for goldfish despite often being sold as such.</p><p>In a stream-style tank it can also be combined with rheophilic species from genera such as Danio, Devario, and Garra as well as many loaches.</p><p>It's a schooling fish by nature and ideally a group comprising 10+ specimens should be purchased.</p><p>Maintaining such numbers will not only make individuals less nervous but result in a more effective, natural-looking display, and males will display their best colours as they compete with one other for female attention.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "html": "<p>They are not usually aggressive. If they \"spar\" with each other, this is normal breeding behavior where the males show off their finnage to attract the females. Increasing the size of the school and adding aquarium plants to block line of sight can help minimize any squabbling.</p><p>They get along with peaceful community fish that are similarly sized and live in similar conditions. Good tank mates include other species that enjoy cooler waters, such as shrimp, danios and smaller killifish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
@@ -197,6 +256,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
       "html": "<p>Mature females are usually rounder-bellied and often a little larger than the slimmer, more colourful males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "html": "<p>Sexing white clouds can be a bit tricky, but generally males are more colourful and females are slightly bigger.</p>"
     },
     {
       "key": "reproduction",
@@ -211,10 +276,22 @@
       "html": "<p>Like many small cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care.</p><p>That is to say when the fish are in good condition they will spawn often and when a group is maintained alone in a densely-planted, mature aquarium or outdoor container small numbers of fry usually start to appear without further intervention.</p><p>Should a more controlled approach be required a separate, smaller aquarium can be set up.</p><p>This should be dimly-lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed after 2-3 days maximum.</p><p>The eggs should hatch in 48-60 hours and once free-swimming the fry may require an infusoria-grade food until large enough to accept microworm, Artemia nauplii, and suchlike.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "html": "<p>These minnows are very easy to breed as long as there is at least one male and one female. Provide clean water and good food, and they will spawn continually throughout the spring to fall breeding season. The adults do not tend to predate on their own young, but survival can be increased with plenty of cover and dense plants, like Pogostemon stellatus 'octopus'. A DIY spawning mop made of yarn can be used for egg-laying, and the eggs can then be moved to a separate grow-out tank. Raise the newborn fry on tiny foods like infusoria and powdered food, then move them on to baby brine shrimp when they are big enough.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
       "html": "<p>One of the most ubiquitous species in the aquarium hobby and several ornamental strains are available including 'long-finned', 'golden', 'albino', and 'super red', for which care is identical.</p><p>Unfortunately inbreeding among farm-bred stock has resulted in a situation whereby many of the fish available today are genetically weak and prone to disease or develop physical deformities.</p><p>Some of the more colourful forms have been seen mislabelled as Aphyocypris pooni, a name currently considered a junior synonym of T. albonubes, or A. lini, chosen as a replacement for A. pooni by Weitzman &amp; Chan (1966) and referring to an unrelated species.</p><p>T. albonubes was discovered by a Chinese scoutmaster named Tan Kam Fei in 1932 who passed some specimens on to a local fisheries station, and the director of the station chose to honour the collector by naming the newly-erected genus in his honour.</p><p>The genus remained monotypic until 2001 when the Vietnamese species T. micagemmae and T. thacbaensis were described.</p><p>The former has been available in the aquarium trade for a number of years but T. thacbaensis is somewhat enigmatic since its description is written entirely in Vietnamese and accompanied only by a line drawing, with photos of live specimens unavailable to date.</p><p>A fourth species, currently known only as T. sp. 'Vietnam' appeared in the aquarium trade during 2010 and has been available in limited numbers.</p><p>T. albonubes is noticeably larger than T. micagemmae and T. sp. 'Vietnam', and exhibits an overall reddish-brown colouration in the body that is lacking in the other two and possesses a less broad dark, lateral stripe on the body, below the paler stripe.</p><p>In T. micagemmae the ventral and anal fins are reddish, whereas they are bright yellow in T. sp. 'Vietnam'.</p><p>Diagnostic characters for the genus include presence of cornified tubercules on the snout posterior to the premaxila in males, and confluent narial openings.</p><p>Less clear is the phylogenetic position of Tanichthys within the family Cyprinidae.</p><p>It has been considered closely related to the genera Danio or Rasbora but recent studies, notably that of Fang et al. (2009) have suggested it to be more analagous with Tinca tinca, the common tench, and the putative subfamily Acheilognathinae, better known as the bitterlings.</p><p>The results also suggested that T. micagemmae is the parent species of the group in evolutionary terms with T. albonubes its younger relative.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "html": "<p>The most common variations include regular type, gold, and long fin. Fish stores may also sell the Vietnamese white cloud or Vietnamese cardinal minnow (Tanichthys micagemmae), which is a different species but looks similar to the white cloud mountain minnow.</p>"
     },
     {
       "key": "references",
@@ -225,17 +302,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/sprucepets/743342d6de2171fc.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/743342d6de2171fc-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
-      "caption": "White cloud mountain minnow fish with gray and red-orange scales",
-      "source": "sprucepets"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/51c1ec946e2e56e0.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/51c1ec946e2e56e0-480.webp",
       "width": 720,
@@ -245,6 +311,61 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-albonubes",
       "caption": "Males of the ornamental long-finned strain in aggressive mood.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/1b5dc1afdebee853.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/1b5dc1afdebee853-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "caption": "Care Guide for White Cloud Mountain Minnows – Underrated Beginner Fish - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/e2f332c52899ffb3.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/e2f332c52899ffb3-480.webp",
+      "width": 1000,
+      "height": 556,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "caption": "Regular or wild type white cloud mountain minnow",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/c6884a8a9ac03882.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/c6884a8a9ac03882-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "caption": "Gold white cloud minnows in a community tank",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/f9cbccc8a1c8c328.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/f9cbccc8a1c8c328-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/white-cloud-mountain-minnow-care",
+      "caption": "Long fin white cloud mountain minnow in a planted aquarium",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/743342d6de2171fc.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/743342d6de2171fc-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
+      "caption": "White cloud mountain minnow fish with gray and red-orange scales",
+      "source": "sprucepets"
     },
     {
       "url": "https://media.aquatome.com/sprucepets/3bc2bc33eb430538.webp",
@@ -266,17 +387,6 @@
       "author": "The Spruce Pets",
       "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
       "caption": "Long-fin variety of White cloud mountain minnow",
-      "source": "sprucepets"
-    },
-    {
-      "url": "https://media.aquatome.com/sprucepets/83bf03fcc18b4bc4.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/83bf03fcc18b4bc4-480.webp",
-      "width": 1200,
-      "height": 799,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/white-cloud-mountain-minnow-1380870",
-      "caption": "White cloud mountain minnow fish with orange fins",
       "source": "sprucepets"
     }
   ],
@@ -336,5 +446,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }

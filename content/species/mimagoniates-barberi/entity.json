@@ -1,0 +1,81 @@
+{
+  "id": "mimagoniates-barberi",
+  "scientificName": "Mimagoniates barberi",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Mimagoniates",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "paraguay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mimagoniates_barberi_en/",
+      "html": "<p>Mimagoniates barberi is a beautiful blue tetra from Paraguay and a very lively brook fish. Wild-collected fish seem to be fully grown; at least they are sexually ripe.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mimagoniates_barberi_en/",
+      "html": "<p>They are kept best at room temperature without an additional heater; however, they also accept water temperatures up to 26°C without feeling uncomfortable.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mimagoniates_barberi_en/",
+      "html": "<p>These animals are very peaceful schooling fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mimagoniates_barberi_en/",
+      "html": "<p>The males (about 4 cm total length) are larger and heavier built than the females.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo cho bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn khô cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

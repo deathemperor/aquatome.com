@@ -1,0 +1,94 @@
+{
+  "id": "nannostomus-beckfordi",
+  "scientificName": "Nannostomus beckfordi",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Nannostomus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "guyana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-beckfordi-2/",
+      "html": "<p>Nannostomus, also known as pencil fish, propel through the aquarium like small, colorful zeppelins. The unusual, somewhat stiff-looking swimming style makes them unique in the colorful world of tetras. There are quite a few Nannostomus species, but the Red Pencilfish (Nannostomus beckfordi), which grows up to 6.5 cm long (but appears smaller due to its slender body shape), is the species best suited for community aquariums. Usually it grows only 5 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-beckfordi-2/",
+      "html": "<p>Nannostomus beckfordi originates from the central regions of the Amazon basin and Guyana.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-beckfordi-2/",
+      "html": "<p>A water temperature of 24-26°C suits them best.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-beckfordi-2/",
+      "html": "<p>A calm fish community is important so that it can develop fully. It prefers to swim in the middle and upper water layers.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-beckfordi-2/",
+      "html": "<p>The males in courtship mood are colored completely differently from the females; otherwise they can be recognized by the higher amount of red in the fins and the differently shaped anal fin.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể 60cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn cá tetra"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

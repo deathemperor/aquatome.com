@@ -1,0 +1,53 @@
+{
+  "id": "vandellia-sanguinea",
+  "scientificName": "Vandellia sanguinea",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Vandellia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "amazon",
+    "orinoco",
+    "guyana",
+    "essequibo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1236",
+      "html": "<ul><li>Described by Eigenmann, 1917.</li><li>Type locality: San Antonio de Rio Madeira, Brazil.</li><li>Etymology: Vandellia was named after M Vandelli.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1236",
+      "html": "<p>South America: Amazon, Orinoco and Essequibo River basins, including Guyana waters and coastal rivers of the Guianas.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1236",
+      "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1236",
+      "html": "<p>Proc. Am. Philos. Soc.v. 56 - pp701</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-03"
+}

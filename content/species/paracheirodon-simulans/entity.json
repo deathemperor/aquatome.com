@@ -70,6 +70,10 @@
       {
         "source": "seriouslyfish",
         "value": 2.5
+      },
+      {
+        "source": "glaser",
+        "value": 2.5
       }
     ],
     "tankCm": [
@@ -99,6 +103,12 @@
       "html": "<p>The green neon tetra, Paracheirodon simulans, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela. An exclusive inhabitant of blackwater, it lives only in the upper, terra firme reaches of tributaries and is sometimes traded as 'false neon tetra' or 'blue neon tetra'. A greener lateral stripe that extends to the caudal-fin base and duller red flanks separate it from P. innesi and P. axelrodi.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon_simulans_en/",
+      "html": "<p>The green neon is the smallest and tiniest species of neon tetra. The maximum length is around 2.5 cm. One should not confuse this species with the neon costello, Hemigrammus hyanuary, which is also called the “green neon” occasionally. This is the reason why some people call Paracheirodon simulans the “blue neon”, but in the international trade the name “green neon” is established for the species.</p><p>Despite this babylonic confusion one cannot confuse P. simulans with any other species. Only in this neon tetra the intensive shining neon band runs from the tip of the snout right through to the end of the caudal peduncle.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
@@ -117,6 +127,12 @@
       "html": "<p>Known from the middle-to-upper rio Negro drainage, Brazil upstream of the mouth of its principal tributary the rio Branco, plus the Río Orinoco system in the border region of Venezuela and Colombia, between San Fernando de Atabapo and the mouth of the Río Meta.</p><p>Type locality was originally given as 'Rio Purus, Manaus, Brazil' but this was later corrected to the rio Jufaris, an affluent of the rio Negro located just upstream of the latter's confluence with the rio Branco in Amazonas state, Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon_simulans_en/",
+      "html": "<p>They originate from Brazil and Colombia.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
@@ -133,6 +149,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
       "html": "<p>An aquarium with base dimensions of 45 × 30 cm or larger is recommended (about 41 litres).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon_simulans_en/",
+      "html": "<p>It is a good idea to stock a nano tank with these shimmering jewels.</p>"
     },
     {
       "key": "maintenance",
@@ -320,5 +342,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }

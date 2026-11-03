@@ -1,0 +1,86 @@
+{
+  "id": "tucanoichthys-tucano",
+  "scientificName": "Tucanoichthys tucano",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Tucanoichthys",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "rio-uaupes"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
+      "html": "<p>A tiny, very nice and extremely rare dwarf tetra. It attains a maximum length of around 2 cm and is an ideal fish for nano aquaria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
+      "html": "<p>Tucanoichthys lives endemic in the upper Rio Negro basin, to be more precise in the Rio Uaupes.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
+      "html": "<p>Fishes from that region should be kept in very soft, strongly acidic water (pH 5). The water should be coloured brownish with humic acids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
+      "html": "<p>Males have red in the caudal and anal fin, which is missing in females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
+      "html": "<p>In dark aquaria the pastel, but shining colours of the fish are presented best.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nano thủy sinh",
+        "bể cá mini 30cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nhỏ",
+        "artemia mới nở"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền cát mịn cho bể thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

@@ -10,13 +10,36 @@
     "south-america",
     "orinoco",
     "colombia",
-    "rio-bita"
+    "rio-bita",
+    "venezuela"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -28,16 +51,58 @@
       "html": "<p>Males become sexually active at a length of about 7 cm. The maximum length is given as about 12 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_debilittera.htm",
+      "html": "<p>Named by Armbruster, Lujan &amp; Taphorn in 2007 as Hypancistrus debilittera (L129), along with three other species: H. contradens (L201, first thought to be H. inspector and now a different species), H. furunculus (L199) and H. lunaorum (L339). Fully grown adults can be very pale in colouration compared with the more brightly patterned juveniles and sub-adults. Similar to the Panaque/Panaqolus and Peckoltia genera but with fewer and larger teeth in the lower and upper jaw.</p><p>Family: Loricariidae. Size: 10 cm. Temperature: 25-29°C. pH: 6.5-7.5.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l129-var-hypancistrus-debilittera-2/",
       "html": "<p>Hypancistrus debilittera occurs in the Rio Bita, a tributary of the Rio Meta in Colombia (Orinoco drainage).</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_debilittera.htm",
+      "html": "<p>Venezuela: Upper Río Orinoco, between Puerto Ayacucho and San Fernando de Atabapo.</p><p>H. debilittera is found throughout the upper mainstem Orinoco and its major tributaries. The upper Orinoco is a tremendously complex river system, so despite the fact that the species only occurs in medium to large rivers, the habitat is so complex that it is unlikely that subpopulations could be harmed. Additionally, H. debilittera and H. furunculus may be synonymous, which would greatly increase the range of the species. Because of its fairly large range in a complex habitat, the species is considered Least Concern by the IUCN (2023), but it should be monitored.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_debilittera.htm",
+      "html": "<p>Omnivores. Juveniles are keen on vegetable foods whereas adults are less so. Frozen foods such as brine shrimp, mosquito larvae and mussels, as well as tablet foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_debilittera.htm",
+      "html": "<p>No problem keeping in groups, but keep only one Hypancistrus species per tank as there have been reports of hybridisation.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_debilittera.htm",
+      "html": "<p>Males possess a broader and longer head, and odontodes on the posterior part of the body, behind the gill covers and on the pectoral fin spines. The latter two are a lot shorter in females.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l129-var-hypancistrus-debilittera-2/",
       "html": "<p>The small, nicely marked Hypancistrus debilittera from the Rio Bita has enjoyed great popularity for years.</p><p>A shipment of \"Hypancistrus sp.\" from Colombia arrived without concrete locality information. The animals were 6–8 cm long. The import contained specimens that could easily be assigned to H. debilittera, but also completely spotted animals, and all conceivable transitions between the two. These fish were therefore listed as L129-variant.</p><p>Had all animals been spotted, a new L-number would have been expected. There is still much to explore about these catfishes, which only became known to science through aquaristics, and wild-caught fish are repeatedly needed to judge the natural variation. It remains an open question whether the Hypancistrus of the Orinoco basin hybridize with each other as readily as their relatives in the Rio Xingu have been shown to do.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_debilittera.htm",
+      "html": "<p>Etymology: the specific name debilittera comes from debilis (Latin), weak, and littera (Latin), a letter, referring to the absent or indistinct E-shaped mark on the snout (compared with the distinct mark on H. furunculus and H. zebra).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_debilittera.htm",
+      "html": "<p>Armbruster, J.W. 2023. Hypancistrus debilittera. The IUCN Red List of Threatened Species 2023.</p><p>Armbruster, J.W., N.K. Lujan and D.C. Taphorn, 2007. Four new Hypancistrus (Siluriformes: Loricariidae) from Amazonas, Veneuzela. Copeia (1):62-79.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -110,5 +175,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-03"
 }

@@ -43,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 8
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -124,6 +128,30 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dichotomyctere-ocellatus",
       "html": "<p>Puffer fish are so called as they have the ability to inflate their elastic stomachs with water or air. This is usually a response to some kind of threat, although in the aquarium many specimens appear to inflate themselves for no apparent reason. The fish becomes 2 or 3 times its normal size, big enough to scare away many potential predators, or difficult to swallow. Puffers also have several other interesting adaptations. They are one of the few fish that can actually blink or close their eyes, which only serves to add further charm to what is already a fish with bags of character. They also have beak-like mouthparts, which are formed by a fusing of 2 teeth from each jaw (hence the family name, Tetraodontidae). These are used to crush shelled invertebrates, the favourite food of most puffers. Many parts of the body of puffers contain the deadly neurotoxin tetrodotoxin. This is the same poison found in the notorious blue-ringed octopus. When ingested in sufficient quantities, it can cause paralysis and death. As yet, there is no known antitoxin and to humans it is over 1000 times deadlier than cyanide. Grotesquely, the victim usually remains conscious as he or she becomes paralysed. It's a famous delicacy in Japan, but is prepared only by highly-trained chefs, and even then many people have died from eating it. This need not worry you, but if you need to get rid of your puffer, sell it on: getting the barbecue out is not recommended! D. ocellatus is one of the more commonly seen puffers in the trade, but is not really suitable for the general aquarist due to its dietary requirements and need for very high quality water. When kept correctly it's a charming little fish that can show real personality.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/dichotomyctere-ocellatus-formerly-tetraodon-biocellatus/",
+      "html": "<p>The smallest Dichotomyctere species, D. ocellatus, grows to only 8 cm long and is extremely pretty. Common names: Palembang puffer, Figure Eight Puffer (due to the pattern on the back).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/dichotomyctere-ocellatus-formerly-tetraodon-biocellatus/",
+      "html": "<p>The green pufferfish (genus Dichotomyctere) are the best known aquarium pufferfish. They are brackish water animals. If they are kept in fresh water, special attention must be paid to the pH value: a pH below 8 does not suit them in the long run and the water should be as hard as possible. The easiest way to care for them is in brackish water; 5-10 grams of sea salt per litre are enough.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/dichotomyctere-ocellatus-formerly-tetraodon-biocellatus/",
+      "html": "<p>Dichotomyctere species can sometimes become quarrelsome and then bite off the fins of other fish. One must therefore be a little careful when keeping them in a community tank. It is best to keep them in groups; 6-10 specimens are ideal.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/dichotomyctere-ocellatus-formerly-tetraodon-biocellatus/",
+      "html": "<p>Very early on it was confused with the dragon pufferfish (Pao palembangensis) and therefore it can be found in older literature under the name Tetraodon palembangensis. The common name Palembang puffer remained from this.</p>"
     }
   ],
   "photos": [
@@ -164,14 +192,17 @@
       "category": "be-ca",
       "keywords": [
         "bể cá 75cm",
-        "bể cá 70 lít"
+        "bể cá 70 lít",
+        "bể cá 60cm",
+        "bể cá nước lợ"
       ]
     },
     {
       "category": "loc",
       "keywords": [
         "lọc thùng cho bể 70 lít",
-        "máy lọc nước bể cá nhỏ"
+        "máy lọc nước bể cá nhỏ",
+        "lọc thùng cho bể nước lợ"
       ]
     },
     {
@@ -186,7 +217,9 @@
       "category": "test-nuoc",
       "keywords": [
         "bộ test pH nước",
-        "muối biển pha nước lợ"
+        "muối biển pha nước lợ",
+        "bộ test pH",
+        "khúc xạ kế đo độ mặn"
       ]
     }
   ],
