@@ -55,7 +55,12 @@ final class PageShotsFlowTests: XCTestCase {
       space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return -1 }
     ctx.interpolationQuality = .high
     ctx.draw(cg, in: CGRect(x: 0, y: 0, width: n, height: n))
-    let sum = stride(from: 0, to: px.count, by: 4).reduce(0) { $0 + Int(px[$1]) + Int(px[$1 + 1]) + Int(px[$1 + 2]) }
+    // A plain loop: the closure form took CI's compiler past its time to type-check it.
+    var sum = 0
+    for i in stride(from: 0, to: px.count, by: 4) {
+      let r = Int(px[i]), g = Int(px[i + 1]), b = Int(px[i + 2])
+      sum += r + g + b
+    }
     return CGFloat(sum) / CGFloat(n * n * 3 * 255)
   }
 
