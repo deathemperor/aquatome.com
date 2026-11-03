@@ -6,7 +6,7 @@ CLONE="${ENGINE_CLONE:-$HOME/.local/share/thuysinh/engine-repo}"
 LOG="$HOME/Library/Logs/thuysinh-moderate.log"
 PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 
-[ -d "$CLONE/.git" ] || { echo "no engine clone at $CLONE — run install-engine-schedule.sh first"; exit 1; }
+[ -d "$CLONE/.git" ] || { echo "no engine clone at $CLONE — run install-video-schedule.sh first"; exit 1; }
 mkdir -p "$(dirname "$PLIST")" "$(dirname "$LOG")"
 cat > "$PLIST" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>

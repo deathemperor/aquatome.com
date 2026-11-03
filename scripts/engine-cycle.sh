@@ -21,9 +21,9 @@ part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
 if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
 # A push deploys by itself: GitHub's over the engine's deploy key (engine.yml), the Mac's as the owner, each starting
-# deploy.yml. deploy() is for the hidden-pages redeploy, when nothing was pushed: GitHub starts deploy.yml; the Mac deploys
-# from here, as deploy.sh records on this machine which hidden list went live (compared below).
-deploy() { if [ -n "${GITHUB_ACTIONS:-}" ]; then gh workflow run deploy.yml -R "$GITHUB_REPOSITORY" --ref main; else CLOUDFLARE_API_TOKEN="$(cat "$TOKEN_FILE")" scripts/deploy.sh; fi; }
+# deploy.yml. deploy() is for the hidden-pages redeploy, when nothing was pushed: deploy.yml again, which builds main as
+# it is then (this clone's tree can be hours behind the other parts' pushes).
+deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aquatome.com}" --ref main; }
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
 push() {
   for _ in 1 2 3; do
@@ -45,8 +45,9 @@ push() {
 
 # One job at a time in a clone (video-cycle.sh shares engine-repo's): a PID file, so a crashed or killed cycle doesn't
 # block the schedule forever.
+# Its process must still be a cycle script: the file outlives a restart, and its number can go to another process.
 PIDFILE="$(git rev-parse --absolute-git-dir)/thuysinh-engine.pid"
-if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then log "previous cycle (pid $(cat "$PIDFILE")) still running"; exit 0; fi
+if [ -f "$PIDFILE" ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'cycle\.sh'; then log "previous cycle (pid $(cat "$PIDFILE")) still running"; exit 0; fi
 echo $$ > "$PIDFILE"
 # On the Mac, a failed cycle is reported on GitHub: engine-mac.yml fails, naming the step or the log line it stopped at.
 trap 'FAILED="$BASH_COMMAND"' ERR
@@ -68,11 +69,17 @@ fi
 # shellcheck disable=SC1091
 [ -n "${CI:-}" ] || { . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"; } # CI: setup-node
 log "cycle start ($PART)"
-# Start from GitHub's main, as a fresh runner does: what an earlier failed cycle left in this clone (content that failed
-# its tests, a commit whose push failed) is dropped, and that work redone.
-[ -z "$(git status --porcelain -- content sources)" ] || log "dropping uncommitted content from an earlier failed cycle"
-git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
-git clean -fdq -- content sources engine-state docs/review apps/site/src/i18n
+if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/thuysinh/"* ]]; then
+  # A runner or one of the Mac's engine clones: start from GitHub's main, as a fresh runner does. What an earlier failed
+  # cycle left here (content that failed its tests, a commit whose push failed) is dropped, and that work redone.
+  [ -z "$(git status --porcelain -- content sources)" ] || log "dropping uncommitted content from an earlier failed cycle"
+  git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+  git clean -fdq -- content sources engine-state docs/review apps/site/src/i18n
+else
+  # Any other checkout: nothing in it is dropped.
+  if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
+  git checkout -q main && git pull -q --ff-only
+fi
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 # The parts all add to the photo caches and the run records in engine-state.
@@ -197,7 +204,8 @@ if [ -z "$(git status --porcelain -- content sources)" ]; then
   HIDDEN_JSON="$(curl -sf -H "authorization: Bearer $(cat "$HOME/.config/thuysinh/ab-dash-token")" https://aquatome.com/_ab/hidden.json || true)"
   HIDDEN_NOW="$(printf '%s' "$HIDDEN_JSON" | shasum | cut -c1-40)"
   if part pages && [ -n "$HIDDEN_JSON" ] && [ "$HIDDEN_NOW" != "$(cat "$HOME/.config/thuysinh/hidden-deployed" 2>/dev/null)" ]; then
-    log "hidden pages changed — redeploying"; deploy; exit 0
+    # Recorded here, as deploy.yml's runner keeps its own record.
+    log "hidden pages changed — redeploying"; deploy; printf '%s\n' "$HIDDEN_NOW" > "$HOME/.config/thuysinh/hidden-deployed"; exit 0
   fi
   log "no content changes"; exit 0
 fi
