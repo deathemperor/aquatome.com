@@ -290,9 +290,14 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertEqual(box.value as? String, "1", "consent not ticked")
   }
 
-  /// Scrolled into view: the page is longer than the screen.
+  /// Scrolled into view half a screen at a time, without a fling, so no part is scrolled past: the readers' part sits
+  /// mid-page, before the breeds and the sources.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
-    for _ in 0..<10 where !(e.exists && e.isHittable) { app.swipeUp() }
+    for _ in 0..<24 where !(e.exists && e.isHittable) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
+               thenHoldForDuration: 0.1)
+    }
     XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
   }
 }
