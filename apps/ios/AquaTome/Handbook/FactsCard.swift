@@ -66,7 +66,8 @@ struct FactsCard: View {
     return out
   }
 
-  /// The grid's rows, `n` to a row, never one fact alone on the last: seven at three to a row go three, two, two.
+  /// The grid's rows, `n` to a row; at three or more to a row, never one fact alone on the last: seven at three go three,
+  /// two, two. At two to a row (large text) an odd count can't avoid it.
   static func rows(_ count: Int, _ n: Int) -> [Range<Int>] {
     var rows = stride(from: 0, to: count, by: n).map { $0..<min($0 + n, count) }
     if n > 2, rows.count > 1, rows[rows.count - 1].count == 1 {

@@ -140,7 +140,7 @@ final class NativePageFlowTests: XCTestCase {
     let app = launch()
     openRow(app, "ca neon")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
-    XCTAssertFalse(app.navigationBars.buttons["Mở trong trình duyệt"].exists, "the browser still a button of its own")
+    XCTAssertFalse(app.navigationBars.descendants(matching: .any)["Mở trong trình duyệt"].exists, "the browser still in the bar on its own")
     app.buttons["page-actions"].tap()
     XCTAssertTrue(app.buttons["Mở trong trình duyệt"].waitForExistence(timeout: 5), "no browser in the menu")
   }

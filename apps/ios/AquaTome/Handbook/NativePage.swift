@@ -562,7 +562,7 @@ private struct PagesBlock: View {
         VStack(alignment: .leading, spacing: 0) {
           ForEach(Array(items.enumerated()), id: \.element.id) { j, item in
             if j > 0 { Divider().padding(.leading, 12) }
-            Row(item: item, chevron: true).buttonStyle(.plain).padding(.horizontal, 12).padding(.vertical, 10)
+            Row(item: item, chevron: true, inPanel: true).buttonStyle(.plain)
           }
         }
         .background(.fill.quaternary, in: .rect(cornerRadius: 12))

@@ -21,8 +21,12 @@ struct PageView: View {
   @State private var pieces: [NativePage.Piece]?
   @State private var tried = false
   @State private var onWeb = false
-  /// The name under the page's photo on the screen: the bar's name hidden, not said twice.
-  @State private var nameInView = false
+  /// The name under the page's photo on the screen: the bar's name hidden, not said twice. In view at first where the
+  /// page says when it scrolls away (iOS 18 on): a page opens on its name, and the bar shouldn't show it then fade.
+  @State private var nameInView: Bool = {
+    if #available(iOS 18, *) { return true }
+    return false
+  }()
 
   var body: some View {
     let native = handbook.drawsItself(item) && !onWeb
