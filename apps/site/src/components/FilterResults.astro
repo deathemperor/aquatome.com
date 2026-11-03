@@ -7,13 +7,15 @@ import { PAGE } from '../scripts/filter-list'
  * the cards missing a figure the filter asks about, in a closed group that `why` explains. `total`: how many items the
  * list has; `src`: its data file, every item (lib/list-data.ts). `next`: the list's second numbered page (the plant list's
  * /vi/cay/trang/2/): "Xem thêm" is then a link to it, for crawlers and readers without the script, which shows the next
- * page in place instead.
+ * page in place instead. `heading`: the list's own visible h2, above its result line, for a page where another list
+ * (the fish list's hybrids) comes first and the cards would otherwise follow it unnamed.
  */
-interface Props { prefix: string; why: string; total: number; src: string; next?: string }
-const { prefix, why, total, src, next } = Astro.props
+interface Props { prefix: string; why: string; total: number; src: string; next?: string; heading?: string }
+const { prefix, why, total, src, next, heading } = Astro.props
 const { t } = i18n(Astro.url)
 const left = total - PAGE
 ---
+{heading && <h2 class="list-h">{heading}</h2>}
 <div class="result" id={`${prefix}-result`} data-total={total} data-src={src}>
   <p class="count" id={`${prefix}-count`} aria-live="polite"></p>
   <div class="active" id={`${prefix}-active`} hidden>
@@ -37,7 +39,10 @@ const left = total - PAGE
   if (form && card && Array.from(new URLSearchParams(location.search)).some(function (e) { return e[1] && form.elements.namedItem(e[0]) })) card.parentElement.setAttribute('aria-busy', 'true')
 </script>
 <style>
+  .list-h { font-size: var(--step-2); margin: var(--space-4) 0 0; }
   .result { margin-block: var(--space-3) var(--space-4); }
+  /* Under the list's heading the result line (kept a line tall, so filtering doesn't move the cards) sits close to it. */
+  .list-h + .result { margin-block-start: var(--space-1); }
   :global([aria-busy='true'] > [data-slug]) { visibility: hidden; }
   .count { min-height: 1.5em; margin: 0; color: var(--c-ink-soft); font-size: 0.9rem; }
   .active:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3); margin-top: var(--space-1); }

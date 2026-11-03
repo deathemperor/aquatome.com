@@ -52,3 +52,17 @@ test('a filter nothing surely matches opens the unsure group instead of showing 
   await expect(page.locator('#species-unsure')).toHaveAttribute('open', '')
   await expect(page.locator('#species-unsure [data-slug]').first()).toBeVisible()
 })
+
+// The hybrids come first on the fish list; the species after them read as a gap with no name when their heading was
+// visually hidden (an AI page review, 2026-11-03). The list's heading shows, between the hybrids and the first card.
+test('the fish list names its species where the hybrids end', async ({ page }) => {
+  await page.goto('/vi/ca/')
+  const heading = page.getByRole('heading', { level: 2, name: 'Danh sách loài' })
+  await expect(heading).toBeVisible()
+  const box = (await heading.boundingBox())!
+  expect(box.height).toBeGreaterThan(10)
+  const card = (await page.locator('main .grid [data-slug]').first().boundingBox())!
+  expect(box.y + box.height).toBeLessThan(card.y)
+  const breeds = page.locator('section.breeds')
+  if (await breeds.count()) expect((await breeds.boundingBox())!.y).toBeLessThan(box.y)
+})

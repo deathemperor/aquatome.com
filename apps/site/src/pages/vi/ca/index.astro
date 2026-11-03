@@ -35,8 +35,8 @@ const first = species.slice(0, PAGE), firstPhotos = photos.slice(0, PAGE)
     </label>
   </FilterBox>
   <BreedList breeds={breeds} photos={breedPhotos} heading={t('Cá lai và các dòng cá cảnh')} bare eager={4} />
-  <FilterResults prefix="species" total={c.species.length} src={`/data/${lang}/species.json`} why={t('Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.')}>
-    <SpeciesGrid species={first} photos={firstPhotos} heading={t('Danh sách loài')} template />
+  <FilterResults prefix="species" total={c.species.length} src={`/data/${lang}/species.json`} heading={t('Danh sách loài')} why={t('Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.')}>
+    <SpeciesGrid species={first} photos={firstPhotos} template />
   </FilterResults>
 </Browse>
 <script>
