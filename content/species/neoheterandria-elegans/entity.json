@@ -7,7 +7,8 @@
   "group": "livebearers",
   "places": [
     "south-america",
-    "colombia"
+    "colombia",
+    "atrato"
   ],
   "dataCard": {
     "tempC": [
@@ -17,12 +18,53 @@
           "min": 24,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -34,10 +76,28 @@
       "html": "<p>Neoheterandria elegans is among the smallest livebearing toothcarps regularly kept in the aquarium. Males grow to about 1-2 cm long, females up to 3 cm, but usually around 2 cm. The Teddy Livebearer, as it is called to distinguish it from the actual Dwarf Livebearer Heterandria formosa, originates from Colombia.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<p>The tiger teddy, Neoheterandria elegans, is a small livebearer endemic to the Río Atrato drainage in northwestern Colombia. It appears to be quite rare in the wild and in the hobby. Shy and diminutive, it is best kept alone in a small colony in a heavily-planted tank with exceptionally clean water. The fry are only 2-3 mm long and initially need infusoria-type foods.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
       "html": "<p>The animals offered originate from German breeding.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<p>Endemic to the Río Atrato drainage in Choco and Antioquia departments, northwestern Colombia, where the full extent of its range is somewhat unclear.</p><p>Type locality is 'Río Truandó, a tributary of Lower Río Atrato, Colombia', and it may be restricted to that system.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<p>A pair can be maintained in an aquarium with base dimensions of 30 × 20 cm but larger quarters are necessary for a group.</p>"
     },
     {
       "key": "maintenance",
@@ -46,10 +106,22 @@
       "html": "<p>The animals do not have high care requirements, which even beginners can fulfill well.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<p>A gently filtered, heavily-planted set-up is recommended, and exceptionally clean water is a prerequisite, meaning weekly water changes of around 50% are required.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
       "html": "<p>The species likes it cozy and warm with 24-28°C. The water values (hardness, pH etc.) hardly play a role.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<ul><li>Temperature: 24–30 °C, although values towards the upper extreme of this range should not be maintained for extended periods of time.</li><li>pH: 7.0–8.0</li><li>Hardness: 5–25 dGH; unlike many poeciliids this species will tolerate softer water.</li></ul>"
     },
     {
       "key": "diet",
@@ -58,10 +130,28 @@
       "html": "<p>Everything is eaten that fits into the small mouth.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<p>Unfussy and omnivorous, it will accept most foods offered. Being a micro predator, it's particularly fond of small live or frozen varieties such as Artemia or Daphnia, although crushed dry foods are also accepted.</p><p>If the aquarium contains plenty of fine-leaved plants, sufficient micro-organisms for the young should be available.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
       "html": "<p>The species is completely peaceful.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<p>Unsuitable for the general community aquarium due to its diminutive size. It is more shy than the somewhat similar Heterandria formosa and is best kept alone in a small colony.</p><p>Females are sometimes aggressive and this can cause casualties, but such behaviour can be reduced by maintaining a heavily planted set-up as mentioned above.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<p>Males are significantly smaller than females and possess a prominent gonopodium.</p>"
     },
     {
       "key": "reproduction",
@@ -70,13 +160,65 @@
       "html": "<p>The females have only 1-2 young per day during a litter period, but this takes several days. Therefore, they should not be placed in spawning boxes, but in densely planted, small extra aquariums, from which the young are collected daily and transferred to a rearing aquarium.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<p>The primary issue is that the fry are only 2–3 mm long and cannot eat microworms, freshly hatched Artemia and suchlike for the first few days. They initially require infusoria-type foods but grow fairly quickly and are able to reproduce at an age of as little as 3 months.</p><p>The gestation period is around 30 days. This species has a slightly different method of fry production to most other livebearers, involving a process known as 'superfoetation'. This is defined as 'formation or development of a second foetus when one is already present in the uterus'. Fry at different stages of development can therefore be present in the uterus of the fish at any given time. In addition, the egg yolks of the species are nutritionally poor, and the developing fry derive much of their nourishment via organs that function in a similar way to the placenta of mammals. As a result of this process, fry are dropped continually rather than in defined broods. You'll see a few fry appearing every day or two for about a week. If well fed, the adults will usually not harm them.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/",
       "html": "<p>Lexicon: Heterandria means \"different male\". Neoheterandria means \"new heterandria\". elegans means \"elegant\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<p>This beautiful, shy species appears to be quite rare in the wild as well as in the aquarium hobby, but is occasionally available from specialist retailers or breeders.</p><p>The genus Neoheterandria has been included in the nominal tribe Heterandriini within the family Poeciliidae as first proposed by Hubbs (1924). The included genera have changed several times but most commonly comprise Priapichthys, Neoheterandria, Heterandria, Poeciliopsis, and Phallichthys.</p><p>Modern phylogenetic studies do not tend to support the monophyly of this assemblage, however, with the most recent suggesting Neoheterandria to be more closely-related to the genera Scolichthys and Xenophallus (Morales-Cazan &amp; Albert, 2012) or to form a distinct geographic sub-clade with Poeciliopsis (Hrbek et al., 2007).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "html": "<ul><li>Henn, A. W. (1916). On various South American poeciliid fishes. Annals of the Carnegie Museum 10(1-2), 93-142</li><li>Morales-Cazan, A. and J. S. Albert (2012). Monophyly of Heterandriini (Teleostei: Poeciliidae) revisited: a critical review of the data. Neotropical Ichthyology 10(1), 19-44</li><li>Hrbek, T., J. Seckinger, and A. Meyer (2007). A phylogenetic and biogeographic perspective on the evolution of poeciliid fishes. Molecular Phylogenetics and Evolution 43, 986-998</li><li>Wischnath, L. (1993). Atlas of livebearers of the world. T.F.H. Publications, Inc., United States of America, 1-336</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/51767579b7f05795.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/51767579b7f05795-480.webp",
+      "width": 800,
+      "height": 535,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "caption": "Adult female individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fea40b9d87936a6f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fea40b9d87936a6f-480.webp",
+      "width": 600,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "caption": "Young female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a670f640e0ed9320.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a670f640e0ed9320-480.webp",
+      "width": 600,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoheterandria-elegans",
+      "caption": "Detail of male gonopodium.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -107,5 +249,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

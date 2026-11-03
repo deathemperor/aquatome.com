@@ -1,22 +1,33 @@
 {
   "slug": "ca-cichlid-ngoc-luc-bao",
-  "name": "Cá cichlid ngọc lục bảo",
+  "name": "Cá rồng sô-cô-la",
   "altNames": [
     "Cá cichlid Emerald",
     "Cá cichlid Hypselecara temporalis Oyapoc",
-    "Emerald cichlid"
+    "Emerald cichlid",
+    "Cá cichlid ngọc lục bảo",
+    "Cá cichlid sô-cô-la",
+    "Chocolate Cichlid"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Cá cichlid ngọc lục bảo (Emerald cichlid) giờ đã hơi lỗi mốt. Chuyện này khá đáng tiếc, vì đây là một loài cichlid lớn rất ấn tượng và thuộc hàng đẹp nhất trong các loài cichlid Nam Mỹ. Cá đực có thể dài tới 30 cm. Cá cái thì lúc nào cũng nhỏ hơn nhiều.</p><p>Tên thường gọi là Emerald cichlid. Cá hiện có là cá nhân giống, cỡ 5-6 cm.</p>",
     "beforeYouBuy:glaser": "<p>Hiện đã có cá nhân giống ở Đức, thuộc quần thể từ sông Oyapoc. Màu đỏ của chúng rực đến mức trông như một dòng đột biến do người lai tạo. Thực ra đây là dạng hoang dã thật sự.</p>",
-    "notes:glaser": "<p>Hypselecara nghĩa là \"Acara thân cao\". Acara là từ tiếng Tupi dùng để gọi cá cichlid. Còn temporalis nghĩa là \"có trán cao\".</p>"
+    "notes:glaser": "<p>Hypselecara nghĩa là \"Acara thân cao\". Acara là từ tiếng Tupi dùng để gọi cá cichlid. Còn temporalis nghĩa là \"có trán cao\".</p>",
+    "quickFacts:seriouslyfish": "<p>Chocolate cichlid (Hypselecara temporalis) là một loài cichlid cỡ lớn, có ở Peru, Colombia, Venezuela và Brazil. Ngoài tự nhiên, cá hay sống ở những con sông nước chảy chậm và đục phù sa. Cá có thể dài tới 30 cm nhưng tính lại khá hiền. Nếu bể đủ rộng, bạn có thể nuôi chung nó với các loài cá lớn khác.</p>",
+    "distribution:seriouslyfish": "<p>Loài này phân bố rộng ở nhiều vùng thuộc Peru, Colombia, Venezuela và Brazil. Người ta đã bắt được nó ở nhiều con sông, trong đó có Ucayali, Amazonas, Solimões, Amapá và Oyapock.</p>",
+    "habitat:seriouslyfish": "<p>Cá hay sống ở những con sông nước chảy chậm và đục phù sa.</p>",
+    "aquariumSize:seriouslyfish": "<p>Một bể 120 × 45 × 45 cm (khoảng 243 lít) là đủ cho một con đực trưởng thành hoặc một cặp đã thành đôi.</p>",
+    "maintenance:seriouslyfish": "<p>Nền cát là lựa chọn tốt nhất. Bạn có thể bày thêm vài khúc lũa lớn và mấy tảng đá trơn nhẵn. Cá thường không đào bới nên muốn trồng cây cũng được. Nếu định cho cá đẻ, bạn dựng vài tấm đá phiến đứng sát thành bể để cá có chỗ đẻ trứng.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 25–30°C</li><li>pH: 5,0–7,0</li><li>Độ cứng: 0–12 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Đây là loài ăn tạp. Ngoài tự nhiên, cá ăn đủ loại động vật không xương sống, tảo và các loại thực vật khác. Nuôi trong bể nó cũng dễ tính y như vậy, đây là điểm cộng lớn. Bạn nên cho ăn đa dạng, xen kẽ thức ăn sống, đông lạnh và thức ăn khô.</p>",
+    "behaviour:seriouslyfish": "<p>Tuy to con nhưng loài này thật ra khá hiền. Nếu bể đủ rộng, bạn có thể nuôi chung nó với các loài cá lớn khác. Một số lựa chọn để nuôi chung là cá chép cỡ lớn (cyprinid), characin, cá da trơn và cá họ Loricariidae. Nếu bể thật lớn thì có thể thêm cả các loài cichlid Nam Mỹ khác.</p>"
   },
   "quality": {
-    "score": 0.95,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.95
-    },
-    "reason": "thin"
+      "glaser": 0.95,
+      "seriouslyfish": 0.9
+    }
   }
 }

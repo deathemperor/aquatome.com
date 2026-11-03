@@ -9,7 +9,8 @@
     "south-america",
     "colombia",
     "orinoco",
-    "venezuela"
+    "venezuela",
+    "apure"
   ],
   "dataCard": {
     "tempC": [
@@ -19,18 +20,57 @@
           "min": 26,
           "max": 30
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ]
   },
@@ -42,10 +82,34 @@
       "html": "<p>The chessboard dwarf cory, Corydoras habrosus, grows to a maximum of 4 cm. It is completely peaceful and leaves plants alone, so it is very suitable for community aquariums.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<p>Max size: 35 mm SL. Aquarium size: 60 × 30 cm. Temperature: 20–26°C. pH 5.5–7.5. Hardness: 2–10 dGH.</p><p>The salt and pepper cory, Hoplisoma habrosum, long known as Corydoras habrosus, is a tiny armoured catfish from left bank tributaries of the upper Orinoco in Colombia and Venezuela. Most records come from the Río Apure watershed in the Llanos, where it apparently favours lagoons, streams, inundated forest and grassland with little flow. It has 2-3 dark markings along the side of the body, against 4-5 in the similar H. cochui.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/",
       "html": "<p>C. habrosus originates from the Orinoco drainage (Colombia and Venezuela).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<p>Native to the upper Río Orinoco basin in eastern Colombia and western Venezuela, where it appears to be restricted to left bank tributaries.</p><p>The majority of records derive from the Río Apure watershed in southwestern Venezuela, where Hoplisoma habrosum has been collected in the states of Portuguesa, Cojedes, Barinas, Guárico, and Apure. Its distribution in Colombia is less clear but it is known with certainty from the Río Arauca and Río Casanare, the latter a tributary of the lower Río Meta, and it makes sense that it should also be found in other left bank Orinoco affluents between the Meta and Apure, which include the ríos Cinaruco and Capanaparo.</p><p>Type locality is 'Río Salinas, tributary of Río Pao Viejo, El Baúl, 8°59'N, 68°16'W, Cojedes, Venezuela'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<p>This species occurs in the Llanos Orientales region, a vast tropical grassland plain traversed by the Orinoco and some of its major left bank tributaries. Large swathes of these plains become flooded during the annual wet season, forming an enormous wetland which is a paradise for wildlife.</p><p>Hoplisoma habrosum apparently displays a preference for lagoons, tributary streams, inundated forest and grassland, and marginal zones, where water flow is not strong. It tends to form aggregations close to submerged vegetation or solid structures such as tree branches or roots.</p><p>Other fishes occurring in the region and available in the aquarium trade include Brochis delphax, Platydoras costatus, Baryancistrus beggini, Hypancistrus inspector, Panaqolus maccus, Panaque nigrolineatus, Hemigrammus rhodostomus, H. stictus, Hyphessobrycon sweglesi, Paracheirodon axelrodi, Pristella maxillaris, Copella nattereri, Biotodoma wavrini, Heros severus, Mesonauta insignis, Geophagus abalios, Satanoperca daemon and Uaru fernandezyepezi.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<p>Minimum base dimensions of 60 × 30 cm are recommended (about 54 litres). This species is unsuitable for modern 'nano' aquaria.</p>"
     },
     {
       "key": "maintenance",
@@ -54,19 +118,90 @@
       "html": "<p>The usual care recommendations for Corydoras apply: they should be kept in groups and at least some areas of the bottom should be covered with fine sand.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided that it is kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/",
       "html": "<p>Since it is very warm in the Orinoco drainage, the water temperature should be somewhat higher than usual: 26-30°C.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.5–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/",
       "html": "<p>Any usual fish food is eaten, as long as it fits into the little mouth.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<p>Corydoras spp. are foraging omnivores, and most will accept sinking dried foods as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals, ideally 10 or more.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably broader and deeper-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of two or more males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with soft, cool water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs may be deposited on the aquarium glass, among fine-leaved vegetation or within sunken spawning mops, with the latter particularly recommended since they facilitate easy removal of eggs.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They are not the easiest to raise, requiring excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<p>Hoplisoma habrosum is also known as 'dainty cory', 'checker cory', 'Río Salinas cory', and 'Venezuelan pygmy cory' in the aquarium hobby. It can be told apart from the superficially similar-looking congener H. cochui by possession of 2-3 (vs. 4-5) dark markings along the side of the body.</p><p>Colour pattern is somewhat variable, particularly in terms of the number and distribution of dark markings on the body, but it is unclear whether this corresponds to variation within or between populations.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Hoplisoma.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "html": "<ul><li>Weitzman, S. H. (1960). Figures and description of four South American catfishes of the genus Corydoras, including two new species. Stanford Ichthyological Bulletin 7(4), 140-154</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li><li>Castro. D.M. (1987). The fresh-water fishes of the genus Corydoras from Colombia, including two new species (Pisces, Siluriformes, Callichthyidae). Boletin Ecotropica 16, 23-57</li><li>Maldonado-Ocampo, J. A., R. P. Vari and J. S. Usma (2008). Checklist of the freshwater fishes of Colombia. Biota Colombiana 9(2), 143-237</li><li>Lasso C, J. I. Mojica, J. S. Usma, J. A. Maldonado- Ocampo, C. Do Nascimiento, D. C. Taphorn, R. Provenzano, O. Lasso-Alcala, G. Galvis, L. Vasquez, M. Lugo, A. Machado-Allison, R. Royero, C. Suarez, and A. Ortega-Lara (2004). Peces de la cuenca del rio Orinoco. Parte I: Lista de especies y distribucion por subcuencas. Biota Colombiana 5(2), 95-158</li><li>Rugeles, M. L., L. V. Gamboa, and C. B. Rodríguez (2007). Catálogo de peces ornamentales comerciales en Arauca. Bogotá: Universidad Nacional de Colombia, 1-51</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b9249d1333d852e3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b9249d1333d852e3-480.webp",
+      "width": 800,
+      "height": 601,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/077338bca1f6c089.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/077338bca1f6c089-480.webp",
+      "width": 800,
+      "height": 601,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
+      "caption": "Two males (left) pursue a larger gravid female (right).",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -89,5 +224,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

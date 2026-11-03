@@ -7,7 +7,8 @@
   "group": "danios",
   "places": [
     "asia",
-    "myanmar"
+    "myanmar",
+    "salween"
   ],
   "dataCard": {
     "tempC": [
@@ -17,12 +18,53 @@
           "min": 18,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 7
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -34,19 +76,109 @@
       "html": "<p>This beautiful danio comes from Burma. It looks like the big brother of Microrasbora rubescens. Males become wonderful red. It is a peaceful schooling fish that reaches a maximum length of around 5-7 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>Rated moderate because it needs a well-established tank and stable water.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Weekly water changes of 30-50% volume should be considered routine, and the tank must have a very tightly-fitting cover as it's a particularly accomplished jumper and is prone to bouts of skittish behaviour.</p><p>The fireline devario, Devario sondhii, is a small devario from southern Shan State, Myanmar, described from a spring near Hopong. It first appeared in the trade in the mid-2000s and was initially confused with the sympatric Microrasbora cf. rubescens and with D. acuticephalus, but a dark cleithral spot behind the gill opening separates it from both. The habitat near Hopong is shallow, permanently-flooded grassland at around 1,040 metres AMSL with dense aquatic plants.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>Type locality is 'Spring, about 15 3/4 miles east of Taunggyi and about 3 1/2 miles east of Hopong, southern Shan States, Myanmar', and this may also be the type locality of Danio margaritatus.</p><p>Additional occurrence details are lacking but some other species from the area have been recorded from waters associated with the Thanlwin (aka Salween) River throughout southern Shan.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>The habitat near Hopong is an area of permanently-flooded grassland formed by the damming of a spring for agricultural purposes and is around 1,040 metres AMSL.</p><p>The water is only around 30 cm deep, transparent and supports dense growths of aquatic plants, mostly from the family Hydrocharitaceae which includes such genera as Elodea, Egeria and Blyxa.</p><p>Sympatric species include Danio margaritatus, a Microrasbora very similar to M. rubescens, an undescribed Petruichthys sp. known to aquarists as the 'rosy' loach and Channa harcourtbutleri.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>A tank with a base measuring 75 × 30 cm or equivalent (about 68 litres) should be the minimum considered for this active species.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>Best kept in a densely-planted tank and an excellent choice for the carefully-aquascaped set-up.</p><p>The addition of some floating plants to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Water movement does not need to be particularly strong as it mostly hails from sluggish waters though will also do well in a hill stream-type set-up provided torrent-like conditions are avoided.</p><p>Since it naturally occurs in pristine habitats it's intolerant to accumulation of organic pollutants, requires more-or-less spotless water in order to thrive and should never be introduced to biologically immature aquaria.</p><p>Weekly water changes of 30-50% volume should be considered routine, and the tank must have a very tightly-fitting cover as it's a particularly accomplished jumper and is prone to bouts of skittish behaviour.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario-sondhii-2/",
       "html": "<p>Temperature: 18-28 °C. The water should preferably be rather hard and alkaline than soft and acidic.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.5–7.5; a value of 7.3 was recorded at the locality described above.</li><li>Hardness: The water in northern Myanmar is typically soft so aim for somewhere within the range 1–5 dGH.</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>Insects and their larvae are likely to comprise the main constituents of the natural diet.</p><p>In the aquarium it's a largely unfussy feeder and will accept most foods.</p><p>A good quality dried product can be used as the staple diet but this should be supplemented with regular meals of small live and frozen fare such as bloodworm, Daphnia, Artemia, etc., for the best colouration and conditioning.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario-sondhii-2/",
       "html": "<p>A peaceful schooling fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>This species is peaceful and can be maintained alongside other fishes that appreciate similar conditions such as other small cyprinids.</p><p>Bottom-dwellers could include loaches from genera such as Lepidocephalichthys or Nemacheilus plus catfishes such as Akysis, Hara or Erethistes spp.</p><p>Freshwater gobies like Rhinogobius or Stiphodon spp. and many freshwater shrimp should also work in well-oxygenated set-ups.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less nervous but result in a more effective, natural-looking display, while males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>Sexually mature females should be rounder-bellied, less colourful and a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>Like most small cyprinids Devario spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a well-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller tank with a base measuring around 45 cm × 30 cm should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or wool mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced.</p><p>If ready, spawning usually takes place within 24 hours, with the female tending to appear noticeably slimmer after the event, and after 48 hours the adults should be removed whether this is observed or not.</p><p>Incubation is temperature-dependant to an extent but typically lasts 24-36 hours with the young free-swimming a few days later.</p><p>Initial food should be Paramecium or similar, introducing Artemia nauplii, microworm, powdered dry foods, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<p>This species first appeared in the aquarium trade during the mid-2000s and there was some initial confusion surrounding its identity since it appears superficially similar to the sympatric Microrasbora cf. rubescens as well as the congener Devario acuticephala.</p><p>It's easily-distinguished from both by the presence of a dark cleithral spot located posterior to the gill opening.</p><p>The current genus name has only been in general use since 2003 prior to which members were considered to belong to the genus Danio.</p><p>Fang (2003) suggested the genus name Devario for the larger species with Danio being applied only to the smaller fish, although Kottelat (2013) later restricted Danio to its type species, D. dangila, and placed most former members in the revalidated genera Brachydanio and Celestichthys. Kullander (2015), the Catalog of Fishes and FishBase do not follow that split and keep those species in Danio.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "html": "<ul><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Hora, S. L. and D. D. Mukerji (1934). Notes on fishes in the Indian Museum. XXII. On the collection of fish from the S. Shan States and the Pegu yomas, Burma. Records of the Indian Museum (Calcutta) v. 36 (pt 1), 123-138</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/74c25c32d3df0b5f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/74c25c32d3df0b5f-480.webp",
+      "width": 799,
+      "height": 500,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-sondhii",
+      "caption": "The cleithral spot can appear less intense depending on the angle and quality of light hitting the fish. Here faded...",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -71,5 +203,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

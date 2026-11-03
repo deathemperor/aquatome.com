@@ -7,13 +7,66 @@
   "group": "gobies",
   "places": [
     "asia",
-    "india"
+    "india",
+    "pakistan",
+    "bangladesh",
+    "sri-lanka",
+    "thailand",
+    "cambodia",
+    "malaysia",
+    "singapore",
+    "indonesia",
+    "oceania",
+    "fiji"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 9
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,10 +78,52 @@
       "html": "<ul><li>Origin: India</li><li>Available size: 5-7 cm</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<p>The knight goby, Stigmatogobius sadanundio, is a widely distributed goby recorded from Pakistan and India through to Indonesia and Fiji. It inhabits estuarine zones but is more often found in fresh than brackish water, and is by far the most common Stigmatogobius in the hobby. It will eat anything that fits in its mouth and is territorial towards conspecifics, so tankmates are medium-sized hardwater or brackish species using other levels of the aquarium.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<p>Widely distributed. It has been recorded in Pakistan, India, Bangladesh, Sri Lanka, Thailand, Cambodia, Malaysia, Singapore, Indonesia and Fiji.</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stigmatogobius_sadanundio_en/",
       "html": "<p>Knight gobies live in estuaries and can live both in pure fresh and in pure marine water. However, it is best to keep them in brackish water (5-10 grams salt per litre).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<p>It inhabits estuarine zones, although it is more often found in freshwater than brackish.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<p>Standard length: 90 mm SL. Aquarium base: 75 × 30 cm. Volume: ~68 litres (75 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<p>A soft, sandy substrate is ideal for this species. Also provide lots of caves, nooks and crannies where it can lurk and form territories. Although commonly found in freshwater in nature, this goby appears to do better with the addition of salt to around 1/4 marine strength (1.005sg) in the aquarium. Saying that though, this species has also been kept with great success in hard, alkaline freshwater. It will be more active and visible during daylight hours if you provide dim lighting.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 7.0–8.5</li><li>Hardness: 10–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<p>An unfussy goby that will accept most dried, frozen and live foods. It also enjoys some vegetable matter in its diet and will often browse on green algae if it is present in the aquarium.</p>"
     },
     {
       "key": "behaviour",
@@ -37,19 +132,64 @@
       "html": "<p>Most species of goby are ground dwelling fishes. Only few species have a free swimming behaviour. The knight goby is one of these rare exceptions.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<p>Don't try to keep it with much smaller species as it will eat anything it can fit in its mouth. It may also nip the fins of slow-moving or long-finned species. Ideal tankmates are other hardwater or brackish species that inhabit different levels of the aquarium, such as archer fish, chromides, rainbowfish, Monos, Chanda sp. etc. Do not combine it with other territorial species that inhabit the bottom of the aquarium such as many cichlids or there may be some aggression. It can be kept in groups but is also territorial towards conspecifics, so ensure that you provide plenty of hiding places if you do want to keep a few.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<p>Males tend to have a higher dorsal fin when mature. Females are usually smaller, rounder in the body, and often have a more yellowish body than males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stigmatogobius_sadanundio_en/",
       "html": "<p>The species spawns on stones, roots etc. Sadly the larvae are extremely tiny and need full strength sea water, so no successful breeding has been reported so far.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<p>Has been achieved in the hobby but is not very well-documented. Apparently it is a cave spawner and following a prolonged courtship display the female deposits up to 1000 eggs on the roof of the selected cave. As with many other gobies the male then cares for the brood until the eggs hatch, at which point parental care ceases. It may well be that the addition of some fresh water could trigger spawning, as with some other estuarine gobies.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stigmatogobius_sadanundio_en/",
       "html": "<p>The eyes of the knight goby have a reflecting layer. This led to the popular name \"sleeper gobies\" for the relationship of the knight goby. Not so long ago the sleeper gobies were even thought to represent a family on their own.</p><p>The species becomes about 8-10 cm long.</p><p>Lexicon: Stigmatogobius means \"goby with spots\". sadanundio: from the local Bengal name for the species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stigmatogobius-sadanundio",
+      "html": "<p>Until recently the genus Stigmatogobius contained 18 species, but most have now been reclassified, leaving just 7 species currently assigned to it. S. sadanundio is by far the most common of these in the hobby. It makes an attractive addition to the brackish or hardwater community with medium-sized tankmates.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9489e03a17b174ff.webp",
+      "width": 960,
+      "height": 706,
+      "licence": "CC BY-SA 4.0",
+      "author": "Konrad Tu",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Babka_nakrapiana_-_Podwodne_Kr%C3%B3lestwo.jpg",
+      "caption": "Ryby akwariowe i ich Podwodne Królestwo. Strona poświęcona akwarystyce słodkowodnej.",
+      "thumb": "https://media.aquatome.com/commons/9489e03a17b174ff-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c88efd51ccb46067.webp",
+      "width": 898,
+      "height": 607,
+      "licence": "Public domain",
+      "author": "George Henry Ford",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobius_sadanundio_Ford_63.jpg",
+      "caption": "Stigmatogobius sadanundio syn. Gobius sadanundioThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Gobius sadanundio",
+      "thumb": "https://media.aquatome.com/commons/c88efd51ccb46067-480.webp"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "Y_9QNA401ek",
@@ -98,5 +238,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

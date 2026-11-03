@@ -11,13 +11,58 @@
     "brazil",
     "ecuador",
     "colombia",
-    "french-guiana"
+    "french-guiana",
+    "amazon",
+    "oyapock"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 13
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -29,10 +74,52 @@
       "html": "<p>Silver Dollars, which are the piranha relatives that eat mainly vegetable food, usually grow quite large, most species grow to over 20 cm, some to 40-60 cm long. The smallest known species is Metynnis lippincottianus. They are currently 8-12 cm long, more than 15 cm total length is not to be expected for this species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<p>Metynnis lippincottianus is a spotted silver dollar from Brazil and French Guiana, found in the lower and middle Amazon and the Oyapock system. It is occasionally seen for sale, sometimes as 'silver dollar', and its spotted pattern tells it apart from M. argenteus and M. hypsauchen. The spots are less pronounced than in M. maculatus, with which it shares a common name. The precise extent of its range is unclear.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-lippincottianus-2/",
       "html": "<p>M. lippincottianus is widespread in South America and occurs in Bolivia, Brazil, Ecuador, Colombia and French Guyana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<p>The precise extent of this species' distribution is unclear. It certainly occurs in the lower and middle Amazon basins, at least as far upstream as Manaus, and has been collected from the Oyapock system at the border between Brazil and French Guiana. Records from some coastal drainages south of the Amazon's mouth, including the Piriá, Pericumã, and Parnaíba watersheds, also appear legitimate.</p><p>Records from other major watersheds in Brazil, such as the São Francisco, plus the upper Amazon in Bolivia and Colombia may refer to other species.</p><p>Type locality is 'Pará, Brazil'.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<p>A group of adult fish will require a tank of at least 150 × 38 × 38 cm, about 217 litres. Length and width are more important than height. Juvenile fish can be housed in smaller aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<p>Inhabits densely planted river tributaries in the wild. The difficulty in replicating this in captivity is that the species is an avid plant-eater! Hardy plants should be chosen but will still need to be replaced regularly. Artificial plants could be used as an alternative as some of the fabric and silk-type plants that are now available make convincing fakes. Metynnis can be nervous fish, so dim lighting and areas of refuge will boost their confidence. Inhabits areas of rapid water in the wild, so will enjoy a decent water flow in the aquarium.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: up to 10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<p>Provide a large amount of vegetable matter in the diet, including courgette, cucumber, peas, spring greens and other green vegetables. Commercial foods such as algae wafers, spirulina and vegetable flake are also recommended. Silver dollars will also accept the majority of aquarium foods and will relish such treats as bloodworm and brine shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<p>Best kept in groups of at least five fish. Generally peaceful community fish and can be kept with other larger peaceful species. Much smaller fish may be eaten. Metynnis mainly occupy the middle and top areas of the aquarium, so it is a good idea to select tankmates that occupy the bottom of the tank to add contrast. Larger peaceful catfish such as plecos and doradids would be a good choice.</p>"
     },
     {
       "key": "dimorphism",
@@ -41,19 +128,74 @@
       "html": "<p>Males and females of sexually mature animals can be easily distinguished by the shape and colouring of the anal fin.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<p>Anal fin is more elongated on the male and a red tinge may be present.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-lippincottianus-2/",
       "html": "<p>Metynnis species are free spawners without brood care.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<p>No report of breeding in the hobby, although assumed to be similar to M. argenteus.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-lippincottianus-2/",
       "html": "<p>M. lippincottianus differs from the similar, larger species M. maculatus by its more elongated body, M. maculatus is therefore more highbacked.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<p>Metynnis lippincottianus is occasionally seen for sale, sometimes under the name of \"Silver Dollar\". It is easily distinguishable from M. argenteus and M. hypsauchen (which are more commonly sold as Silver Dollars) by its spotted pattern, hence the common name. M. lippincottianus shares a common name with M. maculatus but the two can be distinguished as the spots on M. maculatus are more pronounced.</p><p>Silver dollars are common and popular fish in the hobby. They are related to piranhas and indeed are often mistaken for their predatory cousins. Silver dollars form part of the Metynnis genus which is closely related to both the Myleus and Mylossoma genera and the species are often misidentified or confused with each other.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-lippincottianus",
+      "html": "<ul><li>Cope, E. D. (1870). Contribution to the ichthyology of the Marañon. Proceedings of the American Philosophical Society v. 11, 559-570</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/add75edcdbd8f6bf.webp",
+      "width": 960,
+      "height": 701,
+      "licence": "CC BY-SA 3.0",
+      "author": "Kiefer the Cactus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiefer_-_Metynnis_lippincottianus_1.JPG",
+      "caption": "Male Metynnis lippincottianus",
+      "thumb": "https://media.aquatome.com/commons/add75edcdbd8f6bf-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/43f8b151fc517104.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Sortius",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Metynnis_lippincottianus_-_Spotted_Silver_Dollar.jpg",
+      "caption": "This is a male spotted silver dollar from my fish tank. It's fairly young, maybe 6-8 months old, and fairly small, 5-7cm.",
+      "thumb": "https://media.aquatome.com/commons/43f8b151fc517104-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4fbaf32fb0641633.webp",
+      "width": 960,
+      "height": 1147,
+      "licence": "CC BY 4.0",
+      "author": "Ota, Renata Rúbia; Deprá, Gabriel de Carvalho; Graça, Weferson Júnio da; Pavanelli, Carla Simone",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peixes_da_plan%C3%ADcie_de_inunda%C3%A7%C3%A3o_do_alto_rio_Paran%C3%A1_(3678425).png",
+      "caption": "Several species of freshwater fish collected from various locales in eastern South America. Per the source, the species are identified as: a. Colossoma macropomum, 250.0 mm SL, uncat. b. Metynnis lipp",
+      "thumb": "https://media.aquatome.com/commons/4fbaf32fb0641633-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -77,5 +219,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

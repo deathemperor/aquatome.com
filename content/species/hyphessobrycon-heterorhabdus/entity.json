@@ -8,10 +8,63 @@
   "places": [
     "south-america",
     "brazil",
-    "para"
+    "para",
+    "tapajos"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<p>The flag tetra, Hyphessobrycon heterorhabdus, is a characid from Pará and Maranhão states in eastern Brazil, also known as 'Belgian flag tetra'. Its name has been misapplied to similar fishes across much of the Amazon, the Orinoco and the Guianas, and the true species may reach no further upstream than the rio Tapajós. It lives almost exclusively in small, shaded forest streams called igarapés.</p>"
+    },
     {
       "key": "distribution",
       "source": "glaser",
@@ -19,13 +72,85 @@
       "html": "<p>The three-banded flag tetra (Hyphessobrycon heterorhabdus) was scientifically described in 1894; the animals on which the description was based came from the Brazilian state of Pará, and more detailed information or illustrations are not available.</p><p>From 1910 and in the 1920s, when tetras became the most popular aquarium fishes, three-banded tetras also came to Europe. These animals had a red, a white and a black longitudinal band over the entire body length, hence the name three-banded tetras. According to some sources they came from the lower Rio Tocantins (whose lower reaches are in Pará), according to other sources from the southern tributaries of the middle Amazon (i.e. Rio Madeira, Rio Tapajós, Rio Xingu).</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<p>Has been considered to range throughout the lower and middle Amazon basins as far as southern Colombia, but may be restricted to tributaries and coastal drainages in the eastern states of Pará and Maranhão, with the rio Tapajós representing its upstream limit (see 'Notes').</p><p>The majority of records pertain to localities south and west of Belém, including the rios Guamá, Acará, Tocantins, and Xingu, plus some smaller river systems which drain directly into the Atlantic Ocean, such as the rios Marapanim, Caripi, Maracanã, Caeté, Gurupi, and Pindaré. It has also been collected from various localities within the rio Tapajós, between its confluence with the Amazon and Jacareacanga in the middle part of the basin.</p><p>It is not included in recent checklists of Colombian ichthyofauna (e.g. Maldonado-Ocampo et al., 2008), while records from Suriname refer to other taxa (Mol, 2012).</p><p>Type locality is 'Pará, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<p>Almost exclusively collected from small streams known as igarapés in the Amazon region, and appears to be a typical resident of terra firme (not subject to long-term annual flooding) headwater tributaries east of the rio Tocantins.</p><p>Such habitats are typically shaded by forest cover or riparian vegetation and contain clear water with substrates of sand or mud and submerged tree roots, fallen branches, and leaf litter. Aquatic vegetation is not usually present.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<p>An aquarium with base dimensions of 80 × 30 cm or equivalent (about 72 litres) should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<p>Perhaps looks best in an arrangement comprising a sandy substrate plus some driftwood roots and branches, or heavily-planted set-up.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>The latter are useful since they provide an additional food source for both adults and fry while the humic substances released by decaying leaves are also considered beneficial.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.5–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<p>Very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<p>Sexually mature females are noticeably deeper-bodied and a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<p>An egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition adults will spawn often and in a mature aquarium it is possible that small numbers of fry may start to appear without intervention, but if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water. This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively, filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container and left in place until eggs are detected (typically the following morning).</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-heterorhabdus-2/",
       "html": "<p>A whole group of species has been named after the three-banded tetra, the Hyphessobrycon heterorhabdus group. They share a black longitudinal band as a common characteristic. Many new species from this group have been described in recent years and some more are known but not yet formally described, which makes identification difficult.</p><p>Animals of this group have now been received with the locality Apeú. It is not specified whether this means the district of the large city Castanhal in Pará or the small river Apeú, which flows through the district of the same name. Freshly arrived, the animals showed only two stripes, one light and one black, so the species was first determined as Hyphessobrycon agulha, but after a few days of acclimation red coloured scales also became visible above the light longitudinal band. The opinion is that this is indeed the \"true\" H. heterorhabdus, while the central Amazonian form mentioned in the old literature probably belonged to the species Hyphessobrycon sateremawe, described only in 2020. H. sateremawe differs from H. heterorhabdus by a much wider black longitudinal band.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "html": "<p>This species is also known as 'Belgian flag tetra' in the aquarium hobby.</p><p>Its name appears to have been misapplied to similar-looking fishes occurring throughout much of the middle and lower Amazon in Brazil and Colombia, the rio Orinoco drainage in Colombia and Venezuela, and coastal systems of the Guianas. Some of these populations have been described as distinct species (e.g. Hyphessobrycon amapaensis Zarske &amp; Géry 1998; H. eschwartzae García-Alzate, Román-Valencia &amp; Ortega 2013; H. montagi Lima, Couthino &amp; Woziacki 2014), whereas the identity of others remains unclear (e.g. H. sp. 'blackstripe' from Suriname, H. cf. heterorhabdus from Venezuela).</p><p>H. heterorhabdus differs from all of these in some aspects of meristics and morphology, but may be distinguished from the three described species by colour pattern. The dark lateral body stripe is continuous between humeral spot and caudal peduncle (vs. reduced or absent towards caudal peduncle in H. amapaensis), there are no yellow to orange markings in the fins (vs. such markings present in H. eschwartzae), and it possesses only a single humeral spot (vs. two distinct humeral spots in H. montagi).</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>As currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera, and significant taxonomic confusion remains.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/af087a9caa0bcb3a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/af087a9caa0bcb3a-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
+      "caption": "A typical igarapé habitat in Maranhão state, eastern Brazil.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -49,5 +174,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

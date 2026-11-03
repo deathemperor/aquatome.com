@@ -8,15 +8,73 @@
   "places": [
     "asia",
     "vietnam",
-    "thailand"
+    "thailand",
+    "mekong",
+    "cambodia",
+    "laos",
+    "chao-phraya",
+    "malaysia",
+    "pahang"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_partipentazona_en/",
       "html": "<p>Finally we received wild collected specimens of this pretty barb again. Maximum size, keeping etc. is exactly as in the well known tiger barb.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<p>Puntigrus partipentazona is a small cyprinid recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand and Peninsular Malaysia. It is easily told from congeners because the dark blotch on its dorsal fin extends onto the body. Typically found in heavily vegetated parts of rivers and sluggish streams, it is generally peaceful, though rival males continually battle for position within the group.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -29,9 +87,87 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_partipentazona_en/",
       "html": "<p>Barbus partipentazona originates from the south of Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<p>Recorded from numerous river basins in Vietnam, Cambodia, Laos, Thailand, and Peninsular Malaysia, including the Mekong, Chao Phraya, Mae Khlong, Chanthaburi, Tapi, Golok, Terengganu, Pahang, Endau, and Muar.</p><p>Type locality is 'Kratt, southeastern Siam', which corresponds to modern-day Trat Province, Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<p>Typically found in heavily vegetated parts of rivers and sluggish streams, and also known to inhabit natural lakes. Records suggest it displays a preference for habitats in which algae and other phytoplankton is present in significant quantities.</p><p>In the Endau River system, Peninsular Malaysia, sympatric fishes include members of various genera including Brevibora, Crossocheilus, Cyclocheilichthys, Rasbora, Trigonopoma, Desmopuntius, Trigonostigma, Acanthopsoides, Pangio, Nanobagrus, Akysis, Doryichthys, Sphaerichthys, Brachygobius, and Pseudogobiopsis.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<p>An aquarium measuring at least 80 × 30 × 30 cm (about 72 litres) is required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<p>Choice of décor is not especially critical though it should display better colouration in a well-decorated set-up. The addition of floating or overhanging vegetation and driftwood roots or branches also seems to be appreciated by members of this genus.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<p>Probably an omnivore feeding primarily on insect larvae and zooplankton, also browsing plant material and organic detritus.</p><p>In the aquarium offer regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia, and Artemia alongside good quality dried products.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<p>This species is generally peaceful and an ideal resident of the well-researched community aquarium.</p><p>It is a gregarious species forming loose hierarchies, with rival males continually battling with each other for female attention and hierarchical position within the group. A group of at least 8-10 specimens should therefore be considered the minimum purchase.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<p>Adult males are slightly smaller, slimmer, and possess a more intense colour pattern than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<p>This species occasionally appears in the aquarium hobby, but the trade is largely reliant on commercially-produced 'tiger barbs' of questionable origin.</p><p>It is easily distinguished from congeners by its unique colour pattern in which the dark blotch on the dorsal-fin extends onto the body, covering 3-4 scale rows, sometimes with an additional dark marking beneath.</p><p>The genus Puntigrus was raised by Kottelat (2013) in order to accommodate a group of species formerly referred to as the 'Puntius tetrazona group'. Other members are P. tetrazona, P. navjotsodhii, P. pulcher, and P. partipentazona, of which the first three are native to western, central, and eastern Borneo, respectively, and the latter to Indochina.</p><p>This assemblage is diagnosed by possession of a unique colour pattern comprising 4 black bars on a pale body, and black pigmentation on at least the basal half of the dorsal-fin. The anteriormost body bar passes through the eye, the second is anterior to the pelvic-fin base, the third is above the anal-fin and continues onto it, and the posteriormost is at the caudal-fin base.</p><p>The following combination of characters also aid in identification, although individually they are not unique to the genus: body rhomboid, deep; last simple dorsal-fin ray serrated posteriorly; rostral barbels absent; maxillary barbels present; lips smooth and thin, postlabial groove interrupted medially; lateral line complete or incomplete; 18–23 lateral line scales; 9½–10½ [5½/1/3–4½] scale rows between dorsal-fin origin and ventral midline anterior to pelvic-fin base; 12–14 circumpeduncular scale rows; 8–9 rakers on first gill arch.</p><p>The genus Puntius was previously viewed as a polyphyletic catch-all containing over 100 species, but this situation has been largely resolved since the turn of the century.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "html": "<ul><li>Kottelat, M. (1992). The identity of Barbus johorensis Duncker, 1904 (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 40(2), 187-192</li><li>Fowler, H. W. (1934). Zoological results of the third De Schauensee Siamese Expedition, Part V. - Additional fishes. Proceedings of the Academy of Natural Sciences of Philadelphia v. 86, 335-352</li><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Ng, H. H. and H-H. Tan (2010). An Annotated Checklist of the Non-Native Freshwater Fish Species in the Reservoirs of Singapore. Cosmos 6(1), 95-116</li><li>Alfred, E. R. (1963). Some Colourful Fishes of the Genus Puntius Hamilton. Bulletin of the National Museum of Singapore 32, 135-142</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c9410e2c7f958a8b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c9410e2c7f958a8b-480.webp",
+      "width": 700,
+      "height": 441,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-partipentazona",
+      "caption": "Unlike in other members of the genus, the dark blotch on the dorsal-fin does not connect with the third body bar.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -56,5 +192,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-03"
 }

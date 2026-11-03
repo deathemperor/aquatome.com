@@ -5,7 +5,16 @@
   "family": "Characidae",
   "genus": "Hyphessobrycon",
   "group": "tetras",
-  "places": [],
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru",
+    "bolivia",
+    "paraguay",
+    "argentina",
+    "french-guiana"
+  ],
   "dataCard": {
     "tempC": [
       {
@@ -14,18 +23,57 @@
           "min": 18,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 4.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
       }
     ]
   },
@@ -37,10 +85,52 @@
       "html": "<ul><li>pH and hardness: not important for keeping (tap water), soft and acidic for breeding</li><li>Diet: omnivorous</li><li>Social behavior: schooling fish with a social hierarchy</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<p>The serpae tetra, Megalamphodus eques, is a characid with an enormous range through much of the Amazon drainage and the Río Paraguay. Very common in the trade, it is also sold as the 'jewel', 'red minor', 'blood' or 'callistus' tetra, and ornamental strains include 'long-finned' and 'balloon' forms. It has a reputation for nipping the fins of tankmates, although this is most pronounced when too few are kept or space is limited.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/megalamphodus-eques-hyphessobrycon-e-2/",
       "html": "<p>Since all these fish can interbreed freely, just about every breeding facility has its own “house strain”; wild-caught specimens appear on the market only very sporadically and in small numbers. There is no trademark protection for common fish names, so anyone is free to name their Serpae tetras as they please. This sometimes makes it difficult—and sometimes even impossible—to find a specific variant in sales listings.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<p>As currently understood, M. eques (formerly H. eques) has an enormous distribution throughout much of the Amazon drainage in Brazil, Peru and Bolivia plus the Río Paraguay in Brazil, Paraguay and Argentina, the upper part of which is connected to the Amazon via the rio Guaporé.</p><p>Type locality is 'Villa Bella, Obidos', referring to the town of that name on the Amazon river in Pará state, Brazil, located between Santarém and Oriximiná.</p><p>Wild populations vary in colour pattern depending on origin, especially in the fins plus the size and shape of the humeral spot, and some populations have previously been described as species in their own right. It's possible that some or all of these names might be restored in the future since only M. eques is valid at present.</p><p>It has been introduced in French Guiana via the aquarium trade.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<p>Most typically inhabits still and sluggish tributaries and backwaters, including ponds and small lakes, where it forms aggregations around patches of marginal vegetation or submerged tree roots.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<p>An aquarium with base dimensions of 80 × 30 cm (about 72 litres) or equivalent should be the absolute minimum considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<p>Choice of decor is not especially critical although it tends to show better colouration when maintained in a well-furnished set-up with live plants and a dark substrate.</p><p>A natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots are formed.</p><p>The addition of dried leaf litter would further emphasise the biotope-style feel and with it the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves will aid in simulating natural conditions.</p><p>Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>The vast majority of fish available in the aquarium trade are bred on a commercial basis and are more adaptable than wild specimens.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: The farm-raised fish available in stores are fairly adaptable where water chemistry is concerned and should be happy within the range 5.0–7.5. If you can get hold of wild stock slightly acidic to neutral water is advisable.</li><li>Hardness: 1–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
     },
     {
       "key": "behaviour",
@@ -49,13 +139,55 @@
       "html": "<p>All Serpae tetras are very attractive and easy to care for, but they also have an unpleasant trait: during their constant rivalries (which are, however, very beautiful to watch), they tend to ruffle each other’s fins—after all, Serpae tetras are, in a sense, small relatives of piranhas. It is therefore quite rare for all the fish in the aquarium to have undamaged fins at any given time. However, this fin damage is harmless and heals quickly. Serpae tetras should always be kept in as large a group as possible (10 or more). If this rule is not followed, they will pick fights with other fish and can even become true tyrants in the aquarium.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<p>M. eques is notorious as an aggressive community inhabitant with a reputation for nipping the fins of tankmates although this behaviour tends to be most pronounced when insufficient numbers are purchased or space is limited.</p><p>It's a gregarious species forming loose hierarchies, with rival males continually battling with each other for female attention and positioning within the group.</p><p>A group of at least 12 specimens should be considered the minimum requirement since this increases the likelihood that the fish will be distracted by each other rather than their tankmates but will result in a more effective, natural-looking display. A group of 12–15 in the minimum dimension tank given above with no other upper water species is advisable. Adding other compatible species requires larger tanks.</p><p>Males will also show better colouration in the presence of conspecific rivals.</p><p>That said it is relatively boisterous and doesn't make an ideal companion for very shy, slow-moving, or long-finned fishes such as many livebearers, cichlids, and anabantoids.</p><p>Robust fishes inhabiting similar biotopes in nature, especially comparably-sized, open water-dwelling characids perhaps constitute the best choices but other potential options include gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and some small-to-medium-sized cichlids.</p><p>If geography is not an issue many rainbowfishes and cyprinids are also suitable, but be sure to research your choices thoroughly before purchase.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<p>Sexually mature females are noticeably rounder-bodied and a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<p>An egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition adults will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention. However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water. This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container and left in place until eggs are detected (typically the following morning).</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5–50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/megalamphodus-eques-hyphessobrycon-e-2/",
       "html": "<p>The Serpae tetra (currently Megalamphodus eques, formerly Hyphessobrycon eques, and previously known as H. callistus or H. serpae) is one of the standard fish available at pet stores. They are, after all, beautiful fish with a crystal-red color. Since the 1930s, there has been considerable confusion regarding the correct classification of the various variants. Even wild Serpae tetras exhibit considerable variation within the same population. Only relatively few wild specimens consistently display the coveted blood-red coloration; many are normally brownish or greenish and turn red only during the breeding season. However, through careful selective breeding, it is possible to very quickly obtain genetically pure, color-stable forms of the Serpae tetra. These have been given various names within the hobby. The brownish-green variety with a relatively small, comma-shaped shoulder spot was called Hyphessobrycon serpae; the red variety with a large, comma-shaped shoulder spot was called H. callistus; a translucent-red form with a small, round shoulder spot—which also lacks the black edge on the anal fin—was called H. minor; however, modern “minor” strains usually do have a black anal fin edge. In addition, since at least the 1980s, there has also been a form known as “Brillant.” It matches the coloration of the old “minor,” but also has glittering scales, especially on the back. And, of course, there are also veil-type varieties… From a current scientific perspective, they are all the same species, namely M. eques.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<p>This species is very common in the aquarium trade and is also referred to as 'jewel', 'red minor', 'blood', or 'callistus' tetra.</p><p>A number of selectively-bred ornamental strains have been developed, including 'metallic', 'long-finned', 'balloon' and 'fairy-fin'.</p><p>It was moved from Hyphessobrycon eques to Megalamphodus eques in 2024 (Phylogenomics of Characidae).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "html": "<ul><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>de Carvalho, F. R. (2011). Sistemática de Hyphessobrycon Durbin, 1908 (Ostariophysi: Characidae). unpublished PHD Thesis, i-xxiii + 1-365</li><li>Steindachner, F. (1882). Beiträge zur Kenntniss der Flussfische Südamerika's (IV). Anzeiger der Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe v. 19 (no. 19), 175-180</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f3415ec4ff6babd6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f3415ec4ff6babd6-480.webp",
+      "width": 799,
+      "height": 599,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-eques",
+      "caption": "The most common form of this species has a vertically-elongate humeral spot.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "HaACjfmqAZ4",
@@ -104,5 +236,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

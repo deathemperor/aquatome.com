@@ -7,7 +7,8 @@
   "group": "other",
   "places": [
     "asia",
-    "india"
+    "india",
+    "brahmaputra"
   ],
   "dataCard": {
     "tempC": [
@@ -15,6 +16,13 @@
         "source": "sprucepets",
         "value": {
           "min": 23,
+          "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
           "max": 26
         }
       }
@@ -26,18 +34,48 @@
           "min": 6.5,
           "max": 7.5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
         "value": 2.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ],
     "difficulty": [
       {
         "source": "sprucepets",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ]
   },
@@ -47,6 +85,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
       "html": "<ul><li><strong>Origin:</strong> India</li><li><strong>Life expectancy:</strong> 4 to 6 years</li><li><strong>Social:</strong> Peaceful</li><li><strong>Tank level:</strong> Mid-dweller</li><li><strong>Diet:</strong> Omnivore</li><li><strong>Breeding:</strong> Egg layer</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<p>The scarlet badis, Dario dario, is a tiny badid from tributaries of the Brahmaputra in West Bengal and Assam, India. Among the smallest percoid fishes known, it grows to 20 mm SL and is a popular choice for 'nano' aquaria. Males are the only Dario with seven iridescent blue vertical bars on the flanks, and rival males can be very aggressive towards one another in confined spaces.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -61,10 +105,22 @@
       "html": "<p>The Scarlet Badis originates from India's freshwater regions. They are not easily collected from the wild due to limited distribution. However, they are bred in captivity, making it unnecessary to purchase wild-caught specimens.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<p>Appears to be restricted to tributary systems draining into the Brahamaputra River in parts of West Bengal and Assam states, India although it may also range into Bhutan.</p><p>Kullander and Britz (2002) designated a neotype, for which the locality is 'Janali River, Raimana, 26°39'00\"N, 89°58'00\"E, Brahmaputra River drainage, Kokrajhar District, Assam, India'.</p>"
+    },
+    {
       "key": "habitat",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
       "html": "<p>They prefer dense vegetation in river tributaries.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<p>Typically inhabits shallow, clear water streams with sand or gravel substrates and dense growths of marginal and/or aquatic vegetation. At one locality the macrophyte assemblage included members of Hygrophilia, Limnophila, Ottelia, Rotala and Vallisneria.</p><p>It occurs sympatrically with Badis blosyrus and B. kanabos at the neotype locality.</p>"
     },
     {
       "key": "aquariumSize",
@@ -73,10 +129,22 @@
       "html": "<p>Minimum tank size: 10 gallons (about 40 litres).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<p>A pair or single male with multiple females can be housed in an aquarium with base dimensions of 45 × 30 cm or more.</p><p>Volume: ~41 litres.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
       "html": "<p>Due to their small size, Scarlet Badis require specific habitat considerations. They feel secure when they have ample hiding spaces. A heavily planted aquarium is ideal, providing cover and simulating their natural surroundings. If using artificial plants and décor, ensure there is adequate water flow for aeration, allowing all fish to have adequate cover and places to feel safe.</p><p>As with all aquariums, you must test the water chemistry regularly and stick to a regular maintenance routine. For planted tanks, you must regularly trim back any dead leaves and aerate the roots. Supplement live plants with a fish-safe aquatic fertilizer as necessary.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<p>Best-maintained in a well-structured arrangement with plenty of cover. A soft substrate is preferable although fine-grade gravel is acceptable, while ideal plants include Cryptocoryne spp. or those that can be grown attached to the décor such as Microsorum, Anubias, or Taxiphyllum species.</p><p>The latter is particularly useful as it is also an ideal spawning substrate, and driftwood branches, floating plants and leaf litter can all be used as well.</p>"
     },
     {
       "key": "waterConditions",
@@ -85,10 +153,22 @@
       "html": "<ul><li>pH: 6.5 to 7.5</li><li>Hardness: 10 to 15 dKH</li><li>Temperature: 23 to 26 °C (73 to 79 °F)</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<ul><li>Temperature: 18–26°C</li><li>pH: 6.5–8.5</li><li>Hardness: 1–15 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
       "html": "<p>Scarlet Badis are omnivores, enjoying crunchy, meaty treats. They may eat baby snails if present in the tank, helping to control potential snail overpopulation.</p><p>When feeding, consider the size of the food. Initially, a flake diet may be necessary due to their small mouths, but once they adjust, a pelleted diet is preferred because it dissolves slower and helps maintain water quality.</p><p>Offer a varied diet including pellets, flakes, small vegetable pieces, and frozen treats. Occasionally provide live or freeze-dried foods like bloodworms, microworms, daphnia, or cyclops, which are beneficial for inducing spawning. Monitor their eating habits as Scarlet Badis can be finicky about food.</p><p>Carefully observe your fish during feeding, as it is easy to overfeed small species. Provide food twice daily in small amounts to prevent waste, which could disrupt the nitrogen cycle. Ensure other fish do not consume all the food, allowing Scarlet Badis to eat comfortably.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<p>Dario species are micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton. In captivity they should be offered small live or frozen fare such as Artemia nauplii, Daphnia, grindal, micro-, and banana worm.</p><p>Badids tend to develop issues with obesity and become more susceptible to disease when fed chironomid larvae (bloodworm) or Tubifex so these should be omitted from the diet.</p>"
     },
     {
       "key": "behaviour",
@@ -97,19 +177,93 @@
       "html": "<p>As small fish, Scarlet Badis can be intimidated by larger species, making them unsuitable for most freshwater community aquariums, unless the other fish are similarly sized. Ideally, they thrive in a species-only tank rich with vegetation and hiding spots.</p><p>Compatible companions, if other species are added: Corydoras, rasboras, neon or cardinal tetras.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<p>Slow-moving with a retiring nature, and easily intimidated or outcompeted for food by larger or more aggressive tankmates. It is best maintained alone or with small pelagic species.</p><p>Rival males can be very aggressive towards one another, especially in confined spaces. In small aquaria only a single pair or one male and several females should be purchased, but in roomier surroundings a group can coexist provided there is space for each male to establish a territory.</p><p>Well-planned placement of caves can help in this respect; do not be tempted to cluster all available spawning sites in one area, for example. If you do intend to house it in a community tankmates must be chosen with care.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
       "html": "<p>Males display bodies predominantly colored in red to orange with lighter bars along their sides, ranging from light yellow to silvery-blue. Females have more muted colors, appearing mostly gray. Juveniles look identical regardless of sex. As they mature, males develop more vibrant colors and grow slightly larger, while females remain smaller with muted hues.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<p>This species is very easy to sex but often only males are traded.</p><p>Females are smaller, less colourful (they do not have any red or blue pigmentation on the flanks and only indistinct bars or none at all) and possess a noticeably shorter, stumpier-looking body profile than males. In addition, males develop extended pelvic, dorsal and anal fins as they mature.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/scarlet-badis-fish-breed-profile-6751678",
       "html": "<p>When ready to breed, place a male and female in a breeding tank devoid of other fish but with ample décor and live or artificial plants. Feed them a diet higher in fat and protein to promote gonadal development. Maintain a stress-free environment by ensuring good water quality and avoiding loud noises or sudden movements.</p><p>During spawning, males exhibit their brightest colors and \"dance\" to attract females. The male swims energetically around the female to encourage egg-laying. The female lays her eggs on the underside of leaves, so having plants in the breeding tank is crucial. The male follows to fertilize the eggs.</p><p>After egg-laying, the adult fish can return to their original tank. The eggs hatch in a few days, showing larvae with a yolk sac. Once absorbed, feed the fry a high-fat, high-protein diet for proper development. Commercial starter fry food or newly hatched brine shrimp are suitable options. Only a few eggs generally survive to maturity.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<p>Substrate-spawner forming temporary pair bonds. Other fishes are best omitted if you want to raise good numbers of fry, although in a mature, well-furnished community a few may survive to adulthood.</p><p>Either a single pair or a group of adults can be used but if using multiple males be sure to provide each with space to form a territory with around 30 cm² per individual adequate. One male will usually become dominant meaning the others will not be involved in breeding.</p><p>Water parameters should be within the values suggested above and the fish conditioned with plenty of live and frozen foods. As they come into breeding condition males will begin to form territories and display courtship behaviour alongside an intensified colour pattern.</p><p>This can be prolonged for several days with the female often being chased away then courted again minutes later. The male will make a non-aggressive approach towards the female and appear to 'invite' her into the centre of his territory, and if ready to spawn she will follow.</p><p>The act itself is over in just a few seconds with eggs being scattered in a random fashion on the underside of a solid surface such as a plant leaf. Post-spawning the female is ejected and the male takes sole responsibility for the territory. If you want to maximise the numbers of fry raised now is the time to either remove the medium to a container containing water from the spawning tank or the adults as the fry will be preyed upon once hatched.</p><p>The incubation period should be 2-3 days after which the fry may need up to a week to fully absorb the yolk sac. They are very small indeed and will require an infusoria-grade diet until large enough to accept microworm, Artemia nauplii, and suchlike.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<p>This species is among the more well-known badids in the aquarium hobby, and is a popular choice for 'nano' aquaria since it is among the smallest percoid fishes known.</p><p>It is easily told apart from congeners since it is the only species in which males possess a series of seven iridescent blue vertical bars on the flanks.</p><p>D. dario can be further distinguished from D. dayingensis by absence (vs. presence) of palatine teeth in the upper jaw, 8½ (vs. 9½) scales in the transverse row, and presence (vs. absence) of distinct pre-, post-, and supraorbital stripes.</p><p>It differs from D. hysginon in absence (vs. presence) of an anguloarticular lateralis canal, and from both D. hysginon and D. dayingensis by possessing 13-14 (vs. 15-16) dorsal-fin spines and lacking (vs. possessing) both infraorbital bones and a black spot in the anterior portion of the dorsal-fin.</p><p>You may see it referred to as Badis badis bengalensis or B. bengalensis which is a result of an erroneous 'description' published by a hobbyist magazine in 1999.</p><p>Dario currently contains five species, of which four are considered miniature species since they do not exceed 26 mm (3 cm rounded not applied) in standard length (SL).</p><p>The fifth, D. urops, not only grows larger, to at least 28 mm SL, but occurs in southwestern India whereas the others are native to the Brahmaputra, Meghna, and Ayeyarwaddy river systems in northern India, Myanmar, and southwestern China, and this raises interesting questions regarding their biogeography. In addition, D. urops lacks some diagnostic characters of Dario and thus may represent the sister group to other members of the genus, though this hypothesis remains to be tested.</p><p>Prior to 2002 the family Badidae included just five species of which only B. badis and, to a lesser extent, Badis dario were popular in the aquarium hobby. However an extensive revision paper by Kullander and Britz published that year resulted in the erection of ten new species along with the genus Dario, into which B. dario was moved and designated the type species.</p><p>Dario is most easily distinguished from Badis by the small adult size of member species, predominantly red colouration, more extended first few dorsal rays and pectoral fins in males, straight-edged (vs. rounded) caudal-fin, lack of visible lateral line and less-involved parental behaviour.</p><p>Badids have historically been considered members of the families Nandidae or Pristolepididae and it was not until 1968 that Barlow proposed a separate grouping for them. They share some characteristics with anabantoids, nandids and channids; most notably for aquarists the typical spawning embrace in which the male wraps his body around that of the female. More recent studies have concluded that this procedure is an ancient trait inherited from a common ancestor to all these families. All Badis, Dario and Nandus species share a uniquely bifurcate hemal spine on the penultimate vertebra, and this may represent evidence for monophyly of this group. Nandidae and Badidae are separated only by differences in morphology and egg structure although the phylogenetic relationships between them are yet to be fully-studied.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "html": "<ul><li>Kullander, S. O. and R. Britz (2002). Revision of the family Badidae (Teleostei: Perciformes), with description of a new genus and ten new species. Ichthyological Exploration of Freshwaters 13(4), 295-372</li><li>Rüber, L., R. Britz, S. O. Kullander and R. Zardoya (2004). Evolutionary and biogeographic patterns of the Badidae (Teleostei: Perciformes) inferred from mitochondrial and nuclear DNA sequence data. Molecular Phylogenetics and Evolution 32(3), 1010-1022</li><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Britz, R. and S. O. Kullander (2013). Dario kajal, a new species of badid fish from Meghalaya, India (Teleostei: Badidae). Zootaxa 3731(3), 331-337</li><li>Britz, R., A. Ali and S. Philip (2012). Dario urops, a new species of badid fish from the Western Ghats, southern India (Teleostei: Percomorpha: Badidae). Zootaxa 3348, 63-68</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/51339d13f52952c0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/51339d13f52952c0-480.webp",
+      "width": 800,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "caption": "Male of Dario dario.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/28f5360bfd4a3c2a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/28f5360bfd4a3c2a-480.webp",
+      "width": 800,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "caption": "Female specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ede2911f6bdbdc7f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ede2911f6bdbdc7f-480.webp",
+      "width": 740,
+      "height": 540,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "caption": "Males are aggressive towards one another, commanding small territories.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/efaaa53a600d7519.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/efaaa53a600d7519-480.webp",
+      "width": 768,
+      "height": 466,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dario-dario",
+      "caption": "Male from West Bengal state, northern India.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/57c235007029f643.webp",
       "thumb": "https://media.aquatome.com/sprucepets/57c235007029f643-480.webp",
@@ -153,5 +307,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }

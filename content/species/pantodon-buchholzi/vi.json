@@ -4,7 +4,10 @@
   "altNames": [
     "Cá bướm Pantodon",
     "African Butterfly fish",
-    "Butterflyfish"
+    "Butterflyfish",
+    "Cá bướm Phi",
+    "African Butterfly Fish",
+    "Butterfly fish"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Cá bướm châu Phi (Pantodon buchholzi) dài khoảng 10 cm. Loài này chỉ sống ở sát mặt nước. Cá đực rất dễ nhận ra nhờ vây hậu môn có hình dạng khác thường.</p>",
@@ -13,14 +16,18 @@
     "behaviour:glaser": "<p>Cá bướm hiền với các loài cá khác, nhưng tính hơi nhát và dễ giật mình. Vì vậy chỉ nên thả chung với những loài thật điềm tĩnh và hiền lành. Giữa các con cá bướm với nhau thì đôi khi có cãi vã. Những trận này thường chỉ thoáng qua rồi thôi.</p><p>Pantodon bay được thật, chính xác hơn là chúng lượn trên mặt nước. Loài này chỉ sống ở sát mặt nước. Vây bụng của chúng đã biến thành cơ quan cảm giác rất nhạy, cá dùng nó để định hướng. Pantodon còn sống được trong nước gần như cạn oxy. Đó là nhờ một cơ quan đặc biệt cho phép cá thở bằng không khí đớp từ mặt nước.</p>",
     "dimorphism:glaser": "<p>Cá đực rất dễ nhận ra nhờ vây hậu môn có hình dạng khác thường.</p>",
     "reproduction:glaser": "<p>Cá bướm hay đẻ trong bể nuôi. Cái khó là nuôi cá con, vì cá bột cũng giống bố mẹ, chỉ ăn mồi nằm trên mặt nước.</p>",
-    "notes:glaser": "<p>Có một giai thoại kể rằng người phát hiện ra Pantodon không phải nhà ngư học mà là một người sưu tầm bướm. Ông bắt được con cá lúc nó đang bay và ban đầu cứ tưởng mình vừa bắt được một con bướm đêm.</p>"
-  },
-  "quality": {
-    "score": 0.85,
-    "indexable": true,
-    "bySource": {
-      "glaser": 0.85
-    }
+    "notes:glaser": "<p>Có một giai thoại kể rằng người phát hiện ra Pantodon không phải nhà ngư học mà là một người sưu tầm bướm. Ông bắt được con cá lúc nó đang bay và ban đầu cứ tưởng mình vừa bắt được một con bướm đêm.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá bướm châu Phi (Pantodon buchholzi) là loài cá tầng mặt thuộc bộ Osteoglossiformes. Chúng sống ở vùng nước tĩnh và nước chảy chậm của Tây và Trung Phi. Đây là loài duy nhất trong chi, và cũng là loài duy nhất trong họ của nó. Cái tên \"cá bướm\" đến từ cặp vây ngực lớn. Nhờ cặp vây này, cá nằm trên mặt nước trông như một chiếc lá khô, và cũng nhờ nó mà cá nhảy xa được vài mét. Lúc không kiếm ăn, cá khá ít vận động. Con cá nào lọt miệng là nó ăn, và bể nuôi phải có nắp đậy thật kín.</p>",
+    "distribution:seriouslyfish": "<p>Cộng hòa Congo, Cộng hòa Dân chủ Congo, Cameroon, Cộng hòa Trung Phi, Benin, Chad, Nigeria, Sierra Leone, Niger, Gabon.</p>",
+    "habitat:seriouslyfish": "<p>Cá sống ở vùng nước tĩnh hoặc chảy chậm trong các con lạch, hồ và đầm lầy. Những nơi này thường có cây thủy sinh mọc dày, hoặc cây trên bờ rủ xuống mặt nước.</p>",
+    "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn (SL) 120 mm. Đáy bể 90 × 30 cm. Bể 90 × 30 × 30 cm chứa khoảng 81 lít. Với loài này, chiều rộng bể quan trọng hơn chiều sâu nhiều. Nếu được, bạn nên chọn bể rộng ít nhất 38 cm.</p>",
+    "maintenance:seriouslyfish": "<p>Loài này sống khỏe nhất trong nước hơi mềm, hơi axit, tốt nhất là nước ngả màu trà do tanin. Dòng chảy trong bể nên để càng nhẹ càng tốt. Đèn nên để dịu, kèm cây thả nổi để ánh sáng tản ra thêm. Có vậy cá bướm mới thể hiện tập tính tự nhiên của nó. Phần bài trí dưới mặt nước không quan trọng mấy, bạn cứ sắp xếp sao cho hợp với các loài khác trong bể. Dù vậy, cá có vẻ bớt nhát hơn khi nuôi trên nền màu tối. Nắp bể phải đậy thật kín, vì so với kích thước thì loài này nhảy giỏi đến kinh ngạc.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 23–30°C. Tốt nhất là giữ quanh mức giữa của khoảng này, tầm 25–27°C.</li><li>pH: 6,0–7,5</li><li>Độ cứng: 5–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Ngoài tự nhiên, cá chủ yếu ăn côn trùng. Trong bể, cá sống tốt với thực đơn đa dạng gồm thức ăn sống và đông lạnh như trùng huyết, artemia, tôm, sâu bột nhỏ... Cá rõ ràng rất khoái côn trùng sống. Nhện hay ruồi bạn bắt được thả vào là cá đớp ngay. Phần lớn cá cũng chịu ăn cám mảnh, nhưng không nên lấy cám làm thức ăn chính. Cá chỉ ăn trên mặt nước, nên bạn để ý xem chúng có giành được phần ăn của mình không.</p>",
+    "behaviour:seriouslyfish": "<p>Cá bướm nhìn chung khá hiền. Có điều, bộ vây dài thướt tha của nó là miếng mồi khó cưỡng với những loài hay rỉa vây. Ngoài ra, con cá nào lọt miệng là nó ăn, và nó cũng thường hung hăng với các loài khác sống ở tầng mặt. Bạn cùng bể hợp nhất là các loài châu Phi khác như cá tetra Congo, cá voi mũi dài (elephant nose), cá da trơn Synodontis, cá dao châu Phi, các loài Ctenopoma, và cichlid Tây Phi cỡ nhỏ đến vừa. Cá cũng nuôi chung ổn với cá chuột Corydoras, nhiều loài Loricariidae và các loài cichlid Nam Mỹ hiền lành. Cá bướm có thể hơi hung hăng với đồng loại. Tuy vậy, trong bể rộng có nhiều cây che phủ mặt nước, bạn thường vẫn nuôi được một nhóm nhỏ mà không gặp mấy rắc rối.</p>",
+    "dimorphism:seriouslyfish": "<p>Bạn có thể phân biệt đực cái qua mép sau của vây hậu môn. Ở cá cái, mép này thẳng. Ở cá đực, mép này cong lồi ra.</p>",
+    "reproduction:seriouslyfish": "<p>Cho loài này sinh sản không dễ, nhưng vẫn làm được. Cá đẻ trứng rải rác. Bạn cần một bể có diện tích mặt nước càng rộng càng tốt, cỡ 120 × 38 cm là hợp lý. Bể nên thả kín cây nổi như dương xỉ Ấn Độ. Cá bố mẹ cần được vỗ béo bằng thức ăn sống và đông lạnh chất lượng cao. Nước nên mềm và có tính axit, pH 6,0–6,5, nhiệt độ 25–26,5°C. Một cách thường kích được cá đẻ là hạ mực nước xuống chỉ còn vài centimet trong vài tuần, rồi châm nước mới lên lại độ sâu 15–20 cm. Trước khi đẻ, cá đực rượt đuổi cá cái khá nhiều. Cá đẻ giữa đám cây, cá đực dùng vây ôm lấy cá cái. Cặp cá đẻ rải rác trong vài ngày, mỗi ngày thường được hơn 100 trứng. Trứng nổi ngay lên mặt nước. Thấy trứng tới đâu thì bạn vớt sang bể riêng tới đó, vì cá bố mẹ hoàn toàn không chăm con và còn có thể ăn trứng hoặc cá bột. Trứng mới đẻ trong suốt, nhưng chỉ vài giờ sau là chuyển tối màu hẳn. Trứng nở sau 3–4 ngày. Khổ nỗi, cá bột rất khó nuôi. Lúc đầu, chúng cần loại thức ăn sống nhỏ nhất mà còn bơi được, chẳng hạn artemia mới nở. Giun vi sinh (microworm) thì không dùng được, vì nó chìm xuống và chết khá nhanh. Khó thêm nữa là cá bột lúc đầu không chủ động đi kiếm mồi. Chúng chỉ ăn những gì trôi ngang ngay trước mặt. Nước phải luôn sạch, vì cá con cũng rất nhạy với chất lượng nước thay đổi. Bạn cần thay nước ít một và thường xuyên để giữ các chỉ số nước ổn định như chúng cần.</p>",
+    "notes:seriouslyfish": "<p>Loài cá tầng mặt này có tên \"cá bướm\" vì khi nhìn từ trên xuống, cặp vây ngực lớn khiến nó trông như một con bướm. Thật ra cặp vây này có hai công dụng. Thứ nhất là ngụy trang: cá nằm trên mặt nước trông như một chiếc lá khô trôi nổi. Thứ hai, cặp vây này cùng với vây đuôi tạo lực cho những cú nhảy đáng kinh ngạc của nó. Cá nhảy khỏi mặt nước để bắt côn trùng đang bay hoặc để thoát thân khi gặp kẻ săn mồi, và có thể nhảy xa vài mét. Mắt cá cũng có cấu tạo đặc biệt ở vài điểm, nhờ vậy cá nhìn được cùng lúc cả xuống dưới nước lẫn lên trên không. Khỏe là vậy, nhưng lúc không kiếm ăn thì cá lại khá lười vận động. Nó thường nằm im giữa đám cây trên mặt nước. Ngoài tự nhiên, cá hoạt động mạnh vào lúc chạng vạng, quanh khoảng giờ hoàng hôn. Ngoại hình lạ, tập tính độc đáo, lại dễ nuôi, nên cá bướm là lựa chọn lý tưởng cho người chơi muốn tìm thứ gì đó \"khác người\". Đây là loài duy nhất trong cả chi Pantodon lẫn họ Pantodontidae. Nó cũng là loài khá nguyên thủy, thuộc bộ Osteoglossiformes, cùng bộ với các loài cá rồng (arowana).</p>"
   },
   "nameFixed": true,
   "redirectFrom": [
@@ -28,5 +35,13 @@
       "slug": "ca-buom-chau-phi-pantodon",
       "name": "Cá bướm châu Phi"
     }
-  ]
+  ],
+  "quality": {
+    "score": 0.8,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85,
+      "seriouslyfish": 0.8
+    }
+  }
 }

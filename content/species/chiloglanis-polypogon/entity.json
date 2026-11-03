@@ -8,12 +8,20 @@
   "places": [
     "africa",
     "cameroon",
-    "cross-river"
+    "cross-river",
+    "nigeria"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 26
@@ -27,12 +35,44 @@
           "min": 6.4,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 5.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -44,16 +84,52 @@
       "html": "<ul><li>Scientific name: Chiloglanis polypogon Roberts, 1989</li><li>Common name: African Suckermouth Catfish</li><li>Size: 55 mm (2.2\") SL</li><li>IUCN Red List: Near Threatened (last assessed 2019)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<p>Chiloglanis polypogon is an African suckermouth catfish from Nigeria and Cameroon, where it inhabits fast-flowing hilltop streams. Like most of the almost 50 described Chiloglanis, it is seen only rarely in the trade and the species are very difficult to tell apart. It needs strong water flow and well-oxygenated water, and it is peaceful with its own kind and with other rheophilic species.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
       "html": "<p>Africa: Cross River, Cameroon. Type locality: high gradient stream along the road from Mamfe to Bamenda, 88-94 kilometres southwest of Bamenda, Cross basin, Cameroon, western Africa.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<p>Nigeria and Cameroon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<p>It inhabits fast-flowing hilltop streams.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<p>Standard length 55mm SL. Aquarium base 45 × 30cm. Volume ~41 litres (45 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<p>The aquarium should have a fine gravel or sand substrate and a scattering of smooth rocks of varying sizes. Pieces of driftwood can be used to provide areas of shelter. Water flow should be strong and the water well oxygenated. It will not thrive in aquariums with low water movement, so the use of a powerhead or two is recommended. Plants are not essential, although algal growth should not be discouraged.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
       "html": "<ul><li>pH: 6.4 - 7.0</li><li>Temperature: 22.0-26.0°C (71.6-78.8°F)</li><li>A good current is strongly recommended.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.5–7.0</li><li>Hardness: 3–10 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -68,10 +144,22 @@
       "html": "<p>Will eat a wide variety of prepared and frozen foods. Supplement with algae wafers.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<p>It's an omnivorous species and will accept small live and frozen foods such as daphnia, brineshrimp or bloodworm, as well as greenstuffs in the form of cucumber slices, algae wafers etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
       "html": "<p>Peaceful both with conspecifics and other fish, and therefore suitable for the community tank. Good with many small- to mid-sized community fish. Ideal tankmates include fast-water Synodontis (such as S. brichardi and S. soloni), fast-water African characins and cyprinids like Nannocharax and Garra.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<p>A very peaceful fish that mixes well with other rheophilic species. Good tankmates include Alestiid tetras, Nannocharax, fast water Synodontis such as S. brichardi and cichlids such as Steatocranus and riverine Lamprologines. It's also peaceful among conspecifics, and a group can be kept in most tanks.</p>"
     },
     {
       "key": "dimorphism",
@@ -80,16 +168,34 @@
       "html": "<p>Males have an elongate genital papilla. Some other Chiloglanis species can be easily sexed, as males have enlarged anal and caudal fins of different shapes from the females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<p>Male fish have an elongated genital papilla.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
       "html": "<p>Not known in aquarium, although other species have been successfully bred in natural enclosures. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<p>Unknown in aquaria.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1058",
       "html": "<p>Pronunciation: Kee low glan iss - paw lee poe gone.</p><p>Etymology: Chiloglanis comes from the Greek cheilos, meaning lip, and glanis, meaning catfish, in reference to the oral morphology. The name polypogon (noun in apposition, from the Greek \"poly\", multiple, and \"pogon\", beard) refers to the numerous mental barbels.</p><p>Identification: The second largest catfish genus in Africa after Synodontis. They are characterized by jaws and lips modified into a sucker or oral disc used for adhering to and feeding upon objects in fast-flowing waters. Generally small, at 100 mm SL or less. Species with forked caudal fins can show sexual dimorphism, which is usually species-specific. Other characteristics in this hard-to-identify genus are the size of the adipose fin, the position of the adipose fin relative to the pelvic fins, and the size of barbels, eyes and dorsal fin. Only a handful of species are identified by colouration. They can be distinguished from other African suckermouth catfish (genera Euchilichthys and Atopochilus) by their circular suckermouth disc, which is more elliptical in the other two genera. They can be distinguished from South American suckermouth catfishes by the lack of body armour plates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chiloglanis-polypogon",
+      "html": "<p>This fish belongs to a very distinctive genus of mochokid. There are almost 50 species of Chiloglanis described to science, but most are never imported and even the commoner species, such as this one, are seen only rarely. They are very difficult to identify down to species level, as many are very similar in looks. Some are strongly sexually dimorphic with the males having thickened or enlarged anal and caudal fins. Chiloglanis are also sometimes confused with the other 2 genera of African suckermouthed catfish, Euchilichthys and Atopochilus, but can be differentiated from these by their smaller size and circular (as opposed to elliptical) mouthparts. They can be distinguished from the South American Loricariids by their lack of armoured scuting. Aquarium care for all species of Chiloglanis is virtually identical.</p>"
     },
     {
       "key": "references",
@@ -122,5 +228,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-03"
 }

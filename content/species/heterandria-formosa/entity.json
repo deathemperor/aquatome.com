@@ -8,7 +8,8 @@
   "places": [
     "north-america",
     "united-states",
-    "florida"
+    "florida",
+    "st-johns"
   ],
   "dataCard": {
     "sizeCm": [
@@ -19,6 +20,10 @@
       {
         "source": "aquariumbreeder",
         "value": 3.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ],
     "difficulty": [
@@ -29,11 +34,22 @@
       {
         "source": "aquariumbreeder",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ],
     "tempC": [
       {
         "source": "aquariumbreeder",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 20,
           "max": 26
@@ -47,6 +63,13 @@
           "min": 6.5,
           "max": 8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
       }
     ],
     "gh": [
@@ -56,6 +79,19 @@
           "min": 5,
           "max": 20
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
       }
     ]
   },
@@ -179,6 +215,72 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/",
       "html": "<p>The Least Killifish (Heterandria formosa) is prolific, live-bearing, and one of the smallest fish in North America. Although native and very hardy, it is not common in pet stores. It is an excellent choice for nano tanks: tiny, omnivorous and very easy to care for, so it can be recommended even for beginners.</p><h3>Etymology</h3><p>The name Heterandria is of Greek origin: 'heteros' means 'other or different' and 'andros' means 'male'. Formosa comes from the Latin 'formosus', meaning 'beautifully formed'. In 1853 the name Heterandria was proposed for this species because of the difference between the sexes.</p><h3>Description</h3><p>Heterandria formosa is a very small fish. The mean standard length of males is about 1.5–2 cm. Fully grown females are generally 3–3.5 cm long.</p><ul><li>The body is compressed and fusiform.</li><li>The head is a little less than ¼ of the entire length.</li><li>The snout is very short.</li><li>The mouth is quite protractile, with the lower jaw slightly projecting below the upper one.</li><li>The eyes are very large.</li><li>The dorsal fin is higher than long.</li><li>The ventral fins are very short, small and broad.</li><li>The ground colour is olivaceous or yellowish brown above.</li><li>A black streak extends from the snout along the middle of the flanks to the caudal fin.</li><li>The fish may have 6 to 8 brownish-black vertical streaks along the sides.</li><li>A jet black spot exists at the base of the caudal, dorsal and anal fins, except in males, in which the anal fin has a yellowish tint.</li></ul><h3>Lifespan</h3><p>Some studies indicate that in the wild the Least Killifish live at most 120–150 days. In captivity, under optimal conditions and at lower temperatures, they generally live up to 1.5 years. Temperature greatly affects lifespan: high temperature increases the metabolic rate and reduces lifespan.</p><h3>Plant safety</h3><p>The Least Killifish are completely plant safe and do not eat healthy plants. According to studies, ingested plant material is mostly the result of foraging on attached zooplankton.</p><h3>Conclusion</h3><p>The Least Killifish is a fun, miniature, prolific, live-bearing fish and can be an ideal candidate for small planted tanks because of its hardiness and ease of care. Because of its relatively dull coloration it is not particularly popular in the hobby, but this is compensated by its interesting behaviour and unique reproduction.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<p>The least killifish, Heterandria formosa, is a tiny livebearer from the United States, found in heavily vegetated margins of still or sluggish water. The smallest known livebearing fish, it is peaceful but not a community fish in the general sense, as the males reach only 2 cm and many commonly kept species will eat them. It is sometimes confused with the much more aggressive mosquito fish of the genus Gambusia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<p>Type locality is 'Charleston, South Carolina and Palatka, Florida, U.S.A.'</p><p>Rivers and areas include: Bogue Chitto, Caloosahatchee, Coosawhatchie, Everglades National Park, Frog Creek, Greenfield Lake, Haskell Wetlands, Hatchet Creek, Hillsborough, Kanawha, Kissimmee, Lake Okeechobee, Otter Creek, Pee Dee, Santee, Shark, St. Johns, St. Louis Canal, Stanley Creek, Steinhatchee, Wakulla.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<p>It's usually found in shallow, heavily-vegetated marginal areas of still or sluggish bodies of water. It can also be found in brackish conditions in some areas.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<p>A pair of these can be kept in a tank as small as 30 cm x 20 cm x 20 cm - 12.5 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<p>A gently-filtered, heavily planted setup suits it best. Other decor can be added as you wish. Water flow must be kept to a minimum.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<ul><li>Temperature: 20–26°C. It's a hardy species, being subject to a large range of temperatures in its natural waters.</li><li>pH: 7.0-8.0</li><li>Hardness: 5-20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<p>Unfussy and omnivorous, it will accept most foods offered. It's particularly fond of small live or frozen varieties such as brine shrimp or Daphnia, and the diet should contain a good proportion of these. It will also browse on algae, so try to ensure it receives some vegetable matter in the diet. In the absence of algae crushed spirulina flakes work well.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<p>Not a community fish in the general sense, although it's very peaceful. Males in particular are so tiny that they will be seen as a snack by many of the commonly kept species. It will also not compete well with more vigorous tankmates. Other similarly-sized, non-predatory species such as pencil fish, dwarf Corydoras, Otocinclus and freshwater shrimp are the best choices.</p><p>While males can show a little aggression when competing for females, physical damage is very rare. It's best to maintain it in a small colony.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<p>Males are much smaller than females and possess an enormous gonopodium.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<p>Very easy. It's nigh on impossible to prevent it breeding if both sexes are present in an aquarium. Water parameters are unimportant, provided they are within the ranges stated above. The tank should be planted heavily. It's best kept in a small group with several of each sex present for breeding purposes.</p><p>The gestation period is around 4 weeks. The species has a slightly different method of fry production to most other livebearers, involving a process known as 'superfoetation'. This is defined as 'formation or development of a second foetus when one is already present in the uterus'. Fry at different stages of development can therefore be present in the uterus of the fish at any given time. In addition, the egg yolks of the species are nutritionally poor, and the developing fry derive much of their nourishment via organs that function in a similar way to the placenta of mammals. As a result of this process, fry are dropped continually rather than in defined broods. A few fry appear every day or two if there is more than one female in the tank. They are quite large at birth and can accept powdered dry foods and Artemia nauplii straight away. The adults will not usually harm them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heterandria-formosa",
+      "html": "<p>This species is also referred to as 'mosquito fish', 'dwarf livebearer' or 'dwarf top minnow' in aquarium literature.</p><p>H. formosa is the smallest known livebearing fish species, and one of the smallest overall fish species in the world. It's not often seen for sale these days, although it's quite widely available in hobbyist circles. When buying these, ensure they have been identified correctly as they're sometimes confused with the much more aggressive mosquito fish of the genus Gambusia.</p>"
     }
   ],
   "photos": [
@@ -242,5 +344,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

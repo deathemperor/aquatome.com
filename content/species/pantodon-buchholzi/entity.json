@@ -7,13 +7,65 @@
   "group": "other",
   "places": [
     "africa",
-    "nigeria"
+    "nigeria",
+    "republic-of-the-congo",
+    "democratic-republic-of-the-congo",
+    "cameroon",
+    "central-african-republic",
+    "benin",
+    "chad",
+    "sierra-leone",
+    "niger",
+    "gabon"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,10 +77,22 @@
       "html": "<p>The African Butterfly fish, Pantodon buchholzi, becomes about 10 cm long. It is a strictly surface-dwelling species. Males can be easily recognized by the modified anal fin.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<p>The African butterfly fish, Pantodon buchholzi, is a surface-dwelling osteoglossiform from still and slow waters in West and Central Africa. The only member of its genus and family, it takes its name from the large pectoral fins, which make it look like a dead leaf at the surface and power leaps of several metres. It is quite inactive when not feeding, will eat any fish it can fit in its mouth, and needs a tightly fitting cover.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/pantodon-buchholzi/",
       "html": "<p>The specimens kept by the authors originate from Nigeria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<p>Republic of Congo, Democratic Republic of Congo, Cameroon, Central African Republic, Benin, Chad, Nigeria, Sierra Leone, Niger, Gabon.</p>"
     },
     {
       "key": "habitat",
@@ -37,10 +101,46 @@
       "html": "<p>In the wild, it lives in quite shallow water of swamps.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<p>It inhabits slow-moving and still waters in creeks, lakes and swamps. These habitats typically have dense aquatic or overhanging vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<p>Standard length 120 mm SL. Aquarium base 90 × 30 cm. 90 × 30 × 30 cm - ~81 litres. The width of the tank is far more important than the depth, and if possible a tank at least 38 cm wide should be used.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<p>This species does best in slightly soft, acidic water, preferably stained with tannins. Any water movement should be kept to a minimum. The aquarium should be dimly-lit with floating plants in order to diffuse the light further and allow the butterfly fish to exhibit its natural behaviour. The decor below the surface is much less important and can be tailored to suit any other species in the tank. It does seem less skittish when kept over a dark substrate, however. Ensure the cover of the tank is tightly fitting, as this fish is an amazing jumper for its size.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<ul><li>Temperature: 23–30°C. Somewhere around the middle of this range, around 25–27°C, is best.</li><li>pH: 6.0–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<p>It is mainly an insectivore in nature and a varied diet of live and frozen foods such as bloodworm, brine shrimp, prawn, small mealworms etc. suits it well. It obviously relishes live insects and will eagerly take any spiders or flies that you can catch. Most specimens will also accept flake, but this should not form the basis of the diet. The fish feed only from the surface, so make sure they are getting their share.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/pantodon-buchholzi/",
       "html": "<p>Butterfly fishes are peaceful against other fish, but they tend to be a bit anxious. It is recommended to keep them only with very calm and peaceful fish. Against conspecifics Butterfly fishes can be quarrelsome, but this behaviour is usually only evanescent.</p><p>Pantodon can really fly, he is a glider. The Butterfly fish is a strictly surface-dwelling species. The ventral fins are modified to sensitive organs that help the fish to orient. Pantodon can survive in almost oxygen-free water due to a special organ that allows the fish to breathe air that is swallowed from the water surface.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<p>The butterfly fish is generally quite peaceable, but its trailing finnage offers irresistible temptation to fin-nipping species. Furthermore, it will eat any fish it can fit in its mouth and is often aggressive towards other surface dwelling species. Recommended tankmates include other African species such as Congo tetras, elephant nose fish, Synodontis catfish, African knife fish, Ctenopoma species, and small to medium-sized West African cichlids. It can also be combined successfully with Corydoras, and many Loricariids and peaceful South American cichlids. Butterfly fish can be somewhat aggressive towards conspecifics, but in a roomy tank with plenty of surface vegetation a small group can usually be kept without too many problems.</p>"
     },
     {
       "key": "dimorphism",
@@ -49,58 +149,76 @@
       "html": "<p>Males can be easily recognized by the modified anal fin.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<p>The fish can be sexed by looking at the back edge of the anal fin. This is straight in females and convex in males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/pantodon-buchholzi/",
       "html": "<p>Butterfly fishes often spawn in aquaria, but the offspring is difficult to rear, because the larvae feed exclusively from the water surface – like their parents do.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<p>Not easy but it is possible. The fish are egg-scatterers. In order to breed them you will need a tank with as large a surface area as possible, with 120 × 38 cm being a good size. The tank should be filled with floating plants such as Indian fern and the fish conditioned on a high quality diet of live and frozen foods. The water should be soft and acidic, with a pH of 6.0-6.5 and a temperature of 25–26.5°C. Spawning can often be initiated by lowering the water level to only a few centimetres for a couple of weeks, then topping up with fresh water to a depth of 15–20 cm. Spawning is preceded by much chasing of the female by the male. The act itself occurs among the plants, with the male clasping the female between his fins. The pair will spawn over a period of several days, usually depositing over 100 eggs per day. These immediately float to the surface, and should be removed to a separate aquarium as you spot them, as the parents exhibit no parental care at all and may in fact eat the eggs or fry. The eggs are clear and transparent when laid, but turn completely dark within a few hours. They will hatch in 3-4 days. Unfortunately, the fry are very difficult to raise. They need to be fed the smallest of mobile live foods initially, such as newly hatched brine shrimp. Microworm is not an option as it sinks and dies quite quickly. Further difficulties arise from the fact that the fry do not actively seek food initially, consuming items only which pass directly by them. The maintenance of high water quality is essential as the young are also very sensitive to changing water quality. Frequent small water changes are needed to maintain the stable water chemistry they require.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/pantodon-buchholzi/",
       "html": "<p>There is a legend that says Pantodon was not discovered by an ichthyologist, but by a collector of butterflies. This collector caught Pantodon during a flight and thought initially the fish would be a moth.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pantodon-buchholzi",
+      "html": "<p>The common name of this surface-dwelling species is derived from its appearance when viewed from above, the large pectoral fins giving it the appearance of a butterfly. In reality, these fins serve a dual purpose. They help to camouflage the fish, making it look like a dead leaf floating on the surface, and along with the caudal fin, power the incredible jumps that it is capable of making. The fish jumps from the water to catch flying insects or to escape potential predators and it can make leaps of several metres in length. The eyes of the fish also have several structural features designed to allow it to see both down into the water and up into the air at the same time. For a fish with such power, it is actually quite an inactive species when not feeding, tending to remain motionless among the surface plants. It is crepuscular in the wild, becoming active during the hours around dusk. The distinct looks and behaviour of the butterfly fish, along with its hardy nature, make it an ideal species for those aquarists seeking something \"different\". It is the only species in both the genus Pantodon and the family Pantodontidae and is quite a primitive species, being a member of the order Osteoglossiformes, which also includes the various arowana species.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/e41f202a4cfeb6cf.webp",
+      "thumb": "https://media.aquatome.com/commons/e41f202a4cfeb6cf-480.webp",
       "width": 960,
       "height": 657,
       "licence": "CC BY-SA 3.0",
       "author": "Toniher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pantodon_buchholzi.jpg",
-      "caption": "Pantodon buchholzi - freshwater butterflyfish in a domestic aquarium",
-      "thumb": "https://media.aquatome.com/commons/e41f202a4cfeb6cf-480.webp"
+      "caption": "Pantodon buchholzi - freshwater butterflyfish in a domestic aquarium"
     },
     {
       "url": "https://media.aquatome.com/commons/67e7e924c6e91d42.webp",
+      "thumb": "https://media.aquatome.com/commons/67e7e924c6e91d42-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 4.0",
       "author": "John P Friel",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pantodon_buchholzi_53146715.jpg",
-      "caption": "Freshwater Butterflyfish (Pantodon buchholzi)",
-      "thumb": "https://media.aquatome.com/commons/67e7e924c6e91d42-480.webp"
+      "caption": "Freshwater Butterflyfish (Pantodon buchholzi)"
     },
     {
       "url": "https://media.aquatome.com/commons/45798f85a2e53cfc.webp",
+      "thumb": "https://media.aquatome.com/commons/45798f85a2e53cfc-480.webp",
       "width": 960,
       "height": 556,
       "licence": "CC BY-SA 4.0",
       "author": "Andrewbogott",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pantadon_fry_from_above.png",
-      "caption": "Three young Pantadon buchholzi fry, viewed from above",
-      "thumb": "https://media.aquatome.com/commons/45798f85a2e53cfc-480.webp"
+      "caption": "Three young Pantadon buchholzi fry, viewed from above"
     },
     {
       "url": "https://media.aquatome.com/commons/4bde371672f84522.webp",
+      "thumb": "https://media.aquatome.com/commons/4bde371672f84522-480.webp",
       "width": 960,
       "height": 628,
       "licence": "CC0",
       "author": "Vassil",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pantodon_buchholzi_K%C3%B6ln_Zoo_31122014_2.jpg",
-      "caption": "African butterflyfishes ( Pantodon buchholzi ) in Cologne Zoo.",
-      "thumb": "https://media.aquatome.com/commons/4bde371672f84522-480.webp"
+      "caption": "African butterflyfishes ( Pantodon buchholzi ) in Cologne Zoo."
     }
   ],
   "videos": [],
@@ -126,5 +244,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-03"
 }

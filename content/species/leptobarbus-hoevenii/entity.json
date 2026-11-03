@@ -9,12 +9,19 @@
     "asia",
     "thailand",
     "malaysia",
-    "borneo"
+    "borneo",
+    "indonesia",
+    "kalimantan",
+    "tasik-bera"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 100
+      },
+      {
+        "source": "seriouslyfish",
         "value": 100
       }
     ],
@@ -22,6 +29,43 @@
       {
         "source": "glaser",
         "value": 300
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
       }
     ]
   },
@@ -33,10 +77,28 @@
       "html": "<p>Leptobarbus hoevenii, the Cigar Shark or Mad Barb, is a giant among the barbs. With a length of approx. 1 m and a weight of up to 10 kg it needs a lot of space.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Be sure to fit the aquarium with a heavy, tightly-fitting cover as larger cyprinids can be quite skittish at times and usually possess a powerful jump.</p><p>The mad barb, Leptobarbus hoevenii, is a large pelagic cyprinid apparently native to Peninsular Malaysia, Borneo, Sumatra and Java. A popular sport fish growing to 800 to 1000 mm, it is wholly unsuitable for private aquaria but is readily available at 100 to 150 mm. The congener L. rubripinna was referred to as L. hoevenii for decades and both are traded under the same name. L. hoevenii lacks the broad dark midlateral stripe and has dark grey pelvic and anal fins.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
       "html": "<p>They originate from Southeast Asia (Thailand to Borneo).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<p>Apparently native to Peninsular Malaysia plus the Greater Sunda Islands of Borneo, Sumatra, and Java. Reports of this species from the Mekong, Chao Phraya, and other rivers in Indochina refer to the congener L. rubripinna (see 'Notes').</p><p>Type locality is 'Indonesia: Borneo: Kalimantan Selatan: Banjarmasin'.</p>"
     },
     {
       "key": "habitat",
@@ -45,10 +107,28 @@
       "html": "<p>They are found most often in freely flowing rivers and streams and seasonally on floodplains.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<p>A pelagic species primarily inhabiting rivers and larger streams. During the rainy season it is known to migrate into temporarily-inundated floodplains and forests, where spawning takes place.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
       "html": "<p>For the maintenance of adults one should own a tank of at least 3 m length.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<p>Standard length: 1000 mm SL (100 cm).</p><p>Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<p>Choice of décor is not as critical as water quality and the amount of open swimming-space provided. However should you possess the means to both provide and decorate a sufficiently-sized aquarium, a set-up designed to resemble a flowing river with a substrate of variably-sized rocks and gravel, some large water-worn boulders and driftwood branches is recommended.</p><p>Like many fishes that naturally inhabit running waters it is intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive. It also does best if there is a high level of dissolved oxygen and a decent level of water movement in the tank so external filters, powerheads, etc., should be employed in order to obtain the desired effect.</p><p>Be sure to fit the aquarium with a heavy, tightly-fitting cover as larger cyprinids can be quite skittish at times and usually possess a powerful jump.</p>"
     },
     {
       "key": "waterConditions",
@@ -57,10 +137,22 @@
       "html": "<p>In terms of water chemistry they place no special requirements.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
       "html": "<p>As omnivorous fish they are unproblematic in their nutrition.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<p>Stomach analyses of wild specimens have shown it to feed on plant matter, zooplankton and larger invertebrates both aquatic and terrestrial.</p><p>In the aquarium it is easily-fed and will accept just about anything offered. For it to develop its best colours and condition offer regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia and Artemia along with good quality dried foods and plenty of vegetable matter. Shelled peas, blanched courgette, spinach and chopped fruit all make good additions to the menu, while larger specimens will also take chopped earthworm, prawn, mussel, etc.</p>"
     },
     {
       "key": "behaviour",
@@ -69,42 +161,94 @@
       "html": "<p>Since they are schooling fish, one should keep a group of at least 7 individuals, which can form a magnificent swarm.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<p>Peaceful although very small fishes are likely to be eaten.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<p>Sexually mature females are deeper-bodied than males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/leptobarbus_hoevenii_en/",
       "html": "<p>Nothing is known about breeding in aquariums. In Asia they are artificially bred for raising in aquacultures.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<p>Has not been bred in aquaria to date but is cultivated in large numbers in Sumatra via the use of hormones.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<p>This species' congener Leptobarbus rubripinna was referred to as L. hoevenii for a number of decades and continues to be misidentified as such in the aquarium hobby, with both species traded under the same name.</p><p>L. hoevenii is a popular sport fish in its native countries and is wholly unsuitable for private aquaria. Unfortunately it is readily available at a size of 100–150 mm, generally with no indication as to its adult size or long term requirements.</p><p>Both L. rubripinna and L. hoevenii are also referred to by the names 'mad barb', 'sultan fish', 'maroon shark' or 'Hoven's carp'. The first is particularly interesting because it refers to a phenomenon whereby the fish reportedly consume seeds and other parts of the Chaulmoogra tree (Hydnocarpus kurzii) and subsequently appear to be 'intoxicated', losing orientation and swimming erratically. Across some parts of its range it can therefore be poisonous to eat at certain times of the year.</p><p>L. hoevenii can be distinguished from L. rubripinna by: absence (vs. presence) of a broad, dark midlateral stripe on the body; interorbital almost flat (vs. rounded) in specimens measuring at least 160 mm SL; dorsal head profile straight to slightly concave (vs. slightly rounded and symmetric with ventral profile); eye located on upper portion of head (vs. located at mid-depth); posterior maxillary barbel extending beyond eye (vs. reaching middle of eye); pelvic and anal fins dark grey (vs. orange to red); anal-fin and caudal-fin lobes pointed (vs. rounded).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "html": "<ul><li>Tan, H. H. and M. Kottelat (2009). The fishes of the Batang Hari drainage, Sumatra, with description of six new species. Ichthyological Exploration of Freshwaters 20(1), 13-69</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Bleeker, P. (1851). Vierde bijdrage tot de kennis der ichthyologische fauna van Borneo, met beschrijving van eenige nieuwe soorten van zoetwatervisschen. Natuurkundig Tijdschrift voor Nederlandsch Indië v. 2, 193-208</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/88e5fc7d95de4740.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/88e5fc7d95de4740-480.webp",
+      "width": 640,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "caption": "Adult individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0ebb52798f72f36b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0ebb52798f72f36b-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-hoevenii",
+      "caption": "Juvenile from the Singapore aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/c8bfaf17ac77346e.webp",
+      "thumb": "https://media.aquatome.com/commons/c8bfaf17ac77346e-480.webp",
       "width": 960,
       "height": 639,
       "licence": "CC BY-SA 3.0",
       "author": "Haplochromis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siambarbe_(Leptobarbus_hoevenii).jpg",
-      "caption": "Siambarbe (Leptobarbus hoevenii)",
-      "thumb": "https://media.aquatome.com/commons/c8bfaf17ac77346e-480.webp"
+      "caption": "Siambarbe (Leptobarbus hoevenii)"
     },
     {
       "url": "https://media.aquatome.com/commons/63d594abd592bc43.webp",
+      "thumb": "https://media.aquatome.com/commons/63d594abd592bc43-480.webp",
       "width": 800,
       "height": 533,
       "licence": "CC BY-SA 4.0",
       "author": "Zahar AZ",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Juvenile_Leptobarbus_hoevenii.jpg",
-      "caption": "A juvenile Leptobarbus hoevenii in aquaria, lacks the mid lateral black line (unlike L. rubripinnis)",
-      "thumb": "https://media.aquatome.com/commons/63d594abd592bc43-480.webp"
+      "caption": "A juvenile Leptobarbus hoevenii in aquaria, lacks the mid lateral black line (unlike L. rubripinnis)"
     },
     {
       "url": "https://media.aquatome.com/commons/e9dff2b0ab798607.webp",
+      "thumb": "https://media.aquatome.com/commons/e9dff2b0ab798607-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 3.0",
       "author": "This illustration was made by Citron You must credit this : Citron / CC-BY-SA-3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbonymus_schwanenfeldii3.jpg",
-      "caption": "Barbonymus schwanenfeldii",
-      "thumb": "https://media.aquatome.com/commons/e9dff2b0ab798607-480.webp"
+      "caption": "Barbonymus schwanenfeldii"
     }
   ],
   "videos": [],
@@ -131,5 +275,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

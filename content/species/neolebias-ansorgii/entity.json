@@ -12,7 +12,9 @@
     "nigeria",
     "cameroon",
     "gabon",
-    "d-r-congo"
+    "d-r-congo",
+    "democratic-republic-of-the-congo",
+    "republic-of-the-congo"
   ],
   "dataCard": {
     "tempC": [
@@ -21,6 +23,13 @@
         "value": {
           "min": 24,
           "max": 24
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
         }
       }
     ],
@@ -31,16 +40,54 @@
           "min": 6,
           "max": 6.5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ]
   },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<p>Ansorge's neolebias, Neolebias ansorgii, is a small distichodontid from Cameroon, Democratic Republic of Congo, Nigeria, Gabon and Benin. It inhabits marshes and small, heavily vegetated ponds and creeks, and does not thrive in a brightly lit setup. Rarely offered for sale, it often looks fairly plain in dealers' tanks but colours up in the correct conditions. A very shy fish, it is ideally kept in a species setup.</p>"
+    },
     {
       "key": "beforeYouBuy",
       "source": "glaser",
@@ -54,10 +101,40 @@
       "html": "<p>The species is comparatively widespread in Central Africa. It has been reported from Angola, Benin, Nigeria, Cameroon, Gabon, and the D. R. Congo. However, it would appear that this little fish (around 2.5–3 cm long) is commonly overlooked or prefers habitats where it can't be collected effectively. Otherwise it is difficult to explain why the species so rarely turns up in the trade.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<p>Cameroon, Democratic Republic of Congo, Nigeria, Gabon, Benin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<p>It inhabits marshes and small, heavily vegetated ponds and creeks.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<p>Aquarium base 45 × 30 cm; volume ~41 litres (45 × 30 × 30 cm).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/neolebias_ansorgii_en/",
       "html": "<p>These dwarfs, which aren't particularly delicate, are best maintained in a small species tank. In the company of larger and livelier fishes they become timid and pale, as also happens in brightly lit aquaria. So: muted light, dark substrate (peat fiber), soft water, pH 6.0–6.5, and a temperature around 24 °C.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<p>Does not thrive in a brightly lit setup. Plant the tank densely, and some floating vegetation for additional shade. A dark substrate is also beneficial along with some small pieces of driftwood to provide hiding places. The water over much of its natural range is heavily stained with tannins from decaying vegetation and other organic matter. This can be replicated by adding aquarium-safe peat to the filter or substrate.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 5.0–6.0</li><li>Hardness: 5–12 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -66,10 +143,40 @@
       "html": "<p>They will eat all the usual fish foods of appropriate size.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<p>Will accept dried food but prefers live or frozen varieties and will display its best colouration on this type of diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<p>Ideally it should be kept in a species setup. It's a very shy fish that will not do well with boisterous or competitive tankmates. It can be maintained with small, peaceful species but even then it will not be seen as often as when kept alone.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<p>Males are slightly smaller than females and are much more colourful, especially when in breeding condition, when they display a bright red underbelly.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<p>Rarely achieved in aquaria and little information is available. Egg-scatterer. The fish should be conditioned using live and frozen foods and the best coloured male and fattest female selected. These should be placed in a small aquarium with a mesh base. The eggs will fall through this, minimising the risk of predation by the parents. Lighting should be subdued and some clumps of plants added to induce spawning, as the eggs would be scattered amongst vegetation in nature. The water should be below pH 6 and very soft. Following chasing by the male, the fish spawn side by side with a quivering motion. Up to 300 eggs may be deposited by a single female over a period of several days spawning activity, though 50-100 is more common. The eggs are very tiny when initially deposited but swell slightly as they absorb water. The fry hatch in around 24 hours and become free swimming in another 2-3 days. They are absolutely tiny and first food should be infusoria. They can be offered brine shrimp nauplii or microworm after a week or so.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/neolebias_ansorgii_en/",
       "html": "<p>There is a current discussion whether all species of Neolebias should be better placed in Nannaethiops, for the differences seem not to justify two separate genera.</p><p>Lexicon: Neolebias: from ancient Greek, means \"new Lebias\"; Lebias is a different genus of fish. ansorgii: dedication name for the collector of the species, William John Ansorge (1850–1913). Nannaethiops: means about \"small Ethiopian\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-ansorgii",
+      "html": "<p>This species is rarely offered for sale and often appears to be a fairly plain fish when it is seen in dealer's tanks. However, when kept in the correct conditions it is a stunning little fish that comes highly recommended.</p>"
     }
   ],
   "photos": [],
@@ -103,5 +210,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

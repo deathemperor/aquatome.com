@@ -9,13 +9,62 @@
     "south-america",
     "french-guiana",
     "maroni",
-    "suriname"
+    "suriname",
+    "guyana",
+    "demerara",
+    "courantyne",
+    "venezuela",
+    "orinoco",
+    "trinidad-and-tobago"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 11
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -27,19 +76,125 @@
       "html": "<p>The Keyhole cichlid (Cleithracara maronii, formerly Aequidens maronii) is a well-known aquarium fish that has only rarely been imported to Europe as a wild catch since its first import in 1936. The demand is covered by captive breeding. Although the species has no striking colors – the very varied pattern consists of brown, grey, beige and black tones – it is very popular because it only grows to around 10 cm long, is extremely peaceful, hardly burrows and is gentle on the plants. All in all, a perfect aquarium cichlid.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<p>The keyhole cichlid, Cleithracara maronii, is a small cichlid from French Guiana, Guyana, Suriname, the Orinoco delta in Venezuela and Trinidad. It is told apart from relatives by the keyhole-shaped marking on each side of the body. It inhabits slow-moving blackwater streams, is naturally shy and sensitive to deteriorating water quality, and most fish on sale are commercially farmed.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cleithracara-maronii-kourou-2/",
       "html": "<p>C. maronii is considered an endemic of the Maroni. This river is the border between Suriname and French Guiana and runs about 170 km west of Kourou.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<p>Described from the Maroni in French Guiana and occurs in most river drainages of the country as well as Guyana, Suriname, the Orinoco delta region in Venezuela and island of Trinidad, though in the latter it may not have been recorded since the 1960s.</p><p>Wild fish are not often available in the aquarium trade with the majority of those seen on sale farmed commercially for the purpose.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<p>Inhabits low altitude, slow-moving or standing blackwater streams and tributaries. The water is typically stained brown with humic acids and other chemicals released by decaying organic material, dissolved mineral content is generally negligible and pH as low as 4.0-5.0.</p><p>Substrates are usually littered with fallen leaves, branches and submerged tree roots though in some places aquatic plants from genera such as Cabomba, Marsilea, or Pistia can be found.</p><p>In the Demerera river system, Guyana, other fish species include Hemiodus unimaculatus, Leporinus friderici, Erythrinus erythrinus, Nannostomus beckfordi, N. harrisoni, N. marginatus, Pyrrhulina filamentosa, Carnegiella strigata, Gasteropelecus sternicla, Characidium pteroides, Gnathocharax steindachneri, Hemigrammus bellottii, H. iota, H. ocellifer, H. rodwayi, H. stictus, Moenkhausia collettii, Myloplus rubripinnis, Brachychalcinus orbicularis, Platydoras hancockii, Doras micropoeus, Trachydoras microstomus, Pimelodus blochii, Callichthys callichthys, Corydoras punctatus, Megalechis thoracata, Hypostomus hemiurus, Loricaria cataphracta, Steatogenys elegans, Anablepsoides stagnatus, Poecilia parae, Acaronia nassa, Apistogramma steindachneri, Geophagus surinamensis, Krobia guianensis, and Colomesus psittacus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<p>Standard length: 110 mm SL (11 cm). Aquarium base: 90 × 30 cm. Volume: about 81 litres.</p><p>An aquarium with base dimensions of 90 × 30 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<p>Provided adequate cover and structure is available this species is unfussy with regards to décor with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions. Since it tends not to dig it can also be maintained in most planted aquaria.</p><p>A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots, branches and leaf litter. One or two flattish, water-worn rocks can also be included to provide potential spawning sites if you wish.</p><p>Water quality is of the utmost importance since these cichlids are susceptible to deteriorating water quality and should never be introduced to a biologically immature aquarium, and high flow rates should be avoided so position filter returns accordingly.</p><p>If the maintenance regime and/or diet is insufficient individuals may develop health problems such as head and lateral line erosion or exhibit stunted growth.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<ul><li>Temperature: 21–28°C</li><li>pH: 4.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<p>Likely to be a foraging omnivore feeding on benthic invertebrates and organic detritus in nature.</p><p>In the aquarium it's unfussy and will accept the majority of prepared foods, though a varied diet containing both quality dried products plus live or frozen bloodworm, Artemia, Daphnia, etc. should be offered for the fish to develop optimal condition.</p><p>Home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, are proven to work well and can be cut into bite-sized discs using the end of a sharp pipette or small knife.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<p>Not aggressive unless breeding and will not predate on fishes larger than a few mm in length. Suitable tankmates are therefore too numerous to list but include most peaceful species enjoying similar environmental conditions.</p><p>Groups of open water-dwelling characids or similar are particularly recommended as C. maronii is naturally shy and the presence of small schooling or shoaling fishes appears to be used as a cue that there are no threats in the vicinity.</p><p>When danger is detected the colour pattern darkens considerably and the fish take cover among plants, submerged woody structures, or leaf litter.</p><p>For those wishing to attempt a biotope-style community a list of some naturally sympatric species can be found in the 'Habitat' section of this profile. Best avoided are aggressive/territorial fishes or those requiring harder water.</p><p>Juveniles are gregarious but once they reach sexual maturity will begin to form pairs of which each will command a territory a couple of feet across when breeding.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<p>Juveniles are impossible to sex accurately by external means but adult males grow considerably larger than females and develop extended dorsal and anal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<p>This species is a biparental, monogamous substrate spawner and is easily-bred when in good condition. There doesn't appear to be any particular trigger for the spawning process with the main requirements being good diet and stringent maintenance regime.</p><p>Unless sexed adults are available it's best to begin with a group of young fish and allow pairs to form naturally, separating them as they do so.</p><p>The eggs are normally laid on a solid surface such as a flat rock, piece of driftwood, broad plant leaf, or directly on the aquarium glass. Young or inexperienced pairs may eat the first brood(s), particularly if they feel threatened or are disturbed.</p><p>Spawning occurs in typical style with the female laying one or more rows of eggs before the male moves in to fertilise them, the process being repeated numerous times until she is spent.</p><p>Up to 300 or so eggs may be deposited and the female stays close to them during the incubation period, tending and defending against intruders, while the male is responsible for defence of the surrounding territory.</p><p>If maintaining the adults in a community situation it's recommended to remove either tankmates or eggs at this point should you wish to raise good numbers of fry.</p><p>The latter are easily-fed, accepting good quality powdered dry foods, Artemia nauplii, microworm, etc., as soon as they become free-swimming stage. Parental care can continue for several months post-spawning.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cleithracara-maronii-kourou-2/",
       "html": "<p>A local variant of Cleithracara maronii was found during a private collecting trip to French Guiana near Kourou (the spaceport). The Kourou variant is really spectacularly beautiful with its occasionally (!) red back and blue gill covers! Could it be a separate species after all? Who knows…</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<p>This species can be told apart from relatives by the characteristic 'keyhole' shaped marking on each side of the body.</p><p>It's one of few fishes in which the current generic name is derived from the common name popularised in the aquarium hobby with 'Cleithracara' a combination of the Greek kleithron, meaning lock, and, acará, the Guaraní word for cichlids.</p><p>In terms of taxonomy Cleithracara is monotypic and C. maronii was formerly included in the genera Acara and Aequidens before being separated by Kullander and Nijssen (1989)[2] on the basis of a combination of morphological characters as follows: preopercle with two scales on the horizontal limb; predorsal squamation arranged in three rows; unpaired soft fins extensively scaled; one supraneural; two palatine-lateral ethmoid articulations; deep notch in the dorsal margin of the anterior ceratohyal; relatively widened anterior arm on epibranchial 1; small ventral process on the quadrate approximately midway between the head and level of anterior end of preopercle; accessory caudal-fin lateral lines, parhypurapophyses, interarcual cartilage, teeth on ceratobranchial 4, and mesial foramen on second infraorbital all absent.</p><p>Within the family Cichlidae Cleithracara is often included in the putative tribe Cichlasomatini, and the majority of recent studies agree that it's most closely-related to Nannancara.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "html": "<ul><li>Hardman, M., L. M. Page, M. H. Sabaj, J. W. Armbruster, and J. H. Knouft (2002). A comparison of fish surveys made in 1908 and 1998 of the Potaro, Essequibo, Demerara, and coastal river drainages of Guyana. Ichthyological Exploration of Freshwaters 13(3), 225-238</li><li>Kullander, S. O. and H. Nijssen (1989). The cichlids of Surinam. Teleostei: Labroidei. E. J. Brill, Leiden, i-xxxii + 1-256</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6579d2c32d6ebf2e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6579d2c32d6ebf2e-480.webp",
+      "width": 726,
+      "height": 593,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "caption": "When stressed this species exhibits a more cryptic colour pattern.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/dcffef3255479bdd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/dcffef3255479bdd-480.webp",
+      "width": 819,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fbdf329b08ced52b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fbdf329b08ced52b-480.webp",
+      "width": 768,
+      "height": 554,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cleithracara-maronii",
+      "caption": "Adult female guarding her brood of eggs.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -64,5 +219,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

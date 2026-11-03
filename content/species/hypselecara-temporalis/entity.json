@@ -7,13 +7,62 @@
   "group": "cichlids",
   "places": [
     "south-america",
-    "oyapock"
+    "oyapock",
+    "peru",
+    "ucayali",
+    "colombia",
+    "venezuela",
+    "brazil",
+    "amazon"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -25,10 +74,58 @@
       "html": "<p>The Emerald cichlid has become a bit out of fashion. This is a rather sad thing, because this impressive large cichlid is one of the most beautiful cichlid species of South America. Males can grow up to 30 cm long, while females always stay much smaller.</p><p>Common name: Emerald cichlid. Origin: captive-bred. Available size: 5-6 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-temporalis",
+      "html": "<p>The chocolate cichlid, Hypselecara temporalis, is a large cichlid from Peru, Colombia, Venezuela and Brazil. It most often inhabits silt-laden, slow-flowing rivers. Although it reaches 30 cm, it is quite a placid species and can be kept in a community of large fish in a suitably-sized tank.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/hypselecara_temporalis_oyapoc_en/",
       "html": "<p>Specimens bred in Germany of the population from the Rio Oyapoc are now available. The splendid red colours make it look like an artificial sport, but this is a true wild form.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-temporalis",
+      "html": "<p>Widely distributed in parts of Peru, Colombia, Venezuela and Brazil. It's been collected in various rivers including the Ucayali, Amazonas, Solimões, Amapá and Oyapock.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-temporalis",
+      "html": "<p>It most often inhabits silt-laden, slow-flowing rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-temporalis",
+      "html": "<p>A tank of 120 × 45 × 45 cm (about 243 litres) is suitable for a single adult male or mated pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-temporalis",
+      "html": "<p>A sand substrate is preferable, with large pieces of bogwood and smooth boulders as additional decor. Plants can be used if you wish, as it doesn't usually dig. If you want to breed the fish place some pieces of slate vertically up the sides of the tank, to act as potential spawning sites.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-temporalis",
+      "html": "<ul><li>Temperature: 25–30°C</li><li>pH: 5.0–7.0</li><li>Hardness: 0–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-temporalis",
+      "html": "<p>It's omnivorous, feeding on a variety of invertebrates, algae and other plant matter in the wild. Happily it proves similarly unfussy in aquaria. Offer a varied diet including live, frozen and dried foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-temporalis",
+      "html": "<p>Despite its large size this is actually quite a placid species and can be kept in a community of large fish in a suitably-sized tank. Possible tankmates include large cyprinids, characins, catfish, Loricariids and in a very big tank, other South American cichlids.</p>"
     },
     {
       "key": "notes",
@@ -37,7 +134,48 @@
       "html": "<p>Hypselecara means \"deep-bodied Acara\"; Acara is the Tupi word for cichlid. temporalis means \"with a high forehead\".</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/7a0d70340c5b3baa.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 2.0",
+      "author": "Christie",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypselecara_temporalis.jpg",
+      "caption": "Hypselecara temporalis",
+      "thumb": "https://media.aquatome.com/commons/7a0d70340c5b3baa-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/095298da25cfa166.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Danny Steaven S.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae003.jpg",
+      "caption": "Hypselecara temporalis (Günther 1862)",
+      "thumb": "https://media.aquatome.com/commons/095298da25cfa166-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/34acc2c9bb12c82f.webp",
+      "width": 960,
+      "height": 643,
+      "licence": "CC0",
+      "author": "Whaldener Endo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypselecara_temporalis_205454462.jpg",
+      "caption": "Chocolate Cichlid (Hypselecara temporalis)",
+      "thumb": "https://media.aquatome.com/commons/34acc2c9bb12c82f-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0ba00e8b1b22604a.webp",
+      "width": 960,
+      "height": 682,
+      "licence": "CC BY-SA 3.0",
+      "author": "H. Zell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypselecara_temporalis_-_Karlsruhe_Zoo_01.jpg",
+      "caption": "Hypselecara temporalis (Günther, 1862), Emerald cichlid; Karlsruhe Zoo, Karlsruhe, Germany.",
+      "thumb": "https://media.aquatome.com/commons/0ba00e8b1b22604a-480.webp"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "juC42pYW9ug",
@@ -85,5 +223,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

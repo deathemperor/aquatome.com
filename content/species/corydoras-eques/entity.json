@@ -8,10 +8,64 @@
   "places": [
     "south-america",
     "brazil",
-    "anori"
+    "anori",
+    "solimoes",
+    "peru"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<p>Osteogaster eques, long known as Corydoras eques, is an armoured catfish described from the Amazon at Codajás, on the rio Solimões main channel in western Brazil. Its wider range is unclear, although similar-looking fish have been exported from Peru on occasion. It is sometimes confused with C. venezuelanus, and two similar unidentified fishes from Peru carry the codes CW007 and CW043.</p>"
+    },
     {
       "key": "distribution",
       "source": "glaser",
@@ -19,42 +73,135 @@
       "html": "<p>From the Brazilian state of Amazonas, a species of Corydoras that has long been known to science but is almost unknown in the hobby: Corydoras eques. It was collected near Anori.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<p>Type locality is 'Amazon River at Codajás, Amazonas, Brazil', which is located approximately midway between Tefé and Manaus on the rio Solimões (Amazon) main channel, western Brazil. Its extended range is unclear although similar-looking fish have been exported from Peru on occasion.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<p>Minimum base dimensions of 90 × 30 cm are recommended (about 81 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_eques_en/",
       "html": "<p>This unique and extremely colourful species is a typical schooling Corydoras. It looks best when kept in blackwater. The bright orange band over the neck helps to keep the school together in water with poor visibility.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and higher-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<p>Can be bred in a similar fashion to many other Corydoras species but floating vegetation should be provided as this species tends to deposit eggs close to the water surface.</p><p>Use a ratio of 2 males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs may be deposited on the aquarium glass, among fine-leaved vegetation or within sunken spawning mops, with the latter particularly recommended since they facilitate easy removal of eggs.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They are not the easiest to raise, requiring excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare-bottomed arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<p>Although described as a member of Corydoras this species was later moved into the genus Osteogaster by Cope (1894), but this was later synonymised with Corydoras by Gosline (1940).</p><p>It is sometimes confused with C. venezuelanus, while two similar-looking, unidentified fishes from Peru have been assigned the codes CW007 and CW043, respectively.</p><p>The genus Corydoras is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "html": "<ul><li>Steindachner, F. (1876). Ichthyologische Beiträge (V). Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), 49-240</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/1fdbfaf2373f9657.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1fdbfaf2373f9657-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "caption": "Specimen from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9d65e8e6140e952d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9d65e8e6140e952d-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "caption": "Aquarium-bred juvenile at 4 weeks of age.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/166845e1f89de9ae.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/166845e1f89de9ae-480.webp",
+      "width": 640,
+      "height": 463,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osteogaster-eques",
+      "caption": "Adult specimen.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d8145a0542d349e6.webp",
+      "thumb": "https://media.aquatome.com/commons/d8145a0542d349e6-480.webp",
       "width": 960,
       "height": 665,
       "licence": "CC BY-SA 4.0",
       "author": "Memelukas",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_eques.jpg",
-      "caption": "Adulte fish Corydoras eques",
-      "thumb": "https://media.aquatome.com/commons/d8145a0542d349e6-480.webp"
+      "caption": "Adulte fish Corydoras eques"
     },
     {
       "url": "https://media.aquatome.com/commons/784d0b9a794b2773.webp",
+      "thumb": "https://media.aquatome.com/commons/784d0b9a794b2773-480.webp",
       "width": 960,
       "height": 648,
       "licence": "CC BY-SA 4.0",
       "author": "Michael Mehlhorn",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_eques2.jpg",
-      "caption": "Corydoras eques",
-      "thumb": "https://media.aquatome.com/commons/784d0b9a794b2773-480.webp"
+      "caption": "Corydoras eques"
     },
     {
       "url": "https://media.aquatome.com/commons/7bf0ebde1bf98cae.webp",
+      "thumb": "https://media.aquatome.com/commons/7bf0ebde1bf98cae-480.webp",
       "width": 960,
       "height": 960,
       "licence": "CC BY-SA 4.0",
       "author": "Memelukas",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_eques_(clipped).png",
-      "caption": "Adulte fish Corydoras eques",
-      "thumb": "https://media.aquatome.com/commons/7bf0ebde1bf98cae-480.webp"
+      "caption": "Adulte fish Corydoras eques"
     }
   ],
   "videos": [
@@ -106,5 +253,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

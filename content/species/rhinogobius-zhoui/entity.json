@@ -7,7 +7,8 @@
   "group": "gobies",
   "places": [
     "asia",
-    "china"
+    "china",
+    "guangdong"
   ],
   "dataCard": {
     "tempC": [
@@ -17,11 +18,52 @@
           "min": 16,
           "max": 22
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 19,
+          "max": 24
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.6
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
         "value": 5
       }
     ]
@@ -34,10 +76,22 @@
       "html": "<p>This freshwater goby, which attains a maximum length of 4-5 cm, is one of the most attractive discoveries of ornamental fish of the last years. In the beginning the fish were extremely expensive, but they are now available at a comparably moderate price.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<p>Rhinogobius zhoui is a small goby restricted to a handful of streams around Lianhua Mountain in Haifeng County, Guangdong, China. In the aquarium trade since 2010, it is sold as 'Chinese vermilion goby', 'Zhou's scarlet goby', 'scarlet goby' and 'flame goby'. Adult males have 6-8 red blotches on the flank and broad white bands on the median fins. It has been bred in aquaria but not easily, because males patrol an area and do not defend a single spawning site.</p><p>Needs strong current, with the filter turning the tank over 8–12 times an hour.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
       "html": "<p>Rhinogobius zhoui originates from China.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<p>Type locality is 'Stream of Lianhua Mountain, 23°01'N, 115°17'E, Haifeng County, Guangdong Province, China', and the species appears restricted to a handful of streams in the surrounding area.</p><p>Lianhua should not be confused with the mountain of the same name in Guangzhou, Guangdong province.</p>"
     },
     {
       "key": "habitat",
@@ -46,10 +100,28 @@
       "html": "<p>In the natural habitat, brooks, it lives along with the well known goby Rhinogobius duospilus (often better known under the synonymous name R. wui) and other species. R. zhoui is a pure freshwater goby.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<p>Restricted to shallow, flowing, well-oxygenated headwaters and minor tributaries characterised by stretches of riffles and runs broken up by pools or cascades in some cases.</p><p>Substrates are normally composed of smaller rocks, sand and gravel with jumbles of boulders and patches of submerged leaf litter with aquatic plants including Blyxa sp. and Cryptocoryne crispatula var. crispatula.</p><p>During periods of high rainfall some streams may be temporarily turbid due to suspended material dislodged by increased, sometimes torrential, flow rate and water depth.</p><p>Other fishes collected in the same area include Pseudogastromyzon laticeps, Pseudobagrus trilineatus, Zacco platypus, and Parazacco spilurus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or equivalent (about 54 litres) should be the smallest considered.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
       "html": "<p>Keeping and feeding the fish is otherwise unproblematical.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<p>Not difficult to maintain under the correct conditions; we strongly recommend keeping it in a tank designed to simulate a flowing stream with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, ceramic pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive, thus weekly water changes of 30-50% tank volume should also be considered routine.</p><p>Though torrent-like conditions are unnecessary it does best if there is a high proportion of dissolved oxygen and some water movement in the tank meaning power filter(s), additional powerhead(s), or airstone(s) should be employed as necessary.</p>"
     },
     {
       "key": "waterConditions",
@@ -58,19 +130,84 @@
       "html": "<p>Due to the subtropical region the fish come from, keep them in unheated aquaria (16-22°C). The water should be clean and have some current.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<ul><li>Temperature: 19–24°C</li><li>pH: 7.0–7.8</li><li>Hardness: 5–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<p>The bulk of the diet should comprise small live and frozen foods such as mosquito larvae, bloodworm, Artemia, etc.</p><p>Dried foods may be accepted but should not be offered on a regular basis, particularly if the aim is to breed the fish.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
       "html": "<p>The small fish change their coloration quite often and quickly. It is a lot of fun to observe an aquarium containing these tiny gobies, which are always in the mood for a harmless quarrel.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<p>Can be maintained in a community, especially with small, peaceful fishes that inhabit the upper part of the water column such as Tanichthys or Microdevario spp.</p><p>Small invertebrates such as Caridinia and Neocaridina spp. shrimp are usually predated upon and are less suitable.</p><p>In most cases it's best kept in a dedicated species set-up, however, and should not mixed with other Rhinogobius spp. since it's not yet clear if they're capable of hybridisation.</p><p>While males are territorial with one another to an extent serious damage is unlikely provided the tank contains sufficient cover, and in fact they appear to actively require the presence of conspecifics.</p><p>Aim to purchase at least two males and as many or more females or the fish may become listless and inactive.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
       "html": "<p>Males are distinguished from the females by the broad white seams in the fins and the more intensive colours.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<p>Adult males are significantly more colourful than females and develop more extended unpaired fins with thick, bright, bluish to white marginal bands.</p><p>The latter are visible at quite early in life and are an accurate means of sexing young fish.</p><p>In females both dorsal fins and the caudal-fin have a reddish marginal band.</p><p>Colour pattern is a less reliable means of determining gender since it's variable in both sexes, especially among females which may be pale or brightly-coloured, with some even difficult to distinguish from males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<p>Has been bred in aquaria, but it's not an easy task.</p><p>As is typical for the genus eggs are deposited on the ceiling of a cave or crevice and guarded by the male until hatching.</p><p>The selection of a spawning site is the first issue, since unlike other Rhinogobius spp. (or at least those in the hobby) males do not select a single site and defend this against other males, rather they patrol a general area and often attempt to disrupt the activity of competing males.</p><p>For this reason it's recommended to only use one or two males for a breeding attempt, including one or more females per male.</p><p>Multiple spawning sites should be offered in the form of rocks (flat slate tends to be easiest to handle), terracotta pipes, plant pots, etc.</p><p>Courtship is normally initiated by the female, and she may even attack the male if he is unwilling to spawn when she is ready.</p><p>A degree of patience may therefore be required before a successful pairing occurs, this usually signified by the pair disappearing from sight for an extended period of time.</p><p>They may remain inside the cave for 2-5 days with the female ejected once spawning is complete, and they should not be disturbed during this period.</p><p>Inexperienced pairs may eat the eggs, attach them poorly, or only partially fertilise them, but after a few attempts normally get things right.</p><p>In addition, poor water conditions appear to adversely affect the fertility of males, so a stringent maintenance regime is essential.</p><p>Once the female is seen outside the cave, you can check for eggs by carefully lifting and tilting it without removing from the water.</p><p>The eggs are large (around 4 mm in length) with average brood size around 30-60.</p><p>At this point it's advisable to remove all other fish except the male, or remove male and eggs elsewhere (a small plastic container can be used to do so without harming either).</p><p>Some males also tend to incessantly eat the eggs within 24-48 hours post-spawning in which case they should be removed and incubated artificially.</p><p>When the latter is necessary the most productive method involves placing the eggs, still attached to the spawning substrate, into a floating breeding net (not a plastic trap with solid sides).</p><p>They should not be removed from the water or exposed to excessive light during this process.</p><p>The use of a net allows a small powerhead or airstone to be aimed directly at the eggs; this helps to simulate the fanning action of the male and prevent the brood from fungussing or developing bacterial issues.</p><p>That said, the eggs are still very sensitive and the hatching container will require treatment of some kind.</p><p>A combination of a single alder cone per 10 l of water plus 1 g salt/l, or an anti-pathogenic product containing malachite green and formaldehyde added at a rate of 3 drops per 10 l have both proven to work, with the latter most effective.</p><p>If the male does not eat the eggs he can be left in place until they hatch and such treatments omitted as he will ensure they develop correctly.</p><p>The incubation period is normally 13-21 days depending on temperature.</p><p>During the last few days of incubation males have been observed to increase the rate at which they fan the eggs with their fins.</p><p>This presumably aids hatching in some way as when the eggs are hatched artificially hatching tends to occur over an extended period of 5 days or so and some fry may struggle to leave the egg.</p><p>The anti-pathogenic product mentioned above has also been found to assist greatly with the latter problem.</p><p>The second reason for using a net in which to hatch the fry is that they hatch with a large yolk sac attached and are essentially immobile for the first few days.</p><p>When hatching onto a solid surface such as the base of an aquarium they tend to develop health problems and die in numbers, whereas this does not happen in a raised net.</p><p>The yolk sac is completely absorbed with a week, during which time the powerhead should remain in use, but the fry can be offered Artemia nauplii and suchlike from day 2 or 3.</p><p>Once this stage is reached the juveniles can be removed from the net and raising them becomes easier although development is quite slow.</p><p>Water changes should be conducted every 24-48 hours for optimal growth rates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<p>This species has been in the aquarium trade since 2010 and is sold under several names including 'Chinese vermilion goby', 'Zhou's scarlet goby', 'scarlet goby', and 'flame goby'.</p><p>It can be told apart from congeners by the following combination of characters: second dorsal-fin rays I, 8-9; anal-fin rays I, 7-8; pectoral-fin rays 16-18; longitudinal scale series 29-31; predorsal scales 10-12; vertebral count 10+16=26.</p><p>Adult males can be recognised from those of other species by the following characters: absence of black spot on the first dorsal-fin; presence of broad white band on each median fin; absence of pigmentation on cheek and branchiostegal membrane; presence of 6-8 red blotches on flank.</p><p>The Gobiidae is the most speciose vertebrate family and notoriously problematic in terms of identifying fishes down to species level.</p><p>The genus is widely-distributed throughout much of continental Asia in Russia, Korea, China, Vietnam, Laos, Cambodia, and Thailand, plus numerous islands of the Western Pacific including Japan, Taiwan, Hainan, and the Philippines.</p><p>There currently exist over 60 recognised species with many more awaiting formal description, and a number of the described ones are only considered nominal taxa pending additional study.</p><p>The fused pelvic fins form a structure normally referred to as the 'pelvic disc', a common feature among gobiids which is used to adhere to rocks and other submerged surfaces.</p><p>Rhinogobius spp. also exhibit different reproductive strategies depending on environment, with those inhabiting rivers connected directly to the sea typically amphidromous, and those landlocked in upper reaches of rivers or lakes non-diadromous.</p><p>Many of those appearing in the aquarium trade have proven difficult to identify for a number of reasons, including taxonomic confusion, lack of aquarium literature, incorrect labelling by exporters and subsequently shops, historical over-use of some names, likely trade of undescribed species without locality data, and mixing of species at export facilities.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "html": "<ul><li>Li, F. and J.-S. Zhong (2009). Rhinogobius zhoui, a new goby (Perciformes: Gobiidae) from Guangdong Province, China. Zoological Research 30(3), 327-333</li><li>Bauer, J. (ed) (2011). Ferraqua World Wide Web electronic publication, www.ferraqua.de, Accessed on 12.11.21</li><li>Chen, I-S. and M. Kottelat (2005). Four new freshwater gobies of the genus Rhinogobius (Teleostei: Gobiidae) from northern Vietnam. Journal of Natural History 39(17), 1407-1429</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/311a1f9b5259039b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/311a1f9b5259039b-480.webp",
+      "width": 1023,
+      "height": 680,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "caption": "Young female individual that was imported to the U.S. as a contaminant among a shipment of the congener R. duospilus.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/cd962b30869c526a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/cd962b30869c526a-480.webp",
+      "width": 600,
+      "height": 398,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "caption": "Adult male in spawning condition.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -95,5 +232,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

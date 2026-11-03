@@ -10,14 +10,25 @@
     "beforeYouBuy:glaser": "<p>Loài characin nhỏ xinh này từng khá phổ biến với dân chơi cá cảnh vào những năm 1950 và 1960, ít nhất là theo sách vở ghi lại. Ngày nay rất hiếm khi thấy chúng ngoài tiệm.</p><p>Ngoài ra, vẫn còn một dấu hỏi là mọi con cá được định danh là Neolebias ansorgii có thật sự thuộc loài này hay không. Cá ở mỗi vùng trông rất khác nhau. Đến nay vẫn chưa ai làm rõ con cá mà Boulenger mô tả năm 1912 từ sông Lucula ở Angola trông ngoài đời ra sao. Dạng biến thể, hoặc loài, đang có trên thị trường hiện nay có sọc dọc thân màu xanh lục óng ánh, rất đẹp.</p>",
     "maintenance:glaser": "<p>Loài cá lùn này không quá khó nuôi. Tốt nhất bạn nên nuôi chúng trong một bể nhỏ chỉ dành riêng cho loài. Khi ở chung với các loài cá to hơn và hiếu động hơn, chúng sẽ nhút nhát và nhạt màu đi. Bể đèn quá sáng cũng làm chúng bị như vậy. Vì thế, bể nuôi loài này cần có:</p><ul><li>ánh sáng dịu</li><li>nền tối màu (sợi than bùn)</li><li>nước mềm, pH 6,0–6,5</li><li>nhiệt độ khoảng 24 °C</li></ul>",
     "diet:glaser": "<p>Chúng ăn được hết các loại thức ăn cá thông thường, miễn là cỡ mồi vừa miệng.</p>",
-    "notes:glaser": "<p>Hiện giới phân loại học đang bàn xem có nên chuyển toàn bộ các loài Neolebias sang chi Nannaethiops hay không. Lý do là những điểm khác nhau giữa chúng có vẻ chưa đủ để tách thành hai chi riêng.</p><p>Nguồn gốc tên gọi: Neolebias bắt nguồn từ tiếng Hy Lạp cổ, nghĩa là \"Lebias mới\". Lebias là tên một chi cá khác. Tên ansorgii đặt theo tên người thu mẫu loài này, William John Ansorge (1850–1913). Nannaethiops có nghĩa đại khái là \"người Ethiopia nhỏ\".</p>"
+    "notes:glaser": "<p>Hiện giới phân loại học đang bàn xem có nên chuyển toàn bộ các loài Neolebias sang chi Nannaethiops hay không. Lý do là những điểm khác nhau giữa chúng có vẻ chưa đủ để tách thành hai chi riêng.</p><p>Nguồn gốc tên gọi: Neolebias bắt nguồn từ tiếng Hy Lạp cổ, nghĩa là \"Lebias mới\". Lebias là tên một chi cá khác. Tên ansorgii đặt theo tên người thu mẫu loài này, William John Ansorge (1850–1913). Nannaethiops có nghĩa đại khái là \"người Ethiopia nhỏ\".</p>",
+    "quickFacts:seriouslyfish": "<p>Cá neolebias Ansorge (Neolebias ansorgii) là một loài cá nhỏ thuộc họ Distichodontidae. Chúng phân bố ở Cameroon, Cộng hòa Dân chủ Congo, Nigeria, Gabon và Benin. Ngoài tự nhiên, cá sống ở đầm lầy và những ao, lạch nhỏ rậm cây. Loài này không hợp với bể đèn sáng mạnh. Cá hiếm khi có bán. Trong bể của người bán, chúng thường trông khá nhạt nhòa, nhưng gặp đúng điều kiện thì lên màu rất đẹp. Vì cá rất nhát, tốt nhất nên nuôi trong bể riêng chỉ một loài này.</p>",
+    "distribution:seriouslyfish": "<p>Cameroon, Cộng hòa Dân chủ Congo, Nigeria, Gabon, Benin.</p>",
+    "habitat:seriouslyfish": "<p>Cá sống ở đầm lầy và những ao, lạch nhỏ rậm cây.</p>",
+    "aquariumSize:seriouslyfish": "<p>Đáy bể 45 × 30 cm. Dung tích khoảng 41 lít (45 × 30 × 30 cm).</p>",
+    "maintenance:seriouslyfish": "<p>Loài này không hợp với bể đèn sáng mạnh. Bạn nên trồng cây thật dày và thả thêm ít cây nổi để bể râm hơn. Nền màu tối cũng tốt cho cá, kèm vài mẩu lũa nhỏ để chúng có chỗ trốn. Ở phần lớn vùng phân bố tự nhiên, nước có màu sẫm do tanin tiết ra từ cây cỏ mục và các chất hữu cơ khác. Muốn tạo lại kiểu nước này, bạn có thể cho than bùn loại an toàn cho bể cá vào lọc hoặc vào nền.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 24–28°C</li><li>pH: 5,0–6,0</li><li>Độ cứng: 5–12 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Cá vẫn ăn thức ăn khô nhưng thích đồ sống hoặc đông lạnh hơn. Cho ăn kiểu này thì cá lên màu đẹp nhất.</p>",
+    "behaviour:seriouslyfish": "<p>Tốt nhất nên nuôi loài này trong bể riêng. Cá rất nhát nên sẽ không sống ổn với những bạn cùng bể hiếu động hay tranh ăn. Bạn có thể nuôi chung với các loài nhỏ, hiền, nhưng kể cả vậy cá cũng ít ra mặt hơn so với khi nuôi riêng.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá đực nhỏ hơn cá cái một chút nhưng sặc sỡ hơn hẳn. Sự khác biệt rõ nhất là lúc cá đực sẵn sàng sinh sản, khi đó phần bụng của chúng chuyển sang màu đỏ tươi.</p>",
+    "reproduction:seriouslyfish": "<p>Loài này hiếm khi sinh sản thành công trong bể nuôi và có rất ít thông tin về chuyện này. Đây là loài đẻ rải trứng. Trước tiên, bạn nên vỗ cá bằng thức ăn sống và đông lạnh, rồi chọn con đực màu đẹp nhất và con cái mẩy bụng nhất. Thả cặp này vào một bể nhỏ có lót lưới ở đáy. Trứng sẽ lọt qua lưới nên cá bố mẹ khó ăn được. Đèn nên để dịu và bỏ thêm vài bụi cây để kích cá đẻ, vì ngoài tự nhiên cá rải trứng giữa đám cây. Nước cần rất mềm và có pH dưới 6. Cá đực sẽ rượt đuổi cá cái, sau đó cả hai bơi sát cạnh nhau, rung người và đẻ. Một con cái có thể đẻ tới 300 trứng qua nhiều ngày, nhưng thường gặp hơn là 50–100 trứng. Trứng lúc mới đẻ rất nhỏ, sau đó hút nước và phồng lên một chút. Cá bột nở sau khoảng 24 giờ và bơi tự do sau 2–3 ngày nữa. Cá bột cực kỳ nhỏ nên thức ăn đầu tiên phải là trùng cỏ. Sau khoảng một tuần, bạn có thể cho ăn artemia mới nở hoặc giun vi sinh.</p>",
+    "notes:seriouslyfish": "<p>Loài này hiếm khi có bán. Trong bể của người bán, cá thường trông khá nhạt nhòa. Nhưng khi được nuôi đúng điều kiện, đây là một loài cá nhỏ đẹp xuất sắc và rất đáng nuôi.</p>"
   },
   "quality": {
-    "score": 0.88,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.88
-    },
-    "reason": "thin"
+      "glaser": 0.88,
+      "seriouslyfish": 0.85
+    }
   }
 }

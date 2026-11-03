@@ -1,9 +1,12 @@
 {
   "slug": "ca-de-con-teddy",
-  "name": "Cá đẻ con teddy",
+  "name": "Cá tiger teddy",
   "altNames": [
     "Cá teddy livebearer",
-    "Teddy Livebearer"
+    "Teddy Livebearer",
+    "Cá đẻ con teddy",
+    "Cá bảy màu tiger teddy",
+    "Tiger Teddy"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Neoheterandria elegans là một trong những loài cá chép răng đẻ con nhỏ nhất mà dân chơi hay nuôi trong bể. Con đực chỉ dài khoảng 1-2 cm. Con cái có thể đạt 3 cm, nhưng thường chỉ khoảng 2 cm. Người ta gọi loài này là cá đẻ con teddy (Teddy Livebearer) để phân biệt với loài cá đẻ con lùn thực thụ là Heterandria formosa. Cá có nguồn gốc từ Colombia.</p>",
@@ -13,14 +16,25 @@
     "diet:glaser": "<p>Thứ gì lọt vừa cái miệng bé xíu của chúng là cá ăn hết.</p>",
     "behaviour:glaser": "<p>Đây là loài cá hoàn toàn hiền.</p>",
     "reproduction:glaser": "<p>Trong một đợt đẻ, cá cái chỉ đẻ 1-2 con mỗi ngày, nhưng đợt đẻ kéo dài nhiều ngày. Vì thế không nên nhốt cá cái vào hộp đẻ. Bạn nên cho cá cái sang một bể phụ nhỏ trồng cây thật dày. Mỗi ngày bạn vớt cá con ra và chuyển sang bể nuôi cá con.</p>",
-    "notes:glaser": "<p>Giải nghĩa tên: Heterandria nghĩa là \"con đực khác biệt\". Neoheterandria nghĩa là \"heterandria mới\". elegans nghĩa là \"thanh lịch\".</p>"
+    "notes:glaser": "<p>Giải nghĩa tên: Heterandria nghĩa là \"con đực khác biệt\". Neoheterandria nghĩa là \"heterandria mới\". elegans nghĩa là \"thanh lịch\".</p>",
+    "quickFacts:seriouslyfish": "<p>Cá tiger teddy (Neoheterandria elegans) là một loài cá đẻ con cỡ nhỏ, chỉ có ở lưu vực sông Río Atrato, vùng tây bắc Colombia. Loài này có vẻ khá hiếm, cả ngoài tự nhiên lẫn trong giới chơi cá. Cá vừa nhỏ xíu vừa nhát, nên tốt nhất là nuôi riêng một đàn nhỏ trong bể trồng dày cây, nước phải thật sạch. Cá bột chỉ dài 2-3 mm và lúc đầu cần thức ăn cỡ trùng cỏ.</p>",
+    "distribution:seriouslyfish": "<p>Loài này là cá đặc hữu của lưu vực sông Río Atrato, thuộc hai tỉnh Choco và Antioquia ở tây bắc Colombia. Đến nay vẫn chưa rõ lắm chúng phân bố rộng đến đâu trong vùng này.</p><p>Nơi thu mẫu chuẩn là 'Río Truandó, một nhánh của hạ lưu Río Atrato, Colombia'. Có thể loài này chỉ sống trong hệ thống sông đó.</p>",
+    "aquariumSize:seriouslyfish": "<p>Một cặp có thể sống được trong bể có đáy 30 × 20 cm. Muốn nuôi cả đàn thì bạn cần bể rộng hơn.</p>",
+    "maintenance:seriouslyfish": "<p>Bể nên chạy lọc nhẹ và trồng thật nhiều cây. Nước phải cực kỳ sạch, đây là điều kiện bắt buộc. Vì vậy mỗi tuần bạn cần thay khoảng 50% nước.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 24–30 °C. Tuy vậy, không nên giữ nước ở mức sát giới hạn trên trong thời gian dài.</li><li>pH: 7,0–8,0</li><li>Độ cứng: 5–25 dGH. Khác với nhiều loài cá họ Poeciliidae, loài này chịu được nước mềm hơn.</li></ul>",
+    "diet:seriouslyfish": "<p>Cá không kén ăn, ăn tạp và nhận hầu hết các loại thức ăn. Vốn là loài săn mồi cỡ nhỏ, chúng đặc biệt thích thức ăn sống hoặc đông lạnh cỡ nhỏ như Artemia hay bo bo. Thức ăn khô bóp vụn chúng cũng ăn.</p><p>Nếu bể có nhiều cây lá nhỏ, mảnh thì trong bể sẽ có đủ vi sinh vật cho cá con ăn.</p>",
+    "behaviour:seriouslyfish": "<p>Loài này quá nhỏ nên không hợp với bể cộng đồng thông thường. Chúng nhát hơn cả Heterandria formosa, một loài có phần giống chúng. Tốt nhất là nuôi riêng một đàn nhỏ.</p><p>Cá cái đôi khi hung hăng và có thể làm chết cá khác. Trồng dày cây như đã nói ở trên sẽ làm giảm bớt chuyện này.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá đực nhỏ hơn cá cái rõ rệt và có gonopodium (vây hậu môn biến thành cơ quan giao phối) rất dễ thấy.</p>",
+    "reproduction:seriouslyfish": "<p>Khó nhất là cá bột chỉ dài 2–3 mm, nên mấy ngày đầu chúng chưa ăn được giun vi sinh, Artemia mới nở hay các loại thức ăn tương tự. Lúc đầu chúng cần thức ăn cỡ trùng cỏ. Bù lại, cá bột lớn khá nhanh và có thể sinh sản khi mới 3 tháng tuổi.</p><p>Thời gian mang thai khoảng 30 ngày. Cách sinh con của loài này hơi khác đa số cá đẻ con khác, do một hiện tượng gọi là 'superfoetation' (thụ thai chồng). Hiện tượng này được định nghĩa là 'sự hình thành hoặc phát triển của thai thứ hai khi trong tử cung đã có sẵn một thai'. Vì thế, ở bất kỳ thời điểm nào, trong bụng cá mẹ cũng có thể có cá bột ở nhiều giai đoạn phát triển khác nhau. Thêm nữa, noãn hoàng của loài này nghèo dinh dưỡng. Cá bột đang phát triển lấy phần lớn dinh dưỡng qua những cơ quan hoạt động gần giống nhau thai ở động vật có vú. Kết quả là cá mẹ đẻ rải rác liên tục chứ không đẻ thành từng lứa rõ ràng. Bạn sẽ thấy cứ một hai ngày lại có vài con cá bột xuất hiện, kéo dài khoảng một tuần. Nếu được cho ăn đủ, cá lớn thường không động đến cá bột.</p>",
+    "notes:seriouslyfish": "<p>Loài cá đẹp và nhút nhát này có vẻ khá hiếm, cả ngoài tự nhiên lẫn trong giới chơi cá. Dù vậy, thỉnh thoảng bạn vẫn tìm được chúng ở các cửa hàng chuyên hoặc chỗ người nhân giống.</p><p>Chi Neoheterandria từng được xếp vào tông danh nghĩa Heterandriini trong họ Poeciliidae, theo đề xuất đầu tiên của Hubbs (1924). Danh sách các chi trong tông này đã thay đổi nhiều lần, nhưng thường gặp nhất là Priapichthys, Neoheterandria, Heterandria, Poeciliopsis và Phallichthys.</p><p>Tuy vậy, các nghiên cứu phát sinh chủng loại hiện đại thường không ủng hộ giả thuyết nhóm này là một nhóm đơn ngành. Nghiên cứu gần đây nhất cho rằng Neoheterandria có họ hàng gần với hai chi Scolichthys và Xenophallus hơn (Morales-Cazan &amp; Albert, 2012), hoặc cùng Poeciliopsis tạo thành một nhánh phụ riêng theo vùng địa lý (Hrbek và cộng sự, 2007).</p>",
+    "references:seriouslyfish": "<ul><li>Henn, A. W. (1916). On various South American poeciliid fishes. Annals of the Carnegie Museum 10(1-2), 93-142</li><li>Morales-Cazan, A. and J. S. Albert (2012). Monophyly of Heterandriini (Teleostei: Poeciliidae) revisited: a critical review of the data. Neotropical Ichthyology 10(1), 19-44</li><li>Hrbek, T., J. Seckinger, and A. Meyer (2007). A phylogenetic and biogeographic perspective on the evolution of poeciliid fishes. Molecular Phylogenetics and Evolution 43, 986-998</li><li>Wischnath, L. (1993). Atlas of livebearers of the world. T.F.H. Publications, Inc., United States of America, 1-336</li></ul>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "seriouslyfish": 0.82
+    }
   }
 }

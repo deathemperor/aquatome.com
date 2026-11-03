@@ -8,9 +8,57 @@
   "lNumber": "L91",
   "places": [
     "south-america",
-    "venezuela"
+    "venezuela",
+    "colombia",
+    "orinoco"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.6
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 24.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -19,10 +67,76 @@
       "html": "<p>Small specimens of Leporacanthicus triactis (L91), only 3-4 cm long, were recently imported from Venezuela.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<p>The three beacon plec, Leporacanthicus triactis (L091), is a suckermouth catfish from the upper Orinoco basin in Colombia and Venezuela. Several colour forms are available with varying amounts of orange in the fins, some sold as 'dragon fin' or 'tiger fin', and the colour is retained as the fish matures. It lives in rapids and is territorial with conspecifics, particularly males.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<p>Found in the Upper Orinoco basin in Colombia and Venezuela.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<p>A reophilic species that lives in rapids and other fast-flowing waters amongst rocks or driftwood snags.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<p>Standard length: 24.5 cm SL.</p><p>Aquarium base: 120 × 45 cm.</p><p>120 × 45 × 45 cm - ~243 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<p>A spacious tank is required, preferably with a sandy substrate. Provide hiding places and shade with some big chunks of driftwood and smooth rocks. Dim lighting is also beneficial, and it's imperative that the water is highly oxygenated, preferably with a good amount of movement. Consider the use of powerheads or large airstones to produce the desired effect. An efficient filter is needed to deal with the large amounts of waste these produce.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 6.0–7.6</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<p>These prefer a meatier diet, which can consist of live and frozen foods such as bloodworm, chopped mussel and prawn and sinking dried foods. Algae and other vegetable matter is also taken though, and regular feeds of greenstuffs like cucumber or courgette are recommended.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<p>Ideal tankmates include characins, peaceful South American cichlids and catfish such as Corydoras and other Loricariids. In a biotope setup with a lot of water movement, your choices are more limited, but possibilities include characins such as Anostomus or Hemiodus and reophilic cichlids like Retroculus or African Steatocranus. It's territorial with conspecifics, with this behaviour being particularly pronounced among males, so make sure there is plenty of tank space and potential territories if you want to keep a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<p>When viewed from above, mature males have a noticeably longer and wider head than females. They also have a bigger dorsal fin and more numerous odontotes than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<p>Not known to have been bred in the hobby. It spawns in deep holes in river banks during the wet season in nature.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leporacanthicus-triactis-varieties/",
       "html": "<p>Among the imported fish are an unusually large number (approx. 10) of unusually beautifully drawn variants. Normally small L91 do not look much different than the adults, only a little lighter in basic tone. But the colour variations are really a show in bright orange and black. Such colour variations of L. triactis have been known for a long time, but are only rarely available and therefore highly sought after.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-triactis",
+      "html": "<p>There are a few different colour forms of this lovely suckermouth available, each of which possess varying amounts of orange patterning in the fins. Some of these are given extravagant sounding names such as \"dragon fin\" or \"tiger fin\". What's nice about this species, is that these flashes of colour don't fade with age, as with many of its relatives, making for a striking fish when fully grown.</p><p>Leporacanthicus species are commonly referred to as \"vampire plecs\". This is derived from the unique upper jaw dentition exhibited by members of this genus, unsurprisingly consisting of two large teeth or \"fangs\". The exact use for these is unknown, but they're probably utilised to grip prey items such as snails or other aquatic invertebrates in some way. Another feature shared by all Leporacanthicus is a small bony growth of unknown use on top of the head.</p><p>This particular species is sometimes sold as the three beacon plec, in reference to the flashes of colour on the unpaired fins. Unlike in some other members of the genus, these are retained as the fish matures.</p><p>When buying one of these (or any Loricariid), be sure to check the fish has a rounded belly and that its eyes aren't sunken, as these are classic signs of emaciation in newly imported specimens.</p>"
     }
   ],
   "photos": [],
@@ -73,5 +187,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

@@ -5,11 +5,22 @@
   "family": "Osphronemidae",
   "genus": "Parosphromenus",
   "group": "labyrinth",
-  "places": [],
+  "places": [
+    "asia",
+    "indonesia",
+    "kapuas"
+  ],
   "dataCard": {
     "tempC": [
       {
         "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 28
@@ -23,12 +34,44 @@
           "min": 4,
           "max": 6
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 6.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 3.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 4
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
       }
     ]
   },
@@ -40,10 +83,28 @@
       "html": "<p>Parosphromenus ornaticauda (wild caught) is a small freshwater fish belonging to the family Osphronemidae. Adult males typically reach a maximum length of 3.5 cm (1.4 in), while females are slightly smaller.</p><ul><li>Temperament: peaceful, but males can be territorial</li><li>TDS: 0-60</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<p>Parosphromenus ornaticauda is a liquorice gourami from West Kalimantan, Indonesian Borneo, in the Kapuas drainage near Anjungan and the Pawan system. Sometimes sold as 'ornate licorice gourami', it has occasionally appeared in the trade in substantial quantities but is not easy to maintain and is often susceptible to disease post-import. Males are identified by their caudal-fin pattern and the large amount of black in the dorsal and anal fins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<p>Known from a handful of localities within the Kapuas drainage around the town of Anjungan, West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo), and has also been recorded in the Pawan river system near Ketapang, considerably further south.</p><p>Type locality is 'Sungei Pinyuh, 8 kilometers southeast of Anjungan on road to Pontianak, 0°20'N, 109°08'E, Kalimantan Barat, Borneo'.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-ornaticauda",
       "html": "<p>In the wild, P. ornaticauda is found in slow-moving and shaded water bodies with a pH between 4.0 and 6.0 and a temperature range of 22 to 28 °C (71.6 to 82.4 °F).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<p>A stenotypic inhabitant of peat swamp forests and associated blackwater streams.</p><p>In unaltered habitats the dense canopy of branches above means very little light penetrates the surface of such environments, and riparian vegetation also tends to grow thickly.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic materials, the dissolved mineral content generally negligible and pH as low as 3.0 or 4.0.</p><p>Unfortunately some habitats within its known range have already been polluted or cleared and drained for agriculture and the species may be highly threatened.</p><p>At some localities in the northern part of its range this species occurs sympatrically with the congener P. anjunganensis while in the south it has been collected alongside P. quindecim.</p>"
     },
     {
       "key": "aquariumSize",
@@ -52,10 +113,64 @@
       "html": "<p>They are small fish, so it is recommended to keep them in groups of 5 in a tank of about 19 litres (5 gallons) or larger, unless breeding. In that case, they are best kept in pairs.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<p>An aquarium with base dimensions of 45 × 30 cm (about 41 litres) or equivalent is sufficient for a pair; this species requires a little more space than the majority of congeners due to the courtship behaviour of nuptial males (see 'Reproduction').</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed in such a way that a few shady spots are formed, and clay plant pots, lengths of piping or even plastic camera-film containers can be included to provide further shelter and potential spawning sites.</p><p>The addition of dried leaf litter further emphasises the natural feel and, as well as offering additional cover for the fish, brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments. Alder cones may also be used for the latter purpose.</p><p>Like others in the genus this species does best under fairly dim lighting. You can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>Filtration need not be too strong, with an air-powered sponge filter or similar adequate, and since this species tends to be maintained in pairs (see 'Behaviour and compatibility') a filter may not be required at all provided the fish are not overfed and maintenance is stringent.</p><p>The latter must include small weekly water changes of 5-10% of aquarium volume with irregular or larger changes not recommended.</p><p>All Parosphromenus spp. require acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally destructive.</p><p>It goes without saying that these fishes are sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 3.0–6.5</li><li>Hardness: 1–4 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-ornaticauda",
       "html": "<p>They feed on small aquatic invertebrates such as insect larvae and crustaceans. In the aquarium: blackworms, brine shrimp and water fleas. They only eat live food and must be trained to accept anything else. Adding dither fish tends to help them learn to take dry foods.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<p>This species is chiefly a micropredator feeding on tiny aquatic invertebrates, therefore in the aquarium it must be offered a variety of small live foods such as Artemia nauplii, Daphnia, Moina, mosquito larvae, micro worm, etc.</p><p>Frozen foods are sometimes accepted but not considered sufficiently nutritious while the majority of dried products are normally refused.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<p>Not recommended for the general community aquarium for reasons already touched upon.</p><p>Its care requirements, disposition, and especially conservation status dictate that it should be maintained alone or alongside a group of small, peaceful cyprinids such as Boraras or Sundadanio spp.</p><p>Likewise, different Parosphromenus spp. should not be kept together since the females of many are very difficult to tell apart and some are undoubtedly capable of hybridising.</p><p>A mixed-sex group can be maintained if you wish although most breeders prefer to maintain it in sexed pairs since some fry may survive alongside their parents but not usually if other adults are present.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<p>In males the lower portion of the caudal-fin is black with 1-3 hyaline spots and a broad bluish-white margin while the upper part contains a broad orange to reddish stripe, broad, black submarginal stripe and hyaline upper margin.</p><p>The anal-fin has a broad, black distal stripe containing 1-4 white, roundish spots at the base of the posterior rays and a bluish-white margin with black spine tips.</p><p>The dorsal-fin is almost completely black with a bluish-white margin and black spine tips, plus a hyaline patch on the lower portion of the posterior rays, while the pelvic and pectoral fins are hyaline.</p><p>In non-nuptial males the lower part of the head and body is blackish brown while the upper part is lighter with a dark stripe extending from the upper edge of the eye to caudal-fin base.</p><p>In nuptial individuals the lower part of the body darkens, the entire upper part becomes reddish-brown and the overall colour pattern intensifies.</p><p>Females are less intensely marked and the lower part of the body is not entirely dark, rather it contains a dark brown stripe extending from the tip of the snout, through the pectoral-fin base to the caudal-fin base and a second, less distinct stripe from below the pectoral-fin base to the anal-fin.</p><p>Nuptial females assume a colour pattern more similar to that of males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<p>Not easy. This species normally spawns in small caves or among leaf litter and forms temporary pair bonds with the male solely responsible for egg and brood-care.</p><p>Parosphromenus spp. have been grouped arbitrarily based on courtship behaviour in males which adopt a 'head-down', 'head-up', or 'horizontal' position depending on species.</p><p>P. ornaticauda belongs to the 'head up' assemblage in which the male assumes a near-vertical position with the head uppermost and fins splayed during nuptial displays.</p><p>Males also display an additional courtship behaviour shared only with P. parvulus in which they perform very fast, darting movements around the female over a relatively wide area, and for this they require more space than most congeners.</p><p>Sexually-active males form small territories at the centre of which is a small cave normally located among leaf litter or beneath floating vegetation in nature, although in aquaria any suitable structure may be chosen (see 'Maintenance').</p><p>They then attempt to attract females in the vicinity to enter the cave via spectacular displays as described above.</p><p>Eggs and milt are released in batches during a series of embraces in which the male wraps its body around that of the female.</p><p>Some males construct a rudimentary bubble nest inside the cave while others do not, but either way both male and female attempt to attach the eggs to the ceiling after they are released.</p><p>Subsequent spawning embraces may dislodge eggs from the roof of the cave, and inexperienced adults sometimes simply eat them so a degree of patience may be required until the fish get things right.</p><p>Following a successful spawn the female leaves the cave and proceeds to defend the surrounding area while the male tends to the brood.</p><p>This species is not very fecund with 10-20 eggs constituting a typical brood, and the male may move them to other locations several times during incubation.</p><p>The latter is normally 24-36 hours with the fry mobile around 4-6 days later.</p><p>They initially swim without direction and the male will collect and return them to the 'nest' but after 3-5 additional days are fully free-swimming and leave the cave at which point parental care ceases.</p><p>They may require Paramecium, rotifers or similar as a first food but are quickly able to accept Artemia nauplii and suchlike.</p><p>If the aquarium is well-structured they can often be raised alongside the parents but in more basic set-ups should be removed and grown on elsewhere.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<p>This species has occasionally appeared in the aquarium trade in substantial quantities but is not an easy species to maintain in captivity and is often susceptible to disease post-import.</p><p>It is sometimes sold as 'ornate licorice gourami'.</p><p>It is among the smallest members of the genus and can be distinguished from congeners by the colour pattern in the caudal-fin of live males (see 'Sexual dimorphism') and by the large amount of black pigmentation in the dorsal and anal fins.</p><p>Aquarists often refer to Parosphromenus spp. collectively as 'liquorice/licorice gouramis' or 'paros'.</p><p>The genus occurs in southern (peninsular) Thailand, Peninsular Malaysia, Sumatra (Indonesia, including the islands of Bintan, Bangka and the Riau Archipelago), and Borneo (Malaysia and Indonesia).</p><p>All members are small-growing inhabitants of freshwater swamps and associated streams, and the grouping was considered to be monotypic, containing only P. deissneri (Bleeker, 1859), for almost a century.</p><p>Additional taxa have been described on a sporadic basis since the 1950s and there currently exist 20 recognised members with more likely to follow.</p><p>Despite the generic name the results of phylogenetic analyses by Rüber et al. (2006) suggest that Parosphromenus is most closely related to Betta or Trichopsis in an evolutionary sense.</p><p>All three of these are sometimes included in the putative subfamily Macropodusinae alongside Macropodus, Pseudosphromenus and Malpulutta.</p><p>Like others in the suborder Anabantoidei members possess an accessory breathing organ known as the labyrinth organ, formed by a modification of the first gill arch and consisting of many highly-vascularised, folded flaps of skin.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>The structure of the organ varies in complexity between species tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p><p>While some labyrinth fishes can be observed taking regular gulps of air from the surface others, including Parosphromenus spp., do so less often.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-ornaticauda",
+      "html": "<ul><li>Kottelat, M. and P. K. L. Ng (2005). Diagnoses of six new species of Parosphromenus (Teleostei: Osphronemidae) from Malay Peninsula and Borneo, with notes on other species. Raffles Bulletin of Zoology Supplement 13, 101-113</li><li>Schindler, I. and H. Linke (2012). Two new species of the genus Parosphomenus (Teleostei: Osphonemidae) from Sumatra. Vertebrate Zoology 62(3), 399-406</li><li>Finke, P. (ed.) The Parosphromenus Project. World Wide Web electronic publication, http://www.parosphromenus-project.org, Accessed on 13.02.10</li><li>Rüber, L, R. Britz and R. Zardoya (2006). Molecular phylogenetics and evolutionary diversification of labyrinth fishes (Perciformes: Anabantoidei). Systematic Biology 55(3), 374-397</li><li>Kottelat, M. (1991). Notes on the taxonomy and distribution of some western Indonesian freshwater fishes, with diagnoses of a new genus and six new species (Pisces: Cyprinidae, Belontiidae, and Chaudhuriidae). Ichthyological Exploration of Freshwaters 2(3), 273-287</li></ul>"
     }
   ],
   "photos": [
@@ -95,5 +210,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }

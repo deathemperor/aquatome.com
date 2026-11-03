@@ -7,12 +7,60 @@
   "group": "loaches",
   "places": [
     "asia",
-    "thailand"
+    "thailand",
+    "narathiwat",
+    "malaysia",
+    "johor",
+    "indonesia",
+    "sumatra"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 8
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
         "value": 5
       }
     ]
@@ -25,19 +73,119 @@
       "html": "<p>Dwarf coolie loach, Pangio cuneovirgata, grows to only 4 cm long; large females rarely reach 5 cm. They are perfect dwarf loaches for miniature aquariums.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>Max size: 40 mm SL. Aquarium size: 45 × 30 cm. Temperature: 21–26°C. pH: 3.5–7.0. Hardness: 0–8 dGH.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/pangio-cuneovirgata-2/",
       "html": "<p>Usually the different species of banded Coolie loaches (Pangio kuhlii, P. semicincta, P. myersi, P. shelfordi, P. alternans, P. cuneovirgata, P. malayana) are not distinguished in the trade because they are so variable in color and are often imported mixed. Sorting Coolie loaches is laborious and also stressful for the animals, so everything is simply labelled \"kuhlii\".</p><p>There is an exception: Pangio cuneovirgata was received from Thailand almost \"pure of variety\" (only a few small P. semicincta in between).</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when introduced to a new environment.</p><p>Pangio cuneovirgata is a small kuhli loach from southern Thailand, Peninsular Malaysia, Sumatra and western Java, found in forest streams and swamps. It has 7-13 dark saddles on the upper half of the body and looks most like P. malayana, but has nasal barbels and a truncate caudal-fin. It is infrequently encountered in the trade, most often as bycatch among shipments of similar-looking congeners.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>Described from the state of Johor, southern Peninsular Malaysia, with current knowledge suggesting it to be distributed southwards from Narathiwat Province, southern Thailand along the western coastlines of Peninsular Malaysia (states of Kelantan, Terengganu, Pahang, Johor and possibly Selangor), into Sumatra (provinces of Riau and Jambi) and western Java.</p><p>According to Burridge (1992) this fragmented distribution does not correspond to the geological history of the area and may be questionable though no mention of such issues are mentioned by Kottelat and Lim (1993).</p><p>Buridge provides several hypotheses, including that the species may once have been more widely-distributed but now exists only in isolated populations, that the type series was collected for the aquarium trade and may have been supplied with incorrect locality details, or that prior to description it was misidentified as P. kuhlii.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>Most commonly found in shallow, slow-moving sections of forest streams or other calm habitats such as swamps, oxbows, and backwaters.</p><p>Many such environments are associated with ancient peat swamps and contain black water although it's also found in clear waters which may or may not be tannin-stained to some extent.</p><p>Such habitats are typically shaded from the sun by marginal vegetation and the tree canopy above. The water has a negligible dissolved mineral content, is poorly-buffered and pH can be as low as 3.0 or 4.0 due to release of tannins and organic acids from decaying organic material. Depending on locality the substrate may be composed of peat, mud or sand with the fish typically abundant in piles of leaf litter.</p><p>P. cuneovirgata is found living syntopically with P. semicincta across much of its range and in the Endau river drainage, southeastern Peninsular Malaysia other sympatric fishes include Brevibora dorsiocellata, Rasbora cephalotaenia, R. einthovenii, R. dusonensis, R. paucisqualis, 'Puntius' johorensis, 'P.' partipentazona, Trigonopoma gracile, T. pauciperforatum, Betta pugnax, Sphaerichthys osphromenoides, Acanthopsoides molobrion, Vaillantella maassi, Pangio doriae, P. filinaris, P. malayana, P. piperata, and P. shelfordii.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>An aquarium with base measurements of at least 45 × 30 cm or equivalent is recommended (about 41 litres).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/pangio-cuneovirgata-2/",
       "html": "<p>All Coolie loaches are initially somewhat sensitive to infectious diseases and do not tolerate medications well. Provide a boggy environment with dead leaves, alder cones and peat. Then acclimation succeeds well and you can enjoy these amazingly long-lived dwarfs for many years.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>Use a soft, sandy substrate since this species likes to dig and tends to spend some of its time completely buried. When coarser gravel is used it may become stressed or damage itself, and feeding behaviour can be inhibited.</p><p>A few driftwood roots and branches, placed in such a way that plenty of shady spots are formed, can be used to add structure to the display and addition of dried leaf litter would provide additional cover and aid in simulating natural conditions.</p><p>Fairly dim lighting is also preferable and aquatic plants such as Microsorum, Taxiphyllum, and Cryptocoryne spp. can be added.</p><p>Gentle filtration providing a little surface agitation is adequate and high flow rates are best avoided. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when introduced to a new environment.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<ul><li>Temperature: 21–26°C</li><li>pH: 3.5–7.0</li><li>Hardness: 0–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>Chiefly a micropredator sifting mouthfuls of substrate through the mouth and gills from which insect larvae, small crustaceans and suchlike are extracted with a proportion of the natural diet also likely to comprise organic detritus and plant material from the gut contents of prey.</p><p>In the aquarium it will accept sinking dried foods but should also be offered regular meals of live and frozen Daphnia, Artemia, bloodworm, micro worm, grindal worm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>Pangio spp. are peaceful both with one another and other fishes and there exist no reports of them harming tankmates though they may prey on eggs or fry.</p><p>In nature they're often found in large aggregations and in captivity will often pack themselves into a single nook, cranny or cave when at rest, so a group of at least 5-6 specimens should be the minimum purchased.</p><p>Small, peaceful species from similar environments such as Boraras, Sundadanio, smaller Rasbora, Trichopsis, Sphaerichthys, Kottelatlimia, etc. constitute the best tankmates.</p><p>Some sand-dwelling loaches from the family Nemacheilidae are also suitable but proper research is essential as some can be excessively competitive, territorial or otherwise aggressive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>Adult females are typically heavier-bodied and a little larger than males, and in mature males the first pectoral-fin ray is visibly branched and thickened.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<p>This species is infrequently encountered in the aquarium trade, most often as bycatch among shipments of similar-looking congeners.</p><p>It's included in the P. kuhlii-oblonga group of closely-related species within the genus as per Bohlen et al. (2011), and can be distinguished from other members by the following combination of characters: possession of long nasal barbels pierced at the base by anterior nostrils; truncate caudal-fin; 7-13 dark saddles restricted to the upper half of the body; a black blotch at the base of the caudal-fin; caudal-fin hyaline; upper half of body with yellowish background colouration.</p><p>Within the group P. cuneovirgata looks most similar to P. malayana but can be told apart by possessing nasal barbels (vs. not possessing) and a truncate caudal-fin (vs. emarginate).</p><p>Pangio is among the most speciose cobitid genera and widespread throughout South and Southeast Asia with species diversity thought to be considerably greater than currently recognised.</p><p>Pangio species are often generically referred to as 'kuhli' or 'coolie' loaches in the aquarium hobby, the latter a variation of the former which was itself derived from the surname of German naturalist Heinrich Kuhl (1797-1821). Ichthyologists tend to refer to them as 'eel loaches'.</p><p>They're distinguished from other cobitids by their long, slender body shape, relatively high number of vertebrae and the position of the dorsal-fin which is situated well behind the origin of the pelvic fins (vs. in front of, above or only slightly behind).</p><p>All cobitids possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g. if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and with larger species even break human skin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "html": "<ul><li>Burridge, M. E. (1992). Systematics of the Acanthophthalmus kuhlii complex (Teleostei: Cobitidae), with the description of a new species from Sarawak and Brunei. Copeia 1992(1), 172-186</li><li>Kottelat, M. and K. K. P. Lim (1993). A review of the eel-loaches of the genus Pangio (Teleostei: Cobitidae) from the Malay Peninsula, with descriptions of six new species. Raffles Bulletin of Zoology 41(2), 203-249</li><li>Bohlen, J., V, Šlechtová, H. H. Tan and R. Britz (2011). Phylogeny of the Southeast Asian freshwater fish genus Pangio (Cypriniformes; Cobitidae). Molecular Phylogenetics and Evolution 61(3), 854-865</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9a08ffab554efdf0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9a08ffab554efdf0-480.webp",
+      "width": 800,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "caption": "Distinguishing characters of this species include nasal barbels, visible here,...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1ff29d6d8925b073.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1ff29d6d8925b073-480.webp",
+      "width": 800,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-cuneovirgata",
+      "caption": "...and the fact that the dark, saddle-shaped markings are restricted to the upper half of the body.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/panitvong/Pacun_u0.webp",
       "thumb": "https://media.aquatome.com/panitvong/Pacun_u0-480.webp",
@@ -98,5 +246,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

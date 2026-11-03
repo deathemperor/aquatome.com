@@ -7,12 +7,24 @@
   "group": "loaches",
   "places": [
     "asia",
-    "thailand"
+    "thailand",
+    "malaysia",
+    "johor",
+    "mekong",
+    "laos",
+    "cambodia",
+    "vietnam",
+    "indonesia",
+    "kapuas"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 4
+      },
+      {
+        "source": "seriouslyfish",
         "value": 4
       }
     ],
@@ -20,6 +32,43 @@
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25.5
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ]
   },
@@ -31,13 +80,119 @@
       "html": "<p>The adult size of the gecko-loach, Homaloptera tweediei, is only approx. 4 cm. Available size: 3-4 cm. Origin: Thailand.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<p>Homalopteroides tweediei is a small hillstream loach from Peninsular Malaysia, the Mekong system and West Kalimantan in Indonesian Borneo. It is often confused with the congener H. smithi. Maximum size 40 mm SL. Aquarium size 45 × 30 cm. Temperature 20–25.5°C, pH 6.0–7.5, hardness 1–12 dGH. Needs a well-established tank and strong current, with the filter turning the tank over 8–12 times an hour.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<p>Described from 'Shallow rapid creek, Mawai District, Johore, about 64 km north of Singapore', which appears to refer to Kota Tinggi district, Johor state, Peninsular Malaysia.</p><p>It has since been recorded throughout much of the country as well as parts of the Mekong river system in Thailand, Laos, Cambodia and Vietnam, plus the Kapuas and several other river basins in Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<p>According to Rainboth (1996) it is less likely to be found in riffles or runs than other members of the genus and shows a preference for moderately-flowing zones of clear, oxygen-rich streams among patches of live or dead vegetation.</p><p>In the original description by Herre it is said to live under submerged grasses and algae over sandy substrates in mid-stream.</p><p>In the Kahang River, part of the Endau drainage in Johor state, Peninsular Malaysia, it has been recorded alongside Homaloptera zollingeri, H. parclitella, H. ogilviei and Homalopteroides nebulosa as well as Malayochela maassi, Crossocheilus langei, Cyclocheilichthys apogon, Mystacoleucus marginatus, Rasbora dusonensis, R. elegans, R. paucisqualis, Trigonopoma gracile, 'Puntius' partipentazona, Nemacheilus masyae, N. selangoricus, Neohomaloptera johorensis, Acanthopsoides molobrion, Pangio cuneovirgata, P. doriae, P. kuhlii, P. malayana, P. piperata, P. shelfordii, Pseudomystus fuscus, Akysis microps, A. hendricksoni, and an unidentified species of Glyptothorax.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<p>An aquarium with base dimensions of 45 × 30 cm or equivalent is required for long-term maintenance (about 41 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<p>Most importantly the water must be clean and well-oxygenated, so an over-sized filter is suggested as a minimum requirement. Turnover should ideally be 10-15 times per hour, so additional powerheads, airstones, etc., should be employed as necessary to achieve the desired flow and oxygenation.</p><p>Base substrate can be gravel, sand or a mixture of both, with a layer of water-worn rocks and pebbles of varying sizes added.</p><p>Driftwood roots and branches are also suitable, and aquatic plants from adaptable genera such as Microsorum, Crinum and Anubias spp. can also be included. The latter are particularly useful as Homaloptera spp. appear to enjoy resting on their leaves.</p><p>Since it requires stable water conditions this species should never be added to a biologically immature set-up.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<ul><li>Temperature: 20–25.5°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<p>Homalopteroides spp. are specialised micropredators feeding on small crustaceans, insect larvae and other invertebrates.</p><p>In captivity some sinking dry foods may be accepted, but regular meals of live or frozen Daphnia, Artemia, bloodworm, etc. are essential for good health.</p><p>Balitorids are often seen on sale in an emaciated state which can be difficult to correct. A good dealer will have done something about this prior to sale, but if you decide to take a chance with severely weakened specimens they will initially require a continual, easily obtainable source of suitable foods, with no other fish competing for it, if they are to recover.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<p>Not an aggressive fish, although its particular requirements limit the choice of suitable tankmates.</p><p>Species inhabiting similar environments include Barilius, Discherodontus, Garra, Devario, some Rasbora, gobies from genera such as Rhinogobius, Sicyopterus and Stiphodon plus Glyptothorax, Akysis and Oreoglanis spp. catfishes.</p><p>Many loaches from the family Nemacheilidae and most from Balitoridae are also suitable, although harmless squabbles may occur with the latter group in particular. Research your choices before purchase to be sure.</p><p>It is found living in aggregations in nature, so buy six or more to see it at its best, as when kept singly, in pairs or trios it is often less bold. The interaction between individuals is also interesting to watch.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<p>Sexually mature females are usually a little larger and fuller-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<p>Presumably a seasonal spawner in nature but nothing has been recorded in aquaria.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-tweediei/",
       "html": "<p>This species is very interesting for hobbyists, because it can be kept for a longer period at water temperatures of more than 24°C. The main reason is its origin in central Thailand. After acclimatisation they are very thankful and easy to keep, even in a community tank. Interesting to know: they are highly reproductive; in the wild the number of fish can double in less than 15 months.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<p>This species is often confused with the congener H. smithi.</p><p>Herre (1949) states that its live colour pattern is \"whitish, with a brown stripe from the tip of the snout along the lateral line to the caudal base, 4 broad brown cross-bars over the back and down the sides, and a bar at the caudal base, the top of the head and snout blackish; the caudal and dorsal are more or less dusky.\"</p><p>According to Rainboth (1996) H. tweediei possesses: 33-37 lateral line scales; 4 simple and 10 branched pectoral-fin rays; 4-5 scale rows between the lateral line and dorsal-fin origin; faint dorsal and lateral blotches with a dark stripe along the lateral line. Kottelat (2001) followed Alfred (1969) who gave defining characters as 32-36 +2 lateral line scales, 3-5 simple and 7-11 branched pectoral-fin rays.</p><p>Following Randall and Page (2012) it has: 2-3 dark bands on the caudal fin (though in some specimens the lower lobe can be fully pigmented thus obscuring the bands); 13 total pectoral-fin rays; pectoral-fin length shorter than head length; scale count above and below line to pelvic fin 4-5/3-4½; 34-37 pored lateral-line scales; absence of an axillary lobe; pelvic fin not extending to or past anus; orbital length greater than interopercular width.</p><p>The genus Homalopteroides was itself revalidated by Randall and Page (2012) and is told apart from the related Homaloptera by the following character combination: dorsal-fin origin above pelvic fin; ≤ 60 lateral-line scales; ≤ 30 predorsal scales; oral morphology consisting of two thin and widely separated rostral barbels on each side of the mouth, thin crescent-shaped lips, the absence of any structure such as a mental pad or lobes between the lateral portions of the lower lip, and a chin that extends anterior to the lateral portions of the lower lip.</p><p>Homalopteroides currently (February 2016) contains H. wassinkii, H. modestus, H. nebulosus, H. rupicola, H. smithi, H. tweediei, H. stephensoni, H. indochinensis, H. weberi, H. yuwonoi, H. avii and possibly H. manipurensis. These are all former members of Homaloptera, a polyphyletic grouping which following Randall and Page (2015) was split into the genera Homaloptera, Homalopterula, Pseudohomaloptera, Homalopteroides, Balitoropsis, and Ghatsa.</p><p>Homalopteroides spp. are sometimes referred to as 'lizard' or 'gecko' loaches due to their behaviour and appearance. Like all balitorids they have morphology specialised for life in fast-flowing water, i.e., the paired fins are orientated and extended horizontally, head and body flattened, belly depressed.</p><p>These features form a powerful sucking cup which allows the fish to cling tightly to solid surfaces. The ability to swim in open water is greatly reduced and they instead appear to crawl and hop their way over rocks and other surfaces.</p><p>The family Balitoridae as recognised by Kottelat (2012) is widely distributed across much of the Indian subcontinent, Southeast Asia and China.</p><p>Etymology: Homalopteroides comes from the ancient Greek εἶδος, eîdos (= form, likeness, resemblance) and the generic name Homaloptera. tweediei honours the naturalist-archaeologist Michael W. F. Tweedie (1907-1993), Assistant Curator of the Raffles Museum in Singapore, who assisted in the collection of the type specimens.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "html": "<ul><li>Alfred, E. R. (1967). Homaloptera ogilviei, a new species of homalopterid fish from Malaya. Copeia 1967(3), 587-591</li><li>Alfred, E. R. (1969). The Malayan Cyprinoid fishes of the family Homalopteridae. Zoologische Mededelingen 43, 213-237</li><li>Herre, A. W. C. T. (1940). New species of fishes from the Malay Peninsula and Borneo. Bulletin of the Raffles Museum No. 16, 5-26</li><li>Kottelat, M. (1998). Homaloptera yuwonoi, a new species of hillstream loach from Borneo, with a new generic name for H. thamicola (Teleostei: Balitoridae). Ichthyological Exploration of Freshwaters 9(3), 267-272</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Tan, H. H. and P. K. L. Ng (2005). Homaloptera parclitella, a new species of torrent loach from the Malay Peninsula, with redescription of H. orthogoniata (Teleostei: Balitoridae). Ichthyological Exploration of Freshwaters 16(1), 1-12</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Randall, Z. S. and L. M. Page (2012). Resurrection of the genus Homalopteroides (Teleostei: Balitoridae) with a redescription of H. modestus (Vinciguerra 1890). Zootaxa 3586, 329-346</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d30a4bc060f5095d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d30a4bc060f5095d-480.webp",
+      "width": 800,
+      "height": 369,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "caption": "Adult specimen in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0e6c823429e5b916.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0e6c823429e5b916-480.webp",
+      "width": 942,
+      "height": 478,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "caption": "Newly-imported subadult.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/58d661019aca1dfb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/58d661019aca1dfb-480.webp",
+      "width": 870,
+      "height": 578,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopteroides-tweediei",
+      "caption": "Adult individual.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "zy6lT6xH008",
@@ -86,5 +241,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

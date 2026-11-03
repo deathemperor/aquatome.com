@@ -7,19 +7,78 @@
   "group": "other",
   "places": [
     "asia",
-    "india"
+    "india",
+    "pakistan",
+    "indus",
+    "ganges",
+    "sri-lanka",
+    "bangladesh",
+    "brahmaputra",
+    "nepal",
+    "myanmar",
+    "ayeyarwady",
+    "thailand",
+    "chao-phraya",
+    "china",
+    "laos",
+    "mekong",
+    "vietnam",
+    "north-america",
+    "united-states",
+    "florida"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 50
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
       }
     ]
   },
@@ -31,10 +90,22 @@
       "html": "<p>Channa marulius comes from India. The normal size of the species is about 50 cm. The largest documented catch was a specimen about 120 cm long that weighed 13.6 kg; allegedly there has also been a 183 cm specimen weighing a good 30 kg.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<ul><li>Rated difficult because it needs a tank at least 2 m long.</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-marulius-2/",
       "html": "<p>Because of their size, Channa marulius are reserved for owners of very large aquariums, zoos and display aquariums. Their final size is the main restriction on their suitability as an aquarium fish.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li><li>Needs a tank at least 2 m long.</li></ul><p>The bullseye snakehead, Channa marulius, is a large snakehead recorded from Pakistan across southern Asia to southern China, Laos and Vietnam. Also called the 'giant', 'cobra' or 'Indian' snakehead, it is widely accepted to represent a complex of related species in need of further research. Reports of 120-180 cm remain to be proven, with 500-600 mm a more common adult size, and it is suitable only for public installations or the very largest private aquaria.</p>"
     },
     {
       "key": "distribution",
@@ -43,19 +114,96 @@
       "html": "<p>India is its homeland. There, huge, tame C. marulius live in ponds in sacred temple precincts and are worshipped and fed by believers. They will take rice balls from the hand.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<p>Recorded from Pakistan through India, Sri Lanka, Bangladesh, Nepal, Myanmar, and Thailand to southern China, Laos and Vietnam although likely to be far less widespread pending future research (see 'Notes').</p><p>Type locality is unspecified with Hamilton simply stating that this species is found 'in all parts of India that I have visited', but is assumed to be within the Ganges river system.</p><p>A population has apparently become established in Broward County, Florida, United States.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<p>Tends to inhabit larger river channels, inland lakes, canals, and swamps where it is often associated with aquatic vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<p>Standard length: 600 mm SL. Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<p>Relatively unfussy although some surface cover in the form of floating or overhanging vegetation or branches is appreciated.</p><p>Unlike most Channa spp. it's pelagic and requires plenty of room to swim.</p><p>It's essential to use a tightly-fitting hood since Channa spp. are notorious for their ability to escape, and a gap should be left between this and the water surface as they require access to a layer of humid air.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<ul><li>Temperature: 15–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-marulius-2/",
       "html": "<p>These are predatory fish. Rice is not an adequate food for them.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<p>An obligate predator which probably feeds on smaller fishes, amphibians and terrestrial insects in nature but in most cases adapts well to dead alternatives in captivity.</p><p>Some specimens even accept dried foods though these should never form the staple diet.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, etc.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-marulius-2/",
       "html": "<p>In the aquarium, Channa marulius are pleasant contemporaries, and their aggression potential is low compared to other snakeheads. This changes at breeding time, when they form pairs and sustainably defend a nest around the numerous brood. They have quite decent teeth and are fearless.</p><p>Young animals are coloured completely differently from adults. While in juvenile dress they are schooling fish. When they lose the yellow longitudinal stripe they enter puberty, in which every conspecific is seen as a food competitor; during this phase it is impossible to keep more than one specimen in the aquarium. Only when they reach sexual maturity do they become interested in conspecifics again. These phases are typical for large predatory fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<p>Best-maintained in a species-specific aquarium.</p><p>Juveniles and subadults are relatively peaceful with one another but become aggressive when they reach sexual maturity.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<p>This species is also referred to as 'giant', 'great', 'cobra', or 'Indian' snakehead.</p><p>Although currently-considered to be distributed throughout much of southern Asia it is widely-accepted to represent a complex of related species in need of additional research.</p><p>A number of geographical variants exhibiting differences in morphology and colour pattern have been observed and relatively high intraspecific genetic differentiation detected between populations from northern and southern India (Benziger et al., 2011).</p><p>It is commonly confused with the nominal congeners C. marulioides (Bleeker, 1851) and C. melanoptera (Bleeker, 1855) although these also present taxonomic problems.</p><p>In general any fish from Peninsular Thailand, Malaysia, or Indonesia is currently assigned to C. marulioides while C. melanoptera may represent a juvenile synonym of C. marulioides or a related species with distribution restricted to the Sambas river in West Kalimantan (Kalimantan Barat) province, Indonesian Borneo (Tan &amp; Ng, 2005).</p><p>Although C. marulioides is sometimes said to be identified by presence of an ocellus in the upper part of the caudal-fin, this fades in specimens larger than ca. 50 mm SL but tends to be retained in adults of C. marulius (though not in all populations, e.g., Mekong basin; see Kottelat, 2001).</p><p>Members of the family Channidae are commonly referred to as 'snakeheads' due to possession of large scales on the head of most species which are reminiscent of the epidermal scales (cephalic plates) on the heads of snakes.</p><p>There currently exist over 30 valid species but diversity within the group is likely to prove significantly greater.</p><p>All Channa spp. possess supplementary breathing apparatus in the form of paired suprabranchial chambers located behind and above the gills, although these are not labyrinthic but lined with respiratory epithelium.</p><p>These chambers allow the fish to breathe atmospheric air and survive in hypoxic conditions or even out of the water for a considerable period of time, and in aquaria they are often seen rising to the surface to take gulps of air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "html": "<ul><li>Brede, N. and P. Antler (2009). Schlangenkopffische—Die Gattungen Channa und Parachanna. Natur und Tier Verlag, Münster, 62 pp.</li><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Courtenay, W. R., Jr. and J. D. Williams (2004). Snakeheads (Pisces, Channidae) - a biological synopsis and risk assessment. Circular, U. S. Department of the Interior, Geological Survey No. 1251, i-v + 1-143</li><li>Benziger, A., et al. (2011). Unraveling a 146 Years Old Taxonomic Puzzle: Validation of Malabar Snakehead, Species-Status and Its Relevance for Channid Systematics and Evolution. PLoS ONE 6(6), e21272</li><li>Vishwanath, W. and Kh. Geetakumari (2009). Diagnosis and interrelationships of fishes of the genus Channa Scopoli (Teleostei: Channidae) of northeastern India. Journal of Threatened Taxa 1(2), 97-105</li><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabanatoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4b05ec34b4363557.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4b05ec34b4363557-480.webp",
+      "width": 768,
+      "height": 490,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "caption": "Specimen measuring ca. 400 mm TL collected from the Bhagirathi River at Simurali in Nadia district, West Bengal state, northeastern India.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/472c2d2313f5c341.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/472c2d2313f5c341-480.webp",
+      "width": 768,
+      "height": 318,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-marulius",
+      "caption": "Head and anterior portion of body; same specimen as in previous image.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -80,5 +228,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

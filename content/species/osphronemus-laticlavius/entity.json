@@ -8,13 +8,57 @@
   "places": [
     "asia",
     "indonesia",
-    "borneo"
+    "borneo",
+    "malaysia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 60
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 50
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -26,19 +70,116 @@
       "html": "<p>The very rare red finned giant gourami attains a similar size as the common giant gourami, e.g. 60 cm. Fertile males develop a very prominent head structure and deep red fins that form a beautiful contrast to the black body.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<p>The giant red tail gourami, Osphronemus laticlavius, is a large gourami from Indonesia and Malaysia, described to science in the early 1990s. Adults develop bright red fin edges with filamentous extensions and a body colour between blue-green and almost black. It reaches 50 cm and probably inhabits slow-moving rivers and other sluggish or stagnant water.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/osphronemus-laticlavius/",
       "html": "<p>O. laticlavius originates from Borneo.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<p>Indonesia, Malaysia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<p>No precise data available, but probably inhabits slow-moving rivers and other sluggish or stagnant bodies of water. Other members of the genus are known to enter flooded areas during the rainy season.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<p>Standard length: 50 cm SL. Aquarium base: 180 × 60 cm. Volume: ~648 litres.</p><p>180 × 60 × 60 cm, ~648 litres is the absolute bare minimum for an adult fish, though the bigger the tank the better.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<p>Provide shelter in the form of water-worn rocks and large pieces of bogwood. Floating plants are preferable, though these may be eaten, along with most other aquatic plants. Powerful and efficient filtration is essential as this is an exceptionally messy fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<ul><li>Temperature: 20–30°C. Somewhere around 24–27°C is best.</li><li>pH: 6.5–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<p>Omnivorous and unfussy. O. laticlavius will accept most foods offered, including pellets, frozen foods and vegetable matter. Ensure the fish receive plenty of the latter, as it is primarily herbivorous in nature.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<p>Will eat smaller fish but is generally peaceful with other large fish. Some adults may become very aggressive but this is often due to being kept in an aquarium that is too small. Given plenty of room this fish will usually coexist with tankmates such as knifefish, large barbs, catfish and Loricariids.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/osphronemus-laticlavius/",
       "html": "<p>Fertile males develop a very prominent head structure and deep red fins that contrast with the black body.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<p>It's thought that males are the more colourful sex.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<p>Not yet reported in aquaria, but probably breeds in a similar fashion to its cousin O. goramy. In that species, the male builds a large nest out of vegetation (including grasses and roots in nature). Spawning occurs in the vicinity of the nest and the eggs are then taken there by the male. The female is chased away at this point. The eggs hatch in 24-36 hours and the fry become free swimming 3-5 days later. The male continues to guard them for 2-3 weeks in the wild but can be removed from the aquarium once the young are free swimming. They are large enough to accept brine shrimp nauplii and powdered flake from the first day. Obviously an enormous aquarium, or perhaps a tropical pond, would be required for any serious breeding attempt.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-laticlavius",
+      "html": "<p>Still relatively rare in the hobby, this fish was only described to science in the early 1990s. It's not yet being mass-produced in any great numbers, and demand is high, so it's quite pricey when it is available. It's a stunning fish when adult, developing bright red fin edges with filamentous extensions, and a body colour varying between blue-green and almost black. It makes a great pet as it can develop real personality and learn to recognise its owner.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/082fba088934e0a6.webp",
+      "width": 960,
+      "height": 685,
+      "licence": "CC BY-SA 3.0",
+      "author": "Hectonichus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osphronemidae_-_Osphronemus_laticlavius.JPG",
+      "caption": "Adult Osphronemus laticlavius, on display at the Museo di Storia Naturale e del Territorio, Calci (Province Pisa), Italy",
+      "thumb": "https://media.aquatome.com/commons/082fba088934e0a6-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/96ad6deb60e9d3a7.webp",
+      "width": 960,
+      "height": 690,
+      "licence": "CC BY-SA 4.0",
+      "author": "Marrabbio2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osphronemus_laticlavius_juv.jpg",
+      "caption": "Osphronemus laticlavius juvenile",
+      "thumb": "https://media.aquatome.com/commons/96ad6deb60e9d3a7-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5f31b4c45af13577.webp",
+      "width": 960,
+      "height": 719,
+      "licence": "CC BY-SA 4.0",
+      "author": "Marrabbio2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osphronemus_laticlavius_juv_2.jpg",
+      "caption": "Osphronemus laticlavius juvenile",
+      "thumb": "https://media.aquatome.com/commons/5f31b4c45af13577-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -61,5 +202,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }

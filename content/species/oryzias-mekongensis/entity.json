@@ -7,12 +7,58 @@
   "group": "killifish",
   "places": [
     "asia",
-    "thailand"
+    "thailand",
+    "mekong",
+    "laos",
+    "cambodia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2.1
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
         "value": 3
       }
     ]
@@ -23,6 +69,78 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_mekongensis_en/",
       "html": "<p>Oryzias mekongensis is one of the smallest species of ricefish. It attains a maximum length of only 3 cm and is an ideal fish for so-called nano tanks.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<p><em>Oryzias mekongensis</em>, the Mekong ricefish, is endemic to the Mekong River system in northeastern Thailand, Laos and Cambodia. It reaches about 21 mm SL and is known only from fresh water, mainly clear water swamps, canals, ditches and ponds with dense fine-leaved plants. Males have bright orange-red marginal bands on the caudal-fin lobes, and it may be sold as the 'Mekong redfin lampeye killifish'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<p>Endemic to the Mekong River system and has been recorded from various tributary drainages in northeastern Thailand, Laos and Cambodia.</p><p>Type locality is given as 'Pond at Yang Talat, Kalasin Province, Thailand'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<p>Little information exists, but this species is known only from freshwater habitats and appears to have been collected mainly from clear water swamps, possibly containing acidic water.</p><p>According to Rainboth (1996) it occurs in canals, ditches and ponds, especially those in which fine-leaved aquatic plants grow densely.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<p>An aquarium with base dimensions of 40 × 20 cm or more is recommended for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<p>Best maintained in a heavily planted set-up, ideally with a dark substrate, patches of dense vegetation, and some open areas.</p><p>Other décor can consist of twisted roots and pieces of bogwood, while surface vegetation is also appreciated by the fish.</p><p>When maintained under such conditions they're more likely to display their best colours, and planted aquaria also offer fry a more favourable chance of survival alongside the adults.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<p>A micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should be offered daily meals of small live and frozen fare such as Daphnia, Artemia, chopped bloodworm, etc., along with good quality, suitably-sized flakes and granules.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<p>Generally peaceful but does not make an ideal addition to many communities due to its small size.</p><p>Should you wish to maintain it alongside other fishes diminutive species enjoying similar conditions such as Boraras, Trigonostigma, Danionella and some Danio spp. constitute the best options, while freshwater shrimp of the genera Caridina and Neocaridina are also suitable.</p><p>It may also do well alongside smaller anabantoids such as Sphaerichthys, Parosphromenus or the more diminutive Betta species.</p><p>If the intention is breeding then obviously it should ideally be maintained alone, and we don't recommend keeping it with other Oryzias spp. due to the potential of hybridisation, already proven in laboratory experiments.</p><p>It's mostly non-aggressive towards conspecifics, and tends to look most effective and behave more confidently in a group of 8 or more.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<p>The genital papilla in males forms a short tube, while in females it is bilobed.</p><p>Adult males are also slimmer-bodied than females and possess bright, reddish orange marginal bands on both caudal-fin lobes which are present but far less prominent in females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<p>Quite easy to breed and fairly prolific, with females capable of producing batches of eggs every few days or even on a daily basis when in good condition.</p><p>Spawning normally occurs in the early morning, with males darkening in colouration and defending small, temporary territories against one another while attempting to entice females.</p><p>The adhesive eggs are typically expelled as a single mass and fertilised simultaneously, after which they continue to hang from the genital pore of the female for a period before eventually being deposited singly or in small clumps among vegetation or other suitable media.</p><p>Fine-leaved plants such as Cabomba, Ceratophyllum or Taxiphylum spp. are ideal, but synthetic spawning mops or other artificial alternatives also work.</p><p>The incubation period is temperature dependant to an extent but typically 1-3 weeks, and while the adults tend to ignore the eggs they do predate free-swimming fry, though if the tank is densely-planted some will usually survive.</p><p>Alternatively the eggs or fry can be removed to a separate rearing container filled with water from the adults tank.</p><p>Once free-swimming the fry are able to accept microworm, Artemia nauplii, etc.</p><p>Caution is recommended when housing juveniles of different ages together as the older will predate on the younger if there is a large enough discrepancy in size.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<p>O. mekongensis may be sold under the name 'Mekong redfin lampeye killifish' in the aquarium trade.</p><p>Within the genus it appears to be most closely-related to O. curvinotus, O. latipes, O. luzonensis, O. sinensis and O. songkhramensis, these all possessing anal-fin rays of approximately equal length giving the fin a 'parallelogram' shape.</p><p>This group also possess biarmed chromosomes as opposed to the monoarmed or fused chromosome-types observed in other members in the genus.</p><p>It can be further distinguished from congeners by the following combination of characters: small adult size; bright orange-red marginal bands on caudal-fin lobes in males; caudal-fin rounded and elongate; 5-7 dorsal-fin rays; relatively few (13-18) anal-fin rays without bony contact organs, the last ray branched; 6-8 pectoral-fin rays.</p><p>Members of the family Adrianichthyidae are often referred to collectively as 'ricefishes' and were traditionally considered to be members of the family Cyprinodontiformes and thus closely-related to toothcarps.</p><p>This misconception is sometimes still upheld despite the fact that Rosen and Parenti reclassified them within the cyprinodontiform sister group Beloniformes as long ago as 1981.</p><p>The best-known member of the family is the medaka or Japanese ricefish, Oryzias latipes, which has been widely used as a model organism in genomic and experimental biology for well over a century and was the first vertebrate animal to mate in space during the mid-1990s.</p><p>There are currently just two genera included in the family, Oryzias and Adrianichthys, with the historically-recognised groupings Xenopoecilus and Horaichthys having been synonymised with Oryzias by Parenti (2008).</p><p>Of the three species previously included in the paraphyletic Xenopoecilius, X. oophorus and X. poptae were moved into Adrianichthys with the third, X. sarasinorum currently recognised as Oryzias sarasinorum.</p><p>In addition the formerly monotypic Indian species Horaichthys setnai is currently classified as O. setnai.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-mekongensis",
+      "html": "<ul><li>Herder, F. and S. Chapuis (2010). Oryzias hadiatyae, a new species of ricefish (Atherinomorpha: Belonifornes: Adrianichthyidae) endemic to Lake Masapi, Central Sulawesi, Indonesia. The Raffles Bulletin of Zoology 58(2), 269-280</li><li>Magtoon, W. (2010). Oryzias songkhramensis, a new species of ricefish (Beloniformes; Adrianichthyidae) from northeast Thailand and central Laos. Tropical Natural History 10(1), 107-129</li><li>Magtoon, W. and A. Termvidchakorn (2009). A Revised Taxonomic Account of Ricefish Oryzias (Beloniformes; Adrianichthyidae), in Thailand, Indonesia and Japan. The Natural History Journal of Chulalongkorn University 9(1), 35-68</li><li>Parenti, L. R. (2008). A phylogenetic analysis and taxonomic revision of ricefishes, Oryzias and relatives (Beloniformes, Adrianichthyidae). Zoological Journal of the Linnean Society 154(3), 494-610</li><li>Parenti, L. R. and B. Soeroto (2004). Adrianichthys roseni and Oryzias nebulosus, two new ricefishes (Atherinomorpha: Beloniformes: Adrianichthyidae) from Lake Poso, Sulawesi, Indonesia. Ichthyological Research 51(1), 10-19</li><li>Parenti, L. R. and R. K. Hadiaty (2010). A new, remarkably colorful, small ricefish of the genus Oryzias (Beloniformes, Adrianichthyidae) from Sulawesi, Indonesia. Copeia 2010 (2), 268-273</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Roberts, T. R. (1998). Systematic observations on tropical Asian medakas or ricefishes of the genus Oryzias, with descriptions of four new species. Ichthyological Research 45(3), 213-224</li><li>Rosen, D. E. and L. R. Parenti (1981). Relationships of Oryzias, and the groups of atherinomorph fishes. American Museum Novitates 2719, 1–25</li><li>Takehana, Y., K. Naruse K and M. Sakaizumi (2005). Molecular phylogeny of the medaka fishes genus Oryzias (Beloniformes: Adrianichthyidae) based on nuclear and mitochondrial DNA sequences. Molecular Phylogenetics and Evolution 36(2), 417–428</li><li>Uwa, H. and W. Magtoon (1986). Description and karyotype of a new ricefish, Oryzias mekongensis from Thailand. Copeia 1986 (2), 473-478</li><li>Uwa, H. and L. Parenti (1988). Morphometric and meristic variation in ricefishes, genus Oryzias: a comparison with cytogenetic data. Japanese Journal of Ichthyology 35(2), 159-166</li></ul>"
     }
   ],
   "photos": [],
@@ -43,5 +161,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }

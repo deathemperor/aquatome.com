@@ -7,13 +7,57 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "myanmar"
+    "myanmar",
+    "irrawaddy"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 1.9
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,10 +69,40 @@
       "html": "<p>This is one of the smallest anabantoid fish in the world, hardly reaching 2 cm in length. Available size: 1–2 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<p>Parasphaerichthys lineatus is a tiny gourami from the Irrawaddy delta, Myanmar, and at 15 to 19 mm SL the smallest member of the family Osphronemidae. It is sometimes traded as 'mini chocolate gourami' or 'Burmese chocolate gourami', or misidentified as P. ocellatus, from which it differs in its dark mid-lateral stripe and the lack of an ocellus on each flank.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parasphaerichtys_lineatus_en/",
       "html": "<p>Origin: Burma (Myanmar).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<p>The type locality is a pool by the name of Hmoain located within the northern part of the Irrawaddy river delta near the town of Einme, Myanmar.</p><p>P. lineatus is likely to occur in other parts of the delta region, to which it may also be endemic, but the full extent of its distribution is unclear.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<p>In March 2003 the type locality measured around 20 m x 4 m and maximum depth was about 1 metre.</p><p>The water was clear with a temperature of 29 °C, pH was 7.1, substrate composed of mud and there were dense growths of aquatic plants in the form of Nelumbo and Eichhornia spp.</p><p>Other fish species included Dario hysginon, Indostomus paradoxus and Chaudhuria ritvae.</p><p>Britz (2010) notes that the tropical cyclone Nargis, the worst natural disaster ever to occur in Myanmar, hit the Irrawaddy delta on 2 May 2008 and caused widespread devastation, though its effect on the pool and other aquatic habitats is unknown.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<p>An aquarium with base dimensions of 40 × 20 cm or more is large enough to house a group (about 16 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<p>Fares best in a well-planted set-up with a soft substrate although fine-grade gravel is acceptable.</p><p>Driftwood roots or branches, floating plants and leaf litter can all be added to lend a more natural feel and further increase structural complexity while also serving to diffuse the light entering the tank, while lengths of suitably-sized plastic piping or empty camera film containers can also provide useful refuges.</p><p>It naturally inhabits sluggish or still environments therefore filtration, or at least water flow, should not be very strong, and if using leaves and wood do not allow the water to become tannin-stained as this species naturally inhabits clear water.</p>"
     },
     {
       "key": "waterConditions",
@@ -37,10 +111,28 @@
       "html": "<p>In contrast to all other chocolate gouramis, it should be kept and bred in harder, slightly alkaline water (all other chocolate gouramis need soft, acidic water).</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<ul><li>Temperature: 22–27 °C (appears to be optimal in terms of breeding)</li><li>pH: 6.5–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<p>Chiefly a micropredator feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton.</p><p>It can be a little picky in the aquarium and initially may not accept dried or otherwise prepared foods, though in many cases will learn to take them over time.</p><p>At any rate it should be offered daily meals of small live or frozen fare such as Artemia nauplii, Daphnia, grindal worm, micro worm, etc., in order to develop ideal colour and conditioning.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parasphaerichtys_lineatus_en/",
       "html": "<p>Tankmates will not be harmed, provided they are also small and peaceful, for example Microdevario nana, Microrasbora spp. or Celestichthys spp. This is also true for conspecifics. Despite the small size of the fish, it is recommended to keep them in larger tanks and in groups, where all their fascinating behaviour can be observed.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<p>Given its rarity in the hobby, and possibly nature, the emphasis should be on captive reproduction but if you intend to house it in a community tankmates must be chosen with care.</p><p>It's slow-moving with a retiring nature and will easily be intimidated or outcompeted for food by larger or more boisterous tankmates.</p><p>Peaceful, pelagic cyprinids such as Danionella, Microdevario, smaller Rasbora species, or diminutive loaches such as some members of the genus Yunnanilus may constitute the best choices.</p><p>Though not gregarious in the sense of schooling or shoaling it does seem to require interaction with conspecifics and displays more interesting behaviour when maintained in numbers, meaning the purchase of no less than 6 individuals is recommended.</p>"
     },
     {
       "key": "dimorphism",
@@ -49,20 +141,114 @@
       "html": "<p>The sexes are hard to tell apart, except during the breeding season, when the male changes its coloration drastically and becomes bright orange-yellow.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<p>Fully-grown females are noticeably larger than males and thicker-bodied when full of eggs, while males briefly take on a distinctive bicolour pattern of orange and black during courtship.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parasphaerichtys_lineatus_en/",
       "html": "<p>In contrast to all other chocolate gouramis (which are mouthbrooders), this species is a bubble nest builder.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<p>The first recorded account of captive-spawning in this species was published in the original description by Britz and Kottelat (2002).</p><p>It details how a pair came together towards the bottom of the aquarium before performing a spawning embrace similar to that seen in Luciocephalus and Sphaerichthys species in which the pair remain almost upright, rather than the female being turned upside down as in Betta and most other anabantoid genera.</p><p>The eggs from this first spawning were removed for study but during an ensuing event they were initially deposited on the base before being moved into a nest comprised of small air bubbles located beneath the corner of a stone.</p><p>Subsequent reports suggest that a more typical bubble-nesting reproductive strategy, utilising a floating nest, is normally adopted, but the experiences of several SF members suggest the reality to be somewhat more complex with environmental cues possibly playing a significant role.</p><p>Even courtship seems to vary depending on how many individuals are in the tank.</p><p>For example, if only a single pair is present the male will ignore the female until she is ready to spawn, whereas when maintained in numbers, groups of multiple, ripe females tend to congregate, displaying to one another until a male approaches.</p><p>Courting males exhibit a temporary, but extreme, change in colour pattern with the head region becoming blackish and the remainder of the body bright orange, while also emitting an audible croaking sound to attract female attention.</p><p>If several sexually-active females are assembled this combination of aural and visual stimuli often causes them all to approach the male simultaneously with the remainder being driven away once a pair has formed, although the process determining partner selection is somewhat unclear.</p><p>At any rate a pair will remain defensive of their space throughout spawning which apparently always occurs near the substrate or within a shelter of some kind (e.g., a length of plastic piping).</p><p>Once all eggs are laid and fertilised they are moved to a more secure location for which the fish have been observed to utilise floating or submerged bubble nests, small depressions excavated from the substrate and even the pores within an open filter sponge.</p><p>In the latter two scenarios no bubbles were used to adhere the eggs together, while egg deposition and fertilisation were performed in a manner reminiscent of some substrate-spawning cichlids in that they were laid in batches by the female with the male moving in to fertilise them each time.</p><p>No eggs or milt were discharged during a brief spawning embrace in this case, whereas in others both were released during the embrace.</p><p>Parental care during the incubation period is also variable to an extent. In some cases both adults continue to defend the eggs, whereas in others only the male remains.</p><p>Similarly, the eggs may remain in the same place until hatching, or be moved several times by one or both adults.</p><p>The incubation period is approximately 3-5 days with the fry free swimming at 7-10 days post-spawning.</p><p>At this stage they are still very small and require microscopic foods such as Paramecium or rotifers for the initial period, introducing larger items such as micro worm or Artemia as they grow.</p><p>Parental care ceases completely at this point, and some breeders prefer to remove the eggs prior to hatching and raise the fry separately, though if maintaining the adults in a mature, well-planted set-up it may also be possible that some will survive in situ.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parasphaerichtys_lineatus_en/",
       "html": "<p>Parasphaerichthys: ancient Greek, meaning “similar to Sphaerichthys”, another genus of fish. lineatus: Latin, meaning “lined”, referring to the coloration.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<p>This species is sometimes traded under the names 'mini chocolate gourami' or 'Burmese chocolate gourami', or misidentified as its congener P. ocellatus, these two comprising the only members of the genus known at present.</p><p>P. lineatus can be told apart from P. ocellatus via the following combination of characters: smaller body size (maximum standard length 18.7 mm vs. 32 mm); absence of ocellus-type marking in middle of each flank (vs. presence); presence of dark, mid-lateral stripe (vs. absence); 8-10 anal-fin spines (vs. 11-16).</p><p>The two species also differ in some osteological characters.</p><p>The genus itself is separated from all other anabantoids by a couple of internal morphological characters, namely a reduced number of vertebrae (25-26, the lowest among the suborder Anabantoidei) plus the fact that Baudelot's ligament originates from a transversely-orientated process on the first vertebrae close to the joint formed by the first intermuscular bone and the base of the neural arch.</p><p>Note: Baudelot's ligament helps anchor the pectoral girdles to the sides of the fish.</p><p>Parasphaerichthys species are often grouped within the Osphronemid subfamily Luciocephalinae along with the genera Trichogaster, Trichopodus, Luciocephalus, Sphaerichthys and Ctenops.</p><p>They share with the latter trio an egg structure that is unique among teleosts; the distinguishing factor consisting of a series of spiralling ridges on the outer surface.</p><p>This has given rise to the (as yet unproven) theory that the four genera form a monophyletic group, i.e., they share a common genetic ancestor.</p><p>In Luciocephalus and Sphaerichthys the eggs are also distinctively pear-shaped suggesting that these two share even closer genetic roots.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth organ.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>It's formed by a modification of the first gill arch and consists of many highly vascularised, folded flaps of skin.</p><p>The structure of the organ varies in complexity between species tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p><p>While most labyrinth fishes can be observed taking regular gulps of air from the surface others, including Parasphaerichthys spp., do so less often.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "html": "<ul><li>Britz, R., M. Kokoscha, and R. Riehl (1995). The anabantoid genera Ctenops, Luciocephalus, Parasphaerichthys and Sphaerichthys as a monophyletic group: evidence from egg surface structure and reproductive behaviour. Japanese Journal of Ichthyology 42(1), 71-79</li><li>Britz, R. and M. Kottelat (2002). Parasphaerichthys lineatus, a new species of labyrinth fish from southern Myanmar (Teleostei: Osphronemidae). Ichthyological Exploration of Freshwaters 13(3), 243-250</li><li>Freyhof, J. (2002). Ein ganz anderer Schokoladen-Gurami. DATZ 2002(4), 11-13</li><li>Prashad, B. and D. D. Mukerji (1929). The fish of the Indawgyi Lake and the streams of the Myitkyina District (Upper Burma). Records of the Indian Museum (Calcutta) 31(3), 161-223</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/83137792392de94f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/83137792392de94f-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "caption": "Adult female specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ea5a1223877f6105.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ea5a1223877f6105-480.webp",
+      "width": 798,
+      "height": 500,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "caption": "Adult male with courtship colour pattern.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9503cf5dcba9df77.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9503cf5dcba9df77-480.webp",
+      "width": 640,
+      "height": 426,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "caption": "This species sometimes deposits its eggs within a floating bubble nest.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e5f671e875f00f70.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e5f671e875f00f70-480.webp",
+      "width": 640,
+      "height": 390,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parasphaerichthys-lineatus",
+      "caption": "In other cases the eggs may be deposited on a solid surface by the female...",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "keNFmeV1zJ0",
+      "title": "Parasphaerichthys lineatus",
+      "durationSec": 74,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bKR37Ug3MjY",
+      "title": "Parasphaerichthys tank 9.30.20",
+      "durationSec": 143,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AEuwXSODRmw",
+      "title": "Parasphaerichthys lineatus fry",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "juE6DheyfaE",
+      "title": "Burmese Mini Gourami",
+      "durationSec": 292,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -86,5 +272,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }

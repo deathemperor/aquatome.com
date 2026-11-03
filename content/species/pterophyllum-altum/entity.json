@@ -9,13 +9,51 @@
     "south-america",
     "colombia",
     "orinoco",
-    "venezuela"
+    "venezuela",
+    "rio-negro"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 17.8
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 28,
+          "max": 32
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4.8,
+          "max": 6.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -27,10 +65,28 @@
       "html": "<p>Deep Angels can reach 20 cm in length and up to 35 cm in height.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "html": "<p>The altum angel, Pterophyllum altum, is a cichlid from Colombia and Venezuela, native to the upper Rio Negro and tributaries of the upper Rio Orinoco. Far less common in the trade than its relative P. scalare, the common angelfish, it is a challenge to keep. It needs very acidic, soft water and high temperatures, most fish are wild-caught and can be difficult to feed, and spawning in captivity is hard to achieve.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_altum_en/",
       "html": "<p>Colombia, Venezuela, Orinoco.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "html": "<p>Native to Colombia and Venezuela, where it occurs in the upper Rio Negro and tributaries of the upper Rio Orinoco including the Rio Inírida and Rio Atabapo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "html": "<p>Native to Colombia and Venezuela, where it occurs in the upper Rio Negro and tributaries of the upper Rio Orinoco including the Rio Inírida and Rio Atabapo.</p>"
     },
     {
       "key": "aquariumSize",
@@ -39,10 +95,22 @@
       "html": "<p>This has to be considered when buying the tank: it should have a height of at least 70 cm.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "html": "<p>Provide a densely planted, well covered aquarium with floating plants and broad-leafed plants to help dim the lighting in the Altum's aquarium. Simulate the Deep Angel's habitat too, with bits of wood (mopani, driftwood, bogwood - specifically roots) as overhanging branches. Provide a soft substrate (either sand or a fine gravel) as Altums may dig. Make sure there isn't a great amount of water flow in the aquarium as Altum Angels specifically enjoy very slow flowing rivers.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_altum_en/",
       "html": "<p>For keeping them, medium-hard water with a neutral pH is sufficient. For breeding attempts the water should contain almost no minerals and have pH values around 5.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "html": "<p><strong>Temperature:</strong> High temperatures - 28 to 32°C.</p><p><strong>pH:</strong> 4.8-6.2. It will not usually do well at all in less acidic conditions.</p><p><strong>Hardness:</strong> 0-5°H. Soft water with virtually undetectable hardness is mandatory when keeping this species.</p>"
     },
     {
       "key": "equipment",
@@ -51,48 +119,78 @@
       "html": "<p>Decoration with large bogwood provides structure and retreat possibilities.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "html": "<p>As most Altum Angels are wild caught, feeding can be troublesome. Prepare to give live foods to these fish on a regular basis. Even then, wild caught Altum Angels may not accept the food. For some reason they are more likely to go for regurgitated/waste food from other fish - Discus being the prime example. Once settled and feeding on live, they can be weened onto frozen food by mixing it with the live food at feeding time. Tank bred Pterophyllum Altum may well accept any food, including flake.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_altum_en/",
       "html": "<p>They are sensitive to bad water quality and stress, so they are not really suitable for community tanks. In no case should they be kept with overly lively fish.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "html": "<p>As with their more common relatives (Angelfish - Pterophyllum Scalare), anything which can fit in the Altum's mouth is \"fair game\". This includes Neon Tetras, Guppies, Pygmy Rasboras and the likes. Be careful with respect to smaller fish in an Angel's aquarium, though they are fine with other peaceful, larger fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "html": "<p>Difficult to sex. Males will develop a smaller version of the well known Cichlidae nuchal hump, but usually only around breeding time.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_altum_en/",
       "html": "<p>Only a few hobbyists have been able to breed them. Remarkably, even the parents of an F2 generation clearly show a spawning season of a few months (in spring).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "html": "<p>Breeding can be very difficult with Altums. Contrary to many profiles on the Internet, Altums have been bred in captivity without artificially raising the fry. Very acidic, soft water is required to breed Altums. Growing up a group of 6 young Altum generally has a good change of finding a breeding pair. Once the pair have bonded, spawning may begin. If you find that the spawns are being eaten by the parents, you may have to artifically raise the fry in a small tank. If this is the case, assist the fry by placing 8 drops of methylene blue for every 19 litres of water in the fry-raising tank. After the fry become free swimming, start to replace some of the water in the fry-raising tank with RO water.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "html": "<p>Altum Angels are a lot less common in the trade than their well known (arguably the best known tropical fish) relatives Pterophyllum Scalare, the common Angelfish. However, they are still available from some of the better tropical fish suppliers. They are a challenge to keep - they share all of their relatives' difficulties (susceptible to hole-in-the-head disease, very weak to nitrate buildups, extremely prone to stress-related diseases, commonly eat their own spawns etc.) and have a few of their own (water parameters - very acidic and soft, feeding difficulties, lack of willingness to spawn in captivity and so on). That in its own right is very rewarding though, hence the reason that Altum Angels are quite a popular fish with the more experienced aquarist. Altum Angels require high temperatures but can be kept happily with Discus, as they possess similar water parameter requirements. Be wary of the Altum Angels eating Discus spawns, however.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/74ad92ff7bac6980.webp",
+      "thumb": "https://media.aquatome.com/commons/74ad92ff7bac6980-480.webp",
       "width": 960,
       "height": 638,
       "licence": "CC BY-SA 2.0",
       "author": "Jeff Kubina",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Group_of_Pterophyllum_Altum.jpg",
-      "caption": "A group of Pterophyllum Altum taken off Flickr. Released under a CC-BY-SA 2.0 license. Taken by Jeff Kubina @ https://www.flickr.com/photos/kubina/131667858/Fish",
-      "thumb": "https://media.aquatome.com/commons/74ad92ff7bac6980-480.webp"
+      "caption": "A group of Pterophyllum Altum taken off Flickr. Released under a CC-BY-SA 2.0 license. Taken by Jeff Kubina @ https://www.flickr.com/photos/kubina/131667858/Fish"
     },
     {
       "url": "https://media.aquatome.com/commons/c405b5b006021e9e.webp",
+      "thumb": "https://media.aquatome.com/commons/c405b5b006021e9e-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Chris Sherlock",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altum_Angel.jpeg",
-      "caption": "An Altum Angel (Pterophyllum altum)",
-      "thumb": "https://media.aquatome.com/commons/c405b5b006021e9e-480.webp"
+      "caption": "An Altum Angel (Pterophyllum altum)"
     },
     {
       "url": "https://media.aquatome.com/commons/35857eb1c8cb97b7.webp",
+      "thumb": "https://media.aquatome.com/commons/35857eb1c8cb97b7-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Pterophyllum_altum_2.jpg",
-      "caption": "Pterophyllum altum ALTUM ANGELFISH. Zoo Frankfurt.",
-      "thumb": "https://media.aquatome.com/commons/35857eb1c8cb97b7-480.webp"
+      "caption": "Pterophyllum altum ALTUM ANGELFISH. Zoo Frankfurt."
     }
   ],
   "videos": [
@@ -148,5 +246,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

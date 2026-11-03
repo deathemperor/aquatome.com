@@ -7,9 +7,52 @@
   "group": "tetras",
   "places": [
     "south-america",
-    "brazil"
+    "brazil",
+    "paraiba-do-sul",
+    "argentina",
+    "uruguay"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -18,10 +61,34 @@
       "html": "<p>The Yellow Tetra is a peaceful schooling characin from coastal rivers in southeast Brazil. It has low requirements for food and water chemistry and is recommended for beginners in a community aquarium.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus",
+      "html": "<p>The yellow tetra, Hyphessobrycon bifasciatus, is a characid from coastal rivers of southeastern Brazil between Espírito Santo and Rio Grande do Sul. It also occurs in parts of the upper Paraná basin, in floodplain tributaries, lakes and streams, usually under forest cover. Two vertically elongate humeral spots, the front one more prominent, help separate it from similar congeners. Generally peaceful, it is best kept as a group of 8-10 or more.</p><p>Max size: 4.5 cm SL.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_bifasciatus_en/",
       "html": "<p>The Yellow Tetra originates, like its close relative the Von Rio Tetra, from coastal rivers in southeast Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus",
+      "html": "<p>Native to coastal river systems of southeastern Brazil between the states of Espírito Santo and Rio Grande do Sul, plus parts of the upper Paraná basin.</p><p>Type locality is 'Rio Parahyba at Campos, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus",
+      "html": "<p>Floodplain tributaries, lakes and streams, usually under forest cover.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 5.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -30,38 +97,79 @@
       "html": "<p>Their colours shine particularly in aquariums that are not too brightly lit and have a dark substrate. They need a free swimming area, and the border regions of the aquarium should be densely planted.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus",
+      "html": "<p>Likely an opportunistic omnivore by nature feeding on aquatic invertebrates, fallen fruit and suchlike.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_bifasciatus_en/",
       "html": "<p>As a schooling fish the Yellow Tetra should be kept only in larger swarms.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus",
+      "html": "<p>Generally peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It’s perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus",
+      "html": "<p>Adult males are slightly more intensely-coloured when in good condition while females tend to grow a little larger and be rounder in shape, especially when gravid.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_bifasciatus_en/",
       "html": "<p>They are suitable for first steps in characin breeding, since they already spawn in water with a slightly acidic pH and moderate hardness, and raising the fry is not too difficult.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus",
+      "html": "<p>Egg-scatterer exhibiting no parental care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus",
+      "html": "<p>This species is susceptible to an affliction that has been observed in a number of small characiform species, which causes some or all of the body scales to appear metallic gold in colour. It remains unclear whether this is a consequence of a parasitic infestation, as has been suggested, but affected fish appear to be in no discomfort and their lifespan and overall health seem undiminished.</p><p>It can be distinguished from similar congeners by the following combination of characters: presence of two well-defined, vertically elongate humeral spots, the anterior of which is most prominent; absence of blotch on caudal peduncle; distal border of anal-fin slightly convex to straight, with no distinct anterior lobe in males, but posteriormost unbranched ray and first to second branched rays shorter than subsequent branched rays; absence of elongated, filamentous dorsal fin in adult males; presence of hooks on anal-fin in mature males; usually 34 longitudinal scales; 27-32 branched anal-fin rays; 1-2 maxillary teeth; maxilla broad and moderately long; premaxillary teeth tetra- to pentacuspid.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the ‘rosy tetra clade’, with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/fadfee7f811332e7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fadfee7f811332e7-480.webp",
+      "width": 839,
+      "height": 629,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-bifasciatus",
+      "caption": "Colourful wild specimen from Camaquã municipality, Rio Grande do Sul state, Brazil.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/840c8a5fcdaf9864.webp",
+      "thumb": "https://media.aquatome.com/commons/840c8a5fcdaf9864-480.webp",
       "width": 960,
       "height": 535,
       "licence": "CC BY 4.0",
       "author": "D. Bork and A. Zarske",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_bifasciatus_(standard)_(31134).png",
-      "caption": "Hyphessobrycon bifasciatus Ellis, 1911, live photo, side view, normal colouring, not catalogued. Photo: A. Zarske.",
-      "thumb": "https://media.aquatome.com/commons/840c8a5fcdaf9864-480.webp"
+      "caption": "Hyphessobrycon bifasciatus Ellis, 1911, live photo, side view, normal colouring, not catalogued. Photo: A. Zarske."
     },
     {
       "url": "https://media.aquatome.com/commons/3c16f54476cdcc7a.webp",
+      "thumb": "https://media.aquatome.com/commons/3c16f54476cdcc7a-480.webp",
       "width": 960,
       "height": 493,
       "licence": "CC BY 4.0",
       "author": "D. Bork and A. Zarske",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_bifasciatus_(golden)_(31134).png",
-      "caption": "Hyphessobrycon bifasciatus Ellis, 1911. Live photo, side view, pathological gold form, not catalogued. Photo: A. Zarske.",
-      "thumb": "https://media.aquatome.com/commons/3c16f54476cdcc7a-480.webp"
+      "caption": "Hyphessobrycon bifasciatus Ellis, 1911. Live photo, side view, pathological gold form, not catalogued. Photo: A. Zarske."
     }
   ],
   "videos": [
@@ -120,5 +228,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

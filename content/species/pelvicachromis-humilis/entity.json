@@ -8,13 +8,57 @@
   "places": [
     "africa",
     "guinea",
-    "liberia"
+    "liberia",
+    "sierra-leone"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 12.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -26,16 +70,82 @@
       "html": "<p>The current import from Guinea contains five different species/morphs of the relationship of Pelvicachromis humilis. They all have in common that the males can reach a maximum length of 12 cm. Females always stay smaller.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<p>The yellow kribensis, Wallaceochromis humilis, is a cichlid from Sierra Leone, Liberia and Guinea. Rare in the hobby, it is seen in several morphs including 'Guinea' and 'Liberia red', some of which may eventually be described as distinct species. It is more elongate than Pelvicachromis species, with a comparatively long snout, and is aggressive towards conspecifics, so only a single pair should be kept unless the tank is very large.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_humilis_and_close_relatives_from_guinea_1_pelvicachromis_humilis_liberia_red_en/",
       "html": "<p>Pelvicachromis humilis \"Liberia Red\" was collected, as can be seen from the name, in the border region between Liberia and Guinea. The fish known in the hobby in the 1990s under the name Pelvicachromis humilis \"Liberia Red\" seems to represent another, different variety/species.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<p>Sierra Leone, Liberia, Guinea.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<p>Slow-moving rivers and tributaries that are rich in oxygen.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<p>Standard length: 125 mm SL (12.5 cm).</p><p>A tank of 120 x 30 x 30 cm (110 litres) for a single pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<p>The tank should contain plenty of hiding places and potential spawning sites. Clay pots and caves, roots and pieces of driftwood can all be used. Plants are not essential but the fish will appreciate the additional cover. A sand or fine gravel substrate should be used as the fish excavate pits when breeding.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 5.0–7.0</li><li>Hardness: 5–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<p>Live and frozen foods should comprise a large proportion of the diet. Dried foods are also accepted. Ensure the fish receive some vegetable matter as part of the diet, such as blanched spinach or spirulina flakes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<p>It is more robust than most Pelvicachromis species but still does not do well with very vigorous or large species. Good tankmates include larger Alestiid tetras, Loricariids, African Butterfly Fish and Corydoras. It can be kept with other soft water cichlids if enough space is available for territory formation. It is aggressive towards conspecifics and only a single pair should be kept unless the tank is very large.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_humilis_and_close_relatives_from_guinea_1_pelvicachromis_humilis_liberia_red_en/",
       "html": "<p>The females are the more colorful animals; there is always a clearly marked sexual dichromatism. During mating and displaying the colours change drastically: the fish seem to glow from inside in these situations. In males of the current import there is a red pattern in the caudal fin. The remaining coloration differs a lot, depending on the mood. The bright shining zone on the belly of the female, which is present in all forms of the P. humilis relationship, is expressed very intensively in Pelvicachromis humilis \"Liberia Red\".</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<p>Male fish are larger than females and develop pointed dorsal and anal fins. Females are rounder-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<p>Not as easy as some Pelvicachromis species. Cave spawner. The fish form monogamous pairs and the best way to obtain such a pair is to buy a group of six or more young fish and grow them on, allowing pairing to occur naturally. There are no guarantees that simply buying a male and female fish will result in a compatible pair, and it may result in the death of an unwilling partner. If you do choose to buy a single pair, select the largest male and most colourful female from the dealer's tank.</p><p>The breeding tank should be set up as above with a temperature of 24–26°C and pH 5.5–6.5. Make sure you provide plenty of caves to act as potential spawning sites (upturned clay flowerpots with a small piece of the rim removed work particularly well). Gentle filtration via an air-powered sponge filter or similar is preferable as the fry may be sucked into a power filter. For the best survival rate, do not add any other bottom dwelling species, particularly catfish, as these may predate on the fry or eggs. However, dither fish in the form of schools of tetras, rasboras etc. are fine and will actually decrease the chances of the parents eating their young.</p><p>Condition the adults on a good diet of live, frozen and dried foods. Courtship is a somewhat drawn out affair and the male can be quite aggressive towards his partner. The provision of caves that only the female can enter will help to dissipate this behaviour. When ready, the pair choose a cave in which to spawn or dig one themselves under a piece of decor. During spawning itself, the eggs are usually laid on the roof or wall of the selected cave. The female tends to these while the male defends the territory against intruders. If the female disappears for a few days or is not allowing the male into a certain cave, this is often a good sign that spawning has occured.</p><p>The eggs hatch in 2-3 days with the fry becoming free swimming after 7-8 days. This is often the point when the unsuspecting aquarist discovers his or her fish have bred as the fry leave the cave en-masse, shepherded by both parents. Stray fry are either rounded up or taken into the mouth of one of the parents and spat back into the main group. The pair should now be watched carefully as some fish can turn on their partners at this point. The fry are large enough to accept brine shrimp nauplii or microworm as first foods and will also browse on algae and detritus. They should be left with the parents until signs of the next spawn are seen or the male fish in particular may become aggressive towards his partner.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaceochromis-humilis",
+      "html": "<p>W. humilis is a rare species in the hobby. Several morphs are available, including \"Guinea\" and \"Liberia red\". Some of these may eventually be described as distinct species, as they are quite different in colouration and, to a lesser extent, morphology. This has already happened with W. rubrolabiatus and W. signatus, both of which were originally assigned to the humilis complex. Lamboj, Trummer &amp; Metscher (2016) erected the genus Wallaceochromis, and all three species are now in it. The easiest way to distinguish W. humilis from Pelvicachromis species is by body shape. It has a more elongate body and a comparatively long snout.</p>"
     }
   ],
   "photos": [],
@@ -63,5 +173,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }

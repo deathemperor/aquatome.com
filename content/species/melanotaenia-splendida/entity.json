@@ -10,16 +10,169 @@
     "australia",
     "fitzroy-river"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<p>The eastern rainbowfish, Melanotaenia splendida, comes from Australia and now includes the checkered rainbowfish, once M. s. inornata. It varies widely in colour and patterning by locality, and fish are often sold with a place name added to the species name. The different forms should not be mixed with each other or with the red-striped rainbowfish in the aquarium because they may hybridise. Full colour can take over 12 months to develop.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<p>Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<p>Found across a variety of habitats, including swamps, lagoons, streams and rivers. Most of these biotopes are subject to seasonal changes in temperature, water level and dissolved sediment. The fish are typically found under cover of aquatic vegetation or other debris, such as submerged logs.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<p>An active species requiring an aquarium measuring at least 120 × 30 × 30 cm - about 108 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<p>This species, like most rainbows, looks most at home in a planted aquarium. Provide areas of dense vegetation, along with some open areas for swimming. Water movement can be slow to moderate, although live plants usually prefer little to none.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<ul><li>Temperature: 20–30°C in nature due to seasonal changes. A temperature of 25–28°C should suffice in the aquarium.</li><li>pH: Aim for somewhere around neutral. The pH of the fish's natural waters varies wildly from 5.0–8.0.</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<p>Unfussy and will accept most dried, frozen and live foods. Regular feedings of the latter will ensure the best colouration.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<p>Very peaceful but can disturb smaller or slow-moving fish with its rapid movements and relatively large size. Good tankmates include other similarly-sized rainbowfish, characins, danios, barbs, freshwater gobies and catfish such as Corydoras. This rainbowfish can be quite skittish and does far better when kept in a shoal of at least 6-8, preferably more. The males will also be encouraged to display their best colours in the company of conspecifics. Obviously, a suitably-sized aquarium would be required for a very large group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<p>Mature males are larger and exhibit brighter colouration than females. They also develop a much deeper body than females as they grow, and develop longer dorsal and anal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<p>As with other members of the genus, this is not a difficult species to breed, being an egg scatterer, although the fry can prove somewhat tricky to raise. The breeding aquarium should be at least 75 cm long, and contain slightly hard, alkaline water with a pH of around 7.5 and a temperature of 26.5–29°C. A small air-powered filter will provide sufficient oxygenation and flow. The tank should be filled with fine-leaved plants such as java moss, or nylon spawning mops. No substrate is necessary. The adult fish are best conditioned in a group in a separate aquarium, with plenty of live and frozen foods. As the fish come into condition, the females will appear noticeably plumper, and males will display to each other almost constantly. Select the fattest, best-coloured pair for spawning and introduce them to the spawning tank. A small raise in temperature can often induce spawning. The pair will spawn for a period of several weeks, laying batches of eggs each day. These are attached to surfaces by a small thread. Although the adults tend not to eat the spawn, it's easier to raise the fry in a separate aquarium, so it is recommended to check the plants or mops regularly and remove any eggs found to a raising tank containing water from the spawning tank. The eggs hatch in 7-12 days, depending on temperature, and the tiny fry initially require infusoria-type food, before graduating onto free swimming foods, such as brine shrimp nauplii, after a week or so. Sinking foods are unsuitable as the fry tend to stay very close to the water surface.</p>"
+    },
     {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-splendida-2/",
       "html": "<p>The second species of rainbowfish of the genus Melanotaenia that was ever scientifically described was M. splendida. This was in 1866 and the description of the species is based on specimens from the Fitzroy River in Queensland, Australia. The species seemed so unusual to Peters, who first described it, that he even created a new genus for it, Nematocentris. However, he overlooked the fact that the genus Melanotaenia had already been created by Gill in 1862 for the very first species of this genus – described as Atherina nigrans in 1843. While the generic affiliation of M. splendida is undisputed today, there is no consensus on how the numerous locality forms in Australia should be evaluated. Depending on which species concept the individual scientists follow, they are seen as either variants, subspecies or independent species.</p><p>The beautiful M. splendida received from Singapore show quite clearly that these are not purely academic debates, but that these things also have a practical significance. Unfortunately, the population to which the ancestors of these fish belonged is not known. All over the world, fish species are dying out because their environment is being altered. Many species of fish that are extinct in the wild or highly endangered can only be preserved for future generations of humans by breeding them in aquaria. This is already quite successful, but it is also necessary to breed on a population level and absolutely species-pure. After all, the distant goal is that these animals will one day be able to swim freely in their original habitat and be part of a natural ecosystem.</p><p>If you are simply interested in colorful fish and perhaps want to earn your first spurs with breeding, M. splendida from Singapore is a very good choice; they are beautiful fish! However, if you are more interested, you should turn to specialized communities such as the IRG (Internationale Gesellschaft für Regenbogenfische) or the ANGFA (Australian New Guinea Fishes Association). Traders also endeavor to pass on this important information to customers whenever locality forms are offered.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-splendida",
+      "html": "<p>Subspecies of Melanotaenia splendida are no longer recognised, and the checkered rainbowfish, once M. s. inornata, is now part of this species. This species exhibits a wide variation in colour and patterning depending on locality, and the species name is often suffixed with a place name when the fish are seen for sale. The different forms should not be mixed with each other or with M. rubrostriata in the aquarium, as they may hybridise. As with many other rainbowfish, adult specimens are rarely seen for sale, and it's the much drabber juvenile fish that are almost always offered in dealers tanks. However, exercise some patience (even on a good diet, full colour development can take over 12 months), and you will be rewarded with a truly gorgeous adult fish.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/8f01c81106778f93.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "CC BY 2.5",
+      "author": "opencage",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_spec.jpg",
+      "caption": "unknown rainbowfish (probably related to Melanotaenia splendida)",
+      "thumb": "https://media.aquatome.com/commons/8f01c81106778f93-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b2c4b306c8eff387.webp",
+      "width": 960,
+      "height": 638,
+      "licence": "CC BY 4.0",
+      "author": "Rolf Lawrenz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_splendida_37879121.jpg",
+      "caption": "Eastern Rainbowfish (Melanotaenia splendida)",
+      "thumb": "https://media.aquatome.com/commons/b2c4b306c8eff387-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/353d98734a211ba7.webp",
+      "width": 960,
+      "height": 986,
+      "licence": "CC BY 4.0",
+      "author": "Matthew Borella",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_splendida_splendida_175607816.jpg",
+      "caption": "eastern rainbowfish (Melanotaenia splendida splendida) in Australia",
+      "thumb": "https://media.aquatome.com/commons/353d98734a211ba7-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c30102fb003d7156.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 4.0",
+      "author": "Jesse de Vries",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_splendida_splendida_188164829.jpg",
+      "caption": "eastern rainbowfish (Melanotaenia splendida splendida) in Australia",
+      "thumb": "https://media.aquatome.com/commons/c30102fb003d7156-480.webp"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "fkcn8kBPfsU",
@@ -69,5 +222,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

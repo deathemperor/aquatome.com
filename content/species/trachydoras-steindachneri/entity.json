@@ -1,0 +1,163 @@
+{
+  "id": "trachydoras-steindachneri",
+  "scientificName": "Trachydoras steindachneri",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Trachydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "amazon",
+    "colombia",
+    "peru",
+    "bolivia",
+    "brazil"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8.6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<p>Trachydoras steindachneri is a doradid catfish from the Amazon basin in Ecuador, Colombia, Peru, Bolivia and Brazil. Rare in the hobby, it is seldom offered for sale. Primarily nocturnal, it is a bottom feeder that suits a peaceful community with tetras, barbs and dwarf cichlids.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<p>Fairly widespread. It has been recorded in parts of the Amazon basin in Ecuador, Colombia, Peru, Bolivia and Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<p>Amazonian river biotope</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<p>Standard length: 86 mm SL. Aquarium base: 90 × 38 cm. Volume: ~103 litres (90 × 38 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<p>This species will appreciate a densely planted tank with an abundance of hiding places in the form of caves, bogwood and flowerpots. Dimmed lighting will add to the fish's sense of security. Still or slow water flow is preferred but not critical.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<ul><li>Temperature: 24–26°C</li><li>pH: 6.0–7.0</li><li>Hardness: 0–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<p>Bottom feeder so sinking foods are advised. Catfish pellets, algae wafers and granular foods will all be accepted. Live and frozen foods should form a regular part of the diet. It is a good idea to add food to the aquarium just before lights out as the fish is primarily nocturnal. This will ensure the fish gets its fair share of food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<p>Community fish suitable for a variety of setups including smaller fish such as tetras and barbs and can also be kept with peaceful dwarf cichlids and gouramis.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<p>Not known</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<p>Not achieved in the hobby</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trachydoras-steindachneri",
+      "html": "<p>A rare species in the hobby that is seldom offered for sale.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá 100 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn dạng chìm",
+        "thức ăn viên tảo"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

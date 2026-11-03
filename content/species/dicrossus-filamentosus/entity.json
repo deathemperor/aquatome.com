@@ -21,12 +21,44 @@
           "min": 5,
           "max": 5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 10.2
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 27,
+          "max": 30
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -38,10 +70,46 @@
       "html": "<p>The checkerboard cichlid (Dicrossus filamentosus) is the most typical dwarf cichlid in the habitat of the cardinal tetra (Paracheirodon axelrodi). Males have a lyre-shaped caudal fin and grow to almost 8 cm long; the caudal fin of females is rounded. Females always remain smaller than males.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<p>The lyretail checkerboard cichlid, Dicrossus filamentosus, is a cichlid from the Rio Orinoco in Colombia and Venezuela and the Brazilian Rio Negro. Formerly placed in Crenicara, it shares Dicrossus with D. maculatus, which looks similar but lacks the lyretailed caudal fin. Shy by nature, it needs a well-planted, dimly lit tank with plenty of hiding places, and very soft, acidic water to breed.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-filamentosus-2/",
       "html": "<p>It is found in Brazil (Rio Negro drainage) as well as in Colombia and Venezuela (Orinoco drainage).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<p>Ranges through Colombia and Venezuela, from the Rio Inírida to Maripa and in the Rio Orinoco. It's also found in parts of the Brazilian Rio Negro.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<p>Ranges through Colombia and Venezuela, from the Rio Inírida to Maripa and in the Rio Orinoco. It's also found in parts of the Brazilian Rio Negro.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<p>Standard length: 10.2 cm SL.</p><p>Aquarium base: 60 × 30 cm.</p><p>Volume: ~68 litres (60 × 30 × 38 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<p>Checkerboard Cichlids are very shy fish, often \"hugging\" the bottom of the tank amongst plants and scattered leaves. Provide a well planted aquarium with a great number of hiding places. Floating plants are also an excellent option. Dim lighting is recommended.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<ul><li>Temperature: 27–30°C</li><li>pH: 5.0–6.5. Can tolerate up to 7, but much more acidic water (4.5 to 5.8) is required to breed D. filamentosus.</li><li>Hardness: can tolerate moderately hard water but will only thrive and breed with very little hardness (1 dH or lower recommended).</li></ul>"
     },
     {
       "key": "diet",
@@ -50,10 +118,22 @@
       "html": "<p>In feeding, Dicrossus filamentosus (formerly known as Crenicara filamentosa) is unproblematic.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<p>Checkerboards will probably accept dry foods, especially sinking cichlid pellets. If that is the case, feed a good quality sinking pellet as staple. Vary their diet with vegetarian or spirulina flakes and plenty of frozen foods. To bring Checkerboards into breeding condition, live foods are highly recommended - a daphnia culture is great for this purpose.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-filamentosus-2/",
       "html": "<p>This dwarf cichlid lives in harem associations, one male caring for several females. In community tanks, however, the fry are usually eaten by Cardinal and Co. despite the good brood care by the female.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<p>Relatively peaceful cichlids, will struggle against more aggressive tankmates. Fine in a community with other peaceful fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -62,13 +142,42 @@
       "html": "<p>Males have a lyre-shaped caudal fin; the caudal fin of females is rounded. Females always remain smaller than males. Females that have already spawned can be recognized by their blood red pelvic fins. In virgin animals the pelvic fins are colorless.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<p>Males are slightly larger and possess a highly attractive \"lyretailed\" caudal fin. Females are smaller with less colour, possessing merely a rounded caudal.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-filamentosus-2/",
       "html": "<p>In the wild, they probably spawn for the first time at about 3 cm in length. The species is an open-breeder, so spawns on the surface of solid objects, preferably plant leaves. Reproduction is only successful in water that is very close to natural conditions: practically no hardness and pH around 5.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<p>Dicrossus filamentosus is relatively easy to breed if you can provide them with premium water conditions. This means very acidic, soft, highly quality water. RO water is nearly mandatory for breeding these fish, unless your tap water is around pH 4.5.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-filamentosus",
+      "html": "<p>Dicrossus filamentosus was once part of the Crenicara genus, but now shares the Dicrossus genus with D. maculatus. The two species look similar, but D. maculatus lacks the lyretailed caudal fin of D. filamentosus. Some say however, that D. maculatus has even more striking body colouration than the already impressive D. filamentosus. These fish aren't impossible to find, but aren't readily available in local fish shops either. They are seen as a challenge to breed, but plenty of breeders have had success. The problem seems to lie in the eggs hatching - reports maintain that they will not hatch below pH 5.8.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/a0a2fbc3bea9878a.webp",
+      "width": 960,
+      "height": 634,
+      "licence": "CC BY 2.0",
+      "author": "Clinton & Charles Robertson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dicrossus_filamentosus.jpg",
+      "caption": "Dicrossus filamentosus, juvenile specimen.",
+      "thumb": "https://media.aquatome.com/commons/a0a2fbc3bea9878a-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -99,5 +208,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

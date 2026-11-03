@@ -7,19 +7,61 @@
   "group": "danios",
   "places": [
     "asia",
-    "myanmar"
+    "myanmar",
+    "sittaung"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 1.2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 1.1
       }
     ],
     "tankCm": [
       {
         "source": "glaser",
         "value": 50
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -31,10 +73,22 @@
       "html": "<p>Danionella translucida is one of the smallest vertebrate animals. The largest measured individual was only 12 mm long. Apart from their extreme smallness, the absence of scales and the high transparency of these dwarfs are noticeable.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<p>Danionella translucida is a miniature, almost transparent cyprinid from a handful of streams draining the Bago Yoma range in Myanmar. Adults measure only 9 to 11 mm SL, and it has been referred to as 'micro glassfish' in the ornamental trade. It inhabits wide, low-altitude streams with turbid water, and it is best kept alone in a school of a dozen or more.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
       "html": "<p>They originate from Myanmar, the former Burma.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<p>Known from a handful of streams draining the south and eastern slopes of the Bago Yoma mountain range, southern Myanmar.</p><p>Type locality is 'Sittang River basin, Pegu Division, Myanmar, Dayama Chaung 1.6 km north of Daik-u'.</p>"
     },
     {
       "key": "habitat",
@@ -43,10 +97,28 @@
       "html": "<p>They inhabit slowly-flowing, well planted streams.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<p>Inhabits wide, low altitude streams with constant flow of mostly turbid water and substrates of sand or mud. The type series was collected among roots of floating vegetation alongside other small cyprinids and sisorid catfishes.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
       "html": "<p>A small aquarium (50 cm) is sufficient for a group of these interesting fish.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<p>An aquarium with base dimensions of 45 × 30 cm or equivalent (about 41 litres) should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<p>Should be maintained in a planted set-up with gentle water movement, ideally with a layer of vegetation covering at least part of the surface.</p><p>Some clumps of Taxiphyllum or similar would be a useful addition as they will provide a source of micro-organisms upon which both fry and adults can feed. An air-powered sponge-type filter unit is best and should be matured before the fish are added.</p>"
     },
     {
       "key": "waterConditions",
@@ -55,28 +127,92 @@
       "html": "<p>According to the waters in their habitat, the water should be soft and slightly acidic.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<p>Quite easily-fed despite its delicate appearance. Crushed or very fine-grade dried foods, chopped Tubifex, Artemia nauplii, microworm and sifted Daphnia are all accepted. Try to vary the diet as much as possible for the fish to remain in the best of health.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
       "html": "<p>They have no special care requirements, but naturally should not be kept with lively fish.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<p>Given its diminutive size and the fact that breeding should be a priority for anyone interested in keeping it, this species is best kept alone. If you do want to attempt a community, choose other small fishes that require similar conditions such as Danio margaritatus, Boraras, or Microdevario spp.</p><p>It is a schooling species by nature so buy as many as you can; ideally no less than a dozen.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<p>Females are noticeably deeper-bodied than males, and when gravid eggs are often visible within the body cavity.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_translucida_en/",
       "html": "<p>Breeding attempts should be undertaken if the fish are well fed with Artemia nauplii and sieved live food. Reports on successful breeding are not known.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<p>Pete Liptrot and Paul Dixon of the Bolton Museum Aquarium, UK, have achieved great success with a species which is probably D. translucida. They first noticed fry from their group of 24 adults after moving the school to a dedicated set-up planted with mature Java moss and have since rewarded with regular batches of fry.</p><p>The eggs were deposited in individual, cone-shaped masses directly onto the substrate and fry raised using a combination of Paramecium and green water until large enough to accept Artemia nauplii and microworm. A number of spinal deformities were observed in the second generation of fry.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<p>This species can be distinguished from congeners by possessing 12-16 anal-fin rays and lacking pigmentation on the dorsal surface of the body, plus a series of internal characters. It has been referred to as 'micro glassfish' in the ornamental trade.</p><p>The small adult size in Danionella spp. evolved via a process known as miniaturisation, characterised by sexually mature adults with a significantly reduced size of less than 20 mm SL. Among bony fishes cypriniformes are one of the few groups in which this phenomenon occurs repeatedly, with all Barboides, Danionella, Microdevario, Microrasbora, Horadandia, Boraras, Sawbwa and Sundadanio species representing miniaturised taxa, alongside a few members of Danio, Laubuca and Rasbora. All show a preference for still or slow-moving waters, often in nutrient-poor habitats such as forest peat swamps.</p><p>The anatomical structure of miniaturised cyprinids can vary greatly; there are two putative groups with some species possessing intermediate features to some degree. The first contains those fishes which though small are essentially proportionally dwarfed versions of their larger relatives.</p><p>The other includes those in which anatomical development stops at a point where adult still resemble a larval form of their larger ancestor, as in Danionella. Such fishes are usually referred to as 'developmentally truncated' or 'paedomorphic' and are thought to have evolved via a process known as 'progenetic paedomorphosis', i.e., paedomorphosis brought about by accelerated maturation.</p><p>They typically exhibit a simplified skeletal structure along with species-specific morphological peculiarities, such as the tooth-like projections in male Danionella dracula. Britz et al. (2009) consider that developmental truncation may have facilitated the development of such novelties 'by freeing large parts of the skeleton from developmental constraints, dissociating developmentally linked pathways and creating a greater potential for more dramatic changes'. For example in addition to its amazing jaw structure D. dracula lacks forty-four bones (or bone parts) compared with the zebra danio, Danio rerio.</p><p>The phylogenetic position of Danionella has proven tricky to establish but most modern studies have recovered it as being most closely related to Esomus spp. or as sister group to all other danionins (Fang et al. 2009).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "html": "<ul><li>Roberts, T. R. (1986). Danionella translucida, a new genus and species of cyprinid fish from Burma, one of the smallest living vertebrates. Environmental Biology of Fishes 16(4), 231-241</li><li>Britz, R., K. W. Conway, and L. Rüber (2009). Spectacular morphological novelty in a miniature cyprinid fish, Danionella dracula n. sp. Proceedings of the Royal Society of London, Series B - Biological Sciences 276, 2179-2186</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Rüber, L., M. Kottelat, H. H. Tan, P. K. L. Ng and R. Britz (2007). Evolution of miniaturization and the phylogenetic position of Paedocypris, comprising the world's smallest vertebrate. BMC Evolutionary Biology London 7(38), 1-10</li><li>Britz, R. (2009). Danionella priapus, a new species of minature cyprinid fish from West Bengal, India (Teleostei: Cypriniformes: Cyprinidae). Zootaxa 2227, 53-60</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/0ffb4d4c59b1704a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0ffb4d4c59b1704a-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6b53a1ec6e311642.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6b53a1ec6e311642-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danionella-translucida",
+      "caption": "Adult female individual.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/5c9962bf43299b70.webp",
+      "thumb": "https://media.aquatome.com/commons/5c9962bf43299b70-480.webp",
       "width": 960,
       "height": 492,
       "licence": "CC BY-SA 4.0",
       "author": "Geni",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danionella_translucida_bolton_aquarium.JPG",
-      "caption": "A group of the cyprinid fish Danionella translucida at Bolton aquarium in Bolton, England",
-      "thumb": "https://media.aquatome.com/commons/5c9962bf43299b70-480.webp"
+      "caption": "A group of the cyprinid fish Danionella translucida at Bolton aquarium in Bolton, England"
     }
   ],
   "videos": [],
@@ -102,5 +238,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

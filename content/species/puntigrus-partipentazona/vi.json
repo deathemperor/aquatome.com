@@ -7,19 +7,25 @@
     "Tiger barb",
     "Cá ngựa vằn Thái",
     "Barbus partipentazona",
-    "Cá tứ vân"
+    "Cá tứ vân",
+    "Cá tứ vân Puntigrus partipentazona"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Cuối cùng chúng tôi lại nhận được những cá thể đánh bắt tự nhiên của loài cá barb xinh đẹp này. Kích thước tối đa, cách nuôi, v.v. hoàn toàn giống như cá hổ (tiger barb) nổi tiếng.</p>",
     "distribution:glaser": "<p>Barbus partipentazona có nguồn gốc từ miền nam Thái Lan.</p>",
-    "beforeYouBuy:glaser": "<p>Dành cho khách hàng của chúng tôi: loài cá này có mã 370603 trong danh sách hàng. Xin lưu ý rằng chúng tôi chỉ cung cấp cho kênh bán buôn.</p>"
-  },
-  "quality": {
-    "score": 0.9,
-    "indexable": true,
-    "bySource": {
-      "glaser": 0.9
-    }
+    "beforeYouBuy:glaser": "<p>Dành cho khách hàng của chúng tôi: loài cá này có mã 370603 trong danh sách hàng. Xin lưu ý rằng chúng tôi chỉ cung cấp cho kênh bán buôn.</p>",
+    "quickFacts:seriouslyfish": "<p>Puntigrus partipentazona là một loài cá chép nhỏ, có ghi nhận ở nhiều lưu vực sông tại Việt Nam, Campuchia, Lào, Thái Lan và Bán đảo Malaysia. Loài này rất dễ phân biệt với các loài cùng giống, vì mảng đen trên vây lưng của nó lan xuống tận thân. Cá thường sống ở những đoạn sông rậm cây và các con suối chảy chậm. Nhìn chung đây là loài hiền, dù các con đực trong đàn lúc nào cũng tranh nhau vị trí.</p>",
+    "distribution:seriouslyfish": "<p>Loài này có ghi nhận ở nhiều lưu vực sông tại Việt Nam, Campuchia, Lào, Thái Lan và Bán đảo Malaysia, trong đó có các sông Mekong, Chao Phraya, Mae Khlong, Chanthaburi, Tapi, Golok, Terengganu, Pahang, Endau và Muar.</p><p>Nơi thu mẫu chuẩn là 'Kratt, đông nam Xiêm', ngày nay là tỉnh Trat của Thái Lan.</p>",
+    "habitat:seriouslyfish": "<p>Cá thường sống ở những đoạn sông rậm cây và các con suối chảy chậm. Người ta cũng gặp chúng ở các hồ tự nhiên. Các ghi nhận cho thấy loài này thích những nơi có nhiều tảo và thực vật phù du khác.</p><p>Ở hệ thống sông Endau thuộc Bán đảo Malaysia, các loài cá sống chung khu vực với nó thuộc nhiều giống khác nhau, gồm Brevibora, Crossocheilus, Cyclocheilichthys, Rasbora, Trigonopoma, Desmopuntius, Trigonostigma, Acanthopsoides, Pangio, Nanobagrus, Akysis, Doryichthys, Sphaerichthys, Brachygobius và Pseudogobiopsis.</p>",
+    "aquariumSize:seriouslyfish": "<p>Bể cần có kích thước tối thiểu 80 × 30 × 30 cm (khoảng 72 lít).</p>",
+    "maintenance:seriouslyfish": "<p>Bày trí bể thế nào cũng được, không cần quá cầu kỳ. Tuy vậy, cá sẽ lên màu đẹp hơn trong một bể bày trí kỹ. Các loài trong giống này có vẻ cũng thích bể có cây thủy sinh nổi hoặc cây rủ xuống mặt nước, kèm rễ hay cành lũa.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–26°C</li><li>pH: 5.0–7.0</li><li>Độ cứng: 1–10dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Đây có lẽ là loài ăn tạp. Thức ăn chính của nó là ấu trùng côn trùng và động vật phù du, ngoài ra cá còn rỉa thực vật và mùn hữu cơ.</p><p>Trong bể, bạn nên cho cá ăn đều đặn các loại thức ăn sống và đông lạnh cỡ nhỏ như ấu trùng chironomid (trùng huyết), Daphnia và Artemia, xen với thức ăn khô loại tốt.</p>",
+    "behaviour:seriouslyfish": "<p>Nhìn chung loài này hiền và rất hợp với bể cộng đồng, miễn là bạn tìm hiểu kỹ trước khi chọn cá nuôi chung.</p><p>Đây là loài sống theo đàn, trong đàn có thứ bậc nhưng không chặt chẽ. Các con đực lúc nào cũng gây gổ với nhau để giành sự chú ý của con cái và giành chỗ đứng trong đàn. Vì thế bạn nên mua ít nhất một đàn 8-10 con.</p>",
+    "dimorphism:seriouslyfish": "<p>Con đực trưởng thành nhỏ hơn con cái một chút, thân thon hơn và màu sắc đậm hơn.</p>",
+    "reproduction:seriouslyfish": "<p>Chưa có ghi nhận.</p>",
+    "notes:seriouslyfish": "<p>Loài này thỉnh thoảng mới có mặt trên thị trường cá cảnh. Phần lớn cá bán ngoài tiệm là cá 'tứ vân' (tiger barb) do các trại nuôi sản xuất, và nguồn gốc của chúng khá đáng ngờ.</p><p>So với các loài cùng giống, loài này rất dễ nhận ra nhờ kiểu màu riêng. Mảng đen trên vây lưng của nó lan xuống thân, phủ 3-4 hàng vảy, đôi khi bên dưới còn có thêm một vệt đen.</p><p>Kottelat (2013) lập giống Puntigrus để xếp vào đó một nhóm loài trước đây gọi là 'nhóm Puntius tetrazona'. Các thành viên khác gồm P. tetrazona, P. navjotsodhii, P. pulcher và P. partipentazona. Ba loài đầu lần lượt là cá bản địa của miền tây, miền trung và miền đông Borneo, còn loài sau cùng là cá bản địa của Đông Dương.</p><p>Đặc điểm nhận dạng của nhóm này là kiểu màu riêng gồm 4 sọc đen trên nền thân nhạt, cùng với sắc tố đen phủ ít nhất nửa phần gốc của vây lưng. Sọc đầu tiên trên thân chạy qua mắt. Sọc thứ hai nằm trước gốc vây bụng. Sọc thứ ba nằm phía trên vây hậu môn và kéo dài xuống vây này. Sọc cuối cùng nằm ở gốc vây đuôi.</p><p>Tổ hợp các đặc điểm dưới đây cũng giúp nhận dạng, dù từng đặc điểm riêng lẻ không chỉ giống này mới có: thân hình thoi và cao, tia đơn cuối cùng của vây lưng có răng cưa ở mép sau, không có râu mõm, có râu hàm trên, môi trơn và mỏng, rãnh sau môi đứt quãng ở giữa, đường bên hoàn chỉnh hoặc không hoàn chỉnh, 18–23 vảy đường bên, 9½–10½ [5½/1/3–4½] hàng vảy từ gốc vây lưng đến đường giữa bụng phía trước gốc vây bụng, 12–14 hàng vảy quanh cuống đuôi, 8–9 lược mang trên cung mang thứ nhất.</p><p>Trước đây, giống Puntius bị coi là một nhóm gom chung, không đơn ngành, chứa hơn 100 loài. Từ đầu thế kỷ này, chuyện đó phần lớn đã được giải quyết.</p>",
+    "references:seriouslyfish": "<ul><li>Kottelat, M. (1992). The identity of Barbus johorensis Duncker, 1904 (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 40(2), 187-192</li><li>Fowler, H. W. (1934). Zoological results of the third De Schauensee Siamese Expedition, Part V. - Additional fishes. Proceedings of the Academy of Natural Sciences of Philadelphia v. 86, 335-352</li><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Ng, H. H. and H-H. Tan (2010). An Annotated Checklist of the Non-Native Freshwater Fish Species in the Reservoirs of Singapore. Cosmos 6(1), 95-116</li><li>Alfred, E. R. (1963). Some Colourful Fishes of the Genus Puntius Hamilton. Bulletin of the National Museum of Singapore 32, 135-142</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
   },
   "nameFixed": true,
   "redirectFrom": [
@@ -27,5 +33,14 @@
       "slug": "ca-ho-van-puntigrus-partipentazona",
       "name": "Cá hổ vằn Puntigrus partipentazona"
     }
-  ]
+  ],
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9,
+      "seriouslyfish": 0.7
+    },
+    "reason": "score"
+  }
 }

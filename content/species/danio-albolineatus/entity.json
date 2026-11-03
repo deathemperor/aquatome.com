@@ -10,7 +10,15 @@
     "myanmar",
     "thailand",
     "indonesia",
-    "sumatra"
+    "sumatra",
+    "irrawaddy",
+    "chao-phraya",
+    "laos",
+    "mekong",
+    "cambodia",
+    "vietnam",
+    "malaysia",
+    "peninsular-malaysia"
   ],
   "dataCard": {
     "tempC": [
@@ -19,6 +27,13 @@
         "value": {
           "min": 18,
           "max": 24
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
+          "max": 25
         }
       }
     ],
@@ -29,6 +44,13 @@
           "min": 6.5,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ],
     "gh": [
@@ -38,18 +60,39 @@
           "min": 5,
           "max": 12
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 20
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "sprucepets",
         "value": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
       }
     ],
     "difficulty": [
       {
         "source": "sprucepets",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
       }
     ]
   },
@@ -67,10 +110,22 @@
       "html": "<p>This easy-going species is hardy, simple to care for, and compatible with most other peaceful fish. It makes an excellent beginner fish and breeds easily in captivity.</p><p>The name should not be confused with the celestial pearl danio, also known as the galaxy rasbora, Danio margaritatus, which is a dark-colored danio with red or orange fins and white spots on the body.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. The aquarium must have a very tightly-fitting cover as members of this genus are accomplished jumpers and can fit through surprisingly small gaps.</p><p>The pearl danio, Danio albolineatus, is a small cyprinid recorded from Myanmar and Indochina south to Peninsular Malaysia and Sumatra. Colour and patterning differ between localities, and doubts remain whether it is a single species or a group of closely related fish. Wild examples are rare in the trade, with most produced commercially in South East Asia or eastern Europe, and some of the fish traded are likely to be hybrids with D. roseus.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-danio-1378466",
       "html": "<p>First imported to Europe in 1911, this species has been popular in the aquarium trade ever since. It originates from clear, swiftly moving streams and rivers in Myanmar (formerly Burma), Thailand, and Sumatra.</p><p>The fish has several scientific names, a few of which were assigned to what were later determined to be colour variants of the same species. Debate still exists over the classification of these colour differences. At one time the species was placed in the genus Brachydanio, which has since been declared invalid. The name Danio albolineatus means white-lined danio.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<p>Currently understood to be widely-distributed with records existing from parts of Myanmar, Thailand, Laos, Cambodia, Vietnam, Peninsular Malaysia and the Indonesian island of Sumatra.</p><p>It thus occurs in several major river drainages including the Mekong, Chao Phraya, Mae Klong, Irrawaddy and Salween, plus countless smaller ones.</p><p>It was described from 'Tenasserim Provinces' which could refer to any one of five or more modern day states in Myanmar, most likely a former division in the south of the country now known as Tanintharyi Region, and later authors have tended to use Weber and de Beaufort's (1916) description of Sumatran specimens as reference.</p><p>However the fish exhibit differences in colour, patterning and morphology depending on locality and it's possible that the species as currently-recognised will turn out to represent a complex of closely-related fishes should a detailed study be conducted (see 'Notes').</p><p>Wild examples are now rare in the trade with the vast majority produced commercially in South East Asia or eastern Europe.</p>"
     },
     {
       "key": "habitat",
@@ -79,10 +134,22 @@
       "html": "<p>In nature, they live in clear, fast-moving streams and rivers and feed primarily on insects and zooplankton.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<p>Inhabits various habitat-types from well-oxygenated, clear streams with rocky substrates running through forested areas, to still bodies of water such as ponds, ditches and rice paddies.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-danio-1378466",
       "html": "<p>Pearl danios thrive in a minimum of a 20-gallon tank (about 75 litres) due to their need for ample swimming space. Longer tanks are preferable, with plants along the back and sides.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<p>Standard length: 55 mm SL. Aquarium base: 90 × 30 cm. Volume: ~81 litres.</p><p>Minimum base dimensions of 90 × 30 cm are recommended for this active species.</p>"
     },
     {
       "key": "maintenance",
@@ -91,10 +158,22 @@
       "html": "<p>Originating from fast-moving streams and rivers, the pearl danio is accustomed to strong water currents. Because they require a slightly higher oxygen level than other danios, good filtration is important. They swim at all levels, but due to their propensity for jumping, the tank should be well covered.</p><p>Their iridescent colours are most visible under reflected, overhead lighting, and they are particularly fond of early-morning sunlight.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<p>Looks particularly effective in a heavily-planted arrangement with a darker substrate, and may appear paler in sparsely-decorated set-ups.</p><p>We suggest maintaining it in a well-planted aquarium or set-up designed to resemble a flowing river or stream, with a substrate of variably-sized rocks and gravel and some large water-worn boulders.</p><p>Additional powerhead(s) or filter outlets can be used to provide flow but torrent-like conditions should be avoided since small danionins tend to occupy calmer stretches and marginal zones in nature.</p><p>Driftwood roots, branches and aquatic plants, with hardy genera such as Microsorum, Bolbitis or Anubias ideal since they can be grown attached to the décor, can also be added.</p><p>The aquarium must have a very tightly-fitting cover as members of this genus are accomplished jumpers and can fit through surprisingly small gaps.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-danio-1378466",
       "html": "<p>Temperature 18 to 24 °C (64 to 75 °F), pH 6.5 to 7.0, hardness 5 to 12 dGH. Pearl danios tolerate colder temperatures well and may even be kept in an unheated aquarium. Although undemanding about water parameters, they do best in neutral (pH 7.0) water that is soft to slightly hard.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<ul><li>Temperature: 16–25°C</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -103,10 +182,22 @@
       "html": "<p>Pearl danios accept all types of live, frozen, and flake food. In nature, their diet consists primarily of insects and zooplankton. To maintain health, feed good quality tropical flake or granulated food, as well as frozen and live foods such as tubifex, mosquito larvae, brine shrimp, and daphnia.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<p>Stomach analyses of wild specimens have revealed this species to be chiefly insectivorous, feeding on a variety of aquatic/terrestrial insects and their larvae.</p><p>Small amounts of algae, other plant material and organic detritus were also recorded but may have derived from the gut contents of prey items.</p><p>In the aquarium it's a largely unfussy feeder and will accept most foods.</p><p>A good quality dried product can be used as the staple diet but this should be supplemented with regular meals of small live and frozen fare such as bloodworm, Daphnia, Artemia, etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-danio-1378466",
       "html": "<p>Pearl danios are peaceful and well suited to community aquariums, getting along with any peaceful fish. They tolerate a wide range of water conditions, which also makes them suited to combining with a variety of other fish. Like other danios, they live in schools and should be kept in groups of at least five to eight, and preferably more. Males show their best colours if at least one female is present.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<p>This species is very peaceful indeed making it an ideal resident of the well-furnished community tank.</p><p>Since it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfishes, anabantoids, catfishes and loaches, though as always when selecting a compatible community of fishes thorough research is essential and its small adult size must be a consideration.</p><p>A community based around species from one of its native countries or river basins would also make an interesting project with possibilities from the Mekong alone including representatives of Acanthocobitis, Annamia, Balitora, Homaloptera, Nemacheilus, Schistura, Sewellia, Lepidocephalichthys, Pangio, Yasuhikotakia, Crossocheilus, Devario, Garra, Rasbora, Glossogobius, Rhinogobius, Glyptothorax, Akysis and Trichogaster.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display, while males will also exhibit their best colours as they compete with one other for female attention.</p>"
     },
     {
       "key": "dimorphism",
@@ -115,13 +206,59 @@
       "html": "<p>Male and female pearl danios are similar in appearance. The biggest difference is that, when full of eggs, the female has a more rounded body shape. Females are larger overall and fuller-bodied. Males are smaller, slimmer, and more brightly coloured, and often show a red tint along the underside.</p><p>The pearl danio has a pearly, blue-violet body with an orange-red stripe extending from the tail to mid-body, a forked tail and two sets of paired barbels. In some areas a yellow-ochre variant called the yellow danio can be found.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<p>Sexually mature females are usually rounder-bellied, slightly less colourful and a little larger than males.</p><p>The differences are especially clear when the fish are in spawning condition as the males intensify in colour and the females fill with eggs.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-danio-1378466",
       "html": "<p>Pearl danios are an easy-to-breed egg-laying fish. As with other danios, breeding pairs are very loyal. The breeding tank should be warm, 26 to 30 °C (79 to 86 °F), with a shallow water level of about 10 to 15 cm. Provide fine-leaved plants, either floating or planted in a group. Marbles make an excellent substrate that lets stray eggs fall out of reach of the adults. A breeding grid or mop on the bottom would also protect the eggs.</p><p>They spawn as pairs or in a school. Place half as many females as males in the breeding tank several days before introducing the males. Once the males are added, pairs form and leave the group to scatter eggs.</p><p>Spawning can also be triggered by adding a small amount of water every few hours so the tank is gradually topped up, simulating the rainy season. Pairs spawn the next morning; a spawned female is noticeably slimmer. Remove the adults as soon as spawning is finished, otherwise they will eat the eggs.</p><p>Keep the tank dark while the eggs develop to prevent fungal growth. The fry emerge in 36 to 48 hours and should be fed freshly hatched brine shrimp or infusoria. Young danios grow rapidly and are free-swimming in six to seven days. Fry may be raised on finely ground dry food or commercial fry food.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<p>Like many small cyprinids this species is an egg-scattering spawner that exhibits no parental care.</p><p>That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller, say 20-30 litre containers should also be set up and half-filled with water.</p><p>These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works very well; alternatively filling much of the tank with Java moss or other fine-leaved plant can also yield good results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above.</p><p>A small power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container.</p><p>Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods.</p><p>The pair should spawn the following morning. The easiest and quickest way to tell is simply to look at the female. If the fish have spawned she will be noticeably slimmer.</p><p>The adults will eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism.</p><p>Incubation is temperature-dependant to an extent but usually takes between 24 and 36 hours with the young free-swimming a few days later.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron diameter) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<p>Doubts remain whether D. albolineatus is representative of a single species or a group of similarly-patterned, closely-related fish, and the form from Chantaburi province in eastern Thailand was revalidated as D. pulcher Smith, 1931 by Kottelat (2013). The status of the currently invalid Danio tweediei Brittan, 1956 from Kedah state, northern Peninsular Malaysia may also be in question, since fish from that area are clearly identifiable from other forms and have even been misidentified as D. kerri in aquarium literature.</p><p>Specimens collected from different areas exhibit clear differences in colouration and patterning, e.g., those from western Thailand tend to show some orange colour in the dorsal half of the body while in central parts of the country the same portion is coloured blue. The length of the central orange stripe which extends from the caudal peduncle can also vary in both thickness and length, even among specimens collected from a single locality.</p><p>There is also a natural form from Yunnan province, China that superficially resembles D. roseus; this is unlikely to have been collected for the aquarium trade.</p><p>Breeders in eastern Europe have successfully crossed D. albolineatus with D. roseus, and some of the fish traded are likely to be hybrids. If you want to avoid these beware of examples with a cheap price tag that show a high proportion of both powdery-blue colouration on the body and red in the ventral and anal fins.</p><p>According to Kottelat (2001), D. albolineatus can be told apart from congeners by the following combination of characters: 'body pink with two light yellow-white (iridescent in life) stripes from below dorsal origin to caudal base; short lateral line with 5-7 pored scales; 33-34 + 2 scales in lateral row; 7½ branched dorsal rays; 12-13½ branched anal rays; two pairs of long barbels, rostral barbels extending beyond eye, maxillary barbels beyond pectoral base.'</p><p>In recent years it's become commonplace to refer to the stripes on the body and fins of danionins as follows:</p><ul><li>P stripe: or \"pigment stripe\" is the central, dark, lateral stripe on the body which extends into the caudal-fin in some species. Stripes above it are numbered P+1, P+2, etc. and those beneath P-1, P-2, P-3.</li><li>A stripe: the central stripe on the anal-fin; the proximal stripe (above it) is A+1 and the distal stripe (beneath) A-1.</li><li>D stripe: the submarginal dorsal-fin stripe.</li></ul><p>Following Fang (2003) Danio spp. are characterised by the presence of an A stripe on the anal-fin and two or more P stripes on the caudal, plus some internal characteristics such as enlarged nasal lamellae.</p><p>The genus has undergone some significant taxonomic reshuffling in recent years following the publication of a series of phylogenetic studies.</p><p>Older, molecular, phylogenies tended to agree that it represented a monophyletic group consisting of two major clades; the 'Danio devario' group containing the larger, deeper-bodied species and the 'D. rerio' clade comprising the smaller, slimmer fish.</p><p>However in 2003 Fang conducted a more detailed study based on morphological characters which included members of other related genera, and the results suggested for the first time that the genus Danio as previously considered represents a polyphyletic grouping, i.e., not all members derived from a single common ancestor.</p><p>The genus name Devario was suggested for the larger species with Danio being applied only to the smaller fish (with the exception of the type species, D. dangila which can grow to around 89 mm SL). Recent molecular studies by Mayden et al. (2007) and Fang et al. (2009) resulted in further changes, with the latter study considering the genus Danio to be composed of three subclades. These were subsequently split into distinct genera by Kottelat (2013), as follows:</p><p>The former species D. erythromicron, D. margaritatus, D. choprae and D. flagrans were grouped together in the revalidated genus Celestichthys Roberts, 2007. These exhibit unique body patterning consisting of vertical bars (D. erythromicron, D. choprae, D. flagrans) or light spots (D. margaritatus) and possess either very short barbels or none at all.</p><p>Kottelat (2013) left only the type species, D. dangila, in Danio, separated on the basis of its larger size and the shape of the caudal-fin, which in adults is only slightly emarginate or even truncate in shape, a feature it shares only with Tinca tinca (the common tench) among other cyprinids.</p><p>The remaining species, of which D. rerio is thought to be the most ancient, were placed in the revalidated genus Brachydanio Weber &amp; de Beaufort, 1916. Kullander (2015) did not follow this split, because phylogenetic analyses strongly support a single Danio in the sense of Fang (2003), with Devario a separate genus. The Catalog of Fishes and FishBase both keep all of these species in Danio.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "html": "<ul><li>Fang, F. and M. Kottelat (1999). Danio species from northern Laos, with descriptions of three new species (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 10(3), 281-295</li><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>McClure, M. M., P. B. Mcintyre and A. R. McCune (2006). Notes on the natural diet and habitat of eight danionin fishes, including the zebrafish Danio rerio. Journal of Fish Biology 69, 553-570</li><li>Conway, K. W., W.-J. Chen and R. L. Mayden (2008). The 'Celestial Pearl danio' is a miniature Danio (s.s) (Ostariophysi: Cyprinidae): evidence from morphology and molecules. Zootaxa 1686, 1-28</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Blyth, E. (1860). Report on some fishes received chiefly from the Sitang River and its tributary streams, Tenasserim Provinces. Journal of the Asiatic Society of Bengal 29(2), 138-174</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/74092b4e0c9e3b61.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/74092b4e0c9e3b61-480.webp",
+      "width": 800,
+      "height": 577,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "caption": "It is unclear if this is a particularly colourful natural form or an ornamental hybrid.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d8cb6d518874f8d6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d8cb6d518874f8d6-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-albolineatus",
+      "caption": "A striking wild form which has been sold as 'blue dream danio' in the past.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/0d62d32d5f707e7d.webp",
       "thumb": "https://media.aquatome.com/sprucepets/0d62d32d5f707e7d-480.webp",
@@ -194,5 +331,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }

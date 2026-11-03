@@ -7,13 +7,59 @@
   "group": "cichlids",
   "places": [
     "africa",
-    "lake-tanganyika"
+    "lake-tanganyika",
+    "burundi",
+    "democratic-republic-of-the-congo",
+    "zambia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,10 +71,76 @@
       "html": "<p>The julies (Julidochromis) are among the most popular cichlids from Lake Tanganyika. They are very beautiful, colorful and comparatively peaceful animals. For reproduction, territories are formed and defended against other fish. All Julidochromis are recommendable aquarium fish; there is a suitable species for every aquarium. The largest is J. marlieri. The maximum length of the species given in literature is just under 15 cm (including tail fin).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<p>Marlier's julie, Julidochromis marlieri, is a rock-dwelling cichlid endemic to Lake Tanganyika, also sold as the chequered julie. It swims hugging the rock surfaces at any angle, and is found in fairly deep water along rocky shorelines. Adults are very belligerent towards one another, so unless the tank is huge it should be kept as a pair. Several geographical morphs are available, and no two species or morphs of Julidochromis should be kept together as they may hybridise.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<p>Endemic to Lake Tanganyika (Burundi, DR Congo and Zambia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<p>It inhabits rocky shorelines in fairly deep water and is widespread in the northern and southern ends of the lakes with a patchier distribution down the eastern and western shores.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<p>Standard length: 150 mm SL.</p><p>120cm x 30cm x 30cm - 110 litres for a single pair. Much larger quarters would be required for a group of adults.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<p>It should be housed in a Lake Tanganyika biotope setup, with piles of rocks arranged to form caves filling much of the aquarium. A sandy substrate is preferable and the aquarium should be well oxygenated. If you're keeping more than one species of rock dweller, try and provide each with a distinct pile of rocks in order to disperse aggression.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 7.5–9.5</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<p>Live and frozen foods should comprise a decent proportion of the diet, alongside a decent dried brand. Some vegetable matter, such as spirulina or blanched spinach should also be fed.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<p>Territorial, but it can be maintained successfully with other similarly sized Tanganyikan cichlids such as Altolamprologus and Cyprichromis species. Unless the tank is huge it should be kept as a pair, as adults are very belligerent towards one another.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<p>The genital papillae of males is more extended and pointed than that of females. Adult females are also larger than males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/julidochromis-marlieri-2/",
       "html": "<p>Julidochromis marlieri are mostly monogamous, but there are also polyandrous females, which live in polyandry. In this case, the males defend the spawning territory (usually a rock crevice or the like) and the female swims the territories and occasionally spawns with one or the other male.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<p>Easy but patience is required. The best way to start is with the purchase of a group of young fish, allowing these to pair off naturally. Once a pair forms (this may take a year or more), the other fish should be removed as the pair will remain together for life. Unfortunately speeding up this process by simply buying an adult male and female will not guarantee a pair and often results in the female being harassed to death. The aquarium itself needs to be at least 120 cm in length and set up as suggested above. The pH should be around 8.2-9.0 and the temperature 25–26.5°C. The pair will spawn very secretively in a cave, with the female laying up to 100 eggs (but usually less) on the wall or roof of it. It is often very difficult to tell if they have spawned until the fry are seen. Once spawning has occured the female will tend to the eggs while the male guards the area around the cave. After the eggs hatch, you may wish to remove the parents, although they will rarely harm their offspring. The fry may still have some yolk sac remaining when they are released and do not need to be fed until this has disappeared. If they are released with no yolk sacs you can start to feed immediately. The fry are large enough to take brine shrimp nauplii from birth. Brood care is quite long-lived and they can remain with the parents until they are around 2.5 cm in length, at which point they should be removed as the adults can turn on them. The adults may spawn again whilst the brood is still in the aquarium and will form a nuclear family with the older fry remaining in the parents' territory and tending to new broods of eggs. Interestingly, during the period in which she is caring for the fry the female becomes the dominant fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-marlieri",
+      "html": "<p>Julidochromis are commonly known as \"Julies\" in the hobby. This particular species may also be seen for sale as the Chequered Julie. A truly characterful cichlid exhibiting quirky behaviour, it will swim hugging the rock surfaces no matter what the angle is. As with other Julies, large water changes should be avoided as this can cause mated pairs to turn on one another. Several geographical morphs are available. However, no two species or morphs of Julidochromis should be kept together in aquaria as they may hybridise.</p>"
     }
   ],
   "photos": [],
@@ -61,5 +173,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

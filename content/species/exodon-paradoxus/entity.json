@@ -11,13 +11,57 @@
     "brazil",
     "amazon",
     "venezuela",
-    "orinoco"
+    "orinoco",
+    "rio-branco"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 7.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -29,10 +73,46 @@
       "html": "<p>For many aquarists the Bucktooth tetra, Exodon paradoxus, is simply the most beautiful tetra from South America. The splendid fish glitter and glimmer like diamonds and they never stay still. E. paradoxus attains a maximum length of about 7.5 cm. Keeping this fish is not complicated, but the tank should be large and the fish should be kept in a school as large as possible.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<p>The bucktooth tetra, Exodon paradoxus, is a scale-ripping characin widespread in the Brazilian Amazon. The only member of its genus, it has teeth that allow it to tear scales from other fishes. It will relentlessly attack silver-coloured or shiny tankmates, even larger predators, so it is best kept as a large shoal in a species setup. Scaleless and non-reflective fish are generally left alone.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-2/",
       "html": "<p>The species has a very wide distribution in South America. It can be found in Guyana and the whole Amazon and Orinoco basins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<p>Widespread throughout the Brazilian Amazon and has also been recorded in the Rio Branco, Guyana.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<p>Usually found in parts of rivers flowing through savannah-like grassland. These biotopes are characterised by flowing waters over sandy substrates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<p>A 120 × 45 × 45 cm (~243 litres) tank is big enough to house a shoal of these. In anything smaller, you're likely to end up with only a few surviving specimens.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<p>A biotope setup would consist of a substrate of sand with perhaps a few driftwood branches and roots added for effect. However, the fish look most effective when kept in a heavily planted tank. This kind of setup has the added benefit of containing plenty of refuges where individuals can go and seek some respite if they are being singled out for bullying. Filtration should be very efficient to cope with the fact that the species needs to be maintained in large groups.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 5.5–7.5</li><li>Hardness: 0–20 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -41,16 +121,46 @@
       "html": "<p>In the wild, Exodon paradoxus feed almost exclusively on scales of other fish. Their highly specialized teeth enable that. In the aquarium, any type of usual fish food will be accepted readily.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<p>Gut analyses of wild specimens have shown that the diet consists largely of insects and the scales of other fish. Thankfully, there's no need to provide live fish in captivity, as dead alternatives are readily accepted. Feed a varied diet comprised predominantly of meaty fare such as bloodworm, chopped prawns, mussel, earthworms and lancefish. Most will even accept dried foods. Ensure any tankmates are receiving enough food, as Exodon are violent and greedy feeders. Apparently, locals living in areas where the species is common place dirty pans and dishes into the water and the fish perform a useful task by picking every scrap of food from them!</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-2/",
       "html": "<p>They hunt and hit their conspecifics permanently and an uneducated watcher may become quite concerned that the fish will eventually hurt each other. But this doesn't happen. Like a flash they attack their prey and the victim doesn't understand what actually happened. The game of the Bucktooth tetras has two purposes. First: the game fools the potential victims and makes them \"believe\" that the Bucktooth tetras are not interested in them. And second: this permanent swimming is a perfect training for the small predators.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<p>This is not a community fish, and is best kept in a species setup. It will relentlessly attack any silver-coloured or shiny tankmates, stripping them of scales and fins very quickly. Even larger, predatory species are not safe. Scaleless and non-reflective fish are generally left alone. Success has been had keeping Exodon alongside various loaches, Loricariids and some larger characins such as Anostomus. The situation will always be somewhat unpredictable though. It's best to add the Exodon last as they may see any new additions as food, and as with most predatory species they tend to bite first and ask questions later.</p><p>Make sure you buy a sufficiently large group of these. A minimum of a dozen is usually recommended, but buy as many as the tank can house. In a tank like the one described above a group of 25-50 would not be an unreasonable number. If kept in smaller groups, they tend to pick one another off until only a single fish remains. In large shoals, no individual can be targeted and it is usually only sick or unhealthy specimens that are killed, although occasional losses should still be expected. The interaction of a big group is fascinating to watch, as they squabble amongst themselves constantly. Feeding time in particular is quite a sight. Buy the entire group at the same time as new additions are usually attacked.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<p>Mature males are slimmer than females, and tend to have slightly elongated dorsal and anal fin rays.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<p>Has been achieved, albeit rarely. It's an egg scattering species. The best way to approach a breeding project is to set up a separate tank in which to spawn the fish. Something around 60 × 30 × 30 cm should be sufficient. This can be empty save for some clumps of fine-leaved plants to catch the eggs. Alternatively, cover the base of the tank with some kind of mesh. This should be big enough so that fish eggs can fall through it, but small enough to prevent the adult fish from reaching them. Water should be soft and slightly acidic (pH 6.0-6.5, gH 1-5).</p><p>Meanwhile, condition the adults in a shoal in a separate tank, as described above. Once the fish are in good condition, select a pair and transfer them to the spawning tank. Apparently spawning can sometimes be initiated by performing a large (50%+) water change with slightly warmer water than that in the tank. Remove the adults as soon as eggs are noticed, as they will eat their spawn given the opportunity. The eggs hatch in 2 - 3 days.</p><p>There is little information available regarding raising of the fry. It's likely that small livefoods such as newly hatched brineshrimp will be accepted. Cannibalism will probably be rife, so keep a close eye on the young as they grow and have several tanks ready to move differently sized fish into.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-2/",
       "html": "<p>In respect of eventually planned tankmates one must be very careful. Best choice are catfish, for they have no scales at all and so they don't fit the prey scheme of the Bucktooth tetras.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
+      "html": "<p>The genus Exodon is currently monotypic, with this single species having uniquely designed teeth. These allow it to rip the scales from other species. It's an ideal choice for those wishing to keep a large shoal of a predatory species without possessing the massive amount of tank space needed for a shoal of piranha or similar. A tank full of these makes for a very colourful and active display.</p>"
     }
   ],
   "photos": [],
@@ -78,5 +188,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

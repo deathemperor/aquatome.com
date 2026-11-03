@@ -8,12 +8,56 @@
   "places": [
     "asia",
     "malaysia",
-    "sarawak"
+    "sarawak",
+    "indonesia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
         "value": 5
       }
     ]
@@ -26,19 +70,103 @@
       "html": "<p>The genus Rasbora is very speciose and currently contains 82 described species. Nevertheless, only comparatively few species have ever been kept in aquaria. R. sarawakensis reaches about 5 cm in length. It is a pretty, completely undemanding schooling fish.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<p>Rasbora sarawakensis is a small rasbora endemic to Borneo, found in Sarawak and the neighbouring Indonesian province of West Kalimantan. It mostly inhabits slow-moving forest streams with thick marginal vegetation, where the water is clear but weakly stained by tannins. Poorly documented in the aquarium literature, it is a very peaceful little fish and apparently quite common across its natural range.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sarawakensis_en/",
       "html": "<p>R. sarawakensis originates from the part of Borneo that belongs to Malaysia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<p>Endemic to the island of Borneo. Although the name may suggest otherwise it is not only found in Sarawak state (Malaysia) but also ranges into neighbouring West Kalimantan/Kalimantan Barat province (Indonesia). It has been recorded from numerous river systems including the Batang Kayan and Sungai Sarawak in Sarawak and the Mempawah and Melawi in Kalimantan Barat.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<p>Mostly inhabits slow-moving forest streams with thick marginal vegetation. These are often shaded by the dense rainforest canopy above. The substrate is most often composed of a thick layer of silt littered with fallen tree branches and leaf litter and the water is quite clear but coloured weakly brown due to tannins released from the decomposing organic matter. At one typical locality in Sarawak sympatric species included Rasbora borapetensis, Puntius kuchingensis, P. sealei, Hemirhamphodon pogonognathus, Betta taeniata and an unidentified Nemacheilus species.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<p>A tank measuring 60 × 38 × 30 cm (~68 litres) is big enough to house a small group of these.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<p>Choice of decor is unlikely to be critical although other small rasboras tend to show better colouration when maintained in a well-planted set-up with a dark substrate. The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel. Filtration does not need to be particularly strong as it mostly hails from sluggish waters and may struggle if there is a fast current in the tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<p>Probably feeds mostly on invertebrates both aquatic and terrestrial in nature as with similar members of the genus. In the aquarium it should accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, bloodworm and suchlike will result in the best colouration and encourage the fish to come into breeding condition.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sarawakensis_en/",
       "html": "<p>A schooling fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<p>This species should make an ideal addition to a peaceful community of Southeast Asian/Indian species such as other similarly-sized Rasbora, Puntius, botiid/cobitid loaches and gouramis of the genus Trichogaster. In a biotope set-up you could try it alongside other Bornean species; there are many suitable choices but some of the more commonly exported examples include Rasbora borapetensis, R. einthovenii, Trichogaster trichopterus and Pangio semicincta.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<p>Mature females should be noticeably rounder-bellied and probably a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<p>It is not certain whether it has been bred in the hobby although it should certainly be possible. Like most cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care. That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required, beginning with an approach that has proven successful for other small members of the genus. The adult group can still be conditioned together but one or more long, shallow containers, say 45 × 20 × 20 cm (29.5 litres), should also be set up and half-filled with water. These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well for other species.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An internal power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank. When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container. Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods. Several spawning events will probably occur before a female is spent of eggs.</p><p>The adults will likely eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism. Incubation in Rasbora eggs is temperature-dependant to an extent but usually takes between 18 and 48 hours with the young free-swimming 24 to 48 hours later. Initial food should be Paramecium or similar introducing Artemia nauplii and/or microworm once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<p>R. sarawakensis is poorly-documented in the aquarium literature and it is not certain whether it has been exported for the hobby, although it may be worth looking out for among shipments of wild fish from southern/western Borneo. This is a little odd as it is an attractive, very peaceful little fish that would suit many home aquaria and is apparently quite common across its natural range.</p><p>Rasbora has long been recognised as a polyphyletic lineage, as noted by Kottelat (1999) amongst others, and in 2010 the results of a phylogenetic analysis by Liao et al. suggested a number of changes in order to improve the taxonomy. Under their arrangement R. sarawakensis is placed in the R. trifasciata species group. Shortly afterwards a paper on the systematics of the subfamily Danioninae was published by Tang et al. (2010); their results differed widely from those of Liao et al., and the new genera plus Boraras and Trigonostigma were synonymised with Rasbora, an approach they describe as 'more conservative'. Neither conclusion may be satisfactory; the system of Liao et al. has been adopted pending future studies.</p><p>The type species of Rasbora is R. cephalotaenia (Leuciscus cephalotaenia at the time), since only four nominal species were included when Bleeker first used the name in 1859. Howes (1980) suggested separating a number of species into the genus Parluciosoma, but the monophyly of that grouping was not recovered by Liao et al.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "html": "<ul><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Kottelat, M. (1999). Nomenclature of the genera Barbodes, Cyclocheilichthys, Rasbora and Chonerhinos (Teleostei: Cyprinidae and Tetraodontidae), with comments on the definition of the first reviser. Raffles Bulletin of Zoology Supplement 47(2), 591-600</li><li>Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/65217713769e7c48.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/65217713769e7c48-480.webp",
+      "width": 800,
+      "height": 420,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-sarawakensis",
+      "caption": "Specimen from the aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -63,5 +191,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-03"
 }

@@ -9,16 +9,159 @@
     "africa",
     "madagascar"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 17,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 28
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/paratilapia_polleni_en/",
       "html": "<p>Many of the endemic species of cichlid from the island of Madagascar are endangered of extinction. This is due to destruction of the natural environments and the release of foreign fish species for food purposes. Sadly most of the Madagascar cichlids could not yet established as aquarium fish. An exception from that rule is the splendid Paratilapia polleni. The juveniles still look rather drab coloured, but in a large tank they will develop to breathtaking beauties.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<p>Paratilapia polleni is a large cichlid endemic to Madagascar, widespread on the island and known to many natives as 'marakely', meaning 'black fish'. Like most Madagascan cichlids it is highly endangered in the wild through habitat destruction and competition from introduced species. Large- and small-spotted forms exist whose identity is unconfirmed, and they should never be mixed in aquaria since they hybridise freely.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<p>Endemic to the island of Madagascar. It has a widespread distribution on the island.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<p>In nature P. polleni proves itself to be one of the most adaptable cichlids known. It has been recorded at altitudes of up to 1500m where the water temperature may drop as low as 12 °C and in hot springs which can reach 40 °C! The water chemistry of these springs is very alkaline but P. polleni is also found in acidic blackwater habitats and even in slightly brackish conditions.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<p>Standard length: 280mm SL. Aquarium base: 120 × 45cm. Volume: ~205 litres.</p><p>120 × 45 × 38 cm (~205 litres) is suitable for a single compatible pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<p>The aquarium should contain plenty of hiding places. Clay pots, roots and pieces of driftwood can all be used. Plants are not essential but the fish will appreciate the additional cover. A sandy substrate is preferable but fine gravel is ok.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<ul><li>Temperature: 17–28 °C</li><li>pH: 6.5–8.0</li><li>Hardness: 8–25 dGH</li></ul><p>Aim for about 22–27 °C in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<p>It is a piscivore in nature but there is no need to feed live fish in aquaria, as it accepts dead foods readily. The majority of live and frozen foods are accepted and most specimens will also accept dried foods. A varied mix of these is the best diet. Do not feed animal meat of any kind.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<p>Relatively peaceful with heterospecifics, although it is robust enough to hold its own in territorial disputes. It becomes far more aggressive when breeding but even then, fish that do not enter the polleni's territory are tolerated (this territory can however be very large. See breeding section). Obviously a large tank is required if it is to be kept with other cichlids but it can be combined successfully with various Rift Lake species and even some of the milder Central Americans. Small fish will be eaten. It is generally aggressive towards conspecifics and should be kept only as a single specimen or pair unless a huge tank is available.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<p>Adult male fish are much larger than females and develop longer extensions on the dorsal and anal fins. They also tend to have a more rounded head shape.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<p>Possible but infrequent in aquaria. Bi-parental substrate spawner. It is suggested to buy a group of young fish and allow these to pair off naturally. The fish will usually all hold individual territories and pair formation is likely if two fish are occupying the same space. The territory held by the pair can be over 90 cm of the aquarium length if the fish are large. At this point, removal of the other fish is recommended as they will most likely not be tolerated by the pair. The tank itself should be at least 120 cm in length, preferably 150 cm or more and set up as above. A temperature of 24–28 °C and pH of 6.5-7.5 is adequate.</p><p>Courtship between the pair begins several days prior to spawning itself, with the male taking on intense dark colouration (the female takes on a similar patterning just before spawning itself) and displaying at his partner. These displays may include the male \"headstanding\". The pair will then excavate a large pit in the substrate of their territory, in which spawning occurs. If there are any other fish present in the aquarium aggression towards them will increase significantly at this point.</p><p>The female may lay her eggs directly onto the substrate, in a hollow on a piece of wood, or more rarely, on the roots of plants which the fish first expose by removing the substrate around them. The eggs have a long sticky filament attached to them, and these attach to the filaments on other eggs, forming long 'strings' of spawn. Up to 1000 eggs can be laid, and there may be one or more 'strings' which the female proceeds to tend and guard whilst the male guards the territory against intruders. The male is not tolerated by the female while she is tending the brood.</p><p>The eggs hatch in around 48 hours and usually remain in the spawning site for the initial phase of life. They are free swimming after 6-7 days and can accept brine shrimp nauplii, microworm and powdered dry foods from this point. The fry can be removed at this stage to be raised in a separate aquarium. If they are left with the parents, both fish defend the brood and this care can last for up to 3-4 weeks after the fry become free swimming. The fry can remain together until they start to become territorial and aggressive towards one another. This can be anywhere from 2-10 months so they should be closely monitored, particularly when being fed.</p><p>It should be noted that in young pairs the male may become somewhat aggressive towards the female in the absence of target fish or one or both fish may eat the eggs or fry but they will usually get it right in time. The fish should therefore be watched closely in case the female has to be removed or the tank divided.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paratilapia-polleni",
+      "html": "<p>Now the only species in the genus Paratilapia, P. polleni is known as the \"marakely\" to many natives in Madagascar, which means \"black fish\". As with most Madagascan cichlid species, it is highly endangered in the wild due to habitat destruction and competition from introduced species and all attempts at captive breeding are to be encouraged.</p><p>There is still some confusion as to the identity of the \"true\" P. polleni as there are both large and small-spotted forms available. The small-spotted form is given as the type species for polleni but there has been speculation that it should be renamed P. typus. The large spotted form is referred to as P. bleekeri by some sources. However, none of this has been confirmed by science and currently all the forms (there is at least one more form, and possibly more) should be considered polleni. They should not be mixed in aquaria under any circumstances as they will hybridise freely and considering the status of the fish in nature, no chances should be taken.</p><p>This species is very sensitive to changes in water parameters and large water changes should be avoided. Changing small amounts regularly and often is recommended. It is also particularly susceptible to Oodinium, better known as velvet disease. If an outbreak is noted the fish should be treated by the addition of salt and the raising of the temperature to speed up the life cycle of the parasite. Salt should be added in small amounts and the concentration gradually increased.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/bd5050796a74dc6d.webp",
+      "width": 960,
+      "height": 599,
+      "licence": "CC BY-SA 4.0",
+      "author": "Michael K. Oliver, Ph.D.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paratilapia_polleni_Bleeker.jpg",
+      "caption": "A primitive cichlid from Madagascar, Paratilapia polleni Bleeker, photographed at the Berlin Aquarium.",
+      "thumb": "https://media.aquatome.com/commons/bd5050796a74dc6d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0883006ba90220ad.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Hectonichus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_-_Paratilapia_polleni.JPG",
+      "caption": "Adult of Paratilapia polleni, on display at the Museo di Storia Naturale e del Territorio, Calci (Province Pisa), Italy",
+      "thumb": "https://media.aquatome.com/commons/0883006ba90220ad-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d30b3d40b2adff2a.webp",
+      "width": 960,
+      "height": 1366,
+      "licence": "Public domain",
+      "author": "text: Alfred Grandidier (1836-1921) artists: various (Karmanski)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GrandidierMadagascarFishes_0107.jpg",
+      "caption": "Paratilapia bleekeri Paratilapia polleni Ptychochromis grandidieri",
+      "thumb": "https://media.aquatome.com/commons/d30b3d40b2adff2a-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -43,5 +186,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }
