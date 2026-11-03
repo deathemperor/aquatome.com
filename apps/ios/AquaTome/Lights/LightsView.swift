@@ -413,23 +413,18 @@ private struct WriteBar: View {
 
   var body: some View {
     let f = lights.form
-    let row = pinned ? AnyLayout(HStackLayout(spacing: 12)) : AnyLayout(VStackLayout(alignment: .leading, spacing: 8))
+    let said = f.problem == nil ? summary(f) : ""
     let content = VStack(alignment: .leading, spacing: 4) {
-      row {
-        Text(verbatim: f.problem == nil ? summary(f) : "")
-          .font(.subheadline.weight(.semibold)).monospacedDigit()
-          .frame(maxWidth: .infinity, alignment: .leading)
-          .accessibilityIdentifier("summary")
-        Button {
-          if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
-        } label: {
-          Text(lights.formIsActive ? "Đèn đang dùng lịch này" : lights.isWriting ? "Đang ghi…" : "Ghi lịch vào đèn")
+      if pinned {
+        // Beside the button, on one line or broken after its times; above the button where even that doesn't fit (a
+        // longer language's button), never with its times broken.
+        ViewThatFits(in: .horizontal) {
+          HStack(spacing: 12) { summaryText(said); button }
+          HStack(spacing: 12) { summaryText(said.replacing(" · ", with: " ·\n", maxReplacements: 1), saying: said); button }
+          VStack(alignment: .leading, spacing: 8) { summaryText(said); button }
         }
-        .buttonStyle(.borderedProminent)
-        .controlSize(.large)
-        .layoutPriority(1) // its words on one line where they fit; the summary wraps first
-        .disabled(!lights.canWrite)
-        .accessibilityIdentifier("write")
+      } else {
+        VStack(alignment: .leading, spacing: 8) { summaryText(said); button }
       }
       if !lights.isConnected {
         Text("Kết nối đèn để ghi lịch. Lịch này được nhớ trên máy.").font(.footnote).foregroundStyle(.secondary)
@@ -453,6 +448,28 @@ private struct WriteBar: View {
       Button("Ghi lịch") { Task { await lights.writeSchedule() } }
       Button("Hủy", role: .cancel) {}
     }
+  }
+
+  /// What will be written, read aloud as one line however it's broken on the screen.
+  private func summaryText(_ shown: String, saying: String? = nil) -> some View {
+    Text(verbatim: shown)
+      .font(.subheadline.weight(.semibold)).monospacedDigit()
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .accessibilityLabel(Text(verbatim: saying ?? shown))
+      .accessibilityIdentifier("summary")
+  }
+
+  private var button: some View {
+    Button {
+      if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
+    } label: {
+      Text(lights.formIsActive ? "Đèn đang dùng lịch này" : lights.isWriting ? "Đang ghi…" : "Ghi lịch vào đèn")
+    }
+    .buttonStyle(.borderedProminent)
+    .controlSize(.large)
+    .layoutPriority(1) // its words on one line beside the summary, which has room left for its own lines
+    .disabled(!lights.canWrite)
+    .accessibilityIdentifier("write")
   }
 
   /// "12:00–20:00 · 70% · 8 tiếng", as the site's.

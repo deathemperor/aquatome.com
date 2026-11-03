@@ -90,3 +90,25 @@ public enum DayPreview {
   }
 }
 
+
+/// Where the timeline's "Bây giờ" goes, in the row above the day that the handles' times share: centred on its line,
+/// else beside it on the side away from the nearer time, else left out with only the line drawn (the caption under the
+/// tank gives the time too). Never over a time, nor past either end of the day.
+public enum NowLabel: Equatable, Sendable {
+  case centred, before, after, hidden
+
+  /// `now` and `times` are points across a day `width` wide; `label` and `time` are the words' widths.
+  public static func place(now: Double, label: Double, times: [Double], time: Double, width: Double) -> NowLabel {
+    let gap = 4.0
+    func clear(_ lo: Double, _ hi: Double) -> Bool {
+      lo >= 0 && hi <= width && times.allSatisfy { hi + gap <= $0 - time / 2 || lo - gap >= $0 + time / 2 }
+    }
+    if clear(now - label / 2, now + label / 2) { return .centred }
+    let nearer = times.min { abs($0 - now) < abs($1 - now) } ?? now
+    for side in nearer >= now ? [NowLabel.before, .after] : [.after, .before] {
+      let (lo, hi) = side == .before ? (now - 3 - label, now - 3) : (now + 3, now + 3 + label)
+      if clear(lo, hi) { return side }
+    }
+    return .hidden
+  }
+}

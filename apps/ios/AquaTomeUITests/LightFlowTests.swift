@@ -496,8 +496,27 @@ final class LightFlowTests: XCTestCase {
     write(app)
     expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:30.")
     expect(app, "write", contains: "Đèn đang dùng lịch này")
+    expectWholeBar(app)
     // What writing does is said once, in the notes at the end.
     XCTAssertEqual(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "Ghi lịch mới sẽ xóa các lịch đang lưu trên đèn")).count, 1)
+  }
+
+  // Indonesian's "Lampu sedang memakai jadwal ini" left the summary beside it a column so narrow its times broke over
+  // four lines (12:00– / 20:00 · / 70% · 8 / jam): it goes above the button instead, on one line.
+  func testTheWriteBarKeepsItsTimesWholeBesideALongerButton() {
+    let app = launch(indonesian: true)
+    app.buttons["scan"].tap()
+    let light = app.buttons["light"].firstMatch
+    XCTAssertTrue(light.waitForExistence(timeout: 5), "no light found")
+    light.tap()
+    expect(app, "notice", contains: "terhubung") // its status read: Đã kết nối
+    tap(app, "write")
+    let confirm = app.alerts.buttons["Simpan jadwal"]
+    XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
+    confirm.tap()
+    expect(app, "write", contains: "Lampu sedang memakai jadwal ini")
+    XCTAssertEqual(element(app, "summary").label, "12:00–20:00 · 70% · 8 jam")
+    expectWholeBar(app)
   }
 
   func testASavedScheduleIsUsedAgainAndTheLastSixAreListed() {
@@ -583,11 +602,13 @@ final class LightFlowTests: XCTestCase {
 
   // MARK: Helpers
 
-  private func launch(_ args: String..., reset: Bool = true) -> XCUIApplication {
+  /// The app on its Đèn tab, in Vietnamese or in Indonesian (whose words run longer).
+  private func launch(_ args: String..., reset: Bool = true, indonesian: Bool = false) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args
+    let (language, locale, tab) = indonesian ? ("id", "id_ID", "Lampu") : ("vi", "vi_VN", "Đèn")
+    app.launchArguments = ["-AppleLanguages", "(\(language))", "-AppleLocale", locale, "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args
     app.launch()
-    app.tabBars.buttons["Đèn"].tap()
+    app.tabBars.buttons[tab].tap()
     return app
   }
 
@@ -605,6 +626,15 @@ final class LightFlowTests: XCTestCase {
     let confirm = app.alerts.buttons["Ghi lịch"]
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
     confirm.tap()
+  }
+
+  /// The write bar's words whole: its button on one line (no taller than "Xem thử cả ngày", a button of its size) and
+  /// the summary, read as one line, broken once at most (no taller than the button).
+  private func expectWholeBar(_ app: XCUIApplication, file: StaticString = #filePath, line: UInt = #line) {
+    let play = scrolledTo(app, "play"), button = element(app, "write"), summary = element(app, "summary")
+    XCTAssertLessThanOrEqual(button.frame.height, play.frame.height + 1, "the write button's words broken", file: file, line: line)
+    XCTAssertLessThanOrEqual(summary.frame.height, button.frame.height, "the summary broken more than once", file: file, line: line)
+    XCTAssertFalse(summary.label.contains("\n"), "the summary read with its break", file: file, line: line)
   }
 
   private func text(_ app: XCUIApplication, _ part: String) -> XCUIElement {

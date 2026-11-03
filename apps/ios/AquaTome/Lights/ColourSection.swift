@@ -13,7 +13,7 @@ struct TankScene: View {
       TankDrawing(mix: Mix(channels: lights.channels, levels: s.levels.map { Double($0) * share }))
         .clipShape(RoundedRectangle(cornerRadius: 10))
       SwiftUI.TimelineView(.everyMinute) { ctx in
-        (Text(verbatim: Self.caption(s, playing: lights.playMinute, now: ctx.date)) + Text(verbatim: " ")
+        (Text(verbatim: Self.caption(s, playing: lights.playMinute, now: shownNow(ctx.date))) + Text(verbatim: " ")
           + Text("Màu trên màn hình chỉ gần đúng.").foregroundStyle(.secondary))
           .font(.footnote)
           .frame(maxWidth: .infinity, alignment: .leading)

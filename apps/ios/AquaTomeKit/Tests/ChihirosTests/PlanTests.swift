@@ -51,3 +51,20 @@ private func t(_ h: Int, _ m: Int) -> TimeOfDay { TimeOfDay(hour: h, minute: m) 
   #expect(Schedule(on: t(12, 0), off: t(0, 0), ramp: 30, levels: [70]).hoursOn == 12)
   #expect(Schedule(on: t(13, 0), off: t(19, 20), ramp: 30, levels: [70]).hoursOn == 6.3)
 }
+
+// A 370-point day (an iPhone 17's), "Sekarang" 48 points wide, the handles' times 40, on at 12:00 and off at 20:00.
+@Test func theNowLabelStaysClearOfTheHandlesTimes() {
+  let x = { (h: Double) in h / 24 * 370 }
+  let times = [x(12), x(20)]
+  func at(_ h: Double) -> NowLabel { NowLabel.place(now: x(h), label: 48, times: times, time: 40, width: 370) }
+  #expect(at(6) == .centred)
+  // 9:41, the App Store's screenshots: centred it ran into "12:00".
+  #expect(at(9 + 41.0 / 60) == .before)
+  #expect(at(13.5) == .after)
+  // On a handle: the line alone.
+  #expect(at(12) == .hidden)
+  // Never past the ends of the day: beside the line inside it, or left out where that side has "20:00" too.
+  #expect(at(0.25) == .after)
+  #expect(at(23.75) == .hidden)
+  #expect(NowLabel.place(now: x(23.75), label: 48, times: [x(12)], time: 40, width: 370) == .before)
+}
