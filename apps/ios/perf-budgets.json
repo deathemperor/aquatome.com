@@ -30,8 +30,8 @@
       "test": "bundle",
       "metric": "AquaTome.app",
       "unit": "kB",
-      "max": 2890,
-      "reason": "raised 2026-11-02 from 2541 kB for fish and plants with no page put on a tank (#380), the first PR over it: CI read 2539.0 kB on main after adding a passkey in the app (#373) and 2627.2 kB on #380 (e89045de). #380 measured on one Mac (Release archive, main 2550.2 → 2638.5 kB): the binary +86.0 kB, the Indonesian and Thai strings +2.2. Of the code, the tank's “Thêm cá hoặc cây” 51.9 kB (the form for a fish or plant with no page 17.6, its count sheet 11.7, its row 5.5, the list and the search 8.9, closures and metadata 9.9), the kit's tank model and validator 12.1, the page matcher 7.8, the tanks model, the handbook model and the sender of what readers want 3.0 each, the tank-mates check 2.1, the rest under 1 kB each. Main already sat at the budget with accounts (237 kB of 2080 kB of linked code, spread over small symbols: not trimmed). Worth it: the owner asked that readers can put their whole stock on a tank, pages or not. Budget: CI's 2627.2 kB ×1.1"
+      "max": 3255,
+      "reason": "raised 2026-11-03 from 2890 kB for reporting and blocking readers' comments and photos, and the contact link (#420), App Store guideline 1.2, part of the native content program: CI read 2956.9 kB on #420 (7e99f894, run 41567746526), over main's 2865.9 kB after posting (#404). Measured on one Mac (Release archive, #404 → #420): 2882.0 → 2988.3 kB, +106.3 kB: code +57.6 kB (the report and block dialogs and sending 14.8, the page's readers' part 8.4, the blocked and reported store 6.7, the menu 5.0, the report's request and answer 3.5, the photo viewer 3.2, the blocked lists 3.9, closures and metadata 9.9), the text segment four 16 kB pages larger and the data segments two, the Indonesian and Thai strings 5.2. Nothing to cut that isn't the feature: Apple requires report and block before review (the app lead's OK at +106.3 kB). Budget: CI's 2956.9 kB ×1.1, rounded to 5 kB"
     }
   ]
 }

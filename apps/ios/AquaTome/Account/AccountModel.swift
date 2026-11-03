@@ -91,6 +91,16 @@ final class AccountModel {
     return (data, res.statusCode)
   }
 
+  /// Sends a reader's report of another's comment or photo (protocols/talk.openapi.json): `make` given the session's
+  /// token when signed in (the account's own day's limit), else nil (as the site's page sends it). Its status and body,
+  /// or nil offline.
+  func report(_ make: (String?) -> URLRequest) async -> (Data, Int)? {
+    let signedIn: String? = if case .signedIn = state { token } else { nil }
+    guard let (data, res) = try? await api.send(make(signedIn)) else { return nil }
+    if res.statusCode == 401 { await refresh() }
+    return (data, res.statusCode)
+  }
+
   /// At launch, and when the app comes to the front: who is signed in, then a sync.
   func refresh() async {
     let asked = token

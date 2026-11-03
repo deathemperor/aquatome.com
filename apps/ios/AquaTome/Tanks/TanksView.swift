@@ -28,6 +28,7 @@ struct TanksView: View {
               } actions: {
                 Button("Thêm bể đầu tiên") { adding = true }.buttonStyle(.borderedProminent).accessibilityIdentifier("add-first")
                 AccountSignIn()
+                BlockedPanel()
               }
               .frame(minHeight: g.size.height)
             }
@@ -48,6 +49,7 @@ struct TanksView: View {
               }
             }
             AccountSection()
+            BlockedSection()
           }
         }
       }

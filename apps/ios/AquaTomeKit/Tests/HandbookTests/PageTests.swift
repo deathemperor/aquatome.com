@@ -170,7 +170,7 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   #expect(Readers.request(site, version: "1.4").value(forHTTPHeaderField: "User-Agent") == "AquaTome-iOS/1.4")
   // apps/site/worker/comments/api.ts and photos.ts: their answers, with one entry each missing a part.
   let comments = Data(#"""
-  {"comments":[{"id":"c1","name":"Lan","body":"Nuôi đàn 10 con.\n\nỔn.","helpful":true,"createdAt":"2026-10-30T18:30:00.000Z"},
+  {"comments":[{"id":"c1","name":"Lan","body":"Nuôi đàn 10 con.\n\nỔn.","helpful":true,"createdAt":"2026-10-30T18:30:00.000Z","author":"0f1e2d3c4b5a6978"},
                {"id":"c2","name":"Minh","helpful":false,"createdAt":"2026-10-31T01:00:00.000Z"},
                {"id":"c3","name":"Hà","body":"https://x.example","helpful":false,"createdAt":"2026-10-31T01:00:00Z"}],
    "sitekey":"k","verification":"none"}
@@ -178,11 +178,14 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   let read = Readers.comments(comments)
   #expect(read.map(\.id) == ["c1", "c3"])
   #expect(read[0].helpful && read[0].body == "Nuôi đàn 10 con.\n\nỔn." && !read[1].helpful)
+  // Who wrote it, when the Worker says (protocols/talk.openapi.json `author`); an older Worker's, nobody.
+  #expect(read[0].author == "0f1e2d3c4b5a6978" && read[1].author == nil)
   let photos = Data(#"""
-  {"photos":[{"id":"p1","name":"Lan","url":"https://media.aquatome.com/r/p1.webp","thumb":"https://media.aquatome.com/r/p1-t.webp","width":1600,"height":1200,"createdAt":"2026-10-30T18:30:00.000Z"},
+  {"photos":[{"id":"p1","name":"Lan","url":"https://media.aquatome.com/r/p1.webp","thumb":"https://media.aquatome.com/r/p1-t.webp","width":1600,"height":1200,"createdAt":"2026-10-30T18:30:00.000Z","author":"0f1e2d3c4b5a6978"},
              {"id":"p2","name":"Minh","url":"https://media.aquatome.com/r/p2.webp","width":0,"height":1200}]}
   """#.utf8)
-  #expect(Readers.photos(photos) == [.init(id: "p1", name: "Lan", url: "https://media.aquatome.com/r/p1.webp", thumb: "https://media.aquatome.com/r/p1-t.webp", width: 1600, height: 1200)])
+  #expect(Readers.photos(photos) == [.init(id: "p1", name: "Lan", url: "https://media.aquatome.com/r/p1.webp", thumb: "https://media.aquatome.com/r/p1-t.webp", width: 1600, height: 1200,
+                                            author: "0f1e2d3c4b5a6978")])
   #expect(Readers.comments(Data("off".utf8)).isEmpty && Readers.photos(Data(#"{"error":"bad entity"}"#.utf8)).isEmpty)
 }
 

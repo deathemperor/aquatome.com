@@ -385,6 +385,54 @@
         }
       }
     },
+    "Báo cáo": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รายงาน"
+          }
+        }
+      }
+    },
+    "Báo cáo bình luận này?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan komentar ini?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รายงานความคิดเห็นนี้ไหม?"
+          }
+        }
+      }
+    },
+    "Báo cáo ảnh này?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan foto ini?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รายงานรูปนี้ไหม?"
+          }
+        }
+      }
+    },
     "Bây giờ": {
       "localizations": {
         "id": {
@@ -477,6 +525,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "การแสดงความคิดเห็นต้องยืนยันตัวตนผู้ใช้ตามข้อกำหนด ฟีเจอร์นี้จะเปิดให้ใช้งานเร็ว ๆ นี้"
+          }
+        }
+      }
+    },
+    "Bình luận và ảnh của người này sẽ ẩn trên máy này. Bỏ chặn trong Bể của tôi, mục Người đã chặn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komentar dan foto orang ini akan disembunyikan di perangkat ini. Buka blokir di Akuarium Saya, bagian Orang yang diblokir."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความคิดเห็นและรูปของคนนี้จะถูกซ่อนบนเครื่องนี้ เลิกบล็อกได้ที่ ตู้ปลาของฉัน หัวข้อ คนที่บล็อกไว้"
+          }
+        }
+      }
+    },
+    "Bình luận và ảnh của những người này đang ẩn trên máy này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komentar dan foto orang-orang ini disembunyikan di perangkat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความคิดเห็นและรูปของคนเหล่านี้ถูกซ่อนอยู่บนเครื่องนี้"
           }
         }
       }
@@ -865,6 +945,38 @@
         }
       }
     },
+    "Bỏ chặn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka blokir"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลิกบล็อก"
+          }
+        }
+      }
+    },
+    "Bỏ chặn %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka blokir %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลิกบล็อก %@"
+          }
+        }
+      }
+    },
     "Bỏ lưu": {
       "localizations": {
         "id": {
@@ -1245,6 +1357,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "ข้อมูลยังไม่พอจะยืนยัน (%lld)"
+          }
+        }
+      }
+    },
+    "Chặn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blokir"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บล็อก"
+          }
+        }
+      }
+    },
+    "Chặn %@?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blokir %@?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บล็อก %@ ไหม?"
+          }
+        }
+      }
+    },
+    "Chặn người này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blokir orang ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บล็อกคนนี้"
           }
         }
       }
@@ -2257,6 +2417,22 @@
         }
       }
     },
+    "Hôm nay bạn đã báo cáo nhiều lần. Hãy thử lại vào ngày mai.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anda sudah melapor berkali-kali hari ini. Coba lagi besok."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วันนี้คุณรายงานหลายครั้งแล้ว ลองอีกครั้งพรุ่งนี้"
+          }
+        }
+      }
+    },
     "Hơi dữ": {
       "localizations": {
         "id": {
@@ -2525,6 +2701,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่ต้องเติม"
+          }
+        }
+      }
+    },
+    "Không gửi được báo cáo, vui lòng thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporan tidak terkirim, silakan coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรายงานไม่สำเร็จ โปรดลองอีกครั้ง"
           }
         }
       }
@@ -2913,6 +3105,22 @@
         }
       }
     },
+    "Liên hệ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kontak"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ติดต่อ"
+          }
+        }
+      }
+    },
     "Loài cá": {
       "localizations": {
         "id": {
@@ -2941,6 +3149,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "สายพันธุ์ยอดนิยม"
+          }
+        }
+      }
+    },
+    "Lý do khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alasan lain"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหตุผลอื่น"
           }
         }
       }
@@ -3409,6 +3633,22 @@
         }
       }
     },
+    "Người đã chặn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orang yang diblokir"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คนที่บล็อกไว้"
+          }
+        }
+      }
+    },
     "Ngắt kết nối": {
       "localizations": {
         "id": {
@@ -3569,6 +3809,38 @@
         }
       }
     },
+    "Nội dung không phù hợp": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Konten tidak pantas"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เนื้อหาไม่เหมาะสม"
+          }
+        }
+      }
+    },
+    "Nội dung này sẽ ẩn trên máy này ngay, và AquaTome xem lại trong vòng 24 giờ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Konten ini langsung disembunyikan di perangkat ini, dan AquaTome meninjaunya dalam 24 jam."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เนื้อหานี้จะถูกซ่อนบนเครื่องนี้ทันที และ AquaTome จะตรวจสอบภายใน 24 ชั่วโมง"
+          }
+        }
+      }
+    },
     "Passkey này không mở được tài khoản nào: đăng nhập cách khác.": {
       "localizations": {
         "id": {
@@ -3677,6 +3949,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "กว้าง"
+          }
+        }
+      }
+    },
+    "Spam hoặc quảng cáo": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spam atau iklan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สแปมหรือโฆษณา"
           }
         }
       }
@@ -4577,6 +4865,38 @@
         }
       }
     },
+    "Tùy chọn cho bình luận của %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilihan untuk komentar %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตัวเลือกสำหรับความคิดเห็นของ %@"
+          }
+        }
+      }
+    },
+    "Tùy chọn cho ảnh của %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilihan untuk foto %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตัวเลือกสำหรับรูปของ %@"
+          }
+        }
+      }
+    },
     "Tạo tài khoản nhà phát triển Tuya (miễn phí) tại platform.tuya.com.": {
       "localizations": {
         "id": {
@@ -5329,6 +5649,22 @@
         }
       }
     },
+    "Xúc phạm hoặc quấy rối": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghina atau melecehkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูหมิ่นหรือคุกคาม"
+          }
+        }
+      }
+    },
     "chưa có trang": {
       "localizations": {
         "id": {
@@ -5373,6 +5709,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "https://aquatome.com/th/privacy/#tai-khoan"
+          }
+        }
+      }
+    },
+    "https://aquatome.com/vi/lien-he/": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/id/kontak/"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/th/contact/"
           }
         }
       }
@@ -5697,6 +6049,22 @@
         }
       }
     },
+    "Đang ẩn %lld mục bạn đã chặn hoặc báo cáo.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menyembunyikan %lld item yang Anda blokir atau laporkan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังซ่อน %lld รายการที่คุณบล็อกหรือรายงานไว้"
+          }
+        }
+      }
+    },
     "Đá nham thạch": {
       "localizations": {
         "id": {
@@ -5757,6 +6125,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "บันทึกแล้ว: เปิด %1$@ ปิด %2$@ โคมไฟจะทำงานตามตารางเวลาตั้งแต่นี้"
+          }
+        }
+      }
+    },
+    "Đã gửi báo cáo. Cảm ơn bạn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporan terkirim. Terima kasih."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรายงานแล้ว ขอบคุณ"
           }
         }
       }

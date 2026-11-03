@@ -467,3 +467,40 @@ func readersPosts() async throws {
   #expect(fake.posts.allSatisfy { $0.account == "apple-1" } && fake.posts.count == 11)
   #expect(fake.posts.last?.fields["file"] == "\(jpeg.count) bytes")
 }
+
+@MainActor @Test("A reader's report as the Worker takes it: signed in or as the site's page, a public item only, the shape the contract gives; the same report again changes nothing; 20 a day")
+func readersReports() async throws {
+  let fake = FakeAccounts()
+  fake.reportable = Set(["comment:c1", "photo:p1"] + (1...25).map { "comment:n\($0)" })
+  let s = try await signIn(client(fake), "apple-1")
+  func report(_ body: [String: Any], token: String? = nil, origin: String? = "https://aquatome.com") async throws -> (Int, String?) {
+    var r = URLRequest(url: URL(string: "https://aquatome.com/api/v1/report")!)
+    r.httpMethod = "POST"
+    r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    if let token { r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization") }
+    if let origin { r.setValue(origin, forHTTPHeaderField: "Origin") }
+    r.httpBody = try JSONSerialization.data(withJSONObject: body)
+    let (data, res) = try await fake.send(r)
+    let statuses = (((talkContract["paths"] as! [String: Any])["/api/v1/report"] as! [String: Any])["post"] as! [String: Any])["responses"] as! [String: Any]
+    #expect(statuses[String(res.statusCode)] != nil, "answered \(res.statusCode), which the contract doesn't give")
+    let o = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+    return (res.statusCode, (o?["error"] ?? o?["status"]) as? String)
+  }
+  #expect(try await report(["kind": "comment", "id": "c1", "reason": "spam"], token: s.token, origin: nil) == (202, "received"))
+  #expect(try await report(["kind": "photo", "id": "p1"]) == (202, "received"))
+  #expect(fake.reports.map { "\($0.account ?? "page") \($0.kind):\($0.id) \($0.reason ?? "-")" } == ["apple-1 comment:c1 spam", "page photo:p1 -"])
+  // The same reporter again: received, nothing more.
+  #expect(try await report(["kind": "comment", "id": "c1"], token: s.token, origin: nil) == (202, "received") && fake.reports.count == 2)
+  #expect(try await report(["kind": "comment", "id": "gone"]) == (404, "not found"))
+  #expect(try await report(["kind": "guide", "id": "c1"]) == (400, "bad report"))
+  #expect(try await report(["kind": "comment", "id": "c1", "reason": String(repeating: "à", count: 501)]) == (400, "bad report"))
+  #expect(try await report(["kind": "comment", "id": "c1", "more": "x"]) == (400, "bad report"))
+  #expect(try await report(["kind": "comment", "id": "c1"], token: "gone", origin: nil) == (401, "session"))
+  // No bearer and no Origin (not a browser): taken, as the Worker takes it; this reporter's again, nothing more.
+  #expect(try await report(["kind": "photo", "id": "p1"], origin: nil) == (202, "received") && fake.reports.count == 2)
+  #expect(try await report(["kind": "comment", "id": "c1"], origin: "https://evil.example") == (403, "cross-origin"))
+  for n in 1...18 { #expect(try await report(["kind": "comment", "id": "n\(n)"]).0 == 202) }
+  #expect(try await report(["kind": "comment", "id": "n19"]) == (429, "rate"))
+  // A comment shown at once can be reported, and carries its account's `author`, the same for each of its posts.
+  #expect(FakeAccounts.author(account: "apple-1").wholeMatch(of: /[0-9a-f]{16}/) != nil && FakeAccounts.author(account: "apple-1") != FakeAccounts.author(account: "apple-2"))
+}

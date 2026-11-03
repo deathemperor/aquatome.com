@@ -129,3 +129,54 @@ private let site = URL(string: "https://aquatome.com")!
   let p = CGImageSourceCopyPropertiesAtIndex(CGImageSourceCreateWithData(sent as CFData, nil)!, 0, nil) as! [CFString: Any]
   #expect(p[kCGImagePropertyPixelWidth] as? Int == 1500 && p[kCGImagePropertyPixelHeight] as? Int == 2000)
 }
+
+// Reporting a reader's comment or photo (POST /api/v1/report), for the App Store's rule on readers' content.
+
+@Test func aReportGoesAsTheAccountOrAsTheSitesPageWithTheFieldsTheContractTakes() throws {
+  let signedIn = Readers.report("comment", id: "c1", reason: "spam", site: site, token: "tok", version: "1.4")
+  #expect(signedIn.httpMethod == "POST" && signedIn.url?.absoluteString == "https://aquatome.com/api/v1/report")
+  #expect(signedIn.value(forHTTPHeaderField: "Authorization") == "Bearer tok" && signedIn.value(forHTTPHeaderField: "Origin") == nil)
+  #expect(signedIn.value(forHTTPHeaderField: "Content-Type") == "application/json" && !signedIn.httpShouldHandleCookies)
+  let sent = try #require(signedIn.httpBody)
+  let body = try #require(try JSONSerialization.jsonObject(with: sent) as? [String: String])
+  #expect(body == ["kind": "comment", "id": "c1", "reason": "spam"])
+  let s = schema("NewReport")
+  #expect(Set(s["required"] as! [String]).isSubset(of: body.keys) && Set(body.keys).isSubset(of: (s["properties"] as! [String: Any]).keys))
+  #expect(((s["properties"] as! [String: Any])["kind"] as! [String: Any])["enum"] as! [String] == ["comment", "photo"])
+  // Signed out: as the site's own page, same-origin; no reason given, none sent.
+  let signedOut = Readers.report("photo", id: "p1", reason: nil, site: site, token: nil, version: "1.4")
+  #expect(signedOut.value(forHTTPHeaderField: "Authorization") == nil && signedOut.value(forHTTPHeaderField: "Origin") == "https://aquatome.com")
+  let none = try #require(signedOut.httpBody)
+  #expect(try JSONSerialization.jsonObject(with: none) as? [String: String] == ["kind": "photo", "id": "p1"])
+}
+
+@Test func eachAnswerToAReportIsReadAsTheContractWritesIt() {
+  #expect(statuses("/api/v1/report", "post") == [202, 400, 401, 403, 404, 429, 503])
+  #expect(Readers.reported(Data(#"{"status":"received"}"#.utf8), status: 202) == .received)
+  // Not public any more (another report took it off, or moderation did): what the reader wanted.
+  #expect(Readers.reported(Data(#"{"error":"not found"}"#.utf8), status: 404) == .received)
+  // A 404 that isn't the report's: no report endpoint (the accounts router's), accounts off, a proxy's page. Not sent.
+  #expect(Readers.reported(Data(#"{"error":"not_found"}"#.utf8), status: 404) == .refused("not_found"))
+  #expect(Readers.reported(Data(#"{"error":"accounts_off"}"#.utf8), status: 404) == .refused("accounts_off"))
+  #expect(Readers.reported(Data("<html>Not Found</html>".utf8), status: 404) == .refused("failed"))
+  #expect(Readers.reported(Data(#"{"error":"session"}"#.utf8), status: 401) == .signedOut)
+  #expect(Readers.reported(Data(#"{"error":"rate"}"#.utf8), status: 429) == .refused("rate"))
+  #expect(Readers.reported(Data(#"{"error":"bad report"}"#.utf8), status: 400) == .refused("bad report"))
+  #expect(Readers.reported(Data("<html>".utf8), status: 502) == .refused("failed"))
+  // A comment's and a photo's `author`, as the contract has it: 16 hex characters, never a name, on every one (the app
+  // still reads one without it as nil, from an older Worker).
+  for kind in ["Comment", "Photo"] {
+    #expect(((schema(kind)["properties"] as! [String: Any])["author"] as! [String: Any])["pattern"] as? String == "^[0-9a-f]{16}$", "\(kind)")
+    #expect((schema(kind)["required"] as! [String]).contains("author"), "\(kind)")
+  }
+}
+
+@Test func blockingAPosterKeysOnTheirAuthorOrElseOnThatOnePost() {
+  #expect(Readers.blockKey(author: "0f1e2d3c4b5a6978", id: "c1") == "0f1e2d3c4b5a6978")
+  #expect(Readers.blockKey(author: nil, id: "c1") == "post:c1")
+  // A poster's block hides all they post; a post's, that post, also once the site says who posted it.
+  #expect(Readers.blocks("0f1e2d3c4b5a6978", author: "0f1e2d3c4b5a6978", id: "p9"))
+  #expect(Readers.blocks("post:c1", author: "0f1e2d3c4b5a6978", id: "c1"))
+  #expect(!Readers.blocks("post:c1", author: "0f1e2d3c4b5a6978", id: "c2"))
+  #expect(!Readers.blocks("0f1e2d3c4b5a6978", author: nil, id: "c2"))
+}
