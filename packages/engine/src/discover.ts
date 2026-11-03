@@ -16,12 +16,12 @@ export function parseSitemap(xml: string): { urls: { loc: string; lastmod?: stri
   return { urls, sitemaps }
 }
 
-const canonical = (u: string, keepQuery?: boolean) => {
+const canonical = (u: string, keepQuery?: boolean, archived?: boolean) => {
   const x = new URL(u.replace(/&amp;/g, '&'))
   x.hash = ''
   if (!keepQuery) x.search = ''
   // One address per page: archived captures mix http, :80 and the bare domain.
-  if (keepQuery) { x.protocol = 'https:'; x.port = ''; if (!x.hostname.startsWith('www.')) x.hostname = `www.${x.hostname}` }
+  if (keepQuery || archived) { x.protocol = 'https:'; x.port = ''; if (!x.hostname.startsWith('www.')) x.hostname = `www.${x.hostname}` }
   return x.href
 }
 
@@ -33,7 +33,7 @@ export async function discover(
   const found = new Map<string, Discovered>()
   const keep = (url: string, lastmod?: string) => {
     let u: string
-    try { u = canonical(url, src.keepQuery) } catch { return }
+    try { u = canonical(url, src.keepQuery, src.discover.kind === 'archive') } catch { return }
     if (!src.include.test(u) || src.exclude?.test(u)) return
     const key = src.dedupe ? u.replace(src.dedupe, '') : u
     const prev = found.get(key)
