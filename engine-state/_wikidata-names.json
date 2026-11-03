@@ -41,6 +41,11 @@
     ]
   },
   "Acestrorhynchus microlepis": null,
+  "Acestrorhynchus minimus": {
+    "id": [
+      "Acestrorhynchus minimus"
+    ]
+  },
   "Acestrorhynchus pantaneiro": {
     "id": [
       "Acestrorhynchus pantaneiro"
@@ -557,6 +562,7 @@
   "Baryancistrus chrysolomus": null,
   "Baryancistrus demantoides": null,
   "Baryancistrus xanthellus": null,
+  "Batasio fasciolatus": null,
   "Batasio feruminatus": null,
   "Batasio fluviatilis": null,
   "Batasio tigrinus": null,
@@ -884,6 +890,7 @@
   "Brevimyrus niger": null,
   "Brochis multiradiatus": null,
   "Brycinus longipinnis": null,
+  "Bryconops caudomaculatus": null,
   "Buccochromis lepturus": null,
   "Bunocephalus coracoideus": null,
   "Caelatoglanis zonatus": null,
@@ -1042,6 +1049,11 @@
     ]
   },
   "Characidium fasciatum": null,
+  "Charax stenopterus": {
+    "id": [
+      "Charax stenopterus"
+    ]
+  },
   "Cherax tenuimanus": {
     "th": [
       "กุ้งอิเล็กทริกบลู",
@@ -1079,6 +1091,12 @@
     ]
   },
   "Chrosomus erythrogaster": null,
+  "Cichla orinocensis": {
+    "th": [
+      "ปลาโอรีโนโกพีค็อกแบส",
+      "Cichla orinocensis"
+    ]
+  },
   "Cichla temensis": {
     "th": [
       "ปลาหมอเทเมนซิส",
@@ -1149,19 +1167,23 @@
   "Corydoras axelrodi": null,
   "Corydoras carlae": null,
   "Corydoras caudimaculatus": null,
+  "Corydoras crimmeni": null,
   "Corydoras desana": null,
+  "Corydoras diphyes": null,
   "Corydoras elegans": null,
   "Corydoras eques": null,
   "Corydoras fulleri": null,
   "Corydoras granti": null,
   "Corydoras habrosus": null,
   "Corydoras hastatus": null,
+  "Corydoras imitator": null,
   "Corydoras julii": null,
   "Corydoras leopardus": null,
   "Corydoras leucomelas": null,
   "Corydoras longipinnis": null,
   "Corydoras melini": null,
   "Corydoras metae": null,
+  "Corydoras nijsseni": null,
   "Corydoras oiapoquensis": null,
   "Corydoras ourastigma": null,
   "Corydoras paleatus": null,
@@ -1171,6 +1193,7 @@
   "Corydoras sarareensis": null,
   "Corydoras schwartzi": null,
   "Corydoras semiaquilus": null,
+  "Corydoras septentrionalis": null,
   "Corydoras serratus": null,
   "Corydoras similis": null,
   "Corydoras splendens": null,
@@ -1180,8 +1203,11 @@
       "Corydoras trilineatus"
     ]
   },
+  "Corydoras vittatus": null,
+  "Corydoras weitzmani": null,
   "Corynopoma riisei": null,
   "Cranoglanis henrici": null,
+  "Crenicichla notophthalmus": null,
   "Crenicichla strigata": null,
   "Crenuchus spilurus": null,
   "Crossocheilus burmanicus": null,
@@ -1512,6 +1538,7 @@
   "Geophagus abalios": null,
   "Geophagus altifrons": null,
   "Geophagus brachybranchus": null,
+  "Geophagus brasiliensis": null,
   "Geophagus dicrozoster": null,
   "Geophagus megasema": null,
   "Geophagus neambi": null,
@@ -1624,6 +1651,7 @@
   "Hemigrammus bellottii": null,
   "Hemigrammus bleheri": null,
   "Hemigrammus erythrozonus": null,
+  "Hemigrammus hyanuary": null,
   "Hemigrammus luelingi": null,
   "Hemigrammus ocellifer": null,
   "Hemigrammus rhodostomus": null,
@@ -1678,6 +1706,7 @@
   "Homalopteroides tweediei": null,
   "Hoplias aimara": null,
   "Hoplias malabaricus": null,
+  "Hoplias teres": null,
   "Hoplosternum magdalenae": null,
   "Hoplosternum punctatum": null,
   "Horadandia atukorali": null,
@@ -1695,10 +1724,14 @@
   "Hyphessobrycon epicharis": null,
   "Hyphessobrycon eques": null,
   "Hyphessobrycon erythrostigma": null,
+  "Hyphessobrycon eschwartzae": null,
+  "Hyphessobrycon heliacus": null,
   "Hyphessobrycon herbertaxelrodi": null,
   "Hyphessobrycon heterorhabdus": null,
+  "Hyphessobrycon jackrobertsi": null,
   "Hyphessobrycon megalopterus": null,
   "Hyphessobrycon pulchripinnis": null,
+  "Hyphessobrycon pyrrhonotus": null,
   "Hyphessobrycon rosaceus": null,
   "Hyphessobrycon roseus": null,
   "Hyphessobrycon sweglesi": null,
@@ -1754,6 +1787,7 @@
       "Silurus cryptopterus"
     ]
   },
+  "Kryptopterus geminus": null,
   "Kryptopterus vitreolus": {
     "id": [
       "Lele kaca"
@@ -1837,6 +1871,7 @@
   "Leporacanthicus triactis": null,
   "Leporinus affinis": null,
   "Leporinus arcus": null,
+  "Leporinus desmotes": null,
   "Leporinus fasciatus": {
     "th": [
       "ปลาปล้องอ้อย"
@@ -1867,6 +1902,7 @@
   "Liobagrus mediadiposalis": null,
   "Liobagrus reinii": null,
   "Listrura nematopteryx": null,
+  "Lonchogenys ilisha": null,
   "Luciocephalus pulcher": {
     "th": [
       "ปลาช่อนเข็ม"
@@ -2013,6 +2049,7 @@
     ]
   },
   "Moenkhausia agnesae": null,
+  "Moenkhausia costae": null,
   "Moenkhausia oligolepis": null,
   "Moenkhausia phaeonota": null,
   "Moenkhausia pittieri": null,
@@ -2046,6 +2083,7 @@
       "Belut sawah"
     ]
   },
+  "Myloplus schomburgkii": null,
   "Mylossoma aureum": null,
   "Mystacoleucus chilopterus": {
     "id": [
@@ -2092,6 +2130,7 @@
       "ปลาดินสอแดง"
     ]
   },
+  "Nannostomus nigrotaeniatus": null,
   "Nannostomus rubrocaudatus": null,
   "Nannostomus trifasciatus": null,
   "Nanobagrus armatus": null,
@@ -2565,9 +2604,11 @@
       "Procambarus clarkii"
     ]
   },
+  "Protocheirodon pi": null,
   "Pseudacanthicus major": null,
   "Pseudancistrus barbatus": null,
   "Pseudancistrus sidereus": null,
+  "Pseudanos trimaculatus": null,
   "Pseudanos winterbottomi": null,
   "Pseudeutropius brachypopterus": null,
   "Pseudobagarius filifer": null,
@@ -2662,6 +2703,7 @@
     ]
   },
   "Pygocentrus piraya": null,
+  "Pygopristis denticulata": null,
   "Pyrrhulina australis": null,
   "Pyrrhulina brevis": null,
   "Pyrrhulina filamentosa": null,
@@ -2771,6 +2813,8 @@
       "ปลาหมอแจ็กเดมป์ซีย์"
     ]
   },
+  "Roeboides araguaito": null,
+  "Roeboides descalvadensis": null,
   "Sahyadria chalakkudiensis": null,
   "Sahyadria denisonii": null,
   "Salminus brasiliensis": {
@@ -2840,12 +2884,15 @@
   "Scobinancistrus aureatus": null,
   "Scoloplax empousa": null,
   "Selenotoca multifasciata": null,
+  "Semaprochilodus laticeps": null,
   "Semaprochilodus taeniurus": {
     "th": [
       "ปลาอินซีเน็ตหางแดง"
     ]
   },
+  "Serrasalmus compressus": null,
   "Serrasalmus geryi": null,
+  "Serrasalmus neveriensis": null,
   "Serrasalmus rhombeus": {
     "th": [
       "ปลาปิรันยาดำ"
@@ -3088,6 +3135,7 @@
   "Tyttocharax cochui": null,
   "Uaru amphiacanthoides": null,
   "Uaru fernandezyepezi": null,
+  "Urocaridella antonbruunii": null,
   "Vaillantella maassi": null,
   "Vandellia cirrhosa": {
     "id": [

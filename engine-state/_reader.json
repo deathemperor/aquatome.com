@@ -380,6 +380,12 @@
     ],
     "ruled": "f755711f5614b97f"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-3-types-of-planted-aquariums": {
+    "at": "2026-11-03",
+    "hash": "0fd0064c9a1d93fb",
+    "findings": [],
+    "ruled": "0fd0064c9a1d93fb"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-5-best-fish-tank-ideas-for-a-20-gallon-aquarium": {
     "at": "2026-11-01",
     "hash": "33a0d062a8653ea1",
@@ -395,6 +401,31 @@
       }
     ],
     "ruled": "33a0d062a8653ea1"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-5-best-fish-tank-ideas-for-a-29-gallon-aquarium": {
+    "at": "2026-11-03",
+    "hash": "8ee36196e16666ee",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "5 Best Fish Tank Ideas for a 29-Gallon Aquarium - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of what the photo shows.",
+        "rule": "A caption that matches the source page's title or contains the site name after a dash.",
+        "field": "caption"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Từ trái sang phải: cá Apisto cockatoo (Apistogramma cacatuoides), cá neon vua (Paracheirodon axelrodi) và cá rìu thường",
+        "problem": "Photo captions from the source sit in the body text as standalone paragraphs. Here 'from left to right' points to a photo the reader cannot see in the text.",
+        "rule": "A body paragraph that starts with 'Từ trái sang phải' or is just a species name with a scientific name in brackets, ending a section.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8ee36196e16666ee"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-5-gallon-fish": {
     "at": "2026-11-01",
@@ -587,6 +618,12 @@
     "findings": [],
     "ruled": "d1280689326c79c6"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-filter-upgrade": {
+    "at": "2026-11-03",
+    "hash": "6cf8353fbf93f351",
+    "findings": [],
+    "ruled": "6cf8353fbf93f351"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-aquarium-siphon": {
     "at": "2026-11-02",
     "hash": "c7b9fe633d433f99",
@@ -682,11 +719,70 @@
     ],
     "ruled": "6ce566fbb681c780"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-betta-tank-setup": {
+    "at": "2026-11-03",
+    "hash": "bd6fe356bac76d2a",
+    "findings": [],
+    "ruled": "bd6fe356bac76d2a"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-blue-green-algae": {
     "at": "2026-11-02",
     "hash": "59e023352970c7b3",
     "findings": [],
     "ruled": "59e023352970c7b3"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-brackish-aquarium": {
+    "at": "2026-11-03",
+    "hash": "b4c9db1c1843e707",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bạn làm theo cách chỉ dùng nước ngọt ở bước 4 phía trên",
+        "problem": "The text points to 'step 4', but the setup steps are a bulleted list with no numbers.",
+        "fix": "bạn làm theo cách chỉ dùng nước ngọt ở bước đổ nước vào bể phía trên",
+        "rule": "A reference to 'bước N' when the list above it has no numbers.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Phần lớn bể nước lợ giữ ở mức 1,005–1,008.",
+        "problem": "The source gives 1.005–1.008 only as the range the authors keep their own tanks at. The page presents it as what most brackish tanks are kept at.",
+        "fix": "Nhiều người chơi giữ bể nước lợ ở mức 1,005–1,008.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây đước là loài duy nhất mà người ta biết chắc chịu được",
+        "problem": "The source says mangrove is the only reliable plant the authors know of. The page turns this into general knowledge.",
+        "fix": "Cây đước là loài duy nhất mà dân chơi thấy chắc chắn chịu được",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá chim bắn nước vằn (Toxotes jaculatrix)",
+        "problem": "'Cá chim bắn nước' is not a usual Vietnamese name for this fish. Vietnamese hobbyists call Toxotes 'cá mang rổ'.",
+        "fix": "Cá mang rổ (Toxotes jaculatrix)",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Set Up (and Maintain) a Brackish Aquarium - Aquarium Co-Op",
+        "problem": "This caption is the source article's title and does not say what the photo shows.",
+        "rule": "A caption that matches the source article title or contains a site name after a dash.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "b4c9db1c1843e707"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-breeder-box": {
     "at": "2026-11-01",
@@ -813,6 +909,31 @@
     ],
     "ruled": "68f6a900f943199f"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-egg-tumbler": {
+    "at": "2026-11-03",
+    "hash": "370ed489d7ee0a99",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Use an Egg Tumbler to Hatch Aquarium Fish Eggs - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and site name. It does not describe the photo.",
+        "rule": "a caption that ends with a site name after ' - ' and matches the article title",
+        "field": "caption"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "không cho nấm mọc lên trứng",
+        "problem": "The source only says the tumbler helps prevent fungus. The page says it stops fungus completely, which contradicts its own later advice to remove fungused eggs.",
+        "fix": "hạn chế nấm mọc trên trứng",
+        "field": "body"
+      }
+    ],
+    "ruled": "370ed489d7ee0a99"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-fin-rot": {
     "at": "2026-11-01",
     "hash": "128e03e00354c197",
@@ -834,6 +955,28 @@
     "hash": "f34b771de9f3772a",
     "findings": [],
     "ruled": "f34b771de9f3772a"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-fish-fungus": {
+    "at": "2026-11-03",
+    "hash": "159066690b7ac9de",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "khi tăng cần làm theo hướng dẫn chi tiết về cách dùng muối",
+        "problem": "The page sends readers to detailed salt-dosing instructions that aren't on the page and aren't linked. This is left over from a link to another article in the source.",
+        "fix": "Nếu nấm vẫn tiếp tục phát triển thì phải tăng nồng độ muối. Hãy tăng từ từ và theo dõi phản ứng của cá.",
+        "field": "body"
+      }
+    ],
+    "ruled": "159066690b7ac9de"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-fish-parasites": {
+    "at": "2026-11-03",
+    "hash": "1973cbc384e17ea8",
+    "findings": [],
+    "ruled": "1973cbc384e17ea8"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-fish-tank": {
     "at": "2026-11-01",
@@ -1028,6 +1171,22 @@
       }
     ],
     "ruled": "e7cf738e523b1413"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-set-up-an-easy-planted-tank-for-african-cichlids": {
+    "at": "2026-11-03",
+    "hash": "9cbf3f070bae714f",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bạn cần nhét phân nhét gốc cạnh gốc từng cụm cây",
+        "problem": "The repeated 'nhét phân nhét gốc' reads garbled; the hobby term is 'phân nhét gốc' (root tabs).",
+        "fix": "bạn cần nhét viên phân nhét gốc cạnh gốc từng cụm cây",
+        "field": "body"
+      }
+    ],
+    "ruled": "9cbf3f070bae714f"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-ship-live-fish": {
     "at": "2026-11-03",
@@ -1475,6 +1634,31 @@
       }
     ],
     "ruled": "49db4e51a6d4befe"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-tetras": {
+    "at": "2026-11-03",
+    "hash": "26cda5e9e0347f0a",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Từ trái sang phải: cá neon vua (Paracheirodon axelrodi), cá neon (Paracheirodon innesi) và cá neon xanh (Paracheirodon simulans).",
+        "problem": "This is a photo caption left inside the text under section 3, and no photo goes with it, so it reads as a stray line.",
+        "rule": "A body line starting with 'Từ trái sang phải' with no image next to it.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 10 Tetras for Your Next Community Aquarium - Aquarium Co-Op",
+        "problem": "This caption is the source article's title and site name. It does not describe what the photo shows.",
+        "rule": "A caption that contains the source site's name or matches the source article's title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "26cda5e9e0347f0a"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-5-centerpiece-fish-for-your-small-to-medium-sized-community-aquarium": {
     "at": "2026-11-01",
@@ -3958,6 +4142,22 @@
     ],
     "ruled": "62cf0c49f7178c1e"
   },
+  "vi/guides/youtube-5uUPuLt0j2s": {
+    "at": "2026-11-03",
+    "hash": "3c9f236d6f708820",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bật đèn 10, 12, 13 tiếng hoặc hơn là quá lâu.",
+        "problem": "The page calls 10 hours too long, but the next list item, L3 and L10 say 10 hours is still acceptable and the FAQ puts 'too long' at 12 hours or more.",
+        "fix": "Bật đèn 12, 13 tiếng hoặc hơn là quá lâu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3c9f236d6f708820"
+  },
   "vi/guides/youtube-8B80s_qtzxA": {
     "at": "2026-11-03",
     "hash": "6ddc6217e2afd0f3",
@@ -3981,6 +4181,12 @@
     "hash": "4f0d5d689689b53f",
     "findings": [],
     "ruled": "4f0d5d689689b53f"
+  },
+  "vi/guides/youtube-A_vsnpDVUSw": {
+    "at": "2026-11-03",
+    "hash": "bdcd89c3775d4d7b",
+    "findings": [],
+    "ruled": "bdcd89c3775d4d7b"
   },
   "vi/guides/youtube-A1a-GetRJxM": {
     "at": "2026-11-03",
@@ -4008,6 +4214,22 @@
       }
     ],
     "ruled": "9cef82546740aefa"
+  },
+  "vi/guides/youtube-a77kpNo-Mac": {
+    "at": "2026-11-03",
+    "hash": "6cc19f58300936ff",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhận định này chưa chắc chắn hoàn toàn nên đừng thử nghiệm với bể của mình.",
+        "problem": "The sentence copies the English 'so don't…' pattern and reads like machine translation. It also comes across as an awkward command when it is really meant as a caution.",
+        "fix": "Chuyện này mình chưa dám chắc, nên bạn đừng thử bỏ đèn với bể của mình.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6cc19f58300936ff"
   },
   "vi/guides/youtube-A7UY_Sa4t7s": {
     "at": "2026-11-01",
@@ -4516,6 +4738,22 @@
     ],
     "ruled": "2604d4d0107effa7"
   },
+  "vi/guides/youtube-jmOoiLzV0Z8": {
+    "at": "2026-11-03",
+    "hash": "189edd40ec15f99c",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trên thang độ cứng từ 1 đến 10, thép được xếp khoảng mức 7.",
+        "problem": "The page puts steel at about 7 on the hardness scale, but a steel knife is about 5.5–6.5 on the Mohs scale. 7 is the hardness of quartz.",
+        "fix": "Trên thang độ cứng Mohs từ 1 đến 10, dao thép được xếp khoảng mức 5,5 đến 6,5.",
+        "field": "body"
+      }
+    ],
+    "ruled": "189edd40ec15f99c"
+  },
   "vi/guides/youtube-jvEJpkByqJ0": {
     "at": "2026-11-02",
     "hash": "0accee578e601f3b",
@@ -4607,6 +4845,12 @@
     "hash": "fdb4ac249570930d",
     "findings": [],
     "ruled": "fdb4ac249570930d"
+  },
+  "vi/guides/youtube-kYFZT3em8GU": {
+    "at": "2026-11-03",
+    "hash": "99b88e265695c3f7",
+    "findings": [],
+    "ruled": "99b88e265695c3f7"
   },
   "vi/guides/youtube-L1Xd9owK1fs": {
     "at": "2026-11-02",
@@ -4783,6 +5027,12 @@
     ],
     "ruled": "119104fde2aacb1d"
   },
+  "vi/guides/youtube-qgic_Fj3WS4": {
+    "at": "2026-11-03",
+    "hash": "60a7c56ab4398df3",
+    "findings": [],
+    "ruled": "60a7c56ab4398df3"
+  },
   "vi/guides/youtube-qqHJr-5enM8": {
     "at": "2026-11-01",
     "hash": "cec8ab7f2af4b477",
@@ -4823,6 +5073,12 @@
       }
     ],
     "ruled": "71b67a837005feb2"
+  },
+  "vi/guides/youtube-qWK5E1c6qak": {
+    "at": "2026-11-03",
+    "hash": "43bc63885066efbc",
+    "findings": [],
+    "ruled": "43bc63885066efbc"
   },
   "vi/guides/youtube-r9rJ8JljJC0": {
     "at": "2026-11-02",
@@ -4956,6 +5212,22 @@
       }
     ],
     "ruled": "cf06a2f56c486607"
+  },
+  "vi/guides/youtube-U_2TYWQ_i3U": {
+    "at": "2026-11-03",
+    "hash": "646dd195b9a8ebd9",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cuối bài có thêm cách chia giờ đèn, sục oxy ban đêm và cách chăm cho rêu lên tán.",
+        "problem": "The intro promises a section on caring for moss so it spreads into a carpet, but no part of the page covers it.",
+        "fix": "Cuối bài có thêm cách chia giờ đèn và sục oxy ban đêm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "646dd195b9a8ebd9"
   },
   "vi/guides/youtube-uHt88QgoeZY": {
     "at": "2026-11-01",
@@ -5276,6 +5548,12 @@
     ],
     "ruled": "dbd313a7eeca5c83"
   },
+  "vi/guides/youtube-zfTnqG22oS8": {
+    "at": "2026-11-03",
+    "hash": "6a9d0b48e0f7335c",
+    "findings": [],
+    "ruled": "6a9d0b48e0f7335c"
+  },
   "vi/guides/youtube-zSKCf5T45IM": {
     "at": "2026-11-03",
     "hash": "ebd82fa17c420a0c",
@@ -5337,6 +5615,12 @@
       }
     ],
     "ruled": "441bdd728433938d"
+  },
+  "vi/guides/youtube-ZYwZzYODC4Y": {
+    "at": "2026-11-03",
+    "hash": "cfd01a76406ce1a4",
+    "findings": [],
+    "ruled": "cfd01a76406ce1a4"
   },
   "vi/plants/anubias-barteri": {
     "at": "2026-11-01",

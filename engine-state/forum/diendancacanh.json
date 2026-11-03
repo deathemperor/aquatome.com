@@ -42,6 +42,11 @@
     },
     "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/": {
       "last": 3,
+      "next": 4,
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/forums/bai-viet.12/": {
+      "last": 9,
       "next": 3
     }
   },
@@ -735,6 +740,91 @@
       ],
       "readAt": "2026-11-02"
     },
+    "https://www.diendancacanh.com/threads/cac-dang-dau-o-ca-betta.486957/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
+      "title": "Các Dạng Đầu Ở Cá Betta",
+      "author": "vnreddevil",
+      "date": "13/7/26 lúc 14:21",
+      "posts": 1,
+      "provenance": "original",
+      "evidence": "Authors write from own experience (\"chúng tôi\") with own photos credited to members.",
+      "topic": "Head shapes in Betta (wild splendens complex and domestic fish): round, bullet, arrow, spoon",
+      "terms": [
+        {
+          "vi": "đầu tròn",
+          "en": "round head"
+        },
+        {
+          "vi": "đầu đạn",
+          "en": "bullet head"
+        },
+        {
+          "vi": "đầu nhọn",
+          "en": "arrow head"
+        },
+        {
+          "vi": "đầu muỗng",
+          "en": "spoon head"
+        },
+        {
+          "vi": "cá chọi Xiêm",
+          "en": "Siamese fighting fish (domestic Betta splendens)"
+        },
+        {
+          "vi": "cá hoang",
+          "en": "wild-type fish"
+        },
+        {
+          "vi": "cá thuần dưỡng",
+          "en": "domesticated fish"
+        },
+        {
+          "vi": "nhóm Splendens",
+          "en": "Betta splendens complex"
+        },
+        {
+          "vi": "lỗi loại",
+          "en": "disqualification"
+        },
+        {
+          "vi": "suy thoái cận huyết",
+          "en": "inbreeding depression"
+        },
+        {
+          "vi": "mõm cụt",
+          "en": "shortened snout"
+        },
+        {
+          "vi": "bản lóc",
+          "en": "Channa-type body"
+        },
+        {
+          "vi": "bản còm",
+          "en": "Chitala-type body"
+        },
+        {
+          "vi": "bản rô",
+          "en": "Anabas-type body"
+        },
+        {
+          "vi": "bản mè",
+          "en": "Barbodes-type (small pointed face)"
+        }
+      ],
+      "taxa": [
+        "Betta splendens",
+        "Betta imbellis",
+        "Betta mahachaiensis",
+        "Betta smaragdina"
+      ],
+      "breeds": [
+        "Super Red",
+        "Red Copper",
+        "Siamese fighting fish"
+      ],
+      "images": [],
+      "readAt": "2026-11-03"
+    },
     "https://www.diendancacanh.com/threads/cac-phuong-phap-kich-thich-ca-dia-de.54536/": {
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
       "title": "Các phương pháp kích thích cá dĩa đẻ",
@@ -1376,6 +1466,82 @@
       "breeds": [],
       "images": [],
       "readAt": "2026-11-02"
+    },
+    "https://www.diendancacanh.com/threads/cau-chuyen-ve-ca-dia-bo-cau.31267/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Câu chuyện về cá dĩa bồ câu",
+      "author": "vnreddevil",
+      "date": "14/1/10 lúc 19:50",
+      "posts": 1,
+      "provenance": "translated",
+      "evidence": "Interview by Fred Goodall, translated by Nutsarun, sourced from www.dph.nl",
+      "original": {
+        "title": "Interview with Kitti Phanaitthi on the pigeon blood discus (June 2001)",
+        "author": "Fred Goodall (interview with Kitti Phanaitthi); translated by Nutsarun",
+        "url": "http://www.dph.nl/"
+      },
+      "topic": "Origin story of the pigeon blood discus, interview with Thai breeder Kitti Phanaitthi",
+      "terms": [
+        {
+          "vi": "cá dĩa",
+          "en": "discus"
+        },
+        {
+          "vi": "cá dĩa bồ câu",
+          "en": "pigeon blood discus"
+        },
+        {
+          "vi": "cá dĩa bông đỏ",
+          "en": "red turquoise discus"
+        },
+        {
+          "vi": "cá dĩa nâu",
+          "en": "brown discus"
+        },
+        {
+          "vi": "muối tiêu",
+          "en": "pepper (dark speckling)"
+        },
+        {
+          "vi": "huyết câu",
+          "en": "pigeon blood"
+        },
+        {
+          "vi": "lai xa",
+          "en": "outcrossing"
+        },
+        {
+          "vi": "nhà lai tạo",
+          "en": "breeder"
+        },
+        {
+          "vi": "cá bột",
+          "en": "fry"
+        },
+        {
+          "vi": "hormon",
+          "en": "hormones"
+        }
+      ],
+      "taxa": [
+        "Symphysodon"
+      ],
+      "breeds": [
+        "Pigeon blood discus",
+        "Red turquoise discus",
+        "Brown discus"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_pigeon_blood_classic_1.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/kitti.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
     },
     "https://www.diendancacanh.com/threads/che-bien-thuc-an-tim-bo.37505/": {
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
@@ -3836,6 +4002,114 @@
       "images": [],
       "readAt": "2026-11-02"
     },
+    "https://www.diendancacanh.com/threads/mot-loai-ca-dia-moi-duoc-xac-dinh-symphysodon-tarzoo.89/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Một loài cá đĩa mới được xác định: Symphysodon tarzoo",
+      "author": "vnreddevil",
+      "date": "5/3/16 lúc 07:10",
+      "posts": 1,
+      "provenance": "translated",
+      "evidence": "Reference list cites Practical Fishkeeping article by Matt Clarke and journal papers.",
+      "original": {
+        "title": "New Discus named Symphysodon tarzoo",
+        "author": "Matt Clarke"
+      },
+      "topic": "Discovery of new discus species Symphysodon tarzoo, discus taxonomy and purity debate",
+      "terms": [
+        {
+          "vi": "cá đĩa",
+          "en": "discus (Symphysodon)"
+        },
+        {
+          "vi": "cá đĩa Tefé",
+          "en": "Tefé discus (Symphysodon tarzoo)"
+        },
+        {
+          "vi": "cá đĩa thuần dưỡng",
+          "en": "domesticated discus"
+        },
+        {
+          "vi": "cá đĩa hoang dã",
+          "en": "wild discus"
+        },
+        {
+          "vi": "cá ông tiên",
+          "en": "angelfish (Pterophyllum)"
+        },
+        {
+          "vi": "cá kim thơm",
+          "en": "severum (Heros)"
+        },
+        {
+          "vi": "La Hán",
+          "en": "flowerhorn cichlid"
+        },
+        {
+          "vi": "Hồng Két",
+          "en": "blood parrot cichlid"
+        },
+        {
+          "vi": "nước trắng",
+          "en": "whitewater"
+        },
+        {
+          "vi": "nước đen",
+          "en": "blackwater"
+        },
+        {
+          "vi": "nước trong",
+          "en": "clearwater"
+        },
+        {
+          "vi": "cá lai tạp",
+          "en": "hybrid"
+        },
+        {
+          "vi": "thuần chủng",
+          "en": "pure-bred / true species"
+        },
+        {
+          "vi": "phân loài",
+          "en": "subspecies"
+        }
+      ],
+      "taxa": [
+        "Symphysodon tarzoo",
+        "Symphysodon discus",
+        "Symphysodon aequifasciatus",
+        "Symphysodon aequifasciatus haraldi",
+        "Symphysodon aequifasciatus axelrodi",
+        "Symphysodon discus willischwartzi",
+        "Pterophyllum",
+        "Heros",
+        "Uaru",
+        "Mesonauta"
+      ],
+      "breeds": [
+        "Domesticated discus",
+        "Flowerhorn cichlid",
+        "Blood parrot cichlid"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/Amazon.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/lahan/Tefe.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/discus.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/aequifasciatus.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
     "https://www.diendancacanh.com/threads/nguon-goc-ca-dia-beo-clip-hinh.116461/": {
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
       "title": "Nguồn gốc cá dĩa beo! (Clip hình)",
@@ -3969,6 +4243,147 @@
         {
           "src": "https://www.diendancacanh.com/pictures/discus/show_aquafair2008.jpg",
           "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/threads/nhom-splendens.335/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
+      "title": "Nhóm Splendens",
+      "author": "vnreddevil",
+      "date": "13/8/24 lúc 05:10",
+      "posts": 2,
+      "provenance": "original",
+      "evidence": "Writer gives own commentary, local Mekong Delta observations, photos credited to forum members; sources only cited as references.",
+      "topic": "Betta splendens species complex: wild species, identification, hybrids, and distribution",
+      "terms": [
+        {
+          "vi": "nhóm splendens",
+          "en": "Betta splendens complex"
+        },
+        {
+          "vi": "lia thia mang đỏ",
+          "en": "red-gilled betta (B. splendens)"
+        },
+        {
+          "vi": "lia thia mang xanh",
+          "en": "green/blue-gilled betta (B. cf. imbellis)"
+        },
+        {
+          "vi": "nắp mang",
+          "en": "operculum / gill cover"
+        },
+        {
+          "vi": "kỳ",
+          "en": "pelvic fin (first ray)"
+        },
+        {
+          "vi": "vây lẻ",
+          "en": "unpaired fins"
+        },
+        {
+          "vi": "cá lai",
+          "en": "hybrid"
+        },
+        {
+          "vi": "cá thuần dưỡng",
+          "en": "domesticated fish"
+        },
+        {
+          "vi": "cá hoang dã",
+          "en": "wild type"
+        },
+        {
+          "vi": "xanh thép",
+          "en": "steel blue (bl)"
+        },
+        {
+          "vi": "xanh lục",
+          "en": "green (Bl)"
+        },
+        {
+          "vi": "biến thể guitar",
+          "en": "Guitar variant"
+        },
+        {
+          "vi": "đá cá",
+          "en": "fish fighting"
+        },
+        {
+          "vi": "tên phụ đồng nghĩa",
+          "en": "junior synonym"
+        },
+        {
+          "vi": "loài thuần chủng",
+          "en": "pure species"
+        }
+      ],
+      "taxa": [
+        "Betta splendens",
+        "Betta siamorientalis",
+        "Betta imbellis",
+        "Betta smaragdina",
+        "Betta stiktos",
+        "Betta mahachaiensis"
+      ],
+      "breeds": [
+        "Copper Smaragdina",
+        "Blue Guitar",
+        "Green Alien (Stiktos hybrid)",
+        "Super Green Buriram"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_siamorientalis.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_splendens.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_imbellis.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_smaragdina.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_smaragdina_buriram.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_smaragdina_guitar.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_stiktos.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Green_Alien.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_mahachaiensis.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_comparison.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_smaragdina_copper.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/Betta_smaragdina_blue_guitar.jpg",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/bettabook.jpg",
+          "own": true
         }
       ],
       "readAt": "2026-11-03"
@@ -4159,6 +4574,281 @@
       "breeds": [],
       "images": [],
       "readAt": "2026-11-02"
+    },
+    "https://www.diendancacanh.com/threads/opaque-nen-sam-opaque-phan-2.486805/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
+      "title": "Opaque nền sẫm (Opaque - Phần 2)",
+      "author": "vnreddevil",
+      "date": "27/6/26 lúc 11:24",
+      "posts": 2,
+      "provenance": "original",
+      "evidence": "Authors describe their own breeding crosses and fish photos (\"chúng tôi đã cản\"); no credit line.",
+      "topic": "Dark-bodied opaque betta genetics, breeding results and proposed IBC show classes",
+      "terms": [
+        {
+          "vi": "opaque nền sẫm",
+          "en": "dark-bodied opaque"
+        },
+        {
+          "vi": "cản",
+          "en": "to cross/breed (pair)"
+        },
+        {
+          "vi": "mái",
+          "en": "female"
+        },
+        {
+          "vi": "bột phấn",
+          "en": "opaque powdery pigment deposit"
+        },
+        {
+          "vi": "opaque đồng hợp",
+          "en": "homozygous opaque (OpOp)"
+        },
+        {
+          "vi": "ánh kim",
+          "en": "iridescence"
+        },
+        {
+          "vi": "gien đốm vảy",
+          "en": "reduced iridocytes gene (ri)"
+        },
+        {
+          "vi": "cận huyết",
+          "en": "inbreeding"
+        },
+        {
+          "vi": "cá hoang",
+          "en": "wild betta"
+        },
+        {
+          "vi": "lớp triển lãm",
+          "en": "show class"
+        },
+        {
+          "vi": "Xiêm xanh",
+          "en": "blue Siamese fighting fish"
+        },
+        {
+          "vi": "vây đỏ",
+          "en": "red fins"
+        },
+        {
+          "vi": "vảy đường bên",
+          "en": "lateral line scales"
+        },
+        {
+          "vi": "thân sẫm",
+          "en": "dark-bodied"
+        },
+        {
+          "vi": "Opaque White",
+          "en": "Opaque White (OpOpblblnmnm)"
+        }
+      ],
+      "taxa": [
+        "Betta splendens",
+        "Betta mahachaiensis"
+      ],
+      "breeds": [
+        "Black Copper Dragon",
+        "Black Turquoise Dragon",
+        "Black Steel Dragon",
+        "Red Steel Dragon",
+        "Red Dragon",
+        "Opaque White",
+        "Opaque Copper",
+        "Opaque Steel",
+        "Opaque Blue",
+        "Opaque Turquoise",
+        "Opaque Green"
+      ],
+      "images": [],
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/threads/phan-1-phan-loai-ca-dia-hoang-da.31575/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Phần 1 - Phân loại cá dĩa hoang dã",
+      "author": "vnreddevil",
+      "date": "5/3/16 lúc 06:42",
+      "posts": 1,
+      "provenance": "translated",
+      "evidence": "Ends with a reference list of four English-language sites; content is compiled from NADA material.",
+      "original": {
+        "title": "Discus classification (NADA, North American Discus Association)",
+        "author": "North American Discus Association (NADA)",
+        "url": "http://www.discusnada.org/discus/classification.html"
+      },
+      "topic": "Classification of wild discus and origins of cultivated discus strains (part 1)",
+      "terms": [
+        {
+          "vi": "cá dĩa heckel",
+          "en": "Heckel discus"
+        },
+        {
+          "vi": "cá dĩa nâu",
+          "en": "brown discus"
+        },
+        {
+          "vi": "cá dĩa lam",
+          "en": "blue discus"
+        },
+        {
+          "vi": "cá dĩa lục",
+          "en": "green discus"
+        },
+        {
+          "vi": "can",
+          "en": "vertical bar"
+        },
+        {
+          "vi": "bông xanh",
+          "en": "brilliant/blue turquoise"
+        },
+        {
+          "vi": "lam phấn",
+          "en": "blue diamond"
+        },
+        {
+          "vi": "lam Đức",
+          "en": "cobalt"
+        },
+        {
+          "vi": "bông đỏ",
+          "en": "red turquoise"
+        },
+        {
+          "vi": "cá dĩa bồ câu",
+          "en": "pigeon blood"
+        },
+        {
+          "vi": "cá dĩa beo",
+          "en": "leopard skin"
+        },
+        {
+          "vi": "dĩa ma",
+          "en": "ghost discus"
+        },
+        {
+          "vi": "da rắn",
+          "en": "snakeskin"
+        },
+        {
+          "vi": "bạch ngọc",
+          "en": "snow white"
+        },
+        {
+          "vi": "bạch tạng",
+          "en": "albino"
+        }
+      ],
+      "taxa": [
+        "Symphysodon discus",
+        "Symphysodon aequifasciatus",
+        "Symphysodon haraldi",
+        "Symphysodon discus willischwartzi",
+        "Symphysodon aequifasciatus axelrodi",
+        "Symphysodon aequifasciatus haraldi",
+        "Symphysodon aequifasciatus aequifasciatus"
+      ],
+      "breeds": [
+        "Alenquer Red",
+        "Brilliant Turquoise",
+        "Blue Diamond",
+        "Cobalt Blue",
+        "Ocean Green",
+        "Blue Cover",
+        "Red Turquoise",
+        "Pigeon Blood",
+        "Red Spotted Green",
+        "Leopard Skin",
+        "Ghost Discus",
+        "Golden Discus",
+        "San Merah",
+        "Virgin Red",
+        "Snakeskin",
+        "Snow White",
+        "Albino"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_heckel_nhamunda13.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_heckel_nhamunda10.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_heckel_nhamunda18.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_brown_1.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_brown_2.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_brown_3.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_alenquer_red_1.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_alenquer_red_2.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_alenquer_red_3.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_blue_alenquer1.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_blue_alenquer4.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_blue_alenquer11.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_spotted_green_classic_1.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_spotted_green_classic_2.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_spotted_green_classic_3.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_wild_distribution.gif",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_wild_table.bmp",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_wild_heckel_green.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discusclass/class_wild_brown_blue.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
     },
     "https://www.diendancacanh.com/threads/phan-2-phan-loai-ca-dia-thuan-duong.31268/": {
       "title": "Phần 2 - Phân loại cá dĩa thuần dưỡng",
@@ -4593,6 +5283,112 @@
       "images": [],
       "readAt": "2026-11-02"
     },
+    "https://www.diendancacanh.com/threads/smaragdina-guitar-khao-sat-toan-dien.484933/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
+      "title": "Smaragdina Guitar: Khảo Sát Toàn Diện",
+      "author": "vnreddevil",
+      "date": "1/10/26 lúc 11:28",
+      "posts": 2,
+      "provenance": "original",
+      "evidence": "Based on breeder Minh Trí Kiệt's own multi-year crossing trials, with his photos.",
+      "topic": "Colour forms, genetics and line-keeping of Betta smaragdina Guitar",
+      "terms": [
+        {
+          "vi": "Guitar",
+          "en": "Betta smaragdina Guitar variant"
+        },
+        {
+          "vi": "Green Guitar",
+          "en": "Green Guitar (BlBl++)"
+        },
+        {
+          "vi": "Copper Guitar",
+          "en": "Copper Guitar (blbl++)"
+        },
+        {
+          "vi": "Blue Guitar",
+          "en": "Blue Guitar (Blblnmnm)"
+        },
+        {
+          "vi": "Carbon Guitar",
+          "en": "Carbon Guitar"
+        },
+        {
+          "vi": "Lime Guitar",
+          "en": "Lime Guitar (Blbl++)"
+        },
+        {
+          "vi": "Steel Guitar",
+          "en": "Steel Guitar (blblnmnm)"
+        },
+        {
+          "vi": "Turquoise Guitar",
+          "en": "Turquoise Guitar (Turquoise1-4)"
+        },
+        {
+          "vi": "ánh kim",
+          "en": "metallic iridescence"
+        },
+        {
+          "vi": "đồng hợp",
+          "en": "homozygous"
+        },
+        {
+          "vi": "dị hợp",
+          "en": "heterozygous"
+        },
+        {
+          "vi": "kiểu gien",
+          "en": "genotype"
+        },
+        {
+          "vi": "kiểu hình",
+          "en": "phenotype"
+        },
+        {
+          "vi": "giữ dòng",
+          "en": "line maintenance"
+        },
+        {
+          "vi": "cận huyết",
+          "en": "inbreeding"
+        }
+      ],
+      "taxa": [
+        "Betta smaragdina",
+        "Betta stiktos",
+        "Betta splendens"
+      ],
+      "breeds": [
+        "Guitar betta",
+        "Green Guitar",
+        "Lime Guitar",
+        "Copper Guitar",
+        "Blue Guitar",
+        "Carbon Guitar",
+        "Steel Guitar",
+        "Turquoise Guitar"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/guitar_f4a.png",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/guitar_blueblue.png",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/guitar_bluelime.png",
+          "own": true
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/betta/guitar_turquoise3turquoise3.png",
+          "own": true
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
     "https://www.diendancacanh.com/threads/su-nuoi-duong-con-cua-ca-dia.29862/": {
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
       "title": "sự nuôi dưỡng con của cá dĩa",
@@ -4938,6 +5734,82 @@
       "images": [],
       "readAt": "2026-11-02"
     },
+    "https://www.diendancacanh.com/threads/tieu-chuan-trung-bay-ibc.471570/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
+      "title": "Tiêu Chuẩn Trưng Bày IBC",
+      "author": "vnreddevil",
+      "date": "13/1/26 lúc 10:31",
+      "posts": 1,
+      "provenance": "translated",
+      "evidence": "Vietnamese rendering of IBC standards, links to ibcbettas.org originals",
+      "original": {
+        "title": "IBC Exhibition Standards",
+        "author": "International Betta Congress (IBC)",
+        "url": "https://www.ibcbettas.org/upcoming-shows/standards/"
+      },
+      "topic": "IBC betta show exhibition standards, table of contents and chapter list",
+      "terms": [
+        {
+          "vi": "Tiêu Chuẩn Trưng Bày IBC",
+          "en": "IBC Exhibition Standards"
+        },
+        {
+          "vi": "Sổ Tay Triển Lãm",
+          "en": "Show Manual"
+        },
+        {
+          "vi": "Sổ Tay Trọng Tài",
+          "en": "Judges Manual"
+        },
+        {
+          "vi": "Plakat",
+          "en": "Plakat"
+        },
+        {
+          "vi": "Đuôi Tưa",
+          "en": "Crowntail"
+        },
+        {
+          "vi": "Đuôi Kép Vây Ngắn",
+          "en": "Short-finned Double Tail"
+        },
+        {
+          "vi": "Loại Hoang Dã",
+          "en": "Wild type bettas"
+        },
+        {
+          "vi": "Trọng Tài",
+          "en": "Judge"
+        },
+        {
+          "vi": "Đánh Giá Màu Sắc",
+          "en": "Colour judging"
+        },
+        {
+          "vi": "Lớp Nhà Lai Tạo Mới",
+          "en": "New Breeder Class"
+        },
+        {
+          "vi": "Ban Trọng Tài",
+          "en": "Judges Committee"
+        }
+      ],
+      "taxa": [
+        "Betta splendens"
+      ],
+      "breeds": [
+        "Plakat betta",
+        "Crowntail betta",
+        "Short-finned double tail betta"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/Bettas4all/ibc-logo.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
     "https://www.diendancacanh.com/threads/toi-khong-chi-la-gia-vi.62105/": {
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
       "title": "Tỏi: không chỉ là gia vị",
@@ -5015,6 +5887,186 @@
         }
       ],
       "readAt": "2026-11-02"
+    },
+    "https://www.diendancacanh.com/threads/tong-hop-bai-viet-ve-ca-betta-thia-thia-ca-xiem-ca-da-ca-choi.256/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
+      "title": "Tổng hợp bài viết về cá Betta (thia thia, cá Xiêm, cá đá, cá chọi)",
+      "author": "vnreddevil",
+      "date": "27/2/26 lúc 23:23",
+      "posts": 2,
+      "provenance": "unclear",
+      "evidence": "Index of article titles, many by foreign authors; no credit line, mixed origins.",
+      "topic": "Index/compilation of Betta articles: genetics, breeding, fin types, feeding, care, wild species, shows",
+      "terms": [
+        {
+          "vi": "cá thia thia / cá lia thia",
+          "en": "betta"
+        },
+        {
+          "vi": "cá Xiêm",
+          "en": "Siamese fighting fish"
+        },
+        {
+          "vi": "cá chọi / cá đá",
+          "en": "fighting fish"
+        },
+        {
+          "vi": "đuôi tưa",
+          "en": "crowntail"
+        },
+        {
+          "vi": "đuôi kép",
+          "en": "doubletail"
+        },
+        {
+          "vi": "đuôi nhót",
+          "en": "spadetail"
+        },
+        {
+          "vi": "đuôi hoa",
+          "en": "veiltail/flower tail (as titled)"
+        },
+        {
+          "vi": "cá bột",
+          "en": "fry"
+        },
+        {
+          "vi": "ép cá",
+          "en": "breeding/spawning"
+        },
+        {
+          "vi": "ấp phao",
+          "en": "floating incubation method"
+        },
+        {
+          "vi": "ánh kim",
+          "en": "metallic"
+        },
+        {
+          "vi": "cá rồng",
+          "en": "Dragon betta"
+        },
+        {
+          "vi": "đậu hũ trứng",
+          "en": "egg tofu (fry food)"
+        },
+        {
+          "vi": "trùn chỉ",
+          "en": "tubifex worms"
+        },
+        {
+          "vi": "lá bàng",
+          "en": "Indian almond leaf"
+        }
+      ],
+      "taxa": [
+        "Betta splendens",
+        "Betta channoides",
+        "Betta macrostoma",
+        "Betta sp. Mahachai",
+        "Betta sp. Bung Binh"
+      ],
+      "breeds": [
+        "Halfmoon",
+        "Halfmoon Plakat",
+        "Plakat",
+        "Crowntail",
+        "Doubletail",
+        "Spadetail",
+        "Dragon betta",
+        "Marble",
+        "Koi",
+        "Cambodian",
+        "Mustard Gas",
+        "Black Samurai",
+        "Giant betta",
+        "Dumbo (Big Ears)",
+        "Black Devil",
+        "Copper/Gold betta",
+        "Opaque",
+        "Flowerhorn"
+      ],
+      "images": [],
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/threads/tong-hop-bai-viet-ve-ca-co-lia-thia-san-sat-thien-duong-paradisefish-macropodus-sp.471505/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
+      "title": "Tổng hợp bài viết về cá Cờ (lia thia, săn sắt, thiên đường) - Paradisefish Macropodus sp.",
+      "author": "vnreddevil",
+      "date": "1/10/24 lúc 15:47",
+      "posts": 1,
+      "provenance": "translated",
+      "evidence": "Index of articles by named foreign authors and sources like SeriouslyFISH, Aqualog, TFH link.",
+      "original": {
+        "title": "Parental care behavior of the Red-backed Paradisefish, Macropodus erythropterus",
+        "author": "Nick Kalodimos",
+        "url": "http://www.tfhmagazine.com/details/articles/parental-care-behavior-of-the-redbacked-paradisefish-macropodus-erythropterus.htm"
+      },
+      "topic": "Index of articles on Macropodus paradisefish species, care, breeding and standards",
+      "terms": [
+        {
+          "vi": "cá cờ",
+          "en": "paradisefish (Macropodus)"
+        },
+        {
+          "vi": "cá thiên đường",
+          "en": "paradisefish"
+        },
+        {
+          "vi": "lia thia",
+          "en": "paradisefish / fighting fish (Macropodus)"
+        },
+        {
+          "vi": "săn sắt",
+          "en": "paradisefish (Macropodus)"
+        },
+        {
+          "vi": "cờ đen",
+          "en": "black paradisefish (Macropodus spp.)"
+        },
+        {
+          "vi": "cờ đen Hongkong",
+          "en": "Hong Kong paradisefish (Macropodus hongkongensis)"
+        },
+        {
+          "vi": "cờ đen Huế",
+          "en": "Hue black paradisefish (Macropodus ocellatus)"
+        },
+        {
+          "vi": "cá cờ đuôi tròn",
+          "en": "round-tailed paradisefish (Macropodus ocellatus)"
+        },
+        {
+          "vi": "cờ lưng đỏ",
+          "en": "red-backed paradisefish (Macropodus erythropterus)"
+        },
+        {
+          "vi": "cờ sọc",
+          "en": "striped paradisefish (Macropodus opercularis)"
+        },
+        {
+          "vi": "biến thể",
+          "en": "variant / colour form"
+        },
+        {
+          "vi": "lai tạo",
+          "en": "breeding / crossbreeding"
+        },
+        {
+          "vi": "hành vi sinh sản",
+          "en": "breeding behaviour"
+        }
+      ],
+      "taxa": [
+        "Macropodus spechti",
+        "Macropodus erythropterus",
+        "Macropodus hongkongensis",
+        "Macropodus ocellatus",
+        "Macropodus opercularis"
+      ],
+      "breeds": [],
+      "images": [],
+      "readAt": "2026-11-03"
     },
     "https://www.diendancacanh.com/threads/tong-hop-bai-viet-ve-ca-dia.46728/": {
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
@@ -5460,56 +6512,6 @@
     }
   },
   "queue": [
-    {
-      "url": "https://www.diendancacanh.com/threads/phan-1-phan-loai-ca-dia-hoang-da.31575/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Phần 1 - Phân loại cá dĩa hoang dã"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/cau-chuyen-ve-ca-dia-bo-cau.31267/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Câu chuyện về cá dĩa bồ câu"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/mot-loai-ca-dia-moi-duoc-xac-dinh-symphysodon-tarzoo.89/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Một loài cá đĩa mới được xác định: Symphysodon tarzoo"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/tieu-chuan-trung-bay-ibc.471570/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
-      "title": "Tiêu Chuẩn Trưng Bày IBC"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/tong-hop-bai-viet-ve-ca-co-lia-thia-san-sat-thien-duong-paradisefish-macropodus-sp.471505/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
-      "title": "Tổng hợp bài viết về cá Cờ (lia thia, săn sắt, thiên đường) - Paradisefish Macropodus sp."
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/tong-hop-bai-viet-ve-ca-betta-thia-thia-ca-xiem-ca-da-ca-choi.256/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
-      "title": "Tổng hợp bài viết về cá Betta (thia thia, cá Xiêm, cá đá, cá chọi)"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/smaragdina-guitar-khao-sat-toan-dien.484933/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
-      "title": "Smaragdina Guitar: Khảo Sát Toàn Diện"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/cac-dang-dau-o-ca-betta.486957/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
-      "title": "Các Dạng Đầu Ở Cá Betta"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/nhom-splendens.335/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
-      "title": "Nhóm Splendens"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/opaque-nen-sam-opaque-phan-2.486805/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
-      "title": "Opaque nền sẫm (Opaque - Phần 2)"
-    },
     {
       "url": "https://www.diendancacanh.com/threads/shades-of-steel.482013/",
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-betta-ca-co.19/",
@@ -8614,6 +9616,226 @@
       "url": "https://www.diendancacanh.com/threads/cac-nguyen-tac-bo-cuc.22708/",
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
       "title": "Các nguyên tắc bố cục"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/khac-che-chien-tranh-hoa-hoc-giua-cac-loai-thuy-sinh.21375/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Khắc chế - chiến tranh hoá học giữa các loài thuỷ sinh"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/sinh-hoc-tu-nhien-cua-thuc-vat.21281/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Sinh học tự nhiên của thực vật"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/utricularia-graminifolia-loai-cay-an-thit-tien-canh.14807/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Utricularia graminifolia – loài cây ăn thịt tiền cảnh"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/tong-hop-cac-bai-viet.68/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Tổng hợp các bài viết"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/tan-man-ve-cay-hoa-sua.486968/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Tản mạn về cây hoa sữa"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/mot-so-loai-cay-doc-co-lon.486569/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Một số loài cây độc cỡ lớn"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ve-con-luon-nhat-unagi.486936/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Về con “lươn nhật” (Unagi)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cay-bo-nuoc-marginal-plant.472840/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Cây bờ nước (marginal plant)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cay-doc-nhat-the-gioi-duoc-phat-hien-lan-trong-vuon-hoa-cong-vien-conway.486627/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Cây độc nhất thế giới được phát hiện lẫn trong vườn hoa công viên Conway"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/o-sri-lanka-mot-loai-hoa-nam-my-chiem-cho-cay-thieng-cua-phat-tu-va-tin-do-hindu.486566/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Ở Sri Lanka, một loài hoa Nam Mỹ chiếm chỗ cây thiêng của Phật tử và tín đồ Hindu"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/sinh-ton-cua-loai-ca-toan-mai-tro-den-dna-cua-no.486046/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Sinh tồn của loài cá toàn-mái trỏ đến DNA của nó"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/loai-tom-cang-nay-tu-nhan-ban-chinh-minh-va-no-lan-tran-khap-chau-au.486043/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Loài tôm càng này tự nhân bản chính mình, và nó lan tràn khắp châu Âu"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/loai-xam-lan-cuop-tinh-trung-la-mot-chien-luoc-thanh-cong.486041/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Loài xâm lấn: cướp tinh trùng là một chiến lược thành công"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/huong-dan-dich-thuc-ve-ca-oscar.437725/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Hướng dẫn đích thực về cá Oscar"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/nuoi-ca-loc-canh.6/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Nuôi cá lóc cảnh?"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/tieu-ngu-vung-trom-len-sau-duc-co-de-thu-tinh-trung.482520/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Tiểu ngư vụng trộm lẻn sau đực cồ để thụ tinh trứng"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/no-khong-phai-la-ran-nhung-coi-chung-vet-can-co-doc.482012/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Nó Không Phải Là Rắn, Nhưng Coi Chừng Vết Cắn Có Độc"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ca-de.481410/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "CÁ ĐẺ"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/tep-cherry-do.29929/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Tép cherry đỏ"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ech-mong-silurana.25688/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Ếch móng Silurana"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cua-dau-cam-loai-leo-cay-o-thai-lan.15884/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Cua đầu cam: loài leo cây ở Thái Lan"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/xep-hang-tep-ong-do.30280/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Xếp hạng tép ong đỏ"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/hoplias-loai-soi-nuoc.243265/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Hoplias, loài sói nước"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/bay-nam-no-luc-sinh-ton-cua-mot-chu-ca-vang.453024/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Bảy năm nỗ lực sinh tồn của một chú cá vàng"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/nuoi-tom-quat.29546/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Nuôi tôm quạt"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/sinh-san-o-tep-nuoc-ngot.30279/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Sinh sản ở tép nước ngọt"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/suu-tam-vo-so-oc-bien.3996/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Sưu tầm vỏ sò ốc biển"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ho-thuy-canh-aquarium.473516/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Hồ thủy cảnh (Aquarium)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/lymphocystis-thong-tin-va-dieu-tri.471824/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Lymphocystis – Thông Tin và Điều Trị"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ve-bai-bao-huong-dan-giai-phau-tham-my-ca.4/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Về bài báo hướng dẫn giải phẫu thẩm mỹ cá"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/chuan-bi-ngam-ban.28319/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Chuẩn bị, ngắm – bắn!"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ca-tram-tao-vat-ti-hon.38613/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Cá trâm - tạo vật tí hon"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/muoi-con-ca-nhiet-doi-dat-tien-nhat.442850/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Mười con cá nhiệt đới đắt tiền nhất"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/dai-duong-cung-oceanarium.473305/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Đại dương cung (Oceanarium)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/biet-vien-terrarium.473108/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Biệt viên (Terrarium)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ho-dam-lay-paludarium.473092/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Hồ đầm lầy (Paludarium)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/sinh-vuc-vivarium.473078/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Sinh vực (Vivarium)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/sinh-canh-pterophyllum-altum.472695/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Sinh Cảnh Pterophyllum altum"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/nguon-goc-altum-chuoi-cung-ung-altum-hoang-da.472655/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Nguồn Gốc Altum: Chuỗi Cung Ứng Altum Hoang Dã"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/kiem-o-dau-ca-ong-tien-pterophyllum-altum-dich-thuc.472654/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Kiếm ở đâu: Cá ông tiên Pterophyllum altum đích thực?"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/pterophyllum-altum-pellegrin-1903-seriouslyfish.472499/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Pterophyllum altum Pellegrin, 1903 (seriouslyFISH)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ban-nang-sat-thu-ca-san-moi-va-cach-nuoi-chung.40612/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Bản năng sát thủ: Cá săn mồi (và cách nuôi chúng)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/so-luoc-ve-ca-chinh.26685/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Sơ lược về cá chình"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/huong-dan-dich-thuc-ve-ca-piranha.427295/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet.12/",
+      "title": "Hướng dẫn đích thực về cá piranha"
     }
   ]
 }
