@@ -316,6 +316,27 @@ public enum PageRoute: Equatable, Sendable {
   }
 }
 
+/// A shop link on the site (/go/<network>/…, the "Shopee", "Lazada" and "Tiki" buttons): the site counts the click and
+/// sends the reader on to the shop. Our own copies of the app ask it where the link leads under their mark, so the site
+/// doesn't count their taps, then open the shop itself.
+public enum ShopLink {
+  public static func `is`(_ url: URL, site: URL) -> Bool {
+    PageRoute.of(url, site: site, mainFrame: true, newWindow: false) == .app && url.path.hasPrefix("/go/")
+  }
+
+  /// The shop the site's redirect names, asked by `send` without following it, as `userAgent`; the link itself when
+  /// the site answers anything else or can't be reached, so a tap always opens something.
+  public static func target(of url: URL, userAgent: String, send: @Sendable (URLRequest) async throws -> HTTPURLResponse) async -> URL {
+    var r = URLRequest(url: url)
+    r.setValue(userAgent, forHTTPHeaderField: "User-Agent")
+    r.timeoutInterval = 10
+    guard let answer = try? await send(r), (300..<400).contains(answer.statusCode),
+          let location = answer.value(forHTTPHeaderField: "Location"), let to = URL(string: location, relativeTo: url)?.absoluteURL,
+          ["http", "https"].contains(to.scheme?.lowercased() ?? "") else { return url }
+    return to
+  }
+}
+
 /// Searching the index the way readers type: without accents ("ca dia" finds "Cá đĩa"), any case, words in any order.
 public struct HandbookSearch: Sendable {
   private struct Entry: Sendable {

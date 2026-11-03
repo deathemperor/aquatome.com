@@ -197,6 +197,11 @@ struct NativePage: View {
         openScreen(screen)
         return .handled
       }
+      // A shop: outside, as the site opens it in a new tab (not a page here that only redirects away).
+      if ShopLink.is(u, site: handbook.site) {
+        Task { await OwnCopy.open(u, site: handbook.site) }
+        return .handled
+      }
       if PageRoute.of(u, site: handbook.site, mainFrame: true, newWindow: false) == .app {
         onSite = u
         return .handled

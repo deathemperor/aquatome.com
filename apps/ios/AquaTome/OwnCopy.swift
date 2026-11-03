@@ -1,9 +1,12 @@
 import AccountSync
 import Foundation
+import Handbook
 import StoreKit
+import UIKit
 
 /// Whether this copy of the app is one of ours: a debug build (the simulator, every UI test) or a TestFlight build.
-/// Its web pages and wanted names then carry `AccountsClient.ourCopy`, so the site leaves them out of its reader stats.
+/// Its web pages, wanted names and shop links then carry `AccountsClient.ourCopy`, so the site leaves them out of its
+/// reader and click stats.
 /// A copy from the App Store never does.
 enum OwnCopy {
   private static let key = "own-copy"
@@ -25,4 +28,25 @@ enum OwnCopy {
     UserDefaults.standard.set(t.environment != .production, forKey: key)
     #endif
   }
+
+  /// A link that leaves the app, in the browser or the app that handles it. A shop link on the site goes from our
+  /// copies straight to its shop (`ShopLink`), so the site doesn't count their taps as readers' clicks.
+  @MainActor static func open(_ url: URL, site: URL) async {
+    var to = url
+    if isOurs, ShopLink.is(url, site: site) {
+      to = await ShopLink.target(of: url, userAgent: "AquaTome-iOS \(AccountsClient.ourCopy)") { r in
+        guard let answer = try await URLSession.shared.data(for: r, delegate: NoRedirects()).1 as? HTTPURLResponse else {
+          throw URLError(.badServerResponse)
+        }
+        return answer
+      }
+    }
+    _ = await UIApplication.shared.open(to)
+  }
+}
+
+/// A request's redirect answered, not followed.
+private final class NoRedirects: NSObject, URLSessionTaskDelegate, Sendable {
+  func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse,
+                  newRequest request: URLRequest) async -> URLRequest? { nil }
 }

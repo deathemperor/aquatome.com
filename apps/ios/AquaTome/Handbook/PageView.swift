@@ -220,7 +220,7 @@ private struct WebPage: UIViewRepresentable {
         return .allow
       case .none: return .cancel
       case .outside:
-        _ = await UIApplication.shared.open(u)
+        await OwnCopy.open(u, site: page.url)
         return .cancel
       }
     }
