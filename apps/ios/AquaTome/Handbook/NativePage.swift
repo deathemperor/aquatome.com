@@ -22,6 +22,8 @@ struct NativePage: View {
   /// A page of the site the app can't show itself (one the index leaves out, a tool set by the link): the web page, in
   /// the app.
   @State private var onSite: URL?
+  /// Its videos' player, one at a time (PagePlayer).
+  @State private var player = PagePlayer()
   /// VoiceOver's place: moved with a `#id` link, as the scroll is.
   @AccessibilityFocusState private var focus: String?
 
@@ -35,6 +37,8 @@ struct NativePage: View {
     /// above its name.
     case photo(src: String, ratio: CGFloat, alt: String?, caption: AttributedString, credit: AttributedString? = nil, href: URL?, play: Bool = false,
                hero: Bool = false)
+    /// A video, played in the page (VideoSlot); its caption's chapters seek it.
+    case video(id: String, title: String, caption: AttributedString)
     /// Other pages the index lists, each opening in the app.
     case pages(String, [String])
     /// Other pages as rows drawn from what they carry (tank-mates, breeds), each opening in the app, or else on the web;
@@ -89,7 +93,10 @@ struct NativePage: View {
       }
       // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows.
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
+      // A chapter or a still tapped: its video in view.
+      .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
     }
+    .environment(player)
     .accessibilityIdentifier("native-page")
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
@@ -143,6 +150,8 @@ struct NativePage: View {
         if !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
         if let credit { Text(credit).foregroundStyle(.secondary).tint(Color.secondary).padding(.horizontal, hero ? nil : 0) }
       }
+    case let .video(id, title, caption):
+      VideoSlot(id: id, title: title, caption: caption)
     case let .pages(title, paths):
       PagesBlock(title: title, paths: paths)
     case let .cards(title, cards, good):
@@ -202,6 +211,15 @@ struct NativePage: View {
     case "page-tip":
       tip = Tip(url)
       return .handled
+    case "page-video":
+      // A chapter or a still: the page's player at its time; a video the page doesn't show, on YouTube.
+      guard let (id, at) = PagePlayer.asked(url) else { return .handled }
+      if pieces.contains(where: { if case let .video(v, _, _) = $0 { v == id } else { false } }) {
+        player.ask(id, at: at, lang: handbook.lang, site: handbook.site)
+      } else {
+        UIApplication.shared.open(youtube(id, at: at))
+      }
+      return .handled
     default:
       let u = url.scheme == nil ? URL(string: url.relativeString, relativeTo: handbook.site)?.absoluteURL ?? url : url
       if let screen = AppScreen.of(u, site: handbook.site, listed: { handbook.item(at: $0) != nil },
@@ -240,11 +258,10 @@ struct NativePage: View {
       if let s = v.subtitles { cap += styled("\n" + s, .caption.bold()) }
       for ch in v.chapters ?? [] {
         var line = AttributedString("\n\(clock(ch.at))  \(ch.title)")
-        line.link = youtube(v.youtubeId, at: ch.at)
+        line.link = PagePlayer.link(v.youtubeId, at: ch.at)
         cap += line
       }
-      out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"), caption: cap,
-                        href: youtube(v.youtubeId, at: 0), play: true))
+      out.append(.video(id: v.youtubeId, title: v.title, caption: cap))
     }
     let species = doc.kind == "fish" || doc.kind == "plant"
     if species { out.append(.facts) }
@@ -302,7 +319,7 @@ struct NativePage: View {
       out.append(.text(styled(title, .headline), look: .subheading))
       for s in items {
         out.append(.photo(src: s.img.src, ratio: CGFloat(s.img.w) / CGFloat(s.img.h), alt: s.img.alt, caption: styled("\(clock(s.at)) · \(s.caption)"),
-                          href: youtube(id, at: s.at), play: true))
+                          href: PagePlayer.link(id, at: s.at), play: true))
       }
     case let .summary(title, items, paragraph, mistakes, by):
       out.append(.text(styled(title, .pageHeading), look: .heading))
@@ -369,8 +386,7 @@ struct NativePage: View {
       out.append(.text(styled(title, .pageHeading), look: .heading))
       for v in items {
         let length = v.durationSec > 0 ? " · \(clock(v.durationSec))" : ""
-        out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"),
-                          caption: styled("\(v.title)\(length) · \(v.lang)"), href: youtube(v.youtubeId, at: 0), play: true))
+        out.append(.video(id: v.youtubeId, title: v.title, caption: styled("\(v.title)\(length) · \(v.lang)")))
       }
     }
   }
@@ -872,8 +888,6 @@ enum PageImages {
     if let u = URL(string: src) { session.configuration.urlCache?.removeCachedResponse(for: URLRequest(url: u)) }
   }
 }
-
-private func youtube(_ id: String, at: Int) -> URL { URL(string: "https://www.youtube.com/watch?v=\(id)" + (at > 0 ? "&t=\(at)s" : ""))! }
 
 /// 75 → "1:15", 3725 → "1:02:05", as the site writes a video's times (lib/video.ts), in every language: not the
 /// phone's own time style, which writes "1.15" in Indonesian.

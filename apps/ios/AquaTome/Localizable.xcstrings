@@ -2785,6 +2785,22 @@
         }
       }
     },
+    "Không mở được video. Kiểm tra mạng rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video tidak bisa dibuka. Periksa koneksi internet, lalu coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดวิดีโอไม่ได้ ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Không qua được kiểm tra chống spam, vui lòng thử lại.": {
       "localizations": {
         "id": {
@@ -4209,6 +4225,22 @@
         }
       }
     },
+    "Thoát toàn màn hình": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keluar dari layar penuh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ออกจากโหมดเต็มจอ"
+          }
+        }
+      }
+    },
     "Thuật ngữ": {
       "localizations": {
         "id": {
@@ -4429,6 +4461,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ลองหลายครั้งเกินไป โปรดรอสักครู่แล้วลองใหม่"
+          }
+        }
+      }
+    },
+    "Toàn màn hình": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Layar penuh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เต็มจอ"
           }
         }
       }
@@ -5201,6 +5249,22 @@
         }
       }
     },
+    "Video: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วิดีโอ: %@"
+          }
+        }
+      }
+    },
     "Vui lòng xác nhận ảnh do bạn chụp.": {
       "localizations": {
         "id": {
@@ -5421,6 +5485,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูในตู้ของฉัน →"
+          }
+        }
+      }
+    },
+    "Xem trên YouTube": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tonton di YouTube"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูบน YouTube"
           }
         }
       }
