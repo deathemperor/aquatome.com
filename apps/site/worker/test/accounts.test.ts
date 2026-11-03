@@ -476,7 +476,8 @@ test('every path in the API contract (protocols/accounts.openapi.json) is served
     for (const method of Object.keys(ops)) {
       const { token } = await google('g-1', { client: 'app' })
       const r = await call(method.toUpperCase(), path.replace('{id}', '00000000-0000-4000-8000-000000000000'), { bearer: token, origin: null, ...(method === 'post' ? { body: { client: 'app' } } : {}) })
-      expect(r.status === 404 && path !== '/api/v1/account/methods/{id}', `${method} ${path}: ${r.status}`).toBe(false)
+      // A made-up id is not found where the path names one thing of the account's.
+      expect(r.status === 404 && !['/api/v1/account/methods/{id}', '/api/v1/fish-id/photos/{id}'].includes(path), `${method} ${path}: ${r.status}`).toBe(false)
     }
   }
   // The app signs out with its token alone.

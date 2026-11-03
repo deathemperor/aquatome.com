@@ -1,5 +1,6 @@
 import { sessionOf, tokenOf } from './accounts/session'
 import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
+import { deleteKept, keptImage, recentKept } from './fishid/kept'
 import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
 import { photosLive, recentPhotos, removePhoto, type PhotosEnv } from './photos'
@@ -8,7 +9,7 @@ import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } 
 import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
 import { contentPage } from './admin/content-page'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
-import { accountsPage, affiliatePage, fishIdPage, hiddenPage, overviewPage, photosPage, readersPage, wantedPage, type AffSummary } from './admin/pages'
+import { accountsPage, affiliatePage, fishIdPage, hiddenPage, keptPage, overviewPage, photosPage, readersPage, wantedPage, type AffSummary } from './admin/pages'
 import { isFailed, loginPage, soft, unset, type AdminPath, type Soft } from './admin/shell'
 
 /**
@@ -124,6 +125,7 @@ const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<s
     const pages = new Map((catalog?.entries ?? []).map(e => [e.id, e.url.vi]))
     return fishIdPage({ now, stats, keys, pages })
   },
+  '/_ab/anh-nhan-dien/': async env => keptPage(env.UPLOADS ? await soft('kept', recentKept(env.UPLOADS)) : undefined),
   '/_ab/affiliate/': async (env, _url, now) => {
     if (!env.DB) return affiliatePage(unset('D1'), unset('D1'))
     const [clicks, summary] = await Promise.all([soft('clicks', clicksByDay(env.DB, now)), soft('affiliate', affSummary(env.DB, now))])
@@ -160,6 +162,21 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     if (!form) return badForm()
     await removePhoto(env, String(form.get('id') ?? ''), 'removed by owner', now)
     return see('/_ab/anh-ban-doc/')
+  }
+  // A kept fish-ID photo: shown, and deleted, only to the owner (fishid/kept.ts).
+  const shot = /^\/_ab\/anh-nhan-dien\/anh\/([0-9a-z-]+)\/([0-9a-f-]{36})$/.exec(path)
+  if (shot) {
+    if (req.method !== 'GET' || !env.UPLOADS || !(await owner())) return notFound()
+    const o = await keptImage(env.UPLOADS, shot[1] === 'anon' ? undefined : shot[1], shot[2]!)
+    return o ? new Response(o.body, { headers: { 'content-type': 'image/jpeg', 'cache-control': 'private, no-store' } }) : notFound()
+  }
+  if (path === '/_ab/anh-nhan-dien/xoa') {
+    if (req.method !== 'POST' || !env.UPLOADS || !(await owner())) return notFound()
+    const form = await req.formData().catch(() => null)
+    if (!form) return badForm()
+    const who = String(form.get('who') ?? '')
+    await deleteKept(env.UPLOADS, who === 'anon' ? undefined : who, String(form.get('id') ?? ''))
+    return see('/_ab/anh-nhan-dien/')
   }
   if (path === '/_ab/hidden') {
     if (req.method !== 'POST' || !(await owner())) return notFound()

@@ -1,4 +1,5 @@
 import type { FishIdStatus } from '../fishid/api'
+import type { KeptRow } from '../fishid/kept'
 import type { Hidden } from '../hidden'
 import type { Readers } from '../readers'
 import type { Wanted } from '../wanted'
@@ -346,6 +347,22 @@ export function photosPage(xs: Soft<RecentPhoto[] | undefined>): string {
     body += `<div class="scroll"><table><thead><tr><th></th><th>Trang</th><th>Tên</th><th>Lúc (UTC)</th><th></th></tr></thead><tbody>${rows || '<tr><td colspan="5" class="none">Chưa có ảnh nào.</td></tr>'}</tbody></table></div>`
   }
   return page('/_ab/anh-ban-doc/', 'Ảnh bạn đọc', body)
+}
+
+/** Fish-ID photos readers let us keep (fishid/kept.ts): only here are they seen. Newest first; each goes 6 months on. */
+export function keptPage(xs: Soft<KeptRow[] | undefined>): string {
+  let body = '<h1>Ảnh nhận diện</h1><p class="lede">Ảnh bạn đọc cho phép giữ khi nhận diện, cùng kết quả: để kiểm tra và cải thiện việc nhận diện. Chỉ hiện ở đây, không bao giờ công khai; tự xóa sau 6 tháng. Bạn đọc đã đăng nhập tự xóa được ảnh của mình; ảnh gửi khi chưa đăng nhập chỉ xóa được ở đây, khi họ liên hệ.</p>'
+  if (isFailed(xs)) body += failedBox('ảnh nhận diện', xs)
+  else if (!xs) body += '<p class="muted">Chưa bật (thiếu R2 UPLOADS).</p>'
+  else {
+    const rows = xs.map(p => {
+      const who = p.account ?? 'anon'
+      const top = p.guesses[0]
+      return `<tr><th><a href="/_ab/anh-nhan-dien/anh/${esc(who)}/${esc(p.id)}"><img class="thumb" src="/_ab/anh-nhan-dien/anh/${esc(who)}/${esc(p.id)}" alt="" width="96" loading="lazy"></a></th><td class="l">${esc(p.verdict)}${top ? ` · <i>${esc(top.scientificName)}</i> ${Math.round(top.confidence * 100)}%` : ''}</td><td>${p.account ? 'đăng nhập' : 'chưa đăng nhập'}</td><td>${esc(p.lang)}</td><td>${when(p.created)}</td><td><form method="post" action="/_ab/anh-nhan-dien/xoa"><input type="hidden" name="who" value="${esc(who)}"><input type="hidden" name="id" value="${esc(p.id)}"><button>Xóa</button></form></td></tr>`
+    }).join('')
+    body += `<div class="scroll"><table><thead><tr><th></th><th>Kết quả</th><th>Gửi khi</th><th>Ngôn ngữ</th><th>Lúc (UTC)</th><th></th></tr></thead><tbody>${rows || '<tr><td colspan="6" class="none">Chưa có ảnh nào.</td></tr>'}</tbody></table></div>`
+  }
+  return page('/_ab/anh-nhan-dien/', 'Ảnh nhận diện', body)
 }
 
 export function hiddenPage(h: Soft<Hidden>): string {

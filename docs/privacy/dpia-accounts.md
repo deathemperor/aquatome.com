@@ -61,8 +61,10 @@ trang hoặc ứng dụng.
 | Giới hạn tần suất | Mã băm có khóa của dải IP hoặc của email kèm bộ đếm | D1 `rate_limits` | Tối đa 24 giờ; xóa hằng ngày |
 | Thông tin bể | Tên bể, kích thước, loại nền, loài cá và cây (mã trang), ghi chú tự do, thiết bị (đèn, tên Bluetooth của đèn, lịch, mức sáng) | D1 `tank_records` | Đến khi người dùng xóa bể hoặc xóa tài khoản |
 | Bình luận và ảnh gửi từ ứng dụng | Mã tài khoản đã gửi, gắn với bình luận hoặc ảnh (tên hiển thị, nội dung, ảnh: như khi gửi từ trang web); bộ đếm mỗi ngày theo mã băm có khóa của mã tài khoản | D1 `comments`, `photos` (cột `account_id`), tệp ảnh trong R2, bộ đếm trong KV | Như bình luận và ảnh gửi từ trang web; xóa cùng tài khoản (cả tệp ảnh); bộ đếm 24 giờ |
+| Ảnh nhận diện cá được giữ (chỉ khi người dùng đánh dấu "Cho phép AquaTome giữ ảnh này để cải thiện nhận diện", từng ảnh, mặc định không đánh dấu) | Ảnh JPEG đã bỏ thông tin kèm theo (Exif/GPS, XMP, IPTC, chú thích); ngày gửi; kết quả nhận diện (tối đa 3 loài đoán, độ tin cậy); mô hình, ngôn ngữ; mã tài khoản nếu gửi khi đã đăng nhập (gửi khi chưa đăng nhập: không gắn với ai). Không lưu IP, vị trí, tên tệp | R2 `aquatome-uploads` (riêng tư, không có địa chỉ công khai), `fish-id/<mã tài khoản>/` hoặc `fish-id/anon/`; không có bảng D1 | 6 tháng rồi tự xóa (quy tắc vòng đời R2 và việc dọn hằng ngày); người dùng xóa từng ảnh bất cứ lúc nào; xóa cùng tài khoản |
+| Bộ đếm nhận diện cá trong ứng dụng | Mã băm có khóa của mã tài khoản kèm ngày, số lượt (10/ngày) | KV | 24 giờ |
 
-**Không thu thập:** họ tên, số điện thoại, ngày sinh, ảnh (ngoài ảnh cá người dùng tự gửi từ ứng dụng, ở trên), vị trí, danh bạ. Không lưu địa chỉ email và địa chỉ IP.
+**Không thu thập:** họ tên, số điện thoại, ngày sinh, ảnh (ngoài ảnh cá người dùng tự gửi từ ứng dụng và ảnh nhận diện người dùng cho phép giữ, ở trên), vị trí, danh bạ. Không lưu địa chỉ email và địa chỉ IP.
 Không xử lý dữ liệu cá nhân nhạy cảm.
 
 **Dữ liệu chỉ đi qua, không lưu:** địa chỉ email người dùng nhập để nhận mã đăng nhập (chỉ dùng để gửi một email);
@@ -79,8 +81,9 @@ nào yêu cầu thông tin cá nhân.
 
 | Bên | Vai trò | Dữ liệu | Nơi xử lý |
 | --- | --- | --- | --- |
-| Cloudflare, Inc. (Workers, D1, Turnstile) | Bên xử lý: chạy máy chủ, lưu cơ sở dữ liệu, chống bot | Toàn bộ mục 3; IP khi truy cập | Mạng toàn cầu; D1 đặt ở **[điền: vùng của cơ sở dữ liệu thuysinh]** |
+| Cloudflare, Inc. (Workers, D1, R2, Turnstile) | Bên xử lý: chạy máy chủ, lưu cơ sở dữ liệu và ảnh, chống bot | Toàn bộ mục 3; IP khi truy cập | Mạng toàn cầu; D1 đặt ở **[điền: vùng của cơ sở dữ liệu thuysinh]** |
 | Cloudflare, Inc. (Email Sending) | Bên xử lý: gửi email đăng nhập từ dang-nhap@aquatome.com | Địa chỉ email, nội dung email (mã một lần) | Mạng toàn cầu của Cloudflare |
+| Anthropic PBC (Claude) | Bên xử lý: nhận diện ảnh cá | Ảnh người dùng gửi để nhận diện, không kèm mã tài khoản hay IP; Anthropic xử lý theo chính sách bảo mật của Anthropic | Hoa Kỳ |
 | Apple Inc. (Sign in with Apple) | Bên thứ ba người dùng chọn | Apple xác thực người dùng; chúng tôi nhận mã người dùng và (có thể) email ẩn danh của Apple. Khi xóa tài khoản, máy chủ gửi cho Apple một mã ủy quyền mới (người dùng đăng nhập Apple lại một lần) để thu hồi quyền đăng nhập của AquaTome | Theo chính sách của Apple |
 | Google LLC (Sign in with Google) | Bên thứ ba người dùng chọn | Tương tự Apple | Theo chính sách của Google |
 
@@ -123,9 +126,9 @@ Thiết bị người dùng (trình duyệt / ứng dụng iOS)
 | Quyền | Cách thực hiện |
 | --- | --- |
 | Được biết | Chính sách bảo mật (`/vi/chinh-sach-bao-mat/`), câu thông báo cạnh nút đăng nhập |
-| Xem, nhận bản sao | Nút "Tải dữ liệu tài khoản" (tệp JSON) trong trang và ứng dụng: ngay lập tức |
+| Xem, nhận bản sao | Nút "Tải dữ liệu tài khoản" (tệp JSON) trong trang và ứng dụng: ngay lập tức; có cả danh sách ảnh nhận diện được giữ (ngày, kết quả), không kèm ảnh |
 | Sửa | Người dùng tự sửa thông tin bể trong trang/ứng dụng |
-| Xóa, rút lại đồng ý | Nút "Xóa tài khoản" trong trang và ứng dụng: xóa ngay mọi dữ liệu của tài khoản; với tài khoản Apple, thu hồi luôn quyền đăng nhập bằng Apple của AquaTome |
+| Xóa, rút lại đồng ý | Nút "Xóa tài khoản" trong trang và ứng dụng: xóa ngay mọi dữ liệu của tài khoản, cả ảnh nhận diện được giữ; với tài khoản Apple, thu hồi luôn quyền đăng nhập bằng Apple của AquaTome. Từng ảnh nhận diện được giữ: xóa ở mục Tài khoản (`DELETE /api/v1/fish-id/photos/{id}`). Ảnh gửi khi chưa đăng nhập: xóa theo yêu cầu qua email, người quản trị xóa ở trang quản trị |
 | Khiếu nại, yêu cầu khác | Email **[điền]**; phản hồi đầu tiên trong 2 ngày làm việc, hoàn tất trong thời hạn Nghị định 356 |
 
 Bản sao lưu: **[điền: Cloudflare D1 Time Travel giữ trạng thái cơ sở dữ liệu tới 30 ngày; dữ liệu đã xóa còn trong bản
@@ -146,6 +149,7 @@ sao lưu đó tối đa 30 ngày rồi mất hẳn. Xác nhận cấu hình.]**
 | Chiếm tài khoản | Thấp | Thấp: xem/sửa thông tin bể | Nonce, mã một lần gắn với thiết bị, CSRF, phiên băm | Thấp |
 | Gửi email hàng loạt qua form đăng nhập | Trung bình | Thấp | Turnstile, giới hạn theo IP, theo email, theo ngày | Thấp |
 | Người dùng ghi thông tin cá nhân vào ghi chú | Thấp | Thấp | Ghi chú có giới hạn độ dài; chỉ người dùng thấy; xóa được | Thấp |
+| Ảnh nhận diện được giữ để lộ người hoặc nơi chụp | Thấp | Thấp: ảnh cá trong bể | Chỉ giữ khi người dùng đánh dấu, từng ảnh; bỏ Exif/GPS trước khi lưu; bucket riêng tư, chỉ trang quản trị (tài khoản chủ trang) xem được; 6 tháng rồi tự xóa | Thấp |
 | Truy cập trái phép vào quản trị Cloudflare | Thấp | Trung bình | Xác thực hai lớp, token API giới hạn quyền | Thấp |
 
 **Kết luận:** mức rủi ro thấp. Hoạt động xử lý dùng dữ liệu tối thiểu, không có dữ liệu nhạy cảm, có sự đồng ý và

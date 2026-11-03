@@ -5,9 +5,12 @@ import { fishIdStatus, type FishIdDeps } from '../fishid/api'
 import { keyHash, loadKeys, parseKeys } from '../fishid/keys'
 import { fishIdPage } from '../admin/pages'
 import { unset } from '../admin/shell'
-import { createSession, type Client } from '../accounts/session'
+import { COOKIE, createSession, type Client } from '../accounts/session'
 import { contract } from './contract'
 import { testD1 } from './d1'
+import { deleteUser } from '../accounts/users'
+import { KEEP_DAYS, stripJpeg, sweepKept } from '../fishid/kept'
+import { memoryR2 } from './r2'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
@@ -559,4 +562,100 @@ test('the owner\'s dashboard: each key by number and hash, its state and today\'
   expect(html).toContain(await keyHash(A))
   for (const k of [A, B, C, 'wrkspc_orgA']) expect(html).not.toContain(k)
   expect(kv.size).toBeGreaterThan(0)
+})
+
+// A JPEG as a phone might send it: JFIF, Exif with a GPS position, IPTC, a comment, a table, then the scan.
+const seg = (marker: number, body: number[]) => [0xff, marker, (body.length + 2) >> 8, (body.length + 2) & 0xff, ...body]
+const ascii = (t: string) => [...new TextEncoder().encode(t)]
+const SCAN = [0xff, 0xda, 0, 4, 1, 2, 9, 9, 9, 0xff, 0xd9]
+const PHONE_JPEG = new Uint8Array([0xff, 0xd8, ...seg(0xe0, ascii('JFIF\0')), ...seg(0xe1, ascii('Exif\0\0GPS 10.77N 106.70E')), ...seg(0xed, ascii('Photoshop 3.0\0IPTC')), ...seg(0xfe, ascii('my tank')), ...seg(0xdb, [0, 1, 2, 3]), ...SCAN])
+const accounts = contract('accounts.openapi.json')
+const keepEnv = async () => {
+  const db = testD1()
+  const r2 = memoryR2()
+  return { db, r2, ...env({ DB: db, UPLOADS: r2.bucket, ACCOUNTS: 'on', ACCOUNT_HMAC_KEY: 'a' }) }
+}
+const appJson = (token: string | undefined, extra: Record<string, unknown> = {}, image = PHONE_JPEG) => new Request('https://x.test/api/fish-id', {
+  method: 'POST',
+  headers: { ...(token ? { authorization: `Bearer ${token}` } : {}), 'content-type': 'application/json', 'cf-connecting-ip': '203.0.113.7', ...READER },
+  body: JSON.stringify({ image: btoa(String.fromCharCode(...image)), lang: 'vi', token: 't', ...extra }),
+})
+
+test('a kept JPEG loses its Exif, XMP, IPTC and comments and keeps its image; anything else is not walked', () => {
+  const out = stripJpeg(PHONE_JPEG)!
+  const text = new TextDecoder().decode(out)
+  expect(text).toContain('JFIF')
+  for (const gone of ['GPS', 'Exif', 'IPTC', 'my tank']) expect(text).not.toContain(gone)
+  expect([...out.slice(out.length - SCAN.length)]).toEqual(SCAN)
+  expect(out.length).toBe(PHONE_JPEG.length - 3 * 4 - ascii('Exif\0\0GPS 10.77N 106.70E').length - ascii('Photoshop 3.0\0IPTC').length - ascii('my tank').length)
+  expect(stripJpeg(new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a]))).toBeNull()
+  expect(stripJpeg(PHONE_JPEG.slice(0, 12))).toBeNull()
+})
+
+test('keeping: a ticked photo is kept under the app\'s account with its result, its metadata cut; listed and deleted with the bearer; unticked, nothing is', async () => {
+  const { e, db, r2 } = await keepEnv()
+  const d = deps(claude({}).fetch)
+  const me = await signIn(db)
+  // Unticked: nothing stored, and no `kept` in the answer.
+  expect(await (await run(appJson(me.token), e, d)).json()).not.toHaveProperty('kept')
+  expect(r2.m.size).toBe(0)
+  expect(await (await run(appJson(me.token, { keep: true }), e, d)).json()).toMatchObject({ verdict: 'fish', kept: true })
+  const [key, o] = [...r2.m][0]!
+  expect(key).toMatch(new RegExp(`^fish-id/${me.id}/[0-9a-f-]{36}$`))
+  expect(new TextDecoder().decode(o.bytes)).not.toContain('GPS')
+  expect(o.customMetadata).toEqual({ created: expect.any(String), verdict: 'fish', guesses: expect.any(String), model: 'claude-opus-5-5', lang: 'vi' })
+  expect(JSON.parse(o.customMetadata!.guesses!).map((g: { scientificName: string }) => g.scientificName)).toEqual(['Paracheirodon innesi', 'Hyphessobrycon amandae', 'Paracheirodon simulans'])
+  expect(JSON.stringify([...r2.m.keys(), o.customMetadata])).not.toContain('203.0.113.7')
+  // The account's list: the date and the result, never the image.
+  const bearer = { authorization: `Bearer ${me.token}` }
+  const list = await accounts.answer('/api/v1/fish-id/photos', 'get', await run(new Request('https://x.test/api/v1/fish-id/photos', { headers: bearer }), e, d)) as { photos: { id: string; verdict: string; guesses: unknown[] }[] }
+  expect(list.photos).toEqual([{ id: key.split('/')[2], created: o.customMetadata!.created, verdict: 'fish', guesses: JSON.parse(o.customMetadata!.guesses!) }])
+  // In the account's export too.
+  expect(await (await run(new Request('https://x.test/api/v1/account/export', { headers: bearer }), e, d)).json()).toMatchObject({ fishIdPhotos: list.photos })
+  // Another account can't delete it, nor anyone signed out; its own bearer does, once.
+  const other = await signIn(db)
+  const del = (h: Record<string, string>) => run(new Request(`https://x.test/api/v1/fish-id/photos/${list.photos[0]!.id}`, { method: 'DELETE', headers: h }), e, d)
+  expect((await accounts.answer('/api/v1/fish-id/photos/{id}', 'delete', await del({ authorization: `Bearer ${other.token}` }))).error).toBe('not_found')
+  expect((await accounts.answer('/api/v1/fish-id/photos', 'get', await run(new Request('https://x.test/api/v1/fish-id/photos'), e, d))).error).toBe('signed_out')
+  expect((await del(bearer)).status).toBe(204)
+  expect(r2.m.size).toBe(0)
+  expect((await del(bearer)).status).toBe(404)
+})
+
+test('keeping on the page: under the signed-in reader\'s cookie, or signed out tied to no one; a PNG is not kept but still identified', async () => {
+  const { e, db, r2 } = await keepEnv()
+  const d = deps(claude({}).fetch)
+  const reader = await signIn(db, 'web')
+  const page = (fields: Record<string, string>, headers: Record<string, string> = {}, file = new Blob([PHONE_JPEG])) => post(file, { token: 't', lang: 'vi', ...fields }, headers)
+  expect(await (await run(page({ keep: '1' }, { cookie: `${COOKIE}=${reader.token}` }), e, d)).json()).toMatchObject({ kept: true })
+  expect(await (await run(page({ keep: '1' }), e, d)).json()).toMatchObject({ kept: true })
+  const PNG = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0, 0, 0, 0])
+  expect(await (await run(page({ keep: '1' }, {}, new Blob([PNG])), e, d)).json()).toMatchObject({ verdict: 'fish', kept: false })
+  expect([...r2.m.keys()].map(k => k.split('/').slice(0, 2).join('/')).sort()).toEqual(['fish-id/anon', `fish-id/${reader.id}`].sort())
+  // Without the bucket: identified, not kept.
+  const bare = env({ DB: db })
+  expect(await (await run(page({ keep: '1' }), bare.e, d)).json()).toMatchObject({ verdict: 'fish', kept: false })
+  // A refusal is kept too, as unclear.
+  expect(await (await run(page({ keep: '1' }), e, deps(claude({ [A]: () => message('{}', 'refusal') }).fetch))).json()).toMatchObject({ refused: true, kept: true })
+})
+
+test('kept photos go with their account, and from everyone 6 months on (the daily cron)', async () => {
+  const { e, db, r2 } = await keepEnv()
+  const d = deps(claude({}).fetch)
+  const [a, b] = [await signIn(db), await signIn(db)]
+  const now = Date.now()
+  r2.setNow(() => new Date(now - KEEP_DAYS * 86_400_000 - 60_000))
+  await run(appJson(a.token, { keep: true }), e, d)
+  r2.setNow(() => new Date(now - 10 * 86_400_000))
+  await run(appJson(b.token, { keep: true }), e, d)
+  await run(appJson(a.token, { keep: true }), e, d)
+  expect(r2.m.size).toBe(3)
+  expect(await sweepKept(r2.bucket, new Date(now))).toBe(1)
+  expect(r2.m.size).toBe(2)
+  await deleteUser(db, a.id, { UPLOADS: r2.bucket })
+  expect([...r2.m.keys()].every(k => k.startsWith(`fish-id/${b.id}/`))).toBe(true)
+  // Across R2's pages of a listing.
+  const paged = memoryR2(2)
+  for (let i = 0; i < 5; i++) await paged.bucket.put(`fish-id/anon/${crypto.randomUUID()}`, PHONE_JPEG)
+  expect(await sweepKept(paged.bucket, new Date(now + (KEEP_DAYS + 1) * 86_400_000))).toBe(5)
 })

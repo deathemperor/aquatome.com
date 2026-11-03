@@ -32,6 +32,7 @@ const fakeR2 = () => {
     get: async (k: string) => (m.has(k) ? { body: m.get(k), httpMetadata: { contentType: 'image/jpeg' }, arrayBuffer: async () => m.get(k)!.slice().buffer } : null),
     head: async (k: string) => (m.has(k) ? {} : null),
     delete: async (k: string | string[]) => { for (const x of [k].flat()) m.delete(x) },
+    list: async ({ prefix = '' }: { prefix?: string } = {}) => ({ objects: [...m.keys()].filter(k => k.startsWith(prefix)).map(key => ({ key, uploaded: new Date() })), truncated: false }),
   } as unknown as R2Bucket
   return { m, bucket }
 }

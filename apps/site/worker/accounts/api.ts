@@ -1,4 +1,5 @@
 import { readCapped, siteverify as realSiteverify } from '../comments/api'
+import { deleteKept, listKept } from '../fishid/kept'
 import { appleRevoker, type RevokeApple } from './apple'
 import { checkEmail, consume, emailHash, normalEmail, startEmail, TANKS_PAGE, type Lang, type SendMail } from './email'
 import { verifyIdToken as realVerifyIdToken, type Provider, type VerifyIdToken } from './idtoken'
@@ -295,7 +296,7 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     return fail('not_found', 404)
   }
 
-  if (!path.startsWith('/api/v1/tanks') && !path.startsWith('/api/v1/account')) return fail('not_found', 404)
+  if (!['/api/v1/tanks', '/api/v1/account', '/api/v1/fish-id/photos'].some(p => path.startsWith(p))) return fail('not_found', 404)
   if (!session) return fail('signed_out', 401)
 
   if (route === 'GET /api/v1/tanks') return json({ store: await loadStore(db, session.userId), serverTime: now.toISOString() })
@@ -324,8 +325,13 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     return json({ ...out, serverTime: now.toISOString() })
   }
 
+  // The fish-ID photos the account let us keep (fishid/kept.ts): their dates and results, never the images.
+  if (route === 'GET /api/v1/fish-id/photos') return env.UPLOADS ? json({ photos: await listKept(env.UPLOADS, session.userId) }) : fail('unavailable', 503)
+  const kept = /^\/api\/v1\/fish-id\/photos\/([0-9a-f-]{36})$/.exec(path)
+  if (kept && req.method === 'DELETE') return env.UPLOADS && (await deleteKept(env.UPLOADS, session.userId, kept[1]!)) ? none() : fail('not_found', 404)
+
   if (route === 'GET /api/v1/account/export') {
-    const data = { exportedAt: now.toISOString(), user: await userView(db, session.userId), tanks: await loadStore(db, session.userId) }
+    const data = { exportedAt: now.toISOString(), user: await userView(db, session.userId), tanks: await loadStore(db, session.userId), ...(env.UPLOADS ? { fishIdPhotos: await listKept(env.UPLOADS, session.userId) } : {}) }
     return json(data, 200, { 'content-disposition': `attachment; filename="aquatome-${now.toISOString().slice(0, 10)}.json"` })
   }
   if (route === 'DELETE /api/v1/account') {
