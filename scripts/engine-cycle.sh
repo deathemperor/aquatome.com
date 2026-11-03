@@ -1,24 +1,29 @@
 #!/usr/bin/env bash
 # One content-engine cycle: sync → engine steps → build + test → commit + push → deploy.
-# The steps come in four parts that GitHub runs as parallel jobs (engine.yml), each publishing its own work, so one
-# failing part loses only its own: pages (new pages from every source but Seriously Fish, with their photos screened and
+# The steps come in four parts that run side by side, each publishing its own work, so one failing part loses only its
+# own: pages (new pages from every source but Seriously Fish, with their photos screened and
 # stored), sf (the same for Seriously Fish, whose ~1,800-page backlog would otherwise take most of the pages job),
 # photos (upkeep of the photos on every page), rewrite (older Vietnamese, and Indonesian and Thai species pages). No argument: all four, one after another.
-# Runs from a dedicated clone (see install-engine-schedule.sh) so it never touches a development checkout.
+# rewrite runs on GitHub (engine.yml). pages, sf and photos need macOS and run on the owner's Mac, each from its own clone
+# (install-engine-schedule.sh), so they never touch a development checkout and GitHub's few macOS runners stay the iOS app's.
 set -euo pipefail
 # The job's PATH first (GitHub Actions: setup-node's Node), then the owner's Mac tool dirs (launchd).
 export PATH="${PATH:+$PATH:}$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO"
-log() { echo "$(date -u +%FT%TZ) $*"; }
+LAST=; FAILED=
+log() { LAST="$*"; echo "$(date -u +%FT%TZ) $*"; }
 PART="${1:-all}"
 case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|photos|rewrite]" >&2; exit 2 ;; esac
+# One a part: the Mac runs three parts at once.
+TEST_LOG="/tmp/thuysinh-engine-test-$PART.log"
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
 if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
-# GitHub: the engine pushes over a deploy key (engine.yml), and that push starts deploy.yml by itself; deploy() starts it
-# only when nothing was pushed (the hidden-pages redeploy). On the Mac: deploy from here.
-deploy() { if [ -n "${GITHUB_ACTIONS:-}" ]; then gh workflow run deploy.yml -R "$GITHUB_REPOSITORY" --ref main; else CLOUDFLARE_API_TOKEN="$(cat "$TOKEN_FILE")" scripts/deploy.sh; fi; }
+# A push deploys by itself: GitHub's over the engine's deploy key (engine.yml), the Mac's as the owner, each starting
+# deploy.yml. deploy() is for the hidden-pages redeploy, when nothing was pushed: deploy.yml again, which builds main as
+# it is then (this clone's tree can be hours behind the other parts' pushes).
+deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aquatome.com}" --ref main; }
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
 push() {
   for _ in 1 2 3; do
@@ -27,7 +32,7 @@ push() {
       git rebase --abort 2>/dev/null || true
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then build + test again.
       if git pull -q --rebase -X theirs; then
-        { pnpm build && pnpm test; } >/tmp/thuysinh-engine-test.log 2>&1 || { log "build/tests failed after that merge, not publishing"; return 1; }
+        { pnpm build && pnpm test; } >"$TEST_LOG" 2>&1 || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
@@ -38,22 +43,43 @@ push() {
   log "push failed three times"; return 1
 }
 
-# Single instance: a PID file, so a crashed or killed cycle doesn't block the schedule forever.
-PIDFILE="${TMPDIR:-/tmp}/thuysinh-engine.pid"
-if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then log "previous cycle (pid $(cat "$PIDFILE")) still running"; exit 0; fi
+# One job at a time in a clone (video-cycle.sh shares engine-repo's): a PID file, so a crashed or killed cycle doesn't
+# block the schedule forever.
+# Its process must still be a cycle script: the file outlives a restart, and its number can go to another process.
+PIDFILE="$(git rev-parse --absolute-git-dir)/thuysinh-engine.pid"
+if [ -f "$PIDFILE" ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'cycle\.sh'; then log "previous cycle (pid $(cat "$PIDFILE")) still running"; exit 0; fi
 echo $$ > "$PIDFILE"
-trap 'rm -f "$PIDFILE"' EXIT
+# On the Mac, a failed cycle is reported on GitHub: engine-mac.yml fails, naming the step or the log line it stopped at.
+trap 'FAILED="$BASH_COMMAND"' ERR
+finish() {
+  local status=$?
+  rm -f "$PIDFILE"
+  [ "$status" = 0 ] || [ -n "${GITHUB_ACTIONS:-}" ] || gh workflow run engine-mac.yml -R deathemperor/aquatome.com -f part="$PART" -f why="exit $status: ${FAILED:-$LAST}" || true
+}
+trap finish EXIT
 
 TOKEN_FILE="$HOME/.config/thuysinh/cf-token"
 [ -s "$TOKEN_FILE" ] || { log "missing $TOKEN_FILE — not running"; exit 1; }
+# Claude: the engine's accounts, one token a line as in GitHub's CLAUDE_CODE_OAUTH_TOKENS, not the owner's own login.
+CLAUDE_TOKENS="$HOME/.config/thuysinh/claude-oauth-tokens"
+if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${CLAUDE_CODE_OAUTH_TOKENS:-}" ] && [ -s "$CLAUDE_TOKENS" ]; then
+  CLAUDE_CODE_OAUTH_TOKENS="$(cat "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
+fi
 
 # shellcheck disable=SC1091
 [ -n "${CI:-}" ] || { . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"; } # CI: setup-node
 log "cycle start ($PART)"
-if [ -n "$(git status --porcelain -- content sources)" ]; then
-  log "uncommitted content from an earlier failed cycle — fix it (see /tmp/thuysinh-engine-test.log) before new runs"; exit 1
+if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/thuysinh/"* ]]; then
+  # A runner or one of the Mac's engine clones: start from GitHub's main, as a fresh runner does. What an earlier failed
+  # cycle left here (content that failed its tests, a commit whose push failed) is dropped, and that work redone.
+  [ -z "$(git status --porcelain -- content sources)" ] || log "dropping uncommitted content from an earlier failed cycle"
+  git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+  git clean -fdq -- content sources engine-state docs/review apps/site/src/i18n
+else
+  # Any other checkout: nothing in it is dropped.
+  if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
+  git checkout -q main && git pull -q --ff-only
 fi
-git checkout -q main && git pull -q --ff-only
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 # The parts all add to the photo caches and the run records in engine-state.
@@ -178,17 +204,17 @@ if [ -z "$(git status --porcelain -- content sources)" ]; then
   HIDDEN_JSON="$(curl -sf -H "authorization: Bearer $(cat "$HOME/.config/thuysinh/ab-dash-token")" https://aquatome.com/_ab/hidden.json || true)"
   HIDDEN_NOW="$(printf '%s' "$HIDDEN_JSON" | shasum | cut -c1-40)"
   if part pages && [ -n "$HIDDEN_JSON" ] && [ "$HIDDEN_NOW" != "$(cat "$HOME/.config/thuysinh/hidden-deployed" 2>/dev/null)" ]; then
-    log "hidden pages changed — redeploying"; deploy; exit 0
+    # Recorded here, as deploy.yml's runner keeps its own record.
+    log "hidden pages changed — redeploying"; deploy; printf '%s\n' "$HIDDEN_NOW" > "$HOME/.config/thuysinh/hidden-deployed"; exit 0
   fi
   log "no content changes"; exit 0
 fi
 # Real content must build (the test suite builds fixtures), then the suite must pass. I18N_LENIENT: a UI string a new
 # Indonesian or Thai page needs and src/i18n lacks shows in Vietnamese (and is logged) instead of holding back the content.
-if ! { I18N_LENIENT=1 pnpm build && pnpm test; } >/tmp/thuysinh-engine-test.log 2>&1; then
-  log "build/tests failed, not publishing (see /tmp/thuysinh-engine-test.log)"; exit 1
+if ! { I18N_LENIENT=1 pnpm build && pnpm test; } >"$TEST_LOG" 2>&1; then
+  log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
 git add content sources engine-state docs/review apps/site/src/i18n
 git commit -q -m "content: engine $PART $(date -u +%F)"
 push || exit 1
-if [ -z "${GITHUB_ACTIONS:-}" ]; then deploy || log "deploy failed (the next push or merge deploys this content too)"; fi
 log "cycle done"

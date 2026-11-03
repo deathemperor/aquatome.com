@@ -1,25 +1,43 @@
 #!/usr/bin/env bash
-# Install the content engine as a launchd agent (every 6 h) running from a dedicated clone.
+# Install the engine's macOS parts (pages, sf, photos: scripts/engine-cycle.sh <part>) as launchd agents on the owner's
+# Mac, every 3 h, each from its own clone so the three run side by side. GitHub runs the fourth, rewrite (engine.yml);
+# engine-repo stays video-cycle.sh's (install-video-schedule.sh).
 set -euo pipefail
-LABEL=run.thuysinh.engine
-CLONE="${ENGINE_CLONE:-$HOME/.local/share/thuysinh/engine-repo}"
 ORIGIN="$(git -C "$(dirname "$0")/.." remote get-url origin)"
-LOG="$HOME/Library/Logs/thuysinh-engine.log"
-PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
-
-[ -d "$CLONE/.git" ] || git clone -q "$ORIGIN" "$CLONE"
-mkdir -p "$(dirname "$PLIST")" "$(dirname "$LOG")"
-cat > "$PLIST" <<PLIST
+BASE="$HOME/.local/share/thuysinh"
+# The single agent this replaces (all four parts every 6 h, in engine-repo).
+launchctl bootout "gui/$UID/run.thuysinh.engine" 2>/dev/null || true
+rm -f "$HOME/Library/LaunchAgents/run.thuysinh.engine.plist"
+for PART in pages sf photos; do
+  LABEL="run.thuysinh.engine-$PART"
+  CLONE="$BASE/engine-$PART"
+  LOG="$HOME/Library/Logs/thuysinh-engine-$PART.log"
+  PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
+  # pages keeps the engine's Chrome profile, where the owner passes a source's browser check; the others get their own,
+  # as one Chrome at a time can use a profile.
+  PROFILE="$HOME/.cache/thuysinh/chrome-profile"
+  [ "$PART" = pages ] || PROFILE="$PROFILE-$PART"
+  [ -d "$CLONE/.git" ] || git clone -q "$ORIGIN" "$CLONE"
+  mkdir -p "$(dirname "$PLIST")" "$(dirname "$LOG")"
+  # 150 minutes of pages, so a part ends inside its 3 hours; caffeinate keeps the Mac awake while one runs. The YouTube
+  # steps are video-cycle.sh's (SKIP_VIDEOS).
+  cat > "$PLIST" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
   <key>Label</key><string>$LABEL</string>
-  <key>ProgramArguments</key><array><string>/bin/bash</string><string>$CLONE/scripts/engine-cycle.sh</string></array>
-  <key>StartInterval</key><integer>21600</integer>
+  <key>ProgramArguments</key><array><string>/usr/bin/caffeinate</string><string>-i</string><string>/bin/bash</string><string>$CLONE/scripts/engine-cycle.sh</string><string>$PART</string></array>
+  <key>EnvironmentVariables</key><dict>
+    <key>ENGINE_PROFILE</key><string>$PROFILE</string>
+    <key>ENGINE_MAX_MINUTES</key><string>150</string>
+    <key>SKIP_VIDEOS</key><string>1</string>
+  </dict>
+  <key>StartInterval</key><integer>10800</integer>
   <key>StandardOutPath</key><string>$LOG</string>
   <key>StandardErrorPath</key><string>$LOG</string>
 </dict></plist>
 PLIST
-launchctl bootout "gui/$UID/$LABEL" 2>/dev/null || true
-launchctl bootstrap "gui/$UID" "$PLIST"
-echo "installed $LABEL → $CLONE (log: $LOG)"
+  launchctl bootout "gui/$UID/$LABEL" 2>/dev/null || true
+  launchctl bootstrap "gui/$UID" "$PLIST"
+  echo "installed $LABEL → $CLONE (log: $LOG)"
+done

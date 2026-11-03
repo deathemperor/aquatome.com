@@ -1,7 +1,8 @@
 name: 'Engine: content cycle every 3 h'
-# The content engine, every 3 hours (was launchd on the owner's Mac, 6-hourly with twice the page time). macOS: face screening uses Apple's Vision
-# framework, and the page fetcher drives a real (headed) Chrome. Four parallel jobs (scripts/engine-cycle.sh <part>), each
-# testing, committing and deploying its own content, so a failure in one loses only that part's work.
+# The content engine's rewrite part, every 3 hours (scripts/engine-cycle.sh rewrite): older Vietnamese rewritten, Indonesian
+# and Thai pages. It needs only the model. The other three parts (pages, sf, photos) need macOS, as face screening uses
+# Apple's Vision framework and the page fetcher drives a real (headed) Chrome: they run on the owner's Mac
+# (scripts/install-engine-schedule.sh), as they held 3 of GitHub's 5 macOS runners for hours and the iOS app's jobs queued.
 on:
   schedule:
     # Hourly, though a cycle runs every 3 hours: GitHub delays or drops scheduled runs when busy (on 2 November only 3
@@ -9,19 +10,12 @@ on:
     # cycle started in the last 2 h 50 min, so the cycle keeps its pace even when most of these are dropped.
     - cron: '23 * * * *'
   workflow_dispatch:
-    inputs:
-      engine_args:
-        description: 'Extra args for `pnpm engine run` (e.g. --sources scotcat --limit 2); set = a short run (pages job only) without the video/photo steps'
-        default: ''
-      max_minutes:
-        description: 'Minutes for page processing'
-        default: '150'
 concurrency:
   group: engine
   cancel-in-progress: false
 permissions:
   contents: write
-  actions: write # each job starts deploy.yml
+  actions: write # the cycle starts deploy.yml
 jobs:
   due:
     name: 'Is a cycle due?'
@@ -46,28 +40,9 @@ jobs:
   cycle:
     needs: due
     if: needs.due.outputs.run == 'true'
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - part: pages
-            os: macos-latest
-          # Seriously Fish's backlog, beside the other sources instead of sharing the pages job's time with them.
-          - part: sf
-            os: macos-latest
-          - part: photos
-            os: macos-latest
-          # Only the model: no Chrome, no Vision.
-          - part: rewrite
-            os: ubuntu-latest
-    name: 'Content cycle: ${{ matrix.part }}'
-    runs-on: ${{ matrix.os }}
+    name: 'Content cycle: rewrite'
+    runs-on: ubuntu-latest
     timeout-minutes: 355
-    env:
-      ENGINE_ARGS: ${{ inputs.engine_args }}
-      ENGINE_MAX_MINUTES: ${{ inputs.max_minutes || '150' }}
-      # YouTube throttles GitHub's IPs: the video steps run on the owner's Mac (scripts/video-cycle.sh).
-      SKIP_VIDEOS: '1'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -83,27 +58,17 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
-      - name: Install yt-dlp (macOS)
-        if: runner.os == 'macOS'
-        run: brew install yt-dlp
       - name: Run this part, test, commit, push, deploy
-        run: scripts/engine-cycle.sh ${{ matrix.part }}
+        run: scripts/engine-cycle.sh rewrite
         env:
           GH_TOKEN: ${{ github.token }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
           CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
-          # Videos on species pages (YouTube Data API search, 10,000 units/day).
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          # Gallery photos from Unsplash (demo key: 50 requests an hour).
-          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
-          # Gallery photos from Openverse: without these, anonymous (200 requests a day); a registered Openverse app gets more.
-          OPENVERSE_CLIENT_ID: ${{ secrets.OPENVERSE_CLIENT_ID }}
-          OPENVERSE_CLIENT_SECRET: ${{ secrets.OPENVERSE_CLIENT_SECRET }}
       - name: Keep the test log
         if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: engine-test-log-${{ matrix.part }}
-          path: /tmp/thuysinh-engine-test.log
+          name: engine-test-log-rewrite
+          path: /tmp/thuysinh-engine-test-rewrite.log
           if-no-files-found: ignore

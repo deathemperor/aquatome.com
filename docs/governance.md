@@ -397,7 +397,7 @@ The layers above still check the result.
 - `main` can't be deleted or force-pushed. Changes arrive by pull request, squash-merged, after the `test` check
   (ci.yml's last job, green when every site check passed or an iOS-only change skipped them) passes. Merged branches
   are deleted.
-- Let through: repository admins (the owner, and the owner's Mac pushing video content), and deploy keys. The engine
+- Let through: repository admins (the owner, and the owner's Mac pushing the engine's pages, photos and videos), and deploy keys. The engine
   pushes content over its deploy key (`ENGINE_DEPLOY_KEY`, engine.yml), since GitHub Actions' own token can't be let
   through on a personal repository. That push starts deploy.yml like a merge does.
 - Secret scanning blocks pushes that contain a known kind of key. Dependabot opens PRs for vulnerable dependencies.
