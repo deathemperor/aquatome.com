@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import type { Content } from '@aq/schema'
-import { drawnKinds, PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
+import { drawnKinds, levelBlocks, PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
 import { appGlossary, appGuides, appPlants, appSeries, appSpecies, type AppIndex } from '../src/lib/app-index'
 import { appPages, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, shardsOf } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
@@ -207,6 +207,28 @@ test('the first app draws guides only; an app that knows level 2 draws fish, pla
   expect(drawnKinds(ix.shards ?? {}, 2).sort()).toEqual(['fish', 'glossary', 'guide', 'plant', 'video'])
   const files = readdirSync(`${DIST}/app/pages/vi`)
   for (const kind of ['fish', 'plant', 'glossary', 'video']) expect(files.some(f => f.startsWith(`${kind}-`)), kind).toBe(true)
+})
+
+/** The blocks a page uses that an app knowing `level` doesn't read, those inside lists too. */
+const beyond = (blocks: Block[], level: number): string[] => {
+  const known = levelBlocks(level)
+  const walk = (bs: Block[]): string[] => bs.flatMap(b => [...(known.has(b.t) ? [] : [b.t]), ...(b.t === 'list' ? b.items.flatMap(walk) : [])])
+  return walk(blocks)
+}
+
+test('each kind\'s copies use only the blocks its level reads, inside lists too: an app that draws the kind has no part to send to the web', async () => {
+  // The rule's own cases: a level-2 block (known to the format, newer than the kind) fails a level-1 kind, in a list too.
+  const cards: Block = { t: 'cards', title: 'Video', items: [] }
+  expect(beyond([{ t: 'p', c: ['x'] }, cards], 1)).toEqual(['cards'])
+  expect(beyond([{ t: 'list', items: [[{ t: 'p', c: ['x'] }, cards]] }], 1)).toEqual(['cards'])
+  expect(beyond([cards], 2)).toEqual([])
+  for (const lang of LANGS) {
+    const docs = await appPages(lang, await getContent(lang))
+    if (lang === 'vi') for (const [kind, list] of Object.entries(docs)) expect(list.length, `${kind}: no copy to check`).toBeGreaterThan(0)
+    for (const [kind, list] of Object.entries(docs) as [PageDoc['kind'], PageDoc[]][]) {
+      for (const d of list) expect(beyond(d.blocks, PAGE_LEVELS[kind]), `${d.path} (${kind}, level ${PAGE_LEVELS[kind]})`).toEqual([])
+    }
+  }
 })
 
 test('the guide page and the app\'s copy are put together by the same code', () => {

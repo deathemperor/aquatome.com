@@ -198,7 +198,10 @@ export const PageDoc = z.object({
   where: Text.optional(),
   /** Its other names, as the site writes them under the name ("Tên khác: …"). */
   aka: z.string().optional(),
-  /** Whose page this is ("Theo Aquarium Breeder"; a fish's "Dịch và tổng hợp từ …"), linked as on the site. */
+  /**
+   * Whose page this is ("Theo Aquarium Breeder"; a fish's "Dịch và tổng hợp từ …"; a video series' whole line, its
+   * counts then the playlist and channel it follows), linked as on the site.
+   */
   credit: Text.optional(),
   lead: Image.optional(),
   video: Video.optional(),
@@ -256,6 +259,19 @@ export function shardCount(pages: number): number {
 
 /** A kind's entry in the app index's `shards`: how many shards it has, and the level an app must know to draw it. */
 export type KindShards = { n: number; level: number }
+
+/**
+ * The blocks each level adds: an app that knows a level reads its blocks and every lower level's, and shows any other as
+ * "open on the web". A kind's pages use only the blocks its level reads (apps/site/test/app-page.test.ts holds them to it).
+ */
+export const LEVEL_BLOCKS: Record<number, readonly Block['t'][]> = {
+  1: ['h', 'p', 'list', 'table', 'figure', 'moments', 'summary', 'faq', 'refs', 'pages', 'web'],
+  2: ['gallery', 'trust', 'mates', 'climate', 'cards', 'videos'],
+}
+
+/** The blocks an app that knows `level` reads. */
+export const levelBlocks = (level: number): Set<string> =>
+  new Set(Object.entries(LEVEL_BLOCKS).flatMap(([l, ts]) => (Number(l) <= level ? ts : [])))
 
 /** The kinds an app that knows `appLevel` draws itself, in the order `shards` gives them; it opens the others on the web. */
 export function drawnKinds(shards: Partial<Record<PageDoc['kind'], KindShards>>, appLevel: number): PageDoc['kind'][] {

@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { Ajv2020 } from 'ajv/dist/2020.js'
 import { z } from 'zod'
-import { Block, drawnKinds, PageDoc, PageShard, type KindShards } from '../src/app-page'
+import { Block, drawnKinds, LEVEL_BLOCKS, levelBlocks, PageDoc, PageShard, type KindShards } from '../src/app-page'
 
 // The app page format, shared with the iOS app (its decode test reads the same vectors).
 type Vectors = {
@@ -54,11 +54,11 @@ test('the site\'s pages are the format; a newer site\'s or a malformed page is n
   }
 })
 
-// The blocks the first app that reads this format knows. A block added since (fish, plant and glossary pages') is
-// "open on the web" to it, in its place, and a field added since is nothing: so those kinds are at level 2, which it
-// doesn't know (apps/site/src/lib/app-page.ts PAGE_LEVELS).
-const FIRST = new Set(['h', 'p', 'list', 'table', 'figure', 'moments', 'summary', 'faq', 'refs', 'pages', 'web'])
-const ADDED = ['gallery', 'trust', 'mates', 'climate', 'cards', 'videos']
+// The blocks the first app that reads this format knows (level 1). A block added since (level 2: fish, plant and video
+// series pages') is "open on the web" to it, in its place, and a field added since is nothing: so those kinds are at
+// level 2, which it doesn't know (apps/site/src/lib/app-page.ts PAGE_LEVELS).
+const FIRST = levelBlocks(1)
+const ADDED = LEVEL_BLOCKS[2]!
 
 test('the pages with blocks added after the first app are the format, and an older app shows the web for each of those blocks', () => {
   expect(v.added.length).toBeGreaterThanOrEqual(3)
@@ -67,11 +67,11 @@ test('the pages with blocks added after the first app are the format, and an old
     expect(valid('PageDoc', d.doc), `${d.note}: ${ajv.errorsText()}`).toBe(true)
     expect(d.older, d.note).toEqual(d.doc.blocks.map(b => (FIRST.has(b.t) ? b.t : 'web')))
   }
-  // Each added block is in a case, and every block the format has is either the first app's or an added one.
+  // Each added block is in a case, and every block the format has is in exactly one level.
   const used = new Set(v.added.flatMap(d => d.doc.blocks.map(b => b.t)))
   for (const t of ADDED) expect(used.has(t), t).toBe(true)
   const defs = (schema.$defs.Block.anyOf as { properties?: { t?: { const?: string } } }[]).map(b => b.properties?.t?.const)
-  expect(defs.filter(t => t && !FIRST.has(t)).sort()).toEqual([...ADDED].sort())
+  expect(Object.values(LEVEL_BLOCKS).flat().sort()).toEqual(defs.sort())
 })
 
 test('the cases name readers\' sections as pages do: a fish with comments and photos, a plant with comments only, a page with neither', () => {

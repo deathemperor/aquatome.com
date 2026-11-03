@@ -1,5 +1,5 @@
 {
-  "$comment": "Cases for the app page format (packages/schema/src/app-page.ts, protocols/page.schema.json). html: a page's HTML as shown, and the blocks apps/site/src/lib/page-blocks.ts makes of it (unknown: what it could not convert). shards: which shard of /app/pages/<lang>/<kind>-<n>.json a path is in, for that many shards. docs: whole pages; valid ones are as the site writes them, the others a reader must still show, with the blocks it shows (web: \"open on the web\"). added: whole pages with the blocks and fields added after the first app that reads the format (fish, plant, glossary and video series pages: gallery, trust, mates, climate, cards, videos; a fish's where and aka; a summary's text (one paragraph, also its only item), mistakes and by; a source list's note; a gallery photo's thumb). Each is valid as the site writes it; older is what an app that predates them shows (web for each block it doesn't know, in its place; the fields it doesn't know left out). levels: the shards an app index gives (each kind's shard count n and level) and the kinds an app that knows appLevel draws itself (draws, in any order): those whose level is at or below its own; it opens the others' pages on the web.",
+  "$comment": "Cases for the app page format (packages/schema/src/app-page.ts, protocols/page.schema.json). html: a page's HTML as shown, and the blocks apps/site/src/lib/page-blocks.ts makes of it (unknown: what it could not convert). shards: which shard of /app/pages/<lang>/<kind>-<n>.json a path is in, for that many shards. docs: whole pages; valid ones are as the site writes them, the others a reader must still show, with the blocks it shows (web: \"open on the web\"). added: whole pages with the blocks and fields added after the first app that reads the format (fish, plant, glossary and video series pages: gallery, trust, mates, climate, cards, videos; a fish's where and aka; a summary's text (one paragraph, also its only item), mistakes and by; a source list's note; a gallery photo's thumb). Each is valid as the site writes it; older is what an app that predates them shows (web for each block it doesn't know, in its place; the fields it doesn't know left out). The fish, plant and video series cases are the fixture build's pages (/app/pages/vi/), with their older: apps/site/test/page-vectors.test.ts fails while they differ, and UPDATE_VECTORS=1 pnpm --filter site test rewrites them (edit only their notes here). The glossary case is written by hand. levels: the shards an app index gives (each kind's shard count n and level) and the kinds an app that knows appLevel draws itself (draws, in any order): those whose level is at or below its own; it opens the others' pages on the web.",
   "html": [
     {
       "note": "paragraphs and a heading with its table-of-contents id; spaces as a browser shows them",
@@ -896,7 +896,7 @@
   ],
   "added": [
     {
-      "note": "a fish's page with every block and field added for it: an older app shows its summary, text and sources, and the web for the rest",
+      "note": "a fish's page with every field added for it, and every block added for it but breeds' cards: an older app shows its summary, text, sources and guides, and the web for the rest",
       "doc": {
         "v": 1,
         "kind": "fish",
@@ -915,14 +915,14 @@
           "Dịch và tổng hợp từ Seriously Fish, Aquarium Glaser. Cập nhật 2026-10-28."
         ],
         "lead": {
-          "src": "https://media.aquatome.com/a/cardinal.webp",
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Cardinal_Paracheirodon_axelrodi_%283%29.jpg/960px-Cardinal_Paracheirodon_axelrodi_%283%29.jpg",
           "w": 960,
           "h": 758,
           "alt": "Cá neon vua, Paracheirodon axelrodi",
           "credit": {
             "text": "Ảnh: CHUCAO",
             "licence": "CC BY-SA 3.0",
-            "url": "https://example.org/photo/cardinal"
+            "url": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg"
           }
         },
         "talk": {
@@ -949,7 +949,28 @@
                 "field": "ph",
                 "label": "pH",
                 "items": [
-                  "Seriously Fish, Aquarium Glaser · cùng một mức"
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "gh",
+                "label": "Độ cứng (dGH)",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "sizeCm",
+                "label": "Kích thước",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "tankCm",
+                "label": "Bể tối thiểu",
+                "items": [
+                  "Seriously Fish"
                 ]
               },
               {
@@ -971,13 +992,27 @@
                   "path": "/vi/ca/ca-neon-xanh/",
                   "name": "Cá neon xanh",
                   "img": {
-                    "src": "https://media.aquatome.com/a/neon-480.webp",
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Neonsalmler_Paracheirodon_innesi.jpg/500px-Neonsalmler_Paracheirodon_innesi.jpg",
                     "w": 960,
                     "h": 636,
                     "credit": {
                       "text": "Ảnh: Holger Krisp",
                       "licence": "CC BY 3.0",
-                      "url": "https://example.org/photo/neon"
+                      "url": "https://commons.wikimedia.org/wiki/File:Neonsalmler_Paracheirodon_innesi.jpg"
+                    }
+                  }
+                },
+                {
+                  "path": "/vi/ca/ca-boraras-do/",
+                  "name": "Cá boraras đỏ",
+                  "img": {
+                    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Boraras-brigittae-3191524164.jpg/500px-Boraras-brigittae-3191524164.jpg",
+                    "w": 800,
+                    "h": 600,
+                    "credit": {
+                      "text": "Ảnh: Fantomeno 14",
+                      "licence": "CC0",
+                      "url": "https://commons.wikimedia.org/wiki/File:Boraras-brigittae-3191524164.jpg"
                     }
                   }
                 }
@@ -987,9 +1022,19 @@
               "title": "Tránh",
               "items": [
                 {
-                  "path": "/vi/ca/ca-dia/",
-                  "name": "Cá đĩa",
-                  "why": "Lớn tới 15 cm, có thể ăn Cá neon vua"
+                  "path": "/vi/ca/ca-apisto-cacatuoides/",
+                  "name": "Cá apisto cacatuoides",
+                  "img": {
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Cacatuoides.JPG/500px-Cacatuoides.JPG",
+                    "w": 960,
+                    "h": 720,
+                    "credit": {
+                      "text": "Ảnh: William Kreijkes",
+                      "licence": "CC BY-SA 3.0",
+                      "url": "https://commons.wikimedia.org/wiki/File:Cacatuoides.JPG"
+                    }
+                  },
+                  "why": "Hơi dữ, có thể rượt đuổi Cá neon vua"
                 }
               ]
             },
@@ -1010,8 +1055,13 @@
               },
               {
                 "label": "Miền Nam",
-                "ok": true,
-                "text": "Hợp nhiệt độ quanh năm, thường không cần sưởi."
+                "ok": false,
+                "text": "Không cần sưởi, nhưng mùa nóng cần làm mát (xem dòng dưới)."
+              },
+              {
+                "label": "Mùa hè cả nước",
+                "ok": false,
+                "text": "Nước bể có thể lên 31°C, trên mức tối đa 27°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
               }
             ],
             "note": "Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng 16°C, miền Nam đêm mát tháng 12–1 khoảng 25°C, mùa hè tới 31°C. Đo nhiệt độ bể của bạn để chắc chắn."
@@ -1019,47 +1069,88 @@
           {
             "t": "gallery",
             "title": "Ảnh Cá neon vua",
-            "note": "3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở.",
+            "note": "6 ảnh từ Wikimedia Commons, giấy phép mở.",
             "photos": [
               {
-                "src": "https://media.aquatome.com/g/1.webp",
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Neon1.jpg/1280px-Neon1.jpg",
                 "w": 1280,
                 "h": 960,
-                "alt": "Đàn cá neon vua trong bể",
+                "alt": "Đàn cá neon vua 1 <b>trong bể</b>",
                 "credit": {
                   "text": "Ảnh: Tác giả 1",
                   "licence": "CC BY 2.0",
-                  "url": "https://example.org/photo/1"
+                  "url": "https://commons.wikimedia.org/wiki/File:Neon1.jpg"
                 },
-                "thumb": "https://media.aquatome.com/g/1-480.webp"
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Neon1.jpg/500px-Neon1.jpg"
               },
               {
-                "src": "https://media.aquatome.com/g/2.webp",
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Neon2.jpg/1280px-Neon2.jpg",
                 "w": 1280,
                 "h": 960,
-                "alt": "Cá neon vua",
+                "alt": "Đàn cá neon vua 2 <b>trong bể</b>",
                 "credit": {
                   "text": "Ảnh: Tác giả 2",
                   "licence": "CC BY-SA 4.0",
-                  "url": "https://example.org/photo/2"
+                  "url": "https://commons.wikimedia.org/wiki/File:Neon2.jpg"
                 },
-                "thumb": "https://media.aquatome.com/g/2-480.webp"
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Neon2.jpg/500px-Neon2.jpg"
               },
               {
-                "src": "https://media.aquatome.com/g/3.webp",
-                "w": 800,
-                "h": 600,
-                "alt": "Cá neon vua",
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Neon4.jpg/1280px-Neon4.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Đàn cá neon vua 4 <b>trong bể</b>",
                 "credit": {
-                  "text": "Ảnh: Tác giả 3",
+                  "text": "Ảnh: Tác giả 4",
                   "licence": "CC0",
-                  "url": "https://example.org/photo/3"
-                }
+                  "url": "https://commons.wikimedia.org/wiki/File:Neon4.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Neon4.jpg/500px-Neon4.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Neon5.jpg/1280px-Neon5.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Đàn cá neon vua 5 <b>trong bể</b>",
+                "credit": {
+                  "text": "Ảnh: Tác giả 5",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:Neon5.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Neon5.jpg/500px-Neon5.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Neon6.jpg/1280px-Neon6.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Đàn cá neon vua 6 <b>trong bể</b>",
+                "credit": {
+                  "text": "Ảnh: Tác giả 6",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:Neon6.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Neon6.jpg/500px-Neon6.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Neon7.jpg/1280px-Neon7.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Đàn cá neon vua 7 <b>trong bể</b>",
+                "credit": {
+                  "text": "Ảnh: Tác giả 7",
+                  "licence": "CC BY-SA 3.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:Neon7.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Neon7.jpg/500px-Neon7.jpg"
               }
             ],
             "strip": [
               0,
-              2
+              1,
+              2,
+              3,
+              4,
+              5
             ],
             "href": "/vi/ca/ca-neon-vua/anh/"
           },
@@ -1080,6 +1171,63 @@
           },
           {
             "t": "h",
+            "text": "Thông tin nhanh",
+            "id": "muc-quickFacts"
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Cá đàn",
+                "href": "/vi/thuat-ngu/ca-dan/",
+                "tip": {
+                  "term": "Cá đàn",
+                  "text": "Loài cá sống và bơi theo nhóm, cần nuôi số lượng lớn."
+                }
+              },
+              " nhỏ, màu đỏ và xanh ánh kim, sống tốt trong bể nước mềm có nhiều cây.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Nguồn gốc: ",
+                    {
+                      "text": "Rio Negro",
+                      "href": "/vi/nguon-goc/south-america/brazil/"
+                    },
+                    ", ",
+                    {
+                      "text": "Brazil",
+                      "href": "/vi/nguon-goc/south-america/brazil/"
+                    },
+                    {
+                      "text": "2",
+                      "href": "https://www.aquariumglaser.de/en/fish-archives/paracheirodon-axelrodi/",
+                      "tip": {
+                        "term": "Aquarium Glaser",
+                        "text": "aquariumglaser.de · dịch với sự cho phép của nguồn"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "h",
             "text": "Nước cần thế nào?",
             "id": "muc-waterConditions"
           },
@@ -1092,30 +1240,148 @@
           {
             "t": "p",
             "c": [
-              "Nước mềm, hơi chua.",
+              "Nhiệt độ 24–30 °C, ",
+              {
+                "text": "pH",
+                "href": "/vi/thuat-ngu/ph/",
+                "tip": {
+                  "term": "pH",
+                  "text": "Thang đo độ chua – kiềm của nước, 7 là trung tính."
+                }
+              },
+              " 4–6. Ưa nước mềm, hơi chua; nên ổn định thông số trước khi thả.",
               {
                 "text": "1",
-                "href": "https://example.org/a",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
                 "tip": {
                   "term": "Seriously Fish",
-                  "text": "example.org · dịch với sự cho phép của nguồn"
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
                 }
               }
             ]
           },
           {
-            "t": "figure",
-            "img": {
-              "src": "https://media.aquatome.com/a/cardinal-2.webp",
-              "w": 1200,
-              "h": 800,
-              "alt": "",
-              "credit": {
-                "text": "Ảnh: Tác giả 4",
-                "licence": "CC BY 4.0",
-                "url": "https://example.org/photo/4"
+            "t": "h",
+            "text": "Cho ăn gì?",
+            "id": "muc-diet"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Ăn tạp thiên về động vật: ",
+              {
+                "text": "thức ăn",
+                "href": "/vi/thiet-bi/thuc-an/"
+              },
+              " khô cỡ nhỏ xen kẽ trùn chỉ, artemia.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
               }
-            }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Nuôi chung với con gì?",
+            "id": "muc-behaviour"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Hiền, nên nuôi đàn từ 10 con trở lên để cá tự tin và lên màu đẹp. Hiểu rõ ",
+              {
+                "text": "chu trình nitơ",
+                "href": "/vi/thuat-ngu/chu-trinh-nito/",
+                "tip": {
+                  "term": "Chu trình nitơ",
+                  "text": "Quá trình vi sinh chuyển amoniac thành nitrit rồi nitrat."
+                }
+              },
+              " trước khi thả đàn lớn.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Phân biệt đực cái thế nào?",
+            "id": "muc-dimorphism"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Con cái thường tròn bụng hơn con đực khi trưởng thành.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Sinh sản ra sao?",
+            "id": "muc-reproduction"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Đẻ rải trứng, cần nước rất mềm và ánh sáng yếu.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Ghi chú nhập khẩu: cá hoang dã cần thời gian thích nghi trước khi cho sinh sản.",
+              {
+                "text": "3",
+                "href": "https://example.invalid/glaser/paracheirodon-axelrodi",
+                "tip": {
+                  "term": "Aquarium Glaser",
+                  "text": "example.invalid · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Môi trường tự nhiên",
+            "id": "muc-habitat"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Sống ở các suối nước đen chảy chậm thuộc lưu vực Rio Negro, nước có màu trà do lá mục.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
           },
           {
             "t": "refs",
@@ -1124,41 +1390,24 @@
             "items": [
               {
                 "title": "Seriously Fish",
-                "url": "https://example.org/a"
+                "url": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi"
+              },
+              {
+                "title": "Aquarium Glaser",
+                "url": "https://www.aquariumglaser.de/en/fish-archives/paracheirodon-axelrodi/"
+              },
+              {
+                "title": "Aquarium Glaser",
+                "url": "https://example.invalid/glaser/paracheirodon-axelrodi"
               }
             ],
             "note": "Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó."
           },
           {
-            "t": "cards",
-            "title": "Các dòng và cá lai từ Cá neon vua",
-            "items": [
-              {
-                "path": "/vi/ca/ca-neon-vua-albino/",
-                "name": "Cá neon vua albino",
-                "sub": "Dòng cá cảnh",
-                "img": {
-                  "src": "https://media.aquatome.com/a/albino-480.webp",
-                  "w": 1280,
-                  "h": 960,
-                  "credit": {
-                    "text": "Ảnh: Người chụp 1",
-                    "licence": "CC BY-SA 4.0",
-                    "url": "https://example.org/photo/albino"
-                  }
-                }
-              },
-              {
-                "path": "/vi/ca/ca-neon-lai/",
-                "name": "Cá neon lai",
-                "sub": "Cá lai"
-              }
-            ]
-          },
-          {
             "t": "pages",
             "title": "Bài viết nhắc đến loài này",
             "paths": [
+              "/vi/huong-dan/ca-nano-cho-be-19-lit/",
               "/vi/huong-dan/thay-nuoc-dung-cach/"
             ]
           },
@@ -1167,10 +1416,10 @@
             "title": "Video",
             "items": [
               {
-                "youtubeId": "abc123XYZ_-",
-                "title": "Đàn neon vua trong bể thủy sinh",
+                "youtubeId": "aaaaaaaaaaa",
+                "title": "Video mẫu: đàn neon vua trong bể thủy sinh",
                 "durationSec": 724,
-                "lang": "EN"
+                "lang": "tiếng Việt"
               }
             ]
           }
@@ -1184,10 +1433,22 @@
         "summary",
         "h",
         "p",
+        "list",
+        "h",
         "p",
-        "figure",
+        "p",
+        "h",
+        "p",
+        "h",
+        "p",
+        "h",
+        "p",
+        "h",
+        "p",
+        "p",
+        "h",
+        "p",
         "refs",
-        "web",
         "pages",
         "web"
       ]
@@ -1201,14 +1462,14 @@
         "title": "Cryptocoryne wendtii",
         "sub": "Cryptocoryne wendtii",
         "lead": {
-          "src": "https://media.aquatome.com/a/wendtii.webp",
-          "w": 1200,
-          "h": 900,
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/960px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG",
+          "w": 960,
+          "h": 720,
           "alt": "Cryptocoryne wendtii, Cryptocoryne wendtii",
           "credit": {
-            "text": "Ảnh: Tropica",
-            "licence": "dùng với sự cho phép",
-            "url": "https://example.org/photo/wendtii"
+            "text": "Ảnh: photo: S. Tanaka",
+            "licence": "Public domain",
+            "url": "https://commons.wikimedia.org/wiki/File:-Cryptocoryne_wendtii-_from_Tropica_farm.JPG"
           }
         },
         "talk": {
@@ -1218,24 +1479,109 @@
           {
             "t": "gallery",
             "title": "Ảnh Cryptocoryne wendtii",
-            "note": "6 ảnh từ Tropica và iNaturalist, giấy phép mở hoặc được phép dùng.",
+            "note": "6 ảnh từ iNaturalist, Flickr, Wikimedia Commons và GBIF, giấy phép mở.",
             "photos": [
               {
-                "src": "https://media.aquatome.com/g/w1.webp",
+                "src": "https://media.aquatome.com/fixture/wendtii-1.webp",
                 "w": 1200,
                 "h": 900,
-                "alt": "Cryptocoryne wendtii",
+                "alt": "Bụi cryptocoryne wendtii xanh dưới nước",
                 "credit": {
-                  "text": "Ảnh: Tropica",
-                  "licence": "dùng với sự cho phép",
-                  "url": "https://example.org/photo/w1"
-                }
+                  "text": "Ảnh: Tác giả iNat",
+                  "licence": "CC BY",
+                  "url": "https://www.inaturalist.org/photos/101"
+                },
+                "thumb": "https://media.aquatome.com/fixture/wendtii-1-480.webp"
+              },
+              {
+                "src": "https://media.aquatome.com/fixture/wendtii-2.webp",
+                "w": 1200,
+                "h": 900,
+                "alt": "Cryptocoryne wendtii nâu trong bể trồng cây",
+                "credit": {
+                  "text": "Ảnh: Tác giả Flickr",
+                  "licence": "CC BY-SA 2.0",
+                  "url": "https://www.flickr.com/photos/1@N00/102"
+                },
+                "thumb": "https://media.aquatome.com/fixture/wendtii-2-480.webp"
+              },
+              {
+                "src": "https://media.aquatome.com/fixture/wendtii-3.webp",
+                "w": 1200,
+                "h": 900,
+                "alt": "Lá cryptocoryne wendtii cận cảnh",
+                "credit": {
+                  "text": "Ảnh: Tác giả Commons",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:Wendtii3.jpg"
+                },
+                "thumb": "https://media.aquatome.com/fixture/wendtii-3-480.webp"
+              },
+              {
+                "src": "https://media.aquatome.com/fixture/wendtii-4.webp",
+                "w": 1200,
+                "h": 900,
+                "alt": "Cryptocoryne wendtii mọc bên suối",
+                "credit": {
+                  "text": "Ảnh: Tác giả GBIF",
+                  "licence": "CC0 1.0",
+                  "url": "https://www.gbif.org/occurrence/104"
+                },
+                "thumb": "https://media.aquatome.com/fixture/wendtii-4-480.webp"
+              },
+              {
+                "src": "https://media.aquatome.com/fixture/wendtii-5.webp",
+                "w": 1200,
+                "h": 900,
+                "alt": "Cryptocoryne wendtii trồng cạn trong chậu",
+                "credit": {
+                  "text": "Ảnh: Tác giả iNat",
+                  "licence": "CC BY",
+                  "url": "https://www.inaturalist.org/photos/105"
+                },
+                "thumb": "https://media.aquatome.com/fixture/wendtii-5-480.webp"
+              },
+              {
+                "src": "https://media.aquatome.com/fixture/wendtii-6.webp",
+                "w": 1200,
+                "h": 900,
+                "alt": "Hoa mo của cryptocoryne wendtii",
+                "credit": {
+                  "text": "Ảnh: Tác giả iNat 2",
+                  "licence": "CC0",
+                  "url": "https://www.inaturalist.org/photos/106"
+                },
+                "thumb": "https://media.aquatome.com/fixture/wendtii-6-480.webp"
               }
             ],
             "strip": [
-              0
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
             ],
             "href": "/vi/cay/cryptocoryne-wendtii/anh/"
+          },
+          {
+            "t": "h",
+            "text": "Thông tin nhanh",
+            "id": "muc-quickFacts"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Cây trung cảnh bền bỉ, nhiều biến thể màu.",
+              {
+                "text": "1",
+                "href": "https://example.invalid/tropica/cryptocoryne-wendtii",
+                "tip": {
+                  "term": "Tropica",
+                  "text": "example.invalid · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
           },
           {
             "t": "h",
@@ -1245,13 +1591,13 @@
           {
             "t": "p",
             "c": [
-              "Mọc chậm, ưa nền giàu dinh dưỡng.",
+              "Có thể \"tan lá\" khi mới trồng; đừng nhổ, lá mới sẽ mọc lại.",
               {
-                "text": "1",
-                "href": "https://example.org/tropica",
+                "text": "2",
+                "href": "https://example.invalid/2hraquarist/cryptocoryne-wendtii",
                 "tip": {
-                  "term": "Tropica",
-                  "text": "example.org · dịch với sự cho phép của nguồn"
+                  "term": "2Hr Aquarist",
+                  "text": "example.invalid · dịch với sự cho phép của nguồn"
                 }
               }
             ]
@@ -1263,7 +1609,11 @@
             "items": [
               {
                 "title": "Tropica",
-                "url": "https://example.org/tropica"
+                "url": "https://example.invalid/tropica/cryptocoryne-wendtii"
+              },
+              {
+                "title": "2Hr Aquarist",
+                "url": "https://example.invalid/2hraquarist/cryptocoryne-wendtii"
               }
             ],
             "note": "Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó."
@@ -1272,6 +1622,8 @@
       },
       "older": [
         "web",
+        "h",
+        "p",
         "h",
         "p",
         "refs"
@@ -1309,15 +1661,14 @@
       ]
     },
     {
-      "note": "a video series' page: its counts, the playlist and channel it follows as its credit, its intro, then its guides as cards, each picture credited: an older app shows the intro, and the web for the cards",
+      "note": "a video series' page: its one line (its counts, the playlist and channel it follows) as its credit, its intro, then its guides as cards, each picture credited: an older app shows the intro, and the web for the cards",
       "doc": {
         "v": 1,
         "kind": "video",
         "path": "/vi/video/reu-hai-tu-a-den-z/",
         "title": "Rêu hại từ A đến Z",
-        "meta": "1 bài · 29 phút video",
         "credit": [
-          "theo playlist “",
+          "1 bài · 29 phút video · theo playlist “",
           {
             "text": "ALGAE! Everything you need to know!",
             "href": "https://www.youtube.com/playlist?list=PLtest"

@@ -25,7 +25,7 @@ const indexable = guides.some(g => g.t.quality.indexable)
 ---
 <Browse title={s.vi.name} heading={s.vi.name} intro={s.vi.intro} crumbs={[['/vi/video/', t('Video')]]} noindex={!indexable} jsonld={jsonld}
   image={p.guides[0]?.photo?.url} credits={creditsFor(p.guides.map(x => x.photo))}>
-  <p class="meta">{p.counts} · {p.follows.map(r => (typeof r === 'string' ? r : <a href={r.href} rel="noopener">{r.text}</a>))}</p>
+  <p class="meta">{p.line.map(r => (typeof r === 'string' ? r : <a href={r.href} rel="noopener">{r.text}</a>))}</p>
   <ol class="parts">
     {p.guides.map(({ g, photo: ph, about, length }, i) => {
       return (
