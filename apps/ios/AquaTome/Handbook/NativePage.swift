@@ -438,9 +438,14 @@ private func styled(_ runs: [PageDoc.Run], font: Font? = nil, secondary: Bool = 
     var a = AttributedString(r.text)
     a.font = font
     if secondary && r.href == nil && r.tip == nil { a.foregroundColor = .secondary }
-    if r.tip != nil, !r.text.isEmpty, r.text.allSatisfy(\.isNumber) {
-      a.font = .caption2.weight(.semibold)
-      a.baselineOffset = 6
+    if r.isSourceMark {
+      // As the site's `.cite`: small, raised and a little apart from the words it backs, not a number run into them;
+      // never carried alone to the next line (a no-break space), raised as much more as the reader's text is larger.
+      var gap = AttributedString("\u{202F}")
+      gap.font = font
+      s += gap
+      a.font = .caption2.weight(.semibold).monospacedDigit()
+      a.baselineOffset = UIFontMetrics(forTextStyle: .caption2).scaledValue(for: 6)
     }
     var intent: InlinePresentationIntent = []
     if r.bold { intent.insert(.stronglyEmphasized) }

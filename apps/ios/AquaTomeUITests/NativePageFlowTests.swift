@@ -104,6 +104,26 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Đệm pH"].waitForExistence(timeout: 5), "the word's page didn't open")
   }
 
+  /// A source's mark as the site's: small and raised after the words it backs ("hơi chua.¹"), not a number as large as
+  /// the text and on its line ("chua.1"); tapped, it still names its source.
+  func testASourcesMarkSitsSmallAfterTheWordsItBacks() {
+    let app = launch()
+    openRow(app, "ca neon")
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "not the fish")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
+    // Its paragraph, one line: "Nước mềm, hơi chua." and the mark. Seen as drawn, in its pixels: a link's frame may be
+    // its line's, whatever its size.
+    let line = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Nước mềm, hơi chua")).firstMatch
+    reveal(app, line)
+    let (raised, height) = lastMark(line)
+    XCTAssertGreaterThan(raised, 3, "the mark sits on the line, run into the full stop")
+    XCTAssertLessThan(height, 0.7, "the mark as tall as the text's letters")
+    let mark = app.links["1"].firstMatch
+    reveal(app, mark)
+    mark.tap()
+    XCTAssertTrue(app.alerts["Seriously Fish"].waitForExistence(timeout: 5), "the mark doesn't name its source")
+  }
+
   func testTheCreditsSourcesLinkScrollsToTheSources() {
     let app = openGuide()
     let sources = app.staticTexts["Nguồn tham khảo"]
@@ -342,6 +362,37 @@ final class NativePageFlowTests: XCTestCase {
 
   private func text(_ app: XCUIApplication, _ s: String) -> XCUIElement {
     app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch
+  }
+
+  /// The last thing drawn on a line of text (a mark): how far the bottom of its ink sits above that of the ink before it
+  /// (a full stop, on the line), in points, and its ink's height as a share of the tallest letter's.
+  private func lastMark(_ e: XCUIElement) -> (raised: CGFloat, height: CGFloat) {
+    let shot = e.screenshot().image
+    guard let cg = shot.cgImage else { return (0, 1) }
+    let w = cg.width, h = cg.height
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpaceCreateDeviceRGB(),
+                        bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+    ctx?.draw(cg, in: CGRect(x: 0, y: 0, width: w, height: h))
+    func lum(_ x: Int, _ y: Int) -> Int { let i = (y * w + x) * 4; return Int(px[i]) + Int(px[i + 1]) + Int(px[i + 2]) }
+    let paper = lum(0, 0)
+    // Each column's inked rows, top to bottom (rows count down the image), grouped into runs of inked columns.
+    var groups: [(top: Int, bottom: Int)] = []
+    var open = false
+    for x in 0..<w {
+      var top = -1, bottom = -1
+      for y in 0..<h where abs(lum(x, y) - paper) > 150 {
+        if top < 0 { top = y }
+        bottom = y
+      }
+      if top < 0 { open = false; continue }
+      if open, let g = groups.last { groups[groups.count - 1] = (min(g.top, top), max(g.bottom, bottom)) } else { groups.append((top, bottom)) }
+      open = true
+    }
+    guard groups.count >= 2, let mark = groups.last else { return (0, 1) }
+    let stop = groups[groups.count - 2]
+    let tallest = groups.dropLast().map { $0.bottom - $0.top }.max() ?? 1
+    return (CGFloat(stop.bottom - mark.bottom) / shot.scale, CGFloat(mark.bottom - mark.top) / CGFloat(max(tallest, 1)))
   }
 
   /// Scrolled into view half a screen at a time, without a fling, so no part is scrolled past; only down, so parts found

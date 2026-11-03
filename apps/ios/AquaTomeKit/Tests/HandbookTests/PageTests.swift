@@ -147,6 +147,30 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   }
 }
 
+/// A source's mark (drawn small and raised, as the site's `.cite`) is told from a word's tip: in the site's cases each
+/// mark on a fish's or plant's page links one of its sources, and no word with a tip is taken for one.
+@Test func aSourcesMarkIsToldFromAWordsTip() throws {
+  var marks = 0, words = 0
+  for c in cases("docs") + cases("added") {
+    let page = c["doc"] as! [String: Any]
+    let numbered = ["fish", "plant"].contains(page["kind"] as? String ?? "")
+    let sources = Set((page["blocks"] as? [[String: Any]] ?? []).filter { $0["t"] as? String == "refs" }
+      .flatMap { ($0["items"] as! [[String: Any]]).map { $0["url"] as! String } })
+    func walk(_ v: Any) {
+      if let o = v as? [String: Any] {
+        if o["tip"] != nil, let r = PageDoc.Run(json: o) {
+          let linksSource = sources.contains(r.href ?? ""), number = r.text.allSatisfy(\.isNumber)
+          if r.isSourceMark { marks += 1; #expect(!numbered || linksSource, "\(r.text) in \(c["note"]!) links no source") }
+          else { words += 1; #expect(!number, "\(r.text)") }
+        }
+        o.values.forEach(walk)
+      } else if let a = v as? [Any] { a.forEach(walk) }
+    }
+    walk(page)
+  }
+  #expect(marks >= 2 && words >= 1, "marks \(marks), words \(words)")
+}
+
 @Test func aPageNamesWhereItsReadersCommentsAndPhotosAre() throws {
   let fish = try #require(cases("added").first { ($0["doc"] as? [String: Any])?["kind"] as? String == "fish" })
   #expect(try doc(fish["doc"]!).talk == .init(comments: "species:paracheirodon-axelrodi", photos: "species:paracheirodon-axelrodi"))
