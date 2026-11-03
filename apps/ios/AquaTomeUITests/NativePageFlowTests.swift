@@ -122,17 +122,43 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, mark)
     mark.tap()
     XCTAssertTrue(app.alerts["Seriously Fish"].waitForExistence(timeout: 5), "the mark doesn't name its source")
+  }
 
-  /// The page's name under its photo, so not in the bar as well: the bar names the page once that has scrolled away.
+  /// The page's name under its photo, so not in the bar as well: the bar names the page once that has scrolled away. Seen
+  /// in the bar's pixels: the bar keeps its title for VoiceOver's lookups even while it shows none.
   func testTheBarNamesThePageOnceItsNameScrollsAway() {
     let app = launch()
     openRow(app, "ca neon")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
-    let title = app.navigationBars["Cá neon"].staticTexts["Cá neon"]
-    XCTAssertFalse(title.exists, "named twice: in the bar and under the photo")
+    let bar = app.navigationBars["Cá neon"]
+    XCTAssertTrue(bar.waitForExistence(timeout: 5), "not the fish")
+    RunLoop.current.run(until: Date().addingTimeInterval(1))
+    XCTAssertLessThan(titleInk(bar), 0.002, "named twice: in the bar and under the photo")
     app.swipeUp()
     app.swipeUp()
-    XCTAssertTrue(title.waitForExistence(timeout: 3), "the bar doesn't name the page once its name has scrolled away")
+    RunLoop.current.run(until: Date().addingTimeInterval(1))
+    XCTAssertGreaterThan(titleInk(bar), 0.01, "the bar doesn't name the page once its name has scrolled away")
+  }
+
+  /// How much of the bar's middle third (clear of the back button and the buttons on its right) is drawn dark, as a
+  /// title's letters are on a light bar; the page blurred under the glass stays light grey.
+  private func titleInk(_ bar: XCUIElement) -> CGFloat {
+    let shot = bar.screenshot().image
+    guard let cg = shot.cgImage else { return -1 }
+    let w = cg.width, h = cg.height
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpaceCreateDeviceRGB(),
+                        bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+    ctx?.draw(cg, in: CGRect(x: 0, y: 0, width: w, height: h))
+    var dark = 0, all = 0
+    for y in 0..<h {
+      for x in (w / 3)..<(w * 2 / 3) {
+        let i = (y * w + x) * 4
+        all += 1
+        if Int(px[i]) + Int(px[i + 1]) + Int(px[i + 2]) < 240 { dark += 1 }
+      }
+    }
+    return CGFloat(dark) / CGFloat(max(all, 1))
   }
 
   /// Sharing and the browser, used less than the page's own buttons, in one menu in the bar.
