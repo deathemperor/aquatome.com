@@ -37,7 +37,12 @@
     },
     "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/": {
       "last": 2,
-      "next": 2
+      "next": 3,
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/": {
+      "last": 3,
+      "next": 3
     }
   },
   "threads": {
@@ -71,6 +76,291 @@
         },
         {
           "src": "https://www.diendancacanh.com/pictures/discus/tgck_do_cung2.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/threads/ap-nhan-tao-ca-dia-bot-1.32848/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Ấp nhân tạo cá dĩa bột 1",
+      "author": "vnreddevil",
+      "date": "5/3/16 lúc 06:32",
+      "posts": 1,
+      "provenance": "translated",
+      "evidence": "Byline gives Cliff Young, mondodiscus.com; forum poster adds own notes.",
+      "original": {
+        "author": "Cliff Young",
+        "url": "http://www.mondodiscus.com/"
+      },
+      "topic": "Artificial incubation and first feeding of discus fry, part 1",
+      "terms": [
+        {
+          "vi": "cá dĩa",
+          "en": "discus"
+        },
+        {
+          "vi": "cá bột",
+          "en": "fry"
+        },
+        {
+          "vi": "ấp nhân tạo",
+          "en": "artificial incubation"
+        },
+        {
+          "vi": "giá thể",
+          "en": "spawning substrate"
+        },
+        {
+          "vi": "cá vú",
+          "en": "foster parent fish (nurse fish)"
+        },
+        {
+          "vi": "bộ lọc thẩm thấu ngược",
+          "en": "reverse osmosis filter"
+        },
+        {
+          "vi": "ấu trùng artemia",
+          "en": "Artemia (brine shrimp) nauplii"
+        },
+        {
+          "vi": "trùng bánh xe",
+          "en": "rotifer"
+        },
+        {
+          "vi": "bột tảo spirulina",
+          "en": "spirulina powder"
+        },
+        {
+          "vi": "bột lòng đỏ trứng",
+          "en": "egg yolk powder"
+        },
+        {
+          "vi": "ống hút",
+          "en": "turkey baster"
+        },
+        {
+          "vi": "hả nước",
+          "en": "dechlorinate by aging water"
+        },
+        {
+          "vi": "nhớt cá bố mẹ",
+          "en": "parental skin mucus"
+        }
+      ],
+      "taxa": [
+        "Symphysodon",
+        "Artemia"
+      ],
+      "breeds": [],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_feeding_cliff1.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_feeding_cliff2.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_feeding_cliff3.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_feeding_cliff4.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_feeding_cliff5.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_feeding_cliff6.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_feeding_cliff7.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/threads/ap-nhan-tao-ca-dia-bot-2.32854/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Ấp nhân tạo cá dĩa bột 2",
+      "author": "vnreddevil",
+      "date": "5/3/16 lúc 06:33",
+      "posts": 1,
+      "provenance": "translated",
+      "evidence": "Poster presents a YouTube video by another breeder, \"Big Tuck\", rendered in Vietnamese.",
+      "original": {
+        "title": "Big Tuck - artificial discus rearing (YouTube video; exact title not given)",
+        "author": "Big Tuck",
+        "url": "http://www.youtube.com/"
+      },
+      "topic": "Artificial incubation and rearing of discus fry in an airlift-driven tub system",
+      "terms": [
+        {
+          "vi": "cá dĩa",
+          "en": "discus"
+        },
+        {
+          "vi": "cá bột",
+          "en": "fry"
+        },
+        {
+          "vi": "ấp nhân tạo",
+          "en": "artificial rearing of fry"
+        },
+        {
+          "vi": "ống nâng",
+          "en": "airlift"
+        },
+        {
+          "vi": "bộ lọc treo",
+          "en": "hang-on (outside) filter"
+        },
+        {
+          "vi": "phễu lọc cà phê",
+          "en": "coffee filter"
+        },
+        {
+          "vi": "noãn hoàng",
+          "en": "egg sac"
+        },
+        {
+          "vi": "ấu trùng artemia",
+          "en": "baby brine shrimp"
+        },
+        {
+          "vi": "hộp ươm",
+          "en": "gizmo (rearing tub)"
+        },
+        {
+          "vi": "bồn chứa",
+          "en": "reservoir"
+        },
+        {
+          "vi": "lọc thẩm thấu ngược",
+          "en": "reverse osmosis (RO) water"
+        },
+        {
+          "vi": "cây sưởi",
+          "en": "heater"
+        },
+        {
+          "vi": "van khí",
+          "en": "air valve"
+        },
+        {
+          "vi": "ấp trứng",
+          "en": "hatch eggs"
+        }
+      ],
+      "taxa": [
+        "Symphysodon"
+      ],
+      "breeds": [],
+      "images": [],
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/threads/ap-nhan-tao-ca-dia-bot-3.38060/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Ấp nhân tạo cá dĩa bột 3",
+      "author": "vnreddevil",
+      "date": "5/3/16 lúc 06:36",
+      "posts": 1,
+      "provenance": "unclear",
+      "evidence": "No credit line or link; generic expert tone and photo captions, but no clear personal breeding account.",
+      "topic": "Artificial incubation and rearing of discus fry (part 3 of series)",
+      "terms": [
+        {
+          "vi": "cá dĩa",
+          "en": "discus (Symphysodon)"
+        },
+        {
+          "vi": "ấp nhân tạo",
+          "en": "artificial incubation of eggs away from parents"
+        },
+        {
+          "vi": "cá bột",
+          "en": "fry"
+        },
+        {
+          "vi": "cá vú",
+          "en": "nurse fish / foster parent discus"
+        },
+        {
+          "vi": "nhớt",
+          "en": "skin mucus fed to fry"
+        },
+        {
+          "vi": "giá thể",
+          "en": "spawning substrate"
+        },
+        {
+          "vi": "chất chống nấm methylene blue",
+          "en": "methylene blue antifungal"
+        },
+        {
+          "vi": "ấu trùng artemia",
+          "en": "artemia (brine shrimp) nauplii"
+        },
+        {
+          "vi": "bột lòng đỏ trứng",
+          "en": "egg yolk powder"
+        },
+        {
+          "vi": "ống hút (turkey baster)",
+          "en": "turkey baster"
+        },
+        {
+          "vi": "đầu sục khí",
+          "en": "air stone"
+        },
+        {
+          "vi": "tim bò đông lạnh",
+          "en": "frozen beef heart"
+        },
+        {
+          "vi": "cặp cá giống",
+          "en": "breeding pair"
+        },
+        {
+          "vi": "ép cặp",
+          "en": "pairing fish for breeding"
+        },
+        {
+          "vi": "cichlid",
+          "en": "cichlid"
+        }
+      ],
+      "taxa": [
+        "Symphysodon",
+        "Artemia"
+      ],
+      "breeds": [
+        "Discus"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_hatching2.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_hatching1.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_hatching31.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_hatching32.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/artificial_hatching4.jpg",
           "own": false
         }
       ],
@@ -1277,6 +1567,84 @@
         }
       ],
       "readAt": "2026-11-02"
+    },
+    "https://www.diendancacanh.com/threads/danh-sach-thuoc-va-hoa-chat-thong-dung.38328/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Danh sách thuốc và hóa chất thông dụng",
+      "author": "vnreddevil",
+      "date": "22/11/17 lúc 11:34",
+      "posts": 1,
+      "provenance": "unclear",
+      "evidence": "No credit line or link; generic tone suggests a translation, but no source is named.",
+      "topic": "Common medicines and chemicals used in discus fish farms",
+      "terms": [
+        {
+          "vi": "cá dĩa",
+          "en": "discus"
+        },
+        {
+          "vi": "Formol",
+          "en": "formalin"
+        },
+        {
+          "vi": "thuốc tím",
+          "en": "potassium permanganate"
+        },
+        {
+          "vi": "Hypo",
+          "en": "sodium thiosulfate (dechlorinator)"
+        },
+        {
+          "vi": "Zeolite",
+          "en": "zeolite (clinoptilolite), ammonia remover"
+        },
+        {
+          "vi": "Acid Phosphoric",
+          "en": "phosphoric acid (pH reducer)"
+        },
+        {
+          "vi": "Methylene blue",
+          "en": "methylene blue (antifungal)"
+        },
+        {
+          "vi": "bệnh đốm trắng",
+          "en": "white spot disease (Ichthyophthirius multifiliis)"
+        },
+        {
+          "vi": "Trùng roi",
+          "en": "flagellates"
+        },
+        {
+          "vi": "muối hột",
+          "en": "sodium chloride (coarse salt)"
+        },
+        {
+          "vi": "Sulfate đồng",
+          "en": "copper sulfate"
+        },
+        {
+          "vi": "kháng sinh",
+          "en": "antibiotics"
+        },
+        {
+          "vi": "tẩy giun sán",
+          "en": "deworming"
+        },
+        {
+          "vi": "Calcium Hypochlorite",
+          "en": "calcium hypochlorite (disinfectant)"
+        },
+        {
+          "vi": "Piperazine Sulfate",
+          "en": "piperazine sulfate"
+        }
+      ],
+      "taxa": [
+        "Ichthyophthirius multifiliis"
+      ],
+      "breeds": [],
+      "images": [],
+      "readAt": "2026-11-03"
     },
     "https://www.diendancacanh.com/threads/dieu-tri-ca-dia-ngo-nhan-sai-lam-va-giai-phap.59744/": {
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
@@ -2749,6 +3117,341 @@
       ],
       "readAt": "2026-11-01"
     },
+    "https://www.diendancacanh.com/threads/lai-tao-ca-dia-lam-albino.39363/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Lai tạo cá dĩa lam albino",
+      "author": "vnreddevil",
+      "date": "4/6/10 lúc 23:12",
+      "posts": 1,
+      "provenance": "unclear",
+      "evidence": "No credit line or link; generic instructional tone, no personal photos or records.",
+      "topic": "Breeding blue albino discus from albino Alenquer crossed with blue discus",
+      "terms": [
+        {
+          "vi": "cá dĩa",
+          "en": "discus"
+        },
+        {
+          "vi": "cá dĩa lam",
+          "en": "blue discus"
+        },
+        {
+          "vi": "alenquer albino",
+          "en": "Alenquer albino discus"
+        },
+        {
+          "vi": "bạch tạng",
+          "en": "albino"
+        },
+        {
+          "vi": "alen",
+          "en": "allele"
+        },
+        {
+          "vi": "gen lặn",
+          "en": "recessive gene"
+        },
+        {
+          "vi": "lai cận huyết",
+          "en": "inbreeding"
+        },
+        {
+          "vi": "đời F1",
+          "en": "F1 generation"
+        },
+        {
+          "vi": "đơn sắc",
+          "en": "solid colour"
+        },
+        {
+          "vi": "bông",
+          "en": "pigeon/spotted pattern (patterned body)"
+        },
+        {
+          "vi": "chỉ",
+          "en": "stress-bar/stripe lines (thread-like markings)"
+        },
+        {
+          "vi": "lai ngược",
+          "en": "backcrossing"
+        },
+        {
+          "vi": "tuyển chọn",
+          "en": "selection"
+        },
+        {
+          "vi": "cá giống",
+          "en": "breeding stock"
+        }
+      ],
+      "taxa": [
+        "Symphysodon aequifasciatus"
+      ],
+      "breeds": [
+        "Blue albino discus",
+        "Alenquer albino discus",
+        "Blue discus"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/laitao_lamalbi.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/threads/lai-tao-tay-sach-ca-dia-ma.39366/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Lai tạo: tẩy sạch cá dĩa ma",
+      "author": "vnreddevil",
+      "date": "5/6/10 lúc 08:21",
+      "posts": 1,
+      "provenance": "unclear",
+      "evidence": "No credit line or link; text reads like an expository guide, but no personal breeding results.",
+      "topic": "Breeding to remove pepper spots from ghost discus",
+      "terms": [
+        {
+          "vi": "cá dĩa ma",
+          "en": "ghost discus"
+        },
+        {
+          "vi": "cá bông xanh",
+          "en": "brilliant discus"
+        },
+        {
+          "vi": "cá dĩa nâu",
+          "en": "brown discus"
+        },
+        {
+          "vi": "dĩa ma sạch",
+          "en": "silver dreamer"
+        },
+        {
+          "vi": "hắc sắc tố",
+          "en": "melanin / black pigment"
+        },
+        {
+          "vi": "tiêu",
+          "en": "pepper spots"
+        },
+        {
+          "vi": "lai cận huyết",
+          "en": "inbreeding"
+        },
+        {
+          "vi": "lai ngược",
+          "en": "backcross"
+        },
+        {
+          "vi": "gien lặn",
+          "en": "recessive gene"
+        },
+        {
+          "vi": "alen",
+          "en": "allele"
+        },
+        {
+          "vi": "đột biến",
+          "en": "mutation"
+        },
+        {
+          "vi": "đời F1",
+          "en": "F1 generation"
+        }
+      ],
+      "taxa": [
+        "Symphysodon"
+      ],
+      "breeds": [
+        "Ghost discus",
+        "Silver dreamer discus",
+        "Brilliant discus",
+        "Brown discus"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/laitao_diama.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/threads/lai-tao-tay-sach-ca-dia-marlboro.39365/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Lai tạo: tẩy sạch cá dĩa marlboro",
+      "author": "vnreddevil",
+      "date": "5/6/10 lúc 07:49",
+      "posts": 1,
+      "provenance": "unclear",
+      "evidence": "No credit line or link; instructional breeding steps, but no personal photos or claims of own fish.",
+      "topic": "Breeding method to remove black smudging (tiêu) from Marlboro discus",
+      "terms": [
+        {
+          "vi": "cá dĩa",
+          "en": "discus"
+        },
+        {
+          "vi": "marlboro",
+          "en": "Marlboro red discus"
+        },
+        {
+          "vi": "virgin red",
+          "en": "Virgin Red discus"
+        },
+        {
+          "vi": "cá dĩa nâu",
+          "en": "brown discus"
+        },
+        {
+          "vi": "đỏ-nâu",
+          "en": "red-brown discus"
+        },
+        {
+          "vi": "dính đen / lem / dính tiêu",
+          "en": "black smudging (pepper) on fins and head"
+        },
+        {
+          "vi": "lai xa",
+          "en": "outcrossing"
+        },
+        {
+          "vi": "lai tạo",
+          "en": "crossbreeding"
+        },
+        {
+          "vi": "F1, F2, F3, F4",
+          "en": "filial generations"
+        },
+        {
+          "vi": "kích màu",
+          "en": "colour enhancement"
+        },
+        {
+          "vi": "đuôi trong suốt",
+          "en": "clear tail"
+        },
+        {
+          "vi": "gien",
+          "en": "genes"
+        }
+      ],
+      "taxa": [
+        "Symphysodon"
+      ],
+      "breeds": [
+        "Marlboro red discus",
+        "Virgin Red discus",
+        "Brown discus",
+        "Red-brown discus"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/laitao_malsach.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/laitao_malsach2.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
+    "https://www.diendancacanh.com/threads/lai-tao-va-duy-tri-dong-golden-leopard-snake.39031/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Lai tạo và duy trì dòng Golden Leopard Snake",
+      "author": "vnreddevil",
+      "date": "6/12/17 lúc 09:20",
+      "posts": 1,
+      "provenance": "unclear",
+      "evidence": "No credit line or link; first-person trade remarks suggest breeder knowledge, but no own photos mentioned.",
+      "topic": "Breeding and maintaining Golden Leopard Snake discus strain",
+      "terms": [
+        {
+          "vi": "cá dĩa",
+          "en": "discus"
+        },
+        {
+          "vi": "lai cận huyết",
+          "en": "inbreeding"
+        },
+        {
+          "vi": "lai xa",
+          "en": "outcrossing"
+        },
+        {
+          "vi": "muối tiêu",
+          "en": "pepper-and-salt speckling"
+        },
+        {
+          "vi": "can",
+          "en": "cans (stripe/bar count, e.g. 9-can, 14-can)"
+        },
+        {
+          "vi": "beo",
+          "en": "leopard pattern"
+        },
+        {
+          "vi": "đốm",
+          "en": "spots"
+        },
+        {
+          "vi": "beo khoen",
+          "en": "Ring Leopard"
+        },
+        {
+          "vi": "bầy lai",
+          "en": "hybrid/cross brood"
+        },
+        {
+          "vi": "alen",
+          "en": "allele"
+        },
+        {
+          "vi": "chất kích màu",
+          "en": "color-enhancing supplement"
+        },
+        {
+          "vi": "astaxanthin",
+          "en": "astaxanthin"
+        },
+        {
+          "vi": "tỷ đẹp",
+          "en": "proportion of good-quality fry"
+        },
+        {
+          "vi": "tuyển chọn",
+          "en": "selection/culling"
+        },
+        {
+          "vi": "bông",
+          "en": "pattern/marbling"
+        }
+      ],
+      "taxa": [
+        "Symphysodon"
+      ],
+      "breeds": [
+        "Golden Leopard Snake discus",
+        "Leopard Snake discus",
+        "Golden discus",
+        "Snakeskin discus",
+        "Leopard discus",
+        "Ring Leopard discus",
+        "Ghost discus",
+        "Leopard Snake Snake discus"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/laitao_GLS1.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/laitao_GLS2.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
     "https://www.diendancacanh.com/threads/lam-den-cho-ho-cube-chi-voi-15k.126699/": {
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
       "title": "Làm đèn cho hồ cube chỉ với 15k",
@@ -3165,6 +3868,110 @@
         }
       ],
       "readAt": "2026-11-02"
+    },
+    "https://www.diendancacanh.com/threads/nguyen-tac-danh-gia-ca-dia.37619/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Nguyên tắc đánh giá cá dĩa",
+      "author": "vnreddevil",
+      "date": "5/3/16 lúc 05:44",
+      "posts": 1,
+      "provenance": "unclear",
+      "evidence": "No credit line or link; reads like a compiled guide, but no named source or personal keeping.",
+      "topic": "Judging criteria and show preparation for discus fish competitions",
+      "terms": [
+        {
+          "vi": "cá dĩa",
+          "en": "discus (Symphysodon)"
+        },
+        {
+          "vi": "cá bồ câu",
+          "en": "pigeon blood discus"
+        },
+        {
+          "vi": "cá dĩa hoang",
+          "en": "wild discus"
+        },
+        {
+          "vi": "cá beo",
+          "en": "leopard discus"
+        },
+        {
+          "vi": "cá đơn sắc",
+          "en": "solid colour discus"
+        },
+        {
+          "vi": "lớp chỉ",
+          "en": "striped (cobalt-type) class"
+        },
+        {
+          "vi": "cá vô địch",
+          "en": "Grand Champion"
+        },
+        {
+          "vi": "trọng tài",
+          "en": "judge"
+        },
+        {
+          "vi": "vây lưng",
+          "en": "dorsal fin"
+        },
+        {
+          "vi": "vây hậu môn",
+          "en": "anal fin"
+        },
+        {
+          "vi": "vây bụng",
+          "en": "pelvic fin"
+        },
+        {
+          "vi": "vẹo cột sống",
+          "en": "spinal deformity"
+        },
+        {
+          "vi": "kích màu",
+          "en": "colour enhancing"
+        },
+        {
+          "vi": "màu nền",
+          "en": "base colour"
+        },
+        {
+          "vi": "đầu gù",
+          "en": "humped head"
+        }
+      ],
+      "taxa": [
+        "Symphysodon"
+      ],
+      "breeds": [
+        "Pigeon blood discus",
+        "Leopard discus",
+        "Ring leopard discus",
+        "Solid colour discus"
+      ],
+      "images": [
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/show_duisburgchampion.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/show_judgingform.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/show_discusprague2009.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/show_barcelona2007.jpg",
+          "own": false
+        },
+        {
+          "src": "https://www.diendancacanh.com/pictures/discus/show_aquafair2008.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
     },
     "https://www.diendancacanh.com/threads/nhung-thac-mac-pho-bien-ve-viec-giam-do-cung.60554/": {
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
@@ -3905,6 +4712,202 @@
       ],
       "readAt": "2026-11-02"
     },
+    "https://www.diendancacanh.com/threads/the-nao-la-1-chu-ca-dia-dep.32785/": {
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
+      "title": "Thế nào là 1 chú cá đĩa đẹp",
+      "author": "GoodBoy",
+      "date": "10/2/10 lúc 03:41",
+      "posts": 1,
+      "provenance": "translated",
+      "evidence": "Poster copied it from another forum, crediting author Ut9 with source link.",
+      "original": {
+        "title": "Nào là con cá đĩa đẹp",
+        "author": "Ut9",
+        "url": "http://cacanh.svcvietnam.vn/forum/kinh-nghiem-ky-thuat-nuoi-cd/9131-nao-la-con-ca-dia-dep.html"
+      },
+      "topic": "Criteria for judging a beautiful discus fish (body, eyes, fins, colour)",
+      "terms": [
+        {
+          "vi": "cá Đĩa",
+          "en": "discus"
+        },
+        {
+          "vi": "Albino",
+          "en": "albino discus"
+        },
+        {
+          "vi": "cờ",
+          "en": "dorsal and anal fins"
+        },
+        {
+          "vi": "tay bơi",
+          "en": "pectoral fins"
+        },
+        {
+          "vi": "kỳ",
+          "en": "pelvic fins (feelers)"
+        },
+        {
+          "vi": "đẹt",
+          "en": "stunted fish"
+        },
+        {
+          "vi": "mang",
+          "en": "gills"
+        },
+        {
+          "vi": "Đĩa vàng",
+          "en": "yellow discus"
+        },
+        {
+          "vi": "Đĩa đỏ",
+          "en": "red discus"
+        },
+        {
+          "vi": "Đĩa Beo",
+          "en": "leopard discus"
+        },
+        {
+          "vi": "Bồ câu",
+          "en": "pigeon blood discus"
+        },
+        {
+          "vi": "Xanh thường",
+          "en": "common blue discus"
+        },
+        {
+          "vi": "Đĩa Lam",
+          "en": "blue discus"
+        },
+        {
+          "vi": "bướm trắng",
+          "en": "white butterfly discus"
+        }
+      ],
+      "taxa": [
+        "Symphysodon"
+      ],
+      "breeds": [
+        "Albino discus",
+        "Yellow discus",
+        "Red discus",
+        "Leopard discus",
+        "Pigeon blood discus",
+        "Blue discus",
+        "White butterfly discus"
+      ],
+      "images": [
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2235487568_185d5b1bdb.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2129913399_7019ae084b.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2120249891_5c08e5c089.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2133726658_0376f1b99d.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2129872711_996342727b.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2130716472_93d938a807.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2129872947_a9f9d52904.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2121876232_96b8766c7a.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2133680464_614a77ef11.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2130648904_63388da477.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2129869223_6153bd8bb0.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2132991125_1432754aab.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2129896761_27810891f5.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2116244439_49f407dfb1.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2132947947_2f60eb85d4.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2130689874_a9725cfa1e.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2133119669_f2cc764e02.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2130649432_8751455974.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2121876774_ffc1d1f425.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2323846326_604917b40a.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2121091957_02ba5cca0d.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2120249445_fd27c25fa7.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2130716776_13ca14e82d.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2130649134_830c069e4c.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2130674986_61bcc516ea.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2132903671_816072bf72.jpg",
+          "own": false
+        },
+        {
+          "src": "http://i282.photobucket.com/albums/kk270/ut9_dongnai/Ca%20Dia%20Dep/2121100817_19a1074b081.jpg",
+          "own": false
+        }
+      ],
+      "readAt": "2026-11-03"
+    },
     "https://www.diendancacanh.com/threads/thuc-hien-thanh-cong-hand-feeding-tung-clip-chia-se-cung-anh-em.72672/": {
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
       "title": "Thực hiện thành công Hand Feeding, tung clip chia sẽ cùng anh em ^^~",
@@ -4457,56 +5460,6 @@
     }
   },
   "queue": [
-    {
-      "url": "https://www.diendancacanh.com/threads/danh-sach-thuoc-va-hoa-chat-thong-dung.38328/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Danh sách thuốc và hóa chất thông dụng"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/ap-nhan-tao-ca-dia-bot-3.38060/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Ấp nhân tạo cá dĩa bột 3"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/lai-tao-tay-sach-ca-dia-marlboro.39365/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Lai tạo: tẩy sạch cá dĩa marlboro"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/lai-tao-ca-dia-lam-albino.39363/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Lai tạo cá dĩa lam albino"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/lai-tao-tay-sach-ca-dia-ma.39366/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Lai tạo: tẩy sạch cá dĩa ma"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/lai-tao-va-duy-tri-dong-golden-leopard-snake.39031/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Lai tạo và duy trì dòng Golden Leopard Snake"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/nguyen-tac-danh-gia-ca-dia.37619/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Nguyên tắc đánh giá cá dĩa"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/the-nao-la-1-chu-ca-dia-dep.32785/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Thế nào là 1 chú cá đĩa đẹp"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/ap-nhan-tao-ca-dia-bot-1.32848/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Ấp nhân tạo cá dĩa bột 1"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/ap-nhan-tao-ca-dia-bot-2.32854/",
-      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
-      "title": "Ấp nhân tạo cá dĩa bột 2"
-    },
     {
       "url": "https://www.diendancacanh.com/threads/phan-1-phan-loai-ca-dia-hoang-da.31575/",
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-dia.135/",
@@ -7366,6 +8319,301 @@
       "url": "https://www.diendancacanh.com/threads/lai-tao-red-terror.31559/",
       "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
       "title": "Lai tạo red terror"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/truy-tim-nguon-goc-cua-ca-dien-quang.19146/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Truy tìm nguồn gốc của cá Điện Quang"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/lai-tao-ca-ky-lan-tilapia-buttikoferi.17773/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Lai tạo cá kỳ lân Tilapia buttikoferi"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/thong-tin-chung-ve-ca-jack-dempsey.17497/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Thông tin chung về cá Jack Dempsey"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/lai-tao-jack-dempsey-dien-quang.17452/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Lai tạo Jack Dempsey Điện Quang"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/su-xam-lang-kinh-hoang-cua-loai-ca-hoang-de-cichla-ocellaris-o-ho-tri-an.339/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Sự xâm lăng kinh hoàng của loài cá hoàng đế Cichla ocellaris ở hồ Trị An"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cichlid-kich-thuoc-lon.1393/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Cichlid kích thước lớn"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/noi-nhung-con-song-o-nicaragua-2004-willem-heijns.108/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Nơi những con sông ở Nicaragua 2004 (Willem Heijns)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/red-terror.88/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Red Terror"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/quan-sat-can-canh-noi-cac-ho-nui-lua-o-nicaragua-willem-heijns.94/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Quan sát cận cảnh nơi các hồ núi lửa ở Nicaragua (Willem Heijns)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/silver-cichlid.84/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Silver cichlid"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/jaguar-cichlid.85/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Jaguar cichlid"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/umbie.83/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Umbie"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/midas-cichlid-duoi-moi-kich-thuoc-va-hinh-dang-willem-heijns.39/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Midas cichlid dưới mọi kích thước và hình dạng (Willem Heijns)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/mot-so-dac-diem-cua-cichlid-trung-my-kich-thuoc-lon.31/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Một số đặc điểm của cichlid Trung Mỹ kích thước lớn"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/phuong-phap-lai-tao-cichlid-trung-my-kich-thuoc-lon.30/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Phương pháp lai tạo cichlid Trung Mỹ kích thước lớn"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/so-luoc-ve-nhom-red-devil-midas.10/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Sơ lược về nhóm Red Devil - Midas"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/gioi-thieu-ve-cichlid.8/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Giới thiệu về cichlid"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/loai-cichlid-canh-dau-tien-cua-chung-ta.5/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-ca-cichlid.299/",
+      "title": "Loài cichlid cảnh đầu tiên của chúng ta"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/tong-hop-bai-viet-ve-thuy-sinh.46732/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Tổng hợp bài viết về thủy sinh"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/trien-khai-ho-thuy-sinh-dua-thien-nhien-vao-chinh-ngoi-nha-cua-ban.482113/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Triển khai hồ thủy sinh, đưa thiên nhiên vào chính ngôi nhà của bạn"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/danh-muc-cac-loai-cay-thuy-sinh-trong-trong-nuoc-de-cham-soc.282994/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Danh mục các loại cây thủy sinh trồng trong nước dễ chăm sóc"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/phong-van-pyramid-nguoi-doat-giai-dong-cuoc-thi-iapl-contest-2008-www-thuysinh-org.8095/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Phỏng vấn Pyramid, người đoạt giải đồng cuộc thi IAPL contest 2008!(www.thuysinh.org)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/day-nen-trong-ho-thuy-sinh.20225/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Đáy nền trong hồ thủy sinh."
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/huong-dan-co-ban-lap-loc-che-cho-cac-bac-sinh-vien.458984/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Hướng dẫn cơ bản lắp lọc chế cho các bác sinh viên"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/co2-mot-cach-choi-an-toan-va-don-gian.49072/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "CO2- Một cách chơi an toàn và đơn giản"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/nuoi-duong-cay-thuy-sinh.35674/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Nuôi dưỡng cây thủy sinh"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/nghe-thuat-xep-da-iwagumi.22669/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Nghệ thuật xếp đá iwagumi"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cach-xu-ly-reu-hai-voi-chi-phi-cuc-re-______________.368240/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "cách xử lý rêu hại với chi phí cực rẻ ______________"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/chau-nuoc-ho-canh-phu-hop-o-moi-vi-tri.113/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Chậu nước - hồ cảnh phù hợp ở mọi vị trí"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ban-ve-bo-cuc-dang-va-the.47401/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Bàn về bố cục: dạng và thế"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/nhan-giong-cay-thuy-sinh.11389/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Nhân giống cây thủy sinh"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/tu-lam-bay-bat-ca-dung-cho-ho-rong.21/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Tự làm bẫy bắt cá dùng cho hồ rong"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/chieu-sang-trong-ho-thuy-sinh.11963/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Chiếu sáng trong hồ thủy sinh"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ban-ve-bo-cuc-tieu-diem-va-ty-le-vang.47423/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Bàn về bố cục: tiêu điểm và tỷ lệ vàng"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/so-luoc-ve-reu.47829/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Sơ lược về rêu"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/chat-luong-va-phuong-phap-loc-nuoc.19990/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Chất Lượng Và Phương Pháp Lọc Nước."
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/trong-tieu-thao-tren-can.48032/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Trồng tiêu thảo trên cạn"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/den-led-ung-dung-chieu-sang-ho-canh.20990/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Đèn LED: ứng dụng chiếu sáng hồ cảnh"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/dai-truyen-hinh-long-an-phong-su-thu-gian-voi-ho-thuy-sinh.91487/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Đài truyền hình Long An: Phóng sự \"Thư giãn với hồ thuỷ sinh\""
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/tieu-thao.72862/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Tiêu thảo"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/tai-sao-reu-van-sinh-san-duoc-trong-moi-truong-kho.67999/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Tại sao rêu vẫn sinh sản được trong môi trường khô?"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/giai-phau-thuc-vat-phan-3-re.47734/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Giải phẫu thực vật: Phần 3 - Rễ"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/giai-phau-thuc-vat-phan-2-la.47716/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Giải phẫu thực vật: Phần 2 - Lá"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/giai-phau-thuc-vat-phan-1-than.47642/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Giải phẫu thực vật: Phần 1 - Thân"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/huong-dan-bo-cuc-iwagumi-cho-newbie.46530/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Hướng dẫn bố cục Iwagumi cho newbie"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/thiet-lap-ho-thuy-sinh-tu-nhien.24938/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Thiết lập hồ thủy sinh tự nhiên"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/blue-green-slime-smear-algae-tao-lam.39752/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Blue-green, Slime (Smear) algae (Tảo lam)"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/aquasketcher-phan-mem-thiet-ke-ho-thuy-sinh.22816/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "AquaSketcher: phần mềm thiết kế hồ thủy sinh"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ho-mo.112/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Hồ mở"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/phong-cach-thien.47218/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Phong cách thiền"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/choi-luoi-loai-cay-bi-an.25914/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Choi lưới: loài cây bí ẩn"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ca-nuoi-trong-ho-thuy-sinh.11379/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Cá nuôi trong hồ thủy sinh"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/chau-nuoc-thuy-vien-chon-thi-thanh.28754/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Chậu nước - thủy viên chốn thị thành"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ho-thuy-sinh-iwagumi-va-sanzon-iwagumi.22596/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Hồ thủy sinh iwagumi và sanzon iwagumi"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/ho-thuy-sinh-tonina.25486/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Hồ thủy sinh Tonina"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/phong-cach-thuy-sinh-ha-lan.25039/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Phong cách thủy sinh Hà Lan"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/bo-cuc-voi-so-phac-thao.22812/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Bố cục với sổ phác thảo"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/wabi-kusa.22770/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Wabi-Kusa"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cac-nguyen-tac-bo-cuc.22708/",
+      "section": "https://www.diendancacanh.com/forums/bai-viet-tuyen-chon-thuy-sinh.110/",
+      "title": "Các nguyên tắc bố cục"
     }
   ]
 }

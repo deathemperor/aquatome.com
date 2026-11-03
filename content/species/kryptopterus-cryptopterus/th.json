@@ -1,29 +1,42 @@
 {
   "slug": "kryptopterus-cryptopterus",
-  "name": "ปลาน้ำเงิน",
+  "name": "ปลาปีกไก่",
   "altNames": [
-    "ปลาเนื้ออ่อนน้ำเงิน",
     "ปลาเนื้ออ่อน",
     "Blue Sheatfish",
+    "Smokey Glass Catfish",
     "ปลาขาไก่"
   ],
   "sections": {
-    "quickFacts:planetcatfish": "<ul><li>ชื่อวิทยาศาสตร์: Kryptopterus cryptopterus (Bleeker, 1851)</li><li>ชื่อสามัญ: Blue Sheatfish</li><li>แหล่งที่พบตัวอย่างต้นแบบ: บันจาร์มาซิน จังหวัดกาลิมันตันใต้ เกาะบอร์เนียว ประเทศอินโดนีเซีย</li><li>ขนาด: 20 ซม. (ความยาวมาตรฐาน, SL)</li><li>บัญชีแดงของ IUCN: กังวลน้อยที่สุด (Least Concern) (ประเมินครั้งล่าสุดปี 2019)</li></ul>",
-    "distribution:planetcatfish": "<p>เอเชีย: ลุ่มน้ำโขงและลุ่มน้ำเจ้าพระยา นอกจากนี้ยังพบในคาบสมุทรมลายู เกาะสุมาตรา และเกาะบอร์เนียว</p>",
-    "waterConditions:planetcatfish": "<ul><li>ค่า pH: 6.0–7.0</li><li>อุณหภูมิ: 22–27 °C</li></ul>",
-    "equipment:planetcatfish": "<p>ปลาชนิดนี้ว่ายน้ำค่อนข้างคล่องแคล่ว จึงต้องมีพื้นที่โล่งให้ว่าย และควรจัดพรรณไม้น้ำให้มากพอให้ปลาได้หลบซ่อนในเวลากลางวัน</p>",
-    "diet:planetcatfish": "<p>กินอาหารมีชีวิตและอาหารแช่แข็งได้ดี รวมถึงอาหารสำเร็จรูปอื่น ๆ เช่น อาหารเม็ด</p>",
-    "behaviour:planetcatfish": "<p>เป็นปลาที่อยู่รวมเป็นฝูง ควรเลี้ยงเป็นกลุ่มตั้งแต่ 3 ตัวขึ้นไป เป็นปลาที่ค่อนข้างสงบ เลี้ยงร่วมกับปลาชนิดอื่นได้เกือบทุกชนิด ปลาที่เหมาะจะเลี้ยงร่วมด้วย ได้แก่ ปลาตะเพียนและปลาซิวขนาดใหญ่ และปลาหนังเอเชียขนาดกลางที่อาศัยอยู่บริเวณพื้นตู้ชนิดอื่น ๆ (เช่น Mystus)</p>",
-    "dimorphism:planetcatfish": "<p>ตัวผู้มีลำตัวเพรียวกว่า และมีหยักแหลมชัดเจนที่ขอบด้านหลังของก้านครีบแข็งของครีบอก (ตัวเมียไม่มีหยักเหล่านี้)</p>",
-    "reproduction:planetcatfish": "<p>ในแม่น้ำโขง ปลาชนิดนี้วางไข่ในช่วงต้นฤดูฝน (มิถุนายน–กรกฎาคม) ลูกปลาจะเคลื่อนย้ายไปยังแหล่งน้ำที่น้ำท่วมถึงตามฤดูกาล และเริ่มพบเห็นครั้งแรกในเดือนสิงหาคม ยังไม่มีรายงานการวางไข่ในตู้ปลา</p>",
-    "notes:planetcatfish": "<p>ลักษณะสำหรับจำแนกชนิด: ครีบหลังเป็นแค่ซากเล็ก ๆ (ลดรูปมาก) หนวดที่ขากรรไกรบนยาวถึงโคนครีบอก ก้านครีบก้น 64–78 ก้าน แนวสันหลังเกือบตรง ไม่มีส่วนเว้าบริเวณท้ายทอย ครีบอกยาวกว่าความยาวหัว</p>",
-    "references:planetcatfish": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 1 (no. 3), pp 270.</p>"
+    "quickFacts:planetcatfish": "<ul><li>ชื่อวิทยาศาสตร์: Kryptopterus cryptopterus (Bleeker, 1851)</li><li>ชื่อสามัญ: Blue Sheatfish</li><li>สถานที่พบตัวอย่างต้นแบบ: บันจาร์มาซิน จังหวัดกาลิมันตันใต้ เกาะบอร์เนียว ประเทศอินโดนีเซีย</li><li>ขนาด: 200 มม. SL</li><li>สถานภาพในบัญชีแดงของ IUCN: กังวลน้อยที่สุด (Least Concern) (ประเมินครั้งล่าสุดปี 2019)</li></ul>",
+    "quickFacts:seriouslyfish": "<p>Kryptopterus cryptopterus หรือ blue sheatfish เป็นปลาหนังในวงศ์ Siluridae จากคาบสมุทรมลายู สิงคโปร์ สุมาตรา บอร์เนียว และชวา อาศัยอยู่ในแม่น้ำและลำธารขนาดใหญ่ที่มีน้ำไหลและน้ำขุ่น บางครั้งมีการซื้อขายในชื่อ 'smokey glass catfish' ประชากรจากไทย กัมพูชา ลาว และเวียดนาม ซึ่งเคยถือว่าเป็นชนิดเดียวกัน ปัจจุบันจัดเป็น K. geminus ซึ่งเป็นชนิดที่ใกล้ชิดที่สุด โดยต่างกันตรงที่ K. cryptopterus มีหัวกว้างกว่า และมีจะงอยปากกับครีบก้นสั้นกว่า</p>",
+    "distribution:planetcatfish": "<p>เอเชีย: ลุ่มน้ำโขงและลุ่มน้ำเจ้าพระยา รวมถึงคาบสมุทรมลายู สุมาตรา และบอร์เนียว</p>",
+    "distribution:seriouslyfish": "<p>พบในคาบสมุทรมลายูและสิงคโปร์ รวมถึงหมู่เกาะซุนดาใหญ่ ได้แก่ สุมาตรา บอร์เนียว และชวา ส่วนประชากรจากไทย กัมพูชา ลาว และเวียดนาม ซึ่งเคยถือว่าเป็นชนิดเดียวกัน ปัจจุบันจัดเป็น K. geminus (Ng, 2003)</p><p>สถานที่พบตัวอย่างต้นแบบระบุไว้ว่า 'Bandjarmassing' ซึ่งตรงกับเมืองที่ปัจจุบันนิยมเรียกว่า 'บันจาร์มาซิน' (Banjarmasin) ในจังหวัดกาลิมันตันใต้ (Kalimantan Selatan) ประเทศอินโดนีเซีย (เกาะบอร์เนียว)</p>",
+    "habitat:seriouslyfish": "<p>อาศัยอยู่ในแม่น้ำและลำธารขนาดใหญ่ที่มีน้ำไหล โดยทั่วไปน้ำขุ่นและมีตะกอนแขวนลอยมาก</p>",
+    "aquariumSize:seriouslyfish": "<p>ตู้ปลาควรมีขนาดพื้นอย่างน้อย 120 × 45 ซม. หรือเทียบเท่า (ปริมาตรประมาณ 243 ลิตร)</p>",
+    "maintenance:seriouslyfish": "<p>การจัดตกแต่งตู้ไม่ค่อยสำคัญนัก แต่ปลาชนิดนี้ชอบสภาพแสงสลัว และอาจตื่นตกใจง่ายหากไม่มีที่หลบซ่อน</p><p>ไม่ควรปล่อยลงตู้ที่ระบบยังไม่เซ็ตตัว (วงจรไนโตรเจนยังไม่สมบูรณ์) เพราะอาจอ่อนไหวต่อการเปลี่ยนแปลงของคุณภาพน้ำ</p>",
+    "waterConditions:planetcatfish": "<ul><li>ค่า pH: 6.0–7.0</li><li>อุณหภูมิ: 22.0–27.0 °C</li></ul>",
+    "waterConditions:seriouslyfish": "<ul><li>อุณหภูมิ: 20–27 °C</li><li>ค่า pH: 6.0–7.5</li><li>ความกระด้าง (GH): 2–15 dGH</li></ul>",
+    "equipment:planetcatfish": "<p>ปลาชนิดนี้ค่อนข้างว่ายน้ำมาก และต้องการพื้นที่โล่งสำหรับว่ายน้ำ ควรมีไม้น้ำจำนวนมากให้หลบซ่อนในเวลากลางวัน</p>",
+    "diet:planetcatfish": "<p>กินอาหารสดหรืออาหารแช่แข็ง รวมถึงอาหารสำเร็จรูปอื่น ๆ เช่น อาหารเม็ด ได้ง่าย</p>",
+    "diet:seriouslyfish": "<p>ในธรรมชาติน่าจะเป็นปลาผู้ล่าที่กินสัตว์จำพวกกุ้งกั้งปู สัตว์ไม่มีกระดูกสันหลัง และปลาขนาดเล็ก แต่ในที่เลี้ยงไม่จำเป็นต้องให้อาหารมีชีวิตเหล่านี้</p><p>ควรให้อาหารหลากหลาย ประกอบด้วยอาหารแห้งชนิดจม หนอนแดงแบบสดและแช่แข็ง ไส้เดือนน้ำ ฯลฯ และอาจให้ไส้เดือนดินตัวเล็กบ้างเป็นครั้งคราว</p>",
+    "behaviour:planetcatfish": "<p>เป็นปลาที่อยู่รวมเป็นฝูง ควรเลี้ยงเป็นกลุ่มตั้งแต่ 3 ตัวขึ้นไป ค่อนข้างรักสงบ เลี้ยงร่วมกับปลาชนิดอื่นได้เกือบทุกชนิด ปลาที่เหมาะจะเลี้ยงร่วมได้แก่ ปลาตะเพียนและปลาซิวขนาดใหญ่ และปลาหนังเอเชียขนาดกลางที่อยู่หน้าดินชนิดอื่น ๆ (เช่น Mystus)</p>",
+    "behaviour:seriouslyfish": "<p>โดยทั่วไปรักสงบ แต่อาจล่าปลาที่ตัวเล็กกว่า และค่อนข้างขี้อาย จึงแย่งอาหารสู้ปลาที่ตัวใหญ่กว่ามาก แข็งแรงบึกบึน หรือว่ายน้ำวุ่นวายไม่ได้</p><p>ปลาในกลุ่มตะเพียน ปลาหมู และปลาหนังชนิดอื่นที่รักสงบและมีขนาดใกล้เคียงกัน น่าจะเป็นตัวเลือกที่ดีที่สุด แต่ควรศึกษาข้อมูลของปลาที่เลือกให้ละเอียดก่อนซื้อ</p><p>K. cryptopterus ชอบอยู่รวมกลุ่มและมักรวมเป็นฝูง จึงควรซื้อมาเลี้ยงตั้งแต่ 4 ตัวขึ้นไป</p>",
+    "dimorphism:planetcatfish": "<p>ตัวผู้รูปร่างเพรียวกว่า และมีหยักแข็งชัดเจนที่ขอบด้านหลังของก้านครีบแข็งของครีบอก (ตัวเมียไม่มีหยักนี้)</p>",
+    "dimorphism:seriouslyfish": "<p>ตัวผู้ที่โตเต็มวัยผอมเพรียวกว่าตัวเมียอย่างเห็นได้ชัด แต่ข้อมูลอื่น ๆ ยังขัดแย้งกัน บางแหล่งระบุว่าขอบด้านหลังของก้านครีบแข็งของครีบอกในตัวผู้มีหยัก (ส่วนตัวเมียเรียบ) ขณะที่บางแหล่งระบุว่าไม่มีความแตกต่างดังกล่าว</p>",
+    "reproduction:planetcatfish": "<p>ในแม่น้ำโขง ปลาชนิดนี้วางไข่ในช่วงต้นฤดูฝน (มิถุนายน–กรกฎาคม) ลูกปลาจะเคลื่อนย้ายไปยังพื้นที่น้ำท่วมตามฤดูกาล และเริ่มพบเห็นในเดือนสิงหาคม ยังไม่มีรายงานการเพาะพันธุ์ในตู้ปลา</p>",
+    "reproduction:seriouslyfish": "<p>ยังไม่มีบันทึก ในธรรมชาติ K. geminus ซึ่งเป็นชนิดใกล้ชิดในสกุลเดียวกัน (ดู 'หมายเหตุ') วางไข่เมื่อเริ่มเข้าฤดูฝน และพบปลาวัยอ่อนได้ทั่วไปในพื้นที่ที่น้ำท่วมตามฤดูกาล</p>",
+    "notes:planetcatfish": "<p>ลักษณะจำแนก: ครีบหลังลดรูปเหลือเพียงเล็กน้อย หนวดที่ขากรรไกรบนยาวถึงโคนครีบอก ครีบก้นมีก้านครีบ 64–78 ก้าน แนวสันหลังเกือบตรงโดยไม่มีรอยเว้าที่ท้ายทอย ครีบอกยาวกว่าความยาวหัว</p>",
+    "notes:seriouslyfish": "<p>ที่มาของชื่อ: Kryptopterus มาจากภาษากรีก kryptos แปลว่า 'ซ่อนเร้น' และ pterýgio แปลว่า 'ครีบ' หมายถึงครีบหลังที่ลดรูปหรือไม่มีเลยในปลาสกุลนี้ ชื่อชนิด cryptopterus ก็มีที่มาเดียวกัน</p><p>บางครั้งมีการซื้อขายปลาชนิดนี้ในชื่อ 'smokey glass catfish'</p><p>ชนิดที่ใกล้ชิดที่สุดคือ K. geminus ซึ่งประชากรของมันเคยถูกถือว่าเป็น K. cryptopterus ทั้งสองชนิดนี้แยกจากชนิดอื่นในสกุลเดียวกันได้ด้วยแนวสันหลังที่ไม่มีรอยเว้าที่ท้ายทอย (ชนิดอื่นมีรอยเว้า) และหนวดที่ขากรรไกรบนสั้น (ยาวถึงโคนครีบอก ส่วนชนิดอื่นยาวเลยปลายครีบอก)</p><p>K. cryptopterus แยกจาก K. geminus ได้ด้วยหัวที่กว้างกว่า (12.2–14.2 % SL เทียบกับ 9.5–12.0) ครีบก้นสั้นกว่า (57.2–62.9 % SL เทียบกับ 62.2–72.7) และจะงอยปากสั้นกว่า (35.1–39.8 % HL เทียบกับ 39.5–45.3) รวมถึงตาที่อยู่ค่อนไปทางด้านข้างน้อยกว่า (เมื่อมองหัวจากด้านล่าง จะเห็นขอบเบ้าตาสองในสามส่วนด้านล่าง เทียบกับเห็นเพียงครึ่งล่าง)</p><p>K. cryptopterus และ K. geminus ยังแยกจากปลาหนังวงศ์ Siluridae ชนิดอื่นทั้งหมดได้ด้วยรอยพับเหนือริมฝีปากที่ปลายด้านหน้าตัดตรง โดยขอบล่างยื่นเลยโคนหนวดขากรรไกรบน และมีส่วนยื่น antorbital process ของกระดูก lateral ethmoid ที่ยาวและไม่แบนในแนวหน้า–หลัง</p><p>ปลาในสกุล Kryptopterus พบเฉพาะในเอเชียตะวันออกเฉียงใต้ และสกุลนี้ถูกมองว่าเป็นกลุ่มที่มีหลายบรรพบุรุษ (polyphyletic) มาตั้งแต่ Bornbusch (1995) โดยบางชนิดที่เคยอยู่ในสกุลนี้ถูกย้ายไปอยู่ในสกุล Phalacronotus และ Micronema แล้ว</p><p>ชนิดที่ยังอยู่ในสกุลนี้ถูกจัดเป็นกลุ่มชนิดที่สันนิษฐานไว้ดังนี้</p><ul><li>กลุ่ม K. bicirrhis: K. bicirrhis, K. lais, K. palembangensis, K. macrocephalus, K. minor, K. piperatus, K. vitreolus</li><li>กลุ่ม K. cryptopterus: K. cryptopterus, K. geminus</li><li>กลุ่ม K. limpok: K. limpok, K. mononema, K. dissitus, K. baramensis, K. hesperius</li><li>กลุ่ม K. schilbeides: K. schilbeides, K. paraschilbeides</li></ul><p>Bornbusch (1995) ระบุว่ากลุ่ม K. bicirrhis เป็นเคลดที่แยกออกมาชัดเจน แม้จะไม่ได้เสนอลักษณะร่วมที่สืบทอดมา (synapomorphy) สำหรับใช้จำแนกกลุ่มนี้</p><p>ต่อมา Ng และ Kottelat (2013) ระบุว่าสมาชิกในกลุ่มนี้โดยปกติมีก้านครีบก้นน้อยกว่า (46–67 เทียบกับ 64–85) ชนิดอื่นในสกุลเดียวกัน และจัด K. piperatus กับ K. vitreolus ไว้ในกลุ่มนี้โดยอาศัยลักษณะดังกล่าว</p>",
+    "references:planetcatfish": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 1 (no. 3), pp 270.</p>",
+    "references:seriouslyfish": "<ul><li>Bornbusch, A. H. (1995). Phylogenetic relationships within the Eurasian catfish family Siluridae (Pisces: Siluriformes), with comments on generic validities and biogeography. Zoological Journal of the Linnean Society 115, 1-46</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Ng, H. H. (2003). Kryptopterus geminus, a new species of silurid catfish (Teleostei: Siluridae) from mainland Southeast Asia. Zootaxa 305, 1-11</li><li>Tan, H. H. and H. H. Ng (2000). The catfishes (Teleostei: Siluriformes) of central Sumatra. Journal of Natural History 34(2), 267-303</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Bleeker, P. (1851). Nieuwe bijdrage tot de kennis der ichthyologische fauna van Borneo met beschrijving van eenige nieuwe soorten van zoetwatervisschen. Natuurkundig Tijdschrift voor Nederlandsch Indië v. 1, 259-275</li><li>Ng, H-H. and M. Kottelat (2013). After eighty years of misidentification, a name for the glass catfish (Teleostei: Siluridae). Zootaxa 3630, 308-316</li></ul>"
   },
   "quality": {
-    "score": 0.88,
+    "score": 0.9,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.88
+      "planetcatfish": 0.9,
+      "seriouslyfish": 0.9
     }
   }
 }

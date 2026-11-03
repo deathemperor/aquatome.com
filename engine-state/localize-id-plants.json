@@ -724,15 +724,21 @@
     ]
   },
   "cryptocoryne-wendtii": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "Cryptocoryne wendtii 'Green'",
-    "confidence": "medium",
-    "score": 0.9,
+    "at": "2026-11-03",
+    "from": "2026-11-03",
+    "name": "Cryptocoryne wendtii Green",
+    "confidence": "high",
+    "score": 0.72,
     "notes": [
-      "\"cup tertutup\": \"cup\" is left in English; consider \"gelas/pot tertutup\" or \"cup (wadah) tertutup\".",
-      "\"daunnya bisa dibilang rebah di dasar\": slightly awkward for \"virtually lie on the bottom\"; consider \"daunnya hampir rebah/menyebar rata di dasar\".",
-      "\"Mudah dirawat dan tumbuh subur\": the subject is slightly ambiguous; consider \"Tanaman ini mudah dirawat dan tumbuh subur...\"."
+      "Item 12: 'Also avoid aggressive fish ... Front cichlids' fine, but 'Cryptocoryne wendtii ... crayfish' translated 'lobster air tawar' is OK; main issue: 'The reddish-brown colour is mainly due to anthocyanidin' rendered 'antosianin' (anthocyanin) – minor term shift.",
+      "Item 12: 'limb kuning hingga cokelat keunguan dan kerah berwarna cokelat hingga ungu kehitaman' – the English source 'brown to black-purple colour' lacks 'collar'; fine, but 'Mi Oya ... hammered' and 'var. Tropica ... hammered pattern' left English/awkward; use 'bertekstur seperti tempaan' consistently.",
+      "Item 8: 'Daun yang terendam tidak perlu dipangkas; ... cabut langsung dari pangkal rimpangnya' – 'cabut' (pull out) for 'remove'; better 'potong/buang dari pangkal'.",
+      "Item 8: 'Cryptocoryne wendtii ... tidak bisa diikat ke permukaan keras' – OK; but 'dengan meluruhkan daunnya' – 'by doing so' (not panicking) is mistranslated: the English means that by melting (not panicking), the plant conserves energy; acceptable, but 'Crypto' vs 'crypt' inconsistent.",
+      "Item 12: 'Tempat mencari makan: menjadi sumber biofilm' loses 'buffet'; 'nama keren' is too colloquial for 'fancy names' – use 'nama mentereng/eksklusif'.",
+      "Item 9: 'neutral pH ... air yang cukup sadah' for 'moderately hard water' fine; but GH range 6–18 vs item 2 GH 8–18 is a source inconsistency, no fix.",
+      "Item 10: 'Tanaman ini rakus menyerap nutrisi lewat akar' – 'heavy root feeder' better 'banyak menyerap nutrisi melalui akar (heavy root feeder)'.",
+      "Item 12: 'Pada dasarnya spesies udang apa pun' fine; 'rutinlah menjarangkannya' awkward – use 'jarangkan secara rutin'.",
+      "Item 3: 'Daftar Merah Sri Lanka' fine; 'nursery (tempat budidaya)' ok."
     ]
   },
   "cryptocoryne-x-willisii": {
@@ -1017,16 +1023,18 @@
     ]
   },
   "heteranthera-zosterifolia": {
-    "at": "2026-11-02",
-    "from": "2026-10-30",
+    "at": "2026-11-03",
+    "from": "2026-11-03",
     "name": "Heteranthera",
-    "confidence": "high",
-    "score": 0.75,
+    "confidence": "medium",
+    "score": 0.72,
     "notes": [
-      "\"Akar air\" is a literal rendering of \"water roots\"; hobbyists would say \"akar udara/akar adventif\" or \"akar yang tumbuh di batang\" (aerial/adventitious roots).",
-      "\"Bagian ini mudah dipotong lalu ditanam ulang\": \"Bagian ini\" is vague. Use \"Batang beserta akar tersebut mudah dipotong dan ditanam ulang\".",
-      "\"Bagian belakang daunnya ... berubah menjadi hitam\": \"back\" of the leaf is better as \"sisi bawah daun\" (underside).",
-      "\"menjadi terlalu rapat sampai cahaya tidak bisa mencapai\": \"rimbun/padat\" would be more natural. Wording only."
+      "Item 7: \"Long aerial roots may appear\" -> \"Akar udara yang panjang bisa muncul\" is fine, but \"Leggy bottom leaves\" is rendered \"Bagian bawah gundul\"; ok. Real issue: \"hard and/or alkaline water\" -> \"air sadah dan/atau basa\" fine. Main issue is in item 9: \"the plant grows thin and leggy\" -> \"kurus dan gundul di bagian bawah\" changes meaning (leggy = stretched/etiolated, not bare at bottom); use \"kurus dan memanjang/kurus kering\".",
+      "Item 9: \"without it the plant looks flaccid, leggy and stretched\" -> \"lemas, gundul di bawah, dan memanjang\": \"leggy\" mistranslated as \"gundul di bawah\"; use \"lemas, kurus, dan memanjang\".",
+      "Item 12: \"otherwise it melts or becomes leggy\" -> \"gundul di bagian bawah\" narrows the meaning; use \"menjadi kurus dan memanjang\".",
+      "Item 10: \"Crayfish\" -> \"Lobster air tawar\" is acceptable, but \"goldfish\" -> \"ikan mas koki\" is slightly off; use \"ikan mas/koki\". \"Heteranthera ... docile\" -> \"tenang\" ok.",
+      "Item 10: \"clown loaches\" -> \"botia (clown loach)\" is OK; \"killifish\" and \"otocinclus\" are left untranslated in English form, fine but consider \"ikan killi\".",
+      "Item 6: \"Water roots\" -> \"Akar air\" is a literal rendering; \"Bagian ini\" is vague for \"Those\" (the roots); use \"Akar ini mudah dipotong\"."
     ]
   },
   "hottonia-palustris": {
@@ -1214,6 +1222,29 @@
     "notes": [
       "\"Tanaman air ini\": the English says only \"This plant\". Use \"Tanaman ini\" (minor addition).",
       "\"hijau kusam dengan ungu terang\": \"dusty green with bright violet\" is slightly unclear. Consider \"hijau kusam keunguan terang\" or \"hijau kusam dengan semburat ungu cerah\"."
+    ]
+  },
+  "leptodictyum-riparium": {
+    "at": "2026-11-03",
+    "from": "2026-10-30",
+    "name": "Stringy Moss",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"tree roots\" diterjemahkan \"akar kayu\"; lebih tepat \"akar pohon\" (atau \"kayu apung/bogwood\" jika dimaksud), meski \"akar kayu\" lazim di hobi.",
+      "\"Growth is both vigorous and rapid\" menjadi \"lebat dan cepat\"; \"lebat\" kurang pas untuk \"vigorous\", pertimbangkan \"kuat dan cepat\".",
+      "\"brood care and cover\" diterjemahkan \"tempat perlindungan bagi anakan serta tempat bersembunyi\"; agak redundan, cukup \"tempat berlindung dan perawatan anakan ikan\"."
+    ]
+  },
+  "lilaeopsis-brasiliensis": {
+    "at": "2026-11-03",
+    "from": "2026-10-30",
+    "name": "Lilaeopsis brasiliensis",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [
+      "Minor: \"efek karpet rumput\" is fine, but consider the hobby term \"hamparan/karpet\" consistently; optional.",
+      "Minor: \"Stolon\" type could be \"Stolon (menjalar)\" - optional only."
     ]
   },
   "limnophila-sessiliflora": {

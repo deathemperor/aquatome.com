@@ -656,17 +656,22 @@
     ]
   },
   "cryptocoryne-wendtii": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "คริป เวนดิไอ",
+    "at": "2026-11-03",
+    "from": "2026-11-03",
+    "name": "ใบพายเวนดิไอ กรีน",
     "confidence": "medium",
-    "score": 0.8,
+    "score": 0.6,
     "notes": [
-      "\"เวนดิไอ 'Green'\" is an odd transliteration mixed with Latin; use the full name \"Cryptocoryne wendtii 'Green'\" (as in item 3) or \"คริปโตคอรีน เวนดี้ 'Green'\".",
-      "\"ขึ้นอยู่กับการจัดตู้ปลา\" is slightly off; \"depending on your aquarium setup\" is better as \"ขึ้นอยู่กับสภาพการจัดตู้\".",
-      "\"CO2: น้อย\" could be \"คาร์บอนไดออกไซด์ (CO2): ต่ำ\", and \"ความต้องการแสง: น้อย\" could use \"ต่ำ\", which is the more common hobby wording.",
-      "\"ต้นนี้เติบโตได้ดีในน้ำกระด้างด้วย\" followed by \"เจริญเติบโตได้ดี\" repeats \"เติบโต/เจริญเติบโตได้ดี\"; vary the wording.",
-      "\"ลงตู้ได้สองเดือน\" is fine, but \"ใบจะแผ่ราบแทบติดพื้นตู้\" needs a softer link. The 'closed cup' phrase \"ถ้วยปิด\" is acceptable, but \"ถ้วยเพาะเลี้ยงเนื้อเยื่อแบบปิด\" is clearer."
+      "Item 12: \"ปลาเสือพ่นน้ำแดง (cherry barb)\" is wrong. Cherry barb is ปลาตะเพียนเชอร์รี่/ปลาเชอร์รี่บาร์บ. ปลาเสือพ่นน้ำ is the archerfish.",
+      "Item 12: \"ปลาซิวข้างขวาน (harlequin rasbora)\" is wrong. ปลาซิวข้างขวาน is the hatchetfish (Gasteropelecidae). Harlequin rasbora is ปลาซิวฮาร์เลควิน/ปลาซิวหลังแดง.",
+      "Item 12: \"ปลาแพะแคระ (pygmy cory)\" is a wrong or invented name. Use คอรี่แคระ/ปลาหมูแคระ.",
+      "Item 12: \"หอยขมญี่ปุ่น (Japanese trapdoor snail)\" and \"หอยเจดีย์ (Malaysian trumpet snail)\" are doubtful names. Use หอยเจดีย์ for the trumpet snail, and check the trapdoor snail name.",
+      "Item 12: \"กุ้งบัมเบิ้ลบี/กุ้งพัด (bamboo shrimp)\" is wrong. Bumblebee shrimp is a different animal, and bamboo shrimp is กุ้งพัด/กุ้งไผ่. \"กุ้งฝอย (ghost shrimp)\" is also a loose match.",
+      "Item 12: \"ปลาบอลลูน/ปลามอลลี่\" adds balloon molly, which is not in the source. \"ปลาแคระโอโตซิงคลัส\" is awkward. Use ปลาอ็อตโต/โอโตซินคลัส.",
+      "Item 12: \"ปลาเท็กซัส ปลาฟรอนโทซ่า\" are loose renderings of Texas cichlid and Front cichlid. Use ปลาเท็กซัสซิคลิด and ปลาหมอฟรอนโตซ่า.",
+      "Item 12: \"ห้ามเลี้ยงร่วมกับกุ้งเครย์ฟิช\" is awkward. Use กุ้งแคร็บ/กุ้งเครย์ฟิช (crayfish), and make clear it is not ordinary shrimp.",
+      "Item 6 and 12: \"ปลูกร่วมกับสัตว์น้ำได้หลายชนิด\" is fine, but \"สัตว์ไม่มีกระดูกสันหลัง\" for inverts is stiff. ซึ่งอาจใช้ \"สัตว์น้ำไม่มีกระดูกสันหลัง (กุ้ง หอย)\".",
+      "Item 8: \"ต้นค่อนข้างไวต่อการดูดตะกอนพื้นที่ไปรบกวนราก\" is garbled. Rewrite as \"ค่อนข้างไวต่อการดูดตะกอนพื้นตู้ที่รบกวนราก\"."
     ]
   },
   "cryptocoryne-x-willisii": {
@@ -975,14 +980,22 @@
     ]
   },
   "heteranthera-zosterifolia": {
-    "at": "2026-11-02",
-    "from": "2026-10-30",
+    "at": "2026-11-03",
+    "from": "2026-11-03",
     "name": "สตาร์กราส",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.6,
     "notes": [
-      "\"Water roots\" was translated as \"รากอากาศ\" (aerial roots). These roots grow on the stem underwater, so use \"รากที่งอกตามลำต้น\" or \"รากน้ำ\" instead.",
-      "\"ภายใต้แสงแรงจะโตเร็วมาก\" is a bit stiff. \"ถ้าแสงแรงจะโตเร็วมาก\" would read more naturally. This is a minor point."
+      "Item 8: 'Hardness: ... 1 – 6 GH' was rendered as 'GH 1–6', but the original gives no dGH, so keep it as is. The real issue is 'ไม่ชอบอากาศเย็น', which says 'air' where the source means cold water. Use 'ไม่ชอบน้ำเย็น/อุณหภูมิต่ำ'.",
+      "Item 8: 'ที่อุณหภูมิต่ำกว่านี้' is fine. But 'อาจละลายได้ภายในไม่กี่วัน' leaves out the subject. Write 'ต้นอาจละลาย'.",
+      "Item 10: 'zebra danio' was translated as 'ปลาม้าลาย'. Use 'ปลาซิวม้าลาย' or 'ซีบราดานิโอ'.",
+      "Item 10: 'white cloud mountain minnows' was translated as 'ปลาซิวหางแดง (ไวท์คลาวด์)'. This is wrong, because white cloud is ปลาซิวภูเขาขาว/ไวท์คลาวด์ and ซิวหางแดง is a different fish.",
+      "Item 10: 'Buenos Aires tetras' was translated as 'ปลาบัวโนสแอริสเตตร้า'. Use 'ปลาเทตร้าบัวโนสไอเรส'.",
+      "Item 10: 'clown loaches' was translated as 'ปลาหมูข้างลาย'. This is wrong, because clown loach is ปลาหมูอารีย์/โคลนโลช.",
+      "Item 10: 'otocinclus' was translated as 'ปลาอ็อตโต'. Use 'ปลาอ็อตโตซินคลัส' or 'อ็อตโต'. This is acceptable but could be clearer.",
+      "Item 11: 'Leaves often become black on the back' was translated as 'ใบมักเป็นสีดำที่ด้านหลังใบ'. This is awkward and 'ด้านหลังใบ' is redundant. Use 'ด้านหลังใบมักเป็นสีดำ'.",
+      "Item 7: 'dry start' was left in English. Add the Thai term, e.g. 'ดรายสตาร์ท'.",
+      "Item 7: 'ใบล่างโหรงเหรง' is used for 'Leggy bottom leaves', but the source means lower leaves dying back. Rephrase as 'ใบล่างร่วง/ต้นโล้น'."
     ]
   },
   "hottonia-palustris": {
@@ -1166,6 +1179,35 @@
     "notes": [
       "\"แดงอมม่วง ซึ่งมักพบหลายสีอยู่บนใบเดียวกัน\": the English says the colours often occur on the same leaf. This is fine, but \"ม่วงสด\" for \"bright violet\" could be \"ม่วงสว่าง\". This is minor.",
       "\"คริปต์\": hobbyists more often write \"ครัยปโตคอรีน\" or \"คริปโต\". \"คริปต์\" is acceptable, but \"คริปโต\" is more common."
+    ]
+  },
+  "leptodictyum-riparium": {
+    "at": "2026-11-03",
+    "from": "2026-10-30",
+    "name": "สตริงกี้มอส",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "\"มีสีเขียวเข้มสด\" – the English says \"intense, slightly transparent green\"; \"เข้ม\" (dark) may overstate it. Consider \"สีเขียวสดจัด\".",
+      "\"เติบโตทั้งแข็งแรงและรวดเร็ว\" – \"vigorous\" is better as \"เติบโตเร็วและแข็งแรง/งอกงามดี\". The current phrasing is slightly awkward.",
+      "\"ไม่ต้องการการดูแลมาก\" repeats \"เลี้ยงง่าย\". Merge them to read more naturally.",
+      "\"ทรงตั้งตรง\" and \"ต้นเรียวเล็ก\" are slightly stiff. Consider \"ลำต้นเรียวเล็กและตั้งตรง\".",
+      "\"สร้างลุคที่แปลกตา\" – \"ลุค\" is colloquial. Consider \"สร้างลักษณะเฉพาะตัว\" for a handbook.",
+      "\"ที่อนุบาลลูกปลา\" – \"brood care\" is fine, but \"ที่หลบซ่อน\" for \"cover\" could be \"ที่กำบัง\"."
+    ]
+  },
+  "lilaeopsis-brasiliensis": {
+    "at": "2026-11-03",
+    "from": "2026-10-30",
+    "name": "ไมโครซอร์ด",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"Type: Stolon\" rendered as \"ไม้น้ำที่แตกต้นใหม่ด้วยไหล\" is a wordy paraphrase; shorter \"แตกไหล\" or \"ไหล (Stolon)\" would read better in a spec list.",
+      "Item 2: \"high light intensity\" as \"แสงจ้ามาก\" is slightly loose; \"แสงสูง/ความเข้มแสงสูง\" is the usual hobby wording.",
+      "Item 2: \"พรมสนามหญ้า\" for \"lawn effect\" is awkward; use \"เป็นพรมหญ้า\" or \"carpet/lawn\".",
+      "Item 2: \"ห่างกันสักไม่กี่เซนติเมตร\" is clumsy; use \"ห่างกันไม่กี่เซนติเมตร\".",
+      "Item 3: \"บ่อในสวน\" is slightly awkward; \"บ่อน้ำในสวน\" is more natural."
     ]
   },
   "limnophila-sessiliflora": {

@@ -2,22 +2,26 @@
   "slug": "lais",
   "name": "Lais",
   "altNames": [
-    "Ikan lais",
-    "Hemisilurus moolenburghi"
+    "Ikan lais"
   ],
   "sections": {
-    "quickFacts:planetcatfish": "<ul><li>Nama ilmiah: Hemisilurus moolenburghi Weber &amp; de Beaufort, 1913</li><li>Famili: Siluridae</li><li>Ukuran maksimum: 500 mm SL (panjang standar)</li><li>Daftar Merah IUCN: Data Deficient/Kekurangan Data (terakhir dinilai 2019)</li><li>Etimologi: dari bahasa Yunani hemi- yang berarti setengah, dan Silurus, kata untuk ikan lele. Dinamai menurut P. H. Moolenburgh, orang yang mengoleksi ikan ini.</li><li>Identifikasi: dikenali dari bentuk sungutnya yang khas, terutama pada ikan betina.</li></ul>",
+    "quickFacts:planetcatfish": "<ul><li>Nama ilmiah: Hemisilurus moolenburghi Weber &amp; de Beaufort, 1913</li><li>Famili: Siluridae</li><li>Ukuran maksimum: 500 mm SL (panjang standar)</li><li>Daftar Merah IUCN: Data Deficient atau Kekurangan Data (penilaian terakhir 2019)</li><li>Asal nama: dari bahasa Yunani hemi- yang berarti setengah dan Silurus, kata untuk ikan lele. Dinamai dari P. H. Moolenburgh, orang yang mengoleksi ikan ini.</li><li>Identifikasi: dikenali dari bentuk sungutnya yang khas, terutama pada betina.</li></ul>",
     "distribution:planetcatfish": "<p>Asia: Sumatra dan Kalimantan bagian barat. Lokasi tipe: Sungai Batang Hari, Sumatra, Indonesia.</p>",
-    "waterConditions:planetcatfish": "<ul><li>pH: 6,0–7,0</li><li>Suhu: 22,0–27,0 °C</li></ul>",
-    "dimorphism:planetcatfish": "<p>Ikan betina bertubuh lebih tinggi dan punya sungut rahang atas (maksila) yang lebih panjang (hanya sampai ke tutup insang) dengan juluran berbulu seperti bulu ayam di ujungnya. Ikan jantan lebih ramping, sungut rahang atasnya lebih pendek dan sederhana (tidak sampai ke tutup insang), serta punya gerigi yang jelas di tepi belakang duri sirip dadanya.</p>",
+    "distribution:scotcat": "<p>Asia: Batang Hari, Sumatra, dan Kalimantan bagian barat. Lokasi tipe: Batang Hari, Sumatra. Spesies ini hanya dilaporkan dari daerah aliran Sungai Batang Hari di Sumatra dan daerah aliran Sungai Kapuas di Kalimantan.</p>",
+    "waterConditions:planetcatfish": "<ul><li>pH: 6,0–7,0</li><li>Suhu: 22–27 °C</li></ul>",
+    "dimorphism:planetcatfish": "<p>Betina bertubuh lebih tinggi dan punya sungut maksila yang lebih panjang (menjangkau tepat sampai tutup insang) dengan juntaian seperti bulu di ujungnya. Jantan bertubuh lebih ramping, sungut maksilanya lebih pendek dan polos (tidak sampai ke tutup insang), serta punya gerigi yang jelas di tepi belakang duri sirip dadanya.</p>",
+    "dimorphism:scotcat": "<p>Betina H. moolenburghi punya sungut yang lebih panjang.</p>",
     "reproduction:planetcatfish": "<p>Pemijahan: belum dilaporkan. Belum ada laporan pemijahan.</p>",
-    "references:planetcatfish": "<p>Fishes Indo-Australian Archipelago v. 2, pp 212, Figs. 84-85.</p>"
+    "notes:scotcat": "<p>Seperti ketiga spesies dalam genus ini, yaitu H. heterorhynchus, H. mekongensis, dan H. moolenburghi, ikan ini tidak memiliki sirip punggung dan punya dua sungut.</p><p>Asal nama: nama spesies moolenburghi diberikan untuk menghormati Pieter Eliza Moolenburgh (1872–1944), etnograf dan pejabat pemerintah di Hindia Belanda, yang menyerahkan koleksi besar ikan dari Sumatra kepada para penulis deskripsinya, kemungkinan termasuk holotipe spesies ini.</p><p>Daftar Merah IUCN: ancaman yang mungkin ada antara lain kerusakan habitat akibat penggundulan hutan karena penebangan kayu dan alih fungsi lahan menjadi perkebunan. Namun, dampak langsung ancaman tersebut terhadap luas habitat dan kondisi populasinya belum diketahui, karena pengaruh ancaman dari aktivitas manusia terhadap populasi banyak spesies ikan sungai besar di daerah tropis masih sangat sedikit diteliti. Walaupun luas wilayah sebarannya (EOO) masuk dalam kisaran kategori terancam, informasi tentang dampak langsung ancaman yang ada dan pengaruhnya terhadap tren populasi belum cukup. Karena itu, Hemisilurus moolenburghi dinilai sebagai Data Deficient atau Kekurangan Data (IUCN 2020).</p>",
+    "references:planetcatfish": "<p>Fishes Indo-Australian Archipelago v. 2, pp 212, Figs. 84-85.</p>",
+    "references:scotcat": "<ul><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2010).</li><li>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</li><li>Ng, H.H. 2020. Hemisilurus moolenburghi. The IUCN Red List of Threatened Species 2020.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.8,
+      "scotcat": 0.8
     }
   }
 }

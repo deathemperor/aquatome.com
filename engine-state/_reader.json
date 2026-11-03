@@ -202,6 +202,12 @@
     ],
     "ruled": "1eabd945c9efb4d5"
   },
+  "vi/guides/aquariumbreeder-how-to-tell-if-a-crab-is-male-or-female": {
+    "at": "2026-11-03",
+    "hash": "a19cc7c35c0ebb23",
+    "findings": [],
+    "ruled": "a19cc7c35c0ebb23"
+  },
   "vi/guides/aquariumbreeder-lava-rocks-in-aquariums-pros-and-cons": {
     "at": "2026-11-01",
     "hash": "1d1f6742338f84f9",
@@ -854,6 +860,23 @@
     ],
     "ruled": "0ba76a440acfda5a"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-foreground-plants": {
+    "at": "2026-11-03",
+    "hash": "c6aecd923d432b08",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-03",
+        "field": "body",
+        "score": 0.82,
+        "kept": true,
+        "problems": [
+          "In the Vietnamese hobby, \"ngưu mao chiên\" is the name for hairgrass (Eleocharis), not for Monte Carlo, so this label points readers to the wrong plant."
+        ]
+      }
+    ],
+    "ruled": "c6aecd923d432b08"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-frozen-fish-food": {
     "at": "2026-11-02",
     "hash": "fee04e804b0eeefd",
@@ -1006,6 +1029,31 @@
     ],
     "ruled": "e7cf738e523b1413"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-ship-live-fish": {
+    "at": "2026-11-03",
+    "hash": "8fc2f3bad564ab15",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Hỏi mã bưu chính của người nhận để xem dự báo thời tiết ở cả chỗ bạn lẫn chỗ họ.",
+        "problem": "The packing steps run on as bullets in the same list as the materials under \"Chuẩn bị đồ nghề\", so the steps read as more items to buy, and they are not numbered even though their order matters.",
+        "fix": "Thêm tiêu đề \"Các bước đóng gói\" trước bước này và đánh số các bước 1, 2, 3…",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Ship Aquarium Fish in the Mail - Aquarium Co-Op",
+        "problem": "This caption is the source article's title, so it says nothing about what the photo shows.",
+        "rule": "A caption that ends with \" - \" plus a site name is a page title, not a description of the photo.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "8fc2f3bad564ab15"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-treat-ich-on-freshwater-fish": {
     "at": "2026-11-02",
     "hash": "956c9e2984f803f9",
@@ -1154,6 +1202,22 @@
       }
     ],
     "ruled": "4c21c70f1c3379b4"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-midground-plants": {
+    "at": "2026-11-03",
+    "hash": "4f899483517a57da",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 4. Rau tiểu (baby tears)",
+        "problem": "'Rau tiểu' is a literal rendering of 'baby tears' that Vietnamese hobbyists don't use; Micranthemum umbrosum is known locally as 'trân châu lá tròn'.",
+        "fix": "## 4. Trân châu lá tròn (baby tears)",
+        "field": "body"
+      }
+    ],
+    "ruled": "4f899483517a57da"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-mini-outdoor-pond": {
     "at": "2026-11-02",
@@ -1440,6 +1504,22 @@
     ],
     "ruled": "13cc21a6d68cd195"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-5-freshwater-shrimp": {
+    "at": "2026-11-03",
+    "hash": "8dd7fbdece386172",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 5 Dwarf Shrimp for Your Next Freshwater Aquarium - Aquarium Co-Op",
+        "problem": "This caption is the source article's title and banner, not a description of a photo of a shrimp.",
+        "rule": "a caption that matches the source page's title or contains the site name after a dash",
+        "field": "caption"
+      }
+    ],
+    "ruled": "8dd7fbdece386172"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-top-5-gouramis": {
     "at": "2026-11-01",
     "hash": "2c89219c032333e5",
@@ -1467,6 +1547,12 @@
     "hash": "b0c28ad57e446446",
     "findings": [],
     "ruled": "b0c28ad57e446446"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-water-circulation": {
+    "at": "2026-11-03",
+    "hash": "3b0c305b865dd265",
+    "findings": [],
+    "ruled": "3b0c305b865dd265"
   },
   "vi/guides/aquatome-ap-trung-artemia-lam-thuc-an-cho-ca-con-cach-lam-tai-nha": {
     "at": "2026-11-01",
@@ -2184,6 +2270,65 @@
       }
     ],
     "ruled": "68a0622768320100"
+  },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-gigantic-black-piranha-arrived-en": {
+    "at": "2026-11-03",
+    "hash": "36d202b36ee48adb",
+    "findings": [],
+    "ruled": "36d202b36ee48adb"
+  },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-silver-dollars-en": {
+    "at": "2026-11-03",
+    "hash": "39c2ba0e4dd2fc05",
+    "findings": [],
+    "ruled": "39c2ba0e4dd2fc05"
+  },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-surprise-surprise-a-silver-dollar-from-peru": {
+    "at": "2026-11-03",
+    "hash": "c494ae1f62aace32",
+    "findings": [],
+    "ruled": "c494ae1f62aace32"
+  },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-the-robertsi-tetra-has-a-valid-name-now-en": {
+    "at": "2026-11-03",
+    "hash": "9ac13fb03a4b8f73",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hai ông bà cho rằng loài cá này có thể chính là Hyphessobrycon bentosi.",
+        "problem": "In Vietnamese, \"hai ông bà\" reads as a married or elderly couple, which is the wrong way to refer to two co-authoring researchers.",
+        "fix": "Hai nhà nghiên cứu cho rằng loài cá này có thể chính là Hyphessobrycon bentosi.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cũng lấy từ cá đánh bắt tự nhiên do một cơ sở nhập khẩu cá cảnh đưa về",
+        "problem": "The source says only that the type series came from the exporter's fishhouse. \"Wild-collected\" describes the fish it has in stock now, not the type specimens.",
+        "fix": "Các mẫu vật dùng làm loạt mẫu chuẩn (type series) của H. jackrobertsi cũng có nguồn gốc từ một cơ sở xuất khẩu cá cảnh.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9ac13fb03a4b8f73"
+  },
+  "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
+    "at": "2026-11-03",
+    "hash": "956dea628b022f60",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "hai loài cá hatchet lùn cánh đen",
+        "problem": "The English word \"hatchet\" is left in where Vietnamese hobbyists say \"cá rìu\", and it doesn't match the name used in the title.",
+        "fix": "hai loài cá rìu lùn cánh đen",
+        "field": "body"
+      }
+    ],
+    "ruled": "956dea628b022f60"
   },
   "vi/guides/loachesonline-articles-botia-kubotai-development-of-markings-during-growth": {
     "at": "2026-11-01",
@@ -3699,6 +3844,12 @@
     ],
     "ruled": "d50bd3651a38097b"
   },
+  "vi/guides/youtube--5dase5hg20": {
+    "at": "2026-11-03",
+    "hash": "73de850ebb212341",
+    "findings": [],
+    "ruled": "73de850ebb212341"
+  },
   "vi/guides/youtube-0ozJmYMk914": {
     "at": "2026-11-01",
     "hash": "40a5086540662bfa",
@@ -3813,6 +3964,12 @@
     "findings": [],
     "ruled": "6ddc6217e2afd0f3"
   },
+  "vi/guides/youtube-8SwotDmf5eM": {
+    "at": "2026-11-03",
+    "hash": "0c93693ae805bc55",
+    "findings": [],
+    "ruled": "0c93693ae805bc55"
+  },
   "vi/guides/youtube-8wpB5jlgKEg": {
     "at": "2026-11-01",
     "hash": "9410c3e2c1c08818",
@@ -3908,6 +4065,12 @@
     ],
     "ruled": "b9bcb2943234dab3"
   },
+  "vi/guides/youtube-CdWYC0DITbI": {
+    "at": "2026-11-03",
+    "hash": "2d5a3444dff2cf65",
+    "findings": [],
+    "ruled": "2d5a3444dff2cf65"
+  },
   "vi/guides/youtube-cJLZq603RAY": {
     "at": "2026-11-02",
     "hash": "c9acc265da8d5544",
@@ -3948,6 +4111,46 @@
       }
     ],
     "ruled": "c6e5db577f65d8e5"
+  },
+  "vi/guides/youtube-cPBLU4VMwWU": {
+    "at": "2026-11-03",
+    "hash": "999ccb9f216c85c0",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Một hai con cá thần tiên nhỏ.",
+        "problem": "Angelfish grow large and tall, so they cannot live in a tank of about 4.5 litres (20x15x15 cm).",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "L6",
+        "quote": "hoặc một hai con thần tiên nhỏ",
+        "problem": "This summary point recommends angelfish for a tank of about 4.5 litres, which is far too small for them.",
+        "field": "summary.5"
+      },
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "L16",
+        "quote": "Một hai con cá thần tiên nhỏ cũng là một lựa chọn.",
+        "problem": "This FAQ answer recommends angelfish for a tank of about 4.5 litres, which is far too small for them.",
+        "field": "faq.4.a"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Rải cốt nền phía sau trước, dày khoảng 1 cm.",
+        "problem": "The previous step already says to lay the red ceramic along the front glass first, so this step is a second 'first' and the order is unclear.",
+        "fix": "Sau đó rải cốt nền ở phía sau, dày khoảng 1 cm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "999ccb9f216c85c0"
   },
   "vi/guides/youtube-dTkvCEn1xHA": {
     "at": "2026-11-01",
@@ -4173,6 +4376,12 @@
     ],
     "ruled": "6975ca556ad73e77"
   },
+  "vi/guides/youtube-GZPSghtqMKk": {
+    "at": "2026-11-03",
+    "hash": "15920e6f5cc977fa",
+    "findings": [],
+    "ruled": "15920e6f5cc977fa"
+  },
   "vi/guides/youtube-H-A6KwMSa9s": {
     "at": "2026-11-01",
     "hash": "9e614891979dec1d",
@@ -4193,6 +4402,56 @@
     "hash": "a6df129b55155430",
     "findings": [],
     "ruled": "a6df129b55155430"
+  },
+  "vi/guides/youtube-IB6lV6eF2MY": {
+    "at": "2026-11-03",
+    "hash": "23479de219160fa5",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Phân nền dùng cho bình mẫu có giá hơn 200.000 đồng.",
+        "problem": "The page says the sample jar used cốt nền (Aqua Basic Plus), which the table puts under the no-phân-nền option, then says the jar used phân nền costing over 200,000 đồng.",
+        "fix": "Cốt nền dùng cho bình mẫu có giá hơn 200.000 đồng.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| Không dùng phân nền\n| Dùng cốt nền kết hợp với cát hoặc sỏi.",
+        "problem": "The column is headed 'Kết quả' (result), but this row gives a method instead of a result, so the table doesn't give what its header promises.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đặt thử các viên đá đá Tiger lên nền",
+        "problem": "The word 'đá' is repeated.",
+        "fix": "Đặt thử các viên đá Tiger lên nền",
+        "rule": "the same word written twice in a row",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Vài con ăn rêu như cá tì bà bướm.",
+        "problem": "Hillstream loaches need cool, strongly flowing, oxygen-rich water, so they don't suit a tiny unfiltered jar of about 2 litres. A reader would stock a fish that won't survive there.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "high",
+        "part": "L15",
+        "quote": "Muốn có cá ăn rêu thì có thể chọn cá tì bà bướm.",
+        "problem": "This FAQ repeats the suggestion to keep hillstream loaches, which need strong flow and oxygen, in a tiny unfiltered jar.",
+        "field": "faq.4.a"
+      }
+    ],
+    "ruled": "23479de219160fa5"
   },
   "vi/guides/youtube-iFDXqeBOxQk": {
     "at": "2026-11-01",
@@ -4501,6 +4760,12 @@
       }
     ],
     "ruled": "92c48eb398a32525"
+  },
+  "vi/guides/youtube-opp6ngBRkP4": {
+    "at": "2026-11-03",
+    "hash": "9eafa52360e271a5",
+    "findings": [],
+    "ruled": "9eafa52360e271a5"
   },
   "vi/guides/youtube-PnwEzP5x8eU": {
     "at": "2026-11-02",
@@ -4853,6 +5118,22 @@
     ],
     "ruled": "4b3b5c1a739240ee"
   },
+  "vi/guides/youtube-xdP5ITWcw3s": {
+    "at": "2026-11-03",
+    "hash": "98f096cf3388b4d4",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cọ lưỡi dao lên những mảng cặn trên kính.",
+        "problem": "'Cọ' means to rub or scrub, which is the wrong verb for scraping with a blade. Here it should be 'cạo', as the heading and the rest of the section already use.",
+        "fix": "Cạo lưỡi dao lên những mảng cặn trên kính.",
+        "field": "body"
+      }
+    ],
+    "ruled": "98f096cf3388b4d4"
+  },
   "vi/guides/youtube-xuc03DuJ9o4": {
     "at": "2026-11-02",
     "hash": "3dd7b06bbb1bfc5c",
@@ -4994,6 +5275,31 @@
       }
     ],
     "ruled": "dbd313a7eeca5c83"
+  },
+  "vi/guides/youtube-zSKCf5T45IM": {
+    "at": "2026-11-03",
+    "hash": "ebd82fa17c420a0c",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Kiểm tra lại cho chắc là van bình đã khóa.",
+        "problem": "The removal steps ask the reader to double-check that the cylinder valve is closed, but no earlier step tells them to close it. The summary and FAQ treat closing it as mandatory.",
+        "fix": "Khóa van bình CO2 rồi kiểm tra lại cho chắc là van đã khóa hẳn.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bộ đang làm mẫu còn có một bộ chia ba ngả màu vàng gắn phía dưới bộ đếm giọt.",
+        "problem": "This refers to a demo unit from the source video, which the reader of the page cannot see.",
+        "fix": "Một số bộ CO2 còn có bộ chia nhiều ngả gắn phía dưới bộ đếm giọt.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ebd82fa17c420a0c"
   },
   "vi/guides/youtube-zYfpvGHYlxQ": {
     "at": "2026-11-02",
