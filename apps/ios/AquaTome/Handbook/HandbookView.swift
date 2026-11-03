@@ -4,7 +4,7 @@ import SwiftUI
 /// The handbook: before a search, a home arranged as the site arranges it (HomeList: fish by group, plants by where
 /// they go, guides by subject, the tools, the glossary); while searching, every page that matches, of one kind if
 /// picked. A page opens as the app draws it (guides), the site's page, or the app's own screen for it (the Chihiros
-/// tool is the Lights tab, "Bể của tôi" the tanks tab).
+/// tool is the Lights tab, "Bể của tôi" the tanks tab, the fish-ID tool a screen of its own).
 struct HandbookView: View {
   /// The pages open in the tab: a link in a page the app draws pushes onto it (AppScreen.page).
   @Binding var path: NavigationPath
@@ -34,6 +34,7 @@ struct HandbookView: View {
       .navigationTitle("Tìm")
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
+      .navigationDestination(for: FishIdRoute.self) { _ in FishIdView() }
       .overlay {
         if handbook.status == .loading { ProgressView() }
         else if handbook.results.isEmpty && !handbook.query.isEmpty { ContentUnavailableView.search(text: handbook.query) }

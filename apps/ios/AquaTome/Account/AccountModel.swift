@@ -101,6 +101,13 @@ final class AccountModel {
     return (data, res.statusCode)
   }
 
+  /// A request that needs no account (the fish-ID tool's state), through the same server: its status and body, or nil
+  /// offline.
+  func fetch(_ r: URLRequest) async -> (Data, Int)? {
+    guard let (data, res) = try? await api.send(r) else { return nil }
+    return (data, res.statusCode)
+  }
+
   /// At launch, and when the app comes to the front: who is signed in, then a sync.
   func refresh() async {
     let asked = token

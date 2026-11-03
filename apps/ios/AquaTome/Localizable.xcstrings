@@ -65,6 +65,22 @@
         }
       }
     },
+    "%lld loài %@ có trong cẩm nang": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld spesies %@ ada di panduan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สกุล %2$@ มี %1$lld ชนิดในคู่มือ"
+          }
+        }
+      }
+    },
     "%lld loài phù hợp": {
       "localizations": {
         "id": {
@@ -589,6 +605,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ความคิดเห็นทุกรายการจะผ่านการตรวจสอบ โฆษณาและข้อมูลส่วนบุคคลจะถูกลบออก"
+          }
+        }
+      }
+    },
+    "Bạn đã dùng hết %lld lượt nhận diện hôm nay. Quay lại ngày mai nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anda sudah memakai %lld kesempatan identifikasi hari ini. Kembali lagi besok, ya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วันนี้คุณใช้ครบ %lld ครั้งแล้ว กลับมาใหม่พรุ่งนี้นะ"
           }
         }
       }
@@ -1137,6 +1169,22 @@
         }
       }
     },
+    "Chưa có trong cẩm nang.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada di panduan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีในคู่มือ"
+          }
+        }
+      }
+    },
     "Chưa có ảnh nào. Bạn nuôi %@? Gửi một tấm ảnh cho mọi người cùng xem.": {
       "localizations": {
         "id": {
@@ -1261,6 +1309,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยังบันทึกการเปลี่ยนแปลงไม่สำเร็จ ลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Chưa nhìn rõ để nhận diện. Thử chụp ngang thân, gần hơn, qua kính sạch và không bật flash.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum cukup jelas untuk dikenali. Coba foto dari samping, lebih dekat, lewat kaca yang bersih, tanpa flash."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ภาพยังไม่ชัดพอจะระบุได้ ลองถ่ายด้านข้าง เข้าใกล้ขึ้น ผ่านกระจกที่สะอาด และไม่เปิดแฟลช"
+          }
+        }
+      }
+    },
+    "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum bisa mengenali saat ini. Coba lagi beberapa menit lagi, ya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตอนนี้ยังระบุไม่ได้ ลองใหม่อีกสักครู่นะ"
           }
         }
       }
@@ -1553,6 +1633,86 @@
         }
       }
     },
+    "Chọn ảnh có sẵn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกรูปที่มีอยู่"
+          }
+        }
+      }
+    },
+    "Chụp hoặc chọn ảnh một con cá, tép, ốc hay cây thủy sinh. Công cụ đoán tên loài và mở hồ sơ của nó trong cẩm nang.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto atau pilih gambar seekor ikan, udang, siput, atau tanaman air. Alat ini menebak spesiesnya dan membuka profilnya di panduan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถ่ายหรือเลือกรูปปลา กุ้ง หอย หรือไม้น้ำ เครื่องมือจะเดาชื่อสายพันธุ์และเปิดหน้าข้อมูลในคู่มือให้"
+          }
+        }
+      }
+    },
+    "Chụp ngang thân, thấy rõ vây và đuôi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto dari samping, sirip dan ekor terlihat jelas."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถ่ายด้านข้างลำตัว ให้เห็นครีบและหางชัด"
+          }
+        }
+      }
+    },
+    "Chụp sao cho dễ nhận": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto yang mudah dikenali"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถ่ายอย่างไรให้ระบุง่าย"
+          }
+        }
+      }
+    },
+    "Chụp ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ambil foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถ่ายรูป"
+          }
+        }
+      }
+    },
     "Cloud → Development → Create Cloud Project: Industry “Smart Home”, Development Method “Smart Home”, Data Center cùng vùng với tài khoản Smart Life của bạn.": {
       "localizations": {
         "id": {
@@ -1825,6 +1985,38 @@
         }
       }
     },
+    "Có thể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mungkin"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อาจเป็น"
+          }
+        }
+      }
+    },
+    "Có thể là": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kemungkinan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น่าจะเป็น"
+          }
+        }
+      }
+    },
     "Có trong video hướng dẫn": {
       "localizations": {
         "id": {
@@ -1853,6 +2045,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "เครื่องมือ"
+          }
+        }
+      }
+    },
+    "Công cụ chỉ đoán từ ảnh và có thể nhầm giữa các loài giống nhau. Đọc hồ sơ để đối chiếu màu, vây và kích thước trước khi mua hay thả chung.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alat ini hanya menebak dari foto dan bisa keliru di antara spesies yang mirip. Baca profilnya untuk mencocokkan warna, sirip, dan ukuran sebelum membeli atau menggabungkannya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เครื่องมือนี้เดาจากภาพเท่านั้นและอาจสับสนระหว่างสายพันธุ์ที่คล้ายกัน อ่านหน้าข้อมูลเพื่อเทียบสี ครีบ และขนาดก่อนซื้อหรือปล่อยเลี้ยงรวมกัน"
+          }
+        }
+      }
+    },
+    "Công cụ nhận diện tạm thời chưa dùng được. Bạn tìm cá theo tên trong danh sách cá nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alat identifikasi untuk sementara belum bisa dipakai. Cari ikan berdasarkan namanya di daftar ikan, ya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เครื่องมือระบุชนิดยังใช้ไม่ได้ชั่วคราว ลองค้นหาปลาตามชื่อในรายชื่อปลานะ"
+          }
+        }
+      }
+    },
+    "Công cụ đang tạm nghỉ. Bạn quay lại sau vài giờ nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alat ini sedang istirahat. Kembali lagi beberapa jam lagi, ya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เครื่องมือกำลังพักชั่วคราว กลับมาใหม่อีกสักสองสามชั่วโมงนะ"
           }
         }
       }
@@ -1901,6 +2141,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยาว"
+          }
+        }
+      }
+    },
+    "Dùng cả ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pakai seluruh foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ใช้ทั้งรูป"
           }
         }
       }
@@ -2241,6 +2497,22 @@
         }
       }
     },
+    "Gần như chắc chắn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hampir pasti"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เกือบแน่นอน"
+          }
+        }
+      }
+    },
     "Gỡ khỏi bể": {
       "localizations": {
         "id": {
@@ -2433,6 +2705,22 @@
         }
       }
     },
+    "Hôm nay công cụ đã hết lượt cho mọi người. Quay lại ngày mai nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kuota alat ini untuk semua orang sudah habis hari ini. Kembali lagi besok, ya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วันนี้เครื่องมือใช้ครบโควตาของทุกคนแล้ว กลับมาใหม่พรุ่งนี้นะ"
+          }
+        }
+      }
+    },
     "Hơi dữ": {
       "localizations": {
         "id": {
@@ -2493,6 +2781,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยกเลิก"
+          }
+        }
+      }
+    },
+    "Khoanh một con cá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tandai satu ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตีกรอบปลาหนึ่งตัว"
+          }
+        }
+      }
+    },
+    "Khá giống": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cukup mirip"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค่อนข้างคล้าย"
           }
         }
       }
@@ -2785,6 +3105,22 @@
         }
       }
     },
+    "Không phải? %lld loài %@ khác trong cẩm nang": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bukan? %lld spesies %@ lain di panduan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่ใช่? สกุล %2$@ อีก %1$lld ชนิดในคู่มือ"
+          }
+        }
+      }
+    },
     "Không qua được kiểm tra chống spam, vui lòng thử lại.": {
       "localizations": {
         "id": {
@@ -2973,6 +3309,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปแบบสี"
+          }
+        }
+      }
+    },
+    "Kéo một khung quanh con cá trên ảnh.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seret kotak di sekeliling ikan pada foto."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลากกรอบรอบตัวปลาบนรูป"
           }
         }
       }
@@ -3585,6 +3937,22 @@
         }
       }
     },
+    "Mẹo: chuyển đèn bể sang ánh trắng (tắt màu đỏ, hồng) và chụp gần một con cá. Ảnh cả bể thường chỉ nhận ra con nổi bật nhất.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tips: ubah lampu akuarium ke cahaya putih (matikan warna merah dan merah muda), lalu foto satu ikan dari dekat. Foto seluruh akuarium biasanya hanya mengenali ikan yang paling menonjol."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เคล็ดลับ: ปรับไฟตู้เป็นแสงสีขาว (ปิดสีแดงและสีชมพู) แล้วถ่ายใกล้ ๆ ทีละตัว รูปทั้งตู้มักระบุได้แค่ตัวที่เด่นที่สุด"
+          }
+        }
+      }
+    },
     "Mọi ổ cắm trong dự án Tuya đã ở trên một bể.": {
       "localizations": {
         "id": {
@@ -3597,6 +3965,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลั๊กไฟทุกตัวในโปรเจกต์ Tuya อยู่บนตู้แล้ว"
+          }
+        }
+      }
+    },
+    "Mỗi ảnh một con là dễ nhận nhất.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Satu ekor per foto paling mudah dikenali."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปละหนึ่งตัวระบุง่ายที่สุด"
+          }
+        }
+      }
+    },
+    "Một dòng của %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Varietas dari %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สายพันธุ์ของ %@"
           }
         }
       }
@@ -3725,6 +4125,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "อุณหภูมิ (°C)"
+          }
+        }
+      }
+    },
+    "Nhận diện": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kenali"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ระบุชนิด"
           }
         }
       }
@@ -4097,6 +4513,22 @@
         }
       }
     },
+    "Sẽ gửi phần trong khung. Kéo lại để khoanh chỗ khác.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanya bagian di dalam kotak yang dikirim. Seret lagi untuk menandai bagian lain."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จะส่งเฉพาะส่วนในกรอบ ลากใหม่เพื่อเลือกส่วนอื่น"
+          }
+        }
+      }
+    },
     "Sỏi": {
       "localizations": {
         "id": {
@@ -4401,6 +4833,22 @@
         }
       }
     },
+    "Thử lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coba lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Thử màu trên đèn": {
       "localizations": {
         "id": {
@@ -4637,6 +5085,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tuya ไม่ว่างอยู่ โปรดลองใหม่อีกสักครู่"
+          }
+        }
+      }
+    },
+    "Tài khoản aquatome.com đang tạm tắt, nên ứng dụng chưa nhận diện được ảnh lúc này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akun aquatome.com sedang dimatikan sementara, jadi aplikasi belum bisa mengenali foto saat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บัญชี aquatome.com ปิดใช้งานชั่วคราว แอปจึงยังระบุชนิดจากรูปไม่ได้ในตอนนี้"
           }
         }
       }
@@ -5137,6 +5601,22 @@
         }
       }
     },
+    "Tắt đèn flash, bật đèn bể.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan flash, nyalakan lampu akuarium."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดแฟลช เปิดไฟตู้แทน"
+          }
+        }
+      }
+    },
     "Tắt “%@”?": {
       "localizations": {
         "id": {
@@ -5341,6 +5821,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "เขียว"
+          }
+        }
+      }
+    },
+    "Xem hồ sơ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat profil"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูหน้าข้อมูล"
+          }
+        }
+      }
+    },
+    "Xem hồ sơ %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat profil %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูหน้าข้อมูล %@"
           }
         }
       }
@@ -5729,6 +6241,22 @@
         }
       }
     },
+    "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/id/kebijakan-privasi/#nhan-dien-ca"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/th/privacy/#nhan-dien-ca"
+          }
+        }
+      }
+    },
     "https://aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan": {
       "localizations": {
         "id": {
@@ -5905,6 +6433,38 @@
         }
       }
     },
+    "Áp máy sát kính sạch cho bớt lóa và vết bẩn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempelkan ponsel ke kaca yang bersih agar silau dan noda berkurang."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แนบกล้องชิดกระจกที่สะอาดเพื่อลดแสงสะท้อนและคราบ"
+          }
+        }
+      }
+    },
+    "Ít khả năng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kecil kemungkinannya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่น่าจะใช่"
+          }
+        }
+      }
+    },
     "Đang dùng": {
       "localizations": {
         "id": {
@@ -6017,6 +6577,38 @@
         }
       }
     },
+    "Đang nhận diện… thường mất vài giây.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sedang mengenali… biasanya beberapa detik."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังระบุชนิด… ปกติใช้เวลาไม่กี่วินาที"
+          }
+        }
+      }
+    },
+    "Đang thu nhỏ ảnh…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mengecilkan foto…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังย่อรูป…"
+          }
+        }
+      }
+    },
     "Đang tìm %@…": {
       "localizations": {
         "id": {
@@ -6125,6 +6717,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "นี่คือ"
+          }
+        }
+      }
+    },
+    "Đây là cá gì?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan apa ini?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นี่คือปลาอะไร?"
           }
         }
       }
@@ -6977,6 +7585,22 @@
         }
       }
     },
+    "Đăng nhập tài khoản aquatome.com để nhận diện cá qua ảnh.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masuk ke akun aquatome.com untuk mengenali ikan dari foto."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้าสู่ระบบบัญชี aquatome.com เพื่อระบุชนิดปลาจากรูปภาพ"
+          }
+        }
+      }
+    },
     "Đăng xuất": {
       "localizations": {
         "id": {
@@ -6989,6 +7613,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ออกจากระบบ"
+          }
+        }
+      }
+    },
+    "Đến gần, để con vật chiếm phần lớn khung hình.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mendekatlah, agar hewannya memenuhi sebagian besar bingkai."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้าใกล้ ให้ตัวสัตว์กินพื้นที่ส่วนใหญ่ของภาพ"
           }
         }
       }
@@ -7249,6 +7889,22 @@
         }
       }
     },
+    "Ảnh bạn chọn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto pilihan Anda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปที่คุณเลือก"
+          }
+        }
+      }
+    },
     "Ảnh bạn đọc": {
       "localizations": {
         "id": {
@@ -7261,6 +7917,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ภาพจากผู้อ่าน"
+          }
+        }
+      }
+    },
+    "Ảnh chưa rõ lắm, đây chỉ là phỏng đoán. Ảnh rõ hơn sẽ cho kết quả chắc hơn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fotonya kurang jelas, ini hanya tebakan. Foto yang lebih jelas memberi hasil yang lebih pasti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ภาพยังไม่ค่อยชัด นี่เป็นเพียงการเดา ภาพที่ชัดกว่าจะให้ผลที่แน่นอนกว่า"
           }
         }
       }
@@ -7297,6 +7969,38 @@
         }
       }
     },
+    "Ảnh không được lưu lại: ảnh được gửi tới Claude, mô hình AI của Anthropic, để nhận diện rồi bỏ đi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto tidak disimpan: foto dikirim ke Claude, model AI dari Anthropic, untuk dikenali lalu dibuang."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เราไม่เก็บรูปของคุณ: รูปจะถูกส่งให้ Claude โมเดล AI ของ Anthropic ระบุชนิดแล้วทิ้งไป"
+          }
+        }
+      }
+    },
+    "Ảnh này có vẻ không có cá, tép, ốc hay cây thủy sinh nào. Thử một ảnh khác nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sepertinya tidak ada ikan, udang, siput, atau tanaman air di foto ini. Coba foto lain, ya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูเหมือนว่าในรูปนี้ไม่มีปลา กุ้ง หอย หรือไม้น้ำ ลองรูปอื่นนะ"
+          }
+        }
+      }
+    },
     "Ảnh quá lớn (tối đa 8 MB).": {
       "localizations": {
         "id": {
@@ -7309,6 +8013,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ภาพมีขนาดใหญ่เกินไป (สูงสุด 8 MB)"
+          }
+        }
+      }
+    },
+    "Ảnh quá lớn. Chọn ảnh khác nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fotonya terlalu besar. Pilih foto lain, ya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปใหญ่เกินไป เลือกรูปอื่นนะ"
           }
         }
       }

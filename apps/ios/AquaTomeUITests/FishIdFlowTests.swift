@@ -1,0 +1,200 @@
+import XCTest
+
+/// The fish-ID tool as the app's own screen, on the stand-in server (no network): opened from the handbook's tool, a
+/// photo sent whole or with one fish boxed, as the reader's account; the guesses as the site shows them, each page
+/// opening in the app; signed out, the sign-in first; the account's day and the site's day used up, accounts off and no
+/// network, each said in the site's words. The stand-in's first guess names the photo it got (its width × height), so a
+/// flow tells a box from the whole photo.
+final class FishIdFlowTests: XCTestCase {
+  override func setUp() { continueAfterFailure = false }
+
+  /// The tool opens the app's screen, not the site's page; a photo picked is shown, sent whole (1600 × 1200 shrunk to the
+  /// site's 1024 × 768), and its guesses read as the site's: how sure, the name, why, and a page or that there's none.
+  func testAPhotoPickedIsSentAndItsGuessesShowAsTheSitesDo() {
+    let app = launch("-picked-photo")
+    openTool(app)
+    signIn(app)
+    let photo = element(app, "fish-id-photo")
+    XCTAssertTrue(photo.waitForExistence(timeout: 5), "the photo picked isn't shown")
+    XCTAssertEqual(photo.label, "Ảnh bạn chọn")
+    send(app)
+    let guesses = app.descendants(matching: .any).matching(identifier: "fish-id-guess")
+    let first = guesses.element(boundBy: 0)
+    XCTAssertTrue(first.waitForExistence(timeout: 10), "no guesses")
+    for part in ["Gần như chắc chắn", "Cá neon", "Paracheirodon innesi", "Ảnh nhận được: 1024×768."] {
+      XCTAssertTrue(first.label.contains(part), "\(part) not in \(first.label)")
+    }
+    let second = guesses.element(boundBy: 1)
+    reveal(app, second)
+    XCTAssertTrue(second.label.hasPrefix("Có thể, Green neon tetra"), second.label)
+    XCTAssertTrue(app.staticTexts["Chưa có trong cẩm nang."].exists, "a guess the handbook has no page for isn't said so")
+  }
+
+  /// A fish boxed on the photo: only that part goes, cut from the photo at full size: about half of its 1600 × 1200 each
+  /// way, not the whole photo shrunk (1024 × 768), nor a part of that (about 512 wide).
+  func testAFishBoxedSendsOnlyThatPart() {
+    let app = launch("-picked-photo")
+    openTool(app)
+    signIn(app)
+    tap(app, "fish-id-box")
+    XCTAssertEqual(element(app, "fish-id-box-said").label, "Kéo một khung quanh con cá trên ảnh.")
+    let photo = element(app, "fish-id-photo")
+    reveal(app, photo)
+    photo.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.25))
+      .press(forDuration: 0.2, thenDragTo: photo.coordinate(withNormalizedOffset: CGVector(dx: 0.75, dy: 0.75)))
+    let said = element(app, "fish-id-box-said")
+    XCTAssertTrue(said.waitForLabel("Sẽ gửi phần trong khung. Kéo lại để khoanh chỗ khác.", timeout: 5), "not boxed: \(said.label)")
+    send(app)
+    let first = app.descendants(matching: .any).matching(identifier: "fish-id-guess").element(boundBy: 0)
+    XCTAssertTrue(first.waitForExistence(timeout: 10), "no guesses")
+    let got = first.label.firstMatch(of: /Ảnh nhận được: (\d+)×(\d+)/)
+    let (w, h) = (got.flatMap { Int($0.1) } ?? 0, got.flatMap { Int($0.2) } ?? 0)
+    // About, not exactly: the photo's frame as the test sees it is its row's, a few points larger than the photo.
+    XCTAssertTrue((640...960).contains(w) && (480...720).contains(h), "not the part boxed: \(first.label)")
+  }
+
+  /// "Xem hồ sơ" opens the guess's page as the app draws it; back, the guesses are still there, and a guess the
+  /// handbook has no page for lists its genus's pages, which open in the app too.
+  func testAGuessAndItsGenusOpenTheirPagesInTheApp() {
+    let app = launch("-picked-photo")
+    openTool(app)
+    signIn(app)
+    send(app)
+    let open = element(app, "fish-id-open")
+    XCTAssertTrue(open.waitForExistence(timeout: 10), "no page to open")
+    XCTAssertEqual(open.label, "Xem hồ sơ Cá neon")
+    reveal(app, open)
+    open.tap()
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "the page didn't open")
+    XCTAssertTrue(element(app, "native-page").waitForExistence(timeout: 5), "not drawn by the app")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    let genus = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "1 loài Paracheirodon có trong cẩm nang")).firstMatch
+    reveal(app, genus)
+    genus.tap()
+    let page = element(app, "fish-id-genus-page")
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "the genus's pages aren't listed")
+    XCTAssertTrue(page.label.hasPrefix("Cá neon"), page.label)
+    reveal(app, page)
+    page.tap()
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "the genus's page didn't open")
+  }
+
+  /// Signed out, the screen says why it needs the account and offers the sign-in; signed in, the tool takes its place
+  /// with the photo picked before.
+  func testSignedOutTheScreenOffersTheSignInThenCarriesOn() {
+    let app = launch("-picked-photo")
+    openTool(app)
+    XCTAssertTrue(element(app, "fish-id-sign-in").waitForExistence(timeout: 5), "not asked to sign in")
+    XCTAssertEqual(element(app, "fish-id-sign-in").label, "Đăng nhập tài khoản aquatome.com để nhận diện cá qua ảnh.")
+    XCTAssertFalse(element(app, "fish-id-send").exists, "the tool offered signed out")
+    element(app, "apple-sign-in").tap()
+    XCTAssertTrue(element(app, "fish-id-send").waitForExistence(timeout: 10), "the sign-in didn't lead to the tool")
+    XCTAssertTrue(element(app, "fish-id-photo").exists, "the photo picked before is gone")
+  }
+
+  /// The account's 10 for the day used: the site's words, with its number.
+  func testTheAccountsDayUsedUpIsSaid() {
+    let app = launch("-picked-photo", "-fish-id-used", "10")
+    openTool(app)
+    signIn(app)
+    send(app)
+    XCTAssertTrue(element(app, "fish-id-said").waitForLabel("Bạn đã dùng hết 10 lượt nhận diện hôm nay. Quay lại ngày mai nhé.", timeout: 10),
+                  element(app, "fish-id-said").label)
+    XCTAssertFalse(element(app, "fish-id-guess").exists)
+  }
+
+  /// The site's own day used up, for everyone: the site's words.
+  func testTheSitesDayUsedUpIsSaid() {
+    let app = launch("-picked-photo", "-fish-id-busy")
+    openTool(app)
+    signIn(app)
+    send(app)
+    XCTAssertTrue(element(app, "fish-id-said").waitForLabel("Hôm nay công cụ đã hết lượt cho mọi người. Quay lại ngày mai nhé.", timeout: 10),
+                  element(app, "fish-id-said").label)
+  }
+
+  /// Accounts off on the site: said so, with no sign-in and no tool.
+  func testWithAccountsOffTheScreenSaysSo() {
+    let app = launch("-picked-photo", accounts: "off")
+    openTool(app)
+    XCTAssertTrue(element(app, "fish-id-said").waitForLabel("Tài khoản aquatome.com đang tạm tắt, nên ứng dụng chưa nhận diện được ảnh lúc này.", timeout: 5),
+                  element(app, "fish-id-said").label)
+    XCTAssertFalse(element(app, "apple-sign-in").exists)
+    XCTAssertFalse(element(app, "fish-id-send").exists)
+  }
+
+  /// No network: said so, with a way to try again.
+  func testWithNoNetworkTheScreenSaysSo() {
+    let app = launch("-server-offline")
+    openTool(app)
+    XCTAssertTrue(element(app, "fish-id-said").waitForLabel("Không có mạng: thử lại khi có mạng.", timeout: 5), element(app, "fish-id-said").label)
+    XCTAssertTrue(app.buttons["Thử lại"].exists)
+    XCTAssertFalse(element(app, "fish-id-send").exists)
+  }
+
+  // MARK: Helpers
+
+  private func launch(_ more: String..., accounts: String = "on") -> XCUIApplication {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", accounts,
+                           "-reset-fake-server"] + more
+    app.launch()
+    return app
+  }
+
+  private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement { app.descendants(matching: .any)[id].firstMatch }
+
+  /// The handbook's fish-ID tool, found by its page's words: the app's own screen opens.
+  private func openTool(_ app: XCUIApplication) {
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("nhan dien")
+    let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Đây là cá gì?'")).firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no fish-ID tool")
+    row.tap()
+    XCTAssertTrue(element(app, "fish-id").waitForExistence(timeout: 5), "not the app's fish-ID screen")
+    XCTAssertFalse(element(app, "page").exists, "the site's page opened")
+  }
+
+  private func signIn(_ app: XCUIApplication) {
+    let apple = element(app, "apple-sign-in")
+    XCTAssertTrue(apple.waitForExistence(timeout: 5), "no sign-in")
+    apple.tap()
+    XCTAssertTrue(element(app, "fish-id-send").waitForExistence(timeout: 10), "the sign-in didn't lead to the tool")
+  }
+
+  private func tap(_ app: XCUIApplication, _ id: String) {
+    let e = element(app, id)
+    reveal(app, e)
+    e.tap()
+  }
+
+  /// "Nhận diện", once the photo is ready to go.
+  private func send(_ app: XCUIApplication) {
+    let send = element(app, "fish-id-send")
+    reveal(app, send)
+    XCTAssertTrue(send.waitForEnabled(timeout: 5), "nothing to send")
+    send.tap()
+  }
+
+  /// Scrolled into view a little at a time, without a fling, by the screen's edge: while boxing, a drag on the photo
+  /// draws a box.
+  private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
+    for _ in 0..<12 where !(e.exists && e.isHittable) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast,
+               thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
+  }
+}
+
+private extension XCUIElement {
+  func waitForLabel(_ label: String, timeout: TimeInterval) -> Bool {
+    XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == %@", label), object: self)], timeout: timeout) == .completed
+  }
+  func waitForEnabled(timeout: TimeInterval) -> Bool {
+    XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "isEnabled == true"), object: self)], timeout: timeout) == .completed
+  }
+}

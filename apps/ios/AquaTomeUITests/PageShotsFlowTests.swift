@@ -2,9 +2,10 @@ import XCTest
 
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
-/// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size. Each checks
-/// only that its screen opened: what it shows, the other flows check.
+/// and a guide, in light and in dark, and the fish's top at a large text size; the fish-ID screen with its guesses, light
+/// and dark; photos as stand-ins (`-fixed-pictures`). And a search's results under the kinds it finds, light and dark,
+/// at the default and the largest text size. Each checks only that its screen opened: what it shows, the other flows
+/// check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -17,12 +18,38 @@ final class PageShotsFlowTests: XCTestCase {
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+  func testFishId() { shootFishId("fish-id-light") }
+  func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
 
   /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
   private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12) {
     let app = launch(dark: dark, size: large ? "UICTContentSizeCategoryAccessibilityL" : nil)
+    open(app, query, row)
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
+    capture(app, name, dark: dark, large: large, screens: screens)
+  }
+
+  /// The fish-ID screen, signed in on the stand-in server, with the stand-in's guesses for a photo as if picked.
+  private func shootFishId(_ name: String, dark: Bool = false) {
+    let app = launch(dark: dark, more: ["-fake-accounts", "on", "-reset-fake-server", "-picked-photo"])
+    open(app, "nhan dien", "Đây là cá gì?")
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
+    sign.tap()
+    let send = app.descendants(matching: .any)["fish-id-send"].firstMatch
+    XCTAssertTrue(send.waitForExistence(timeout: 10), "no tool")
+    for _ in 0..<6 where !send.isHittable { app.swipeUp() }
+    send.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["fish-id-guess"].firstMatch.waitForExistence(timeout: 10), "no guesses")
+    // From the top: the screen scrolls to the guesses when they come.
+    for _ in 0..<4 { app.swipeDown() }
+    capture(app, name, dark: dark, large: false, screens: 8)
+  }
+
+  /// The handbook's row for `row`, found by `query`, opened.
+  private func open(_ app: XCUIApplication, _ query: String, _ row: String) {
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
@@ -30,7 +57,10 @@ final class PageShotsFlowTests: XCTestCase {
     let item = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", row)).firstMatch
     XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(row)")
     item.tap()
-    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
+  }
+
+  /// Each screen from where it is, scrolled most of a screen at a time without a fling, to its end.
+  private func capture(_ app: XCUIApplication, _ name: String, dark: Bool, large: Bool, screens: Int) {
     var seen: [[UInt8]] = []
     var ended = false
     for n in 1...screens {
@@ -73,12 +103,12 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
-  private func launch(dark: Bool, size: String?) -> XCUIApplication {
+  private func launch(dark: Bool, size: String? = nil, more: [String] = []) -> XCUIApplication {
     let app = XCUIApplication()
     // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
-      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? []) + more
     app.launch()
     return app
   }

@@ -18,7 +18,10 @@ kept in the Keychain, and no AquaTome account (docs/smart-plugs.md).
 The site's pages in the app share the reader's tanks with it (`PageBridge`): the tools' "Lưu vào Bể của tôi" saves to
 the app's tanks, merged record by record, and each page sees them. A link to "Bể của tôi" or the Chihiros page, and
 those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "Xem trong Bể của tôi →" opens the tank
-just saved.
+just saved. The fish-ID tool is the app's own screen too (`FishIdView`): a photo from the library or the camera, one fish
+boxed on it if the reader likes, shrunk and stripped as the site's page sends it, and sent as the reader's aquatome.com
+account (`protocols/fishid.openapi.json`: a bearer in place of the page's Turnstile check, counted per account); the
+guesses as the site shows them, each page opening in the app. Signed out, the sign-in comes first.
 
 Signing in (Sign in with Apple, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
 the site's page does: the token is in the Keychain, on this phone only. "Thêm passkey" adds one made on the phone, as on
@@ -59,8 +62,8 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   (a slow or lost clock, old firmware, a drop, no Bluetooth…) are listed on `FakeRadio` (`AquaTome/Lights/Radio.swift`).
 
   A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
-  `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant and a guide top to bottom, light and dark, and CI's
-  job `handbook (1)` uploads them as the `ios-page-shots` artifact. Locally:
+  `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant, a guide and the fish-ID screen top to bottom, light
+  and dark, and CI's job `handbook (1)` uploads them as the `ios-page-shots` artifact. Locally:
 
   ```sh
   xcodebuild test -project AquaTome.xcodeproj -scheme AquaTome -destination 'platform=iOS Simulator,name=iPhone 17' \
@@ -138,9 +141,9 @@ Debug builds, so they don't see it.
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`) |
-| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore); the fish-ID tool's request and answers (`FishId`) |
 | `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code |
-| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
+| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator), the fish-ID tool's too |
 | `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
 
 ```sh
