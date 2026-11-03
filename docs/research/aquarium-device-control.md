@@ -321,12 +321,22 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
   - `FD F1` alone after levels of zero left the light off, and so did `FD F2`.
   - So here `FD F1` doesn't hand back to the light's own schedule, as alokauz reads it. It acts as the spec's "manual levels" mode, keeping the last levels sent.
 - **The clock frame** `FF hh mm ss 55 55 55 55` (BCD) is accepted. It can't be read back, and its effect on the timer is untested.
-- **Setting the timer didn't work yet.** A timer ending two minutes later did not switch the light off when written either way, each after `FD F1` and the levels:
+- **The first timer tries failed because of the order.** A timer ending two minutes later did not switch the light off when sent after `FD F1` and the levels:
   - `FE F9 02 50 HH MM 01 00` (the spec's simple timer, which it lists for 5745);
   - `FE EF 02 50 HH MM 55 55` (the spec's timer for 5746).
-
-  The owner's 02:50–02:40 was written back in both forms, then Green. How WEEK AQUA writes its timer is the open question for on-device schedules.
-- **Next:** record what WEEK AQUA sends when its timer is saved. The iPhone's Bluetooth logging profile with PacketLogger on the Mac shows the phone's writes, or a BLE sniffer can. Then repeat the timer test with those bytes.
+- **What WEEK AQUA sends (captured the same evening).** The iPhone's Bluetooth logging profile was installed, the owner changed the group's timer in the app, and the phone's Bluetooth log came out of a sysdiagnose. The app writes each frame to `fff2` on all three lights within a millisecond.
+  - On connecting: `FF hh mm ss 55 55 55 55` (the clock, BCD, the phone's local time), `F9 55 55 55 55 55 55 55`, `FD F1`, `FB F9 R G B UV 55 55` (the group's levels), then `FE F9` with the timer.
+    - The levels were `36 72 39 75`: the Green preset (`6C E3 73 EB`) at half brightness. So the app's brightness slider scales the preset, and a light is put back with these levels, not the preset's.
+  - On each change of the timer: `FE F9 onHH onMM offHH offMM r 00`, then `FD F1` about half a second later. Times are BCD.
+    - The owner's own timer is `FE F9 02 50 02 40 01 00`.
+    - The seventh byte read `01` on long windows and `00` on short ones (about two hours or less). It was `24` when on and off were the same time. It's most likely the sunrise/sunset ramp, in hours, but that is unconfirmed.
+- **The timer works when sent in the app's order.** `FF` clock, then `FE F9 02 50 21 37 00 00`, then `FD F1`. The owner saw the light switch off at 21:37.
+  - So `FD F1` applies the timer and levels written before it. It doesn't hand back to an earlier schedule.
+  - All three lights were then put back as the app sets them: clock, `FD F1`, `FB F9 36 72 39 75 55 55`, `FE F9 02 50 02 40 01 00`, `FD F1`.
+- **Still unknown:**
+  - the `F9 55 …` frame the app sends on connecting (the spec's 5746 fan frame is `F9 [level]`);
+  - the timer's seventh byte;
+  - the Advanced tab's multi-slot frames (the owner's is empty).
 - **Sources:**
   - [alokauz/ha-weekaqua](https://github.com/alokauz/ha-weekaqua) (MIT; frames, presets, tests).
   - [ad960009/WeekAquaProject](https://github.com/ad960009/WeekAquaProject)'s protocol spec (no licence; facts only, no code taken).
