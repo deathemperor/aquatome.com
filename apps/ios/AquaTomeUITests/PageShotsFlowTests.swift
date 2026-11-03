@@ -35,7 +35,7 @@ final class PageShotsFlowTests: XCTestCase {
       settle()
       let shot = XCUIScreen.main.screenshot()
       // The end of the page: a screen already kept (scrolling there moves nothing, or bounces between two). Told by how
-      // it looks below the status bar, whose clock moves on, give or take a glass bar's blur: not by its bytes.
+      // the page looks below the bars (the status bar's clock moves on, the glass bar's tint shifts): not by its bytes.
       let look = look(shot.image)
       if seen.contains(where: { same($0, look) }) { ended = true; break }
       seen.append(look)
@@ -54,11 +54,11 @@ final class PageShotsFlowTests: XCTestCase {
     if !large { XCTAssertTrue(ended, "\(name): no end found in \(screens) screens") }
   }
 
-  /// A screen as a small grey picture, below the status bar.
+  /// A screen as a small grey picture, below the status bar and the navigation bar.
   private func look(_ image: UIImage) -> [UInt8] {
     let w = 24, h = 48
     var px = [UInt8](repeating: 0, count: w * h)
-    guard let cg = image.cgImage, let below = cg.cropping(to: CGRect(x: 0, y: cg.height / 14, width: cg.width, height: cg.height - cg.height / 14)),
+    guard let cg = image.cgImage, let below = cg.cropping(to: CGRect(x: 0, y: cg.height / 7, width: cg.width, height: cg.height - cg.height / 7)),
       let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w, space: CGColorSpaceCreateDeviceGray(),
                           bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return px }
     ctx.interpolationQuality = .high
@@ -66,8 +66,8 @@ final class PageShotsFlowTests: XCTestCase {
     return px
   }
 
-  /// Two looks of the same place: within 5 of 255 a pixel on average. In CI's shots a page at rest at its end, bouncing
-  /// between two places, differed by up to 3.4; a page scrolled on, by 12 or more.
+  /// Two looks of the same place: within 5 of 255 a pixel on average. In CI's shots a page at rest at its end differed
+  /// by under 0.5; a page scrolled on, by 13 or more.
   private func same(_ a: [UInt8], _ b: [UInt8]) -> Bool {
     var d = 0
     for i in a.indices { d += abs(Int(a[i]) - Int(b[i])) }
