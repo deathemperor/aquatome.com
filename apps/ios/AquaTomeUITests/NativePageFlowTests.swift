@@ -104,6 +104,22 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Đệm pH"].waitForExistence(timeout: 5), "the word's page didn't open")
   }
 
+  /// A source's mark as the site's: small and raised after the words it backs ("hơi chua.¹"), not a number as large as
+  /// the text and run into it ("chua.1"); tapped, it names its source.
+  func testASourcesMarkSitsSmallAfterTheWordsItBacks() {
+    let app = launch()
+    openRow(app, "ca neon")
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "not the fish")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
+    // The mark's paragraph ("Nước mềm, hơi chua.") and, right under it, one with a link the size of the text.
+    let mark = app.links["1"].firstMatch, word = app.links["cá tetra"].firstMatch
+    reveal(app, mark)
+    reveal(app, word)
+    XCTAssertLessThan(mark.frame.height, word.frame.height * 0.8, "the mark as large as the text")
+    mark.tap()
+    XCTAssertTrue(app.alerts["Seriously Fish"].waitForExistence(timeout: 5), "the mark doesn't name its source")
+  }
+
   func testTheCreditsSourcesLinkScrollsToTheSources() {
     let app = openGuide()
     let sources = app.staticTexts["Nguồn tham khảo"]

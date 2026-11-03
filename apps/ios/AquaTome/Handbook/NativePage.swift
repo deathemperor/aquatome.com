@@ -438,8 +438,12 @@ private func styled(_ runs: [PageDoc.Run], font: Font? = nil, secondary: Bool = 
     var a = AttributedString(r.text)
     a.font = font
     if secondary && r.href == nil && r.tip == nil { a.foregroundColor = .secondary }
-    if r.tip != nil, !r.text.isEmpty, r.text.allSatisfy(\.isNumber) {
-      a.font = .caption2.weight(.semibold)
+    if r.isSourceMark {
+      // As the site's `.cite`: small, raised and a little apart from the words it backs, not a number run into them.
+      var gap = AttributedString("\u{2009}")
+      gap.font = font
+      s += gap
+      a.font = .caption2.weight(.semibold).monospacedDigit()
       a.baselineOffset = 6
     }
     var intent: InlinePresentationIntent = []

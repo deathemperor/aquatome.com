@@ -55,6 +55,10 @@ public struct PageDoc: Sendable {
 
     public init(_ text: String) { self.text = text }
 
+    /// A source's mark (the site's `.cite`): the source's number, its tip naming the source, as the page numbers its
+    /// sources (`refs`). Shown small and raised after the words it backs; a word's tip has the word, not a number.
+    public var isSourceMark: Bool { tip != nil && !text.isEmpty && text.allSatisfy { $0.isASCII && $0.isNumber } }
+
     /// A string, or `{text, b?, i?, href?, tip?}`.
     init?(json v: Any) {
       if let s = v as? String { self.init(s); return }
