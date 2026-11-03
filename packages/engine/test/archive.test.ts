@@ -13,6 +13,18 @@ test('PlanetCatfish is discovered from the archive index: one https://www addres
   expect(found.map(f => f.url)).toEqual(['https://www.planetcatfish.com/common/species.php?species_id=1', 'https://www.planetcatfish.com/common/species.php?species_id=2000'])
 })
 
+test('2Hr Aquarist is discovered from the archive index: one https://www address per article, listings, tags, feeds and other languages dropped', async () => {
+  let asked = ''
+  const cdx = [
+    'http://2hraquarist.com/blogs/articles/dennerle-vs-ada', 'https://www.2hraquarist.com:80/blogs/articles/dennerle-vs-ada', 'http://www.2hraquarist.com/blogs/articles/dennerle-vs-ada?page=2',
+    'https://www.2hraquarist.com/blogs/plant-nutrients/potassium', 'https://www.2hraquarist.com/blogs/articles', 'https://www.2hraquarist.com/blogs/articles?page=3',
+    'https://www.2hraquarist.com/blogs/articles/tagged/co2', 'https://www.2hraquarist.com/blogs/articles.atom', 'https://www.2hraquarist.com/en-sg/blogs/articles/dennerle-vs-ada', '',
+  ].join('\n')
+  const found = await discover(sourceById('2hraquarist'), async u => { asked = u; return cdx }, async () => { throw new Error('no crawling') })
+  expect(asked).toContain('/cdx/search/cdx?url=2hraquarist.com%2Fblogs%2F*')
+  expect(found.map(f => f.url)).toEqual(['https://www.2hraquarist.com/blogs/articles/dennerle-vs-ada', 'https://www.2hraquarist.com/blogs/plant-nutrients/potassium'])
+})
+
 test('pages come from the latest archived copy and keep the source address; an archived browser check is "no copy", not a block', async () => {
   const calls: string[] = []
   const pages: Record<string, ReturnType<typeof res>> = {
