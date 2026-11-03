@@ -90,7 +90,10 @@ private struct TankRow: View {
       Text(tank.name).font(.headline)
       let f = facts(tank)
       if !f.isEmpty { Text(f.joined(separator: " · ")).font(.subheadline).foregroundStyle(.secondary) }
-      if lights > 0 { Label("\(lights) đèn", systemImage: "lightbulb").font(.caption).foregroundStyle(.secondary) }
+      // Not a Label: in a list, a Label's icon goes in the row's icon column, far from its text.
+      if lights > 0 {
+        HStack(spacing: 4) { Image(systemName: "lightbulb").accessibilityHidden(true); Text("\(lights) đèn") }.font(.caption).foregroundStyle(.secondary)
+      }
     }
     .accessibilityElement(children: .combine)
   }
