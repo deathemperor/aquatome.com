@@ -190,8 +190,8 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["Ảnh của Lan"].exists, "let back, their photo still hidden")
   }
 
-  /// The posters blocked are listed in the tanks tab, with no tanks and signed out, each to let back.
-  func testABlockedPosterIsListedInTheTanksTab() {
+  /// The posters blocked are listed on the Tài khoản tab, under the sign-in, each to let back; not in the tanks tab.
+  func testABlockedPosterIsListedInTheAccountTab() {
     let app = launch()
     openNeon(app)
     act(app, "Tùy chọn cho bình luận của Minh", "Chặn người này")
@@ -200,9 +200,12 @@ final class ReaderPostFlowTests: XCTestCase {
     block.tap()
     XCTAssertTrue(gone(comment(app, "Minh")), "the blocked poster's comment still shows")
     app.openTab("Bể của tôi")
+    XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "not the tanks tab")
     let header = app.descendants(matching: .any)["blocked-header"]
+    XCTAssertFalse(header.exists, "the blocked list in the tanks tab")
+    app.openTab("Tài khoản")
     for _ in 0..<4 where !header.exists { app.swipeUp() }
-    XCTAssertTrue(header.waitForExistence(timeout: 5), "no blocked list in the tanks tab")
+    XCTAssertTrue(header.waitForExistence(timeout: 5), "no blocked list on the Tài khoản tab")
     let unblock = app.buttons["unblock"]
     XCTAssertEqual(unblock.label, "Bỏ chặn Minh")
     unblock.tap()

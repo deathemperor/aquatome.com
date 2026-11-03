@@ -1,8 +1,9 @@
 import AccountSync
 import SwiftUI
 
-/// "Đồng bộ giữa các thiết bị" at the end of the tank list, as on the site's page: signing in, the sync, adding a
-/// passkey, signing out and deleting the account. Shown only when the server offers accounts.
+/// The account on the Tài khoản tab, as on the site's page: signing in, the sync, adding a passkey, signing out and
+/// deleting the account. When the server offers no accounts, or the tanks can't be sent, a line says so: the tab is never
+/// blank.
 struct AccountSection: View {
   @Environment(AccountModel.self) private var account
   @State private var confirmDelete = false
@@ -10,17 +11,22 @@ struct AccountSection: View {
   var body: some View {
     switch account.state {
     case .unknown, .off:
-      EmptyView()
+      // Off on the server, or not reached yet.
+      Section {
+        Text("Lúc này chưa đăng nhập được tài khoản aquatome.com. Các bể vẫn lưu trên máy này.").accessibilityIdentifier("account-off")
+      }
     case .signedOut where !account.canSync:
-      // A store on the phone this app can't keep whole (the list says why): nothing to send.
-      EmptyView()
+      // A store on the phone this app can't keep whole (the tanks list says why): nothing to send.
+      Section {
+        Text("Các bể trên máy này chưa đồng bộ được: xem lý do trong Bể của tôi.").accessibilityIdentifier("account-cant-sync")
+      }
     case .signedOut:
       Section {
-        Text("Muốn xem các bể này trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.")
+        Text("Muốn xem các bể của bạn trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.")
         SignInButton()
         AccountMessage()
       } header: {
-        Text("Đồng bộ giữa các thiết bị").accessibilityIdentifier("account-header")
+        Text("Tài khoản aquatome.com").accessibilityIdentifier("account-header")
       } footer: {
         Fine()
       }
@@ -30,7 +36,11 @@ struct AccountSection: View {
         Button("Đồng bộ ngay") { Task { await account.sync() } }
           .disabled(account.syncing || !account.canSync)
           .accessibilityIdentifier("sync-now")
-        if account.offersPasskey {
+        // An account with a passkey isn't offered another: the passkey syncs to the reader's other Apple devices.
+        if account.offersPasskey && account.hasPasskey {
+          Text("Tài khoản đã có passkey: đăng nhập bằng Face ID, vân tay hoặc mã PIN của máy.")
+            .accessibilityIdentifier("passkey-had")
+        } else if account.offersPasskey {
           Button("Thêm passkey") { Task { await account.addPasskey() } }
             .disabled(account.working || account.signingInAgain)
             .accessibilityIdentifier("passkey-add")
@@ -51,7 +61,7 @@ struct AccountSection: View {
           .accessibilityIdentifier("delete-account")
         AccountMessage()
       } header: {
-        Text("Đồng bộ giữa các thiết bị")
+        Text("Tài khoản aquatome.com")
       } footer: {
         Text("Xóa tài khoản là xóa ngay tài khoản, các cách đăng nhập và mọi bể lưu trong tài khoản. Bể trên máy này vẫn còn.")
       }
@@ -77,22 +87,19 @@ struct AccountSection: View {
   }
 }
 
-/// For the empty list: tanks saved on aquatome.com or another phone come back by signing in.
-struct AccountSignIn: View {
+/// For the empty tanks list, signed out: tanks saved on aquatome.com or another phone come back by signing in, on the
+/// Tài khoản tab.
+struct SignInHint: View {
   @Environment(AccountModel.self) private var account
+  @Environment(\.openScreen) private var openScreen
 
   var body: some View {
-    if account.state == .signedOut && account.canSync {
-      VStack(spacing: 12) {
-        Text("Đã lưu bể trên aquatome.com hoặc máy khác? Đăng nhập để lấy về.")
-          .font(.subheadline).foregroundStyle(.secondary).multilineTextAlignment(.center)
-        SignInButton().frame(maxWidth: 300)
-        AccountMessage()
-        Fine(centered: true)
-      }
-      .padding(.top, 8)
-    } else if let m = account.message {
-      Text(m.text).font(.subheadline).foregroundStyle(m.bad ? .red : .secondary).accessibilityIdentifier("account-message")
+    if account.state == .signedOut {
+      Button("Đã lưu bể trên aquatome.com hoặc máy khác? Đăng nhập để lấy về.") { openScreen(.account) }
+        .font(.subheadline)
+        .multilineTextAlignment(.center)
+        .padding(.top, 8)
+        .accessibilityIdentifier("sign-in-hint")
     }
   }
 }
@@ -133,20 +140,17 @@ struct AccountMessage: View {
 }
 
 private struct Fine: View {
-  /// Under the empty list's centred text; a list footer is set flush left.
-  var centered = false
   var body: some View {
-    VStack(alignment: centered ? .center : .leading, spacing: 4) {
+    VStack(alignment: .leading, spacing: 4) {
       Text("Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, số điện thoại, và địa chỉ email chỉ lưu ở dạng mã hóa một chiều.")
         .fixedSize(horizontal: false, vertical: true)
         // A list footer is grey already.
-        .foregroundStyle(centered ? AnyShapeStyle(.secondary) : AnyShapeStyle(.primary))
+        .foregroundStyle(.primary)
       HStack(spacing: 16) {
         Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan"))!)
         Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/vi/lien-he/"))!)
       }
     }
-    .multilineTextAlignment(centered ? .center : .leading)
     .font(.footnote)
   }
 }

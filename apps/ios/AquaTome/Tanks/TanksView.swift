@@ -15,10 +15,8 @@ struct TanksView: View {
     NavigationStack(path: $path) {
       Group {
         // A store left alone (newer, unreadable) is said so in the list; after a failed save there's still a first tank to add.
-        // Signed in, the list stays, for the account's buttons.
-        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil {
-          // Centred on the screen; it scrolls when the sign-in and its fine print run past the tab bar (a small phone,
-          // large text).
+        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) {
+          // Centred on the screen; it scrolls when it runs past the tab bar (a small phone, large text).
           GeometryReader { g in
             ScrollView {
               ContentUnavailableView {
@@ -27,8 +25,8 @@ struct TanksView: View {
                 Text("Thêm bể đầu tiên để ghi lại kích thước, nền và ghi chú.")
               } actions: {
                 Button("Thêm bể đầu tiên") { adding = true }.buttonStyle(.borderedProminent).accessibilityIdentifier("add-first")
-                AccountSignIn()
-                BlockedPanel()
+                // A new phone: signing in, on the Tài khoản tab, brings back tanks saved elsewhere.
+                SignInHint()
               }
               .frame(minHeight: g.size.height)
             }
@@ -52,8 +50,6 @@ struct TanksView: View {
                 Text("Các bể lưu trên máy này, không cần tài khoản.")
               }
             }
-            AccountSection()
-            BlockedSection()
           }
         }
       }

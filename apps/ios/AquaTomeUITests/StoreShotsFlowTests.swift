@@ -30,7 +30,7 @@ final class StoreShotsFlowTests: XCTestCase {
   private struct Lang {
     let code: String
     let locale: String
-    /// The tabs: Tìm, Bể của tôi, Đèn.
+    /// The tabs: Tìm, Bể của tôi, Đèn, Tài khoản.
     let tabs: [String]
     /// Typed on the Tìm tab, and the row it opens: the neon tetra.
     let search: String
@@ -47,20 +47,20 @@ final class StoreShotsFlowTests: XCTestCase {
     let write: String
 
     static let vi = Lang(
-      code: "vi", locale: "vi_VN", tabs: ["Tìm", "Bể của tôi", "Đèn"], search: "ca neon", fish: "Cá neon xanh",
+      code: "vi", locale: "vi_VN", tabs: ["Tìm", "Bể của tôi", "Đèn", "Tài khoản"], search: "ca neon", fish: "Cá neon xanh",
       tank: "Bể cộng đồng",
       life: [("neon xanh", "Cá neon xanh", 12), ("tam giac", "Cá tam giác", 10), ("chuot dong", "Cá chuột đồng", 6),
              ("red cherry", "Tép red cherry", 10)],
       strip: "Ổ cắm bể 60", lamp: "Đèn", filter: "Lọc", write: "Ghi lịch")
     static let id = Lang(
-      code: "id", locale: "id_ID", tabs: ["Cari", "Akuarium saya", "Lampu"], search: "neon", fish: "Neon tetra",
+      code: "id", locale: "id_ID", tabs: ["Cari", "Akuarium saya", "Lampu", "Akun"], search: "neon", fish: "Neon tetra",
       tank: "Akuarium komunitas",
       life: [("neon tetra", "Neon tetra", 12), ("harlequin", "Rasbora Harlequin", 10),
              ("corydoras aeneus", "Corydoras bronze", 6), ("udang cherry", "Udang Cherry", 10)],
       strip: "Stopkontak akuarium 60", lamp: "Lampu", filter: "Filter", write: "Simpan jadwal")
     // Searched by scientific name: typed in Latin letters.
     static let th = Lang(
-      code: "th", locale: "th_TH", tabs: ["ค้นหา", "ตู้ของฉัน", "ไฟ"], search: "neon", fish: "ปลานีออน",
+      code: "th", locale: "th_TH", tabs: ["ค้นหา", "ตู้ของฉัน", "ไฟ", "บัญชี"], search: "neon", fish: "ปลานีออน",
       tank: "ตู้ปลารวม",
       life: [("paracheirodon innesi", "ปลานีออน", 12), ("trigonostigma heteromorpha", "ปลาซิวข้างขวานใหญ่", 10),
              ("corydoras aeneus", "แพะเขียว", 6), ("neocaridina davidi", "กุ้งเชอร์รี่", 10)],

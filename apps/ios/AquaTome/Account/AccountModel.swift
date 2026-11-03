@@ -74,6 +74,7 @@ final class AccountModel {
   var canSync: Bool { tanks.problem == nil || tanks.problem == .saveFailed }
   var user: AccountUser? { if case .signedIn(let u) = state { u } else { nil } }
   var signsInWithApple: Bool { user?.methods.contains { $0.kind == "apple" } ?? false }
+  var hasPasskey: Bool { user?.methods.contains { $0.kind == "passkey" } ?? false }
   /// The ways the account signs in, as the account section lists them ("Apple và passkey").
   var ways: String {
     let names = ["apple": "Apple", "google": "Google", "email": "email", "passkey": "passkey"]

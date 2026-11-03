@@ -15,7 +15,7 @@ struct AquaTomeApp: App {
   @State private var handbookPath = NavigationPath()
   @Environment(\.scenePhase) private var phase
 
-  enum Tab { case tanks, handbook, lights }
+  enum Tab { case tanks, handbook, lights, account }
 
   init() {
     #if DEBUG
@@ -53,6 +53,9 @@ struct AquaTomeApp: App {
         LightsView()
           .tabItem { Label("Đèn", systemImage: "lightbulb") }
           .tag(Tab.lights)
+        AccountView()
+          .tabItem { Label("Tài khoản", systemImage: "person.crop.circle") }
+          .tag(Tab.account)
       }
       // The tab bar shrinks out of the way while reading down a page, and comes back at the page's top or with a tap on it (iOS 26).
       .minimizingTabBarOnScroll()
@@ -87,6 +90,7 @@ struct AquaTomeApp: App {
   private func open(_ screen: AppScreen) {
     switch screen {
     case .lights: tab = .lights
+    case .account: tab = .account
     case .tanks(let id):
       var path = NavigationPath()
       if let id, tanks.tanks.contains(where: { $0.id == id }) { path.append(id) }

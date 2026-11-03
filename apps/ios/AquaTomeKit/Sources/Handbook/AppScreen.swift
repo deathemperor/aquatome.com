@@ -11,6 +11,8 @@ public enum AppScreen: Equatable, Sendable {
   case page(String)
   /// A group's page ("/vi/nhom/catfish/", and its numbered pages): the app's shelf of that group's fish.
   case group(String)
+  /// The app's Tài khoản tab, which no page of the site is: the empty "Bể của tôi" opens it to sign in.
+  case account
 
   /// The screen `url` is, if it's one of these pages on `site`, in any of the site's languages; with `listed` (whether
   /// the app index has a path), also any other page the index lists; with `group` (whether the app has fish of a

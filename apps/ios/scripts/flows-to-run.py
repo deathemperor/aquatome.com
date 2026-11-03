@@ -5,10 +5,10 @@ HANDBOOK_FLOWS from the environment; prints `handbook=true|false` and `lights=tr
 `--test` checks the rules below on a few changes and prints nothing.
 
 A path reaches the lights' flows alone, the handbook's alone, neither (it's outside the app, or only read by `kit` or
-`app`), or both: anything not listed, such as the tanks tab (where accounts, plugs, lights and the tank-mates check all
-show), the Lights screens and the Chihiros modules under them (a handbook flow opens the tab from the Chihiros tool and
-finds its scan button, which the simulator's radio, built on FakeLight, brings up), the app's start, the project, or
-these workflows. A flow file runs in one job only; any other file among the UI tests (a helper they share) runs both.
+`app`), or both: anything not listed, such as the tanks tab (where plugs, lights and the tank-mates check all show) and
+the account (on its own tab, signed into from a page too), the Lights screens and the Chihiros modules under them (a
+handbook flow opens the tab from the Chihiros tool and finds its scan button, which the simulator's radio, built on
+FakeLight, brings up), the app's start, the project, or these workflows. A flow file runs in one job only; any other file among the UI tests (a helper they share) runs both.
 The string catalog holds the Indonesian and Thai text only (the Vietnamese the flows read is in the code), so it
 reaches no flow."""
 import os, re, sys

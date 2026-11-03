@@ -3,7 +3,8 @@ import XCTest
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
 /// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// Each checks only that its page opened: what a page shows, the other flows check.
+/// Also the Tài khoản tab and an empty "Bể của tôi", signed out on the stand-in server. Each checks only that its screen
+/// opened: what a screen shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -12,15 +13,20 @@ final class PageShotsFlowTests: XCTestCase {
   func testAFishInLargeText() { shoot("fish-large", "ca neon", "Cá neon", large: true, screens: 3) }
   func testAPlant() { shoot("plant-light", "rotala", "Rotala đỏ") }
   func testAGuide() { shoot("guide-light", "nuoi ca neon", "Nuôi cá neon trong bể nhỏ") }
+  func testTheAccountTab() { shoot("account-light", tab: "Tài khoản", showing: "account-header") }
+  func testAnEmptyTanksTab() { shoot("tanks-empty-light", tab: "Bể của tôi", showing: "sign-in-hint") }
+
+  /// One of the app's tabs, once `showing` is there, accounts on and signed out, each screen of it to its end.
+  private func shoot(_ name: String, tab: String, showing: String) {
+    let app = launch(dark: false, large: false, "-fake-accounts", "on")
+    app.tabBars.buttons[tab].tap()
+    XCTAssertTrue(app.descendants(matching: .any)[showing].firstMatch.waitForExistence(timeout: 5), "\(tab) isn't showing")
+    shots(app, name, dark: false, large: false, screens: 12)
+  }
 
   /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
   private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12) {
-    let app = XCUIApplication()
-    // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
-      + (dark ? ["-dark"] : [])
-      + (large ? ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"] : [])
-    app.launch()
+    let app = launch(dark: dark, large: large)
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
@@ -29,6 +35,21 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(row)")
     item.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
+    shots(app, name, dark: dark, large: large, screens: screens)
+  }
+
+  private func launch(dark: Bool, large: Bool, _ more: String...) -> XCUIApplication {
+    let app = XCUIApplication()
+    // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
+      + (dark ? ["-dark"] : [])
+      + (large ? ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"] : []) + more
+    app.launch()
+    return app
+  }
+
+  /// Each screen of what's showing, scrolled most of a screen at a time without a fling, to its end.
+  private func shots(_ app: XCUIApplication, _ name: String, dark: Bool, large: Bool, screens: Int) {
     var seen: [[UInt8]] = []
     var ended = false
     for n in 1...screens {
@@ -49,7 +70,7 @@ final class PageShotsFlowTests: XCTestCase {
       from.press(forDuration: 0.1, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25)), withVelocity: .slow,
                  thenHoldForDuration: 0.2)
     }
-    // A whole page (not the large text's top screens) ends before the shots run out: else its end wasn't seen, and the
+    // A whole screen (not the large text's top screens) ends before the shots run out: else its end wasn't seen, and the
     // shots repeat it to the last.
     if !large { XCTAssertTrue(ended, "\(name): no end found in \(screens) screens") }
   }
