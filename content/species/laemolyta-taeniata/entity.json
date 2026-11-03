@@ -48,6 +48,10 @@
       {
         "source": "seriouslyfish",
         "value": 29
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -65,6 +69,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/laemolyta_taeniata_anostomus_taeniatus__en/",
+      "html": "<p>The striped headstander looks like the big brother of the golden pencilfish. The species is a typical headstander in all respects of behaviour. It can become larger than 20 cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/laemolyta-taeniata",
@@ -75,6 +85,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/laemolyta-taeniata",
       "html": "<p>Native to the central portion of the Amazon basin but the full extent of its range is somewhat unclear.</p><p>Type locality is 'Rio Guaporé, Manaus, Mato Grosso, Brazil' and this species is known from the rios Madeira (of which the Guaporé is a tributary) and Negro in Brazil including a number of tributary drainages and floodplain lakes.</p><p>It's also been recorded in the Bolivian portion of the Guaporé, where the river is known as the Iténez, the Río Orinoco system in Venezuela and rios Ampiyacu and Nanay in Loreto Region, Peru.</p><p>More recently Mautari and Menezes (2006) reported it to occur in the rio Tocantins system so it may be more widely-distributed than is typically accepted.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/laemolyta_taeniata_anostomus_taeniatus__en/",
+      "html": "<p>The fish were imported from Peru.</p>"
     },
     {
       "key": "habitat",
@@ -161,7 +177,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ogefTngwDys",
+      "title": "Laemolyta taeniata",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MQPbLK0K4uE",
+      "title": "Laemolyta taeniata (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "odELPqzELEs",
+      "title": "Laemolyta taeniata",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "F2HNuAJtKTk",
+      "title": "Rare fish Laemolyta taeniata posing",
+      "durationSec": 18,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

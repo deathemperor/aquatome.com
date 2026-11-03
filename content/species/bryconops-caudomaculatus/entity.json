@@ -1,0 +1,100 @@
+{
+  "id": "bryconops-caudomaculatus",
+  "scientificName": "Bryconops caudomaculatus",
+  "order": "Characiformes",
+  "family": "Iguanodectidae",
+  "genus": "Bryconops",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "venezuela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/bryconops_cf_caudomaculatus_en/",
+      "html": "<p>This attractive tetra was imported from Venezuela for the first time. Currently 12 species of Bryconops are described from Venezuela, but most of them are known from preserved specimens only, so the determination is only tentative.</p><p>The fish are very pretty. They are supposed to reach a maximum length of about 6-7 cm; the imported fish are currently 4-5 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/bryconops_cf_caudomaculatus_en/",
+      "html": "<p>Venezuela.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/1bd867e654ba19e7.webp",
+      "width": 960,
+      "height": 555,
+      "licence": "CC BY 2.0",
+      "author": "Clinton & Charles Robertson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bryconops_cf_caudomaculatus.jpg",
+      "caption": "Bryconops cf. caudomaculatus",
+      "thumb": "https://media.aquatome.com/commons/1bd867e654ba19e7-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d3e7b7f2236d3353.webp",
+      "width": 960,
+      "height": 432,
+      "licence": "CC0",
+      "author": "Barry Chernoff and Antonio Machado-Allison",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bryconops_caudomaculatus_(Potaro_River).png",
+      "caption": "A live specimen of characid fish species Bryconops caudomaculatus.",
+      "thumb": "https://media.aquatome.com/commons/d3e7b7f2236d3353-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "3JpsFrHV_iM",
+      "title": "Lambari-saltador (Bryconops caudomaculatus)",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Q0bwmt5D7k8",
+      "title": "Tetra fishes in Morichal",
+      "durationSec": 43,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "S8pjirRBt20",
+      "title": "Аквариумная рыбка Бриконопс пятнохвостый",
+      "durationSec": 125,
+      "lang": "ru"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra",
+        "thức ăn cá nhỏ dạng hạt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

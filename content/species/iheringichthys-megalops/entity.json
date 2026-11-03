@@ -13,7 +13,32 @@
     "parana",
     "brazil"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 25
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -22,10 +47,28 @@
       "html": "<p>Scientific name: Iheringichthys megalops Eigenmann &amp; Ward, 1907.</p><p>Family: Pimelodidae.</p><p>IUCN Red List: Least Concern (last assessed 2020).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/iheringichthys_megalops.htm",
+      "html": "<p>Family: Pimelodidae. Adult size: 25 cm. Temperature: 22-27°C. pH: 6.0-7.2.</p><p>The tip of the adpressed dorsal fin comes close to the adipose-fin origin, the tip of the pectoral fin is close to the pelvic-fin origin and the tip of the pelvic fin reaches the anal-fin origin. It has distinct serrae on the anterior and especially the posterior pectoral spine margins. It has small spots distributed all over the flank, or spots that are faint in the posterior portion of the body. It is noted for its unusually shaped mouth, which is long and conical, and for its large eyes.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/iheringichthys_megalops.htm",
+      "html": "<p>Not found very often in the hobby, as imports from Paraguay are not often obtained.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1179",
       "html": "<p>South America: Paraná River basin. Type locality: Bahia Negra, Río Paraguay, Paraguay.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/iheringichthys_megalops.htm",
+      "html": "<p>South America: Paraguay, Paraná River basin. Type locality: Paraguay, Bahia Negra, Río Paraguay.</p>"
     },
     {
       "key": "reproduction",
@@ -40,10 +83,22 @@
       "html": "<p>Etymology: Named after Hermann von Ihering, 1850-1930, who arrived in Brazil in 1880 and settled in Rio Grande, and was an expert in birds, fishes and molluscs. The specific epithet refers to its large (megale = large) eyes (ops = eyes).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/iheringichthys_megalops.htm",
+      "html": "<p>Three species are described in this genus: I. megalops, I. labrosus and the latest, Iheringichthys syi Azpelicueta &amp; Britski, 2012.</p><p>Etymology: the specific name megalops comes from mégas, big, and ops, eye, referring to its very large eyes, larger than those of I. labrosus.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1179",
       "html": "<p>Annals of the Carnegie Museum v. 4 (no. 2) (art. 7), pp 115, Pl. 32 (figs. 3-4).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/iheringichthys_megalops.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Iheringichthys syi (Siluriformes: Pimelodidae), a new pimelodid species from upper Paraná basin, Brazil. Neotrop. ichthyol. vol.10 no.1 Porto Alegre 2012.</p><p>Salvador, G.N. 2023. Iheringichthys megalops. The IUCN Red List of Threatened Species 2023.</p><p>Sands, David. Catfishes of the World, Vol 3 Auchenipteridae &amp; Pimelodidae. Dunure Publications 1983.144p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -52,17 +107,6 @@
       "thumb": "https://media.aquatome.com/scotcat/1786cca4a7c8e2b2-480.webp",
       "width": 500,
       "height": 261,
-      "licence": "dùng với sự cho phép",
-      "author": "Acuario Marcelo / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/pimelodidae/iheringichthys_megalops.htm",
-      "caption": "Iheringichthys megalops",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/e3865ecc3fe7f7bb.webp",
-      "thumb": "https://media.aquatome.com/scotcat/e3865ecc3fe7f7bb-480.webp",
-      "width": 500,
-      "height": 337,
       "licence": "dùng với sự cho phép",
       "author": "Acuario Marcelo / ScotCat",
       "sourceUrl": "https://www.scotcat.com/pimelodidae/iheringichthys_megalops.htm",
@@ -92,17 +136,48 @@
       "source": "scotcat"
     },
     {
+      "url": "https://media.aquatome.com/scotcat/e3865ecc3fe7f7bb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e3865ecc3fe7f7bb-480.webp",
+      "width": 500,
+      "height": 337,
+      "licence": "dùng với sự cho phép",
+      "author": "Acuario Marcelo / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/iheringichthys_megalops.htm",
+      "caption": "Iheringichthys megalops",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d772e10cea2d661a.webp",
+      "thumb": "https://media.aquatome.com/commons/d772e10cea2d661a-480.webp",
       "width": 885,
       "height": 738,
       "licence": "Public domain",
       "author": "Carl H. Eigenmann / Waldo Lee McAtee",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_52358_Iheringichthys_megalops_Eigenmann_and_Ward.jpeg",
-      "caption": "Iheringichthys megalops Eigenmann and Ward Subject: Pimelodidae, Catfishes Tag: Fish",
-      "thumb": "https://media.aquatome.com/commons/d772e10cea2d661a-480.webp"
+      "caption": "Iheringichthys megalops Eigenmann and Ward Subject: Pimelodidae, Catfishes Tag: Fish"
     }
   ],
   "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-10-31"
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200w"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
 }

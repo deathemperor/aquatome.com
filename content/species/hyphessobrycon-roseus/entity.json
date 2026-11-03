@@ -11,7 +11,9 @@
     "essequibo",
     "suriname",
     "corantijn",
-    "brazil"
+    "brazil",
+    "french-guiana",
+    "maroni"
   ],
   "dataCard": {
     "tempC": [
@@ -45,6 +47,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 3
       }
     ],
     "tankCm": [
@@ -68,10 +74,22 @@
       "html": "<p>The rosy tetra, Megalamphodus rosaceus, is a small characid from Guyana, Suriname and Brazil, in river systems including the Essequibo and Corantijn. It is so similar to Megalamphodus bentosi that it was once considered a subspecies of it, and is most easily told apart by lacking the dark marking just behind the operculum. The vast majority of fish in the trade are mass bred on commercial farms.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_roseus_en/",
+      "html": "<p>The Yellow Phantom Tetra is one of the colorful, small species. The peaceful dwarfs become only around 3 cm long. They have blood red caudal fins and a wonderful contrasting large black shoulder spot.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-rosaceus",
       "html": "<p>Guyana, Suriname and Brazil. The species is found in several river systems, including the Rio Essequibo, Rio Corantijn and Rio Suriname. The vast majority of fish sold in the trade are mass bred on commercial farms. In the UK, most of these originate from Eastern Europe.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_roseus_en/",
+      "html": "<p>The species originates from French Guyana, where it occurs in the rivers Maroni and Oyapock. There are no exports from that country, so all Yellow Phantoms kept in aquaria are bred ones.</p>"
     },
     {
       "key": "habitat",
@@ -126,6 +144,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-rosaceus",
       "html": "<p>A beautiful species that is very similar to a host of others in the genus, some of which are undescribed. The most common of these in the hobby is H. bentosi. The two are so similar in appearance that H. rosaceus was once considered to be a subspecies of H. bentosi. The easiest way to distinguish them is by the presence of a dark marking just behind the operculum in H. bentosi, which is lacking in H. rosaceus.</p><p>As with the closely related Hemigrammus, the taxonomic status of all species in the genus Hyphessobrycon is currently Incertae Sedis, meaning uncertain. The genus is currently used as something of a catch-all for well over 100 species of small characin. Most experts agree that a full revision is required, with the likely outcome that many species will be placed into new or different genera.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_roseus_en/",
+      "html": "<p>Megalamphodus means \"with spacious ways\"; this refers to anatomical details. roseus means \"rosy colored\".</p>"
     },
     {
       "key": "references",
@@ -190,5 +214,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

@@ -84,6 +84,12 @@
       "html": "<p>Type locality is the Essequibo river system in Guyana but this species is currently understood to range throughout much of the Amazon and Orinoco drainages plus coastal rivers of Guyana, French Guiana and Suriname.</p><p>Colour pattern, fin morphology and adult size is somewhat variable across this range.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/crenuchus_cf_spilurus_venezuela_en/",
+      "html": "<p>Large specimens of Crenuchus cf. spilurus from Venezuela.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
@@ -126,6 +132,12 @@
       "html": "<p>Adult males are larger, more colourful, and develop greatly-extended dorsal and anal fins whereas females are relatively plain.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/crenuchus_cf_spilurus_venezuela_en/",
+      "html": "<p>Only the males develop the gorgeous sailfins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
@@ -136,6 +148,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/crenuchus-spilurus",
       "html": "<p>This species is currently the only described member of its genus although colour pattern and morphology vary considerably across its range.</p><p>You may see reference to this species being the only fish species to possess infra-red vision, but other species also possess this ability and we suspect that infra-red plays an important role in the reproductive cycle of many fishes.</p><p>The family Crenuchidae is separated from other Characiformes by possession of paired foramina in the frontal bones located posterodorsally to the orbits, and it's often split into the putative subfamilies Crenuchinae and Characidiinae.</p><p>Crenuchus is a member of the Crenuchinae and the only other genus currently included in this subfamily is Poecilocharax while the Characidiinae currently contains the genera Characidium, Ammocryptocharax, Geryichthys, Leptocharacidium, Melanocharacidium, Klauzewitzia, Odontocharacidium, Microcharacidium, Skiotocharax and Elachocharax.</p><p>The majority of crenuchids are native to waters surrounding the Guiana Shield, including the Orinoco and upper Amazon basins, although the genus Characidium is much more widespread with members known from as far south as the Río de la Plata drainage in Argentina.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/crenuchus_cf_spilurus_venezuela_en/",
+      "html": "<p>A new, red species of Crenuchus that lacks the tail spot has also been found. The Venezuelan Crenuchus cf. spilurus are splendid, large fish. Some specimens have a reddish basic coloration, others are yellowish.</p>"
     },
     {
       "key": "references",
@@ -179,7 +197,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Zvc6IcHmwsA",
+      "title": "Crenuchus spilurus (Sailfin Tetra) Surface Feeding on Flake",
+      "durationSec": 135,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NFTAOzrfIlc",
+      "title": "Crenuchus spilurus from Colombia",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "R21_V08VZRk",
+      "title": "Female Crenuchus spilurus individual being dominant",
+      "durationSec": 69,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "scV2vX5NLMo",
+      "title": "Crenuchus spilurus (Sailfin Tetra) intro.wmv",
+      "durationSec": 34,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -209,5 +252,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-03"
 }

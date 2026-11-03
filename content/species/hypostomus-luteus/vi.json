@@ -9,13 +9,21 @@
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong lưu vực thượng nguồn sông Uruguay (La Plata, Uruguay, Thượng Uruguay, Pelotas). Mẫu chuẩn được thu ở sông Pelotas, đoạn Volta Grande Dois, thuộc Marcelino Ramos, bang Rio Grande do Sul, Brazil.</p>",
     "waterConditions:planetcatfish": "<p>Nhiệt độ: 23,0-24,0°C.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi nhận. Đến nay chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Poluiçao -- peixes e pesca, pp 29, Figs. 15-16.</p>"
+    "references:planetcatfish": "<p>Poluiçao -- peixes e pesca, pp 29, Figs. 15-16.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: chưa có</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: Brazil, lưu vực thượng nguồn sông Uruguay. Địa điểm mẫu chuẩn: Rio Pelotas, Volta Grande 2, Marcelino Ramos, bang RS, Brazil. Mẫu chuẩn (holotype) hiện nằm trong bộ sưu tập cá nhân của M. Godoy.</p><p>Hypostomus luteus là loài đặc hữu của Brazil. Cá sống ở các sông Uruguay, Canoas, Pelotas, Forquilha, Passo Fundo, Ijuí và Jaguari, đều thuộc lưu vực thượng nguồn sông Uruguay. Loài này phân bố rộng và khá dễ gặp, nhưng số lượng ở mỗi nơi không nhiều. Vì chưa thấy mối đe dọa đáng kể nào với quần thể, Hypostomus luteus được xếp vào mức Ít quan tâm (LC) (IUCN 2022).</p>",
+    "aquariumSize:scotcat": "<p>Cá trưởng thành khá to, nên bạn cần một bể rộng rãi, dài từ 150 cm trở lên.</p>",
+    "maintenance:scotcat": "<p>Phần lớn các loài trong giống này ăn uống rất bừa bãi. Vì vậy bạn phải giữ nước sạch và lọc thật khỏe. Với loài này, nên nuôi ở nhiệt độ nước thấp hơn bình thường.</p>",
+    "diet:scotcat": "<p>Cá ăn gần như mọi loại thức ăn trong bể: rau củ, thức ăn viên nén, thức ăn viên và thức ăn dạng mảnh loại tốt.</p>",
+    "notes:scotcat": "<p>Màu sắc của loài này rất đa dạng. Khi lớn dần đến tuổi trưởng thành, cá có thể đổi màu, rõ nhất là các vây ngả sang vàng.</p><p>Nguồn gốc tên gọi: tên loài luteus trong tiếng Latin nghĩa là màu vàng, ám chỉ màu vàng cam của cá lúc còn sống.</p>",
+    "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Hypostomus luteus. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.9
     }
   }
 }

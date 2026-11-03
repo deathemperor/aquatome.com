@@ -1,0 +1,104 @@
+{
+  "id": "cichla-orinocensis",
+  "scientificName": "Cichla orinocensis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Cichla",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 70
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichla_orinocensis_en/",
+      "html": "<ul><li>Origin: Venezuela</li><li>Maturity is usually reached at a length of 20-25 cm</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichla_orinocensis_en/",
+      "html": "<p>Youngsters can be fed with white mosquito larvae and bloodworm; however, feeder fish are ideal. From a size of about 10 cm on, the young Cichla can be fed with frozen smelt as the basic food. Smelt can be used even for the largest specimens.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichla_orinocensis_en/",
+      "html": "<p>One can observe the unique sexual dichromatism of Cichla orinocensis: males look rather like Cichla ocellaris, while females have a colour pattern that reminds one of C. temensis.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichla_orinocensis_en/",
+      "html": "<p>All species of Cichla are, as far as it is known, openbrooders and perform bipartental broodcare.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichla_orinocensis_en/",
+      "html": "<p>Cichla: a name used in ancient Greece for a fish that is unknown today. orinocensis: means \"originating from the Rio Orinoco\".</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "256PfmaJVzg",
+      "title": "School of Cichla Orinocensis: Rio Meta Variant with Community",
+      "durationSec": 123,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tVtmzhtMBRc",
+      "title": "My Cichla orinocensis tank",
+      "durationSec": 138,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3xkQOsMv0pE",
+      "title": "Cichla Orinocensis",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9dPGXQg2IM8",
+      "title": "Cichla orinocensis peacock bass aquarium tank",
+      "durationSec": 73,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300 lít trở lên"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "cá tần đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

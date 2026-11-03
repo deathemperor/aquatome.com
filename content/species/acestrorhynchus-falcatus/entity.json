@@ -48,6 +48,10 @@
       {
         "source": "seriouslyfish",
         "value": 27.5
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -71,16 +75,34 @@
       "html": "<ul><li>Max size: 275 mm SL (11 in)</li><li>Aquarium size: 250 × 90 cm (98 × 36 in)</li><li>Temperature: 22–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–12 dGH</li><li>Difficulty: 5 of 8 (difficult), because it needs a tank at least 2 m long.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_falcatus_en/",
+      "html": "<p>Juveniles of the Redtail barracuda tetra Acestrorhynchus falcatus from Peru are currently about 6-8 cm long. One day the fish will become around 30 cm long.</p><p>Lexicon: Acestrorhynchus means \"needle-snout\". falcatus means \"like a falcon\".</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-falcatus",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. A tightly-fitting cover should be used in all cases since acestrorhynchids tend to be powerful jumpers.</p><p>The red-tailed freshwater barracuda, Acestrorhynchus falcatus, is a predatory acestrorhynchid from the northern Amazon and Orinoco basins. It also occurs in coastal rivers of Guyana, Suriname and French Guiana. Its large humeral spot, shaped like an inverted tear drop, separates it from other Acestrorhynchus. Reaching 250 to 275 mm, it needs plenty of open water, and a group must be of comparable size because acestrorhynchids are cannibalistic.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_falcatus_en/",
+      "html": "<p>The size of 6-8 cm is perfect for a complication-free acclimatisation.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-falcatus",
       "html": "<p>The type locality is given simply as 'Suriname' but this species is widely distributed throughout northern drainages of the Amazon in Peru and Brazil plus the Río Orinoco in Venezuela and various coastal river basins in Guyana, Suriname and French Guiana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_falcatus_en/",
+      "html": "<p>Origin: Peru.</p>"
     },
     {
       "key": "habitat",
@@ -146,39 +168,64 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/71ee7fd91131a396.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/71ee7fd91131a396-480.webp",
       "width": 799,
       "height": 599,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-falcatus",
       "caption": "This species can be maintained in groups.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/71ee7fd91131a396-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/05a0e4f07c8efd0a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/05a0e4f07c8efd0a-480.webp",
       "width": 799,
       "height": 550,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-falcatus",
       "caption": "A. cf. falcatus; collection details unknown.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/05a0e4f07c8efd0a-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/109c8bff9224e84b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/109c8bff9224e84b-480.webp",
       "width": 801,
       "height": 323,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-falcatus",
       "caption": "Wild-collected adult; collection details unspecified.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/109c8bff9224e84b-480.webp"
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "4yW0Glw9lVQ",
+      "title": "Acestrorhynchus falcatus",
+      "durationSec": 77,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2RxFxv8FZgo",
+      "title": "acestrorhynchus falcatus",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eaVcnOJA0To",
+      "title": "Planted acestrorhynchus falcatus tank 3",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eGyZunJ8kQI",
+      "title": "acestrorhynchus falcatus planted tank 2",
+      "durationSec": 169,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -208,5 +255,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-03"
 }

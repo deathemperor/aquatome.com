@@ -16,13 +16,17 @@
     "behaviour:seriouslyfish": "<p>Đây không phải loài hung dữ. Tuy vậy, khi chọn cá nuôi chung, bạn cần tính đến kích thước cá có thể đạt khi trưởng thành. Cá rất hợp với bể cộng đồng châu Phi, nuôi cùng tetra Congo, cá da trơn Synodontis và các loài bichir (Polypterus) hoặc cá voi châu Phi (họ Mormyridae) cỡ nhỏ hơn. Bạn cũng có thể nuôi chung với các loài characin Nam Mỹ cỡ lớn, cá da trơn cỡ vừa và cichlid hiền. Cá có thể rỉa nhẹ những con bơi chậm hoặc vây dài. Vì vậy, mỗi lần thả cá mới vào bể, bạn nên theo dõi sát. Khác với một số loài cùng giống, loài này nuôi theo nhóm được.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Chưa có ghi nhận nào về việc cá sinh sản trong bể nuôi. Ngoài tự nhiên, cá đẻ theo đàn lớn ở vùng nước thoáng. Nghe nói hiện nay ở Đông Âu đã có nơi nhân giống loài này để bán thương mại.</p>",
-    "notes:seriouslyfish": "<p>Mấy năm gần đây, loài này xuất hiện nhiều hơn trên thị trường. Thả vào bể cộng đồng cỡ lớn, nó là một điểm nhấn thú vị. Khi trưởng thành, cá có vây đỏ tươi. Một số con có ánh hồng dưới bụng. Những khác biệt này có thể cho thấy đó là các loài khác nhau, vì trong giống có nhiều loài nhìn qua khá giống D. affinis.</p>"
+    "notes:seriouslyfish": "<p>Mấy năm gần đây, loài này xuất hiện nhiều hơn trên thị trường. Thả vào bể cộng đồng cỡ lớn, nó là một điểm nhấn thú vị. Khi trưởng thành, cá có vây đỏ tươi. Một số con có ánh hồng dưới bụng. Những khác biệt này có thể cho thấy đó là các loài khác nhau, vì trong giống có nhiều loài nhìn qua khá giống D. affinis.</p>",
+    "quickFacts:glaser": "<p>Distichodus affinis là loài cá rất hiếm, quê ở Congo. Cá đực có bộ vây đỏ rất đẹp và nhỏ hơn cá cái nhiều. Cá đực chỉ dài 5–6 cm, còn cá cái đạt 8–10 cm.</p>",
+    "dimorphism:glaser": "<p>Cá đực có bộ vây đỏ đẹp và nhỏ hơn cá cái nhiều. Cá đực chỉ dài 5–6 cm, còn cá cái đạt 8–10 cm.</p>"
   },
   "quality": {
     "score": 0.7,
     "indexable": false,
     "bySource": {
-      "seriouslyfish": 0.7
-    }
+      "seriouslyfish": 0.7,
+      "glaser": 0.95
+    },
+    "reason": "score"
   }
 }

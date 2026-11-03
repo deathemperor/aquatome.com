@@ -8,13 +8,36 @@
   "places": [
     "south-america",
     "brazil",
-    "parana"
+    "parana",
+    "araguaia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 8.5
+      },
+      {
+        "source": "scotcat",
+        "value": 8.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,10 +49,22 @@
       "html": "<ul><li><strong>Scientific name:</strong> Imparfinis mirini Haseman, 1911</li><li><strong>Common names:</strong> Shrimp Catfish (English name), Rejemalle (Denmark)</li><li><strong>Type locality:</strong> Above the falls of Rio Piracicaba-mirini, near Piracicaba, Brazil.</li><li><strong>Identification:</strong> Easily distinguished from Imparfinis piperatus by its conical instead of depressed head.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2018).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/imparfinis_mirini.htm",
+      "html": "<ul><li><strong>Common name:</strong> Blue Shrimp Catfish</li><li><strong>Synonym:</strong> Cetopsorhamdia mirini</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1209",
       "html": "<p>South America: Upper Araguaia and Paraná River basins in Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/imparfinis_mirini.htm",
+      "html": "<p>South America: Upper Araguaia and Paraná River basins, Brazil. Type locality: Near Piracicaba above the falls of Rio Piracicabamirini [Brazil].</p>"
     },
     {
       "key": "habitat",
@@ -38,16 +73,52 @@
       "html": "<p>In nature, this species lives under stones in rapids.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/imparfinis_mirini.htm",
+      "html": "<p>Provide a moderate sized aquarium with hiding places such as bogwood, rockwork and plants.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/imparfinis_mirini.htm",
+      "html": "<p>A good water flow is recommended with good aeration and filtration.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/imparfinis_mirini.htm",
+      "html": "<p>Live, frozen and flake foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/imparfinis_mirini.htm",
+      "html": "<p>The Blue Shrimp Catfish (Imparfinis mirini) hides under rocks and roots during the day, and around sunset it starts preying on shrimps, insects and fish fry. It is very sensitive. Peaceful towards other species but territorial with its own kind.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1209",
       "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/imparfinis_mirini.htm",
+      "html": "<p>Etymology: The specific name mirini is named for Rio Piracicaba-mirini, near Piracicaba, Brazil, the type locality.</p><p>Remarks: The second thumbnail image shows a specimen after capture with stress colouration; after a few shots it recovered and fled into hiding under a big log (Petersen, P.).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1209",
       "html": "<p>Annals of the Carnegie Museum v. 7 (nos 3-4) (17), pp 318, Pl. 47.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/imparfinis_mirini.htm",
+      "html": "<p>Bockmann, F.A. and G.M. Guazzelli 2003 Heptapteridae (Heptapterids). p. 406-431. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2018. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 11/2019 ).</p>"
     }
   ],
   "photos": [
@@ -97,13 +168,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/f8798c07a3755cf0.webp",
+      "thumb": "https://media.aquatome.com/commons/f8798c07a3755cf0-480.webp",
       "width": 960,
       "height": 1112,
       "licence": "CC BY 4.0",
       "author": "Valter M. Azevedo-Santos, Fernando M. Pelicice, and Raoul Henry",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Actinopterygii_in_the_Guare%C3%AD_River_basin_03_(1676-0611-BN-2020-1031).jpg",
-      "caption": "(a) Oligosarcus paranensis, 144.3 mm SL; (b) Piabarchus cf. stramineus, 48.1 mm SL; (c) Piabina argentea, 58.2 mm SL; (d) Serrapinnus notomelas, 29.5 mm SL; (e) Gymnotus carapo, 108.6 mm TL; (f) Gymno",
-      "thumb": "https://media.aquatome.com/commons/f8798c07a3755cf0-480.webp"
+      "caption": "(a) Oligosarcus paranensis, 144.3 mm SL; (b) Piabarchus cf. stramineus, 48.1 mm SL; (c) Piabina argentea, 58.2 mm SL; (d) Serrapinnus notomelas, 29.5 mm SL; (e) Gymnotus carapo, 108.6 mm TL; (f) Gymno"
     }
   ],
   "videos": [],
@@ -130,5 +201,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

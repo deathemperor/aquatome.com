@@ -43,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 20
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -64,6 +68,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-affinis",
       "html": "<p>The silver distichodus, Distichodus affinis, is an active citharinid (family Citharinidae) from the Lower and Central Congo basin. It develops bright red fins as it matures and some specimens a pink sheen on the underside, and these variations may indicate different species. It will eat most greenery, so it suits a tank furnished with smooth rocks and driftwood better than a planted one.</p><ul><li>Max size: 200 mm SL (8 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 23–27°C (73–81°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li><li>Difficulty: 4 of 8 (easy)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus_affinis_en/",
+      "html": "<p>Distichodus affinis is a very rare fish from the Congo. Males have beautiful red fins and stay much smaller than females (males 5–6 cm, females 8–10 cm).</p>"
     },
     {
       "key": "distribution",
@@ -114,6 +124,12 @@
       "html": "<p>Unknown.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus_affinis_en/",
+      "html": "<p>Males have beautiful red fins and stay much smaller than the females (males 5–6 cm, females 8–10 cm).</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-affinis",
@@ -127,7 +143,32 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "qeL6vd04eFY",
+      "title": "Distichodus affinis",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gM4fOol0b2c",
+      "title": "Veggie Day #3: Distichodus affinis",
+      "durationSec": 189,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "shagH3cA6VM",
+      "title": "【No.505 ディスティコダス アフィニス/ノボリ】Distichodus affinis/noboli",
+      "durationSec": 14,
+      "lang": "ja"
+    },
+    {
+      "youtubeId": "1vdwbIWaU9M",
+      "title": "Grey is beautiful: Distichodus affinis",
+      "durationSec": 102,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -158,5 +199,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-03"
 }

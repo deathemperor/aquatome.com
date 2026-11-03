@@ -1,0 +1,127 @@
+{
+  "id": "moenkhausia-costae",
+  "scientificName": "Moenkhausia costae",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Moenkhausia",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-sao-francisco"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_costae_en/",
+      "html": "<p>This tetra originates from Brazil (Rio Sao Francisco and Itapicuru). It reaches a maximum length of about 7 cm. It is an attractive schooling fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_costae_en/",
+      "html": "<p>Brazil: Rio Sao Francisco and Itapicuru.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c9cdfacaf949c0c1.webp",
+      "width": 960,
+      "height": 438,
+      "licence": "CC0",
+      "author": "Carl H. Eigenmann",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moenkhausia_costae_illustration_(1917).jpg",
+      "caption": "An illustration of characiform fish species Moenkhausia costae from the 1917 book \"The American Characidae\".",
+      "thumb": "https://media.aquatome.com/commons/c9cdfacaf949c0c1-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/060001cbbd192e31.webp",
+      "width": 800,
+      "height": 616,
+      "licence": "CC BY-SA 3.0",
+      "author": "Staatliche Naturwissenschaftliche Sammlungen Bayerns",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moenkhausia_costae_(ZSM-007586).jpg",
+      "caption": "Moenkhausia costae, preserved in the Pisces Collection at the Zoologische Staatssammlung München. This specimen was collected from Juazeiro, Bahia, Brazil.",
+      "thumb": "https://media.aquatome.com/commons/060001cbbd192e31-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e6de4b0f2722e7a3.webp",
+      "width": 800,
+      "height": 610,
+      "licence": "CC BY-SA 3.0",
+      "author": "Staatliche Naturwissenschaftliche Sammlungen Bayerns",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moenkhausia_costae_(ZSM-007587).jpg",
+      "caption": "Moenkhausia costae, preserved in the Pisces Collection at the Zoologische Staatssammlung München. This specimen was collected from Juazeiro, Bahia, Brazil.",
+      "thumb": "https://media.aquatome.com/commons/e6de4b0f2722e7a3-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/de709303da1c07d2.webp",
+      "width": 960,
+      "height": 1278,
+      "licence": "CC0",
+      "author": "Internet Archive Book Images",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_American_Characidae_(1917)_(17930836210).jpg",
+      "caption": "Title: The American Characidae Identifier: americancharacid431ei Year: 1917 (1910s) Authors: Eigenmann, Carl H. , 1863-1927; Myers, George S. (George Sprague), 1905-1985 Subjects: Characidae; Fishes P",
+      "thumb": "https://media.aquatome.com/commons/de709303da1c07d2-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "jWWe0dV3kdM",
+      "title": "SPECIES SPOTLIGHT | Costae tetra",
+      "durationSec": 312,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mmg1EIMdbkU",
+      "title": "The Best Schooling Tetra? Costae Black Line Tetra Profile",
+      "durationSec": 791,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sm5RRj8FoS8",
+      "title": "Moenkhausia Costae Tetra Aquarium | Silver Schooling Fish, Black Tail Markings and Planted Tank",
+      "durationSec": 8,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "BzYTAjRgRpw",
+      "title": "200 Costae Tetras In A Gigantic Nature Aquarium",
+      "durationSec": 38,
+      "lang": "en-IN"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc treo"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ dạng vảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

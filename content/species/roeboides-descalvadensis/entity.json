@@ -1,0 +1,65 @@
+{
+  "id": "roeboides-descalvadensis",
+  "scientificName": "Roeboides descalvadensis",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Roeboides",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "paraguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/roeboides_descalvadensis_en/",
+      "html": "<p>A rare glass predatory tetra from Paraguay. It becomes only around 10 cm long.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/roeboides_descalvadensis_en/",
+      "html": "<p>It is an ideal aquarium fish for all who are interested in keeping predatory tetras and have no very large tank, because R. descalvadensis becomes only around 10 cm long.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/roeboides_descalvadensis_en/",
+      "html": "<p>Feeding the fish is pretty easy, as they accept almost any type of the usual frozen or live food offered for aquarium fish.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

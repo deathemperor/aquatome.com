@@ -1,0 +1,95 @@
+{
+  "id": "hemigrammus-hyanuary",
+  "scientificName": "Hemigrammus hyanuary",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hemigrammus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 23,
+          "max": 25
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hemigrammus-hyanuary-wild-4/",
+      "html": "<p>In 1957, when the first Green Tetras or Neon Costello (Hemigrammus hyanuary) were imported, the tetras were absolute fashion fish. Otherwise the comparison with the neon or cardinal tetra can hardly be explained, because H. hyanuary – which by the way is named after Lake Hyanuary in Brazil – is really nicely colored, but it has little in common with a neon fish. Much more striking is the animal's contrasting tail root pattern.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hemigrammus-hyanuary-wild-4/",
+      "html": "<p>Mostly bred ones are offered; currently there are pretty Peru imports.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hemigrammus-hyanuary-wild-4/",
+      "html": "<p>The Neon Costello is widely distributed in the upper Amazon region.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hemigrammus-hyanuary-wild-4/",
+      "html": "<p>In aquariums with sandy bottom and subdued light, as it can be well achieved by floating plants, the animals are most beautiful. They should be kept in a group (10-20 specimens) at temperatures between 23 and 25°C (for breeding 2-3°C higher).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Xed4Xkrtu_I",
+      "title": "Hemigrammus Hyanuary",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "f2dYs4pTvxo",
+      "title": "January tetra — The Ultimate Aquarium Fish Profile #shorts",
+      "durationSec": 67,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "bèo thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

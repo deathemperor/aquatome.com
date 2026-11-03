@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (52)
+# Tóm tắt chờ duyệt (54)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -243,6 +243,20 @@ Cá minnow bụng đỏ phương Nam hợp với người muốn nuôi cá bắt
 Kiểm tra:
 - "Tính bể theo cỡ cá hiện có rồi quên cá lớn tới 12 cm; nên tính chỗ cho con trưởng thành": the page says nothing about sizing a tank or planning space for adults. It only gives the current size (5-7 cm) and the maximum size. This mistake and its fix are advice the page does not give.
 
+## Cá chim hoa mai Orinoco (Cichla orinocensis)
+id: `cichla-orinocensis`
+
+Cá chim hoa mai Orinoco (Cichla orinocensis) hợp với người đã có kinh nghiệm và chịu chơi cá săn mồi lớn, vì thẻ dữ liệu ghi kích thước trưởng thành 70 cm. Hồ sơ không nêu bể tối thiểu, nhiệt độ hay pH nên chưa đủ căn cứ để chốt thông số nước. Điểm khó nhất là khẩu phần: cá ăn mồi, lớn lên phải chuyển dần sang cá ốt đông lạnh.
+
+- Cho cá nhỏ ăn mãi lăng quăng trắng và trùng huyết thì chưa tới; cá mồi sống mới là lựa chọn lý tưởng nhất lúc còn nhỏ.
+- Giữ nguyên thức ăn nhỏ khi cá lớn dần là sai; nên chuyển sang cá ốt đông lạnh làm thức ăn chính.
+
+Kiểm tra:
+- "hợp với người đã có kinh nghiệm": the page and card give no difficulty or experience requirement, so this suitability claim is unsupported.
+- "lớn lên phải chuyển dần sang cá ốt đông lạnh": the page says only "có thể chuyển" (you can switch) once the fish is about 10 cm. "Phải" (must) turns an option into a requirement.
+- "Giữ nguyên thức ăn nhỏ khi cá lớn dần là sai; nên chuyển sang cá ốt": the page presents the switch as an option, not a rule, and never calls keeping the small foods a mistake. This mistake and fix are stated more firmly than the page states them.
+- "Cho cá nhỏ ăn mãi lăng quăng trắng và trùng huyết thì chưa tới": the page says these foods are fine for small fish. It doesn't call feeding them a mistake, and it doesn't say "mãi" (continuously) is a problem.
+
 ## Cá rong rêu cobitis (Crossocheilus cobitis)
 id: `crossocheilus-cobitis`
 
@@ -486,17 +500,6 @@ Kiểm tra:
 - Mistake 1: "nên chỉ ghép với cá nước đen nhỏ như Boraras hoặc betta ấp trứng bằng miệng" – the page only says "Bạn có thể cho chúng ở chung với…" (a permitted option). Turning it into an exclusive rule ("chỉ") is advice the page doesn't give.
 - Mistake 1: "cá paro dễ bị lấn át" – the page never says the fish get bullied or outcompeted by other tank mates. It only says they are gentle and shy. This risk is invented.
 
-## Cá cichlid kribensis vàng (Pelvicachromis humilis)
-id: `pelvicachromis-humilis`
-
-Hồ sơ này chưa đủ để nói loài hợp với ai. Thẻ chỉ ghi kích thước trưởng thành 12 cm, còn bể tối thiểu, nhiệt độ, pH, độ cứng và độ khó đều không có. Hồ sơ cũng gộp nhiều dạng trong nhóm P. humilis nên chưa chắc thông tin áp dụng đúng cho Pelvicachromis humilis, và con cái luôn nhỏ hơn con đực nhưng có màu đẹp hơn.
-
-- Đừng chọn đực cái chỉ theo màu và độ lớn, vì ở nhóm này con cái mới là con có màu đẹp hơn và luôn nhỏ hơn; nên nhìn vùng sáng óng trên bụng để nhận con cái.
-
-Kiểm tra:
-- The mistake "Đừng chọn đực cái chỉ theo màu và độ lớn" is not on the page. The page says the sexes "luôn khác màu nhau rất rõ" and that the female is always smaller, so it does not warn against sexing by colour or size. This advice is invented and cuts against the page.
-- The fix "nên nhìn vùng sáng óng trên bụng để nhận con cái" is a sexing tip the page does not give. The page only says the group's females have this patch. It does not say to use it to tell the sexes apart.
-
 ## Cá da trơn Robocop (Physopyxis lyra)
 id: `physopyxis-lyra`
 
@@ -508,6 +511,18 @@ Cá da trơn Robocop (Physopyxis lyra) hợp với người muốn nuôi cá r�
 Kiểm tra:
 - Mistake 2: "Nuôi chung với cá to hoặc loài coi nó là mồi sẽ bị ăn thịt" – the page only says tank mates should be fairly small because the fish is tiny. It doesn't say big fish will eat it, so this states a certainty the page doesn't give.
 - Summary: "phải thả thức ăn chìm sau khi trời tối thì cá mới ăn đủ" – the page only says this is the best way ("tốt nhất") to make sure the fish eats enough. "Phải ... mới" turns that recommendation into a strict requirement.
+
+## Cá pimelodella hang động (Pimelodella kronei)
+id: `pimelodella-kronei`
+
+Hồ sơ chưa nêu bể tối thiểu hay độ khó, nên chưa đủ cơ sở để nói loài này hợp với kiểu người nuôi nào. Cá pimelodella hang động (Pimelodella kronei) dài tới 20,2 cm, cần nước mát 15–22 °C và pH 7–8. Điểm khó nhất là loài này xếp Nguy cấp theo IUCN và chưa có báo cáo nào ghi nhận sinh sản.
+
+- Đừng nuôi lẻ một con: ban ngày cá tụ thành đàn trong vũng nước sâu có bóng râm, nên bố trí chỗ có bóng râm và nuôi theo nhóm.
+- Đừng để nước ấm như bể cá nhiệt đới thông thường: giữ nước trong khoảng 15–22 °C.
+- Đừng tính chuyện cho sinh sản để nhân giống: chưa có báo cáo nào ghi nhận loài này sinh sản.
+
+Kiểm tra:
+- "Đừng nuôi lẻ một con ... bố trí chỗ có bóng râm và nuôi theo nhóm": the page only says that by day the fish gather in shoals in shaded deep pools in the wild. It gives no tank-keeping advice about groups or shade. The summary turns a wild-habitat observation into a firm aquarium rule.
 
 ## Cá tetra weitzmani (Poecilocharax weitzmani)
 id: `poecilocharax-weitzmani`
@@ -540,6 +555,16 @@ Cá đuối nước ngọt Potamotrygon scobina là loài đuối tương đối
 
 Kiểm tra:
 - "loài này chỉ phân bố ở sông Rio Tocantins tại Brazil" drops the page's hedge "Theo những gì đã biết" (as far as is known), so a cautious claim becomes a certainty.
+
+## Cá tetra săn mồi Araguaito (Roeboides araguaito)
+id: `roeboides-araguaito`
+
+Cá tetra săn mồi Araguaito (Roeboides araguaito) có nguồn gốc từ Venezuela, lớn tới 11 cm. Hồ sơ không ghi cỡ bể, nhiệt độ, pH hay độ khó, nên cần tìm thêm thông tin trước khi quyết định nuôi. Loài này chỉ bán qua kênh bán buôn, và cá có hai cỡ là 6-8 cm và 8-10 cm.
+
+
+Kiểm tra:
+- "6-8 cm" is not the card's adult size (11 cm)
+- "8-10 cm" is not the card's adult size (11 cm)
 
 ## Cá chạch suối Schistura geisleri (Schistura geisleri)
 id: `schistura-geisleri`

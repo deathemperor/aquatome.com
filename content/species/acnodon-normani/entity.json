@@ -18,6 +18,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
       }
     ],
     "ph": [
@@ -42,6 +49,10 @@
       {
         "source": "seriouslyfish",
         "value": 13.5
+      },
+      {
+        "source": "glaser",
+        "value": 13.5
       }
     ],
     "tankCm": [
@@ -65,6 +76,18 @@
       "html": "<p>The sheep pacu, Acnodon normani, is a serrasalmid from Brazil, possibly restricted to the Xingu and Tocantins watersheds of the Amazon basin. Also known in the trade as 'tiger pacu', it is often said to be a frugivore or herbivore, but aquarium observations suggest it also feeds on the scales of other fishes. That makes it unsuitable for the community aquarium, although it does not seem to target much smaller species.</p><ul><li>Max size: 135 mm SL (5 in SL)</li><li>Aquarium size: 150 × 45 cm (60 × 18 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 2–15 dGH</li><li>Difficulty: 5 of 8 (moderate); needs a very large tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acnodon_normani_en/",
+      "html": "<ul><li>Common name: sheep pacu</li><li>Size: up to 13.5 cm standard length without caudal fin</li><li>Origin: Brazil</li><li>Available size: 7-15 cm</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acnodon_normani_en/",
+      "html": "<p>This rare and comparably small, pretty pacu can be imported only very occasionally. This is due to the fact that Acnodon represents a type of fish that lives in open waters. This is also obvious from its typical pattern, consisting of thin vertical stripes on a light blue body, which perform an excellent camouflage when the sun shines in natural waters. These fish try to escape in stampede when disturbed. This behaviour makes it very difficult to collect them and the collectors also need a lot of patience and knowledge until the fish have settled down.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acnodon-normani",
@@ -83,6 +106,12 @@
       "html": "<p>Standard length: 135 mm SL (5 in SL). Aquarium base: 150 × 45 cm (60 × 18 in). Volume: ~304 litres (~80 US gal).</p><p>An aquarium with base dimensions of 150 × 45 cm (60 × 18 in) should be the smallest considered.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acnodon_normani_en/",
+      "html": "<p>When kept in aquaria, these fish need a comparably large tank.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acnodon-normani",
@@ -95,16 +124,34 @@
       "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acnodon_normani_en/",
+      "html": "<p>They need warm (26-30°C), clean and oxygen-rich water and love a strong current.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acnodon-normani",
       "html": "<p>Often said to be a frugivore or generalised herbivore, although aquarium observations suggest it may also feed on the scales of other fishes to an extent. It is easily-fed in captivity, adapting well to sinking dried and frozen products.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acnodon_normani_en/",
+      "html": "<p>Acnodon is not a genus of specialized plant eaters like many other pacus are, but they nevertheless need some plant food (special flakes for example) to stay healthy.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acnodon-normani",
       "html": "<p>Given its propensity to pick at the scales of larger fishes, this species is not recommended for the community aquarium, although it does not seem to target much smaller species.</p><p>It can be maintained in a group provided sufficient space is available.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acnodon_normani_en/",
+      "html": "<p>Against tankmates, whether they belong to their own or to other species, sheep pacus are usually peaceful.</p>"
     },
     {
       "key": "dimorphism",
@@ -125,6 +172,12 @@
       "html": "<p>This species is also known as 'tiger pacu' in the ornamental trade.</p><p>There are currently three species in the genus Acnodon, among which A. oligacanthus is easily-distinguished since it lacks vertical bars on the body, has a more-or-less terminal (vs. subterminal in congeners) mouth, and is not an Amazonian species. The third member, A. setnai, is known only from the rio Jari, a left bank tributary which enters the Amazon slightly downstream of the rio Xingu. It is distinguished from A. normani by possessing a more slender body, enlarged lips on the lower jaw, and flexible gill rakers surrounded by a lobulated membrane (vs. rigid gill rakers surrounded by a smooth membrane in A. normani). In terms of external appearance these two appear very similar, although given their respective distributions any fish seen in aquaria are likely to be A. normani.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acnodon_normani_en/",
+      "html": "<p>Acnodon: from ancient Greek, means \"without the projections on a hunting spear\"; this name was chosen in the erroneous belief that the type species, A. oligacanthus, lacks the predorsal spine. However, this spine is present in the genus.</p><p>normani: dedication name for John Roxbrough Norman (1898-1944).</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acnodon-normani",
@@ -134,23 +187,23 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/38d8e400e9421e9a.webp",
+      "thumb": "https://media.aquatome.com/commons/38d8e400e9421e9a-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 4.0",
       "author": "Brent Tibbatts",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acnodon_normani.jpg",
-      "caption": "Acnodon normani, aquarium specimen",
-      "thumb": "https://media.aquatome.com/commons/38d8e400e9421e9a-480.webp"
+      "caption": "Acnodon normani, aquarium specimen"
     },
     {
       "url": "https://media.aquatome.com/commons/aa63c5785142c6ec.webp",
+      "thumb": "https://media.aquatome.com/commons/aa63c5785142c6ec-480.webp",
       "width": 960,
       "height": 1069,
       "licence": "CC0",
       "author": "California Academy of Sciences (Ternetz%2C%20Carl)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acnodon_normani_Gosline,_1951_472948326.jpg",
-      "caption": "Acnodon normani Gosline, 1951 472948326",
-      "thumb": "https://media.aquatome.com/commons/aa63c5785142c6ec-480.webp"
+      "caption": "Acnodon normani Gosline, 1951 472948326"
     }
   ],
   "videos": [],
@@ -183,5 +236,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-03"
 }

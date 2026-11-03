@@ -419,6 +419,7 @@
   "Aff bleheri": null,
   "Aff elegans": null,
   "Aff evelynae": null,
+  "Aff hyanuary": null,
   "Aff metae": null,
   "Aff mirifica": null,
   "Aff tigrinus": null,
@@ -1220,6 +1221,13 @@
   "Annotated checklist": null,
   "Anodus elongatus": {
     "canonicalName": "Anodus elongatus",
+    "order": "Characiformes",
+    "family": "Hemiodontidae",
+    "genus": "Anodus",
+    "matchType": "EXACT"
+  },
+  "Anodus orinocensis": {
+    "canonicalName": "Anodus orinocensis",
     "order": "Characiformes",
     "family": "Hemiodontidae",
     "genus": "Anodus",
@@ -3884,6 +3892,13 @@
     "family": "Gobiidae",
     "genus": "Brachygobius",
     "matchType": "FUZZY"
+  },
+  "Brachyhypopomus brevirostris": {
+    "canonicalName": "Brachyhypopomus brevirostris",
+    "order": "Gymnotiformes",
+    "family": "Hypopomidae",
+    "genus": "Brachyhypopomus",
+    "matchType": "EXACT"
   },
   "Brachylebias persicus": null,
   "Brachyplatystoma capapretum": {
@@ -10016,6 +10031,13 @@
     "genus": "Laetacara",
     "matchType": "EXACT"
   },
+  "Laevimon kottelati": {
+    "canonicalName": "Laevimon kottelati",
+    "order": "Decapoda",
+    "family": "Potamidae",
+    "genus": "Laevimon",
+    "matchType": "EXACT"
+  },
   "Lagenandra ovata": {
     "canonicalName": "Lagenandra ovata",
     "order": "Alismatales",
@@ -11694,6 +11716,13 @@
   },
   "Monodactylus argenteus": {
     "canonicalName": "Monodactylus argenteus",
+    "order": "Perciformes",
+    "family": "Monodactylidae",
+    "genus": "Monodactylus",
+    "matchType": "EXACT"
+  },
+  "Monodactylus kottelati": {
+    "canonicalName": "Monodactylus kottelati",
     "order": "Perciformes",
     "family": "Monodactylidae",
     "genus": "Monodactylus",
@@ -17487,6 +17516,13 @@
     "genus": "Synodontis",
     "matchType": "EXACT"
   },
+  "Synodontis robertsi": {
+    "canonicalName": "Synodontis robertsi",
+    "order": "Siluriformes",
+    "family": "Mochokidae",
+    "genus": "Synodontis",
+    "matchType": "EXACT"
+  },
   "Systema naturae": null,
   "Systematik einiger": null,
   "Systomus navjotsodhii": {
@@ -17701,6 +17737,13 @@
     "genus": "Tenellus",
     "matchType": "EXACT"
   },
+  "Tenellus trimaculatus": {
+    "canonicalName": "Tenellus trimaculatus",
+    "order": "Siluriformes",
+    "family": "Doradidae",
+    "genus": "Tenellus",
+    "matchType": "EXACT"
+  },
   "Tennasserim provinces": null,
   "Terengganu states": null,
   "Terra firme": null,
@@ -17760,6 +17803,13 @@
     "genus": "Pao",
     "matchType": "EXACT"
   },
+  "Tetraodon schoutedeni": {
+    "canonicalName": "Tetraodon schoutedeni",
+    "order": "Tetraodontiformes",
+    "family": "Tetraodontidae",
+    "genus": "Tetraodon",
+    "matchType": "EXACT"
+  },
   "Thailand having": null,
   "Thailand including": null,
   "Thailand using": null,
@@ -17791,6 +17841,7 @@
   },
   "The kuhli": null,
   "The modesta": null,
+  "The robertsi": null,
   "Ther midas": null,
   "Theraps godmanni": {
     "canonicalName": "Theraps godmanni",

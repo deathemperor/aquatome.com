@@ -43,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -64,6 +68,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-stictus",
       "html": "<p>The red-base tetra, Hemigrammus stictus, is a small characin from Venezuela, Guyana and Brazil. It inhabits slow-moving rivers, tributaries and floodplain lakes. Not often seen for sale, it occasionally shows up as a contaminant among imports of more popular species. Like all Hemigrammus, its taxonomic status is Incertae Sedis, and most experts agree the genus needs a full revision.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus_stictus_en/",
+      "html": "<p>This peaceful and beautiful tetra occurs in the wild along with the Cardinal tetra (Paracheirodon axelrodi). A tank that is inhabited by a school of both species is a wonderful look. The species attains a length of 4-5 cm.</p>"
     },
     {
       "key": "distribution",
@@ -129,26 +139,51 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/c40455a7a0c89c2a.webp",
+      "thumb": "https://media.aquatome.com/commons/c40455a7a0c89c2a-480.webp",
       "width": 960,
       "height": 620,
       "licence": "CC BY 2.0",
       "author": "Clinton & Charles Robertson",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemigrammus_stictus.jpg",
-      "caption": "Hemigrammus stictus",
-      "thumb": "https://media.aquatome.com/commons/c40455a7a0c89c2a-480.webp"
+      "caption": "Hemigrammus stictus"
     },
     {
       "url": "https://media.aquatome.com/commons/053c1c36be0143b1.webp",
+      "thumb": "https://media.aquatome.com/commons/053c1c36be0143b1-480.webp",
       "width": 960,
       "height": 620,
       "licence": "CC BY 2.0",
       "author": "Clinton & Charles Robertson",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemigrammus_stictus_1.jpg",
-      "caption": "Hemigrammus stictus",
-      "thumb": "https://media.aquatome.com/commons/053c1c36be0143b1-480.webp"
+      "caption": "Hemigrammus stictus"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "wZRGRcTeWpY",
+      "title": "Hemigrammus stictus",
+      "durationSec": 57,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "fIkt1_sBBqQ",
+      "title": "Nature's aquarium : Hemigrammus stictus in its natural habitat",
+      "durationSec": 112,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CaJ4pRmx-zk",
+      "title": "Hemigrammus stictus in its natural habitat",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9qLXsShUBq0",
+      "title": "Hemigrammus Stictus. Ficha Técnica Part1",
+      "durationSec": 721,
+      "lang": "pt"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -178,5 +213,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-03"
 }

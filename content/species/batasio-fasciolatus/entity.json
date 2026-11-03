@@ -1,0 +1,123 @@
+{
+  "id": "batasio-fasciolatus",
+  "scientificName": "Batasio fasciolatus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Batasio",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/batasio-fasciolatus-2/",
+      "html": "<p>Batasio fasciolatus was described scientifically only in 2006. An illustration of it appeared as early as 1941, but at that time it was wrongly identified as B. tengana. The maximum size is about 7-8 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/batasio-fasciolatus-2/",
+      "html": "<p>This species was obtained from North Bengal in India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/batasio-fasciolatus-2/",
+      "html": "<p>These fish inhabit brooks and other flowing waters.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/batasio-fasciolatus-2/",
+      "html": "<p>They prefer clear, well filtered water that should not be too warm. 18-24°C is a good temperature range for keeping Batasio.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/batasio-fasciolatus-2/",
+      "html": "<p>Batasio fasciolatus feeds readily on any type of usual fish food, whether flakes, granulated food, frozen or live food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/batasio-fasciolatus-2/",
+      "html": "<p>The animals have comparatively short barbels and often swim in the open water column; they are not strictly bottom dwellers like many other catfish. Towards conspecifics and other fish that are not too small (otherwise they may be eaten) Batasio are absolutely peaceful and can even be considered social animals.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/batasio-fasciolatus-2/",
+      "html": "<p>Keeping Batasio in aquaria is rather easy, in contrast to determining the species.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "KmYNu6AxzQg",
+      "title": "Batasio fasciolatus (Bagrid catfish)",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-EVRhAz6Gsw",
+      "title": "Batasio fasciolatus",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Rjb-p3Yjt2Y",
+      "title": "Batasio fasciolatus (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TSZXiAC1eu0",
+      "title": "Batasio fasciolatus",
+      "durationSec": 24,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước chảy mạnh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn viên cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "ca-tetra-kitty",
+  "name": "Cá tetra kitty",
+  "altNames": [
+    "Cá tetra mèo con",
+    "Kitty tetra"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá tetra kitty. Ở mấy con đực này, vây lưng đã dựng lên thành “cờ” rất đẹp.</p>",
+    "notes:glaser": "<p>Trước đây người ta từng nhầm loài này với Hyphessobrycon lowae. Thực ra đó là một loài khác.</p>",
+    "dimorphism:glaser": "<p>Con đực có vây lưng phát triển thành “cờ”.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

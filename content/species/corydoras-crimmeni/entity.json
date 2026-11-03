@@ -1,0 +1,68 @@
+{
+  "id": "corydoras-crimmeni",
+  "scientificName": "Corydoras crimmeni",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_crimmeni_en/",
+      "html": "<p>This species attains a maximum length of about 6.5 cm. A bright green shine on the flanks of the body is very obvious, especially when the light falls from ahead on the fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_crimmeni_en/",
+      "html": "<p>It originates from the Rio Negro basin in Brazil.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cảnh nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "thức ăn cá đáy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm",
+        "lọc ngoài cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

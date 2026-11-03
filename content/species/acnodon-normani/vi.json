@@ -4,7 +4,9 @@
   "altNames": [
     "Cá pacu hổ",
     "Sheep Pacu",
-    "Tiger Pacu"
+    "Tiger Pacu",
+    "Pacu cừu",
+    "Sheep pacu"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá pacu cừu, Acnodon normani, là một loài thuộc họ Serrasalmidae đến từ Brazil, có thể chỉ phân bố ở các lưu vực Xingu và Tocantins thuộc lưu vực Amazon. Còn được gọi là 'cá pacu hổ' trong giới buôn bán cá cảnh, loài này thường được cho là ăn trái cây/quả hoặc ăn thực vật, nhưng quan sát trong bể nuôi cho thấy chúng cũng ăn vảy của các loài cá khác. Điều đó khiến chúng không phù hợp với bể cộng đồng, dù có vẻ chúng không nhắm vào các loài nhỏ hơn nhiều.</p><ul><li>Kích thước tối đa: 135 mm SL</li><li>Kích thước bể: 150 × 45 cm</li><li>Nhiệt độ: 22–28°C</li><li>pH: 5,5–7,5</li><li>Độ cứng: 2–15 dGH</li><li>Độ khó: 5/8 (trung bình); cần bể rất lớn</li></ul>",
@@ -18,13 +20,21 @@
     "dimorphism:seriouslyfish": "<p>Con đực trưởng thành lớn hơn có một thùy ở vây hậu môn, nằm ở vị trí tia thứ 23-28 tính từ tia vây phân nhánh đầu tiên. Các đốt của tia ở vị trí có thùy ngắn, đơn giản và bản tương đối rộng.</p>",
     "reproduction:seriouslyfish": "<p>Chưa có ghi nhận.</p>",
     "notes:seriouslyfish": "<p>Loài này cũng được gọi là 'cá pacu hổ' trên thị trường cá cảnh.</p><p>Hiện có ba loài trong chi Acnodon, trong đó A. oligacanthus dễ phân biệt vì không có các vạch dọc thân, miệng gần như ở đầu mõm (so với miệng dưới mõm ở các loài cùng chi), và không phải loài bản địa Amazon. Thành viên thứ ba, A. setnai, chỉ được biết ở rio Jari, một nhánh bờ trái đổ vào Amazon ngay phía hạ lưu rio Xingu. Loài này được phân biệt với A. normani bởi thân thon hơn, môi hàm dưới to ra, và các răng mang mềm được bao quanh bởi màng có thùy (so với răng mang cứng được bao quanh bởi màng nhẵn ở A. normani). Về hình dáng bên ngoài, hai loài này trông rất giống nhau, tuy nhiên xét theo vùng phân bố của chúng, bất kỳ con cá nào gặp trong bể nuôi nhiều khả năng là A. normani.</p>",
-    "references:seriouslyfish": "<ul><li>Gosline, W. A. (1951). Notes on the characid fishes of the subfamily Serrasalminae. Proceedings of the California Academy of Sciences (Series 4) v. 27 (no. 2), 17-64</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Jégu, M. and G. M. dos Santos (1990). Description d'Acnodon senai n. sp. du Rio Jari (Brésil, Amapà) et redescription d'A. normani (Teleostei, Serrasalmidae). Cybium 14(3), 187-206</li><li>Aloísio, G. R., F. G. Oliveira, and R. Angelini (2005). Fish, State Park of Jalapão, State of Tocantins, Brazil . Check List 1(1), 10-13</li></ul>"
+    "references:seriouslyfish": "<ul><li>Gosline, W. A. (1951). Notes on the characid fishes of the subfamily Serrasalminae. Proceedings of the California Academy of Sciences (Series 4) v. 27 (no. 2), 17-64</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Jégu, M. and G. M. dos Santos (1990). Description d'Acnodon senai n. sp. du Rio Jari (Brésil, Amapà) et redescription d'A. normani (Teleostei, Serrasalmidae). Cybium 14(3), 187-206</li><li>Aloísio, G. R., F. G. Oliveira, and R. Angelini (2005). Fish, State Park of Jalapão, State of Tocantins, Brazil . Check List 1(1), 10-13</li></ul>",
+    "quickFacts:glaser": "<ul><li>Tên thường gọi: pacu cừu</li><li>Kích thước: tối đa 13,5 cm chiều dài chuẩn (không tính vây đuôi)</li><li>Xuất xứ: Brazil</li><li>Kích thước thường bán: 7-15 cm</li></ul>",
+    "beforeYouBuy:glaser": "<p>Pacu cừu là một loài pacu đẹp, hiếm và tương đối nhỏ. Thỉnh thoảng lắm mới có đợt cá này nhập về. Lý do là Acnodon sống ở vùng nước thoáng. Nhìn hoa văn của nó cũng đoán ra điều này. Thân cá màu xanh lam nhạt, có nhiều sọc dọc mảnh. Ngoài tự nhiên, khi nắng chiếu xuống mặt nước, kiểu hoa văn này ngụy trang rất tốt. Hễ bị động là cả đàn hoảng loạn bỏ chạy tán loạn. Vì vậy bắt được chúng rất khó. Người bắt cá cũng phải thật kiên nhẫn và có nhiều hiểu biết mới giữ được cá cho đến khi chúng ổn định.</p>",
+    "aquariumSize:glaser": "<p>Nuôi trong bể thì loài cá này cần một bể tương đối lớn.</p>",
+    "diet:glaser": "<p>Khác với nhiều loài pacu khác, Acnodon không phải giống chuyên ăn thực vật. Dù vậy, chúng vẫn cần một ít thức ăn thực vật để khỏe mạnh, chẳng hạn thức ăn dạng vảy chuyên dụng.</p>",
+    "behaviour:glaser": "<p>Pacu cừu thường hiền với cá chung bể, dù là cá cùng loài hay khác loài.</p>",
+    "waterConditions:glaser": "<p>Chúng cần nước ấm (26-30°C), sạch và giàu oxy. Loài này cũng rất thích dòng chảy mạnh.</p>",
+    "notes:glaser": "<p>Acnodon: gốc tiếng Hy Lạp cổ, nghĩa là \"không có các mấu nhô trên ngọn giáo săn\". Người ta đặt tên này vì tin nhầm rằng loài điển hình của giống là A. oligacanthus không có gai trước vây lưng. Thực tế thì giống này vẫn có gai đó.</p><p>normani: đặt theo tên John Roxbrough Norman (1898-1944) để vinh danh ông.</p>"
   },
   "quality": {
     "score": 0.82,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.82
+      "seriouslyfish": 0.82,
+      "glaser": 0.92
     }
   }
 }

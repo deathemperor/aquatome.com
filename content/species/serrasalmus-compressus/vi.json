@@ -1,0 +1,20 @@
+{
+  "slug": "ca-piranha-serrasalmus-compressus",
+  "name": "Cá piranha Serrasalmus compressus",
+  "altNames": [
+    "Piranha"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Serrasalmus compressus là thêm một loài hiếm nữa có hàng về từ Peru. Cá dài tối đa khoảng 20 cm.</p>",
+    "behaviour:glaser": "<p>Loài piranha này sống đơn độc. Ngoài tự nhiên, chúng thích rỉa vây của các loài cá khác để ăn.</p>",
+    "notes:glaser": "<p>Cho đến nay, phân loại học của nhóm piranha vẫn còn nhiều điểm chưa rõ. Cá non đặc biệt khó định danh. Trước đây loài này hay bị bán dưới tên S. hollandi.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

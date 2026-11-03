@@ -6,14 +6,19 @@
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Kronichthys heylandi (Boulenger, 1900)</li><li><strong>Tên đồng nghĩa:</strong> Plecostomus heylandi</li><li><strong>Nơi thu mẫu chuẩn:</strong> Một con suối núi gần Santos, bang São Paulo, Brazil, ở độ cao 122 m.</li><li><strong>Nguồn gốc tên:</strong> Tên giống ghép từ tên ông Ricard Krone với chữ ichthys trong tiếng Hy Lạp, nghĩa là cá.</li></ul>",
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong các con suối ven biển miền đông Brazil, đoạn từ Santos đến Rio de Janeiro.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản. Cũng chưa ai báo cáo cho đẻ thành công.</p>",
-    "references:planetcatfish": "<p>Annals and Magazine of Natural History (Series 7) v. 5 (no. 26) (art. 19), tr. 165.</p>"
+    "references:planetcatfish": "<p>Annals and Magazine of Natural History (Series 7) v. 5 (no. 26) (art. 19), tr. 165.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: chưa có</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: các dòng suối ven biển miền đông Brazil, trong đoạn từ Santos đến Rio de Janeiro (Brazil). Nơi thu mẫu chuẩn là một con suối trên núi thuộc tỉnh São Paulo, ở độ cao 120 m so với mực nước biển, gần Santos [Brazil].</p>",
+    "habitat:scotcat": "<p>Loài này sống ở các con suối ven biển có đáy đá và cát.</p>",
+    "notes:scotcat": "<p>Chi này có ba loài: K. subteres Miranda-Ribeiro, 1908, K. heylandi (Boulenger, 1900) và K. lacerta (Nichols, 1919).</p><p>Nguồn gốc tên gọi: Tên loài đặt theo kỹ sư xây dựng Herbert K. Heyland (1849-1944). Ông là người thu mẫu chuẩn và gửi tặng Bảo tàng Anh để các nhà khoa học mô tả.</p><p>Ghi chú: Gosline mô tả lại loài này năm 1947 (trang 106).</p><p>Danh lục đỏ IUCN: Kronichthys heylandi phân bố rộng, hay gặp và có số lượng lớn. Dù vậy, các lưu vực ven biển nằm giữa sông Ribeira de Iguape (SP) và sông São João (RJ) đang bị suy thoái nặng. Tình trạng này gây ra những mối đe dọa rải rác lên các quần thể con của loài. Hiện chưa đo được mức độ của các mối đe dọa đó, nhưng vẫn cần theo dõi. Với những gì đã biết đến nay, chưa có dấu hiệu loài có nguy cơ tuyệt chủng, nên Kronichthys heylandi được xếp vào nhóm Ít quan tâm (LC) (IUCN 2022).</p>",
+    "references:scotcat": "<ul><li>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</li><li>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Kronichthys heylandi. The IUCN Red List of Threatened Species 2022.</li><li>Christopher Scharpf &amp; Kenneth J. Lazara (22 September 2018). \"Order SILURIFORMES: Family LORICARIIDAE: Subfamilies LITHOGENINAE, HYPOPTOPOMINAE and LORICARIINAE\". The ETYFish Project Fish Name Etymology Database. Retrieved 7 November 2021.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (05/2023).</li></ul>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.8
+    }
   }
 }

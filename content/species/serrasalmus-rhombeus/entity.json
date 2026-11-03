@@ -51,6 +51,10 @@
       {
         "source": "seriouslyfish",
         "value": 45
+      },
+      {
+        "source": "glaser",
+        "value": 50
       }
     ],
     "tankCm": [
@@ -76,8 +80,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_rhombeus_veteran_en/",
-      "html": "<p>Serrasalmus rhombeus (formerly also known as S. niger) is the biggest of all species of piranha. In contrast to the well known Red Piranha (Pygocentrus nattereri) the Black ones are solitary fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piranhas_serrasalmus_niger_en/",
+      "html": "<p>Serrasalmus rhombeus attains a maximum length of about 50 cm and is thus one of the largest species of piranha. Specimens of 12-15 cm in length have been imported from Brazil.</p>"
     },
     {
       "key": "distribution",
@@ -116,10 +120,22 @@
       "html": "<p>Wild fish are opportunistic, feeding on the fins and flesh of other species as well as smaller fishes, insects and crustaceans. They have also been recorded scavenging the carcasses of dead animals including humans although reports of this species attacking live people are mostly attributed to increased aggression during the breeding season. Some Serrasalmus have been shown to eat nuts, fruits and seeds and small amounts of plant material have been found in the gut of S. maculatus during laboratory analyses.</p><p>In the aquarium most individuals can be weaned onto dead foods over time although some seem to find it trickier to adjust than others and may refuse to feed initially. A period of starvation may be necessary, eventually giving the fish little choice but to accept what is offered. This is especially true of larger or recently-transported specimens.</p><p>Once acclimatised juveniles relish live or frozen bloodworm, Tubifex, Artemia, chopped prawns and similar foods. Adults should be fed correspondingly larger items, such as whole mussels, cockles, prawns, chopped squid, whitebait and earthworms. Once the fish reaches adult size it need only be fed two or three times a week.</p><p>This species should not be fed large amounts of mammalian/avian meat such as beef heart or chicken. Some of the lipids contained in these meats cannot be properly metabolised by the fish, and can cause excess deposits of fat and even organ degeneration. Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish, which carry the risk of parasite or disease introduction and tend not to have a high nutritional value unless properly conditioned beforehand.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piranhas_serrasalmus_niger_en/",
+      "html": "<p>In its natural habitat it feeds preferably on the fins of other fish.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-rhombeus",
       "html": "<p>Should only be considered as a specimen fish for the enthusiast since it doesn't make a good tankmate for anything else. Scattered reports of it coexisting with Loricariids, armoured catfish and in conspecific groups should be considered tenuous at best given its carnivorous nature. Similarly there is little point attempting to keep two or more of these together since it's not a gregarious animal by nature and conspecifics are liable to fight until only one remains.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piranhas_serrasalmus_niger_en/",
+      "html": "<p>This species of piranha is a solitary fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -142,12 +158,78 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_rhombeus_veteran_en/",
-      "html": "<p>Fully grown Black Piranhas are imported from Peru from time to time. One specimen clearly shows how hard life in the wild can be: right behind the head a big piece of flesh is missing. The wound has healed very well. It is not known whether this veteran was wounded while fighting with a conspecific or during an attack by another predator.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piranhas_serrasalmus_niger_en/",
+      "html": "<p>Specimens with a very dark and dull coloration sometimes occur. This variant was formerly thought to be a different species, which was described as S. niger. The ruby red eye is a quite good identification mark for S. rhombeus.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/d429dd4e995cdcf3.webp",
+      "width": 960,
+      "height": 688,
+      "licence": "CC BY-SA 3.0",
+      "author": "Ltshears",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_at_Louisville_Zoo.jpg",
+      "caption": "Black Pirahna Serrasalmus rhombeus at the Louisville Zoo",
+      "thumb": "https://media.aquatome.com/commons/d429dd4e995cdcf3-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5380ddb9c08116d0.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Sakura1994",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Srhombreus.jpg",
+      "caption": "Black piranha (Serrasalmus rhombeus) at Huachipa Zoo in Lima, Peru.",
+      "thumb": "https://media.aquatome.com/commons/5380ddb9c08116d0-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fd369850ce809f0d.webp",
+      "width": 960,
+      "height": 670,
+      "licence": "CC BY-SA 3.0",
+      "author": "Ltshears",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:BlackPirahna2010.jpg",
+      "caption": "Black Pirahna Serrasalmus rhombeus at the Louisville Zoo",
+      "thumb": "https://media.aquatome.com/commons/fd369850ce809f0d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c4260f1298482af8.webp",
+      "width": 960,
+      "height": 654,
+      "licence": "Public domain",
+      "author": "Berger, Daniel; Berger, F. G.; Bloch, Marcus Elieser; Bodenehr, G.; Bodenehr, George; Buchhandlung der Realschule; Darchow, C.; Gursch, C. F.; Hesse; Krüger; Rosenberg, F. C. W.; Schmidt, A. F.; Schmidt, F. G.; Schmidt, Friedrich Wilhelm; Schmidt, Johann Gottlieb; Schmidt, Ludwig",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:D._Marcus_Elieser_Bloch%27s,_aus%C3%BCbenden_Arztes_zu_Berlin_..._Oeconomische_Naturgeschichte_der_Fische_Deutschlands_(20936810881).jpg",
+      "caption": "D. Marcus Elieser Bloch's, ausübenden Arztes zu Berlin ... Oeconomische Naturgeschichte der Fische Deutschlands ...",
+      "thumb": "https://media.aquatome.com/commons/c4260f1298482af8-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "fRkl73qyTeE",
+      "title": "serrasalmus rhombeus xingu eating rbp",
+      "durationSec": 22,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "cVqKgIEk3Wc",
+      "title": "3 stages of Serrasalmus rhombeus(Peru)baby #aquarium #fishtime #piranha #sereasalmus#piranhafeeding",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KOS4YahlTCw",
+      "title": "Piraña Serrasalmus Rhombeus Diamante",
+      "durationSec": 32,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bbowPj0x1e8",
+      "title": "PIRANHA RHOMBEUS MANGIA TROTA #aquarium #fish #rhombeus #fishkeeping  #fishtank",
+      "durationSec": 22,
+      "lang": "it"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

@@ -48,6 +48,10 @@
       {
         "source": "seriouslyfish",
         "value": 24
+      },
+      {
+        "source": "glaser",
+        "value": 40
       }
     ],
     "tankCm": [
@@ -71,6 +75,12 @@
       "html": "<ul><li>Max size: 240 mm SL (9 in SL)</li><li>Aquarium size: 250 × 90 cm (98 × 36 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 7 of 8 (Difficult) – rated difficult because it needs a tank at least 2 m long.</li><li>Hardiness: needs a well-established tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_pantaneiro_en/",
+      "html": "<p>A. pantaneiro is a very attractive barracuda characin. It reaches 30-40 cm in length. In older aquarium literature it was called A. altus, which is a close relative but a different species.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-pantaneiro",
@@ -81,6 +91,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-pantaneiro",
       "html": "<p>Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.</p><p>Ongoing confusion regarding the precise identities of this and certain other, closely-related members of the genus mean the full extent of its natural range is unclear at present (see 'Notes').</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_pantaneiro_en/",
+      "html": "<p>The fish described here were received from Paraguay.</p>"
     },
     {
       "key": "habitat",
@@ -137,6 +153,12 @@
       "html": "<p>This species is a member of the putative 'A. lacustris group' of closely-related species within the genus alongside A. abbreviatus, A. lacustris and A. pantaneiro.</p><p>These are all characterised by possession of a blackish, more-or-less circular-shaped, humeral spot, i.e., the dark marking located just behind the gill cover, and therefore can be distinguished from A. falcatus which has a much larger marking shaped somewhat like an inverted teardrop.</p><p>Several members of the group are occasionally available in the trade but unless collection data is known are virtually impossible to tell apart.</p><p>The specimens in our images above were collected in Paraguay so based on current knowledge are tentatively identified as A. pantaneiro.</p><p>Recent morphological (Toledo-Piza, 2007)[6] and molecular (Pretti et al., 2009) phylogenetic studies have been similarly unable to recover the precise relationships existing both within the A. lacustris group plus A. falcatus, which together appear to form a clade with the latter basal and sister to the rest.</p><p>Acestrorhynchus spp. cannot always be separated on the basis of morphology and are also very similar genetically leading Pretti et al. (2009) to conclude that a detailed revision of the group containing material collected across their distribution range is necessary in order to better understand the systematics involved.</p><p>The remainder of the genus is currently composed as follows:</p><ul><li>A. microlepis group: A. britskii, A. grandoculis, A. microlepis, A. minimus</li><li>A. nasutus group: A. falcirostris, A. nasutus, A. isalineae, possibly A. maculipinnis</li><li>Not assignable to any group: A. heterolepis</li></ul><p>The family Acestrorhynchidae appears most closely-related to the Cynodontidae which contains the genera Cynodon, Hydrolycus and Rhaphiodon.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/acestrorhynchus_pantaneiro_en/",
+      "html": "<p>The specimens received were 11-15 cm long and already showed very nice colours.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-pantaneiro",
@@ -146,17 +168,36 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/6811d08f64d159b0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6811d08f64d159b0-480.webp",
       "width": 1024,
       "height": 763,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-pantaneiro",
       "caption": "Adult female specimen.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/6811d08f64d159b0-480.webp"
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "VpMOPrqHmMw",
+      "title": "Acestrorhynchus pantaneiro in the shop HD",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ep2ZAokY3ko",
+      "title": "Acestrorhynchus pantaneiro",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6SBKfAePmNE",
+      "title": "Raubsalmler",
+      "durationSec": 166,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -185,5 +226,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-03"
 }

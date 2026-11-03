@@ -1,0 +1,73 @@
+{
+  "id": "nannostomus-nigrotaeniatus",
+  "scientificName": "Nannostomus nigrotaeniatus",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Nannostomus",
+  "group": "tetras",
+  "places": [],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_nigrotaeniatus_en/",
+      "html": "<p>This beautiful pencil fish was described scientifically only a few months ago. It is quite similar to N. trifasciatus, but has a much broader central longitudinal band. The most important visual difference for aquarists is that this species is sexually dichromatic: only the males have the very nice red spots in the fins.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_nigrotaeniatus_en/",
+      "html": "<p>The new species can be kept like the well-known N. trifasciatus, but it is better to keep them at slightly higher temperatures (e.g. 24-28°C). The common name \"Redmouth Pencilfish\" is suggested for Nannostomus nigrotaeniatus.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_nigrotaeniatus_en/",
+      "html": "<p>The species is sexually dichromatic. Only the males have red spots in the fins.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "V-M0SptJmek",
+      "title": "Nannostomus nigrotaeniatus - Zarske, 2013 - (Lebiasinidae) - Poisson-crayon - Porte Dorée 06/09/2015",
+      "durationSec": 263,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh 60cm",
+        "bể nuôi cá bút chì"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn vi mô cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

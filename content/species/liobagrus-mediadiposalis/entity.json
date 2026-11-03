@@ -19,11 +19,25 @@
           "min": 17,
           "max": 25
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
       }
     ],
     "ph": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 6.5,
           "max": 7.5
@@ -34,6 +48,10 @@
       {
         "source": "planetcatfish",
         "value": 13.3
+      },
+      {
+        "source": "scotcat",
+        "value": 12
       }
     ]
   },
@@ -45,10 +63,28 @@
       "html": "<ul><li><strong>Scientific name:</strong> Liobagrus mediadiposalis Mori, 1936</li><li><strong>Common names:</strong> South Torrent Catfish, Jagasari (Korean)</li><li><strong>Type locality:</strong> Rakuto River at Bun-kei, Chosen, Korea.</li><li><strong>Pronunciation:</strong> lie oh BAG russ</li><li><strong>Size:</strong> 133 mm or 5.2 in SL.</li><li><strong>IUCN Red List category:</strong> Least Concern. Last assessed 2023.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_mediadiposalis.htm",
+      "html": "<ul><li>Dorsal spines: 1; dorsal soft rays: 6; anal spines: 0; anal soft rays: 14-17</li></ul><p>Etymology: -alis, adjectival suffix; media-, middle, presumably referring to the high and long adipose fin centered on the back between the dorsal and caudal fins.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1137",
       "html": "<p>Southern Asia: China, Japan and Korea waters.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_mediadiposalis.htm",
+      "html": "<p>Asia: Rivers of Natong, Kokson, Yongsan, Kim and Tchongchin, Korea. Type locality: River Rakuto at Bun-kei, Chosen, Korea.</p><p>This species is observed in central and southern parts of the Korean Peninsula, where it is endemic.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_mediadiposalis.htm",
+      "html": "<p>Endemic to Korea and inhabits the rocky or stony bottoms of rocky streams. The streams are well oxygenated but during the summer dry season, they become hypoxic. L. mediadiposalis may be able to absorb oxygen through the skin during this period.</p>"
     },
     {
       "key": "waterConditions",
@@ -69,13 +105,36 @@
       "html": "<p>Etymology: From the Greek, leios, meaning smooth, and bagrus, a name usually used for catfishes; in reference to the smooth head. Named after the genus Amblyceps, which refers to its blunt head.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_mediadiposalis.htm",
+      "html": "<p>IUCN Red List: Despite evidence to suggest that some habitats along the Geum River have been destroyed, no major threats to the species have been identified so far and there are no reports of population declines. This species is assessed as Least Concern, but it is recommended that threats and population trends be investigated (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1137",
       "html": "<p>Dobutsugaku Zasshi = Zoological Magazine Tokyo v. 48 (nos 8-10), pp 673, Pl. 24 (fig. 3).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_mediadiposalis.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (09/2010).</li><li>Jong-Young Park, Ik-Soo Kim and So-Young Kim. Structure and Histochemistry of the Skin of a Torrent Catfish, Liobagrus mediadiposalis. Environmental Biology of Fishes Volume 66, Number 1, 3-8.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li><li>Won, S.-Y. 2023. Liobagrus mediadiposalis. The IUCN Red List of Threatened Species 2023.</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/bad670c9565290e2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bad670c9565290e2-480.webp",
+      "width": 500,
+      "height": 361,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_mediadiposalis.htm",
+      "caption": "Liobagrus mediadiposalis: Catfish stamp",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/scotcat/d23564ea085f17e8.webp",
       "thumb": "https://media.aquatome.com/scotcat/d23564ea085f17e8-480.webp",
@@ -99,17 +158,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/bad670c9565290e2.webp",
-      "thumb": "https://media.aquatome.com/scotcat/bad670c9565290e2-480.webp",
-      "width": 500,
-      "height": 361,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_mediadiposalis.htm",
-      "caption": "Liobagrus mediadiposalis: Catfish stamp",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/4275bcd34c61b2af.webp",
       "thumb": "https://media.aquatome.com/scotcat/4275bcd34c61b2af-480.webp",
       "width": 500,
@@ -121,7 +169,14 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "LiB9Neabu1o",
+      "title": "[GB-A758]📣2015년에 정체가 밝혀진 동방불패❌, 동방자가사리⭕#민물고기 60 #생물관찰 #주변생물 #영상도감  #고유종 #퉁가리 #형산강 #Liobagrus #탐어",
+      "durationSec": 61,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -138,5 +193,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-03"
 }

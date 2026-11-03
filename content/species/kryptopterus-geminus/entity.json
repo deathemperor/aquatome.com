@@ -1,0 +1,96 @@
+{
+  "id": "kryptopterus-geminus",
+  "scientificName": "Kryptopterus geminus",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Kryptopterus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "laos",
+    "mekong",
+    "cambodia",
+    "vietnam"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/kryptopterus_geminus_en/",
+      "html": "<ul><li>Origin: Thailand</li><li>Available size: 8-12 cm</li><li>Described as a separate species in 2003</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/kryptopterus_geminus_en/",
+      "html": "<p>Kryptopterus geminus inhabits the large river basins of the mainland of Southeast Asia: Mekong, Mae Khlong, Bang Pakong and Chao Phraya. Before it was described in 2003 it was thought to represent a population of Kryptopterus cryptopterus, which is restricted to the Malay Peninsula and Indonesia.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/kryptopterus_geminus_en/",
+      "html": "<p>K. geminus attains a maximum length of about 15-20 cm and so it fits perfectly for larger aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/kryptopterus_geminus_en/",
+      "html": "<p>The glass catfishes of the genus Kryptopterus are close relatives of the Wels catfish (Silurus glanis), but they stay small. The largest known species (K. cheveyi from the Mekong basin) becomes about 35 cm long, but has not yet been imported for home aquaria. Currently 19 species are recognized, 7 of them described after the turn of the millennium, including the most common glass catfish in the hobby, Kryptopterus vitreolus (6-8 cm), which was misidentified for over 80 years as K. bicirrhis or K. minor.</p><p>In contrast to K. vitreolus, K. geminus is less deep in body and has a strong, blue-silver tinge on the sides.</p><p>Lexicon: Kryptopterus means \"with hidden fin\", referring to the very small dorsal fin. geminus means \"twin born\", referring to the strong resemblance to K. cryptopterus.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "0GPNNGfnTAM",
+      "title": "ปลาขาไก่ - Kryptopterus geminus Fish",
+      "durationSec": 183,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iOZKQ1PsPzs",
+      "title": "KRYPTOPTERUS GEMINUS ( LAIS / SELAIS )",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PkI6sBKgGc4",
+      "title": "Ageneiosus atronasus, pseudeutropius moolenburgae, kryptopterus geminus",
+      "durationSec": 55,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá đàn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá 120cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

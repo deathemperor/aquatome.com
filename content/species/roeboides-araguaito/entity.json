@@ -1,0 +1,65 @@
+{
+  "id": "roeboides-araguaito",
+  "scientificName": "Roeboides araguaito",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Roeboides",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "venezuela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 11
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/roeboides_araguaito_en/",
+      "html": "<p>A predatory tetra from Venezuela. The largest specimen known so far was 11 cm long (without caudal fin).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/roeboides_araguaito_en/",
+      "html": "<p>Available in sizes 6-8 cm and 8-10 cm. Supplied exclusively to the wholesale trade.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/roeboides_araguaito_en/",
+      "html": "<p>Venezuela.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

@@ -517,6 +517,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_mediadiposalis.htm": {
+    "entityIds": [
+      "species/liobagrus-mediadiposalis"
+    ],
+    "updatedAt": "2026-11-03T08:27:15.623Z",
+    "hash": "adfcab187db8a71d344988528372fe161eaaff1da708665d613371880ddf9142",
+    "processedHash": "adfcab187db8a71d344988528372fe161eaaff1da708665d613371880ddf9142",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
     "entityIds": [
       "species/ancharius-fuscus"
@@ -697,6 +707,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/doradidae/leptodoras_cataniai.htm": {
+    "entityIds": [
+      "species/leptodoras-cataniai"
+    ],
+    "updatedAt": "2026-11-03T08:25:39.822Z",
+    "hash": "b759ac2b8c381c09bf8ac9b636cf27618394435b00c57d2a4c2b853c544301b8",
+    "processedHash": "b759ac2b8c381c09bf8ac9b636cf27618394435b00c57d2a4c2b853c544301b8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm": {
     "entityIds": [
       "species/acentronichthys-leptos"
@@ -724,6 +744,16 @@
     "updatedAt": "2026-11-02T18:12:07.220Z",
     "hash": "e7bf311c5afc938d22ca5023dce9a1094fb1f8bcda808829fdc0c39bd2a8b069",
     "processedHash": "e7bf311c5afc938d22ca5023dce9a1094fb1f8bcda808829fdc0c39bd2a8b069",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/heptapteridae/imparfinis_mirini.htm": {
+    "entityIds": [
+      "species/imparfinis-mirini"
+    ],
+    "updatedAt": "2026-11-03T08:19:41.437Z",
+    "hash": "4ec45f126043d63fb75988878eb31b2de82c8d6b24ca130aba327bc7207e5edf",
+    "processedHash": "4ec45f126043d63fb75988878eb31b2de82c8d6b24ca130aba327bc7207e5edf",
     "status": "processed",
     "attempts": 0
   },
@@ -847,6 +877,36 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm": {
+    "entityIds": [
+      "species/hypostomus-luteus"
+    ],
+    "updatedAt": "2026-11-03T08:16:29.282Z",
+    "hash": "e7a2e93811645d530de3dfc2d05502bb70eff7db7943887431e6fe1b65f0f5ab",
+    "processedHash": "e7a2e93811645d530de3dfc2d05502bb70eff7db7943887431e6fe1b65f0f5ab",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/kronichthys_heylandi.htm": {
+    "entityIds": [
+      "species/kronichthys-heylandi"
+    ],
+    "updatedAt": "2026-11-03T08:21:46.457Z",
+    "hash": "f982b7f92eb1905641c5306f9fbaaa2f0edc5eae25d499e8763281eef23be05b",
+    "processedHash": "f982b7f92eb1905641c5306f9fbaaa2f0edc5eae25d499e8763281eef23be05b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/kronichthys_subteres.htm": {
+    "entityIds": [
+      "species/kronichthys-subteres"
+    ],
+    "updatedAt": "2026-11-03T08:22:41.220Z",
+    "hash": "1372da02aa73c3dc2f6e2009430d1341eacc0d2401b6d73fff1a6136cedfa14b",
+    "processedHash": "1372da02aa73c3dc2f6e2009430d1341eacc0d2401b6d73fff1a6136cedfa14b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",
@@ -932,6 +992,26 @@
     "updatedAt": "2026-11-02T18:19:53.887Z",
     "hash": "55c2b5f6ee20807df0f609c5ddcb96eda3fba81048f358017b0cc19c0f3d686a",
     "processedHash": "55c2b5f6ee20807df0f609c5ddcb96eda3fba81048f358017b0cc19c0f3d686a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/pimelodidae/iheringichthys_megalops.htm": {
+    "entityIds": [
+      "species/iheringichthys-megalops"
+    ],
+    "updatedAt": "2026-11-03T08:18:01.090Z",
+    "hash": "568cc07838d7806918b849a58e4fb87e0048bd2d151a920e5620f466994f6f02",
+    "processedHash": "568cc07838d7806918b849a58e4fb87e0048bd2d151a920e5620f466994f6f02",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/pimelodidae/leiarius_marmoratus.htm": {
+    "entityIds": [
+      "species/leiarius-marmoratus"
+    ],
+    "updatedAt": "2026-11-03T08:24:04.243Z",
+    "hash": "caa97175818439ad36ce9faab3375fb1045bbddf20b0958953d7325260bbe615",
+    "processedHash": "caa97175818439ad36ce9faab3375fb1045bbddf20b0958953d7325260bbe615",
     "status": "processed",
     "attempts": 0
   },

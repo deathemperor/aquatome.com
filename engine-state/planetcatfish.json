@@ -2430,23 +2430,23 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1243": {
     "entityIds": [],
-    "updatedAt": "2026-11-03T06:15:03.909Z",
+    "updatedAt": "2026-11-03T09:36:05.772Z",
     "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "attempts": 3,
+    "error": "no archived copy (HTTP 429)"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1244": {
     "entityIds": [],
-    "updatedAt": "2026-11-03T06:15:08.926Z",
+    "updatedAt": "2026-11-03T09:37:12.136Z",
     "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "attempts": 3,
+    "error": "no archived copy (HTTP 429)"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1245": {
     "entityIds": [],
-    "updatedAt": "2026-11-02T23:14:05.245Z",
+    "updatedAt": "2026-11-03T09:38:18.720Z",
     "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "attempts": 2,
+    "error": "no archived copy (HTTP 429)"
   }
 }

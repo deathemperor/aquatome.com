@@ -47,10 +47,6 @@
       {
         "source": "seriouslyfish",
         "value": 88
-      },
-      {
-        "source": "glaser",
-        "value": 60
       }
     ],
     "tankCm": [
@@ -122,6 +118,12 @@
       "html": "<p>Mature females are a little rounder-bellied than males.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/albino_pacus_en/",
+      "html": "<p>The two fish differ in the shape of the anal fin, which suggests they are a pair.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/piaractus-brachypomus",
@@ -136,8 +138,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piaractus-brachypomus-albino/",
-      "html": "<p>A pair of albino pacus was imported from Colombia about four years ago. Nowadays the fish are offered from southeast Asia. These animals are much easier to handle, because they are only 4-6 cm long, compared with the 16-20 cm long pair from Colombia. The youngsters are as fascinating as the large ones in respect of coloration. However, one should always keep in mind that they will grow to a length of about 60 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/albino_pacus_en/",
+      "html": "<p>Two albino pacus (Piaractus brachypomus, formerly Colossoma brachypomum) were imported from Colombia for the first time. The fish are very attractive, as the red colours on the body are retained even in the albino variety. The fish were currently 16-20 cm long. Because of the different shapes of their anal fins, they appear to represent a pair.</p>"
     }
   ],
   "photos": [
@@ -182,7 +184,32 @@
       "caption": "Piaractus brachypomus"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "-zTu2hl8Pfk",
+      "title": "Red Belly Pacu - Growth, Feeding, Petting and Ultimate Fate! (Piaractus brachypomus)",
+      "durationSec": 224,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xJbdvkRIzeE",
+      "title": "Huge albino pacu feeding.",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "T9j4F2cMvH4",
+      "title": "Red Bellied Pacu (Piaractus Brachypomum), Wang Pla, Freshwater Aquarium, Bang Sai",
+      "durationSec": 13,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "Au8RIoYlN7w",
+      "title": "Feeding the pet red belly pacu! #fish",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

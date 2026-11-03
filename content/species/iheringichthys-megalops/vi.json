@@ -7,13 +7,19 @@
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong lưu vực sông Paraná. Mẫu chuẩn được thu ở Bahia Negra, trên sông Río Paraguay, thuộc Paraguay.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên gọi: Tên giống đặt theo Hermann von Ihering (1850-1930). Ông đến Brazil năm 1880, định cư ở Rio Grande và là chuyên gia về chim, cá và động vật thân mềm. Tên loài nói đến đôi mắt to của cá (megale nghĩa là lớn, ops nghĩa là mắt).</p>",
-    "references:planetcatfish": "<p>Annals of the Carnegie Museum v. 4 (no. 2) (art. 7), pp 115, Pl. 32 (figs. 3-4).</p>"
+    "references:planetcatfish": "<p>Annals of the Carnegie Museum v. 4 (no. 2) (art. 7), pp 115, Pl. 32 (figs. 3-4).</p>",
+    "quickFacts:scotcat": "<p>Họ: Pimelodidae. Kích thước trưởng thành: 25 cm. Nhiệt độ: 22-27°C. pH: 6,0-7,2.</p><p>Khi gập vây lưng áp sát thân, chóp vây lưng gần chạm tới gốc vây mỡ. Chóp vây ngực nằm gần gốc vây bụng, còn chóp vây bụng chạm tới gốc vây hậu môn. Gai vây ngực có răng cưa rõ ở mép trước, và mép sau còn rõ hơn. Hai bên thân cá có đốm nhỏ rải khắp, hoặc các đốm nhạt dần ở nửa sau thân. Điểm dễ nhận ra nhất là cái miệng có hình dạng lạ, dài và nhọn như hình nón, cùng đôi mắt to.</p>",
+    "beforeYouBuy:scotcat": "<p>Loài này ít khi xuất hiện trong giới chơi cá, vì hàng nhập từ Paraguay không nhiều.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: Paraguay, lưu vực sông Paraná. Nơi thu mẫu chuẩn: Bahia Negra, sông Paraguay (Río Paraguay), Paraguay.</p>",
+    "notes:scotcat": "<p>Chi này có ba loài đã được mô tả: I. megalops, I. labrosus và loài mới nhất là Iheringichthys syi Azpelicueta &amp; Britski, 2012.</p><p>Nguồn gốc tên gọi: tên loài megalops ghép từ mégas (to) và ops (mắt). Cái tên ám chỉ đôi mắt rất to của cá, to hơn mắt của I. labrosus.</p><p>Danh sách đỏ IUCN: thông tin về loài này còn ít, nhưng cá phân bố rộng và chưa thấy mối đe dọa nào rõ ràng. Vì vậy loài được xếp vào mức Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Iheringichthys syi (Siluriformes: Pimelodidae), a new pimelodid species from upper Paraná basin, Brazil. Neotrop. ichthyol. vol.10 no.1 Porto Alegre 2012.</p><p>Salvador, G.N. 2023. Iheringichthys megalops. The IUCN Red List of Threatened Species 2023.</p><p>Sands, David. Catfishes of the World, Vol 3 Auchenipteridae &amp; Pimelodidae. Dunure Publications 1983.144p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.92
     }
   }
 }

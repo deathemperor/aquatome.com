@@ -15,6 +15,28 @@
       {
         "source": "planetcatfish",
         "value": 12
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,10 +48,22 @@
       "html": "<p>Kronichthys subteres Miranda Ribeiro, 1908. Family Loricariidae. Size: 120 mm (4.7 in) SL. IUCN Red List: Least Concern (last assessed 2018).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_subteres.htm",
+      "html": "<p>There are three species in this genus: K. subteres Miranda-Ribeiro, 1908, K. heylandi (Boulenger, 1900), and K. lacerta (Nichols, 1919).</p><p>Family: Loricariidae. Size: 10 cm. Temperature: 20-24°C. pH: 6.0-7.5.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1216",
       "html": "<p>South America: Ribeira de Iguape River basin, São Paulo State rivers, Iguape. Type locality: Rio Betari [Betharí], Rio Pardo, Rio Iporanga, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_subteres.htm",
+      "html": "<p>South America: Ribeira de Iguape River basin. Type locality: Rio Betari [Betharí], Rio Pardo, Rio Iporanga, Brazil.</p><p>Kronichthys subteres has a wide distribution in the drainage basins of the Ribeira de Iguape River, in the states of Paraná and São Paulo.</p>"
     },
     {
       "key": "habitat",
@@ -38,10 +72,28 @@
       "html": "<p>Inhabits streams with rocky and sandy bottom, in places up to 0.8 m deep and with water flow up to 30 cm per second. Forages both during the day and at night.</p>"
     },
     {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_subteres.htm",
+      "html": "<p>Kronichthys subteres inhabits streams with rocky and sandy bottom, in places up to 0.8 m deep and with water flow up to 30 cm per second. It is a frequent and abundant species that inhabits streams with rocky substrate and strong currents. Density may reach about 1 fish per square meter in stream stretches shaded by the forest and 2.5 fish per square meter in sunny stretches.</p>"
+    },
+    {
       "key": "diet",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1216",
       "html": "<p>Grazes on microscopic algae, mostly diatoms and green algae growing on rocks and submersed vegetation. Occasionally takes chironomid and simuliid larvae, as well as tiny crustaceans. Before grazing on a patch with dense sediment, the fish makes wiggling head-down movements which raise sediment, to be blown away by the water current. When grazing algae off the substrate it makes vigorous mouth movements, and moves by jerky movements probably related to its mouth making alternate grazing and attaching to the substrate. Leaves conspicuous grazing marks on exposed rocks. May re-graze a given spot by moving backwards.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_subteres.htm",
+      "html": "<p>Forages both during the day and at night. Grazes on microscopic algae, mostly diatoms and green algae growing on rocks and submersed vegetation. Occasionally takes chironomid and simuliid larvae, as well as tiny crustaceans.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_subteres.htm",
+      "html": "<p>Before grazing on a patch with dense sediment, the fish makes wiggling head-down movements which raise sediment, to be blown away by the water current. When grazing algae off the substrate it makes vigorous mouth movements, and moves by jerky movements probably related to its mouth making alternate grazing and attaching to the substrate. It leaves conspicuous grazing marks on exposed rocks and may re-graze a given spot by moving backwards.</p>"
     },
     {
       "key": "reproduction",
@@ -50,10 +102,22 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_subteres.htm",
+      "html": "<p>Etymology: The specific name subteres: sub (L.), less than or somewhat; teres (L.), terete (cylindrical or slightly tapering), presumably referring to its body shape.</p><p>IUCN Red List: outside conservation units the species is subject to diffuse threats that lack monitoring, but no plausible threats that could endanger its population have been identified. K. subteres was categorised as Least Concern (LC), (IUCN 2022).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1216",
       "html": "<p>Kosmos, Rio de Janeiro [Rev. Art. Sci. Litt.] v. 5 (no. 2) (for 1907), pp [2], Figs. 1-1a.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_subteres.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl, 1997. Aquarien Atlas, Band 5. Mergus Verlag, Melle, Germany. 1148 p.</p><p>Buck, S. and I. Sazima, 1995. An assemblage of mailed catfishes (Loricariidae) in southeastern Brazil: distribution, activity and feeding. Ichthyol. Explor. Freshwat. 6(4):325-332.</p><p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Kronichthys subteres. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2018. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2018).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -114,5 +178,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-03"
 }

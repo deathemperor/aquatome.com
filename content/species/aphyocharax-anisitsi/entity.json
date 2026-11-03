@@ -45,6 +45,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -68,10 +72,22 @@
       "html": "<ul><li>Max size: 55 mm SL (2.2 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 18–28°C (64–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 3–25 dGH</li><li>Difficulty: Easy</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax_anisitsi_wild_en/",
+      "html": "<ul><li>Common name: Bloodfin tetra</li><li>Origin: Paraguay</li><li>Available size: 4-5 cm</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyocharax-anisitsi",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. The tank must have a very tightly-fitting cover as it will jump on occasion.</p><p>The bloodfin tetra, Aphyocharax anisitsi, is a characid endemic to the Paraná River drainage in Brazil, Paraguay and Argentina. A hardy species that adapts to a wide range of conditions, it can even be kept unheated in a well-insulated house, though it is less colourful in cooler water. Captive specimens over ten years old are not unheard of. It may nip long-finned or slow-moving tankmates, and the tank needs a tight cover as it will jump.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax_anisitsi_wild_en/",
+      "html": "<p>There are species of ornamental fish that are kept and bred already for such a long time that their conspecifics living in the wild are almost unknown now. Such a species is Aphyocharax anisitsi, the Bloodfin tetra. The first importation was back in 1906. The fish proved to be easy to breed and very productive. Nowadays Bloodfin tetras are represented in the pet shops all over the world almost exclusively by bred specimens, wild collected ones are hardly ever available.</p><p>So it is very interesting to see the wild specimens recently imported from Paraguay and to compare them with the bred ones. The most obvious difference is the varying coloration of the wild ones, whereas the bred ones look very uniform in this respect. The red coloration differs in the wild ones from almost absent to extremely intensive. On a photo the red colours look sometimes virtually artificial!</p>"
     },
     {
       "key": "distribution",
@@ -122,6 +138,12 @@
       "html": "<p>Males tend to be slimmer than females, and develop small hooks on some of their pelvic and anal fin rays as they mature.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax_anisitsi_wild_en/",
+      "html": "<p>Aquarists interested in biological research now have the unique opportunity to study the purpose of this varying coloration. It is not very likely that the difference is a secondary sexual dichromatism (more red = males). Males of A. anisitsi can be recognized by fine hooks on the anal fin that appear as silvery reflections in the photos. So one can clearly see that the most colourful fish is a female in this case.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyocharax-anisitsi",
@@ -132,21 +154,52 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyocharax-anisitsi",
       "html": "<p>A good beginner's tetra, as it's a hardy species that will adapt to a relatively wide range of conditions. In a well-insulated house it can even be kept in an unheated tank, although it won't be as colourful as when kept in warmer water.</p><p>It's also quite long-lived and captive specimens over ten years old are not unheard of.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax_anisitsi_wild_en/",
+      "html": "<p>Lexicon: Aphyocharax means \"tiny Charax\"; Charax is another genus of tetra. anisitsi: dedication name for Prof. J. Daniel Anisits, the collector of the type specimens, at the time working at the National University of Paraguay.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/5dc2f41ef4e2cefe.webp",
+      "thumb": "https://media.aquatome.com/commons/5dc2f41ef4e2cefe-480.webp",
       "width": 800,
       "height": 245,
       "licence": "Public domain",
       "author": "VGW2006 at en.wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphyocharax_anisitsi_2.jpg",
-      "caption": "A group of Bloodfin tetras.",
-      "thumb": "https://media.aquatome.com/commons/5dc2f41ef4e2cefe-480.webp"
+      "caption": "A group of Bloodfin tetras."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "FfaFysvZUao",
+      "title": "Bloodfin Tetra Pros and Cons | Is This Hardy Schooling Fish Right for Your Aquarium?",
+      "durationSec": 182,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "owk6l-Tdh_g",
+      "title": "Peixe Enfermeirinha (Aphyocharax Anisitsi)",
+      "durationSec": 315,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Nzzw34ujw88",
+      "title": "Aphyocharax Anisitsi",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "h29awbqYECU",
+      "title": "Aphyocharax anisitsi behaviour",
+      "durationSec": 63,
+      "lang": "zxx"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -177,5 +230,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-03"
 }

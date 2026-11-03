@@ -20,12 +20,38 @@
           "min": 23,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 31
+      },
+      {
+        "source": "scotcat",
+        "value": 35
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 150
       }
     ]
   },
@@ -37,10 +63,34 @@
       "html": "<ul><li>Scientific name: Hypostomus luteus (Godoy, 1980)</li><li>Common names: Golden Sailfin Pleco</li><li>Synonym: Plecostomus luteus</li><li>Etymology: Greek, hypo = under + Greek, stoma = mouth. The specific epithet refers to its yellow (luteus = yellow) colouring.</li><li>Size: 310 mm (12.2\") SL</li><li>IUCN Red List: Least Concern (last assessed 2018)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
+      "html": "<ul><li>Common name: none</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1034",
       "html": "<p>South America: upper Uruguay River basin (La Plata, Uruguay, Upper Uruguay, Pelotas). Type locality: Rio Pelotas at Volta Grande Dois, Marcelino Ramos, Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
+      "html": "<p>South America: Brazil, upper Uruguay River basin. Type locality: Rio Pelotas, Volta Grande 2, Marcelino Ramos, RS, Brazil. The holotype is in the personal collection of M. Godoy.</p><p>Hypostomus luteus is endemic to Brazil, occurring in the Uruguay, Canoas, Pelotas, Forquilha, Passo Fundo, Ijuí and Jaguari rivers, in the upper Uruguay River basin. The species is widely distributed, frequent, but not very abundant. As no significant threats to its population have been detected, Hypostomus luteus has been categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
+      "html": "<p>Will need a good-sized aquarium of 150 cm or over due to their final adult size.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
+      "html": "<p>As this genus is in the main a messy eater, good water quality and filtration must be maintained. A lower water temperature is advised for this species.</p>"
     },
     {
       "key": "waterConditions",
@@ -49,16 +99,34 @@
       "html": "<p>Temperature: 23.0-24.0°C (73.4-75.2°F).</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
+      "html": "<p>Will eat all manner of foods in the aquarium: vegetables, tablet and pellet foods and good-quality flake.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1034",
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
+      "html": "<p>A very variable species in colour; as they get older they can change colour into adulthood, especially the yellowing in the fins.</p><p>Etymology: the specific name luteus is Latin for yellow, referring to its yellow-orange colour in life.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1034",
       "html": "<p>Poluiçao -- peixes e pesca, pp 29, Figs. 15-16.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Hypostomus luteus. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -85,17 +153,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/a665efbfff180d03.webp",
-      "thumb": "https://media.aquatome.com/scotcat/a665efbfff180d03-480.webp",
-      "width": 500,
-      "height": 309,
-      "licence": "dùng với sự cho phép",
-      "author": "Allan James / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
-      "caption": "Hypostomus luteus",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/f245cbf5ee1beba6.webp",
       "thumb": "https://media.aquatome.com/scotcat/f245cbf5ee1beba6-480.webp",
       "width": 500,
@@ -104,6 +161,17 @@
       "author": "Allan James / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
       "caption": "Hypostomus luteus: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a665efbfff180d03.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a665efbfff180d03-480.webp",
+      "width": 500,
+      "height": 309,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
+      "caption": "Hypostomus luteus",
       "source": "scotcat"
     }
   ],
@@ -155,5 +223,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-03"
 }

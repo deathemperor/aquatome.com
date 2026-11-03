@@ -1395,6 +1395,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://tropica.com/en/plants/plantdetails/Philodendronsp.'MiniMidget'(405TC)(1)/31490": {
+    "entityIds": [
+      "plants/philodendron-sp-mini-midget"
+    ],
+    "updatedAt": "2026-11-03T09:34:10.047Z",
+    "hash": "2bde7bd7977fd1ed1b1dfa423b4c944d1eb64887fc1b955529867819b3320935",
+    "processedHash": "2bde7bd7977fd1ed1b1dfa423b4c944d1eb64887fc1b955529867819b3320935",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://tropica.com/en/plants/plantdetails/Phyllanthusfluitans(028TC)/22848": {
     "entityIds": [
       "plants/phyllanthus-fluitans"
@@ -1653,6 +1663,14 @@
     "hash": "65545828d18270dfca2042e0869caa318d5aeca9e1dba821db951e92407be845",
     "processedHash": "65545828d18270dfca2042e0869caa318d5aeca9e1dba821db951e92407be845",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://tropica.com/en/plants/plantdetails/Streptocarpussaxorum(409TC)(1)/31489": {
+    "entityIds": [],
+    "updatedAt": "2026-11-03T09:34:52.740Z",
+    "hash": "b1188690a61af9421571479402dccd6bbfa7ae5763625ca2420324b96be0595b",
+    "processedHash": "b1188690a61af9421571479402dccd6bbfa7ae5763625ca2420324b96be0595b",
+    "status": "skipped",
     "attempts": 0
   },
   "https://tropica.com/en/plants/plantdetails/Taxiphyllumalternans'TaiwanMoss'(003CTC)/19551": {

@@ -9,7 +9,8 @@
     "south-america",
     "colombia",
     "meta",
-    "meta-river"
+    "meta-river",
+    "rio-meta"
   ],
   "dataCard": {
     "tempC": [
@@ -25,6 +26,13 @@
         "value": {
           "min": 24,
           "max": 28
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 26
         }
       }
     ],
@@ -42,6 +50,13 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4.5,
+          "max": 6.5
+        }
       }
     ],
     "gh": [
@@ -58,6 +73,13 @@
           "min": 1,
           "max": 8
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
       }
     ],
     "sizeCm": [
@@ -67,6 +89,10 @@
       },
       {
         "source": "aquariumbreeder",
+        "value": 3
+      },
+      {
+        "source": "glaser",
         "value": 3
       }
     ],
@@ -101,6 +127,12 @@
       "html": "<ul><li>Scientific name: Axelrodia riesei</li><li>Water type: freshwater</li><li>Tank size: 40 litres</li><li>Breeding: medium to difficult</li><li>Dwellers: mid to bottom</li><li>Nitrate: less than 60 ppm</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Lifespan: up to 3 years</li><li>Colour: from bright red to pinkish</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_riesei_ruby_tetra_en/",
+      "html": "<p>Tiny, brilliant ruby-red tetra from Colombia. Sexually mature at 1.5–2 cm (wild-collected animals); in aquaria up to 3 cm. Soft, acidic water (GH below 10 °dGH, pH 4.5–6.5), 20–26 °C.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-riesei",
@@ -111,6 +143,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Axelrodia riesei has a very narrow natural distribution and can only be found in the basin of the Meta River, a left tributary of the Orinoco River, in Colombia, South America.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_riesei_ruby_tetra_en/",
+      "html": "<p>The species is endemic to the upper Rio Meta region in Colombia.</p>"
     },
     {
       "key": "habitat",
@@ -149,6 +187,12 @@
       "html": "<p>Maintaining a clean and healthy aquatic environment is crucial. High levels of ammonia, nitrite and nitrate can be detrimental, so the aquarium should be cycled and fully established before introducing the fish.</p><p>Ruby tetras are very sensitive to the accumulation of organic waste. Perform weekly water changes (at least 20%), remove leftover food and vacuum the bottom.</p><p>Before putting them into the tank, at least temperature-acclimate them. Do not rush the process; sudden changes can harm them.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_riesei_ruby_tetra_en/",
+      "html": "<p>Ideally the tank is only slightly illuminated, has a dark substrate and many hiding places, the surface is covered with floating plants, and the water has a deep brown-black colour due to alder \"cones\" (female catkins of Alnus glutinosa).</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-riesei",
@@ -159,6 +203,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Temperature: 24–28°C.</p><p>pH: 6.0–7.0. In nature they are found in acidic blackwater.</p><p>Hardness: GH 1–8 dGH; KH 1–4 dKH. Many aquarists noticed that in hard water the fish lose their colours.</p><p>Ammonia and nitrite should be kept at 0 ppm and nitrate below 60 ppm.</p><p>Blackwater is water with a natural dark or tea-coloured tint, caused by tannins released from decaying leaves and wood. It is favourable for this species and is often created in aquariums with Indian almond leaves, driftwood and other organic items, or with specialised water conditioners.</p><p>Water flow: still or very slow currents are recommended.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_riesei_ruby_tetra_en/",
+      "html": "<p>The water should be soft and acidic (less than 10 °dGH, pH between 4.5 and 6.5); the temperature can be between 20 and 26 °C.</p>"
     },
     {
       "key": "equipment",
@@ -179,6 +229,12 @@
       "html": "<p>In the wild, this fish is a micropredator that feeds on small invertebrates and other zooplankton.</p><p>In an aquarium, they usually accept dry or freeze-dried foods of all kinds as long as they suit their small mouth. A varied and balanced diet results in healthier, more active and more colourful fish.</p><p>Live foods: brine shrimp, artemia nauplii, cyclops, daphnia, fruit flies, mosquito larvae, moina, detritus worms, vinegar eels, grindal worms, etc.</p><p>They can take any small live or frozen food that fits into the mouth. Large worms should be chopped into small pieces and flake food crumbled.</p><p>They also accept frozen and commercial foods such as Fluval Bug Bites, Hikari First Bites, TetraMin Crisps and any really small crushed flake food.</p><p>If the fish are too afraid to come into the open: crush a pill or flake in a small pot, add water to make a liquid, suck it up with a syringe or turkey baster and release it near the fish.</p><p>Ruby tetras can be kept in planted tanks. They do not eat live plants, and planted tanks are highly recommended.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_riesei_ruby_tetra_en/",
+      "html": "<p>Ruby tetras feed on any usual fish food, but feeding them with Cyclops will intensify the red colours.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-riesei",
@@ -189,6 +245,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Temper: Ruby tetras are peaceful and harmless. They do not nip other fish and are more likely to be bullied by others. Males may engage in dominance competition but do no visible damage. Young Ruby tetras can be confused with Serpae tetras (Hyphessobrycon eques), which are semi-aggressive and nippy.</p><p>Sociality: this is a shoaling fish rather than a schooling one. Keep at least 8 (bare minimum); larger groups make them happier and more confident. Groups are needed so they can establish a hierarchy. Small groups or solitary fish become stressed.</p><p>Activity: they are incredibly shy and skittish, often hiding in plants or behind driftwood and rarely coming out except at feeding time. They move like dragonflies: motionless for periods, then suddenly darting forward 2–5 cm and stopping again. They are diurnal and rely heavily on vision.</p><p>Placement: they prefer the middle and bottom of the tank.</p><p>Tankmates: choose small fish that cannot eat or harass them, such as pygmy corydoras, clown killifish, least killifish, guppies, peacock gudgeon, ghost glass catfish, harlequin rasboras, sparkling gourami and otocinclus. Avoid very active, boisterous or territorial fish.</p><p>Shrimp: adult dwarf shrimp may be safe, but baby shrimp are highly susceptible to predation, even in heavily planted tanks. Keep shrimp separate if you want a thriving shrimp population.</p><p>Snails: they can share a tank with freshwater snails, but most snails prefer hard water and do not tolerate acidic water well in the long term, while this fish prefers soft, acidic water.</p><p>Avoid crayfish, freshwater crabs and African dwarf frogs.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_riesei_ruby_tetra_en/",
+      "html": "<p>This species should be kept in a one-species tank. If necessary, only small, peaceful species should be added as tankmates. Ruby tetras are not schooling fish, but should nevertheless be kept in groups, because they build up a hierarchy and this species-specific behaviour cannot be lived out when conspecifics are missing.</p>"
     },
     {
       "key": "dimorphism",
@@ -225,6 +287,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/ruby-tetra-detailed-guide-care-diet-and-breeding/",
       "html": "<p>The genus Axelrodia was established in 1965 by Jacques Géry, and Axelrodia riesei was described in 1966. Axelrodia fowleri was later recognised as a junior synonym of Hyphessobrycon stigmatia. The species was named in honour of Dr. Herbert R. Axelrod and Mr. William Riese, a tropical-fish exporter who helped collect it.</p><p>It is one of the smallest fish in the hobby and probably the smallest in the tetra family. Body elongated and slightly compressed, pointed snout, large eyes; colour from bright red to pinkish, paler toward the belly; fins short and transparent; caudal fin forked with a conspicuous black spot.</p><p>In captivity, Ruby tetras can live 2–3 years if appropriately cared for.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_riesei_ruby_tetra_en/",
+      "html": "<p>The ruby-red coloration differs somewhat between individuals – a shipment of ruby fish always includes some more yellowish specimens. In part it is also a consequence of settling into the aquarium.</p>"
     },
     {
       "key": "references",
@@ -282,5 +350,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-03"
 }

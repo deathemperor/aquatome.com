@@ -8,13 +8,36 @@
   "places": [
     "south-america",
     "brazil",
-    "sao-paulo"
+    "sao-paulo",
+    "santos"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,10 +49,28 @@
       "html": "<ul><li><strong>Scientific name:</strong> Kronichthys heylandi (Boulenger, 1900)</li><li><strong>Synonym:</strong> Plecostomus heylandi</li><li><strong>Type locality:</strong> Mountain stream near Santos, São Paulo State, Brazil, elevation 122 m.</li><li><strong>Etymology:</strong> Named for Mr. Ricard Krone + (Greek) ichthys = fish.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_heylandi.htm",
+      "html": "<ul><li>Common name: none</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1217",
       "html": "<p>South America: coastal streams of eastern Brazil between Santos and Rio de Janeiro.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_heylandi.htm",
+      "html": "<p>South America: Eastern Brazilian coastal streams between Santos and Rio de Janeiro (Brazil). Type locality: Mountain stream in the Province São Paulo 120 m above sea level near Santos [Brazil].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_heylandi.htm",
+      "html": "<p>Inhabits coastal streams with rocky and sandy bottom.</p>"
     },
     {
       "key": "reproduction",
@@ -38,14 +79,48 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_heylandi.htm",
+      "html": "<p>There are three species in this genus: K. subteres Miranda-Ribeiro, 1908, K. heylandi (Boulenger, 1900), and K. lacerta (Nichols, 1919).</p><p>Etymology: The fish is named in honour of civil engineer Herbert K. Heyland (1849-1944), who collected the type specimen and presented it to the British Museum to be described.</p><p>Remarks: Redescribed in Gosline (1947: 106).</p><p>IUCN Red List: Kronichthys heylandi is widely distributed, frequent, and abundant. However, the high degree of degradation of the coastal basins between the Ribeira de Iguape River (SP) and the São João River (RJ) imposes diffuse threats on the different subpopulations of the species, which cannot yet be quantified but must be monitored. As current knowledge of these threats does not indicate a risk of extinction, Kronichthys heylandi has been listed in the Least Concern (LC) category (IUCN 2022).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1217",
       "html": "<p>Annals and Magazine of Natural History (Series 7) v. 5 (no. 26) (art. 19), pp 165.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/kronichthys_heylandi.htm",
+      "html": "<ul><li>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</li><li>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Kronichthys heylandi. The IUCN Red List of Threatened Species 2022.</li><li>Christopher Scharpf &amp; Kenneth J. Lazara (22 September 2018). \"Order SILURIFORMES: Family LORICARIIDAE: Subfamilies LITHOGENINAE, HYPOPTOPOMINAE and LORICARIINAE\". The ETYFish Project Fish Name Etymology Database. Retrieved 7 November 2021.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (05/2023).</li></ul>"
     }
   ],
   "photos": [],
   "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-11-02"
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông bể cá",
+        "sỏi nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
 }

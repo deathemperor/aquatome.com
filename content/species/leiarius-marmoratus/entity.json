@@ -7,13 +7,41 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "amazon",
+    "ecuador",
+    "guyana",
+    "essequibo",
+    "venezuela",
+    "orinoco"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 60
+      },
+      {
+        "source": "scotcat",
+        "value": 80
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -25,16 +53,64 @@
       "html": "<p>Two species of catfish in South America look confusingly similar: Leiarius marmoratus, which the Indians call \"Achara\", and Leiarius (formerly Perrunichthys) perruno. Both species grow to around 60 cm in length and have the same leopard pattern and long, ringed barbels. However, there is an easily recognizable difference: Leiarius marmoratus has 10-11 rays in the dorsal fin, L. perruno only 8. As the fish usually carry the dorsal fin tightly erect, this can easily be counted on a photo.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/leiarius_marmoratus.htm",
+      "html": "<ul><li>Common name: Marble antenna catfish</li><li>IUCN Red List: Least Concern (2023). Despite the little information available on this species, it has a wide range and no apparent threats.</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/leiarius-marmoratus-l-longibarbis-2/",
       "html": "<p>Because of their attractive coloration and peaceful nature (fish that are not suitable as food are ignored), Acharas are very popular with friends of large fish. However, they rarely appear on the ornamental fish market. Specimens measuring 5-7 cm in length have recently arrived from Peru.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/leiarius_marmoratus.htm",
+      "html": "<p>South America: Amazon, Essequibo, and Orinoco River basins. Type locality: Peru or Ecuador, Amazon system, Río Marañon or Río Napo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/leiarius_marmoratus.htm",
+      "html": "<p>Inhabits riverbeds, deep wells and lakes. Young or sub-adults form large schools. Prefers to lay over rock and tree trunks during the day, being more active at sunrise, sunset and night.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/leiarius_marmoratus.htm",
+      "html": "<p>Would need a large aquarium due to its eventual size, with a clear area to the front of the tank and hiding places for it during the daylight hours such as large clay land pipes and clay pots.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/leiarius_marmoratus.htm",
+      "html": "<p>Small feeder fishes, lean beef, aquatic insect larvae, tablet and frozen foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/leiarius_marmoratus.htm",
+      "html": "<p>Not to be trusted with small fishes as they will be chased down during the night forays of this catfish.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/leiarius-marmoratus-l-longibarbis-2/",
       "html": "<p>There is no consensus among scientists as to whether L. longibarbis, described by Castelnau in 1855, and L. marmoratus, described by Gill in 1870, are identical (in which case the valid name would be L. longibarbis) or represent two different species. L. longibarbis is depicted in the original description as a solid gray fish with tiny speckles, while L. marmoratus retains its marbled spot pattern into old age. It is possible that the abnormal coloration of L. longibarbis is due to a poor preparation method, that it is a color mutant or that it is a completely different colored species that has not been caught again since. In any case, this has not been clarified, which is why these catfish with their coarse dotted marble pattern are still referred to as L. marmoratus in the trade.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/leiarius_marmoratus.htm",
+      "html": "<p>Etymology: the specific name marmoratus means marbled or mottled.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/leiarius_marmoratus.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1995 Aquarien Atlas. Band 4. Mergus Verlag GmbH, Verlag für Natur- und Heimtierkunde, Melle, Germany. 864 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (010/2010).</p><p>Salvador, G.N. 2023. Leiarius marmoratus. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
   "photos": [
@@ -72,7 +148,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Sa7OM8n15jc",
+      "title": "Leiarius marmoratus",
+      "durationSec": 82,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fC39HvvNSfI",
+      "title": "Massive catfish in 951 gallon tank",
+      "durationSec": 75,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Xxmjj6eF5iA",
+      "title": "Leiarius marmoratus",
+      "durationSec": 65,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eZ6Ubw0_ElU",
+      "title": "Story of 2nd fish no one talks about: Marbled Pim Catfish aka Leiarius marmoratus",
+      "durationSec": 1217,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -96,5 +197,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

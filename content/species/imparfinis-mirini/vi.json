@@ -4,21 +4,31 @@
   "altNames": [
     "Cá trê tôm",
     "Shrimp Catfish",
-    "Rejemalle"
+    "Rejemalle",
+    "Blue Shrimp Catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Imparfinis mirini Haseman, 1911</li><li><strong>Tên thường gọi:</strong> Shrimp Catfish (tên tiếng Anh, tạm dịch: cá trê tôm), Rejemalle (Đan Mạch)</li><li><strong>Nơi thu mẫu chuẩn (type locality):</strong> Phía trên thác Rio Piracicaba-mirini, gần Piracicaba, Brazil.</li><li><strong>Nhận dạng:</strong> Loài này có đầu hình nón, trong khi Imparfinis piperatus có đầu dẹt. Nhờ vậy, bạn có thể dễ dàng phân biệt hai loài.</li><li><strong>Danh sách Đỏ IUCN:</strong> Ít lo ngại (đánh giá lần cuối năm 2018).</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: thượng nguồn lưu vực sông Araguaia và lưu vực sông Paraná ở Brazil.</p>",
     "habitat:planetcatfish": "<p>Ngoài tự nhiên, loài này sống dưới các tảng đá ở những đoạn ghềnh nước chảy xiết.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận nào về việc loài này đẻ trong bể nuôi. Hiện cũng chưa có báo cáo nào về chuyện cho chúng sinh sản.</p>",
-    "references:planetcatfish": "<p>Annals of the Carnegie Museum v. 7 (nos 3-4) (17), pp 318, Pl. 47.</p>"
+    "references:planetcatfish": "<p>Annals of the Carnegie Museum v. 7 (nos 3-4) (17), pp 318, Pl. 47.</p>",
+    "quickFacts:scotcat": "<ul><li><strong>Tên thường gọi:</strong> cá da trơn tôm xanh (Blue Shrimp Catfish)</li><li><strong>Tên đồng nghĩa:</strong> Cetopsorhamdia mirini</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: thượng nguồn lưu vực sông Araguaia và sông Paraná, Brazil. Nơi thu mẫu định danh: gần Piracicaba, phía trên thác của Rio Piracicabamirini [Brazil].</p>",
+    "behaviour:scotcat": "<p>Ban ngày, cá da trơn tôm xanh (Imparfinis mirini) nấp dưới đá và rễ cây. Khoảng lúc chạng vạng, cá bắt đầu đi săn tôm, côn trùng và cá bột. Đây là loài rất nhạy cảm. Cá hiền với các loài khác nhưng lại giành lãnh thổ với đồng loại.</p>",
+    "aquariumSize:scotcat": "<p>Bạn nên nuôi cá trong bể cỡ vừa, có nhiều chỗ trốn như lũa, đá và cây thủy sinh.</p>",
+    "equipment:scotcat": "<p>Bể nên có dòng chảy khá mạnh, sục khí đầy đủ và lọc tốt.</p>",
+    "diet:scotcat": "<p>Cá ăn thức ăn sống, thức ăn đông lạnh và thức ăn dạng mảnh.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài mirini lấy theo Rio Piracicaba-mirini, gần Piracicaba, Brazil. Đây cũng là nơi thu mẫu định danh.</p><p>Ghi chú: Ảnh thu nhỏ thứ hai chụp một cá thể vừa bị bắt, đang mang màu stress. Sau vài lần bấm máy, cá lấy lại sức rồi bơi đi trốn dưới một khúc gỗ lớn (Petersen, P.).</p>",
+    "references:scotcat": "<p>Bockmann, F.A. and G.M. Guazzelli 2003 Heptapteridae (Heptapterids). p. 406-431. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2018. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 11/2019 ).</p>"
   },
   "quality": {
     "score": 0.7,
     "indexable": false,
     "bySource": {
-      "planetcatfish": 0.7
+      "planetcatfish": 0.7,
+      "scotcat": 0.88
     },
-    "reason": "thin"
+    "reason": "score"
   }
 }

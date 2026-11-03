@@ -3,7 +3,9 @@
   "name": "Cá Laemolyta sọc",
   "altNames": [
     "Cá đầu chúi sọc",
-    "Striped Headstander"
+    "Striped Headstander",
+    "Cá headstander sọc",
+    "Striped headstander"
   ],
   "sections": {
     "beforeYouBuy:seriouslyfish": "<p>Bể phải có nắp đậy khít vì loài này có tiếng hay nhảy. Cá họ Anostomidae nhảy rất giỏi, nên một cái nắp vừa vặn là thứ không thể thiếu.</p><p>Laemolyta taeniata (tên tiếng Anh là striped headstander) thuộc họ Anostomidae. Cá sống ở vùng trung tâm lưu vực Amazon và cũng có ghi nhận ở hệ thống sông Orinoco tại Venezuela. Đây là loài lớn nhất trong chi, dài tới 288 mm SL. Trên thị trường cá cảnh, bạn sẽ hiếm khi gặp nó. Cá sống được ở khá nhiều kiểu môi trường. Vào mùa mưa, chúng di cư vào rừng ngập, và người ta từng thấy chúng đi thành đàn di cư lớn cùng Leporinus fasciatus và L. agassizii. Chất lượng nước là chuyện quan trọng nhất khi nuôi loài này. Cũng đừng quên rằng cá họ Anostomidae nhảy rất khỏe.</p>",
@@ -17,13 +19,16 @@
     "dimorphism:seriouslyfish": "<p>Chuyện này chưa được xác nhận. Nhiều khả năng cá cái trưởng thành to hơn cá đực một chút và có bụng tròn hơn.</p>",
     "reproduction:seriouslyfish": "<p>Hiện chưa có ghi nhận nào.</p>",
     "notes:seriouslyfish": "<p>L. taeniata là loài lớn nhất trong chi và có vùng phân bố rộng thứ hai. Dù vậy, cá hiếm khi xuất hiện trên thị trường cá cảnh.</p><p>Có thể phân biệt loài này với mọi loài cùng chi, vì chỉ riêng nó có 5 hàng vảy bên nằm giữa đường bên và gốc vây lưng. Các loài còn lại có 4 hoặc 6–8 hàng.</p><p>Hoa văn của cá gần giống L. garmani và L. orinocensis. So với L. garmani, loài này có một sọc sẫm chạy giữa thân, và các sọc sáng hẹp phía trên đường bên cũng rõ hơn. So với L. orinocensis, loài này có ít vảy đường bên hơn (42–46 so với 47–52).</p><p>Chi Laemolyta khác với mọi chi khác trong họ Anostomidae ở chỗ răng symphyseal của xương răng (dentary) có kích thước xấp xỉ bằng răng thứ hai.</p><p>Cả hai chiếc răng này đều có hình thìa, rất dẹt và có mép trên thẳng. Ở các chi họ hàng gần, răng symphyseal đôi khi lớn hơn răng thứ hai rất nhiều, hoặc chỉ lớn hơn một chút và đôi khi có mấu giống các răng còn lại của xương răng, và có dạng dày hoặc cong ngược.</p><p>Ngoài ra, cá trưởng thành có một chỗ lồi ở vùng trước-bụng của xương ectopterygoid, ở phần xương mesopterygoid kéo dài. Chỗ lồi này có một mấu nhỏ hướng xuống ở mặt bên, còn mép bụng thì kém phát triển. Cá cũng có miệng supra-terminal (miệng nằm ở đầu mõm và hơi hếch lên). Trong họ Anostomidae, chỉ có chi Anostomoides mang đặc điểm này giống Laemolyta.</p><p>Từ công trình của Vari (1983), họ Anostomidae được công nhận là một nhóm đơn ngành. Căn cứ chủ yếu là các synapomorphy (đặc điểm phát sinh chung) về sự biến đổi của mang và xương treo hàm (suspensorium).</p>",
-    "references:seriouslyfish": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Mautari, K. C. and N. A. Menezes (2006). Revision of the South American freshwater fish genus Laemolyta Cope, 1872 (Ostariophysi: Characiformes: Anostomidae). Neotropical Ichthyology 4(1), 27-44</li></ul>"
+    "references:seriouslyfish": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Mautari, K. C. and N. A. Menezes (2006). Revision of the South American freshwater fish genus Laemolyta Cope, 1872 (Ostariophysi: Characiformes: Anostomidae). Neotropical Ichthyology 4(1), 27-44</li></ul>",
+    "quickFacts:glaser": "<p>Nhìn qua, cá đầu chúi sọc giống như phiên bản cỡ lớn của cá bút chì vàng. Xét về tập tính, đây là một loài cá đầu chúi điển hình về mọi mặt. Cá có thể lớn hơn 20 cm.</p>",
+    "distribution:glaser": "<p>Những cá thể này được nhập về từ Peru.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "glaser": 0.93
     }
   }
 }

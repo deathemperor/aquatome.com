@@ -8,13 +8,20 @@
     "quickFacts:planetcatfish": "<p><strong>Tên khoa học:</strong> Leptodoras cataniai Sabaj Pérez, 2005</p><p><strong>Tên thường gọi:</strong> Slank Musemalle (Đan Mạch)</p><p><strong>Nguồn gốc tên gọi:</strong> Leptodoras ghép từ hai chữ Hy Lạp. Leptos nghĩa là thon mảnh, còn doras nghĩa là da. Chữ doras cũng hay xuất hiện trong tên chi của các loài thuộc họ Doradidae. Cái tên này ám chỉ hình dáng của cá. Tên loài đặt theo David Catania để ghi nhận những đóng góp tận tụy của ông cho giới ngư học. Từ năm 1985, ông là người quản lý bộ sưu tập cá của Viện Hàn lâm Khoa học California (California Academy of Sciences).</p><p><strong>Kích thước:</strong> 19,4 cm SL (chiều dài chuẩn, đo từ mõm đến gốc vây đuôi).</p><p><strong>Phân hạng Sách Đỏ IUCN:</strong> Ít quan ngại (Least Concern). Lần đánh giá gần nhất vào năm 2020.</p>",
     "distribution:planetcatfish": "<p>Nam Mỹ: sông Rio Negro và kênh Casiquiare, thuộc Brazil và Venezuela.</p><p><strong>Nơi thu mẫu chuẩn (type locality):</strong> sông Río Casiquiare, đoạn từ cửa sông Pamoni xuôi xuống 4 km, phía tây Pamoni, tọa độ 2°48'N, 65°57'W, bang Amazonas, Venezuela.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi. Cũng chưa có ai báo cáo đã cho chúng đẻ thành công.</p>",
-    "references:planetcatfish": "<p>Neotropical Ichthyology v. 3 (no. 4), tr. 667, Hình 4g, 5g, 6b, 18e và 22.</p>"
+    "references:planetcatfish": "<p>Neotropical Ichthyology v. 3 (no. 4), tr. 667, Hình 4g, 5g, 6b, 18e và 22.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: sông Rio Negro và kênh Casiquiare, thuộc Brazil và Venezuela. Địa điểm thu mẫu chuẩn là sông Casiquiare ở bang Amazonas, Venezuela, đoạn từ cửa sông Pamoni xuống 4 km về phía hạ lưu, phía tây Pamoni (2º48'N, 65º57'W).</p>",
+    "maintenance:scotcat": "<p>Bạn nên dùng nền cát, vì loài cá này thích đào bới nền để tìm mẩu thức ăn vụn.</p>",
+    "diet:scotcat": "<p>Cá ăn thức ăn viên nén, viên hạt và cả đồ đông lạnh như trùng huyết.</p>",
+    "notes:scotcat": "<p>Mô tả: Vây lưng có tổng cộng 1 gai và 6 tia mềm. Vây hậu môn có 14-17 tia mềm. Phần cuối của dải kéo dài từ môi trên dài ra rõ rệt và tạo thành một đầu nhọn. Đôi khi đầu nhọn này trông như một tua cuối phình to.</p><p>Ba ảnh thu nhỏ đầu tiên là một loài trông rất giống, được ghi nhận từ sông Rio Nanay ở Peru, con sông chảy qua thành phố Iquitos. Loài này cùng một loài khác từ vùng Amazonas được gọi là 'dạng Nanay' và 'dạng Amazon'. Cả hai dạng này đều không phải loài thật. Loài thật có nguồn gốc từ Rio Negro. Hình thái mũ miệng của cả ba đều khác nhau. Sabaj (2005) tách chúng thành ba nhóm: L. cataniai sensu stricto (Rio Negro và kênh Casiquiare), L. cf. cataniai dạng Amazon (lưu vực Amazonas, trừ Nanay và Negro) và L. cf. cataniai dạng Nanay (mẫu vật phần lớn lấy từ Río Nanay, Peru).</p><p>Nguồn gốc tên: Tên loài cataniai được đặt để vinh danh David Catania. Ông đã tận tụy phục vụ cộng đồng ngư học từ năm 1985 trên cương vị Quản lý bộ sưu tập cá của Viện Hàn lâm Khoa học California.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Sabaj, M.H. 2005 Taxonomic assessment of Leptodoras (Siluriformes: Doradidae) with descriptions of three new species. Neotrop. Ichthyol. 3(4):637-678. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.7,
     "indexable": false,
     "bySource": {
-      "planetcatfish": 0.7
-    }
+      "planetcatfish": 0.7,
+      "scotcat": 0.88
+    },
+    "reason": "score"
   }
 }
