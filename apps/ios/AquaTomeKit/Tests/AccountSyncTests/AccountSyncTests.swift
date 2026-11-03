@@ -404,3 +404,66 @@ func snapshot() async throws {
   // New tokens don't repeat old ones.
   #expect(try await signIn(client(again), "apple-2").token != token)
 }
+
+// protocols/talk.openapi.json: the readers' posts the stand-in takes from the app, as the site's Worker does.
+nonisolated(unsafe) let talkContract: [String: Any] = {
+  var url = URL(fileURLWithPath: #filePath)
+  for _ in 0..<6 { url.deleteLastPathComponent() }
+  return try! JSONSerialization.jsonObject(with: Data(contentsOf: url.appendingPathComponent("protocols/talk.openapi.json"))) as! [String: Any]
+}()
+
+@MainActor @Test("A reader's comment and photo posted as the account: answered as the Worker answers each post, by the contract; no session, a lost one, a bad form refused; 5 a day per account")
+func readersPosts() async throws {
+  let fake = FakeAccounts()
+  let s = try await signIn(client(fake), "apple-1")
+  let jpeg = Data([0xFF, 0xD8, 0xFF, 0xE0, 0, 0x10]) + Data("JFIF".utf8)
+  func post(_ path: String, token: String?, json: [String: String]? = nil, form: [String: String]? = nil, file: (name: String?, data: Data)? = nil) async throws -> (Int, [String: Any]) {
+    var r = URLRequest(url: URL(string: "https://aquatome.com\(path)")!)
+    r.httpMethod = "POST"
+    if let token { r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization") }
+    if let json {
+      r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+      r.httpBody = try JSONSerialization.data(withJSONObject: json)
+    }
+    if let form {
+      r.setValue("multipart/form-data; boundary=B", forHTTPHeaderField: "Content-Type")
+      var body = Data(form.map { "--B\r\nContent-Disposition: form-data; name=\"\($0.key)\"\r\n\r\n\($0.value)\r\n" }.joined().utf8)
+      if let file {
+        body += Data("--B\r\nContent-Disposition: form-data; name=\"file\"\(file.name.map { "; filename=\"\($0)\"\r\nContent-Type: image/jpeg" } ?? "")\r\n\r\n".utf8)
+        body += file.data + Data("\r\n".utf8)
+      }
+      r.httpBody = body + Data("--B--\r\n".utf8)
+    }
+    let (data, res) = try await fake.send(r)
+    let statuses = (((talkContract["paths"] as! [String: Any])[path] as! [String: Any])["post"] as! [String: Any])["responses"] as! [String: Any]
+    #expect(statuses[String(res.statusCode)] != nil, "\(path) answered \(res.statusCode), which the contract doesn't give")
+    return (res.statusCode, (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] ?? [:])
+  }
+  let comment = ["e": "species:betta-splendens", "name": "Lan", "body": "Nuôi đàn 10 con."]
+  #expect(try await post("/_c", token: "nope", json: comment).1["error"] as? String == "session")
+  #expect(try await post("/_c", token: nil, json: comment).1["error"] as? String == "cross-origin", "no bearer is the website's post, from elsewhere")
+  let (status, shown) = try await post("/_c", token: s.token, json: comment)
+  #expect(status == 201 && shown["status"] as? String == "approved" && (shown["comment"] as? [String: Any])?["name"] as? String == "Lan")
+  #expect(try await post("/_c", token: s.token, json: comment).1["status"] as? String == "held", "the same words again are held")
+  #expect(try await post("/_c", token: s.token, json: comment.merging(["name": " "]) { $1 }).0 == 400)
+  #expect(try await post("/_c", token: s.token, json: comment.merging(["e": "species:<b>"]) { $1 }).1["error"] as? String == "bad entity")
+  #expect(try await post("/_c", token: s.token, json: comment.merging(["body": String(repeating: "🐟", count: 1001)]) { $1 }).0 == 400)
+  #expect(try await post("/_c", token: s.token, json: comment.merging(["body": String(repeating: "a", count: 9000)]) { $1 }).0 == 413)
+  for n in 0..<3 { #expect(try await post("/_c", token: s.token, json: comment.merging(["body": "Lần \(n)."]) { $1 }).1["status"] as? String == "approved") }
+  #expect(try await post("/_c", token: s.token, json: comment.merging(["body": "Lần 9."]) { $1 }).1["status"] as? String == "held", "a sixth comment today is held")
+  let photo = ["e": "species:betta-splendens", "name": "Lan", "consent": "1"]
+  let file = (name: Optional("photo.jpg"), data: jpeg)
+  #expect(try await post("/_p", token: nil, form: photo, file: file).0 == 403)
+  #expect(try await post("/_p", token: s.token, form: photo.filter { $0.key != "consent" }, file: file).1["error"] as? String == "consent")
+  #expect(try await post("/_p", token: s.token, form: photo.merging(["name": "<b>"]) { $1 }, file: file).1["error"] as? String == "bad name")
+  #expect(try await post("/_p", token: s.token, form: photo.merging(["e": "plant:rotala"]) { $1 }, file: file).1["error"] as? String == "bad entity")
+  #expect(try await post("/_p", token: s.token, form: photo, file: (nil, jpeg)).1["error"] as? String == "no file", "a part with no filename isn't a file")
+  #expect(try await post("/_p", token: s.token, form: photo, file: ("photo.jpg", Data("jpeg".utf8))).0 == 415)
+  for _ in 0..<5 {
+    let (code, answer) = try await post("/_p", token: s.token, form: photo, file: file)
+    #expect(code == 201 && answer["status"] as? String == "pending" && (answer["deleteUrl"] as? String)?.hasPrefix("/_p/xoa/?id=") == true)
+  }
+  #expect(try await post("/_p", token: s.token, form: photo, file: file).0 == 429, "a sixth photo today is refused")
+  #expect(fake.posts.allSatisfy { $0.account == "apple-1" } && fake.posts.count == 11)
+  #expect(fake.posts.last?.fields["file"] == "\(jpeg.count) bytes")
+}

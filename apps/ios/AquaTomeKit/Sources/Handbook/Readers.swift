@@ -1,4 +1,6 @@
 import Foundation
+import ImageIO
+import UniformTypeIdentifiers
 
 /// A page's readers' own comments and photos, read from the site's Worker as its web page reads them (`GET /_c?e=<key>`,
 /// `GET /_p?e=<key>`, apps/site/worker), by the keys the page names (PageDoc.Talk).
@@ -61,6 +63,105 @@ public enum Readers {
   private static func entries(_ data: Data, _ key: String) -> [[String: Any]] {
     (((try? JSONSerialization.jsonObject(with: data)) as? [String: Any])?[key] as? [Any] ?? []).compactMap { $0 as? [String: Any] }
   }
+
+  // Posting from the app (protocols/talk.openapi.json): as the reader's account, `Authorization: Bearer`, in place of the
+  // page's Origin and Turnstile token.
+
+  /// A comment to post on the page `key` names.
+  public static func post(comment key: String, name: String, body: String, site: URL, token: String, version: String) -> URLRequest {
+    var r = posting(site.appending(path: "_c"), token: token, version: version)
+    r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    r.httpBody = try? JSONSerialization.data(withJSONObject: ["e": key, "name": name, "body": body], options: [.sortedKeys])
+    return r
+  }
+
+  /// A reader's photo of the page's species (`jpeg`: shrunk, with no location or camera data), with their consent if they
+  /// gave it (the site's form sends its box's `1` only when it's ticked).
+  public static func post(photo key: String, name: String, consent: Bool, jpeg: Data, site: URL, token: String, version: String,
+                          boundary: String = UUID().uuidString) -> URLRequest {
+    var r = posting(site.appending(path: "_p"), token: token, version: version)
+    r.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+    var body = Data()
+    func part(_ field: String, _ value: Data, file: Bool = false) {
+      body += Data("--\(boundary)\r\nContent-Disposition: form-data; name=\"\(field)\"\(file ? "; filename=\"photo.jpg\"\r\nContent-Type: image/jpeg" : "")\r\n\r\n".utf8)
+      body += value + Data("\r\n".utf8)
+    }
+    part("e", Data(key.utf8))
+    part("name", Data(name.utf8))
+    if consent { part("consent", Data("1".utf8)) }
+    part("file", jpeg, file: true)
+    body += Data("--\(boundary)--\r\n".utf8)
+    r.httpBody = body
+    return r
+  }
+
+  /// A photo as the app sends it, as the site's form does (apps/site/src/scripts/reader-photos.ts): at most `maxSide`
+  /// pixels, upright, a JPEG written anew, so none of the original's data (its GPS position, the camera) goes with it.
+  public static func shrink(_ photo: Data, maxSide: Int = 2000) -> Data? {
+    guard let source = CGImageSourceCreateWithData(photo as CFData, nil),
+          let image = CGImageSourceCreateThumbnailAtIndex(source, 0, [kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceCreateThumbnailWithTransform: true, kCGImageSourceThumbnailMaxPixelSize: maxSide] as CFDictionary) else { return nil }
+    let out = NSMutableData()
+    guard let dest = CGImageDestinationCreateWithData(out, UTType.jpeg.identifier as CFString, 1, nil) else { return nil }
+    CGImageDestinationAddImage(dest, image, [kCGImageDestinationLossyCompressionQuality: 0.88] as CFDictionary)
+    return CGImageDestinationFinalize(dest) ? out as Data : nil
+  }
+
+  private static func posting(_ url: URL, token: String, version: String) -> URLRequest {
+    var r = request(url, version: version)
+    r.httpMethod = "POST"
+    r.httpShouldHandleCookies = false
+    r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    return r
+  }
+
+  /// What became of a post.
+  public enum Answer: Sendable, Equatable {
+    /// A comment shown at once, as it shows.
+    case shown(Comment)
+    /// A comment held for moderation.
+    case held
+    /// A photo received, to be moderated before it shows, with the path that takes it back (`deleteUrl`, given once).
+    case received(delete: String?)
+    /// The account's session is over: the reader signs in again.
+    case signedOut
+    /// Refused, with the site's code for why (`rate`, `bad name`, `too large`, …); `failed` with none.
+    case refused(String)
+  }
+
+  /// The Worker's answer to a post, by its status and body.
+  public static func answer(_ data: Data, status: Int) -> Answer {
+    let o = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+    if status == 201 {
+      switch o?["status"] as? String {
+      case "approved":
+        let shown = (o?["comment"]).flatMap { try? JSONSerialization.data(withJSONObject: ["comments": [$0]]) }.flatMap { comments($0).first }
+        return shown.map(Answer.shown) ?? .held
+      case "held": return .held
+      case "pending": return .received(delete: o?["deleteUrl"] as? String)
+      default: return .refused("failed")
+      }
+    }
+    let code = o?["error"] as? String
+    return status == 401 && code == "session" ? .signedOut : .refused(code ?? "failed")
+  }
+
+  /// The Worker's code for a comment it refuses unread (apps/site/worker/comments/rules.ts parseComment), or nil: a name
+  /// of 1–40 and a comment of 2–2000, trimmed, counted as JavaScript counts them (UTF-16 units).
+  public static func refusal(comment name: String, body: String) -> String? {
+    if !(1...40).contains(trimmed(name).utf16.count) { return "name must be 1–40 characters" }
+    if !(2...2000).contains(trimmed(body).utf16.count) { return "comment must be 2–2000 characters" }
+    return nil
+  }
+
+  /// The Worker's code for a photo's name it refuses (apps/site/worker/photos.ts), or nil: 1–40, trimmed, in UTF-16
+  /// units, with no "<" (which holds a comment). The Worker's other rules (links, blocked words) it says itself.
+  public static func refusal(photoName name: String) -> String? {
+    let t = trimmed(name)
+    return (1...40).contains(t.utf16.count) && !t.contains("<") ? nil : "bad name"
+  }
+
+  private static func trimmed(_ s: String) -> String { s.trimmingCharacters(in: .whitespacesAndNewlines) }
 
   /// The Worker's times (`toISOString()`), with or without the milliseconds, in UTC or at an offset.
   static func date(_ s: String) -> Date? {

@@ -82,6 +82,15 @@ final class AccountModel {
     return list.formatted(.list(type: .and, width: .narrow))
   }
 
+  /// Sends one of the reader's own posts to a page (a comment, a photo: protocols/talk.openapi.json) as this account,
+  /// `make` given the session's token: its status and body, or nil signed out or offline. A session the site says is over
+  /// is looked up again, so the reader is asked to sign in.
+  func post(_ make: (String) -> URLRequest) async -> (Data, Int)? {
+    guard let token, let (data, res) = try? await api.send(make(token)) else { return nil }
+    if res.statusCode == 401 { await refresh() }
+    return (data, res.statusCode)
+  }
+
   /// At launch, and when the app comes to the front: who is signed in, then a sync.
   func refresh() async {
     let asked = token

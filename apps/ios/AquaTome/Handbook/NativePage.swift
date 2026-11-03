@@ -35,8 +35,8 @@ struct NativePage: View {
     case more(String, AttributedString)
     /// A part the app can't draw: the web page instead.
     case web
-    /// Its readers' photos and comments, read from the site when the page opens.
-    case readers(PageDoc.Talk)
+    /// Its readers' photos and comments, read from the site when the page opens; `name`, the page's (a species').
+    case readers(PageDoc.Talk, name: String)
   }
 
   /// A card for another page: `sub`, the line under its name (a breed's kind, why to keep a fish away).
@@ -131,8 +131,8 @@ struct NativePage: View {
       Button(action: web) { Label("Xem phần này trên web", systemImage: "safari") }
         .buttonStyle(.bordered)
         .accessibilityIdentifier("page-web")
-    case let .readers(talk):
-      ReadersPart(talk: talk)
+    case let .readers(talk, name):
+      ReadersPart(talk: talk, name: name)
     }
   }
 
@@ -192,7 +192,7 @@ struct NativePage: View {
       webBefore = false
       add(b, to: &out)
     }
-    if let talk = doc.talk { out.append(.readers(talk)) }
+    if let talk = doc.talk { out.append(.readers(talk, name: doc.title)) }
     return out
   }
 
@@ -477,25 +477,41 @@ private struct GalleryViewer: View {
 }
 
 /// A page's readers' photos and comments (Readers), read when it opens: shown once the site has some, as its web page
-/// shows those sections only once the site answers. The photos are a gallery's row, each credited with the reader's name.
+/// shows those sections only once the site answers; with accounts on, also with none yet, and a reader signed in posts
+/// to them (ReaderPost). The photos are a gallery's row, each credited with the reader's name.
 private struct ReadersPart: View {
   let talk: PageDoc.Talk
+  let name: String
   @Environment(HandbookModel.self) private var handbook
-  @State private var comments: [Readers.Comment] = []
-  @State private var photos: [Readers.Photo] = []
+  @Environment(AccountModel.self) private var account
+  /// What the site answered: nil until it has (still reading, or offline), so "none yet" is said only of a page that has none.
+  @State private var comments: [Readers.Comment]?
+  @State private var photos: [Readers.Photo]?
+  @State private var posting: ReaderPost.Kind?
 
   var body: some View {
+    // Posting needs an account: where the site has none, a section with nothing in it would only be empty.
+    let open = account.state != .unknown && account.state != .off
+    let shownPhotos = photos ?? [], shownComments = comments ?? []
     VStack(alignment: .leading, spacing: 14) {
-      if !photos.isEmpty {
-        GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: photos.map {
-          PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: ($0.name, "", nil))
-        }, strip: Array(photos.indices.prefix(10)), all: "readers-all")
+      if talk.photos != nil && (open || !shownPhotos.isEmpty) {
+        if shownPhotos.isEmpty {
+          Text("Ảnh bạn đọc").font(.title3.bold()).accessibilityAddTraits(.isHeader)
+          if photos != nil { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
+        } else {
+          GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map {
+            PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: ($0.name, "", nil))
+          }, strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all")
+        }
+        if open { Button("Gửi ảnh \(name) của bạn") { posting = .photo }.accessibilityIdentifier("post-photo") }
       }
-      if !comments.isEmpty {
+      if talk.comments != nil && (open || !shownComments.isEmpty) {
         Text("Thảo luận").font(.title3.bold()).accessibilityAddTraits(.isHeader)
-        ForEach(comments, id: \.id) { c in
+        if comments?.isEmpty == true { Text("Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.").foregroundStyle(.secondary) }
+        ForEach(shownComments, id: \.id) { c in
           Text(line(c)).frame(maxWidth: .infinity, alignment: .leading).accessibilityIdentifier("comment")
         }
+        if open { Button("Gửi bình luận") { posting = .comment }.accessibilityIdentifier("post-comment") }
       }
     }
     .task(id: talk) {
@@ -504,6 +520,12 @@ private struct ReadersPart: View {
       guard !Task.isCancelled else { return }
       if let c { comments = c }
       if let p { photos = p }
+    }
+    .sheet(item: $posting) { kind in
+      ReaderPost(kind: kind, key: (kind == .comment ? talk.comments : talk.photos) ?? "", name: name) { c in
+        if let key = talk.comments { handbook.posted(c, on: key) }
+        comments = (comments ?? []) + [c]
+      }
     }
   }
 

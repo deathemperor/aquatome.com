@@ -28,6 +28,8 @@ final class HandbookModel {
   private var byPath: [String: HandbookIndex.Item] = [:]
   /// The index arranged to browse: groups, placements, subjects, the home's picks.
   private(set) var shelves = HandbookShelves(HandbookIndex(lang: "vi", items: []))
+  /// The reader's own comments shown at once, by page key, until the site's list has them (`readers`).
+  @ObservationIgnored private var mine: [String: [Readers.Comment]] = [:]
   /// The site's words for the keys items carry, in this language.
   private(set) var labels = HandbookIndex.Labels()
   /// How many shards of pages each kind has: the kinds the app draws itself (PageDoc).
@@ -81,12 +83,22 @@ final class HandbookModel {
   }
 
   /// A page's readers' comments and photos, from the site (Readers): each nil when the page has none to ask for or the
-  /// site doesn't answer.
+  /// site doesn't answer. The reader's own comments come last until the site's list has them: a read within a minute of
+  /// posting may be the one cached before it.
   func readers(_ talk: PageDoc.Talk) async -> ([Readers.Comment]?, [Readers.Photo]?) {
     async let comments = Self.readers(talk.comments.map { Readers.url(comments: $0, site: site) }, source)
     async let photos = Self.readers(talk.photos.map { Readers.url(photos: $0, site: site) }, source)
-    return (await comments.map(Readers.comments), await photos.map(Readers.photos))
+    var read = await comments.map(Readers.comments)
+    if let key = talk.comments, let list = read {
+      let have = Set(list.map(\.id))
+      mine[key] = mine[key]?.filter { !have.contains($0.id) }
+      read = list + (mine[key] ?? [])
+    }
+    return (read, await photos.map(Readers.photos))
   }
+
+  /// A comment the reader posted that shows at once, on the page whose comments `key` names.
+  func posted(_ comment: Readers.Comment, on key: String) { mine[key, default: []].append(comment) }
 
   private nonisolated static func readers(_ url: URL?, _ source: Source) async -> Data? {
     guard let url else { return nil }
