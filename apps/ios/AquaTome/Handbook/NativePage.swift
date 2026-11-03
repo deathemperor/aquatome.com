@@ -27,7 +27,7 @@ struct NativePage: View {
 
   /// What the page shows, in order.
   enum Piece {
-    /// Text: a heading, paragraphs, a list, a table, questions, sources. `anchor` is the id a `#id` link scrolls to;
+    /// Text: a heading, paragraphs, a list, questions, sources. `anchor` is the id a `#id` link scrolls to;
     /// `look`, its place on the page.
     case text(AttributedString, anchor: String? = nil, look: Look = .body)
     /// A photo with its caption (its links live, as a video's moments and a figure's fish are) and its credit (a quiet
@@ -923,12 +923,13 @@ private struct TablePart: View {
     Grid(alignment: .topLeading, horizontalSpacing: 20, verticalSpacing: 10) {
       if let head {
         GridRow {
-          ForEach(0..<columns, id: \.self) { c in name(head[safe: c]).fixedSize(horizontal: true, vertical: false) }
+          ForEach(0..<columns, id: \.self) { c in name(head[safe: c], header: true).fixedSize(horizontal: true, vertical: false) }
         }
-        Divider()
+        // As wide as the columns, not widening them.
+        Divider().gridCellUnsizedAxes(.horizontal)
       }
       ForEach(rows.indices, id: \.self) { r in
-        if r > 0 { Divider() }
+        if r > 0 { Divider().gridCellUnsizedAxes(.horizontal) }
         GridRow {
           ForEach(0..<columns, id: \.self) { c in
             Text(rows[r][safe: c] ?? AttributedString()).fixedSize(horizontal: true, vertical: false)
@@ -946,7 +947,7 @@ private struct TablePart: View {
         VStack(alignment: .leading, spacing: 10) {
           ForEach(rows[r].indices, id: \.self) { c in
             VStack(alignment: .leading, spacing: 2) {
-              if let h = head?[safe: c], !h.characters.isEmpty { name(h) }
+              if let h = head?[safe: c], !h.characters.isEmpty { name(h, header: false) }
               Text(rows[r][c]).lineSpacing(2).frame(maxWidth: .infinity, alignment: .leading)
             }
           }
@@ -955,10 +956,11 @@ private struct TablePart: View {
     }
   }
 
-  /// A column's name, over its cells; an empty one keeps its column.
-  private func name(_ h: AttributedString?) -> some View {
+  /// A column's name, over its cells; an empty one keeps its column. A heading to VoiceOver in the grid's top row only,
+  /// not each time it's repeated over a cell.
+  private func name(_ h: AttributedString?, header: Bool) -> some View {
     Text(h ?? AttributedString()).font(.footnote.weight(.semibold)).foregroundStyle(.secondary)
-      .accessibilityAddTraits(.isHeader)
+      .accessibilityAddTraits(header ? .isHeader : [])
       .accessibilityHidden(h?.characters.isEmpty ?? true)
   }
 }

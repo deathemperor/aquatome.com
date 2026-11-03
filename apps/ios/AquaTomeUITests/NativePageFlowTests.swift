@@ -32,6 +32,7 @@ final class NativePageFlowTests: XCTestCase {
     // Pros and cons, too long side by side: each under its name, the first column's ("Ưu điểm") too.
     let pros = long.staticTexts["Ưu điểm"], cons = long.staticTexts["Nhược điểm"]
     XCTAssertTrue(pros.exists && cons.exists, "a column without its name")
+    XCTAssertLessThan(pros.frame.maxY, cons.frame.minY, "the long table drawn as a grid, its columns off the screen")
     let consText = long.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "• Nước nóng lên")).firstMatch
     XCTAssertTrue(consText.exists, "no cons")
     XCTAssertLessThanOrEqual(cons.frame.maxY, consText.frame.minY + 1, "the cons not under their name")
