@@ -90,8 +90,9 @@ private struct NowMark: View {
   @ScaledMetric(relativeTo: .footnote) private var time: CGFloat = 40
 
   var body: some View {
-    let place = NowLabel.place(now: Double(x), label: Double(label), times: times.map(Double.init), time: Double(time), width: Double(width))
-    Path { $0.move(to: .zero); $0.addLine(to: CGPoint(x: 0, y: Timeline.height)) }
+    // Left out until it's been measured.
+    let place = label == 0 ? .hidden : NowLabel.place(now: Double(x), label: Double(label), times: times.map(Double.init), time: Double(time), width: Double(width))
+    Path { $0.move(to: CGPoint(x: 1, y: 0)); $0.addLine(to: CGPoint(x: 1, y: Timeline.height)) }
       .stroke(Color.red, style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
       .frame(width: 2, height: Timeline.height)
       .overlay(alignment: .top) {
@@ -101,7 +102,7 @@ private struct NowMark: View {
           // Measured still when left out.
           .opacity(place == .hidden ? 0 : 1)
       }
-      .offset(x: x)
+      .offset(x: x - 1) // the line's middle at x
       .allowsHitTesting(false)
       .accessibilityHidden(true)
   }

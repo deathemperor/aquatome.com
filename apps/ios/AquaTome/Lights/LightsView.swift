@@ -410,21 +410,48 @@ private struct WriteBar: View {
   @Environment(LightsModel.self) private var lights
   let pinned: Bool
   @State private var confirming = false
+  /// How the summary and the button share the pinned bar, as the measuring copy under it found.
+  @State private var arrangement = Arrangement.beside
+
+  private enum Arrangement { case beside, broken, stacked }
 
   var body: some View {
     let f = lights.form
     let said = f.problem == nil ? summary(f) : ""
+    let broken = said.replacing(" · ", with: " ·\n", maxReplacements: 1)
+    let a = pinned ? arrangement : .stacked
+    let row = a == .stacked ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
     let content = VStack(alignment: .leading, spacing: 4) {
-      if pinned {
-        // Beside the button, on one line or broken after its times; above the button where even that doesn't fit (a
-        // longer language's button), never with its times broken.
-        ViewThatFits(in: .horizontal) {
-          HStack(spacing: 12) { summaryText(said); button }
-          HStack(spacing: 12) { summaryText(said.replacing(" · ", with: " ·\n", maxReplacements: 1), saying: said); button }
-          VStack(alignment: .leading, spacing: 8) { summaryText(said); button }
+      // One summary and one button however they're arranged, so VoiceOver keeps its place when the button's words change.
+      row {
+        Text(verbatim: a == .broken ? broken : said)
+          .font(.subheadline.weight(.semibold)).monospacedDigit()
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .accessibilityLabel(Text(verbatim: said)) // one line, however it's broken on the screen
+          .accessibilityIdentifier("summary")
+        Button {
+          if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
+        } label: {
+          words
         }
-      } else {
-        VStack(alignment: .leading, spacing: 8) { summaryText(said); button }
+        .buttonStyle(.borderedProminent)
+        .controlSize(.large)
+        .layoutPriority(1) // its words on one line beside the summary, which has room left for its own lines
+        .disabled(!lights.canWrite)
+        .accessibilityIdentifier("write")
+      }
+      .background {
+        if pinned {
+          // Beside the button on one line, or broken after its times; above the button where even that doesn't fit (a
+          // longer language's button), never with its times broken.
+          ViewThatFits(in: .horizontal) {
+            measured(said).onAppear { arrangement = .beside }
+            measured(broken).onAppear { arrangement = .broken }
+            Color.clear.onAppear { arrangement = .stacked }
+          }
+          .hidden()
+          .accessibilityHidden(true)
+        }
       }
       if !lights.isConnected {
         Text("Kết nối đèn để ghi lịch. Lịch này được nhớ trên máy.").font(.footnote).foregroundStyle(.secondary)
@@ -450,26 +477,16 @@ private struct WriteBar: View {
     }
   }
 
-  /// What will be written, read aloud as one line however it's broken on the screen.
-  private func summaryText(_ shown: String, saying: String? = nil) -> some View {
-    Text(verbatim: shown)
-      .font(.subheadline.weight(.semibold)).monospacedDigit()
-      .frame(maxWidth: .infinity, alignment: .leading)
-      .accessibilityLabel(Text(verbatim: saying ?? shown))
-      .accessibilityIdentifier("summary")
+  private var words: Text {
+    Text(lights.formIsActive ? "Đèn đang dùng lịch này" : lights.isWriting ? "Đang ghi…" : "Ghi lịch vào đèn")
   }
 
-  private var button: some View {
-    Button {
-      if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
-    } label: {
-      Text(lights.formIsActive ? "Đèn đang dùng lịch này" : lights.isWriting ? "Đang ghi…" : "Ghi lịch vào đèn")
+  /// The summary as `shown` beside the button, drawn the same way, only to see whether they fit.
+  private func measured(_ shown: String) -> some View {
+    HStack(spacing: 12) {
+      Text(verbatim: shown).font(.subheadline.weight(.semibold)).monospacedDigit()
+      Button {} label: { words }.buttonStyle(.borderedProminent).controlSize(.large)
     }
-    .buttonStyle(.borderedProminent)
-    .controlSize(.large)
-    .layoutPriority(1) // its words on one line beside the summary, which has room left for its own lines
-    .disabled(!lights.canWrite)
-    .accessibilityIdentifier("write")
   }
 
   /// "12:00–20:00 · 70% · 8 tiếng", as the site's.
