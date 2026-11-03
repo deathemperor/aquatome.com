@@ -47,8 +47,8 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Đã đăng bình luận."].waitForExistence(timeout: 5), "the comment wasn't posted")
     app.buttons["Đóng"].tap()
     // Away to another tab and back: the page reads its comments again, as the site had them before.
-    app.tabBars.buttons["Bể của tôi"].tap()
-    app.tabBars.buttons["Tìm"].tap()
+    app.openTab("Bể của tôi")
+    app.openTab("Tìm")
     XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "not back on the page")
     let comments = app.descendants(matching: .any).matching(identifier: "comment")
     let mine = comments.matching(NSPredicate(format: "label ENDSWITH %@", "\nĐàn 12 con khỏe.")).firstMatch
@@ -200,7 +200,7 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(block.waitForExistence(timeout: 5), "not asked")
     block.tap()
     XCTAssertTrue(gone(comment(app, "Minh")), "the blocked poster's comment still shows")
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     let header = app.descendants(matching: .any)["blocked-header"]
     for _ in 0..<4 where !header.exists { app.swipeUp() }
     XCTAssertTrue(header.waitForExistence(timeout: 5), "no blocked list in the tanks tab")
@@ -208,7 +208,7 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertEqual(unblock.label, "Bỏ chặn Minh")
     unblock.tap()
     XCTAssertTrue(gone(header), "the list stayed with no one in it")
-    app.tabBars.buttons["Tìm"].tap()
+    app.openTab("Tìm")
     XCTAssertTrue(comment(app, "Minh").waitForExistence(timeout: 5), "let back, still hidden")
   }
 

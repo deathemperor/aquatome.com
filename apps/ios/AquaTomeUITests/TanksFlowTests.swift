@@ -183,7 +183,7 @@ final class TanksFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args
     app.launch()
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     return app
   }
 

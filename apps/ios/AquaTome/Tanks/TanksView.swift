@@ -176,8 +176,14 @@ private struct LightButton: View {
       openScreen(.lights)
       if lights.card == .idle { Task { await lights.connect(saved: device) } }
     } label: {
-      LightRow(device: device).foregroundStyle(Color.primary)
+      HStack {
+        LightRow(device: device).foregroundStyle(Color.primary)
+        Spacer()
+        // It goes somewhere, as the list's other rows that do show.
+        Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
+      }
     }
+    .accessibilityHint(Text("Mở trong tab Đèn"))
     .accessibilityIdentifier("tank-light")
   }
 }
