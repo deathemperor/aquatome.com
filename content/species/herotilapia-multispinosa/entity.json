@@ -9,13 +9,57 @@
     "central-america",
     "nicaragua",
     "costa-rica",
-    "honduras"
+    "honduras",
+    "north-america"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 17.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,6 +69,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/herotilapia-multispinosa-2/",
       "html": "<p>Common name: rainbow cichlid. Males can grow to a maximum length of 12 cm; females always remain 3-5 cm smaller.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<p>The rainbow cichlid, Herotilapia multispinosa, is a Central American cichlid from eastern Honduras and throughout Nicaragua and Costa Rica. Peaceful by Central American standards, it suits fishkeepers who do not want the more aggressive species, and can live with tetras, barbs and smaller peaceful cichlids. In nature it inhabits turbid lakes, swamps and marshes with soft, muddy substrates, and in the aquarium it typically reaches around 10 cm.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -39,10 +89,58 @@
       "html": "<p>This medium-sized cichlid originally comes from Central America (Nicaragua, Costa Rica, Honduras).</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<p>Occurs in eastern Honduras and throughout Nicaragua and Costa Rica. Its Atlantic (eastern) range extends south from the River Patuca in Honduras to the River Matina in Costa Rica. In the west it can be found from the River Guasaule in Nicaragua to the Costa Rican Rivers of Tempisque and Bebedero.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<p>Most often inhabits turbid waters with soft, muddy substrates including inland lakes, swamps and marshes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<p>Standard length 17.5 cm SL. Aquarium base 90 × 38 cm. Volume ~103 litres (90 × 38 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<p>Sand substrate should be used, although this fish would actually prefer a muddy bottom which would pose a challenge to the aquarist. Other tank decor is not critical, although the Rainbow cichlid will appreciate areas of planting in which it can take cover. Water flow should be slow to moderate and lighting not overly strong.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 7.0–8.0</li><li>Hardness: 0–20 dGH</li></ul><p>Temperature: Occurs in waters as warm as 33°C in the wild! However 22–28°C is suggested in the aquarium.</p><p>Hardness: Up to 20 dGH.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<p>Feeds mainly on detritus in nature, including a great deal of algae and other plant matter. Not a fussy eater in captivity. Feed a high quality cichlid pellet as staple and vary often with frozen and live foods. Will especially appreciate brine shrimp. Vegetable/spirulina flakes or similar will also be accepted.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<p>A peaceful cichlid, especially by Central American standards, which will appreciate tankmates of a similar disposition. Tetras, barbs and other smaller peaceful cichlids can all be considered. Small plecos and doradids make suitable bottom-dwellers.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/herotilapia-multispinosa-2/",
       "html": "<p>Males grow to a maximum of 12 cm; females remain 3-5 cm smaller.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<p>Can be difficult to distinguish. Male is likely to have more pointed dorsal and anal fins.</p>"
     },
     {
       "key": "reproduction",
@@ -51,13 +149,36 @@
       "html": "<p>The fish reproduce effortlessly in typical open-breeder fashion.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<p>Best spawned in a separate breeding tank. A spawning site will be cleaned, usually a bit of smooth-surfaced rock. Slate is ideal for this purpose. The female will lay the eggs, then the male will move in to fertilise them. Both parents will then fan the eggs with their pelvic fins to provide oxygenated water to the eggs. Eggs can take up to 2 days to hatch (at this point they may be moved into other designated spawning pits), and up to a week later the fry will be free swimming.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/herotilapia-multispinosa-2/",
       "html": "<p>Herotilapia: composed of the generic names Heros and Tilapia, two other cichlid genera. multispinosa: Latin, means \"with many spines\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/herotilapia-multispinosa",
+      "html": "<p>Relatively common in the hobby, the Rainbow Cichlid makes an ideal Central American cichlid for those who do not wish to manage the challenge of the more aggressive Central American species.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9a1a743ce15738c2.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "Public domain",
+      "author": "Happy Birthday To You!",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:RainbowCichlid.JPG",
+      "caption": "One of my rainbow cichlids",
+      "thumb": "https://media.aquatome.com/commons/9a1a743ce15738c2-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -80,5 +201,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

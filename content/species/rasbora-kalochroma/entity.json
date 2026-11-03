@@ -5,12 +5,61 @@
   "family": "Cyprinidae",
   "genus": "Rasbora",
   "group": "rasboras",
-  "places": [],
+  "places": [
+    "asia",
+    "malaysia",
+    "sarawak",
+    "indonesia",
+    "kalimantan"
+  ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -28,13 +77,97 @@
       "html": "<p>One of the undoubtedly most beautiful Rasbora species is R. kalochroma – and one of the most sensitive. They are typical black water fish which react very sensitively during the acclimatisation phase to increased bacteria contamination, which occurs almost inevitably in “normal” water. Young fish are basically much more adaptable than adult animals, so well adapted youngsters are preferable.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Do not add this fish to a biologically immature tank as it can be susceptible to swings in water chemistry.</p><p>The clown rasbora, Rasbora kalochroma, is a cyprinid from the peat swamp blackwaters of Peninsular Malaysia, Borneo and Sumatra. Its patterning varies with locality. Adults are sometimes confused with R. elegans, a silver fish, while this one is pinkish to reddish. The only congener it may genuinely be mistaken for is the almost identical R. kottelati of northern Sarawak and Brunei, which has an additional dark blotch on the caudal peduncle.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<p>Native to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra. In Peninsular Malaysia it has been collected from the states of Selangor, Terengganu, Pahang and Johor so would appear to be widely-distributed. The only information pertaining to Sumatra we have are accounts from Gunung Sahilan in Riau province, Bintan Island in the Riau Islands province and Bangka/Belitung Islands just off the southeastern coast. On Borneo its range extends southwards from Kuching city in the Malaysian state of Sarawak via the Kapuas River basin in the Indonesian province of West Kalimantan (Kalimantan Barat) as far as the Barito drainage in South Kalimantan (Kalimantan Selatan). It does not occur in the north and east of the island.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<p>Inhabits black water streams and rivers associated with ancient forest peat swamps. The water is stained brown due to the release of tannins and other chemicals released by decomposing organic matter and the substrate scattered with fallen leaves, twigs and branches. Such environments characteristically contain very soft (negligible hardness), acidic (pH as low as 4.0) water and are often dimly-lit due to the forest canopy above. Across much of Southeast Asia these biotopes are under threat from rubber/palm oil plantations, building developments and other human activities.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<p>An active species and a group will need a tank measuring at least 120 × 45 × 45 cm (~243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<p>Choice of decor is not as critical as water quality although this species does look particularly effective in a well-planted tank with a dark substrate. To see it at its best a biotope-style set-up can also make an interesting project. A soft, sandy substrate is probably the best choice to which can be added a few driftwood roots and branches, placed in such a way that plenty of shady spots are formed. If you can't find driftwood of the desired shape common beech or oak is safe to use if thoroughly dried and stripped of bark.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and as well as offering even more cover for the fish brings with it the growth of microbe colonies as decomposition occurs. These tiny creatures can provide a valuable secondary food source for fry whilst the tannins and other chemicals released by the decaying leaves are thought to be beneficial for blackwater fish species such as this. Certainly R. kalochroma is known to display more intense colouration in tannin-stained water. Leaves can be left in the tank to break down fully or removed and replaced every few weeks. Allow the wood and leaves to stain the water.</p><p>A small net bag filled with aquarium-safe peat can also be added to the filter or hung over the edge of the tank to aid in the simulation of black water conditions. Alternatively obtain some genuine peat fibre and simply drop a few handfuls into the tank. This will become completely saturated with water after a few days and sink to the bottom where it can look really effective. Provided a good routine of water maintenance is practiced no adverse effects should occur using either peat or leaves in an aquarium.</p><p>This species will do best under fairly dim lighting. You could add some Asian plants that can survive under such conditions such as Microsorum pteropus, Vesicularia dubyana or perhaps some potted Cryptocorynes. A few patches of floating vegetation would be really useful to diffuse the light entering the tank too.</p><p>Do not add this fish to a biologically immature tank as it can be susceptible to swings in water chemistry and be sure to add a tightly-fitting cover as like most rasboras it is an accomplished jumper.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<p>Probably feeds mostly on invertebrates both aquatic and terrestrial in nature as with similar members of the genus. In the aquarium it's easily-fed but for it to develop its best colours and condition offer daily meals of live and frozen foods such as bloodworm, Daphnia and Artemia along with good quality dried flakes and granules.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<p>This species is very peaceful indeed making it an ideal resident of the well-furnished community tank. As always when selecting a compatible community of fish proper research is essential and its adult size must be a consideration. A community based around one of its native countries or river basins would also make a worthwhile project with some interesting alternatives. For example in blackwaters of the Endau river drainage, Peninsular Malaysia sympatric species include Rasbora cephalotaenia, R. einthovenii, R. dusonensis, R. paucisqualis, Brevibora dorsiocellata, Trigonopoma pauciperforatum, T. gracile, Puntius johorensis, P. partipentazona, Betta pugnax, Sphaerichthys osphromenoides, Vaillantella maassi and seven species of Pangio.</p><p>Despite reports to the contrary this is a schooling fish and at least 8-10 specimens should be purchased with problems only likely to occur if the fish are kept in cramped conditions or insufficient numbers. Maintaining it in a decent-sized group will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours as they compete with one other for female attention and any aggression ought to be spread out among the group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<p>Mature females are noticeably rounder-bellied and often a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<p>Like many small cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care. That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required. The adult group can still be conditioned together but one or more long, shallow containers measuring 75 × 30 × 30 cm (71 litres) should also be set up and half-filled with water. These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well with the addition of a few clumps of java moss or other fine-leaved plant also highly recommended.</p><p>The water itself should be of slightly acidic pH with a temperature towards the upper end of the range suggested above. A small power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank. When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container. Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods. Several spawning events will usually occur before a female is spent of eggs.</p><p>The adults will eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism. Incubation is temperature-dependant to an extent but usually takes between 18 and 48 hours with the young free-swimming 24 to 48 hours later. Initial food should be Paramecium or similar introducing Artemia nauplii and/or microworm once the fry are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/rasbora-kalochroma-4/",
       "html": "<p>The colouring of the fish in photos is only a drab copy of the colouring they show in well equipped black water tanks; unfortunately you cannot photograph in such water or the colours would appear completely unnatural. In the past, R. kalochroma was considered to be the adult form of the dwarf rasbora (Boraras maculatus); however, the similarity is not very great from today’s point of view.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<p>R. kalochroma exhibits variable patterning across its range according to locality with some forms possessing a line of spot-like markings connecting the two dark blotches on the flanks and others more intense body colouration. Juveniles are sometimes confused with Boraras maculatus and adults with the similarly-patterned R. elegans although the latter is easy to identify by its overall silver, as opposed to pinkish/reddish, colouration.</p><p>The only congener for which it may be genuinely mistaken is the almost-identical R. kottelati which has a restricted range and is found only in northern Sarawak and Brunei Darussalam, Borneo. It possesses an additional, oval-shaped dark blotch on the caudal peduncle, lacks the stripe in the middle of the caudal fin seen in R. kalochroma and is consequently easy to distinguish on close inspection. It is thought that the two derived from a common ancestor but are now separated by the western tip of the Kapuas Hulu mountain range. When describing the species in 1995 Kelvin Lim noted that it was more difficult to positively identify populations of R. kalochroma from Borneo, Sumatra and Peninsular Malaysia from one another than R. kottelati. No specimens of either species used in the study were found to have intermediate patterning which further suggests they do not occur sympatrically in nature and are genetically distinct from one another.</p><p>Rasbora has long been recognised as a polyphyletic lineage, as noted by Kottelat (1999) amongst others, and in 2010 a phylogenetic analysis by Liao et al. suggested a number of changes to improve the taxonomy, erecting new genera for former members of Rasbora. Shortly afterwards Tang et al. (2010) published a study of the subfamily Danioninae whose results differed widely, synonymising the new genera plus Boraras and Trigonostigma with Rasbora. The system of Liao et al. is adopted here pending future studies. In Liao et al., R. kalochroma is placed in the R. einthovenii species group together with R. einthovenii, R. cephalotaenia, R. elegans, R. jacobsoni, R. kottelati, R. nematotaenia, R. patrickyapi and R. tubbi. The type species of Rasbora is R. cephalotaenia (known as Leuciscus cephalotaenia at the time), as Bleeker first used the name Rasbora in 1859.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "html": "<ul><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Kottelat, M. (1999). Nomenclature of the genera Barbodes, Cyclocheilichthys, Rasbora and Chonerhinos (Teleostei: Cyprinidae and Tetraodontidae), with comments on the definition of the first reviser. Raffles Bulletin of Zoology Supplement 47(2), 591-600</li><li>Lim, K.K.P. (1995). Rasbora kottelati, a new species of cyprinid fish from north-western Borneo. Raffles Bull. Zool. 43(1), 65-74.</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ed083fcc654c5d02.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ed083fcc654c5d02-480.webp",
+      "width": 640,
+      "height": 320,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-kalochroma",
+      "caption": "When an individual is stressed the dark body markings often fade.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -59,5 +192,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

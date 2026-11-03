@@ -1,0 +1,167 @@
+{
+  "id": "corydoras-leopardus",
+  "scientificName": "Corydoras leopardus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "loreto",
+    "ecuador",
+    "napo",
+    "bolivia",
+    "manuripi",
+    "brazil",
+    "jurua"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6.1
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<p>The leopard cory, Brochis leopardus, long known as Corydoras leopardus, is a spotted armoured catfish from the western Amazon basin in Peru, Ecuador, Bolivia and Brazil. It looks very like Hoplisoma julii and H. trilineatum, but has a longer, more pointed snout and grows larger. Dias et al. (2024) moved it to the genus Brochis and put the two lookalikes in Hoplisoma, so the resemblance does not reflect a close relationship. The type specimens were aquarium imports.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<p>Found in the western Amazon basin. It's listed from Loreto in Peru, from Ecuador and from Bolivia, and museum specimens come from the Yavarí and Juruá drainages in Brazil, the Napo drainage in Ecuador and the Río Manuripi in Pando, Bolivia.</p><p>The type specimens were aquarium imports, and the type locality is given only as 'Brazil (probably from a Brazilian coastal river south of the Amazon River)'.</p><p>Museum collections also hold fish identified as this species from coastal rivers near Belém in Pará, and from the Putumayo and Caquetá drainages in Colombia. The Pará fish would fit the type locality, but that area is also the range of Hoplisoma julii, and the records of neither set could be confirmed.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<p>Museum specimens have been collected from oxbow lakes, lagoons and backwaters off the Río Manuripi in Bolivia, a floodplain lake in Loreto, Peru, and small forest streams in the Yavarí drainage and in the Napo drainage in Ecuador.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<p>A tank measuring 60 × 38 × 30 cm (about 68 litres) is big enough for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<p>Use a substrate of fine sand so it can sift for food without damaging its barbels, and add smooth rocks and pieces of driftwood for cover. Some dense planting and a few floating plants to shade the tank are also appreciated.</p><p>Keep the water well oxygenated, with some movement at the surface. Like all corys it's sensitive to a dirty substrate and can lose its barbels in poor conditions, so keep the sand clean with regular water changes and don't use undergravel filtration.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.0–7.2</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<p>An omnivore that forages on the bottom. It takes most sinking dried foods such as small pellets and tablets, along with small live and frozen foods such as bloodworm, Daphnia and Artemia.</p><p>Make sure enough food reaches the bottom for it. It won't thrive on what the fish above it leave behind.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<p>Peaceful, and a good community fish with small characins, pencilfish, dwarf cichlids and other peaceful catfish. Avoid anything large or aggressive.</p><p>Keep it in a group, ideally of ten or more, as it's far more confident and active with plenty of its own kind around. Its temperature range tops out at 25°C, so pick tankmates that are comfortable at that temperature or below.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<p>Females grow larger than males and are rounder and broader in the body, and the difference is easiest to see from above. Males tend to develop more pointed fin tips as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<p>No report of this species spawning in the aquarium has been found. It's likely to breed in the same way as other corys.</p><p>Condition a group on live and frozen foods, ideally with two males to each female. Spawning in most corys is triggered by a large water change with slightly cooler water once the females are visibly full of eggs, repeated daily if nothing happens at first.</p><p>The male holds the female's barbels against his body with a pectoral fin, a posture known as the 'T-position'. In Osteogaster aenea the female has been shown to drink the male's sperm. It passes quickly through her gut and is released over the eggs she holds in a pouch formed by her pelvic fins (Kohda et al., 1995). She then sticks the eggs to the glass or a plant leaf, a few at a time, and the process repeats.</p><p>The adults will eat the eggs, so either move them out after spawning or move the eggs to a separate container of the same water. The eggs are firm enough to roll gently off the glass with a finger. Remove any eggs that turn white with fungus. Once the fry have used up their yolk sacs they'll take microworm and newly hatched Artemia nauplii, and they do better over a thin layer of sand than in a bare container.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-leopardus",
+      "html": "<p>It looks very like Hoplisoma julii and H. trilineatum, but has a longer, more pointed snout and grows larger. One of the two fish Myers described it from was later found to be a young H. trilineatum (Nijssen and Isbrücker, 1980).</p><p>Corydoras funnelli Fraser-Brunner, 1947, described from an imported aquarium fish, is a synonym.</p><p>Dias et al. (2024) split Corydoras into several genera using molecular and anatomical evidence, and placed this species in Brochis, a name used until then for only three species with long dorsal fins, such as B. splendens. They put H. julii and H. trilineatum in a different genus, Hoplisoma, so the resemblance doesn't reflect a close relationship. The Catalog of Fishes and FishBase both follow them.</p><p>Like all corys it can breathe air, taking oxygen through a modified, blood-rich section of its gut, so you'll see it dash to the surface now and then. More frequent trips than usual can be a sign that the water quality is falling.</p><p>The pectoral-fin spines are sharp, catch easily in a net and can give a painful jab, so take care when catching and handling it.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60x38"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên thức ăn cá đáy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm",
+        "lọc cho cá chuột"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

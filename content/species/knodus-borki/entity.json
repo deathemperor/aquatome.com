@@ -8,12 +8,21 @@
   "places": [
     "south-america",
     "peru",
-    "iquitos"
+    "iquitos",
+    "colombia",
+    "brazil"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 26
@@ -24,12 +33,44 @@
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
       }
     ]
   },
@@ -41,10 +82,40 @@
       "html": "<ul><li>Very peaceful, highly active schooling fish</li><li>Keep in groups of at least 10</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<p>The blue tetra, Knodus borki, is a small characid from Colombia and Brazil, found in rivers, streams and tributaries. Its colour is often so intense that many who first see it for sale assume it has been artificially coloured, though it will not develop its best colours in sparse surroundings. It may nip the fins of conspecifics and long-finned fishes, which a group of 8-10 in a larger tank helps to limit.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
       "html": "<p>In the hobby, the blue Peru tetra is part of the standard range. It is available all year round, mostly as a captive-bred specimen, but occasionally also as a wild catch. There is also an albino breed.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<p>Colombia and Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<p>Rivers, streams and tributaries.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<p>Despite its diminutive size, this is a very active species and is not really suitable for tanks smaller than 75 × 38 × 30 cm - about 86 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<p>Best kept in a heavily-planted arrangement with a dark substrate and floating plants to diffuse the lighting. If maintained in sparse surroundings it will not develop its best colours. Alternatively, it can look very effective in an Amazon-type biotope setup. Use sand as substrate and add some twisted beech branches and roots. Complete the effect by scattering a few handfuls of dried oak, beech or Indian almond leaves around the tank. You might also wish to add a net bag containing aquarium-safe peat or peat moss to the filter. This will release humic acids and tannins into the water, giving it a similar stained effect to the natural waters of the fish. The water should also contain plenty of dissolved oxygen.</p>"
     },
     {
       "key": "waterConditions",
@@ -53,10 +124,22 @@
       "html": "<p>Any tap water suitable for drinking is suitable for keeping these fish, and the water temperature can be between 22 and 26°C.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 5.5-7.0. Will not do well in alkaline conditions.</li><li>Hardness: 5-12 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
       "html": "<p>They will eat any commercially available ornamental fish food of a suitable size.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<p>Omnivorous and will accept most foods offered. It particularly relishes small live and frozen foods such as bloodworm, daphnia and brineshrimp. Some vegetable matter such as blanched spinach or a good quality Spirulina flake should also be included in the diet.</p>"
     },
     {
       "key": "behaviour",
@@ -65,10 +148,22 @@
       "html": "<p>Knodus borki is a very peaceful, highly active schooling fish. Plants and any other inhabitants of the aquarium are not disturbed. These lively animals are easy to care for. They should be kept in groups of at least 10. Their somewhat \"hanging\" swimming style is typical of the species. It is not as extreme as that of the Penguin tetras, but it is particularly noticeable when the fish pause briefly.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<p>Although generally peaceful, it may occasionally nip at the fins of conspecifics and other species with elongated fins. This behaviour becomes more apparent at feeding time or if the fish are kept in cramped conditions. It can be limited by buying at least 8-10 specimens and maintaining them in a larger tank. Under these conditions any aggression is more often directed towards conspecifics. Avoid any particularly quiet or slow-moving tankmates as they might be intimidated by the species' constant movements and vigorous nature. It's certainly not a good dither species for dwarf cichlids such as Apistogramma. Possible choices include other tetras, Loricariids and smaller catfish such as Corydoras sp.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
       "html": "<p>Males and females differ only slightly in color, but the light areas at the tips of the tail fin are more pronounced in males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<p>Mature females are clearly rounder in the belly than males. Males are a little more intensely coloured than females, and their anal fin is supposed to become suffused with a reddish colour when in spawning condition.</p>"
     },
     {
       "key": "reproduction",
@@ -77,10 +172,22 @@
       "html": "<p>They are open spawners without brood care.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<p>Has been achieved but little information is available. A separate spawning tank will certainly be required. Something around 30 × 20 cm would be suitable. Set this up very simply, with no substrate, and a small air-powered sponge filter. Add a couple of pots containing Amazon swords or similar, as the female is supposed to lay her eggs under a broad plant leaf. Fill the tank with soft, acidic, aged water. Meanwhile, condition the fish in a group with plenty of high quality live and frozen foods. When the females are noticeably round with eggs and the males are showing their best colours, select the best-looking pair and place them in the spawning tank in the evening. Once eggs are noticed (hopefully the following morning), remove the adults as they will probably make a meal of them given the chance. The fry are very small indeed and require infusoria or Paramecium as a first food.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
       "html": "<p>In 2008, while examining a newly imported species (previously referred to as Boehlkea sp. \"Sky Blue\"), Dr. Axel Zarske discovered that it was actually Boehlkea fredcochui. The fish that had been referred to as B. fredcochui for decades, on the other hand, represented a species of the genus Knodus that had not yet been scientifically recorded and was described as Knodus borki in honor of Dieter Bork.</p><p>The common name Blue Peru Tetra has remained. The animals were first imported around 1956. The location \"Leticia\" (Colombia) referred to at the time was the city from which the export took place. To this day, Leticia, located in the border triangle of Peru, Brazil, and Colombia, is one of the most important trading centers for ornamental fish in the Amazon region. Many rarities are even shipped exclusively via Leticia, even though they come from relatively distant areas, simply because Leticia has the infrastructure that makes it possible to market the animals. In fact, Knodus borki occurs in the vicinity of Iquitos.</p><p>The \"real\" Boehlkea fredcochui is very rarely found in the trade.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/knodus-borki",
+      "html": "<p>The colour of this species is often so intense that many who first see it for sale assume it to be artificially coloured. It is currently the only representative of the genus known.</p>"
     }
   ],
   "photos": [],
@@ -107,5 +214,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

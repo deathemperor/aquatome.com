@@ -1,0 +1,166 @@
+{
+  "id": "wallago-leerii",
+  "scientificName": "Wallago leerii",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Wallago",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "vietnam",
+    "mekong",
+    "laos",
+    "cambodia",
+    "thailand",
+    "malaysia",
+    "indonesia",
+    "singapore"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 203
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200,
+        "hidden": "shorter than twice the fish (203 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<p>The striped wallago catfish, Wallagonia leerii, is a large predatory catfish from southeast Asia, including the Mekong basin, that can reach 2 metres. Like all Wallago it has an enormous mouth full of backward pointing teeth, and smaller fish are simply swallowed whole. This is NOT an aquarium fish, though it is imported quite regularly at a small size. In nature it is migratory and moves into inundated forest during the rainy season.</p><ul><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<p>Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore. It occurs in several river basins, including the Mekong.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<p>This species is migratory and in nature is known to move over large distances according to the season. It's primarily a riverine species but is also known to move into areas of inundated forest during the rainy season. Some populations are known to enter smaller tributaries when spawning.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<p>Standard length: 203 cm SL.</p><p>It's really suitable only for the largest of public aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<p>Hypothetically speaking, decor is not likely to be critical and would in all likelihood be destroyed or continually buffeted around at any rate. A bare tank, perhaps with a gravel substrate would probably be best. A predatory fish of this size would also require a massive, highly efficient filtration system to deal with the large amounts of organic waste. The species has been known to cross small areas of land to find new waters in nature, so a tightly-fitting, heavy cover would seem to be another prerequisite.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.0</li><li>Hardness: up to 20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<p>Like others in the genus, W. leerii is highly predatory. Stomach analyses of wild specimens have revealed the remains of smaller fish including Puntius sp. and bagrid catfish as well as freshwater prawns. It is likely to require a similarly meaty diet in captivity. This species should not be fed the meat of mammals such as beef heart or chicken. The fats contained in these meats cannot be properly metabolised by the fish, and can cause excess deposits of fat and even organ degeneration. When first imported some specimens refuse to accept anything other than live fish, although most can be trained to take dead alternatives over time. As a juvenile it can be fed on a daily basis, but as its growth slows a single meal per week should be sufficient.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<p>It would surely be a bad idea to attempt to keep one of these with anything else. While larger tankmates may escape predation initially, they will inevitably end up on the menu at some point.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<p>Can be sexed by examining the genital papilla, which is noticeably slimmer in males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<p>Captive breeding has unsurprisingly not occurred in an aquarium, although its cousin W. attu has been bred in outdoor ponds in Malaysia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "html": "<p>Wallago are fearsome predatory catfish that are fairly widespread in southeast Asia. There are currently five recognised species, W. attu, W. leerii, W. hexanema, W. maculatus and W. micropogon. The latter was described to science in 2004 by renowned catfish expert Heok Hee Ng and was previously considered to be a geographic variant of W. leerii. All members of the genus possess an enormous mouth full of backward pointing teeth, which are used to rip chunks from their prey. Smaller fish or amphibians are simply swallowed whole. This is NOT an aquarium fish. Unfortunately it is imported quite regularly at a small (ie. saleable) size.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c2f529e1b60a67f9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c2f529e1b60a67f9-480.webp",
+      "width": 640,
+      "height": 233,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallagonia-leerii",
+      "caption": "Wallago leerii juvenile",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc công suất lớn"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cực lớn dài 2m",
+        "bể kính cỡ lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

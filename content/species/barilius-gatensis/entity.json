@@ -1,0 +1,207 @@
+{
+  "id": "barilius-gatensis",
+  "scientificName": "Barilius gatensis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Barilius",
+  "group": "other",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 13
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<ul><li>Difficulty: moderate; needs a very large tank, a group and a well-established tank</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump.</p><p>The Malabar baril, Opsarius gatensis, is a cyprinid endemic to the Western Ghats of southern India, in Karnataka, Kerala and Tamil Nadu. Occasionally seen in the trade, it has 13 to 15 dark blue vertical bars that often almost break up in adults. It inhabits well-oxygenated, fast-flowing rivers and streams, apparently favouring slower runs and pools, and its speed and vigorous feeding make it unsuitable for the general community.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<p>Current records suggest it to be endemic to and occur throughout the Western Ghats mountains, southern India, with records from both east and west-flowing river systems including the Sharavathi and Bhagra rivers in Karnataka state, Chalakudy, Periyar and Bharathapuzha in Kerala state, and Cauvery and Tamiraparani in Tamil Nadu state.</p><p>Type locality is 'Mountains of Gates, India'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<p>Inhabits well-oxygenated, low-to-medium gradient, moderate to fast-flowing rivers and streams with substrates of gravel, cobbles, larger boulders and exposed bedrock, and apparently displays a preference for slower runs and associated pools.</p><p>Habitats are likely to vary depending on locality and time of year with two annual monsoons causing increases in water depth, flow and turbidity in many rivers draining the Western Ghats.</p><p>At one locality in the Kalindhi drainage the water was clear, 1 m at its deepest point and flowing either side of a small check dam, below which the flow was stronger though still not particularly fast. The substrate was composed of rocks and cobbles with a thick layer of fine silt and sand above the dam. There were no aquatic plants but marginal grasses and shrubs were growing to the margins with some submerged roots protruding into the water.</p><p>Sympatric species were Haludaria fasciata, Pethia conchonius, P. nigripinnis, Puntius bimaculatus, Danio rerio, Salmostoma acinaces, Mesonoemacheilus guentheri, Mystus montanus, Bhavania australis, Channa gachua, Lepidocephalichthys thermalis, and Aplocheilus lineatus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<p>Requires a large aquarium with minimum base of 150 × 60 cm (about 540 litres) or equivalent.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<p>The aquarium should ideally be designed to resemble a flowing stream or river with a substrate of variably-sized rocks, sand, fine gravel, and some larger water-worn boulders. This can be further furnished with driftwood roots and branches if you wish but be sure to leave plenty of open swimming space.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy genera such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>This species is intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive. It also does best if there is a high proportion of dissolved oxygen and moderate degree of water movement meaning external filters, powerheads, airstones, etc., should be employed as necessary.</p><p>As stable water conditions are obligatory for its well-being this fish should never be added to biologically-immature aquaria, and weekly water changes of 30-50% aquarium volume should be considered mandatory. A tightly-fitting cover is also essential as Barilius spp. are prodigious jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<ul><li>Temperature: 18–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<p>Barilius spp. are predominantly surface-feeders preying on aquatic and terrestrial insects in nature, with some small fishes and benthic invertebrates probably taken as well.</p><p>In the aquarium good quality dried products can be offered but should be supplemented with regular meals of live and frozen fare such as chironomid larvae (bloodworm), Artemia, chopped earthworms, etc. Drosophila fruit flies and small crickets are also suitable provided they are gut-loaded prior to use.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<p>Unsuitable for the general community due to its environmental requirements, and likely to outcompete or intimidate slow-moving and less bold species at meal times since it is an extremely fast swimmer and vigorous feeder. Much smaller fishes should also be omitted as they may be predated upon.</p><p>The best tankmates are similarly-sized, robust, pelagic cyprinids such as Dawkinsia, other Barilius or larger Devario and Rasbora spp. while bottom-dwellers could consist of Garra, Crossocheilus, Botia and Schistura spp., for example. Many characids and loricariid catfishes should also work well, but be sure to perform thorough research before purchase.</p><p>Although gregarious by nature this is a shoaling rather than schooling species which develops a distinct pecking order and therefore should always be maintained in a group of five or more individuals. If only two or three are purchased the subdominant fish may be bullied incessantly whereas solitary specimens may become aggressive towards similar-looking species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<p>Adult females are less-brightly-coloured, tend to grow a little larger and are thicker-bodied than males, especially when gravid.</p><p>Nuptial males develop breeding tubercules on the head and orange pigmentation in the lower portion of the body.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<p>This species is occasionally seen in the ornamental trade, sometimes under the alternative vernacular names of 'river baril', 'river carp-baril', or 'striated hill trout'.</p><p>It can be told apart from congeners by the following combination of characters: 1 pair of minute rostral barbels; 39-40 lateral line scales; 15 predorsal scales; 13-15 dark blue vertical bars on the body, sometimes oblong in shape and often almost breaking up in adults; dorsal and anal fins with dark pigment at base.</p><p>The generic placement of Barilius species has been open to question since Howes (1980) concluded that the Barilius grouping, within which they were included at the time, was not monophyletic and identified two separate lineages. The first group contained B. barila, the type species, plus B. bendelisis, B. radiolatus, B. vagra, and B. shacra, while the second included all other species, and initially these were referred to the subdivisions 'group i' and 'group ii' within Barilius itself.</p><p>The composition of these groups is confusing since in a later work Howes (1983) included B. evezardi and B. modestus in 'group i' whilst omitting B. bendelisis, B. radiolatus, and B. shacra without explicitly stating why.</p><p>Rainboth (1991) assigned the members of Howe's 'group ii' to the revalidated generic name Opsarius based on the fact it was the oldest available with 'group i' species retaining the name Barilius due to the presence of the type species.</p><p>This system has been followed by some subsequent authors, e.g., Tang et al. (2010) and Collins et al. (2012) but not gain wider usage until Kottelat (2013), who included all former Barilius from Southeast Asia in Opsarius.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "html": "<ul><li>Collins R. A., K. F. Armstrong, R. Meier, Y. Yi, S. D. J. Brown, R. H. Cruickshank, S. Keeling, and C. Johnston (2012). Barcoding and border biosecurity: identifying cyprinid fishes in the aquarium trade. PLoS ONE 7(1), e28381</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Liao, T-Y, S. O. Kullander, and F. Fang (2011). Phylogenetic position of rasborin cyprinids and monophyly of major lineages among the Danioninae, based on morphological characters (Cypriniformes: Cyprinidae). Journal of Zoological Systematics and Evolutionary Research 49(3), 224-232</li><li>Howes, G. J. (1980). The anatomy, phylogeny and classification of bariliine cyprinid fishes. Bulletin of the British Museum (Natural History) : Zoology series 37(3), 129-198</li><li>Nath, P., D. Dam, and A. Kumar (2010). A New Fish Species of the Genus Barilius (Cyprinidae: Rasborinae) from River Siang, D'Ering Memorial Wildlife Sanctuary, Arunachal Pradesh, India. Records of the Zoological Survey of India 110(3), 19-33</li><li>Cuvier, G. and A. Valenciennes (1844). Cyprinoïdes. Histoire naturelle des poissons. Tome dix-septième. Suite du livre dix-huitième, i-xxiii + 1-497 + 2</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8ef98a06f7204a57.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8ef98a06f7204a57-480.webp",
+      "width": 713,
+      "height": 471,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "caption": "Specimen from Kodagu (aka Coorg) district, Karnataka state.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8cac69f0efcf4052.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8cac69f0efcf4052-480.webp",
+      "width": 816,
+      "height": 291,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "caption": "Freshly-collected male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e7e10481fd707894.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e7e10481fd707894-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-gatensis",
+      "caption": "Habitat in the Cauvery River system.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150x60 cm",
+        "bể cá lớn 540 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn khô cho cá nhỏ",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "đá cuội trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

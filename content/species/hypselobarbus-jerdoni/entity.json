@@ -16,6 +16,49 @@
       {
         "source": "glaser",
         "value": 50
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 46
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 240
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -27,10 +70,58 @@
       "html": "<p>Hypselobarbus jerdoni is a very rarely imported large barb. It reaches a maximum final length of 50 cm and is only suitable for really large aquariums.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. It can be a little skittish so use a heavy, tightly-fitting cover in case it decides to jump.</p><p>Jerdon's carp, Hypselobarbus jerdoni, is a large cyprinid endemic to India, recorded from Maharashtra, Karnataka, Kerala and Tamil Nadu. A riverine fish of clear, well-oxygenated, running water, it can reach 46 cm and is very rarely encountered in the trade. Very active and a vigorous feeder, it needs a tank of 240 × 120 × 120 cm or more for a group of adults, and many Indian authors consider it endangered.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/hypselobarbus-jerdoni-2/",
       "html": "<p>It is an endemic species of southern India, where it is found in the states of Karnataka and Kerala.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<p>Endemic to southern and western parts of India it has been recorded from the states of Maharashtra, Karnataka, Kerala and Tamil Nadu. The only specific locality information available states that it was collected from Canara in Karnataka and the Bharathapuzha and Chandragiri rivers in Kerala. It is considered endangered by many Indian authors but has not been evaluated by the IUCN Red List of Threatened Species at time of writing.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<p>It is predominantly a riverine fish preferring clear, well-oxygenated, running water and has also been found living in slower-moving, deeper parts of large streams at some localities. In the Bharathapuzha River it was recorded mostly in highland areas but observed to move into lowland tidal zones to feed. At higher altitudes it showed a preference for the margins of faster-flowing sections of the river but was also collected from deep, shady pools. Substrates were composed mostly of boulders, bedrock and smaller stones, sometimes sand or gravel. Breeding was noted to occur in smaller, weedy tributaries.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<p>This is a very active fish and an aquarium measuring 240 × 120 × 120 cm (~3456 litres) should be the smallest considered to house a group of adults, putting it well beyond the reach of the majority of hobbyists.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<p>Choice of decor is not as critical as water quality and the amount of open swimming-space provided; very healthy-looking specimens have been seen maintained in completely bare set-ups. However, should you possess the means to both provide and decorate a sufficiently-sized tank for long term care, this species would look superb in a set-up designed to resemble a fast-flowing river with a substrate of variably-sized rocks and gravel, some large water-worn boulders and perhaps a couple of driftwood branches. A giant rivertank manifold could even be constructed to provide naturalistic unidirectional flow.</p><p>Like many other species that hail from running waters it is quite intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive. It also does best if there is a high level of dissolved oxygen and a decent level of water movement in the tank. An enormous external-style filter or two are therefore going to be needed in order to provide the desired levels of oxygen, flow and surface area for bacterial colonisation. It can be a little skittish so use a heavy, tightly-fitting cover in case it decides to jump.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<p>The stomach contents of wild specimens were found to be composed primarily of leaf litter and other organic debris in one study, which would suggest that the species is naturally a detrivore. In the aquarium it's easily fed and will greedily accept just about anything offered. For it to develop its best colours and condition offer regular meals of small live and frozen foods such as bloodworm, Daphnia and Artemia along with good quality dried flakes, granules and plenty of vegetable matter. Shelled peas, blanched courgette, spinach and chopped fruit all make good additions to the menu. Larger specimens will also take chopped earthworm, prawn, mussel etc. Take care not to overfeed as it will gorge itself given the opportunity.</p>"
     },
     {
       "key": "behaviour",
@@ -39,13 +130,60 @@
       "html": "<p>This current-loving, peaceful fish is a real eye-catcher. In nature, the animal performs spawning migrations of up to 100 km in length. From this it can be concluded that it is a powerful swimmer, capable of overcoming obstacles. When caught in the aquarium, it can jump vertically over 50 cm out of the water from a standing position, even when only 6-8 cm long. Nevertheless the species is anything but shy.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<p>Not an aggressive species but will probably eat much smaller fish and can upset slow-moving/shyer tankmates with its constant activity and rather vigorous feeding behaviour. It's therefore only appropriate for very large tanks containing robust, similarly-sized tankmates. There are lots of suitable choices including many cichlids, catfish and characins but a community of large cyprinids would look particularly striking. An Indian-themed community is also an interesting option with suitable species including peaceful, similarly-sized cyprinids. As always when selecting a compatible community of fish proper research is essential.</p><p>This species is found swimming in large shoals in nature and some individuals can become skittish if kept in insufficient numbers in the aquarium. It really is unkind to buy just one or two and a group of six or more should be the smallest considered. This gives a much more natural-looking display plus interesting behaviour from the fish as they interact with conspecifics.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<p>Expect sexually mature females to be deeper-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<p>This species has not yet been bred in the hobby and considerable resources would be needed for a serious attempt.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/hypselobarbus-jerdoni-2/",
       "html": "<p>The brilliant orange pelvic fins are its unique selling point, something not found in any other barb species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "html": "<p>There are currently eleven species in the genus, most of which have previously been included in Puntius, Barbus and the now defunct genus Gonoproktopterus. Of these the only ones seen in the trade are H. jerdoni and H. curmuca, although it's possible that others have been exported in small numbers or as contaminants among shipments of other species. Even these two are very rarely encountered and little has been written about the group as a whole.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f52b6057e9c30c55.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f52b6057e9c30c55-480.webp",
+      "width": 700,
+      "height": 525,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "caption": "Subadult specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5c4ad5d8a22b0270.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5c4ad5d8a22b0270-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselobarbus-jerdoni",
+      "caption": "Juvenile specimen.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -69,5 +207,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

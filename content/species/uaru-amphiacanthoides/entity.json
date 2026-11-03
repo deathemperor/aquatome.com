@@ -1,0 +1,201 @@
+{
+  "id": "uaru-amphiacanthoides",
+  "scientificName": "Uaru amphiacanthoides",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Uaru",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro",
+    "guyana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 27,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 25.4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<p>The uaru, Uaru amphiacanthoides, is a large cichlid from the Amazon basin in northern Brazil and Guyana, found in clear water tributaries. It occurs in the middle to lower Rio Negro and along the Solimões and main Amazon between the Japurá and Tapajós. Surprisingly peaceful for its size, it needs clean, well-filtered water at the higher end of the temperature scale.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<p>Native to parts of the Amazon basin in northern Brazil and Guyana. It occurs both in the middle to lower Rio Negro, as well as between the Rio Japurá and Rio Tapajós along the Rio Solimões and main Amazon river.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<p>Found in clear water tributaries, often around submerged branches or tree roots.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<p>For a pair: 48\" x 18\" x 15\" (120cm x 45cm x 37.5cm), 200 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<p>A large roomy aquarium with a sand or gravel substrate and decorated with bogwood and roots is preferred. Leave unplanted as most aquatic plants will be eaten.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<ul><li>Temperature: 27–30°C</li><li>pH: 6 to 7</li><li>Hardness: soft, up to 5 dH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<p>Stomach analyses of wild fish have revealed it to be an omnivore existing on a substantial amount of plant matter along with an assortment of invertebrates and even freshwater sponges. However experiments with captive fish suggest it's primarily herbivorous.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<p>Surprisingly peaceful for such a large cichlid. Can be safely housed with smaller fish such as tetras. Ideal tankmates include angelfish (altum and scalare), heros, geophagus, satanoperca and the larger characins (headstanders, prochilodus, metynnis). Any tank mates should be able to handle the higher temperatures uaru require.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<p>These fish are not sexually dimorphic.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<p>Wild caught Uaru will require water parameters that mirror their natural habitat (very soft and acidic). Captive bred fish will be less fussy. Spawning occurs on a flat rock or piece of bogwood. Young Uaru will readily feed off the parent fishes' slime coat, in a manner much the same as Discus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/uaru-amphiacanthoides",
+      "html": "<p>A large, peaceful South American cichlid. Uaru can make very interesting aquarium subjects. They require clean, well filtered water on the higher end of the temperature scale. Avoid keeping with overly aggressive fish; Uaru are happiest when kept in groups or pairs.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/03726a431470b8ed.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC BY-SA 3.0",
+      "author": "Herbisius",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uaru.jpg",
+      "caption": "Uaru sp.",
+      "thumb": "https://media.aquatome.com/commons/03726a431470b8ed-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ba268c24c65b0b84.webp",
+      "width": 960,
+      "height": 489,
+      "licence": "Public domain",
+      "author": "Robert Hermann Schomburgk",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_38647_Pemotis_fasciatus.jpeg",
+      "caption": "Pemotis fasciatus Subject: Lepomis Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/ba268c24c65b0b84-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0fc8c7de1c9dea9a.webp",
+      "width": 960,
+      "height": 835,
+      "licence": "Public domain",
+      "author": "Burkhardt, Jacques",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uaru_amphiacanthoides_(Lago_Maximo,_Brazil;_adult).jpg",
+      "caption": "Taxonomic Classification: Animalia--Cichlidae--Uaru amphiacanthoides (Heckel 1840). Common Name: Uaru. Original Name: Acara bararoa",
+      "thumb": "https://media.aquatome.com/commons/0fc8c7de1c9dea9a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1ac659a7619769ec.webp",
+      "width": 960,
+      "height": 716,
+      "licence": "Public domain",
+      "author": "Burkhardt, Jacques",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uaru_amphiacanthoides_(Teffe,_Brazil).jpg",
+      "caption": "Taxonomic Classification: Animalia--Cichlidae--Uaru amphiacanthoides (Heckel 1840). Common Name: Uaru. Original Name: Acara bararoa",
+      "thumb": "https://media.aquatome.com/commons/1ac659a7619769ec-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "thức ăn thực vật cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

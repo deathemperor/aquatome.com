@@ -7,7 +7,25 @@
   "group": "labyrinth",
   "places": [
     "africa",
-    "niger"
+    "niger",
+    "mauritania",
+    "senegal",
+    "gambia",
+    "guinea-bissau",
+    "guinea",
+    "sierra-leone",
+    "liberia",
+    "ivory-coast",
+    "ghana",
+    "togo",
+    "benin",
+    "nigeria",
+    "cameroon",
+    "gabon",
+    "democratic-republic-of-the-congo",
+    "burkina-faso",
+    "mali",
+    "republic-of-the-congo"
   ],
   "dataCard": {
     "tempC": [
@@ -17,18 +35,57 @@
           "min": 20,
           "max": 30
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 18.2
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
       }
     ]
   },
@@ -40,10 +97,46 @@
       "html": "<p>The tailspot bushfish (Ctenopoma kingsleyae) originates from wooded areas in western Africa. It was one of the first labyrinth fish exported from Africa for aquariums. The first specimens from the lower Niger region arrived in Germany as early as 1912. This calm, peaceful species was described at the time as very aggressive and incompatible, an observation that was never made again later on. With a maximum length of almost 20 cm (usually 12-15 cm), C. kingsleyae is one of the largest labyrinth fish in Africa.</p><p>The tail root spot, which gives the common name, is found in several species. Depending on its mood, it can fade significantly or even appear white – normally it is black. In young fish up to about 5 cm in length, the tail root spot has a golden border. Typical of C. kingsleyae is the large silver spot directly below the eye, which is absent in all other similar species.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. The tank cover should contain no gaps, as it's a notorious jumper.</li></ul><p>The tailspot ctenopoma, Ctenopoma kingsleyae, is an anabantoid with an enormous range, recorded from Mauritania and Senegal to Gabon and the DR Congo. One of the more aggressive members of the genus, it can be particularly nasty towards conspecifics and will eat small fish. It is named after the explorer Mary Kingsley, and there are reports of specimens surviving in aquaria for over 30 years.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<p>Has an enormous natural range throughout much of western and central Africa. It's been recorded in Mauritania, Senegal, Gambia, Guinea-Bissau, Guinea, Sierra Leone, Liberia, Ivory Coast, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon and Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<p>Mainly inhabits areas of coastal rainforest.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<p>A single specimen could be housed in a standard 120cm x 30cm x 30cm, 108 litre tank. If you want to keep it with other species, though, a tank of at least 150cm x 45cm x 45cm, about 304 litres, would be needed.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<p>Like other Ctenopoma, this species does best in a dimly lit environment. Either use subdued lighting, or add a layer of floating plants to provide the preferred conditions. Add hiding places in the form of dense thickets of plants, chunks of bogwood, or rocky formations. It's an active species, so leave some areas of the tank open for swimming. The tank cover should contain no gaps, as it's a notorious jumper.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
       "html": "<p>The chemical composition of the water is irrelevant; any drinking water is suitable for care and breeding. The temperature can range between 20 and 30°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<ul><li>Temperature: 25–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -52,10 +145,22 @@
       "html": "<p>They will eat any standard ornamental fish food of a suitable size, whether dry, frozen, or live. The animals can be particularly pleased by throwing land insects (fat flies, grasshoppers, etc.) onto the water surface. This is the bushfish's absolute favorite food.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<p>It's a predator by nature, and although it does require a meaty diet, there's no need to feed live fish in the aquarium. Prawns, mussels, earthworms and similar foods are all accepted without fuss. Dried foods are taken willingly too.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
       "html": "<p>Although Ctenopoma kingsleyae may seem unattractive at first glance, these calmly swimming fish with their silvery-white fin edges are a wonderful contrast to colorful tetras, barbs, or cichlids. Very small fish (2-3 cm) and shrimp are regarded as food, but otherwise tank mates, whether animal or plant, are usually completely ignored. The fish are also very peaceful among themselves, regardless of gender.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<p>This species is a predator and will eat any fish small enough to swallow, so it's definitely not a species for the general community. It's peaceful towards tankmates too large to eat, and towards its own kind given enough space. In a big tank with plenty of cover, it could be combined with other similarly-sized, robust species. A couple of these along with Mormyrids, Synodontis catfish and perhaps some Polypterus would make for an interesting setup. If geography is not an issue, it can be kept with similarly-sized, peaceful cichlids, larger characins, cyprinids and Loricariids.</p>"
     },
     {
       "key": "dimorphism",
@@ -64,13 +169,72 @@
       "html": "<p>The sexes differ only slightly in appearance. Sexually mature C. kingsleyae (from approx. 8 cm total length) have spiny fields behind the eye and on the caudal peduncle, which help the male to wrap himself around the female in a U-shape during mating and turn her onto her back into the spawning position. The spiny field behind the eye is often difficult to see, while the spiny field on the caudal peduncle immediately in front of the caudal root spot appears faintly reddish and therefore often allows gender identification with the naked eye.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<p>The male is noticeably spinier around the gill covers and under the eyes.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ctenopoma-kingsleyae-2/",
       "html": "<p>In terms of reproductive behavior, Ctenopoma kingsleyae is one of the primitive labyrinth fish. This species does not care for its young. The eggs drift on the water surface due to oil deposits and are left to fend for themselves after spawning. To stimulate breeding, which is best attempted in winter, a dry period must be simulated.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<p>Rarely achieved in the hobby. Few reports are available. The breeding tank should be large and contain lots of floating plants. The fish usually spawn at night in the typical anabantoid embrace, following a pursuit of the female by her partner. The eggs float to the surface and come to rest in the surface vegetation. It is best to remove the parents at this stage. The fry can be fed infusoria or liquid fry food initially, followed by newly hatched brine shrimp after a few days more. It is thought that C. kingsleyae and other egg-scattering Ctenopoma may well be seasonal spawners as a pair will often spawn regularly for several months and then stop for a while. This does not appear to be related to water temperature or other parameters. There is also a general school of thought that the species doesn't become sexually mature until it reaches 5-10 years old.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-kingsleyae",
+      "html": "<p>This species can be exceptionally long-lived and there are reports of specimens surviving in aquaria for over 30 years. It is named after the explorer Mary Kingsley, and often goes by the common name of Kingsley's climbing perch. While Ctenopoma are closely related to the Asian climbing perch (Anabas sp.), they are not known to have the ability to cross areas of land like this species. Like others in the suborder Anabantoidei, the species possesses an accessory breathing organ known as the labyrinth organ. So-called due to its maze-like structure, this organ allows the fish to breathe atmospheric air to a certain extent. It is formed by a modification of the first gill arch, and consists of many highly vascularised, folded flaps of skin. The structure of the organ varies in complexity between species, tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/31401fa53aa84d69.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tylwyth Eldar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_76_2.jpg",
+      "caption": "Ctenopoma de kingsley (Ctenopoma kingsleyae) à l'Aquarium du palais de la Porte Dorée.",
+      "thumb": "https://media.aquatome.com/commons/31401fa53aa84d69-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7a14569b9a22acf4.webp",
+      "width": 870,
+      "height": 496,
+      "licence": "Public domain",
+      "author": "Boulenger, George Albert, 1858-1937",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ctenopoma_kingsleyae.jpg",
+      "caption": "Ctenopoma kingsleyae",
+      "thumb": "https://media.aquatome.com/commons/7a14569b9a22acf4-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/70a54177599dce86.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tylwyth Eldar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_76.jpg",
+      "caption": "Ctenopoma de kingsley (Ctenopoma kingsleyae) à l'Aquarium du palais de la Porte Dorée.",
+      "thumb": "https://media.aquatome.com/commons/70a54177599dce86-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9cbed193f0b20d26.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tylwyth Eldar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_77.jpg",
+      "caption": "Ctenopoma de kingsley (Ctenopoma kingsleyae) à l'Aquarium du palais de la Porte Dorée.",
+      "thumb": "https://media.aquatome.com/commons/9cbed193f0b20d26-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -94,5 +258,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

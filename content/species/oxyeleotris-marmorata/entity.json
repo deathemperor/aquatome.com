@@ -7,13 +7,63 @@
   "group": "gobies",
   "places": [
     "asia",
-    "thailand"
+    "thailand",
+    "cambodia",
+    "laos",
+    "vietnam",
+    "indonesia",
+    "malaysia",
+    "philippines",
+    "brunei"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 50
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 65
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,10 +75,46 @@
       "html": "<p>Most gobies live in the sea and stay small, usually less than 10 cm. Oxyeleotris marmorata, the Marbled Sleepergoby, is an exception in more than one respect. It is a giant among the gobies and grows to more than 50 cm long. It usually lives in pure freshwater and is only occasionally found in brackish water.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<p>The marbled goby, Oxyeleotris marmorata, is one of the largest gobies in the world, found in Southeast Asia from Thailand to the Philippines. It lives in rivers, ponds, swamps and flooded forests, mainly in fresh water but also in brackish environments, and grows to 65 cm. A nocturnal ambush predator, it is territorial with its own kind and will eat any fish it can fit in its mouth, so it is best kept alone. It is also a popular food fish in some of its native countries.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oxyeleotris-marmorata-2/",
       "html": "<p>The species has a very wide distribution in South-East Asia and is very common wherever it appears. Juveniles were recently obtained from Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<p>Thailand, Cambodia, Laos, Vietnam, Indonesia, Malaysia, Philippines, Brunei Darussalam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<p>Occurs in various biotopes, including rivers, ponds, swamps and flooded forests. It generally prefers areas of little or no water movement. Mainly found in freshwater but is also found in brackish environments.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<p>A sedentary species, so a tank measuring 150 × 60 × 60 cm - ~540 litres ought to be enough for all but the very largest specimens. Young fish can obviously be grown on in smaller tanks.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<p>The fish like to dig, and sometimes partially bury themselves, so a soft substrate of sand, several inches in depth (about 7–15 cm) is recommended. Provide hiding places using large chunks of bogwood, lengths of plastic piping, or clay flowerpots. Dim lighting is also preferable, as this is essentially a nocturnal species.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<ul><li>Temperature: 22–28 °C</li><li>pH: 6.5–7.5</li><li>Hardness: 10–15 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -37,16 +123,46 @@
       "html": "<p>Oxyeleotris marmorata is a predator. A short look into the open mouth of the fish says more than a thousand words. The species can swallow fish about half the length of the goby itself. In the aquarium it becomes very tame and can easily be fed with forceps. Juveniles also feed on earthworms and frozen fish food.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<p>Although strictly carnivorous in nature, many captive specimens can be trained to take dried pellets. It should definitely be offered a meat-based diet, however. Young fish will accept bloodworm, small earthworms etc., while larger fish will take whole prawns, large earthworms, lancefish and other similar foods. Take care not to overfeed as these fish are very greedy indeed.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oxyeleotris-marmorata-2/",
       "html": "<p>The Marbled Sleepergoby is a calm fish that will not swim if it is not necessary, so compared with the size of the fish it does not need a very large aquarium. However, it is best kept alone, one fish per tank, because it can be quite pugnacious against conspecifics.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<p>Territorial with its own kind and will consume any fish it can fit in its capacious mouth. It is therefore best kept alone, although large specimens have been seen coexisting with other similarly-sized fish that inhabit other parts of the aquarium, such as arowana. Obviously, a very large tank would be required if this is to be attempted.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<p>Male fish have a longer anal fin and more extended second dorsal fin. Apparently the genital papilla is also more pointed in the male than in the female.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oxyeleotris-marmorata-2/",
       "html": "<p>Oxyeleotris is a cave spawner that produces tens of thousands of very tiny eggs. There are no reports of successful breeding in captivity, but most probably it has never been tried.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<p>Not thought to have been bred in captivity. Any attempt would surely prove problematic, due to the adult size of the fish and their territorial, predatory nature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oxyeleotris-marmorata",
+      "html": "<p>One of the largest goby species in the world, O. marmorata is unsuitable for the vast majority of aquaria, but is an interesting oddball for the true enthusiast with the facilities to house it properly. It is a nocturnal ambush predator and generally remains motionless during daylight hours unless striking at food. It is a popular food fish in some of its native countries, where it is known as soon hock.</p>"
     }
   ],
   "photos": [],
@@ -74,5 +190,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

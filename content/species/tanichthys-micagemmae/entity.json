@@ -7,12 +7,56 @@
   "group": "barbs",
   "places": [
     "asia",
-    "vietnam"
+    "vietnam",
+    "ben-hai"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 8
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
         "value": 3
       }
     ]
@@ -25,10 +69,46 @@
       "html": "<p>Currently two species of the genus Tanichthys are known in the hobby: the White Cloud Mountain minnow Tanichthys albonubes and the Jewel Minnow, T. micagemmae. The White Cloud is available exclusively as bred specimens, whereas the Jewel minnow is also imported as wild-collected fish. The Jewel minnow was discovered in 2001 in Central Vietnam.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<p>Tanichthys micagemmae is a small cyprinid from the Ben Hai river system in north central Vietnam. Sold under trade names such as 'Vietnamese minnow', 'cardinal minnow' and 'royal white cloud', it is smaller than T. albonubes, lacks that species' reddish-brown body colour and has reddish ventral and anal fins. At the type locality it was found only in the margins of a fast-flowing, shallow stream where the flow was much reduced.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<p>To date known only from the Ben Hai river system in north central Vietnam which flows chiefly through the province of Quang Tri.</p><p>The type specimens were collected from neighbouring Quang Binh province with the locality given as 'Stream Bau Dung, a tributary of River Ben Hai, 17°07'24\"N, 106°58'12\"E, Quang Binh Province, Vietnam'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<p>The type locality was a fast-flowing, shallow stream with sandy substrate and measured around 15 metres across.</p><p>The water was clear and T. micagemmae collected only in marginal areas where the flow was considerably reduced.</p><p>The majority of the Bau Dung drainage is heavily exploited for rice cultivation, but this particular stream is not as it flows through sand dunes a few kilometers from the coast.</p><p>Sympatric fishes included Microcobitis misgurnoides, Yunnanilus cruciatus, Macropodus opercularis, and an unidentified species of Odontobutis.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
       "html": "<p>The maximum size of the Jewel minnow is less than 3 cm, so the species is an ideal fish for so-called nano aquariums.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<p>Minimum base dimensions of 45 × 30 cm or equivalent are required (about 41 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants, driftwood roots or branches, and leaf litter also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong though it does seem to appreciate a degree of water movement and will also do well in a hill stream-type set-up.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<ul><li>Temperature: 18–23°C</li><li>pH: water parameters at the type locality were not recorded but the fish seem happiest in weakly acidic to neutral conditions with a value around 6.5–7.5.</li><li>Hardness: softer water within the range 2–8 dGH is preferable.</li></ul>"
     },
     {
       "key": "equipment",
@@ -37,10 +117,22 @@
       "html": "<p>If they are kept in a single-species tank, no additional heater is necessary in indoor aquariums.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<p>Likely to be a micropredator feeding on small insects, worms, crustaceans, and other zooplankton in nature.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
       "html": "<p>The Jewel minnow should be kept and bred in schools. The fish are completely peaceful with any other fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<p>Very peaceful indeed and an ideal resident of the well-maintained community tank although it will not do well with much larger or more boisterous tankmates.</p><p>Since it has no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, dwarf cichlids, catfishes, and loaches.</p><p>In a stream-style tank it can be kept with the smaller species of Danio, Devario, and Garra as well as many loaches.</p><p>It's a schooling fish by nature and ideally a group comprising 10+ specimens should be purchased.</p><p>Maintaining such numbers will not only make individuals less nervous but result in a more effective, natural-looking display while males will also display their best colours as they compete with one other for female attention.</p>"
     },
     {
       "key": "dimorphism",
@@ -49,19 +141,77 @@
       "html": "<p>Males and females can easily be distinguished by the shape and colour of the dorsal and anal fins, which are much larger and more colourful in males.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<p>Young specimens can be tricky to sex accurately but mature females are usually rounder-bellied and often a little larger than males.</p><p>Males also tend to intensify in colour when in spawning condition or sparring with rivals, and may develop extended dorsal and anal fins with age.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
       "html": "<p>The species spawns in fine plant material. The offspring swim close under the water surface. If the parents are fed properly and with a good variety of food, usually some of the young survive even in a community tank (surface plants are necessary, especially Riccia).</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<p>Like many small cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care.</p><p>That is to say when the fish are in good condition they will spawn often and when a group is maintained alone in a densely-planted, mature aquarium or outdoor container small numbers of fry usually start to appear without further intervention.</p><p>Should a more controlled approach be required a separate, smaller aquarium can be set up.</p><p>This should be dimly-lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed after 2-3 days maximum.</p><p>The eggs should hatch in 48-72 hours and once free-swimming the fry may initially require Paramecium or other microscopic food until large enough to accept Artemia nauplii and suchlike.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
       "html": "<p>Tanichthys micagemmae is a real gem and every fishkeeper should have tried it.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<p>This species only became available in the aquarium hobby during the early 21st century but has already achieved a measure of popularity since it's attractive, easy to maintain and usually quite cheaply-priced.</p><p>It may be seen on sale under various trade names including 'Vietnamese minnow', 'cardinal minnow', 'royal white cloud', 'dwarf cardinal' and others.</p><p>Images exist of what is said to be a naturally-occurring form with extremely elongated fins which may either be a mutation or a trait only seen in older, male individuals.</p><p>The genus Tanichthys was monotypic until 2001 when the Vietnamese species T. micagemmae and T. thacbaensis were described.</p><p>T. thacbaensis is somewhat enigmatic since its description is written entirely in Vietnamese and accompanied only by a line drawing, with photos of live specimens unavailable to date.</p><p>A fourth species, currently known only as T. sp. 'Vietnam' appeared in the aquarium trade during 2010 and has been occasionally available in limited numbers.</p><p>Among the Tanichthys species available in the hobby the popular congener T. albonubes is noticeably larger than T. micagemmae or T. sp. 'Vietnam', exhibits an overall reddish-brown colouration in the body that is lacking in the other two and possesses a less broad dark, lateral stripe on the body, below the paler stripe.</p><p>In T. micagemmae the ventral and anal fins are reddish, whereas in T. sp. 'Vietnam' they are bright yellow.</p><p>T. micagemmae is officially diagnosed by the following: head and body below lateral midline whitish with many small, grey spots; one black and one whitish longitudinal stripe of approximately the same width (width of black stripe 0.9-1.8 times width of whitish stripe); distance from dorsal-fin origin to upper margin of whitish stripe about equal to distance from anal-fin origin to lower margin of black stripe (upper distance 0.9-1.2 times lower distance).</p><p>Diagnostic characters for the genus include presence of cornified tubercules on the snout posterior to the premaxila in males, and confluent narial openings.</p><p>The phylogenetic position of Tanichthys within the family Cyprinidae is less clear, however.</p><p>It has been considered closely related to the genera Danio or Rasbora but recent studies, notably that of Fang et al. (2009) have suggested it to be more analagous with Tinca tinca, the common tench, and the putative subfamily Acheilognathinae, better known as the bitterlings.</p><p>The results also suggested that T. micagemmae is the parent species of the group in evolutionary terms with T. albonubes its younger relative.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "html": "<ul><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Rüber, L. , M. Kottelat, H. H. Tan, P. K. L. Ng and R. Britz (2007). Evolution of miniaturization and the phylogenetic position of Paedocypris, comprising the world's smallest vertebrate. BMC Evolutionary Biology London 7(38), 1-10</li><li>Freyhof, J. and F. Herder (2001). Tanichthys micagemmae, a new miniature cyprinid fish from Central Vietnam (Cypriniformes: Cyprinidae). Ichthyological Exploration of Freshwaters 12(3), 215-220</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/af03dadb6907983c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/af03dadb6907983c-480.webp",
+      "width": 800,
+      "height": 601,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "caption": "The colour pattern of adult males intensifies during aggressive interactions with other males.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e97cdd4a27ace3cb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e97cdd4a27ace3cb-480.webp",
+      "width": 800,
+      "height": 599,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "caption": "Adult male; aggressive mood.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/335eb1e480241b72.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/335eb1e480241b72-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "8R5s2tIlEQM",
@@ -111,5 +261,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

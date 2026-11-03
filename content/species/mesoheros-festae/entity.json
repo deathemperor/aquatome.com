@@ -7,13 +7,61 @@
   "group": "cichlids",
   "places": [
     "south-america",
-    "ecuador"
+    "ecuador",
+    "rio-esmeraldas",
+    "peru",
+    "rio-tumbes",
+    "asia",
+    "singapore"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 35
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 50.8
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 18
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 210
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -25,10 +73,52 @@
       "html": "<p>The magnificent, large (males up to 35 cm, females up to 30 cm) tiger cichlid (Mesoheros festae) used to be a fairly frequent guest in the aquarium. Together with Andinoacara rivulatus (formerly: Aequidens rivulatus), it was one of the top exports from the Pacific side of Ecuador. M. festae was called “Red Terror”, A. rivulatus “Green Terror”, which already indicates the not inconsiderable assertiveness of both species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<p>The red terror, Mesoheros festae, is a large, territorial cichlid from the Rio Esmeraldas in Ecuador and the Rio Tumbes in Peru. Males reach around 51 cm and females 30 cm, and anything the fish can fit in its large mouth will be seen as food. Pairing is troublesome, since the weaker fish of an incompatible pair is likely to be killed, so a pair is best grown on from six juveniles. An introduced population also exists in Singapore.</p><p>Rated difficult because it needs a tank at least 2 m long.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/mesoheros-festae-formerly-cichlasoma-festae/",
       "html": "<p>Nowadays, M. festae has almost become a rarity in the hobby. The large-scale breeders in Southeast Asia do not have it in their program, but the similar Mayaheros urophthalmus. Apparently there is no room for two such similar (and always confused) species in the international trade. So one has to rely on German offspring. These are rare, as a single clutch of cichlids of this bull class contains up to 1,000 eggs. Where to put so many offspring, which also need plenty of space and good care to grow to a certain sales size? That’s why the few keepers only breed them occasionally. Accordingly, M. festae rarely appears in the trade.</p><p>If you decide to keep this cichlid, it is advisable to buy about 10 juveniles, from which you will surely get a pair. The rest should be disposed of.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<p>Ecuador and Peru, with an extant introduced population also thriving in Singapore. Known from both the Rio Esmeraldas in Ecuador and the Rio Tumbes in Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<p>A seemingly adaptable species existing in various types of habitat, usually in rivers and their tributaries.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<p>Standard length: 51 cm SL. Aquarium base: 210 × 60 cm. Volume: ~756 litres (210 × 60 × 60 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<p>Make sure there is a lot of swimming area for Mesoheros festae, but also provide cover in the form of stable rocks and bits of wood. The Red Terror is a digger so plants won't last long, and because of its size potted plants likely won't either. Floating plants are an option, as are plants rooted to bits of wood or rock.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<ul><li>Temperature: 25–29°C</li><li>pH: 6.0–8.0</li><li>Hardness: 4–18 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<p>Available scientific data suggests the species feeds mainly on benthic aquatic crustaceans and other invertebrates. It also probably consumes on the fry of other fish as well as various fruits and seeds. Omnivorous. Will eat most things offered but a large, high quality, meaty cichlid pellet is ideal as staple food. The dry foods specifically for large carnivorous cichlids are ideal. Make sure large live and frozen foods are offered regularly, earth and mealworms are ideal.</p>"
     },
     {
       "key": "behaviour",
@@ -37,16 +127,40 @@
       "html": "<p>Apart from their size and temperament, Mesoheros festae are wonderful aquarium fish and very intelligent by fish standards. Provided there is enough space, it can be easily kept with other cichlids of the bull class.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<p>Very territorial and can sometimes be downright aggressive. Only house with similarly sized, similarly aggressive, robust fish. Anything which the red terror can fit in its large mouth will be seen as food - at full size, this can mean 15 cm fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/mesoheros-festae-formerly-cichlasoma-festae/",
       "html": "<p>It is almost impossible to tell the sexes apart in juveniles; females generally have fewer blue highlights in their fins.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<p>Females keep their juvenile colours of vivid red with black bands. Males are larger.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/mesoheros-festae-formerly-cichlasoma-festae/",
       "html": "<p>Mesoheros festae is a typical open-breeder with a parent family.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<p>The Red Terror is a cave brooder and will lay their eggs in caves or in sheltered areas. Rockwork is usually the best bet, especially with Festae over 30 cm. A number of spawning pits will be dug in the substrate, then the female will lay up to 3000 large eggs in a sheltered place or cave. Fry will hatch in 3 or 4 days, and will then be moved to the aforementioned spawning pits. Around 5 or 6 days later the fry will be free swimming, but parents will still guard them very carefully.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mesoheros-festae",
+      "html": "<p>The Red Terror can be troublesome to breed due to pairing problems - if a pair of fish are incompatible and are housed together for any length of time, it is likely that the weaker fish will be killed. The best way of getting a true pair is to grow 6 juveniles up until a noticeably strong pair has formed. Also, its size means finding an aquarium and suitable breeding surfaces can be difficult. Rocks (siliconed if necessary) and bits of slate used to create man-made caves are ideal. Mesoheros festae is not a fish to be messed with. Its large size and ferocious attitude can lead to some serious issues in an aquarium. Make sure you have a large enough aquarium to begin with, as very few shops or hobbyists will take a 30 cm+ Red Terror off your hands when it grows too large for your tank. A stunning fish and a challenge to breed, the Red Terror can make an amazing centre piece for any large, predatory South American cichlid setup.</p>"
     }
   ],
   "photos": [],
@@ -72,5 +186,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

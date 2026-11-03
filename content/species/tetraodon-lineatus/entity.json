@@ -10,13 +10,72 @@
     "egypt",
     "nile",
     "nigeria",
-    "niger"
+    "niger",
+    "kenya",
+    "sudan",
+    "south-sudan",
+    "senegal",
+    "ghana",
+    "gambia",
+    "cameroon",
+    "chad",
+    "sierra-leone",
+    "burkina-faso",
+    "guinea-bissau",
+    "guinea",
+    "mali",
+    "mauritania",
+    "ethiopia",
+    "central-african-republic"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 40
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 43
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -26,6 +85,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-lineatus-15-20-cm-2/",
       "html": "<p>The Nile puffer fish, Tetraodon lineatus, was the very first puffer fish to receive a scientific name valid in today's sense, in 1758. The maximum length is a little over 40 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<p>The fahaka puffer, Tetraodon lineatus, is a large freshwater puffer from lakes and rivers across northern and West Africa, reaching 43 cm. Also known as the Nile puffer, it was previously named T. fahaka. One of the most aggressive puffers available, it learns to interact with its owner, but should be kept alone and needs no salt in its water.</p><ul><li>Needs a very large tank</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -40,10 +105,46 @@
       "html": "<p>The Nile puffer fish in the trade do not come from the Nile, but from the Niger. The two rivers were connected just a few 10,000 years ago and have very similar fish fauna. In the meantime Nile puffers are also bred in Indonesia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<p>Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<p>It occurs in various lakes and rivers; and is found in both open water and sheltered, heavily vegetated areas.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<p>A tank of 120 x 60 x 60 cm (450 litres) is adequate for a single specimen. A much larger tank would be required for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<p>This is a freshwater puffer and does not require the addition of salt to its tank. A sandy substrate with smooth rocks and driftwood pieces for decoration is suggested. Leave plenty of open space for swimming. You can plant the aquarium if you wish but be prepared for bite marks to appear in the leaves if the Fahaka spots any morsels of food on them.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<ul><li>Temperature: 24–26°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-lineatus-15-20-cm-2/",
       "html": "<p>It is a predator and prefers to eat small fish. To catch them, the comparatively clumsy and slow puffer fish has to be tricky. Its teeth easily crack open snail and mussel shells.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<p>T. lineatus is a molluscivore in nature, and in the aquarium relishes all kinds of shellfish as well as worms and other live and frozen foods. It should be fed snails and unshelled shellfish (such as crab legs, mussels etc.) regularly, in order to maintain its sharp teeth. As with other puffers, these grow continuously and become a problem for the fish if they are not kept ground down.</p>"
     },
     {
       "key": "behaviour",
@@ -52,13 +153,58 @@
       "html": "<p>There is hardly any aquarium fish that can match the Nile puffer fish in intelligence. Fascinating for the observer are also its independently moving eyes, with which it attentively observes everything inside and outside the aquarium.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<p>A generally aggressive and intolerant species that really should be kept alone. Its beak-like mouth can easily bite chunks from other fish, or in extreme cases rip them to pieces. If you decide to take the risk you will need a huge tank, and tankmates that swim too quickly for the puffer to catch them easily. It is also very aggressive towards conspecifics. Some aquarists have had success keeping it in groups, but to attempt this an enormous tank is required. The fish will still bite one another and fight, no matter how large the tank, so \"success\" should be regarded as them not murdering one another!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<p>There are no external sexual differences, but when they are full of eggs females take on a noticeably rounded appearance. Just prior to spawning a small ovipositor is visible.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<p>The Fahaka puffer is not an easy species to breed at all, mainly due to its aggressive temperament. However reports of breeding successes in large aquaria do exist. Ideally a separate breeding aquarium should be used, but the fish may also spawn when kept in a small group in a very large tank. They become sexually mature at around 12 months of age. As discussed above, the female will produce an ovipositor when she is ready to spawn, and will do so with any willing male. The pair bond is very weak and lasts only for the duration of spawning. The pair will swim together for a short time, before the male inverts himself and grips onto the underside of the female in such a way that the sexual parts of both fish are in contact. There is then a somewhat vigorous spawning, with eggs and sperm being released simultaneously. The fish will often repeat this process several times, with each spawn lasting no more than 30 seconds. Several thousand eggs may be deposited in this way. The eggs sink and at this point it may be wise to remove them (or the parents) to a separate tank. They hatch in around 72-96 hours, and the fry will be seen lying on the tank bottom, or stuck to the sides. The water level should be lowered to only a few centimetres post hatching, as the young seem to need access to the surface. They become free swimming after around a week and initially require tiny foods such as infusoria. Large losses due to starvation are common at this point, so take care not to underfeed. After another few days they are large enough to accept brine shrimp nauplii. Keep a very close eye on them as they grow and separate them into groups of similarly-sized individuals, as they become aggressive from quite an early stage.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-lineatus-15-20-cm-2/",
       "html": "<p>In ancient Egypt there was a hieroglyph in the form of the puffer fish, used as a determinative that stood for \"discontented\". The puffer fish was called \"Fahaka\" or \"Fahaqa\", which was also a synonym of the Nile puffer fish used until the 1980s.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-lineatus",
+      "html": "<p>Puffer fish are so called as they have the ability to inflate their elastic stomachs with water or air. This is usually a response to some kind of threat, although in the aquarium many specimens appear to inflate themselves for no apparent reason. The fish becomes 2 or 3 times its normal size, big enough to scare away many potential predators, or difficult to swallow. Puffers are also one of the few fish that can actually blink or close their eyes.</p><p>Many parts of the body of puffers contain the deadly neurotoxin tetrodotoxin. This is the same poison found in the notorious blue-ringed octopus. When ingested in sufficient quantities, it can cause paralysis and death. As yet there is no known antitoxin and to humans it is over 1000 times deadlier than cyanide. The victim usually remains conscious as he or she becomes paralysed. It is a famous delicacy in Japan, but is prepared only by highly-trained chefs, and even then many people have died from eating it.</p><p>Also known as the Nile puffer or globe fish, T. lineatus was previously named T. fahaka. It is an enigmatic species, as not only is it one of the most aggressive puffers available, but it will learn to interact with its owner, developing into a real pet. Its eyes appear to show real expression, and its ponderous movements are a joy to watch. It can also change colour depending on its mood or surroundings. Some specimens will puff up when they want attention and to see a fully-grown adult inflate to the size of a football is an amazing sight.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/5cd4b312801c6791.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "Public domain",
+      "author": "Earedien",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:TetraodonLineatus.JPG",
+      "caption": "13 inch fahaka puffer fish.",
+      "thumb": "https://media.aquatome.com/commons/5cd4b312801c6791-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6a713c7355815279.webp",
+      "width": 960,
+      "height": 564,
+      "licence": "Public domain",
+      "author": "Bloch, Marcus Elieser",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ichthyologie;_ou,_Histoire_naturelle_des_poissons_(Plate_141)_(6918399698).jpg",
+      "caption": "Tetraodon lineatus",
+      "thumb": "https://media.aquatome.com/commons/6a713c7355815279-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -83,5 +229,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

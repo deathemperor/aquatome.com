@@ -10,13 +10,58 @@
     "indonesia",
     "sumatra",
     "malaysia",
-    "borneo"
+    "borneo",
+    "thailand",
+    "laos"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 19.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.8,
+          "max": 7.6
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -28,10 +73,22 @@
       "html": "<p>Pao palembangensis (= Tetraodon palembangensis) is a pure freshwater pufferfish that never enters brackish or marine environments. It attains a maximum length of 12-15 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<p>The humpback puffer, Pao palembangensis, is a predatory puffer from Thailand, Laos, Malaysia and Indonesia. An ambush predator, it is very inactive and some specimens move only when food is offered, so it is seen in the trade infrequently and suits the true enthusiast. It is unsuitable for the community tank, though several can share a large tank with plenty of hiding places.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
       "html": "<p>This species is quite specialized. It occurs only on Sumatra and Borneo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<p>Thailand, Laos, Malaysia and Indonesia.</p>"
     },
     {
       "key": "habitat",
@@ -40,10 +97,46 @@
       "html": "<p>It lives in very soft and acidic water.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<p>Inhabits freshwater streams, slow-moving rivers and ponds.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<p>Not a particularly active puffer, a single one of these can be comfortably housed in a tank measuring 120 × 30 × 30 cm, about 108 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<p>This species appreciates cover as unlike some other species of predatory puffers it doesn't tend to burrow into the substrate. Pieces of driftwood, large rocks and clay flowerpots are all suitable for this. It can be kept in a planted setup without problems, although plants aren't essential. Like all puffers, it's very sensitive to deteriorating water conditions, so regular partial water changes are a must.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.8–7.6</li><li>Hardness: 8–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<p>Relishes all kinds of shellfish, as well as worms and other live and frozen foods. It should be fed snails and unshelled shellfish (such as crab legs, mussels etc.) regularly, in order to maintain its sharp teeth. As with other puffers, their teeth grow continuously and become a problem for the fish if they're not kept ground down. It's sometimes a little reluctant to accept dead foods initially, but can usually be weaned onto them with a little patience. Due to its inactive nature it doesn't need daily feeding. Every other day is fine for juvenile fish, while adults require only one or two feeds a week.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
       "html": "<p>The unusual pattern on the belly serves to lure prey. Pao palembangensis is a predator that imitates a dead fish while hunting. It hangs around like carrion. If a small fish or a shrimp tries to feed on the carrion it becomes food itself.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<p>Unsuitable for the community tank due to its piscivorous nature. It can sometimes be kept with similarly sized or larger, active species such as bigger characins or cyprinids, but the risk is always there. Surprisingly, while best kept as a single specimen, it's not especially hostile towards its own kind and several can be maintained in a large tank as long as plenty of hiding places and visual barriers are provided. Some squabbles will inevitably occur, so do keep a close eye on proceedings if you decide on a group.</p>"
     },
     {
       "key": "dimorphism",
@@ -52,19 +145,78 @@
       "html": "<p>Rumors say that the females' hump on the back is much smaller than the males' hump.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<p>Unknown.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
       "html": "<p>The species has already been bred in aquaria, where it proved to be a cave brooder.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<p>Has occured in aquaria, albeit very rarely. The fish is a substrate spawner, with the eggs being laid in a pre-excavated pit within a cave. After spawning the male takes care of the eggs until they hatch, at which point the adult fish should be removed. The fry can be fed brine shrimp nauplii and even bloodworm from birth. They're quite belligerent with one another so plenty of cover is required.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/pao_palembangensis_and_dichotomyctere_ocellatus_en/",
       "html": "<p>In older aquarium literature Pao palembangensis (formerly Tetraodon palembangensis) has often been confused with the \"Figure eight puffer\", Dichotomyctere ocellatus (formerly known as Tetraodon biocellatus), although both species look totally different. The latter attains a maximum length of about 8 cm and is a brackish water species. Due to this confusion Pao palembangensis is also known as the \"dragon puffer\" in the international trade.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-palembangensis",
+      "html": "<p>Puffer fish are so called as they have the ability to inflate their elastic stomachs with water or air. This is usually a response to some kind of threat, although in the aquarium many specimens appear to inflate themselves for no apparent reason. The fish becomes 2 or 3 times its normal size, which makes the fish both big enough to scare away many potential predators, and difficult to swallow.</p><p>Many parts of the body of puffers contain the deadly neurotoxin tetrodotoxin. This is the same poison found in the notorious blue-ringed octopus. When ingested in sufficient quantities, it can cause paralysis and death. As yet there is no known antitoxin and to humans it is over 1000 times deadlier than cyanide. Grotesquely, the victim usually remains conscious as he or she becomes paralysed. It's a famous delicacy in Japan, but is prepared only by highly-trained chefs, and even then many people have died from eating it.</p><p>An ambush predator, P. palembangensis is a very inactive fish, some specimens only moving when food is offered. As such it's really only suitable for the true enthusiast. Correspondingly palembangensis are not seen in the trade very often.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/2851b91bb01f5072.webp",
+      "width": 960,
+      "height": 752,
+      "licence": "Public domain",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetrodon_palembangensis_-_1700-1880_-_Print_-_Iconographia_Zoologica_-_Special_Collections_University_of_Amsterdam_-_UBA01_IZ15500049.tif",
+      "caption": "Tetrodon palembangensis",
+      "thumb": "https://media.aquatome.com/commons/2851b91bb01f5072-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b4e30ced185ca67f.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "The Great Mule of Eupatoria",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pao_palembangensis_home.png",
+      "caption": "The native range in which the pufferfish species can be found",
+      "thumb": "https://media.aquatome.com/commons/b4e30ced185ca67f-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4bbdfb38919cf929.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Jacklee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palembang_pufferfish_(Pao_palembangensis),_starry_triggerfish_(Abalistes_stellaris)_and_shortnose_boxfish_(Ostracion_nasus),_Lee_Kong_Chian_Natural_History_Museum,_Singapore_-_20150808.jpg",
+      "caption": "A preserved Palembang pufferfish (Pao palembangensis) from Southeast Asia in the 2000s; and a starry triggerfish (Abalistes stellaris) and shortnose boxfish (Ostracion nasus), both purchased from a fi",
+      "thumb": "https://media.aquatome.com/commons/4bbdfb38919cf929-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a463f355b04d79e5.webp",
+      "width": 960,
+      "height": 960,
+      "licence": "CC BY-SA 4.0",
+      "author": "Abu Hamas",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pao_palembangensis_263839696.jpg",
+      "caption": "Humpback Puffer (Pao palembangensis) in Indonesia",
+      "thumb": "https://media.aquatome.com/commons/a463f355b04d79e5-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -96,5 +248,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

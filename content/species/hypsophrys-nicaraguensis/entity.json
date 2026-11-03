@@ -18,12 +18,53 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -33,6 +74,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hypsophrys-nicaraguensis-formerly-cichlasoma-n-copora-n/",
       "html": "<p>Hypsophrys nicaraguensis is one of the most unusual cichlids in Central America in terms of behavior and one of the most beautiful in terms of coloration. Males grow to a maximum length of 25 cm, females are usually only 10-12 cm (maximum 18 cm).</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<p>The Nicaragua cichlid, Hypsophrys nicaraguensis, is a Central American cichlid from Nicaragua and Costa Rica, found in lakes and slow-moving rivers. Also known as the spilotum or moga, it exists in several colour forms depending on collection locality, and has been hybridised with the convict cichlid, Archocentrus nigrofasciatus. Relatively peaceful for its size but territorial, it is best kept as a mated pair and spawns in caves.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -47,10 +94,34 @@
       "html": "<p>The Nicaragua cichlid is found not only in Nicaragua but also in Costa Rica. The Costa Rican variant, recognizable by the blue head of both sexes, is much more common in the hobby. Animals from Nicaragua have a copper-red head.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<p>Nicaragua and Costa Rica.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<p>It's found in lakes and slow-moving parts of rivers.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hypsophrys-nicaraguensis-formerly-cichlasoma-n-copora-n/",
       "html": "<p>Despite its maximum size, the animals should be provided with aquariums that are as large as possible, in which they can grow into magnificent specimens.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<p>Maximum standard length 250 mm (25 cm). Aquarium base 120 × 45 cm.</p><p>120 × 45 × 45 cm, about 243 litres, for an adult male or pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<p>Provide plenty of cover in the form of rocks and other decor, such as bogwood or large flowerpots. These should be arranged in such a way as to form caves and hiding places. A sand or fine gravel substrate is best as the fish do dig, especially when spawning. Any plants must therefore be tough and very well-rooted, or of the various species that can be attached to decor, such as java fern and Anubias sp.</p>"
     },
     {
       "key": "waterConditions",
@@ -59,10 +130,22 @@
       "html": "<p>The chemical composition of the water is irrelevant, but it should not be very soft or acidic. The temperature can range between 22 and 28°C, and it does not matter if it is slightly lower or higher at times.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 7.0–8.0. It won't do particularly well in acidic conditions.</li><li>Hardness: 8–20 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hypsophrys-nicaraguensis-formerly-cichlasoma-n-copora-n/",
       "html": "<p>They eat all standard ornamental fish food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<p>Will accept most things offered. Feed a varied diet including dried pellets and flakes, frozen foods such as bloodworm and prawn and the occasional live earthworm treat for the best growth rates and colouration. Also try to ensure the fish receive some greenstuff in their diet. Blanched spinach or spirulina-based dried foods both work well.</p>"
     },
     {
       "key": "behaviour",
@@ -71,19 +154,64 @@
       "html": "<p>H. nicaraguensis has been a popular aquarium fish since the 1970s, as it is considered to be exceptionally peaceful for a cichlid.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<p>Relatively peaceful for a Central American cichlid of this size, but is still territorial and obviously grows quite large. Best kept as a mated pair. If you want to keep any other cichlids in the tank, you'll probably need one at least 6 feet in length. Don't combine it with any super aggressive species. Other possible tankmates can include larger barbs and characins, catfish and Loricariids.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hypsophrys-nicaraguensis-formerly-cichlasoma-n-copora-n/",
       "html": "<p>The females usually have a longitudinal stripe and no pattern on their fins, while the males usually have a diamond-shaped spot on their flank and clearly patterned fins. Males are significantly larger than females. Sexual maturity is reached at lengths of around 12 cm (males) and 9 cm (females).</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<p>The female is smaller and generally has more intense colouration than the male. Males also develop a small nuchal hump as they mature, and possess a pointed genital papilla. There are also some differences in the patterning, most significantly that females retain the black lateral stripe, whilst this reduces to a single spot on the flank of males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hypsophrys-nicaraguensis-formerly-cichlasoma-n-copora-n/",
       "html": "<p>Unlike other \"Cichlasoma\" cichlids, which are open breeders attaching their eggs to a stone, a root or an aquarium pane, the eggs of the Nicaragua cichlid do not stick; they are freely movable, like mouthbrooder's eggs. This is why H. nicaraguensis prefers to spawn in shelters (caves or sand pits) where the spawn is not easily swept away. The females in a clutch initially grow faster than their brothers, but the males more than catch up later on.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<p>Possible. It spawns in caves. Obtaining a pair is not the easiest thing in the world, as the fish are very aggressive towards one another. The best option is to start with a group of 6 or more young fish and allow them to pair off naturally. Furnish the aquarium as suggested above, and condition the fish on a good diet. Once a pair forms they will be seen defending a territory against all-comers and at this point it's wise to remove the remaining fish, as the pair will usually remain together for life. You may wish to consider the use of a shoal of dither fish such as silver dollars, as the young fish can be quite hard on one another. In nature, the fish spawn in tunnels dug into river or lake banks, but in the aquarium a good-sized cave suffices. The female chooses the cave, or the pair may excavate their own. Spawning normally occurs under cover of darkness and it's the female who takes care of the brood until they become free swimming. She guards the cave from any other fish, including the male, who instead patrols the territory, defending its boundaries. Unlike those of most Central American pit-spawning cichlids, the eggs are not adhesive and simply sit on the substrate. They hatch in 2-3 days, with the fry becoming free swimming after a further 3-5 days. From this point both partners co-operate in protecting their young and territory. The fry can be fed on brine shrimp nauplii initially, before being offered supplementary powdered dried foods. Don't be tempted to remove the eggs or fry too early, or the pair may turn on each other.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsophrys-nicaraguensis",
+      "html": "<p>Also known as the Spilotum or Moga, this is a popular and beautiful cichlid that exists in several different colour forms, depending on collection locality. It has also been hybridised with the convict cichlid (Archocentrus nigrofasciatus), although this is not to be encouraged. A study in 2004 found an apparent close genetic association between this species and Neetroplus nematopus, another cichlid found in the same area in nature. The 2 show remarkable similarities in breeding strategy, patterning and unique morphology. It was hypothesised that Neetroplus should be considered a junior synonym of Hypsophrys and that the species form a monophyletic group. For the time being, though, H. nicaraguensis remains the only species in the genus. It has previously been incorrectly placed in several genera, including Cichlasoma, Copora, Theraps and even Heros.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/bb7ac2e634c413c0.webp",
+      "width": 960,
+      "height": 670,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Hypsophrys_nicaraguensis_1.jpg",
+      "caption": "Moga cichlids (Hypsophrys nicaraguensis). Wilhelma Zoological-Botanical Garden Stuttgart.",
+      "thumb": "https://media.aquatome.com/commons/bb7ac2e634c413c0-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e2ab5187b30af0c8.webp",
+      "width": 960,
+      "height": 1266,
+      "licence": "CC BY 4.0",
+      "author": "Arturo Angulo, Beatriz Naranjo-Elizondo, Emmanuel Rojas, and Juan Manuel Ley-López",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fishes_from_the_Tirimbina_Biological_Reserve_(Perciformes_-_Cichlidae_2).png",
+      "caption": "An array of various fishes collected from waters in the Tirimbina Biological Reserve of Costa Rica. Per source: A. Cribroheros alfari (Meek, 1907), upper: adult specimen, about 70 mm SL, lower: adult ",
+      "thumb": "https://media.aquatome.com/commons/e2ab5187b30af0c8-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -112,5 +240,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

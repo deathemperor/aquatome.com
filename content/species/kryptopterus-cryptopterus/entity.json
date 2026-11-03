@@ -11,7 +11,8 @@
     "chao-phraya",
     "malaysia",
     "indonesia",
-    "kalimantan"
+    "kalimantan",
+    "singapore"
   ],
   "dataCard": {
     "tempC": [
@@ -19,6 +20,13 @@
         "source": "planetcatfish",
         "value": {
           "min": 22,
+          "max": 27
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
           "max": 27
         }
       }
@@ -30,12 +38,44 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 20
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 14.7
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -47,16 +87,52 @@
       "html": "<ul><li>Scientific name: Kryptopterus cryptopterus (Bleeker, 1851)</li><li>Common name: Blue Sheatfish</li><li>Type locality: Banjarmasin, South Kalimantan, Borneo, Indonesia</li><li>Size: 200 mm (7.9 in) SL</li><li>IUCN Red List: Least Concern (last assessed 2019)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<p>The blue sheatfish, Kryptopterus cryptopterus, is a silurid catfish from the Malay Peninsula, Singapore, Sumatra, Borneo and Java. It inhabits flowing rivers and larger streams with turbid water, and is sometimes traded as 'smokey glass catfish'. Populations from Thailand, Cambodia, Laos and Vietnam once considered conspecific are now referred to K. geminus, its closest relative, from which it differs in having a wider head and a shorter snout and anal fin.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
       "html": "<p>Asia: Mekong and Chao Phraya basins; also from the Malay Peninsula, Sumatra and Borneo.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<p>Known from the Malay Peninsula and Singapore plus Greater Sunda Islands of Sumatra, Borneo and Java, with populations from Thailand, Cambodia, Laos and Vietnam which had formerly been considered conspecific now referred to K. geminus (Ng, 2003).</p><p>Type locality is given as 'Bandjarmassing', which corresponds to a city now more commonly referred to as 'Banjarmasin' in South Kalimantan (Kalimantan Selatan) province, Indonesia (Borneo).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<p>Inhabits flowing rivers and larger streams typified by turbid water with a lot of suspended sediment.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<p>An aquarium with base dimensions of 120 × 45 cm or equivalent should be the smallest considered (volume ~243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<p>Décor is relatively unimportant although this species prefers weakly-lit conditions and may become skittish in the absence of cover.</p><p>Do not introduce it to a biologically immature aquarium as it can be susceptible to swings in water chemistry.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
       "html": "<ul><li>pH: 6.0 - 7.0</li><li>Temperature: 22.0-27.0°C (71.6-80.6°F)</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<ul><li>Temperature: 20–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -71,10 +147,22 @@
       "html": "<p>Readily feeds on live/frozen foods and other prepared foods such as pellets.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<p>Probably a predator feeding on crustaceans, invertebrates and smaller fishes in nature, although there should be no need to use such live foods in captivity.</p><p>Offer a varied diet comprising sinking dried foods, live and frozen bloodworm, Tubifex, etc., and perhaps the occasional small earthworm.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
       "html": "<p>A schooling species that should be kept in groups of three or more. A relatively peaceful fish compatible with most other species. Ideal tankmates include larger barbs and rasboras, and other mid-sized bottom-dwelling Asian catfishes (e.g. Mystus).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<p>Generally peaceful though it may predate on smaller fishes and is somewhat timid so does not compete well with much larger, robust or otherwise boisterous species.</p><p>Peaceful, comparably-sized cyprinids, loaches and other catfishes perhaps constitute the best options but be sure to research your choices thoroughly prior to purchase.</p><p>K. cryptopterus is gregarious and tends to form schools so ideally four or more specimens should be purchased.</p>"
     },
     {
       "key": "dimorphism",
@@ -83,10 +171,22 @@
       "html": "<p>Males are more slender and have strong serrations on the posterior edge of the pectoral spine (females lack these serrations).</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<p>Adult males are noticeably slimmer than females but additional information is contradictory with some sources stating that the posterior edge of the pectoral-fin spine is serrated in males (vs. smooth in females) and others that there is no such difference.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
       "html": "<p>In the Mekong, this species spawns during the early part of the rainy season (June-July). The young move toward the seasonally flooded habitats and are first seen in August. Not reported in aquaria.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<p>Unrecorded. In nature the closely-related congener K. geminus (see 'Notes') spawns at the onset of the wet season with young specimens common in seasonally-inundated areas.</p>"
     },
     {
       "key": "notes",
@@ -95,10 +195,22 @@
       "html": "<p>Identification: rudimentary dorsal fin; the maxillary barbels reaching to the base of the pectoral fin; 64-78 anal rays. Nearly straight dorsal profile with no nuchal concavity; pectoral-fin length greater than head length.</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<p>Etymology: Kryptopterus is from the Greek kryptos, meaning 'hidden', and pterýgio, meaning 'fin', in reference to the reduced or absent dorsal-fin in members of this genus. The species name cryptopterus has the same derivation.</p><p>This species is sometimes traded as 'smokey glass catfish'.</p><p>Its closest relative is K. geminus, populations of which were formerly considered to represent K. cryptopterus, and these two can be distinguished from congeners by the dorsal profile lacking a nuchal concavity (vs. possessing a nuchal concavity) and possessing short maxillary barbels (extending to the pectoral-fin base vs. extending beyond tip of pectoral-fin).</p><p>K. cryptopterus can be distinguished from K. geminus by possessing a wider head (12.2-14.2 % SL vs. 9.5–12.0), shorter anal-fin (57.2-62.9 % SL vs. 62.2–72.7) and snout (35.1-39.8 % HL vs. 39.5–45.3), and less laterally-placed eyes (ventral two-thirds of the orbital margin visible when the head is viewed ventrally vs. only the ventral half).</p><p>K. cryptopterus and K. geminus can be further told apart from all other silurid catfishes by possession of an anteriorly truncated supralabial fold with the lower edge extending beyond the base of the maxillary barbel and an elongate antorbital process of the lateral ethmoid that is not anteroposteriorly compressed.</p><p>Kryptopterus species are found only in Southeast Asia and the genus has been considered polyphyletic since Bornbusch (1995) with some former species already moved to the genera Phalacronotus and Micronema.</p><p>Those still contained within the genus are assigned to a number of putative species groups as follows:</p><ul><li>K. bicirrhis group: K. bicirrhis, K. lais, K. palembangensis, K. macrocephalus, K. minor, K. piperatus, K. vitreolus</li><li>K. cryptopterus group: K. cryptopterus, K. geminus</li><li>K. limpok group: K. limpok, K. mononema, K. dissitus, K. baramensis, K. hesperius</li><li>K. schilbeides group: K. schilbeides, K. paraschilbeides</li></ul><p>Bornbusch (1995) identified the K. bicirrhis group as a distinct clade although he didn't propose any synapomorphy to diagnose it.</p><p>Ng and Kottelat (2013) later noted that members normally have fewer anal-fin rays (46–67 vs. 64–85) than other congeners and placed K. piperatus and K. vitreolus within the group based on this character.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1010",
       "html": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 1 (no. 3), pp 270.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-cryptopterus",
+      "html": "<ul><li>Bornbusch, A. H. (1995). Phylogenetic relationships within the Eurasian catfish family Siluridae (Pisces: Siluriformes), with comments on generic validities and biogeography. Zoological Journal of the Linnean Society 115, 1-46</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Ng, H. H. (2003). Kryptopterus geminus, a new species of silurid catfish (Teleostei: Siluridae) from mainland Southeast Asia. Zootaxa 305, 1-11</li><li>Tan, H. H. and H. H. Ng (2000). The catfishes (Teleostei: Siluriformes) of central Sumatra. Journal of Natural History 34(2), 267-303</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Bleeker, P. (1851). Nieuwe bijdrage tot de kennis der ichthyologische fauna van Borneo met beschrijving van eenige nieuwe soorten van zoetwatervisschen. Natuurkundig Tijdschrift voor Nederlandsch Indië v. 1, 259-275</li><li>Ng, H-H. and M. Kottelat (2013). After eighty years of misidentification, a name for the glass catfish (Teleostei: Siluridae). Zootaxa 3630, 308-316</li></ul>"
     }
   ],
   "photos": [
@@ -148,23 +260,23 @@
     },
     {
       "url": "https://media.aquatome.com/commons/bc9a34397cfe8885.webp",
+      "thumb": "https://media.aquatome.com/commons/bc9a34397cfe8885-480.webp",
       "width": 960,
       "height": 641,
       "licence": "CC BY-SA 4.0",
       "author": "Haplochromis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_cryptopterus.JPG",
-      "caption": "Kryptopterus cryptopterus",
-      "thumb": "https://media.aquatome.com/commons/bc9a34397cfe8885-480.webp"
+      "caption": "Kryptopterus cryptopterus"
     },
     {
       "url": "https://media.aquatome.com/commons/6be44392d0a8456f.webp",
+      "thumb": "https://media.aquatome.com/commons/6be44392d0a8456f-480.webp",
       "width": 960,
       "height": 533,
       "licence": "CC BY-SA 4.0",
       "author": "JSutton93",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_sheatfish_(Kryptopterus_cryptopterus).jpg",
-      "caption": "Blue sheatfish at Berlin Aquarium",
-      "thumb": "https://media.aquatome.com/commons/6be44392d0a8456f-480.webp"
+      "caption": "Blue sheatfish at Berlin Aquarium"
     }
   ],
   "videos": [],
@@ -197,5 +309,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-03"
 }

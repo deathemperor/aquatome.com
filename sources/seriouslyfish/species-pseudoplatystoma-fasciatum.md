@@ -1,0 +1,133 @@
+---
+url: https://www.seriouslyfish.com/species/pseudoplatystoma-fasciatum
+title: Pseudoplatystoma fasciatum (Barred Shovelnose) · Seriously Fish
+fetchedAt: 2026-11-03T05:53:36.303Z
+hash: d1bee0089f9cc2a103dc074b0867a848fff8ad92adf5be6f452ac67050d78919
+---
+
+On this page
+11 sections
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- Images · 3
+Pseudoplatystoma fasciatum adultHippocampus-Bildarchiv
+## Quick factsEdit
+Max size
+1040mm SL41in SL
+Aquarium size
+not recorded
+Temp
+22–26°C72–79°F
+pH
+6.0–7.6
+Hardness
+2–30dGH
+## Difficulty4 of 8 measures
+Difficult
+Rated difficult because it needs a tank at least 2 m long.
+How the rating is worked out
+Space
+very large tank
+Water
+flexible
+Temp
+needs a steady temperature
+Diet
+unknown
+Temperament
+peaceful
+Social
+unknown
+Compatibility
+unknown
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+unknown
+- Needs a tank at least 2 m long
+The barred shovelnose, Pseudoplatystoma fasciatum, is a large pimelodid catfish with a very wide range in South America, from Colombia to Argentina. Recorded at 104 cm and 70 kg, it reaches close to that size quickly in captivity and can live for well over 20 years, so it is debatable whether it should be considered an aquarium subject at all. It is easily confused with P. tigrinum, and both are usually sold as 'tiger shovelnose'.
+## Distribution
+Edit
+Has a very wide natural range. Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina. Occurences in Paraguay and Uruguay are apparently unconfirmed.
+## Habitat
+Write a note
+Edit
+Inhabits a vatiety of biotopes, from large rivers and lakes to areas of flooded forest. Supposedly it's often found in more sluggish habitats than many large Pimelodids.
+## Aquarium size
+Write a note
+Edit
+Standard length
+1040mm SL41in SL
+Aquarium base
+not recorded
+Something in the region of 12' x 8' x 4' (360cm x 240cm x 120cm) - 10,368 litres would be needed for a fully-grown fish. Even this would not give it space to cruise around as it would in the wild.
+## Maintenance
+Write a note
+Edit
+Strictly speaking, decor isn't necessary for a tank containing an adult, provided the lighting is fairly dim. You can however add some large chunks of bogwood, beech branches or smooth rocks if you wish. Ensure that any such furnishings are too heavy to be moved around or secured to the tank in some way, and that there's plenty of open swimming space. Juveniles enjoy hiding places in the form of bogwood, tangles of roots and branches, rock piles or lengths of plastic piping of a suitable bore. Choice of substrate can be an issue, as most grades of gravel can either be swallowed or become caught in the delicate gills. Sand is ok, but don't expect it to stay in one place. A layer of large, smooth pebbles is a better option. Some hobbyists simply leave the substrate out altogether, which certainly makes cleaning the tank an easier task. A large and efficient biological filter is needed to cope with the amounts of waste produced by a fish of this size. If possible choose a sump-type arrangement, as this allows most of the equipment to be located outside the tank. A large specimen can easily destroy glass heaterstats, thermometers etc.
+## Water conditions
+Edit
+Temperature
+22–26°C72–79°F
+pH
+6.0–7.6
+Hardness
+2–30dGH
+Temperature: 22 – 26 °C72 – 79 °F
+pH: 6.0 to 7.6. It does best in slightly acidic water.
+Hardness: 2 to 30°H
+## Diet
+Write a note
+Edit
+Piscivorous by nature, but usually adapts well to dead foods in captivity. It relishes meaty items such as prawns, mussels, cockle, lancefish or earthworms. Larger specimens can be offered whole fish fillets (use white fish). Try to keep the diet varied or you may find it becomes too accustomed to a particular food and is reluctant to accept anything else. Also take care not to overfeed. It's easy for predatory species to become overweight in captivity, especially when fed a high protein diet. This can lead to health problems in the long term. Feed every other day when juvenile but as the fish grows reduce the frequency. An adult specimen needs only a single meal per week at most. This species should not be fed the meat of mammals such as beef heart or chicken. Some of the lipids contained in these meats cannot be properly metabolised by the fish, and can cause excess deposits of fat and even organ degeneration. Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish. Risks involved with feeding these include the potential of disease introduction.
+## Behaviour and compatibility
+Write a note
+Edit
+Whilst it won't hesitate to gobble any smaller fish, it's actually quite peaceful and can be kept alongside other similarly-sized species in suitable surroundings. You'd need a tank approaching public aquarium size in order to do this, though. Most of the usual "tankbusters" are too small to avoid being eaten. Possible companions include Doradids such as Oxydoras niger or Pterodoras granulosus. If the tank is also very deep big characins and cyprinids could be added. It's territorial towards both conspecifics and other large Pimelodids, so should be the only fish of this type kept in most situations.
+## Sexual dimorphism
+Write a note
+Edit
+Virtually impossible to sex by external characteristics. Adult females are likely to be stockier in build than males.
+## Reproduction
+Write a note
+Edit
+Unreported in the hobby. It migrates over long distances to spawn in nature, and replicating these conditions in an aquarium would be nigh on impossible.
+## Notes
+Edit
+It's debatable as to whether this species should be considered an aquarium subject at all, given its eventual size. All too often juveniles are sold without adequate information regarding their long term care. These cats can and will attain something close to their maximum size in captivity, and will do so quite quickly. The myth that they will only grow to match the size of the tank they're kept in is just that - a myth. It's also worth noting that species such as this can live for well over 20 years, making it a considerable long term commitment. Many aquarists buy a young specimen with the intention of buyinga bigger tank as it grows. However due to life's unpredictable nature very few actually take this step, instead attempting to rehome the fish. Public aquaria are already inundated with far too many 'cast offs' from the hobby, and are unlikely to take a big fish off your hands. Very few fellow hobbyists will have the facilities to do so, either. It's sad to think how many hundreds of these are doomed to a drastically reduced existence by the aquatic trade. Please don't buy one unless you have the resources requires to house it for life already in place. For those select few that do, it's certainly a magnificent specimen catfish. It's easily confused with the closely related and very similar-looking P. tigrinum. Indeed both are usually sold with the same common name of "tiger shovelnose". In general, P. fasciatum exhibits a more irregular overall pattern compared to the uniformly striped P. tigrinum. This is not always a reliable means of distinguishing the two though, as they can vary considerably in appearance. For example over a dozen colour forms of P. fasciatum have been identified, depending on locality. Unfortunately hybrids produced by crossing this species with other big Pimelodids such as the red-tailed catfish Phractocephalus hemioliopterus have been finding their way onto the market in recent years. These were initially bred for eating in Far Eastern countries but sadly have proved quite popular with some hobbyists. It's a popular food fish in South America as well.
+## Species images · 3
+Pseudoplatystoma fasciatum adultHippocampus-Bildarchiv
+Pseudoplatystoma fasciatum; head of adultJJPhoto
+Pseudoplatystoma fasciatum juvenileJJPhoto
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- Argentina
+- Bolivia
+- Brazil
+- Colombia
+- Ecuador
+- French Guiana
+- Guyana
+- Peru
+- Suriname
+- Venezuela
+## Profile completeness18 of 24
+75% complete
+- Add a reference
+- Add social needs
+- Add community suitability
+Also missing: aquarium size, taxonomic authority, etymology.
+Report a mistake
+## Community
+Questions about Pseudoplatystoma fasciatum?
+Ask on Discord
+→

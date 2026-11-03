@@ -5,8 +5,57 @@
   "family": "Gobiidae",
   "genus": "Stiphodon",
   "group": "gobies",
-  "places": [],
-  "dataCard": {},
+  "places": [
+    "oceania",
+    "palau"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -21,10 +70,46 @@
       "html": "<p>Be sure to have the habitat ready before purchase.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<p>This species needs a tight-fitting lid as it is known to jump. Since they need stable water conditions and feed on biofilm, these fishes should never be added to immature set-ups, and a tightly-fitting cover is necessary since they are able to climb glass.</p><p>Stiphodon pelewensis is a stream-dwelling goby described from Palau and thought to occur through the Mariana Islands and as far as Pohnpei. Its range needs confirmation, since a number of similarly patterned fishes occur across much of Micronesia. It resembles S. weberi, and the two are most easily told apart by the belly, fully scaled in S. pelewensis and unscaled in S. weberi.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<p>Described from the island nation of Palau, eastern Micronesia, but also thought to occur throughout the Mariana Islands further north and eastwards as far as Pohnpei.</p><p>This requires confirmation as some studies contradict others, but what is certain is that there exist a slew of similarly-patterned fishes distributed throughout much of Micronesia.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e",
       "html": "<p>They prefer fast-moving water with high oxygen levels. A river tank set-up would be ideal for this species, but they can be kept well in other tanks.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<p>Members of this genus are near-exclusive inhabitants of short coastal streams on tropical, often volcanic, islands, with typical habitats lying above waterfalls or cataracts.</p><p>This makes them inaccessible to the majority of fishes although other gobies from the genus Sicyopus often occur syntopically, sometimes alongside two or more Stiphodon species. Amphidromous Macrobrachium spp. shrimp and neritid snails are the commonest invertebrates to be found.</p><p>The gradient of the streams varies depending on locality, and Stiphodon spp. inhabiting the fastest-flowing streams and/or living above waterfalls generally lack extended dorsal-fin rays/spines, and the first dorsal fin is rounded in shape and approximately the same height as the second dorsal fin.</p><p>In contrast, those possessing a taller first dorsal fin with one or more extended rays (characters usually if not always more apparent in males) tend to live in slower-moving streams and not climb waterfalls as part of their life cycle (Watson, 2008).</p><p>S. pelewensis falls into the former group and typically occurs in higher altitude biotopes characterised by rapidly-flowing, narrow runs and riffles broken up by wider, slower-moving stretches, usually located above waterfalls or cataracts.</p><p>Substrates are normally of bedrock with scattered jumbles of rocks and boulders, and while riparian vegetation and submerged leaf litter are common, aquatic plants are not usually present.</p><p>Evidence exists to suggest that different Stiphodon spp. actively choose a particular substrate type over another, with some appearing to focus on rocks/boulders within a particular size range, for example.</p><p>The range of substrate sizes chosen by females also appears to be significantly narrower than that for males in some cases, so resource partitioning may be occurring between and/or within species depending on locality.</p><p>The most favourable habitats all contain very clear, well-oxygenated water which, allied with the tropical sun, facilitates the development of a rich biofilm carpeting submerged surfaces.</p><p>Sicydiines are such successful colonisers of these niche environments due to aspects of their morphology which allow them to both utilise this as a food source and employ a remarkable breeding strategy.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<p>Standard length: 45 mm SL. Aquarium base: 60 × 30 cm. Volume: ~54 litres.</p><p>An aquarium with base dimensions of 60 × 30 cm is big enough for a pair or small group, but use something bigger if you want to keep multiple species together since males are territorial to an extent.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<p>These gobies are not too difficult to keep provided some basic requirements are met.</p><p>Most importantly the water must be clean and well-oxygenated at all times, so use either an over-sized filter, additional powerheads, flow pumps, or airstones.</p><p>While torrential conditions are unnecessary, a turnover of 10-15 times tank volume per hour is recommended, though with good oxygenation a lower rate of 5-10 times per hour is feasible.</p><p>Base substrate can be gravel, sand, or a mixture of both, to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Aged driftwood can also be used but avoid new pieces since these usually leach tannins which discolour the water and reduce the effectiveness of artificial lighting.</p><p>The lighting must be strong to promote the growth of algae and associated micro-organisms because Stiphodon spp. are highly specialised biofilm grazers.</p><p>Some aquarists even maintain an open filter sponge in the tank to provide an additional food source.</p><p>If keeping multiple males of one or more species, structure the rockwork to form plenty of potential hiding places and broken lines-of-sight to reduce the likelihood of excessive aggression.</p><p>Also bear in mind that males in particular tend to dig into the substrate when sleeping or spawning, meaning larger rocks are best positioned directly on the tank base to prevent any risk of collapse.</p><p>They do not sleep in the same burrow each night and females have been observed to occupy uninhabited ones.</p><p>Although not a feature of this species' natural habitat, aquatic plants can be used, with hardier genera such as Microsorum, Crinum, and Anubias likely to fare best.</p><p>The latter are particularly useful as their leaves tend to attract algal growth and provide hiding places.</p><p>Since they need stable water conditions and feed on biofilm, these fishes should never be added to immature set-ups, and a tightly-fitting cover is necessary since they are able to climb glass.</p><p>While weekly water changes of 30-50% tank volume are essential, the rest of the tank need not be kept too clean and algae should be allowed to grow on all surfaces except the viewing pane.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<ul><li>Temperature: 22–28°C; increased surface agitation may be required to maintain dissolved oxygen levels towards the upper end of this range.</li><li>pH: 6.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -33,19 +118,100 @@
       "html": "<p>An algae-grazing species.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<p>Stiphodon spp. are specialised algal grazers feeding on benthic algae plus associated micro-organisms and possess subterminal, extrusible mouthparts with dentition designed for the purpose including regenerative teeth.</p><p>The pelvic disc is also important not only to maintain position in rapidly-flowing water but also to provide leverage.</p><p>In the aquarium some sinking dry foods and small, meaty foods such as live or frozen bloodworms may be accepted but should only be offered irregularly since the elongate gut is specifically designed to process vegetable matter.</p><p>For long-term success it is thus essential to provide a mature aquarium with a plentiful supply of algae-covered rocks and other surfaces.</p><p>If unable to grow sufficient algae in the main tank, or you have a community containing numerous herbivorous fishes which consume what is available quickly, it may be necessary to maintain a separate container in which to grow algae on rocks and switch them with those in the main tank on a cyclical basis.</p><p>Such a 'nursery' does not have to be very large, requires only strong lighting and in sunny climates can be kept outdoors.</p><p>Algal type is also important, with diatoms, cyanobacteria (commonly referred to as blue-green 'algae') and green varieties preferred to tougher ones like rhodophytic 'black brush' algae.</p><p>Unfortunately, as a result of their specialised diet and oxygen requirements, Stiphodon spp. are regularly seen on sale in an emaciated state which can be tricky to correct.</p><p>A good dealer will have done something about this prior to sale, but if you decide to take a chance with severely weakened specimens they will initially require a readily-available source of suitable foods in the absence of competitors if they are to recover.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e",
       "html": "<p>Peaceful, but may get territorial towards other gobies.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<p>Stiphodon spp. can be kept in a community provided tankmates are chosen with care.</p><p>Peaceful, similarly-sized species which naturally inhabit well-oxygenated streams such as Tanichthys, Microdevario, or smaller Danio species are the best choices for the upper levels, but it has also been seen maintained with various characins, small poeciliid livebearers, and freshwater shrimp of the genera Caridina and Neocaridina.</p><p>Other bottom-dwellers can include small loaches from genera such as Gastromyzon, Pseudogastromyzon, Barbucca, or Acanthopsoides, and in high-turnover set-ups obligate torrent-dwellers like Annamia, Homaloptera, etc.</p><p>Avoid those that feed aggressively such as many Schistura spp.</p><p>Bigger fishes are best omitted entirely although in large set-ups it may be possible to add a few non-predatory, surface-dwelling species, while the majority of cichlids and other territorial fishes inhabiting the lower reaches should be avoided entirely.</p><p>Males tend to be loosely territorial, especially when breeding, but several can be kept together provided sufficient space and suitable foods are available, and other stream-dwelling gobies such as Sicyopus, Sicyopterus, Rhinogobius, or Schismatogobius spp. also make good companions.</p><p>Though males are not necessarily gregarious, females tend to exist in loose groups, meaning a single male with two or more females is the recommended minimum purchase.</p><p>Females of different species will group together but males appear able to differentiate between them.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<p>As with all members of the genus, sexual dimorphism is pronounced.</p><p>Mature males have dark unpaired fins and two thick, dark body bars, one under each dorsal fin.</p><p>Females are relatively plain and similar in appearance to those of some other species, with a pale base colouration and two dark, lateral body stripes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<p>Observations of courtship behaviour and the occasional spawning exist but to date no-one has managed to raise fry of any Stiphodon spp. in captivity.</p><p>This is undoubtedly attributable to their complex amphidromous breeding strategy in which adults live and spawn in freshwater streams but the initially pelagic post-hatch larvae are washed downstream to the sea where the post-larval fry spend the first part of their life developing in marine conditions.</p><p>Once they reach a certain stage of development they begin to migrate upstream, a journey which sometimes includes spectacular climbs up and over waterfalls or other obstructions.</p><p>Females are extraordinarily fecund for their size and can deposit as many as 10,000 eggs in a single spawning event.</p><p>These are tiny (~0.5 mm in diameter), pyriform, and attached to solid surfaces by filaments, normally being placed on the underside of rocks.</p><p>It is thought that reduced egg size and high fecundity are advantageous since the large number of fry offsets risks such as predation or the possibility of excessive dispersal at sea, and their small size allows them to feed on microscopic plankton.</p><p>Spawning is initiated by the intensely-coloured male as he attempts to coax females to his chosen spawning site while fending off rivals.</p><p>It usually occurs under rocks and captive males have also been observed to dive head first into the substrate followed by a female at the climax of courtship.</p><p>Once fertilised, the mass of eggs, which can number in the thousands, is guarded by the male during the incubation period of less than 24 hours in studied cases.</p><p>The fry hatch as undeveloped larvae with a large yolk sac attached and lacking a mouth, anus, or functioning eyes.</p><p>The yolk sac is absorbed in 3-4 days and during that period they must reach the ocean, probably the reason why incubation is short as early hatching gives them a better chance of success.</p><p>The fact that these gobies are only found in relatively short, steep streams is also thought related to this downstream dispersal.</p><p>The larvae initially exist among the plankton in a pelagic form before coming to settle on the substrate within the shallow surf zone.</p><p>In one study the pelagic larvae of S. percnopterygionus were found to be transparent and possess an emarginate caudal fin whereas 'settled' larvae (those no longer swimming in the water column) were pigmented.</p><p>Interestingly the range of standard length for the pelagic larvae (13.5 – 14.2 mm) was greater than that of settled larvae (12.7 – 13.6 mm).</p><p>The pelagic larval duration (PLD), i.e. the length of the larval phase, was found to vary between 78 - 146 days and be longer at colder temperatures.</p><p>During the annual cool spell between December and April the activity of the gonads reduces considerably in both sexes and the fish probably stop breeding, while peak breeding season is June - November.</p><p>Once settled on the substrate the larvae begin to lose their temporary specialisations such as the emarginate caudal fin and begin their journey upstream to join the adults.</p><p>They may need to travel several kilometres inland, often over cascades or through stretches of rapidly-flowing water.</p><p>The pelvic fins are fused into a disc designed for suction which allows the juveniles to adhere to hard surfaces and climb steep gradients, in some cases even ascending vertical waterfalls with overhanging rocks.</p><p>This journey can take several months but the fish are sexually mature within a year and since their natural lifespan is only thought to be around two years they are likely to begin spawning soon after, if not immediately, on arrival at the breeding grounds.</p><p>Amphidromy in sicydiine gobies is not unique to members of Stiphodon and is practised by all other genera.</p><p>McDowall (2007) gave a list of potential benefits to fishes employing such a breeding strategy, hypothesising that it may facilitate colonisation of new islands emerging in volcanic areas and/or allow recolonisation of streams following events such as volcanic eruptions or rapid changes in water flow during the wet season.</p><p>He also considered that leaving the marine environment can be seen as a trade-off in that, since amphidromous gobies are often the only fishes found in their habitats, predators are virtually non-existent, but the available food sources are far less diverse than in the ocean.</p><p>The ability to graze biofilm appears to be essential for success.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e",
       "html": "<p>Their colours come out most when they are most comfortable, especially in the dominant males of the group. They develop patches of dark and light spots, giving a panda-like pattern.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<p>This species has probably not appeared in the aquarium trade.</p><p>It is similar in appearance to several congeners, most notably S. weberi, native to the Maluku archipelago and other islands around the coast of Papua (formerly Irian Jaya). The two are said to be most easily distinguished by examination of the belly, which is fully scaled in S. pelewensis but lacks scalation in S. weberi.</p><p>The Gobiidae is the most speciose vertebrate family and notoriously problematic in terms of identifying fishes down to species level. Stiphodon is often included in the putative subfamily Sicydiinae which currently contains at least six other genera: Cotylopus, Lentipes, Parasicyidium, Sicydium, Sicyopus, and Sicyopterus. Sicyopus and Lentipes species are omnivorous or carnivorous whereas the others are mostly herbivorous.</p><p>All share a similar life-history with many endemic to a particular island or group of islands, though a few are widespread. They also share some morphological characters including pelvic fins modified into a sucking disc with a strong spine and thickened, highly-branched rays, at the posterior edge of which the pelvic-fin spines and first ray are joined by a membrane forming 'fleshy pads' at the tips of the spines. The tongue is fused to the base of the mouth, a feature shared by some other gobiids.</p><p>Following the work of Koumans (1953) Stiphodon was considered a monotypic genus containing only S. elegans for almost half of the twentieth century, despite S. semoni being the original type species, but since the late 1980s a number of species have been described or revalidated. Over 30 have been described to date with at least a similar number awaiting description (Watson, pers. comm.), and while traditionally considered confined to the tropical Indo-Pacific region they are also found in the eastern Indian Ocean with Sri Lanka representing the known limit of their range.</p><p>They can be separated into two generalised groups based on male morphology: those with a first dorsal fin approximately the same height as the second, e.g., S. atropurpureus, S. semoni, etc., and those in which the first dorsal fin contains extended, sometimes filamentous spines or rays, e.g., S. percnopterygionus, S. atratus, S. elegans. Some species also exhibit a patch of white, fatty tissue behind the pectoral fin in males. The function of this is unknown but it appears to be related to male dominance in some way, with older adults possessing larger patches of tissue (Watson, 2008).</p><p>The fused pelvic fins form a structure normally referred to as the pelvic disc, a common feature among gobiids which is used to adhere to rocks and other submerged surfaces. In Sicyopus and Stiphodon this is short-based and attached to the belly only between the fifth pair of fin rays whereas in other sicydiines it is attached between all five rays (Watson, 2005).</p><p>The role of the disc in ascending waterfalls and cascades has given rise to the common names of 'rock-climbing' or 'cling' gobies for members of the Sicydiinae in general. They are also sometimes referred to as 'toothed-lip' gobies in reference to the outwardly-orientated, replaceable teeth of the upper jaw.</p><p>Many of those being imported for the aquarium trade have proven difficult to identify for a number of reasons including:</p><ul><li>taxonomic confusion.</li><li>lack of aquarium literature.</li><li>incorrect labelling by exporters and subsequently shops.</li><li>historical over-use of some names.</li><li>likely trade of undescribed species without locality data.</li><li>mixing of species at export facilities.</li></ul><p>Etymology: Stiphodon comes from the Greek στίφος (stifos), meaning 'swarm, horde', and ὀδών (odon), meaning 'toothed', in reference to the numerous, closely-packed teeth in the upper lip of member species. pelewensis is named for the Pelew Islands, an archaic English name for the island nation of Palau.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "html": "<ul><li>Herre, A. W. C. T. (1936). Fishes in the Zoölogical Museum of Stanford University, III. New genera and species of gobies and blennies and a new Myxus, from the Pelew Islands and Celebes. Philippine Journal of Science 59(2), 275-287</li><li>Donaldson, T.J., and R. F. Myers (2002). Insular Freshwater Fish Faunas of Micronesia: Patterns of Species Richness and Similarity. Environmental Biology of Fishes 65(2), 139-149</li><li>Keith, P., G. Marquet, and M. Pouilly (2009). Stiphodon mele n. sp., a new species of freshwater goby from Vanuatu and New Caledonia (Teleostei, Sicydiinae), and comments about amphidromy and regional dispersion. Publications Scientific du Muséum d'Histoire Naturelle, Paris 31 (3), 471-483</li><li>Koumans, F. P. (1940). Results of a reexamination of types and specimens of gobioid fishes, with notes on the fishfauna [sic] of the surroundings of Batavia. Zoologische Mededelingen (Leiden) 22, 121-210</li><li>McDowall, R. M. (2007). On amphidromy, a distinct form of diadromy in aquatic organisms. Fish and Fisheries 8(1), 1-13</li><li>McDowall, R. M. (2009). Early hatch: a strategy for safe downstream larval transport in amphidromous gobies. Reviews in Fish Biology and Fisheries 19(1), 1-8</li><li>Parenti, L. R., and K. R. Thomas (1998). Pharyngeal Jaw Morphology and Homology in Sicydiine Gobies (Teleostei: Gobiidae) and Allies. Journal of Morphology 237(3), 257-274</li><li>Watson, R. E. and M. Kottelat (1995). Gobies of the genus Stiphodon from Leyte, Philippines, with descriptions of two new species (Teleostei: Gobiidae: Sicydiinae). Ichthyological Exploration of Freshwaters 6(1), 1-16</li><li>Watson, R. E. (1995). Gobies of the genus Stiphodon from French Polynesia, with descriptions of two new species (Teleostei: Gobiidae: Sicydiinae). Ichthyological Exploration of Freshwaters 6(1), 33-48</li><li>Watson, R. E. and I-S. Chen (1998). Freshwater gobies of the genus Stiphodon from Japan and Taiwan (Teleostei: Gobiidae: Sicydiini). Aqua, Journal of Ichthyology and Aquatic Biology 3(2), 55-68</li><li>Watson, R. E., G. R. Allen, and M. Kottelat (1998). A review of Stiphodon from Halmahera and Irian Jaya, Indonesia, with descriptions of two new species (Teleostei: Gobiidae). Ichthyological Exploration of Freshwaters 9(3), 293-304</li><li>Watson, R. E. (2008). A new species of Stiphodon from southern Sumatra (Pisces Zootaxa 1715, 43-56</li><li>Yamasaki, N. and K. Tachihara (2006). Reproductive biology and morphology of eggs and larvae of Stiphodon percnopterygionus (Gobiidae: Sicydiinae) collected from Okinawa Island. Icthyological Research 53(1), 13-18</li><li>Yamasaki, N., K. Maeda and K. Tachihara (2007). Pelagic larval duration and morphology at recruitment of Stiphodon percnopterygionus (Gobiidae: Sicydiinae). Raffles Bulletin of Zoology Supplement 14, 209-214</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/23a67aa62219f959.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/23a67aa62219f959-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "caption": "Adult male of S. pelewensis collected from the island of Palau.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/81bf5a3ecf0a4ccb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/81bf5a3ecf0a4ccb-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "caption": "Adult female from Palau.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ff75b6380e6691d3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ff75b6380e6691d3-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "caption": "Underwater at a habitat on Palau.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d42c9626ec80c054.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d42c9626ec80c054-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-pelewensis",
+      "caption": "A typical habitat on Palau.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -70,5 +236,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-03"
 }

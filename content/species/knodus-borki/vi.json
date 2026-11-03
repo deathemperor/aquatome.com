@@ -1,9 +1,12 @@
 {
   "slug": "ca-tetra-xanh-peru",
-  "name": "Cá tetra xanh Peru",
+  "name": "Cá tetra xanh",
   "altNames": [
     "Cá neon Peru xanh",
-    "Blue Peru Tetra"
+    "Blue Peru Tetra",
+    "Cá tetra xanh Peru",
+    "Cá blue tetra",
+    "Blue Tetra"
   ],
   "sections": {
     "quickFacts:glaser": "<ul><li>Cá đàn rất hiền, bơi lội liên tục</li><li>Nuôi theo đàn ít nhất 10 con</li></ul>",
@@ -13,13 +16,25 @@
     "waterConditions:glaser": "<p>Nước máy nào uống được thì cũng nuôi được loài cá này. Nhiệt độ nước có thể dao động từ 22 đến 26°C.</p>",
     "diet:glaser": "<p>Cá ăn được mọi loại thức ăn cá cảnh bán sẵn, miễn cỡ hạt vừa miệng.</p>",
     "dimorphism:glaser": "<p>Cá đực và cá cái chỉ khác nhau chút ít về màu. Ở cá đực, các mảng sáng ở chóp vây đuôi rõ hơn.</p>",
-    "reproduction:glaser": "<p>Chúng đẻ trứng rải tự do và không chăm sóc trứng hay cá con.</p>"
+    "reproduction:glaser": "<p>Chúng đẻ trứng rải tự do và không chăm sóc trứng hay cá con.</p>",
+    "quickFacts:seriouslyfish": "<p>Blue tetra (Knodus borki) là một loài characid nhỏ ở Colombia và Brazil. Ngoài tự nhiên, cá sống ở sông, suối và các nhánh sông. Màu của chúng thường rực đến mức nhiều người lần đầu thấy cá bày bán còn tưởng cá bị nhuộm màu. Tuy vậy, cá nuôi trong bể trống trải, ít cây sẽ không lên được màu đẹp nhất. Loài này có thể rỉa vây đồng loại và các loài cá vây dài. Nuôi thành nhóm 8-10 con trong bể rộng hơn sẽ hạn chế được tật này.</p>",
+    "distribution:seriouslyfish": "<p>Colombia và Brazil.</p>",
+    "habitat:seriouslyfish": "<p>Sông, suối và các nhánh sông.</p>",
+    "aquariumSize:seriouslyfish": "<p>Cá tuy nhỏ nhưng bơi rất nhiều. Vì vậy loài này không hợp với bể nhỏ hơn 75 × 38 × 30 cm, tức khoảng 86 lít.</p>",
+    "maintenance:seriouslyfish": "<p>Cá đẹp nhất khi nuôi trong bể trồng dày cây, nền màu tối, có thêm cây nổi cho ánh sáng dịu bớt. Bể trống trải, ít cây thì cá sẽ không lên được màu đẹp nhất. Một hướng khác là set bể biotope kiểu Amazon, cũng rất hợp với loài này. Bạn dùng nền cát, thêm vài cành và rễ cây dẻ gai (beech) dáng xoắn. Sau đó rải vài nắm lá sồi, lá dẻ gai hoặc lá bàng khô quanh bể là thành bể. Nếu muốn, bạn có thể bỏ thêm vào lọc một túi lưới đựng than bùn hoặc rêu than bùn loại an toàn cho bể cá. Than bùn sẽ nhả axit humic và tanin ra nước, làm nước ngả màu trà giống dòng nước nơi cá sống ngoài tự nhiên. Nước trong bể cũng cần có nhiều oxy hòa tan.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 22–26°C</li><li>pH: 5,5-7,0. Cá sống không khỏe trong nước kiềm.</li><li>Độ cứng: 5-12 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Đây là loài ăn tạp, cho gì cũng ăn gần hết. Cá đặc biệt mê các loại thức ăn sống và đông lạnh cỡ nhỏ như trùng huyết, bo bo và artemia. Khẩu phần cũng nên có thêm chút rau, chẳng hạn rau bina chần qua nước sôi, hoặc thức ăn dạng mảnh Spirulina loại tốt.</p>",
+    "behaviour:seriouslyfish": "<p>Nhìn chung cá khá hiền, nhưng thỉnh thoảng có thể rỉa vây đồng loại và những loài có vây dài. Tật này lộ rõ hơn vào giờ cho ăn, hoặc khi cá phải sống chật chội. Muốn hạn chế thì bạn nên mua ít nhất 8-10 con và nuôi trong bể rộng hơn. Khi đó, nếu cá có gây sự thì chủ yếu cũng chỉ gây với đồng loại. Bạn nên tránh nuôi chung với những loài quá trầm tính hoặc bơi chậm. Những loài đó có thể bị khớp vì cá bơi liên tục và rất sung. Loài này chắc chắn không phải là cá mồi (dither fish, loài bơi lượn ở tầng giữa giúp cá nhút nhát yên tâm hơn) tốt cho cichlid lùn như Apistogramma. Một số lựa chọn để nuôi chung là các loài tetra khác, cá Loricariid và các loài cá da trơn nhỏ như Corydoras sp.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá cái trưởng thành có bụng tròn hơn cá đực thấy rõ. Cá đực thì màu đậm hơn cá cái một chút. Người ta cho rằng vây hậu môn của cá đực sẽ ửng đỏ khi cá vào trạng thái sẵn sàng sinh sản.</p>",
+    "reproduction:seriouslyfish": "<p>Loài này đã được cho sinh sản thành công, nhưng thông tin về chuyện này còn rất ít. Chắc chắn bạn sẽ cần một bể đẻ riêng, cỡ khoảng 30 × 20 cm là vừa. Bể đẻ nên set thật đơn giản: không trải nền, chỉ chạy một lọc bông nhỏ dùng máy sủi. Bạn đặt thêm vài chậu cây kiếm Amazon hoặc cây tương tự, vì cá cái được cho là đẻ trứng dưới mặt lá bản rộng. Nước cho vào bể là nước mềm, có tính axit và đã để lâu ngày. Trong lúc đó, bạn vỗ béo cả đàn bằng nhiều thức ăn sống và đông lạnh chất lượng cao. Khi cá cái đã căng tròn bụng trứng và cá đực lên màu đẹp nhất, bạn chọn ra cặp đẹp nhất và thả vào bể đẻ lúc chiều tối. Khi thấy trứng (may thì sáng hôm sau đã có), bạn vớt cá bố mẹ ra ngay. Nếu có dịp, nhiều khả năng chúng sẽ ăn trứng. Cá bột rất nhỏ, thức ăn đầu tiên phải là infusoria (trùng cỏ) hoặc Paramecium.</p>",
+    "notes:seriouslyfish": "<p>Màu của loài này thường rực đến mức nhiều người lần đầu thấy cá bày bán còn tưởng cá bị nhuộm màu. Hiện đây là loài duy nhất được biết đến trong chi.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.85,
+      "seriouslyfish": 0.8
     }
   }
 }

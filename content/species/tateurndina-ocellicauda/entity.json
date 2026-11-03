@@ -14,6 +14,49 @@
       {
         "source": "glaser",
         "value": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -25,19 +68,97 @@
       "html": "<p>T. ocellicauda grows to around 5-6 cm long. In the trade, almost exclusively captive-bred specimens are available.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<p>The peacock goby, Tateurndina ocellicauda, is a small sleeper from Papua New Guinea, found in lowland rainforest streams, ponds and rivers. The name is misleading, as it belongs to the Eleotridae, the sleepers or gudgeons, which lack the fused pectoral fins of true gobies. A little territorial with its own kind, it suits communities of small, peaceful fish, and it spawns in caves and is easily bred under the right conditions.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/tateurndina_ocellicauda_en/",
       "html": "<p>This goby originates from Papua New Guinea.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<p>Papua New Guinea.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<p>It inhabits lowland streams, ponds and rivers to the East of the island. It's most commonly found in rainforests, where it swims in loose shoals.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<p>A tank of 45 × 30 × 30 cm (~41 litres) is fine for a couple of adult pairs.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<p>This species prefers soft, slightly acidic water and lots of cover. The use of a dark substrate and floating vegetation will help it feel more secure and show its best colouration. They also need plenty of hiding places, so provide bogwood and areas of dense planting. Paradoxically they will be out and about much more often in this kind of setup. In bare tanks they will usually huddle around any available bit of cover and move around the tank much less. Although they like very clean water they won't do well if there is a lot of flow in the tank. These gobies are also good jumpers, so ensure there are no gaps around the tank cover.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–10dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<p>Will usually accept dried food but much prefers small live and frozen stuff, such as bloodworm, daphnia, brineshrimp etc. The fish will also show much better colouration and come into spawning condition far quicker on this kind of diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<p>A little territorial with its own kind but is suitable for many communities of small, peaceful fish. Ideal tankmates are other species from Papua New Guinea, such as Popondetta sp. rainbowfishes; but tetras, rasboras, Corydoras cats and virtually any other small peaceful species are also suitable. Ensure you provide enough tank space if you intend to keep it with other territorial species such as dwarf cichlids. The peacock goby can be kept in small groups without problems. They will squabble amongst themselves, but this is almost always restricted to displaying and flaring and in fact makes for a more entertaining spectacle than if you just have a couple.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<p>Mature male fish are generally more colourful, particularly when in spawning condition, develop a pronounced nuchal hump, and are a little larger than females. Females also sport a yellow colour on their bellies which males lack. When younger the sexes can be distinguished by looking at the anal fins. Most females have a dark bar running along the length of the outer edge of this fin, whilst most males have no bar.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<p>Easily bred under the right conditions. The fish tend to spawn in caves, so the provision of these is essential. Short lengths of plastic piping work well as these can easily be removed by placing a thumb over each end and lifting the whole thing clear. Clumps of live plants are also useful to provide extra cover for the fish. In order to obtain a breeding pair it's best to buy a group of 6-8 young fish and allow them to pair off naturally. Feed the group on a good diet of live and frozen foods, change 20% of the water weekly, and you should observe spawning behaviour before too long. When in condition, the bellies of the females will become visibly swollen, and males will display at the entrances to their chosen caves. Whenever a gravid female approaches the cave of a male he will flutter and flare his fins at her, and attempt to get her to enter the cave. Sometimes he even employs physical force, nudging the female in the direction of the cave entrance. If the male is successful, the female will enter the cave and lay her eggs there, usually on the roof of it. The eggs are attached by small adhesive threads, in a similar fashion to the eggs of marine clownfish. Once the female has finished laying, she is ejected by the male, who now assumes all brood care responsibilities. He will tend to the eggs almost constantly, fanning them with his fins and sometimes nestling amongst them to keep the water around them well oxygenated. If you are planning to raise the fry in the same tank, you may as well remove the other fish now, as they will eat the eggs if they can get to them. The eggs hatch in around 24-48 hours, and brood care by the male ceases completely at this point. The fry now need their own aquarium or they will usually be eaten. They become free swimming in another 2-4 days and are very easy to raise, being large enough to accept brine shrimp nauplii, microworm etc. immediately.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/tateurndina_ocellicauda_en/",
       "html": "<p>The fish belongs to the so-called sleeper gobies. These fish are named after a reflecting layer over their eyes, which made the first observers think the fish had closed its eyes to sleep.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "html": "<p>This beautiful little fish is not actually a goby, it's a member of the Eleotridae family, commonly known as sleepers or gudgeon. Members of this family lack the fused pectoral fins of true gobies. This species is one of the smallest and most attractive in the family, and makes an ideal resident of the planted community tank.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c9f1dfdd2d562f63.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c9f1dfdd2d562f63-480.webp",
+      "width": 600,
+      "height": 410,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tateurndina-ocellicauda",
+      "caption": "Tateurndina ocellicauda male",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "tJex5Z-JI-0",
@@ -87,5 +208,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

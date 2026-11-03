@@ -1,0 +1,203 @@
+{
+  "id": "sahyadria-chalakkudiensis",
+  "scientificName": "Sahyadria chalakkudiensis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Sahyadria",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "india",
+    "chalakudy"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<p>Dawkinsia chalakkudiensis is a cyprinid from Kerala, southern India, known from the Chalakudy, Periyar, Pamba and Achankovil rivers. It was first exported in 1996 as D. denisonii, from which it differs in its inferior mouth, a black marking in the dorsal fin, and a duller scarlet body stripe. It can be belligerent and is unsuitable for the general community aquarium.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<p>Initially considered endemic to the Chalakudy River system in Kerala state, southern India, but subsequently recorded from the Periyar, Pamba, and Achankovil rivers.</p><p>Type locality is given as 'Chalakkudi River, Western Ghats, Trichur, Kerala, India'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<p>A stream and river-dwelling species most often found in middle parts of river basins where it typically congregates in rocky pools with dense riparian vegetation and substrates of sand, gravel, or bedrock.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<p>Base dimensions of at least 120 × 45 cm or equivalent are required (about 243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<p>Not difficult to keep in a well-maintained aquarium, though perhaps best suited to a set-up designed to resemble a flowing stream or river with a substrate of variably-sized, water-worn rocks, sand, fine gravel and driftwood.</p><p>Since it naturally occurs in pristine habitats it is intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive. It also does best if there is a high proportion of dissolved oxygen and moderate water movement, and weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<ul><li>Temperature: 15–25°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<p>Wild fish feed on a variety of worms, insects, crustaceans, plant material, and other organic debris.</p><p>In the aquarium it is easily fed, but a balanced diet comprising regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia, and Artemia alongside good quality dried products will bring about optimal condition and colours. Sinking foods are best.</p><p>It is said that the red pigmentation can be intensified by feeding a diet rich in carotenoids such as astaxanthin.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<p>Can be belligerent and is unsuitable for the general community aquarium. Robust, similarly-sized cyprinids, characids, catfishes, and perhaps larger botiid loaches constitute the best choices in terms of tankmates.</p><p>Though gregarious by nature it is a shoaling rather than schooling species which develops a distinct pecking order, and therefore should always be maintained in a group of five or more. If only two or three are present the subdominant fish may be subjected to excessive antagonism.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<p>Adult females tend to grow a little larger, are heavier-bodied, and a little less colourful than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<p>Unrecorded but presumably a seasonal spawner in nature like its congener D. denisonii.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<p>This species was first exported for the aquarium hobby in 1996, with the fish collected from the bottom of a waterfall in the Chalakudy River basin, Kerala and identified as D. denisonii based on colour pattern, although the latter may not have been traded until 2001.</p><p>Additional confusion arose when the name Puntius chalakkudiensis was mistakenly assigned to a fish of the genus Dawkinsia by Indian exporters prior to publication of its official description, and as a result other members of that genus, such as D. assimilis, have been sold under the name at times.</p><p>This species was formerly considered to be a member of the genus Puntius, a polyphyletic catch-all which contained over 100 species, although this situation has been largely resolved since the turn of the century.</p><p>Sahyadria was raised by Raghavan et al. (2013) in order to accommodate this species and D. denisonii. Ren et al. (2020) found that both belong in Dawkinsia, and the Catalog of Fishes and FishBase now place them there.</p><p>D. chalakkudiensis can be told apart from D. denisonii by possession of an inferior mouth (vs. subterminal), presence of a black marking in the dorsal fin (vs. absence), and the scarlet body stripe being duller and terminating beneath or anterior to the dorsal-fin origin (vs. brighter and terminating beneath the centre of the dorsal fin).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "html": "<ul><li>Menon, A. G. K., K. Rema Devi, and M. P. Thobias (1999). Puntius chalakkudiensis, a new colourful species of Puntius (Family: Cyprinidae) fish from Kerala, south India. Records of the Zoological Survey of India 97(4), 61-63</li><li>Baby, F., J. Tharian, S. Philip, A. Ali, and R. Raghavan (2011). Checklist of the fishes of the Achankovil forests, Kerala, India with notes on the range extension of an endemic cyprinid Puntius chalakkudiensis. Journal of Threatened Taxa 3(7), 1936-1941</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Raghavan, R., S. Philip, A. Ali and N. Dahanukar (2013). Sahyadria, a new genus of barbs (Teleostei: Cyprinidae) from Western Ghats of India. Journal of Threatened Taxa 5(15), 4932-4938</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/836f6e1f04f53521.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/836f6e1f04f53521-480.webp",
+      "width": 799,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "caption": "Adult individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0e6a3ca4ef7e26db.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0e6a3ca4ef7e26db-480.webp",
+      "width": 640,
+      "height": 229,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "caption": "Preserved specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/deb64dadd7c39cee.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/deb64dadd7c39cee-480.webp",
+      "width": 640,
+      "height": 235,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dawkinsia-chalakkudiensis",
+      "caption": "Specimen from the aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài 120x45"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 240 lít",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông",
+        "sỏi nhỏ",
+        "đá cuội bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

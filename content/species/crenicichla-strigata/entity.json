@@ -1,0 +1,161 @@
+{
+  "id": "crenicichla-strigata",
+  "scientificName": "Crenicichla strigata",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Crenicichla",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "guyana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<p>The striped pike cichlid, Lugubria strigata, is a large pike cichlid from the lower Amazon basin in Brazil, away from the main river itself. One of the more commonly available pike cichlids in the UK, it is often bought by fishkeepers unaware that it grows to around 40 cm. It can be aggressive, especially towards conspecifics, and is reported to be susceptible to hole in the head disease.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<p>Lower Amazon basin in Guyana and Brazil, although not from the main river itself.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<p>Lower Amazon basin in Guyana and Brazil, although not from the main river itself.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<p>Standard length: 40 cm SL. Aquarium base: 180 × 60 cm. Volume: ~972 litres (180 × 60 × 90 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<p>Sand substrate is recommended. This species is likely to dig and arrange the decor to suit itself. Some rockwork should be provided to form caves as pikes like to have an area to which they can retreat. Plants should be robust, ideally potted or rooted to bogwood.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: up to 20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<p>Feed a varied diet including a good quality cichlid pellet or flake, live or frozen foods such as bloodworm or brineshrimp, meaty foods such as prawn and mussel and vegetable matter in the form of spirulina or algae wafers.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<p>Can be aggressive, especially towards conspecifics. May be kept with other large cichlids or as a species only setup. Likely to eat any fish small enough to be considered food - and they have big mouths!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<p>Female has pink coloured belly.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<p>No reports of breeding in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-strigata",
+      "html": "<p>One of the more commonly available pike cichlids in the UK, it is often bought by fishkeepers unaware of the adult size of these fish. Reported to be susceptible to hole in the head disease, more commonly seen in discus and oscars.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm",
+        "bể cá lớn 1000 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc cho bể cá 1000 lít"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid cỡ lớn",
+        "viên thức ăn cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

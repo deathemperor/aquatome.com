@@ -7,13 +7,62 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "colombia"
+    "colombia",
+    "venezuela",
+    "orinoco",
+    "guyana",
+    "essequibo",
+    "brazil",
+    "rio-branco"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.3,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ]
   },
@@ -25,10 +74,34 @@
       "html": "<p>Tenellus leporhinus (formerly Nemadoras leporhinus) is a medium-sized thorny catfish that reaches a standard length of around 8 cm (excluding caudal fin).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<p>The mouse catfish, Tenellus leporhinus, is a doradid catfish recorded from Venezuela, Guyana and Brazil. Rare in the hobby, it sometimes shows up as bycatch among Hassar or Hemidoras species and is most often confused with Hemidoras stenopeltis. T. leporhinus has a clear dorsal fin with a dark patch at the base and a more rounded snout. It is shy and nocturnal.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/tenellus-leporhinus-2/",
       "html": "<p>The thorny catfishes of the genera Doras, Hassar, Hemidoras, Leptodoras, Nemadoras and Tenellus look quite similar at first glimpse and have often been confused with each other in the past, both in scientific and aquarium literature; accordingly, there are always small question marks behind the identification of rarely imported species.</p><p>Juveniles (3-5 cm) from Colombia are identified as Tenellus leporhinus on the basis of the shape of the head and the pattern of the dorsal fin spine.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<p>According to museum data it has been recorded from Venezuela, Guyana and Brazil, where it inhabits several river systems including the Rio Branco, Rio Orinoco and Rio Essequibo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<p>No precise data is available. Similar species such as Hassar tend to be found in slow-moving tributaries and streams.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<p>Standard length: 80 mm SL. Aquarium base: 60 × 38 cm. Volume: ~68 litres (60 × 38 × 30 cm).</p>"
     },
     {
       "key": "maintenance",
@@ -37,10 +110,52 @@
       "html": "<p>As far as care is concerned, all the basic rules for keeping Corydoras catfish apply.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<p>It's a shy, nocturnal species so it's best to keep the tank dimly lit. Provide plenty of hiding places in the form of clay flowerpots, lengths of plastic piping, tangles of driftwood etc. It seems to be particularly fond of the latter. Plants aren't essential but are useful in cutting out the amount of light hitting the bottom of the tank and providing extra cover. A degree of flow in the tank also seems to be appreciated.</p><p>If you buy one or more of these for your community tank you'll probably find it will head straight for an area of cover and remain there during the hours of daylight. If you want to see it more often, consider installing a red light above the tank. It can't see red lightwaves, so if you switch this on at night you should be able to observe it foraging for food.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<ul><li>Temperature: 22–25°C</li><li>pH: 6.3–7.0</li><li>Hardness: up to 20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<p>Sinking catfish pellets, algae wafers and other dried foods are usually accepted but live and frozen alternatives should also form a regular part of the diet. Bloodworm seems to be a particular favourite. It's a good idea to add food to the tank just before lights out to ensure this primarily nocturnal species gets its fair share.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/tenellus-leporhinus-2/",
       "html": "<p>The juveniles are extremely lively and highly active and are great fun to watch. Adult Tenellus are more active at dusk. They should always be kept in shoals, as they always seek the company of conspecifics. They are completely peaceful towards other fish and pay no attention to plants.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<p>While very peaceful, it's not suitable for every community as it won't compete well with more active or territorial bottom dwellers. It's best kept with placid species that inhabit other areas of the tank, such as small to medium-sized characins, cyprinids, anabantoids, livebearers and less-belligerent dwarf cichlids. Corydoras, Brochis and smaller Loricariids are usually ok, too.</p><p>Like most Doradids, this species occurs in schools in nature and fares better when in the company of its own kind. Buy as many as your tank will comfortably house. If several are present they'll often share the same refuge during the day. While some jostling for position might occur, no physical damage is usually done.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<p>Probably not yet achieved in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tenellus-leporhinus",
+      "html": "<p>This species was formerly placed in Nemadoras and is now in Tenellus, with T. ternetzi and T. trimaculatus. It is rare in the hobby, although it is the most commonly seen of the species once placed in Nemadoras. As well as the occasional import, it sometimes shows up as bycatch among batches of similar-looking Hassar or Hemidoras species. Of these, it is most often confused with Hemidoras stenopeltis. These two can be easily told apart as T. leporhinus has a clear dorsal fin with a dark patch at the base, whereas H. stenopeltis has a dark tip to the same fin. T. leporhinus also has a more rounded snout than its cousin.</p>"
     }
   ],
   "photos": [],
@@ -68,5 +183,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

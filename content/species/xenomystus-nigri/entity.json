@@ -10,13 +10,68 @@
     "nigeria",
     "niger",
     "democratic-republic-of-the-congo",
-    "congo"
+    "congo",
+    "cameroon",
+    "egypt",
+    "nile",
+    "chad",
+    "liberia",
+    "gabon",
+    "togo",
+    "sudan",
+    "benin",
+    "sierra-leone",
+    "angola",
+    "republic-of-the-congo"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.8,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -28,10 +83,46 @@
       "html": "<p>Xenomystus nigri is the smallest Old World knifefish. It usually grows to 12-15 cm, exceptionally to 20 cm. It lacks a dorsal fin, which distinguishes it from all other Old World knifefish.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<p>The African knifefish, Xenomystus nigri, is a notopterid recorded from numerous African rivers, including the Nile, Congo and Niger systems. Its swim bladder acts as an accessory breathing organ, and it rises to the surface periodically to gulp air, often with a bell-like sound. Often confused with the far more aggressive Asian knifefish, Notopterus notopterus, it lacks the dorsal fin present in its Asian relative. A scaleless species, it is very sensitive to medications.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/xenomystus-nigri-2/",
       "html": "<p>The species is widely distributed in western Africa. The photographs show a juvenile specimen from the Congo and two adults from the Niger River in Nigeria, from where they are usually obtained.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<p>Has a diffuse natural distribution covering parts of Nigeria, Cameroon, Democratic Republic of Congo, Egypt, Chad, Liberia, Gabon, Togo, Sudan, Benin, Sierra Leone and Angola. It's been recorded from numerous major rivers including the Nile, Congo and Niger systems.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<p>Said to be found most often in stiller, overgrown waters. Its sizeable natural range, various biological adaptations and ease of captive maintenance would seem to suggest it is capable of surviving over a wide range of conditions.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<p>Standard length 30cm SL. Aquarium base 120 × 45cm. Volume ~205 litres.</p><p>Something around 120 × 45 × 38 cm (~205 litres) in size would be big enough to house one of these for life.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<p>Ideally the tank should contain some areas of dense planting. At the very least provide dim lighting and cover in some shape or form. Clay flowerpots, smooth stones and chunks of bogwood can all be used to create caves in which the fish can seek refuge. You could also set up a biotope tank using African plant species such as Anubias attached to pieces of bogwood. Anubias species also have the added advantage of thriving in the rather gloomy conditions favoured by this knifefish. Soft sand is the best substrate for this type of set-up, over which can be scattered some dried oak, beech or Indian Almond leaves and peat fibre to give a really authentic look.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 5.8–7.5</li><li>Hardness: 1–20dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -40,10 +131,22 @@
       "html": "<p>In nature it feeds mainly on insects and worms. In the aquarium, it readily accepts all common frozen foods, but will also accept dry foods.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<p>Like all Notopterids X. nigri is primarily carnivorous. It readily adapts to being fed in the aquarium and will accept most meaty live and frozen foods. Some specimens also learn to take dried foods. A varied diet is suggested, including bloodworm, prawns, chopped mussel, earthworms, carnivore pellets etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/xenomystus-nigri-2/",
       "html": "<p>Very small fish are eaten by African knifefish; they are peaceful to all larger fish. They are crepuscular animals, as can be seen from their large eyes. In the aquarium Xenomystus do not necessarily want caves, but dim shelters.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<p>Do not keep with any fish so small as to be regarded as food. Good tankmate choices include larger characins, medium sized peaceful cichlids, butterfly fish and catfish such as Synodontis, Brochis and Loricariids. It can be kept in a group when young, but as it matures it becomes increasingly territorial, particularly towards conspecifics and a relatively large tank is required to maintain a group of adult fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -52,19 +155,49 @@
       "html": "<p>The sexes are hardly distinguishable; males are a bit more high-backed.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<p>Females are plumper when full of eggs. Otherwise difficult to sex.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/xenomystus-nigri-2/",
       "html": "<p>Xenomystus nigri are crevice spawners, \"shooting\" their eggs individually into depressions or small holes. The species does not seem to take broodcare.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<p>Has occurred in aquaria but infrequently and few details are available. The pair produce characteristic barking sounds during courtship. The male will then guard the brood of 150-200 eggs which are laid on the surface of wood or rocks and will tend them by fanning them with his fins. Apparently, the eggs hatch within 10 days, at which point the male should be removed. The fry should be fed brine shrimp nauplii or microworm as first foods.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/xenomystus-nigri-2/",
       "html": "<p>Knifefishes inspire above all by their elegant swimming. The special fin structure allows them to maneuver both forward and backward, and they are lightning fast. They are intelligent, get to know the keeper and come to receive tidbits on whistle. Among themselves they communicate with sounds and \"electric speech\", using weak electrical impulses. Although the fish is not colorful, it is a wonderful contrast fish to other aquarium inhabitants.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "html": "<p>Originally classified in the genus Notopterus and reclassified in 1984, this is now the only described species of Xenomystus and has several interesting characteristics. Its swim bladder is specially adapted to act as an accessory breathing organ in a similar fashion to Polypteriids. It must rise to the surface to take a gulp of air periodically, often emitting a bell-like sound as it does so. X. nigri is often confused with the similar looking but far more aggressive Asian knifefish, Notopterus notopterus. However the two species can be distinguished easily, as X. nigri lacks a dorsal fin, which is present in its Asian relative. Like other members of the family Notopteridae, this species differs from Gymnotiform knifefish in that its anal and caudal fins are fused together into one long, undulating fin, running along the underside of the fish. It should also be noted that this is a scaleless species and is very sensitive to medications added to the aquarium. Halve the dose of any treatment required in its tank and avoid the use of salt altogether. This is an ideal beginner's knifefish, as it is the smallest species kept in aquaria and is very hardy. It can be very shy when first introduced to the aquarium, as it is a nocturnal species by nature but with time, it usually becomes bolder. It makes up for its lack of bright colours with its interesting behaviour and sinusoidal movement (it can actually swim backwards!) and is usually quite long-lived if maintained correctly.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/07838b55174f3827.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/07838b55174f3827-480.webp",
+      "width": 749,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenomystus-nigri",
+      "caption": "Xenomystus nigri",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -87,5 +220,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }

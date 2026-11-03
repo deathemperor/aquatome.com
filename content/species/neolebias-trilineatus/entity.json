@@ -1,0 +1,183 @@
+{
+  "id": "neolebias-trilineatus",
+  "scientificName": "Neolebias trilineatus",
+  "order": "Characiformes",
+  "family": "Distichodontidae",
+  "genus": "Neolebias",
+  "group": "other",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "central-african-republic"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<p>The three-lined neolebias, Neolebias trilineatus, is a small distichodontid from the Democratic Republic of Congo. A very shy shoaling fish, it needs a densely planted tank with floating cover and soft, acidic, stained water. Rarely seen in the trade, it often looks quite bland in dealers' tanks but colours up in the correct environment.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<p>Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<p>Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<p>Standard length: 3.5 cm SL. Aquarium base: 45 × 30 cm. Volume: ~41 litres (45 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<p>The aquarium should be densely planted, preferably with some floating vegetation as cover as this species does not like bright lighting. A dark substrate is also beneficial along with some small pieces of driftwood to provide hiding places. Water should be soft, acidic and stained with little or no movement.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 6.0–7.2</li><li>Hardness: 3–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<p>Will accept dried food but much prefers live or frozen varieties and will display its best colouration on this type of diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<p>A very shy shoaling fish that will not do well with boisterous or competitive tankmates. Can be maintained with small, peaceful species but even then will not be seen as often than if kept in a species tank, unless lots of hiding places are provided.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<p>Males are slightly smaller than females and are much more colourful, especially when in breeding condition.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<p>Rarely achieved in aquaria and little information is available. Egg-scatterer. The fish should be conditioned using live and frozen foods and the best coloured male and fattest female selected. These should be placed in a small aquarium with a mesh base. The eggs will fall through this minimising the risk of predation by the parents. Lighting should be subdued and some clumps of plants added to induce spawning, as the eggs would be scattered amongst vegetation in nature. The water should be below pH 6 and very soft. Following chasing by the male, the fish spawn side by side with a quivering motion. Up to 300 eggs may be deposited by a single female over a period of several days spawning activity, though 50-100 is more common. The eggs are very tiny when initially deposited but swell slightly as they absorb water. The fry hatch in around 24 hours and become free swimming in another 2-3 days. They are absolutely tiny and first food should be infusoria. They can be offered brine shrimp nauplii or microworm after a week or so.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "html": "<p>This species is rarely seen in the trade but makes a superb addition to the smaller community tank. Often appears quite bland in dealer's tanks but, in the correct environment, is a stunning little fish.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4248f27e1ed40e72.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4248f27e1ed40e72-480.webp",
+      "width": 662,
+      "height": 403,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "caption": "Neolebias trilineatus adult male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4531d7c57b31d7f0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4531d7c57b31d7f0-480.webp",
+      "width": 715,
+      "height": 410,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolebias-trilineatus",
+      "caption": "Neolebias trilineatus adult female.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể cá mini 40 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-03"
+}

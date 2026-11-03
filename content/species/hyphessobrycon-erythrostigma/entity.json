@@ -10,22 +10,109 @@
     "peru",
     "brazil",
     "ecuador",
-    "colombia"
+    "colombia",
+    "purus",
+    "nanay"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<p>The bleeding heart tetra, Megalamphodus erythrostigma, is a characid from the upper Amazon basin where the borders of Brazil, Peru and Colombia meet. The best-known of three similar species in the 'bleeding heart' subgroup, it has the reddish humeral spot found in no other characid. Generally peaceful, although adult males are territorial to an extent, it mostly inhabits sluggish tributaries, side arms and forest lakes.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-erythrostigma-2/",
       "html": "<p>The “Peru Bleeding Heart” (Hyphessobrycon erythrostigma) is exported primarily from Peru, but is quite widely distributed in the upper Amazon and is also found in Brazil, Ecuador, and Colombia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<p>Type locality is given as 'probably border area between Peru and Brazil', and this species is native to the upper Amazon basin in the 'Tres Fronteras' region where the borders of Brazil, Peru and Colombia meet.</p><p>Its range is currently understood to extend from the rio Purus in Brazil at least as far upstream as the Nanay watershed close to Iquitos, Peru, and it also occurs in some Colombian tributaries.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<p>Mostly inhabits sluggish tributaries, side arms and forest lakes, and often associated with submerged woody structures such as roots, fallen branches, overhanging riparian vegetation or aquatic plants.</p><p>The water normally has a negligible dissolved mineral content, is poorly buffered and stained brown due to the gradual release of tannins and organic acids from decaying plant material.</p><p>In the igarapés Baré and Ubim, western Brazil, H. erythrostigma was collected from stretches measuring 5-7 metres in width with thick riparian and overhanging vegetation.</p><p>The substrate was mostly composed of sand and the fish displayed a preference for boundary zones between shallow and deeper water. Conductivity was measured at 14.2-62.1 mS/cm³, dissolved oxygen 0.12 to 0.40 mg/l and pH 3.8-6.4.</p><p>In Lake Ayapuá, rio Purus, Brazil, the fish were found in a white (turbid) water habitat where water temperature was 29.6°C, conductivity 20 mS/cm³, dissolved oxygen 38.5%, pH 5.0-5.5 and depth approximately 1.5 metres.</p><p>Sympatric fish species included Hyphessobrycon bentosi, Hemigrammus bellottii, Paracheirodon sp. 'n', Nannostomus eques, N. unifasciatus, N. trifasciatus, Carnegiella strigata, Carnegiella marthae, Bunocephalus sp. and Otocinclus sp.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<p>An aquarium with base dimensions of 90 × 30 cm or equivalent should be the smallest considered (about 81 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<p>Choice of décor is not especially critical although it tends to show better colouration when maintained in a well-furnished set-up with live plants and a dark substrate.</p><p>A natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots are formed.</p><p>The addition of dried leaf litter would further emphasise the biotope-style feel and with it the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves will aid in simulating natural conditions. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>This species seems to do best under relatively dim lighting, and also appreciates floating vegetation.</p><p>Like many fishes that naturally inhabit pristine environments it is intolerant to accumulation of organic pollutants and requires spotless water meaning weekly water changes should be considered routine, and it should never be introduced to a biologically immature tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<ul><li>Temperature: 21–28°C</li><li>pH: 4.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<p>This species is an opportunistic omnivore by nature.</p><p>The stomach contents of wild specimens from Lake Ayapuá were composed of fruit remains, aquatic insects and larvae (Trichoptera, Diptera) with the former constituting 98.5 % and latter 1 % of all items consumed.</p><p>Stomachs of individuals from igarapé Ubim contained 75 % aquatic insects and larvae (Ephemeroptera: Baetidae and Diptera: Chironomidae), 20 % fragments of higher plant and 5 % aquatic plants.</p><p>In the aquarium it is easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia, and Artemia alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p><p>Submerged pieces of fresh fruit will also be grazed but should only be left in the aquarium for a few hours.</p>"
     },
     {
       "key": "behaviour",
@@ -34,10 +121,22 @@
       "html": "<p>For a community aquarium Hyphessobrycon erythrostigma is particularly suitable and here a troop (there should always be at least 10-15 specimens, the gender composition is irrelevant) is a real feast for the eyes, which also regularly inspires even non-aquarists.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<p>Generally peaceful making it an ideal resident of the well-researched community aquarium, although adult males are territorial to an extent, and this behaviour may sometimes extend to similarly-shaped species.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p><p>The interaction between rival males is fascinating to watch and they will display their best colours when competing for female attention or hierarchical position.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-erythrostigma-2/",
       "html": "<p>Hyphessobrycon erythrostigma grows to about 6 cm long, with caudal fin this makes about 8 cm total length. The females remain smaller and do not have such a long extended dorsal fin.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<p>Males grow noticeably larger and are more intensely-coloured than females.</p><p>In adult males the dorsal, pelvic and anal fins are highly extended, while adult females tend to be rounder in shape, especially when gravid.</p>"
     },
     {
       "key": "reproduction",
@@ -46,10 +145,22 @@
       "html": "<p>The fish is rarely bred. The reason is not that it can’t be done, but because it is a portion spawner that lays only a few eggs a day for long periods of time. This makes rational breeding impossible, because 10 young fish make just as much work as 1,000 young fish. That is why professional breeders have no interest in these fish, but this is not a problem at all, because the Peru bleeding heart is common and thus means a good, regular and environmentally friendly income for the fishermen in Peru.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<p>Egg scatterer exhibiting no parental care.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-erythrostigma-2/",
       "html": "<p>The three species of bleeding hearts are closely related and look very similar. H. pyrrhonotus is the easiest to recognize because it has a blood red stripe on its back that the other species lack. H. socolofi and H. erythrostigma are most easily distinguished by the coloration of the anal fin: H. socolofi has a bright shiny stripe here that does not run into the anterior tip of the anal fin, while in H. erythrostigma this stripe goes into the anterior tip of the anal fin, making a hook.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-erythrostigma",
+      "html": "<p>This is the best-known of three similar-looking species most commonly-referred to as the 'bleeding heart' subgroup, the other two being H. socolofi and H. pyrrhonotus.</p><p>All possess a reddish humeral spot which is not present in any other characid with other shared characters including possession of 6 -14 maxillary teeth, 7-9 scales above the lateral line, 5-7 scales below the lateral line and 26-33 anal fin rays.</p><p>It can be told apart from H. pyrrhonotus by lacking (vs. possessing) a red, wedge-shaped patch of red pigmentation in the upper part of the body and the presence (vs. absence) of hook-like structures on the anal, pelvic and dorsal fins in mature males.</p><p>Limited genetic analyses have revealed that the bleeding heart group is probably monophyletic, but that there may be more species involved (Paz et al., 2014). The current concept of H. socolofi appears to represent a paraphyletic taxon, for example, while H. pyrrhonotus also contains distinct lineages, although further work is necessary in order to deduce taxonomic implications.</p><p>Hyphessobrycon, as currently recognised, is a polyphyletic lineage containing several genera, and the process of splitting it up has already started.</p><p>Like many small characids, H. erythrostigma is known to be susceptible to an affliction which causes some or all of the body scales to appear metallic gold in colour. It remains unclear whether this is a consequence of a parasitic infestation, as has been suggested, but affected fish appear to be in no discomfort and their lifespan and overall health seem undiminished.</p>"
     }
   ],
   "photos": [],
@@ -77,5 +188,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-03"
 }
