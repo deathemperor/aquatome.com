@@ -47,6 +47,8 @@ struct Row: View {
   let item: HandbookIndex.Item
   /// Outside a list (a page's "pages" block), which draws no chevron of its own.
   var chevron = false
+  /// In a panel of rows (the page's "pages" block): its margins inside what answers a tap, none dead at its edges.
+  var inPanel = false
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
 
@@ -66,6 +68,8 @@ struct Row: View {
         Image(systemName: "chevron.right").foregroundStyle(.tertiary)
       }
     }
+    .padding(.horizontal, inPanel ? 12 : 0)
+    .padding(.vertical, inPanel ? 10 : 0)
     // The whole row answers a tap, the space before the chevron too (a plain button takes only what it draws).
     .contentShape(.rect)
   }
