@@ -14,8 +14,7 @@ struct TankForm: View {
     NavigationStack {
       Form {
         Section {
-          TextField("Ví dụ: Bể 60 phòng khách", text: $f.name).accessibilityIdentifier("name")
-            .capped($f.name, to: TankFields.nameMax)
+          CappedField(title: "Tên bể", prompt: "Ví dụ: Bể 60 phòng khách", text: $f.name, max: TankFields.nameMax, id: "name")
         } header: {
           Text("Tên bể")
         }
@@ -88,8 +87,9 @@ struct TankForm: View {
 }
 
 extension View {
-  /// Keeps `text` to `max` characters, cut a moment after a change, once the field shows what was typed. Cut in the
-  /// same update, or in the binding, the field could go on showing more than was kept (typed fast: 81–90 shown, 80 kept).
+  /// Keeps `text` to `max` characters, cut a moment after a change, once the field shows what was typed: for the notes,
+  /// a field of several lines. A one-line field is a `CappedField`, which never takes more: cut here, a slow phone could
+  /// go on showing more than was kept.
   func capped(_ text: Binding<String>, to max: Int) -> some View {
     onChange(of: text.wrappedValue) { _, v in
       guard TankFields.capped(v, max) != v else { return }

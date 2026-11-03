@@ -72,9 +72,7 @@ struct PlugForm: View {
               }
             }
             .accessibilityIdentifier("role-\(o.code)")
-            TextField("Tên (không bắt buộc)", text: label(i, d))
-              .accessibilityIdentifier("label-\(o.code)")
-              .capped(label(i, d), to: 40)
+            CappedField(title: "Tên (không bắt buộc)", text: label(i, d), max: 40, id: "label-\(o.code)")
           }
         }
         if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(.red) }

@@ -234,8 +234,7 @@ struct PutOnTank: View {
           }
           .accessibilityIdentifier("put-tank")
           if target == nil {
-            TextField("Tên bể", text: $name, prompt: Text("Bể mới")).accessibilityIdentifier("put-name")
-              .capped($name, to: TankFields.nameMax)
+            CappedField(title: "Tên bể", prompt: "Bể mới", text: $name, max: TankFields.nameMax, id: "put-name")
           }
         }
       }
@@ -403,10 +402,8 @@ struct NewUnlisted: View {
         .accessibilityIdentifier("new-kind")
       }
       Section {
-        TextField("Tên", text: $name).accessibilityIdentifier("new-name").capped($name, to: TankFields.nameMax)
-        TextField("Tên khoa học (nếu biết)", text: $sci, prompt: Text("Ví dụ: Rhinogobius duospilus"))
-          .textInputAutocapitalization(.never).autocorrectionDisabled()
-          .accessibilityIdentifier("new-sci").capped($sci, to: 120)
+        CappedField(title: "Tên", text: $name, max: TankFields.nameMax, id: "new-name")
+        CappedField(title: "Tên khoa học (nếu biết)", prompt: "Ví dụ: Rhinogobius duospilus", text: $sci, max: 120, id: "new-sci", plain: true)
         if kind != "plant" {
           TextField("Số con (nếu muốn)", text: $count).keyboardType(.numberPad).accessibilityIdentifier("new-count")
         }
