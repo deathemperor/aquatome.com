@@ -1,0 +1,252 @@
+{
+  "id": "youtube-UZytENJZtJw",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=UZytENJZtJw",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-03",
+  "video": {
+    "youtubeId": "UZytENJZtJw",
+    "title": "HOW TO: $10 DIY aquarium overflow - UPGRADED and MODIFIED TUTORIAL",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 385,
+    "publishedAt": "2015-09-13",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maaUyj_mIPcLirbHl-kzWxM",
+      "position": 4
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/UZytENJZtJw/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Krylon",
+        "model": "Fusion for plastic",
+        "t": 268
+      },
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "brand": "Tom's",
+        "model": "Aqua Lifter",
+        "t": 272
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Tràn PVC hoạt động thế nào",
+        "moments": [
+          {
+            "t": 143,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t143.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ống PVC chữ U úp ngược được đưa vào bể để làm tràn."
+          },
+          {
+            "t": 192,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t192.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ống tràn PVC chữ U úp ngược vắt qua thành bể, có ống nước về."
+          }
+        ]
+      },
+      {
+        "heading": "Bản cũ có vấn đề gì và bản mới sửa ra sao",
+        "moments": [
+          {
+            "t": 98,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t98.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bản cũ làm từ co PVC, hai nhánh ống hình chữ U thò vào bể."
+          },
+          {
+            "t": 212,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t212.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Weir có khía răng ở mép trên, nước chảy qua răng vào trong."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/UZytENJZtJw/p1-aXBlX3VzZWQuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/UZytENJZtJw/p1-aXBlX3VzZWQuSlBH-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 3.0",
+          "author": "MauryMartinez",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:1_and_a_half_inch_pvc_pipe_used.JPG",
+          "caption": "Một cút (co) PVC trắng cầm trên tay, loại dùng làm ống tràn."
+        }
+      },
+      {
+        "heading": "Vật liệu và kích thước",
+        "moments": [
+          {
+            "t": 123,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t123.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Hai ống PVC trắng có khoan lỗ, ống weir to hơn ống tràn."
+          },
+          {
+            "t": 148,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t148.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ống tràn và ống weir PVC lắp trong bể kính."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/UZytENJZtJw/p2-c19HLU1JTkUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/UZytENJZtJw/p2-c19HLU1JTkUuanBn-480.webp",
+          "width": 960,
+          "height": 789,
+          "licence": "CC BY-SA 3.0",
+          "author": "Krystal Friel",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:GRINNELL%27s_G-MINE.jpg",
+          "caption": "Đoạn ống PVC kèm măng sông nối, loại vật liệu hay dùng làm ống tràn."
+        }
+      },
+      {
+        "heading": "Làm ống weir",
+        "moments": [
+          {
+            "t": 113,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t113.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Nắp đã bịt vào đáy ống weir, có gắn núm giác hút."
+          },
+          {
+            "t": 118,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t118.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Hai ống weir, một ống khoét răng và một ống khoan hàng lỗ."
+          }
+        ]
+      },
+      {
+        "heading": "Lắp và mồi tràn",
+        "moments": [
+          {
+            "t": 172,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t172.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ống tràn chữ U úp ngược đã gắn vào weir ở thành bể."
+          },
+          {
+            "t": 187,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t187.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ống tràn đã lắp xong, nhánh ngoài dẫn nước xuống sump."
+          }
+        ]
+      },
+      {
+        "heading": "Canh độ cao nước rơi vào weir",
+        "moments": [
+          {
+            "t": 202,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t202.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Nước tràn qua các răng của weir, nhìn rõ độ cao nước rơi."
+          },
+          {
+            "t": 207,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t207.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Cận cảnh nước chảy qua mép răng weir xuống mặt nước bên trong."
+          }
+        ]
+      },
+      {
+        "heading": "Lưu lượng chạy được bao nhiêu",
+        "moments": [
+          {
+            "t": 222,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t222.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ống tràn PVC trắng gắn bên hông bể, nước chảy ổn định."
+          },
+          {
+            "t": 226,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t226.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể thử với ống tràn chữ U bằng PVC, nước chảy và bơm vào mạnh."
+          }
+        ]
+      },
+      {
+        "heading": "Gắn bơm hút để tràn không mất mồi",
+        "moments": [
+          {
+            "t": 286,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t286.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bơm hút khí Aqua Lifter với hai dây hơi gắn ở đầu bơm."
+          },
+          {
+            "t": 290,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t290.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Lỗ nhỏ khoan ở đỉnh đoạn cong của ống tràn PVC."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/UZytENJZtJw/p7-Fpci1wdW1wLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/UZytENJZtJw/p7-Fpci1wdW1wLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY-SA 4.0",
+          "author": "User:Corydoras-adolfoi",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-air-pump.jpg",
+          "caption": "Máy bơm sục khí nhỏ màu xanh gắn dây hơi, giống loại bơm hút khí."
+        }
+      },
+      {
+        "heading": "Sơn cho đỡ lộ ống trắng",
+        "moments": [
+          {
+            "t": 266,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t266.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Chai sơn xịt Krylon Fusion for Plastic màu đen dùng cho nhựa."
+          },
+          {
+            "t": 271,
+            "url": "https://media.aquatome.com/video/UZytENJZtJw/t271.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ống weir đã sơn đen, nhìn gọn và kín đáo trong bể."
+          }
+        ]
+      }
+    ]
+  }
+}

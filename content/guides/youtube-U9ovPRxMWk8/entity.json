@@ -1,0 +1,209 @@
+{
+  "id": "youtube-U9ovPRxMWk8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=U9ovPRxMWk8",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-03",
+  "video": {
+    "youtubeId": "U9ovPRxMWk8",
+    "title": "HOW TO: Build an aquarium sump - fluidized moving bed filter",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 607,
+    "publishedAt": "2015-04-12",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mbo3wffJ4olj-SeMPwldqKb",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/U9ovPRxMWk8/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 190
+      },
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "DB Meter Pro",
+        "t": 292
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 65
+      },
+      {
+        "category": "suoi",
+        "t": 454
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Sump tầng sôi gồm những ngăn nào",
+        "moments": [
+          {
+            "t": 44,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t44.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Thùng sump tầng sôi chứa đầy hạt lọc K1 trong suốt."
+          },
+          {
+            "t": 59,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t59.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Tấm mica xanh được khoan hàng lỗ để làm vách ngăn."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/U9ovPRxMWk8/p0-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/U9ovPRxMWk8/p0-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Thùng sump mica chia thành nhiều khoang, có bình lọc đặt ở khoang giữa."
+        }
+      },
+      {
+        "heading": "Cần khoan bao nhiêu lỗ và chọn bơm thế nào",
+        "moments": [
+          {
+            "t": 103,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t103.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Hàng lỗ nhỏ khoan trên vách acrylic của ngăn sump trong bể."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/U9ovPRxMWk8/p1-aXRzX2RlZXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/U9ovPRxMWk8/p1-aXRzX2RlZXAuanBn-480.webp",
+          "width": 960,
+          "height": 960,
+          "licence": "CC BY-SA 4.0",
+          "author": "Renato.pierri",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acrylic_drilling_a_hole_testing_its_deep.jpg",
+          "caption": "Mũi khoan nhỏ đang khoan lỗ trên tấm acrylic trong suốt."
+        }
+      },
+      {
+        "heading": "Tính lượng vật liệu và kích thước sump",
+        "moments": [
+          {
+            "t": 123,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t123.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Sump bằng kính với các vách ngăn khoang, chưa cho vật liệu vào."
+          },
+          {
+            "t": 172,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t172.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khoang tầng sôi trong sump chứa đầy vật liệu K1 lọc sinh học."
+          }
+        ]
+      },
+      {
+        "heading": "Đặt đường sục khí ra sao",
+        "moments": [
+          {
+            "t": 187,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t187.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khoang tầng sôi chứa đầy vật liệu K1 trong sump."
+          },
+          {
+            "t": 212,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t212.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Vật liệu K1 xoay trong khoang tầng sôi nhờ luồng khí."
+          }
+        ]
+      },
+      {
+        "heading": "Ưu điểm của lọc tầng sôi",
+        "moments": [
+          {
+            "t": 222,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t222.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Các ống dẫn nước trong thùng lọc tầng sôi chứa đầy hạt K1."
+          },
+          {
+            "t": 256,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t256.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Những hạt vật liệu lọc K1 màu trắng được đặt trên lòng bàn tay."
+          }
+        ]
+      },
+      {
+        "heading": "Nhược điểm cần biết trước khi làm",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/U9ovPRxMWk8/p5-zNDc1ODE2KS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/U9ovPRxMWk8/p5-zNDc1ODE2KS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 2.0",
+          "author": "Jean-Etienne Minh-Duy Poirrier from USA",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:DB_meter_(3593475816).jpg",
+          "caption": "Máy đo độ ồn cầm tay dùng để kiểm tra tiếng ồn của bộ lọc."
+        }
+      },
+      {
+        "heading": "Ai nên dùng lọc tầng sôi",
+        "moments": [
+          {
+            "t": 429,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t429.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Máy bơm khí lớn dùng để cấp khí cho bộ lọc tầng sôi."
+          },
+          {
+            "t": 443,
+            "url": "https://media.aquatome.com/video/U9ovPRxMWk8/t443.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Hạt cát lọc đang sôi cuộn trong thùng lọc tầng sôi."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/U9ovPRxMWk8/p6-UwMzc0MjApLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/U9ovPRxMWk8/p6-UwMzc0MjApLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "Public domain",
+          "author": "USFWS/Southeast",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pipes_and_tubes_providing_water_to_dozens_of_aquariums_(41005037420).jpg",
+          "caption": "Hệ thống bể lớn với nhiều đường ống lọc và cấp nước chạy dày đặc."
+        }
+      }
+    ]
+  }
+}

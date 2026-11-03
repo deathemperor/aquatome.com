@@ -1,0 +1,73 @@
+{
+  "id": "youtube-tCBEjxXYv6o",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=tCBEjxXYv6o",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "carassius-auratus",
+    "scleropages-formosus"
+  ],
+  "updatedAt": "2026-11-03",
+  "video": {
+    "youtubeId": "tCBEjxXYv6o",
+    "title": "HOW TO: Build an AQUARIUM overflow weir - GOLDFISH aquarium",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 610,
+    "publishedAt": "2016-08-28",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maaUyj_mIPcLirbHl-kzWxM",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/tCBEjxXYv6o/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [
+      "Carassius auratus",
+      "Scleropages formosus"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cắt răng trên mica",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/tCBEjxXYv6o/p4-YWJsZV9TYXcuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/tCBEjxXYv6o/p4-YWJsZV9TYXcuanBn-480.webp",
+          "width": 960,
+          "height": 740,
+          "licence": "CC BY-SA 4.0",
+          "author": "Prototype Engineer",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:1-Inch_Micro_Table_Saw.jpg",
+          "caption": "Bàn cưa tự chế có thanh cữ chặn, dùng để cắt rãnh đều nhau."
+        }
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/tCBEjxXYv6o/p7-mYXJld2VsbC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/tCBEjxXYv6o/p7-mYXJld2VsbC5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC0",
+          "author": "AJ Gray",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goodbye_the_long_goldfish_tank_farewell.jpg",
+          "caption": "Bể cá vàng có hộp tràn với các khe răng ở hai bên."
+        }
+      }
+    ]
+  }
+}
