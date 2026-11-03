@@ -25,7 +25,7 @@ import { fishbasePhotos, inatPhotos } from './fishbase-photos'
 import { cryptsPhotos } from './crypts-photos'
 import { ownPhotos } from './own-photos'
 import { httpAdmin, moderate } from './moderate'
-import { httpPhotoAdmin, moderatePhotos, VERDICT_SCHEMA, type Verdict } from './reader-photos'
+import { httpPhotoAdmin, moderatePhotos, photoPages, VERDICT_SCHEMA, type Verdict } from './reader-photos'
 import { runEngine } from './run'
 import { cardGaps } from './card-fill'
 import { depthReport, popularityOrder, thinSpecies, type DepthReport } from './depth'
@@ -211,11 +211,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   if (!r.off && r.failedBatches) process.exitCode = 1
   // Reader photos in the same nightly run: faces (macOS Vision), then Claude looks at each photo.
   const c = await loadAll({ root: join(ROOT, 'content'), lang: 'vi', publicBuild: true })
-  const species = new Map(c.species.map(s => [s.id, { name: s.t.name, scientificName: s.scientificName }]))
   const p = await moderatePhotos(httpPhotoAdmin(base, conf('AB_DASH_TOKEN', 'ab-dash-token')), {
     faces: visionFaces,
     judge: (file, prompt) => claudeVision<Verdict>({ system: 'You are a careful photo moderator for an aquarium site. Reply only with JSON.', prompt, schema: VERDICT_SCHEMA, file }),
-    species: id => species.get(id),
+    ...photoPages(c),
   })
   console.log(p.off ? 'reader photos are off — nothing to screen' : `photos: ${p.queued} queued, ${p.approved} approved, ${p.removed} removed, ${p.failed} left pending`)
   if (!p.off && p.failed) process.exitCode = 1
