@@ -18,9 +18,9 @@ struct FactsCard: View {
       // As many to a row as fit the reader's text size: three, two, or one at the largest.
       let n = size.isAccessibilitySize ? 1 : size >= .xxLarge ? 2 : 3
       Grid(alignment: .topLeading, horizontalSpacing: 12, verticalSpacing: 16) {
-        ForEach(Array(stride(from: 0, to: all.count, by: n)), id: \.self) { start in
+        ForEach(Self.rows(all.count, n), id: \.self) { row in
           GridRow {
-            ForEach(start..<min(start + n, all.count), id: \.self) { i in
+            ForEach(row, id: \.self) { i in
               Fact(label: all[i].label, value: all[i].value, large: true).frame(maxWidth: .infinity, alignment: .leading)
             }
           }
@@ -64,6 +64,16 @@ struct FactsCard: View {
     if let t = facts.temperament.flatMap(Self.temperament) { out.append(("Tính cách", t)) }
     if let d = facts.difficulty { out.append(("Độ khó", Self.level(d))) }
     return out
+  }
+
+  /// The grid's rows, `n` to a row, never one fact alone on the last: seven at three to a row go three, two, two.
+  static func rows(_ count: Int, _ n: Int) -> [Range<Int>] {
+    var rows = stride(from: 0, to: count, by: n).map { $0..<min($0 + n, count) }
+    if n > 2, rows.count > 1, rows[rows.count - 1].count == 1 {
+      let last = rows.removeLast(), above = rows.removeLast()
+      rows += [above.lowerBound..<above.upperBound - 1, above.upperBound - 1..<last.upperBound]
+    }
+    return rows
   }
 
   /// The site's words for each temperament (TEMPERAMENT_LABELS).
