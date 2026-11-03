@@ -31,8 +31,8 @@ struct Timeline: View {
           }
           // Moves with the clock.
           SwiftUI.TimelineView(.everyMinute) { ctx in
-            let c = Calendar.current.dateComponents([.hour, .minute], from: ctx.date)
-            NowMark().offset(x: x(Double((c.hour ?? 0) * 60 + (c.minute ?? 0))))
+            let c = Calendar.current.dateComponents([.hour, .minute], from: shownNow(ctx.date))
+            NowMark(x: x(Double((c.hour ?? 0) * 60 + (c.minute ?? 0))), times: [on, off], width: w)
           }
           // Where "Xem thử cả ngày" has reached.
           if let m = lights.playMinute {
@@ -66,15 +66,43 @@ struct Timeline: View {
   }
 }
 
-/// A dashed line down the day at the time now, labelled above it.
+/// The time the light's screen gives as now: the clock's, or in a debug build the one `-now HH:MM` sets (the App Store's
+/// screenshots, whose status bar says 9:41).
+func shownNow(_ date: Date) -> Date {
+  #if DEBUG
+  let args = ProcessInfo.processInfo.arguments
+  if let i = args.firstIndex(of: "-now"), i + 1 < args.count {
+    let hm = args[i + 1].split(separator: ":").compactMap { Int($0) }
+    if hm.count == 2, let d = Calendar.current.date(bySettingHour: hm[0], minute: hm[1], second: 0, of: date) { return d }
+  }
+  #endif
+  return date
+}
+
+/// A dashed line down the day at the time now, labelled above it clear of the handles' times (`NowLabel`).
 private struct NowMark: View {
+  let x: CGFloat
+  /// Where the on and off handles' times are centred.
+  let times: [CGFloat]
+  let width: CGFloat
+  @State private var label: CGFloat = 0
+  /// "12:00" over a handle, as wide as its words at the reader's text size.
+  @ScaledMetric(relativeTo: .footnote) private var time: CGFloat = 40
+
   var body: some View {
-    Path { $0.move(to: .zero); $0.addLine(to: CGPoint(x: 0, y: Timeline.height)) }
+    // Left out until it's been measured.
+    let place = label == 0 ? .hidden : NowLabel.place(now: Double(x), label: Double(label), times: times.map(Double.init), time: Double(time), width: Double(width))
+    Path { $0.move(to: CGPoint(x: 1, y: 0)); $0.addLine(to: CGPoint(x: 1, y: Timeline.height)) }
       .stroke(Color.red, style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
       .frame(width: 2, height: Timeline.height)
       .overlay(alignment: .top) {
-        Text("Bây giờ").font(.caption2).foregroundStyle(Color.red).fixedSize().offset(y: -18)
+        Text("Bây giờ").font(.caption2).foregroundStyle(Color.red).fixedSize()
+          .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { label = $0 }
+          .offset(x: place == .before ? -(label / 2 + 3) : place == .after ? label / 2 + 3 : 0, y: -18)
+          // Measured still when left out.
+          .opacity(place == .hidden ? 0 : 1)
       }
+      .offset(x: x - 1) // the line's middle at x
       .allowsHitTesting(false)
       .accessibilityHidden(true)
   }

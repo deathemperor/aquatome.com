@@ -38,7 +38,9 @@ final class StoreShotsFlowTests: XCTestCase {
     let tank: String
     /// The tank's fish: what's typed to find each, its row's name, how many.
     let life: [(query: String, name: String, count: Int)]
-    /// The plug's first outlet, named in this language (the stand-in strip names it "Đèn"), and the role its third gets.
+    /// The stand-in strip, named as its owner would in Smart Life; its first outlet, named in this language (the strip
+    /// names it "Đèn"); and the role its third gets.
+    let strip: String
     let lamp: String
     let filter: String
     /// The button that writes a schedule to the light the first time.
@@ -49,20 +51,20 @@ final class StoreShotsFlowTests: XCTestCase {
       tank: "Bể cộng đồng",
       life: [("neon xanh", "Cá neon xanh", 12), ("tam giac", "Cá tam giác", 10), ("chuot dong", "Cá chuột đồng", 6),
              ("red cherry", "Tép red cherry", 10)],
-      lamp: "Đèn", filter: "Lọc", write: "Ghi lịch")
+      strip: "Ổ cắm bể 60", lamp: "Đèn", filter: "Lọc", write: "Ghi lịch")
     static let id = Lang(
       code: "id", locale: "id_ID", tabs: ["Cari", "Akuarium saya", "Lampu"], search: "neon", fish: "Neon tetra",
       tank: "Akuarium komunitas",
       life: [("neon tetra", "Neon tetra", 12), ("harlequin", "Rasbora Harlequin", 10),
              ("corydoras aeneus", "Corydoras bronze", 6), ("udang cherry", "Udang Cherry", 10)],
-      lamp: "Lampu", filter: "Filter", write: "Simpan jadwal")
+      strip: "Stopkontak akuarium 60", lamp: "Lampu", filter: "Filter", write: "Simpan jadwal")
     // Searched by scientific name: typed in Latin letters.
     static let th = Lang(
       code: "th", locale: "th_TH", tabs: ["ค้นหา", "ตู้ของฉัน", "ไฟ"], search: "neon", fish: "ปลานีออน",
       tank: "ตู้ปลารวม",
       life: [("paracheirodon innesi", "ปลานีออน", 12), ("trigonostigma heteromorpha", "ปลาซิวข้างขวานใหญ่", 10),
              ("corydoras aeneus", "แพะเขียว", 6), ("neocaridina davidi", "กุ้งเชอร์รี่", 10)],
-      lamp: "ไฟ", filter: "กรอง", write: "บันทึกตาราง")
+      strip: "ปลั๊กไฟตู้ 60", lamp: "ไฟ", filter: "กรอง", write: "บันทึกตาราง")
   }
 
   /// 1, 3, 2: the Tìm home, a search typed without accents, and the fish it finds with its facts.
@@ -90,7 +92,7 @@ final class StoreShotsFlowTests: XCTestCase {
   /// 4 and 6: a tank in Bể của tôi with four kinds on it and their tank-mates check, then a Smart Life strip on it from
   /// the stand-in Tuya cloud, its filter switched on.
   private func tank(_ l: Lang) {
-    let app = launch(l, "-seed-tuya-keys")
+    let app = launch(l, "-seed-tuya-keys", "-stand-in-strip", l.strip)
     tab(app, l.tabs[1])
     let first = app.buttons["add-first"]
     XCTAssertTrue(first.waitForExistence(timeout: 5), "not a new phone")
@@ -109,7 +111,7 @@ final class StoreShotsFlowTests: XCTestCase {
     shoot(l, 4, "tank")
 
     scrolled(app, element(app, "add-plug")).tap()
-    let strip = app.buttons.matching(identifier: "plug-choice").matching(NSPredicate(format: "label BEGINSWITH 'Ổ cắm bể 60'")).firstMatch
+    let strip = app.buttons.matching(identifier: "plug-choice").matching(NSPredicate(format: "label BEGINSWITH %@", l.strip)).firstMatch
     XCTAssertTrue(strip.waitForExistence(timeout: 10), "the stand-in strip isn't offered")
     strip.tap()
     let lamp = app.textFields["label-switch_1"]
@@ -130,9 +132,9 @@ final class StoreShotsFlowTests: XCTestCase {
     shoot(l, 6, "plugs")
   }
 
-  /// 5: Đèn with the simulator's fake light connected and a schedule written to it.
+  /// 5: Đèn with the simulator's fake light connected and a schedule written to it, at the status bar's 9:41.
   private func light(_ l: Lang) {
-    let app = launch(l)
+    let app = launch(l, "-now", "09:41")
     tab(app, l.tabs[2])
     let scan = app.buttons["scan"]
     XCTAssertTrue(scan.waitForExistence(timeout: 5), "no scan")
@@ -152,6 +154,19 @@ final class StoreShotsFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "in-use").waitForExistence(timeout: 20), "the schedule wasn't written")
     // The day's timeline near the top, the light above it.
     XCTAssertTrue(shows(app, element(app, "day")), "no timeline")
+    // The light drawn whole under the bars at the top (the navigation bar, and an iPad's tabs; an iPad's drawing is
+    // tall): as wide as the timeline, 320 × 190, and 6 points above the caption under it.
+    let caption = element(app, "tank-now")
+    XCTAssertTrue(caption.label.contains("09:41"), "the light's now isn't the status bar's: \(caption.label)")
+    let drawing = caption.frame.minY - 6 - element(app, "day").frame.width * 190 / 320
+    let window = app.windows.firstMatch.frame
+    let bars = [app.navigationBars.firstMatch, app.buttons[l.tabs[2]].firstMatch].filter { $0.exists && $0.frame.midY < window.midY }
+    let below = (bars.map { $0.frame.maxY }.max() ?? window.minY) + 8
+    if drawing < below {
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: 0.4))
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: below - drawing + 10)), withVelocity: .slow,
+                 thenHoldForDuration: 0.3)
+    }
     shoot(l, 5, "light")
   }
 

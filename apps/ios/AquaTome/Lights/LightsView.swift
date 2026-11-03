@@ -410,26 +410,48 @@ private struct WriteBar: View {
   @Environment(LightsModel.self) private var lights
   let pinned: Bool
   @State private var confirming = false
+  /// How the summary and the button share the pinned bar, as the measuring copy under it found.
+  @State private var arrangement = Arrangement.beside
+
+  private enum Arrangement { case beside, broken, stacked }
 
   var body: some View {
     let f = lights.form
-    let row = pinned ? AnyLayout(HStackLayout(spacing: 12)) : AnyLayout(VStackLayout(alignment: .leading, spacing: 8))
+    let said = f.problem == nil ? summary(f) : ""
+    let broken = said.replacing(" · ", with: " ·\n", maxReplacements: 1)
+    let a = pinned ? arrangement : .stacked
+    let row = a == .stacked ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
     let content = VStack(alignment: .leading, spacing: 4) {
+      // One summary and one button however they're arranged, so VoiceOver keeps its place when the button's words change.
       row {
-        Text(verbatim: f.problem == nil ? summary(f) : "")
+        Text(verbatim: a == .broken ? broken : said)
           .font(.subheadline.weight(.semibold)).monospacedDigit()
           .frame(maxWidth: .infinity, alignment: .leading)
+          .accessibilityLabel(Text(verbatim: said)) // one line, however it's broken on the screen
           .accessibilityIdentifier("summary")
         Button {
           if lights.writeNeedsConfirming { confirming = true } else { Task { await lights.writeSchedule() } }
         } label: {
-          Text(lights.formIsActive ? "Đèn đang dùng lịch này" : lights.isWriting ? "Đang ghi…" : "Ghi lịch vào đèn")
+          words
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)
-        .layoutPriority(1) // its words on one line where they fit; the summary wraps first
+        .layoutPriority(1) // its words on one line beside the summary, which has room left for its own lines
         .disabled(!lights.canWrite)
         .accessibilityIdentifier("write")
+      }
+      .background {
+        if pinned {
+          // Beside the button on one line, or broken after its times; above the button where even that doesn't fit (a
+          // longer language's button), never with its times broken.
+          ViewThatFits(in: .horizontal) {
+            measured(said).onAppear { arrangement = .beside }
+            measured(broken).onAppear { arrangement = .broken }
+            Color.clear.onAppear { arrangement = .stacked }
+          }
+          .hidden()
+          .accessibilityHidden(true)
+        }
       }
       if !lights.isConnected {
         Text("Kết nối đèn để ghi lịch. Lịch này được nhớ trên máy.").font(.footnote).foregroundStyle(.secondary)
@@ -452,6 +474,18 @@ private struct WriteBar: View {
     .alert("Lịch đang lưu trên đèn, kể cả lịch đặt bằng ứng dụng My Chihiros, sẽ bị thay bằng lịch này. Ghi lịch?", isPresented: $confirming) {
       Button("Ghi lịch") { Task { await lights.writeSchedule() } }
       Button("Hủy", role: .cancel) {}
+    }
+  }
+
+  private var words: Text {
+    Text(lights.formIsActive ? "Đèn đang dùng lịch này" : lights.isWriting ? "Đang ghi…" : "Ghi lịch vào đèn")
+  }
+
+  /// The summary as `shown` beside the button, drawn the same way, only to see whether they fit.
+  private func measured(_ shown: String) -> some View {
+    HStack(spacing: 12) {
+      Text(verbatim: shown).font(.subheadline.weight(.semibold)).monospacedDigit()
+      Button {} label: { words }.buttonStyle(.borderedProminent).controlSize(.large)
     }
   }
 

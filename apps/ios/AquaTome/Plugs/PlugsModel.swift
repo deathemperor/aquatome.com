@@ -72,9 +72,12 @@ final class PlugsModel {
   #if DEBUG
   /// The simulator (every UI test): a stand-in Tuya cloud with made-up keys and strips, keys kept in memory, so no test
   /// reaches Tuya; `-seed-tuya-keys` starts with its keys entered. `-real-tuya` tries Tuya itself from the simulator.
+  /// `-stand-in-strip <name>` names the first strip as its owner would in Smart Life (the App Store's screenshots, in
+  /// each language).
   static func forSimulator(_ args: [String]) -> PlugsModel {
+    let strip = args.firstIndex(of: "-stand-in-strip").flatMap { $0 + 1 < args.count ? args[$0 + 1] : nil } ?? "Ổ cắm bể 60"
     let fake = FakeTuya(accessId: standInKeys.accessId, accessSecret: standInKeys.accessSecret, devices: [
-      FakeTuya.Device(id: "fake-strip-1", name: "Ổ cắm bể 60", status: [("switch_1", .bool(true)), ("switch_2", .bool(false)), ("switch_3", .bool(false)), ("switch_led", .bool(true))],
+      FakeTuya.Device(id: "fake-strip-1", name: strip, status: [("switch_1", .bool(true)), ("switch_2", .bool(false)), ("switch_3", .bool(false)), ("switch_led", .bool(true))],
                       names: [("switch_1", "Đèn"), ("switch_2", "CO2")]),
       // One that never confirms, one that drops off the network when switched.
       { var d = FakeTuya.Device(id: "fake-strip-2", name: "Ổ cắm kệ", status: [("switch_1", .bool(true))], names: [("switch_1", "Lọc")]); d.ignores = true; return d }(),
