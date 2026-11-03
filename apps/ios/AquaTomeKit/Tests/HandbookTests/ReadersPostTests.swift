@@ -163,10 +163,11 @@ private let site = URL(string: "https://aquatome.com")!
   #expect(Readers.reported(Data(#"{"error":"rate"}"#.utf8), status: 429) == .refused("rate"))
   #expect(Readers.reported(Data(#"{"error":"bad report"}"#.utf8), status: 400) == .refused("bad report"))
   #expect(Readers.reported(Data("<html>".utf8), status: 502) == .refused("failed"))
-  // A comment's and a photo's `author`, as the contract has it: 16 hex characters, never a name (optional until the
-  // Worker sends it: the app reads none as nil).
+  // A comment's and a photo's `author`, as the contract has it: 16 hex characters, never a name, on every one (the app
+  // still reads one without it as nil, from an older Worker).
   for kind in ["Comment", "Photo"] {
     #expect(((schema(kind)["properties"] as! [String: Any])["author"] as! [String: Any])["pattern"] as? String == "^[0-9a-f]{16}$", "\(kind)")
+    #expect((schema(kind)["required"] as! [String]).contains("author"), "\(kind)")
   }
 }
 
