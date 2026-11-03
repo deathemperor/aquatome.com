@@ -277,7 +277,8 @@ final class NativePageFlowTests: XCTestCase {
     let app = launch()
     openItem(app, "reu hai tu a", "Rêu hại từ A đến Z")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the series isn't drawn by the app")
-    XCTAssertTrue(text(app, "1 bài · 29 phút video").exists, "no counts")
+    // One line, as the site's page and doc write it: the counts, then what it follows.
+    XCTAssertTrue(text(app, "1 bài · 29 phút video · theo playlist").exists, "no counts, or not on the playlist's line")
     XCTAssertTrue(app.links["ALGAE! Everything you need to know!"].exists, "no playlist")
     XCTAssertTrue(app.links["MJ Aquascaping"].exists, "no channel")
     let guide = card(app, "Cách hạn chế rêu hại")
