@@ -552,8 +552,15 @@ private struct PagesBlock: View {
     if !items.isEmpty {
       VStack(alignment: .leading, spacing: 8) {
         Text(title).font(.pageHeading).accessibilityAddTraits(.isHeader)
-        // As in a list of results: a tool opens its tab (AppScreen), a page pushes on this one.
-        ForEach(items) { item in Row(item: item, chevron: true).buttonStyle(.plain) }
+        // As in a list of results: a tool opens its tab (AppScreen), a page pushes on this one. In one panel, as the
+        // page's other rows of pages (CardsPart) are.
+        VStack(alignment: .leading, spacing: 0) {
+          ForEach(Array(items.enumerated()), id: \.element.id) { j, item in
+            if j > 0 { Divider().padding(.leading, 12) }
+            Row(item: item, chevron: true).buttonStyle(.plain).padding(.horizontal, 12).padding(.vertical, 10)
+          }
+        }
+        .background(.fill.quaternary, in: .rect(cornerRadius: 12))
       }
       .padding(.top, 40)
     }
@@ -746,7 +753,12 @@ private struct ReadersPart: View {
   private func line(_ c: Readers.Comment) -> AttributedString {
     var out = styled(c.name, .body.bold())
     out += styled("  " + Readers.day(c.createdAt, lang: handbook.lang), .footnote, secondary: true)
-    if c.helpful { out += styled("  " + String(localized: "Trả lời hay"), .footnote.bold()) }
+    if c.helpful {
+      // The site's mark, in the page's green: a mark on the answer, not a heading over it.
+      var mark = styled("  " + String(localized: "Trả lời hay"), .footnote.weight(.semibold))
+      mark.foregroundColor = .accentColor
+      out += mark
+    }
     return out + styled("\n" + c.body)
   }
 }
