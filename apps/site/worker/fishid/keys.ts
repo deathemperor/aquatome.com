@@ -1,7 +1,7 @@
 /**
  * The fish-ID tool's Anthropic API keys: several, each from an organisation with its own prepaid credit, so one running
  * out never takes the tool down. The Worker reads them from the ANTHROPIC_KEYS secret, the accuracy script
- * (packages/engine/scripts/fish-id-accuracy.ts) from ~/.config/thuysinh/anthropic-keys; both through this module.
+ * (packages/engine/scripts/fish-id-accuracy.ts) from ~/.config/aquatome/anthropic-keys; both through this module.
  *
  * One entry per line: `<key>` (a workspace's key) or `<key> <workspaceId>` (an organisation's key, which needs its
  * workspace sent as the `anthropic-workspace-id` header). Blank lines and `#` comments are ignored.

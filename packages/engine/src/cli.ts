@@ -73,10 +73,10 @@ const http = async (url: string) => {
   return r.json()
 }
 
-/** Media bucket credentials: env, else the owner's ~/.config/thuysinh files (never printed). */
-const conf = (env: string, file: string) => process.env[env] ?? readFileSync(join(homedir(), '.config/thuysinh', file), 'utf8').trim()
-// YouTube Data API key: env, else ~/.config/thuysinh/youtube-api-key; also what findVideos reads (species page videos).
-process.env.YOUTUBE_API_KEY ??= (() => { try { return readFileSync(join(homedir(), '.config/thuysinh/youtube-api-key'), 'utf8').trim() || undefined } catch { return undefined } })()
+/** Media bucket credentials: env, else the owner's ~/.config/aquatome files (never printed). */
+const conf = (env: string, file: string) => process.env[env] ?? readFileSync(join(homedir(), '.config/aquatome', file), 'utf8').trim()
+// YouTube Data API key: env, else ~/.config/aquatome/youtube-api-key; also what findVideos reads (species page videos).
+process.env.YOUTUBE_API_KEY ??= (() => { try { return readFileSync(join(homedir(), '.config/aquatome/youtube-api-key'), 'utf8').trim() || undefined } catch { return undefined } })()
 /** Video metadata through the API when there is a key (yt-dlp then only fetches captions), else all through yt-dlp. */
 const youtube = () => (process.env.YOUTUBE_API_KEY ? ytApi(process.env.YOUTUBE_API_KEY) : ytDlp)
 const media = () => r2Media({
@@ -86,7 +86,7 @@ const media = () => r2Media({
 
 /**
  * Names readers keep on their tanks without a page, from the site's KV (readers-wanted.ts), with the Cloudflare token
- * (env, else ~/.config/thuysinh/cf-token; never printed). Without one the engine goes on without them, saying nothing.
+ * (env, else ~/.config/aquatome/cf-token; never printed). Without one the engine goes on without them, saying nothing.
  */
 const readersWanted = (() => {
   let token: string | undefined
@@ -103,7 +103,7 @@ const { positionals, values } = parseArgs({ allowPositionals: true, options: { s
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
- * secret in OPENVERSE_CLIENT_ID / OPENVERSE_CLIENT_SECRET (or ~/.config/thuysinh/openverse-client-id, -secret).
+ * secret in OPENVERSE_CLIENT_ID / OPENVERSE_CLIENT_SECRET (or ~/.config/aquatome/openverse-client-id, -secret).
  */
 async function openverseApi() {
   const opt = (env: string, file: string) => { try { return conf(env, file) } catch { return '' } }
@@ -168,7 +168,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // card-fill: the sources whose species profiles are found by the name in their address (Seriously Fish, Loaches Online, ScotCat).
   const sources = list(values.sources) ?? (except && SOURCES.map(s => s.id).filter(s => !except.includes(s))) ?? (cmd === 'card-fill' ? SOURCES.filter(s => s.profiles).map(s => s.id) : undefined)
   if (values.force && !values.only) throw new Error('--force re-translates only the pages matched by --only')
-  const profileDir = process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/thuysinh/chrome-profile')
+  const profileDir = process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/aquatome/chrome-profile')
   const fetcher = new ChromeFetcher({ profileDir })
   const startedAt = new Date().toISOString()
   const order = cmd === 'card-fill' ? popularityOrder(await popularFirst(ROOT)) : []
@@ -285,7 +285,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
 } else if (cmd === 'photos') {
   // Pages with fewer than 3 photos: re-read their source pages for photos the picker used to miss (monthly per page).
-  const fetcher = new ChromeFetcher({ profileDir: process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/thuysinh/chrome-profile') })
+  const fetcher = new ChromeFetcher({ profileDir: process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/aquatome/chrome-profile') })
   await fetcher.open()
   try {
     const r = await backfillPhotos(ROOT, { get: u => fetcher.get(u), bytes: (u, ref) => fetcher.bytes(u, ref), media: media(), now: () => new Date(), sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined, kinds: values.kind?.split(',') })
@@ -450,7 +450,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const x of [...r.done, ...r.failed]) console.log(x)
 } else if (cmd === 'unsplash') {
   // Unsplash photos for the galleries of the staples, breeds and popular species: pnpm engine unsplash [--limit N]
-  const key = process.env.UNSPLASH_ACCESS_KEY || (() => { try { return readFileSync(join(homedir(), '.config/thuysinh/unsplash-key'), 'utf8').trim() } catch { return '' } })()
+  const key = process.env.UNSPLASH_ACCESS_KEY || (() => { try { return readFileSync(join(homedir(), '.config/aquatome/unsplash-key'), 'utf8').trim() } catch { return '' } })()
   if (!key) { console.log('unsplash: no UNSPLASH_ACCESS_KEY, skipped'); process.exit(0) }
   const r = await unsplashPhotos(ROOT, async url => {
     const res = await fetch(url, { headers: { authorization: `Client-ID ${key}`, 'accept-version': 'v1' } })
@@ -467,9 +467,9 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const blockedAt = await sourceBlockedSince(ROOT, FB.id)
   if (values['retry-blocked']) await setSourceBlock(ROOT, FB.id, undefined)
   if (blockedAt && !values['retry-blocked']) {
-    console.log(`facebook: blocked since ${blockedAt}: log into the spare account in ~/.cache/thuysinh/chrome-profile, then run pnpm engine facebook --retry-blocked`)
+    console.log(`facebook: blocked since ${blockedAt}: log into the spare account in ~/.cache/aquatome/chrome-profile, then run pnpm engine facebook --retry-blocked`)
   } else {
-    const fetcher = new ChromeFetcher({ profileDir: process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/thuysinh/chrome-profile') })
+    const fetcher = new ChromeFetcher({ profileDir: process.env.ENGINE_PROFILE ?? join(homedir(), '.cache/aquatome/chrome-profile') })
     await fetcher.open()
     try {
       const m = media()
@@ -477,7 +477,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
       console.log(`facebook: ${r.newPosts} new posts, ${r.newAlbums} new albums, ${r.stored} photos stored, ${r.failed.length} failed`)
       for (const f of r.failed) console.log(`failed: ${f}`)
       for (const w of r.warnings) console.log(`warning: ${w}`)
-      if (r.blocked) console.log(`facebook: ${r.blocked} wall — log into the spare account in ~/.cache/thuysinh/chrome-profile, then run pnpm engine facebook --retry-blocked`)
+      if (r.blocked) console.log(`facebook: ${r.blocked} wall — log into the spare account in ~/.cache/aquatome/chrome-profile, then run pnpm engine facebook --retry-blocked`)
     } finally {
       await fetcher.close()
     }

@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- Fetch only with real Chrome (`channel: 'chrome'`, `headless: false`, persistent profile `~/.cache/thuysinh/chrome-profile`), ≥4 s between requests to the same source, no stealth plugins, proxies or CAPTCHA solvers. A challenge page ("Just a moment…", "Robot Challenge") marks the URL `blocked` and the source `needs-human`; never retry around it.
+- Fetch only with real Chrome (`channel: 'chrome'`, `headless: false`, persistent profile `~/.cache/aquatome/chrome-profile`), ≥4 s between requests to the same source, no stealth plugins, proxies or CAPTCHA solvers. A challenge page ("Just a moment…", "Robot Challenge") marks the URL `blocked` and the source `needs-human`; never retry around it.
 - Claude calls: `claude -p --model sonnet --output-format json --tools "" --setting-sources "" --strict-mcp-config --system-prompt <ours> --json-schema <schema>`; parse `structured_output`; validate with zod; one retry on invalid output.
 - Photos (owner decision 2026-10-28): the best source-page photos (≤4, ≥600px, no logos/banners, subject before scenery) are copied to R2 `thuysinh-media` (≤1200px WebP, served at `media.thuysinh.infinitus.run`), credited to the source + page URL, `Photo.source` set so the loader's publish gate covers them. Commons (`isAllowedLicence`) only when a page yields none.
 - Every written section/guide keeps `source` + `sourceUrl`; every data-card value keeps its `source`.
@@ -140,7 +140,7 @@ Registry values (decided from recon 2026-10-28): seriouslyfish sitemap `/sitemap
 
 ### Task 10: Live first run, schedule, deploy
 
-**Files:** Create `scripts/engine-cycle.sh` (run → `pnpm test` → commit `content: engine run <date>` → push → `deploy-staging.sh`), `scripts/install-engine-schedule.sh` (launchd agent `run.thuysinh.engine`, every 6 h, logs to `~/Library/Logs/thuysinh-engine.log`), README section.
+**Files:** Create `scripts/engine-cycle.sh` (run → `pnpm test` → commit `content: engine run <date>` → push → `deploy-staging.sh`), `scripts/install-engine-schedule.sh` (launchd agent `run.aquatome.engine`, every 6 h, logs to `~/Library/Logs/aquatome-engine.log`), README section.
 
 - [ ] Step 1: `pnpm engine run --limit 3` live for every source; tune `include` patterns; record per-source results + tuning in the ledger. Expected: SF/Glaser/BW/Co-op/Tropica/2HR/Spruce/Aquarium Breeder/Loaches produce content; PlanetCatfish `needs-human`.
 - [ ] Step 2: `pnpm test`, `pnpm build` green with real content; screenshots desktop+mobile of one real species page.

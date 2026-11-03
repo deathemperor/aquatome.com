@@ -22,7 +22,7 @@ Gallery rebuilds keep photos that carry a `source`.
 
 - Source id `facebook-jim`; display name / photo author `Jim Cumming`; profile `https://www.facebook.com/jim.cumming.982410/`.
 - Licence on gallery photos: `SOURCE_PHOTO_LICENCE` (`'dùng với sự cho phép'`), with `source: 'facebook-jim'` and `sourceUrl` set to the photo's Facebook permalink.
-- No stealth, proxies, captcha solving or fingerprint tricks. Real Chrome profile `~/.cache/thuysinh/chrome-profile`, logged in by hand with the owner's **spare** Facebook account.
+- No stealth, proxies, captcha solving or fingerprint tricks. Real Chrome profile `~/.cache/aquatome/chrome-profile`, logged in by hand with the owner's **spare** Facebook account.
 - Pace: ≥ 5 s between page loads or scroll steps (`POLITE = 5000`, as in `src/sources.ts`).
 - Every collected original goes to the public bucket `thuysinh-media` under `facebook/<photoId>.<ext>`, unconverted, with no face filter. The repo never stores image bytes.
 - Gallery copies go through `media.put` (≤ 1200 px WebP + 480 px thumb) under `facebook-jim/<photoId>.webp`.
@@ -63,7 +63,7 @@ Gallery rebuilds keep photos that carry a `source`.
 
 **Owner steps first** (the implementer asks the owner to do these and waits):
 1. Create a spare Facebook account and set its language to **English (US)**.
-2. With no engine cycle running (the profile is locked while one runs), open Chrome with `--user-data-dir=$HOME/.cache/thuysinh/chrome-profile`, log into the spare account, open Jim's profile once, and close Chrome.
+2. With no engine cycle running (the profile is locked while one runs), open Chrome with `--user-data-dir=$HOME/.cache/aquatome/chrome-profile`, log into the spare account, open Jim's profile once, and close Chrome.
 
 **Files:**
 - Create: `packages/engine/scripts/fb-recon.ts` (throwaway, but kept for re-capturing when Facebook changes)
@@ -269,12 +269,12 @@ Behaviour:
   - `maxPhotos`: default 150 per run.
 
 Behaviour:
-- If blocked and no `--retry-blocked`: print `facebook: blocked since <date> (<kind>): log into the spare account in ~/.cache/thuysinh/chrome-profile, then run pnpm engine facebook --retry-blocked`, then go straight to identification.
+- If blocked and no `--retry-blocked`: print `facebook: blocked since <date> (<kind>): log into the spare account in ~/.cache/aquatome/chrome-profile, then run pnpm engine facebook --retry-blocked`, then go straight to identification.
 - `--retry-blocked` clears the block before collecting.
 - Exit code stays 0 when blocked.
 - Output: `facebook: N new posts, N new albums, N photos stored, N failed` and `facebook photos: N added to galleries, N dropped (stopped: …)`, plus one line per added photo.
 
-- [ ] **Step 1:** Implement the CLI branch. Collect opens `ChromeFetcher` with `profileDir: ~/.cache/thuysinh/chrome-profile` (same as `run`) and closes it in `finally`.
+- [ ] **Step 1:** Implement the CLI branch. Collect opens `ChromeFetcher` with `profileDir: ~/.cache/aquatome/chrome-profile` (same as `run`) and closes it in `finally`.
 - [ ] **Step 2:** In `README.md`, add a table row for `pnpm engine facebook`, and a bullet covering:
   - the spare account and the login-by-hand step;
   - `--retry-blocked`;

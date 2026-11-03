@@ -39,7 +39,7 @@ untranslated UI string through (the engine cycle only).
 A pull request runs `ci.yml`. A squash merge to `main` runs `deploy.yml`, which tests and deploys to aquatome.com, and
 `watch.yml` then checks the live site. Problems become issues, and `fix.yml` drafts fixes for them
 ([governance](docs/governance.md)). The engine (`engine.yml`, every 3 h) pushes content the same way. A manual deploy:
-`CLOUDFLARE_API_TOKEN="$(cat ~/.config/thuysinh/cf-token)" ./scripts/deploy.sh`.
+`CLOUDFLARE_API_TOKEN="$(cat ~/.config/aquatome/cf-token)" ./scripts/deploy.sh`.
 
 ## Content rules
 

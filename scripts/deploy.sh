@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/../apps/site"
 # Pages hidden from the /_ab/ dashboard leave lists, sitemap and search (the Worker already answers 410 for them).
 # On failure the last fetched list is kept; hidden pages still 410 either way.
-DASH_TOKEN="$HOME/.config/thuysinh/ab-dash-token"
+DASH_TOKEN="$HOME/.config/aquatome/ab-dash-token"
 if [ -s "$DASH_TOKEN" ] && curl -sf -H "authorization: Bearer $(cat "$DASH_TOKEN")" https://aquatome.com/_ab/hidden.json -o .hidden.json.tmp; then
   mv .hidden.json.tmp .hidden.json
 else
@@ -29,4 +29,4 @@ for i in 1 2 3; do
   [ "$i" -lt 3 ] || exit 1
   echo "deploy failed, trying again in $((i * 30)) s"; sleep $((i * 30))
 done
-[ -f .hidden.json ] && shasum < .hidden.json | cut -c1-40 > "$HOME/.config/thuysinh/hidden-deployed" || true
+[ -f .hidden.json ] && shasum < .hidden.json | cut -c1-40 > "$HOME/.config/aquatome/hidden-deployed" || true

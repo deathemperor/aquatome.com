@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # The YouTube work, on the owner's Mac: YouTube throttles datacenter IPs, so this is the one engine job not on GitHub
 # Actions. Videos → guides, their species and kit, playlist discovery. Commits + pushes; the push deploys (deploy.yml).
-# Installed by install-video-schedule.sh. Optional: ~/.config/thuysinh/yt-cookies-from (e.g. "chrome:Profile 2") signs
+# Installed by install-video-schedule.sh. Optional: ~/.config/aquatome/yt-cookies-from (e.g. "chrome:Profile 2") signs
 # yt-dlp in as that Chrome profile's YouTube account.
 set -euo pipefail
 export PATH="${PATH:+$PATH:}$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
@@ -11,13 +11,13 @@ log() { echo "$(date -u +%FT%TZ) $*"; }
 scripts/engine-due.sh || log "engine: the due check failed"
 # Shared with manual engine runs in this clone, so the two never touch the tree at once.
 # Its process must still be a cycle script: the file outlives a restart, and its number can go to another process.
-PIDFILE="$(git rev-parse --absolute-git-dir)/thuysinh-engine.pid"
+PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 if [ -f "$PIDFILE" ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'cycle\.sh'; then log "another engine job (pid $(cat "$PIDFILE")) is running"; exit 0; fi
 echo $$ > "$PIDFILE"
 trap 'rm -f "$PIDFILE"' EXIT
 # shellcheck disable=SC1091
 . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"
-COOKIES="$HOME/.config/thuysinh/yt-cookies-from"
+COOKIES="$HOME/.config/aquatome/yt-cookies-from"
 [ -s "$COOKIES" ] && export YT_COOKIES_FROM="$(cat "$COOKIES")"
 
 # Start from GitHub's main: anything this clone held unpushed was a run whose push failed, and is redone.
@@ -39,7 +39,7 @@ pnpm engine watermarks --limit 20 || log "watermarks: failed"
 # The content rules' safe fixes, as in the GitHub cycle (a new guide whose title promises a count it lacks: the tests fail on it).
 pnpm engine sweep || log "sweep: failed"
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
-if ! pnpm test >/tmp/thuysinh-videos-test.log 2>&1; then log "tests failed, not publishing (see /tmp/thuysinh-videos-test.log)"; exit 1; fi
+if ! pnpm test >/tmp/aquatome-videos-test.log 2>&1; then log "tests failed, not publishing (see /tmp/aquatome-videos-test.log)"; exit 1; fi
 git add content engine-state docs/review
 git commit -q -m "content: videos $(date -u +%F)"
 # The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
@@ -49,7 +49,7 @@ for _ in 1 2 3; do
     log "the GitHub engine changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort 2>/dev/null || true
     if git pull -q --rebase -X theirs; then
-      pnpm test >/tmp/thuysinh-videos-test.log 2>&1 || { log "tests failed after that merge, not publishing"; exit 1; }
+      pnpm test >/tmp/aquatome-videos-test.log 2>&1 || { log "tests failed after that merge, not publishing"; exit 1; }
     else
       git rebase --abort 2>/dev/null || true
     fi

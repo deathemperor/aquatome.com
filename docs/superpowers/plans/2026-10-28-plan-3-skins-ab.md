@@ -103,7 +103,7 @@
 
 ### Task 8: Deploy + verify
 
-- [ ] Create the KV namespace and set the secrets (`AB_DASH_TOKEN` generated locally into `~/.config/thuysinh/ab-dash-token`, plus `AE_API_TOKEN`). The Analytics Engine read token needs the account "Analytics: Read" permission. If the current token lacks it, use `request_secret` for one.
+- [ ] Create the KV namespace and set the secrets (`AB_DASH_TOKEN` generated locally into `~/.config/aquatome/ab-dash-token`, plus `AE_API_TOKEN`). The Analytics Engine read token needs the account "Analytics: Read" permission. If the current token lacks it, use `request_secret` for one.
 - [ ] Deploy staging, then verify live:
   - `curl -A Googlebot` → no `data-skin`, no `set-cookie`
   - a browser UA → cookie set and the skin attribute present
