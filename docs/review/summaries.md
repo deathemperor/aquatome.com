@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (51)
+# Tóm tắt chờ duyệt (52)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -243,18 +243,16 @@ Cá minnow bụng đỏ phương Nam hợp với người muốn nuôi cá bắt
 Kiểm tra:
 - "Tính bể theo cỡ cá hiện có rồi quên cá lớn tới 12 cm; nên tính chỗ cho con trưởng thành": the page says nothing about sizing a tank or planning space for adults. It only gives the current size (5-7 cm) and the maximum size. This mistake and its fix are advice the page does not give.
 
-## Cá bụi đốm đuôi (Ctenopoma kingsleyae)
-id: `ctenopoma-kingsleyae`
+## Cá rong rêu cobitis (Crossocheilus cobitis)
+id: `crossocheilus-cobitis`
 
-Cá bụi đốm đuôi (Ctenopoma kingsleyae) hợp người mới nuôi: độ khó 2/8, chịu nhiệt 20–30 °C, và nước uống được là dùng được. Cá lớn tới 20 cm, nên cần bể đủ rộng để nuôi chung với tetra, barb hay cichlid. Điểm khó nhất là cá bơi chậm nhưng vẫn coi cá rất nhỏ và tép là mồi, còn muốn cá đẻ thì phải mô phỏng mùa khô.
+Cá rong rêu cobitis (Crossocheilus cobitis) hợp với người đã nuôi cá một thời gian, độ khó 5/8 là mức vừa. Cá dài 5,2 cm, cần bể dài tối thiểu 100 cm (đáy 100 × 30 cm, khoảng 90 lít), nước 20–26 °C, trong bể cá hay gặm lớp màng sinh học hình thành trên đá. Điểm khó nhất là khẩu phần: cá ăn lớp tảo bám nên phải cho ăn đúng loại, không cho đồ giàu đạm.
 
-- Thả chung với cá rất nhỏ hoặc tép thì chúng bị coi là mồi, nên chọn bạn cùng bể cỡ lớn hơn như tetra, barb hay cichlid.
-- Cho ăn mồi quá to so với miệng cá, nên chọn thức ăn khô, đông lạnh hay mồi sống cỡ vừa miệng.
-- Chờ cá tự đẻ trong điều kiện bể bình thường, trong khi muốn kích thích đẻ phải mô phỏng mùa khô và nên thử vào mùa đông.
+- Cho ăn đồ giàu đạm khiến cá tích mỡ, có thể thoái hóa nội tạng; nên cho thức ăn khô có Spirulina và thêm rau tươi như đậu Hà Lan bóc vỏ, bí ngòi chần.
+- Tin tên 'Crossocheilus siamensis' trên cá bán ra là đúng loài; nên đối chiếu đặc điểm như hai cặp râu và sọc giữa thân chạy liền từ mõm đến gốc vây đuôi, kết thúc bằng đốm nhỏ.
 
 Kiểm tra:
-- "nên cần bể đủ rộng": the page gives no tank-size requirement and the card has no minimum tank, so this advice is not supported.
-- "nên chọn bạn cùng bể cỡ lớn hơn như tetra, barb hay cichlid": the page never says tetras, barbs or cichlids are larger tank mates. It only says the fish looks striking next to them and that fish of 2-3 cm and shrimp get eaten.
+- Mistake 1: "Cho ăn đồ giàu đạm khiến cá tích mỡ" states fatty build-up as certain. The page hedges it: "nếu ăn đều đặn trong thời gian dài, cá có thể bị tích mỡ quá mức". The condition (regular, long-term feeding) and the "có thể" are lost for the fat build-up.
 
 ## Cá Cyclocheilichthys armatus (Cyclocheilichthys armatus)
 id: `cyclocheilichthys-armatus`
@@ -342,6 +340,17 @@ Hợp với người muốn nuôi một con cichlid lớn, ăn dễ, có bể đ
 Kiểm tra:
 - "5–8 cm" is neither the card's adult size (30 cm) nor its minimum tank (120 cm)
 
+## Cá L201a Big Spots (Hypancistrus contradens)
+id: `hypancistrus-contradens`
+
+Hợp với người mê cá L muốn một loài giữ màu đẹp suốt đời: đốm to trắng đến hồng cam trên nền đen thẫm, không xỉn khi già. Nuôi nhóm được, nước 26–28 °C, pH 6,5–7, cá lớn tới 12 cm. Điểm cần lưu ý nhất là không nuôi chung với Hypancistrus khác, vì đã có ghi nhận các loài trong chi này lai với nhau.
+
+- Thả chung với loài Hypancistrus khác dễ bị lai, nên mỗi bể chỉ nuôi một loài Hypancistrus.
+- Cho cá trưởng thành ăn thiên về thực vật như hồi còn nhỏ, trong khi cá lớn không mê bằng, nên cho thêm Artemia, lăng quăng, thịt trai đông lạnh kèm thức ăn viên.
+
+Kiểm tra:
+- "Thả chung với loài Hypancistrus khác dễ bị lai": the page only says hybridisation between species of this genus has been recorded ("đã có ghi nhận"). It doesn't say crossing happens easily, so the summary turns a hedged record into a likelihood.
+
 ## Cá lau kiếng vàng (Hypostomus luteus)
 id: `hypostomus-luteus`
 
@@ -352,18 +361,6 @@ Cá lau kiếng vàng (Hypostomus luteus) lớn tới 31 cm, nên hợp với ng
 Kiểm tra:
 - The mistake "Mua cá khi còn nhỏ mà chỉ chuẩn bị bể nhỏ... nên tính bể đủ rộng ngay từ đầu" gives tank-sizing advice that the page never gives. The page has no tank, housing or purchase guidance, only the 31 cm size, temperature, distribution and a note that there are no breeding reports.
 - "nên hợp với người có bể to và chịu nuôi cá cỡ lớn" claims a suitability and tank requirement that the page does not state. The page does not say anything about tank size or who the fish suits.
-
-## Cá barb Jerdon (Hypselobarbus jerdoni)
-id: `hypselobarbus-jerdoni`
-
-Cá barb Jerdon (Hypselobarbus jerdoni) là loài barb cỡ lớn, trưởng thành tới 50 cm, rất hiếm khi được nhập về, nên chỉ hợp người có bể thật sự lớn. Cá hiền, thích nước chảy, bơi khỏe và không nhát; hồ sơ không nêu số liệu về nước hay bể tối thiểu. Khó nhất là chỗ nuôi đủ rộng cho cá 50 cm và việc cá bật khỏi mặt nước rất mạnh.
-
-- Nuôi trong bể nhỏ dù cá có thể dài tới 50 cm; nên chuẩn bị bể thật sự lớn ngay từ đầu.
-- Để bể hở khi vợt bắt cá; cá có thể bật thẳng lên hơn 50 cm mà không cần lấy đà, nên đậy kín nắp bể.
-- Nuôi nước đứng, ít dòng chảy; loài này thích nước chảy và bơi rất khỏe, nên tạo dòng chảy cho cá.
-
-Kiểm tra:
-- Mistake 2: "nên đậy kín nắp bể" and "Để bể hở khi vợt bắt cá" – the page never mentions a lid or covering the tank. It only says the fish can jump over 50 cm when netted. The lid fix is advice the page doesn't give.
 
 ## Cá cichlid ốc meeli (Lepidiolamprologus meeli)
 id: `lepidiolamprologus-meeli`
@@ -452,6 +449,18 @@ Cá hút bùn buồm Trung Quốc (Myxocyprinus asiaticus) chỉ hợp người 
 - Mua cá con về bể gia đình thường rồi để đó: cá sẽ lớn tới 90 cm, nên lo bể dài ít nhất 200 cm hoặc hồ ngoài vườn ngay từ đầu.
 - Để nước ấm gần ngưỡng trên trong thời gian dài: giữ 15,5–21 °C, vì có báo cáo cá bị nấm trong bể và nguyên nhân có thể là nước quá nóng.
 - Để chất thải hữu cơ tích tụ và dòng yếu: dùng lọc ngoài, bơm tạo dòng, lọc quay vòng nước bể 8–12 lần mỗi giờ để nước luôn sạch và giàu oxy.
+
+## Cá bống tượng (Oxyeleotris marmorata)
+id: `oxyeleotris-marmorata`
+
+Cá bống tượng (Oxyeleotris marmorata) hợp với người chơi đã có kinh nghiệm, muốn nuôi một con cá săn mồi lớn, ít bơi, hoạt động về đêm. Cần bể dài tối thiểu 150 cm (150 × 60 × 60 cm, khoảng 540 lít), nước 22–28 °C, pH 6,5–7,5, độ cứng 10–15 dGH, nền cát mềm và chỗ trốn. Cá lớn tới 65 cm, nuốt mọi con cá lọt miệng nên chỉ hợp nuôi một mình, và phải cho ăn thức ăn gốc thịt, đừng cho ăn quá tay.
+
+- Nuôi chung với cá khác: cá nuốt bất cứ con nào lọt miệng và không chịu đồng loại, nên nuôi một mình.
+- Cho ăn thức ăn không có thịt hoặc cho ăn quá tay: cá chỉ ăn thịt và cực kỳ phàm ăn, nên cho thức ăn gốc thịt và cho vừa phải.
+- Rải nền thô, chiếu đèn sáng: cá thích đào bới và hoạt động về đêm, nên dùng cát mềm, để đèn dịu và có chỗ trốn.
+
+Kiểm tra:
+- "hợp với người chơi đã có kinh nghiệm": the page only says it suits a really passionate keeper who has the means to keep it properly ("người chơi thật sự đam mê và có đủ điều kiện"). It never asks for prior experience, and the card difficulty is medium (5/8).
 
 ## Cá mini pangasius (Pachypterus atherinoides)
 id: `pachypterus-atherinoides`
