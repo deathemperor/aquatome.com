@@ -169,6 +169,14 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(await ShopLink.target(of: link, userAgent: "x") { _ in throw URLError(.notConnectedToInternet) } == link)
   // A Location given as a path is read against the link.
   #expect(await ShopLink.target(of: link, userAgent: "x") { _ in answer(302, ["Location": "/vi/"]) }.absoluteString == "https://aquatome.com/vi/")
+  // www. first goes to the bare domain's same link, which is asked too, marked; never more than twice.
+  let www = URL(string: "https://www.aquatome.com/go/shopee/?k=ca-neon")!
+  let viaApex = await ShopLink.target(of: www, userAgent: "x") { r in
+    r.url?.host == "www.aquatome.com" ? answer(301, ["Location": link.absoluteString])
+      : answer(302, ["Location": "https://shopee.vn/search?keyword=ca-neon"])
+  }
+  #expect(viaApex.absoluteString == "https://shopee.vn/search?keyword=ca-neon")
+  #expect(await ShopLink.target(of: www, userAgent: "x") { _ in answer(301, ["Location": link.absoluteString]) } == www)
 }
 
 @Test func readsAFishsFiguresAndBehaviourUnderTheToolsNames() throws {

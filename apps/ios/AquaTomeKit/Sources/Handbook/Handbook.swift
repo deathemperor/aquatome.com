@@ -325,15 +325,21 @@ public enum ShopLink {
   }
 
   /// The shop the site's redirect names, asked by `send` without following it, as `userAgent`; the link itself when
-  /// the site answers anything else or can't be reached, so a tap always opens something.
+  /// the site answers anything else or can't be reached, so a tap always opens something. A redirect to the site's own
+  /// shop link (www. sent to the bare domain) is asked once more, so it isn't opened unmarked. Asked briefly: a tap waits.
   public static func target(of url: URL, userAgent: String, send: @Sendable (URLRequest) async throws -> HTTPURLResponse) async -> URL {
-    var r = URLRequest(url: url)
-    r.setValue(userAgent, forHTTPHeaderField: "User-Agent")
-    r.timeoutInterval = 10
-    guard let answer = try? await send(r), (300..<400).contains(answer.statusCode),
-          let location = answer.value(forHTTPHeaderField: "Location"), let to = URL(string: location, relativeTo: url)?.absoluteURL,
-          ["http", "https"].contains(to.scheme?.lowercased() ?? "") else { return url }
-    return to
+    var link = url
+    for _ in 0..<2 {
+      var r = URLRequest(url: link)
+      r.setValue(userAgent, forHTTPHeaderField: "User-Agent")
+      r.timeoutInterval = 3
+      guard let answer = try? await send(r), (300..<400).contains(answer.statusCode),
+            let location = answer.value(forHTTPHeaderField: "Location"), let to = URL(string: location, relativeTo: link)?.absoluteURL,
+            ["http", "https"].contains(to.scheme?.lowercased() ?? "") else { return url }
+      guard Self.is(to, site: link) else { return to }
+      link = to
+    }
+    return url
   }
 }
 
