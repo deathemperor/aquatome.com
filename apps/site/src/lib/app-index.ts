@@ -201,7 +201,9 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const g of appGuides(lang, c)) {
       const m = mentions.get(g.id)
       const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: img(g.photos), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      // Its card's picture on the site: its own photo, else its video's thumbnail, else a fish or plant it names.
+      const ph = guideImage(c, g)
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
