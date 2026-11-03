@@ -1,0 +1,44 @@
+{
+  "slug": "tu-lam-bo-cham-nuoc-tu-dong-ato-bang-phao-dien-va-relay",
+  "name": "Tự làm bộ châm nước tự động (ATO) bằng phao điện và relay",
+  "altNames": [],
+  "sections": {},
+  "body": "<p>Nước trong bể bốc hơi mỗi ngày, và châm bù bằng tay thì dễ quên. Bộ phao tự động, hay ATO (auto top off), tự bật bơm châm nước khi mực nước tụt và tự tắt khi nước đã đủ. Bộ làm sẵn có trên thị trường, nhưng tự ráp thì chỉ tốn khoảng 12 USD với vài linh kiện mua online.</p><p>Bài này hướng dẫn cách ráp một bộ phao điều khiển qua relay để không phải cắt dây thiết bị, cách thử xem đấu đúng chưa, và vài cách dùng khác ngoài châm nước. Đây là việc đấu điện lưới gần nước. Nếu chưa quen đấu dây, bạn nên nhờ người có kinh nghiệm điện xem lại trước khi cắm vào bể.</p><h3>Bộ phao tự động hoạt động thế nào</h3><p>Nguyên lý rất đơn giản. Bộ này bật hoặc tắt một thiết bị khác tùy theo mực nước trong bể chính. Bộ phận chính là phao điện (float switch). Khi nước dâng lên hay hạ xuống, phao đổi vị trí và bật hoặc tắt thiết bị nối với nó.</p><p>Ví dụ dễ hiểu nhất là châm nước. Nước bốc hơi làm mực nước hạ xuống, phao báo cho bơm chạy, bơm đẩy nước vào bể đến mức bạn đã chỉnh thì phao lại tắt bơm.</p><h3>Vì sao không cắt dây bơm rồi nối thẳng vào phao</h3><p>Nhiều người nghĩ chỉ cần cắt dây điện của bơm rồi đấu phao vào giữa là xong. Về lý thuyết cách đó chạy được, nhưng rất nguy hiểm và không nên làm trong bất kỳ trường hợp nào. Lý do có hai:</p><ul><li>Phao một mình không chịu nổi dòng điện mà bơm kéo qua nó.</li><li>Cắt dây là làm hỏng bơm hoặc thiết bị bạn định nối vào.</li></ul><p>Cách làm dưới đây cho phao điều khiển một relay, relay mới là thứ đóng ngắt điện cho thiết bị. Thiết bị chỉ cần cắm vào dây nối dài, không phải cắt gì cả.</p><h3>Cần chuẩn bị những gì</h3><table><thead><tr><th>Linh kiện</th><th>Giá tham khảo</th><th>Ghi chú</th></tr></thead><tbody><tr><td>Phao điện</td><td>khoảng 1 USD</td><td>Mua trên eBay, thường miễn phí ship</td></tr><tr><td>Relay 12V DC</td><td>khoảng 5 USD</td><td>Loại 12V DC là đủ</td></tr><tr><td>Đế relay cùng loại</td><td>khoảng 3 USD</td><td>Phải khớp với relay</td></tr><tr><td>Adapter 12V cắm tường</td><td>khoảng 2 USD</td><td>Dùng lại cục sạc cũ cũng được, cắt bỏ đầu cắm vào thiết bị</td></tr><tr><td>Dây nối dài rẻ tiền</td><td>khoảng 1 USD</td><td>Đây là phần sẽ cắt, thay cho việc cắt dây bơm</td></tr><tr><td>Chụp nối dây, băng keo điện</td><td>ít</td><td>Để bọc các đầu dây hở</td></tr></tbody></table><p>Tổng cộng khoảng 12 USD. Giá thực tế xê dịch tùy nơi bạn mua.</p><h3>Phao, relay và adapter làm gì</h3><p><strong>Phao điện</strong> là thiết bị nhỏ cảm nhận mực nước. Ở giữa có một ống nhựa nổi trượt lên xuống. Ở một vị trí thì mạch được nối, ở vị trí kia thì mạch bị ngắt. Ống phao tháo ra lắp ngược lại được, và khi lắp ngược thì tác dụng cũng đảo lại. Chẳng hạn đang để kiểu phao hạ xuống thì tắt thiết bị, lật ngược ống thì phao hạ xuống lại bật thiết bị.</p><p><strong>Relay</strong> là công tắc đóng mở mạch bằng điện từ. Phao không chịu được dòng của bơm, nên nó chỉ điều khiển relay, còn relay gánh phần điện cho thiết bị.</p><p><strong>Adapter 12V</strong> cấp điện cho relay. Phao không cần điện để hoạt động nhưng relay thì cần.</p><p>Khi phao báo, relay đóng hoặc mở đường điện của dây nối dài. Thiết bị cắm vào dây nối dài sẽ có điện hoặc mất điện theo.</p><h3>Các bước đấu nối</h3><ol><li>Cắm relay vào đế relay.</li><li>Tìm dây nóng trên dây nối dài. Với loại dây hai sợi dính liền nhau, một bên có gân, một bên trơn. Bên trơn là dây nóng, tức sợi mang điện.</li><li>Cắt đôi sợi dây nóng và tuốt vỏ hai đầu vừa cắt. Sợi còn lại giữ nguyên.</li><li>Đấu hai đầu dây nóng vào hai chân ở mặt dưới đế relay, mỗi đầu một bên, đối diện nhau. Ví dụ một đầu vào chân dưới bên trái thì đầu kia vào chân đối diện ở phía bên kia.</li><li>Lấy một sợi của adapter 12V xoắn chung với một sợi của phao. Nối sợi nào với sợi nào cũng được. Xoắn chặt rồi chụp nắp nối hoặc quấn băng keo điện.</li><li>Đấu hai sợi còn lại, một của phao và một của adapter, vào hai chân ở mặt trên đế relay. Thứ tự và bên nào cũng không quan trọng.</li></ol><h3>Thử trước khi dùng thật</h3><ol><li>Cắm dây nối dài vào ổ điện, cắm luôn adapter.</li><li>Đẩy ống phao lên xuống bằng tay.</li><li>Nếu đấu đúng, relay sẽ kêu tách tách. Đó là tiếng relay đóng mở, tức là nó đang bật tắt điện.</li><li>Không nghe tiếng tách thì nhiều khả năng bạn đấu sai, hãy kiểm tra lại toàn bộ mối nối.</li><li>Đã kiểm tra mà vẫn không kêu thì có thể bạn cắt nhầm sợi trên dây nối dài. Lấy một dây nối dài khác và lần này cắt sợi còn lại.</li></ol><p>Ngoài bước trên, bạn có thể cắm thêm một thiết bị như đèn hay bơm vào dây nối dài để nhìn tận mắt nó bật tắt theo phao. Bước này không bắt buộc nhưng thử cho chắc thì yên tâm hơn.</p><h3>Lắp phao lên bể và giữ an toàn</h3><p>Đấu xong thì chỉ còn chuyện gắn phao vào bể, sump hay thùng chứa. Chỗ gắn tùy từng bể nên cách làm cũng rất nhiều. Dân chơi hay dùng thanh mica (acrylic) hoặc ống PVC làm giá đỡ. Bạn nên tìm hiểu thêm để chọn kiểu hợp với chỗ đặt của mình.</p><p>Các mối nối và relay đều là điện lưới để hở. Nên cho chúng vào một cái hộp để che lại cho an toàn hơn.</p><h3>Không chỉ để châm nước</h3><p>Người ta hay gọi bộ này là ATO, nhưng thật ra nó bật tắt được bất cứ thứ gì cắm vào dây nối dài, miễn là theo mực nước. Vài cách dùng đáng thử:</p><ul><li><strong>Châm bù nước bốc hơi</strong>: cách dùng phổ biến nhất, phao bật bơm châm khi nước tụt.</li><li><strong>Tự ngắt khi thay nước</strong>: lật ngược ống phao để thiết bị tắt khi mực nước xuống thấp. Lúc thay nước nhiều mà quên rút điện bơm, sưởi thì phao sẽ ngắt giúp bạn.</li><li><strong>Dùng nhiều phao</strong>: nhiều người lắp thêm phao thứ hai làm lớp dự phòng cho chắc ăn.</li></ul><h3>Bắt đầu từ đâu</h3><ol><li>Lục trong nhà xem còn cục sạc 12V nào bỏ không, rồi đặt mua phao, relay 12V DC và đế relay cùng loại.</li><li>Mua một dây nối dài rẻ tiền để cắt, tuyệt đối không cắt dây bơm.</li><li>Đấu xong thì thử bằng tay ngoài bể trước, nghe đủ tiếng tách mới đem lắp.</li><li>Cho relay và các mối nối vào hộp, rồi quyết định dùng phao để châm nước hay để tự ngắt khi thay nước.</li></ol>",
+  "summary": [
+    "Bộ phao tự động bật hoặc tắt một thiết bị theo mực nước trong bể, phổ biến nhất là châm bù nước bốc hơi.",
+    "Không cắt dây bơm để nối thẳng vào phao vì phao không chịu nổi dòng điện của bơm.",
+    "Phao chỉ điều khiển relay 12V, còn relay đóng ngắt điện cho dây nối dài cắm thiết bị.",
+    "Tổng chi phí khoảng 12 USD gồm phao, relay, đế relay, adapter 12V, dây nối dài rẻ và chụp nối dây.",
+    "Lật ngược phao thì thiết bị sẽ tắt khi nước xuống thấp, rất tiện khi thay nước nhiều mà quên rút điện."
+  ],
+  "faq": [
+    {
+      "q": "Cắt dây bơm rồi nối thẳng vào phao được không?",
+      "a": "Về lý thuyết thì chạy được nhưng rất nguy hiểm. Phao không chịu nổi dòng điện của bơm, và cắt dây cũng làm hỏng bơm. Hãy cho phao điều khiển relay rồi cắm bơm vào dây nối dài."
+    },
+    {
+      "q": "Vì sao phải có adapter 12V?",
+      "a": "Phao không cần điện để hoạt động nhưng relay 12V DC thì cần. Adapter cấp điện cho relay, cục sạc cũ không dùng nữa cũng được."
+    },
+    {
+      "q": "Làm sao biết mình đấu đúng?",
+      "a": "Cắm dây nối dài và adapter vào ổ điện rồi đẩy phao lên xuống. Relay kêu tách tách là đúng. Không kêu thì kiểm tra lại mối nối, nếu vẫn không được thì có thể đã cắt nhầm sợi trên dây nối dài."
+    },
+    {
+      "q": "Muốn phao tắt thiết bị khi nước cạn thì làm sao?",
+      "a": "Tháo ống phao ra và lắp ngược lại, tác dụng sẽ đảo chiều. Cách này tiện khi thay nước nhiều mà quên rút điện thiết bị."
+    },
+    {
+      "q": "Gắn phao vào bể bằng gì?",
+      "a": "Phổ biến là giá đỡ làm từ thanh mica hoặc ống PVC. Tùy bể, sump hay thùng chứa mà chọn kiểu gắn cho hợp."
+    }
+  ],
+  "cover": "Châm nước tự động chỉ 300k",
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "youtube": 0.75
+    }
+  }
+}

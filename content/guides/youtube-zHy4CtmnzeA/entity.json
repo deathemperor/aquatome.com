@@ -1,0 +1,88 @@
+{
+  "id": "youtube-zHy4CtmnzeA",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=zHy4CtmnzeA",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-pteropus"
+  ],
+  "updatedAt": "2026-11-03",
+  "video": {
+    "youtubeId": "zHy4CtmnzeA",
+    "title": "HOW TO: DIY CO2 for planted aquarium TUTORIAL",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 1162,
+    "publishedAt": "2012-06-11",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maWoZdW_ZXncWNyQ2lgJiDL",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/zHy4CtmnzeA/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [
+      "Anubias sp.",
+      "Microsorum pteropus"
+    ],
+    "gear": [
+      {
+        "category": "co2",
+        "type": "mini",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Bộ CO2 men đường gồm những gì",
+        "moments": [
+          {
+            "t": 423,
+            "url": "https://media.aquatome.com/video/zHy4CtmnzeA/t423.webp",
+            "width": 240,
+            "height": 180,
+            "caption": "Ba chai nhựa có nắp xếp cạnh nhau trên tấm gỗ để làm bộ CO2."
+          }
+        ]
+      },
+      {
+        "heading": "Lắp bình tạo CO2 và bình tách khí",
+        "moments": [
+          {
+            "t": 502,
+            "url": "https://media.aquatome.com/video/zHy4CtmnzeA/t502.webp",
+            "width": 240,
+            "height": 180,
+            "caption": "Bóp dẹp đầu dây silicon để chuẩn bị đẩy qua lỗ nắp chai."
+          },
+          {
+            "t": 541,
+            "url": "https://media.aquatome.com/video/zHy4CtmnzeA/t541.webp",
+            "width": 240,
+            "height": 180,
+            "caption": "Ba chai đã gắn dây silicon nối hai chai men vào chai tách khí."
+          }
+        ]
+      },
+      {
+        "heading": "Chạy thử và chỉnh lượng bọt",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/zHy4CtmnzeA/p5-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/zHy4CtmnzeA/p5-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể thủy sinh có lũa và cây lá xanh, nền cát trắng."
+        }
+      }
+    ]
+  }
+}

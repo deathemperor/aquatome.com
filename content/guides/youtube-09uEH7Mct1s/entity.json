@@ -1,0 +1,116 @@
+{
+  "id": "youtube-09uEH7Mct1s",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=09uEH7Mct1s",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "eleocharis-parvula"
+  ],
+  "updatedAt": "2026-11-03",
+  "video": {
+    "youtubeId": "09uEH7Mct1s",
+    "title": "my EASY planted aquarium has PROBLEMS",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 702,
+    "publishedAt": "2019-07-07",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mZrJ2KRUYc2OAF736r42fJe",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/09uEH7Mct1s/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [
+      "Eleocharis parvula"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 61
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 61
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 132
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 132
+      },
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 318
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "t": 508
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 340
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Bể chưa có cá thì lọc chạy thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/09uEH7Mct1s/p1-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/09uEH7Mct1s/p1-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ dưới bể, bên cạnh là xô và ống siphon."
+        }
+      },
+      {
+        "heading": "Thảm cỏ mọc không đều",
+        "moments": [
+          {
+            "t": 554,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/t554.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Thảm cỏ xanh trong bể, giữa dày hơn còn mép ngoài thưa hơn."
+          },
+          {
+            "t": 583,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/t583.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cận cảnh thảm cỏ dày, mọc thẳng như bãi cỏ giữa các thân lũa."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/09uEH7Mct1s/p6-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/09uEH7Mct1s/p6-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm cỏ trong bể thủy sinh còn thưa ở mép, chưa phủ kín đều."
+        }
+      }
+    ]
+  }
+}

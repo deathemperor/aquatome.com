@@ -1,0 +1,216 @@
+{
+  "id": "youtube-4rLFh3Q_FEA",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=4rLFh3Q_FEA",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-03",
+  "video": {
+    "youtubeId": "4rLFh3Q_FEA",
+    "title": "HOW TO: DIY LED Aquarium Light - HIGH POWERED",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 1628,
+    "publishedAt": "2012-08-17",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maWoZdW_ZXncWNyQ2lgJiDL",
+      "position": 9
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/4rLFh3Q_FEA/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "RapidLED",
+        "model": "Cree LED 5W solderless DIY kit (cool white, neutral white, warm white, royal blue)",
+        "t": 120
+      },
+      {
+        "category": "khac",
+        "brand": "RapidLED",
+        "model": "dimmable LED driver with dimmer knob",
+        "t": 430
+      },
+      {
+        "category": "khac",
+        "brand": "RapidLED",
+        "model": "thermal adhesive",
+        "t": 494
+      },
+      {
+        "category": "khac",
+        "brand": "RapidLED",
+        "model": "heat sink",
+        "t": 395
+      },
+      {
+        "category": "khac",
+        "brand": "RapidLED",
+        "model": "Y style hanging kit",
+        "t": 1250
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Chọn màu LED thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/p0-bGVfV2hpdGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/4rLFh3Q_FEA/p0-bGVfV2hpdGUuanBn-480.webp",
+          "width": 960,
+          "height": 556,
+          "licence": "CC BY-SA 4.0",
+          "author": "Claudia Angerer",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lichtsegel_LED_Tunable_White.jpg",
+          "caption": "So sánh ánh sáng trắng lạnh, trung tính và trắng ấm ở các nhiệt độ màu khác nhau."
+        }
+      },
+      {
+        "heading": "Cần chuẩn bị những linh kiện gì",
+        "moments": [
+          {
+            "t": 357,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t357.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Các bảng bóng LED không cần hàn, đã dán miếng keo tản nhiệt."
+          },
+          {
+            "t": 437,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t437.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Driver LED có dây nguồn, dùng để cấp điện cho bóng."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/p1-QzI1MTkxNi53ZWJw.webp",
+          "thumb": "https://media.aquatome.com/video/4rLFh3Q_FEA/p1-QzI1MTkxNi53ZWJw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Alexey Vazhnov",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moving_head_noname_disassembled_power_LED_light_source_PC251916.webp",
+          "caption": "Bóng LED gắn trên mặt phẳng tản nhiệt, bên dưới có các lá tản nhiệt."
+        }
+      },
+      {
+        "heading": "Nối các bóng thành dải",
+        "moments": [
+          {
+            "t": 685,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t685.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Cầm bóng LED để cắm dây jumper vào cực dương."
+          },
+          {
+            "t": 715,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t715.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Dải bóng LED đã nối dây, đặt trên mặt bàn tối."
+          }
+        ]
+      },
+      {
+        "heading": "Gắn dải LED vào driver và bật thử",
+        "moments": [
+          {
+            "t": 824,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t824.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Dây jumper đỏ đen hở đầu đang được nối vào driver."
+          }
+        ]
+      },
+      {
+        "heading": "Bố trí và dán LED lên tản nhiệt",
+        "moments": [
+          {
+            "t": 1152,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t1152.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Dán LED lên mặt phẳng của tản nhiệt, có thấu kính tròn bên cạnh."
+          },
+          {
+            "t": 1171,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t1171.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Cận cảnh các bóng LED đã dán và đi dây trên tản nhiệt."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/p4-QzI1MTkxNi53ZWJw.webp",
+          "thumb": "https://media.aquatome.com/video/4rLFh3Q_FEA/p4-QzI1MTkxNi53ZWJw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Alexey Vazhnov",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moving_head_noname_disassembled_power_LED_light_source_PC251916.webp",
+          "caption": "Một bóng LED công suất lớn được gắn lên tản nhiệt, lá tản nhiệt quay xuống."
+        }
+      },
+      {
+        "heading": "Treo đèn lên bể",
+        "moments": [
+          {
+            "t": 1290,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t1290.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Cầm dây treo, chuẩn bị luồn vào giá chữ Y và miếng bắt trần."
+          },
+          {
+            "t": 1320,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t1320.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Lắp phần giá treo lên heatsink của đèn bằng tay."
+          }
+        ]
+      },
+      {
+        "heading": "Pha màu khi đèn đã lên bể",
+        "moments": [
+          {
+            "t": 1449,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t1449.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Bể chỉ bật đèn xanh dương, cá bơi trong ánh sáng xanh đậm."
+          },
+          {
+            "t": 1489,
+            "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/t1489.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Bể lên tông hồng tím khi pha màu đèn LED, cá tụ xuống đáy."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4rLFh3Q_FEA/p6-TWF5XzIwMjAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/4rLFh3Q_FEA/p6-TWF5XzIwMjAuanBn-480.webp",
+          "width": 960,
+          "height": 570,
+          "licence": "CC BY-SA 4.0",
+          "author": "Treetopz",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nano_reef_aquarium,_May_2020.jpg",
+          "caption": "Bể san hô lên đèn LED pha xanh, màu sắc san hô và cá nổi bật."
+        }
+      }
+    ]
+  }
+}

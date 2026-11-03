@@ -1,0 +1,116 @@
+{
+  "id": "youtube-Ks0OQdOxYd8",
+  "kind": "plantCare",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=Ks0OQdOxYd8",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "eleocharis-parvula",
+    "paracheirodon-innesi",
+    "paracheirodon-axelrodi"
+  ],
+  "updatedAt": "2026-11-03",
+  "video": {
+    "youtubeId": "Ks0OQdOxYd8",
+    "title": "THE PLANTED AQUARIUM - 2",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 761,
+    "publishedAt": "2019-06-08",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mZrJ2KRUYc2OAF736r42fJe",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/Ks0OQdOxYd8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [
+      "Eleocharis parvula",
+      "Paracheirodon innesi",
+      "Paracheirodon axelrodi",
+      "Hemigrammus sp."
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 120
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "ADA",
+        "model": "Aqua Soil",
+        "t": 66
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 96
+      },
+      {
+        "category": "co2",
+        "t": 552
+      },
+      {
+        "category": "den",
+        "brand": "EcoTech Marine",
+        "t": 520
+      },
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "brand": "EcoTech Marine"
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Làm ướt nền trước rồi mới trồng",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Ks0OQdOxYd8/p1-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Ks0OQdOxYd8/p1-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh đã trồng dày cây, nền phủ kín thảm cỏ xanh."
+        }
+      },
+      {
+        "heading": "Có cần mua nhiều cây như vậy không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Ks0OQdOxYd8/p6-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Ks0OQdOxYd8/p6-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm cỏ mọc kín nền bể, xen đá và vài cụm cây lá rộng."
+        }
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Ks0OQdOxYd8/p7-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Ks0OQdOxYd8/p7-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm cỏ cấy mô mọc xanh trên lớp nền dày, xen đá và cây."
+        }
+      }
+    ]
+  }
+}

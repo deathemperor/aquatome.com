@@ -1,0 +1,96 @@
+{
+  "id": "youtube-0qI2Y-DHzQs",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=0qI2Y-DHzQs",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-03",
+  "video": {
+    "youtubeId": "0qI2Y-DHzQs",
+    "title": "HOW TO: DIY Aquarium reactor TUTORIAL",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 371,
+    "publishedAt": "2014-08-10",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maWoZdW_ZXncWNyQ2lgJiDL",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/0qI2Y-DHzQs/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "CARLON",
+        "model": "3623-662 LQTCS-050",
+        "t": 127
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 95
+      },
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 319
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Reactor là gì và dùng để làm gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/0qI2Y-DHzQs/p0-9yZWFjdG9yLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/0qI2Y-DHzQs/p0-9yZWFjdG9yLmpwZw-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 2.5",
+          "author": "Daniel78",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phosphate_reactor.jpg",
+          "caption": "Reactor hình trụ chứa than hoạt tính, nối với ống nước màu xanh lá."
+        }
+      },
+      {
+        "heading": "Khoan nắp và cắt lưới, mút",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/0qI2Y-DHzQs/p2-9ELTQwMTYzLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/0qI2Y-DHzQs/p2-9ELTQwMTYzLkpQRw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Dmitry G",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Makita_D-40163.JPG",
+          "caption": "Mũi khoan bước hình tháp, dùng để khoan lỗ trên nắp nhựa mỏng."
+        }
+      },
+      {
+        "heading": "Chọn bơm và chỗ đặt reactor",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/0qI2Y-DHzQs/p5-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/0qI2Y-DHzQs/p5-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Reactor đặt trên hệ sump acrylic trong tủ bể, có bơm cấp nước riêng."
+        }
+      }
+    ]
+  }
+}

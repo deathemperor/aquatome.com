@@ -1,0 +1,102 @@
+{
+  "id": "youtube-VdIT8peLndI",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=VdIT8peLndI",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-03",
+  "video": {
+    "youtubeId": "VdIT8peLndI",
+    "title": "HOW TO: $12 Aquarium Auto Top Off (ATO) Automation",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 487,
+    "publishedAt": "2015-11-15",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maWoZdW_ZXncWNyQ2lgJiDL",
+      "position": 12
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/VdIT8peLndI/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [],
+    "gear": [],
+    "figures": [
+      {
+        "heading": "Cần chuẩn bị những gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/VdIT8peLndI/p2-X2FuZF8yNHYuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/VdIT8peLndI/p2-X2FuZF8yNHYuanBn-480.webp",
+          "width": 960,
+          "height": 1707,
+          "licence": "CC BY-SA 4.0",
+          "author": "Sargunautoelectricals",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:4_pin_and_5_pin_-12v_and_24v.jpg",
+          "caption": "Mấy loại relay 12V DC, có cái đã tháo vỏ để lộ cuộn dây."
+        }
+      },
+      {
+        "heading": "Phao, relay và adapter làm gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/VdIT8peLndI/p3-aXRjaF9vZmYuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/VdIT8peLndI/p3-aXRjaF9vZmYuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 3.0",
+          "author": "Martin Meise",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Float_switch_off.jpg",
+          "caption": "Phao điện mở nắp, thấy bi kim loại và công tắc bên trong."
+        }
+      },
+      {
+        "heading": "Các bước đấu nối",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/VdIT8peLndI/p4-ZV9yZWxheXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/VdIT8peLndI/p4-ZV9yZWxheXMuanBn-480.webp",
+          "width": 960,
+          "height": 960,
+          "licence": "CC0",
+          "author": "Retired electrician",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Socket_for_automotive_relays.jpg",
+          "caption": "Đế relay màu đen với các chân cắm và dây điện đấu phía dưới."
+        }
+      },
+      {
+        "heading": "Thử trước khi dùng thật",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/VdIT8peLndI/p5-VkX3JlbGF5LnBuZw.webp",
+          "thumb": "https://media.aquatome.com/video/VdIT8peLndI/p5-VkX3JlbGF5LnBuZw-480.webp",
+          "width": 960,
+          "height": 637,
+          "licence": "CC BY-SA 4.0",
+          "author": "TubeTimeUS",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cross_section_of_a_reed_relay.png",
+          "caption": "Rơ-le reed nhỏ, loại công tắc đóng mở kêu tách tách khi có điện."
+        }
+      },
+      {
+        "heading": "Lắp phao lên bể và giữ an toàn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/VdIT8peLndI/p6-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/VdIT8peLndI/p6-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Hệ bể và sump mica trong suốt có gắn thiết bị lên trên."
+        }
+      }
+    ]
+  }
+}
