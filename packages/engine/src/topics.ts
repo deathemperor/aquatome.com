@@ -91,13 +91,17 @@ export async function breedsNamed(content: string, text: string): Promise<string
  * guide written from the facts only and checked against them (one rewrite with the checker's notes), linked to the
  * species and plants it is about. Files: content/guides/<id>/{entity,vi}.json, source 'aquatome', with its references.
  */
-export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a: TopicAsk, o: { researchModel?: string; writeModel?: string; reuse?: boolean; now?: () => Date } = {}) {
+/** The guide's id: content/guides/<id>, engine-state/topics/<id>.json. */
+export const topicId = (topic: string) => `aquatome-${slugify(topic)}`.slice(0, 90).replace(/-+$/, '')
+
+/** `leads`: more lines for the research, after the forum's (shops' posts on the topic, ideas.ts). */
+export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a: TopicAsk, o: { researchModel?: string; writeModel?: string; reuse?: boolean; now?: () => Date; leads?: string } = {}) {
   const content = join(root, 'content')
-  const id = `aquatome-${slugify(a.topic)}`.slice(0, 90).replace(/-+$/, '')
+  const id = topicId(a.topic)
   const factsFile = join(root, 'engine-state/topics', `${id}.json`)
   const kept = o.reuse ? JSON.parse(await readFile(factsFile, 'utf8').catch(() => 'null')) as TopicFacts | null : null
   // Forum threads on the topic (engine forum notes): a translated post leads to its original, the source to cite.
-  const leads = kept ? '' : topicLeads(await readForumState(join(root, 'engine-state/forum/diendancacanh.json')), a.topic)
+  const leads = kept ? '' : topicLeads(await readForumState(join(root, 'engine-state/forum/diendancacanh.json')), a.topic) + (o.leads ?? '')
   const researched = kept ?? await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a) + leads, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
   if (!kept) { await mkdir(join(root, 'engine-state/topics'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.topic}: nothing reliable found` }

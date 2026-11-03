@@ -34,6 +34,17 @@ test('shop list: the seed shop\'s items are mapped first; marketplaces are off l
   expect(JSON.parse(await readFile(join(root, 'engine-state/shop-lists/vi.json'), 'utf8'))).toMatchObject({ lang: 'vi', updatedAt: '2026-10-31' })
 })
 
+test('another shop\'s list seeded later adds the species the kept list lacks after it: one shop doesn\'t reorder it', async () => {
+  const root = await site()
+  await list(root, 'vi', [item('Cánh buồm', 'Gymnocorymbus ternetzi', 0.9), item('Các dòng cá chuột', null, 0.9)])
+  const research: Llm = async <T>() => ({ items: [item('Tép Amano', 'Caridina multidentata', 0.9), item('Cá cánh buồm', 'Gymnocorymbus ternetzi', 0.95), item('Các dòng cá chuột', null, 0.8), item('Ốc Nerita gai', 'Clithon corona', 0.7)], sources: [{ url: 'https://shop2.example/list', title: 'List 2' }] } as T)
+  const r = await makeShopList(root, research, 'vi', { seed: ['Tép Amano', 'Cá cánh buồm', 'Các dòng cá chuột', 'Ốc Nerita gai'], now: () => new Date('2026-11-03T00:00:00Z') })
+  expect(r.items.map(i => i.trade)).toEqual(['Cánh buồm', 'Các dòng cá chuột', 'Tép Amano', 'Ốc Nerita gai'])
+  expect(r.items[0]!.confidence).toBe(0.9)
+  expect(r.sources.map(s => s.url)).toEqual(['https://shop2.example/list'])
+  expect(JSON.parse(await readFile(join(root, 'engine-state/shop-lists/vi.json'), 'utf8')).items).toHaveLength(4)
+})
+
 test('shop species: sure enough to rank by (0.6), list order, each once; new pages are fetched for them, from 0.5, before the most-kept fish', async () => {
   const root = await site()
   await list(root, 'vi', [item('Cánh buồm', 'Gymnocorymbus ternetzi', 0.9), item('Táo đỏ', 'Glossolepis incisus', 0.5), item('Ốc táo', 'Pomacea diffusa', 0.4), item('Neon vua', 'Paracheirodon axelrodi', 0.9), item('Neon vua short', 'Paracheirodon axelrodi', 0.9)])
