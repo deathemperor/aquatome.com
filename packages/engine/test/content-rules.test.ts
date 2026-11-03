@@ -119,6 +119,12 @@ test('a map shown as a photo of the fish, in a caption', () => {
   expect(found(p, 'caption')).toEqual(['a map, not the fish: "Pterophyllum scalare map"', 'a map, not the fish: "Bản đồ phân bố"'])
 })
 
+// Live on two Seriously Fish species pages (2026-11-03): an ad player's poster taken from inside the source's article.
+test("an ad video's poster shown as a photo of the fish, in a caption", () => {
+  const p = page({ kind: 'species', sci: 'Nannocharax brevis', captions: [{ url: 'a', caption: 'video of: African Chop' }, { url: 'b', caption: 'A video of the species spawning was filmed in 2019.' }] })
+  expect(found(p, 'caption')).toEqual(['an ad video\'s poster, not the fish: "video of: African Chop"'])
+})
+
 test('data card: outside bounds, upside down, a tank shorter than twice the fish; checked once, on the Vietnamese page', () => {
   const card: Page['card'] = [
     { field: 'tankCm', source: 'a', value: 15 }, { field: 'sizeCm', source: 'a', value: 7.6 },
