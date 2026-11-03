@@ -178,7 +178,11 @@ jobs:
           if [ "${{ matrix.half }}" = 1 ]; then
             flows=$HANDBOOK_FLOWS_FIRST
           else
-            flows=$(for f in $HANDBOOK_FLOWS; do case " $HANDBOOK_FLOWS_FIRST " in *" $f "*) ;; *) echo "$f" ;; esac; done)
+            # Not in a $(…): the runner's bash 3.2 reads a case's `)` there as the end of it.
+            flows=
+            for f in $HANDBOOK_FLOWS; do
+              case " $HANDBOOK_FLOWS_FIRST " in *" $f "*) ;; *) flows="$flows $f" ;; esac
+            done
           fi
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome \
             -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
