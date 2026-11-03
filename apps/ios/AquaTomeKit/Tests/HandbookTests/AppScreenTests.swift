@@ -72,3 +72,10 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   // Without what the app has (a web page's own links), as before.
   #expect(screen("https://aquatome.com/vi/nhom/catfish/") == nil)
 }
+
+@Test func theFishIDToolInEachLanguageOpensTheAppsOwnScreen() {
+  #expect(screen("https://aquatome.com/vi/cong-cu/nhan-dien-ca/") == .fishId)
+  #expect(screen("https://aquatome.com/id/alat/kenali-ikan/") == .fishId)
+  #expect(screen("https://www.aquatome.com/th/tools/fish-id") == .fishId)
+  #expect(screen("https://example.com/vi/cong-cu/nhan-dien-ca/") == nil)
+}
