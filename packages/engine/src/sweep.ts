@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { mayPublish, QUALITY_THRESHOLD, shownCard, type DataCardField, type Lang, type SpeciesEntity } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropRepeats, fixTranslation, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { rewriteTitle } from './reader'
 import { carryTopicChecks } from './topic-check'
@@ -151,7 +151,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   const maps = new Map<string, string>() // url → why
   for (const p of pages) for (const c of p.captions) {
     const other = wrongFish(c.caption, p.sci!, p.latinNames, ctx)
-    const why = other ? `caption names ${other}, not ${p.sci}` : isMap(c.caption) ? `a map, not ${p.sci}` : ''
+    const why = other ? `caption names ${other}, not ${p.sci}` : isMap(c.caption) ? `a map, not ${p.sci}` : isAdPoster(c.caption) ? `an ad video's poster, not ${p.sci}` : ''
     if (why) off.set(`${p.kind}/${p.id}`, (off.get(`${p.kind}/${p.id}`) ?? new Map()).set(c.url, why))
     if (!other && why) maps.set(c.url, `${why} (${p.kind}/${p.id})`)
   }
@@ -167,7 +167,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
       changed(file.slice(content.length + 1))
     }
   }
-  // A map is no fish's photo: off every page, and never picked again.
+  // A map or an ad's poster is no fish's photo: off every page, and never picked again.
   if (maps.size) {
     const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
     const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>

@@ -397,6 +397,8 @@ export function wrongFish(caption: string, sci: string, others: string[], ctx: C
 }
 /** A caption saying the photo is a map. */
 export const isMap = (caption: string) => MAP.test(caption)
+/** An ad video's title as a photo's caption ("video of: African Chop"): its poster, taken from an ad player in a source's article. */
+export const isAdPoster = (caption: string) => /^video of:/i.test(caption.trim())
 
 /** A caption saying the picture is a map ("Belontia signata map", "bản đồ phân bố"). */
 const MAP = /(?<!\p{L})(map|range map|bản đồ|peta|แผนที่)(?!\p{L})/iu
@@ -532,12 +534,13 @@ export const RULES: Rule[] = [
   },
   {
     // The photos are the same in every language: checked on the Vietnamese page.
-    id: 'caption', title: 'A photo caption naming another fish, or a map',
-    about: 'A species or plant photo whose caption names another species the site has a page for, and not the page\'s, with nothing saying the fish is still the page\'s; or says it is a map. The sweep takes the photo off the page; a map leaves every page (engine-state/_photo-rejected.json), a photo of another fish only this one, so it may still join that fish\'s page. Checked on the Vietnamese page; the photos are the same in every language.',
+    id: 'caption', title: "A photo caption naming another fish, a map or an ad video's poster",
+    about: 'A species or plant photo whose caption names another species the site has a page for, and not the page\'s, with nothing saying the fish is still the page\'s; or says it is a map, or is an ad video\'s title ("video of: …"). The sweep takes the photo off the page; a map or an ad\'s poster leaves every page (engine-state/_photo-rejected.json), a photo of another fish only this one, so it may still join that fish\'s page. Checked on the Vietnamese page; the photos are the same in every language.',
     check: (p, ctx) => (!p.sci || p.lang !== 'vi' ? [] : [...new Set(p.captions.flatMap(c => {
       const other = wrongFish(c.caption, p.sci!, p.latinNames, ctx)
       // Found by the reader's eye (2026-11-01): "Pterophyllum scalare map" shown as a photo of the fish.
-      return [...(other ? [`${other}: "${clip(c.caption, 80)}"`] : []), ...(isMap(c.caption) ? [`a map, not the fish: "${clip(c.caption, 80)}"`] : [])]
+      return [...(other ? [`${other}: "${clip(c.caption, 80)}"`] : []), ...(isMap(c.caption) ? [`a map, not the fish: "${clip(c.caption, 80)}"`] : []),
+        ...(isAdPoster(c.caption) ? [`an ad video's poster, not the fish: "${clip(c.caption, 80)}"`] : [])]
     }))]),
   },
   {

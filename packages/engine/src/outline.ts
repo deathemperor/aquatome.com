@@ -73,10 +73,18 @@ function headings(scope: HTMLElement): Map<HTMLElement, string> {
   return out
 }
 
+/**
+ * What an ad network puts inside an article once its scripts run (Chrome on a home connection, not GitHub's): Ezoic's
+ * video player and display ads (Seriously Fish, 2026-11-03), whose playlist titles and ad labels would be read as the
+ * page's text, and its posters, placeholder ("undefined") and "Ezoic" label as its photos.
+ */
+const AD_INSERTS = '.humix-universal-js-insert, .ez-video-wrap, .ezoic-ad, [id^="ezoic-pub-ad-placeholder"]'
+
 export function htmlToOutline(html: string, contentSelector?: string): { title: string; outline: string; images: PageImage[] } {
   const root = parse(html, { comment: false })
   const title = clean(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? '')
   const scope = (contentSelector && root.querySelector(contentSelector)) || root.querySelector('main') || root.querySelector('article') || root.querySelector('body') || root
+  for (const ad of scope.querySelectorAll(AD_INSERTS)) ad.remove()
   const under = headings(scope)
   const images = scope.querySelectorAll('img').flatMap(i => {
     const p = pageImage(i)

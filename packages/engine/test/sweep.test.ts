@@ -28,7 +28,8 @@ async function store() {
   await put('species/corydoras-adolfoi/entity.json', species('corydoras-adolfoi', 'Corydoras adolfoi', {
     dataCard: { sizeCm: [{ source: 'seriouslyfish', value: 6 }], tankCm: [{ source: 'seriouslyfish', value: 60 }, { source: 'glaser', value: 10 }], ph: [{ source: 'glaser', value: { min: 7.5, max: 6 } }] },
     photos: [photo('https://media.aquatome.com/commons/own.webp', 'Corydoras adolfoi'), photo('https://media.aquatome.com/commons/sterbai.webp', 'Corydoras sterbai'), photo('https://media.aquatome.com/commons/map.webp', 'Corydoras adolfoi map'),
-      photo('https://media.aquatome.com/commons/batch.webp', 'Imported as a contaminant in a batch of Corydoras sterbai')],
+      photo('https://media.aquatome.com/commons/batch.webp', 'Imported as a contaminant in a batch of Corydoras sterbai'),
+      photo('https://media.aquatome.com/seriouslyfish/ad.webp', 'video of: Three Cheese Hot Artichoke Dip')],
   }), 1)
   await put('summaries/corydoras-adolfoi.json', { id: 'corydoras-adolfoi', summary: 'Bể từ 10 cm.', mistakes: [], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' })
   await put('species/corydoras-adolfoi/vi.json', vi('Cá chuột Adolfo', { 'distribution:seriouslyfish': `<p>${REPEAT}</p>`, 'habitat:seriouslyfish': `<p>${REPEAT}</p><p>Nền cát.</p><h3>Ghi chú</h3>` }), 1)
@@ -73,8 +74,8 @@ test('the sweep makes every page pass the rules it fixes, keeps each file\'s ind
   expect(JSON.parse(raw).sections).toEqual({ 'distribution:seriouslyfish': `<p>${REPEAT}</p>`, 'habitat:seriouslyfish': '<p>Nền cát.</p>' })
   expect(raw).toMatch(/^\{\n "slug"/)
 
-  // Photos: the other Corydoras and the map off the page, the tetra off its gallery; "in a batch of" kept. Only the map
-  // leaves every page: C. sterbai stays on its own page, and the tetra may still join its own.
+  // Photos: the other Corydoras, the map and an ad video's poster off the page, the tetra off its gallery; "in a batch of"
+  // kept. Only the map and the poster leave every page: C. sterbai stays on its own page, and the tetra may still join its own.
   const e = await json(root, 'content/species/corydoras-adolfoi/entity.json')
   expect(e.photos.map((p: { url: string }) => p.url.split('/').pop())).toEqual(['own.webp', 'batch.webp'])
   expect(e.updatedAt).toBe('2026-10-01')
@@ -82,6 +83,7 @@ test('the sweep makes every page pass the rules it fixes, keeps each file\'s ind
   expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).photos).toHaveLength(1)
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({
     'https://media.aquatome.com/commons/map.webp': 'a map, not Corydoras adolfoi (species/corydoras-adolfoi)',
+    'https://media.aquatome.com/seriouslyfish/ad.webp': "an ad video's poster, not Corydoras adolfoi (species/corydoras-adolfoi)",
   })
 
   // Card: the tank shorter than twice the fish and the upside-down pH hidden, kept with why; the breed's too.
