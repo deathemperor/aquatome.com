@@ -17,6 +17,9 @@ PART="${1:-all}"
 case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|photos|rewrite]" >&2; exit 2 ;; esac
 # One a part: the Mac runs three parts at once.
 TEST_LOG="/tmp/aquatome-engine-test-$PART.log"
+# The Mac's engine parts and video job share one machine, so their builds and test runs take turns: two suites at once
+# slowed a 0.6 s test past vitest's 5 s and failed a cycle. GitHub runs one part a runner.
+checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
 if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
@@ -32,7 +35,7 @@ push() {
       git rebase --abort 2>/dev/null || true
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then build + test again.
       if git pull -q --rebase -X theirs; then
-        { pnpm build && pnpm test; } >"$TEST_LOG" 2>&1 || { log "build/tests failed after that merge, not publishing"; return 1; }
+        checks 'pnpm build && pnpm test' >"$TEST_LOG" 2>&1 || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
@@ -211,7 +214,7 @@ if [ -z "$(git status --porcelain -- content sources)" ]; then
 fi
 # Real content must build (the test suite builds fixtures), then the suite must pass. I18N_LENIENT: a UI string a new
 # Indonesian or Thai page needs and src/i18n lacks shows in Vietnamese (and is logged) instead of holding back the content.
-if ! { I18N_LENIENT=1 pnpm build && pnpm test; } >"$TEST_LOG" 2>&1; then
+if ! checks 'I18N_LENIENT=1 pnpm build && pnpm test' >"$TEST_LOG" 2>&1; then
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
 git add content sources engine-state docs/review apps/site/src/i18n
