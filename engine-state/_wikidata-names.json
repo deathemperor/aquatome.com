@@ -343,6 +343,7 @@
   },
   "Apteronotus leptorhynchus": null,
   "Apteronotus macrostomus": null,
+  "Ariopsis felis": null,
   "Ariopsis seemanni": null,
   "Aristochromis christyi": null,
   "Arnoldichthys spilopterus": null,
@@ -879,6 +880,11 @@
   "Cambarus bartonii": null,
   "Camposcia retusa": null,
   "Campylomormyrus compressirostris": null,
+  "Candidia barbata": {
+    "id": [
+      "Candidia barbata"
+    ]
+  },
   "Canthophrys gongota": null,
   "Carassius auratus": {
     "th": [
@@ -1030,6 +1036,7 @@
       "Cherax tenuimanus"
     ]
   },
+  "Chilatherina bleheri": null,
   "Chiloglanis polypogon": null,
   "Chitala blanci": {
     "th": [
@@ -1091,6 +1098,7 @@
   "Clarias buettikoferi": null,
   "Clarias camerunensis": null,
   "Clarias insolitus": null,
+  "Clarias leiacanthus": null,
   "Clarias meladerma": {
     "id": [
       "Wiru"
@@ -1105,6 +1113,11 @@
   "Clypeobarbus congicus": null,
   "Cnidoglanis macrocephalus": null,
   "Cobitis macrostigma": null,
+  "Colomesus asellus": {
+    "th": [
+      "ปลาปักเป้าน้ำจืดอเมริกาใต้"
+    ]
+  },
   "Copella arnoldi": null,
   "Copella meinkeni": null,
   "Copella nattereri": null,
@@ -1119,6 +1132,7 @@
   },
   "Corydoras arcuatus": null,
   "Corydoras atropersonatus": null,
+  "Corydoras axelrodi": null,
   "Corydoras carlae": null,
   "Corydoras caudimaculatus": null,
   "Corydoras desana": null,
@@ -1137,6 +1151,8 @@
   "Corydoras pygmaeus": null,
   "Corydoras reynoldsi": null,
   "Corydoras schwartzi": null,
+  "Corydoras semiaquilus": null,
+  "Corydoras serratus": null,
   "Corydoras similis": null,
   "Corydoras splendens": null,
   "Corydoras sterbai": null,
@@ -1159,6 +1175,7 @@
   },
   "Ctenolucius hujeta": null,
   "Ctenopoma acutirostre": null,
+  "Ctenopoma kingsleyae": null,
   "Ctenops nobilis": {
     "th": [
       "ปลากระดี่โนเบิล"
@@ -1279,6 +1296,12 @@
     ]
   },
   "Devario assamensis": null,
+  "Devario auropurpureus": null,
+  "Devario laoensis": {
+    "id": [
+      "Devario laoensis"
+    ]
+  },
   "Devario malabaricus": null,
   "Devario pathirana": null,
   "Devario sondhii": null,
@@ -1292,6 +1315,11 @@
       "Decapogon urostriatum",
       "Dianema urostriatum",
       "ปลาแฟลกเทลแคทฟิช"
+    ]
+  },
+  "Dichotomyctere fluviatilis": {
+    "th": [
+      "ปลาปักเป้าเขียว"
     ]
   },
   "Dichotomyctere nigroviridis": null,
@@ -1358,6 +1386,7 @@
       "ปลาคลาวน์คิลลี่ฟิช"
     ]
   },
+  "Epiplatys chevalieri": null,
   "Erethistes pusillus": null,
   "Erromyzon sinensis": null,
   "Esmaeilius persicus": null,
@@ -1410,6 +1439,7 @@
   "Fundulus xenicus": null,
   "Garra arupi": null,
   "Garra borneensis": null,
+  "Garra ceylonensis": null,
   "Garra flavatra": null,
   "Garra fuliginosa": {
     "th": [
@@ -1453,6 +1483,7 @@
   "Glossolepis wanamensis": null,
   "Glyptosternon reticulatum": null,
   "Glyptothorax dorsalis": null,
+  "Glyptothorax fuscus": null,
   "Glyptothorax verrucosus": null,
   "Gnathonemus petersii": {
     "id": [
@@ -1554,6 +1585,7 @@
   "Hemigrammus stictus": null,
   "Hemiodontichthys acipenserinus": null,
   "Hemiodus argenteus": null,
+  "Hemiodus immaculatus": null,
   "Hemiodus ternetzi": null,
   "Hemirhamphodon kuekenthali": null,
   "Hemirhamphodon phaiosoma": null,
@@ -1584,6 +1616,7 @@
       "ปลาหมอเซวารุ่ม"
     ]
   },
+  "Herotilapia multispinosa": null,
   "Heterandria formosa": null,
   "Heterotis niloticus": {
     "th": [
@@ -1607,6 +1640,7 @@
   "Hyphessobrycon amapaensis": null,
   "Hyphessobrycon anisitsi": null,
   "Hyphessobrycon bifasciatus": null,
+  "Hyphessobrycon columbianus": null,
   "Hyphessobrycon elachys": null,
   "Hyphessobrycon epicharis": null,
   "Hyphessobrycon eques": null,
@@ -1626,6 +1660,7 @@
       "Hypselecara temporalis"
     ]
   },
+  "Hypselobarbus jerdoni": null,
   "Hypsibarbus wetmorei": {
     "id": [
       "Kerai"
@@ -1634,15 +1669,18 @@
       "ปลาตะพากเหลือง"
     ]
   },
+  "Hypsophrys nicaraguensis": null,
   "Iheringichthys megalops": null,
   "Imparfinis mirini": null,
   "Imparfinis pristos": null,
   "Indostomus paradoxus": null,
   "Inpaichthys kerri": null,
   "Iriatherina werneri": null,
+  "Ituglanis passensis": null,
   "Jordanella floridae": null,
   "Julidochromis marlieri": null,
   "Julidochromis ornatus": null,
+  "Knodus borki": null,
   "Kottelatia brittani": null,
   "Kronichthys heylandi": null,
   "Kronichthys subteres": null,
@@ -1693,6 +1731,13 @@
       "Masik"
     ]
   },
+  "Labiobarbus ocellatus": {
+    "id": [
+      "Lamba",
+      "bauk tadung",
+      "luma"
+    ]
+  },
   "Ladigesia roloffi": null,
   "Laides hexanema": null,
   "Laides longibarbis": null,
@@ -1703,9 +1748,15 @@
       "ปลากะพงแม่น้ำไนล์"
     ]
   },
+  "Laubuka dadiburjori": null,
   "Laubuka laubuca": {
     "th": [
       "ปลาซิวหัวตะกั่วอินเดีย"
+    ]
+  },
+  "Leiarius marmoratus": {
+    "id": [
+      "Leiarius marmoratus"
     ]
   },
   "Leiarius pictus": null,
@@ -1715,6 +1766,7 @@
       "Lepidiolamprologus attenuatus"
     ]
   },
+  "Lepidiolamprologus meeli": null,
   "Lepidocephalichthys annandalei": null,
   "Lepidocephalichthys berdmorei": null,
   "Lepidocephalichthys furcatus": null,
@@ -1758,6 +1810,7 @@
   "Liobagrus marginatus": null,
   "Liobagrus mediadiposalis": null,
   "Liobagrus reinii": null,
+  "Listrura nematopteryx": null,
   "Luciocephalus pulcher": {
     "th": [
       "ปลาช่อนเข็ม"
@@ -1829,6 +1882,7 @@
     ]
   },
   "Mastiglanis asopos": null,
+  "Maylandia callainos": null,
   "Maylandia estherae": null,
   "Megalancistrus barrae": null,
   "Megalechis thoracata": {
@@ -1843,12 +1897,15 @@
   "Melanotaenia maccullochi": null,
   "Melanotaenia nigrans": null,
   "Melanotaenia parkinsoni": null,
+  "Melanotaenia picta": null,
   "Melanotaenia praecox": null,
   "Melanotaenia pygmaea": null,
   "Melanotaenia splendida": null,
   "Melanotaenia trifasciata": null,
+  "Mesoheros festae": null,
   "Mesonauta festivus": null,
   "Mesonauta insignis": null,
+  "Mesonauta mirificus": null,
   "Mesonoemacheilus herrei": null,
   "Metynnis argenteus": null,
   "Metynnis fasciatus": null,
@@ -1868,6 +1925,7 @@
     ]
   },
   "Microphis deocata": null,
+  "Microrasbora rubescens": null,
   "Mikrogeophagus altispinosus": {
     "th": [
       "ปลาหมอแคระแรมโบลิเวีย",
@@ -1941,6 +1999,7 @@
       "ปลาหมูกระโดงสูง"
     ]
   },
+  "Nannocharax brevis": null,
   "Nannostomus anduzei": {
     "id": [
       "Nannostomus anduzei"
@@ -1948,10 +2007,16 @@
   },
   "Nannostomus eques": null,
   "Nannostomus marginatus": null,
+  "Nannostomus mortenthaleri": {
+    "th": [
+      "ปลาดินสอแดง"
+    ]
+  },
   "Nannostomus trifasciatus": null,
   "Nanobagrus armatus": null,
   "Neblinichthys pilosus": null,
   "Nemacheilus binotatus": null,
+  "Nemacheilus corica": null,
   "Nemacheilus guentheri": null,
   "Nemacheilus masyae": {
     "id": [
@@ -2108,6 +2173,17 @@
       "Oxydoras niger"
     ]
   },
+  "Oxyeleotris marmorata": {
+    "id": [
+      "cimonong",
+      "gabus malas",
+      "kerapu tawar",
+      "Betutu"
+    ],
+    "th": [
+      "ปลาบู่ทราย"
+    ]
+  },
   "Pachypterus atherinoides": null,
   "Panaqolus koko": null,
   "Panaque bathyphilus": null,
@@ -2127,8 +2203,10 @@
   },
   "Pangio anguillaris": null,
   "Pangio cuneovirgata": null,
+  "Pangio myersi": null,
   "Pangio oblonga": null,
   "Pangio semicincta": null,
+  "Pangio shelfordii": null,
   "Pantodon buchholzi": {
     "id": [
       "Ikan kupu-kupu air tawar"
@@ -2137,6 +2215,7 @@
       "ปลาผีเสื้อ"
     ]
   },
+  "Pao palembangensis": null,
   "Paracanthocobitis mooreh": null,
   "Paracanthocobitis pictilis": null,
   "Paracheirodon axelrodi": {
@@ -2197,9 +2276,12 @@
   },
   "Parasphaerichthys lineatus": null,
   "Parasphaerichthys ocellatus": null,
+  "Parastegophilus paulensis": null,
   "Paratilapia polleni": null,
+  "Paravandellia oxyptera": null,
   "Pareiorhaphis steindachneri": null,
   "Pareiorhaphis vestigipinnis": null,
+  "Pareiorhina rudolphi": null,
   "Parosphromenus anjunganensis": null,
   "Parosphromenus filamentosus": null,
   "Parosphromenus juelinae": null,
@@ -2238,6 +2320,8 @@
       "Wader emas"
     ]
   },
+  "Pethia manipurensis": null,
+  "Pethia narayani": null,
   "Pethia nigrofasciata": null,
   "Pethia padamya": {
     "id": [
@@ -2327,6 +2411,7 @@
       "ปลาเอนด์เลอร์"
     ]
   },
+  "Poecilocharax weitzmani": null,
   "Polypterus ansorgii": null,
   "Polypterus senegalus": {
     "th": [
@@ -2396,6 +2481,7 @@
   "Pseudosphromenus cupanus": null,
   "Pseudosphromenus dayi": null,
   "Pseudotropheus demasoni": null,
+  "Pseudotropheus elongatus": null,
   "Pseudotropheus socolofi": null,
   "Pterobunocephalus depressus": null,
   "Pterodoras granulosus": null,
@@ -2504,6 +2590,15 @@
       "Rasbora einthovenii"
     ]
   },
+  "Rasbora kalochroma": {
+    "th": [
+      "Rasbora kalochroma",
+      "ปลาซิวคาโลโครม่า"
+    ],
+    "id": [
+      "Seluang badut"
+    ]
+  },
   "Rasbora paviana": null,
   "Rasbora rubrodorsalis": {
     "id": [
@@ -2527,6 +2622,7 @@
     ]
   },
   "Rasbosoma spilocerca": null,
+  "Retroculus lapidifer": null,
   "Rhadinocentrus ornatus": null,
   "Rhadinoloricaria rhami": null,
   "Rhinogobius duospilus": {
@@ -2613,6 +2709,7 @@
   },
   "Scobinancistrus aureatus": null,
   "Scoloplax empousa": null,
+  "Selenotoca multifasciata": null,
   "Semaprochilodus taeniurus": {
     "th": [
       "ปลาอินซีเน็ตหางแดง"
@@ -2653,6 +2750,7 @@
       "ปลาตะเพียนลายมาเลย์"
     ]
   },
+  "Sturisoma nigrirostrum": null,
   "Sturisomatichthys aureum": null,
   "Sturisomatichthys leightoni": null,
   "Sulcospira testudinaria": {
@@ -2691,6 +2789,7 @@
   "Synodontis arnoulti": null,
   "Synodontis bastiani": null,
   "Synodontis eupterus": null,
+  "Synodontis flavitaeniatus": null,
   "Synodontis frontosus": null,
   "Synodontis lucipinnis": null,
   "Synodontis nigriventris": null,
@@ -2718,8 +2817,19 @@
   "Tatia gyrina": null,
   "Tatia neivai": null,
   "Tatia strigata": null,
+  "Telmatherina bonti": null,
   "Tenellus leporhinus": null,
   "Tetragonopterus argenteus": null,
+  "Tetraodon lineatus": {
+    "th": [
+      "Tetraodon fahaka",
+      "Tetraodon lineatus",
+      "ปลาปักเป้าฟาฮากา"
+    ],
+    "id": [
+      "Ikan buntal fahaka"
+    ]
+  },
   "Tetraodon mbu": {
     "th": [
       "ปลาปักเป้าเอ็มบู",
@@ -2751,6 +2861,7 @@
   "Traccatichthys taeniatus": null,
   "Trachelyopterus fisheri": null,
   "Trachelyopterus insignis": null,
+  "Trachydoras steindachneri": null,
   "Trichogaster chuna": {
     "th": [
       "ปลากระดี่แดง"
@@ -2771,7 +2882,11 @@
       "ปลากระดี่แคระ"
     ]
   },
+  "Trichogenes longipinnis": null,
   "Trichomycterus albinotatus": null,
+  "Trichomycterus immaculatus": null,
+  "Trichomycterus itatiayae": null,
+  "Trichomycterus mirissumba": null,
   "Trichopodus leerii": {
     "id": [
       "Sepat mutiara"
@@ -2830,6 +2945,7 @@
     ]
   },
   "Triportheus angulatus": null,
+  "Trochilocharax ornatus": null,
   "Tropheus duboisi": null,
   "Tyttocharax cochui": null,
   "Uaru fernandezyepezi": null,

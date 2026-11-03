@@ -1100,6 +1100,18 @@
       "Item 3: \"ไม้น้ำสีสด\" for \"vibrant\" is slightly redundant next to \"เขียวสดใส\"; could be smoothed."
     ]
   },
+  "hygrophila-pinnatifida": {
+    "at": "2026-11-03",
+    "from": "2026-10-30",
+    "name": "ไฮโกรฟิล่า พินนาติฟิดา",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"ต้นโตในระดับปานกลาง\" followed later by \"อัตราการเติบโตช้าถึงปานกลาง\" mirrors the source's own inconsistency; acceptable, but the long final sentence is slightly awkward. Consider splitting it: \"แสงจัดช่วยให้ทรงต้นแน่น เนื่องจากต้นโตช้าถึงปานกลาง\".",
+      "Item 3: \"patched leaves\" rendered as \"มีลายด่างเป็นแต้ม\" is a bit wordy; \"ใบมีลายด่าง\" is more natural.",
+      "Item 3: \"ในถ้วยปิด\" is slightly literal; hobbyists usually say \"ไม้น้ำเนื้อเยื่อ (tissue culture) แบบถ้วย\"."
+    ]
+  },
   "hygrophila-polysperma": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -1107,6 +1119,31 @@
     "confidence": "medium",
     "score": 0.95,
     "notes": []
+  },
+  "hygrophila-polysperma-rosanervig": {
+    "at": "2026-11-03",
+    "from": "2026-10-30",
+    "name": "ไฮโกรฟิล่า โรซาเนอร์วิก",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"อันเป็นเอกลักษณ์\" is repeated twice in close succession (mirrors the English, but reads stiff in Thai); vary or drop the second one, e.g. \"สีของเส้นใบที่ซีดจางนี้\".",
+      "Item 1: \"ถิ่นกำเนิด: สายพันธุ์ที่ปรับปรุงขึ้น (cultivar)\" is a bit wordy; Thai hobbyists more commonly write \"สายพันธุ์คัดเลือก (cultivar)\" or \"พันธุ์ปลูกเลี้ยง\".",
+      "Item 2: \"ต้องให้แสงจัด\" is acceptable, but \"แสงสว่างมาก/แสงแรง\" is the usual hobby phrasing; \"ต้นจะสูงได้ ... และกว้าง\" is fine, though \"ต้น\" for \"stems\" loses a little precision."
+    ]
+  },
+  "hygrophila-serpyllum": {
+    "at": "2026-11-03",
+    "from": "2026-10-30",
+    "name": "ไฮโกรฟิล่า เซอร์ไพลัม",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "\"ทรงพุ่มเตี้ย\" / \"ทรงพุ่มกะทัดรัด\" for \"compact\": the source describes a low-growing carpet-like plant, so \"พุ่ม\" (bush) slightly shifts the meaning. Consider \"เติบโตเตี้ยแน่นกะทัดรัด\".",
+      "\"ลุค\" is used several times (\"ลุคคล้ายพรม\", \"ลุคแน่น\", \"ลุคแบบปูพรม\"). Consider \"ลักษณะ\" or \"ความรู้สึก\" for more natural Thai.",
+      "\"ความสูงเฉลี่ยหลังปลูกในตู้ได้สองเดือน\" is slightly wordy. Consider \"ความสูงเฉลี่ยหลังปลูกในตู้ครบสองเดือน\".",
+      "\"Easy maintenance: minimal trimming required\" is rendered as \"ตัดแต่งเพียงเล็กน้อย\". This is fine, but \"ต้องตัดแต่งน้อย\" would be more natural."
+    ]
   },
   "juncus-repens": {
     "at": "2026-10-30",
@@ -1118,6 +1155,17 @@
       "Item 8: \"ปลาแคระ Otocinclus\" is vague. Use the hobby name \"ปลาอ็อตโต (Otocinclus)\" or \"ปลาซักเกอร์แคระ Otocinclus\".",
       "Item 8: the \"หอยขมญี่ปุ่น (Japanese trapdoor)\" and \"หอยเจดีย์มาเลเซีย\" names are not clearly standard hobby names. Check them or give the English trade name in brackets.",
       "Item 8: \"นีออน\" and \"ซิบร้า\" are incomplete. Say \"ปลาเนออนเตตร้า\" and \"ปลาซีบร้าดานิโอ\" so they read consistently with the other names."
+    ]
+  },
+  "lagenandra-meeboldii": {
+    "at": "2026-11-03",
+    "from": "2026-10-30",
+    "name": "ลาเกนันดร้า มีโบลดิไอ เรด",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"แดงอมม่วง ซึ่งมักพบหลายสีอยู่บนใบเดียวกัน\": the English says the colours often occur on the same leaf. This is fine, but \"ม่วงสด\" for \"bright violet\" could be \"ม่วงสว่าง\". This is minor.",
+      "\"คริปต์\": hobbyists more often write \"ครัยปโตคอรีน\" or \"คริปโต\". \"คริปต์\" is acceptable, but \"คริปโต\" is more common."
     ]
   },
   "limnophila-sessiliflora": {

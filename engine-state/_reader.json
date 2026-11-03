@@ -352,6 +352,12 @@
     ],
     "ruled": "09bfce9df65856ad"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-10-smart-ways-to-use-an-aquarium-catch-cup-or-specimen-container": {
+    "at": "2026-11-03",
+    "hash": "c81ed0269245571d",
+    "findings": [],
+    "ruled": "c81ed0269245571d"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-20-gallon-fish": {
     "at": "2026-11-01",
     "hash": "f755711f5614b97f",
@@ -817,6 +823,12 @@
     ],
     "ruled": "128e03e00354c197"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-fish-for-profit": {
+    "at": "2026-11-03",
+    "hash": "f34b771de9f3772a",
+    "findings": [],
+    "ruled": "f34b771de9f3772a"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-fish-tank": {
     "at": "2026-11-01",
     "hash": "0ba76a440acfda5a",
@@ -925,6 +937,12 @@
       }
     ],
     "ruled": "1ad4cd896e4e6a92"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-catch-aquarium-fish": {
+    "at": "2026-11-03",
+    "hash": "013628064857a1a5",
+    "findings": [],
+    "ruled": "013628064857a1a5"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-change-aquarium-water-correctly": {
     "at": "2026-11-01",
@@ -1151,6 +1169,12 @@
       }
     ],
     "ruled": "111a9a2ce43dce0c"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-nano-fish": {
+    "at": "2026-11-03",
+    "hash": "81dcd325e4834ce4",
+    "findings": [],
+    "ruled": "81dcd325e4834ce4"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-neon-tetra-disease": {
     "at": "2026-11-01",
@@ -1399,6 +1423,22 @@
     "hash": "31a60cbfe9b8fcc1",
     "findings": [],
     "ruled": "31a60cbfe9b8fcc1"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-5-favorite-aquarium-plants": {
+    "at": "2026-11-03",
+    "hash": "13cc21a6d68cd195",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Our 5 Favorite Aquarium Plants That Everyone Should Try - Aquarium Co-Op",
+        "problem": "The caption is just the source article's title and site name, so it says nothing about what the photo shows.",
+        "rule": "A caption that matches the source page's title or ends with ' - <site name>'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "13cc21a6d68cd195"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-5-gouramis": {
     "at": "2026-11-01",
@@ -2079,6 +2119,12 @@
       }
     ],
     "ruled": "5986a697e077db7a"
+  },
+  "vi/guides/aquatome-phan-biet-ca-duc-cai-o-cac-loai-ca-canh-pho-bien-betta-bay-mau-molly-platy-ca-chu": {
+    "at": "2026-11-03",
+    "hash": "6b76d72b1c4f3563",
+    "findings": [],
+    "ruled": "6b76d72b1c4f3563"
   },
   "vi/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
     "at": "2026-11-01",
@@ -3727,11 +3773,84 @@
     ],
     "ruled": "769e5615886e405f"
   },
+  "vi/guides/youtube-5TtDfNZFJE4": {
+    "at": "2026-11-03",
+    "hash": "62cf0c49f7178c1e",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Bắt đầu từ đâu",
+        "problem": "The heading promises where to start, but the section at the end of the page is a recap checklist of the steps already covered.",
+        "fix": "## Tóm tắt các bước",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "còn nền thì phải giấu kín sau mặt kính",
+        "problem": "The wording literally says the substrate is hidden behind the glass, which garbles the intended point that it must not show against the glass.",
+        "fix": "còn nền thì không được lộ ra sát mặt kính",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua từng bước set một bể kính siêu trong 50 cm",
+        "problem": "'đi qua từng bước' is a calque of the English 'walk through' and reads as translated.",
+        "fix": "Dưới đây là từng bước set một bể kính siêu trong 50 cm",
+        "field": "body"
+      }
+    ],
+    "ruled": "62cf0c49f7178c1e"
+  },
+  "vi/guides/youtube-8B80s_qtzxA": {
+    "at": "2026-11-03",
+    "hash": "6ddc6217e2afd0f3",
+    "findings": [],
+    "ruled": "6ddc6217e2afd0f3"
+  },
   "vi/guides/youtube-8wpB5jlgKEg": {
     "at": "2026-11-01",
     "hash": "9410c3e2c1c08818",
     "findings": [],
     "ruled": "9410c3e2c1c08818"
+  },
+  "vi/guides/youtube-8ZjRvJ_5pTE": {
+    "at": "2026-11-03",
+    "hash": "4f0d5d689689b53f",
+    "findings": [],
+    "ruled": "4f0d5d689689b53f"
+  },
+  "vi/guides/youtube-A1a-GetRJxM": {
+    "at": "2026-11-03",
+    "hash": "9cef82546740aefa",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Oscar (Astronotus ocellatus) là loài cá rồng nổi tiếng nhất trong giới chơi cá.",
+        "problem": "Vietnamese hobbyists use \"cá rồng\" for arowana, so calling the Oscar a \"cá rồng\" is wrong. It is a South American cichlid, as the next section itself says.",
+        "fix": "Oscar (Astronotus ocellatus) là một trong những loài cichlid nổi tiếng nhất trong giới chơi cá.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-03",
+        "field": "body",
+        "score": 0.7,
+        "kept": false,
+        "problems": [
+          "Vietnamese hobbyists use \"cá rồng\" for arowana, so calling the Oscar a \"cá rồng\" is wrong. It is a South American cichlid, as the next section itself says."
+        ]
+      }
+    ],
+    "ruled": "9cef82546740aefa"
   },
   "vi/guides/youtube-A7UY_Sa4t7s": {
     "at": "2026-11-01",
@@ -3846,6 +3965,22 @@
       }
     ],
     "ruled": "04be1f083eda629e"
+  },
+  "vi/guides/youtube-EIjUVVFcNmo": {
+    "at": "2026-11-03",
+    "hash": "60d085fc09a5e347",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vì khi lộ ra nó dễ thoát ra nước",
+        "problem": "The phrase 'thoát ra nước' is vague and unnatural: it doesn't clearly say that exposed root fertiliser leaches into the water and clouds it.",
+        "fix": "vì cốt nền lộ ra sẽ dễ xì phân ra nước, làm đục bể",
+        "field": "body"
+      }
+    ],
+    "ruled": "60d085fc09a5e347"
   },
   "vi/guides/youtube-Ejng2T-a2Gk": {
     "at": "2026-11-01",
@@ -4004,6 +4139,40 @@
     "findings": [],
     "ruled": "d5518bd7e257116e"
   },
+  "vi/guides/youtube-GtRKlzO4MNE": {
+    "at": "2026-11-03",
+    "hash": "6975ca556ad73e77",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Món này không bắt buộc, nhưng lưng bạn sẽ cảm ơn bạn.",
+        "problem": "This is a word-for-word copy of the English idiom \"your back will thank you\" and sounds unnatural in Vietnamese.",
+        "fix": "Món này không bắt buộc, nhưng có ghế ngồi thì lưng đỡ mỏi hơn nhiều.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "làm lại từ bước 2 cho tới khi đủ lượng sỏi cần dùng",
+        "problem": "The step says \"bước 2\", but the steps are a bulleted list with no numbers, so the reader has to count to find step 2.",
+        "fix": "làm lại từ bước mở nước vào xô cho tới khi đủ lượng sỏi cần dùng",
+        "rule": "A list item mentions \"bước N\" but the list is bulleted, not numbered.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Bắt đầu từ đâu",
+        "problem": "The section on how to get started comes at the very end, after the washing steps, so the order is misleading.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6975ca556ad73e77"
+  },
   "vi/guides/youtube-H-A6KwMSa9s": {
     "at": "2026-11-01",
     "hash": "9e614891979dec1d",
@@ -4018,6 +4187,12 @@
       }
     ],
     "ruled": "9e614891979dec1d"
+  },
+  "vi/guides/youtube-HoMUpt_DdfU": {
+    "at": "2026-11-03",
+    "hash": "a6df129b55155430",
+    "findings": [],
+    "ruled": "a6df129b55155430"
   },
   "vi/guides/youtube-iFDXqeBOxQk": {
     "at": "2026-11-01",
@@ -4168,6 +4343,12 @@
     ],
     "ruled": "d07139bac22219d9"
   },
+  "vi/guides/youtube-kq-MchItRfo": {
+    "at": "2026-11-03",
+    "hash": "fdb4ac249570930d",
+    "findings": [],
+    "ruled": "fdb4ac249570930d"
+  },
   "vi/guides/youtube-L1Xd9owK1fs": {
     "at": "2026-11-02",
     "hash": "5d576aea4de9b629",
@@ -4305,6 +4486,22 @@
     ],
     "ruled": "ad38fd2aa9ab0d58"
   },
+  "vi/guides/youtube-Omxb5ByqLMs": {
+    "at": "2026-11-03",
+    "hash": "92c48eb398a32525",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mặt khác, Mỹ có gần 400 triệu dân.",
+        "problem": "The US has roughly 340 million people, so \"gần 400 triệu\" overstates the figure.",
+        "fix": "Mặt khác, Mỹ có hơn 330 triệu dân.",
+        "field": "body"
+      }
+    ],
+    "ruled": "92c48eb398a32525"
+  },
   "vi/guides/youtube-PnwEzP5x8eU": {
     "at": "2026-11-02",
     "hash": "119104fde2aacb1d",
@@ -4346,6 +4543,22 @@
     ],
     "ruled": "cec8ab7f2af4b477"
   },
+  "vi/guides/youtube-QRffuIKYrNg": {
+    "at": "2026-11-03",
+    "hash": "71b67a837005feb2",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "L4",
+        "quote": "chịu được pH 7–7,5 và nước 22–23°C",
+        "problem": "The summary repeats the inconsistent ranges from the table, implying the fish tolerates only 22–23°C and that pH 7–7.5 is its limit.",
+        "fix": "chịu được nước mát đến khoảng 22°C",
+        "field": "summary.3"
+      }
+    ],
+    "ruled": "71b67a837005feb2"
+  },
   "vi/guides/youtube-r9rJ8JljJC0": {
     "at": "2026-11-02",
     "hash": "30e739e9d0312d8f",
@@ -4377,6 +4590,22 @@
       }
     ],
     "ruled": "788f6e44801add2e"
+  },
+  "vi/guides/youtube-sFCtqYbZQBg": {
+    "at": "2026-11-03",
+    "hash": "e24eead0f785b3b0",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L16",
+        "quote": "Trong bể lớn, cá heo nuôi chung với Vieja không bị thương. Chúng còn làm cá dẫn, khiến Vieja mạnh dạn hơn.",
+        "problem": "The FAQ presents one tank's experience as a general rule, but the body text says stocking with large cichlids is always risky and that the loaches 'seem' to act as dither fish.",
+        "fix": "Ở bể mẫu, đàn cá heo nuôi chung với Vieja không con nào bị thương, và có vẻ chúng làm cá dẫn, giúp Vieja mạnh dạn hơn. Tuy vậy, nuôi chung với cichlid lớn lúc nào cũng có rủi ro.",
+        "field": "faq.4.a"
+      }
+    ],
+    "ruled": "e24eead0f785b3b0"
   },
   "vi/guides/youtube-SKB7ImWt9Fc": {
     "at": "2026-11-02",
@@ -4415,6 +4644,12 @@
     "hash": "0d25ccae740e0ad6",
     "findings": [],
     "ruled": "0d25ccae740e0ad6"
+  },
+  "vi/guides/youtube-TeiNFp4uDB4": {
+    "at": "2026-11-03",
+    "hash": "e20ea0d71c2e8c59",
+    "findings": [],
+    "ruled": "e20ea0d71c2e8c59"
   },
   "vi/guides/youtube-TKP37sn5BC0": {
     "at": "2026-11-01",
@@ -4586,6 +4821,22 @@
     ],
     "ruled": "847d761969df80c5"
   },
+  "vi/guides/youtube-WVCXRvyshIA": {
+    "at": "2026-11-03",
+    "hash": "48531652cd90f45c",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "ít hơn so với cá mang màu dáng hoang dã",
+        "problem": "\"màu dáng hoang dã\" is a garbled phrase for the wild-type colour form, and \"dáng\" means body shape, not colour.",
+        "fix": "ít hơn so với cá màu hoang dã",
+        "field": "body"
+      }
+    ],
+    "ruled": "48531652cd90f45c"
+  },
   "vi/guides/youtube-X-55vLo-F6M": {
     "at": "2026-11-01",
     "hash": "4b3b5c1a739240ee",
@@ -4701,6 +4952,23 @@
       }
     ],
     "ruled": "3c99b9958d85d475"
+  },
+  "vi/guides/youtube-Yv6gkqeQ0aE": {
+    "at": "2026-11-03",
+    "hash": "506b306e30ef3d17",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-03",
+        "field": "body",
+        "score": 0.95,
+        "kept": true,
+        "problems": [
+          "The sentence is garbled: 'Sự thấy' is not Vietnamese. It should probably be 'Sự thật là' (the truth is)."
+        ]
+      }
+    ],
+    "ruled": "506b306e30ef3d17"
   },
   "vi/guides/youtube-YXhZnSTaUW0": {
     "at": "2026-11-01",
