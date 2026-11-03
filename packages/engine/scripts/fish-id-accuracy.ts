@@ -11,7 +11,7 @@
  *   pnpm --filter @aq/engine exec tsx scripts/fish-id-accuracy.ts                           # 200 photos × 3 models
  *   … --models claude-haiku-5-5,claude-sonnet-5-5 --n 100 --seed 2 --concurrency 4 --keys <file> --out <file>
  *
- * Keys: ~/.config/thuysinh/anthropic-keys (or --keys), the Worker's ANTHROPIC_KEYS format: one per line, `<key>` or
+ * Keys: ~/.config/aquatome/anthropic-keys (or --keys), the Worker's ANTHROPIC_KEYS format: one per line, `<key>` or
  * `<key> <workspaceId>`. Never printed: the report and the log name a key by its hash only. Writes
  * docs/review/fish-id-accuracy.md (a dry run: /tmp/fish-id-accuracy.dry-run.md), results only.
  */
@@ -36,7 +36,7 @@ const { values: args } = parseArgs({
     n: { type: 'string', default: '200' },
     seed: { type: 'string', default: '1' },
     concurrency: { type: 'string', default: '4' },
-    keys: { type: 'string', default: join(homedir(), '.config/thuysinh/anthropic-keys') },
+    keys: { type: 'string', default: join(homedir(), '.config/aquatome/anthropic-keys') },
     out: { type: 'string' },
     'dry-run': { type: 'boolean', default: false },
   },

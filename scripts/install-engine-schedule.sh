@@ -4,18 +4,15 @@
 # engine-repo stays video-cycle.sh's (install-video-schedule.sh).
 set -euo pipefail
 ORIGIN="$(git -C "$(dirname "$0")/.." remote get-url origin)"
-BASE="$HOME/.local/share/thuysinh"
-# The single agent this replaces (all four parts every 6 h, in engine-repo).
-launchctl bootout "gui/$UID/run.thuysinh.engine" 2>/dev/null || true
-rm -f "$HOME/Library/LaunchAgents/run.thuysinh.engine.plist"
+BASE="$HOME/.local/share/aquatome"
 for PART in pages sf photos; do
-  LABEL="run.thuysinh.engine-$PART"
+  LABEL="run.aquatome.engine-$PART"
   CLONE="$BASE/engine-$PART"
-  LOG="$HOME/Library/Logs/thuysinh-engine-$PART.log"
+  LOG="$HOME/Library/Logs/aquatome-engine-$PART.log"
   PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
   # pages keeps the engine's Chrome profile, where the owner passes a source's browser check; the others get their own,
   # as one Chrome at a time can use a profile.
-  PROFILE="$HOME/.cache/thuysinh/chrome-profile"
+  PROFILE="$HOME/.cache/aquatome/chrome-profile"
   [ "$PART" = pages ] || PROFILE="$PROFILE-$PART"
   [ -d "$CLONE/.git" ] || git clone -q "$ORIGIN" "$CLONE"
   mkdir -p "$(dirname "$PLIST")" "$(dirname "$LOG")"

@@ -2,10 +2,10 @@
 # Install the YouTube job (video-cycle.sh) as a launchd agent, every 3 h, in the engine clone, and the engine's clock
 # (engine-due.sh), every hour.
 set -euo pipefail
-LABEL=run.thuysinh.videos
-CLONE="${ENGINE_CLONE:-$HOME/.local/share/thuysinh/engine-repo}"
+LABEL=run.aquatome.videos
+CLONE="${ENGINE_CLONE:-$HOME/.local/share/aquatome/engine-repo}"
 ORIGIN="$(git -C "$(dirname "$0")/.." remote get-url origin)"
-LOG="$HOME/Library/Logs/thuysinh-videos.log"
+LOG="$HOME/Library/Logs/aquatome-videos.log"
 PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 
 [ -d "$CLONE/.git" ] || git clone -q "$ORIGIN" "$CLONE"
@@ -26,7 +26,7 @@ launchctl bootstrap "gui/$UID" "$PLIST"
 echo "installed $LABEL → $CLONE (log: $LOG)"
 
 # The engine's clock (engine-due.sh), hourly: starts a GitHub cycle when none started for 2 h 50 min.
-DUE=run.thuysinh.engine-due
+DUE=run.aquatome.engine-due
 DUE_PLIST="$HOME/Library/LaunchAgents/$DUE.plist"
 cat > "$DUE_PLIST" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>

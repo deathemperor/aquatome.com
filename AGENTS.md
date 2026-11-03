@@ -44,7 +44,7 @@ the next run keeps the fix. A hand edit to one item needs a guard the engine res
 
 ## Guardrails
 
-- The repository is public. Secrets stay in `~/.config/thuysinh/` and GitHub secrets, out of commits and logs. Device
+- The repository is public. Secrets stay in `~/.config/aquatome/` and GitHub secrets, out of commits and logs. Device
   addresses, personal emails and personal names stay out too.
 - A challenge page (Cloudflare, Turnstile) marks a source `needs-human`, and the owner passes it by hand in the engine's
   Chrome profile. Marketplaces (Shopee, Lazada, Tiki, Tokopedia) are reached only through their affiliate APIs.

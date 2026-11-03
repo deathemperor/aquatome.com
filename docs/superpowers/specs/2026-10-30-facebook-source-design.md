@@ -42,7 +42,7 @@ the same way as the other sources. Don't raise permission again.
 ## Constraints and what exists
 
 - Engine: `packages/engine` (TypeScript, Playwright `ChromeFetcher` in `src/fetch.ts`, which drives headed real Chrome
-  with the persistent profile `~/.cache/thuysinh/chrome-profile`). Facebook needs a login to see most of a profile: the owner
+  with the persistent profile `~/.cache/aquatome/chrome-profile`). Facebook needs a login to see most of a profile: the owner
   logs in by hand once in that profile with a **spare Facebook account** that the owner creates (not their personal account,
   so a checkpoint or restriction costs nothing important). A logged-out, checkpoint or login wall is treated like a challenge
   (`ChallengeError` / mark `needs-human`): stop cleanly and say what the person needs to do.

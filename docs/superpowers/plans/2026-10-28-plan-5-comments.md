@@ -62,7 +62,7 @@ Migration `0002_comments.sql`:
 
 ### Task 4: Daily moderation
 - `packages/engine/src/moderate.ts` fetches `/_c/admin/queue` (held, plus approved in the last 48 h), sends batches of 50 to Claude with `prompts/moderate.md` (Vietnamese context; spam, abuse, off-topic ads, personal data → remove; helpful = accurate and answers a question), then POSTs the decisions.
-- CLI: `pnpm engine moderate`. The launchd agent `run.thuysinh.moderate` runs daily at 04:00.
+- CLI: `pnpm engine moderate`. The launchd agent `run.aquatome.moderate` runs daily at 04:00.
 - Tests: a fake LLM and fake admin API; invalid output is retried once; unknown ids are ignored.
 
 ### Task 5: Deploy

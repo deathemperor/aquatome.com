@@ -108,7 +108,7 @@ const thumbOf = async (id: string) => {
 }
 
 /** Transcripts kept on this machine (not committed): the images pass and rewrites reuse them instead of asking YouTube again. */
-const CACHE = process.env.TRANSCRIPT_CACHE ?? join(homedir(), '.cache/thuysinh/transcripts')
+const CACHE = process.env.TRANSCRIPT_CACHE ?? join(homedir(), '.cache/aquatome/transcripts')
 async function cached(file: string, make: () => Promise<string | null>): Promise<string | null> {
   const path = join(CACHE, file)
   const hit = await readFile(path, 'utf8').catch(() => null)
@@ -149,7 +149,7 @@ export const ytDlp: YouTube = {
     }
   }),
   transcribe: (id, lang = 'en') => cached(lang === 'en' ? `${id}.whisper.txt` : `${id}.${lang}.whisper.txt`, async () => {
-    const python = process.env.WHISPER_PYTHON ?? join(homedir(), '.local/share/thuysinh/whisper-venv/bin/python')
+    const python = process.env.WHISPER_PYTHON ?? join(homedir(), '.local/share/aquatome/whisper-venv/bin/python')
     if (!existsSync(python)) return null // Whisper not installed on this machine: the video stays skipped
     const dir = await mkdtemp(join(tmpdir(), 'aq-audio-'))
     try {

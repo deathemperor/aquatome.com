@@ -16,7 +16,7 @@ log() { LAST="$*"; echo "$(date -u +%FT%TZ) $*"; }
 PART="${1:-all}"
 case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|photos|rewrite]" >&2; exit 2 ;; esac
 # One a part: the Mac runs three parts at once.
-TEST_LOG="/tmp/thuysinh-engine-test-$PART.log"
+TEST_LOG="/tmp/aquatome-engine-test-$PART.log"
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
 if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
@@ -46,7 +46,7 @@ push() {
 # One job at a time in a clone (video-cycle.sh shares engine-repo's): a PID file, so a crashed or killed cycle doesn't
 # block the schedule forever.
 # Its process must still be a cycle script: the file outlives a restart, and its number can go to another process.
-PIDFILE="$(git rev-parse --absolute-git-dir)/thuysinh-engine.pid"
+PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 if [ -f "$PIDFILE" ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'cycle\.sh'; then log "previous cycle (pid $(cat "$PIDFILE")) still running"; exit 0; fi
 echo $$ > "$PIDFILE"
 # On the Mac, a failed cycle is reported on GitHub: engine-mac.yml fails, naming the step or the log line it stopped at.
@@ -58,10 +58,10 @@ finish() {
 }
 trap finish EXIT
 
-TOKEN_FILE="$HOME/.config/thuysinh/cf-token"
+TOKEN_FILE="$HOME/.config/aquatome/cf-token"
 [ -s "$TOKEN_FILE" ] || { log "missing $TOKEN_FILE — not running"; exit 1; }
 # Claude: the engine's accounts, one token a line as in GitHub's CLAUDE_CODE_OAUTH_TOKENS, not the owner's own login.
-CLAUDE_TOKENS="$HOME/.config/thuysinh/claude-oauth-tokens"
+CLAUDE_TOKENS="$HOME/.config/aquatome/claude-oauth-tokens"
 if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${CLAUDE_CODE_OAUTH_TOKENS:-}" ] && [ -s "$CLAUDE_TOKENS" ]; then
   CLAUDE_CODE_OAUTH_TOKENS="$(cat "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
 fi
@@ -69,7 +69,7 @@ fi
 # shellcheck disable=SC1091
 [ -n "${CI:-}" ] || { . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"; } # CI: setup-node
 log "cycle start ($PART)"
-if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/thuysinh/"* ]]; then
+if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/aquatome/"* ]]; then
   # A runner or one of the Mac's engine clones: start from GitHub's main, as a fresh runner does. What an earlier failed
   # cycle left here (content that failed its tests, a commit whose push failed) is dropped, and that work redone.
   [ -z "$(git status --porcelain -- content sources)" ] || log "dropping uncommitted content from an earlier failed cycle"
@@ -201,11 +201,11 @@ if [ -z "$(git status --porcelain -- content sources)" ]; then
     git add engine-state docs/review && git commit -q -m "engine: $PART records $(date -u +%F)" && push || exit 1
   fi
   # Pages hidden or unhidden on the dashboard since the last deploy still need a build to leave (or rejoin) the lists.
-  HIDDEN_JSON="$(curl -sf -H "authorization: Bearer $(cat "$HOME/.config/thuysinh/ab-dash-token")" https://aquatome.com/_ab/hidden.json || true)"
+  HIDDEN_JSON="$(curl -sf -H "authorization: Bearer $(cat "$HOME/.config/aquatome/ab-dash-token")" https://aquatome.com/_ab/hidden.json || true)"
   HIDDEN_NOW="$(printf '%s' "$HIDDEN_JSON" | shasum | cut -c1-40)"
-  if part pages && [ -n "$HIDDEN_JSON" ] && [ "$HIDDEN_NOW" != "$(cat "$HOME/.config/thuysinh/hidden-deployed" 2>/dev/null)" ]; then
+  if part pages && [ -n "$HIDDEN_JSON" ] && [ "$HIDDEN_NOW" != "$(cat "$HOME/.config/aquatome/hidden-deployed" 2>/dev/null)" ]; then
     # Recorded here, as deploy.yml's runner keeps its own record.
-    log "hidden pages changed — redeploying"; deploy; printf '%s\n' "$HIDDEN_NOW" > "$HOME/.config/thuysinh/hidden-deployed"; exit 0
+    log "hidden pages changed — redeploying"; deploy; printf '%s\n' "$HIDDEN_NOW" > "$HOME/.config/aquatome/hidden-deployed"; exit 0
   fi
   log "no content changes"; exit 0
 fi

@@ -15,7 +15,7 @@ import { FB } from '../src/facebook/config'
 
 const OUT = '/tmp/aqfb-recon'
 const { values } = parseArgs({ options: { 'logged-out': { type: 'boolean' }, album: { type: 'string' }, photo: { type: 'string' }, post: { type: 'string' }, headless: { type: 'boolean' } } })
-const profileDir = values['logged-out'] ? await mkdtemp(join(tmpdir(), 'aqfb-')) : join(homedir(), '.cache/thuysinh/chrome-profile')
+const profileDir = values['logged-out'] ? await mkdtemp(join(tmpdir(), 'aqfb-')) : join(homedir(), '.cache/aquatome/chrome-profile')
 const ctx = await chromium.launchPersistentContext(profileDir, { channel: 'chrome', headless: !!values.headless, locale: 'en-US', viewport: { width: 1280, height: 900 } })
 const page = ctx.pages()[0] ?? (await ctx.newPage())
 await mkdir(OUT, { recursive: true })
