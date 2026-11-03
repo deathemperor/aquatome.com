@@ -276,6 +276,100 @@
           }
         }
       }
+    },
+    "/api/v1/report": {
+      "post": {
+        "summary": "Report a reader's comment or photo to moderation",
+        "description": "Signed in (the app's bearer, no Origin check) or not (no Origin, or the site's page; any other Origin is refused). A signed-in reader's first report takes the item off public pages at once and puts it in the moderation queue with its reasons; a signed-out report only puts it in the queue, so no one can take a post down without an account. The nightly moderation brings it back or removes it. An item brought back after a review isn't hidden by later reports, only noted for the next review. 20 reports a day per address, and 20 per account on top. The same reporter reporting the same item again changes nothing.",
+        "security": [
+          {
+            "bearer": []
+          },
+          {}
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewReport"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Received (also for the same report again).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reported"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad report",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: session (the app's bearer is expired or signed out)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross-origin (no bearer, and an Origin other than the site's)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not found (no public comment or photo with that id)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate (20 reports a day per address, or per account)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: comments_off | photos_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -327,7 +421,8 @@
           "name",
           "body",
           "helpful",
-          "createdAt"
+          "createdAt",
+          "author"
         ],
         "properties": {
           "id": {
@@ -347,6 +442,11 @@
           "createdAt": {
             "type": "string",
             "description": "ISO 8601 (toISOString)."
+          },
+          "author": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{16}$",
+            "description": "Who posted it, opaque (never a name or email): HMAC(key, \"account:\" + account id) for a post made with an account, the same for everything it posts; HMAC(key, \"post:\" + the post's id) for a web post without one. The same `author` is the same poster only within that rule. The app hides every comment and photo by an `author` the reader blocks, on their phone."
           }
         }
       },
@@ -359,7 +459,8 @@
           "thumb",
           "width",
           "height",
-          "createdAt"
+          "createdAt",
+          "author"
         ],
         "properties": {
           "id": {
@@ -386,6 +487,11 @@
           "createdAt": {
             "type": "string",
             "description": "ISO 8601 (toISOString)."
+          },
+          "author": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{16}$",
+            "description": "Who posted it, opaque (never a name or email): HMAC(key, \"account:\" + account id) for a post made with an account, the same for everything it posts; HMAC(key, \"post:\" + the post's id) for a web post without one. The same `author` is the same poster only within that rule. The app hides every comment and photo by an `author` the reader blocks, on their phone."
           }
         }
       },
@@ -539,6 +645,47 @@
           "deleteUrl": {
             "type": "string",
             "description": "Where the sender can take the photo back."
+          }
+        }
+      },
+      "NewReport": {
+        "type": "object",
+        "required": [
+          "kind",
+          "id"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "comment",
+              "photo"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The comment's or photo's `id`, as GET /_c or /_p gives it."
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "Why, if the reader says (500 UTF-16 units at most). The app sends one of `spam`, `harassment`, `inappropriate`, or none; the website, the reader's own words."
+          }
+        }
+      },
+      "Reported": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "received"
+            ]
           }
         }
       }

@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
-import { beforeEach, expect, test } from 'vitest'
+import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { createSession, randomToken, COOKIE } from '../accounts/session'
+import { purgeRemoved } from '../comments/api'
 import { handle, type Env } from '../index'
 import { testD1 } from './d1'
 
@@ -9,7 +10,7 @@ import { testD1 } from './d1'
  * The app's way of posting readers' comments and photos, a bearer instead of Turnstile, against its contract
  * (protocols/talk.openapi.json): every answer's status is one the contract lists, and its body has the contract's shape.
  */
-type Schema = { $ref?: string; type?: string; required?: string[]; properties?: Record<string, Schema>; items?: Schema; enum?: unknown[]; const?: unknown; minimum?: number; minLength?: number; maxLength?: number }
+type Schema = { $ref?: string; type?: string; required?: string[]; properties?: Record<string, Schema>; additionalProperties?: boolean; items?: Schema; enum?: unknown[]; const?: unknown; minimum?: number; minLength?: number; maxLength?: number; pattern?: string }
 type Op = { responses: Record<string, { description: string; content: { 'application/json': { schema: Schema } } }> }
 const api = JSON.parse(readFileSync(fileURLToPath(new URL('../../../../protocols/talk.openapi.json', import.meta.url).href), 'utf8'))
 const resolve = (s: Schema): Schema => (s.$ref ? resolve(s.$ref.slice(2).split('/').reduce((o, k) => o[k], api)) : s)
@@ -25,12 +26,14 @@ function misfits(v: unknown, schema: Schema, at = '$'): string[] {
     const o = v as Record<string, unknown>
     for (const k of s.required ?? []) if (!(k in o)) out.push(`${at}.${k}: missing`)
     for (const [k, p] of Object.entries(s.properties ?? {})) if (k in o) out.push(...misfits(o[k], p, `${at}.${k}`))
+    if (s.additionalProperties === false) for (const k of Object.keys(o)) if (!(k in (s.properties ?? {}))) out.push(`${at}.${k}: not allowed`)
   } else if (s.type === 'array') {
     if (!Array.isArray(v)) return [...out, `${at}: not an array`]
     v.forEach((x, i) => out.push(...misfits(x, s.items ?? {}, `${at}[${i}]`)))
   } else if (s.type === 'string') {
     if (typeof v !== 'string') return [...out, `${at}: not a string`]
     if (v.length < (s.minLength ?? 0) || v.length > (s.maxLength ?? Infinity)) out.push(`${at}: length ${v.length}`)
+    if (s.pattern && !new RegExp(s.pattern).test(v)) out.push(`${at}: ${JSON.stringify(v)} doesn't match ${s.pattern}`)
   } else if (s.type === 'integer') {
     if (!Number.isInteger(v) || (v as number) < (s.minimum ?? -Infinity)) out.push(`${at}: not an integer ≥ ${s.minimum}`)
   } else if (s.type === 'boolean' && typeof v !== 'boolean') out.push(`${at}: not a boolean`)
@@ -38,7 +41,7 @@ function misfits(v: unknown, schema: Schema, at = '$'): string[] {
 }
 
 /** The answer's body, after checking it against the contract's answer for its status; an error's code is one it names. */
-async function answer(path: '/_c' | '/_p', res: Response): Promise<Record<string, unknown>> {
+async function answer(path: '/_c' | '/_p' | '/api/v1/report', res: Response): Promise<Record<string, unknown>> {
   const body = (await res.json()) as Record<string, unknown>
   const r = (api.paths[path].post as Op).responses[String(res.status)]
   expect(r, `POST ${path} → ${res.status} ${JSON.stringify(body)} is not in the contract`).toBeDefined()
@@ -67,7 +70,7 @@ const fakeR2 = () => {
   const m = new Map<string, Uint8Array>()
   const bucket = {
     put: async (k: string, v: Uint8Array) => { m.set(k, new Uint8Array(v)) },
-    get: async (k: string) => (m.has(k) ? { body: m.get(k), httpMetadata: { contentType: 'image/jpeg' } } : null),
+    get: async (k: string) => (m.has(k) ? { body: m.get(k), httpMetadata: { contentType: 'image/jpeg' }, arrayBuffer: async () => m.get(k)!.slice().buffer } : null),
     head: async (k: string) => (m.has(k) ? {} : null),
     delete: async (k: string | string[]) => { for (const x of [k].flat()) m.delete(x) },
   } as unknown as R2Bucket
@@ -119,7 +122,7 @@ function setup(over: Record<string, string> = {}) {
   }
   const rows = async (table: 'comments' | 'photos') =>
     (await db.prepare(`SELECT id, status, account_id FROM ${table} ORDER BY created_at, rowid`).all<{ id: string; status: string; account_id: string | null }>()).results
-  return { env, db, kv, uploads: uploads.m, media: media.m, comment, photo, signIn, rows }
+  return { env, db, kv, uploads: uploads.m, media: media.m, comment, photo, signIn, rows, headers }
 }
 
 test('the app posts a comment as its account: shown at once, or held, as the page\'s are', async () => {
@@ -259,4 +262,202 @@ test('without a bearer, posting is as before: no account, a browser\'s session c
   expect((await t.rows('comments')).map(r => r.account_id)).toEqual([null])
   expect((await t.rows('photos')).map(r => r.account_id)).toEqual([null])
   expect(await answer('/_c', await t.comment('không có mã', { origin: ORIGIN }))).toEqual({ error: 'turnstile' })
+})
+
+type T = ReturnType<typeof setup>
+type Listed = { comments?: { id: string; author: string }[]; photos?: { id: string; author: string }[] }
+const asOwner = (t: T, path: string, init: RequestInit = {}) => handle(new Request(`${ORIGIN}${path}`, { ...init, headers: { authorization: 'Bearer tok' } }), t.env)
+const report = (t: T, body: object | string, o: Who = {}) =>
+  handle(new Request(`${ORIGIN}/api/v1/report`, { method: 'POST', headers: t.headers(o, { 'content-type': 'application/json' }), body: typeof body === 'string' ? body : JSON.stringify(body) }), t.env)
+/** A page's public comments or photos, checked against the contract's 200. */
+async function listed(t: T, path: '/_c' | '/_p'): Promise<Listed> {
+  const res = await handle(new Request(`${ORIGIN}${path}?e=${PAGE}`), t.env)
+  const body = await res.json()
+  expect(res.status).toBe(200)
+  expect(misfits(body, (api.paths[path].get as Op).responses['200']!.content['application/json'].schema), `GET ${path}`).toEqual([])
+  return body as Listed
+}
+const ids = (l: Listed) => (l.comments ?? l.photos ?? []).map(x => x.id)
+const shown = async (t: T, body: string, o: Who) => ((await (await t.comment(body, o, o.bearer ? {} : { token: 't' })).json()) as { comment: { id: string; author: string } }).comment
+/** As the nightly pass publishes a photo: files first, then the decision. */
+async function publish(t: T, id: string) {
+  for (const kind of ['full', 'thumb']) expect((await asOwner(t, `/_p/admin/file/${id}?kind=${kind}`, { method: 'PUT', body: WEBP })).status).toBe(200)
+  return (await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id, action: 'approve', reason: 'ok', width: 1200, height: 800 }]) })).json()
+}
+const commentQueue = async (t: T) => (await (await asOwner(t, '/_c/admin/queue')).json()) as { id: string; status: string; reason: string | null; reports: string[] }[]
+const photoQueue = async (t: T) => (await (await asOwner(t, '/_p/admin/queue')).json()) as { id: string; reports: string[] }[]
+const decide = (t: T, id: string, action: 'approve' | 'remove') =>
+  asOwner(t, '/_c/admin/decisions', { method: 'POST', body: JSON.stringify([{ id, action, helpful: false, reason: 'checked' }]) })
+// Reports turn on which came first, a report or a decision: these tests set the clock.
+const T0 = Date.parse('2026-11-03T08:00:00Z')
+const at = (minutes: number) => vi.setSystemTime(new Date(T0 + minutes * 60_000))
+afterEach(() => { vi.useRealTimers() })
+
+test('every public comment and photo carries `author`: one per account, one per post sent without one', async () => {
+  const t = setup()
+  const a = await t.signIn()
+  const c1 = await answer('/_c', await t.comment('Bể 60 lít nuôi được mấy con?', { bearer: a.token }))
+  const c2 = await shown(t, 'Nhiệt độ bao nhiêu là vừa?', { bearer: a.token })
+  const w1 = await shown(t, 'Cá này ăn gì?', { origin: ORIGIN })
+  const w2 = await shown(t, 'Cá này ăn gì nữa?', { origin: ORIGIN })
+  const p = (await (await t.photo({ bearer: a.token })).json()) as { id: string }
+  await publish(t, p.id)
+
+  const comments = (await listed(t, '/_c')).comments!
+  const by = (id: string) => comments.find(c => c.id === id)!.author
+  const mine = by((c1.comment as { id: string }).id)
+  expect((c1.comment as { author: string }).author).toBe(mine) // the post's answer says it too
+  expect(by(c2.id)).toBe(mine)
+  expect(by(w1.id)).not.toBe(by(w2.id))
+  expect([by(w1.id), by(w2.id)]).not.toContain(mine)
+  expect((await listed(t, '/_p')).photos!.map(x => x.author)).toEqual([mine])
+  for (const c of comments) expect(c.author).not.toContain(a.id.slice(0, 8))
+})
+
+test('report: every answer is one the contract lists', async () => {
+  const t = setup()
+  const a = await t.signIn()
+  const c = await shown(t, 'Bể 60 lít nuôi được mấy con?', { bearer: a.token })
+  expect(await answer('/_c', await t.comment('mua tại https://a.vn https://b.vn', { bearer: a.token }))).toEqual({ status: 'held' })
+  const held = (await t.rows('comments')).find(r => r.status === 'held')!.id
+  const waiting = (await (await t.photo({ bearer: a.token })).json()) as { id: string }
+
+  for (const bad of ['{', '[]', { kind: 'post', id: c.id }, { kind: 'comment' }, { kind: 'comment', id: '' }, { kind: 'comment', id: 7 },
+    { kind: 'comment', id: c.id, reason: 'x'.repeat(501) }, { kind: 'comment', id: c.id, reason: 5 }]) {
+    expect(await answer('/api/v1/report', await report(t, bad)), JSON.stringify(bad)).toEqual({ error: 'bad report' })
+  }
+  const good = { kind: 'comment', id: c.id, reason: 'quảng cáo' }
+  expect(misfits(good, { $ref: '#/components/schemas/NewReport' })).toEqual([])
+  expect(await answer('/api/v1/report', await report(t, good, { bearer: randomToken() }))).toEqual({ error: 'session' })
+  expect(await answer('/api/v1/report', await report(t, good, { origin: 'https://evil.test' }))).toEqual({ error: 'cross-origin' })
+  for (const missing of [{ kind: 'comment', id: crypto.randomUUID() }, { kind: 'comment', id: held }, { kind: 'photo', id: waiting.id }, { kind: 'photo', id: c.id }]) {
+    expect(await answer('/api/v1/report', await report(t, missing)), JSON.stringify(missing)).toEqual({ error: 'not found' })
+  }
+  // Signed out with no Origin (the app), with the site's (a page), and signed in: received.
+  expect(await answer('/api/v1/report', await report(t, good, { ip: '198.51.100.1' }))).toEqual({ status: 'received' })
+  expect(await answer('/api/v1/report', await report(t, good, { ip: '198.51.100.2', origin: ORIGIN }))).toEqual({ status: 'received' })
+  expect(await answer('/api/v1/report', await report(t, good, { bearer: (await t.signIn()).token }))).toEqual({ status: 'received' })
+
+  const off = setup({ TURNSTILE_SECRET: '' })
+  expect(await answer('/api/v1/report', await report(off, good))).toEqual({ error: 'comments_off' })
+  expect(await answer('/api/v1/report', await report(setup({ UPLOADS: '' }), { kind: 'photo', id: waiting.id }))).toEqual({ error: 'photos_off' })
+})
+
+test('a signed-in reader\'s report takes a comment down at once; a signed-out one only puts it before the moderation', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  at(0)
+  const t = setup()
+  const poster = await t.signIn()
+  const c1 = await shown(t, 'Bể 60 lít nuôi được mấy con?', { bearer: poster.token })
+  const c2 = await shown(t, 'Nhiệt độ bao nhiêu là vừa?', { bearer: poster.token })
+  expect((await (await decide(t, c1.id, 'approve')).json())).toEqual({ applied: 1, ignored: 0 })
+  expect((await (await decide(t, c2.id, 'approve')).json())).toEqual({ applied: 1, ignored: 0 })
+  expect(await commentQueue(t)).toEqual([])
+
+  at(1)
+  const reader = await t.signIn()
+  expect((await report(t, { kind: 'comment', id: c1.id, reason: 'quảng cáo' }, { bearer: reader.token })).status).toBe(202)
+  expect(ids(await listed(t, '/_c'))).toEqual([c2.id])
+  expect(await commentQueue(t)).toEqual([expect.objectContaining({ id: c1.id, status: 'held', reason: 'reported by a reader', reports: ['quảng cáo'] })])
+  // The same reader again changes nothing; another reader can still report the comment that's down.
+  expect((await report(t, { kind: 'comment', id: c1.id, reason: 'lần nữa' }, { bearer: reader.token })).status).toBe(202)
+  expect((await report(t, { kind: 'comment', id: c1.id }, { ip: '198.51.100.7' })).status).toBe(202)
+  expect((await commentQueue(t))[0]!.reports.sort()).toEqual(['', 'quảng cáo'])
+
+  // Signed out: c2 stays up, and is in the queue with its reason.
+  expect((await report(t, { kind: 'comment', id: c2.id, reason: 'sai' }, { ip: '198.51.100.8' })).status).toBe(202)
+  expect(ids(await listed(t, '/_c'))).toEqual([c2.id])
+  expect((await commentQueue(t)).map(q => [q.id, q.status, q.reports])).toEqual([[c1.id, 'held', expect.any(Array)], [c2.id, 'approved', ['sai']]])
+
+  // Who reported is kept only as keyed hashes: no account id or address in the table or the counters.
+  const kept = (await t.db.prepare(`SELECT reporter FROM reports`).all<{ reporter: string }>()).results
+  expect(kept).toHaveLength(3)
+  for (const r of kept) expect(r.reporter).toMatch(/^[0-9a-f]{32}$/)
+  for (const k of [...t.kv.keys()].filter(k => k.startsWith('r') && !k.startsWith('rl:'))) expect(k).toMatch(/^rrl:[0-9a-f]{32}$/)
+})
+
+test('kept by the moderation after a report, a comment stays up through later reports, back in the queue each time', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  at(0)
+  const t = setup()
+  const c = await shown(t, 'Bể 60 lít nuôi được mấy con?', { bearer: (await t.signIn()).token })
+  at(1)
+  expect((await report(t, { kind: 'comment', id: c.id }, { bearer: (await t.signIn()).token })).status).toBe(202)
+  expect(ids(await listed(t, '/_c'))).toEqual([])
+  at(2)
+  await decide(t, c.id, 'approve')
+  expect(ids(await listed(t, '/_c'))).toEqual([c.id])
+  expect(await commentQueue(t)).toEqual([])
+  at(3)
+  expect((await report(t, { kind: 'comment', id: c.id, reason: 'lại nữa' }, { bearer: (await t.signIn()).token })).status).toBe(202)
+  expect(ids(await listed(t, '/_c'))).toEqual([c.id])
+  expect((await commentQueue(t)).map(q => [q.id, q.status, q.reports.length])).toEqual([[c.id, 'approved', 2]])
+  at(4)
+  await decide(t, c.id, 'approve')
+  expect(await commentQueue(t)).toEqual([])
+})
+
+test('photos: a signed-in report unpublishes at once; the nightly pass sees it again; kept, later reports only queue it', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  at(0)
+  const t = setup()
+  const p = (await (await t.photo({ bearer: (await t.signIn()).token })).json()) as { id: string }
+  await publish(t, p.id)
+  expect(ids(await listed(t, '/_p'))).toEqual([p.id])
+  expect(t.uploads.size).toBe(0)
+
+  at(1)
+  expect((await report(t, { kind: 'photo', id: p.id, reason: 'không phải cá này' }, { bearer: (await t.signIn()).token })).status).toBe(202)
+  expect(ids(await listed(t, '/_p'))).toEqual([])
+  expect(t.media.size).toBe(0) // its public address answers nothing
+  expect(t.uploads.get(`pending/${p.id}`)).toEqual(WEBP) // the published copy, for the pass to look at again
+  expect(await photoQueue(t)).toEqual([expect.objectContaining({ id: p.id, reports: ['không phải cá này'] })])
+  expect((await asOwner(t, `/_p/admin/raw/${p.id}`)).status).toBe(200)
+
+  at(2)
+  expect(await publish(t, p.id)).toEqual({ applied: 1, ignored: 0 })
+  expect(ids(await listed(t, '/_p'))).toEqual([p.id])
+  expect(await photoQueue(t)).toEqual([])
+
+  at(3)
+  expect((await report(t, { kind: 'photo', id: p.id }, { bearer: (await t.signIn()).token })).status).toBe(202)
+  expect(ids(await listed(t, '/_p'))).toEqual([p.id])
+  expect((await photoQueue(t)).map(q => [q.id, q.reports.length])).toEqual([[p.id, 2]])
+  // No upload is left after publishing: the pass reads the published copy.
+  expect(t.uploads.size).toBe(0)
+  expect(new Uint8Array(await (await asOwner(t, `/_p/admin/raw/${p.id}`)).arrayBuffer())).toEqual(WEBP)
+  at(4)
+  expect(await publish(t, p.id)).toEqual({ applied: 1, ignored: 0 })
+  expect(await photoQueue(t)).toEqual([])
+})
+
+test('reports: 20 a day per address and 20 per account on top; a refused report counts against neither', async () => {
+  const t = setup()
+  const c = await shown(t, 'Bể 60 lít nuôi được mấy con?', { bearer: (await t.signIn()).token })
+  const r = { kind: 'comment', id: c.id }
+  for (let i = 0; i < 20; i++) expect((await report(t, r, { ip: '198.51.100.1' })).status).toBe(202)
+  expect(await answer('/api/v1/report', await report(t, r, { ip: '198.51.100.1' }))).toEqual({ error: 'rate' })
+  const b = await t.signIn()
+  for (let i = 0; i < 20; i++) expect((await report(t, r, { bearer: b.token, ip: '198.51.100.2' })).status).toBe(202)
+  expect(await answer('/api/v1/report', await report(t, r, { bearer: b.token, ip: '198.51.100.3' }))).toEqual({ error: 'rate' })
+  // 198.51.100.3 wasn't counted for b's refused report.
+  for (let i = 0; i < 20; i++) expect((await report(t, r, { ip: '198.51.100.3' })).status).toBe(202)
+})
+
+test('reports go when what they report goes: a purged comment\'s, a removed photo\'s', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  at(0)
+  const t = setup()
+  const a = await t.signIn()
+  const gone = await shown(t, 'Bể 60 lít nuôi được mấy con?', { bearer: a.token })
+  const stays = await shown(t, 'Nhiệt độ bao nhiêu là vừa?', { bearer: a.token })
+  const p = (await (await t.photo({ bearer: a.token })).json()) as { id: string }
+  await publish(t, p.id)
+  at(1)
+  for (const [kind, id] of [['comment', gone.id], ['comment', stays.id], ['photo', p.id]]) expect((await report(t, { kind, id }, { ip: '198.51.100.1' })).status).toBe(202)
+  at(2)
+  await decide(t, gone.id, 'remove')
+  await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id: p.id, action: 'remove', reason: 'not this fish' }]) })
+  expect(await purgeRemoved(t.db, new Date(T0 + 31 * 86_400_000))).toBe(1)
+  expect((await t.db.prepare(`SELECT kind, item_id FROM reports`).all()).results).toEqual([{ kind: 'comment', item_id: stays.id }])
 })

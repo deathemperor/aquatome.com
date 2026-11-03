@@ -33,9 +33,11 @@ that would have caught it).
     guides and glossary terms are the site's lists', a page out of search engines too, each with its page's copy in a
     shard; a species' `tax` and `from` lead to the taxon and origin pages that list it, `places` are the origin pages
     with what each lists, and `labels` say what those pages say.
-  - The Worker's answers when the app posts readers' comments and photos (a bearer, no Turnstile) against
-    `protocols/talk.openapi.json`: a status the contract lists and a body of its shape, the account's daily limits on
-    top of the address's, and an account's posts and photo files deleted with it (`apps/site/worker/test/talk.test.ts`).
+  - The Worker's answers when the app posts readers' comments and photos (a bearer, no Turnstile) and reports them,
+    against `protocols/talk.openapi.json`: a status the contract lists and a body of its shape, the account's daily
+    limits on top of the address's, an account's posts and photo files deleted with it, every public post's `author`,
+    and a report that takes a post down only from a signed-in reader and never once the moderation has kept it
+    (`apps/site/worker/test/talk.test.ts`).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools).

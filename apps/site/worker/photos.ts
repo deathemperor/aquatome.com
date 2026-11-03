@@ -1,4 +1,4 @@
-import { appAccount, dayKeys, siteverify, verifyCommenter } from './comments/api'
+import { appAccount, authors, dayKeys, siteverify, verifyCommenter } from './comments/api'
 import { staticRules } from './comments/rules'
 
 /**
@@ -19,7 +19,7 @@ export type PhotosEnv = {
 }
 type Live = PhotosEnv & { DB: D1Database; UPLOADS: R2Bucket; MEDIA: R2Bucket; TURNSTILE_SECRET: string; TURNSTILE_SITEKEY: string; COMMENT_HMAC_KEY: string }
 type Siteverify = typeof siteverify
-export type PublicPhoto = { id: string; name: string; url: string; thumb: string; width: number; height: number; createdAt: string }
+export type PublicPhoto = { id: string; name: string; url: string; thumb: string; width: number; height: number; createdAt: string; author: string }
 
 export const MAX_BYTES = 8 * 1024 * 1024
 const MAX_PER_DAY = 5
@@ -50,9 +50,10 @@ export async function listPhotos(url: URL, env: PhotosEnv): Promise<Response> {
   const e = url.searchParams.get('e') ?? ''
   if (!SPECIES_RE.test(e)) return json({ error: 'bad entity' }, 400)
   const { results } = await env.DB.prepare(
-    `SELECT id, name, url, thumb, width, height, created_at FROM photos WHERE entity_ref = ? AND status = 'approved' ORDER BY created_at DESC LIMIT 60`,
-  ).bind(e).all<{ id: string; name: string; url: string; thumb: string; width: number; height: number; created_at: string }>()
-  const photos: PublicPhoto[] = results.map(r => ({ id: r.id, name: r.name, url: r.url, thumb: r.thumb, width: r.width, height: r.height, createdAt: r.created_at }))
+    `SELECT id, name, url, thumb, width, height, created_at, account_id FROM photos WHERE entity_ref = ? AND status = 'approved' ORDER BY created_at DESC LIMIT 60`,
+  ).bind(e).all<{ id: string; name: string; url: string; thumb: string; width: number; height: number; created_at: string; account_id: string | null }>()
+  const author = await authors(env.COMMENT_HMAC_KEY)
+  const photos: PublicPhoto[] = await Promise.all(results.map(async r => ({ id: r.id, name: r.name, url: r.url, thumb: r.thumb, width: r.width, height: r.height, createdAt: r.created_at, author: await author(r) })))
   return json({ photos, sitekey: env.TURNSTILE_SITEKEY, verification: env.COMMENT_VERIFICATION === 'phone' ? 'phone' : 'none' }, 200, { 'cache-control': 'public, max-age=60' })
 }
 
@@ -104,6 +105,18 @@ export async function deletePhotoFiles(buckets: { UPLOADS: R2Bucket; MEDIA: R2Bu
   await Promise.all([buckets.UPLOADS.delete(`pending/${id}`), buckets.MEDIA.delete([fullKey(id), thumbKey(id)])])
 }
 
+/**
+ * Off the page until the nightly pass looks again: the published copy goes back to the private bucket as the pass's raw
+ * file, the public files are deleted, and the photo is pending once more.
+ */
+export async function hidePhoto(env: Live, id: string, reason: string): Promise<void> {
+  const full = await env.MEDIA.get(fullKey(id))
+  if (full) await env.UPLOADS.put(`pending/${id}`, await full.arrayBuffer(), { httpMetadata: { contentType: 'image/webp' } })
+  const r = await env.DB.prepare(`UPDATE photos SET status = 'pending', url = NULL, thumb = NULL, reason = ?, decided_at = NULL WHERE id = ? AND status = 'approved'`)
+    .bind(reason, id).run()
+  if (r.meta.changes ?? 0) await env.MEDIA.delete([fullKey(id), thumbKey(id)])
+}
+
 /** Take a photo down: row → removed, every stored copy deleted. */
 export async function removePhoto(env: Live, id: string, reason: string, now: Date): Promise<boolean> {
   const r = await env.DB.prepare(`UPDATE photos SET status = 'removed', url = NULL, thumb = NULL, reason = ?, decided_at = ? WHERE id = ? AND status != 'removed'`)
@@ -134,7 +147,8 @@ export async function deleteRoute(req: Request, url: URL, env: PhotosEnv, now: D
   return page('<h1>Đã gỡ ảnh</h1><p>Ảnh của bạn đã bị xóa.</p>')
 }
 
-export type PhotoQueueItem = { id: string; entity_ref: string; name: string; created_at: string }
+/** `reports`: each reader's reason for reporting it ('' when they gave none). */
+export type PhotoQueueItem = { id: string; entity_ref: string; name: string; created_at: string; reports: string[] }
 export type PhotoDecision = { id: string; action: 'approve' | 'remove'; reason: string; width?: number; height?: number }
 
 /** /_p/admin/{queue, raw/:id, file/:id?kind=full|thumb, decisions} for the nightly pass (Bearer dashboard token, checked by the caller). */
@@ -142,12 +156,20 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
   if (!live(env)) return off()
   const p = url.pathname
   if (p === '/_p/admin/queue' && req.method === 'GET') {
-    const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, created_at FROM photos WHERE status = 'pending' ORDER BY created_at LIMIT 200`).all<PhotoQueueItem>()
-    return json(results)
+    // Pending photos, and published ones reported since the pass last looked (reported before that, they're shown again).
+    const { results } = await env.DB.prepare(
+      `SELECT id, entity_ref, name, created_at,
+         (SELECT json_group_array(COALESCE(reason, '')) FROM reports WHERE kind = 'photo' AND item_id = photos.id) AS reports
+       FROM photos
+       WHERE status = 'pending' OR (status = 'approved' AND EXISTS (SELECT 1 FROM reports WHERE kind = 'photo' AND item_id = photos.id AND created_at > photos.decided_at))
+       ORDER BY created_at LIMIT 200`,
+    ).all<Omit<PhotoQueueItem, 'reports'> & { reports: string }>()
+    return json(results.map(r => ({ ...r, reports: JSON.parse(r.reports) as string[] })))
   }
   const raw = p.match(/^\/_p\/admin\/raw\/([0-9a-f-]{36})$/)
   if (raw && req.method === 'GET') {
-    const o = await env.UPLOADS.get(`pending/${raw[1]}`)
+    // A published photo reported again has no upload left: the published copy is its raw file.
+    const o = (await env.UPLOADS.get(`pending/${raw[1]}`)) ?? (await env.MEDIA.get(fullKey(raw[1]!)))
     return o ? new Response(o.body, { headers: { 'content-type': o.httpMetadata?.contentType ?? 'application/octet-stream', 'cache-control': 'no-store' } }) : json({ error: 'not found' }, 404)
   }
   const file = p.match(/^\/_p\/admin\/file\/([0-9a-f-]{36})$/)
@@ -168,7 +190,7 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
       if (d.action === 'remove') { if (await removePhoto(env, d.id, d.reason, now)) applied++; continue }
       if (d.action !== 'approve' || !Number.isInteger(d.width) || !Number.isInteger(d.height)) continue
       if (!(await env.MEDIA.head(fullKey(d.id))) || !(await env.MEDIA.head(thumbKey(d.id)))) continue // files first, then publish
-      const r = await env.DB.prepare(`UPDATE photos SET status = 'approved', url = ?, thumb = ?, width = ?, height = ?, reason = ?, decided_at = ? WHERE id = ? AND status = 'pending'`)
+      const r = await env.DB.prepare(`UPDATE photos SET status = 'approved', url = ?, thumb = ?, width = ?, height = ?, reason = ?, decided_at = ? WHERE id = ? AND status IN ('pending', 'approved')`)
         .bind(`${MEDIA_BASE}/${fullKey(d.id)}`, `${MEDIA_BASE}/${thumbKey(d.id)}`, d.width, d.height, d.reason.slice(0, 300), now.toISOString(), d.id).run()
       if ((r.meta.changes ?? 0) > 0) { applied++; await env.UPLOADS.delete(`pending/${d.id}`) }
     }

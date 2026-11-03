@@ -52,3 +52,12 @@ test('batches of 50', async () => {
   await moderate(api, llm)
   expect(llm.calls).toBe(3)
 })
+
+test('a reported comment\'s reasons go to the model with it; an unreported one carries none', async () => {
+  const prompts: string[] = []
+  const llm = (async (o: { prompt: string }) => { prompts.push(o.prompt); return { decisions: [] } }) as unknown as Llm
+  await moderate(admin([{ ...item('r', 'held'), reason: 'reported by a reader', reports: ['quảng cáo', ''] }, item('u')]).api, llm)
+  const sent = JSON.parse(prompts[0]!.slice(prompts[0]!.lastIndexOf('\n\n['))) as Record<string, unknown>[]
+  expect(sent.map(s => s.reports)).toEqual([['quảng cáo', ''], undefined])
+  expect(prompts[0]).toContain('A report alone is no reason to remove it')
+})
