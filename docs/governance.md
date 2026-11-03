@@ -44,6 +44,10 @@ that would have caught it).
     limits on top of the address's, an account's posts and photo files deleted with it, every public post's `author`,
     and a report that takes a post down only from a signed-in reader and never once the moderation has kept it
     (`apps/site/worker/test/talk.test.ts`).
+  - The fish identifier's answers, the page's and the app's (its session as a bearer, no Origin or Turnstile), against
+    `protocols/fishid.openapi.json`: a status the contract lists and a body of its shape, the app counted per account
+    and not per address, a bearer with no live app session refused rather than taken the page's way, and no wanted
+    names from our own checks (`apps/site/worker/test/fishid.test.ts`).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools).
