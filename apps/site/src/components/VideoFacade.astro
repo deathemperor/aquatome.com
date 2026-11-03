@@ -30,7 +30,8 @@ const langLabel = (l: string) => (l === 'vi' ? t('tiếng Việt') : l.toUpperCa
     const b = (e.target as Element).closest<HTMLButtonElement>('button[data-youtube-id]')
     if (!b) return
     const f = document.createElement('iframe')
-    f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.youtubeId}?autoplay=1`
+    // playsinline: on an iPhone the video plays here, not in iOS's full-screen player.
+    f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.youtubeId}?autoplay=1&playsinline=1`
     f.allow = 'autoplay; encrypted-media; picture-in-picture'
     f.allowFullscreen = true
     f.title = b.getAttribute('aria-label') ?? 'Video'

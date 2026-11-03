@@ -84,7 +84,7 @@ const marks = v.chapters.map((c, i) => ({ start: c.start, title: chapters.length
     }), () => {
       // The control script was blocked (ad blocker, offline): a plain embed still plays, with captions on.
       const f = document.createElement('iframe')
-      f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&start=${t}&rel=0&cc_load_policy=1&cc_lang_pref=${lang}&hl=${lang}`
+      f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&start=${t}&rel=0&playsinline=1&cc_load_policy=1&cc_lang_pref=${lang}&hl=${lang}`
       f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'
       f.title = fig.querySelector('.facade')?.getAttribute('aria-label') ?? 'Video'
       frame.replaceChildren(f)
