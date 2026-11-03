@@ -1,0 +1,28 @@
+name: 'Engine on the Mac: a part failed'
+# The owner's Mac runs the engine's pages, sf and photos parts (scripts/install-engine-schedule.sh). A cycle there that
+# fails starts this run, which fails in turn, so it is reported as a failed job here is. The cycle's log is
+# ~/Library/Logs/thuysinh-engine-<part>.log on the Mac.
+run-name: 'Engine on the Mac: ${{ inputs.part }} failed'
+on:
+  workflow_dispatch:
+    inputs:
+      part:
+        description: 'pages, sf or photos'
+        required: true
+      why:
+        description: 'The exit status, and the step or log line the cycle stopped at'
+        default: ''
+permissions: {}
+jobs:
+  failed:
+    name: 'A part failed on the Mac'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Report it
+        env:
+          PART: ${{ inputs.part }}
+          WHY: ${{ inputs.why }}
+        run: |
+          echo "::error::The Mac's $PART cycle failed ($WHY). Log: ~/Library/Logs/thuysinh-engine-$PART.log on the Mac."
+          exit 1

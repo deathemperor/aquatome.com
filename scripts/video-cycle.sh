@@ -10,7 +10,7 @@ log() { echo "$(date -u +%FT%TZ) $*"; }
 # The GitHub engine's clock (it also runs hourly on its own, when installed): a cycle when none started for 2 h 50 min.
 scripts/engine-due.sh || log "engine: the due check failed"
 # Shared with manual engine runs in this clone, so the two never touch the tree at once.
-PIDFILE="${TMPDIR:-/tmp}/thuysinh-engine.pid"
+PIDFILE="$(git rev-parse --absolute-git-dir)/thuysinh-engine.pid"
 if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then log "another engine job (pid $(cat "$PIDFILE")) is running"; exit 0; fi
 echo $$ > "$PIDFILE"
 trap 'rm -f "$PIDFILE"' EXIT
