@@ -1,0 +1,128 @@
+{
+  "id": "youtube-D_yIwhL7XdE",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=D_yIwhL7XdE",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-02",
+  "video": {
+    "youtubeId": "D_yIwhL7XdE",
+    "title": "HOW TO: aquarium aquaponics",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 471,
+    "publishedAt": "2015-05-31",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mYXCvYy58764n0u9LSHGvtI",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/D_yIwhL7XdE/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [
+      "Oreochromis niloticus"
+    ],
+    "gear": [],
+    "figures": [
+      {
+        "heading": "Aquaponics chạy thế nào",
+        "moments": [
+          {
+            "t": 211,
+            "url": "https://media.aquatome.com/video/D_yIwhL7XdE/t211.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khung kệ nhựa nhiều tầng dùng để dựng hệ aquaponics tự làm."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/D_yIwhL7XdE/p0-kxNTYyNzE0LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/D_yIwhL7XdE/p0-kxNTYyNzE0LmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "dalli58",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_small_aquaponics_system_-_13391562714.jpg",
+          "caption": "Hệ aquaponics với ống trắng trồng cây, thùng nước xanh chứa cá bên cạnh."
+        }
+      },
+      {
+        "heading": "Mẫu 1: ống PVC cắm cốc trồng gắn lên bể",
+        "moments": [
+          {
+            "t": 59,
+            "url": "https://media.aquatome.com/video/D_yIwhL7XdE/t59.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ống PVC khoan hàng lỗ, cắm thử các cốc nhựa vào lỗ."
+          },
+          {
+            "t": 98,
+            "url": "https://media.aquatome.com/video/D_yIwhL7XdE/t98.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ống PVC gắn cốc trồng cây đặt trên miệng bể cá."
+          }
+        ]
+      },
+      {
+        "heading": "Mẫu 2: hệ nhiều tầng từ kệ nhựa",
+        "moments": [
+          {
+            "t": 240,
+            "url": "https://media.aquatome.com/video/D_yIwhL7XdE/t240.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Kệ nhựa nhiều tầng mặt liền, không có lỗ thoát nước."
+          },
+          {
+            "t": 265,
+            "url": "https://media.aquatome.com/video/D_yIwhL7XdE/t265.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khoan lỗ trên khay kệ để lắp ống tràn CPVC."
+          }
+        ]
+      },
+      {
+        "heading": "Đặt hệ ở đâu và mở rộng thế nào",
+        "moments": [
+          {
+            "t": 358,
+            "url": "https://media.aquatome.com/video/D_yIwhL7XdE/t358.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khay trồng đầy sỏ đất nung với ống nước chảy vào."
+          },
+          {
+            "t": 368,
+            "url": "https://media.aquatome.com/video/D_yIwhL7XdE/t368.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Kệ nhiều tầng đặt ngoài trời, khay sỏ đất nung nằm trên thùng cá."
+          }
+        ]
+      },
+      {
+        "heading": "Bắt đầu từ đâu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/D_yIwhL7XdE/p6-h5ZHJvdG9uLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/D_yIwhL7XdE/p6-h5ZHJvdG9uLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lucis",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydroton.jpg",
+          "caption": "Sỏi đất nung (hạt đất sét nung) cận cảnh, loại dùng làm giá thể trồng cây."
+        }
+      }
+    ]
+  }
+}

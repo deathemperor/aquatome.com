@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-02), most-read pages first. Rules: docs/governance.md, "Photos".
-2611 verdicts. Shows it: 2001; its habitat: 41; something else: 85; not a photo of it: 47; can't tell: 424.
+Written by `pnpm engine check-photos` (2026-11-03), most-read pages first. Rules: docs/governance.md, "Photos".
+2536 verdicts. Shows it: 1943; its habitat: 41; something else: 85; not a photo of it: 47; can't tell: 407.
 
 ## Left with no photo (4)
 
@@ -10,7 +10,7 @@ Written by `pnpm engine check-photos` (2026-11-02), most-read pages first. Rules
 - plants/vesicularia-montagnei
 - species/nemacheilus-guentheri
 
-## Can't tell: still shown (424)
+## Can't tell: still shown (407)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -214,8 +214,8 @@ Written by `pnpm engine check-photos` (2026-11-02), most-read pages first. Rules
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/57266711.webp) | a few peltate leaves among grasses; partial view |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/6860110.webp) | dense pennywort mat growing out of water; no flowers, so the species can't be confirmed |
 | plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/inaturalist/628894758.webp) | emersed carpet with small white star flowers and thumb; leaves look rather large, could be another carpeting plant |
-| species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/3842c3b3366920ed.webp) | dull brownish fish with faint lateral stripe on rock; lacks flying fox's bold black stripe and dark-edged fins, possibly |
-| species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/4978ce7ceab738d2.webp) | slender fish with black stripe into tail but clear pelvic/anal fins; looks more like Siamese algae eater than flying fox |
+| species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/3842c3b3366920ed.webp) | Faded brownish algae-eater type fish on a rock. Stripe is faint and fins lack the black-and-white markings, so it could  |
+| species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/4978ce7ceab738d2.webp) | Fish with a black side stripe and a gold line above it, but the fins are clear, without the flying fox's black-and-white |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/242436884.webp) | two pale silvery fish over weed, too murky to confirm mono |
 | species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/242436915.webp) | single silvery deep-bodied fish in murky water, no clear marks |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/59838f064cc6671f.webp) | Emersed flowering turf of fine sedge with pale fluffy heads; could be E. parvula, but other small sedges (e.g. Isolepis, |
@@ -265,12 +265,12 @@ Written by `pnpm engine check-photos` (2026-11-02), most-read pages first. Rules
 | species/botia-almorhae | [photo](https://media.aquatome.com/commons/71be289cdae71b35.webp) | dull brownish loach with faded blotches among plants; pattern unclear, may be an older yo-yo loach |
 | species/botia-almorhae | [photo](https://media.aquatome.com/commons/fa03ec707ba1a28e.webp) | small banded loach on white gravel; could be a yo-yo loach, but a striped Botia can't be ruled out |
 | species/botia-almorhae | [photo](https://media.aquatome.com/inaturalist/411470254.webp) | blurry view of a loach hiding in a cave ornament; lohachata-type netted pattern |
-| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/9cf5f820c1bfd232.webp) | top view of mixed small pale fish; some may be other species |
-| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/a81e5a564c071170.webp) | greenish killifish with dark eye, no clear lampeye shine; ID uncertain |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/34b932da7a8b9da4.webp) | golden-bodied lampeye-type killifish with a white eye ring; can't confirm it's P. normani |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/a81e5a564c071170.webp) | greenish scaled killifish with no visible eye shine; could be a different species |
 | plants/littorella-uniflora | [photo](https://media.aquatome.com/commons/d115b2f77faabc33.webp) | dense turf on a muddy shore; too far away to tell it apart from other turf-forming plants |
 | plants/murdannia-keisak | [photo](https://media.aquatome.com/inaturalist/25068301.webp) | dense mat with many tiny pale pink flowers; may be a different small Murdannia |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp) | emersed Myriophyllum creeping on mud; can't rule out M. aquaticum or another milfoil |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp) | Myriophyllum shoot tip at pond surface among duckweed; could be parrot feather (M. aquaticum), can't confirm species |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp) | Emersed Myriophyllum creeping on mud; can't rule out M. aquaticum or other species |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp) | Myriophyllum shoot tip reaching the surface in a pond among floating plants; could be parrot feather (M. aquaticum) |
 | plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp) | emersed feathery rosette at surface, typical of parrot's feather look-alike |
 | plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp) | emersed shoot tip in pond; parrot's feather-like |
 | plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp) | pond full of emersed Myriophyllum; looks like parrot's feather (M. aquaticum), can't rule out |

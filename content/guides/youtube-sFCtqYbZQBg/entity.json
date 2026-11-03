@@ -1,0 +1,133 @@
+{
+  "id": "youtube-sFCtqYbZQBg",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=sFCtqYbZQBg",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "chromobotia-macracanthus"
+  ],
+  "updatedAt": "2026-11-02",
+  "video": {
+    "youtubeId": "sFCtqYbZQBg",
+    "title": "THIS aquarium has me EXCITED!",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 715,
+    "publishedAt": "2018-11-03",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mbPqtbXobBTQ0ferJtX_FbV",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/sFCtqYbZQBg/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [
+      "Vieja argentea",
+      "Vieja synspila",
+      "Vieja hartwegi",
+      "Chromobotia macracanthus"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 165
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 610
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 610
+      },
+      {
+        "category": "khac",
+        "brand": "EcoTech Marine",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Có những loài Vieja nào hay gặp",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/t10.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Một con cá Vieja thân bạc có sọc đen dọc thân bơi giữa lũa."
+          },
+          {
+            "t": 15,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/t15.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Hai con cá Vieja bơi gần nhau trong hồ trồng lũa."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/sFCtqYbZQBg/p0-JUMzJUE5ZSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/sFCtqYbZQBg/p0-JUMzJUE5ZSkuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 3.0",
+          "author": "This illustration was made by Citron You must credit this : Citron / CC-BY-SA-3.0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paraneetroplus_argenteus_(Aquarium%E2%80%93Palais_de_la_Porte_Dor%C3%A9e).jpg",
+          "caption": "Cá Vieja trưởng thành thân đốm đen, nhìn rõ đầu và vây, bơi giữa lũa."
+        }
+      },
+      {
+        "heading": "Cần bể to cỡ nào",
+        "moments": [
+          {
+            "t": 5,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/t5.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Đàn cá đông đúc bơi trong bể lớn có lũa và cát."
+          },
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/t20.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể lớn nuôi đàn nhiều loài cá rô phi cảnh, đáy cát và lũa."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/sFCtqYbZQBg/p1-I4MjY3NDApLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/sFCtqYbZQBg/p1-I4MjY3NDApLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY 2.0",
+          "author": "Cliff from Arlington, Virginia, USA",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Texas_Cichlid_(Herichthys_cyanoguttatus)_(3152826740).jpg",
+          "caption": "Một chú cá cichlid nằm nép bên lũa và sỏi trong bể nuôi."
+        }
+      },
+      {
+        "heading": "Nuôi chung với cá gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/sFCtqYbZQBg/p6-d25fbG9hY2guanBn.webp",
+          "thumb": "https://media.aquatome.com/video/sFCtqYbZQBg/p6-d25fbG9hY2guanBn-480.webp",
+          "width": 960,
+          "height": 672,
+          "licence": "CC BY-SA 4.0",
+          "author": "Andrej Jakubík",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus_(Bleeker,_1852)_Clown_loach.jpg",
+          "caption": "Một đàn cá heo (clown loach) bơi quây quần bên nhau."
+        }
+      }
+    ]
+  }
+}
