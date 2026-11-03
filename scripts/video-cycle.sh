@@ -7,6 +7,8 @@ set -euo pipefail
 export PATH="${PATH:+$PATH:}$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 cd "$(dirname "$0")/.."
 log() { echo "$(date -u +%FT%TZ) $*"; }
+# Test runs take turns with the engine parts' builds and tests on this machine (engine-cycle.sh).
+checks() { lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; }
 # The GitHub engine's clock (it also runs hourly on its own, when installed): a cycle when none started for 2 h 50 min.
 scripts/engine-due.sh || log "engine: the due check failed"
 # Shared with manual engine runs in this clone, so the two never touch the tree at once.
@@ -39,7 +41,7 @@ pnpm engine watermarks --limit 20 || log "watermarks: failed"
 # The content rules' safe fixes, as in the GitHub cycle (a new guide whose title promises a count it lacks: the tests fail on it).
 pnpm engine sweep || log "sweep: failed"
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
-if ! pnpm test >/tmp/aquatome-videos-test.log 2>&1; then log "tests failed, not publishing (see /tmp/aquatome-videos-test.log)"; exit 1; fi
+if ! checks 'pnpm test' >/tmp/aquatome-videos-test.log 2>&1; then log "tests failed, not publishing (see /tmp/aquatome-videos-test.log)"; exit 1; fi
 git add content engine-state docs/review
 git commit -q -m "content: videos $(date -u +%F)"
 # The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
@@ -49,7 +51,7 @@ for _ in 1 2 3; do
     log "the GitHub engine changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort 2>/dev/null || true
     if git pull -q --rebase -X theirs; then
-      pnpm test >/tmp/aquatome-videos-test.log 2>&1 || { log "tests failed after that merge, not publishing"; exit 1; }
+      checks 'pnpm test' >/tmp/aquatome-videos-test.log 2>&1 || { log "tests failed after that merge, not publishing"; exit 1; }
     else
       git rebase --abort 2>/dev/null || true
     fi
