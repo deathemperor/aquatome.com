@@ -67,7 +67,18 @@ struct AquaTomeApp: App {
       .task { await OwnCopy.check() }
       // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).
       .onChange(of: phase) { if phase == .background { lights.leave() } else if phase == .active { lights.returned() } }
+      // The page shots' dark run (PageShotsFlowTests): the runner's own appearance setting doesn't reach the app.
+      .preferredColorScheme(Self.testScheme)
     }
+  }
+
+  /// UI tests: `-dark`, the app dark whatever the phone is set to.
+  private static var testScheme: ColorScheme? {
+    #if DEBUG
+    ProcessInfo.processInfo.arguments.contains("-dark") ? .dark : nil
+    #else
+    nil
+    #endif
   }
 
   /// One of the app's own screens: its tab, and the tank the link names if it's one of the reader's.

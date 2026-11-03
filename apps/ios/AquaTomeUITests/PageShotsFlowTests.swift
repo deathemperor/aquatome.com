@@ -6,8 +6,6 @@ import XCTest
 /// Each checks only that its page opened: what a page shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
-  // The runner's simulator, as the next test expects it.
-  override func tearDown() { XCUIDevice.shared.appearance = .light }
 
   func testAFish() { shoot("fish-light", "ca neon", "Cá neon") }
   func testAFishInTheDark() { shoot("fish-dark", "ca neon", "Cá neon", dark: true) }
@@ -17,9 +15,10 @@ final class PageShotsFlowTests: XCTestCase {
 
   /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
   private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12) {
-    XCUIDevice.shared.appearance = dark ? .dark : .light
     let app = XCUIApplication()
+    // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
+      + (dark ? ["-dark"] : [])
       + (large ? ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"] : [])
     app.launch()
     let field = app.searchFields.firstMatch
@@ -30,13 +29,14 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(row)")
     item.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
-    var last: Data?
+    var seen: Set<Data> = []
     for n in 1...screens {
       settle()
       let shot = XCUIScreen.main.screenshot()
-      // The end of the page: scrolling moved nothing.
-      if shot.pngRepresentation == last { break }
-      last = shot.pngRepresentation
+      // The end of the page: a screen already kept (scrolling there moves nothing, or bounces between two).
+      guard seen.insert(shot.pngRepresentation).inserted else { break }
+      // Shot in the appearance asked for: a dark run that came out light (as the runner's own setting left it) fails.
+      if n == 1 { XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))") }
       let a = XCTAttachment(screenshot: shot)
       a.name = String(format: "shot-%@-%02d", name, n)
       a.lifetime = .keepAlways
@@ -45,6 +45,18 @@ final class PageShotsFlowTests: XCTestCase {
       from.press(forDuration: 0.1, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25)), withVelocity: .slow,
                  thenHoldForDuration: 0.2)
     }
+  }
+
+  /// How light a screen is on average, from 0 (black) to 1 (white).
+  private func lightness(_ image: UIImage) -> CGFloat {
+    let n = 16
+    var px = [UInt8](repeating: 0, count: n * n * 4)
+    guard let cg = image.cgImage, let ctx = CGContext(data: &px, width: n, height: n, bitsPerComponent: 8, bytesPerRow: n * 4,
+      space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return -1 }
+    ctx.interpolationQuality = .high
+    ctx.draw(cg, in: CGRect(x: 0, y: 0, width: n, height: n))
+    let sum = stride(from: 0, to: px.count, by: 4).reduce(0) { $0 + Int(px[$1]) + Int(px[$1 + 1]) + Int(px[$1 + 2]) }
+    return CGFloat(sum) / CGFloat(n * n * 3 * 255)
   }
 
   /// Photos drawn and the scroll at rest.
