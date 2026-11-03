@@ -39,7 +39,8 @@ struct CappedField: UIViewRepresentable {
   func updateUIView(_ f: UITextField, context: Context) {
     // A form can hand over a new binding on each redraw (the plug form's outlets).
     context.coordinator.text = $text
-    if f.text != text { f.text = text }
+    // Not while a word is being composed: the binding holds it cut, the field the whole of it until it's done.
+    if f.markedTextRange == nil, f.text != text { f.text = text }
   }
 
   func makeCoordinator() -> Coordinator { Coordinator(text: $text, max: max) }
@@ -55,20 +56,26 @@ struct CappedField: UIViewRepresentable {
       if f.markedTextRange != nil { return true }
       let now = f.text ?? ""
       guard let r = Range(range, in: now) else { return false }
-      let next = now.replacingCharacters(in: r, with: s)
-      if next.unicodeScalars.count <= max { return true }
-      // Typed past the end: nothing. Pasted: what fits of it.
-      let fits = TankFields.capped(next, max)
-      if fits != now {
-        f.text = fits
-        changed(f) // a text set here isn't an edit: the binding is told by hand
+      if now.replacingCharacters(in: r, with: s).unicodeScalars.count <= max { return true }
+      // Past the cap: what fits of the typed or pasted text goes in where it was put, as a web page's maxlength does;
+      // the rest of the text stays.
+      let room = Swift.max(0, max - (now.unicodeScalars.count - now[r].unicodeScalars.count))
+      let part = String(String.UnicodeScalarView(s.unicodeScalars.prefix(room)))
+      guard !part.isEmpty else { return false }
+      f.text = now.replacingCharacters(in: r, with: part)
+      if let end = f.position(from: f.beginningOfDocument, offset: range.location + (part as NSString).length) {
+        f.selectedTextRange = f.textRange(from: end, to: end)
       }
+      changed(f) // a text set here isn't an edit: the binding is told by hand
       return false
     }
 
+    /// The binding never holds more than the cap, even while a word is being composed, so a save then can't send
+    /// more; the field is cut once the word is done.
     @objc func changed(_ f: UITextField) {
-      if f.markedTextRange == nil, let t = f.text, TankFields.capped(t, max) != t { f.text = TankFields.capped(t, max) }
-      text.wrappedValue = f.text ?? ""
+      let t = f.text ?? ""
+      if f.markedTextRange == nil, TankFields.capped(t, max) != t { f.text = TankFields.capped(t, max) }
+      text.wrappedValue = TankFields.capped(f.text ?? "", max)
     }
 
     func textFieldShouldReturn(_ f: UITextField) -> Bool {
