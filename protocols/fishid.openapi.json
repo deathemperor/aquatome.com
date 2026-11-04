@@ -1,0 +1,128 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AquaTome fish ID",
+    "version": "1",
+    "description": "A reader's photo → Claude's guesses → the handbook's pages for them, for the site's tool (/vi/cong-cu/nhan-dien-ca/) and the iOS app (apps/site/worker/fishid/api.ts).\n\nGET says whether the tool is on, and its daily limits.\n\nPOST comes one of two ways:\n- The site's page: same-origin (`Origin`), with a Turnstile `token`. Counted per address: `perIp` a day.\n- The app: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), checked as GET /api/v1/session checks it. No Origin and no Turnstile. Counted per account (`perAccount` a day, kept 24 h), not per address: many phones share one carrier address. A bearer that is present but missing, expired or signed out is `401 {error: \"session\"}`, even with a `token` too: it never falls back to the page's way.\n\nEvery identification also counts against the site's day (`busy` past it).\n\nThe photo: JPEG, PNG or WebP, at most 1.5 MB. Send it shrunk (the page sends a JPEG of 1024 px at most) and without its metadata (location, camera). It goes to Claude, Anthropic's model, and is not stored; the log keeps counts, timings, the model, tokens and keys by hash only.\n\nOur own copies (a user agent with `AquaTomeCheck/1`) are answered as anyone's, but their guesses add no wanted names.\n\nErrors are `{error}`; the app shows each with the site's own words for it (apps/site/src/scripts/fish-id.ts)."
+  },
+  "paths": {
+    "/api/fish-id": {
+      "get": {
+        "summary": "Whether the tool is on, and its limits",
+        "responses": {
+          "200": { "description": "The tool's state", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Status" } } } }
+        }
+      },
+      "post": {
+        "summary": "Identify the fish or plant in a photo",
+        "security": [{}, { "bearer": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": { "schema": { "$ref": "#/components/schemas/NewPhoto" }, "encoding": { "file": { "contentType": "image/jpeg, image/png, image/webp" } } },
+            "application/json": { "schema": { "$ref": "#/components/schemas/NewPhotoJson" } }
+          }
+        },
+        "responses": {
+          "200": { "description": "Claude's guesses, each with the handbook's pages for it", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Identification" } } } },
+          "400": { "description": "Error: bad form | no file", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "401": { "description": "Error: session", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "403": { "description": "Error: cross-origin | turnstile", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "413": { "description": "Error: too large", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "415": { "description": "Error: not an image", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "429": { "description": "Error: rate (the reader's day is used up: `limit` says how many it has) | busy (the site's day is)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "502": { "description": "Error: failed", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "503": { "description": "Error: fish_id_off | resting | unavailable", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearer": { "type": "http", "scheme": "bearer", "description": "The app: the token from a sign-in with client \"app\" (protocols/accounts.openapi.json)." }
+    },
+    "schemas": {
+      "Status": {
+        "type": "object",
+        "required": ["on"],
+        "description": "{on: false} when the tool is off; otherwise its Turnstile site key (the page's way), whether every key is resting, and the daily limits.",
+        "properties": {
+          "on": { "type": "boolean" },
+          "sitekey": { "type": "string" },
+          "resting": { "type": "boolean", "description": "Every key is set aside for now: an identification would answer 503 resting." },
+          "perIp": { "type": "integer", "minimum": 1, "description": "Identifications a day for an address (the page's way)." },
+          "perAccount": { "type": "integer", "minimum": 1, "description": "Identifications a day for an account (the app's way)." }
+        },
+        "additionalProperties": false
+      },
+      "NewPhoto": {
+        "type": "object",
+        "required": ["file"],
+        "properties": {
+          "file": { "type": "string", "contentMediaType": "image/jpeg", "description": "The photo, shrunk and without its metadata." },
+          "lang": { "type": "string", "enum": ["vi", "id", "th"], "description": "The reader's language: the reasons' language and the pages' addresses. vi when missing." },
+          "from": { "type": "string", "enum": ["page", "tank"], "description": "Where the reader started: the tool's page, or a tank's \"identify by photo\" button. For the owner's log only." },
+          "token": { "type": "string", "description": "Turnstile's token: the page's way only." }
+        }
+      },
+      "NewPhotoJson": {
+        "type": "object",
+        "required": ["image"],
+        "properties": {
+          "image": { "type": "string", "description": "The photo as base64 (a data: URL's prefix is ignored)." },
+          "lang": { "type": "string", "enum": ["vi", "id", "th"] },
+          "from": { "type": "string", "enum": ["page", "tank"] },
+          "token": { "type": "string" }
+        }
+      },
+      "Identification": {
+        "type": "object",
+        "required": ["verdict", "results", "model"],
+        "properties": {
+          "verdict": { "type": "string", "enum": ["fish", "plant", "other", "unclear"], "description": "other: no fish or plant in the photo (no results); unclear: one is there but can't be told." },
+          "results": { "type": "array", "items": { "$ref": "#/components/schemas/Result" }, "description": "Most likely first." },
+          "model": { "type": "string" },
+          "refused": { "type": "boolean", "const": true, "description": "Claude declined to answer: verdict unclear, no results." }
+        },
+        "additionalProperties": false
+      },
+      "Result": {
+        "type": "object",
+        "required": ["scientificName", "commonName", "variety", "confidence", "reason"],
+        "properties": {
+          "scientificName": { "type": "string" },
+          "commonName": { "type": "string" },
+          "variety": { "type": ["string", "null"], "description": "A bred form (\"Halfmoon\"), when Claude sees one." },
+          "confidence": { "type": "number", "minimum": 0 },
+          "reason": { "type": "string", "description": "What in the photo points to it, in the reader's language." },
+          "page": { "$ref": "#/components/schemas/Linked", "description": "The handbook's page for it: the breed its variety names, else the species or plant." },
+          "species": { "$ref": "#/components/schemas/Linked", "description": "The species beside a breed's page." },
+          "sameGenus": { "type": "array", "items": { "$ref": "#/components/schemas/Linked" }, "description": "The genus's other species and plant pages, for \"not this one?\". Never a match." }
+        },
+        "additionalProperties": false
+      },
+      "Linked": {
+        "type": "object",
+        "required": ["id", "kind", "name"],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": { "type": "string", "enum": ["species", "breed", "plant"] },
+          "name": { "type": "string" },
+          "sci": { "type": "string" },
+          "url": { "type": "string", "description": "The page's address in the reader's language, when it has one there." },
+          "img": { "type": "string" }
+        },
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "required": ["error"],
+        "properties": {
+          "error": { "type": "string" },
+          "limit": { "type": "integer", "minimum": 1, "description": "With rate: the reader's limit a day." }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

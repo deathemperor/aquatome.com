@@ -5,6 +5,9 @@ import { fishIdStatus, type FishIdDeps } from '../fishid/api'
 import { keyHash, loadKeys, parseKeys } from '../fishid/keys'
 import { fishIdPage } from '../admin/pages'
 import { unset } from '../admin/shell'
+import { createSession, type Client } from '../accounts/session'
+import { contract } from './contract'
+import { testD1 } from './d1'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
@@ -62,7 +65,7 @@ function kv() {
   }
 }
 type Point = { blobs: string[]; doubles: number[]; indexes: string[] }
-function env(extra: Record<string, string | undefined> = {}) {
+function env(extra: Record<string, unknown> = {}) {
   const store = kv()
   // Every test writes the Analytics Engine log, so a branch that throws while logging fails its own test.
   const points: Point[] = []
@@ -72,6 +75,7 @@ function env(extra: Record<string, string | undefined> = {}) {
     AB: store.ns,
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'site-key', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: 'tok',
     ANTHROPIC_KEYS: KEYS,
+    DB: testD1(),
     ...extra,
   } as unknown as Env
   return { e, kv: store.m, points }
@@ -87,14 +91,33 @@ const post = (file: Blob = new Blob([JPEG]), fields: Record<string, string> = { 
   const f = new FormData()
   f.set('file', file, 'photo.jpg')
   for (const [k, v] of Object.entries(fields)) f.set(k, v)
-  return new Request('https://x.test/api/fish-id', { method: 'POST', body: f, headers: { origin: 'https://x.test', 'cf-connecting-ip': '203.0.113.7', ...headers } })
+  return new Request('https://x.test/api/fish-id', { method: 'POST', body: f, headers: { origin: 'https://x.test', 'cf-connecting-ip': '203.0.113.7', ...READER, ...headers } })
+}
+/** A reader's phone, as a browser or the app sends it. */
+const READER = { 'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1', 'accept-language': 'vi-VN,vi;q=0.9' }
+/** The app's way: its session as a bearer, no Origin and no Turnstile token, the photo as base64 JSON. */
+const appPost = (token: string, headers: Record<string, string> = {}) => new Request('https://x.test/api/fish-id', {
+  method: 'POST',
+  headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json', 'cf-connecting-ip': '203.0.113.7', ...READER, ...headers },
+  body: JSON.stringify({ image: btoa(String.fromCharCode(...JPEG)), lang: 'vi', from: 'page' }),
+})
+async function signIn(db: D1Database, client: Client = 'app', at = new Date()) {
+  const id = crypto.randomUUID()
+  await db.prepare('INSERT INTO users (id, created_at) VALUES (?, ?)').bind(id, at.toISOString()).run()
+  return { id, token: await createSession(db, id, client, at) }
 }
 // The random pick lands on the first healthy key: key A, while it is healthy.
 const deps = (fetch: typeof globalThis.fetch, extra: Partial<FishIdDeps> = {}): FishIdDeps & { lines: Record<string, unknown>[] } => {
   const lines: Record<string, unknown>[] = []
   return { fetch, random: () => 0, siteverify: async () => true, log: l => { lines.push(l) }, lines, ...extra }
 }
-const run = (req: Request, e: Env, d: FishIdDeps) => handle(req, e, undefined, undefined, d)
+/** Every answer of /api/fish-id is checked against the app's contract (protocols/fishid.openapi.json). */
+const { answer } = contract('fishid.openapi.json')
+async function run(req: Request, e: Env, d: FishIdDeps): Promise<Response> {
+  const res = await handle(req, e, undefined, undefined, d)
+  if (new URL(req.url).pathname === '/api/fish-id') await answer('/api/fish-id', req.method.toLowerCase() as 'get' | 'post', res.clone())
+  return res
+}
 type Body = { verdict?: string; error?: string; refused?: boolean; results?: { scientificName: string; page?: { id: string; url?: string; name: string }; species?: { id: string }; sameGenus?: { id: string; url?: string }[] }[] }
 
 test('the keys file: one key per line, its workspace beside it; comments, blank lines and duplicates skipped; bad lines counted, never echoed', async () => {
@@ -159,7 +182,8 @@ test('a fish Claude is fairly sure of with no page counts as a reader\'s request
   const other = new Request(tank.url, { method: 'POST', body: JSON.stringify({ kind: 'fish', name: 'Harlequin rasbora', sci: 'Trigonostigma heteromorpha' }), headers: { ...Object.fromEntries(tank.headers), 'cf-connecting-ip': '198.51.100.9' } })
   expect((await run(other, sure.e, deps(claude({}).fetch))).status).toBe(204)
   expect(wanted(sure.kv)[0]).toMatchObject({ readers: 2, sources: { 'fish-id': 1, tank: 1 } })
-  for (const [answer, headers] of [[harlequin(0.4), {}], [NEON, {}], [harlequin(0.85), { cookie: 'aq_owner=1' }]] as const) {
+  // Our own checks are no readers: the browser checks' and the app's test builds' user agent.
+  for (const [answer, headers] of [[harlequin(0.4), {}], [NEON, {}], [harlequin(0.85), { cookie: 'aq_owner=1' }], [harlequin(0.85), { 'user-agent': 'AquaTome/1 CFNetwork/3826 Darwin/25.0 AquaTomeCheck/1' }]] as const) {
     const other = env()
     await run(post(undefined, undefined, headers), other.e, deps(claude({ [A]: () => message(answer) }).fetch))
     expect(wanted(other.kv)).toEqual([])
@@ -323,7 +347,7 @@ test('every key set aside: no call, the tool rests (GET says so too); keys found
   expect(r.status).toBe(503)
   expect(await r.json()).toEqual({ error: 'resting' })
   expect(fake.calls).toHaveLength(0)
-  expect(await (await run(new Request('https://x.test/api/fish-id'), e, deps(fake.fetch))).json()).toEqual({ on: true, sitekey: 'site-key', resting: true, perIp: 10 })
+  expect(await (await run(new Request('https://x.test/api/fish-id'), e, deps(fake.fetch))).json()).toEqual({ on: true, sitekey: 'site-key', resting: true, perIp: 10, perAccount: 10 })
   // Resting isn't a reader's use: nothing counted.
   expect([...kv.keys()].some(k => k.startsWith('fishid:ip:'))).toBe(false)
   // A mark whose time is past is no mark.
@@ -351,6 +375,55 @@ test('limits: a reader\'s 11th of the day and the site\'s day are refused before
   expect(r2.status).toBe(429)
   expect(await r2.json()).toEqual({ error: 'busy' })
   expect(site.calls).toHaveLength(2)
+})
+
+test('the app: its live session stands in for Origin and Turnstile, and its day is counted per account, not per address', async () => {
+  const db = testD1()
+  const { e, kv } = env({ DB: db, FISH_ID_PER_ACCOUNT: '2' })
+  const fake = claude({})
+  let verified = 0
+  const d = deps(fake.fetch, { siteverify: async () => { verified++; return true } })
+  const me = await signIn(db)
+  const r = await run(appPost(me.token), e, d)
+  expect(r.status).toBe(200)
+  expect(await r.json()).toMatchObject({ verdict: 'fish', model: 'claude-opus-5-5' })
+  expect(verified).toBe(0)
+  // Counted under the account (by HMAC, never its id), and not under the address.
+  const keys = () => [...kv.keys()]
+  expect(keys().filter(k => k.startsWith('fishid:acct:'))).toHaveLength(1)
+  expect(keys().filter(k => k.startsWith('fishid:ip:'))).toEqual([])
+  expect(keys().join(' ')).not.toContain(me.id)
+  expect(kv.get(keys().find(k => k.startsWith('fishid:acct:'))!)).toEqual({ v: '1', ttl: 86_400 })
+  // The same form the page sends works too, without its token.
+  expect((await run(post(undefined, { lang: 'vi' }, { authorization: `Bearer ${me.token}`, origin: '' }), e, d)).status).toBe(200)
+  const third = await run(appPost(me.token), e, d)
+  expect(third.status).toBe(429)
+  expect(await third.json()).toEqual({ error: 'rate', limit: 2 })
+  // Another account behind the same carrier address still can.
+  expect((await run(appPost((await signIn(db)).token), e, d)).status).toBe(200)
+  expect(fake.calls).toHaveLength(3)
+  // The tool's state says both days' limits.
+  expect(await (await run(new Request('https://x.test/api/fish-id'), e, d)).json()).toEqual({ on: true, sitekey: 'site-key', resting: false, perIp: 10, perAccount: 2 })
+})
+
+test('the app: a bearer with no live app session is 401 session, even with a Turnstile token: never the page\'s way', async () => {
+  const db = testD1()
+  const { e } = env({ DB: db })
+  const fake = claude({})
+  const web = await signIn(db, 'web')
+  const expired = await signIn(db, 'app', new Date(Date.now() - 400 * 86_400_000))
+  for (const req of [
+    appPost('not-a-token'),
+    appPost(web.token), // a browser's session, sent as a bearer
+    appPost(expired.token),
+    post(undefined, { token: 't', lang: 'vi' }, { authorization: 'Bearer not-a-token' }),
+    post(undefined, { token: 't', lang: 'vi' }, { authorization: '' }),
+  ]) {
+    const r = await run(req, e, deps(fake.fetch))
+    expect(r.status).toBe(401)
+    expect(await r.json()).toEqual({ error: 'session' })
+  }
+  expect(fake.calls).toHaveLength(0)
 })
 
 test('refused before any call: not an image, too big, no file, another site, Turnstile failed', async () => {

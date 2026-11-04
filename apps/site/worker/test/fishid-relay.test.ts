@@ -2,6 +2,7 @@ import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
 import { classify, memoryHealth, rotate, type KeyEntry } from '../fishid/keys'
 import { FishIdRelay, relayFetch } from '../fishid/relay'
+import { testD1 } from './d1'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
@@ -45,7 +46,7 @@ test('with the relay bound, the Worker\'s Claude call goes through the one objec
   const env = {
     ASSETS: { fetch: async () => Response.json({ version: 1, entries: [{ id: 'betta-splendens', kind: 'species', sci: 'Betta splendens', name: { vi: 'Cá betta' }, url: { vi: '/vi/ca/ca-betta/' } }] }) },
     AB: store.ns, TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'k', COMMENT_HMAC_KEY: 'h',
-    ANTHROPIC_KEYS: `${A} wrkspc_orgA`, FISHID_RELAY: ns,
+    ANTHROPIC_KEYS: `${A} wrkspc_orgA`, FISHID_RELAY: ns, DB: testD1(),
   } as unknown as Env
   const r = await handle(post(), env, undefined, undefined, { siteverify: async () => true, random: () => 0, log: () => {} })
   expect(r.status).toBe(200)
