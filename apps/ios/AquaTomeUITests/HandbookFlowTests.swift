@@ -138,9 +138,70 @@ final class HandbookFlowTests: XCTestCase {
     let app = launch()
     search(app, "neon")
     XCTAssertTrue(item(app, "Cá neon").waitForExistence(timeout: 5))
-    app.buttons["Hướng dẫn"].firstMatch.tap()
+    let guides = chip(app, "guide")
+    guides.tap()
     XCTAssertTrue(item(app, "Nuôi cá neon trong bể nhỏ").waitForExistence(timeout: 5))
     XCTAssertFalse(item(app, "Cá neon").exists, "a fish among the guides")
+    XCTAssertTrue(guides.isSelected, "the kind picked isn't marked")
+    XCTAssertFalse(chip(app, "all").isSelected, "“Tất cả” still marked")
+    XCTAssertEqual(guides.value as? String, "\(rows(app))", "the guides' count isn't the rows shown")
+  }
+
+  // The kinds under the search field were the system's scope bar: seven in one capsule, their names cut short.
+  func testTypingShowsTheKindsFoundWithHowMany() {
+    let app = launch()
+    XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
+    XCTAssertFalse(chip(app, "all").exists, "kinds before a search")
+    search(app, "ca")
+    let all = chip(app, "all")
+    XCTAssertTrue(all.waitForExistence(timeout: 5), "no kinds once the reader types")
+    XCTAssertEqual(app.descendants(matching: .any)["kinds"].label, "Lọc kết quả")
+    XCTAssertTrue(all.isSelected, "not every kind to begin with")
+    // Each kind whole, and how many it finds: all of them for “Tất cả”, as many as the rows.
+    XCTAssertEqual(all.label, "Tất cả")
+    XCTAssertEqual(all.value as? String, "7")
+    XCTAssertEqual(rows(app), 7)
+    for (kind, title, count) in [("fish", "Loài cá", 3), ("guide", "Hướng dẫn", 2), ("video", "Video", 2), ("tool", "Công cụ", 1)] {
+      let c = chip(app, kind)
+      XCTAssertTrue(c.exists, "no \(title)")
+      XCTAssertEqual(c.label, title)
+      XCTAssertEqual(c.value as? String, "\(count)", title)
+      XCTAssertFalse(c.isSelected, title)
+    }
+    // A kind with nothing found has no chip.
+    XCTAssertFalse(chip(app, "plant").exists, "plants, with none found")
+    XCTAssertFalse(chip(app, "glossary").exists, "the glossary, with none found")
+  }
+
+  // A kind picked keeps its chip when the next letters find none of it: the way back to the others.
+  func testAKindPickedStaysWhenTheSearchFindsNoneOfIt() {
+    let app = launch()
+    search(app, "do")
+    chip(app, "plant").tap()
+    XCTAssertTrue(item(app, "Rotala đỏ").waitForExistence(timeout: 5))
+    app.searchFields.firstMatch.typeText("n")
+    let plants = chip(app, "plant")
+    XCTAssertTrue(plants.waitForExistence(timeout: 5) && plants.isSelected, "the kind picked went with its last result")
+    XCTAssertEqual(plants.value as? String, "0")
+    XCTAssertEqual(rows(app), 0)
+    XCTAssertEqual(chip(app, "fish").value as? String, "2")
+    chip(app, "all").tap()
+    XCTAssertTrue(item(app, "Cá đĩa").waitForExistence(timeout: 5))
+    XCTAssertEqual(rows(app), 2)
+  }
+
+  func testClearingTheSearchHidesTheKindsAndShowsTheHome() {
+    let app = launch()
+    search(app, "neon")
+    chip(app, "guide").tap()
+    let field = app.searchFields.firstMatch
+    field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 4))
+    XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5), "not the home")
+    XCTAssertFalse(chip(app, "all").exists, "kinds without a search")
+    // The next search starts with every kind, not the one picked for the last.
+    field.typeText("ca")
+    XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5) && chip(app, "all").isSelected, "still narrowed to the guides")
+    XCTAssertEqual(rows(app), 7)
   }
 
   func testTheGlossaryGoesByLetter() {
@@ -237,6 +298,13 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(choice.waitForExistence(timeout: 5), "no \(option) under \(picker)")
     choice.tap()
   }
+
+  /// The chip of a kind under the search field (`all` for every kind).
+  private func chip(_ app: XCUIApplication, _ kind: String) -> XCUIElement { app.buttons["kind-\(kind)"] }
+
+  /// How many result rows show: the list's cells holding a page, not the chips' header (and once each: a row's button and
+  /// what it draws both carry its "item").
+  private func rows(_ app: XCUIApplication) -> Int { app.collectionViews.firstMatch.cells.containing(.any, identifier: "item").count }
 
   /// A result row, by its name (the row reads its name, then its scientific name or kind).
   private func item(_ app: XCUIApplication, _ name: String) -> XCUIElement {

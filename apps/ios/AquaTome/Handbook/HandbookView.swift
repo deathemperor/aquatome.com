@@ -19,16 +19,18 @@ struct HandbookView: View {
         } else {
           Section {
             ForEach(handbook.results) { item in Row(item: item) }
+          } header: {
+            // The kinds found, under the search field and right above their results, as the reader types (and none
+            // before: the home shows then, which a kind doesn't change). In the list, not a bar over it: a bar's
+            // scroll view reaches up under the navigation bar, and iOS 26 drew none of its chips.
+            KindChips().padding(.bottom, 4).listRowInsets(EdgeInsets()).textCase(nil)
           }
         }
       }
       .listStyle(.insetGrouped)
+      // The chips right under the search field, not a section's space below it; the home keeps its own.
+      .contentMargins(.top, handbook.query.isEmpty ? nil : 4, for: .scrollContent)
       .searchable(text: $handbook.query, prompt: Text("Tìm loài cá, cây, hướng dẫn"))
-      // Shown once the reader types: before that, the home shows, which a scope doesn't change.
-      .searchScopes($handbook.kind, activation: .onTextEntry) {
-        Text("Tất cả").tag(HandbookIndex.Kind?.none)
-        ForEach(HandbookIndex.Kind.allCases, id: \.self) { k in Text(k.title).tag(Optional(k)) }
-      }
       .navigationTitle("Tìm")
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
@@ -39,6 +41,66 @@ struct HandbookView: View {
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
     }
+  }
+}
+
+/// The kinds a search finds, under the search field, each with how many it finds: picking one narrows the results to
+/// it. A kind with nothing found has no chip, except the one picked, so there's always a way back to the others.
+private struct KindChips: View {
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    let counts = handbook.counts
+    let kinds = [nil] + HandbookIndex.Kind.allCases.filter { counts[$0, default: 0] > 0 || $0 == handbook.kind }
+    ScrollViewReader { proxy in
+      ScrollView(.horizontal, showsIndicators: false) {
+        HStack(spacing: 8) {
+          ForEach(kinds, id: \.self) { k in
+            KindChip(title: k?.title ?? String(localized: "Tất cả"), count: counts[k, default: 0], picked: handbook.kind == k) { handbook.kind = k }
+              .id(k)
+              .accessibilityIdentifier("kind-\(k?.rawValue ?? "all")")
+          }
+        }
+      }
+      // Lined up with the results' edge, and running on to the screen's.
+      .scrollClipDisabled()
+      // The chip picked stays in view, as kinds come and go while the reader types and when one is picked at the edge.
+      .onChange(of: kinds) { withAnimation { proxy.scrollTo(handbook.kind) } }
+      .onChange(of: handbook.kind) { withAnimation { proxy.scrollTo(handbook.kind) } }
+    }
+    .accessibilityElement(children: .contain)
+    .accessibilityLabel("Lọc kết quả")
+    .accessibilityIdentifier("kinds")
+  }
+}
+
+private struct KindChip: View {
+  let title: String
+  let count: Int
+  let picked: Bool
+  let pick: () -> Void
+
+  var body: some View {
+    Button(action: pick) {
+      HStack(spacing: 6) {
+        Text(title)
+        Text(count, format: .number).monospacedDigit().foregroundStyle(.secondary)
+      }
+      .font(.subheadline.weight(.medium))
+      .lineLimit(1)
+      // White on the light look's dark green, black on the dark look's light green: the contrast each needs.
+      .foregroundStyle(picked ? Color(.systemBackground) : Color.primary)
+      .padding(.horizontal, 14)
+      .padding(.vertical, 8)
+      .background(Capsule().fill(picked ? Color.accentColor : Color(.tertiarySystemFill)))
+      // 44 points to tap, the space above and below the capsule too.
+      .frame(minHeight: 44)
+      .contentShape(.rect)
+    }
+    .buttonStyle(.plain)
+    .accessibilityLabel(title)
+    .accessibilityValue(Text(count, format: .number))
+    .accessibilityAddTraits(picked ? .isSelected : [])
   }
 }
 
@@ -94,7 +156,11 @@ struct ItemRow: View {
       AsyncImage(url: item.img.flatMap(URL.init(string:))) { image in
         image.resizable().scaledToFill()
       } placeholder: {
-        Image(systemName: item.kind.symbol).foregroundStyle(.secondary)
+        // No photo, or not yet: the kind's glyph in the square a photo fills, so the names beside them line up.
+        ZStack {
+          Color(.tertiarySystemFill)
+          Image(systemName: item.kind.symbol).font(.system(size: 22)).foregroundStyle(.secondary)
+        }
       }
       .frame(width: 56, height: 56)
       .clipShape(RoundedRectangle(cornerRadius: 8))
