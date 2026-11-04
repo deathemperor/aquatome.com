@@ -89,6 +89,8 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
     id: slugify(taxon.canonicalName), scientificName: taxon.canonicalName, order: taxon.order ?? '', family: taxon.family ?? '', genus,
     group: prev?.group ?? page.group ?? 'other', ...(lNumber ? { lNumber } : {}),
     places: uniq([...(prev?.places ?? []), ...page.places.flatMap(p => [p.continent, p.country, usableRegion(p.region) ? p.region : undefined].filter((x): x is string => !!x).map(placeId))]),
+    // The range step's (range.ts): read again there when this source's text changes it.
+    ...(prev?.range ? { range: prev.range } : {}),
     dataCard, sections, photos: prev?.photos ?? [], videos: prev?.videos ?? [],
     productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
   }

@@ -163,6 +163,10 @@ if part rewrite; then
   # Vietnamese shops' blogs, read for ideas a week apart (their posts' titles, never their text): the topics the
   # handbook has no guide on, most asked first (ideas.ts).
   pnpm engine ideas || log "ideas: failed"
+  # Where each species lives in the wild (range.ts): the countries and regions its sources name, each country with the
+  # source's sentence (engine-state/range/), RANGE_LIMIT model calls a cycle for species whose sources' text is new or
+  # changed; then its wild records on GBIF (open licences only), RANGE_RECORDS species a cycle, each again monthly.
+  pnpm engine range --limit "${RANGE_LIMIT:-20}" --records "${RANGE_RECORDS:-20}" || log "range: failed"
   # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
   # Guides keep to their title's subject (before localizing, so the copies follow): off-topic sections dropped.

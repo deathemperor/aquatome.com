@@ -44,6 +44,12 @@ that would have caught it).
     given the fish's app index entry as it is (every threshold, and just past it); each fixture fish page's panel as the
     file's lines and words; its Indonesian and Thai words as the site's translations (`UPDATE_VECTORS=1` rewrites the
     file but its notes and entries).
+  - A fish's range (where it lives in the wild, `range` in its content and its app index entry, `lib/range.ts`) against
+    `protocols/range-vectors.json`, which the app will read: each case's entry from its range (no range, regions only,
+    records with no native countries, a cell on a border, more than five countries outside, no records, a record at
+    sea); each fixture fish's range as the fixture content has it and its entry as the fixture build's index; the
+    countries the index names; every fixture species valid against the schema (`UPDATE_VECTORS=1` rewrites the file but
+    its notes and made-up ranges).
   - The Worker's answers when the app posts readers' comments and photos (a bearer, no Turnstile) and reports them,
     against `protocols/talk.openapi.json`: a status the contract lists and a body of its shape, the account's daily
     limits on top of the address's, an account's posts and photo files deleted with it, every public post's `author`,
@@ -336,6 +342,26 @@ The layers above still check the result.
     text yet, found by the name in the address.
   - The profile is read like any page: translated, reviewed, and its figures go through the same prompt rules and
     guards (a volume gives no length). A figure no published source states stays empty.
+- **Where a fish lives, from its sources only.** A species' `range` (`pnpm engine range`, `range.ts`, each rewrite cycle):
+  - `native`: the model reads what its cited sources say (distribution, habitat, quick facts, notes; `RANGE_LIMIT`
+    species a cycle whose text is new or changed) and gives each country with the source's sentence. The engine keeps
+    a country only when that sentence is in that source's text word for word and names the country (its name, an old
+    name or its adjective: `countryOf` in `@aq/schema`); a lake, basin or island goes in `regions`, never a country it
+    lies in. Each source in the engine's registry has a tier (`sources.ts`): a species database or a scientific or
+    aquarium-specialist site is `specialist`, a general pet-care site (The Spruce Pets) `general`. When a specialist
+    says where the species lives, only specialists' countries count, and a country only a general site gives is dropped
+    (`outranked`, with its sentence); general sites count for a species no specialist covers. A country a source that
+    counts calls introduced or misidentified is left out. The sentences and the refusals are in
+    `engine-state/range/<id>.json`, with the species' origin pages (`places`) beside them as a check. A source that says
+    nothing gives no `native`; nothing comes from the model's own knowledge, FishBase or IUCN.
+  - `records`: its wild records on GBIF, open licences only (CC0, CC BY 4.0; never NC), no living or fossil
+    specimens, coordinates without issues, on GBIF's map squares (1.40625°), each with its records in a native country
+    by GBIF's country field. About a dozen requests a species, paced and retried, `RANGE_RECORDS` species a cycle, each
+    again after 30 days; squares that don't add up to the search's count fail the species.
+  - A failed call or request leaves the species as it was, tried again a day later.
+  - Found on the sample (docs/research/species-range-sample.md): GBIF's records mix native and introduced
+    populations, and its checklists call Betta splendens introduced in Thailand, so the native range comes from the
+    sources.
 - **Metric only.** Fish, plant, breed and guide pages give °C, cm and litres in every language. Each writer of those
   pages passes its text through `toMetric` (`@aq/schema`): an imperial figure beside its metric one goes ("20–30°C
   (68–86°F)"), one before its metric one gives way to it ("2 inch (khoảng 5 cm)"), one alone is converted ("bể 10 gallon"
