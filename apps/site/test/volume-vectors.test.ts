@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { GALLON_L, SHAPES, glassKg, glassThickness, shapeVolume, type ShapeId } from '../src/scripts/volume'
 import { WATER_SHARE } from '../src/scripts/calc'
-import { translator } from '../src/lib/i18n'
+import { localizePath, translator } from '../src/lib/i18n'
 
 // Shared with the iOS app's tests, which run the app's own volume code (AquaTomeKit Tanks/Volume.swift) on the same
 // cases. Every figure in the file is generated here: from each case's inputs, by volume.ts, and from the fixture build's
@@ -47,7 +47,7 @@ test('protocols/volume-vectors.json is what volume.ts and the built page give fo
   const kg = kept.glassKg.map(({ l, w, h, mm }) => ({ l, w, h, mm, kg: glassKg(l, w, h, mm) }))
   // The table as the fixture build shows it: the sizes from each row's link, the figures from its cells.
   const num = (s: string) => Number(s.replace('~', '').replace(/\./g, '').replace(',', '.'))
-  const readyMade = page('/vi/cong-cu/the-tich-be/').dom.querySelectorAll('section[aria-labelledby="sizes-h"] tbody tr').map(tr => {
+  const readyMade = page(localizePath('vi', '/vi/cong-cu/the-tich-be/')).dom.querySelectorAll('section[aria-labelledby="sizes-h"] tbody tr').map(tr => {
     const q = new URLSearchParams(tr.querySelector('th a')!.getAttribute('href')!.replace(/^\?/, ''))
     const [litres, water, glass, kg] = tr.querySelectorAll('td').map(td => num(td.text.trim()))
     return { l: Number(q.get('l')), w: Number(q.get('w')), h: Number(q.get('h')), litres, water, glass, kg }
