@@ -590,9 +590,10 @@ test('a photo moved again keeps the page it was sent for, and forgets it when mo
   expect(await moveTo('species:betta-splendens')).toEqual({ applied: 1, ignored: 0 })
   expect(await moveTo('species:carassius-auratus')).toEqual({ applied: 1, ignored: 0 })
   expect(await row()).toMatchObject({ e: 'species:carassius-auratus', movedFrom: PAGE })
-  // Reported, it is back in the queue with the page it was sent for.
+  // Reported, it is off the page and back in the queue with the page it was sent for; the pass publishes its files again.
   await report(t, { kind: 'photo', id: p.id, reason: 'không phải cá vàng' }, { bearer: (await t.signIn()).token })
   expect(await photoQueue(t)).toMatchObject([{ id: p.id, moved_from: PAGE }])
+  for (const kind of ['full', 'thumb']) await asOwner(t, `/_p/admin/file/${p.id}?kind=${kind}`, { method: 'PUT', body: WEBP })
   expect(await moveTo(PAGE)).toEqual({ applied: 1, ignored: 0 })
   expect(await row()).toMatchObject({ e: PAGE })
   expect(await row()).not.toHaveProperty('movedFrom')
