@@ -166,7 +166,8 @@ summary:hover{color:var(--ink)}
 .readout b{font:600 1.15rem/1.3 var(--serif);color:var(--ink);letter-spacing:-.005em}
 .readout:not(.multi) b{font-size:1.5rem;line-height:1.2}
 .readout .hint{display:none;flex:0 0 100%;font-size:.78rem;color:var(--muted)}
-.js .readout.first:not(.sel) .hint{display:block}
+.js .readout.first .hint{display:block}
+.js .readout.first.sel .hint{visibility:hidden}
 .js .readout .hint:before{content:'Chạm vào một cột để xem ngày đó.'}
 @media (hover:hover){.js .readout .hint:before{content:'Trỏ vào một cột để xem ngày đó.'}}
 .key{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
