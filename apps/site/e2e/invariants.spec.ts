@@ -4,6 +4,7 @@ import type { APIRequestContext } from '@playwright/test'
 import { DIST, LIVE, recheckPages, samplePages, sourcePages } from './pages'
 import { VIETNAMESE, VIETNAMESE_ALLOWED, expect, test } from './fixtures'
 import { checkPage, loadFacts } from '../scripts/page-check'
+import { isViPage } from '../worker/paths'
 
 // The page checks read the content the build was made from: the fixture's for a local build, the checkout's (the live
 // version's commit, in watch.yml) for a live site; CONTENT_ROOT for another build (E2E_DIST).
@@ -51,9 +52,9 @@ for (const path of pages) {
     const badImgs = await page.$$eval('img[src]', imgs => imgs.filter(i => !i.getAttribute('width') || !i.getAttribute('height') || !i.hasAttribute('alt')).map(i => i.outerHTML.slice(0, 120)))
     expect(badImgs, 'img without width/height/alt').toEqual([])
 
-    // Links to this site's pages lead to pages that exist.
+    // Links to this site's pages lead to pages that exist: Vietnamese ones at the root, and any old /vi/ one (none is built).
     const hrefs = await page.$$eval('a[href^="/"]', as => [...new Set(as.map(a => a.getAttribute('href')!))])
-    const paths = [...new Set(hrefs.map(h => h.replace(/[?#].*$/, '')).filter(h => /^\/(vi|id|th)\//.test(h)))]
+    const paths = [...new Set(hrefs.map(h => h.replace(/[?#].*$/, '')).filter(h => isViPage(h) || /^\/(vi|id|th)\//.test(h)))]
     const broken = (await Promise.all(paths.map(async h => ((await exists(h, request)) ? null : h)))).filter(Boolean)
     expect(broken, 'links to missing pages').toEqual([])
 

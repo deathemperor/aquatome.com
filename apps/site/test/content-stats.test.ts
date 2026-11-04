@@ -31,17 +31,17 @@ test('inventory: items per kind in content/, and how many have an Indonesian and
   })
 })
 
-test('built pages: every index.html under /vi/, /id/ and /th/, by kind, each with its h1 and its item', () => {
+test('built pages: every index.html under /, /id/ and /th/, by kind, each with its h1 and its item', () => {
   // 134 pages, as markdown.ts counts them (every page under the three languages).
   expect(stats.built!.total).toEqual([96, 19, 19])
   expect(stats.built!.byKind).toMatchObject({ fish: [9, 0, 0], breed: [2, 0, 0], plant: [4, 0, 0], guide: [7, 0, 0], videoGuide: [2, 0, 0], glossary: [4, 0, 0], series: [1, 0, 0], gallery: [3, 0, 0], tool: [6, 6, 6], other: [5, 4, 4] })
-  expect(stats.pages!.fish).toContainEqual(['/vi/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])
-  expect(stats.pages!.breed).toContainEqual(['/vi/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)', 'flowerhorn-cichlid'])
-  expect(stats.pages!.videoGuide).toContainEqual(['/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
-  expect(stats.pages!.place).toContainEqual(['/vi/nguon-goc/asia/china/', 'Trung Quốc', 'china'])
+  expect(stats.pages!.fish).toContainEqual(['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])
+  expect(stats.pages!.breed).toContainEqual(['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)', 'flowerhorn-cichlid'])
+  expect(stats.pages!.videoGuide).toContainEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
+  expect(stats.pages!.place).toContainEqual(['/nguon-goc/asia/china/', 'Trung Quốc', 'china'])
   expect(stats.pages!.list).toContainEqual(['/th/fish/', 'ทุกสายพันธุ์'])
   // Only the about pages (the site's and its data card's), contact, privacy and sign-in pages are "other": every other page has its kind.
-  expect(stats.pages!.other!.map(r => r[0].split('/').slice(0, 3).join('/')).sort()).toEqual(['/id/kebijakan-privasi', '/id/kontak', '/id/tentang', '/id/tentang', '/th/about', '/th/about', '/th/contact', '/th/privacy', '/vi/chinh-sach-bao-mat', '/vi/dang-nhap', '/vi/gioi-thieu', '/vi/gioi-thieu', '/vi/lien-he'])
+  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/privacy/'])
   expect(Buffer.byteLength(JSON.stringify(stats.totals))).toBeLessThan(1024)
 })
 
@@ -62,21 +62,21 @@ test('a page\'s kind and item from its address, in each language (slugs are per 
   expect(classify('/id/ikan/ikan-neon/', s)).toEqual(['fish', 'p-innesi'])
   expect(classify('/th/fish/pla-neon/photos/', s)).toEqual(['gallery', 'p-innesi'])
   expect(classify('/id/ikan/ca-neon/', s)).toEqual(['other']) // the Vietnamese slug isn't the Indonesian page
-  expect(classify('/vi/ca/ca-la-han/', s)).toEqual(['breed', 'flowerhorn'])
+  expect(classify('/ca/ca-la-han/', s)).toEqual(['breed', 'flowerhorn'])
   expect(classify('/id/tanaman/anubias-nana/', s)).toEqual(['plant', 'a-nana'])
-  expect(classify('/vi/huong-dan/bon-phan/', s)).toEqual(['videoGuide', 'youtube-x'])
+  expect(classify('/huong-dan/bon-phan/', s)).toEqual(['videoGuide', 'youtube-x'])
   expect(classify('/id/panduan/ganti-air/', s)).toEqual(['guide', 'g1'])
-  expect(classify('/vi/huong-dan/trang/2/', s)).toEqual(['list'])
+  expect(classify('/huong-dan/trang/2/', s)).toEqual(['list'])
   expect(classify('/th/plants/page/3/', s)).toEqual(['list'])
-  expect(classify('/vi/video/reu-hai/', s)).toEqual(['series', 'PL1'])
-  expect(classify('/vi/video/kenh/green-aqua/', s)).toEqual(['list'])
-  expect(classify('/vi/nguon-goc/asia/china/', s)).toEqual(['place', 'china'])
+  expect(classify('/video/reu-hai/', s)).toEqual(['series', 'PL1'])
+  expect(classify('/video/kenh/green-aqua/', s)).toEqual(['list'])
+  expect(classify('/nguon-goc/asia/china/', s)).toEqual(['place', 'china'])
   expect(classify('/id/asal/asia/', s)).toEqual(['place', 'asia'])
-  expect(classify('/vi/phan-loai/cichliformes/cichlidae/', s)).toEqual(['taxon'])
+  expect(classify('/phan-loai/cichliformes/cichlidae/', s)).toEqual(['taxon'])
   expect(classify('/th/tools/tank-volume/', s)).toEqual(['tool'])
   expect(classify('/id/peralatan/loc/', s)).toEqual(['equipment', 'loc'])
-  expect(classify('/vi/san-pham/oase/', s)).toEqual(['product', 'oase-1'])
-  expect(classify('/vi/', s)).toEqual(['list'])
+  expect(classify('/san-pham/oase/', s)).toEqual(['product', 'oase-1'])
+  expect(classify('/', s)).toEqual(['list'])
   expect(classify('/th/about/', s)).toEqual(['other'])
   expect(h1Of('<h1 class="t">Cá <span>neon</span> &amp; tép&#39;s &#x1F41F;</h1>')).toBe("Cá neon & tép's 🐟")
 })
@@ -85,22 +85,22 @@ test('gaps on the fish, plant and breed pages, each with its count and the list 
   const g = stats.gaps
   // Only Cá neon vua's summary is approved (Cá đĩa's is pending).
   expect(g.fish!.noSummary!.n).toBe(8)
-  expect(g.fish!.noSummary!.top.map(([p]) => p)).toEqual(['/vi/ca/ca-neon-xanh/', '/vi/ca/ca-dia/', '/vi/ca/ca-ong-tien/', '/vi/ca/tep-red-cherry/', '/vi/ca/ca-phuong-hoang/', '/vi/ca/ca-galaxy/', '/vi/ca/ca-boraras-do/', '/vi/ca/ca-apisto-cacatuoides/'])
+  expect(g.fish!.noSummary!.top.map(([p]) => p)).toEqual(['/ca/ca-neon-xanh/', '/ca/ca-dia/', '/ca/ca-ong-tien/', '/ca/tep-red-cherry/', '/ca/ca-phuong-hoang/', '/ca/ca-galaxy/', '/ca/ca-boraras-do/', '/ca/ca-apisto-cacatuoides/'])
   // Cá ông tiên's card has a size but no temperature or pH; its only source (Glaser) writes no profile, and its text is short.
-  expect(g.fish!.noKeyFacts).toEqual({ n: 1, top: [['/vi/ca/ca-ong-tien/', 'Cá ông tiên']], by: { tempC: 1, ph: 1, sizeCm: 0 } })
-  expect(g.fish!.thin).toEqual({ n: 1, top: [['/vi/ca/ca-ong-tien/', 'Cá ông tiên']] })
+  expect(g.fish!.noKeyFacts).toEqual({ n: 1, top: [['/ca/ca-ong-tien/', 'Cá ông tiên']], by: { tempC: 1, ph: 1, sizeCm: 0 } })
+  expect(g.fish!.thin).toEqual({ n: 1, top: [['/ca/ca-ong-tien/', 'Cá ông tiên']] })
   expect([g.fish!.noPhoto!.n, g.fish!.noViName!.n, g.fish!.noId!.n, g.fish!.noTh!.n]).toEqual([0, 0, 9, 9])
-  expect(g.plant!.noPhoto).toEqual({ n: 1, top: [['/vi/cay/cay-rau-den-do-mini/', 'Cây rau dền đỏ mini']] })
-  expect(g.plant!.noViName).toEqual({ n: 1, top: [['/vi/cay/cryptocoryne-wendtii/', 'Cryptocoryne wendtii']] })
-  expect(g.breed!.noPhoto).toEqual({ n: 1, top: [['/vi/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)']] })
+  expect(g.plant!.noPhoto).toEqual({ n: 1, top: [['/cay/cay-rau-den-do-mini/', 'Cây rau dền đỏ mini']] })
+  expect(g.plant!.noViName).toEqual({ n: 1, top: [['/cay/cryptocoryne-wendtii/', 'Cryptocoryne wendtii']] })
+  expect(g.breed!.noPhoto).toEqual({ n: 1, top: [['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)']] })
   expect(g.breed!.noKeyFacts!.by).toEqual({ tempC: 1, ph: 2, sizeCm: 1 })
   expect([g.guide!.noId!.n, g.videoGuide!.noTh!.n, g.glossary!.noId!.n]).toEqual([7, 2, 4])
   // Older Vietnamese: every page with text to rewrite, less Cá neon xanh (done) and the term pH (failed under this version).
   // The guide rewritten under version 1 with nothing kept is due again.
   expect([g.fish!.oldVi!.n, g.plant!.oldVi!.n, g.guide!.oldVi!.n, g.glossary!.oldVi!.n]).toEqual([8, 4, 7, 3])
-  expect(g.fish!.oldVi!.top.map(([p]) => p)).not.toContain('/vi/ca/ca-neon-xanh/')
+  expect(g.fish!.oldVi!.top.map(([p]) => p)).not.toContain('/ca/ca-neon-xanh/')
   // A page taken down from the dashboard leaves the lists.
-  const hidden = computeContentStats({ contentRoot: CONTENT, publicBuild: false, hidden: new Set(['/vi/ca/ca-ong-tien/']), now: NOW })
+  const hidden = computeContentStats({ contentRoot: CONTENT, publicBuild: false, hidden: new Set(['/ca/ca-ong-tien/']), now: NOW })
   expect(hidden.gaps.fish!.thin!.n).toBe(0)
 })
 

@@ -115,9 +115,9 @@ test('a cycle: reads what is due, keeps findings, rewrites a part the reviewer p
   expect(report.read).toEqual([])
   expect(again.calls).toEqual([])
   const md = readerReport([{ ...p, fields: [{ field: 'body', html: body }] }], state)
-  expect(md).toContain('## Could become a rule (1)\n\nKinds of problem a check with no model could find on every page (add it to `content-rules.ts`).\n\n- a last heading with one short line under it — [vi · Cá ăn gì](https://aquatome.com/vi/huong-dan/g/): "Kết luận"')
+  expect(md).toContain('## Could become a rule (1)\n\nKinds of problem a check with no model could find on every page (add it to `content-rules.ts`).\n\n- a last heading with one short line under it — [vi · Cá ăn gì](https://aquatome.com/huong-dan/g/): "Kết luận"')
   expect(md).toContain('### Structure that misleads (1)')
-  expect(md).toContain('- 2026-11-01 [vi · Cá ăn gì](https://aquatome.com/vi/huong-dan/g/) — body: kept (review 0.90): Too chatty.')
+  expect(md).toContain('- 2026-11-01 [vi · Cá ăn gì](https://aquatome.com/huong-dan/g/) — body: kept (review 0.90): Too chatty.')
 })
 
 test('two parts rewritten in one cycle: the page counts as read with both', async () => {

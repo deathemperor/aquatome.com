@@ -1,0 +1,537 @@
+---
+import Browse from '../../layouts/Browse.astro'
+import AccountPanel from '../../components/AccountPanel.astro'
+import { i18n } from '../../lib/i18n'
+import { SUBSTRATE_LABELS } from '../../scripts/my-tanks'
+
+const { t } = i18n(Astro.url)
+---
+<Browse title={t('Bể của tôi: sổ ghi bể cá, cây và lịch đèn')} heading={t('Bể của tôi')} intro={t('Ghi lại từng bể: kích thước, nền, cá, cây và đèn với lịch đã đặt. Lưu ngay trên máy này, không cần đăng ký.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Sổ bể cá miễn phí: lưu kích thước, thể tích, loại nền, cá, cây, ghi chú và lịch đèn Chihiros của từng bể ngay trên trình duyệt, không cần tài khoản.')}>
+  <div class="bar">
+    <button id="mt-add" type="button" class="primary">{t('Thêm bể')}</button>
+    <p class="where">{t('Lưu trên trình duyệt này.')} <a href="#du-lieu">{t('Dữ liệu ở đâu?')}</a></p>
+  </div>
+  <p id="mt-gone" class="gone" role="status" hidden>{t('Bể này vừa bị xóa ở một thẻ khác nên thay đổi chưa được lưu.')}</p>
+
+  <form id="mt-form" class="editor" hidden aria-labelledby="mt-form-h">
+    <h2 id="mt-form-h" class="visually-hidden">{t('Thông tin bể')}</h2>
+    <label class="wide">{t('Tên bể')} <input name="name" maxlength="80" required autocomplete="off" placeholder={t('Ví dụ: Bể 60 phòng khách')} /></label>
+    <fieldset class="size">
+      <legend>{t('Kích thước lòng bể (cm)')}</legend>
+      <label>{t('Dài')} <input name="l" type="number" inputmode="decimal" min="1" max="1000" step="any" /></label>
+      <span aria-hidden="true">×</span>
+      <label>{t('Rộng')} <input name="w" type="number" inputmode="decimal" min="1" max="1000" step="any" /></label>
+      <span aria-hidden="true">×</span>
+      <label>{t('Cao')} <input name="h" type="number" inputmode="decimal" min="1" max="1000" step="any" /></label>
+      <output name="litres" aria-live="polite"></output>
+    </fieldset>
+    <label>{t('Nền')}
+      <select name="substrate">
+        <option value="">{t('Chưa chọn')}</option>
+        {Object.entries(SUBSTRATE_LABELS).map(([v, label]) => <option value={v}>{t(label)}</option>)}
+      </select>
+    </label>
+    {/* Shown once its script (scripts/life-edit.ts) is here: offline before it ever loaded, the tank still saves without it. */}
+    <fieldset id="mt-life" class="life-edit" hidden>
+      <legend>{t('Cá, tép và cây')}</legend>
+      <ul class="life-rows" data-life-list hidden></ul>
+      <div class="find">
+        <div class="combo">
+          <label for="mt-q" class="visually-hidden">{t('Tìm cá, tép hoặc cây để thêm')}</label>
+          <input id="mt-q" data-life-q type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="mt-opts" placeholder={t('Thêm cá hoặc cây: gõ tên Việt hoặc tên khoa học')} autocomplete="off" autocapitalize="off" spellcheck="false" />
+          <ul id="mt-opts" data-life-opts role="listbox" aria-label={t('Gợi ý')} hidden></ul>
+        </div>
+        <button type="button" class="quiet" data-life-photo-open aria-expanded="false" aria-controls="mt-photo">{t('Chụp ảnh nhận diện')}</button>
+      </div>
+      {/* The fish-ID tool in the form (scripts/life-photo.ts): the camera or a photo, as on its page; each guess adds itself. */}
+      <div id="mt-photo" class="photo-id" data-life-photo hidden>
+        <div class="pick">
+          <label class="main"><input class="vh" type="file" name="camera" accept="image/*" capture="environment" /><span>{t('Chụp ảnh')}</span></label>
+          <label><input class="vh" type="file" name="file" accept="image/*" /><span>{t('Chọn ảnh có sẵn')}</span></label>
+        </div>
+        <p class="tip">{t('Mẹo: chuyển đèn bể sang ánh trắng (tắt màu đỏ, hồng) và chụp gần một con cá. Ảnh cả bể thường chỉ nhận ra con nổi bật nhất.')}</p>
+        <div class="preview" data-preview hidden>
+          <div class="frame" data-frame></div>
+          <p class="crop">
+            <button type="button" class="quiet" data-crop>{t('Khoanh một con cá')}</button>
+            <button type="button" class="quiet" data-whole hidden>{t('Dùng cả ảnh')}</button>
+            <span data-crop-say aria-live="polite"></span>
+          </p>
+        </div>
+        <div class="slot">
+          <div data-turnstile></div>
+          <p class="note" data-note></p>
+        </div>
+        <p><button type="button" class="primary" data-go disabled>{t('Nhận diện')}</button></p>
+        <p class="said" data-msg role="status" aria-live="polite"></p>
+        <div class="guesses" data-out aria-live="polite"></div>
+        <p class="privacy">{t('Ảnh không được lưu lại: ảnh được gửi tới Claude, mô hình AI của Anthropic, để nhận diện rồi bỏ đi.')} <a href="/vi/chinh-sach-bao-mat/#nhan-dien-ca">{t('Chính sách bảo mật')}</a></p>
+      </div>
+      <div class="new-entry" data-life-new hidden>
+        <p><strong data-life-q-shown></strong> {t('chưa có trang trong cẩm nang. Vẫn thêm vào bể được: khi có trang, bể sẽ hiện trang đó.')}</p>
+        <fieldset class="kind">
+          <legend>{t('Đây là')}</legend>
+          <label><input type="radio" name="ukind" value="fish" checked /> {t('Cá, tép hoặc ốc')}</label>
+          <label><input type="radio" name="ukind" value="plant" /> {t('Cây')}</label>
+        </fieldset>
+        <label>{t('Tên')} <input name="uname" maxlength="80" autocomplete="off" /></label>
+        <label>{t('Tên khoa học (nếu biết)')} <input name="usci" maxlength="120" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder={t('Ví dụ: Rhinogobius duospilus')} /></label>
+        <label>{t('Số con (nếu muốn)')} <input name="ucount" type="number" inputmode="numeric" min="1" max="9999" /></label>
+        <p class="acts"><button type="button" class="primary" data-life-add>{t('Thêm vào bể')}</button> <button type="button" class="quiet" data-life-cancel>{t('Hủy')}</button></p>
+      </div>
+      <p class="hint life-msg" data-life-msg aria-live="polite"></p>
+    </fieldset>
+    <label class="wide">{t('Ghi chú')} <textarea name="notes" rows="3" maxlength="4000" placeholder={t('Lịch thay nước, phân bón, CO₂…')}></textarea></label>
+    <p class="err" id="mt-err" role="alert" hidden></p>
+    <div class="acts">
+      <button type="submit" class="primary">{t('Lưu bể')}</button>
+      <button type="button" class="quiet" id="mt-cancel">{t('Hủy')}</button>
+    </div>
+  </form>
+
+  <p id="mt-loading" class="hint" hidden>{t('Đang mở các bể đã lưu…')}</p>
+  <noscript><p class="hint">{t('Trang này cần JavaScript để lưu bể trên máy bạn.')}</p></noscript>
+  <ol id="mt-list" class="tanks" aria-label={t('Các bể đã lưu')}></ol>
+
+  <div id="mt-empty" class="empty">
+    <svg viewBox="0 0 240 150" aria-hidden="true">
+      <path class="glass" d="M20 30 H220 V130 H20 Z" />
+      <path class="water" d="M24 52 C64 46 92 58 120 52 S184 46 216 52 V126 H24 Z" />
+      <path class="ground" d="M24 126 C70 112 100 118 140 114 S200 110 216 116 V126 Z" />
+      <path class="lid" d="M14 24 H226" />
+    </svg>
+    <h2>{t('Chưa có bể nào')}</h2>
+    <p>{t('Thêm bể đầu tiên để ghi lại kích thước, nền, cá, cây và ghi chú. Đèn Chihiros bạn kết nối cũng được lưu vào đây cùng lịch đã đặt.')}</p>
+    <p class="row"><button type="button" class="primary" data-add>{t('Thêm bể đầu tiên')}</button> <a href="/vi/cong-cu/den-chihiros/">{t('Kết nối đèn Chihiros →')}</a></p>
+  </div>
+  {/* Before the first paint, so nothing jumps when the list is drawn: a reader with tanks here sees the loading line, not
+     the empty state (tank-store.ts: KEY 'aq.tanks', the store load() accepts, a record with deletedAt is deleted). */}
+  <script is:inline>(function(){try{var s=JSON.parse(localStorage.getItem('aq.tanks')||'null');if(s&&s.v===1&&Array.isArray(s.tanks)&&Array.isArray(s.devices)&&s.tanks.some(function(t){return!('deletedAt' in t)})){document.getElementById('mt-empty').hidden=true;document.getElementById('mt-loading').hidden=false}}catch(e){}})()</script>
+
+  <section id="du-lieu" class="data" aria-labelledby="data-h">
+    <h2 id="data-h">{t('Dữ liệu ở đâu?')}</h2>
+    <p data-where="local">{t('Các bể chỉ nằm trong trình duyệt này, trên máy này: không gửi đi đâu. Xóa dữ liệu trình duyệt hoặc dùng chế độ ẩn danh thì mất. Tải bản sao để giữ lại.')}</p>
+    <p data-where="account" hidden>{t('Các bể nằm trong trình duyệt này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy. Xóa tài khoản thì bản trong tài khoản mất ngay.')}</p>
+    <p><button id="mt-export" type="button" class="quiet">{t('Tải bản sao (JSON)')}</button></p>
+  </section>
+
+  <AccountPanel />
+</Browse>
+
+<script>
+  import type { Device, Tank, TankStore, UnlistedEntry } from '@aq/schema'
+  import { tankLitres } from '@aq/schema/tank-rules'
+  import * as store from '../../scripts/tank-store'
+  import { initAccount } from '../../scripts/account-panel'
+  import { channelsOf, dayPicture, esc, facts, handbook, unlistedOf, type IndexItem } from '../../scripts/my-tanks'
+  import { cpath, ct, siteHref } from '../../scripts/ct'
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
+  const lang = document.documentElement.lang
+  const num = (n: number, digits = 1) => new Intl.NumberFormat(lang, { maximumFractionDigits: digits }).format(n)
+  const day = (iso: string) => new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'numeric', year: 'numeric' }).format(new Date(iso))
+  const form = $<HTMLFormElement>('mt-form')
+  const list = $<HTMLOListElement>('mt-list')
+  const field = (name: string) => form.elements.namedItem(name) as HTMLInputElement
+  const home = form.parentElement!
+  let db: TankStore = store.load()
+  let editing: string | undefined | null = null // null: no form; undefined: a new tank; a string: that tank
+
+  // The handbook's fish and plants (its index), read once: when a tank has any, or the form adds some. Page names of the
+  // species and plants on the tanks, and the page an entry without a page is shown as once one has its scientific name.
+  let names: Map<string, { name: string; path: string }> | undefined
+  let book: ReturnType<typeof handbook> | undefined
+  let reading: Promise<ReturnType<typeof handbook> | undefined> | undefined
+  function readBook() {
+    return (reading ??= fetch(`/app/${lang.slice(0, 2)}.json`).then(r => r.json()).then((idx: { items: IndexItem[] }) => {
+      names = new Map(idx.items.flatMap(i => (i.id ? [[i.id, { name: i.name, path: i.path }] as const] : [])))
+      return (book = handbook(idx.items))
+    }).catch(() => { reading = undefined; return undefined })) // names stay ids, entries without a page their names; tried again next time
+  }
+  async function loadNames() {
+    if (names || !store.liveTanks(db).some(t => t.species.length || t.plants.length || t.unlisted?.length)) return
+    if ((await readBook()) && editing === null) render()
+  }
+  // The fish and plants in the form (scripts/life-edit.ts): loaded when the form opens, not with the page.
+  let lifeEditor: Promise<ReturnType<typeof import('../../scripts/life-edit').initLife>> | undefined
+  const life = () => (lifeEditor ??= import('../../scripts/life-edit').then(m => m.initLife($('mt-life'), { pages: async () => (await readBook())?.pages, match: e => book?.match(e) }))
+    .catch(e => { lifeEditor = undefined; throw e })) // offline: tried again when the form next opens
+  let opened = 0
+  /** A name the handbook has no page for, counted to decide which pages to write next: its kind and names, nothing else. */
+  const wanted = (u: UnlistedEntry) => {
+    void fetch('/api/v1/wanted', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ kind: u.kind, name: u.name, ...(u.sci ? { sci: u.sci } : {}) }), keepalive: true }).catch(() => {})
+  }
+
+  function lightHtml(d: Device): string {
+    const active = store.activeSchedule(d) ?? d.schedules?.[0]
+    const title = esc(d.nickname ?? d.model ?? ct('Đèn'))
+    const sub = [d.brand === 'chihiros' ? 'Chihiros' : d.brand, d.nickname ? d.model : undefined].filter(Boolean).join(' ')
+    let body = `<p class="hint">${ct('Chưa lưu lịch nào cho đèn này.')}</p>`
+    if (active) {
+      const p = dayPicture(active, channelsOf(d))
+      const hours = num(p.hours)
+      body = `<figure class="day">
+          <svg viewBox="0 0 1440 48" preserveAspectRatio="none" role="img" aria-label="${esc(ct('Bật {on}, tắt {off}', { on: active.on, off: active.off }))}"><path d="${p.path}" style="fill:${p.colour}" /></svg>
+          <div class="ticks" aria-hidden="true"><span>0</span><span>6</span><span>12</span><span>18</span><span>24</span></div>
+        </figure>
+        <p class="sched"><strong>${active.on} → ${active.off}</strong> · ${ct('{h} tiếng', { h: hours })}${active.ramp ? ` · ${ct('sáng dần {m} phút', { m: active.ramp })}` : ''}${active.name ? ` · ${esc(active.name)}` : ''}</p>`
+    }
+    const extra = [
+      d.manual ? ct('Chỉnh tay lần cuối: {levels}', { levels: d.manual.levels.map(l => `${l}%`).join(' · ') }) : '',
+      d.clockSyncedAt ? ct('Chỉnh giờ đèn: {date}', { date: day(d.clockSyncedAt) }) : '',
+      (d.schedules?.length ?? 0) > 1 ? ct('{n} lịch đã lưu', { n: d.schedules!.length }) : '',
+    ].filter(Boolean)
+    return `<li class="light">
+        <p class="light-name"><strong>${title}</strong>${sub ? ` <span>${esc(sub)}</span>` : ''}</p>
+        ${body}
+        ${extra.length ? `<p class="meta">${extra.map(esc).join(' · ')}</p>` : ''}
+        ${d.brand === 'chihiros' ? `<p><a href="${cpath('/vi/cong-cu/den-chihiros/')}">${ct('Áp dụng lịch trên trang đèn →')}</a></p>` : ''}
+      </li>`
+  }
+
+  function lifeHtml(t: Tank): string {
+    const label = (id: string) => names?.get(id)
+    const chip = (id: string, count?: number) => {
+      const n = label(id)
+      const text = esc(n?.name ?? id.replace(/-/g, ' '))
+      return `<li>${n ? `<a href="${esc(siteHref(n.path))}">${text}</a>` : text}${count ? ` <span class="count">× ${num(count, 0)}</span>` : ''}</li>`
+    }
+    // An entry without a page: shown as the page that has its scientific name, else by its name, marked as such.
+    const loose = (u: UnlistedEntry) => {
+      const p = book?.match(u)
+      const count = u.count ? ` <span class="count">× ${num(u.count, 0)}</span>` : ''
+      return p ? `<li><a href="${esc(siteHref(p.path))}">${esc(p.name)}</a>${count}</li>` : `<li class="unlisted">${esc(u.name)}${count} <span class="tag">${ct('chưa có trang')}</span></li>`
+    }
+    const fish = [...t.species.map(s => chip(s.id, s.count)), ...unlistedOf(t, false).map(loose)]
+    const plants = [...t.plants.map(p => chip(p.id)), ...unlistedOf(t, true).map(loose)]
+    const parts: string[] = []
+    if (fish.length) parts.push(`<div class="life"><h3>${ct('Cá và tép')}</h3><ul class="chips">${fish.join('')}</ul></div>`)
+    if (plants.length) parts.push(`<div class="life"><h3>${ct('Cây')}</h3><ul class="chips">${plants.join('')}</ul></div>`)
+    return parts.join('')
+  }
+
+  function tankHtml(t: Tank, lights: Device[]): string {
+    const line = facts(t, ct, num)
+    return `<li class="tank" id="be-${t.id}" data-id="${t.id}">
+        <div class="tank-head">
+          <h2>${esc(t.name)}</h2>
+          <div class="tank-acts">
+            <button type="button" class="quiet" data-edit aria-label="${esc(ct('Sửa {name}', { name: t.name }))}">${ct('Sửa')}</button>
+            <button type="button" class="quiet danger" data-del aria-label="${esc(ct('Xóa {name}', { name: t.name }))}">${ct('Xóa')}</button>
+          </div>
+        </div>
+        ${line.length ? `<p class="facts">${line.map(esc).join('<span aria-hidden="true"> · </span>')}</p>` : `<p class="facts hint">${ct('Chưa có kích thước.')} <button type="button" class="link" data-edit>${ct('Thêm kích thước')}</button></p>`}
+        ${lights.length ? `<div class="lights"><h3>${ct('Đèn')}</h3><ul>${lights.map(lightHtml).join('')}</ul></div>` : ''}
+        ${lifeHtml(t)}
+        ${t.notes ? `<p class="notes">${esc(t.notes)}</p>` : ''}
+        <p class="stamp">${ct('Sửa lần cuối {date}', { date: day(t.updatedAt) })}</p>
+      </li>`
+  }
+
+  function render() {
+    $('mt-loading').hidden = true
+    const tanks = store.liveTanks(db).sort((a, b) => (a.createdAt < b.createdAt ? -1 : 1))
+    const devices = store.liveDevices(db)
+    // The form is kept out of the list while it is redrawn, then put back where it was being used. Moved only when it
+    // has to be: moving a focused field drops the cursor.
+    if (form.parentElement !== home) home.insertBefore(form, $('mt-loading'))
+    // Lights only: other kinds (the app's plugs) are kept as they are but not shown here yet.
+    list.innerHTML = tanks.map(t => tankHtml(t, devices.filter(d => d.tankId === t.id && d.kind === 'light'))).join('')
+    $('mt-empty').hidden = tanks.length > 0 || editing === undefined
+    if (typeof editing === 'string') document.getElementById(`be-${editing}`)?.append(form)
+    void loadNames()
+  }
+
+  function open(id?: string) {
+    editing = id
+    const t = id ? store.liveTanks(db).find(x => x.id === id) : undefined
+    form.reset()
+    field('name').value = t?.name ?? ''
+    field('l').value = t?.dims ? String(t.dims.l) : ''
+    field('w').value = t?.dims ? String(t.dims.w) : ''
+    field('h').value = t?.dims ? String(t.dims.h) : ''
+    // A substrate this page doesn't list (from the app, or a newer page) is shown as it is, so saving keeps it.
+    const sub = form.elements.namedItem('substrate') as HTMLSelectElement
+    sub.querySelector('option[data-other]')?.remove()
+    if (t?.substrate && ![...sub.options].some(o => o.value === t.substrate)) {
+      const o = new Option(t.substrate, t.substrate)
+      o.dataset.other = ''
+      sub.add(o)
+    }
+    sub.value = t?.substrate ?? ''
+    ;(form.elements.namedItem('notes') as HTMLTextAreaElement).value = t?.notes ?? ''
+    const ticket = ++opened
+    void life().then(l => { if (ticket === opened) l.edit(t) }, () => {})
+    $('mt-err').hidden = true
+    $('mt-gone').hidden = true
+    form.hidden = false
+    $('mt-add').hidden = true
+    render()
+    preview()
+    field('name').focus()
+  }
+  /** Closes the form; focus goes to the tank it was about (`focus`, else the one edited), or to "Thêm bể". */
+  function close(focus?: string) {
+    const was = editing
+    editing = null
+    form.hidden = true
+    $('mt-add').hidden = false
+    render()
+    const id = focus ?? (typeof was === 'string' ? was : undefined)
+    ;((id && document.querySelector<HTMLElement>(`#be-${id} [data-edit]`)) || $('mt-add')).focus()
+  }
+
+  function dims(): { l: number; w: number; h: number } | 'partial' | undefined {
+    const v = ['l', 'w', 'h'].map(k => field(k).value.trim())
+    if (v.every(x => x === '')) return undefined
+    const n = v.map(Number)
+    if (v.some(x => x === '') || n.some(x => !(x > 0 && x <= 1000))) return 'partial'
+    return { l: n[0]!, w: n[1]!, h: n[2]! }
+  }
+  function preview() {
+    const d = dims()
+    const out = form.elements.namedItem('litres') as HTMLOutputElement
+    out.value = d && d !== 'partial' ? `= ${ct('{n} lít', { n: num(tankLitres({ dims: d })!, 1) })}` : ''
+  }
+
+  form.addEventListener('input', preview)
+  form.addEventListener('submit', async e => {
+    e.preventDefault()
+    const name = field('name').value.trim()
+    const d = dims()
+    const err = !name ? ct('Đặt tên cho bể.') : d === 'partial' ? ct('Nhập đủ dài, rộng, cao (từ 1 đến 1.000 cm), hoặc để trống cả ba.') : ''
+    $('mt-err').textContent = err
+    $('mt-err').hidden = !err
+    if (err) return
+    // The fish and plants as the form has them, when changed there; else the tank keeps its own (also when the form
+    // couldn't show them, offline).
+    const editor = lifeEditor && !$('mt-life').hidden ? await life() : undefined
+    const added = editor?.value()
+    db = store.load()
+    const kept = typeof editing === 'string' ? store.liveTanks(db).find(x => x.id === editing) : undefined
+    if (typeof editing === 'string' && !kept) {
+      // Deleted in another tab while this form was open: saving would bring back a half of it.
+      close()
+      $('mt-gone').hidden = false
+      return
+    }
+    if (editing === undefined && store.liveTanks(db).length >= 50) { $('mt-err').textContent = ct('Đã đủ 50 bể: xóa bớt bể cũ để thêm.'); $('mt-err').hidden = false; return }
+    const size = d === 'partial' ? undefined : d
+    const resized = !!size && (!kept?.dims || ['l', 'w', 'h'].some(k => kept.dims![k as 'l'] !== size[k as 'l']))
+    const t = store.putTank(db, {
+      name,
+      dims: size,
+      // Litres someone entered for the old size would no longer match the new one.
+      ...(resized ? { litres: undefined } : {}),
+      substrate: (form.elements.namedItem('substrate') as HTMLSelectElement).value || undefined,
+      notes: (form.elements.namedItem('notes') as HTMLTextAreaElement).value.trim() || undefined,
+      ...(added ? { species: added.species, plants: added.plants, unlisted: added.unlisted.length ? added.unlisted : undefined } : {}),
+    }, editing ?? undefined)
+    store.save(db)
+    // What was just put on the tank without a page (and no page has its scientific name either): counted once saved. Not
+    // what a photo named: the fish-ID endpoint counted that name already.
+    const before = new Set((kept?.unlisted ?? []).map(u => u.id))
+    for (const u of added?.unlisted ?? []) if (!before.has(u.id) && !book?.match(u)) wanted(u) // a photo's guess too: the Worker counts a reader once a day per name, whichever sent it
+    account.changed()
+    close(t.id)
+    document.getElementById(`be-${t.id}`)?.scrollIntoView({ block: 'nearest' })
+  })
+  $('mt-cancel').addEventListener('click', () => close())
+  form.addEventListener('keydown', e => { if (e.key === 'Escape') close() })
+  $('mt-add').addEventListener('click', () => open())
+  $('mt-empty').addEventListener('click', e => { if ((e.target as HTMLElement).closest('[data-add]')) open() })
+  list.addEventListener('click', e => {
+    const el = e.target as HTMLElement
+    const id = el.closest<HTMLElement>('.tank')?.dataset.id
+    if (!id || el.closest('form')) return
+    if (el.closest('[data-edit]')) open(id)
+    if (el.closest('[data-del]')) {
+      const t = store.liveTanks(db).find(x => x.id === id)
+      const lights = store.liveDevices(db).filter(d => d.tankId === id && d.kind === 'light').length
+      if (!t || !confirm(lights ? ct('Xóa bể “{name}” cùng {n} đèn đã lưu trên bể?', { name: t.name, n: lights }) : ct('Xóa bể “{name}”?', { name: t.name }))) return
+      const li = el.closest('.tank')!
+      const next = ((li.nextElementSibling ?? li.previousElementSibling) as HTMLElement | null)?.dataset.id
+      db = store.load()
+      store.removeTank(db, id)
+      store.save(db)
+      account.changed()
+      render()
+      ;((next && document.querySelector<HTMLElement>(`#be-${next} [data-edit]`)) || $('mt-add')).focus()
+    }
+  })
+  $('mt-export').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(store.load(), null, 2)], { type: 'application/json' })
+    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `aquatome-be-${new Date().toISOString().slice(0, 10)}.json` })
+    a.click()
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000)
+  })
+
+  // Another tab (the light page, or this page) changed the store: show it, unless a form here is open. Storage events
+  // only: they don't fire for this tab's own saves (a BroadcastChannel would, and redrawing then lost the focus).
+  window.addEventListener('storage', e => {
+    if (e.key !== store.KEY) return
+    db = store.load()
+    if (editing === null) render()
+    account.changed()
+  })
+  render()
+  // Signed in: synced with the account (scripts/account-panel.ts); a sync brings tanks from other devices.
+  const account = initAccount({ onStore: () => { db = store.load(); if (editing === null) render() } })
+</script>
+
+<style>
+  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-bottom: var(--space-5); }
+  .where { margin: 0; color: var(--c-ink-soft); font-size: var(--step--1); }
+  .gone { margin: 0 0 var(--space-5); padding: var(--space-3) var(--space-4); border: 1px solid var(--c-cardinal); background: var(--c-plate); }
+  /* Global: the script draws the tanks' buttons, which scoped styles don't reach. */
+  :global(:is(.bar, .editor, .empty, .data, .tank) button) { font: 500 1rem var(--f-body); padding: 0.6rem 1.15rem; border-radius: 8px; cursor: pointer; border: 1px solid transparent; min-height: 44px; transition: background-color 0.15s, border-color 0.15s, color 0.15s; }
+  :global(:is(.bar, .editor, .empty, .data, .tank) button.primary) { background: var(--c-ink); color: var(--c-paper); }
+  :global(:is(.bar, .editor, .empty, .data, .tank) button.primary:hover) { background: var(--c-moss); }
+  :global(:is(.bar, .editor, .empty, .data, .tank) button.quiet) { background: none; color: var(--c-ink); border-color: var(--c-rule); }
+  :global(:is(.bar, .editor, .empty, .data, .tank) button.quiet:hover) { border-color: var(--c-ink); }
+  .editor[hidden] { display: none; }
+  :global(.tank button.danger:hover) { color: var(--c-cardinal); border-color: var(--c-cardinal); }
+  :global(.tank button.link) { min-height: 0; padding: 0; border: 0; background: none; color: var(--c-ink); text-decoration: underline; text-underline-offset: 3px; font: inherit; }
+  :global(:is(.bar, .editor, .empty, .data, .tank) :is(button, input, select, textarea, a):focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+
+  .editor { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr)); min-width: 0; box-sizing: border-box; gap: var(--space-4) var(--space-5); padding: var(--space-5); background: var(--c-plate); border: 1px solid var(--c-rule); margin: var(--space-3) 0 var(--space-6); max-width: 48rem; }
+  .editor .wide, .editor .size, .editor .acts, .editor .err { grid-column: 1 / -1; }
+  .editor label { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
+  .editor input, .editor select, .editor textarea { box-sizing: border-box; max-width: 100%; min-width: 0; font: inherit; font-size: 1rem; color: var(--c-ink); padding: 0.5rem 0.65rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-mat); min-height: 44px; }
+  .editor textarea { resize: vertical; line-height: 1.5; }
+  .size { display: flex; flex-wrap: wrap; align-items: end; gap: var(--space-2) var(--space-3); border: 0; padding: 0; margin: 0; min-inline-size: 0; }
+  .size legend { font-size: 0.85rem; color: var(--c-ink-soft); padding: 0; margin-bottom: var(--space-1); }
+  .size input { width: 6.5rem; font-variant-numeric: tabular-nums; }
+  .size > span { padding-bottom: 0.7rem; color: var(--c-ink-faint); }
+  .size output { padding-bottom: 0.65rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .acts { display: flex; gap: var(--space-3); }
+
+  /* The tank's fish and plants in its form: one row each, a search under them, and the few fields of an entry without a page. */
+  .life-edit { grid-column: 1 / -1; display: grid; gap: var(--space-2); border: 0; padding: 0; margin: 0; min-inline-size: 0; }
+  .life-edit[hidden] { display: none; }
+  .life-edit > legend { font-size: 0.85rem; color: var(--c-ink-soft); padding: 0; margin-bottom: var(--space-1); }
+  .life-rows { list-style: none; margin: 0; padding: 0; }
+  .life-rows[hidden] { display: none; }
+  :global(.life-rows li) { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); min-height: 3.25rem; border-bottom: 1px solid var(--c-rule); }
+  :global(.life-rows li:first-child) { border-top: 1px solid var(--c-rule); }
+  :global(.life-rows .nm) { flex: 1 1 10rem; min-width: 0; overflow-wrap: anywhere; }
+  :global(.life-rows a) { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 500; }
+  :global(.life-edit .sci) { color: var(--c-ink-soft); font-size: 0.9rem; }
+  :global(.life-edit .tag), :global(.chips .tag) { font-size: var(--step--1); color: var(--c-ink-soft); white-space: nowrap; }
+  :global(.life-rows .qty) { display: flex; align-items: center; gap: var(--space-1); color: var(--c-ink-soft); font-size: 0.9rem; }
+  :global(.life-rows .qty input) { box-sizing: border-box; width: 5rem; min-height: 2.75rem; font: inherit; font-size: 1rem; text-align: right; padding: 0.25rem 0.5rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-mat); color: var(--c-ink); font-variant-numeric: tabular-nums; }
+  :global(.editor .life-rows button.rm) { padding: 0.4rem 0.9rem; font-size: 0.9rem; }
+  :global(.life-rows :is(a, input):focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .find { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); }
+  .life-edit .combo { position: relative; flex: 1 1 14rem; min-width: 0; }
+  .life-edit .combo input { width: 100%; }
+  .life-edit .combo input[aria-expanded="true"] { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  #mt-opts { position: absolute; z-index: 20; inset-inline: 0; top: 100%; margin: 0; padding: 0; list-style: none; background: var(--c-plate); border: 2px solid var(--c-focus); border-top: 1px solid var(--c-rule); border-radius: 0 0 8px 8px; box-shadow: 0 10px 24px -8px rgb(10 26 29 / 0.28); overflow: hidden; }
+  #mt-opts[hidden] { display: none; }
+  #mt-opts :global([role=option]) { display: flex; align-items: center; gap: var(--space-3); min-height: 3rem; padding: var(--space-2) var(--space-3); cursor: pointer; border-top: 1px solid var(--c-rule); overflow-wrap: anywhere; }
+  #mt-opts :global([role=option]:first-child) { border-top: 0; }
+  #mt-opts :global([role=option]:hover), #mt-opts :global([aria-selected="true"]) { background: color-mix(in srgb, var(--c-moss) 12%, var(--c-plate)); }
+  #mt-opts :global([aria-selected="true"]) { box-shadow: inset 2px 0 var(--c-moss); }
+  #mt-opts :global([aria-disabled="true"]) { cursor: default; color: var(--c-ink-soft); }
+  #mt-opts :global(.nm) { flex: 1 1 auto; min-width: 0; }
+  #mt-opts :global(.new) { font-weight: 500; }
+  .new-entry { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr)); gap: var(--space-3) var(--space-4); padding: var(--space-4); border: 1px solid var(--c-rule); background: var(--c-mat); }
+  .new-entry[hidden] { display: none; }
+  .new-entry > p, .new-entry .kind { grid-column: 1 / -1; margin: 0; }
+  .kind { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-5); border: 0; padding: 0; min-inline-size: 0; }
+  .kind legend { font-size: 0.85rem; color: var(--c-ink-soft); padding: 0; margin-bottom: var(--space-1); }
+  .editor .kind label { display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font-size: 1rem; color: var(--c-ink); cursor: pointer; }
+  .editor .kind input { width: 1.25rem; height: 1.25rem; min-height: 0; margin: 0; padding: 0; accent-color: var(--c-moss); }
+  /* A photo's guesses: the fish-ID page's choice of camera or photo, in the form's own buttons. */
+  .photo-id { display: grid; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--c-rule); background: var(--c-mat); min-width: 0; }
+  .photo-id[hidden] { display: none; }
+  .photo-id p { margin: 0; }
+  .pick { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .editor .pick label { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0.6rem 1.15rem; border: 1px solid var(--c-rule); border-radius: 8px; font: 500 1rem var(--f-body); color: var(--c-ink); cursor: pointer; }
+  .editor .pick label.main { background: var(--c-ink); border-color: var(--c-ink); color: var(--c-paper); }
+  .editor .pick label:focus-within { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .editor .pick label[aria-disabled='true'] { opacity: 0.55; cursor: not-allowed; }
+  /* The file input stays focusable and announced; its label is the visible button. */
+  .editor .pick .vh { position: absolute; width: 1px; height: 1px; min-height: 0; padding: 0; border: 0; opacity: 0; overflow: hidden; clip-path: inset(50%); }
+  .preview { display: grid; gap: var(--space-2); justify-items: start; }
+  .preview[hidden] { display: none; }
+  /* The photo; while boxing, it takes the drag (no scrolling or selecting) and dims outside the box. */
+  .frame { position: relative; width: fit-content; max-width: min(100%, 16rem); overflow: hidden; border: 1px solid var(--c-rule); }
+  .frame :global(img) { display: block; width: 100%; height: auto; }
+  .frame.cropping { touch-action: none; user-select: none; -webkit-user-select: none; cursor: crosshair; }
+  .frame :global(.box) { position: absolute; outline: 2px dashed var(--c-paper); box-shadow: 0 0 0 100vmax rgb(0 0 0 / 0.5); pointer-events: none; }
+  .crop { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-3); font-size: 0.9rem; color: var(--c-ink-soft); }
+  /* Turnstile's widget (65 px), or a note in its place: the same room either way, so nothing below moves. */
+  .slot { min-height: 65px; }
+  .photo-id .note, .photo-id .privacy, .photo-id .tip { color: var(--c-ink-soft); font-size: var(--step--1); }
+  .note:empty, .said:empty, .guesses:empty { display: none; }
+  :global(.editor .photo-id button:disabled) { opacity: 0.55; cursor: not-allowed; }
+  .said { font-size: 0.9rem; overflow-wrap: anywhere; }
+  .guesses :global(.lead) { color: var(--c-ink-soft); max-width: var(--measure); }
+  .guesses :global(ol) { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+  .guesses :global(ol > li) { display: flex; gap: var(--space-3); align-items: flex-start; padding-top: var(--space-3); border-top: 1px solid var(--c-rule); }
+  .guesses :global(ol > li > img) { flex: none; width: 6rem; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--c-plate); }
+  .guesses :global(ol > li > div) { min-width: 0; overflow-wrap: anywhere; }
+  .guesses :global(h3) { font: 600 var(--step-0) var(--f-body); margin: 0.1rem 0; }
+  .guesses :global(.sure) { font-size: var(--step--1); font-weight: 600; color: var(--c-moss); }
+  .guesses :global(.add) { color: var(--c-ink-soft); font-size: var(--step--1); }
+  .guesses :global(.act) { margin-top: var(--space-2); }
+  /* "Không phải? N loài … khác": the genus's other pages, each a row that adds itself. */
+  .guesses :global(.genus) { margin-top: var(--space-2); }
+  .guesses :global(.genus summary) { padding: 0.65rem 0; cursor: pointer; font-weight: 600; font-size: 0.9rem; color: var(--c-moss); }
+  .guesses :global(.genus summary:focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .guesses :global(.genus ul) { list-style: none; margin: 0; padding: 0; display: grid; }
+  :global(.editor .guesses .sib) { display: flex; align-items: center; gap: var(--space-3); width: 100%; min-height: 44px; padding: 0.35rem 0; border: 0; border-bottom: 1px solid var(--c-rule); border-radius: 0; background: none; color: var(--c-ink); font: 400 0.95rem var(--f-body); text-align: start; cursor: pointer; }
+  :global(.editor .guesses .sib i) { color: var(--c-ink-soft); font-size: 0.85rem; }
+  :global(.editor .guesses .sib .nm) { flex: 1; min-width: 0; }
+  :global(.editor .guesses .sib .tag) { flex: none; font-weight: 600; font-size: 0.85rem; color: var(--c-moss); }
+  :global(.editor .guesses .sib:disabled .tag) { color: var(--c-ink-soft); }
+  .life-msg { margin: 0; font-size: 0.9rem; }
+  .life-msg:empty { display: none; }
+  .err { margin: 0; color: var(--c-cardinal); }
+  .hint { color: var(--c-ink-faint); }
+
+  .tanks { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-7); max-width: 56rem; }
+  :global(.tank) { border-top: 2px solid var(--c-ink); padding-top: var(--space-4); min-width: 0; }
+  :global(.tank .editor) { margin: var(--space-4) 0 0; }
+  :global(.tank-head) { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-4); }
+  :global(.tank h2) { font: 600 var(--step-3) / 1.15 var(--f-display); letter-spacing: -0.01em; margin: 0; text-wrap: balance; overflow-wrap: anywhere; }
+  :global(.tank-acts) { display: flex; gap: var(--space-2); }
+  :global(.tank-acts button) { padding: 0.4rem 0.9rem; font-size: 0.9rem; }
+  :global(.tank .facts) { margin: var(--space-2) 0 0; font-size: var(--step-1); font-variant-numeric: tabular-nums; color: var(--c-ink-soft); }
+  :global(.tank h3) { font: 600 var(--step-0) var(--f-body); color: var(--c-ink); margin: var(--space-5) 0 var(--space-2); }
+  :global(.tank .lights ul) { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-4); }
+  :global(.light p) { margin: 0 0 var(--space-1); }
+  :global(.light-name span) { color: var(--c-ink-faint); font-size: var(--step--1); margin-left: var(--space-1); }
+  :global(.light .day) { margin: var(--space-2) 0; max-width: 32rem; }
+  :global(.light .day svg) { display: block; width: 100%; height: 3rem; background: repeating-linear-gradient(90deg, transparent 0 calc(25% - 1px), var(--c-rule) calc(25% - 1px) 25%), var(--c-blackwater); border-radius: 4px; }
+  :global(.light .ticks) { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--c-ink-faint); font-variant-numeric: tabular-nums; margin-top: 2px; }
+  :global(.light .sched) { font-variant-numeric: tabular-nums; }
+  :global(.light .meta) { color: var(--c-ink-faint); font-size: var(--step--1); }
+  :global(.chips) { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; }
+  :global(.chips li) { border: 1px solid var(--c-rule); padding: 0.25rem 0.7rem; border-radius: 999px; font-size: 0.9rem; background: var(--c-plate); }
+  :global(.chips .count) { color: var(--c-ink-faint); font-variant-numeric: tabular-nums; }
+  :global(.chips .unlisted) { border-style: dashed; }
+  :global(.tank .notes) { font-family: var(--f-display); font-style: italic; font-size: var(--step-1); max-width: var(--measure); white-space: pre-line; margin: var(--space-5) 0 0; color: var(--c-ink); }
+  :global(.tank .stamp) { margin: var(--space-4) 0 0; font-size: var(--step--1); color: var(--c-ink-faint); }
+
+  .empty { max-width: 34rem; padding: var(--space-6) 0; }
+  .empty svg { width: 12rem; height: auto; display: block; margin-bottom: var(--space-4); }
+  .empty .glass { fill: none; stroke: var(--c-ink); stroke-width: 2.5; }
+  .empty .lid { stroke: var(--c-ink); stroke-width: 4; }
+  .empty .water { fill: color-mix(in srgb, var(--c-moss) 14%, transparent); }
+  .empty .ground { fill: color-mix(in srgb, var(--c-cardinal) 35%, transparent); }
+  .empty h2 { font: 600 var(--step-2) var(--f-display); margin: 0 0 var(--space-2); }
+  .empty p { color: var(--c-ink-soft); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-5); align-items: center; }
+
+  .data { margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--c-rule); max-width: var(--measure); }
+  .data h2 { font-size: var(--step-1); }
+  .data p { color: var(--c-ink-soft); }
+  @media (max-width: 640px) {
+    .editor { padding: var(--space-4); }
+    .size input { width: 4.75rem; }
+    .size > span { display: none; }
+    :global(.tank-acts) { width: 100%; }
+  }
+</style>

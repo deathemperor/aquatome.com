@@ -1,5 +1,7 @@
 import { loadTurnstile, type Turnstile } from './comments'
-import { cpath, ct } from './ct'
+import { ct } from './ct'
+import { langOf } from '../lib/i18n'
+import { APPLE_RETURN } from '../../worker/paths'
 import * as store from './tank-store'
 import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonce, getSession, isFail, nextPath, passkeyAddOptions, passkeyLoginOptions, PENDING, pendingFlow, signInWith, signInWithPasskey, signOut, syncOnce, type Fail, type Mode, type Pending, type Providers, type User } from './sync'
 
@@ -51,7 +53,7 @@ export function initAccount(o: { onStore?: () => void; tanks?: boolean; next?: s
   const tanks = o.tanks !== false
   const next = nextPath(o.next, location.origin)
   // Apple's return address: a page its Services ID lists (the tanks page in this language), also on the sign-in page.
-  const page = `${location.origin}${cpath('/vi/cong-cu/be-cua-toi/')}`
+  const page = `${location.origin}${APPLE_RETURN[langOf(location.pathname)]}`
   let providers: Providers | undefined
   let sitekey = ''
   let user: User | null = null

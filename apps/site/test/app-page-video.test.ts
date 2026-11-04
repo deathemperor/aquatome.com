@@ -6,7 +6,7 @@ import { PageDoc, type Block, type Inline } from '@aq/schema/app-page'
 import { appSeries } from '../src/lib/app-index'
 import { videoDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
-import { page } from './dist'
+import { appHref, appPage } from './dist'
 
 // The app draws a video series' page from this copy (once the index counts the kind): what it holds must be the page.
 type B<T extends Block['t']> = Extract<Block, { t: T }>
@@ -23,7 +23,7 @@ test('each video series\' copy reads as its built page: name, its line of counts
   for (const { s } of series) {
     const d = videoDoc('vi', c, s)
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
-    const { dom } = page(d.path)
+    const { dom } = appPage(d.path)
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
     // The page's one line, whole, is the copy's credit: its counts, then the playlist and channel it follows, both linked.
     expect([d.meta, text(d.credit)], d.path).toEqual([undefined, txt(dom.querySelector('.meta'))])
@@ -34,7 +34,7 @@ test('each video series\' copy reads as its built page: name, its line of counts
     // Each guide as the page lists it: its page, name, subject, parts and length, and picture.
     const cards = cardsOf(d)!
     expect(cards.items.map(i => [i.path, i.name, i.sub, i.img?.src]), d.path).toEqual(dom.querySelectorAll('.parts li').map(l => [
-      l.querySelector('a')!.getAttribute('href'), txt(l.querySelector('strong')), `${txt(l.querySelector('small'))} · ${txt(l.querySelector('.dur'))}`, l.querySelector('img')?.getAttribute('src'),
+      appHref(l.querySelector('a')!.getAttribute('href')!), txt(l.querySelector('strong')), `${txt(l.querySelector('small'))} · ${txt(l.querySelector('.dur'))}`, l.querySelector('img')?.getAttribute('src'),
     ]))
     // Every picture credited, as the footer's "Nguồn ảnh" credits the page's.
     const imgs = cards.items.flatMap(i => (i.img ? [i.img] : []))
@@ -77,7 +77,7 @@ test('a series\' copy in Indonesian has the Indonesian pages\' paths only', asyn
 })
 
 test('the series page and the app\'s copy are put together by the same code', () => {
-  const astro = readFileSync(new URL('../src/pages/vi/video/[slug].astro', import.meta.url), 'utf8')
-  expect(astro).toContain("from '../../../lib/series-page'")
+  const astro = readFileSync(new URL('../src/pages/video/[slug].astro', import.meta.url), 'utf8')
+  expect(astro).toContain("from '../../lib/series-page'")
   for (const own of ['seriesGuides(', 'seriesSeconds(', 'guideImage(', 'clock(', 'GUIDE_KIND_LABELS']) expect(astro, own).not.toContain(own)
 })

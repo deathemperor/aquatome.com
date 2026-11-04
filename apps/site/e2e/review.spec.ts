@@ -14,7 +14,7 @@ const ON = !!process.env.E2E_REVIEW
 const MODEL = process.env.REVIEW_MODEL ?? 'opus'
 // What readers open most, and the searches and tools that broke before. On aquatome.com, also a few pages that change
 // each day (E2E_SEED).
-const KEY = ['/vi/', '/vi/ca/', '/vi/ca/?q=neon', '/vi/ca/ca-neon-vua/', '/vi/cay/', '/vi/huong-dan/', '/vi/cong-cu/', '/vi/cong-cu/the-tich-be/', '/vi/cong-cu/den-chihiros/', '/id/', '/th/']
+const KEY = ['/', '/ca/', '/ca/?q=neon', '/ca/ca-neon-vua/', '/cay/', '/huong-dan/', '/cong-cu/', '/cong-cu/the-tich-be/', '/cong-cu/den-chihiros/', '/id/', '/th/']
 const seed = Number(process.env.E2E_SEED ?? 0)
 const pool = sourcePages().filter(p => !KEY.includes(p))
 const daily = LIVE && pool.length ? Array.from({ length: 6 }, (_, i) => pool[(seed * 7919 + i * 104729) % pool.length]!) : []

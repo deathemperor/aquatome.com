@@ -4,7 +4,7 @@ import { PAGE } from './filter-list'
 import { buildGuideCard } from './guide-card'
 
 /**
- * The guide list (pages/vi/huong-dan/index.astro). Its HTML has the first page of guides, a template card, and "Xem thêm",
+ * The guide list (pages/huong-dan/index.astro). Its HTML has the first page of guides, a template card, and "Xem thêm",
  * a link to the next numbered page (/vi/huong-dan/trang/2/: crawlers and readers without the script follow it). Every
  * guide, in the list's order, is in the list's data file (`#guide-list` data-src, lib/list-data.ts), fetched the first
  * time the reader picks a subject or wants more (or nears the end): then a subject shows its guides a page at a time, and

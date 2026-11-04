@@ -23,6 +23,14 @@ node ../../scripts/site-watch.mjs prepare https://aquatome.com .
 E2E_BASE_URL=https://aquatome.com E2E_PAGES=e2e-pages.json pnpm exec playwright test <spec>
 ```
 
+## Addresses
+
+- Vietnamese pages are at the root (`src/pages/ca/[slug].astro` → `/ca/<slug>/`), and Indonesian and Thai ones mount
+  the same files under `/id/` and `/th/`. A new section gets a folder in `src/pages/` and an entry in `VI_SECTIONS`
+  (`apps/site/worker/paths.ts`): a test holds them, and wrangler's `run_worker_first`, to the folders.
+- Write a link to a page as `/vi/…`. The build rewrites it to each language's address (`src/lib/i18n.ts`). Old `/vi/…`
+  addresses 301 to the root. The app's files keep the `/vi/` form until `APP_VI_ROOT` turns on.
+
 ## Strings
 
 - UI text is Vietnamese in the code. Indonesian and Thai live in `apps/site/src/i18n/{id,th}.json`, and the build fails

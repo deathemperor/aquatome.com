@@ -1,0 +1,105 @@
+---
+import Browse from '../../layouts/Browse.astro'
+import GearList from '../../components/GearList.astro'
+import VideoGuideGrid from '../../components/VideoGuideGrid.astro'
+import { getContent } from '../../lib/content'
+import { categoryLabel } from '../../lib/format'
+import { dmy, priceRange, vnd, videosUsing, type Product } from '../../lib/products'
+import { i18n, langOf } from '../../lib/i18n'
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
+  return c.products.map(p => ({ params: { slug: p.t.slug }, props: { p } }))
+}
+const { p } = Astro.props as { p: Product }
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
+const eq = c.equipment.find(e => e.category === p.category)
+const typeName = eq?.types.find(t => t.id === p.type)?.name
+const label = (k: string) => p.t.labels?.[k] ?? k
+const range = priceRange(p)
+const keys = [...new Set(p.variants.flatMap(v => v.specs.map(s => s.key)))]
+const name = `${p.brand} ${p.model}`
+const buy = [{ category: p.category, label: t(categoryLabel(p.category)), name, keyword: name }]
+const vids = videosUsing(c, p)
+const jsonld = [
+  { '@context': 'https://schema.org', '@type': 'Product', name, brand: { '@type': 'Brand', name: p.brand }, model: p.model, description: p.t.summary?.join(' '),
+    ...(range ? { offers: { '@type': 'AggregateOffer', priceCurrency: 'VND', lowPrice: range.min, highPrice: range.max, offerCount: range.n } } : {}) },
+  ...(p.t.faq?.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: p.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
+]
+---
+<Browse title={t('{name}: nên mua không, chọn cỡ nào', { name: p.t.name })} heading={p.t.name} description={p.t.summary?.join(' ')} crumbs={[['/vi/thiet-bi/', t('Thiết bị')], ...(eq ? [[`/vi/thiet-bi/${p.category}/`, eq.name] as [string, string]] : [])]} noindex={!p.t.quality.indexable} jsonld={jsonld}>
+  <p class="kind">{typeName ?? t(categoryLabel(p.category))} · {p.brand}</p>
+  {p.t.summary?.length ? <div class="verdict"><h2>{t('Nhận xét nhanh')}</h2>{p.t.summary.map(s => <p>{s}</p>)}</div> : null}
+
+  <div class="facts">
+    {range && (
+      <section class="prices" aria-labelledby="price-h">
+        <h2 id="price-h">{t('Giá tham khảo')}</h2>
+        <p class="range">{range.min === range.max ? vnd(lang, range.min) : `${vnd(lang, range.min)} – ${vnd(lang, range.max)}`}</p>
+        <ul>{p.market!.prices.map(x => <li><a href={x.url} rel="nofollow noopener" target="_blank">{x.shop}</a>{x.variant && <span class="v">{label(x.variant)}</span>}<span class="p">{vnd(lang, x.price)}</span></li>)}</ul>
+        <p class="note">{t('Giá trên trang của từng shop, xem ngày {date}. Giá có thể đã đổi.', { date: dmy(range.at) })}</p>
+      </section>
+    )}
+    {p.specs.length > 0 && (
+      <section aria-labelledby="spec-h">
+        <h2 id="spec-h">{t('Thông số')}</h2>
+        <table class="specs"><tbody>{p.specs.map(s => <tr><th scope="row">{label(s.key)}</th><td>{label(s.value)}</td></tr>)}</tbody></table>
+      </section>
+    )}
+  </div>
+
+  {p.variants.length > 1 && (
+    <section aria-labelledby="var-h">
+      <h2 id="var-h">{t('Các phiên bản')}</h2>
+      <div class="scroll"><table class="variants">
+        <thead><tr><th scope="col">{t('Phiên bản')}</th>{keys.map(k => <th scope="col">{label(k)}</th>)}</tr></thead>
+        <tbody>{p.variants.map(v => <tr><th scope="row">{label(v.name)}</th>{keys.map(k => { const x = v.specs.find(s => s.key === k)?.value; return <td>{x ? label(x) : '–'}</td> })}</tr>)}</tbody>
+      </table></div>
+    </section>
+  )}
+
+  {p.t.body && <div class="prose" set:html={p.t.body} />}
+
+  {p.t.faq?.length ? (
+    <section class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">{t('Hỏi đáp')}</h2>
+      {p.t.faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    </section>
+  ) : null}
+
+  <GearList rows={buy} heading={t('Mua ở đâu')} entity={`product:${p.id}`} />
+  <VideoGuideGrid guides={vids} heading={t('Có trong video hướng dẫn')} />
+
+  <section class="sources" aria-labelledby="src-h" data-pagefind-ignore>
+    <h2 id="src-h">{t('Nguồn')}</h2>
+    <p>{t('AquaTome tổng hợp từ thông số của hãng, trang các shop thủy sinh và đánh giá của người chơi, rồi tự viết lại. Cập nhật {date}.', { date: dmy(p.updatedAt) })}</p>
+    <ol>{p.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.title}</a></li>)}</ol>
+  </section>
+</Browse>
+<style>
+  .kind { color: var(--c-ink-soft); margin: calc(-1 * var(--space-3)) 0 var(--space-5); }
+  h2 { font-size: var(--step-2); margin: var(--space-6) 0 var(--space-3); }
+  .verdict { max-width: var(--measure); padding: var(--space-4) var(--space-5); background: var(--c-plate); border-left: 3px solid var(--c-moss); }
+  .verdict h2 { margin-top: 0; font-size: var(--step-1); }
+  .verdict p { margin: 0 0 var(--space-2); }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 0 var(--space-7); align-items: start; }
+  .range { font: 600 var(--step-2) var(--f-display); margin: 0 0 var(--space-3); }
+  .prices ul { list-style: none; padding: 0; margin: 0; }
+  .prices li { display: grid; grid-template-columns: 1fr auto; gap: 0 var(--space-3); padding-block: var(--space-2); border-bottom: 1px dotted var(--c-rule); }
+  .prices .v { grid-column: 1; grid-row: 2; font-size: var(--step--1); color: var(--c-ink-faint); }
+  .prices .p { grid-column: 2; grid-row: 1; font-variant-numeric: tabular-nums; }
+  .note { font-size: 0.8rem; color: var(--c-ink-faint); }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+  th, td { text-align: left; padding: var(--space-2) var(--space-3) var(--space-2) 0; border-bottom: 1px solid var(--c-rule); vertical-align: top; }
+  .specs th { font-weight: 500; color: var(--c-ink-soft); width: 45%; }
+  .variants th[scope="row"] { font-weight: 600; white-space: nowrap; }
+  .prose { max-width: var(--measure); }
+  .prose :global(h3) { font-size: var(--step-2); margin: var(--space-6) 0 var(--space-3); }
+  .prose :global(table) { margin-block: var(--space-3); }
+  .faq { max-width: var(--measure); }
+  .faq details { border-bottom: 1px solid var(--c-rule); padding: var(--space-3) 0; }
+  .faq summary { cursor: pointer; font-weight: 500; }
+  .faq p { margin: var(--space-2) 0 0; color: var(--c-ink-soft); }
+  .sources { max-width: var(--measure); font-size: 0.9rem; color: var(--c-ink-soft); }
+  .sources ol { padding-left: 1.4em; }
+</style>

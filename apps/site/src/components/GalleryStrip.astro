@@ -7,7 +7,7 @@ import { i18n, served } from '../lib/i18n'
  * `href`: the gallery page; without one (too few photos for a page, or none in this language) each thumb opens its photo.
  * `shown`: of the first photos, those the page doesn't show already (lib/pictures.ts), null for the others: each thumb
  * keeps its place, so it still opens its own photo on the gallery page.
- * `column`: in the photo column of a fish's page, under its photo (pages/vi/ca/[slug].astro): inside the page's margins,
+ * `column`: in the photo column of a fish's page, under its photo (pages/ca/[slug].astro): inside the page's margins,
  * and beside the facts (above 860 px) headed like their parts.
  */
 interface Props { photos: Photo[]; href?: string; name: string; shown?: (Photo | null)[]; column?: boolean }

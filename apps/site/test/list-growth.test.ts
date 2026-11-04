@@ -5,12 +5,13 @@ import { fileURLToPath } from 'node:url'
 import { afterAll, beforeAll, expect, test } from 'vitest'
 import { allPages } from '../e2e/pages'
 import { unreached } from './reach'
+import { isViPage } from '../worker/paths'
 
 // The fish and plant lists must not grow with the catalogue: past their first page, a species or plant adds nothing to
 // their HTML (#272 left ~0.6 KB and ~2.6 elements per species, and the catalogue grows ~50 species a day). The test
 // content has fewer than a page of each, so the site is built twice more here, with 40 and then 80 made-up species and
 // plants past the first page: the lists' HTML must come out the same but for the totals they print. The same holds for
-// the pages that list some of the species (2026-11-01, on the real build: /vi/nguon-goc/asia/ had 11,039 elements, the
+// the pages that list some of the species (2026-11-01, on the real build: /nguon-goc/asia/ had 11,039 elements, the
 // fish groups' pages up to 5,384): the made-up species are copies of one fish, so they join its group's page, its
 // order's, family's and genus's, and those of the continent and countries it comes from.
 const SITE = fileURLToPath(new URL('..', import.meta.url))
@@ -66,7 +67,7 @@ function buildWith(extra: number) {
   for (let i = 0; i < 100 + extra; i++) log.push({ date: '2026-01-01', kind: 'species', id: `testus-thu-${nn((i % 50) + 1)}`, source: 'seriouslyfish', action: 'updated' })
   writeFileSync(join(content, 'changelog.json'), JSON.stringify(log))
   // Discovery notes, and single videos of one channel, older than the test content's: their pages listed every one
-  // (/vi/kham-pha/, /vi/video/kenh/<channel>/, and the video index credited every video's picture).
+  // (/kham-pha/, /video/kenh/<channel>/, and the video index credited every video's picture).
   for (const [from, name] of [['glaser-hang-moi', 'kham-pha-thu'], ['youtube-r53ZQW0m8VM', 'video-thu']] as const) {
     const e = read(join(FIXTURE, 'guides', from, 'entity.json')), v = read(join(FIXTURE, 'guides', from, 'vi.json'))
     for (let i = 1; i <= extra + 10; i++) {
@@ -100,7 +101,7 @@ function otherDifference(x: string, y: string): string | undefined {
   }
 }
 
-for (const [path, kind] of [['vi/ca', 'species'], ['vi/cay', 'plants'], ['vi/huong-dan', 'guides']] as const) {
+for (const [path, kind] of [['ca', 'species'], ['cay', 'plants'], ['huong-dan', 'guides']] as const) {
   test(`the ${kind} list's HTML is the same with 40 or 80 more ${kind} past its first page (/${path}/)`, () => {
     expect(otherDifference(small(path), large(path))).toBeUndefined()
   })
@@ -108,16 +109,16 @@ for (const [path, kind] of [['vi/ca', 'species'], ['vi/cay', 'plants'], ['vi/huo
 
 // The discovery notes, the video channel the made-up videos are on, and the video index.
 const CHANNEL = read(join(FIXTURE, 'guides/youtube-r53ZQW0m8VM/entity.json')).video.channel.toLowerCase().replace(/\s+/g, '-')
-for (const path of ['vi/kham-pha', `vi/video/kenh/${CHANNEL}`, 'vi/video']) {
+for (const path of ['kham-pha', `video/kenh/${CHANNEL}`, 'video']) {
   test(`a list of guides has the same HTML with 50 or 90 more of them past its first page (/${path}/)`, () => {
     expect(otherDifference(small(path), large(path))).toBeUndefined()
   })
 }
 
 // Past their first page, discovery notes and a channel's videos are linked from numbered pages.
-for (const [path, slug] of [['vi/kham-pha', 'kham-pha-thu'], [`vi/video/kenh/${CHANNEL}`, 'video-thu']] as const) {
+for (const [path, slug] of [['kham-pha', 'kham-pha-thu'], [`video/kenh/${CHANNEL}`, 'video-thu']] as const) {
   test(`/${path}/ and its numbered pages link every guide, a page at a time`, () => {
-    const links = (html: string) => [...html.matchAll(/<a class="gc[^"]*" href="\/vi\/huong-dan\/([^"/]+)\/"/g)].map(m => m[1]!)
+    const links = (html: string) => [...html.matchAll(/<a class="gc[^"]*" href="\/huong-dan\/([^"/]+)\/"/g)].map(m => m[1]!)
     const seen: string[] = []
     let at: string | undefined = path, pages = 0
     while (at) {
@@ -133,24 +134,24 @@ for (const [path, slug] of [['vi/kham-pha', 'kham-pha-thu'], [`vi/video/kenh/${C
 }
 
 // The pages the made-up species and plants join, as the fixture's fish and plant they copy have them: the fish's group,
-// taxa and places, and the equipment pages of the kit both suggest (2026-11-01, on the real build: /vi/thiet-bi/thuc-an/
+// taxa and places, and the equipment pages of the kit both suggest (2026-11-01, on the real build: /thiet-bi/thuc-an/
 // had 5,852 elements, every shop search and every species).
 const NEON = read(join(FIXTURE, 'species/paracheirodon-innesi/entity.json'))
 const ANUBIAS = read(join(FIXTURE, 'plants/anubias-barteri-nana/entity.json'))
 const PLACES = new Map(readdirSync(join(FIXTURE, 'places')).map(id => [id, read(join(FIXTURE, 'places', id, 'entity.json'))]))
 const TAXON = [NEON.order, NEON.family, NEON.genus].map((x: string) => x.toLowerCase())
 const SPECIES_PAGES = [
-  `vi/nhom/${NEON.group}`,
-  ...[1, 2, 3].map(i => `vi/phan-loai/${TAXON.slice(0, i).join('/')}`),
+  `nhom/${NEON.group}`,
+  ...[1, 2, 3].map(i => `phan-loai/${TAXON.slice(0, i).join('/')}`),
   ...(NEON.places as string[]).flatMap(id => {
     const p = PLACES.get(id)
-    return p?.kind === 'continent' ? [`vi/nguon-goc/${id}`] : p?.kind === 'country' ? [`vi/nguon-goc/${p.parent}/${id}`] : []
+    return p?.kind === 'continent' ? [`nguon-goc/${id}`] : p?.kind === 'country' ? [`nguon-goc/${p.parent}/${id}`] : []
   }),
-  ...[...new Set([...NEON.productSlots, ...ANUBIAS.productSlots].map((x: { category: string }) => `vi/thiet-bi/${x.category}`))],
+  ...[...new Set([...NEON.productSlots, ...ANUBIAS.productSlots].map((x: { category: string }) => `thiet-bi/${x.category}`))],
 ]
 test('the made-up species join a group, three taxa, places and equipment with pages', () => {
   expect(SPECIES_PAGES.length).toBeGreaterThanOrEqual(8)
-  expect(SPECIES_PAGES).toContain('vi/thiet-bi/cay-thuy-sinh')
+  expect(SPECIES_PAGES).toContain('thiet-bi/cay-thuy-sinh')
 })
 for (const path of SPECIES_PAGES) {
   test(`a page listing some species has the same HTML with 40 or 80 more of them past its first page (/${path}/)`, () => {
@@ -161,15 +162,15 @@ for (const path of SPECIES_PAGES) {
 // Past the first page, guides are linked from numbered pages ("Xem thêm" on the list is a link to the next one), so
 // crawlers and readers without the list's script still reach every guide.
 test('the guide list and its numbered pages link every guide, a page at a time', () => {
-  const links = (html: string) => [...html.matchAll(/<a class="gc[^"]*" href="\/vi\/huong-dan\/([^"/]+)\/"/g)].map(m => m[1]!)
+  const links = (html: string) => [...html.matchAll(/<a class="gc[^"]*" href="\/huong-dan\/([^"/]+)\/"/g)].map(m => m[1]!)
   const seen: string[] = []
-  let path: string | undefined = 'vi/huong-dan', pages = 0
+  let path: string | undefined = 'huong-dan', pages = 0
   while (path) {
-    const html = large(path), list: boolean = path === 'vi/huong-dan'
+    const html = large(path), list: boolean = path === 'huong-dan'
     // The list's own page also has the beginner row: only its "Tất cả hướng dẫn" grid counts.
     const own: string = list ? html.slice(html.indexOf('id="guide-list"')) : html
     seen.push(...links(own.slice(0, own.search(/<template|<nav class="pages"|<\/main>/))))
-    path = (list ? /<a id="guide-more" href="\/(vi\/huong-dan\/trang\/\d+)\/"/ : /<a href="\/(vi\/huong-dan\/trang\/\d+)\/" rel="next"/).exec(own)?.[1]
+    path = (list ? /<a id="guide-more" href="\/(huong-dan\/trang\/\d+)\/"/ : /<a href="\/(huong-dan\/trang\/\d+)\/" rel="next"/).exec(own)?.[1]
     if (++pages > 10) break
   }
   const all = Array.from({ length: 80 + 10 }, (_, i) => `bai-thu-${nnn(i + 1)}`)
@@ -181,13 +182,13 @@ test('the guide list and its numbered pages link every guide, a page at a time',
 // Past the first page, a fish group's species are linked from its numbered pages ("Xem thêm" on the group's page is a
 // link to the next one), so crawlers and readers without the page's script still reach every species.
 test("a fish group's page and its numbered pages link every species of the group, a page at a time", () => {
-  const links = (html: string) => [...html.matchAll(/<a href="\/vi\/ca\/([^"/]+)\/"/g)].map(m => m[1]!)
+  const links = (html: string) => [...html.matchAll(/<a href="\/ca\/([^"/]+)\/"/g)].map(m => m[1]!)
   const seen: string[] = []
-  let path: string | undefined = `vi/nhom/${NEON.group}`, pages = 0
+  let path: string | undefined = `nhom/${NEON.group}`, pages = 0
   while (path) {
     const html = large(path), own = html.slice(html.indexOf('class="grid"'))
     seen.push(...links(own.slice(0, own.search(/<template|<nav class="pages"|<\/main>/))))
-    path = (pages === 0 ? /<a data-more href="\/(vi\/nhom\/[^/]+\/trang\/\d+)\/"/ : /<a href="\/(vi\/nhom\/[^/]+\/trang\/\d+)\/" rel="next"/).exec(own)?.[1]
+    path = (pages === 0 ? /<a data-more href="\/(nhom\/[^/]+\/trang\/\d+)\/"/ : /<a href="\/(nhom\/[^/]+\/trang\/\d+)\/" rel="next"/).exec(own)?.[1]
     if (++pages > 10) break
   }
   const made = Array.from({ length: 80 + 10 }, (_, i) => `ca-thu-${nn(i + 1)}`)
@@ -199,13 +200,13 @@ test("a fish group's page and its numbered pages link every species of the group
 // Past the first page, plants are linked from the plant list's numbered pages ("Xem thêm" is a link to the next one): the
 // equipment page for plants no longer lists them all.
 test('the plant list and its numbered pages link every plant, a page at a time', () => {
-  const links = (html: string) => [...html.matchAll(/<a href="\/vi\/cay\/([^"/]+)\/"/g)].map(m => m[1]!)
+  const links = (html: string) => [...html.matchAll(/<a href="\/cay\/([^"/]+)\/"/g)].map(m => m[1]!)
   const seen: string[] = []
-  let path: string | undefined = 'vi/cay', pages = 0
+  let path: string | undefined = 'cay', pages = 0
   while (path) {
     const html = large(path), own = html.slice(html.indexOf('class="grid"'))
     seen.push(...links(own.slice(0, own.search(/<template|<nav class="pages"|<\/main>/))))
-    path = (pages === 0 ? /<a id="plant-more" href="\/(vi\/cay\/trang\/\d+)\/"/ : /<a href="\/(vi\/cay\/trang\/\d+)\/" rel="next"/).exec(own)?.[1]
+    path = (pages === 0 ? /<a id="plant-more" href="\/(cay\/trang\/\d+)\/"/ : /<a href="\/(cay\/trang\/\d+)\/" rel="next"/).exec(own)?.[1]
     if (++pages > 10) break
   }
   const made = Array.from({ length: 80 + 10 }, (_, i) => `cay-thu-${nn(i + 1)}`)
@@ -214,30 +215,30 @@ test('the plant list and its numbered pages link every plant, a page at a time',
   expect(pages).toBe(Math.ceil(seen.length / 24))
 })
 
-// The changelog's first page: the newest entries, then a link to the older ones (/vi/moi-cap-nhat/trang/2/).
+// The changelog's first page: the newest entries, then a link to the older ones (/moi-cap-nhat/trang/2/).
 test("the changelog's page is the same with 140 or 180 entries", () => {
-  expect(otherDifference(small('vi/moi-cap-nhat'), large('vi/moi-cap-nhat'))).toBeUndefined()
-  expect(large('vi/moi-cap-nhat')).toMatch(/<a href="\/vi\/moi-cap-nhat\/trang\/2\/" rel="next"/)
-  expect(large('vi/moi-cap-nhat/trang/2')).toMatch(/<a href="\/vi\/moi-cap-nhat\/" rel="prev"/)
+  expect(otherDifference(small('moi-cap-nhat'), large('moi-cap-nhat'))).toBeUndefined()
+  expect(large('moi-cap-nhat')).toMatch(/<a href="\/moi-cap-nhat\/trang\/2\/" rel="next"/)
+  expect(large('moi-cap-nhat/trang/2')).toMatch(/<a href="\/moi-cap-nhat\/" rel="prev"/)
 })
 
 // A guide naming every made-up fish: a page of cards and a line for the rest, and credits for the photos it shows.
 test('a guide that names 50 or 90 fish has the same cards and credits', () => {
   const part = (html: string, from: string, to: string) => { const i = html.indexOf(from); return i < 0 ? '' : html.slice(i, html.indexOf(to, i)) }
   for (const [from, to] of [['id="rel-h"', '</section>'], ['id="photo-credits"', '</ul>']] as const) {
-    const [a, b] = [small, large].map(f => part(f('vi/huong-dan/bai-thu-001'), from, to))
+    const [a, b] = [small, large].map(f => part(f('huong-dan/bai-thu-001'), from, to))
     expect(a, from).not.toBe('')
     expect(otherDifference(a!, b!), from).toBeUndefined()
   }
-  expect(large('vi/huong-dan/bai-thu-001')).toMatch(/Còn \d+ loài cá và cây khác trong bài\./)
+  expect(large('huong-dan/bai-thu-001')).toMatch(/Còn \d+ loài cá và cây khác trong bài\./)
 })
 
 // A numbered page's links, its language menu's too, lead to pages that exist, in Vietnamese and in Indonesian (a group's
-// page 2 once linked its Vietnamese version to /vi/nhom/, a page there isn't).
+// page 2 once linked its Vietnamese version to /nhom/, a page there isn't).
 test("the fish groups' and the plant list's numbered pages link only pages that exist, in every language", () => {
   const pages = new Set(allPages(largeDist))
-  for (const path of [`vi/nhom/${NEON.group}/trang/2`, `id/kelompok/${NEON.group}/halaman/2`, 'vi/cay/trang/2']) {
-    const hrefs = [...large(path).matchAll(/<a\b[^>]*?\shref="(\/(?:vi|id|th)\/[^"]*)"/g)].map(m => m[1]!.replace(/[?#].*$/, ''))
+  for (const path of [`nhom/${NEON.group}/trang/2`, `id/kelompok/${NEON.group}/halaman/2`, 'cay/trang/2']) {
+    const hrefs = [...large(path).matchAll(/<a\b[^>]*?\shref="(\/[^"/][^"]*)"/g)].map(m => m[1]!.replace(/[?#].*$/, '')).filter(h => isViPage(h) || /^\/(id|th)\//.test(h))
     expect(hrefs.length, path).toBeGreaterThan(24)
     expect([...new Set(hrefs)].filter(h => !pages.has(h)), `/${path}/: links to missing pages`).toEqual([])
   }

@@ -11,7 +11,10 @@ export type Page = {
   kind: PageKind
   id: string
   title: string
-  /** The page's address on the site ("/id/ikan/<slug>/"). */
+  /**
+   * The page's path in the form site links are written in ("/vi/ca/<slug>/", "/id/ikan/<slug>/"): the reader's text and
+   * its hash carry it, so it stays put. Its address on the site is pageUrl's.
+   */
   path: string
   /** Each piece of HTML text and where it is kept in the page's file ("sections.diet:seriouslyfish", "body", "faq.2.a"). */
   fields: { field: string; html: string }[]
@@ -42,6 +45,8 @@ const SECTION_OF: Record<PageKind, keyof (typeof SECTION)['vi']> = {
   species: 'ca', breeds: 'ca', plants: 'cay', guides: 'huong-dan', glossary: 'thuat-ngu', products: 'san-pham', equipment: 'thiet-bi',
 }
 export const pagePath = (lang: Lang, kind: PageKind, slug: string) => `/${lang}/${SECTION[lang][SECTION_OF[kind]]}/${slug}/`
+/** A page's address on the site: Vietnamese pages are at the root ("/vi/ca/x/" → https://aquatome.com/ca/x/). */
+export const pageUrl = (p: Pick<Page, 'path'>) => `https://aquatome.com${p.path.replace(/^\/vi\//, '/')}`
 
 const ORDER = new Map<string, number>(SECTION_ORDER.map((k, i) => [k, i]))
 /** A species or plant page's sections in the schema's order (`key:source`); the sources' references last. */

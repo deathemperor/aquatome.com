@@ -5,7 +5,7 @@ import { headingRoles, imperialLeft, ownNumber, type DataCardField, type Lang } 
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice } from './sanitize'
-import type { Page, PageKind } from './pages'
+import { pageUrl, type Page, type PageKind } from './pages'
 
 /**
  * Rules every published page is checked against, every cycle, in each language (`pnpm engine audit`). Each is a small
@@ -585,7 +585,6 @@ export function checkPages(pages: Page[], rules: Rule[] = RULES): { findings: Fi
   return { findings, errors }
 }
 
-const SITE = 'https://aquatome.com'
 const md = (s: string) => s.replace(/([[\]|*_`<>\\])/g, '\\$1')
 
 /** docs/review/content-rules.md: one section per rule, each page once with what was found there, in a stable order. */
@@ -601,7 +600,7 @@ export function rulesReport(pages: Page[], r: { findings: Finding[]; errors: str
       byPage.set(f.page.path, e)
     }
     const rows = [...byPage.values()].sort((a, b) => a.page.path.localeCompare(b.page.path))
-      .map(({ page, details }) => `- [${page.lang} · ${md(page.title)}](${SITE}${page.path}) — ${details.map(md).join('; ')}`)
+      .map(({ page, details }) => `- [${page.lang} · ${md(page.title)}](${pageUrl(page)}) — ${details.map(md).join('; ')}`)
     return `## ${rule.title} (${rows.length})\n\n${rule.about}\n\n${rows.join('\n') || '- none'}\n`
   })
   return `# Content rules

@@ -2,6 +2,42 @@
   "id": "crystal-red-shrimp",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/5aa901581c6eb89f.webp",
+      "thumb": "https://media.aquatome.com/commons/5aa901581c6eb89f-480.webp",
+      "width": 1200,
+      "height": 799,
+      "licence": "CC BY-SA 3.0",
+      "author": "Marcus Hafermann",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caridina-cf-cantonensis-red-ruby.jpg",
+      "caption": "Tép ong đỏ màu đỏ trắng trên nền sỏi đen trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e4eb3a3787b65603.webp",
+      "thumb": "https://media.aquatome.com/commons/e4eb3a3787b65603-480.webp",
+      "width": 963,
+      "height": 722,
+      "licence": "CC BY-SA 3.0",
+      "author": "Zappster",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bienengarnele.jpg",
+      "caption": "Tép ong đỏ trắng trong bể cát trắng",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/324e7c7445d6aa6b.webp",
+      "thumb": "https://media.aquatome.com/commons/324e7c7445d6aa6b-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC BY-SA 3.0",
+      "author": "ふうけ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Himenumaebi-yokoshima.jpg",
+      "caption": "Tép ong đỏ sọc đỏ trắng bám trên ống lọc trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/12d60d73b2a3aab9.webp",
       "thumb": "https://media.aquatome.com/commons/12d60d73b2a3aab9-480.webp",
       "width": 1200,
@@ -92,6 +128,7 @@
       "caption": "Tép ong đỏ trắng bám trên cây thủy sinh trong bể"
     }
   ],
-  "seen": 67,
-  "updatedAt": "2026-10-30"
+  "seen": 162,
+  "updatedAt": "2026-11-04",
+  "builtAt": "2026-11-04"
 }

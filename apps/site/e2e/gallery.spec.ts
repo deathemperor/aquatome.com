@@ -5,7 +5,7 @@ import { sourcePages } from './pages'
 // A photo gallery, from the fish's or plant's page: the strip's link opens the gallery page, a photo opens in the viewer
 // with its author and licence, the arrow keys step through, Escape closes. The pages come from the build (or, live, the
 // sitemap), so the journey holds on aquatome.com's real galleries too.
-const galleryOf = (section: string) => sourcePages().find(p => new RegExp(`^/vi/${section}/[^/]+/anh/$`).test(p))
+const galleryOf = (section: string) => sourcePages().find(p => new RegExp(`^/${section}/[^/]+/anh/$`).test(p))
 
 for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
   test(`${what} gallery: from the page's strip to the gallery, then through the photos in the viewer`, async ({ page, errors }) => {
