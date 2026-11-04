@@ -10,6 +10,8 @@ test("Commons' placeholder author and a renamed user give the user's name", () =
   expect(authorText('No machine-readable author provided. Fred Hsu assumed (based on copyright claims).')).toBe('Fred Hsu')
   expect(authorText('<a href="//commons.wikimedia.org/wiki/User:Raf24~commonswiki">Raf24~commonswiki</a>')).toBe('Raf24')
   expect(tidyAuthor('A-kun--a~commonswiki')).toBe('A-kun--a')
+  expect(tidyAuthor('Foo~enwiki')).toBe('Foo')
+  expect(tidyAuthor('Foo~wikimedia')).toBe('Foo~wikimedia')
   // Left as they are: a name with a tilde of its own, a sentence that only looks like the placeholder.
   expect(tidyAuthor('Ann~Marie')).toBe('Ann~Marie')
   expect(tidyAuthor('No machine-readable author provided.')).toBe('No machine-readable author provided.')
@@ -27,14 +29,16 @@ test('stored Wikimedia credits are tidied in place on pages and galleries; other
   ], sections: [{ photos: [{ author: placeholder, sourceUrl: 'https://commons.wikimedia.org/wiki/File:B.jpg' }] }] }
   const pageRaw = `${JSON.stringify(page, null, 2)}\n`
   await writeFile(join(root, 'species', 'a', 'entity.json'), pageRaw)
-  const gallery = { id: 'a', photos: [{ author: 'Raf24~commonswiki', sourceUrl: 'https://commons.wikimedia.org/wiki/File:C.jpg' }] }
+  // The same renamed user beside a Commons credit in one file: tidied there too.
+  const gallery = { id: 'a', photos: [{ author: 'Raf24~commonswiki', sourceUrl: 'https://commons.wikimedia.org/wiki/File:C.jpg' },
+    { author: 'Raf24~commonswiki', sourceUrl: 'https://www.flickr.com/photos/x/3' }] }
   await writeFile(join(root, 'gallery', 'a.json'), JSON.stringify(gallery, null, 1))
 
-  expect(await tidyCredits(root)).toEqual({ files: 2, authors: 3 })
+  expect(await tidyCredits(root)).toEqual({ files: 2, authors: 4 })
   const after = await readFile(join(root, 'species', 'a', 'entity.json'), 'utf8')
   expect(after).toBe(pageRaw.replaceAll(JSON.stringify(placeholder), '"RuthJM"'))
   expect(JSON.parse(after).photos[1].author).toBe('Raf24~commonswiki')
-  expect(JSON.parse(await readFile(join(root, 'gallery', 'a.json'), 'utf8')).photos[0].author).toBe('Raf24')
+  expect(JSON.parse(await readFile(join(root, 'gallery', 'a.json'), 'utf8')).photos.map((p: { author: string }) => p.author)).toEqual(['Raf24', 'Raf24'])
   // Run again: nothing left to do.
   expect(await tidyCredits(root)).toEqual({ files: 0, authors: 0 })
 })

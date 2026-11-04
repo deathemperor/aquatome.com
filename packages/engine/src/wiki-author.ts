@@ -20,7 +20,9 @@ export const tidyAuthor = (s: string) => s.replace(ASSUMED, '$1').replace(RENAME
 
 /**
  * Wikimedia photos already in content credited as imported before tidyAuthor: each `author` beside a Wikimedia
- * `sourceUrl`, on pages (species, plants, guides) and galleries, tidied in place. Only those strings change in a file.
+ * `sourceUrl`, on pages (species, plants, guides) and galleries, tidied in place: only author strings change in a file,
+ * and such a string is tidied wherever it is in the file, as only Commons writes its placeholder, and a "~commonswiki"
+ * name beside a Commons credit is the same renamed user.
  */
 export async function tidyCredits(contentRoot: string): Promise<{ files: number; authors: number }> {
   const files: string[] = []
