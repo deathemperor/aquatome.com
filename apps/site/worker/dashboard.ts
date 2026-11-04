@@ -2,7 +2,7 @@ import { sessionOf, tokenOf } from './accounts/session'
 import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
 import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
-import { photosLive, recentPhotos, removePhoto, type PhotosEnv } from './photos'
+import { photosLive, recentPhotos, removePhoto, waitingPhotos, type PhotosEnv } from './photos'
 import { queryReaderDays, queryReaders } from './readers'
 import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
 import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
@@ -156,7 +156,7 @@ const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<s
     return affiliatePage(clicks, summary)
   },
   '/_ab/muon-co/': async (env, _url, now) => wantedPage(now, await soft('wanted', listWanted(env.AB))),
-  '/_ab/anh-ban-doc/': async env => photosPage(await soft('photos', recentPhotos(env))),
+  '/_ab/anh-ban-doc/': async env => photosPage(await soft('photos', recentPhotos(env)), await soft('waiting photos', waitingPhotos(env))),
   '/_ab/an-trang/': async env => hiddenPage(await soft('hidden', loadHidden(env.AB, true))),
   '/_ab/tai-khoan/': async (env, _url, now) => accountsPage(env.DB ? await soft('accounts', accountStats(env.DB, now)) : unset('D1')),
 }

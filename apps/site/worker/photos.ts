@@ -205,4 +205,10 @@ export async function recentPhotos(env: PhotosEnv): Promise<{ id: string; entity
   const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, thumb, created_at FROM photos WHERE status = 'approved' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; name: string; thumb: string; created_at: string }>()
   return results
 }
+/** Photos waiting for the moderation pass (hourly, moderate.yml), newest first: the dashboard lists them, so a photo just sent shows there. */
+export async function waitingPhotos(env: PhotosEnv): Promise<{ id: string; entity_ref: string; name: string; created_at: string }[] | undefined> {
+  if (!live(env)) return undefined
+  const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, created_at FROM photos WHERE status = 'pending' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; name: string; created_at: string }>()
+  return results
+}
 export { live as photosLive }
