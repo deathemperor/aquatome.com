@@ -159,9 +159,10 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(all.isSelected, "not every kind to begin with")
     // Each kind whole, and how many it finds: all of them for “Tất cả”, as many as the rows.
     XCTAssertEqual(all.label, "Tất cả")
-    XCTAssertEqual(all.value as? String, "7")
-    XCTAssertEqual(rows(app), 7)
-    for (kind, title, count) in [("fish", "Loài cá", 3), ("guide", "Hướng dẫn", 2), ("video", "Video", 2), ("tool", "Công cụ", 1)] {
+    // The tools: "Bể của tôi" (its words say "bể cá") and fish ID ("Đây là cá gì?").
+    XCTAssertEqual(all.value as? String, "8")
+    XCTAssertEqual(rows(app), 8)
+    for (kind, title, count) in [("fish", "Loài cá", 3), ("guide", "Hướng dẫn", 2), ("video", "Video", 2), ("tool", "Công cụ", 2)] {
       let c = chip(app, kind)
       XCTAssertTrue(c.exists, "no \(title)")
       XCTAssertEqual(c.label, title)
@@ -201,7 +202,7 @@ final class HandbookFlowTests: XCTestCase {
     // The next search starts with every kind, not the one picked for the last.
     field.typeText("ca")
     XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5) && chip(app, "all").isSelected, "still narrowed to the guides")
-    XCTAssertEqual(rows(app), 7)
+    XCTAssertEqual(rows(app), 8)
   }
 
   func testTheGlossaryGoesByLetter() {
