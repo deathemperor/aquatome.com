@@ -4,13 +4,15 @@ import {
   imperialUnits, labelSlips, leftoverMarkup, longFurniture, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
   titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
-import { pagePath, type Page } from '../src/pages'
+import { pagePath, pageUrl, type Page } from '../src/pages'
 
 const page = (o: Partial<Page>): Page => ({ lang: 'vi', kind: 'guides', id: 'g', title: 'T', path: '/vi/huong-dan/g/', fields: [], lines: [], captions: [], latinNames: [], card: [], ...o })
 const found = (p: Page, rule: string) => checkPages([p], RULES.filter(r => r.id === rule)).findings.map(f => f.detail)
 
 test('page links in each language: species and breeds under the fish section', () => {
-  expect(pagePath('vi', 'species', 'ca-dia')).toBe('/vi/ca/ca-dia/')
+  expect(pagePath('vi', 'species', 'ca-dia')).toBe('/vi/ca/ca-dia/') // the form links are written in; the reader's hash carries it
+  expect(pageUrl({ path: '/vi/ca/ca-dia/' })).toBe('https://aquatome.com/ca/ca-dia/') // Vietnamese pages are at the root
+  expect(pageUrl({ path: '/id/ikan/guppy-koi/' })).toBe('https://aquatome.com/id/ikan/guppy-koi/')
   expect(pagePath('id', 'breeds', 'guppy-koi')).toBe('/id/ikan/guppy-koi/')
   expect(pagePath('th', 'guides', 'x')).toBe('/th/guides/x/')
   expect(pagePath('id', 'plants', 'x')).toBe('/id/tanaman/x/')
@@ -144,7 +146,7 @@ test('a rule that throws on a page is listed and the others still run; the repor
   expect(md).toContain('Pages checked: 1 (Vietnamese 1, Indonesian 0, Thai 0)')
   expect(md).toContain('- boom on /vi/huong-dan/g/: bad')
   expect(md).toContain('## Sentences left in English (1)')
-  expect(md).toContain('- [vi · Cá \\[đẹp\\]](https://aquatome.com/vi/huong-dan/g/) — "The fish should be kept in a large tank with plenty of cover."')
+  expect(md).toContain('- [vi · Cá \\[đẹp\\]](https://aquatome.com/huong-dan/g/) — "The fish should be kept in a large tank with plenty of cover."')
 })
 
 test('the fixes made on write, on a stored translation: HTML tidied, plain text unescaped, nothing else touched', () => {

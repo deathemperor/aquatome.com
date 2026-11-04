@@ -1,4 +1,6 @@
 import { EVENTS, eventsSql } from './admin/ae'
+import { localDay } from './admin/time'
+import { withoutVi } from './paths'
 
 /**
  * "Real readers" from our own beacon (only browsers that run the page's JavaScript, minus known bots and the owner):
@@ -26,11 +28,12 @@ export function sourceOf(host: string): string {
   return m ? m[1]! : h
 }
 
-export function summariseReaders(sessions: Session[], views: View[], days: number): Readers {
+/** `tz`: the zone whose days the daily counts follow (the viewer's, admin/time.ts). */
+export function summariseReaders(sessions: Session[], views: View[], days: number, tz = 'UTC'): Readers {
   const readerSids = new Set(sessions.filter(isReader).map(s => s.sid))
   const daily = new Map<string, { day: string; sessions: number; readers: number }>()
   for (const s of sessions) {
-    const day = s.first.slice(0, 10)
+    const day = localDay(s.first, tz)
     const d = daily.get(day) ?? { day, sessions: 0, readers: 0 }
     d.sessions++
     if (readerSids.has(s.sid)) d.readers++
@@ -40,7 +43,8 @@ export function summariseReaders(sessions: Session[], views: View[], days: numbe
   const firstRef = new Map<string, string>()
   const cc = new Map<string, string>()
   for (const v of views) {
-    if (readerSids.has(v.sid)) pages.set(v.p, (pages.get(v.p) ?? 0) + num(v.views))
+    // A view of an old /vi/… address counts for the page's address now.
+    if (readerSids.has(v.sid)) { const p = withoutVi(v.p); pages.set(p, (pages.get(p) ?? 0) + num(v.views)) }
     if (v.ref && !firstRef.has(v.sid)) firstRef.set(v.sid, v.ref)
     if (v.cc && !cc.has(v.sid)) cc.set(v.sid, v.cc)
   }
@@ -83,12 +87,12 @@ export function bySession(rows: Session[]): Session[] {
 }
 export const querySessions = (accountId: string, token: string, days: number, now?: number) => eventsSql<Session>(accountId, token, t => SESSIONS_SQL(days, t), now).then(bySession)
 
-export async function queryReaders(accountId: string, token: string, days = 14): Promise<Readers> {
+export async function queryReaders(accountId: string, token: string, days = 14, tz = 'UTC'): Promise<Readers> {
   const [sessions, views] = await Promise.all([querySessions(accountId, token, days), eventsSql<View>(accountId, token, t => VIEWS_SQL(days, t))])
-  return summariseReaders(sessions, views, days)
+  return summariseReaders(sessions, views, days, tz)
 }
 
-/** Sessions and readers per day (UTC, by a session's first event), from the sessions query alone: the overview's. */
-export async function queryReaderDays(accountId: string, token: string, days: number): Promise<Readers['daily']> {
-  return summariseReaders(await querySessions(accountId, token, days), [], days).daily
+/** Sessions and readers per day (in `tz`, by a session's first event), from the sessions query alone: the overview's. */
+export async function queryReaderDays(accountId: string, token: string, days: number, tz = 'UTC'): Promise<Readers['daily']> {
+  return summariseReaders(await querySessions(accountId, token, days), [], days, tz).daily
 }

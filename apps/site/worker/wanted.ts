@@ -4,6 +4,7 @@ import { sciKey } from '@aq/schema/unlisted'
 import { isBot } from './bots'
 import { ipDayKey, readCapped } from './comments/api'
 import { sha256 } from './accounts/session'
+import { HOME_TZ, localDay } from './admin/time'
 
 /**
  * Readers' demand for pages. A reader who puts a fish or plant the handbook has no page for on a tank ("Bể của tôi",
@@ -68,7 +69,8 @@ export async function recordWanted(env: WantedEnv, w: WantedIn, now = new Date()
   const clean = cleanWanted(w)
   if (!clean || !/^[a-z][a-z-]{0,19}$/.test(w.source)) return 'invalid'
   const key = wantedKey(clean)
-  const day = now.toISOString().slice(0, 10)
+  // The dashboard's days for a name, first and last: Vietnam's, as the affiliate clicks keep theirs (admin/time.ts).
+  const day = localDay(now, HOME_TZ)
   if (w.reader) {
     const rk = `wanted:r:${w.reader}`
     const seen = (await env.AB.get<string[]>(rk, 'json')) ?? []

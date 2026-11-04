@@ -2,7 +2,8 @@ import { expect, test } from 'vitest'
 import { isVietnamese, langOf, localizeLinks, localizePath, routeIn, translator } from '../src/lib/i18n'
 
 test('a page file mounted in each language', () => {
-  expect(routeIn('vi', 'index.astro')).toBe('/vi')
+  expect(routeIn('vi', 'index.astro')).toBe('/') // Vietnamese pages are at the root
+  expect(routeIn('vi', 'ca/[slug].astro')).toBe('/ca/[slug]')
   expect(routeIn('id', 'index.astro')).toBe('/id')
   expect(routeIn('id', 'ca/[slug].astro')).toBe('/id/ikan/[slug]')
   expect(routeIn('th', 'ca/[slug]/anh.astro')).toBe('/th/fish/[slug]/photos')
@@ -20,7 +21,10 @@ test('paths: sections and fixed segments, never a slug; query and hash kept', ()
   expect(localizePath('id', '/vi/ca/x/anh/?a=1#b')).toBe('/id/ikan/x/foto/?a=1#b')
   expect(localizePath('th', '/vi/cay/x/anh/')).toBe('/th/plants/x/photos/') // a plant's gallery
   expect(localizePath('th', '/vi/')).toBe('/th/')
-  expect(localizePath('vi', '/vi/ca/')).toBe('/vi/ca/')
+  expect(localizePath('vi', '/vi/ca/')).toBe('/ca/') // Vietnamese pages are at the root
+  expect(localizePath('vi', '/vi/')).toBe('/')
+  expect(localizePath('vi', '/vi/cong-cu/nuoi-chung/?ca=x:6#a')).toBe('/cong-cu/nuoi-chung/?ca=x:6#a')
+  expect(localizePath('vi', '/ca/x/')).toBe('/ca/x/') // already an address
   expect(localizePath('id', '/go/shopee/')).toBe('/go/shopee/')
 })
 
@@ -28,12 +32,26 @@ test('links in a rendered page: own site only, language links untouched', () => 
   const html = '<a href="/vi/ca/x/">x</a><link rel="alternate" hreflang="vi" href="https://aquatome.com/vi/ca/y/"><img src="https://i.ytimg.com/vi/abc/hq.jpg">{"item":"https://aquatome.com/vi/cay/"} ["/vi/*"] <a href="https://example.com/vi/a/">e</a>'
   expect(localizeLinks(html, 'id', 'https://aquatome.com')).toBe(
     '<a href="/id/ikan/x/">x</a><link rel="alternate" hreflang="vi" href="https://aquatome.com/vi/ca/y/"><img src="https://i.ytimg.com/vi/abc/hq.jpg">{"item":"https://aquatome.com/id/tanaman/"} ["/id/*"] <a href="https://example.com/vi/a/">e</a>')
+  // A Vietnamese page: the root addresses, on the build's site and on aquatome.com (content's links) alike.
+  expect(localizeLinks('<a href="/vi/">h</a><a href="/vi/ca/x/?q=1">x</a> {"url":"http://localhost:4321/vi/cay/"} <a href="https://aquatome.com/vi/gioi-thieu/">a</a> <a href="/data/vi/species.json">d</a>', 'vi', ['http://localhost:4321', 'https://aquatome.com'])).toBe(
+    '<a href="/">h</a><a href="/ca/x/?q=1">x</a> {"url":"http://localhost:4321/cay/"} <a href="https://aquatome.com/gioi-thieu/">a</a> <a href="/data/vi/species.json">d</a>')
+})
+
+test('the apps keep Vietnamese pages\' /vi/ form until they read the root one (APP_VI_ROOT)', async () => {
+  const { APP_VI_ROOT, appLinks, appPath } = await import('../src/lib/i18n')
+  expect(APP_VI_ROOT).toBe(false)
+  expect(appPath('vi', '/vi/ca/x/')).toBe('/vi/ca/x/')
+  expect(appPath('id', '/vi/ca/x/')).toBe('/id/ikan/x/')
+  expect(appLinks('<a href="/vi/ca/x/">x</a>', 'vi', 'https://aquatome.com')).toBe('<a href="/vi/ca/x/">x</a>')
+  expect(appLinks('<a href="/vi/ca/x/">x</a>', 'th', 'https://aquatome.com')).toBe('<a href="/th/fish/x/">x</a>')
 })
 
 test('langOf: path or route pattern', () => {
   expect(langOf('/id/ikan/[slug]')).toBe('id')
   expect(langOf(new URL('https://aquatome.com/th/fish/'))).toBe('th')
   expect(langOf('/vi/ca/')).toBe('vi')
+  expect(langOf('/ca/')).toBe('vi')
+  expect(langOf('/')).toBe('vi')
   expect(langOf('/go/x/')).toBe('vi')
 })
 
@@ -75,6 +93,8 @@ test('served: the pilot pages; a link to a page the language lacks keeps its tex
   expect(toVi('/th/about/data-table/')).toBe('/vi/gioi-thieu/bang-du-lieu/')
   for (const lang of ['id', 'th'] as const) expect(served(lang, '/vi/gioi-thieu/bang-du-lieu/#nhiet-do'), lang).toBe(true)
   expect(toVi('/vi/ca/')).toBe('/vi/ca/')
+  expect(toVi('/ca/x/anh/')).toBe('/vi/ca/x/anh/') // a Vietnamese page's address
+  expect(toVi('/')).toBe('/vi/')
 })
 
 // A fish group's numbered pages are linked from its page in every language: a link to a page the language isn't served
@@ -132,7 +152,7 @@ test('language menu: this page in that language, else the nearest page the langu
   expect(switchTo('id', '/vi/ca/x/anh/', undefined, true)).toBe('/id/ikan/')
   expect(switchTo('id', '/vi/video/kenh/abc/', undefined, true)).toBe('/id/') // no video section in Indonesian
   expect(switchTo('th', '/vi/moi-cap-nhat/', undefined, false)).toBe('/th/')
-  expect(switchTo('vi', '/vi/ca/ca-neon-vua/', undefined, true)).toBe('/vi/ca/')
+  expect(switchTo('vi', '/vi/ca/ca-neon-vua/', undefined, true)).toBe('/ca/')
   expect(switchTo('id', '/404', undefined, false)).toBe('/id/') // not a /vi/…/ path (the 404 page)
   expect(switchTo('th', '/vi/ca', undefined, false)).toBe('/th/')
 })

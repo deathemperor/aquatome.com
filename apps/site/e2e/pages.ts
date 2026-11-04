@@ -4,7 +4,7 @@ import { join, resolve } from 'node:path'
 /** The built site's folder the local checks read (the same one serve.mjs serves). */
 export const DIST = resolve(process.env.E2E_DIST ?? 'dist')
 
-/** Every page in the build, as paths ("/vi/ca/x/"). Redirect stubs (/go/…) are not pages. */
+/** Every page in the build, as paths ("/ca/x/"). Redirect stubs (/go/…) are not pages. */
 export const allPages = (dist = DIST) =>
   (readdirSync(dist, { recursive: true }) as string[])
     .filter(f => f.endsWith('index.html'))
@@ -20,8 +20,12 @@ export const sourcePages = () => (LIVE ? readList(process.env.E2E_PAGES) : allPa
 /** Pages to check whatever the sample: those with an open problem (E2E_RECHECK), until they pass. */
 export const recheckPages = () => readList(process.env.E2E_RECHECK)
 
-/** A page's template: language, section and depth ("/vi/ca/x/anh/" → "vi/ca/4"). */
-export const templateOf = (path: string) => { const s = path.split('/').filter(Boolean); return `${s[0] ?? ''}/${s[1] ?? ''}/${s.length}` }
+/** A page's template: language, section and depth ("/ca/x/anh/" → "vi/ca/4"). */
+export const templateOf = (path: string) => {
+  const s = path.split('/').filter(Boolean)
+  if (s[0] !== 'id' && s[0] !== 'th') s.unshift('vi') // Vietnamese pages are at the root
+  return `${s[0]}/${s[1] ?? ''}/${s.length}`
+}
 
 /**
  * Pages to check: every page of a small group (a section's index, the fixed tool pages), and `per` pages of each large

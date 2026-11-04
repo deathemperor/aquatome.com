@@ -143,6 +143,22 @@
         "source": "seriouslyfish",
         "value": 6
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 6
+        }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 4,
+          "max": 4
+        }
+      }
     ]
   },
   "sections": [

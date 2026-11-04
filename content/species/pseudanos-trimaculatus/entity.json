@@ -8,13 +8,58 @@
   "places": [
     "south-america",
     "peru",
-    "amazon"
+    "amazon",
+    "brazil",
+    "guyana"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 12.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 18
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -26,10 +71,58 @@
       "html": "<p>Pseudanos trimaculatus from Peru are very beautiful animals that can reach a length of about 12 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<p>The three-spot headstander, Pseudanos trimaculatus, is an anostomid from Peru, Brazil and Guyana, found in small shoals in deeper water. It was formerly known as Anostomus trimaculatus, and that name is still used in much of the available literature. Aggressive towards its own kind in small numbers, it can be kept in groups of six or more in larger aquaria, and a well-fitting cover is essential since Pseudanos are excellent jumpers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<p>Peru, Brazil and Guyana.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<p>This species is found in deeper water in small shoals.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<p>Standard length: 125 mm SL.</p><p>Suggested tank: 90 x 30 x 30 cm - 85 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<p>A biotope aquarium would consist of a sandy substrate with driftwood roots and branches. Algal growth should not be discouraged. If kept in a planted aquarium, any soft-leaved varieties will be eaten and even the tougher species will be picked at. Water flow should be quite strong. A well-fitting cover is essential as Pseudanos are excellent jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–18 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<p>Though it is omnivorous, this species is primarily a herbivore. Offer live and frozen foods as well as plenty of vegetable matter in the form of blanched spinach, lettuce, cucumber, courgette, algae wafers etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pseudanos-trimaculatus-2/",
       "html": "<p>In contrast to other headstanders, which tend to be somewhat quarrelsome among themselves, the great peacefulness of P. trimaculatus is striking. According to the literature, delicate plants are part of the diet of these headstanders, so this should be taken into account when feeding them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<p>Aggressive towards its own kind when kept in small numbers, it can be maintained in groups of 6 fish or more in larger aquaria. Otherwise, keep as a single specimen in a community of medium to large fish. Suitable choices include larger characins (but not other Anostomids), Loricariids, Doradids, peaceful Cichlids, knifefish, Corydoras etc. It may nip at long-finned fish, especially slow-moving species.</p>"
     },
     {
       "key": "dimorphism",
@@ -38,19 +131,68 @@
       "html": "<p>Obvious sexual differences are hardly recognizable, the presumed females are somewhat larger and fuller.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<p>Unknown.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pseudanos-trimaculatus-2/",
       "html": "<p>Breeding reports on Pseudanos trimaculatus are still lacking, just as they are for any other Pseudanos species. Presumably, however, breeding has simply not yet been seriously attempted. It is to be expected that they are free spawners without brood care.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<p>Not reported in aquaria.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pseudanos-trimaculatus-2/",
       "html": "<p>The genus Pseudanos was separated from Anostomus in 1980 due to numerous differences in the skeleton. At that time, the scientist in charge, Richard Winterbottom, assigned two already known species to the new genus – P. gracilis and P. trimaculatus – and another, which he described as new: P. irinae. The differences between P. trimaculatus and P. irinae are essentially in the coloration: P. irinae has a dark spot on each scale, P. trimaculatus a light one. P. irinae comes from the upper and middle Orinoco and the Essequibo River in Guyana, P. trimaculatus is found throughout the Amazon region. Despite the clearly recognizable differences, P. irinae is currently not recognized by most scientists and is listed as a synonym of P. trimaculatus. Two more species have been added since 1980: P. winterbottomi and P. varii. Both have no horizontal stripes on the back. P. winterbottomi has a broad, dark longitudinal band, P. varii looks like P. irinae without dorsal stripes.</p><p>Pseudanos trimaculatus and P. irinae are easily distinguished from the other Pseudanos species by their horizontal dorsal stripes, which are missing in the latter.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudanos-trimaculatus",
+      "html": "<p>This species was formerly known as Anostomus trimaculatus and this name is still used in much of the available literature. It is now invalid, however. The genus Pseudanos contains 3 other known species, P. gracilis, P. irinae and the recently described P. winterbottomi. Care for these species is as for P. trimaculatus.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/159217261e9b469f.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Michael Bakker Paiva",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudanos_trimaculatus.jpg",
+      "caption": "Pseudanos trimaculatus Maynas Province, Peru",
+      "thumb": "https://media.aquatome.com/commons/159217261e9b469f-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/142f95deba968e4a.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Michael Bakker Paiva",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudanos_trimaculatus_18551555.jpg",
+      "caption": "Pseudanos trimaculatus in Peru",
+      "thumb": "https://media.aquatome.com/commons/142f95deba968e4a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5ced42c715c86cd2.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Gabriel Lelis Togni",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudanos_trimaculatus_Brazil.jpg",
+      "caption": "Pseudanos trimaculatus, Rio Xingu, Para, Brazil",
+      "thumb": "https://media.aquatome.com/commons/5ced42c715c86cd2-480.webp"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "JPlgPta_UMs",
@@ -93,5 +235,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }

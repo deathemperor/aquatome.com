@@ -6,7 +6,7 @@ import { guideImage } from './mentions'
 import { clock, hours, seriesGuides, seriesSeconds } from './video'
 
 /**
- * What a video series' page shows, put together once for the page (pages/vi/video/[slug].astro) and for the app's copy
+ * What a video series' page shows, put together once for the page (pages/video/[slug].astro) and for the app's copy
  * of it (lib/app-page.ts), so the two can't differ: its one line (its counts, then the playlist and channel it follows,
  * linked), and its guides in the playlist's order, each with its picture, its subject and parts (`about`), and its length.
  */

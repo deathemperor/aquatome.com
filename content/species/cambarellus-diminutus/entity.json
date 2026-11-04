@@ -1,0 +1,242 @@
+{
+  "id": "cambarellus-diminutus",
+  "scientificName": "Cambarellus diminutus",
+  "order": "Decapoda",
+  "family": "Cambaridae",
+  "genus": "Cambarellus",
+  "group": "other",
+  "places": [
+    "north-america",
+    "united-states",
+    "mississippi",
+    "mexico"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2.5
+      },
+      {
+        "source": "glaser",
+        "value": 2.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1.5,
+          "max": 2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<table><tr><th>Scientific name</th><td>Cambarellus diminutus</td></tr><tr><th>Common names</th><td>The smallest crayfish</td></tr><tr><th>Optimal tank size</th><td>40 litres</td></tr><tr><th>Keeping</th><td>Easy</td></tr><tr><th>Breeding</th><td>Easy</td></tr><tr><th>Size</th><td>Up to 2.5 cm</td></tr><tr><th>Temperature</th><td>22 – 28°C</td></tr><tr><th>pH</th><td>5.5 – 7.0</td></tr><tr><th>GH</th><td>3 – 12</td></tr><tr><th>KH</th><td>1 – 6</td></tr><tr><th>Nitrate</th><td>Less than 20 ppm</td></tr><tr><th>Diet</th><td>Detritivore / omnivore</td></tr><tr><th>Temperament</th><td>Conditionally peaceful</td></tr><tr><th>Life span</th><td>Up to 2 years</td></tr><tr><th>Colour</th><td>Grey/reddish to dark grey</td></tr></table>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cambarellus_diminutus_en/",
+      "html": "<p>C. diminutus is the smallest species of all and attains a maximum length of about 2.5 cm. The bright shine of the carapax is very obvious: it looks a bit like polished porcelain.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cambarellus diminutus is the smallest known crayfish species in the world and is very rare in the pet trade. There is so little information on this species that it was listed as in need of conservation attention for listing under the Endangered Species Act, and it is listed as Data Deficient on the IUCN Red List.</p><p>It is the most peaceful crayfish species, relatively hardy and very easy to care for, and it can breed in captivity.</p><p>According to some studies, there are 19 species in the genus Cambarellinae. They are all pretty small and may look quite similar, so differentiating them is almost impossible unless you are a professional biologist. Cambarellus diminutus closely resembles Cambarellus schmitti, but differs in possessing considerably reduced elements on the processes of the first pleopods.</p><p>Colour is sometimes used to tell species apart:</p><ul><li>Cambarellus ninae – brown</li><li>Cambarellus montezumae – yellow</li><li>Cambarellus patzcuarensis – orange</li><li>Cambarellus shufeldtii – grey/reddish to brown</li><li>Cambarellus texanus – olive to brown</li><li>Cambarellus puer – orange-red to light brown</li></ul><p>This method is not accurate and in some cases is totally compromised. These dwarf crayfish species can crossbreed, creating new colour variations and patterns, colour can vary even within the same species, diet can affect coloration, and selective culling also plays a role. As a result, it is really hard to find out which species is in the tank.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cambarellus_diminutus_en/",
+      "html": "<p>In contrast to the larger species of crayfish, the species belonging to the genus Cambarellus fit perfectly for community tanks.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cambarellus diminutus has a very restricted range (water bodies within an approximate 3260 km2 area) along the Gulf Coastal Plain of southeastern Mississippi and southwestern Alabama.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cambarellus_diminutus_en/",
+      "html": "<p>Initially Cambarellus diminutus originates from North America, where it occurs along the Gulf of Mexico. We received nice bred specimens of this tiny species from Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In nature, this species occurs in ditches as well as pools within sluggish streams where the water is slow-moving and heavily vegetated. According to the study, in nature their substrates consist of mud and sand.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The minimum recommended tank size for Cambarellus diminutus is 20 litres. Ideally, a 40-litre tank will suit them perfectly.</p><p>They can live and thrive even in smaller tanks, but in that case water parameters must be constantly monitored, because in small tanks everything can go wrong very fast.</p><p>These crayfish are great escape artists, so a tight-fitting lid is essential.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Like all crayfish species, Cambarellus diminutus is very easy to care for and is not a high-maintenance pet. To keep it happy and healthy for as long as possible, it needs proper care.</p><p>The tank should be cycled: high ammonia and nitrate can harm them.</p><p>Hiding spots should be provided. There should be plenty of dark areas created from stones, driftwood, PVC pipe, plastic tunnels, plants, etc. If several Cambarellus diminutus are kept, or they are in a community tank, each of them needs a hiding place in different parts of the tank to feel secure. This is extremely important especially during molting.</p><p>Remember to acclimate them.</p><p>Molting: like any crustacean, Cambarellus diminutus need to shed their exoskeleton in order to grow and to regrow any lost limbs. The molt cycle is the most important part of a crayfish's life and has 4 phases:</p><ul><li>inter-molt,</li><li>pre-molt,</li><li>molt,</li><li>post-molt.</li></ul><p>The inter-molt periods can be short (weeks) when the crayfish is young. As they age, these periods happen further and further apart; adults molt every few months.</p><p>During pre-molt, most metabolic activities are reduced to a minimum. They stop eating and become very lethargic.</p><p>During the molt they look for a place to hide, because they are completely defenseless until their new exoskeleton fully hardens. NEVER disturb them when they are about to molt.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature: Cambarellus diminutus can live in a wide range of temperatures, 15 – 30°C. The optimal temperature in the aquarium is 22 – 28°C.</p><p>pH: according to the study, in nature Cambarellus diminutus prefer acidic water. Unlike most crayfish species, the optimal pH for this species is 5.5 – 7.0.</p><p>Hardness: they appreciate KH 1 – 6 and GH between 3 – 12.</p><p>Nitrate: less than 20 ppm.</p><p>Some aquarists keep Cambarellus diminutus in tap water, but RO/DI water remineralized with Salty Shrimp GH+ is recommended, as it allows control over water parameters and creates optimal conditions.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Filtration: sponge filters or matten filters are recommended for any small tank setup. They are cheap, easy to maintain and clean, provide a lot of surface to graze on, and are absolutely safe for baby crayfish. Cambarellus diminutus will not damage and tear apart the sponge as large crayfish species often do.</p><p>For bigger tanks, sponge filters may not be good enough; in that case use a hang-on-back or canister filter. If you plan to breed Cambarellus diminutus, the filter intake should be covered with a sponge or net, because baby crayfish are so small that they can easily be sucked up.</p><p>Heating: they do not require a heater. Room temperature suits them fine.</p><p>Lighting: all crayfish species are nocturnal, so they are indifferent to it. Lighting should be adapted to the needs of the plants in the tank.</p><p>Substrate: soil and/or sand substrates are an ideal setup for them.</p><p>Lid: a tight-fitting lid is essential, and the water line should not be too high.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cambarellus diminutus are extremely opportunistic eaters and can eat about anything edible they come across. They will gladly spend all their time scavenging for food and wandering around the tank.</p><p>Suggested foods:</p><ul><li>vegetables,</li><li>seeds,</li><li>algae wafers,</li><li>blackworms,</li><li>bloodworms,</li><li>crushed snails,</li><li>earthworms,</li><li>brine shrimp,</li><li>dead fish or shrimp.</li></ul><p>They need a varied diet. Avoid giving protein-rich foods all the time, even if they seem to eat them non-stop.</p><p>Feed bottom-dwelling live food along with sinking pellets of any brand:</p><ul><li>Shrimp pellets</li><li>Shrimp granules</li><li>Fish food (TetraMin flakes, etc.)</li><li>Shrimp food (Hikari crustacean food such as Hikari Shrimp Cuisine, algae wafers, etc.)</li><li>Frozen bloodworms</li></ul><p>Crayfish also enjoy vegetables such as shelled peas and zucchini.</p><p>Supplement their diet and make sure they get enough calcium (for the exoskeleton) by regularly feeding specialized invertebrate foods.</p><p>Leave the food for 24 hours before removing it. Whatever is not consumed in one day should be removed, otherwise it will foul the water and cause problems (such as black beard algae, hydras, planaria, etc.).</p><p>Because they are mostly nocturnal, it is recommended to feed them at night (at least in the evening) to replicate the conditions under which they naturally eat.</p><p>Start with feeding 3 – 4 times a week and adjust to the requirements of the livestock. They are scavengers, so when fish, shrimp or snails are fed, they also get their share. However, if they get hungry, they can go after shrimp, fry or small fish, so it is important that the crayfish are fed enough to keep the balance in the tank.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cambarellus diminutus are not as aggressive as their bigger cousins (blue crayfish, red crayfish, marbled crayfish, Cherax destructor, etc.). However, despite their tiny size, they are not completely peaceful. They usually do not start fights, but they are territorial animals (especially males) and prefer to keep a distance from their own kind.</p><p>They will pinch and claw when they feel threatened or in danger.</p><p>They can dig in the substrate and pick up tiny food particles, but this is not a burrowing crayfish. They are not very messy or destructive and are not strong enough to constantly move things around in the tank.</p><p>They are excellent escape artists and can spend some time out of the water, so use a lid and make sure the water line is not too high.</p><p>They are mostly nocturnal.</p><p>Live plants: in the wild, the species occurs in heavily vegetated water bodies. They are safe to keep with any type of live plant and do not eat healthy plants, so they can be kept in beautifully planted aquariums. They also benefit from live plants by collecting bacteria and microorganisms from them.</p><p>Tank mates: they are not social and prefer to be by themselves in a community tank.</p><p>Fish: no aggressive fish should be kept with them. They may behave aggressively towards a fish if they feel threatened. They cannot kill most fish (unless the fish is ill and weak), but will not hesitate to take chunks out of fins.</p><p>Shrimp: some aquarists report that their Cambarellus diminutus and dwarf shrimp do just fine together, while others blame them for a drastic reduction of the shrimp colony. The outcome cannot be predicted because it depends on the individual. For serious dwarf shrimp breeding, keeping them together is not the best course of action. The only exceptions might be ghost shrimp, Amano shrimp, bamboo shrimp and vampire shrimp, which grow much bigger than Cambarellus diminutus and should be safe. Keeping the crayfish well fed reduces their hunting instinct.</p><p>Snails: there should be no problems with large snails, though the crayfish may periodically nip off their antennae.</p><p>Avoid keeping Cambarellus diminutus with:</p><ul><li>Larger or aggressive fish.</li><li>Any other crayfish species.</li><li>Other freshwater crab species (with a few exceptions).</li><li>Dwarf frogs.</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cambarellus diminutus are sexually dimorphic. The sexes can be told apart by looking at the lower part of the abdomen (the lower part of the white section of the underbelly).</p><p>Males have an extra set of pleopods used for internal fertilization, which form a triangular-ish arrangement of small legs.</p><p>Females have a seminal receptacle and lack the extra pleopods found behind the walking legs on males. Instead of the triangular arrangement of small legs, there is a small nub.</p><p>Females are a little bigger than males and have a wider abdomen to hold the eggs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Keep at least one male and one female in the tank. According to observations, they reach maturity at about 2.5 – 3 months old.</p><p>If a female is interested in mating, she will allow a male to approach. The male then flips the female over, clamps her claws, puts her on her back, and deposits the spermatophore in the female's receptacle.</p><p>The female then folds her tail under her body so that she can fertilize her eggs.</p><p>In crayfish, strength plays no role in mating. Even when the female is bigger and stronger than the male, she will let him \"defeat\" her and flip her over. According to the study, if females are not ready to mate, they will always escape, even when the males are bigger and stronger.</p><p>Eggs: females usually carry a few dozen eggs. They use their pleopods to keep the eggs clean and well oxygenated. Depending on temperature, hatching usually takes 3 – 4 weeks. Dark spots (developing eyes) on the eggs mean they are about to hatch.</p><p>After hatching and separation from the mother, it is recommended to keep the baby crayfish in a rearing tank to prevent potential aggression from the adults.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Description: adults will usually grow to 1.5 – 2 cm, though there are reports of individuals reaching almost 3 cm. Under optimal conditions the lifespan is only about 1.5 – 2 years.</p><p>Wild individuals are mostly tan, grey and brown, which helps them hide from predators. In pet stores, bright blue colour morphs are also available, dramatically different from the relatively drab wild type. There is no information on who created the blue morph and how.</p><p>The crayfish has many dots with a lot of pattern and colour variation. The abdomen has a pale olive ground colour. The pincers are gracefully elongated and narrow.</p><p>Cambarellus diminutus are low maintenance and simple to care for, suitable for keepers of any level, and can even be kept in nano tanks. They have perky personalities and make interesting movements to watch.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Status Survey for three rare Alabama crayfishes: Cambarellus diminutus, Fallicambrus burrisi, and Procambarus lagniappe. Illinois Natural History Survey. 2014</li><li>Garden ponds as potential introduction pathway of ornamental crayfish. Knowledge and Management of Aquatic Ecosystems (2014) 414, 13. DOI: 10.1051/kmae/2014019</li><li>Imports of ornamental crayfish: the first decade from the Czech Republic’s perspective. Knowledge and Management of Aquatic Ecosystems (2015) 416, 04. DOI: 10.1051/kmae/2014040.</li><li>Distribution and habitat use by dwarf crayfishes (Decapoda: Cambaridae: Cambarellus). Wetlands, Vol. 16, #4 1996.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/daff76f9a4ad677e.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/daff76f9a4ad677e-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "bXYTtSNoLBY",
+      "title": "Nano-Krebsbecken für 50 €?! 🦞 So einfach geht's! | Cambarellus diminutus Aquarium bauen",
+      "durationSec": 955,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "C_zolJrpvdM",
+      "title": "Mes écrevisses diminutus /suivie d’élevage #6",
+      "durationSec": 549,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Av4LRGtwvbE",
+      "title": "💙🦞 bläulicher #Cambarellus diminutus 🤎💛 Kleinster #Zwergflusskrebs #Shorts #AquaPurist #Aquarium",
+      "durationSec": 60,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "LSn2uzloEkk",
+      "title": "Cambarellus diminutus",
+      "durationSec": 33,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy sinh 40 lít",
+        "bể nano có nắp kín"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút",
+        "lọc mút cho bể tôm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho tôm càng",
+        "viên chìm cho tôm",
+        "thức ăn bổ sung canxi cho tôm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền đất thủy sinh",
+        "cát thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

@@ -17,7 +17,7 @@ const totals = (fish: number, plant = 0, guide = 0, idFish = 0, thFish = 0): Tot
 /** content.json as the home page reads it: the items, and the engine's queue. */
 const stats = (needsHuman: { source: string; since: string }[] = []) => ({
   inventory: { fish: { total: 100, id: 0, th: 0 }, plant: { total: 20, id: 0, th: 0 }, guide: { total: 5, id: 0, th: 0 } },
-  engine: { needsHuman, sources: [{ id: '2hraquarist', name: '2Hr Aquarist' }], videos: { waiting: 40, perDay: lastDays(NOW, 14).map((day, i) => ({ day, n: i === 13 ? 3 : 1 })) } },
+  engine: { needsHuman, sources: [{ id: '2hraquarist', name: '2Hr Aquarist' }], videos: { waiting: 40, writtenAt: lastDays(NOW, 14).flatMap((day, i) => Array<string>(i === 13 ? 3 : 1).fill(`${day}T02:00:00.000Z`)) } },
 }) as unknown as ContentStats
 /** Every part loaded: no keys resting, nothing waiting, no days counted. */
 const well = (): Overview => {
@@ -75,7 +75,8 @@ test('overview: a source behind a browser check is the owner\'s to pass; the con
   // Indonesian and Thai pages that night, apart: the Vietnamese count says nothing of them.
   const translated: Snapshot[] = [{ day: days[7]!, totals: totals(100, 20, 5, 10, 12) }, { day: days[8]!, totals: totals(100, 20, 5, 30, 32) }]
   expect(log({ ...o, snapshots: translated })[0]!.items[0]).toEqual({ text: '20 bài tiếng Indonesia, 20 bài tiếng Thái mới' })
-  expect(perDay(snaps, days, t => t.kinds.fish[0])).toEqual([0, 10, 0, 0, 0, 0, 0, 8, 2])
+  // A day not kept, or with nothing kept before it, is unknown rather than 0.
+  expect(perDay(snaps, days, t => t.kinds.fish[0])).toEqual([null, 10, null, null, null, null, null, 8, 2])
 })
 
 test('overview areas: the last 7 whole days against the 7 before, the 30 whole days drawn; today left out', () => {
@@ -99,10 +100,10 @@ test('overview log: the last three days in words, today first; a quiet day says 
   const days = lastDays(NOW, 31)
   ;(o.clicks as { clicks: number[] }).clicks.splice(28, 3, 2, 0, 4)
   o.wanted = { names: [{ kind: 'fish', name: 'Cá A', readers: 2, sources: {}, first: days[29]!, last: days[30]! }], more: false }
-  o.hidden = { '/vi/ca/x/': { at: '2026-11-02T03:00:00.000Z' } }
+  o.hidden = { '/ca/x/': { at: '2026-11-02T03:00:00.000Z' } }
   const l = log(o)
   expect(l.map(d => d.label)).toEqual(['Hôm nay · 02/11', 'Hôm qua · 01/11', 'Thứ Bảy · 31/10'])
-  expect(l[0]!.items).toEqual([{ text: '4 lượt bấm sang sàn' }, { text: 'Ẩn 1 trang', small: '/vi/ca/x/' }])
+  expect(l[0]!.items).toEqual([{ text: '4 lượt bấm sang sàn' }, { text: 'Ẩn 1 trang', small: '/ca/x/' }])
   expect(l[1]!.items).toEqual([{ text: '1 tên mới bạn đọc muốn có', small: 'Cá A' }])
   expect(l[2]!.items).toEqual([{ text: '2 lượt bấm sang sàn' }])
   const html = overviewPage({ ...well() })
@@ -114,7 +115,7 @@ test('dashboard: no A/B table any more, noindex; the sign-in page too', () => {
   expect(html).not.toContain('Đáy sâu')
   expect(html).toContain('noindex')
   expect(loginPage()).toContain('noindex')
-  expect(loginPage()).toContain('href="/vi/cong-cu/be-cua-toi/#tai-khoan"')
+  expect(loginPage()).toContain('href="/cong-cu/be-cua-toi/#tai-khoan"')
   expect(loginPage(true)).toContain('không phải tài khoản chủ trang')
 })
 
@@ -132,10 +133,10 @@ test('dashboard affiliate section summarises clicks and catalog health', async (
 })
 
 test('dashboard: hide form and the hidden list with an unhide button per page', () => {
-  const html = hiddenPage({ '/vi/ca/x/': { at: '2026-10-29T10:00:00.000Z', note: '<b>sai</b>' } })
+  const html = hiddenPage({ '/ca/x/': { at: '2026-10-29T10:00:00.000Z', note: '<b>sai</b>' } })
   expect(html).toContain('action="/_ab/hidden"')
   expect(html).toContain('value="hide"')
-  expect(html).toContain('<a href="/vi/ca/x/">/vi/ca/x/</a>')
+  expect(html).toContain('<a href="/ca/x/">/ca/x/</a>')
   expect(html).toContain('&lt;b&gt;sai&lt;/b&gt;')
   expect(html).toContain('value="unhide"')
 })

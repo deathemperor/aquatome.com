@@ -1,17 +1,19 @@
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
-import { sniff } from '../photos'
+import { sniff, waitingPhotos } from '../photos'
+import { photosPage } from '../admin/pages'
 import { testD1 } from './d1'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const WEBP = new Uint8Array([...'RIFF'].map(c => c.charCodeAt(0)).concat([0, 0, 0, 0], [...'WEBP'].map(c => c.charCodeAt(0)), [1, 2, 3]))
 const fakeR2 = () => {
   const m = new Map<string, Uint8Array>()
+  const types = new Map<string, string | undefined>()
   return {
     m,
     bucket: {
-      put: async (k: string, v: Uint8Array) => { m.set(k, new Uint8Array(v)) },
-      get: async (k: string) => (m.has(k) ? { body: m.get(k), httpMetadata: { contentType: 'image/jpeg' } } : null),
+      put: async (k: string, v: Uint8Array, o?: R2PutOptions) => { m.set(k, new Uint8Array(v)); types.set(k, (o?.httpMetadata as R2HTTPMetadata | undefined)?.contentType) },
+      get: async (k: string) => (m.has(k) ? { body: m.get(k), httpMetadata: { contentType: types.get(k) } } : null),
       head: async (k: string) => (m.has(k) ? {} : null),
       delete: async (k: string | string[]) => { for (const x of [k].flat()) m.delete(x) },
     } as unknown as R2Bucket,
@@ -19,15 +21,29 @@ const fakeR2 = () => {
 }
 function env() {
   const kv = new Map<string, string>()
+  const ttl = new Map<string, number | undefined>()
   const uploads = fakeR2()
   const media = fakeR2()
+  const db = testD1()
   const e = {
     ASSETS: { fetch: async () => new Response('x') },
-    AB: { get: async (k: string) => kv.get(k) ?? null, put: async (k: string, v: string) => { kv.set(k, v) } },
-    DB: testD1(), UPLOADS: uploads.bucket, MEDIA: media.bucket,
-    TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'k', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: 'tok',
+    AB: {
+      get: async (k: string) => kv.get(k) ?? null,
+      put: async (k: string, v: string, o?: KVNamespacePutOptions) => { kv.set(k, v); ttl.set(k, o?.expirationTtl) },
+      delete: async (k: string) => { kv.delete(k) },
+    },
+    DB: db, UPLOADS: uploads.bucket, MEDIA: media.bucket,
+    TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'k', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: 'tok', OWNER_ACCOUNTS: 'owner-1',
   } as unknown as Env
-  return { e, uploads: uploads.m, media: media.m }
+  return { e, db, kv, ttl, uploads: uploads.m, media: media.m }
+}
+/** The owner's account and a reader's, each signed in on the web (the dashboard's cookie), and the owner's app session. */
+async function signedIn(db: D1Database) {
+  const { createSession } = await import('../accounts/session')
+  for (const id of ['owner-1', 'reader-1']) await db.prepare('INSERT INTO users (id, created_at) VALUES (?, ?)').bind(id, '2026-11-01T00:00:00Z').run()
+  const now = new Date()
+  const cookie = async (id: string) => `__Host-aq_session=${await createSession(db, id, 'web', now)}`
+  return { owner: await cookie('owner-1'), reader: await cookie('reader-1'), app: await createSession(db, 'owner-1', 'app', now) }
 }
 // Turnstile is checked against Cloudflare; tests stub fetch for siteverify only.
 const realFetch = globalThis.fetch
@@ -98,4 +114,118 @@ test('without the buckets or secrets the API answers 503 and the section stays h
   const { e } = env()
   const r = await handle(new Request('https://x.test/_p?e=species:x'), { ...e, UPLOADS: undefined } as Env)
   expect(r.status).toBe(503)
+})
+
+const PNG = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 1, 2, 3])
+const sent = async (e: Env, file = new File([JPEG], 'a.jpg')) => ((await (await handle(upload({ ...ok, file }), e)).json()) as { id: string }).id
+const admin = (e: Env, path: string, init: RequestInit = {}) => handle(new Request(`https://x.test/_p/admin/${path}`, { ...init, headers: { authorization: 'Bearer tok' } }), e)
+const queue = async (e: Env) => (await (await admin(e, 'queue')).json()) as { id: string; ownerOk: boolean }[]
+const publish = async (e: Env, id: string) => {
+  for (const kind of ['full', 'thumb']) await admin(e, `file/${id}?kind=${kind}`, { method: 'PUT', body: WEBP })
+  return (await (await admin(e, 'decisions', { method: 'POST', body: JSON.stringify([{ id, action: 'approve', reason: 'ok', width: 1200, height: 800 }]) })).json()) as { applied: number }
+}
+const act = (e: Env, cookie: string, fields: Record<string, string>) =>
+  handle(new Request('https://x.test/_ab/photos', { method: 'POST', body: new URLSearchParams(fields), headers: { cookie } }), e)
+
+// The owner looks at a waiting photo before the moderation pass does: its upload, from the private bucket, to the owner
+// signed in on the web and to nobody else (the dashboard token included), never stored, and only while it waits.
+test('/_ab/anh/<id> serves a waiting photo\'s upload to the owner alone, and only while it waits', async () => {
+  const { e, db } = env()
+  const { owner, reader, app } = await signedIn(db)
+  const id = await sent(e, new File([PNG], 'a.png'))
+  const get = (headers: Record<string, string>, path = `/_ab/anh/${id}`, method = 'GET') => handle(new Request(`https://x.test${path}`, { method, headers }), e)
+
+  const r = await get({ cookie: owner })
+  expect(r.status).toBe(200)
+  expect([r.headers.get('content-type'), r.headers.get('cache-control')]).toEqual(['image/png', 'private, no-store'])
+  expect(new Uint8Array(await r.arrayBuffer())).toEqual(PNG)
+  // Nobody signed in, a reader, the owner's app session, the dashboard token (alone and over the owner's cookie).
+  for (const h of [{}, { cookie: reader }, { authorization: `Bearer ${app}` }, { authorization: 'Bearer tok' }, { authorization: 'Bearer tok', cookie: owner }] as Record<string, string>[]) {
+    expect((await get(h)).status, JSON.stringify(h)).toBe(404)
+  }
+  expect((await get({ cookie: owner }, `/_ab/anh/${id}`, 'POST')).status).toBe(404)
+  expect((await get({ cookie: owner }, '/_ab/anh/x')).status).toBe(404)
+  expect((await get({ cookie: owner }, `/_ab/anh/${crypto.randomUUID()}`)).status).toBe(404)
+
+  // Published: no longer waiting, even with a stray upload left behind.
+  expect(await publish(e, id)).toEqual({ applied: 1, ignored: 0 })
+  await e.UPLOADS!.put(`pending/${id}`, PNG)
+  expect((await get({ cookie: owner })).status).toBe(404)
+  // Removed: the same.
+  const gone = await sent(e)
+  expect((await act(e, owner, { id: gone })).status).toBe(303)
+  expect((await get({ cookie: owner }, `/_ab/anh/${gone}`)).status).toBe(404)
+})
+
+test('Gỡ on a waiting photo deletes its upload at once and marks it removed', async () => {
+  const { e, db, uploads } = env()
+  const { owner, reader } = await signedIn(db)
+  const id = await sent(e)
+  expect(uploads.has(`pending/${id}`)).toBe(true)
+  expect((await act(e, reader, { id })).status).toBe(404)
+  expect(uploads.has(`pending/${id}`)).toBe(true)
+  const r = await act(e, owner, { id, action: 'remove' })
+  expect([r.status, r.headers.get('location')]).toEqual([303, '/_ab/anh-ban-doc/'])
+  expect(uploads.has(`pending/${id}`)).toBe(false)
+  expect(await db.prepare('SELECT status, reason FROM photos WHERE id = ?').bind(id).first()).toEqual({ status: 'removed', reason: 'removed by owner' })
+  expect(await waitingPhotos(e as never)).toEqual([])
+  expect(await queue(e)).toEqual([])
+})
+
+// The owner's approval is a flag the next moderation pass reads (the files are made on the Mac, as every published photo's
+// are): the queue says so, the page shows it approved, and publishing it clears the flag, so a later report is judged.
+test('Duyệt flags a waiting photo as the owner\'s (owner only, 30 days); the queue and the page show it; publishing clears it', async () => {
+  const { e, db, kv, ttl } = env()
+  const { owner, reader } = await signedIn(db)
+  const [id, other] = [await sent(e), await sent(e)]
+  expect((await act(e, reader, { id, action: 'approve' })).status).toBe(404)
+  expect(kv.has(`photo-ok:${id}`)).toBe(false)
+
+  const r = await act(e, owner, { id, action: 'approve' })
+  expect([r.status, r.headers.get('location')]).toEqual([303, '/_ab/anh-ban-doc/'])
+  expect(kv.has(`photo-ok:${id}`)).toBe(true)
+  expect(ttl.get(`photo-ok:${id}`)).toBe(30 * 86_400)
+  expect(await db.prepare('SELECT status FROM photos WHERE id = ?').bind(id).first()).toEqual({ status: 'pending' }) // still waits for its files
+  expect(Object.fromEntries((await queue(e)).map(q => [q.id, q.ownerOk]))).toEqual({ [id]: true, [other]: false })
+  expect(Object.fromEntries((await waitingPhotos(e as never))!.map(p => [p.id, p.ownerOk]))).toEqual({ [id]: true, [other]: false })
+
+  // Published by the pass: the flag goes; a photo that no longer waits can't be flagged.
+  await publish(e, id)
+  expect(kv.has(`photo-ok:${id}`)).toBe(false)
+  await act(e, owner, { id, action: 'approve' })
+  expect(kv.has(`photo-ok:${id}`)).toBe(false)
+  await act(e, owner, { id: other })
+  await act(e, owner, { id: other, action: 'approve' })
+  expect(kv.has(`photo-ok:${other}`)).toBe(false)
+})
+
+test('the page shows each waiting photo, tap to enlarge, with Duyệt and Gỡ; one the owner approved says so, without Duyệt', async () => {
+  expect(photosPage([], [])).not.toContain('Chờ duyệt')
+  const [a, b] = [crypto.randomUUID(), crypto.randomUUID()]
+  const html = photosPage([], [
+    { id: a, entity_ref: 'species:paracheirodon-innesi', name: '<b>x</b>', created_at: '2026-11-04T08:12:00Z', ownerOk: false },
+    { id: b, entity_ref: 'species:betta-splendens', name: 'Lộc', created_at: '2026-11-04T07:00:00Z', ownerOk: true },
+  ])
+  expect(html).toContain('Chờ duyệt (2)')
+  const row = (id: string) => html.split('<tr').find(r => r.includes(`value="${id}"`))!
+  for (const id of [a, b]) {
+    expect(row(id)).toContain(`<a href="/_ab/anh/${id}"`)
+    expect(row(id)).toContain(`src="/_ab/anh/${id}"`)
+    expect(row(id)).toMatch(/<button[^>]*name="action" value="remove"[^>]*>Gỡ<\/button>/)
+  }
+  expect(row(a)).toMatch(/<button[^>]*name="action" value="approve"[^>]*>Duyệt<\/button>/)
+  expect(row(a)).toContain('species:paracheirodon-innesi')
+  expect(row(a)).toContain('&lt;b&gt;x&lt;/b&gt;')
+  expect(html).not.toContain('<b>x</b>')
+  expect(row(a)).not.toContain('Đã duyệt')
+  expect(row(b)).not.toContain('value="approve"')
+  expect(row(b)).toMatch(/Đã duyệt<\/span> <span class="muted">đăng trong lượt duyệt tới/)
+  // A published photo keeps its Gỡ, beside its public thumbnail, and nothing else.
+  const c = crypto.randomUUID()
+  const shown = photosPage([{ id: c, entity_ref: 'species:betta-splendens', name: '<i>y</i>', thumb: `https://media.aquatome.com/readers/${c}-480.webp`, created_at: '2026-11-04T02:40:00Z' }], [])
+  const published = shown.split('<tr').find(r => r.includes(`value="${c}"`))!
+  expect(published).toContain(`src="https://media.aquatome.com/readers/${c}-480.webp"`)
+  expect(published).toMatch(/<button[^>]*name="action" value="remove"[^>]*>Gỡ<\/button>/)
+  expect(published).not.toContain('value="approve"')
+  expect(published).toContain('&lt;i&gt;y&lt;/i&gt;')
 })

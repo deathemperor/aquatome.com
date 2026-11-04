@@ -4,7 +4,7 @@ import { mockFishId as mockApi, fakeTurnstile, photoOfSize, PNG, sentSize } from
 
 // The fish-ID tool. The Worker's endpoint is always mocked here, so these hold on the fixture build (no Worker) and on
 // aquatome.com (watch.yml) alike, and no photo is ever sent to the real endpoint. Turnstile is a stand-in too.
-const PATH = '/vi/cong-cu/nhan-dien-ca/'
+const PATH = '/cong-cu/nhan-dien-ca/'
 
 test('fish ID: the page says calmly that the tool is off when its endpoint is (no keys yet)', async ({ page, errors }) => {
   await mockApi(page, { status: 200, body: { on: false } })
@@ -42,6 +42,7 @@ test('fish ID: on, the camera and the photo picker are ready, with the tips and 
 
 test('fish ID: a photo goes out shrunk as JPEG with the Turnstile token; guesses come back with their pages, the reader\'s limit after', async ({ page, errors }) => {
   await fakeTurnstile(page)
+  // The answers name pages by their old /vi/ addresses, as the app reads them (APP_VI_ROOT); the page links the root ones.
   const sent = await mockApi(page, { status: 200, body: { on: true, sitekey: 'k', resting: false, perIp: 10 } }, [
     { status: 200, body: { verdict: 'fish', model: 'm', results: [
       { scientificName: 'Paracheirodon innesi', commonName: 'Neon tetra', variety: null, confidence: 0.9, reason: 'Sọc <b>xanh</b> ánh kim.', page: { id: 'paracheirodon-innesi', kind: 'species', name: 'Cá neon xanh', sci: 'Paracheirodon innesi', url: '/vi/ca/ca-neon-xanh/' } },
@@ -60,8 +61,8 @@ test('fish ID: a photo goes out shrunk as JPEG with the Turnstile token; guesses
   await expect(out.locator('ol > li')).toHaveCount(3)
   const first = out.locator('ol > li').first()
   await expect(first.locator('.sure')).toHaveText('Gần như chắc chắn')
-  await expect(first.locator('h3 a')).toHaveAttribute('href', '/vi/ca/ca-neon-xanh/')
-  await expect(first.locator('.open')).toHaveAttribute('href', '/vi/ca/ca-neon-xanh/')
+  await expect(first.locator('h3 a')).toHaveAttribute('href', '/ca/ca-neon-xanh/')
+  await expect(first.locator('.open')).toHaveAttribute('href', '/ca/ca-neon-xanh/')
   // Claude's words are text, never markup.
   await expect(first.locator('.why')).toHaveText('Sọc <b>xanh</b> ánh kim.')
   const second = out.locator('ol > li').nth(1)
@@ -70,7 +71,7 @@ test('fish ID: a photo goes out shrunk as JPEG with the Turnstile token; guesses
   await expect(second.locator('.genus summary')).toHaveText('1 loài Paracheirodon có trong cẩm nang')
   await expect(second.locator('.genus a')).toBeHidden()
   await second.locator('.genus summary').click()
-  await expect(second.locator('.genus a')).toHaveAttribute('href', '/vi/ca/ca-neon-vua/')
+  await expect(second.locator('.genus a')).toHaveAttribute('href', '/ca/ca-neon-vua/')
   // A link that isn't one of this site's pages is dropped, its name kept.
   await expect(out.locator('ol > li').nth(2).locator('a')).toHaveCount(0)
   // What went out: a JPEG (the browser's re-encode, not the PNG), the token, the page's language.
@@ -102,12 +103,12 @@ test('fish ID: "not this one?" under a matched guess lists the genus\'s other pa
   await expect(page.locator('[data-go]')).toBeEnabled()
   await page.locator('[data-go]').click()
   const guess = page.locator('[data-out] ol > li').first()
-  await expect(guess.locator('h3 a')).toHaveAttribute('href', '/vi/ca/ca-betta/')
+  await expect(guess.locator('h3 a')).toHaveAttribute('href', '/ca/ca-betta/')
   const genus = guess.locator('.genus')
   await expect(genus.locator('summary')).toHaveText('Không phải? 2 loài Betta khác trong cẩm nang')
   await expect(genus.locator('li').first()).toBeHidden()
   await genus.locator('summary').click()
-  await expect(genus.getByRole('link', { name: 'Cá betta Brunei' })).toHaveAttribute('href', '/vi/ca/ca-betta-macrostoma/')
+  await expect(genus.getByRole('link', { name: 'Cá betta Brunei' })).toHaveAttribute('href', '/ca/ca-betta-macrostoma/')
   await expect(genus.locator('li').first()).toContainText('Betta macrostoma')
   // A page this language doesn't have: its name, no link.
   await expect(genus.locator('li').nth(1)).toHaveText('Cá betta imbellis Betta imbellis')
