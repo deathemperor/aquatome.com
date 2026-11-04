@@ -142,10 +142,12 @@ Debug builds, so they don't see it.
   helpers) runs the smoke set alone. The app's start (`AquaTomeApp.swift`), `ios.yml`, `flows-to-run.py` and the
   scripts the flow jobs run run every flow, and so does a path under `apps/ios/` the script has no rule for. Jobs `kit`
   and `perf` (with the translations) run on every ready pull request.
-- **Every flow** runs after each merge to main, every night at 02:30 Vietnam time on main (without `perf`: the merge's
+- **Every flow** runs on main after merges, every night at 02:30 Vietnam time on main (without `perf`: the merge's
   run measured the same code), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull request
   labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full` with
-  every flow, any other label as a push would. Main's runs are never cancelled: each merge's run finishes.
+  every flow, any other label as a push would. A main run that started is never cancelled; of those waiting for it,
+  only the newest is kept, and it covers every merge since the last run (a full run for each merge held the own Mac
+  for hours when several merged at once).
 
 A break that only main's run catches is fixed forward first, in a pull request of its own. If the flow could have run on
 the pull request that broke it, give `flows-to-run.py` the rule that would have run it.

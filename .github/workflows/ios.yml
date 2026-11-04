@@ -18,12 +18,13 @@ on:
   schedule:
     - cron: '30 19 * * *'
   workflow_dispatch:
-# A pull request's newer run (a push, a label) cancels its run in progress. Main's runs, nightly or by hand, each have a
-# group of their own, so none is cancelled, nor dropped while waiting (a group keeps one run waiting and cancels any
-# before it): every merge's run finishes.
+# A pull request's newer run (a push, a label) cancels its run in progress. Main's runs (a merge, the nightly run, one
+# by hand) share a group: a run that started is never cancelled, and of those waiting only the newest is kept (a group
+# keeps one run waiting and cancels any before it). That one runs every flow on main as it is when it starts, so it
+# covers each merge since the last run. A full run for each merge held the own Mac for hours when several merged at
+# once (2026-11-04: ten merges waiting, each run six Mac jobs).
 concurrency:
-  group: >-
-    ${{ github.event_name == 'pull_request' && format('ios-{0}', github.ref) || format('ios-run-{0}', github.run_id) }}
+  group: ios-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 permissions:
   contents: read
