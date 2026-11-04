@@ -1,5 +1,5 @@
 import { readCapped } from '../comments/api'
-import { isViPage, withoutVi } from '../paths'
+import { VI_SECTIONS, withoutVi } from '../paths'
 import { allowed, countryOf, done, fail, gate, isOurCopy, metaOf, objectOf, type Meta, type TelemetryEnv } from './shared'
 
 /** POST /api/v1/app/events (protocols/app-telemetry.openapi.json): a batch of one session's events, each a data point. */
@@ -10,16 +10,14 @@ export const MAX_EVENTS = 100
 export const ACTIONS = ['light.connect', 'light.write', 'plug.switch', 'fishid', 'tank.add', 'post.comment', 'post.photo'] as const
 const LANGS = ['vi', 'id', 'th']
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
-const SEGMENTS = /^\/(?:[A-Za-z0-9_-]+\/)*$/
 /**
- * A handbook page's path, stored as the site's address: a Vietnamese page at the root (/ca/x/), whether the app sends that
- * or the old /vi/ca/x/ its index still gives (worker/paths.ts), so both join one page. Anything that isn't a page: ''.
+ * A handbook page's path (protocols/app-telemetry.openapi.json "Path"): a Vietnamese page at the root or under the old
+ * /vi/ the app index still gives, or an Indonesian or Thai one. Built from the Vietnamese sections, so nothing else at the
+ * root (/app/, /go/, /api/…) passes; the contract's pattern is this one's source (a test keeps them equal).
  */
-const pageOf = (v: unknown) => {
-  if (typeof v !== 'string' || v.length > 200 || !SEGMENTS.test(v)) return ''
-  const p = withoutVi(v)
-  return /^\/(?:id|th)\//.test(p) || isViPage(p) ? p : ''
-}
+export const PAGE_PATH = new RegExp(`^/(?:(?:vi/)?(?:(?:${VI_SECTIONS.join('|')})/(?:[A-Za-z0-9_-]+/)*)?|(?:id|th)/(?:[A-Za-z0-9_-]+/)*)$`)
+/** Stored as the site's address, a Vietnamese page by its root path, so a page's views join across the app's switch. */
+const pageOf = (v: unknown) => (typeof v === 'string' && v.length <= 200 && PAGE_PATH.test(v) ? withoutVi(v) : '')
 const SCREEN = /^[a-z][a-z0-9-]{0,23}$/
 const SHOP = /^[a-z0-9-]{1,24}$/
 const HREF = /^\/go\/([a-z0-9-]{1,24})\/(?:\?[A-Za-z0-9%._~&=+,-]*)?$/

@@ -1,6 +1,7 @@
+import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
-import { parseEvent } from '../telemetry/events'
+import { PAGE_PATH, parseEvent } from '../telemetry/events'
 import { measure, summarise, parseReport } from '../telemetry/diagnostics'
 import { PER_HOUR } from '../telemetry/shared'
 import { contract } from './contract'
@@ -53,20 +54,21 @@ test('every sample in this file is what the contract describes, and its refusals
   expect(misfits(DIAGNOSTIC, schema('Report'))).toEqual([])
   expect(misfits({ telemetry: true, fish: [] }, schema('AppConfig'))).toEqual([])
   // A shop that isn't the link's: the contract says so in words, the Worker checks it.
-  for (const bad of BAD_EVENTS.filter(b => b !== OTHER_SHOP && b !== NOT_A_PAGE)) expect(misfits(bad, schema('Event')), JSON.stringify(bad)).not.toEqual([])
+  for (const bad of BAD_EVENTS.filter(b => b !== OTHER_SHOP)) expect(misfits(bad, schema('Event')), JSON.stringify(bad)).not.toEqual([])
   for (const bad of [{ ...BATCH, events: [] }, { ...BATCH, events: Array(101).fill(EACH[0]) }, { ...BATCH, country: 'VN' }, { ...BATCH, session: 'abc' }])
     expect(misfits(bad, schema('Batch'))).not.toEqual([])
 })
 
-// A path the contract's pattern allows but no page of the site has: the contract says so in words, the Worker checks it.
-const NOT_A_PAGE = { t: 'view', at: 0, path: '/en/fish/' }
 const OTHER_SHOP = { t: 'aff', at: 0, path: '/vi/', shop: 'lazada', href: SHOP_LINK }
 /** Events the Worker drops one by one, as the contract refuses them. */
 const BAD_EVENTS = [
   { t: 'view', at: 0 }, // neither path nor screen
   { t: 'view', at: 0, path: '/vi/', screen: 'lights' }, // both
   { t: 'view', at: 0, path: 'https://evil.example/vi/' },
-  NOT_A_PAGE,
+  { t: 'view', at: 0, path: '/en/fish/' },
+  { t: 'view', at: 0, path: '/app/vi/' },
+  { t: 'view', at: 0, path: '/go/shopee/' },
+  { t: 'view', at: 0, path: '/vi/api/' },
   { t: 'view', at: 0, path: '/vi/ca/x/?q=1' },
   { t: 'view', at: 0, path: `/vi/${'a'.repeat(200)}/` },
   { t: 'view', at: 0, screen: 'Lights' },
@@ -279,9 +281,16 @@ test('events: a Vietnamese page counts by its root address, sent either way; a p
   const { e, points } = env()
   const events = [
     { t: 'view', at: 0, path: '/vi/ca/ca-neon-vua/' }, { t: 'view', at: 1, path: '/ca/ca-neon-vua/' }, { t: 'view', at: 2, path: '/vi/' },
-    { t: 'view', at: 3, path: '/id/ikan/neon-tetra/' }, { t: 'view', at: 4, path: '/_ab/' }, { t: 'view', at: 5, path: '/api/v1/' },
+    { t: 'view', at: 3, path: '/id/ikan/neon-tetra/' }, { t: 'view', at: 4, path: '/' },
+    ...['/_ab/', '/api/v1/', '/app/', '/go/shopee/', '/data/vi/', '/pagefind/', '/_e/', '/vi/app/', '/robots.txt'].map((path, i) => ({ t: 'view', at: 10 + i, path })),
   ]
   const r = await handle(post(EVENTS, { ...BATCH, events }), e)
-  expect(await r.json()).toEqual({ stored: 4, dropped: 2 })
-  expect(points.map(p => p.blobs[1])).toEqual(['/ca/ca-neon-vua/', '/ca/ca-neon-vua/', '/', '/id/ikan/neon-tetra/'])
+  expect(await r.json()).toEqual({ stored: 5, dropped: 9 })
+  expect(points.map(p => p.blobs[1])).toEqual(['/ca/ca-neon-vua/', '/ca/ca-neon-vua/', '/', '/id/ikan/neon-tetra/', '/'])
+})
+
+// The contract's page pattern is the Worker's, built from the site's Vietnamese sections: a new section changes both.
+test("the contract's page path pattern is the Worker's, from the Vietnamese sections", () => {
+  const api = JSON.parse(readFileSync(new URL('../../../../protocols/app-telemetry.openapi.json', import.meta.url), 'utf8'))
+  expect(new RegExp(api.components.schemas.Path.pattern).source).toBe(PAGE_PATH.source)
 })
