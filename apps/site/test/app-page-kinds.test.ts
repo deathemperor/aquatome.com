@@ -76,10 +76,13 @@ function credited(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>) 
   expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2'))]))
 }
 
-/** The gallery as the page's strip shows it and its gallery page lists it. */
+/**
+ * The gallery as the page's strip shows it and its gallery page lists it. The strip's own thumbnails: the further ones a
+ * computer's photo column shows (`li.more`) are the gallery's, which the copy carries whole.
+ */
 function gallery(d: PageDoc, dom: HTMLElement) {
   const g = one(d, 'gallery')
-  const strip = dom.querySelectorAll('.strip li img')
+  const strip = dom.querySelectorAll('.strip li:not(.more) img')
   expect(!!g, d.path).toBe(strip.length > 0)
   if (!g) return
   expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))
@@ -200,7 +203,7 @@ test('a fish\'s copy: its blocks in page order, every one credited and sourced',
   })
   // The card's figures are the index's: only who gives them here, and each source's own where they disagree.
   expect(one(d, 'trust')!.rows[0]).toEqual({ field: 'tempC', label: 'Nhiệt độ', conflict: true, note: 'Mức mọi nguồn cùng khuyên', items: ['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'] })
-  expect(one(d, 'gallery')).toMatchObject({ title: 'Ảnh Cá neon vua', note: '6 ảnh từ Wikimedia Commons, giấy phép mở.', href: '/vi/ca/ca-neon-vua/anh/' })
+  expect(one(d, 'gallery')).toMatchObject({ title: 'Ảnh Cá neon vua', note: '45 ảnh từ Wikimedia Commons, giấy phép mở.', href: '/vi/ca/ca-neon-vua/anh/' })
   expect(one(d, 'gallery')!.photos[0]).toMatchObject({ credit: { text: 'Ảnh: Tác giả 1', licence: 'CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' } })
   expect(one(d, 'summary')).toEqual({ t: 'summary', title: 'Tóm tắt nhanh', text: 'Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.', items: ['Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.'], mistakes: { title: 'Lỗi hay gặp', items: ['Thả vài con: nên nuôi đàn từ 8 con trở lên.'] }, by: 'AquaTome tóm tắt từ các nguồn bên dưới.' })
   expect(one(d, 'refs')).toMatchObject({ title: 'Nguồn', id: 'nguon', items: [{ title: 'Seriously Fish', url: 'https://www.seriouslyfish.com/species/paracheirodon-axelrodi' }, { title: 'Aquarium Glaser' }, { title: 'Aquarium Glaser' }] })
