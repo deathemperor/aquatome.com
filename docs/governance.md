@@ -56,6 +56,12 @@ that would have caught it).
     comments cut, under the account that sent it or no one's, listed and deleted by that account (never the image),
     deleted with the account and 6 months on, and seen only on the owner's dashboard
     (`apps/site/worker/test/fishid.test.ts`, `handler.test.ts`).
+  - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
+    `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
+    one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
+    stored from a browser (an Origin), past the size caps or past the address's hour, our own copies stored marked as
+    tests, a report kept as received in the private bucket only, and the dashboard's page with nothing yet and with data
+    (`apps/site/worker/test/telemetry.test.ts`, `admin-app.test.ts`).
   - The owner's dashboard (`apps/site/worker/test/admin-*.test.ts`): each chart with no days, one day, only zeros, a
     negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
     the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a

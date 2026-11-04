@@ -7,6 +7,7 @@ export const NAV = [
   ['/_ab/', 'Tổng quan'],
   ['/_ab/noi-dung/', 'Nội dung'],
   ['/_ab/doc-gia/', 'Người đọc'],
+  ['/_ab/ung-dung/', 'Ứng dụng'],
   ['/_ab/nhan-dien-ca/', 'Nhận diện cá'],
   ['/_ab/anh-nhan-dien/', 'Ảnh nhận diện'],
   ['/_ab/affiliate/', 'Affiliate'],
