@@ -69,8 +69,12 @@ export function genusHtml(t: T, r: Result, item: (l: Linked, i: number) => strin
 }
 
 // Only this site's own pages and our media host's photos, whatever the answer holds. A page as this site links it: the
-// answer gives Vietnamese pages in the apps' /vi/ form (lib/i18n appPath).
-export const own = (u?: string) => (u && (/^\/(vi|id|th)\//.test(u) || isViPage(u)) ? withoutVi(u) : undefined)
+// answer gives Vietnamese pages in the apps' /vi/ form (lib/i18n appPath). What is left after /vi must still be a path
+// here: "/vi//evil.test/" would leave "//evil.test/", another site.
+export const own = (u?: string) => {
+  const p = u && (/^\/(vi|id|th)\//.test(u) || isViPage(u)) ? withoutVi(u) : undefined
+  return p && /^\/(?![/\\])/.test(p) ? p : undefined
+}
 const photoSrc = (u?: string) => (u && /^https:\/\//.test(u) ? u : undefined)
 
 /**

@@ -46,6 +46,8 @@ test('a guess is inert HTML: Claude\'s words are text; only this site\'s pages a
   // Fish ID's answers name Vietnamese pages in the apps' /vi/ form: the page links their address (the root).
   expect(['/vi/ca/x/', '/ca/x/', '/id/ikan/x/', '/th/fish/x/'].map(own)).toEqual(['/ca/x/', '/ca/x/', '/id/ikan/x/', '/th/fish/x/'])
   expect(['javascript:alert(1)', '//evil.test/vi/', 'https://evil.test/vi/', '/en/x/', '/_ab/', undefined].map(own)).toEqual([undefined, undefined, undefined, undefined, undefined, undefined])
+  // Dropping /vi must not leave another site's address: "//evil.test/", or "/\evil.test/", which a browser reads the same way.
+  expect(['/vi//evil.test/', '/vi/\\evil.test/', '/vi///evil.test/'].map(own)).toEqual([undefined, undefined, undefined])
 })
 
 test('"not this one?": the genus\'s other pages in a closed list, its genus the matched page\'s, in italics; none without any', () => {
