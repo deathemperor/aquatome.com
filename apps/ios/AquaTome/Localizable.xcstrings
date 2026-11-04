@@ -785,6 +785,22 @@
         }
       }
     },
+    "Bảng điều khiển": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dasbor"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แดชบอร์ด"
+          }
+        }
+      }
+    },
     "Bấm vào tên để đổi": {
       "localizations": {
         "id": {
@@ -2337,6 +2353,22 @@
         }
       }
     },
+    "Các mục": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bagian"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หมวด"
+          }
+        }
+      }
+    },
     "Các ổ cắm trong dự án Tuya của bạn.": {
       "localizations": {
         "id": {
@@ -2509,6 +2541,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เครื่องมือ"
+          }
+        }
+      }
+    },
+    "Cần bạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perlu Anda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รอคุณจัดการ"
           }
         }
       }
@@ -3409,6 +3457,22 @@
         }
       }
     },
+    "Không có việc gì cần bạn lúc này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada yang perlu Anda tangani saat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตอนนี้ไม่มีอะไรรอคุณจัดการ"
+          }
+        }
+      }
+    },
     "Không cần châm": {
       "localizations": {
         "id": {
@@ -3485,6 +3549,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรูปไม่สำเร็จ โปรดลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không hoàn tác được.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak bisa dibatalkan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ย้อนกลับไม่ได้"
           }
         }
       }
@@ -4669,6 +4749,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "passkey นี้ไม่ตรงกับบัญชีใด: เข้าสู่ระบบด้วยวิธีอื่น"
+          }
+        }
+      }
+    },
+    "Phiên đăng nhập đã hết: đăng nhập lại để xem bảng điều khiển.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesi masuk sudah berakhir: masuk lagi untuk melihat dasbor."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เซสชันหมดอายุแล้ว โปรดเข้าสู่ระบบอีกครั้งเพื่อดูแดชบอร์ด"
           }
         }
       }
@@ -6765,6 +6861,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "pH"
+          }
+        }
+      }
+    },
+    "so với %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dibandingkan %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เทียบกับ %@"
           }
         }
       }

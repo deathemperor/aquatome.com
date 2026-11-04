@@ -37,6 +37,8 @@ public final class FakeAccounts {
   public var reportable: Set<String> = []
   /// The reports taken, in order: who sent each (an account, or nil from the page's way) and what they said.
   public private(set) var reports: [(account: String?, kind: String, id: String, reason: String?)] = []
+  /// The owner's dashboard, when this server has one (FakeOwner): its paths, and the photos it shows.
+  public var owner: FakeOwner?
 
   struct Account { let id: String; var kind = "apple"; var store = TankStore() }
   private var accounts: [String: Account] = [:] // by Apple sub, or `email:<address>`
@@ -134,6 +136,9 @@ public final class FakeAccounts {
     let body = isJSON ? r.httpBody.flatMap { try? JSON.parse($0).object } : nil
     let bearer = r.value(forHTTPHeaderField: "Authorization").map { String($0.dropFirst("Bearer ".count)) }
     let sub = bearer.flatMap { tokens[$0] }
+    if let (status, data, type) = try owner?.answer(r, account: sub, endSessions: endSessions) {
+      return (data, HTTPURLResponse(url: r.url!, statusCode: status, httpVersion: nil, headerFields: ["Content-Type": type, "Cache-Control": "no-store"])!)
+    }
     func reply(_ status: Int, _ o: [String: JSON]? = nil) throws -> (Data, HTTPURLResponse) {
       (try o.map { try JSON.object($0).data() } ?? Data(), HTTPURLResponse(url: r.url!, statusCode: status, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!)
     }

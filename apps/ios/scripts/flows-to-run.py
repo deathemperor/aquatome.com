@@ -85,6 +85,14 @@ LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testKeepsTheLightAndWhatWasWrittenOnATank', 'testALightOnATankOpensOnTheLightsTabAndConnects',
     'testALightOnATankOpensTheConnectedLightAsItIs',
     'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten')] + LIGHT_OUTLET
+# The tanks tab: a tank's own flows, its account and plugs sections, a page's links and the handbook's tools that open it,
+# the posters blocked from it, and the lights kept on a tank.
+TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests', 'PlugFlowTests',
+             'NativePageFlowTests/testALinkFromTheTanksTabOpensOnTheTanksTab',
+             'NativePageFlowTests/testAGroupFromTheTanksTabOpensOnTheTanksTab',
+             'NativePageFlowTests/testAToolItNamesOpensItsTab', 'HandbookFlowTests/testFiltersTheFishToMyTank',
+             'HandbookFlowTests/testFiltersThePlantsToTheTanksLight',
+             'ReaderPostFlowTests/testABlockedPosterIsListedInTheTanksTab'] + LIGHTS_ON_TANKS
 REACH = {
     # The app's start (it routes a page's links to the tabs, wires a tank's wanted names and pages, sends the lights back
     # to their schedule when the app leaves, syncs the account), and what selects and runs the flows: every flow, as
@@ -113,14 +121,9 @@ REACH = {
     APP + 'Handbook/KeepOffline.swift': ['OfflineFlowTests'],
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
     APP + 'Handbook/ReaderSafety.swift': ['ReaderPostFlowTests', 'NativePageFlowTests'],
-    # The tanks tab: a tank's own flows, its account and plugs sections, a page's links and the handbook's tools that
-    # open it, the posters blocked from it, and the lights kept on a tank.
-    APP + 'Tanks/': ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests', 'PlugFlowTests',
-                     'NativePageFlowTests/testALinkFromTheTanksTabOpensOnTheTanksTab',
-                     'NativePageFlowTests/testAGroupFromTheTanksTabOpensOnTheTanksTab',
-                     'NativePageFlowTests/testAToolItNamesOpensItsTab', 'HandbookFlowTests/testFiltersTheFishToMyTank',
-                     'HandbookFlowTests/testFiltersThePlantsToTheTanksLight',
-                     'ReaderPostFlowTests/testABlockedPosterIsListedInTheTanksTab'] + LIGHTS_ON_TANKS,
+    APP + 'Tanks/': TANKS_TAB,
+    # It shows the owner's dashboard's row, and opens it.
+    APP + 'Tanks/TanksView.swift': TANKS_TAB + ['OwnerFlowTests'],
     APP + 'Tanks/TankCheckView.swift': ['TankCheckFlowTests',
                                         'TankLifeFlowTests/testAddsAFishWithoutAPageByNameSendsItOnceAndKeepsItAfterARelaunch'],
     APP + 'Tanks/TankGuides.swift': ['TankLifeFlowTests', 'NativePageFlowTests/testALinkFromTheTanksTabOpensOnTheTanksTab',
@@ -133,20 +136,25 @@ REACH = {
     APP + 'Lights/LightsView.swift': ['LightFlowTests', 'PageShotsFlowTests'],
     APP + 'Lights/LightOutlet.swift': ['LightFlowTests', 'PageShotsFlowTests'],
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
-    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests'],
-    # The stand-in server also takes the names readers want pages for (a fish put on a tank by name).
-    APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests'],
+    # The account also holds the owner's dashboard (its session, and signing out on a 401).
+    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'OwnerFlowTests'],
+    # The stand-in server also takes the names readers want pages for (a fish put on a tank by name), and serves the
+    # owner's dashboard.
+    APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'OwnerFlowTests'],
+    APP + 'Owner/': ['OwnerFlowTests'],
     KIT + 'Sources/Handbook/': HANDBOOK_MODEL,
     KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests'],
     # Also the fish filtered to a tank (ShelfFilter reads its size).
     KIT + 'Sources/Tanks/': ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests',
                              'PlugFlowTests', 'HandbookFlowTests/testFiltersTheFishToMyTank'] + LIGHTS_ON_TANKS,
-    KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests'],
+    KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'OwnerFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     KIT + 'Sources/Chihiros/': ['LightFlowTests'],
     # A Mac command line, not in the app: job `kit` builds it.
     KIT + 'Sources/light-harness/': NONE,
-    KIT + 'Tests/': NONE, 'protocols/': NONE, 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
+    KIT + 'Tests/': NONE, 'protocols/': NONE,
+    # The owner's dashboard's flows read it: the stand-in server serves its replies.
+    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests'], 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
     # Run by job `perf`, which runs on every ready pull request.
     'apps/ios/scripts/check-strings.py': NONE,
@@ -322,6 +330,11 @@ def test():
     for paths in ([APP + 'FishID/FishIDView.swift'], [APP + 'Telemetry.swift'], [KIT + 'Sources/FishID/Model.swift'],
                   ['apps/ios/Gemfile'], [], [APP + 'Handbook/HomeList.swift', APP + 'FishID/FishIDView.swift']):
         assert is_full(paths), paths
+    # The owner's dashboard: its flows, and the tanks tab's with them where its row is; its vectors run them too.
+    assert runs([APP + 'Owner/OwnerBlocks.swift']) == {'app': ['OwnerFlowTests'] + SMOKE}
+    assert runs(['protocols/owner-dashboard-vectors.json']) == runs([APP + 'Owner/OwnerModel.swift'])
+    assert 'OwnerFlowTests' in runs([APP + 'Tanks/TanksView.swift'])['app']
+    assert 'OwnerFlowTests' not in runs([APP + 'Tanks/TankForm.swift'])['app']
     # A new file in a folder that has a rule takes that folder's flows: the plugs', and the light's outlet's.
     assert runs([KIT + 'Sources/Plugs/NewSource.swift']) == {'app': ['PlugFlowTests'] + sorted(LIGHT_OUTLET) + SMOKE}
     assert runs([APP + 'Plugs/PlugsModel.swift']) == runs([KIT + 'Sources/Plugs/NewSource.swift'])

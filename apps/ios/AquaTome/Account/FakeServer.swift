@@ -6,7 +6,11 @@ import Tanks
 /// The UI tests' accounts server: `FakeAccounts`, kept in a file across launches, so a second "phone" (a launch with
 /// `-reset-defaults`) signs in to the account the first one made. `-fake-accounts on` turns accounts on (off
 /// otherwise); `-reset-fake-server` starts with no accounts; `-seed-passkey` adds `FakePasskeySignIn`'s passkey to the
-/// Apple user `ui-apple`'s account, as "Thêm passkey" on aquatome.com would.
+/// Apple user `ui-apple`'s account, as "Thêm passkey" on aquatome.com would. `-fake-owner <account>` serves the owner's
+/// dashboard to that account (`ui-apple`, or another, so `ui-apple` isn't the owner): the replies of
+/// protocols/owner-dashboard-vectors.json, read from this checkout (the simulator runs on the Mac that built it).
+/// `-owner-session-ends` ends the owner's session at the first section read, as one expiring while the dashboard is open;
+/// `-owner-storage-down` answers that read 503, as the Worker does while its storage doesn't answer.
 @MainActor
 final class FakeServer {
   private let fake: FakeAccounts
@@ -17,6 +21,15 @@ final class FakeServer {
     fake = (try? JSON.parse(Data(contentsOf: file))).map { FakeAccounts(snapshot: $0) } ?? FakeAccounts()
     fake.accountsOn = args.firstIndex(of: "-fake-accounts").map { $0 + 1 < args.count && args[$0 + 1] == "on" } ?? false
     if args.contains("-seed-passkey") { fake.addPasskey(FakePasskeySignIn.credentialId, to: "ui-apple") }
+    if let i = args.firstIndex(of: "-fake-owner"), i + 1 < args.count {
+      var repo = URL(fileURLWithPath: #filePath)
+      for _ in 0..<5 { repo.deleteLastPathComponent() }
+      let vectors = repo.appending(path: "protocols/owner-dashboard-vectors.json")
+      guard let v = try? JSON.parse(Data(contentsOf: vectors)) else { fatalError("-fake-owner: can't read \(vectors.path)") }
+      fake.owner = FakeOwner(vectors: v, owners: [args[i + 1]])
+      fake.owner?.sessionEndsAtNextSection = args.contains("-owner-session-ends")
+      fake.owner?.storageDownAtNextSection = args.contains("-owner-storage-down")
+    }
     // The fixed pages' readers' comments and photos (HandbookIndex.fixtureReaders), as reports find them.
     fake.reportable.formUnion(["comment:c1", "comment:c2", "photo:p1", "photo:p2"])
   }

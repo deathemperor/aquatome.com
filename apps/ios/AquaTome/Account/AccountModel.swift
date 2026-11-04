@@ -54,6 +54,8 @@ final class AccountModel {
   @ObservationIgnored private var again = false
   /// The store as the last sync left it: a change seen after that is the reader's, and is sent.
   @ObservationIgnored private var synced: TankStore?
+  /// The owner's dashboard (Owner/): shown only to the owner's account, read with its session.
+  @ObservationIgnored private(set) lazy var owner = OwnerModel(send: api.send, account: self)
 
   init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false) {
     self.tanks = tanks
@@ -69,6 +71,9 @@ final class AccountModel {
     }
     token = keychain.read()
   }
+
+  /// The session's token, for the owner's dashboard, which sends its own requests with it.
+  var bearer: String? { token }
 
   /// A store on the phone this app can't keep whole (newer, unreadable) isn't sent or replaced.
   var canSync: Bool { tanks.problem == nil || tanks.problem == .saveFailed }
@@ -370,6 +375,13 @@ final class AccountModel {
     } catch {
       say(problem(error), bad: true)
     }
+  }
+
+  /// Another request with the token was told the session is over (401 `signed_out`): signed out, and said so, as a sync
+  /// told the same is.
+  func sessionEnded() {
+    forget()
+    say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true)
   }
 
   private func forget() {
