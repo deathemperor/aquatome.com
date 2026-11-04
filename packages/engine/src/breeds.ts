@@ -142,7 +142,8 @@ export function linkBreed(e: BreedEntity, research: BreedFacts, species: (name?:
     return { name, species: s, ...rest }
   })
   const unmatched = !same && e.parents.some(p => !p.species) ? `parents left: ${e.parents.length} on the page, ${facts.parents.length} in its research` : undefined
-  return { entity: { id: e.id, kind: e.kind, ...(basedOn ? { basedOn } : {}), ...e, parents }, links, ...(unmatched ? { unmatched } : {}) }
+  const { id, kind, ...rest } = e
+  return { entity: { id, kind, ...(basedOn ? { basedOn } : {}), ...rest, parents }, links, ...(unmatched ? { unmatched } : {}) }
 }
 async function speciesSlugs(content: string): Promise<Set<string>> {
   const out = new Set<string>()
