@@ -1,6 +1,22 @@
 {
   "sourceLanguage": "vi",
   "strings": {
+    "%@ (gợi ý)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (disarankan)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (แนะนำ)"
+          }
+        }
+      }
+    },
     "%@ chưa có trang trong cẩm nang. Vẫn thêm vào bể được: khi có trang, bể sẽ hiện trang đó.": {
       "localizations": {
         "id": {
@@ -33,6 +49,38 @@
         }
       }
     },
+    "%@ mỗi ngày": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ setiap hari"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ทุกวัน"
+          }
+        }
+      }
+    },
+    "%@ ngày %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ pada %2$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ วันที่ %2$@"
+          }
+        }
+      }
+    },
     "%@ tiếng": {
       "localizations": {
         "id": {
@@ -45,6 +93,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ ชั่วโมง"
+          }
+        }
+      }
+    },
+    "%@ vào %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ setiap %2$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ ทุก%2$@"
           }
         }
       }
@@ -977,6 +1041,22 @@
         }
       }
     },
+    "Bỏ chọn ổ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus pilihan colokan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยกเลิกการเลือกช่อง"
+          }
+        }
+      }
+    },
     "Bỏ lưu": {
       "localizations": {
         "id": {
@@ -1329,6 +1409,22 @@
         }
       }
     },
+    "Chưa đọc được hẹn giờ của ổ: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum bisa membaca timer colokan: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังอ่านการตั้งเวลาของช่องไม่ได้: %@"
+          }
+        }
+      }
+    },
     "Chưa đồng bộ được: không có mạng. Các thay đổi vẫn lưu trên máy này.": {
       "localizations": {
         "id": {
@@ -1549,6 +1645,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "กรุณาเลือกภาพก่อน"
+          }
+        }
+      }
+    },
+    "Chọn ổ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih colokan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกช่อง"
+          }
+        }
+      }
+    },
+    "Chọn ổ để AquaTome xem hẹn giờ của ổ có cắt điện đèn không.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih colokannya agar AquaTome bisa melihat apakah timer colokan itu memutus listrik lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกช่องเพื่อให้ AquaTome ดูว่าการตั้งเวลาของช่องนั้นตัดไฟโคมไฟหรือไม่"
           }
         }
       }
@@ -1869,6 +1997,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ใช้กับอะไร"
+          }
+        }
+      }
+    },
+    "Cắm vào ổ “%@” (%@).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dicolokkan ke colokan “%1$@” (%2$@)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสียบอยู่ที่ช่อง “%1$@” (%2$@)"
           }
         }
       }
@@ -6657,6 +6801,22 @@
         }
       }
     },
+    "Đèn cắm vào ổ nào?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu dicolokkan ke colokan mana?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟเสียบอยู่ที่ช่องไหน"
+          }
+        }
+      }
+    },
     "Đèn hiện đúng màu đang chỉnh. Tắt thử thì đèn chạy lại theo lịch.": {
       "localizations": {
         "id": {
@@ -7137,6 +7297,22 @@
         }
       }
     },
+    "Đổi ổ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ganti colokan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปลี่ยนช่อง"
+          }
+        }
+      }
+    },
     "Độ cứng (dGH)": {
       "localizations": {
         "id": {
@@ -7469,6 +7645,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ช่องนี้จ่ายไฟให้ฮีตเตอร์ หากเปิดหรือปิดผิด น้ำอาจเย็นหรือร้อนเกินไป"
+          }
+        }
+      }
+    },
+    "Ổ này không có hẹn giờ tắt.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colokan ini tidak punya timer mati."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ช่องนี้ไม่มีการตั้งเวลาปิด"
+          }
+        }
+      }
+    },
+    "Ổ “%@” tự tắt lúc %@. Mất điện là đèn mất giờ nên không tự bật theo lịch của nó. Tắt hẹn giờ của ổ trong Smart Life để đèn tự chạy lịch.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colokan “%1$@” mati sendiri pukul %2$@. Saat listrik padam, jam lampu hilang sehingga lampu tidak menyala sendiri sesuai jadwalnya. Matikan timer colokan di Smart Life agar lampu menjalankan jadwalnya sendiri."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ช่อง “%1$@” ปิดเองเวลา %2$@ เมื่อไฟดับ เวลาในโคมไฟจะหายไป โคมไฟจึงไม่เปิดเองตามตารางเวลาของมัน ปิดการตั้งเวลาของช่องนี้ใน Smart Life เพื่อให้โคมไฟทำงานตามตารางเวลาของตัวเอง"
           }
         }
       }

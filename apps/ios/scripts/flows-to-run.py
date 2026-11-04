@@ -73,11 +73,13 @@ HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testL
 PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
          'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages']
-# The light flows that start from a tank or keep a light on one.
+# The light flow that reads the timers of the outlet a light is plugged into, on the stand-in Tuya cloud.
+LIGHT_OUTLET = 'LightFlowTests/testWarnsWhenTheLightsOutletHasATimerThatCutsItsPower'
+# The light flows that start from a tank or keep a light on one (the outlet it's plugged into, too).
 LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testKeepsTheLightAndWhatWasWrittenOnATank', 'testALightOnATankOpensOnTheLightsTabAndConnects',
     'testALightOnATankOpensTheConnectedLightAsItIs',
-    'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten')]
+    'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten')] + [LIGHT_OUTLET]
 REACH = {
     # The app's start (it routes a page's links to the tabs, wires a tank's wanted names and pages, sends the lights back
     # to their schedule when the app leaves, syncs the account), and what selects and runs the flows: every flow, as
@@ -120,7 +122,7 @@ REACH = {
     APP + 'Tanks/TankForm.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     APP + 'Tanks/CappedField.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     APP + 'Lights/': ['LightFlowTests'],
-    APP + 'Plugs/': ['PlugFlowTests'],
+    APP + 'Plugs/': ['PlugFlowTests', LIGHT_OUTLET],
     APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests'],
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name).
     APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests'],
@@ -130,7 +132,7 @@ REACH = {
     KIT + 'Sources/Tanks/': ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests',
                              'PlugFlowTests', 'HandbookFlowTests/testFiltersTheFishToMyTank'] + LIGHTS_ON_TANKS,
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests'],
-    KIT + 'Sources/Plugs/': ['PlugFlowTests'],
+    KIT + 'Sources/Plugs/': ['PlugFlowTests', LIGHT_OUTLET],
     KIT + 'Sources/Chihiros/': ['LightFlowTests'],
     # A Mac command line, not in the app: job `kit` builds it.
     KIT + 'Sources/light-harness/': NONE,
@@ -307,8 +309,9 @@ def test():
     for paths in ([APP + 'FishID/FishIDView.swift'], [APP + 'Telemetry.swift'], [KIT + 'Sources/FishID/Model.swift'],
                   ['apps/ios/Gemfile'], [], [APP + 'Handbook/HomeList.swift', APP + 'FishID/FishIDView.swift']):
         assert is_full(paths), paths
-    # A new file in a folder that has a rule takes that folder's flows.
-    assert runs([KIT + 'Sources/Plugs/NewSource.swift']) == {'app': ['PlugFlowTests'] + SMOKE}
+    # A new file in a folder that has a rule takes that folder's flows: the plugs', and the light's outlet's.
+    assert runs([KIT + 'Sources/Plugs/NewSource.swift']) == {'app': ['PlugFlowTests', LIGHT_OUTLET] + SMOKE}
+    assert runs([APP + 'Plugs/PlugsModel.swift']) == runs([KIT + 'Sources/Plugs/NewSource.swift'])
     # The full suite: both halves of each.
     assert everything['handbook']['halves'] == everything['lights']['halves'] == '[1, 2]'
 

@@ -24,7 +24,7 @@ levels on the phone can't overwrite the tank's notes edited on the web at the sa
 | Record | Holds |
 | --- | --- |
 | Tank | name, `dims` (inside L × W × H, cm) and/or `litres`, substrate, species `{id, count?}` and plants `{id}` by page id, `unlisted` (fish and plants with no page yet), notes |
-| Device | `tankId`, kind (`light`, `plug`), brand, model, nickname. Lights: Bluetooth name, saved schedules, last manual levels, last clock sync. Plugs: the maker's device id (`remoteId`) and the outlets named on the tank (`outlets`: code, role, label; docs/smart-plugs.md) |
+| Device | `tankId`, kind (`light`, `plug`), brand, model, nickname. Lights: Bluetooth name, saved schedules, last manual levels, last clock sync, the outlet it is plugged into (`powerOutlet`: a plug's record `plugId` on the same tank and the outlet's `code`). Plugs: the maker's device id (`remoteId`) and the outlets named on the tank (`outlets`: code, role, label; docs/smart-plugs.md) |
 | Tombstone | `{ id, updatedAt, deletedAt }` and nothing else: what is left of a deleted tank or device |
 
 Tanks and devices have `id`, `createdAt` and `updatedAt`; a tombstone has `id`, `updatedAt` and `deletedAt` only.

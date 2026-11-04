@@ -638,6 +638,30 @@ final class LightFlowTests: XCTestCase {
     XCTAssertEqual(savedRows(app).count, 1)
   }
 
+  func testWarnsWhenTheLightsOutletHasATimerThatCutsItsPower() {
+    // The light's tank has the stand-in strip on it, its first outlet named "Đèn" in Smart Life, which turns that outlet
+    // off at 00:00 and on at 18:00 every day: the light lost its clock in the cut.
+    var app = launch("-seed-tanks", "plug", "-seed-tuya-keys", "-stand-in-timer", "enabled", "-fake-clock-unset")
+    connect(app)
+    expect(app, "clock", contains: "Đèn mất giờ, có thể do mất điện")
+    // Nothing assumed: the outlet named for a light is offered first, and only the reader's pick is kept.
+    XCTAssertFalse(element(app, "outlet-warning").exists, "warned before an outlet was picked")
+    tap(app, "pick-outlet")
+    let suggested = app.buttons["Đèn · Ổ cắm bể 60 (gợi ý)"]
+    XCTAssertTrue(suggested.waitForExistence(timeout: 5), "the outlet named for a light isn't offered")
+    suggested.tap()
+    expect(app, "light-outlet", contains: "Cắm vào ổ “Đèn” (Ổ cắm bể 60).")
+    expect(app, "outlet-warning", contains: "Ổ “Đèn” tự tắt lúc 00:00 mỗi ngày. Mất điện là đèn mất giờ nên không tự bật theo lịch của nó.")
+    app.terminate()
+
+    // The timers turned off in Smart Life: the pick is kept, the timers read again, and no warning.
+    app = launch("-seed-tuya-keys", "-stand-in-timer", "disabled", reset: false)
+    connect(app)
+    expect(app, "outlet-timers", contains: "Ổ này không có hẹn giờ tắt.")
+    expect(app, "light-outlet", contains: "Cắm vào ổ “Đèn” (Ổ cắm bể 60).")
+    XCTAssertFalse(element(app, "outlet-warning").exists, "warned of a timer turned off")
+  }
+
   // MARK: Helpers
 
   /// The app on its Đèn tab, in Vietnamese or in Indonesian (whose words run longer).

@@ -26,6 +26,8 @@ public final class FakeTuya {
     public var refuses: Int?
     /// Listed online, then offline by the time a command reaches it.
     public var dropsOff = false
+    /// Its timers in Smart Life, as Tuya lists them (/v1.0/devices/{id}/timers).
+    public var timers: JSON = .array([])
 
     public init(id: String, name: String, online: Bool = true, status: [(code: String, value: JSON)], names: [(code: String, name: String)]? = nil) {
       self.id = id
@@ -117,6 +119,10 @@ public final class FakeTuya {
     if parts.count == 4, parts[0] == "v1.0", parts[1] == "devices", parts[3] == "multiple-names" {
       guard let names = device(parts[2])?.names else { return try no(2009) }
       return try ok(.array(names.map { .object(["identifier": .string($0.code), "name": .string($0.name)]) }))
+    }
+    if parts.count == 4, parts[0] == "v1.0", parts[1] == "devices", parts[3] == "timers", method == "GET" {
+      guard let d = device(parts[2]) else { return try no(1106) }
+      return try ok(d.timers)
     }
     guard parts.count == 5, parts[0] == "v1.0", parts[1] == "iot-03", parts[2] == "devices", let i = devices.firstIndex(where: { $0.id == parts[3] }) else {
       return try no(1108)
