@@ -1,6 +1,7 @@
+import { readFileSync } from 'node:fs'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
-import { judgePrompt, moderatePhotos, MOVE_CONFIDENCE, photoPages, type PhotoAdmin, type PhotoDecision, type Verdict } from '../src/reader-photos'
+import { judgePrompt, moderatePhotos, MOVE_CONFIDENCE, photoPages, VERDICT_SCHEMA, WHY, type PhotoAdmin, type PhotoDecision, type Verdict } from '../src/reader-photos'
 
 const jpeg = (w: number, h: number) => sharp({ create: { width: w, height: h, channels: 3, background: { r: 30, g: 90, b: 160 } } }).jpeg().toBuffer()
 
@@ -182,4 +183,25 @@ test('a photo the owner approved is published without the face screen or the jud
   expect(decisions.map(d => [d.id, d.action, d.reason])).toEqual([['o', 'approve', 'approved by owner'], ['p', 'approve', 'neon tetra']])
   expect(decisions[0]).toMatchObject({ width: 1200, height: 800 })
   expect(puts).toEqual(['o:full:webp', 'o:thumb:webp', 'p:full:webp', 'p:thumb:webp'])
+})
+
+test('a photo the owner approved stays on the page it was sent for: never judged, so never moved', async () => {
+  const raw = await jpeg(800, 600)
+  const decisions: PhotoDecision[] = []
+  let judged = 0
+  await moderatePhotos({
+    queue: async () => [{ id: 'o', entity_ref: 'species:neon', name: 'n', created_at: '', moved_from: null, ownerOk: true }],
+    raw: async () => raw, put: async () => {}, decide: async d => { decisions.push(...d); return { applied: d.length, ignored: 0 } },
+  }, {
+    page: () => ({ name: 'Cá neon xanh', scientificName: 'Paracheirodon innesi' }), find: () => GOLDFISH, faces: async f => f.map(() => 0),
+    judge: async () => { judged++; return wrong('Carassius auratus', 0.99) },
+  })
+  expect(judged).toBe(0)
+  expect(decisions).toEqual([{ id: 'o', action: 'approve', reason: 'approved by owner', width: 800, height: 600 }])
+})
+
+test('the codes a turned-down photo carries are the ones the app words (protocols/talk.openapi.json, Why)', () => {
+  const talk = JSON.parse(readFileSync(new URL('../../../protocols/talk.openapi.json', import.meta.url), 'utf8')) as { components: { schemas: { Why: { enum: string[] } } } }
+  expect([...WHY]).toEqual(talk.components.schemas.Why.enum)
+  expect(VERDICT_SCHEMA.properties.why.enum).toEqual(['none', ...WHY])
 })

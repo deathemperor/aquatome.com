@@ -16,9 +16,10 @@ import { clock, HOME_TZ, hourMinute, localDay, sameClock, timeTag, timeText, zon
 /** Each admin page's HTML from what its loaders returned; a part that failed says so in its place. */
 
 export type AffSummary = { byNetwork: { network: string; category: string; n: number }[]; top: { entity_ref: string; n: number }[]; status: { status: string; n: number }[]; lastCheck: string | null }
-export type RecentPhoto = { id: string; entity_ref: string; name: string; thumb: string; created_at: string }
+/** `moved_from`: the page it was sent for, when moderation found another fish and moved it to `entity_ref`. */
+export type RecentPhoto = { id: string; entity_ref: string; moved_from?: string | null; name: string; thumb: string; created_at: string }
 /** `ownerOk`: the owner approved it here; the next moderation pass publishes it. */
-export type WaitingPhoto = { id: string; entity_ref: string; name: string; created_at: string; ownerOk: boolean }
+export type WaitingPhoto = { id: string; entity_ref: string; moved_from?: string | null; name: string; created_at: string; ownerOk: boolean }
 export type Clicks = { days: string[]; clicks: number[] }
 
 /** A day kept as text (2026-11-04) as the dashboard writes days: 04/11, with the year when it isn't `now`'s. */
@@ -541,12 +542,14 @@ export function wantedSection(now: Date, w: Soft<{ names: Wanted[]; more: boolea
 
 // ——— Ảnh bạn đọc, Ẩn trang ———
 
+/** A moved photo's line under its page: the page it was sent for. */
+const movedText = (from: string) => `Kiểm duyệt chuyển từ ${from}`
 /**
- * One reader photo: its picture, who sent it, to which page and when, then its buttons, Gỡ last. Two columns, so the
- * buttons stay on a phone's screen.
+ * One reader photo: its picture, who sent it, to which page (and the page it was sent for, when moderation moved it) and
+ * when, then its buttons, Gỡ last. Two columns, so the buttons stay on a phone's screen.
  */
-const photoRow = (p: { id: string; entity_ref: string; name: string; created_at: string }, picture: string, state: string, buttons: string, now: Date, tz: string) =>
-  `<tr><th style="width:1%">${picture}</th><td class="l" style="overflow-wrap:anywhere"><strong>${esc(p.name)}</strong><br>${esc(p.entity_ref)}<br><span class="muted">${timeTag(p.created_at, tz, now)}</span>${state}`
+const photoRow = (p: { id: string; entity_ref: string; moved_from?: string | null; name: string; created_at: string }, picture: string, state: string, buttons: string, now: Date, tz: string) =>
+  `<tr><th style="width:1%">${picture}</th><td class="l" style="overflow-wrap:anywhere"><strong>${esc(p.name)}</strong><br>${esc(p.entity_ref)}${p.moved_from ? `<br><span class="muted">${esc(movedText(p.moved_from))}</span>` : ''}<br><span class="muted">${timeTag(p.created_at, tz, now)}</span>${state}`
   + `<form method="post" action="/_ab/photos" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px"><input type="hidden" name="id" value="${esc(p.id)}">${buttons}<button name="action" value="remove">Gỡ</button></form></td></tr>`
 
 const PHOTOS_LEDE = 'Ảnh đã qua kiểm duyệt tự động (khuôn mặt, đúng loài, an toàn) hoặc do bạn duyệt, và đang hiện trên trang loài. Gỡ: ảnh bị xóa ngay khỏi trang và máy chủ.'
@@ -587,7 +590,7 @@ export function photosPage(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<W
 
 export function photosSection(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<WaitingPhoto[] | undefined>, now = new Date(), tz = HOME_TZ): Section {
   const blocks: Block[] = [note(PHOTOS_LEDE)]
-  const meta = (p: { entity_ref: string; created_at: string }) => [p.entity_ref, timeText(p.created_at, tz, now)]
+  const meta = (p: { entity_ref: string; moved_from?: string | null; created_at: string }) => [p.entity_ref, ...(p.moved_from ? [movedText(p.moved_from)] : []), timeText(p.created_at, tz, now)]
   if (waiting && !isFailed(waiting) && waiting.length) {
     const items: PhotoItem[] = waiting.map(p => ({ id: p.id, src: waitingSrc(p.id), caption: p.name, meta: [...meta(p), ...(p.ownerOk ? [OWNER_OK.join(' · ')] : [])], actions: photoActions(p.id, !p.ownerOk) }))
     blocks.push(heading(`Chờ duyệt (${waiting.length})`), note(WAITING_NOTE, 'muted'), { kind: 'photos', items }, heading('Đang hiện'))

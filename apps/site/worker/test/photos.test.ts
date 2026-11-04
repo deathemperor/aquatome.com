@@ -232,3 +232,16 @@ test('the page shows each waiting photo, tap to enlarge, with Duyệt and Gỡ; 
   expect(published).not.toContain('value="approve"')
   expect(published).toContain('&lt;i&gt;y&lt;/i&gt;')
 })
+
+test('a photo moderation moved says, under the page it shows on, the page it was sent for; one that waits again too; the others say nothing', () => {
+  const [a, b, c] = [crypto.randomUUID(), crypto.randomUUID(), crypto.randomUUID()]
+  const html = photosPage([
+    { id: a, entity_ref: 'species:carassius-auratus', moved_from: 'species:<x>', name: 'Lộc', thumb: `https://media.aquatome.com/readers/${a}-480.webp`, created_at: '2026-11-04T02:40:00Z' },
+    { id: b, entity_ref: 'species:betta-splendens', moved_from: null, name: 'Lộc', thumb: `https://media.aquatome.com/readers/${b}-480.webp`, created_at: '2026-11-04T02:30:00Z' },
+  ], [{ id: c, entity_ref: 'species:carassius-auratus', moved_from: 'species:paracheirodon-innesi', name: 'Lộc', created_at: '2026-11-04T03:00:00Z', ownerOk: false }])
+  const row = (id: string) => html.split('<tr').find(r => r.includes(`value="${id}"`))!
+  expect(row(a)).toContain('species:carassius-auratus<br><span class="muted">Kiểm duyệt chuyển từ species:&lt;x&gt;</span>')
+  expect(html).not.toContain('species:<x>')
+  expect(row(b)).not.toContain('chuyển từ')
+  expect(row(c)).toContain('Kiểm duyệt chuyển từ species:paracheirodon-innesi')
+})
