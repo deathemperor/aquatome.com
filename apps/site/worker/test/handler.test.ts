@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
 import { prefersMarkdown } from '../markdown'
@@ -20,6 +21,11 @@ function env(over: Partial<Env> = {}) {
   return { e, points, seen }
 }
 const get = (path: string, headers: Record<string, string> = browser) => new Request(`https://x.test${path}`, { headers })
+/** The built sign-in page (src/pages/vi/dang-nhap/), served by ASSETS like the deploy's; any other path is PAGE. */
+const SIGN_IN = readFileSync(new URL('../../dist/vi/dang-nhap/index.html', import.meta.url).pathname, 'utf8')
+const assets = { fetch: async (r: Request) => new Response(new URL(r.url).pathname === '/vi/dang-nhap/' ? SIGN_IN : PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) } as unknown as Fetcher
+/** The sign-in page as the dashboard answers for `path`: sent back there once signed in, and whether it says the account isn't the owner's. */
+const signInFor = (html: string) => ({ next: /<section id="tai-khoan" data-next="([^"]*)"/.exec(html)?.[1], notOwner: html.includes('<p id="acc-not-owner" class=') })
 
 /** A test D1 with the owner's account and a reader's, each signed in on the web, and the owner's app session too. */
 async function signedIn(db = testD1()) {
@@ -63,26 +69,51 @@ test('events: same-origin, not a bot, not the owner, small body', async () => {
   expect(points).toHaveLength(1)
 })
 
-test('dashboard: signed out, the overview sends to the site\'s own sign-in; the old token opens nothing', async () => {
+test('dashboard: signed out, a page is the site\'s sign-in in its place, which comes back to it; the old token opens nothing', async () => {
   const { db } = await signedIn()
-  const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1' } as Partial<Env>)
+  const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', ASSETS: assets } as Partial<Env>)
   for (const r of [await handle(get('/_ab/'), e), await handle(get('/_ab/?token=tok'), e), await handle(get('/_ab/', { ...browser, cookie: 'ab_token=tok' }), e)]) {
     expect(r.status).toBe(200)
     const html = await r.text()
-    expect(html).toContain('href="/vi/cong-cu/be-cua-toi/#tai-khoan"')
-    expect(html).not.toContain('<nav')
+    expect(signInFor(html)).toEqual({ next: '/_ab/', notOwner: false })
+    expect(html).toContain('<meta name="robots" content="noindex')
+    expect(html).not.toContain('Các mục quản trị')
+    // Never stored; noindex; the referrer the origin alone, which Google's button and Turnstile need (not no-referrer).
+    expect([r.headers.get('cache-control'), r.headers.get('x-robots-tag'), r.headers.get('referrer-policy')]).toEqual(['no-store', 'noindex, nofollow', 'strict-origin'])
     expect(r.headers.get('set-cookie')).toBeNull()
   }
   // The old token form: back to the overview, nothing set.
   const form = await handle(new Request('https://x.test/_ab/login', { method: 'POST', body: new URLSearchParams({ token: 'tok' }) }), e)
   expect([form.status, form.headers.get('location'), form.headers.get('set-cookie')]).toEqual([303, '/_ab/', null])
-  expect((await handle(get('/_ab/doc-gia/'), e)).headers.get('location')).toBe('/_ab/')
+  // A page under the overview: the sign-in on its own address, back to it (with its slash, as the dashboard links it).
+  for (const p of ['/_ab/doc-gia/', '/_ab/doc-gia']) {
+    const r = await handle(get(p), e)
+    expect([r.status, r.headers.get('location'), r.headers.get('cache-control')]).toEqual([200, null, 'no-store'])
+    expect(signInFor(await r.text())).toEqual({ next: '/_ab/doc-gia/', notOwner: false })
+  }
+})
+
+test('dashboard: a build that can\'t serve the sign-in page falls back to the page that points to "Bể của tôi"', async () => {
+  const { db, reader } = await signedIn()
+  const missing = { fetch: async () => new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } as unknown as Fetcher
+  const broken = { fetch: async () => { throw new Error('assets down') } } as unknown as Fetcher
+  for (const ASSETS of [missing, broken, undefined]) {
+    const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', ASSETS } as Partial<Env>)
+    for (const p of ['/_ab/', '/_ab/tai-khoan/']) {
+      const r = await handle(get(p), e)
+      expect([r.status, r.headers.get('cache-control'), r.headers.get('x-robots-tag')]).toEqual([200, 'no-store', 'noindex, nofollow'])
+      expect(await r.text()).toContain('href="/vi/cong-cu/be-cua-toi/#tai-khoan"')
+    }
+    const other = await handle(get('/_ab/', { ...browser, cookie: reader }), e)
+    expect(other.status).toBe(403)
+    expect(await other.text()).toContain('không phải tài khoản chủ trang')
+  }
 })
 
 test('every /_ab route opens only to the owner\'s account signed in on the web: pages send to the sign-in, the actions and the JSON are not found', async () => {
   const { ADMIN_PAGES } = await import('../dashboard')
   const { db, owner, reader, app } = await signedIn()
-  const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' } as Partial<Env>)
+  const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc', ASSETS: assets } as Partial<Env>)
   expect(ADMIN_PAGES).toHaveLength(9)
   // Nobody, the old token cookie, another reader's account, the owner's app session (a bearer), and the owner's cookie
   // under the dashboard token as a bearer (a bearer is read first, and opens no page).
@@ -92,15 +123,10 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
       for (const p of [path, path.replace(/\/$/, '')]) {
         const r = await handle(get(p, h), e)
         const body = await r.text()
-        if (path === '/_ab/') {
-          expect(r.status, p).toBe(h.cookie === reader ? 403 : 200)
-          expect(body).toContain('/vi/cong-cu/be-cua-toi/#tai-khoan')
-          if (h.cookie === reader) expect(body).toContain('không phải tài khoản chủ trang')
-          expect(body).not.toContain('<nav')
-        } else {
-          expect([r.status, r.headers.get('location')], p).toEqual([303, '/_ab/'])
-          expect(body).toBe('')
-        }
+        // Every page: the sign-in in its place, back to it once signed in; another account is told it isn't the owner's.
+        expect([r.status, r.headers.get('cache-control')], p).toEqual([h.cookie === reader ? 403 : 200, 'no-store'])
+        expect(signInFor(body), p).toEqual({ next: path, notOwner: h.cookie === reader })
+        expect(body, p).not.toContain('Các mục quản trị')
         expect(r.headers.get('set-cookie'), p).toBeNull()
       }
     }
@@ -121,8 +147,8 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
   // The hidden list: the owner's session, or the dashboard token as a bearer (the build and the scripts).
   for (const h of [{ cookie: owner }, { authorization: 'Bearer tok' }] as Record<string, string>[]) expect((await handle(get('/_ab/hidden.json', h), e)).status).toBe(200)
   // No owner named: nobody is.
-  const { e: none } = env({ DB: db } as Partial<Env>)
-  expect(await (await handle(get('/_ab/', { ...browser, cookie: owner }), none)).text()).toContain('không phải tài khoản chủ trang')
+  const { e: none } = env({ DB: db, ASSETS: assets } as Partial<Env>)
+  expect(signInFor(await (await handle(get('/_ab/', { ...browser, cookie: owner }), none)).text()).notOwner).toBe(true)
 })
 
 test('dashboard: a part that can\'t load says why in its place; the rest of the page renders', async () => {
