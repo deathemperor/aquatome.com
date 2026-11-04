@@ -5,7 +5,7 @@ Your only input is a table of facts (JSON) gathered from breeders, articles, for
 Write:
 - name: the name hobbyists and shops in {{COUNTRY}} use most, then the international name in brackets if different (for example "Louhan (Flowerhorn)"). An established local name when there is one; otherwise the English trade name as people there write it. Never a made-up word-for-word translation.
 - slug: 2–6 lowercase English words joined by hyphens naming the fish (for the page address), e.g. "flowerhorn-cichlid".
-- altNames: other names used in {{COUNTRY}} or internationally (the English names in the facts, local names you are sure of). No Vietnamese.
+- altNames: other names for this fish itself used in {{COUNTRY}} or internationally (the English names in the facts, local names you are sure of), each once. No Vietnamese. Not its species' or its parents' names, which every form of the species shares: a halfmoon betta's are not "Siamese fighting fish".
 - parentNames: for a hybrid, the display name of each parent in parents, in the same order: its common {{LANG}} name (else the common English one), then the scientific name in brackets when the facts give it. No notes such as "disputed": the page says so itself. Empty when it is not a hybrid.
 - summary: 2–3 sentences: what fish this is (crossed from what, or a line of which species), whether it is hard to keep, what to know before buying.
 - body: HTML, h3 sections in this order, skipping any with no facts, titles in {{LANG}}:

@@ -303,6 +303,15 @@ test('a breed the guide names (engine mentions) lists the guide on its page', ()
   expect(page('/ca/ca-dia/').dom.querySelector('a[href="/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
 })
 
+// 2026-11-05: the halfmoon betta's other names held the betta's ("Cá xiêm"), so every guide naming the betta was listed on
+// the halfmoon's page (a pea puffer video among them). A breed's names are its own (engine alt-names.ts cleanBreedAltNames).
+test("a guide naming only a breed's species is listed on the species' page, not the breed's", () => {
+  const guide = 'a[href="/huong-dan/hang-moi-ve-nhung-loai-hiem-thang-nay/"]' // "Cá đĩa hoang dã về ít…"
+  expect(page('/ca/ca-dia/').dom.querySelector(guide)).not.toBeNull()
+  expect(page('/ca/ca-dia-pigeon-blood/').dom.querySelector(guide)).toBeNull()
+  expect(page('/ca/ca-la-han/').dom.querySelector(guide)).toBeNull() // a hybrid the discus may be a parent of
+})
+
 describe('review fixes', () => {
   test('pages with photo cards credit every photo', () => {
     for (const p of ['/', '/ca/', '/nhom/tetras/']) {

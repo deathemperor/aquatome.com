@@ -8,6 +8,7 @@ import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { localName, TARGETS, type TargetLang } from './localize'
 import { breedLeads, readForumState } from './forum'
+import { breedKin, breedNames, cleanBreedAltNames } from './alt-names'
 
 const WRITE = readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
@@ -56,7 +57,7 @@ const researchPrompt = (a: BreedAsk) => `Research the aquarium fish "${a.name}" 
 Collect facts, each pointing at the index of its source in sources[]:
 - found: false if this is not a recognised aquarium fish, or if it is a wild species with its own scientific name.
 - kind: hybrid (two or more species crossed), variety (a line, strain or colour form bred within one species), transgenic.
-- enNames: its English names. viNames: the names Vietnamese hobbyists and shops use, each with its source.
+- enNames: its English names. viNames: the names Vietnamese hobbyists and shops use for it, each with its source. Only names for this fish itself: not its species' names, which every form of the species shares (a halfmoon betta's are not "cá xiêm" or "cá chọi"), nor its parents'.
 - basedOn: for a variety, the valid scientific name of its species.
 - parents: for a hybrid, each parent species or fish as sources give it, with its scientific name when known; certain = false when its role is disputed or a guess.
 - origin: who developed it, where and when.
@@ -234,10 +235,13 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   })
   // A name the owner fixed, and the addresses it had before, survive a --redo.
   const name = (prev?.nameFixed ? prev.name : unescapePlain(w.name)).trim()
+  // Other names, minus those the title already holds ("Cá hồng két (Blood parrot cichlid)"), and its own only: research
+  // gives the species' too ("Cá xiêm" for the halfmoon betta), which the sweep would take off again.
+  const breeds = await breedNames(content, 'vi')
+  const { altNames } = cleanBreedAltNames({ id, name, altNames: [...new Set([...w.altNames, ...facts.enNames, ...facts.viNames.map(v => v.name)].map(s => unescapePlain(s).trim()).filter(s => s && !name.toLowerCase().includes(s.toLowerCase())))] }, await breedKin(content, entity, 'vi', breeds), breeds)
   const vi: Translation = TranslationSchema.parse(metricPage({
     slug: prev?.slug ?? pickSlug(name.replace(/\s*\(.*\)\s*$/, ''), facts.kind === 'hybrid' ? 'lai' : 'dong', await speciesSlugs(content)),
-    // Other names, minus those the title already holds ("Cá hồng két (Blood parrot cichlid)").
-    name, altNames: [...new Set([...w.altNames, ...facts.enNames, ...facts.viNames.map(v => v.name)].map(s => unescapePlain(s).trim()).filter(s => s && !name.toLowerCase().includes(s.toLowerCase())))],
+    name, altNames,
     sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
@@ -291,10 +295,13 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
   const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string; name: string; nameFixed?: boolean } | null
   const name = localName(unescapePlain(w.name), prev, names, forWriter.name)
   const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/\s*\(.*\)\s*$/, ''), lang === 'id' ? 'ikan' : 'fish', taken)
-  // The Vietnamese page's own names are not names in this language.
+  // The Vietnamese page's own names are not names in this language, nor are its species' (cleanBreedAltNames).
   const viNames = new Set([vi.name, ...vi.altNames].map(n => n.toLowerCase()))
+  const breeds = await breedNames(join(root, 'content'), lang)
+  const entity = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as BreedEntity
+  const { altNames } = cleanBreedAltNames({ id, name, altNames: [...new Set([w.name, ...w.altNames].map(n => unescapePlain(n).trim()).filter(n => n && !viNames.has(n.toLowerCase()) && !name.toLowerCase().includes(n.toLowerCase())))] }, await breedKin(join(root, 'content'), entity, lang, breeds), breeds)
   const t = TranslationSchema.parse(metricPage({
-    slug, name, altNames: [...new Set([w.name, ...w.altNames].map(n => unescapePlain(n).trim()).filter(n => n && !viNames.has(n.toLowerCase()) && !name.toLowerCase().includes(n.toLowerCase())))],
+    slug, name, altNames,
     sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     ...(w.parentNames?.length && w.parentNames.length === facts.parents.length ? { parents: w.parentNames.map(n => n.trim()) } : {}),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
