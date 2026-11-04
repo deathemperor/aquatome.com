@@ -14,7 +14,8 @@ import { failedBox, ICON, isFailed, page, type Soft } from './shell'
 
 export type AffSummary = { byNetwork: { network: string; category: string; n: number }[]; top: { entity_ref: string; n: number }[]; status: { status: string; n: number }[]; lastCheck: string | null }
 export type RecentPhoto = { id: string; entity_ref: string; name: string; thumb: string; created_at: string }
-export type WaitingPhoto = { id: string; entity_ref: string; name: string; created_at: string }
+/** `ownerOk`: the owner approved it here; the next moderation pass publishes it. */
+export type WaitingPhoto = { id: string; entity_ref: string; name: string; created_at: string; ownerOk: boolean }
 export type Clicks = { days: string[]; clicks: number[] }
 
 const when = (iso: string) => esc(iso.slice(0, 16).replace('T', ' '))
@@ -339,19 +340,33 @@ export function wantedPage(now: Date, w: Soft<{ names: Wanted[]; more: boolean }
 
 // ——— Ảnh bạn đọc, Ẩn trang ———
 
+/**
+ * One reader photo: its picture, who sent it, to which page and when, then its buttons, Gỡ last. Two columns, so the
+ * buttons stay on a phone's screen.
+ */
+const photoRow = (p: { id: string; entity_ref: string; name: string; created_at: string }, picture: string, state: string, buttons: string) =>
+  `<tr><th style="width:1%">${picture}</th><td class="l" style="overflow-wrap:anywhere"><strong>${esc(p.name)}</strong><br>${esc(p.entity_ref)}<br><span class="muted">${when(p.created_at)}</span>${state}`
+  + `<form method="post" action="/_ab/photos" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px"><input type="hidden" name="id" value="${esc(p.id)}">${buttons}<button name="action" value="remove">Gỡ</button></form></td></tr>`
+
 export function photosPage(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<WaitingPhoto[] | undefined>): string {
-  let body = '<h1>Ảnh bạn đọc</h1><p class="lede">Ảnh đã qua kiểm duyệt tự động (khuôn mặt, đúng loài, an toàn) và đang hiện trên trang loài. Gỡ: ảnh bị xóa ngay khỏi trang và máy chủ.</p>'
-  // Sent but not yet through the moderation pass (hourly): listed so a photo just sent is seen, without its picture
-  // (it stays private until approved).
+  let body = '<h1>Ảnh bạn đọc</h1><p class="lede">Ảnh đã qua kiểm duyệt tự động (khuôn mặt, đúng loài, an toàn) hoặc do bạn duyệt, và đang hiện trên trang loài. Gỡ: ảnh bị xóa ngay khỏi trang và máy chủ.</p>'
+  // Sent but not yet through the moderation pass (hourly): each with its picture (the upload, served to the owner alone,
+  // tapped to see it whole), Duyệt (the next pass publishes it without its checks) and Gỡ.
   if (waiting && !isFailed(waiting) && waiting.length) {
-    const rows = waiting.map(p => `<tr><td class="l">${esc(p.entity_ref)}</td><td class="l">${esc(p.name)}</td><td>${when(p.created_at)}</td></tr>`).join('')
-    body += `<h2>Chờ duyệt (${waiting.length})</h2><p class="muted">Lượt duyệt tự động chạy mỗi giờ. Ảnh qua duyệt hiện trên trang loài và trong danh sách dưới; ảnh bị loại thì bị xóa.</p><div class="scroll"><table><thead><tr><th>Trang</th><th>Tên</th><th>Lúc (UTC)</th></tr></thead><tbody>${rows}</tbody></table></div><h2>Đang hiện</h2>`
+    const rows = waiting.map(p => {
+      const src = `/_ab/anh/${esc(p.id)}`
+      const picture = `<a href="${src}"><img class="thumb" src="${src}" alt="Xem cỡ lớn ảnh ${esc(p.name)} gửi" width="96" height="96" loading="lazy" style="height:96px;object-fit:cover"></a>`
+      return p.ownerOk
+        ? photoRow(p, picture, '<br><span class="chip good">Đã duyệt</span> <span class="muted">đăng trong lượt duyệt tới</span>', '')
+        : photoRow(p, picture, '', '<button class="go" name="action" value="approve">Duyệt</button>')
+    }).join('')
+    body += `<h2>Chờ duyệt (${waiting.length})</h2><p class="muted">Lượt duyệt tự động chạy mỗi giờ: ảnh qua duyệt lên trang loài và danh sách dưới, ảnh bị loại thì bị xóa. Chạm vào ảnh để xem lớn. Duyệt: ảnh lên trang ở lượt duyệt tới, không qua kiểm tra tự động. Gỡ: xóa ngay.</p><div class="scroll"><table><tbody>${rows}</tbody></table></div><h2>Đang hiện</h2>`
   }
   if (isFailed(xs)) body += failedBox('ảnh', xs)
   else if (!xs) body += '<p class="muted">Ảnh bạn đọc chưa bật (thiếu D1, R2 hoặc Turnstile).</p>'
   else {
-    const rows = xs.map(p => `<tr><th><img class="thumb" src="${esc(p.thumb)}" alt="" width="96" loading="lazy"></th><td class="l">${esc(p.entity_ref)}</td><td class="l">${esc(p.name)}</td><td>${when(p.created_at)}</td><td><form method="post" action="/_ab/photos"><input type="hidden" name="id" value="${esc(p.id)}"><button>Gỡ</button></form></td></tr>`).join('')
-    body += `<div class="scroll"><table><thead><tr><th></th><th>Trang</th><th>Tên</th><th>Lúc (UTC)</th><th></th></tr></thead><tbody>${rows || '<tr><td colspan="5" class="none">Chưa có ảnh nào.</td></tr>'}</tbody></table></div>`
+    const rows = xs.map(p => photoRow(p, `<img class="thumb" src="${esc(p.thumb)}" alt="" width="96" loading="lazy">`, '', '')).join('')
+    body += `<div class="scroll"><table><tbody>${rows || '<tr><td colspan="2" class="none">Chưa có ảnh nào.</td></tr>'}</tbody></table></div>`
   }
   return page('/_ab/anh-ban-doc/', 'Ảnh bạn đọc', body)
 }

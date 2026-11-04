@@ -2,7 +2,7 @@ import { sessionOf, tokenOf } from './accounts/session'
 import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
 import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
-import { photosLive, recentPhotos, removePhoto, waitingPhotos, type PhotosEnv } from './photos'
+import { approveByOwner, photosLive, recentPhotos, removePhoto, waitingPhotos, waitingUpload, type PhotosEnv } from './photos'
 import { queryReaderDays, queryReaders } from './readers'
 import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
 import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
@@ -95,6 +95,8 @@ async function signInPage(env: AdminEnv, url: URL, key: AdminPath, other: boolea
 }
 
 const FONT = /^\/_ab\/fonts\/[a-z0-9-]+\.woff2$/
+/** A waiting reader photo's upload, shown on /_ab/anh-ban-doc/. */
+const WAITING_PHOTO = /^\/_ab\/anh\/([0-9a-f-]{36})$/
 const NO_AE = 'AE_API_TOKEN và CF_ACCOUNT_ID'
 /** This deploy's content.json (scripts/content-stats.ts): a build without it is a part that didn't load. */
 const contentOf = async (env: AdminEnv, origin: string) => {
@@ -162,7 +164,7 @@ const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<s
 }
 export const ADMIN_PAGES = Object.keys(PAGES) as AdminPath[]
 
-/** Every /_ab path: the pages, the owner's two actions, and the hidden list the build reads. */
+/** Every /_ab path: the pages, the owner's actions, a waiting photo, and the hidden list the build reads. */
 export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = new Date()): Promise<Response> {
   const path = url.pathname
   const owner = async () => (await visitor(req, env, now)) === 'owner'
@@ -180,11 +182,22 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !(await owner()))) return notFound()
     return Response.json(await loadHidden(env.AB, true), { headers: { 'cache-control': 'no-store' } })
   }
+  // The owner's alone (not the dashboard token), never stored, and only while it waits: the upload is private until published.
+  const photo = WAITING_PHOTO.exec(path)
+  if (photo) {
+    if (req.method !== 'GET' || !(await owner()) || !photosLive(env)) return notFound()
+    const o = await waitingUpload(env, photo[1]!)
+    if (!o) return notFound()
+    return new Response(o.body, { headers: { 'content-type': o.httpMetadata?.contentType ?? 'application/octet-stream', 'cache-control': 'private, no-store', 'x-content-type-options': 'nosniff' } })
+  }
   if (path === '/_ab/photos') {
     if (req.method !== 'POST' || !(await owner()) || !photosLive(env)) return notFound()
     const form = await req.formData().catch(() => null)
     if (!form) return badForm()
-    await removePhoto(env, String(form.get('id') ?? ''), 'removed by owner', now)
+    const id = String(form.get('id') ?? '')
+    // Duyệt: the next moderation pass publishes it; Gỡ (any other action): removed now.
+    if (form.get('action') === 'approve') await approveByOwner(env, id, now)
+    else await removePhoto(env, id, 'removed by owner', now)
     return see('/_ab/anh-ban-doc/')
   }
   if (path === '/_ab/hidden') {
