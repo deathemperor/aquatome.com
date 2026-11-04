@@ -1,5 +1,6 @@
 import Handbook
 import SwiftUI
+import Telemetry
 
 /// One shelf of the handbook: a fish group, a placement, a guide subject (nil: the whole kind), the video guides, the
 /// glossary, or the pages kept for reading offline.
@@ -17,8 +18,13 @@ enum Browse: Hashable {
 struct BrowseView: View {
   let browse: Browse
   @Environment(HandbookModel.self) private var handbook
+  @Environment(TelemetryModel.self) private var telemetry
 
   var body: some View {
+    shelf.onAppear { telemetry.telemetry.record(.view(.shelf)) }
+  }
+
+  @ViewBuilder private var shelf: some View {
     let s = handbook.shelves
     switch browse {
     case .fish(let group):

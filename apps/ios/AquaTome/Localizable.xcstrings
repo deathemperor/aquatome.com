@@ -2337,6 +2337,22 @@
         }
       }
     },
+    "Gửi thống kê ẩn danh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim statistik anonim"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งสถิติแบบไม่ระบุตัวตน"
+          }
+        }
+      }
+    },
     "Gửi ảnh": {
       "localizations": {
         "id": {
@@ -4429,6 +4445,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ลองหลายครั้งเกินไป โปรดรอสักครู่แล้วลองใหม่"
+          }
+        }
+      }
+    },
+    "Trang bạn mở, thời gian đọc, kết quả một số thao tác và báo cáo lỗi của iOS, không gắn với tài khoản hay tên của bạn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman yang Anda buka, waktu baca, hasil beberapa tindakan, dan laporan kesalahan dari iOS, tanpa dikaitkan dengan akun atau nama Anda."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าที่คุณเปิด เวลาที่ใช้อ่าน ผลของการทำงานบางอย่าง และรายงานข้อผิดพลาดจาก iOS โดยไม่ผูกกับบัญชีหรือชื่อของคุณ"
           }
         }
       }

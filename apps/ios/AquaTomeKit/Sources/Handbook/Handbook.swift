@@ -16,6 +16,9 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   /// (PageDoc.level); a site without it, its `pages` (guides only: left as they were for apps older than levels). Empty
   /// from a site older than both.
   public let pages: [String: Int]
+  /// Whether the site takes the app's anonymous telemetry (`telemetry: true`): absent or anything else, it doesn't, and
+  /// the app sends none. The one place the app reads it.
+  public let telemetry: Bool
 
   /// `video`: a series of video guides (its page lists them).
   public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video }
@@ -220,8 +223,10 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     }
   }
 
-  public init(version: Int = 1, lang: String, items: [Item], home: Home? = nil, labels: Labels = Labels(), pages: [String: Int] = [:]) {
+  public init(version: Int = 1, lang: String, items: [Item], home: Home? = nil, labels: Labels = Labels(), pages: [String: Int] = [:],
+              telemetry: Bool = false) {
     self.version = version; self.lang = lang; self.items = items; self.home = home; self.labels = labels; self.pages = pages
+    self.telemetry = telemetry
   }
 
   /// The index format this app reads. A site that changes it on purpose bumps `version`; the app then keeps its copy.
@@ -247,6 +252,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     // Each kind on its own: one this app can't read is left out, the others drawn.
     let shards = ((try? c.decodeIfPresent([String: Shards].self, forKey: .shards)) ?? nil) ?? [:]
     pages = !shards.isEmpty ? Self.drawn(shards, level: PageDoc.level) : ((try? c.decodeIfPresent([String: Int].self, forKey: .pages)) ?? nil) ?? [:]
+    telemetry = ((try? c.decodeIfPresent(Bool.self, forKey: .telemetry)) ?? nil) ?? false
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -257,10 +263,11 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     try c.encodeIfPresent(home, forKey: .home)
     if !labels.words.isEmpty { try c.encode(labels, forKey: .labels) }
     if !pages.isEmpty { try c.encode(pages, forKey: .pages) }
+    if telemetry { try c.encode(telemetry, forKey: .telemetry) }
   }
 
   // The copy kept on the phone writes `pages` alone: the kinds this app draws, already chosen.
-  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages, shards }
+  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages, shards, telemetry }
   private struct Skipped: Decodable { init(from decoder: any Decoder) {} }
   /// The kinds an app knowing `level` draws itself, of the site's `shards`, with their shard counts: those at that level
   /// or a lower one (protocols/page-vectors.json, `levels`).

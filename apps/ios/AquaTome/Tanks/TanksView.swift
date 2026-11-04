@@ -1,6 +1,7 @@
 import Handbook
 import SwiftUI
 import Tanks
+import Telemetry
 
 /// "Bể của tôi": the reader's tanks and the lights on them, as on the site's page (/vi/cong-cu/be-cua-toi/).
 struct TanksView: View {
@@ -54,6 +55,8 @@ struct TanksView: View {
             }
             AccountSection()
             BlockedSection()
+            // Under Tài khoản once it has its own tab, as the privacy policy names it.
+            TelemetrySwitch()
           }
         }
       }
@@ -117,8 +120,13 @@ private struct TankDetail: View {
   @State private var editing = false
   @State private var confirmDelete = false
   @State private var lifeSheet: LifeSheet?
+  @Environment(TelemetryModel.self) private var telemetry
 
   var body: some View {
+    tank.onAppear { telemetry.telemetry.record(.view(.tank)) }
+  }
+
+  @ViewBuilder private var tank: some View {
     if let t = tanks.tanks.first(where: { $0.id == id }) {
       let lights = tanks.devices(in: t).filter { $0.kind == "light" }
       List {

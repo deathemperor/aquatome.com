@@ -22,6 +22,18 @@ func boardConfirmed() async throws {
   #expect(board.on(lamp) == false && board.outcome(lamp) == nil)
 }
 
+@MainActor @Test("Each switch tells how it went, once, for the app's anonymous telemetry")
+func boardTellsEachSwitch() async throws {
+  let c = Cloud([strip(), { var d = strip("fake-strip-2"); d.ignores = true; return d }()])
+  let board = PlugBoard()
+  var told: [PlugBoard.Outcome] = []
+  board.switched = { told.append($0) }
+  await board.refresh(c.source())
+  await board.set(lamp, on: false)
+  await board.set(PlugBoard.Outlet(provider: "tuya", device: "fake-strip-2", code: "switch_1"), on: false)
+  #expect(told == [.confirmed, .unconfirmed])
+}
+
 @MainActor @Test("A plug that doesn't confirm: the list read once more, never the switch sent again; it shows what the plug reports")
 func boardUnconfirmed() async throws {
   let c = Cloud([{ var d = strip(); d.ignores = true; return d }()])

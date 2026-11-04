@@ -16,7 +16,12 @@ struct NativePage: View {
   let web: () -> Void
   /// Told whether the page's name is on the screen (iOS 18 on): the bar shows it only once it has scrolled away.
   var nameInView: (Bool) -> Void = { _ in }
+  /// The page's path on the site, for the app's anonymous telemetry (PageReading).
+  var path: String?
   @Environment(HandbookModel.self) private var handbook
+  @Environment(TelemetryModel.self) private var telemetry
+  /// This page being read: its view, how far down and how long, its shop links (made when it first shows).
+  @State private var reading: PageReading?
   @Environment(\.openScreen) private var openScreen
   @State private var tip: Tip?
   /// A page of the site the app can't show itself (one the index leaves out, a tool set by the link): the web page, in
@@ -89,8 +94,14 @@ struct NativePage: View {
       }
       // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows.
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
+      .modifier(SeenDown { reading?.scrolled(to: $0) })
     }
     .accessibilityIdentifier("native-page")
+    .onAppear {
+      if reading == nil, let path { reading = PageReading(path: path, telemetry: telemetry.telemetry) }
+      reading?.appeared()
+    }
+    .onDisappear { reading?.disappeared() }
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
       if let h = t.href, let u = URL(string: h) { Button("Xem thêm") { _ = open(u, nil) } }
@@ -211,6 +222,7 @@ struct NativePage: View {
       }
       // A shop: outside, as the site opens it in a new tab (not a page here that only redirects away).
       if ShopLink.is(u, site: handbook.site) {
+        reading?.tapped(u)
         Task { await OwnCopy.open(u, site: handbook.site) }
         return .handled
       }
@@ -887,6 +899,23 @@ private struct InView: ViewModifier {
   func body(content: Content) -> some View {
     if #available(iOS 18, *), let report {
       content.onScrollVisibilityChange(threshold: 0.3, report)
+    } else {
+      content
+    }
+  }
+}
+
+/// Reports the share of the page seen down to, in quarters, as it scrolls (iOS 18 on; as the site's pages measure it:
+/// the bottom of the screen against the page's height).
+private struct SeenDown: ViewModifier {
+  let report: (Double) -> Void
+  func body(content: Content) -> some View {
+    if #available(iOS 18, *) {
+      content.onScrollGeometryChange(for: Int.self) { g in
+        g.contentSize.height > 0 ? Int(4 * g.visibleRect.maxY / g.contentSize.height) : 0
+      } action: { _, quarters in
+        report(Double(quarters) / 4)
+      }
     } else {
       content
     }

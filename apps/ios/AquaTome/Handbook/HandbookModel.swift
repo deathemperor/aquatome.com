@@ -40,6 +40,8 @@ final class HandbookModel {
   private(set) var labels = HandbookIndex.Labels()
   /// How many shards of pages each kind has: the kinds the app draws itself (PageDoc).
   private var shardCounts: [String: Int] = [:]
+  /// Whether the site takes the app's anonymous telemetry, as its index last read says; nil until one is read.
+  private(set) var siteTelemetry: Bool?
   /// Pages saved to read later, and the ones read last (kept in the app's settings, on this phone, one list per
   /// language: the pages are this language's).
   private(set) var reading: ReadingList
@@ -258,7 +260,7 @@ final class HandbookModel {
       #if DEBUG
       if ProcessInfo.processInfo.arguments.contains("-pages-later"), pagesLater == nil, count == 0 {
         pagesLater = ix
-        return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels), .ready)
+        return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels, telemetry: ix.telemetry), .ready)
       }
       #endif
       return use(ix, .ready)
@@ -287,6 +289,7 @@ final class HandbookModel {
     matcher = PageMatcher(index: ix.items)
     byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
     shardCounts = ix.pages
+    siteTelemetry = ix.telemetry
     dropKeptOfOtherCounts()
     shelves = HandbookShelves(ix)
     labels = ix.labels
@@ -304,12 +307,11 @@ final class HandbookModel {
     let args = ProcessInfo.processInfo.arguments
     if args.contains("-large-handbook") { return .fixed(.large) }
     if args.contains("-fixed-handbook") {
+      let f = HandbookIndex.fixture
       // `-pages-count N`: the site has split its guides into N shards since the last launch.
-      if let i = args.firstIndex(of: "-pages-count"), i + 1 < args.count, let n = Int(args[i + 1]) {
-        let f = HandbookIndex.fixture
-        return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: ["guide": n]))
-      }
-      return .fixed(.fixture)
+      let pages = args.firstIndex(of: "-pages-count").flatMap { $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }.map { ["guide": $0] } ?? f.pages
+      // `-site-telemetry`: the site takes the app's anonymous telemetry (the fixed index says nothing of it otherwise).
+      return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: pages, telemetry: args.contains("-site-telemetry")))
     }
     #endif
     return .site

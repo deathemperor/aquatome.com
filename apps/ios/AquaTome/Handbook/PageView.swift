@@ -33,7 +33,7 @@ struct PageView: View {
     Group {
       if native, let pieces {
         NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, web: { onWeb = true },
-                   nameInView: { nameInView = $0 })
+                   nameInView: { nameInView = $0 }, path: item.path)
       } else if native && !tried {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {
