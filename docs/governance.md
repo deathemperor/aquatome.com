@@ -130,7 +130,7 @@ that would have caught it).
     not run: it is skipped, so it opens, updates and closes no issue, and the PR comment counts only the pages reviewed
     and says how many did not run, and why. Found 2026-11-02: the weekly limit opened 17 issues, one per page, and two
     PR comments read "Nothing serious found" with no page reviewed.
-- Calibrated on the real bug: with the old `/vi/ca/?q=chach` code back, it reported "search results pushed below an
+- Calibrated on the real bug: with the old `/ca/?q=chach` code back, it reported "search results pushed below an
   unrelated section" as high, with the fix that shipped. On the fixed site, the 11 key pages had no high findings.
 - Its first run found 2 small problems on the Chihiros page (fixed with it) and 3 content notes.
 - In the screenshots, pictures from other websites (blocked in every check) are grey boxes, as the prompt expects; on a
@@ -258,7 +258,7 @@ The layers above still check the result.
   - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer
     and the page's credits); the gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and
     GBIF photos are copied to our media bucket with the credit kept.
-  - **Removal.** A reader or a photographer writes to the address on the contact page (`/vi/lien-he/`, "Bản quyền và
+  - **Removal.** A reader or a photographer writes to the address on the contact page (`/lien-he/`, "Bản quyền và
     ghi nguồn" or "ảnh nhầm loài"). The owner adds the photo's address to `engine-state/_photo-rejected.json` with the
     reason: the next cycle drops it from every page and gallery, and it is never picked again. A source that withdraws
     permission is set to `"publish": false` in `content/sources.json`, which takes its photos off public builds.
@@ -415,7 +415,7 @@ The layers above still check the result.
    them in its run's summary. The PR links that artifact and names the pair that shows each improvement it claims. Its
    author checks their work against those pairs before asking for review, and a reviewer checks each claim. Run it
    before pushing with `apps/site/e2e/page-shots.mjs` (apps/site/e2e/README.md). A page that changed but isn't in the
-   sample is named: `node e2e/page-shots.mjs <before> <after> <out> /vi/x/,/vi/y/`.
+   sample is named: `node e2e/page-shots.mjs <before> <after> <out> /x/,/y/`.
 
 ### main's ruleset (GitHub)
 

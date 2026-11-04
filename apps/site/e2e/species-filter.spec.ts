@@ -5,9 +5,9 @@ import { expect, test } from './fixtures'
 // from the test content, so they hold on aquatome.com too (production watch): each list shows 24 cards at a time.
 const PAGE = 24
 test('home tank form: sure matches first, species without the figures in a closed group, chips to drop filters', async ({ page }) => {
-  await page.goto('/vi/')
+  await page.goto('/')
   await page.locator('#tank button[type=submit]').click()
-  await expect(page).toHaveURL(/\/vi\/ca\/\?tankCm=60&tempC=26&ph=7$/)
+  await expect(page).toHaveURL(/\/ca\/\?tankCm=60&tempC=26&ph=7$/)
 
   // Both counts in the result line.
   const count = page.locator('#species-count')
@@ -37,7 +37,7 @@ test('home tank form: sure matches first, species without the figures in a close
 
   // "Xóa lọc" clears everything: the address, the result line, the chips and the unsure group.
   await page.getByRole('button', { name: 'Xóa lọc' }).click()
-  await expect(page).toHaveURL(/\/vi\/ca\/$/)
+  await expect(page).toHaveURL(/\/ca\/$/)
   await expect(count).toHaveText('')
   await expect(page.locator('#species-active')).toBeHidden()
   await expect(group).toBeHidden()
@@ -47,7 +47,7 @@ test('home tank form: sure matches first, species without the figures in a close
 
 test('a filter nothing surely matches opens the unsure group instead of showing an empty list', async ({ page }) => {
   // 10 cm: no species with a known smallest tank fits it; those with no tank figure are the possible ones.
-  await page.goto('/vi/ca/?tankCm=10')
+  await page.goto('/ca/?tankCm=10')
   await expect(page.locator('#species-count')).toHaveText(/^0 loài phù hợp · [1-9]\d* loài chưa đủ dữ liệu để chắc$/)
   await expect(page.locator('#species-unsure')).toHaveAttribute('open', '')
   await expect(page.locator('#species-unsure [data-slug]').first()).toBeVisible()
@@ -56,7 +56,7 @@ test('a filter nothing surely matches opens the unsure group instead of showing 
 // The hybrids come first on the fish list; the species after them read as a gap with no name when their heading was
 // visually hidden (an AI page review, 2026-11-03). The list's heading shows, between the hybrids and the first card.
 test('the fish list names its species where the hybrids end', async ({ page }) => {
-  await page.goto('/vi/ca/')
+  await page.goto('/ca/')
   const heading = page.getByRole('heading', { level: 2, name: 'Danh sách loài' })
   await expect(heading).toBeVisible()
   const box = (await heading.boundingBox())!

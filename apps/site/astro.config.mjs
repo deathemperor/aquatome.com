@@ -2,13 +2,13 @@ import { writeFileSync } from 'node:fs'
 import { defineConfig } from 'astro/config'
 import { missing, PAGES, routeIn } from './src/lib/i18n.ts'
 
-/** Other languages: the Vietnamese page files mounted again at each language's addresses (see src/lib/i18n.ts). */
+/** Other languages: the Vietnamese page files (src/pages/, at the root) mounted again at each language's addresses (see src/lib/i18n.ts). */
 function i18nRoutes() {
   return {
     name: 'aq-i18n',
     hooks: {
       'astro:config:setup': ({ injectRoute }) => {
-        for (const [lang, files] of Object.entries(PAGES)) for (const file of files) injectRoute({ pattern: routeIn(lang, file), entrypoint: `./src/pages/vi/${file}` })
+        for (const [lang, files] of Object.entries(PAGES)) for (const file of files) injectRoute({ pattern: routeIn(lang, file), entrypoint: `./src/pages/${file}` })
       },
       // A page that showed Vietnamese text to another language's reader fails the build, listing the strings to translate.
       // I18N_MISSING_OUT=<file>: write them there instead (input for packages/engine/scripts/translate-ui.ts).

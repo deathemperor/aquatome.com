@@ -6,7 +6,7 @@ import { css, curve, lit, mix, snap, toMin, toTime } from './light-view'
 import * as store from './tank-store'
 
 /**
- * The Chihiros page (pages/vi/cong-cu/den-chihiros.astro): the light card, the day's timeline, colour, writing the
+ * The Chihiros page (pages/cong-cu/den-chihiros.astro): the light card, the day's timeline, colour, writing the
  * schedule, and what this browser remembers of each light (tank-store.ts).
  */
 type Plan = { on: string; off: string; ramp: number; levels: number[]; name?: string }

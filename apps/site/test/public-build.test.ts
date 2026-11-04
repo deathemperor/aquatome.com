@@ -16,12 +16,12 @@ beforeAll(() => {
 afterAll(() => rmSync(out, { recursive: true, force: true }))
 
 test('public build with no cleared sources publishes no species, plants or guides', () => {
-  expect(existsSync(join(out, 'vi', 'ca', 'ca-neon-vua'))).toBe(false)
+  expect(existsSync(join(out, 'ca', 'ca-neon-vua'))).toBe(false)
   // Breed pages are AquaTome's own writing from cited research (like products): they don't depend on cleared sources.
-  expect(readdirSync(join(out, 'vi', 'ca')).filter(f => f !== 'index.html').sort()).toEqual(['ca-dia-pigeon-blood', 'ca-la-han'])
-  expect(readdirSync(join(out, 'vi', 'cay')).filter(f => f !== 'index.html')).toEqual([])
-  expect(existsSync(join(out, 'vi', 'huong-dan', 'setup-be-thuy-sinh-dau-tien'))).toBe(false)
+  expect(readdirSync(join(out, 'ca')).filter(f => f !== 'index.html').sort()).toEqual(['ca-dia-pigeon-blood', 'ca-la-han'])
+  expect(readdirSync(join(out, 'cay')).filter(f => f !== 'index.html')).toEqual([])
+  expect(existsSync(join(out, 'huong-dan', 'setup-be-thuy-sinh-dau-tien'))).toBe(false)
 })
 test('home page shows an empty state instead of failing', () => {
-  expect(readFileSync(join(out, 'vi', 'index.html'), 'utf8')).toContain('Chưa có hồ sơ loài nào được xuất bản.')
+  expect(readFileSync(join(out, 'index.html'), 'utf8')).toContain('Chưa có hồ sơ loài nào được xuất bản.')
 })

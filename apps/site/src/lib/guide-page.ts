@@ -61,7 +61,7 @@ export function captionSection(caption: string | undefined, hs: string[], fish: 
 }
 
 /**
- * What a guide's page shows, put together once for the page (pages/vi/huong-dan/[slug].astro) and for the app's copy
+ * What a guide's page shows, put together once for the page (pages/huong-dan/[slug].astro) and for the app's copy
  * of it (lib/app-page.ts), so the two can't differ: the text with its links, photos and contents, the fish and plants it
  * names, the next guides, its sources. Every picture is chosen here in page order, none twice (lib/pictures.ts).
  */

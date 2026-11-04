@@ -8,7 +8,7 @@ import { LIVE } from './pages'
 // process (accounts-stand-in.ts). Locally the dashboard does too (worker/dashboard.ts, reading the build as its
 // ASSETS), so the owner gets the dashboard. On the live site the dashboard is the real one, which opens only to the
 // owner's real account: there the checks end on the address the sign-in comes back to.
-const TANKS = '/vi/cong-cu/be-cua-toi/'
+const TANKS = '/cong-cu/be-cua-toi/'
 /** A dashboard page under the overview, as the dashboard lists them. */
 const PAGE = ADMIN_PAGES.find(p => p !== '/_ab/')!
 const OWNER = 'owner-g'

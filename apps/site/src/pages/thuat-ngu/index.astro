@@ -1,0 +1,20 @@
+---
+import Browse from '../../layouts/Browse.astro'
+import { getContent } from '../../lib/content'
+import { i18n } from '../../lib/i18n'
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
+const terms = [...c.glossary].sort((a, b) => a.t.name.localeCompare(b.t.name, lang))
+---
+<Browse title={t('Thuật ngữ')} heading={t('Thuật ngữ')} intro={t('Giải thích các thuật ngữ thủy sinh, kèm tên tiếng Anh.')}>
+  <dl class="terms">
+    {terms.map(g => <div><dt><a href={`/vi/thuat-ngu/${g.t.slug}/`}>{g.t.name}</a> <span lang="en">{g.en}</span></dt><dd>{g.t.definition}</dd></div>)}
+  </dl>
+</Browse>
+<style>
+  .terms { max-width: var(--measure); margin: 0; }
+  .terms div { padding-block: var(--space-3); border-bottom: 1px dotted var(--c-rule); }
+  dt a { font: 400 var(--step-1) var(--f-display); }
+  dt span { font-size: 0.85rem; color: var(--c-ink-faint); margin-left: var(--space-2); }
+  dd { margin: var(--space-1) 0 0; color: var(--c-ink-soft); }
+</style>

@@ -7,7 +7,7 @@ import { metricPage, QUALITY_THRESHOLD, type Lang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { blocks, countMismatch, sourcePagePhrases } from './content-rules'
 import { METRIC_KINDS } from './metric'
-import type { Page } from './pages'
+import { pageUrl, type Page } from './pages'
 import { reviewRewrite, reviewTranslation } from './quality'
 import { snapshotName } from './snapshot'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
@@ -287,7 +287,6 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
   return { report, state }
 }
 
-const SITE = 'https://aquatome.com'
 const md = (s: string) => s.replace(/([[\]|*_`<>\\])/g, '\\$1')
 const KIND_TITLE: Record<ReaderFinding['kind'], string> = {
   structure: 'Structure that misleads', contradiction: 'The page contradicts itself', numbers: 'Wrong or mismatched numbers and units',
@@ -297,7 +296,7 @@ const KIND_TITLE: Record<ReaderFinding['kind'], string> = {
 /** docs/review/reader.md: the open findings on pages as they are now, by kind; those a rule could catch; the rewrites made. */
 export function readerReport(pages: Page[], state: ReaderState): string {
   const current = pages.filter(p => state[pageKey(p)]?.hash === readerText(p).hash)
-  const link = (p: Page) => `[${p.lang} · ${md(p.title)}](${SITE}${p.path})`
+  const link = (p: Page) => `[${p.lang} · ${md(p.title)}](${pageUrl(p)})`
   const open = current.flatMap(p => state[pageKey(p)]!.findings.map(f => ({ p, f })))
   const sev = (s: string) => SEVERITIES.indexOf(s as ReaderFinding['severity'])
   const line = ({ p, f }: (typeof open)[number]) => `- ${link(p)} — ${f.severity}${f.field ? `, ${md(label(f.field))}` : ''}${f.quote ? ` — "${md(f.quote)}"` : ''}: ${md(f.problem)}${f.fix ? ` Suggested: "${md(f.fix)}"` : ''}`

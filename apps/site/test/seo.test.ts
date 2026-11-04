@@ -4,20 +4,25 @@ import { expect, test } from 'vitest'
 import { robotsTxt } from '../src/lib/seo'
 import { createHash } from 'node:crypto'
 import { DIST, page } from './dist'
+import { VI_SECTIONS } from '../worker/paths'
 
 const htmlFiles = (dir: string): string[] =>
   readdirSync(dir).flatMap(f => { const p = join(dir, f); return statSync(p).isDirectory() ? htmlFiles(p) : p.endsWith('.html') ? [p] : [] })
+/** A language's built pages: Vietnamese ones are the home page and its sections, at the root. */
+const langFiles = (l: string) => (l === 'vi' ? [join(DIST, 'index.html'), ...VI_SECTIONS.flatMap(s => (existsSync(join(DIST, s)) ? htmlFiles(join(DIST, s)) : []))] : existsSync(join(DIST, l)) ? htmlFiles(join(DIST, l)) : [])
 
 test('every vi page has exactly one canonical and a vi hreflang', () => {
-  for (const f of htmlFiles(join(DIST, 'vi'))) {
+  const files = langFiles('vi')
+  expect(files.length).toBeGreaterThan(50)
+  for (const f of files) {
     const html = readFileSync(f, 'utf8')
     expect(html.match(/rel="canonical"/g)?.length, f).toBe(1)
     expect(html, f).toContain('hreflang="vi"')
   }
 })
 test('every page has one non-empty h1', () => {
-  // Every language's pages (not the redirects: /, /go/…).
-  const bad = ['vi', 'id', 'th'].flatMap(l => (existsSync(join(DIST, l)) ? htmlFiles(join(DIST, l)) : [])).filter(f => {
+  // Every language's pages (not the redirects: /go/…).
+  const bad = ['vi', 'id', 'th'].flatMap(langFiles).filter(f => {
     const h1 = readFileSync(f, 'utf8').match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g) ?? []
     return h1.length !== 1 || !h1[0]!.replace(/<[^>]+>/g, '').trim()
   })
@@ -26,8 +31,8 @@ test('every page has one non-empty h1', () => {
 
 test('sitemap lists indexable pages and omits noindex ones', () => {
   const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')
-  expect(xml).toContain('/vi/ca/ca-neon-vua/')
-  expect(xml).not.toContain('/vi/ca/ca-boraras-do/')
+  expect(xml).toContain('/ca/ca-neon-vua/')
+  expect(xml).not.toContain('/ca/ca-boraras-do/')
 })
 test('robots: production points to the sitemap, staging blocks everything', () => {
   expect(robotsTxt(false, 'https://example.com')).toBe('User-agent: *\nContent-Signal: ai-train=no, search=yes, ai-input=yes\nAllow: /\nDisallow: /go/\n\nSitemap: https://example.com/sitemap.xml\n')
@@ -36,24 +41,24 @@ test('robots: production points to the sitemap, staging blocks everything', () =
 })
 test('search index is built and pages carry an accent-free search alias', () => {
   expect(existsSync(join(DIST, 'pagefind', 'pagefind.js'))).toBe(true)
-  const { dom } = page('/vi/ca/ca-dia/')
+  const { dom } = page('/ca/ca-dia/')
   expect(dom.querySelector('main[data-pagefind-body]')).not.toBeNull()
   // Searched (Pagefind metadata), never shown in a result's excerpt.
   expect(dom.querySelector('h1[data-pagefind-meta="aka[data-aka]"]')?.getAttribute('data-aka')).toContain('ca dia')
-  expect(() => page('/vi/tim-kiem/')).not.toThrow()
+  expect(() => page('/tim-kiem/')).not.toThrow()
 })
 test('search leaves out photo galleries, reference lists, old names and other names lists', () => {
-  expect(page('/vi/ca/ca-neon-vua/anh/').dom.querySelector('[data-pagefind-body]')).toBeNull()
-  const { dom } = page('/vi/ca/ca-neon-xanh/')
+  expect(page('/ca/ca-neon-vua/anh/').dom.querySelector('[data-pagefind-body]')).toBeNull()
+  const { dom } = page('/ca/ca-neon-xanh/')
   for (const sel of ['section[data-section="references"]', 'section.refs', 'p.alt']) expect(dom.querySelector(sel)?.closest('[data-pagefind-ignore]'), sel).not.toBeNull()
-  expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('p.redirected')?.hasAttribute('data-pagefind-ignore')).toBe(true)
+  expect(page('/ca/ca-neon-vua/').dom.querySelector('p.redirected')?.hasAttribute('data-pagefind-ignore')).toBe(true)
 })
 test('sitemap omits noindex glossary terms', () => {
-  expect(readFileSync(join(DIST, 'sitemap.xml'), 'utf8')).not.toContain('/vi/thuat-ngu/gh/')
+  expect(readFileSync(join(DIST, 'sitemap.xml'), 'utf8')).not.toContain('/thuat-ngu/gh/')
 })
 test('AdSense: ads.txt, account meta, and a loader that waits for the reader\'s first scroll, tap or key', () => {
   expect(readFileSync(join(DIST, 'ads.txt'), 'utf8')).toBe('google.com, pub-3032018142512489, DIRECT, f08c47fec0942fa0\n')
-  const { dom } = page('/vi/ca/')
+  const { dom } = page('/ca/')
   expect(dom.querySelector('meta[name="google-adsense-account"]')?.getAttribute('content')).toBe('ca-pub-3032018142512489')
   // Not fetched with the page (Google's test cookie is a third-party cookie)…
   expect(dom.querySelector('script[src*="googlesyndication"]')).toBeNull()
@@ -80,7 +85,7 @@ test('security.txt: contact, a future Expires and its canonical URL', () => {
   expect(Date.parse(txt.match(/Expires: (\S+)/)![1]) - Date.now()).toBeGreaterThan(300 * 864e5)
 })
 test('markdown for agents: every page has index.md — front matter, headings, fact lines, no HTML or page chrome', () => {
-  const md = readFileSync(join(DIST, 'vi', 'ca', 'ca-dia', 'index.md'), 'utf8')
+  const md = readFileSync(join(DIST, 'ca', 'ca-dia', 'index.md'), 'utf8')
   expect(md).toMatch(/^---\ntitle: ".+"\ndescription: ".+"/)
   expect(md).toMatch(/^# .+/m)
   expect(md).toMatch(/^## .+/m)
@@ -89,7 +94,7 @@ test('markdown for agents: every page has index.md — front matter, headings, f
   expect(md).not.toContain('Gửi bình luận')
   expect(md).not.toContain('/go/')
   expect(md).toMatch(/\]\(https?:\/\/[^)]+\)/) // links are absolute
-  expect(htmlFiles(join(DIST, 'vi')).every(f => existsSync(f.replace(/\.html$/, '.md')))).toBe(true)
+  expect(langFiles('vi').every(f => existsSync(f.replace(/\.html$/, '.md')))).toBe(true)
 })
 test('agent discovery files: llms.txt, OpenAPI, skills index whose digest matches the SKILL.md bytes', () => {
   expect(readFileSync(join(DIST, 'llms.txt'), 'utf8')).toMatch(/^# AquaTome\n\n> /)
@@ -104,26 +109,26 @@ test('agent discovery files: llms.txt, OpenAPI, skills index whose digest matche
 })
 test('about, privacy and contact pages exist, are linked from the footer and listed in the sitemap', () => {
   const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')
-  for (const p of ['/vi/gioi-thieu/', '/vi/chinh-sach-bao-mat/', '/vi/lien-he/']) {
+  for (const p of ['/gioi-thieu/', '/chinh-sach-bao-mat/', '/lien-he/']) {
     expect(() => page(p)).not.toThrow()
-    expect(page('/vi/').dom.querySelector(`footer a[href="${p}"]`), p).not.toBeNull()
+    expect(page('/').dom.querySelector(`footer a[href="${p}"]`), p).not.toBeNull()
     expect(xml).toContain(p)
   }
-  const privacy = page('/vi/chinh-sach-bao-mat/')
+  const privacy = page('/chinh-sach-bao-mat/')
   expect(privacy.dom.querySelector('#english[lang="en"]')).not.toBeNull()
   expect(privacy.html).toContain('adssettings.google.com')
   expect(privacy.html).toContain('contact@aquatome.com')
 })
 test('titles and descriptions match search phrasing; pages carry share previews', () => {
-  const sp = page('/vi/ca/ca-neon-vua/').dom
+  const sp = page('/ca/ca-neon-vua/').dom
   expect(sp.querySelector('title')?.text).toBe('Cách nuôi cá neon vua (Paracheirodon axelrodi): bể, nước, nuôi chung')
   expect(sp.querySelector('meta[name="description"]')?.getAttribute('content')).toMatch(/^Cá neon vua \(Paracheirodon axelrodi\): nhiệt độ .+°C, pH .+\. Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản\.$/)
   expect(sp.querySelector('meta[property="og:image"]')?.getAttribute('content')).toMatch(/^https?:\/\//)
   expect(sp.querySelector('meta[property="og:title"]')?.getAttribute('content')).toContain('Cách nuôi cá neon vua')
-  expect(page('/vi/thuat-ngu/').dom.querySelector('meta[property="og:image"]')?.getAttribute('content')).toContain('/logo.png')
+  expect(page('/thuat-ngu/').dom.querySelector('meta[property="og:image"]')?.getAttribute('content')).toContain('/logo.png')
 })
 test('glossary title asks the question; its description is the definition', () => {
-  const g = page('/vi/thuat-ngu/chu-trinh-nito/').dom
+  const g = page('/thuat-ngu/chu-trinh-nito/').dom
   expect(g.querySelector('title')?.text).toMatch(/ là gì\? — AquaTome$/)
   expect(g.querySelector('meta[name="description"]')?.getAttribute('content')?.length).toBeGreaterThan(20)
 })

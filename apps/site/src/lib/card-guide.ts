@@ -1,7 +1,7 @@
 import type { DataCardField, NeedKey, NeedLevel, TempWhy, Temperament, WaterWhy } from '@aq/schema'
 
 /**
- * The page that explains the data card (pages/vi/gioi-thieu/bang-du-lieu.astro), and where each of the card's labels
+ * The page that explains the data card (pages/gioi-thieu/bang-du-lieu.astro), and where each of the card's labels
  * leads on it. One table, read by the card (DataCard.astro) and the page's own section ids, so a label can't point to a
  * section that isn't there. Text here is Vietnamese: a page shows it through t().
  */

@@ -21,7 +21,7 @@ export const GET: APIRoute = async ({ site }) => {
     ...[...c.species, ...c.breeds].filter(s => s.t.quality.indexable && (c.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => `/vi/ca/${s.t.slug}/anh/`),
     ...c.plants.filter(p => p.t.quality.indexable && (c.galleries[p.id]?.length ?? 0) >= GALLERY_MIN).map(p => `/vi/cay/${p.t.slug}/anh/`),
     ...c.products.filter(p => p.t.quality.indexable).map(p => `/vi/san-pham/${p.t.slug}/`),
-  ]
+  ].map(p => localizePath('vi', p))
   // Other languages: their fixed pages and their indexable species, breed, photo, guide, plant (and its photos) and glossary pages.
   for (const lang of ['id', 'th'] as const) {
     const t = await getContent(lang)
