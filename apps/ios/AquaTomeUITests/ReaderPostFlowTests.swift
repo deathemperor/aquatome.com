@@ -132,7 +132,7 @@ final class ReaderPostFlowTests: XCTestCase {
   }
 
   /// A reader's photo reported from its viewer, with no reason given: the viewer closes on the thanks, the photo gone
-  /// from the page. The page's last one reported takes its viewer with it, and the page says what it hides.
+  /// from the page. The page's last one too, though its row goes with it; the page then says what it hides.
   func testAReadersPhotoIsReportedFromItsViewer() {
     let app = launch()
     openNeon(app)
@@ -157,9 +157,8 @@ final class ReaderPostFlowTests: XCTestCase {
     app.buttons["Báo cáo"].tap()
     XCTAssertTrue(app.buttons["Spam hoặc quảng cáo"].waitForExistence(timeout: 5), "not asked why")
     app.buttons["Spam hoặc quảng cáo"].tap()
-    // The row goes with its last photo, and its viewer with it: the thanks, if it shows at all, closed.
-    let thanks = app.alerts["Đã gửi báo cáo. Cảm ơn bạn."]
-    if thanks.waitForExistence(timeout: 3) { thanks.buttons["Đóng"].tap() }
+    // The page's last photo: the thanks still shows in its viewer, and the row goes as it closes.
+    thanked(app)
     XCTAssertTrue(gone(app.descendants(matching: .any)["gallery"]), "the viewer stayed open")
     XCTAssertFalse(app.buttons["Ảnh của Minh"].exists, "the reported photo still shows")
     let note = app.descendants(matching: .any)["readers-hidden"]
@@ -287,7 +286,9 @@ final class ReaderPostFlowTests: XCTestCase {
     let box = app.switches["post-consent"]
     for _ in 0..<4 where !box.isHittable { app.swipeUp() }
     box.switches.firstMatch.exists ? box.switches.firstMatch.tap() : box.coordinate(withNormalizedOffset: CGVector(dx: 0.95, dy: 0.5)).tap()
-    XCTAssertEqual(box.value as? String, "1", "consent not ticked")
+    // Its value follows the tap a moment later, as the switch slides (read at once, it failed on #450's run).
+    let on = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value == '1'"), object: box)
+    XCTAssertEqual(XCTWaiter().wait(for: [on], timeout: 3), .completed, "consent not ticked")
   }
 
   /// Scrolled into view half a screen at a time, without a fling, so no part is scrolled past: the readers' part sits
