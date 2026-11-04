@@ -56,6 +56,13 @@ test('the difficulty cell opens "Vì sao?": each need with its level and the fig
   const vw = page.viewportSize()!.width
   const spill = await panel.locator('*').evaluateAll((els, w) => els.filter(e => e.getBoundingClientRect().right > w + 1).length, vw)
   expect(spill, 'elements past the screen edge').toBe(0)
+  // No cell is left beside a blank on its row: the one before the open cell takes the rest of that row.
+  const rows = await page.locator('.facts .card > div').evaluateAll(els => {
+    const w: Record<number, number> = {}
+    for (const e of els) { const b = e.getBoundingClientRect(); w[Math.round(b.top)] = (w[Math.round(b.top)] ?? 0) + b.width }
+    return Object.values(w)
+  })
+  for (const w of rows) expect(w, 'each row of the card filled').toBeGreaterThan(card.width - 4)
   // Its link explains how the levels are set.
   const how = panel.locator('.note a')
   const hash = new URL((await how.getAttribute('href'))!, page.url()).hash

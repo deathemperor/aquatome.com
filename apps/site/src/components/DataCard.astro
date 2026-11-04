@@ -154,6 +154,9 @@ const around = (s: string) => s.split(/\{\w+\}/) as [string, string]
   .why .chev { position: static; color: var(--c-ink-soft); }
   .why[open] .chev { transform: rotate(180deg); }
   .card > div:has(> dd > .why[open]) { grid-column: 1 / -1; border-right: 0; }
+  /* The cell the opened panel leaves alone on its row takes the rest of that row: no blank cell beside it. */
+  .card > div:nth-child(3n+1):has(+ div > dd > .why[open]) { grid-column: 1 / -1; border-right: 0; }
+  .card > div:nth-child(3n+2):has(+ div > dd > .why[open]) { grid-column: span 2; border-right: 0; }
   .needs { font: 400 0.875rem/1.45 var(--f-body); color: var(--c-ink); }
   .needs p { margin: var(--space-2) 0; color: var(--c-ink-soft); }
   /* One row per need, its name, level and figures in columns shared by every row (subgrid). */
@@ -166,5 +169,5 @@ const around = (s: string) => s.split(/\{\w+\}/) as [string, string]
   .needs .lv.hard { color: var(--c-cardinal); }
   .needs .fx span { white-space: nowrap; font-variant-numeric: tabular-nums; }
   .needs .note a { display: inline-block; min-height: 44px; line-height: 44px; color: var(--c-ink); font-weight: 500; }
-  @media (max-width: 480px) { .card { grid-template-columns: repeat(2, 1fr); } .card > div:nth-child(3n) { border-right: 1px solid var(--c-rule); } .card > div:nth-child(2n) { border-right: 0; } }
+  @media (max-width: 480px) { .card { grid-template-columns: repeat(2, 1fr); } .card > div:nth-child(3n) { border-right: 1px solid var(--c-rule); } .card > div:nth-child(2n) { border-right: 0; } .card > div:nth-child(n):has(+ div > dd > .why[open]) { grid-column: auto; } .card > div:nth-child(odd):has(+ div > dd > .why[open]) { grid-column: 1 / -1; border-right: 0; } }
 </style>
