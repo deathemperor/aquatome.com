@@ -50,6 +50,14 @@ test.describe('in Vietnam', () => {
     await expect(when).toHaveText('Hôm qua 03/11')
     await page.keyboard.press('Escape')
     await expect(when).toHaveText('30 ngày')
+    // A finger that lands on the chart to scroll the page: the browser cancels it, and the readout stays as it was.
+    await chart.locator('.area').evaluate(a => {
+      const r = a.getBoundingClientRect()
+      const at = { pointerType: 'touch', clientX: r.left + r.width / 2, clientY: r.top + 10, bubbles: true }
+      a.dispatchEvent(new PointerEvent('pointerdown', at))
+      a.dispatchEvent(new PointerEvent('pointercancel', at))
+    })
+    await expect(when).toHaveText('30 ngày')
     expect(errors).toEqual([])
   })
 })

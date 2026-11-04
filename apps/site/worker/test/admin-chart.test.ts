@@ -36,7 +36,7 @@ test('one day: one column centred, its readout and table row; the period total r
   expect(html).toContain('<span class="when">1 ngày</span><span class="v"><b>7</b></span>')
   expect(html).toContain('<tr><th>02/11</th><td>7</td></tr>')
   expect(html).toMatch(/<span style="--x:50">02\/11<\/span>/)
-  expect(html).toContain('data-plot tabindex="0"')
+  expect(html).toContain('data-plot role="group" tabindex="0"')
   expect(html).toContain('aria-labelledby="one-t" aria-describedby="one-d"')
 })
 

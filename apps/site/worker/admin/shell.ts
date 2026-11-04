@@ -272,17 +272,18 @@ try{if(document.cookie.includes(c)&&sessionStorage.getItem('aq_tz')!==z){session
 /**
  * Reading a chart's days (chart.ts dayChart), the page's only script: a tap on a column, a finger sliding across, the
  * pointer over it or the arrow keys put that day's values in the chart's readout; tapping the same column again, Escape
- * or the pointer leaving put the period's totals back. Without it the readout keeps the totals and the table has every day.
+ * or the pointer leaving put the period's totals back, and a touch that turns into a scroll leaves the readout as it was. Without it the readout keeps the totals and the table has every day.
  */
 const CHART_JS = `(()=>{document.documentElement.classList.add('js');let first=true
 for(const p of document.querySelectorAll('[data-plot]')){const out=p.closest('figure').querySelector('.readout'),area=p.querySelector('.area'),when=out.querySelector('.when'),bs=[...out.querySelectorAll('b')],cols=[...p.querySelectorAll('.cols li')],init=[when.textContent,...bs.map(b=>b.textContent)]
 if(first){out.classList.add('first');first=false}
-let on=-1,down=-1
+let on=-1,down=-1,was=-1
 const pick=i=>{cols[on]?.classList.remove('on');on=i;const li=cols[i];out.classList.toggle('sel',!!li)
 if(!li){when.textContent=init[0];bs.forEach((b,k)=>{b.textContent=init[k+1]});return}
 li.classList.add('on');when.textContent=li.dataset.d;const v=li.dataset.v.split('|');bs.forEach((b,k)=>{b.textContent=v[k]??'—'})}
 const at=e=>{const r=area.getBoundingClientRect();return Math.max(0,Math.min(cols.length-1,Math.floor((e.clientX-r.left)/r.width*cols.length)))}
-area.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')return;const i=at(e);down=i;pick(i===on?-1:i)})
+area.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')return;const i=at(e);was=on;down=i;pick(i===on?-1:i)})
+area.addEventListener('pointercancel',()=>pick(was))
 area.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')return pick(at(e));if(e.buttons&&at(e)!==down){down=-2;pick(at(e))}})
 area.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')pick(-1)})
 p.addEventListener('keydown',e=>{const l=cols.length-1,k=e.key,i=k==='ArrowRight'?(on<0?0:Math.min(l,on+1)):k==='ArrowLeft'?(on<0?l:Math.max(0,on-1)):k==='Home'?0:k==='End'?l:k==='Escape'?-1:null
