@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-04). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 124 | 77 | 24 | 29 | 196 |
 | popular | 40 | 21 | 0 | 0 | 2 | 19 |
-| covered | 30 | 277 | 3 | 9 | 7 | 282 |
-| rest | 20 | 881 | 94 | 0 | 1 | 974 |
+| covered | 30 | 307 | 3 | 9 | 9 | 310 |
+| rest | 20 | 919 | 94 | 0 | 1 | 1012 |
 
-## Short of target: every source read (29)
+## Short of target: every source read (30)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -31,6 +31,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/microsorum-pteropus | shop | 33 | 60 |
 | species/gymnocorymbus-ternetzi | shop | 48 | 60 |
 | plants/blyxa-japonica | shop | 2 | 60 |
+| breeds/oranda-goldfish | shop | 29 | 60 |
 | species/hyphessobrycon-herbertaxelrodi | shop | 11 | 60 |
 | species/phenacogrammus-interruptus | shop | 16 | 60 |
 | species/corydoras-similis | shop | 0 | 60 |

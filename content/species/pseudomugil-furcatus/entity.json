@@ -118,6 +118,15 @@
         "source": "seriouslyfish",
         "value": 60
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 3,
+          "max": 3
+        }
+      }
     ]
   },
   "sections": [

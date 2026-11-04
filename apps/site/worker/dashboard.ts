@@ -1,5 +1,6 @@
 import { sessionOf, tokenOf } from './accounts/session'
 import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
+import { deleteKept, keptImage, recentKept } from './fishid/kept'
 import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
 import { approveByOwner, photosLive, recentPhotos, removePhoto, waitingPhotos, waitingUpload, type PhotosEnv } from './photos'
@@ -8,8 +9,9 @@ import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } 
 import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
 import { contentPage } from './admin/content-page'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
-import { accountsPage, affiliatePage, fishIdPage, hiddenPage, overviewPage, photosPage, readersPage, wantedPage, type AffSummary } from './admin/pages'
+import { accountsPage, affiliatePage, fishIdPage, hiddenPage, keptPage, overviewPage, photosPage, readersPage, wantedPage, type AffSummary } from './admin/pages'
 import { isFailed, loginPage, soft, unset, type AdminPath, type Soft } from './admin/shell'
+import { viewerZone } from './admin/time'
 
 /**
  * The owner's dashboard, /_ab/: one page per part (admin/pages.ts), each open only to the owner signed in to the site,
@@ -106,27 +108,27 @@ const contentOf = async (env: AdminEnv, origin: string) => {
 }
 const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
 
-/** Each page: its loaders, side by side, each failing on its own. */
-const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<string>> = {
-  '/_ab/': async (env, url, now) => {
+/** Each page: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
+const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date, tz: string) => Promise<string>> = {
+  '/_ab/': async (env, url, now, tz) => {
     const a = ae(env)
     const db = env.DB
     const [readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden, content, snapshots] = await Promise.all([
-      a ? soft('readers', queryReaderDays(a.account, a.token, 31)) : unset(NO_AE),
+      a ? soft('readers', queryReaderDays(a.account, a.token, 31, tz)) : unset(NO_AE),
       db ? soft('clicks', clicksByDay(db, now, 31)) : unset('D1'),
-      a ? soft('fish-id', queryFishIdDays(a.account, a.token, now)) : unset(NO_AE),
+      a ? soft('fish-id', queryFishIdDays(a.account, a.token, now, tz)) : unset(NO_AE),
       soft('fish-id keys', fishIdStatus(env, now)),
       photosLive(env) ? soft('photos', livePhotos(env.DB!)) : unset('ảnh bạn đọc (D1, R2, Turnstile)'),
       db ? soft('moderation', moderationWaiting(db)) : unset('D1'),
       soft('wanted', listWanted(env.AB)),
-      db ? soft('accounts', accountStats(db, now)) : unset('D1'),
+      db ? soft('accounts', accountStats(db, now, tz)) : unset('D1'),
       soft('hidden', loadHidden(env.AB, true)),
       contentOf(env, url.origin),
       soft('snapshots', listSnapshots(env.AB)),
     ])
-    return overviewPage({ now, readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden, content, snapshots })
+    return overviewPage({ now, tz, readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden, content, snapshots })
   },
-  '/_ab/noi-dung/': async (env, url, now) => {
+  '/_ab/noi-dung/': async (env, url, now, tz) => {
     const a = ae(env)
     const [stats, snapshots] = await Promise.all([contentOf(env, url.origin), soft('snapshots', listSnapshots(env.AB))])
     const off = (what: string): Soft<never> => (isFailed(stats) ? { failed: 'Không có content.json.' } : unset(what))
@@ -135,32 +137,33 @@ const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<s
       env.DB && !isFailed(stats) ? soft('content talk', talkByPage(env.DB, stats)) : off('D1'),
       env.DB && !isFailed(stats) ? soft('content clicks', clicksByKind(env.DB, stats, now)) : off('D1'),
     ])
-    return contentPage({ now, stats, reads, talk, clicks, snapshots })
+    return contentPage({ now, tz, stats, reads, talk, clicks, snapshots })
   },
-  '/_ab/doc-gia/': async (env, _url, now) => {
+  '/_ab/doc-gia/': async (env, _url, now, tz) => {
     const a = ae(env)
-    return readersPage(now, a ? await soft('readers', queryReaders(a.account, a.token)) : undefined)
+    return readersPage(now, a ? await soft('readers', queryReaders(a.account, a.token, 14, tz)) : undefined, tz)
   },
-  '/_ab/nhan-dien-ca/': async (env, url, now) => {
+  '/_ab/nhan-dien-ca/': async (env, url, now, tz) => {
     const a = ae(env)
     const [stats, keys, catalog] = await Promise.all([
-      a ? soft('fish-id', queryFishId(a.account, a.token, now)) : unset(NO_AE),
+      a ? soft('fish-id', queryFishId(a.account, a.token, now, tz)) : unset(NO_AE),
       soft('fish-id keys', fishIdStatus(env, now)),
       catalogOf(env, url.origin),
     ])
     // A guess's page by its id, from the catalog the tool links with; never an address from the log itself.
     const pages = new Map((catalog?.entries ?? []).map(e => [e.id, e.url.vi]))
-    return fishIdPage({ now, stats, keys, pages })
+    return fishIdPage({ now, tz, stats, keys, pages })
   },
-  '/_ab/affiliate/': async (env, _url, now) => {
-    if (!env.DB) return affiliatePage(unset('D1'), unset('D1'))
+  '/_ab/anh-nhan-dien/': async (env, _url, now, tz) => keptPage(env.UPLOADS ? await soft('kept', recentKept(env.UPLOADS)) : undefined, now, tz),
+  '/_ab/affiliate/': async (env, _url, now, tz) => {
+    if (!env.DB) return affiliatePage(unset('D1'), unset('D1'), now, tz)
     const [clicks, summary] = await Promise.all([soft('clicks', clicksByDay(env.DB, now)), soft('affiliate', affSummary(env.DB, now))])
-    return affiliatePage(clicks, summary)
+    return affiliatePage(clicks, summary, now, tz)
   },
-  '/_ab/muon-co/': async (env, _url, now) => wantedPage(now, await soft('wanted', listWanted(env.AB))),
-  '/_ab/anh-ban-doc/': async env => photosPage(await soft('photos', recentPhotos(env)), await soft('waiting photos', waitingPhotos(env))),
-  '/_ab/an-trang/': async env => hiddenPage(await soft('hidden', loadHidden(env.AB, true))),
-  '/_ab/tai-khoan/': async (env, _url, now) => accountsPage(env.DB ? await soft('accounts', accountStats(env.DB, now)) : unset('D1')),
+  '/_ab/muon-co/': async (env, _url, now, tz) => wantedPage(now, await soft('wanted', listWanted(env.AB)), tz),
+  '/_ab/anh-ban-doc/': async (env, _url, now, tz) => photosPage(await soft('photos', recentPhotos(env)), await soft('waiting photos', waitingPhotos(env)), now, tz),
+  '/_ab/an-trang/': async (env, _url, now, tz) => hiddenPage(await soft('hidden', loadHidden(env.AB, true)), now, tz),
+  '/_ab/tai-khoan/': async (env, _url, now, tz) => accountsPage(env.DB ? await soft('accounts', accountStats(env.DB, now, tz)) : unset('D1'), now, tz),
 }
 export const ADMIN_PAGES = Object.keys(PAGES) as AdminPath[]
 
@@ -200,6 +203,21 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     else await removePhoto(env, id, 'removed by owner', now)
     return see('/_ab/anh-ban-doc/')
   }
+  // A kept fish-ID photo: shown, and deleted, only to the owner (fishid/kept.ts).
+  const shot = /^\/_ab\/anh-nhan-dien\/anh\/([0-9a-z-]+)\/([0-9a-f-]{36})$/.exec(path)
+  if (shot) {
+    if (req.method !== 'GET' || !env.UPLOADS || !(await owner())) return notFound()
+    const o = await keptImage(env.UPLOADS, shot[1] === 'anon' ? undefined : shot[1], shot[2]!)
+    return o ? new Response(o.body, { headers: { 'content-type': 'image/jpeg', 'cache-control': 'private, no-store' } }) : notFound()
+  }
+  if (path === '/_ab/anh-nhan-dien/xoa') {
+    if (req.method !== 'POST' || !env.UPLOADS || !(await owner())) return notFound()
+    const form = await req.formData().catch(() => null)
+    if (!form) return badForm()
+    const who = String(form.get('who') ?? '')
+    await deleteKept(env.UPLOADS, who === 'anon' ? undefined : who, String(form.get('id') ?? ''))
+    return see('/_ab/anh-nhan-dien/')
+  }
   if (path === '/_ab/hidden') {
     if (req.method !== 'POST' || !(await owner())) return notFound()
     const form = await req.formData().catch(() => null)
@@ -219,5 +237,5 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts), and drops the old token cookie.
   const headers = new Headers(HTML)
   for (const c of [OWNER_COOKIE, OLD_TOKEN_COOKIE]) headers.append('set-cookie', c)
-  return new Response(req.method === 'HEAD' ? null : await render(env, url, now), { headers })
+  return new Response(req.method === 'HEAD' ? null : await render(env, url, now, viewerZone(req)), { headers })
 }

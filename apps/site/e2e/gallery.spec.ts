@@ -106,3 +106,27 @@ test('gallery viewer: a zoomed photo pans rather than swiping; a double tap zoom
   await expect(by).toContainText(`2/${n}`)
   expect(errors).toEqual([])
 })
+
+// With a mouse, the magnifier cursor means what it says: one click on the photo zooms in there, the next zooms back
+// out, and a double click out of habit still leaves it zoomed in.
+test('gallery viewer: one click zooms in with a mouse, the next zooms out; a double click zooms in', async ({ page, errors }, info) => {
+  const gallery = galleryOf('ca')
+  test.skip(!gallery, 'no fish gallery in this build')
+  test.skip(info.project.name === 'phone', 'a finger zooms with a double tap or a pinch')
+  await page.goto(`${gallery}#a1`)
+  const viewer = page.locator('dialog.lb')
+  const stage = viewer.locator('.pv-stage')
+  await expect(viewer).toHaveAttribute('data-zoom', 'out')
+  const b = (await stage.boundingBox())!
+  const x = b.x + b.width / 2, y = b.y + b.height / 2
+  await page.mouse.click(x, y)
+  await expect(viewer).toHaveAttribute('data-zoom', 'in')
+  await page.waitForTimeout(400) // a separate click, not the second of a double click
+  await page.mouse.click(x, y)
+  await expect(viewer).toHaveAttribute('data-zoom', 'out')
+  await page.waitForTimeout(400)
+  await page.mouse.dblclick(x, y)
+  await expect(viewer).toHaveAttribute('data-zoom', 'in')
+  await expect(viewer).toBeVisible()
+  expect(errors).toEqual([])
+})

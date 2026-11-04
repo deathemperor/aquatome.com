@@ -65,10 +65,13 @@ test('unmatched guesses most first with their mean confidence; the last calls wi
   expect(s.recent[0]).toMatchObject({ key: 'a1b2c3d4', from: 'tank', tin: 1500, usd: 0.0084, conf: 0.92 })
   const html = fishIdPage({ now: NOW, stats: s, keys: undefined, pages: new Map([['paracheirodon-innesi', '/vi/ca/ca-neon-xanh/']]) })
   expect(html).toContain('<a href="/ca/ca-neon-xanh/"><i class="sci">Paracheirodon innesi</i></a>')
-  expect(html).toContain('<th>02/11 09:58</th>')
+  // The log's UTC moment, in the viewer's time (Vietnam's by default).
+  expect(html).toContain('<th><time datetime="2026-11-02T09:58:01.000Z">02/11 16:58</time></th>')
   expect(html).toContain('Bể của tôi')
   expect(html).toContain('không qua kiểm tra chống spam')
-  expect(html).not.toContain('<script>')
+  // The page's one script is its own clock; a name never becomes one.
+  expect(html.match(/<script>/g)).toHaveLength(1)
+  expect(html).not.toContain('Betta <script>')
   expect(html).not.toContain('<img src=x>')
   expect(html).toContain('Betta &lt;script&gt;')
   // A page id the catalog doesn't know: shown as text, never turned into an address.
@@ -78,9 +81,23 @@ test('unmatched guesses most first with their mean confidence; the last calls wi
 })
 
 test('no query sorts or groups by a column it renamed: Analytics Engine refuses that ("unable to find type of column")', () => {
-  for (const sql of [DAYS_SQL, UNMATCHED_SQL, RECENT_SQL]) {
+  for (const sql of [DAYS_SQL('Asia/Ho_Chi_Minh'), UNMATCHED_SQL, RECENT_SQL]) {
     const renamed = [...sql.matchAll(/\b(timestamp|blob\d+|double\d+)\s+AS\s+\w+/gi)].map(m => m[1]!.toLowerCase())
     const after = (sql.match(/\b(?:ORDER|GROUP)\s+BY\s+([\s\S]*?)(?:\bLIMIT\b|\bFORMAT\b|$)/gi) ?? []).join(' ').toLowerCase()
     for (const col of renamed) expect(after, sql).not.toMatch(new RegExp(`\\b${col}\\b`))
   }
+})
+
+test('days are the viewer\'s: the query buckets in its zone, and today, the weeks and the month follow it', () => {
+  expect(DAYS_SQL('Asia/Ho_Chi_Minh')).toContain("formatDateTime(timestamp, '%Y-%m-%d', 'Asia/Ho_Chi_Minh')")
+  // 2026-11-01T23:30Z is already 2 November in Vietnam: the query's day says so, and so do the periods.
+  const late = new Date('2026-11-01T23:30:00Z')
+  const s = summariseFishId([row('2026-11-02', 'ok', 4, 4), row('2026-11-01', 'ok', 1, 1)], [], [], late, 'Asia/Ho_Chi_Minh')
+  expect(s.days.at(-1)).toBe('2026-11-02')
+  expect(s.periods.today.calls).toBe(4)
+  expect(s.periods.yesterday.calls).toBe(1)
+  expect(s.periods.mtd.calls).toBe(5) // November so far, its 1st and 2nd
+  expect(s.periods.mtdPrev.calls).toBe(0)
+  // The same moment in UTC is still the 1st.
+  expect(summariseFishId([row('2026-11-01', 'ok', 1, 1)], [], [], late).periods.today.calls).toBe(1)
 })
