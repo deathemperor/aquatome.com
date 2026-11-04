@@ -69,7 +69,8 @@ private let session = "6f1c9a52-6d0e-4a8e-9a43-0f5a1d2c3b4e"
 private let neon = "/vi/huong-dan/nuoi-ca-neon/"
 
 /// Every kind of event the app sends, as its hooks make them.
-private let sent: [Event] = [.view(path: neon), .view(path: "/th/"), .scroll(path: neon, depth: 50), .scroll(path: neon, depth: 90)]
+private let sent: [Event] = [.view(path: neon), .view(path: "/ca/ca-neon/"), .view(path: "/"), .view(path: "/th/"), .scroll(path: neon, depth: 50),
+                              .scroll(path: "/ca/ca-neon/", depth: 90)]
   + Screen.allCases.map { Event.view($0) } + Event.times.map { Event.time(path: neon, seconds: $0) }
   + [.aff(path: neon, link: URL(string: "https://aquatome.com/go/shopee/?k=c%C3%A1%20neon&c=fish")!)!,
      .aff(path: neon, link: URL(string: "https://aquatome.com/go/lazada/?k=ca(neon)/1:2")!)!,
@@ -107,7 +108,9 @@ func refusesWhatTheContractRefuses() {
   late.at = Event.maxAt + 1
   let candidates: [Event] = sent + [
     .view(path: "/vi/tim/?q=ca+dia"), .view(path: "/en/fish/"), .view(path: "/vi/ca/ca-neon"), .view(path: "vi/ca/"), .view(path: "/vi//"),
-    .view(path: "/vi/cá/"), .view(path: "/vi/" + String(repeating: "a", count: 196) + "/"), .view(path: "/vi/" + String(repeating: "a", count: 195) + "/"),
+    .view(path: "/vi/cá/"), .view(path: "/vi/ca/" + String(repeating: "a", count: 193) + "/"), .view(path: "/vi/ca/" + String(repeating: "a", count: 192) + "/"),
+    .view(path: "/ca/" + String(repeating: "a", count: 196) + "/"), .view(path: "/ca/" + String(repeating: "a", count: 195) + "/"),
+    .view(path: "/app/"), .view(path: "/go/shopee/"), .view(path: "/robots.txt"), .view(path: "/en/x/"), .view(path: "/x/"), .time(path: "/_ab/x/", seconds: 30),
     .scroll(path: neon, depth: 25), .scroll(path: neon, depth: 100), .scroll(path: "/en/", depth: 50),
     .time(path: neon, seconds: 45), .time(path: neon, seconds: 0), late,
     action(kind: "DYSL30A1B2C3 không trả lời"), action(kind: String(repeating: "a", count: 41)), action(kind: "plugOffline"), action(kind: "-x"),
@@ -141,7 +144,34 @@ func listsAreTheContracts() {
   let events = (schema("Batch")["properties"] as! [String: Any])["events"] as! [String: Any]
   #expect(events["maxItems"] as? Int == Wire.batchSize)
   #expect(schema("At")["maximum"] as? Int == Event.maxAt)
+  // A page's path: the app matches with the contract's own pattern, so the site's sections are listed once.
+  #expect(Event.pathPattern == schema("Path")["pattern"] as? String, "the app's path pattern isn't the contract's")
+  #expect(Event.maxPath == schema("Path")["maxLength"] as? Int)
   for s in Screen.allCases { #expect(misfits(s.rawValue, ((schema("ScreenView")["properties"] as! [String: Any])["screen"] as! [String: Any])) == []) }
   // The flag: a boolean at the top of /app/<lang>.json.
   #expect(((schema("AppConfig")["properties"] as! [String: Any])["telemetry"] as! [String: Any])["type"] as? String == "boolean")
+}
+
+@Test("A page's path as the contract takes it: Vietnamese pages at the root or under /vi/, Indonesian and Thai under theirs, nothing else at the root; a root-form view is sent")
+func pathsAreTheContracts() async {
+  let cases: [(String, Bool)] = [
+    ("/", true), ("/vi/", true), ("/ca/x/", true), ("/vi/ca/x/", true), ("/ca/ca-neon/", true), ("/huong-dan/nuoi-ca-neon/", true),
+    ("/id/", true), ("/th/ikan/x/", true),
+    ("/app/", false), ("/go/x/", false), ("/robots.txt", false), ("/en/x/", false), ("/api/v1/app/events/", false), ("/data/", false),
+    ("/pagefind/", false), ("/_e", false), ("/_ab/x/", false), ("/x/", false), ("/ca/x", false), ("/vi/x/", false), ("/ca/x/?q=a", false),
+  ]
+  for (p, ok) in cases {
+    #expect(Event.fits(path: p) == ok, "\(p): the app says \(ok ? "don't send" : "send")")
+    #expect(misfits(p, schema("Path")).isEmpty == ok, "\(p): the contract says \(ok ? "refused" : "taken")")
+  }
+  // The whole path, as the Worker's JavaScript reads `$`: not a page followed by a new line.
+  #expect(!Event.fits(path: "/ca/x/\n"))
+
+  // A Vietnamese page by its root address is sent as it is, not dropped.
+  let fake = FakeCollector()
+  let t = Telemetry(about: about, readerAllows: true, file: nil, site: URL(string: "https://aquatome.com")!, send: { try await fake.send($0) })
+  t.siteAllows(true)
+  t.record(.view(path: "/ca/ca-neon/"))
+  await t.flush()
+  #expect(fake.received.count == 1 && String(decoding: fake.received.first?.body ?? Data(), as: UTF8.self).contains(#""path":"/ca/ca-neon/""#))
 }

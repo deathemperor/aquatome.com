@@ -95,10 +95,10 @@ func carriesOnlyThePolicysFields() async throws {
 func batches() async throws {
   let fake = FakeCollector()
   let t = await telemetry(fake, ours: true)
-  for i in 0..<250 { t.record(.view(path: "/vi/p\(i)/")) }
+  for i in 0..<250 { t.record(.view(path: "/vi/ca/p\(i)/")) }
   await t.flush()
   #expect(fake.received.map { events($0).count } == [100, 100, 50])
-  #expect(fake.received.flatMap(events).map { $0["path"] as! String } == (0..<250).map { "/vi/p\($0)/" })
+  #expect(fake.received.flatMap(events).map { $0["path"] as! String } == (0..<250).map { "/vi/ca/p\($0)/" })
   let ats = fake.received.flatMap(events).map { $0["at"] as! Int }
   #expect(ats == ats.sorted() && ats[0] >= 0)
   #expect(Set(fake.received.map { json($0.body)["session"] as! String }) == [t.session])
@@ -117,14 +117,14 @@ func capsTheQueue() async throws {
   fake.answer(503)
   let clock = Clock()
   let t = await telemetry(fake, clock: clock)
-  for i in 0..<600 { t.record(.view(path: "/vi/p\(i)/")) }
-  #expect(t.recorded.count == 500 && t.recorded.first?.path == "/vi/p100/")
+  for i in 0..<600 { t.record(.view(path: "/vi/ca/p\(i)/")) }
+  #expect(t.recorded.count == 500 && t.recorded.first?.path == "/vi/ca/p100/")
   await t.flush()
-  for i in 600..<900 { t.record(.view(path: "/vi/p\(i)/")) }
+  for i in 600..<900 { t.record(.view(path: "/vi/ca/p\(i)/")) }
   await t.flush()
   let queued = await t.queued.events
   #expect(queued.count == 500)
-  #expect(queued.first?.path == "/vi/p400/" && queued.last?.path == "/vi/p899/")
+  #expect(queued.first?.path == "/vi/ca/p400/" && queued.last?.path == "/vi/ca/p899/")
   clock.pass(3600)
   fake.answer(nil)
   await t.flush()
@@ -188,13 +188,14 @@ func aFullBatchIsUnder64KiB() async throws {
   let fake = FakeCollector()
   let t = await telemetry(fake)
   let link = URL(string: "https://aquatome.com/go/" + String(repeating: "s", count: 24) + "/?k=" + String(repeating: "x", count: 268))!
-  let path = "/vi/" + String(repeating: "c", count: 195) + "/"
+  let path = "/vi/ca/" + String(repeating: "c", count: 192) + "/"
   let largest = Event.aff(path: path, link: link)!
   #expect(largest.href?.count == 300 && largest.path?.count == 200 && largest.fits)
   for _ in 0..<Wire.batchSize { t.record(largest) }
   await t.flush()
-  #expect(fake.received.count == 1 && events(fake.received[0]).count == 100)
-  #expect(fake.received[0].body.count <= Wire.maxBatch, "\(fake.received[0].body.count) bytes")
+  let sent = try #require(fake.received.first)
+  #expect(fake.received.count == 1 && events(sent).count == 100)
+  #expect(sent.body.count <= Wire.maxBatch, "\(sent.body.count) bytes")
 }
 
 @Test("The reader's switch off drops what waits, on the phone and in the file, and records nothing more; on again, it records")

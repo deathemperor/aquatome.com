@@ -10,7 +10,8 @@ public struct Event: Codable, Sendable, Equatable {
   public let t: String
   /// Milliseconds since this launch's session started, set when it's recorded.
   public internal(set) var at: Int = 0
-  /// A page of the site, by its path (`/vi/ca/ca-neon/`).
+  /// A page of the site, by its path: `/ca/ca-neon/` (Vietnamese, at the root) or `/vi/ca/ca-neon/` as the app's index
+  /// gives it, `/id/…`, `/th/…`.
   public let path: String?
   /// One of the app's own screens (`Screen`).
   public let screen: String?
@@ -120,13 +121,20 @@ public struct Event: Codable, Sendable, Equatable {
     }
   }
 
-  /// A handbook page's path: `/vi/`, `/id/` or `/th/`, then segments of letters, digits, `_` and `-`, each ending in
-  /// "/"; at most 200 characters, no host or query.
+  /// A handbook page's path, as the contract's `Path` takes it: a Vietnamese page at the root under one of the site's
+  /// sections (`/ca/…`, `/huong-dan/…`; the home `/`) or the same under `/vi/`, or an Indonesian or Thai page under
+  /// `/id/` or `/th/`; segments of letters, digits, `_` and `-`, each ending in "/"; at most `maxPath`, no host or query.
+  /// Nothing else at the root is a page (`/app/`, `/go/`, a file).
   static func fits(path: String) -> Bool {
-    let parts = path.split(separator: "/", omittingEmptySubsequences: false)
-    return path.count <= 200 && parts.count >= 3 && parts.first == "" && parts.last == "" && ["vi", "id", "th"].contains(parts[1])
-      && parts.dropFirst().dropLast().allSatisfy { !$0.isEmpty && $0.allSatisfy { isLetter($0) || isDigit($0) || $0 == "_" || $0 == "-" } }
+    let whole = NSRange(path.startIndex..., in: path)
+    return path.utf16.count <= maxPath && pathRegex.firstMatch(in: path, range: whole)?.range == whole
   }
+
+  /// The contract's `Path` pattern and length, as they are (ContractTests fails when they differ): the site's
+  /// Vietnamese sections are listed in it.
+  static let pathPattern = #"^/(?:(?:vi/)?(?:(?:ca|cay|chinh-sach-bao-mat|cong-cu|dang-nhap|gioi-thieu|huong-dan|kham-pha|lien-he|moi-cap-nhat|nguon-goc|nhom|phan-loai|san-pham|thiet-bi|thuat-ngu|tim-kiem|video)/(?:[A-Za-z0-9_-]+/)*)?|(?:id|th)/(?:[A-Za-z0-9_-]+/)*)$"#
+  static let maxPath = 200
+  private static let pathRegex = try! NSRegularExpression(pattern: pathPattern)
 
   /// A lowercase letter, then up to 23 lowercase letters, digits and "-".
   static func fits(screen: String) -> Bool {
