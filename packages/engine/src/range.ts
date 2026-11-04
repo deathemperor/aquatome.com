@@ -7,6 +7,7 @@ import { z } from 'zod'
 import { countryOf, mayPublish, namesCountry, placeCountry, RangeSchema, type SectionKey, type SourceId, type SpeciesEntity, type SpeciesRange } from '@aq/schema'
 import type { Llm } from './claude'
 import { gbifRecords, type Gbif, type RecordsAudit } from './range-records'
+import { SOURCES, type SourceConfig } from './sources'
 
 /**
  * Where each species lives in the wild (content `range`, `@aq/schema` RangeSchema), in two parts with their own pace:
@@ -19,7 +20,7 @@ import { gbifRecords, type Gbif, type RecordsAudit } from './range-records'
 
 const TEMPLATE = readFileSync(new URL('./prompts/range.md', import.meta.url), 'utf8')
 /** Bumped when the prompt or the checks change what an answer gives, so every species is read again. */
-const VERSION = 1
+const VERSION = 2
 /** The sections that say where a fish lives. */
 const KEYS: SectionKey[] = ['distribution', 'habitat', 'quickFacts', 'notes']
 const BLOCK_CHARS = 6000
@@ -80,14 +81,22 @@ export function promptOf(scientificName: string, blocks: Block[]): string {
 }
 export const inputHash = (scientificName: string, blocks: Block[]) => createHash('sha256').update(`${VERSION}\n${promptOf(scientificName, blocks)}`).digest('hex').slice(0, 16)
 
+/** A source's tier in the engine's registry (sources.ts); one the registry doesn't list counts as a general site. */
+export const sourceTier = (id: SourceId): SourceConfig['tier'] => SOURCES.find(s => s.id === id)?.tier ?? 'general'
+
 /**
  * The answer checked against the text: a country stays only with its code a country, a source the species cites, a
  * sentence found in that source's text word for word, and the country's own name in it (`words`, through namesCountry:
- * a place in a country is not its name, "Congo" may be either Congo); a region only with a name found in a sentence of its source, not a country's,
- * and not in a country a source calls introduced or doubtful (MAX_REGIONS, in the answer's order). A country is native
- * when a source says so and none calls it introduced or doubtful (`disputed` then).
+ * a place in a country is not its name, "Congo" may be either Congo); a region only with a name found in a sentence of
+ * its source, not a country's (MAX_REGIONS, in the answer's order).
+ * - When a specialist source (`tier`) says where the species lives, a country or a region, only specialist sources'
+ *   countries count: a country only a general pet-care site gives is dropped (`outranked`, with its sentence). General
+ *   sites count for a species no specialist covers.
+ * - A country is native when a source that counts says so and none that counts calls it introduced or doubtful
+ *   (`disputed`: any source called it native).
+ * - A region the quote puts in a country left out goes with it.
  */
-export function checkAnswer(answer: Answer, blocks: Block[]): { native?: Native; claims: Claim[]; regions: RegionClaim[]; disputed: string[] } {
+export function checkAnswer(answer: Answer, blocks: Block[], tierOf: (id: SourceId) => SourceConfig['tier'] = sourceTier): { native?: Native; claims: Claim[]; regions: RegionClaim[]; disputed: string[]; outranked: Claim[] } {
   const texts = new Map<string, string>()
   for (const b of blocks) texts.set(b.source, `${texts.get(b.source) ?? ''}\n${flat(b.text)}`)
   const sentence = (source: string, quote: string) => {
@@ -106,26 +115,35 @@ export function checkAnswer(answer: Answer, blocks: Block[]): { native?: Native;
           : !namesCountry(claim.words, claim.code) ? `"${claim.words}" is not ${claim.code || 'a country'}` : undefined)
     return { ...claim, ok: !why, ...(why ? { why } : {}) }
   })
-  const ok = claims.filter(c => c.ok)
-  const against = new Set(ok.filter(c => c.status !== 'native').map(c => c.code))
-  const said = [...new Set(ok.filter(c => c.status === 'native').map(c => c.code))]
-  const countries = said.filter(c => !against.has(c))
-  // A region the quote puts in a country left out (Nepal's rivers, where the dwarf gourami's records are misidentified) goes with it.
-  const regions: RegionClaim[] = answer.regions.map(r => {
+  const named = answer.regions.map(r => {
     const claim = { name: (r.name ?? '').trim(), source: r.source ?? '', quote: r.quote ?? '', ...(r.country ? { country: r.country } : {}) }
     const why = !claim.name ? 'no name' : !claim.quote.trim() ? 'no quote' : sentence(claim.source, claim.quote)
-      ?? (!bare(claim.quote).includes(bare(claim.name)) ? 'its name is not in the quote' : countryOf(claim.name) ? 'a country'
-        : claim.country && against.has(claim.country) ? `in ${claim.country}, which a source calls introduced or doubtful` : undefined)
-    return { ...claim, ok: !why, ...(why ? { why } : {}) }
+      ?? (!bare(claim.quote).includes(bare(claim.name)) ? 'its name is not in the quote' : countryOf(claim.name) ? 'a country' : undefined)
+    return { claim, why }
+  })
+  const ok = claims.filter(c => c.ok)
+  const specialist = (s: string) => tierOf(s as SourceId) === 'specialist'
+  const covered = ok.some(c => c.status === 'native' && specialist(c.source)) || named.some(r => !r.why && specialist(r.claim.source))
+  const counted = covered ? ok.filter(c => specialist(c.source)) : ok
+  const against = new Set(counted.filter(c => c.status !== 'native').map(c => c.code))
+  const countries = [...new Set(counted.filter(c => c.status === 'native').map(c => c.code))].filter(c => !against.has(c))
+  const outranked = covered ? ok.filter(c => c.status === 'native' && !specialist(c.source) && !countries.includes(c.code) && !against.has(c.code)) : []
+  const dropped = new Set(outranked.map(c => c.code))
+  // A region the quote puts in a country left out (Nepal's rivers, where the dwarf gourami's records are misidentified) goes with it.
+  const regions: RegionClaim[] = named.map(({ claim, why }) => {
+    const left = why ?? (claim.country && against.has(claim.country) ? `in ${claim.country}, which a source calls introduced or doubtful`
+      : claim.country && dropped.has(claim.country) ? `in ${claim.country}, which only a general site gives` : undefined)
+    return { ...claim, ok: !left, ...(left ? { why: left } : {}) }
   })
   const names = new Map<string, RegionClaim>()
   for (const r of regions) if (r.ok && !names.has(bare(r.name))) names.set(bare(r.name), r)
   const kept = [...names.values()].slice(0, MAX_REGIONS)
-  const from = new Set([...ok.filter(c => c.status === 'native' && countries.includes(c.code)).map(c => c.source), ...kept.map(r => r.source)])
+  const from = new Set([...counted.filter(c => c.status === 'native' && countries.includes(c.code)).map(c => c.source), ...kept.map(r => r.source)])
   const sources = [...new Set(blocks.map(b => b.source))].filter(s => from.has(s))
   return {
     native: countries.length || kept.length ? { countries, regions: kept.map(r => r.name), sources } : undefined,
-    claims, regions, disputed: said.filter(c => against.has(c)),
+    claims, regions, outranked,
+    disputed: [...new Set(ok.filter(c => c.status === 'native').map(c => c.code))].filter(c => against.has(c)),
   }
 }
 
@@ -134,6 +152,8 @@ export type Audit = {
   id: string
   native?: {
     input: string; at: string; claims: Claim[]; regions: RegionClaim[]; disputed: string[]
+    /** Countries only a general pet-care site gives, dropped because a specialist source says where it lives: with the sentence. */
+    outranked: { code: string; source: string; quote: string }[]
     /** The species' origin pages (`places`) as a check: countries only they name, and only the sources do. */
     origin: { pagesOnly: string[]; sourcesOnly: string[] }
   }
@@ -146,7 +166,7 @@ export type RangeDeps = { llm: Llm; gbif: Gbif; now: () => Date; order: string[]
 export type RangeReport = {
   native: { read: string[]; quiet: string[]; failed: string[]; calls: number }
   records: { fetched: string[]; unmatched: string[]; failed: string[]; requests: number }
-  disputed: string[]; origin: string[]
+  disputed: string[]; outranked: string[]; origin: string[]
 }
 
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
@@ -179,7 +199,7 @@ export async function speciesRanges(root: string, deps: RangeDeps, opts: { limit
   await mkdir(join(root, STATE), { recursive: true })
   const auditFile = (id: string) => join(root, STATE, `${id}.json`)
   const saveAudit = (a: Audit) => writeFile(auditFile(a.id), `${JSON.stringify(a, null, 2)}\n`)
-  const report: RangeReport = { native: { read: [], quiet: [], failed: [], calls: 0 }, records: { fetched: [], unmatched: [], failed: [], requests: 0 }, disputed: [], origin: [] }
+  const report: RangeReport = { native: { read: [], quiet: [], failed: [], calls: 0 }, records: { fetched: [], unmatched: [], failed: [], requests: 0 }, disputed: [], outranked: [], origin: [] }
   const load = async (id: string) => {
     const file = join(dir, id, 'entity.json')
     const raw = await readFile(file, 'utf8').catch(() => '')
@@ -194,7 +214,7 @@ export async function speciesRanges(root: string, deps: RangeDeps, opts: { limit
     const s = await load(id)
     if (!s || s.audit.native?.input === s.input) continue
     if (s.blocks.length && (report.native.calls >= opts.limit || hoursSince(s.audit.nativeFailed?.at, now) < RETRY_HOURS)) continue
-    let checked: ReturnType<typeof checkAnswer> = { claims: [], regions: [], disputed: [] }
+    let checked: ReturnType<typeof checkAnswer> = { claims: [], regions: [], disputed: [], outranked: [] }
     if (s.blocks.length) {
       report.native.calls++
       try {
@@ -220,9 +240,10 @@ export async function speciesRanges(root: string, deps: RangeDeps, opts: { limit
     const mine = native?.countries ?? []
     const origin = { pagesOnly: pages.filter(c => !mine.includes(c)), sourcesOnly: mine.filter(c => !pages.includes(c)) }
     const { nativeFailed: _, ...audit } = s.audit
-    await saveAudit({ ...audit, native: { input: s.input, at, claims: checked.claims, regions: checked.regions, disputed: checked.disputed, origin } })
+    await saveAudit({ ...audit, native: { input: s.input, at, claims: checked.claims, regions: checked.regions, disputed: checked.disputed, outranked: checked.outranked.map(({ code, source, quote }) => ({ code, source, quote })), origin } })
     ;(s.blocks.length ? report.native.read : report.native.quiet).push(id)
     if (checked.disputed.length) report.disputed.push(`${id}: ${checked.disputed.join(', ')}`)
+    if (checked.outranked.length) report.outranked.push(`${id}: ${[...new Set(checked.outranked.map(c => `${c.code} (${c.source})`))].join(', ')}`)
     if (s.blocks.length && (origin.pagesOnly.length || origin.sourcesOnly.length)) report.origin.push(`${id}: origin pages only ${origin.pagesOnly.join(', ') || '-'}; sources only ${origin.sourcesOnly.join(', ') || '-'}`)
   }
 

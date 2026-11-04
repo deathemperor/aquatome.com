@@ -333,9 +333,13 @@ The layers above still check the result.
     species a cycle whose text is new or changed) and gives each country with the source's sentence. The engine keeps
     a country only when that sentence is in that source's text word for word and names the country (its name, an old
     name or its adjective: `countryOf` in `@aq/schema`); a lake, basin or island goes in `regions`, never a country it
-    lies in. A country one source calls introduced or misidentified is left out, whatever another says. The sentences
-    and the refusals are in `engine-state/range/<id>.json`, with the species' origin pages (`places`) beside them as a
-    check. A source that says nothing gives no `native`; nothing comes from the model's own knowledge, FishBase or IUCN.
+    lies in. Each source in the engine's registry has a tier (`sources.ts`): a species database or a scientific or
+    aquarium-specialist site is `specialist`, a general pet-care site (The Spruce Pets) `general`. When a specialist
+    says where the species lives, only specialists' countries count, and a country only a general site gives is dropped
+    (`outranked`, with its sentence); general sites count for a species no specialist covers. A country a source that
+    counts calls introduced or misidentified is left out. The sentences and the refusals are in
+    `engine-state/range/<id>.json`, with the species' origin pages (`places`) beside them as a check. A source that says
+    nothing gives no `native`; nothing comes from the model's own knowledge, FishBase or IUCN.
   - `records`: its wild records on GBIF, open licences only (CC0, CC BY 4.0; never NC), no living or fossil
     specimens, coordinates without issues, on GBIF's map squares (1.40625°), each with its records in a native country
     by GBIF's country field. About a dozen requests a species, paced and retried, `RANGE_RECORDS` species a cycle, each

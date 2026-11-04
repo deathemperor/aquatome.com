@@ -10,8 +10,9 @@ Each species gets two parts (`range` in its content, `RangeSchema` in `packages/
   sources' distribution, habitat, quick facts and notes, and gives each country with the source's sentence. The engine
   keeps a country only when that sentence is in that source's text word for word and names the country (its name, an
   old name like "Siam" or "Burma", or its adjective like "Brazilian"). A lake, basin or island goes in regions, never a
-  country it lies in. A country one source calls introduced or misidentified is left out, whatever another source says.
-  The species' origin pages (`places`) are compared as a check, not used.
+  country it lies in. Specialist sources outrank general pet-care sites (see "Which source counts" below), and a country
+  a source that counts calls introduced or misidentified is left out. The species' origin pages (`places`) are
+  compared as a check, not used.
 - **records**: its wild records on GBIF, open licences only (CC0, CC BY 4.0), no aquarium or fossil specimens,
   coordinates without issues, on GBIF's 1.40625° map squares, each with how many are in a native country (GBIF's
   country field).
@@ -22,13 +23,14 @@ Each species gets two parts (`range` in its content, `RangeSchema` in `packages/
   Malawi."). The other 5 have sources that say nothing about where they live (the two shrimp, *Protocheirodon pi*), or
   only where a shipment came from (*Pyrrhulina spilota*, "imported from Peru"; *Monodactylus argenteus*, "caught near
   Java"), which the step doesn't count as a range.
-- **Look wrong: 2 include a likely wrong country, 3 likely miss one.**
-  - Included on The Spruce Pets alone: China for *Betta splendens* (Seriously Fish: central Thailand only) and Malaysia
-    for the clown loach (Seriously Fish: the Indonesian part of Borneo, and Sumatra). Neither is contradicted in words,
-    so the rule keeps them.
-  - Missed: Malawi for *Labidochromis caeruleus* (its one source names only the lake); Venezuela for *Hypancistrus
-    inspector* (Glaser: "the Rio Negro in Brazil"; 6 of its 8 GBIF records are up the same river in Venezuela and
-    Colombia); Venezuela for the neon tetra (12 of its 39 records; the sources name the Orinoco basin, not Venezuela).
+- **Look wrong: none include a wrong country; 3 miss one, left as they are by decision.**
+  - The two wrong countries of the first passes are gone under the source ranking: China for *Betta splendens* and
+    Malaysia for the clown loach rested on The Spruce Pets alone, and Seriously Fish says where both live. Each is
+    logged in engine-state with its sentence.
+  - Missed, and kept that way (no inference beyond the sources): Malawi for *Labidochromis caeruleus* (its one source
+    names only the lake); Venezuela for *Hypancistrus inspector* (Glaser: "the Rio Negro in Brazil"; 6 of its 8 GBIF
+    records are up the same river in Venezuela and Colombia); Venezuela for the neon tetra (12 of its 39 records; the
+    sources name the Orinoco basin, not Venezuela).
 - **The disputes come out right.** *Betta splendens* is Thailand without Cambodia, Indonesia, Malaysia or Vietnam: The
   Spruce Pets calls them native, Seriously Fish calls them other species or feral populations. The dwarf gourami
   loses Nepal and Myanmar (Seriously Fish: misidentification) and the Nepalese rivers Aquarium Breeder names with them.
@@ -36,25 +38,27 @@ Each species gets two parts (`range` in its content, `RangeSchema` in `packages/
   inside the native countries runs from 100% (*Ancistrus dolichopterus*, *Nothobranchius rachovii*) down to 27% for the
   goldfish and 9% for the guppy, whose open records are mostly feral populations (Brazil, Japan, Taiwan). A map of
   records must show inside and outside apart, or it shows the guppy as a Brazilian and Japanese fish.
-- **Stable**: a second full pass, with the region rules tightened, gave the same countries for all 20.
-- **Origin pages disagree on 9 species.** On 7 they list more: the countries a dispute or the naming rule leaves out
-  (Cambodia, Indonesia, Malaysia and Vietnam for the betta; Nepal and Myanmar for the dwarf gourami; Nepal for *Botia
-  almorhae*, "possibly Nepal"; Malawi for *Labidochromis*; Angola for *Aphyosemion australe*), or where a shipment came
-  from (Thailand and Indonesia for *Monodactylus*, Peru for *Pyrrhulina*). On 2 the sources add one (Ecuador for the
+- **Stable**: four passes (the last with the source ranking) gave the same countries for the 18 the later rules didn't
+  touch. Which tributaries make the region list varies a little between passes.
+- **Origin pages disagree on 10 species.** On 8 they list more: the countries a dispute, the source ranking or the
+  naming rule leaves out (Cambodia, Indonesia, Malaysia, Vietnam and China for the betta; Malaysia for the clown loach;
+  Nepal and Myanmar for the dwarf gourami; Nepal for *Botia almorhae*, "possibly Nepal"; Malawi for *Labidochromis*;
+  Angola for *Aphyosemion australe*), or where a shipment came from (Thailand and Indonesia for *Monodactylus*, Peru for
+  *Pyrrhulina*). On 2 the sources add one (Ecuador for the
   neon tetra, South Korea for the goldfish). The step never copies the origin pages: they came from the same model
   reading, without a quote.
 
 | Species | Native countries | Regions | GBIF records | Inside native |
 | --- | --- | --- | --- | --- |
-| *Betta splendens* | TH, CN | Chao Phraya, Malay Peninsula | 427 | 83% |
-| *Paracheirodon innesi* | CO, PE, BR, EC | Amazon, Orinoco, Purus, Putumayo, Solimões, Napo | 39 | 69% |
-| *Poecilia reticulata* | VE, SR, GY, BB, TT, GF, AG | Guayre River, Trinidad | 8249 | 9% |
-| *Pterophyllum scalare* | BR, CO, GY, SR, GF, PE | Amazon, Essequibo, Oyapock, Rio Negro, Ucayali, Solimões | 310 | 95% |
+| *Betta splendens* | TH | Chao Phraya, Malay Peninsula | 427 | 83% |
+| *Paracheirodon innesi* | CO, BR, PE, EC | Amazon, Orinoco, Putumayo, Solimões, Purus, Marañon | 39 | 69% |
+| *Poecilia reticulata* | VE, GY, SR, GF, TT, BB, AG | Guayre River, Trinidad, Tobago | 8249 | 9% |
+| *Pterophyllum scalare* | BR, CO, GY, SR, GF, PE | Amazon, Essequibo, Oyapock, Rio Negro, Rio Ucayali, Rio Solimões | 310 | 95% |
 | *Trichogaster lalius* | PK, IN, BD | – | 67 | 88% |
 | *Labidochromis caeruleus* | – | Lake Malawi | 9 | – |
 | *Maylandia estherae* | MZ, MW | Lake Malawi | 15 | 93% |
-| *Chromobotia macracanthus* | ID, MY | Borneo, Sumatra, Kapuas, Kayan, Batang Hari, Musi | 15 | 80% |
-| *Botia almorhae* | IN | Ganges, Kosi, Yamuna | 10 | 60% |
+| *Chromobotia macracanthus* | ID | Borneo, Sumatra, Kapuas, Kayan, Batang Hari, Musi | 15 | 60% |
+| *Botia almorhae* | IN | Ganges, Kosi, Yamuna, Alaknanda | 10 | 60% |
 | *Ancistrus dolichopterus* | BR | Rio Negro | 40 | 100% |
 | *Hypancistrus inspector* | BR | Rio Negro | 8 | 25% |
 | *Nothobranchius rachovii* | MZ | Zambezi, Pungwe | 13 | 100% |
@@ -67,11 +71,26 @@ Each species gets two parts (`range` in its content, `RangeSchema` in `packages/
 | *Protocheirodon pi* | – | – | 52 | – |
 | *Acanthocobitis rubidipinnis* | MM | Irrawaddy | 15 | 100% |
 
+## Which source counts (decided 2026-11-04)
+
+- Each source in the engine's registry (`packages/engine/src/sources.ts`) has a tier. `specialist`: a species database
+  or a scientific or aquarium-specialist site (Seriously Fish, PlanetCatfish, Loaches Online, ScotCat, Glaser, Aquarium
+  Breeder, Aquarium Co-op, BW Aquatics, 2Hr Aquarist, Tropica). `general`: a general pet-care site (The Spruce Pets).
+  A source the registry doesn't list counts as general.
+- When a specialist source says where the species lives (a country or a region, such as "Endemic to Lake Malawi."),
+  the native countries come from specialist sources only. A country only a general site gives is dropped and logged
+  in `engine-state/range/<id>.json` (`outranked`, with its sentence). Its introduced or doubtful claims don't count
+  either.
+- General sites count only for a species no specialist covers. Their regions (the Orinoco for the neon tetra) still
+  count: the rule is about countries.
+- In this sample it dropped two countries, China for the betta and Malaysia for the clown loach, and changed nothing
+  else.
+
 ## Cost per species
 
 - **Model**: one call when the sources say anything about where it lives (none otherwise), on the engine's default
-  model (Sonnet) through the subscription accounts. Measured over 42 calls: 11.5 s and about 1,500 output tokens on
-  average; the CLI's own API-price figure averaged $0.03 a call (most $0.08, the guppy and neon tetra's long texts).
+  model (Sonnet) through the subscription accounts. Measured over 62 calls: 12 s and about 1,500 output tokens on
+  average; the CLI's own API-price figure averaged $0.025 a call (most $0.08, the guppy and neon tetra's long texts).
 - **GBIF**: 12 requests on average (2 for a species with no open records, 18 for the guppy): the name match, one count
   with the records by country and by dataset, the 8 map tiles of the world, and the tiles that have records again for
   the native countries. About 0.85 s a request with the 300 ms gap between them; the responses are small (a tile is
@@ -98,18 +117,16 @@ Each species gets two parts (`range` in its content, `RangeSchema` in `packages/
 
 ## For the owner
 
-1. **Which source wins when one says more.** China (betta) and Malaysia (clown loach) rest on The Spruce Pets, whose
-   lists are looser than Seriously Fish's. One rule would be: when Seriously Fish gives a distribution, a country only
-   another source names needs a second source. Not built: it is a judgement about the sources.
-2. **A species with only a lake or a basin** (Lake Malawi) has no countries, so its records have no inside or outside.
-   Mapping a lake to its countries would come from the model's knowledge, which the rules forbid.
-3. **The GBIF credit.** GBIF asks that data used from its API be cited with a DOI. For data not from one download, it
+1. **A species with only a lake or a basin** (Lake Malawi) has no countries, so its records have no inside or outside.
+   Mapping a lake to its countries would come from the model's knowledge, which the rules forbid. Left as it is
+   (decided 2026-11-04), as is Venezuela for the neon tetra.
+2. **The GBIF credit.** GBIF asks that data used from its API be cited with a DOI. For data not from one download, it
    mints one for a *derived dataset*: a list of the datasets used and how many records each gave. The step keeps each
    species' datasets and counts (`engine-state/range/<id>.json`, `datasets`), so after the first full pass the owner
    can register one derived dataset for the site (gbif.org/derived-dataset/register, a free GBIF account) and the
    credit can read "GBIF.org (date) … https://doi.org/…" beside "GBIF.org, n records, CC BY 4.0". Worth it: CC BY
    needs the publishers credited, and the DOI is how GBIF does that. It needs no change to the step.
-4. **What a page shows.** Native countries and regions in words, a map of records with inside and outside apart, and
+3. **What a page shows.** Native countries and regions in words, a map of records with inside and outside apart, and
    the GBIF credit. The app index carries the words and the counts (`protocols/range-vectors.json`); the cells stay in
    the content until a map is designed (the sample's species have 13 cells at the median and 95 on average, which over
    1,383 species would add a few megabytes to an index phones download).
@@ -122,22 +139,25 @@ Sources read: bwaquatics, sprucepets, seriouslyfish.
 
 **Native countries**
 
-- TH Thailand: sprucepets: "Origin: Cambodia, Thailand" · seriouslyfish: "The Siamese fighting fish, Betta splendens, is a labyrinth fish from central Thailand, native to rice paddies, swamps, ditches and other still waters." · seriouslyfish: "Occurs naturally throughout central Thailand, from Chiang Rai province in the north to Surat Thani and Phang Nga provinces at the northern extremity of the Malay Peninsula, just below the Isthmus of Kra." · sprucepets: "Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China."
-- CN China: sprucepets: "Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China."
+- TH Thailand: sprucepets: "Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China." · seriouslyfish: "Occurs naturally throughout central Thailand, from Chiang Rai province in the north to Surat Thani and Phang Nga provinces at the northern extremity of the Malay Peninsula, just below the Isthmus of Kra."
 
 **Regions**
 
 - Chao Phraya: seriouslyfish: "Type locality is 'Menam River, Thailand', which refers to the Chao Phraya river basin."
 - Malay Peninsula: seriouslyfish: "Occurs naturally throughout central Thailand, from Chiang Rai province in the north to Surat Thani and Phang Nga provinces at the northern extremity of the Malay Peninsula, just below the Isthmus of Kra."
 
-**Left out (a source calls them introduced or doubtful)**
+**Left out (a source that counts calls them introduced or doubtful)**
 
 - KH Cambodia: native per sprucepets: "Origin: Cambodia, Thailand" · doubtful per seriouslyfish: "Records from the remainder of southern (peninsular) Thailand, and the Mekong River basin in eastern Thailand, Laos, Vietnam, and Cambodia refer to other species or introduced populations."
 - ID Indonesia: native per sprucepets: "Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China." · introduced per seriouslyfish: "It has been introduced to several countries, largely as a result of escape from ornamental fish farms, with known feral populations established in Singapore, Malaysia, Indonesia, Brazil, Colombia, and the Dominican Republic."
 - MY Malaysia: native per sprucepets: "Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China." · introduced per seriouslyfish: "It has been introduced to several countries, largely as a result of escape from ornamental fish farms, with known feral populations established in Singapore, Malaysia, Indonesia, Brazil, Colombia, and the Dominican Republic."
 - VN Vietnam: native per sprucepets: "Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China." · doubtful per seriouslyfish: "Records from the remainder of southern (peninsular) Thailand, and the Mekong River basin in eastern Thailand, Laos, Vietnam, and Cambodia refer to other species or introduced populations."
 
-**Origin pages check:** origin pages only: KH Cambodia, ID Indonesia, MY Malaysia, VN Vietnam; sources only: none.
+**Dropped: only a general site gives them, and a specialist says where it lives**
+
+- CN China: sprucepets: "Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China."
+
+**Origin pages check:** origin pages only: KH Cambodia, ID Indonesia, MY Malaysia, VN Vietnam, CN China; sources only: none.
 
 **GBIF:** taxonKey 2393998 (Betta splendens), 427 records in 46 cells; inside the native countries 353 (83%), outside 74 (17%). 16 requests.
 Top outside: Australia 23, Vietnam 13, Malaysia 7, Indonesia 6, Cambodia 5.
@@ -148,19 +168,19 @@ Sources read: sprucepets, seriouslyfish.
 
 **Native countries**
 
-- CO Colombia: sprucepets: "Origin: Southeastern Colombia, eastern Peru, western Brazil" · sprucepets: "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru." · seriouslyfish: "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams."
-- PE Peru: sprucepets: "Origin: Southeastern Colombia, eastern Peru, western Brazil" · sprucepets: "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru." · seriouslyfish: "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams."
-- BR Brazil: sprucepets: "Origin: Southeastern Colombia, eastern Peru, western Brazil" · sprucepets: "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru." · seriouslyfish: "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams."
+- CO Colombia: sprucepets: "Origin: Southeastern Colombia, eastern Peru, western Brazil" · seriouslyfish: "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams." · sprucepets: "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru." · seriouslyfish: "Confirmed records suggest it to occur in several geographically-disparate areas, the first of which is the area around Leticia, Colombia and Tabatinga, Brazil, an area known as the 'Três Fronteiras'."
+- BR Brazil: sprucepets: "Origin: Southeastern Colombia, eastern Peru, western Brazil" · seriouslyfish: "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams." · sprucepets: "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru." · seriouslyfish: "Confirmed records suggest it to occur in several geographically-disparate areas, the first of which is the area around Leticia, Colombia and Tabatinga, Brazil, an area known as the 'Três Fronteiras'."
+- PE Peru: sprucepets: "Origin: Southeastern Colombia, eastern Peru, western Brazil" · seriouslyfish: "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams." · sprucepets: "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru." · seriouslyfish: "The type locality was originally given as 'near Iquitos', referring to the city of that name in the rainforest of Loreto region, Peru, although the specimens themselves derived from an aquarium import, and even today the true extent of its distribution remains unclear."
 - EC Ecuador: seriouslyfish: "These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively)."
 
 **Regions**
 
-- Amazon: sprucepets: "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru."
+- Amazon: seriouslyfish: "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams."
 - Orinoco: sprucepets: "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru."
-- Purus: seriouslyfish: "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás."
 - Putumayo: seriouslyfish: "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia."
 - Solimões: seriouslyfish: "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia."
-- Napo: seriouslyfish: "These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively)."
+- Purus: seriouslyfish: "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás."
+- Marañon: seriouslyfish: "These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively)."
 
 **Origin pages check:** origin pages only: none; sources only: EC Ecuador.
 
@@ -173,18 +193,23 @@ Sources read: sprucepets, seriouslyfish.
 
 **Native countries**
 
-- VE Venezuela: seriouslyfish: "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad." · sprucepets: "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago." · seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
-- SR Suriname: sprucepets: "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago." · seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
+- VE Venezuela: sprucepets: "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago." · seriouslyfish: "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad."
 - GY Guyana: sprucepets: "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago." · seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
-- BB Barbados: sprucepets: "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago." · seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
-- TT Trinidad & Tobago: sprucepets: "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago." · seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
+- SR Suriname: sprucepets: "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago." · seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
 - GF French Guiana: seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
+- TT Trinidad & Tobago: sprucepets: "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago." · seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
+- BB Barbados: sprucepets: "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago." · seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
 - AG Antigua & Barbuda: seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
 
 **Regions**
 
 - Guayre River: seriouslyfish: "Type locality is 'Guayre River, Caracas, Venezuela'."
-- Trinidad: seriouslyfish: "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad."
+- Trinidad: sprucepets: "They are named for Robert John Lechmere Guppy who collected these fish on the island of Trinidad in 1866."
+- Tobago: seriouslyfish: "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles."
+
+**Refused by the checks**
+
+- Barbados (region, sprucepets): a country. "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago."
 
 **Origin pages check:** origin pages only: none; sources only: none.
 
@@ -197,7 +222,7 @@ Sources read: glaser, seriouslyfish.
 
 **Native countries**
 
-- BR Brazil: glaser: "Origin: Brazil" · seriouslyfish: "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil."
+- BR Brazil: glaser: "Origin: Brazil" · glaser: "Wild-collected angelfish from the municipality of Santa Isabel on the Rio Negro, Brazil." · seriouslyfish: "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil."
 - CO Colombia: seriouslyfish: "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil."
 - GY Guyana: seriouslyfish: "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil."
 - SR Suriname: seriouslyfish: "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil."
@@ -210,8 +235,8 @@ Sources read: glaser, seriouslyfish.
 - Essequibo: seriouslyfish: "The angelfish, Pterophyllum scalare, is a cichlid from the Amazon, Essequibo, Oyapock and other rivers of northern South America."
 - Oyapock: seriouslyfish: "The angelfish, Pterophyllum scalare, is a cichlid from the Amazon, Essequibo, Oyapock and other rivers of northern South America."
 - Rio Negro: glaser: "Wild-collected angelfish from the municipality of Santa Isabel on the Rio Negro, Brazil."
-- Ucayali: seriouslyfish: "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage."
-- Solimões: seriouslyfish: "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage."
+- Rio Ucayali: seriouslyfish: "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage."
+- Rio Solimões: seriouslyfish: "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage."
 
 **Origin pages check:** origin pages only: none; sources only: none.
 
@@ -228,7 +253,7 @@ Sources read: seriouslyfish, sprucepets, aquariumbreeder.
 - IN India: seriouslyfish: "Widely distributed through Pakistan, northern India and Bangladesh." · sprucepets: "Originating in India (West Bengal and Assam) and Bangladesh, the dwarf gourami is native to thickly vegetated waters." · aquariumbreeder: "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh."
 - BD Bangladesh: seriouslyfish: "Widely distributed through Pakistan, northern India and Bangladesh." · sprucepets: "Originating in India (West Bengal and Assam) and Bangladesh, the dwarf gourami is native to thickly vegetated waters." · aquariumbreeder: "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh."
 
-**Left out (a source calls them introduced or doubtful)**
+**Left out (a source that counts calls them introduced or doubtful)**
 
 - NP Nepal: doubtful per seriouslyfish: "Apparent occurences in Nepal and Myanmar are now thought to be as a result of misidentification." · native per aquariumbreeder: "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh."
 - MM Myanmar (Burma): doubtful per seriouslyfish: "Apparent occurences in Nepal and Myanmar are now thought to be as a result of misidentification." · native per aquariumbreeder: "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh."
@@ -284,7 +309,6 @@ Sources read: sprucepets, seriouslyfish.
 **Native countries**
 
 - ID Indonesia: sprucepets: "They are native to Indonesia and prefer shaded, slow-moving waters with plenty of hiding spots." · seriouslyfish: "In the former it's restricted to river systems of Kalimantan Barat (West Kalimantan), Kalimantan Tengah (Central Kalimantan) and Kalimantan Timur (East Kalimantan) provinces in the Indonesian portion including the Kapuas and Kayan."
-- MY Malaysia: sprucepets: "The clown loach hails from the rivers and tributaries of Malaysia, Borneo, Sumatra, and Kalimantan."
 
 **Regions**
 
@@ -295,10 +319,14 @@ Sources read: sprucepets, seriouslyfish.
 - Batang Hari: seriouslyfish: "In Sumatra it's found in eastern and southern drainages of Jambi, Sumatera Selatan (South Sumatra) and Lampung provinces including the Batang Hari, Musi and Tulang Bawang."
 - Musi: seriouslyfish: "In Sumatra it's found in eastern and southern drainages of Jambi, Sumatera Selatan (South Sumatra) and Lampung provinces including the Batang Hari, Musi and Tulang Bawang."
 
-**Origin pages check:** origin pages only: none; sources only: none.
+**Dropped: only a general site gives them, and a specialist says where it lives**
 
-**GBIF:** taxonKey 2367815 (Chromobotia macracanthus), 15 records in 8 cells; inside the native countries 12 (80%), outside 3 (20%). 14 requests.
-Top outside: India 2, Canada 1.
+- MY Malaysia: sprucepets: "The clown loach hails from the rivers and tributaries of Malaysia, Borneo, Sumatra, and Kalimantan."
+
+**Origin pages check:** origin pages only: MY Malaysia; sources only: none.
+
+**GBIF:** taxonKey 2367815 (Chromobotia macracanthus), 15 records in 8 cells; inside the native countries 9 (60%), outside 6 (40%). 14 requests.
+Top outside: Malaysia 3, India 2, Canada 1.
 
 ### Botia almorhae (`botia-almorhae`)
 
@@ -313,6 +341,7 @@ Sources read: seriouslyfish.
 - Ganges: seriouslyfish: "B. almorhae Gray, 1831 - This species is often referred to as the 'Pakistani' loach which is a misnomer since it's restricted to parts of the Ganges River drainage in northern India and possibly Nepal."
 - Kosi: seriouslyfish: "The description by Gray (1831) gives the type locality simply as 'Almorah' which corresponds to Almora district, Uttarakhand State, India and means the holotype could have derived from either the Kosi River or Sot River (Grant, 2007)."
 - Yamuna: seriouslyfish: "In the Kosi drainage it's been collected close to the cities of Roorkee and Kashipur (both Uttarakhand State) and has also been recorded from the Yamuna River (Delhi State), Alaknanda River (Uttarakhand State), Markanda River (tributary of the Yamuna in Himachal Pradesh and Haryana States), Ghugger River (Himachal Pradesh State), Kali River (near the city of Meerut and in Muzaffarnagar and Bijnour districts, Uttar Pradesh State), Gambhir River (Sawai Madhopur district, Rajasthan State) and Chambal River (Kota district, Rajasthan State)."
+- Alaknanda: seriouslyfish: "In the Kosi drainage it's been collected close to the cities of Roorkee and Kashipur (both Uttarakhand State) and has also been recorded from the Yamuna River (Delhi State), Alaknanda River (Uttarakhand State), Markanda River (tributary of the Yamuna in Himachal Pradesh and Haryana States), Ghugger River (Himachal Pradesh State), Kali River (near the city of Meerut and in Muzaffarnagar and Bijnour districts, Uttar Pradesh State), Gambhir River (Sawai Madhopur district, Rajasthan State) and Chambal River (Kota district, Rajasthan State)."
 
 **Origin pages check:** origin pages only: NP Nepal; sources only: none.
 
