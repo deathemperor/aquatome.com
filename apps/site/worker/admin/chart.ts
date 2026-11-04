@@ -1,22 +1,27 @@
 /**
- * The admin pages' figures, drawn on the server: inline SVG charts over days, ranked bars, KPI tiles. No script and no
- * library. Each chart carries its own text: an SVG title and summary, a hover readout per day (<title>), and the
- * numbers as a table under it.
+ * The admin pages' figures, drawn on the server as HTML and CSS, so text stays at its real size on a phone: columns over
+ * days, ranked bars, KPI tiles, meters and the overview's small columns. No library. Each chart carries its own text: a
+ * readout line that gives the period's totals and, once a day is tapped (shell.ts's script), that day's; a summary for
+ * screen readers; and the numbers as a table under it.
  *
- * Series colours (apps/site/worker/admin/shell.ts, --s1..--s3): green, blue, orange, checked with the dataviz skill's
- * validator on white in this order (each adjacent pair clears the colour-blind floor). A stack draws them bottom-up in
- * that order.
+ * Series colours (shell.ts, --s1..--s3): moss, water, rust, in that order, stepped for each mode and checked with the
+ * dataviz skill's validator against the panel they sit on (each adjacent pair clears the colour-blind target and the
+ * normal-vision floor). A stack draws them bottom-up in that order. A series that means good or bad takes the status
+ * tone instead (`bad`), and one that is only context the muted one (`mute`).
  */
+import { localDay } from './time'
+
 export const esc = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!)
 export const fmt = (n: number, d = 0) => n.toLocaleString('vi-VN', { maximumFractionDigits: d, minimumFractionDigits: d })
 /** USD: cents from a dollar up, four places below a cent (one identification costs about $0.01). */
 export const usd = (n: number) => `$${fmt(n, n !== 0 && Math.abs(n) < 0.01 ? 4 : 2)}`
 /** 2026-11-02 → 02/11 */
 export const dayLabel = (day: string) => `${day.slice(8, 10)}/${day.slice(5, 7)}`
+const WEEKDAY = ['Chủ nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy']
 
-/** The `n` UTC days ending with `now`'s, oldest first. */
-export function lastDays(now: Date, n: number): string[] {
-  const end = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())
+/** The `n` days ending with the day it is at `now` in `tz` (the viewer's, admin/time.ts), oldest first. */
+export function lastDays(now: Date, n: number, tz = 'UTC'): string[] {
+  const end = Date.parse(`${localDay(now, tz)}T00:00:00Z`)
   return Array.from({ length: n }, (_, i) => new Date(end - (n - 1 - i) * 86_400_000).toISOString().slice(0, 10))
 }
 
@@ -30,124 +35,155 @@ export function niceTop(max: number): number {
 const places = (n: number) => [0, 1, 2, 3, 4].find(d => Math.abs(Math.round(n * 10 ** d) - n * 10 ** d) < 1e-6) ?? 4
 /** Axis numbers: in full under 10,000, then 12k. */
 const tick = (n: number) => (n >= 10_000 ? `${fmt(n / 1000, places(n / 1000))}k` : fmt(n, places(n)))
+const f2 = (v: number) => +v.toFixed(2)
+/** A value that can be drawn: null, undefined and NaN are days not recorded. */
+const known = (v: number | null | undefined): v is number => typeof v === 'number' && Number.isFinite(v)
 
-export type Series = { label: string; values: number[] }
+export type Tone = 's1' | 's2' | 's3' | 'bad' | 'mute'
+/** A value per day; null where the day wasn't recorded (drawn as such, and said in its readout). */
+export type Series = { label: string; values: (number | null)[]; tone?: Tone }
 export type DayChart = {
-  /** Unique on the page: the SVG's title and summary hang off it. */
+  /** Unique on the page: the readout, the summary and the table hang off it. */
   id: string
   title: string
   days: string[]
-  /** Up to three: one is plain columns or a line, more are stacked columns or lines, coloured --s1, --s2, --s3. */
+  /** Up to three, stacked from the baseline in this order (a negative value hangs below it). One series needs no key: the title names it. */
   series: Series[]
-  kind: 'columns' | 'lines'
+  /** A total the series are parts of (sessions, of which readers): a pale column behind them, read out after them. */
+  whole?: Series
   format?: (n: number) => string
   /** Before each axis number ('$' for money). */
   tickPrefix?: string
   /** The last day is today and not over yet: drawn lighter, said in its readout. */
   partialLast?: boolean
-  /** What to say when every value is 0 or there are no days. */
+  /** What to say when every value is 0 or missing, or there are no days. */
   empty?: string
+  /** Why a day has no value, said in its readout ("chưa lưu số liệu ngày này"). */
+  missing?: string
 }
 
-const W = 400
-const PLOT_H = 136
-const TOP = 10
-const AXIS = 24
-const H = TOP + PLOT_H + AXIS
-
-/** A column from the baseline with a 4px round top, square at the base. */
-function column(x: number, y: number, w: number, h: number, round: boolean): string {
-  if (h <= 0) return ''
-  const r = round ? Math.min(4, w / 2, h) : 0
-  const f = (n: number) => +n.toFixed(2)
-  if (!r) return `<rect x="${f(x)}" y="${f(y)}" width="${f(w)}" height="${f(h)}"/>`
-  return `<path d="M${f(x)} ${f(y + h)}V${f(y + r)}Q${f(x)} ${f(y)} ${f(x + r)} ${f(y)}H${f(x + w - r)}Q${f(x + w)} ${f(y)} ${f(x + w)} ${f(y + r)}V${f(y + h)}Z"/>`
-}
-
-/** A chart over days as a <figure>: the SVG, its legend (two or more series), and the numbers as a table. */
+/**
+ * A chart over days as a <figure>: the title, a readout line (the period's totals, each series keyed by its colour; a
+ * day's values once one is tapped or picked with the arrow keys), the columns on a zero baseline, every seventh day
+ * labelled back from the last, and the numbers as a table.
+ */
 export function dayChart(c: DayChart): string {
   const format = c.format ?? ((n: number) => fmt(n))
   const n = c.days.length
   const series = c.series.slice(0, 3)
-  const head = `<figcaption><h3 id="${c.id}-t">${esc(c.title)}</h3></figcaption>`
-  const totals = c.days.map((_, i) => series.reduce((s, x) => s + (x.values[i] ?? 0), 0))
-  if (!n || totals.every(t => !t)) return `<figure class="chart" aria-labelledby="${c.id}-t">${head}<p class="empty">${esc(c.empty ?? 'Chưa có số liệu trong khoảng này.')}</p></figure>`
+  const all = c.whole ? [...series, c.whole] : series
+  const at = (s: Series, i: number) => (known(s.values[i]) ? s.values[i]! : null)
+  const head = `<h3 id="${c.id}-t">${esc(c.title)}</h3>`
+  if (!n || !all.some(s => c.days.some((_, i) => at(s, i)))) return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}</figcaption><p class="empty">${esc(c.empty ?? 'Chưa có số liệu trong khoảng này.')}</p></figure>`
 
-  const stacked = c.kind === 'columns' && series.length > 1
-  const max = c.kind === 'columns' && stacked ? Math.max(...totals) : Math.max(...series.flatMap(s => s.values))
-  const top = niceTop(max)
-  // Counts (no format given) never get a half-way tick of 2,5.
-  const ticks = !c.format && (top / 2) % 1 ? [0, top] : [0, top / 2, top]
-  const left = Math.max(22, Math.max(...ticks.map(t => `${c.tickPrefix ?? ''}${tick(t)}`.length)) * 7 + 8)
-  // Lines end in a label each (the latest value) unless two would touch; the legend and table carry them then.
-  const lastY = series.map(s => TOP + PLOT_H - ((s.values[n - 1] ?? 0) / top) * PLOT_H)
-  const endLabels = c.kind === 'lines' && lastY.every((y, i) => lastY.every((z, j) => i === j || Math.abs(y - z) >= 13))
-  const right = endLabels ? Math.max(...series.map(s => format(s.values[n - 1] ?? 0).length)) * 7 + 10 : 4
-  const plotW = W - left - right
-  const band = plotW / n
-  const y = (v: number) => TOP + PLOT_H - (v / top) * PLOT_H
-  const cx = (i: number) => left + band * (i + 0.5)
-  const f = (v: number) => +v.toFixed(2)
+  // The scale: zero, the round top above the tallest stack (or whole), and as far below as a negative day reaches.
+  const sum = (i: number, sign: 1 | -1) => series.reduce((t, s) => t + Math.max(0, sign * (at(s, i) ?? 0)), 0)
+  const whole = c.days.map((_, i) => (c.whole ? at(c.whole, i) ?? 0 : 0))
+  const up = c.days.map((_, i) => sum(i, 1))
+  const down = c.days.map((_, i) => sum(i, -1))
+  const nice = (m: number) => (m > 0 ? niceTop(m) : 0)
+  const top = nice(Math.max(...up, ...whole))
+  const bottom = nice(Math.max(...down, ...whole.map(w => -w)))
+  const pct = (v: number) => (100 * v) / (top + bottom)
+  const zero = pct(bottom)
+  // Counts (no format given) never get a half-way tick of 2,5; a chart with a negative side keeps to its ends.
+  const half = top && !bottom && (c.format || (top / 2) % 1 === 0) ? [top / 2] : []
+  const ticks = [...(bottom ? [-bottom] : []), 0, ...half, ...(top ? [top] : [])]
+  const tickText = (t: number) => `${t < 0 ? '−' : ''}${c.tickPrefix ?? ''}${tick(Math.abs(t))}`
+  const gutter = Math.max(...ticks.map(t => tickText(t).length))
+  const yAxis = ticks.map(t => `<span style="--y:${f2(pct(t + bottom))}">${esc(tickText(t))}</span>`).join('')
+  const grid = ticks.map(t => `<b${t === 0 ? ' class="zero"' : ''} style="--y:${f2(pct(t + bottom))}"></b>`).join('')
 
-  const grid = ticks.map(t => `<line class="grid" x1="${left}" x2="${W - right}" y1="${f(y(t))}" y2="${f(y(t))}"/><text class="tick" x="${left - 6}" y="${f(y(t) + 4)}" text-anchor="end">${esc(`${c.tickPrefix ?? ''}${tick(t)}`)}</text>`).join('')
-  const labelAt = [...new Set(n >= 5 ? [0, Math.floor((n - 1) / 2), n - 1] : c.days.map((_, i) => i))]
-  const xLabels = labelAt.map(i => {
-    const [x, anchor] = n === 1 ? [cx(i), 'middle'] : i === 0 ? [left + band * i, 'start'] : i === n - 1 ? [left + band * (i + 1), 'end'] : [cx(i), 'middle']
-    return `<text class="tick" x="${f(x)}" y="${H - 6}" text-anchor="${anchor}">${esc(dayLabel(c.days[i]!))}</text>`
+  const last = n - 1
+  const dm = (i: number) => dayLabel(c.days[i]!)
+  const dayName = (i: number) =>
+    c.partialLast && i === last ? `Hôm nay ${dm(i)}` : c.partialLast && i === last - 1 ? `Hôm qua ${dm(i)}` : `${WEEKDAY[new Date(`${c.days[i]}T00:00:00Z`).getUTCDay()]} ${dm(i)}`
+  const unrecorded = (i: number) => all.every(s => at(s, i) === null)
+  const when = (i: number) => `${dayName(i)}${c.partialLast && i === last ? ' · chưa hết ngày' : ''}${unrecorded(i) ? ` · ${c.missing ?? 'không có số liệu'}` : ''}`
+  const shown = (v: number | null) => (v === null ? '—' : format(v))
+
+  const seg = (cls: string[], b: number, h: number) => `<i class="${cls.join(' ')}" style="--b:${f2(b)};--h:${f2(h)}"></i>`
+  const cols = c.days.map((_, i) => {
+    const vals = series.map(s => at(s, i))
+    const lastUp = vals.reduce<number>((t, v, k) => (v !== null && v > 0 ? k : t), -1)
+    const lastDown = vals.reduce<number>((t, v, k) => (v !== null && v < 0 ? k : t), -1)
+    let marks = whole[i]! > 0 ? seg(['whole'], zero, pct(whole[i]!)) : ''
+    let above = 0
+    let below = 0
+    vals.forEach((v, k) => {
+      if (!v) return
+      const cls: string[] = [series[k]!.tone ?? `s${k + 1}`]
+      // A part above (or below) another keeps 2px of the panel between them; the outermost part has the round end.
+      if (v > 0) {
+        if (above) cls.push('up')
+        if (k === lastUp) cls.push('cap')
+        marks += seg(cls, zero + pct(above), pct(v))
+        above += v
+      } else {
+        cls.push('neg')
+        if (below) cls.push('dn')
+        if (k === lastDown) cls.push('cap')
+        marks += seg(cls, zero - pct(below - v), pct(-v))
+        below -= v
+      }
+    })
+    const cls = [c.partialLast && i === last ? 'today' : '', unrecorded(i) ? 'miss' : ''].filter(Boolean).join(' ')
+    return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(all.map(s => shown(at(s, i))).join('|'))}">${marks}</li>`
   }).join('')
 
-  let marks = ''
-  if (c.kind === 'columns') {
-    // Touching columns keep a 2px gap of the surface between them; no column is wider than 24.
-    const w = Math.max(1, Math.min(24, band - 2))
-    for (let i = 0; i < n; i++) {
-      const x = left + band * i + (band - w) / 2
-      let base = TOP + PLOT_H
-      const parts = series.map(s => s.values[i] ?? 0)
-      const topmost = parts.reduce((t, v, k) => (v > 0 ? k : t), -1)
-      const cls = c.partialLast && i === n - 1 ? ' class="today"' : ''
-      marks += `<g${cls}>`
-      parts.forEach((v, k) => {
-        if (v <= 0) return
-        const h = (v / top) * PLOT_H
-        // A stacked part above another starts 2px higher: the surface separates them.
-        const gap = base < TOP + PLOT_H ? 2 : 0
-        marks += `<g class="s${k + 1}">${column(x, base - h, w, Math.max(0, h - gap), k === topmost)}</g>`
-        base -= h
-      })
-      marks += '</g>'
-    }
-  } else {
-    series.forEach((s, k) => {
-      const pts = c.days.map((_, i) => `${f(cx(i))},${f(y(s.values[i] ?? 0))}`)
-      if (n > 1) marks += `<polyline class="line s${k + 1}" points="${pts.join(' ')}"/>`
-      marks += `<circle class="dot s${k + 1}" cx="${f(cx(n - 1))}" cy="${f(y(s.values[n - 1] ?? 0))}" r="4"/>`
-      if (endLabels) marks += `<text class="end" x="${f(cx(n - 1) + 8)}" y="${f(lastY[k]! + 4)}">${esc(format(s.values[n - 1] ?? 0))}</text>`
-    })
-  }
+  // Every seventh day back from the last (the overview's weeks), and the first when it stands clear of them.
+  const labelled = new Set<number>()
+  for (let i = last; i >= 0; i -= 7) labelled.add(i)
+  if (Math.min(...labelled) >= 3) labelled.add(0)
+  const xAxis = [...labelled].sort((a, b) => a - b).map(i => {
+    const mid = (100 * (i + 0.5)) / n
+    const [x, cls] = n > 1 && mid < 7 ? [(100 * i) / n, ' class="s"'] : n > 1 && mid > 93 ? [(100 * (i + 1)) / n, ' class="e"'] : [mid, '']
+    return `<span${cls} style="--x:${f2(x)}">${esc(dm(i))}</span>`
+  }).join('')
 
-  const readout = (i: number) => `${dayLabel(c.days[i]!)}${c.partialLast && i === n - 1 ? ' (hôm nay, chưa hết ngày)' : ''}: ${series.map(s => `${s.label} ${format(s.values[i] ?? 0)}`).join(' · ')}`
-  const hits = c.days.map((_, i) => `<rect class="hit" x="${f(left + band * i)}" y="${TOP}" width="${f(band)}" height="${PLOT_H}"><title>${esc(readout(i))}</title></rect>`).join('')
+  const totals = all.map(s => c.days.reduce((t, _, i) => t + (at(s, i) ?? 0), 0))
+  const key = (s: Series, k: number) => (all.length > 1 ? `<i class="key ${s === c.whole ? 'whole' : s.tone ?? `s${k + 1}`}"></i>` : '')
+  const readout = `<p class="readout${all.length > 1 ? ' multi' : ''}" aria-live="polite"><span class="when">${n} ngày</span>${all.map((s, k) => `<span class="v">${key(s, k)}<b>${esc(format(totals[k]!))}</b>${all.length > 1 ? ` ${esc(s.label)}` : ''}</span>`).join('')}<span class="hint" aria-hidden="true"></span></p>`
 
-  const sums = series.map(s => s.values.reduce((a, b) => a + b, 0))
-  const peak = totals.indexOf(Math.max(...totals))
-  const desc = `${n} ngày, từ ${dayLabel(c.days[0]!)} đến ${dayLabel(c.days[n - 1]!)}. ${series.map((s, k) => `${s.label}: tổng ${format(sums[k]!)}`).join('; ')}. Cao nhất ngày ${dayLabel(c.days[peak]!)}.`
-  const svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="${c.id}-t ${c.id}-d"><desc id="${c.id}-d">${esc(desc)}</desc>${grid}${marks}<line class="base" x1="${left}" x2="${W - right}" y1="${TOP + PLOT_H}" y2="${TOP + PLOT_H}"/>${xLabels}${hits}</svg>`
-  const legend = series.length > 1 ? `<ul class="legend">${series.map((s, k) => `<li><span class="key ${c.kind === 'lines' ? 'kl' : 'kc'} s${k + 1}"></span>${esc(s.label)}</li>`).join('')}</ul>` : ''
-  const rows = c.days.map((d, i) => [d, i] as const).reverse().map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${c.partialLast && i === n - 1 ? ' (hôm nay)' : ''}</th>${series.map(s => `<td>${esc(format(s.values[i] ?? 0))}</td>`).join('')}</tr>`).join('')
-  const table = `<details><summary>Bảng số liệu</summary><div class="scroll"><table><thead><tr><th>Ngày (UTC)</th>${series.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
-  return `<figure class="chart" aria-labelledby="${c.id}-t">${head}${legend}${svg}${table}</figure>`
+  const heights = c.whole ? whole : up
+  const peak = heights.indexOf(Math.max(...heights))
+  const gaps = c.days.filter((_, i) => unrecorded(i)).length
+  const desc = `${n} ngày, từ ${dm(0)} đến ${dm(last)}. ${all.map((s, k) => `${s.label}: tổng ${format(totals[k]!)}`).join('; ')}. Cao nhất ngày ${dm(peak)}.${gaps ? ` ${fmt(gaps)} ngày không có số liệu.` : ''} Phím mũi tên đọc từng ngày.`
+  const plot = `<div class="plot" data-plot tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d"><div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div><p class="vh" id="${c.id}-d">${esc(desc)}</p>`
+
+  const rows = c.days.map((d, i) => [d, i] as const).reverse().map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${c.partialLast && i === last ? ' (hôm nay)' : ''}</th>${all.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
+  const table = `<details><summary>Bảng số liệu</summary><div class="scroll"><table><thead><tr><th>Ngày</th>${all.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
+  return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}${readout}</figcaption>${plot}${table}</figure>`
 }
 
-export type Ranked = { label: string; value: number; cells?: string[] }
+/** A share of a whole (0–1) as a thin bar on a track, for the eye only: the text beside it says the figure. */
+export function meter(share: number, tone?: 'warn'): string {
+  if (!Number.isFinite(share)) return ''
+  return `<span class="meter${tone ? ` ${tone}` : ''}" aria-hidden="true"><span style="--w:${f2(100 * Math.min(1, Math.max(0, share)))}"></span></span>`
+}
+
+export type Ranked = { label: string; value: number; cells?: string[]; /** The part of `value` drawn darker inside its bar (the readers among a source's sessions). */ part?: number }
 /**
- * A ranked list as a table, its numbers drawn as bars from one baseline. `label` and `cells` are HTML, escaped by the
- * caller; `head`: the label's column, the value's, then one per cell.
+ * A ranked list as a table, each label over its bar: the bars share the label column's width and one baseline, and the
+ * numbers line up in their own column. A negative value draws to the left of a zero mark. `label` and `cells` are HTML,
+ * escaped by the caller; `head`: the label's column, the value's, then one per cell; `part` names what `part` counts.
  */
-export function rankTable(rows: Ranked[], head: string[], format: (n: number) => string = n => fmt(n)): string {
-  const max = Math.max(0, ...rows.map(r => r.value))
-  const body = rows.map(r => `<tr><th>${r.label}</th><td class="bar"><span style="--w:${max ? +((100 * r.value) / max).toFixed(1) : 0}"></span>${esc(format(r.value))}</td>${(r.cells ?? []).map(c => `<td>${c}</td>`).join('')}</tr>`).join('')
-  return `<div class="scroll"><table class="rank"><thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${body || `<tr><td colspan="${head.length}" class="none">Chưa có.</td></tr>`}</tbody></table></div>`
+export function rankTable(rows: Ranked[], head: string[], format: (n: number) => string = n => fmt(n), opts: { part?: string } = {}): string {
+  const vals = rows.map(r => r.value).filter(Number.isFinite)
+  const hi = Math.max(0, ...vals)
+  const lo = Math.min(0, ...vals)
+  const span = hi - lo
+  const zero = span ? (100 * -lo) / span : 0
+  const bar = (r: Ranked) => {
+    if (!span || !r.value || !Number.isFinite(r.value)) return ''
+    const w = (100 * Math.abs(r.value)) / span
+    const part = known(r.part) && r.value > 0 ? `<i style="--p:${f2(100 * Math.min(1, Math.max(0, r.part / r.value)))}"></i>` : ''
+    return `<span class="bar${r.value < 0 ? ' neg' : ''}${part ? ' parts' : ''}" style="--x:${f2(r.value < 0 ? zero - w : zero)};--w:${f2(w)}">${part}</span>`
+  }
+  const track = (r: Ranked) => `<span class="track${lo < 0 ? ' signed' : ''}"${lo < 0 ? ` style="--z:${f2(zero)}"` : ''} aria-hidden="true">${bar(r)}</span>`
+  const body = rows.map(r => `<tr><th><span class="lb">${r.label}</span>${track(r)}</th><td>${esc(format(r.value))}</td>${(r.cells ?? []).map(c => `<td>${c}</td>`).join('')}</tr>`).join('')
+  const key = opts.part && rows.some(r => known(r.part)) ? `<caption><span><i class="key s1"></i>${esc(opts.part)}</span><span><i class="key whole"></i>${esc(head[1] ?? '')}</span></caption>` : ''
+  return `<div class="scroll"><table class="rank">${key}<thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${body || `<tr><td colspan="${head.length}" class="none">Chưa có.</td></tr>`}</tbody></table></div>`
 }
 
 export type Delta = { now: number; before: number; vs: string; /** 'up': more is better (readers, clicks): coloured. */ good?: 'up' }
@@ -159,23 +195,31 @@ export function deltaHtml(d: Delta): string {
   return `<span class="delta ${tone}">${p > 0 ? '+' : p < 0 ? '−' : '±'}${fmt(Math.abs(p))}% so với ${esc(d.vs)}</span>`
 }
 
-export type Tile = { label: string; value: string; sub?: string; delta?: Delta; href?: string }
-/** KPI tiles: a label, the figure, then its change or a note. */
+export type Tile = { label: string; value: string; sub?: string; delta?: Delta; href?: string; /** A share of a whole, 0–1, drawn as a meter under the figure. */ meter?: number }
+/** KPI tiles: a label, the figure, its meter, then its change or a note. */
 export function tiles(xs: Tile[]): string {
-  return `<dl class="kpis">${xs.map(t => `<div class="kpi"><dt>${t.href ? `<a href="${esc(t.href)}">${esc(t.label)}</a>` : esc(t.label)}</dt><dd class="v">${esc(t.value)}</dd>${t.delta ? `<dd>${deltaHtml(t.delta)}</dd>` : ''}${t.sub ? `<dd class="sub">${esc(t.sub)}</dd>` : ''}</div>`).join('')}</dl>`
+  return `<dl class="kpis">${xs.map(t => `<div class="kpi"><dt>${t.href ? `<a href="${esc(t.href)}">${esc(t.label)}</a>` : esc(t.label)}</dt><dd class="v">${esc(t.value)}</dd>${t.meter !== undefined && Number.isFinite(t.meter) ? `<dd>${meter(t.meter)}</dd>` : ''}${t.delta ? `<dd>${deltaHtml(t.delta)}</dd>` : ''}${t.sub ? `<dd class="sub">${esc(t.sub)}</dd>` : ''}</div>`).join('')}</dl>`
 }
 
-/** A row's 30 days as a small line, the shape only: the row's figure and chip say the numbers. */
-export function spark(values: number[], warn = false): string {
+/**
+ * A row's whole days as small columns, the shape only (the row's figure and chip say the numbers): the last `recent`
+ * days, which the figure counts, in moss; the `recent` before them, which the chip compares with, paler; the rest faint.
+ * A missing day (null) draws nothing.
+ */
+export function spark(values: (number | null)[], recent = 7): string {
   const n = values.length
-  if (n < 2 || values.every(v => !v)) return ''
-  const w = 96
+  const max = Math.max(0, ...values.map(v => (known(v) ? v : 0)))
+  if (n < 2 || !(max > 0)) return ''
+  const w = 104
   const h = 30
-  const max = Math.max(...values)
-  const f = (v: number) => +v.toFixed(1)
-  const pts = values.map((v, i) => `${f(1 + (i * (w - 4)) / (n - 1))},${f(h - 3 - (v / max) * (h - 6))}`)
-  const [ex, ey] = pts[n - 1]!.split(',')
-  return `<svg class="spark${warn ? ' warn' : ''}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polygon class="ar" points="1,${h} ${pts.join(' ')} ${ex},${h}"/><polyline class="ln" points="${pts.join(' ')}"/><circle class="end" cx="${ex}" cy="${ey}" r="2.4"/></svg>`
+  const band = w / n
+  const bars = values.map((v, i) => {
+    if (!known(v) || v <= 0) return ''
+    const bh = Math.max(1.5, (v / max) * (h - 2))
+    const cls = i >= n - recent ? 'now' : i >= n - 2 * recent ? 'was' : 'old'
+    return `<rect class="${cls}" x="${f2(i * band + 0.5)}" y="${f2(h - 1 - bh)}" width="${f2(Math.max(1, band - 1))}" height="${f2(bh)}" rx=".8"/>`
+  }).join('')
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true"><line x1="0" x2="${w}" y1="${h - 0.5}" y2="${h - 0.5}"/>${bars}</svg>`
 }
 
 /**

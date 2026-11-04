@@ -320,7 +320,7 @@ function engineStats(dir: string, sourcesInfo: Json, now: Date): Omit<EngineStat
     listed: listed.size, written: 0, skipped: 0, waiting: 0, failed: 0,
     playlists: { queued: lists.filter(p => !p.skip).length, skipped: lists.filter(p => p.skip).length },
     singles: { queued: singles.filter(v => !v.skip).length, skipped: singles.filter(v => v.skip).length },
-    perDay: [],
+    writtenAt: [],
   }
   for (const id of listed) {
     const s = yt[id]
@@ -329,11 +329,9 @@ function engineStats(dir: string, sourcesInfo: Json, now: Date): Omit<EngineStat
     else if (s?.status === 'error' && (s.attempts ?? 0) >= MAX_ATTEMPTS) videos.failed++
     else videos.waiting++
   }
-  // 31 days: the dashboard's 30 whole days and today, as its other lines.
-  const days = Array.from({ length: 31 }, (_, i) => new Date(now.getTime() - (30 - i) * 86_400_000).toISOString().slice(0, 10))
-  const per = new Map(days.map(d => [d, 0]))
-  for (const s of Object.values(yt)) if (s.status === 'processed' && per.has(String(s.updatedAt).slice(0, 10))) per.set(String(s.updatedAt).slice(0, 10), per.get(String(s.updatedAt).slice(0, 10))! + 1)
-  videos.perDay = days.map(day => ({ day, n: per.get(day)! }))
+  // 32 days: the dashboard's 30 whole days and today, in any viewer's time zone.
+  const since = now.getTime() - 32 * 86_400_000
+  videos.writtenAt = Object.values(yt).filter(s => s.status === 'processed' && Date.parse(String(s.updatedAt)) >= since).map(s => new Date(String(s.updatedAt)).toISOString()).sort()
 
   return {
     sources, needsHuman, videos,

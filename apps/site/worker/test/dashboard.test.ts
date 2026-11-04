@@ -17,7 +17,7 @@ const totals = (fish: number, plant = 0, guide = 0, idFish = 0, thFish = 0): Tot
 /** content.json as the home page reads it: the items, and the engine's queue. */
 const stats = (needsHuman: { source: string; since: string }[] = []) => ({
   inventory: { fish: { total: 100, id: 0, th: 0 }, plant: { total: 20, id: 0, th: 0 }, guide: { total: 5, id: 0, th: 0 } },
-  engine: { needsHuman, sources: [{ id: '2hraquarist', name: '2Hr Aquarist' }], videos: { waiting: 40, perDay: lastDays(NOW, 14).map((day, i) => ({ day, n: i === 13 ? 3 : 1 })) } },
+  engine: { needsHuman, sources: [{ id: '2hraquarist', name: '2Hr Aquarist' }], videos: { waiting: 40, writtenAt: lastDays(NOW, 14).flatMap((day, i) => Array<string>(i === 13 ? 3 : 1).fill(`${day}T02:00:00.000Z`)) } },
 }) as unknown as ContentStats
 /** Every part loaded: no keys resting, nothing waiting, no days counted. */
 const well = (): Overview => {
@@ -75,7 +75,8 @@ test('overview: a source behind a browser check is the owner\'s to pass; the con
   // Indonesian and Thai pages that night, apart: the Vietnamese count says nothing of them.
   const translated: Snapshot[] = [{ day: days[7]!, totals: totals(100, 20, 5, 10, 12) }, { day: days[8]!, totals: totals(100, 20, 5, 30, 32) }]
   expect(log({ ...o, snapshots: translated })[0]!.items[0]).toEqual({ text: '20 bài tiếng Indonesia, 20 bài tiếng Thái mới' })
-  expect(perDay(snaps, days, t => t.kinds.fish[0])).toEqual([0, 10, 0, 0, 0, 0, 0, 8, 2])
+  // A day not kept, or with nothing kept before it, is unknown rather than 0.
+  expect(perDay(snaps, days, t => t.kinds.fish[0])).toEqual([null, 10, null, null, null, null, null, 8, 2])
 })
 
 test('overview areas: the last 7 whole days against the 7 before, the 30 whole days drawn; today left out', () => {

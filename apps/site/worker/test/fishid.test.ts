@@ -554,7 +554,8 @@ test('the owner\'s dashboard: each key by number and hash, its state and today\'
   expect(status.today).toBe(1)
   const html = fishIdPage({ now: new Date(), stats: unset('AE'), keys: status, pages: new Map() })
   expect(html).toContain('hết credit')
-  expect(html).toContain('Lần gọi API hôm nay')
+  // The tool counts by UTC day: the column says when that day began, in the viewer's time (07:00 in Vietnam).
+  expect(html).toMatch(/Lần gọi API từ 07:00 hôm (nay|qua)/)
   expect(html).toContain('Claude trả lời')
   expect(html).toContain(await keyHash(A))
   for (const k of [A, B, C, 'wrkspc_orgA']) expect(html).not.toContain(k)
