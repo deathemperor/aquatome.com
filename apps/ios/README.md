@@ -139,7 +139,7 @@ costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instruct
 Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in that file rather than an Xcode
 `.xcbaseline`, which belongs to one machine model and would silently stop applying when the hosted runners change.
 
-The app icons a reader chooses (`AppIconPicker`, drawn by `scripts/app-icons.py`) are most of the app's size: 32
+The app icons a reader chooses (`AppIconPicker`, drawn by `scripts/app-icons.py`) are much of the app's size: 32
 alternates at home-screen sizes only (iPhone 60 pt @2x/@3x, iPad 76 and 83.5 pt @2x; iOS scales them down for
 Spotlight, Settings and notifications), measured on one Mac, 2026-11-03 (the previews 2026-11-04):
 
@@ -169,6 +169,11 @@ size). Without dithering it bands; without its glows it would cost 155 kB lossle
 drawn 1024 246.4 kB (the AT's 25.3), dark 89.1, tinted 33.7; the home-screen PNGs beside the app 49.2 kB (the AT's 8.5).
 With the picker's three new alternates (a book-page fin, a magnifier, the AT) and their previews, the archive is 9,367.4
 kB, 4,933.5 kB on one iPhone (the same estimate).
+
+The alternates drawn by `app-icons.py` (34 of them; the AT, flat and hand-drawn, isn't: its gamma moves its colour) are
+quantized the same way since 2026-11-04: Assets.car 6,243.8 → 3,171.9 kB, so the archive is 6,295.5 kB, 4,211.8 kB on
+one iPhone (the table above is from before). At home-screen size each looks as it did; zoomed in with the contrast
+pushed, the dark glows show faint grain, no bands.
 
 Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
 the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
