@@ -192,6 +192,26 @@ test('species page: the gallery\'s thumbnails sit under the photo beside the fac
   expect(errors).toEqual([])
 })
 
+// On a phone the page is one column, and the thumbnails' heading and "see all" link sit in it. Indonesian's pair ("Foto
+// Labidochromis caeruleus", "Lihat semua 15 foto →") couldn't get narrower than the column, so the column grew past the
+// screen and took the photo's credit with it (aquatome.com/id/ikan/yellow-lab/, 418 px on a 412 px phone). The link now
+// wraps under the heading, and nothing in the column can widen it.
+test('species page on a phone: a long thumbnails heading and link wrap instead of widening the page', async ({ page }, info) => {
+  test.skip(info.project.name !== 'phone', 'the phone layout')
+  test.skip(!(await speciesWithGallery(page)), 'no species page with a gallery strip')
+  await page.setViewportSize({ width: 360, height: 800 })
+  const head = page.locator('main section.strip .head')
+  await head.locator('h2').evaluate(h => { h.textContent = 'Foto Labidochromis caeruleus' })
+  if (await head.locator('a').count()) await head.locator('a').evaluate(a => { a.textContent = 'Lihat semua 15 foto →' })
+  else await head.evaluate(h => h.insertAdjacentHTML('beforeend', '<a href="#">Lihat semua 15 foto →</a>'))
+  const [column, room] = await page.locator('header.top').evaluate(t => {
+    const s = getComputedStyle(t)
+    return [parseFloat(s.gridTemplateColumns), t.clientWidth - parseFloat(s.paddingLeft) - parseFloat(s.paddingRight)]
+  })
+  expect(column, 'the column within the screen').toBeLessThanOrEqual(room + 0.5)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), 'sideways scroll').toBeLessThanOrEqual(0)
+})
+
 // Beside facts longer than the photo column, the column follows them down (sticky): scrolled until the thumbnails would
 // have left the screen, they are still on it. On a screen too short for the whole column (700 px), the thumbnails alone
 // follow. The jump row's "Ảnh", tapped from further down, brings them back into view.

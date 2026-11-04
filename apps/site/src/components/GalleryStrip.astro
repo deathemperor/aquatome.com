@@ -26,7 +26,7 @@ const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
 </section>
 <style>
   .strip { padding-block: var(--space-5); }
-  .head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-4); }
+  .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-1) var(--space-4); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-4); }
   h2 { font-size: var(--step-2); }
   .head a { white-space: nowrap; font-size: 0.95rem; }
   ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); }
