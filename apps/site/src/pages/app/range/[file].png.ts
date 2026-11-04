@@ -17,5 +17,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return [...pics].map(([file, svg]) => ({ params: { file: file.replace(/^\/app\/range\/|\.png$/g, '') }, props: { svg } }))
 }
 
+// Full colour: about 30 ms a map, where a palette's would be a third smaller but three times as slow to make.
 export const GET: APIRoute = async ({ props }) =>
-  new Response(new Uint8Array(await sharp(Buffer.from((props as { svg: string }).svg)).png({ palette: true, compressionLevel: 9 }).toBuffer()), { headers: { 'Content-Type': 'image/png' } })
+  new Response(new Uint8Array(await sharp(Buffer.from((props as { svg: string }).svg)).png({ compressionLevel: 9 }).toBuffer()), { headers: { 'Content-Type': 'image/png' } })

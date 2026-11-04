@@ -71,11 +71,17 @@ const squareKm = (step: number) => Math.round((CELL_DEG * step * 111) / 10) * 10
  * a picture by its address, never shows an old map) and the SVG it is drawn from. None without records.
  */
 export function rangePicture(id: string, range: SpeciesRange | undefined): { map: RangeMap; file: string; svg: string } | undefined {
+  if (!range) return undefined
+  // Drawn once a build for each species' range (its page, its copy and its PNG all ask).
+  const done = pictures.get(range)
+  if (done?.id === id) return done.pic
   const map = rangeMap(range)
-  if (!map) return undefined
-  const svg = mapSvg(map, 'png')
-  return { map, svg, file: `/app/range/${id}-${createHash('sha256').update(svg).digest('hex').slice(0, 10)}.png` }
+  const svg = map && mapSvg(map, 'png')
+  const pic = map && svg ? { map, svg, file: `/app/range/${id}-${createHash('sha256').update(svg).digest('hex').slice(0, 10)}.png` } : undefined
+  pictures.set(range, { id, pic })
+  return pic
 }
+const pictures = new WeakMap<SpeciesRange, { id: string; pic?: { map: RangeMap; file: string; svg: string } }>()
 
 /** GBIF's own page of the records the map draws: the same filters as the engine's (range-records.ts), as gbif.org writes them. */
 export function gbifSearch(taxonKey: number): string {

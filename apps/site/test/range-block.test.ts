@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
-import { CELL_DEG, type Cell, type SourceId, type SpeciesRange } from '@aq/schema'
+import { CELL_DEG, countryName, type Cell, type SourceId, type SpeciesRange } from '@aq/schema'
+import { isVietnamese } from '@aq/schema/text'
 import { getContent } from '../src/lib/content'
 import { frameOf, mapSvg, MAP_W, rangeMap } from '../src/lib/range-map'
 import { gbifSearch, rangeParts, rangePicture } from '../src/lib/range'
@@ -129,4 +130,14 @@ test('the fixture fish: the neon tetra\'s block as its page will show it', () =>
   expect(p.said?.html.match(/<li>/g)).toHaveLength(4)
   expect(plain(p.records)).toBe('GBIF có 39 ghi nhận ngoài tự nhiên: 27 trong các nước trên, 12 ở nơi khác (nhiều nhất: Venezuela 12). Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.')
   expect(p.map?.legend.map(l => l.kind)).toEqual(['in', 'out', 'native'])
+})
+
+test('in Indonesian and Thai: every word translated, the countries named in that language', async () => {
+  for (const [lang, title] of [['id', 'Sebaran alami'], ['th', 'การกระจายพันธุ์ตามธรรมชาติ']] as const) {
+    const p = rangeParts(lang, await getContent(lang), { id: 'x', name: 'Neon', range }, marks(['seriouslyfish']))!
+    expect(p.title).toBe(title)
+    const words = [p.words, p.records, p.map?.alt, p.map?.caption, p.credit?.text, p.credit?.base, ...(p.map?.legend.map(l => l.label) ?? [])].map(plain).join(' ')
+    expect(isVietnamese(words), `${lang}: ${words}`).toBe(false)
+    expect(words, lang).toContain(countryName('VE', lang))
+  }
 })

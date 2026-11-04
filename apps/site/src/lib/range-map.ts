@@ -35,7 +35,25 @@ export type RangeMap = {
   kinds: SquareKind[]
 }
 
-const OUTLINE = world as Record<string, number[][]>
+type Ring = { code: string; pts: [number, number][]; west: number; east: number; south: number; north: number }
+let rings: Ring[] | undefined
+/** The outline's rings in degrees, each with its extent, decoded once (world.json: 0.1° steps from a first point). */
+function outline(): Ring[] {
+  if (rings) return rings
+  rings = []
+  for (const [code, list] of Object.entries(world as Record<string, number[][]>)) {
+    for (const flat of list) {
+      const pts: [number, number][] = []
+      for (let i = 0, lon = 0, lat = 0; i < flat.length; i += 2) {
+        lon += flat[i]!; lat += flat[i + 1]!
+        pts.push([lon / 10, lat / 10])
+      }
+      const lons = pts.map(p => p[0]), lats = pts.map(p => p[1])
+      rings.push({ code, pts, west: Math.min(...lons), east: Math.max(...lons), south: Math.min(...lats), north: Math.max(...lats) })
+    }
+  }
+  return rings
+}
 
 /** The records' cells' extent, padded, at least MIN_W × MIN_H, its aspect within bounds, inside the world. */
 export function frameOf(cells: NonNullable<SpeciesRange['records']>['cells']) {
@@ -135,17 +153,11 @@ export function rangeMap(range: SpeciesRange | undefined): RangeMap | undefined 
   const pad = 2 / k
   const native = new Set(range?.native?.countries ?? [])
   const land: string[] = [], shaded: string[] = []
-  for (const [code, rings] of Object.entries(OUTLINE)) {
-    for (const flat of rings) {
-      const ring: [number, number][] = []
-      for (let i = 0, lon = 0, lat = 0; i < flat.length; i += 2) {
-        lon += flat[i]!; lat += flat[i + 1]!
-        ring.push([lon / 10, lat / 10])
-      }
-      const cut = clip(ring, frame.west - pad, frame.south - pad, frame.east + pad, frame.north + pad)
-      const d = cut.length >= 3 ? ringPath(cut.map(([lon, lat]) => [x(lon), y(lat)])) : ''
-      if (d) (native.has(code) ? shaded : land).push(d)
-    }
+  for (const r of outline()) {
+    if (r.east < frame.west - pad || r.west > frame.east + pad || r.north < frame.south - pad || r.south > frame.north + pad) continue
+    const cut = clip(r.pts, frame.west - pad, frame.south - pad, frame.east + pad, frame.north + pad)
+    const d = cut.length >= 3 ? ringPath(cut.map(([lon, lat]) => [x(lon), y(lat)])) : ''
+    if (d) (native.has(r.code) ? shaded : land).push(d)
   }
 
   // Cells drawn together on a coarser square of the same grid when one alone would be smaller than MIN_SQUARE.
