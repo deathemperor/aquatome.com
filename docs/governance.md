@@ -381,6 +381,18 @@ The layers above still check the result.
     - a guide's title promising a count its text lacks (a breed's or product's title is its name: listed): rewritten by
       the model, kept when its reviewer passes it, else the number dropped from the title; the address stays
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
+    - a species' other names ("Tên khác", its search names, the names other pages' text links it by), in each language:
+      its own only (`packages/engine/src/alt-names.ts`). A breed page's own name leaves it, that page being found by it
+      ("Bubble Eye Goldfish"; never a breed's other names, which list the species' too: "Cá xiêm" under the plakat
+      betta). A bred line's or colour form's (the species' name with a word such as Alien, hybrid, lai, albino, koi,
+      Super, spade tail: "Alien Betta Green Hybrid") goes. A name written twice (case, accents, punctuation, "Cá" or
+      ปลา before it, "X (Y)" of two it has, its own name or scientific name again) is kept once, best written; words
+      joined or split ("Horse face", "Horseface") are two names, as search reads them. Each name off is in
+      `engine-state/_names-off.json` with why. The merge, `shop-names` and `wikidata-names` add only names it keeps.
+      Found by the owner: 25 of the betta's 32 other names were its Alien hybrids' and a Red Spade Tail's, from
+      shop listings of one variety each that every merge had kept. A run on a copy (2026-11-04) took 769 names off 451 species
+      (571 pages in three languages): 5 breed names (4 species), 52 variety names (15), 335 written twice (239), 174 the
+      page's own name again, 203 its scientific name again. The betta keeps 6.
   - Text that reports what "the page" says ("Trang lưu ý…", "Trang cũng nêu…") has no safe fix: the reader's writer
     rewrites it on Vietnamese pages, reviewer-gated.
   - First run (2026-11-02, 2,599 pages): the source site's comments or related posts cut on 22 guides, a heading left at

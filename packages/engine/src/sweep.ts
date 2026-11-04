@@ -1,6 +1,7 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { mayPublish, QUALITY_THRESHOLD, shownCard, type DataCardField, type Lang, type SpeciesEntity } from '@aq/schema'
+import { breedNames, cleanAltNames, type BreedName } from './alt-names'
 import { LlmError, type Llm } from './claude'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
@@ -21,6 +22,9 @@ import { carryTopicChecks } from './topic-check'
  *   summary, checked against the old card, goes back to pending: hidden until the summaries step writes it again
  * - a guide's title promising a count its text lacks: with `llm`, rewritten by the model (`titles` at most a run, reviewer-gated:
  *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. The address stays.
+ * - a species' other names, in each language: its own only (alt-names.ts). A breed page's name leaves it (that page is
+ *   found by it), a colour form's or bred line's goes, a name written twice is kept once. Each name taken off is kept in
+ *   engine-state/_names-off.json with why, for a person to check.
  */
 export type SweepReport = {
   /** Files changed, `kind/id/file`. */
@@ -33,6 +37,8 @@ export type SweepReport = {
   /** Summaries sent back to be written again, their card having changed. */
   summaries: string[]
   titles: string[]
+  /** Other names taken off species pages: `lang/id: "name" (why)`. */
+  names: string[]
   stopped: string
 }
 
@@ -94,7 +100,7 @@ function hideSlips(card: Partial<Record<DataCardField, Value[]>>, shown: (card: 
 
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string } = {}): Promise<SweepReport> {
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], titles: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], titles: [], names: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: Lang; id: string }[] = [] // raw: for its indentation
@@ -118,6 +124,33 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
       }
     }
   }
+
+  // A species' other names: its own, each once.
+  const breeds = Object.fromEntries(await Promise.all(LANGS.map(async l => [l, await breedNames(content, l)] as const))) as Record<Lang, BreedName[]>
+  const offFile = join(root, 'engine-state', '_names-off.json')
+  const offLog = JSON.parse(await readFile(offFile, 'utf8').catch(() => '{}')) as Record<string, Record<string, string>>
+  const today = new Date().toISOString().slice(0, 10)
+  for (const id of (await readdir(join(content, 'species')).catch(() => [] as string[])).sort()) {
+    const sci = (JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { scientificName?: string }).scientificName
+    if (!sci) continue
+    for (const lang of LANGS) {
+      const file = join(content, 'species', id, `${lang}.json`)
+      const raw = await readFile(file, 'utf8').catch(() => null)
+      if (!raw) continue
+      const t = JSON.parse(raw) as Stored & { name: string; altNames: string[] }
+      const { altNames, off } = cleanAltNames({ name: t.name, sci, altNames: t.altNames }, breeds[lang])
+      if (JSON.stringify(altNames) === JSON.stringify(t.altNames)) continue
+      await write(file, raw, { ...t, altNames })
+      changed(`species/${id}/${lang}.json`)
+      for (const o of off) {
+        const why = o.why === 'breed' ? `a breed's name: breeds/${o.of}` : o.why === 'variety' ? 'a variety\'s name'
+          : o.of === sci ? 'its scientific name' : o.of === t.name ? 'its name' : `written twice: "${o.of}"`
+        report.names.push(`${lang}/${id}: "${o.name}" (${why})`)
+        ;(offLog[`${lang}/${id}`] ??= {})[o.name] ??= `${why}, ${today}`
+      }
+    }
+  }
+  if (report.names.length) await writeFile(offFile, `${JSON.stringify(Object.fromEntries(Object.entries(offLog).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
 
   // A title promising a count its text lacks: the model's rewrite when it passes, else the number dropped.
   let budget = o.llm ? (o.titles ?? 3) : 0
