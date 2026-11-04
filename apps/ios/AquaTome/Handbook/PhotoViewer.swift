@@ -74,6 +74,8 @@ struct GalleryViewer: View {
         // The viewer's own: not given to each part in it, which keep theirs.
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("gallery")
+        // VoiceOver's scrub (two fingers, a Z) closes it, as its "Đóng" does.
+        .accessibilityAction(.escape) { close() }
     }
     // Black in light mode too: a photo looks right on it, and the bars and words are drawn for it.
     .environment(\.colorScheme, .dark)
@@ -171,7 +173,9 @@ struct GalleryViewer: View {
     .padding(.horizontal)
     .padding(.top, 48)
     .padding(.bottom, 4)
-    .background(LinearGradient(colors: [.clear, .black.opacity(0.5), .black.opacity(0.8)], startPoint: .top, endPoint: .bottom).ignoresSafeArea())
+    // A swipe on the fade, not on the words, still pages.
+    .background(LinearGradient(colors: [.clear, .black.opacity(0.5), .black.opacity(0.8)], startPoint: .top, endPoint: .bottom)
+      .ignoresSafeArea().allowsHitTesting(false))
   }
 
   /// "12/28 · its note": the number brighter than the note.
@@ -223,14 +227,25 @@ struct GalleryViewer: View {
 
   #if DEBUG
   /// For the UI tests (debug builds only), as the lights screen shows its frames: the photos whose full picture was
-  /// fetched (their places, from 1), and what the one shown shows.
+  /// fetched and those whose fetch was stopped (their places, from 1), what the one shown shows, at how many pixels on
+  /// its longest side, and how many times its full photo was fetched.
   @ViewBuilder private var testsRead: some View {
-    let asked = Set(PictureLog.shared.full)
-    Text(verbatim: photos.indices.filter { asked.contains(photos[$0].src) }.map { "\($0 + 1)" }.joined(separator: " "))
-      .font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("picture-requests")
-    let s = pictures.shown[index]
+    let log = PictureLog.shared
+    Text(verbatim: places(log.full)).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("picture-requests")
+    Text(verbatim: places(log.stopped)).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("picture-stopped")
+    let s = pictures.shown[index], image = s?.full ?? s?.thumb
     Text(verbatim: s?.full != nil ? "full" : s?.thumb != nil ? "thumb" : s?.failed == true ? "failed" : "none")
       .font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("picture-shown")
+    Text(verbatim: "\(Int(image.map { max($0.size.width, $0.size.height) * $0.scale } ?? 0))")
+      .font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("picture-pixels")
+    Text(verbatim: "\(photos.indices.contains(index) ? log.full.filter { $0 == photos[index].src }.count : 0)")
+      .font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("picture-tries")
+  }
+
+  /// The places, from 1, of the photos whose full photo is among `srcs`.
+  private func places(_ srcs: [String]) -> String {
+    let set = Set(srcs)
+    return photos.indices.filter { set.contains(photos[$0].src) }.map { "\($0 + 1)" }.joined(separator: " ")
   }
   #endif
 
@@ -314,8 +329,10 @@ struct GalleryViewer: View {
     if !Task.isCancelled { loads[k] = nil }
   }
 
+  /// Its thumbnail at the screen's size, though one is shown already: the strip's is decoded at 40 points, blurred
+  /// scaled up. One in memory large enough (the row's) comes at once, without a fetch.
   private func loadThumb(_ k: Int) async {
-    guard shown[k]?.thumb == nil, let src = photos[k].thumb else { return }
+    guard let src = photos[k].thumb else { return }
     let thumb = await PageImages.image(src, .longest(side), role: .thumb)
     if shown[k]?.full == nil, let thumb { shown[k]?.thumb = thumb }
   }

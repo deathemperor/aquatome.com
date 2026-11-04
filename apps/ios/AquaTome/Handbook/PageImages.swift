@@ -5,15 +5,16 @@ import UIKit
 
 /// A picture of a page the app draws, the size the page gives it before it's here. Decoded off the main thread at the
 /// size it's shown, not the file's; one already in memory (scrolled back to) shows in the first frame, not after a grey
-/// one.
+/// one. Each picture is kept with its address: a place in a row given another photo (a reader's, after one before it is
+/// blocked) never shows the one before under the new one's words, even when the new one doesn't come.
 struct PageImage: View {
   let src: String
   let ratio: CGFloat
   var alt: String?
   var corner: CGFloat = 10
-  @State private var image: UIImage?
-  /// None came (offline before it was kept, or gone from the site).
-  @State private var missing = false
+  @State private var picture: (src: String, image: UIImage)?
+  /// The address of the one that didn't come (offline before it was kept, or gone from the site).
+  @State private var missing: String?
   /// Its size on the screen, in pixels.
   @State private var pixels = CGSize.zero
   @Environment(\.displayScale) private var scale
@@ -24,8 +25,10 @@ struct PageImage: View {
     self.ratio = ratio
     self.alt = alt
     self.corner = corner
-    _image = State(initialValue: PageImages.cached(src))
   }
+
+  /// This address's picture: the one decoded for it here, else one in memory at any size.
+  private var image: UIImage? { picture?.src == src ? picture?.image : PageImages.cached(src) }
 
   var body: some View {
     Rectangle().fill(.fill.tertiary)
@@ -33,7 +36,7 @@ struct PageImage: View {
       .overlay {
         if let image {
           Image(uiImage: image).resizable().scaledToFill().transition(.opacity)
-        } else if missing {
+        } else if missing == src {
           // A photo's place, not an empty box.
           Image(systemName: "photo").font(.title2).foregroundStyle(.tertiary)
         }
@@ -46,13 +49,17 @@ struct PageImage: View {
       .accessibilityHidden(alt == nil)
       .task(id: [src, "\(pixels)"]) {
         guard pixels.width > 0 else { return }
-        let size = PageImages.Size.filling(pixels)
-        if let hit = PageImages.cached(src, size) { image = hit; return }
+        let size = PageImages.Size.filling(pixels), src = src
+        if let hit = PageImages.cached(src, size) { picture = (src, hit); return }
+        let had = image != nil
         let loaded = await PageImages.image(src, size)
         guard !Task.isCancelled else { return }
         // Faded in as it comes; one in memory at a smaller size, swapped.
-        withAnimation(reduceMotion || image != nil ? nil : .easeOut(duration: 0.2)) { image = loaded ?? image }
-        missing = image == nil
+        if let loaded {
+          withAnimation(reduceMotion || had ? nil : .easeOut(duration: 0.2)) { picture = (src, loaded) }
+        } else if !had {
+          missing = src
+        }
       }
   }
 }
@@ -133,8 +140,13 @@ enum PageImages {
     // `-slow-pictures`: a full photo takes 20 s to come, so a test sees what the viewer shows while it's on its way.
     if role == .full, args.contains("-slow-pictures") {
       try? await Task.sleep(for: .seconds(20))
-      if Task.isCancelled { return nil }
+      if Task.isCancelled {
+        await PictureLog.shared.stopped(src)
+        return nil
+      }
     }
+    // `-fail-pictures <part>`: those whose address has it don't come, so a test sees a place with none.
+    if let i = args.firstIndex(of: "-fail-pictures"), args.indices.contains(i + 1), src.contains(args[i + 1]) { return nil }
     // UI tests read no network; their screenshots (`-fixed-pictures`) show a stand-in where each photo goes.
     if args.contains("-fixed-pictures") { return fixedPicture(src, role) }
     if args.contains("-fixed-handbook") { return nil }
@@ -214,14 +226,18 @@ private final class Decoded: Sendable {
 }
 
 #if DEBUG
-/// Debug builds: the full photos fetched this run, so a UI test can read what the photo viewer fetched (the viewer shows
-/// it, as the lights screen shows its frames).
+/// Debug builds: the full photos fetched this run, once for each time asked, and those whose fetch was stopped on the way
+/// (`-slow-pictures`), so a UI test can read what the photo viewer fetched and let go of (the viewer shows it, as the
+/// lights screen shows its frames).
 @MainActor @Observable final class PictureLog {
   static let shared = PictureLog()
   private(set) var full: [String] = []
+  private(set) var stopped: [String] = []
 
   func asked(_ src: String, _ role: PageImages.Role) {
     if role == .full { full.append(src) }
   }
+
+  func stopped(_ src: String) { stopped.append(src) }
 }
 #endif

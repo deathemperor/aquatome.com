@@ -2,7 +2,7 @@ import XCTest
 
 /// A gallery's photo viewer, on the fixed pages with stand-in photos (`-fixed-pictures`, no network): a photo shows its
 /// thumbnail at once while the full photo is on its way, the photos either side are fetched and no others, and the
-/// viewer is swiped, tapped, zoomed and pulled down as a phone's photo viewer is.
+/// viewer is swiped, tapped, zoomed and pulled down as a phone's photo viewer is. And a row's place shows its own photo.
 final class PhotoViewerFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -25,13 +25,16 @@ final class PhotoViewerFlowTests: XCTestCase {
     let app = launch()
     rowPhoto(app, "Cá neon gần cây").tap()
     XCTAssertTrue(counter(app, "2/3").waitForExistence(timeout: 5), "not on the photo tapped")
+    // The pager on it too, not only the counter.
+    XCTAssertTrue(viewerPhoto(app, "Ảnh 2 trên 3").isHittable, "the second photo isn't the one on screen")
     let shown = app.descendants(matching: .any)["picture-shown"]
     XCTAssertTrue(wait(shown, label: "full", timeout: 15), "the full photo didn't come: \(shown.label)")
   }
 
   /// Photo 1 of 28 fetches 2 and 3 with it; photo 8, picked in the strip, 6 to 10: nothing further, and none between.
+  /// Full photos held back (`-slow-pictures`), the fetches left far behind are stopped on the way.
   func testOnlyThePhotosNearTheOneShownAreFetched() {
-    let app = launch("-large-gallery")
+    let app = launch("-slow-pictures", "-large-gallery")
     let all = app.buttons["gallery-all"]
     reveal(app, all)
     all.tap()
@@ -42,12 +45,50 @@ final class PhotoViewerFlowTests: XCTestCase {
     eighth.tap()
     XCTAssertTrue(counter(app, "8/28").waitForExistence(timeout: 5), "not on photo 8")
     XCTAssertTrue(wait(asked, label: "1 2 3 6 7 8 9 10", timeout: 5), "fetched \(asked.label)")
+    let stopped = app.descendants(matching: .any)["picture-stopped"]
+    XCTAssertTrue(wait(stopped, label: "1 2 3", timeout: 5), "stopped \(stopped.label), not 1 2 3")
     settle(1.5)
     XCTAssertEqual(asked.label, "1 2 3 6 7 8 9 10", "fetched more than the photos near")
-    // Swiped on: one more, the next but one.
+    // Swiped on: one more, the next but one, and the one now three behind stopped.
     app.swipeLeft()
     XCTAssertTrue(counter(app, "9/28").waitForExistence(timeout: 5), "didn't swipe to photo 9")
     XCTAssertTrue(wait(asked, label: "1 2 3 6 7 8 9 10 11", timeout: 5), "fetched \(asked.label)")
+    XCTAssertTrue(wait(stopped, label: "1 2 3 6", timeout: 5), "stopped \(stopped.label), not 1 2 3 6")
+  }
+
+  /// Deep in the gallery, a photo waiting for its full photo shows its thumbnail at the screen's size: not the strip's,
+  /// decoded for 40 points and blurred scaled up.
+  func testAPhotoPickedInTheStripShowsItsThumbnailSharp() {
+    let app = launch("-slow-pictures", "-large-gallery")
+    let all = app.buttons["gallery-all"]
+    reveal(app, all)
+    all.tap()
+    let eighth = app.buttons["Ảnh 8 trên 28"]
+    XCTAssertTrue(eighth.waitForExistence(timeout: 5), "no photo 8 in the strip")
+    eighth.tap()
+    XCTAssertTrue(counter(app, "8/28").waitForExistence(timeout: 5), "not on photo 8")
+    // Photo 11: in the strip now, and not in the page's row (its first ten), so its thumbnail in memory is the strip's.
+    let eleventh = app.buttons["Ảnh 11 trên 28"]
+    XCTAssertTrue(eleventh.waitForExistence(timeout: 5), "no photo 11 in the strip")
+    settle(1)
+    eleventh.tap()
+    XCTAssertTrue(counter(app, "11/28").waitForExistence(timeout: 5), "not on photo 11")
+    XCTAssertEqual(app.descendants(matching: .any)["picture-shown"].label, "thumb", "not waiting for its full photo")
+    // A stand-in thumbnail is 600 pixels across.
+    let pixels = app.descendants(matching: .any)["picture-pixels"]
+    XCTAssertTrue(wait(pixels, label: "600", timeout: 5), "its thumbnail is shown \(pixels.label) pixels across, not 600")
+  }
+
+  /// A full photo that didn't come (no stand-ins: `-fixed-handbook` alone) is fetched again by "Thử lại".
+  func testAPhotoThatDidntComeIsTriedAgain() {
+    let app = launch(pictures: false)
+    rowPhoto(app, "Đàn cá neon trong bể").tap()
+    guard let retry = shownRetry(app, timeout: 10) else { return XCTFail("no retry for a photo that didn't come") }
+    let tries = app.descendants(matching: .any)["picture-tries"]
+    XCTAssertEqual(tries.label, "1")
+    retry.tap()
+    XCTAssertTrue(wait(tries, label: "2", timeout: 5), "fetched \(tries.label) times, not tried again")
+    XCTAssertNotNil(shownRetry(app, timeout: 5), "no retry once it failed again")
   }
 
   /// Swiped to the next photo and back, its words and counter following.
@@ -59,6 +100,17 @@ final class PhotoViewerFlowTests: XCTestCase {
     app.swipeRight()
     XCTAssertTrue(counter(app, "1/3").waitForExistence(timeout: 3), "not back on the first photo")
     XCTAssertTrue(app.staticTexts["Đàn cá neon trong bể"].exists, "not the first photo's words")
+  }
+
+  /// Swiped on the dark fade under the photo, above its words, it pages as on the photo.
+  func testSwipingOnTheFadePages() {
+    let app = openViewer()
+    let words = app.staticTexts["Đàn cá neon trong bể"]
+    let y = (words.frame.minY - 24) / app.frame.height
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.85, dy: y))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.15, dy: y)), withVelocity: .fast,
+             thenHoldForDuration: 0)
+    XCTAssertTrue(counter(app, "2/3").waitForExistence(timeout: 3), "a swipe on the fade didn't page")
   }
 
   /// A tap hides the bar, the words and the counter; another shows them again.
@@ -82,23 +134,21 @@ final class PhotoViewerFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["gallery-all"].isHittable, "not back on the page")
   }
 
-  /// Zoomed (double-tapped or pinched), a swipe moves the photo, not to the next one; zoomed out, it swipes again.
+  /// Zoomed (double-tapped or pinched), a swipe moves the photo, not to the next one, even past the photo's edge (three
+  /// swipes); zoomed out, it swipes again.
   func testZoomingStopsSwiping() {
     let app = openViewer()
     middle(app).doubleTap()
     settle(0.6)
-    app.swipeLeft()
-    settle(0.6)
+    swipes(app)
     XCTAssertTrue(counter(app, "1/3").exists, "swiped to another photo while zoomed")
     middle(app).doubleTap()
     settle(0.6)
     app.swipeLeft()
     XCTAssertTrue(counter(app, "2/3").waitForExistence(timeout: 3), "didn't swipe once zoomed out")
-    app.descendants(matching: .any).matching(identifier: "viewer-photo").matching(NSPredicate(format: "label == %@", "Ảnh 2 trên 3")).firstMatch
-      .pinch(withScale: 3, velocity: 4)
+    viewerPhoto(app, "Ảnh 2 trên 3").pinch(withScale: 3, velocity: 4)
     settle(0.6)
-    app.swipeLeft()
-    settle(0.6)
+    swipes(app)
     XCTAssertTrue(counter(app, "2/3").exists, "swiped to another photo while pinched")
   }
 
@@ -115,12 +165,39 @@ final class PhotoViewerFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["Chặn người này"].exists, "no block in the menu")
   }
 
+  /// A place in a row given another photo (Minh's, once Lan is blocked from the viewer) shows that one, or a photo's
+  /// place when it doesn't come (`-fail-pictures`): never the photo before, under the new one's words.
+  func testARowsPlaceNeverShowsThePhotoBefore() {
+    let app = launch("-fake-accounts", "on", "-reset-fake-server", "-fail-pictures", "p2-t")
+    let lan = app.buttons["Ảnh của Lan"]
+    reveal(app, lan)
+    settle(1)
+    XCTAssertGreaterThan(colour(lan.screenshot().image), 0.12, "Lan's photo isn't drawn")
+    lan.tap()
+    let menu = app.buttons["Tùy chọn cho ảnh của Lan"].firstMatch
+    XCTAssertTrue(menu.waitForExistence(timeout: 10), "no options in the photo's viewer")
+    menu.tap()
+    let block = app.buttons["Chặn người này"]
+    XCTAssertTrue(block.waitForExistence(timeout: 3), "no block in the menu")
+    block.tap()
+    let sure = app.buttons["Chặn"]
+    XCTAssertTrue(sure.waitForExistence(timeout: 5), "not asked")
+    sure.tap()
+    XCTAssertTrue(gone(app.descendants(matching: .any)["gallery"]), "the viewer stayed open")
+    let minh = app.buttons["Ảnh của Minh"]
+    XCTAssertTrue(minh.waitForExistence(timeout: 5), "Minh's photo went too")
+    XCTAssertFalse(app.buttons["Ảnh của Lan"].exists, "Lan's photo still shows")
+    settle(1)
+    XCTAssertLessThan(colour(minh.screenshot().image), 0.05, "Minh's photo didn't come, and its place shows another")
+  }
+
   // MARK: -
 
-  /// Cá neon's page, with stand-in photos.
-  private func launch(_ more: String...) -> XCUIApplication {
+  /// Cá neon's page, with stand-in photos (none come without `pictures`).
+  private func launch(pictures: Bool = true, _ more: String...) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"] + more
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"]
+      + (pictures ? ["-fixed-pictures"] : []) + more
     app.launch()
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
@@ -155,7 +232,32 @@ final class PhotoViewerFlowTests: XCTestCase {
     app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", at + " · ")).firstMatch
   }
 
+  /// The retry on the photo shown: those either side didn't come either, and have theirs off the screen.
+  private func shownRetry(_ app: XCUIApplication, timeout: TimeInterval) -> XCUIElement? {
+    let until = Date().addingTimeInterval(timeout)
+    repeat {
+      let on = app.buttons.matching(identifier: "photo-retry").allElementsBoundByIndex
+        .first { app.frame.contains(CGPoint(x: $0.frame.midX, y: $0.frame.midY)) }
+      if let on { return on }
+      settle(0.5)
+    } while Date() < until
+    return nil
+  }
+
+  /// A photo in the viewer, by what VoiceOver says of it ("Ảnh 2 trên 3").
+  private func viewerPhoto(_ app: XCUIApplication, _ label: String) -> XCUIElement {
+    app.descendants(matching: .any).matching(identifier: "viewer-photo").matching(NSPredicate(format: "label == %@", label)).firstMatch
+  }
+
   private func middle(_ app: XCUIApplication) -> XCUICoordinate { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45)) }
+
+  /// Three swipes to the left, each let settle: enough to take a zoomed photo to its edge and past it.
+  private func swipes(_ app: XCUIApplication) {
+    for _ in 0..<3 {
+      app.swipeLeft()
+      settle(0.6)
+    }
+  }
 
   private func wait(_ e: XCUIElement, label: String, timeout: TimeInterval) -> Bool {
     XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == %@", label), object: e)], timeout: timeout) == .completed
@@ -192,5 +294,21 @@ final class PhotoViewerFlowTests: XCTestCase {
     var sum = 0
     for i in stride(from: 0, to: px.count, by: 4) { sum += Int(px[i]) + Int(px[i + 1]) + Int(px[i + 2]) }
     return CGFloat(sum) / CGFloat(n * n * 3 * 255)
+  }
+
+  /// How coloured a picture is on average, from 0 (greys only: a photo's place) to 1.
+  private func colour(_ image: UIImage) -> CGFloat {
+    let n = 8
+    var px = [UInt8](repeating: 0, count: n * n * 4)
+    guard let cg = image.cgImage,
+      let ctx = CGContext(data: &px, width: n, height: n, bitsPerComponent: 8, bytesPerRow: n * 4, space: CGColorSpaceCreateDeviceRGB(),
+                          bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return -1 }
+    ctx.draw(cg, in: CGRect(x: 0, y: 0, width: n, height: n))
+    var sum = 0
+    for i in stride(from: 0, to: px.count, by: 4) {
+      let r = Int(px[i]), g = Int(px[i + 1]), b = Int(px[i + 2])
+      sum += max(r, g, b) - min(r, g, b)
+    }
+    return CGFloat(sum) / CGFloat(n * n * 255)
   }
 }

@@ -58,8 +58,9 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   The lights flows (`AquaTomeUITests/LightFlowTests`) follow the site's Chihiros page; the fake light's launch arguments
   (a slow or lost clock, old firmware, a drop, no Bluetooth…) are listed on `FakeRadio` (`AquaTome/Lights/Radio.swift`).
   The photo viewer's flows (`AquaTomeUITests/PhotoViewerFlowTests`) use stand-in photos (`-fixed-pictures`), a gallery's
-  full photos held back 20 s (`-slow-pictures`) and a gallery of 28 (`-large-gallery`); in debug builds the viewer
-  shows the tests which full photos it fetched (`PictureLog`).
+  full photos held back 20 s (`-slow-pictures`), pictures that don't come (`-fail-pictures <part of their address>`)
+  and a gallery of 28 (`-large-gallery`); in debug builds the viewer shows the tests which full photos it fetched and
+  which it stopped on their way (with `-slow-pictures`; `PictureLog`), and the size of the picture it shows.
 
   A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
   `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant and a guide top to bottom, light and dark, and CI's
