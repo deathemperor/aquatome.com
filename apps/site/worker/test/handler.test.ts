@@ -4,6 +4,7 @@ import { handle, type Env } from '../index'
 import { prefersMarkdown } from '../markdown'
 import { gonePage } from '../hidden'
 import { testD1 } from './d1'
+import { memoryR2 } from './r2'
 
 const PAGE = '<!doctype html><html lang="vi"><head><title>t</title></head><body><p>x</p></body></html>'
 const CHROME = 'Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36'
@@ -114,7 +115,7 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
   const { ADMIN_PAGES } = await import('../dashboard')
   const { db, owner, reader, app } = await signedIn()
   const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc', ASSETS: assets } as Partial<Env>)
-  expect(ADMIN_PAGES).toHaveLength(9)
+  expect(ADMIN_PAGES).toHaveLength(10)
   // Nobody, the old token cookie, another reader's account, the owner's app session (a bearer), and the owner's cookie
   // under the dashboard token as a bearer (a bearer is read first, and opens no page).
   const visits: Record<string, string>[] = [browser, { ...browser, cookie: 'ab_token=tok' }, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }, { ...browser, authorization: 'Bearer tok', cookie: owner }]
@@ -443,4 +444,32 @@ test("the iOS app's association: its passkeys are this site's (webcredentials), 
   expect(r.status).toBe(200)
   expect(r.headers.get('content-type')).toBe('application/json')
   expect(await r.json()).toEqual({ webcredentials: { apps: ['Q783W6B4FA.com.aquatome.app'] } })
+})
+
+test('kept fish-ID photos: only the owner sees them, each image and its result, and deletes one; a reader or the app gets nothing', async () => {
+  const { db, owner, reader, app } = await signedIn()
+  const r2 = memoryR2()
+  const id = crypto.randomUUID()
+  const anon = crypto.randomUUID()
+  await r2.bucket.put(`fish-id/reader-1/${id}`, new Uint8Array([0xff, 0xd8, 1]), { customMetadata: { created: '2026-11-03T10:00:00.000Z', verdict: 'fish', guesses: JSON.stringify([{ scientificName: 'Betta splendens', commonName: 'Betta', variety: null, confidence: 0.9 }]), model: 'm', lang: 'vi' } })
+  await r2.bucket.put(`fish-id/anon/${anon}`, new Uint8Array([0xff, 0xd8, 2]), { customMetadata: { created: '2026-11-03T11:00:00.000Z', verdict: 'other', guesses: '[]', model: 'm', lang: 'th' } })
+  const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', UPLOADS: r2.bucket } as Partial<Env>)
+  const html = await (await handle(get('/_ab/anh-nhan-dien/', { ...browser, cookie: owner }), e)).text()
+  expect(html).toContain(`/_ab/anh-nhan-dien/anh/reader-1/${id}`)
+  expect(html).toContain(`/_ab/anh-nhan-dien/anh/anon/${anon}`)
+  expect(html).toContain('<i>Betta splendens</i> 90%')
+  expect(html.indexOf(anon)).toBeLessThan(html.indexOf(id)) // newest first
+  const img = await handle(get(`/_ab/anh-nhan-dien/anh/reader-1/${id}`, { ...browser, cookie: owner }), e)
+  expect([img.status, img.headers.get('content-type'), [...new Uint8Array(await img.arrayBuffer())]]).toEqual([200, 'image/jpeg', [0xff, 0xd8, 1]])
+  for (const h of [browser, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }]) {
+    expect((await handle(get(`/_ab/anh-nhan-dien/anh/reader-1/${id}`, h), e)).status).toBe(404)
+    expect((await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: h, body: new URLSearchParams({ who: 'reader-1', id }) }), e)).status).toBe(404)
+  }
+  const del = await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: { ...browser, cookie: owner }, body: new URLSearchParams({ who: 'anon', id: anon }) }), e)
+  expect([del.status, del.headers.get('location')]).toEqual([303, '/_ab/anh-nhan-dien/'])
+  expect([...r2.m.keys()]).toEqual([`fish-id/reader-1/${id}`])
+  // A key is only ever built from an account id and a photo id.
+  await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: { ...browser, cookie: owner }, body: new URLSearchParams({ who: '../pending', id }) }), e)
+  await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: { ...browser, cookie: owner }, body: new URLSearchParams({ who: 'reader-1', id: '../x' }) }), e)
+  expect(r2.m.size).toBe(1)
 })

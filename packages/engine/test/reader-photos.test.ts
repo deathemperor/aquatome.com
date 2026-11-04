@@ -57,3 +57,30 @@ test('a reported photo\'s reasons reach the judge, as claims to check; an unrepo
   expect(prompts[1]).toBe(judgePrompt({ name: 'A', scientificName: 'B' }))
   expect(prompts[1]).not.toContain('reported')
 })
+
+// The owner approved it on the dashboard (it looked): no face screen, no verdict, but the files are still the pass's own
+// re-encode (≤1200 px WebP and the thumb, metadata stripped), uploaded before the approval.
+test('a photo the owner approved is published without the face screen or the judge; the others go through both', async () => {
+  const raw = await jpeg(3000, 2000)
+  const decisions: PhotoDecision[] = []
+  const puts: string[] = []
+  const screened: string[] = []
+  const judged: string[] = []
+  const api: PhotoAdmin = {
+    queue: async () => [{ id: 'o', entity_ref: 'species:neon', name: 'n', created_at: '', ownerOk: true }, { id: 'p', entity_ref: 'species:neon', name: 'n', created_at: '', ownerOk: false }],
+    raw: async () => raw,
+    put: async (id, kind, webp) => { puts.push(`${id}:${kind}:${(await sharp(webp).metadata()).format}`) },
+    decide: async d => { decisions.push(...d); return { applied: d.length, ignored: 0 } },
+  }
+  const id = (f: string) => f.split('/').pop()!.replace('.webp', '')
+  const r = await moderatePhotos(api, {
+    species: () => ({ name: 'A', scientificName: 'B' }),
+    faces: async files => { screened.push(...files.map(id)); return files.map(() => 0) },
+    judge: async file => { judged.push(id(file)); return { approve: true, reason: 'neon tetra' } },
+  })
+  expect(r).toEqual({ off: false, queued: 2, approved: 2, removed: 0, failed: 0 })
+  expect([screened, judged]).toEqual([['p'], ['p']])
+  expect(decisions.map(d => [d.id, d.action, d.reason])).toEqual([['o', 'approve', 'approved by owner'], ['p', 'approve', 'neon tetra']])
+  expect(decisions[0]).toMatchObject({ width: 1200, height: 800 })
+  expect(puts).toEqual(['o:full:webp', 'o:thumb:webp', 'p:full:webp', 'p:thumb:webp'])
+})

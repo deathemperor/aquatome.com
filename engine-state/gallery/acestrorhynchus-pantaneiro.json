@@ -6,7 +6,28 @@
   "File:Fish fauna from Río Pilcomayo National Park (1 of 7).png",
   "File:Acestrorhynchus pantaneiro 351129961.jpg",
   "File:Acestrorhynchus pantaneiro 333993221.jpg",
-  "File:Acestrorhynchus pantaneiro 313835282.jpg"
+  "File:Acestrorhynchus pantaneiro 313835282.jpg",
+  "inat:1565348",
+  "inat:52520866",
+  "inat:52520779",
+  "inat:65683197",
+  "inat:171998947",
+  "inat:244405855",
+  "inat:313835260",
+  "inat:313835282",
+  "inat:333993221",
+  "inat:347724443",
+  "inat:347724458",
+  "inat:347724476",
+  "inat:347724680",
+  "inat:347724690",
+  "inat:351129934",
+  "inat:351129961",
+  "inat:407951254",
+  "inat:407978034",
+  "inat:409558910",
+  "inat:409559050",
+  "inat:689352477"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/6811d08f64d159b0.webp": "600103a58c225991",
@@ -14,5 +35,17 @@
   "https://media.aquatome.com/inaturalist/63958823.webp": "9ac50ee6918919e1",
   "https://media.aquatome.com/inaturalist/1565288.webp": "35763d59f3e3c999"
  },
- "commons": "2026-11-03"
+ "commons": "2026-11-03",
+ "inat": {
+  "taxon": 362663,
+  "pass": "done",
+  "after": {
+   "research": 376995407,
+   "agree": 384297412
+  }
+ },
+ "gbif": {
+  "key": 2355576,
+  "next": null
+ }
 }

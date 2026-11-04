@@ -1,54 +1,20 @@
 {
- "queue": [
-  {
-   "key": "inat:253430565",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/253430565/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/253430565/medium.jpg",
-   "width": 1024,
-   "height": 669,
-   "licence": "CC0",
-   "author": "Whaldener Endo",
-   "sourceUrl": "https://www.inaturalist.org/photos/253430565"
-  },
-  {
-   "key": "File:Assel-Kugelfisch.jpg",
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Assel-Kugelfisch.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/40/Assel-Kugelfisch.jpg",
-   "width": 1280,
-   "height": 849,
-   "licence": "CC BY-SA 3.0",
-   "author": "O. Schneider",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Assel-Kugelfisch.jpg"
-  },
-  {
-   "key": "File:Assel-Kugelfisch 2.jpg",
-   "url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Assel-Kugelfisch_2.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/81/Assel-Kugelfisch_2.jpg",
-   "width": 1280,
-   "height": 471,
-   "licence": "CC BY-SA 3.0",
-   "author": "O. Schneider",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Assel-Kugelfisch_2.jpg"
-  },
-  {
-   "key": "File:Species from the Lajeado reservoir (2 of 2).png",
-   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Species_from_the_Lajeado_reservoir_%282_of_2%29.png/1280px-Species_from_the_Lajeado_reservoir_%282_of_2%29.png",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Species_from_the_Lajeado_reservoir_%282_of_2%29.png/500px-Species_from_the_Lajeado_reservoir_%282_of_2%29.png",
-   "width": 1280,
-   "height": 1237,
-   "licence": "CC BY 4.0",
-   "author": "Renata Bartolette, Carolina Santos Vieira, amille Ferreira Lima Santos, Carlos Danillo Costa Santos, Jefferson Santos Vitória Luduvice, Tamires Silva Passos, Thiago D’avilla, Bruna Oliveira Nascimento, Dário Ernesto, Fernando Henrique Argolo, Alexandre José Mendonça Aguiar, Fernanda Argolo, Marlene Silva Almeida Pereira, Tainara Farias Santos, and Marcelo Fulgêncio Guedes Brito",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Species_from_the_Lajeado_reservoir_(2_of_2).png"
-  }
+ "queue": [],
+ "judged": [
+  "inat:253430565",
+  "File:Assel-Kugelfisch.jpg",
+  "File:Assel-Kugelfisch 2.jpg",
+  "File:Species from the Lajeado reservoir (2 of 2).png"
  ],
- "judged": [],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/8ba4871deef110ed.webp": "8ccc0c03430d88ca",
   "https://media.aquatome.com/seriouslyfish/899fd621e86d196e.webp": "c99b9ec69d6fcac6",
   "https://media.aquatome.com/aquariumcoop/bbdcfb09378af937.webp": "181c2ce6c3111312",
   "https://media.aquatome.com/aquariumcoop/e6dbb87efecdf666.webp": "cde1cdc636331234",
   "https://media.aquatome.com/aquariumcoop/eeba5a715fc7378b.webp": "a68e9ab969e3cad0",
-  "https://media.aquatome.com/aquariumcoop/84ee3470fcb4ca67.webp": "ccc8c6c242664a73"
+  "https://media.aquatome.com/aquariumcoop/84ee3470fcb4ca67.webp": "ccc8c6c242664a73",
+  "https://upload.wikimedia.org/wikipedia/commons/4/40/Assel-Kugelfisch.jpg": "8616e4f6969979d5",
+  "https://upload.wikimedia.org/wikipedia/commons/8/81/Assel-Kugelfisch_2.jpg": "909246626161655a"
  },
  "inat": {
   "taxon": 1508365,

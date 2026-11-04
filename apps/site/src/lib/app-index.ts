@@ -66,7 +66,7 @@ export type AppItem = {
  * a tank with the tool's own code. Each one the content has no value for is left out; breeds have none.
  */
 export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
-const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
+export const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
 export type AppIndex = {
   version: 1; lang: Lang; items: AppItem[]; home: AppHome; labels: AppLabels
   /**

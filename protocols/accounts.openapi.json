@@ -176,6 +176,67 @@
             "type": "string"
           }
         }
+      },
+      "KeptPhoto": {
+        "type": "object",
+        "required": [
+          "id",
+          "created",
+          "verdict",
+          "guesses"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "created": {
+            "type": "string",
+            "description": "When it was sent (ISO 8601, UTC)."
+          },
+          "verdict": {
+            "type": "string",
+            "enum": [
+              "fish",
+              "plant",
+              "other",
+              "unclear"
+            ]
+          },
+          "guesses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "scientificName",
+                "commonName",
+                "variety",
+                "confidence"
+              ],
+              "properties": {
+                "scientificName": {
+                  "type": "string"
+                },
+                "commonName": {
+                  "type": "string"
+                },
+                "variety": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "confidence": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            "description": "Claude's top 3 at most, most likely first."
+          }
+        },
+        "additionalProperties": false
       }
     }
   },
@@ -1235,6 +1296,13 @@
                     },
                     "tanks": {
                       "$ref": "#/components/schemas/TankStore"
+                    },
+                    "fishIdPhotos": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/KeptPhoto"
+                      },
+                      "description": "The fish-ID photos it let AquaTome keep (not the images)."
                     }
                   }
                 }
@@ -1688,6 +1756,123 @@
           },
           "503": {
             "description": "Error: provider_off (passkeys are not on, or this is not the site's own host)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fish-id/photos": {
+      "get": {
+        "summary": "The fish-ID photos the account let AquaTome keep, newest first: dates and results, never the images",
+        "description": "Only the site's admins see a kept photo (protocols/fishid.openapi.json). Each is deleted 6 months after it was sent.",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The kept photos.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "photos"
+                  ],
+                  "properties": {
+                    "photos": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/KeptPhoto"
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fish-id/photos/{id}": {
+      "delete": {
+        "summary": "Delete one of the account's kept fish-ID photos, at once",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted."
+          },
+          "401": {
+            "description": "Error: signed_out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross_site",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found (no such photo of this account's)",
             "content": {
               "application/json": {
                 "schema": {

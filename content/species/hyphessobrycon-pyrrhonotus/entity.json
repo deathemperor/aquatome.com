@@ -10,7 +10,53 @@
     "brazil",
     "rio-negro"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -19,10 +65,40 @@
       "html": "<p>The handsome red-backed bleeding heart tetra of the bleeding heart tetra group (three scientifically known species to date) is the most recently discovered, and was only described by Burgess in 1993. The males have elongated dorsal fins and a very handsome and conspicuous red back, less pronounced also in the females.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<p>The flame-back bleeding heart tetra, Hyphessobrycon pyrrhonotus, is a characid endemic to the rio Negro system in Amazonas state, Brazil. The smallest of the three 'bleeding heart' species, it alone has a red, wedge-shaped patch along the upper body from below the dorsal fin to the base of the caudal. It lives in shallow blackwater tributaries near Barcelos, among roots, branches and leaf litter.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-pyrrhonotus-2/",
       "html": "<p>Wild-caught animals, which, as far as we know, come from the Rio Erere, a tributary of the Rio Negro (Brazil), have been regularly offered for more than 25 years now.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<p>Endemic to the rio Negro system in Amazonas state, Brazil, although the full extent of its range is unclear.</p><p>Type locality is 'Rio Ereré, tributary to Rio Negro, Brazil', and local fishermen apparently consider it restricted to the Ereré plus the rios Demeni and Aracá, all minor tributaries close to the town of Barcelos in the middle Negro.</p><p>The point where the rio Branco enters the Negro main channel thus appears to be the southern boundary of its range, with the rio Padauari representing its northern limit (Teixera, 2010).</p><p>See 'Notes' for further information concerning the distribution of H. pyrrhonotus and its relatives in the Amazon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<p>The rio Ereré is a small river measuring just 7-12 metres in width and H. pyrrhonotus has been observed to swim in small groups among submerged woody structures such as roots, fallen branches, overhanging riparian vegetation or aquatic plants.</p><p>Substrates are typically composed of white sand with patches of leaf litter common and the fish display a preference for shallow (30–90 cm deep) zones.</p><p>The water has a negligible dissolved mineral content, is poorly buffered and stained brown due to the gradual release of tannins and organic acids from decaying plant material.</p><p>Sympatric species at one locality in the rio Ereré basin included Hemigrammus ex gr. bellottii, Hemigrammus vorderwinkleri, Parapristella georgiae, Moenkhausia copei, Paracheirodon axelrodi, Copella nattereri, Nannostomus marginatus, Nannostomus trifasciatus, Ammocryptocharax elegans, Fluviphylax pygmaeus, Heros sp. and Apistogramma gibbiceps.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<p>Standard length: 45 mm SL. Aquarium base: 75 × 30 cm. Volume: ~68 litres.</p><p>An aquarium with base dimensions of 75 × 30 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<p>Choice of décor is not especially critical, although this species tends to show better colouration when maintained in a well-furnished aquarium with live plants. A natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots are formed.</p><p>The addition of dried leaf litter would further emphasise the natural feel and with it the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves are considered beneficial.</p><p>Like many fishes that naturally inhabit pristine environments it is intolerant to accumulation of organic pollutants and requires spotless water, meaning weekly water changes should be considered routine and it should never be introduced to a biologically immature aquarium.</p>"
     },
     {
       "key": "waterConditions",
@@ -31,32 +107,85 @@
       "html": "<p>The conspicuous coloring comes to full effect only when kept in softer, easily sour water and indirect lighting. In the dealer tank, unfortunately, one can often only guess at the beauty of these animals.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<p>This species is an opportunistic omnivore by nature. The stomach contents of wild specimens from the rio Ereré were composed of fruit remains, aquatic insects and larvae (Trichoptera, Heteroptera, Diptera and Ephemeroptera) and terrestrial ants (Hymenoptera; Formicidae). Fruit and ants constituted 25 % and 20 %, respectively, of all items consumed.</p><p>In the aquarium it is easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia, Artemia, etc., alongside good quality dried flakes and granules.</p><p>Submerged pieces of fresh fruit will also be grazed but should only be left in the aquarium for a few hours.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<p>This species is generally peaceful making it an ideal resident of the well-researched community aquarium, although adult males are territorial to an extent, and this behaviour may sometimes extend to similarly-shaped species. It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, medium-sized cichlids.</p><p>Try to buy a group of at least 8-10 specimens comprising both males and females, include other schooling fishes to provide security, and you will be rewarded with a more natural-looking spectacle. The interaction between rival males is fascinating to watch and they will display their best colours when competing for female attention or hierarchical position.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<p>Males grow noticeably larger and are more intensely-coloured than females.</p><p>In adult males the dorsal, pelvic and anal fins are highly extended, while adult females tend to be rounder in shape, especially when gravid.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-pyrrhonotus-2/",
       "html": "<p>A successful breeding has not been reported so far.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<p>Unrecorded but certain to be an egg-scatterer exhibiting no parental care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<p>This is the smallest of three similar-looking species most commonly-referred to as the 'bleeding heart' subgroup, the other two being H. erythrostigma and H. socolofi.</p><p>All possess a reddish humeral spot which is not present in any other characid, with other shared characters including possession of 6-14 maxillary teeth, 7-9 scales above the lateral line, 5-7 scales below the lateral line and 26-33 anal fin rays.</p><p>H. pyrrhonotus can be told apart from the other bleeding heart tetras quite easily since it uniquely possesses a red, wedge-shaped patch of red pigmentation in the upper part of the body, extending from below the dorsal fin to the base of the caudal. This may be more apparent in well-conditioned or dominant individuals, sometimes reaching the head and snout in sexually mature males.</p><p>It is further distinguished from H. erythrostigma by lacking hook-like structures in the fins of mature males (vs. hooks present in the anal fins, dorsal and pelvic in mature males of H. erythrostigma), and from H. socolofi by the following combination of characters: 33-34 vertebrae, mode 33 (vs. 31-33, mode 32 in H. socolofi); a white longitudinal band extending distally along the majority of the anal fin in adults, covering 70 to 95 % of the rays (vs. white band covering 45-50 % of the branched anal-fin rays only); first branched ray of anal fin longest in adult males (vs. third branched ray); length of anal fin in adult females 21.8-24.5 % SL, mean 23.52 % (vs. 18.01-21.22 % SL, mean 19.37 %); no hook-like structures on fins (vs. numerous hooks on all fins except the adipose fin in mature males and anal fin in mature females); scales cycloid (vs. scales cyclo-ctenoid in mature males and some mature females).</p><p>H. pyrrhonotus also has the most restricted range among the bleeding heart group with H. erythrostigma relatively widespread in the upper Amazon region from the rio Purus, Brazil, at least as far upstream as the Río Nanay in Peru, and H. socolofi occurring throughout much of the rio Negro basin, including the rio Branco, plus the rio Nhamundá which enters the Amazon downstream of its confluence with the Negro.</p><p>Limited genetic analyses have revealed that the bleeding heart group is probably monophyletic, but that there may be more species involved (Paz et al., 2014). The current concept of H. socolofi appears to represent a paraphyletic taxon, for example, while H. pyrrhonotus also contains distinct lineages, although further work is necessary in order to deduce taxonomic implications.</p><p>In addition to forming their own putative assemblage the bleeding heart tetras have regularly been included in the larger 'Hyphessobrycon bentosi' subgroup of the H. callistus group as proposed by Géry (1977). At the time of Géry's work H. erythrostigma was the only recognised bleeding heart tetra and he considered it to differ from other H. bentosi subgroup members by a combination of morphometric characters plus the red humeral spot.</p><p>Weitzman &amp; Palmer (1997) expanded Géry's concept and proposed the existence of a putatively monophyletic assemblage based on colour pattern and male fin morphology that they termed the 'rosy tetra clade'. It was composed of species with the following shared characters which set them apart from other Hyphessobrycon species: pink to red or reddish-brown body colour; 22-29 branched anal-fin rays; 29-34 longitudinal scales; two sets of teeth on the premaxilla with 1-4 teeth in the outer series and 7-12 in the inner series.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p><p>Like many small characids, H. pyrrhonotus is susceptible to an affliction which causes some or all of the body scales to appear metallic gold in colour. It remains unclear whether this is a consequence of a parasitic infestation, as has been suggested, but affected fish appear to be in no discomfort and their lifespan and overall health seem undiminished.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Hein, G. (2009). Hyphessobrycon pando sp. n., a new rosy tetra from northern Bolivia (Teleostei, Characiformes, Characidae). Bulletin of Fish Biology 10(1/2), 1-10</li><li>Teixera, T. F. (2010). Revisão taxonômica das espécies de Hyphessobrycon Durbin do grupo rosacéo pingo-de-sangue (Ostariophysi; characiformes;. Characidae): comentários dobre a biologia reprodutiva do grupo. unpublished PHD Thesis, i-xv + 1-144</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Weitzman, S. H. and L. Palmer (1997). A new species of Hyphessobrycon (Teleostei: Characidae) from the Neblina region of Venezuela and Brazil, with comments on the putative `rosy tetra clade'. Ichthyological Exploration of Freshwaters 7(3), 209-242</li><li>Burgess, W. E. (1993). Hyphessobrycon pyrrhonotus, a new species of bleeding heart tetra (Teleostei: Characidae) from the Rio Erere, Brazil. Tropical Fish Hobbyist 42(1), 156-160</li><li>Zarske, A. (2014). Zur Systematik einiger Blutsalmler oder Vertebrate Zoology 64(2), 139-167</li><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Malabarba, L. R., V. A. Bertaco, F. R. Carvalho &amp; T. O. Litz. (2012). Revalidation of the genus Ectrepopterus Fowler (Teleostei: Characiformes), with the redescription of its type species, E. uruguayensis. Zootaxa 3204, 47-60</li><li>Paz, F. P. C., J. D. S. Batista, and J. I. R. Porto (2014). DNA Barcodes of Rosy Tetras and Allied Species (Characiformes: Characidae: Hyphessobrycon) from the Brazilian Amazon Basin. PLoS One 9(5), e98603</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/261e709d2deebfba.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/261e709d2deebfba-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
+      "caption": "Another male.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d0cf9deb3c7ac5d3.webp",
+      "thumb": "https://media.aquatome.com/commons/d0cf9deb3c7ac5d3-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 2.0 de",
       "author": "Thomnight (Thomnight)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_pyrrhonotus_thomnight_001.jpg",
-      "caption": "Hyphessobrycon pyrrhonotus - Rotrückenkirschflecksalmler im Aquarium",
-      "thumb": "https://media.aquatome.com/commons/d0cf9deb3c7ac5d3-480.webp"
+      "caption": "Hyphessobrycon pyrrhonotus - Rotrückenkirschflecksalmler im Aquarium"
     },
     {
       "url": "https://media.aquatome.com/commons/1e0d91721aa1358f.webp",
+      "thumb": "https://media.aquatome.com/commons/1e0d91721aa1358f-480.webp",
       "width": 960,
       "height": 703,
       "licence": "CC BY 4.0",
       "author": "Guimarães EC, Silva de Brito P, Feitosa LM, Carvalho Costa LF, Ottoni FP (2019) A new cryptic species of Hyphessobrycon Durbin, 1908 (Characiformes, Characidae) from the Eastern Amazon, revealed by integrative taxonomy. Zoosystematics and Evolution 95(2): 345-360. https://doi.org/10.3897/zse.95.34069",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_(10.3897-zse.95.34069)_Figure_2.jpg",
-      "caption": "Figure 2; Humeral spot of: a Hyphessobrycon caru, holotype, CICCAA 02286 b H. piorskii, holotype, CICCAA 00695 c H. pyrrhonotus, holotype, MZUSP 45714 d H. werneri, holotype, MZUSP 42365 e H. eques, C",
-      "thumb": "https://media.aquatome.com/commons/1e0d91721aa1358f-480.webp"
+      "caption": "Figure 2; Humeral spot of: a Hyphessobrycon caru, holotype, CICCAA 02286 b H. piorskii, holotype, CICCAA 00695 c H. pyrrhonotus, holotype, MZUSP 45714 d H. werneri, holotype, MZUSP 42365 e H. eques, C"
     }
   ],
   "videos": [
@@ -101,5 +230,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }

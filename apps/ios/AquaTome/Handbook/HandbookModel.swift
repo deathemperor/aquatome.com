@@ -14,10 +14,14 @@ final class HandbookModel {
   let site = URL(string: "https://aquatome.com")!
   private(set) var status = Status.loading
   private(set) var count = 0
-  var query = "" { didSet { if query != oldValue { refresh() } } }
+  /// Cleared, the kind goes back to all: the next search starts with every kind, not one picked for the last.
+  var query = "" { didSet { if query != oldValue { if query.isEmpty { kind = nil }; refresh() } } }
   var kind: HandbookIndex.Kind? { didSet { if kind != oldValue { refresh() } } }
   /// What the list shows for the query and kind: worked out when they or the index change, not on every redraw.
   private(set) var results: [HandbookIndex.Item] = []
+  /// How many pages the query finds of each kind, and in all under nil: what the chips above the results say. Counted
+  /// in the search that finds the results, so a keystroke costs no more.
+  private(set) var counts: [HandbookIndex.Kind?: Int] = [:]
 
   private var search = HandbookSearch([])
   /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold.
@@ -262,7 +266,7 @@ final class HandbookModel {
     refresh()
   }
 
-  private func refresh() { results = search.find(query, kind: kind) }
+  private func refresh() { (results, counts) = search.findAndCount(query, kind: kind) }
 
   /// The site, except in UI tests (`-fixed-handbook`), which use a small fixed index: no network, same answers each run.
   /// Performance tests use `-large-handbook`: as many fish as the site has, still without the network.
