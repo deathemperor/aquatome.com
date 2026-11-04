@@ -8,9 +8,56 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-tapajos"
+    "rio-tapajos",
+    "tapajos"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -19,10 +66,58 @@
       "html": "<p>The “chocolate neon tetra”, Hyphessobrycon vilmae, is only rarely available. It requires the very same conditions as the well known “black neon tetra”, Hyphessobrycon herbertaxelrodi.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<p>Hyphessobrycon vilmae is a small characid that appears to be endemic to the upper rio Tapajós basin in Amazonas and Mato Grosso states, Brazil. It is occasionally traded as 'chocolate neon tetra', and has a continuous, solid dark lateral stripe with no obvious humeral blotch. Generally peaceful, it is best kept in a mixed-sex group of at least 8-10.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_vilmae_en/",
       "html": "<p>Hyphessobrycon vilmae originates from the upper reaches of the Rio Tapajós in Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<p>Appears to be endemic to the upper rio Tapajós basin in Amazonas and Mato Grosso states, Brazil.</p><p>Type locality is 'upper Arinos-Juruena basin, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<p>Other species inhabiting the upper Tapajós region include Hyphessobrycon heliacus, H. scutulatus, Nannostomus eques and N. digrammus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or equivalent should be the smallest considered. Volume is about 54 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<p>Choice of décor is not especially critical although it tends to show better colouration when maintained in a well-furnished set-up with live plants and a dark substrate.</p><p>A natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots are formed.</p><p>The addition of dried leaf litter would further emphasise the natural feel and with it the growth of beneficial microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves will aid in simulating a blackwater environment.</p><p>Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>This species seems to do best under relatively dim lighting and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne or Anubias are recommended since they will grow under such conditions, and a few patches of floating vegetation may also prove effective.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<p>Probably an opportunistic omnivore by nature feeding on aquatic invertebrates, fallen fruit and suchlike.</p><p>In the aquarium it is easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<p>Generally peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
     },
     {
       "key": "dimorphism",
@@ -31,13 +126,71 @@
       "html": "<p>The males of H. vilmae have a more intensive coloration and also white colours in the fins, which are lacking in females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<p>Adult males are slightly more intensely-coloured when in good condition while females tend to grow a little larger and be rounder in shape, especially when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<p>Egg-scatterer exhibiting no parental care.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_vilmae_en/",
       "html": "<p>Like in many other tetras, golden specimens quite often appear in H. vilmae. Sadly this pretty coloration is not hereditary. It is the result of a harmless infection with skin-worms. These worms cannot reproduce in aquaria. They reach the sexually active stage only in birds that have eaten an infected fish. The fish infect themselves by eating the faeces of infected birds. So all golden tetras that appear in the trade are always wild-collected fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<p>This species is occasionally-traded as 'chocolate neon tetra' and has been considered to be a member of the putative 'H. heterorhabdus-group' of closely-related species within the genus as proposed by Géry (1977). This originally comprised around 15 members characterised by a 'longitudinal pattern' consisting of a thin, usually dark, lateral body stripe, but has since been modified on a number of occasions.</p><p>Most recently, Lima et al. (2014) proposed a putatively monophyletic H. heterorhabdus-group containing only three species; Hyphessobrycon heterorhabdus, H. amapaensis, and H. eschwartzae. These all possess: a well-defined, elongate humeral blotch which is continuous with a dark, well-defined midlateral stripe that becomes blurred towards the caudal peduncle; a longitudinal red stripe extending along the body above the midlateral line; upper half of the eye red.</p><p>This pattern is different to that presented by several members of Géry's H. heterorhabdus group, such as H. vilmae, H. cachimbensis, and H. stegemanni, which possess a continuous, solid dark lateral stripe on the body and no obvious humeral blotch, but is similar to that of Géry's H. agulha group. The latter contained species with a colour pattern comprising \"lower half of the body dark, especially above anal fin; usually a horizontally elongate humeral spot, more or less united with the assymetrical, broad band\", and included H. agulha, H. loretoensis, H. peruvianus, H. metae, and H. herbertaxelrodi.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Géry, J. (1966). Hyphessobrycon vilmae sp. nov., a new tetra from the upper Juruena, Brazil, with keys to the heterorhabdus-like species. Ichthyologica, the Aquarium Journal 37(2), 63-70</li><li>Weitzman, S. H. and L. Palmer (1997). A new species of Hyphessobrycon (Teleostei: Characidae) from the Neblina region of Venezuela and Brazil, with comments on the putative `rosy tetra clade'. Ichthyological Exploration of Freshwaters 7(3), 209-242</li><li>Zarske, A. (2014). Zur Systematik einiger Blutsalmler oder \"Rosy Tetras\" (Teleostei: Ostariophysi: Characidae). Vertebrate Zoology 64(2), 139-167</li><li>Lima, F. C. T., D. P. Coutinho and W. B. Wosiacki (2014). A new Hyphessobrycon (Ostariophysi: Characiformes: Characidae) from the middle Amazon basin, Brazil. Zootaxa 3872(2), 167-179</li><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Malabarba, L. R., V. A. Bertaco, F. R. Carvalho &amp; T. O. Litz. (2012). Revalidation of the genus Ectrepopterus Fowler (Teleostei: Characiformes), with the redescription of its type species, E. uruguayensis. Zootaxa 3204, 47-60</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/939afeece9cb904f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/939afeece9cb904f-480.webp",
+      "width": 820,
+      "height": 460,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "caption": "Wild individuals from the rio Juruena, Brazil.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a9f392c9a89f850a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a9f392c9a89f850a-480.webp",
+      "width": 820,
+      "height": 358,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "caption": "Specimen from the rio Juruena, Brazil.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1117972ff81e9387.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1117972ff81e9387-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-vilmae",
+      "caption": "This species can be found in the rio Juruena, western Brazil.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -61,5 +214,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }

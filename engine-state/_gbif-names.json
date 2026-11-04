@@ -3442,6 +3442,13 @@
     "genus": "Betta",
     "matchType": "EXACT"
   },
+  "Betta pulchra": {
+    "canonicalName": "Betta pulchra",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Betta",
+    "matchType": "EXACT"
+  },
   "Betta splendens": {
     "canonicalName": "Betta splendens",
     "order": "Perciformes",
@@ -4164,6 +4171,13 @@
   "Burdur toothcarp": null,
   "Buridge provides": null,
   "Burma has": null,
+  "Butis amboinensis": {
+    "canonicalName": "Butis amboinensis",
+    "order": "Perciformes",
+    "family": "Eleotridae",
+    "genus": "Butis",
+    "matchType": "EXACT"
+  },
   "Caecomastacembelus brichardi": {
     "canonicalName": "Mastacembelus brichardi",
     "order": "Synbranchiformes",
@@ -4588,6 +4602,13 @@
     "order": "Cypriniformes",
     "family": "Cyprinidae",
     "genus": "Chagunius",
+    "matchType": "EXACT"
+  },
+  "Chalceus erythrurus": {
+    "canonicalName": "Chalceus erythrurus",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Chalceus",
     "matchType": "EXACT"
   },
   "Chalceus macrolepidotus": {
@@ -7056,6 +7077,13 @@
     "genus": "Discherodontus",
     "matchType": "EXACT"
   },
+  "Discherodontus schroederi": {
+    "canonicalName": "Discherodontus schroederi",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Discherodontus",
+    "matchType": "EXACT"
+  },
   "Discus madeira": null,
   "Distichodus affinis": {
     "canonicalName": "Distichodus affinis",
@@ -7632,6 +7660,13 @@
   },
   "Floodplain tributaries": null,
   "Flossensauger der": null,
+  "Fluviphylax pygmaeus": {
+    "canonicalName": "Fluviphylax pygmaeus",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Fluviphylax",
+    "matchType": "EXACT"
+  },
   "For kuhli": null,
   "For orinoco": null,
   "Formerly rasbora": null,
@@ -7851,6 +7886,13 @@
   },
   "Garra sensu": {
     "canonicalName": "Garra",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Garra",
+    "matchType": "EXACT"
+  },
+  "Garra spilota": {
+    "canonicalName": "Garra spilota",
     "order": "Cypriniformes",
     "family": "Cyprinidae",
     "genus": "Garra",
@@ -8260,6 +8302,13 @@
     "genus": "Gymnocorymbus",
     "matchType": "EXACT"
   },
+  "Gymnogeophagus australis": {
+    "canonicalName": "Gymnogeophagus australis",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Gymnogeophagus",
+    "matchType": "EXACT"
+  },
   "Gymnogeophagus gymnogenys": {
     "canonicalName": "Gymnogeophagus gymnogenys",
     "order": "Perciformes",
@@ -8646,6 +8695,13 @@
     "genus": "Hemigrammus",
     "matchType": "EXACT"
   },
+  "Hemigrammus boesemani": {
+    "canonicalName": "Hemigrammus boesemani",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hemigrammus",
+    "matchType": "EXACT"
+  },
   "Hemigrammus caudovittatus": {
     "canonicalName": "Hyphessobrycon anisitsi",
     "order": "Characiformes",
@@ -8719,6 +8775,13 @@
   },
   "Hemigrammus stictus": {
     "canonicalName": "Hemigrammus stictus",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hemigrammus",
+    "matchType": "EXACT"
+  },
+  "Hemigrammus vorderwinkleri": {
+    "canonicalName": "Hemigrammus vorderwinkleri",
     "order": "Characiformes",
     "family": "Characidae",
     "genus": "Hemigrammus",
@@ -8930,6 +8993,7 @@
   },
   "Histoire naturelle": null,
   "Hmoain located": null,
+  "Holopristis pulchra": null,
   "Holoshestes pequira": {
     "canonicalName": "Odontostilbe pequira",
     "order": "Characiformes",
@@ -9032,12 +9096,15 @@
   "Hoplisoma armatum": null,
   "Hoplisoma atropersonatum": null,
   "Hoplisoma axelrodi": null,
+  "Hoplisoma boesemani": null,
   "Hoplisoma bondi": null,
+  "Hoplisoma brevirostre": null,
   "Hoplisoma burgessi": null,
   "Hoplisoma carlae": null,
   "Hoplisoma caudimaculatum": null,
   "Hoplisoma davidsandsi": null,
   "Hoplisoma duplicareum": null,
+  "Hoplisoma flaveolum": null,
   "Hoplisoma granti": null,
   "Hoplisoma griseum": null,
   "Hoplisoma habrosum": null,
@@ -9314,6 +9381,13 @@
     "genus": "Hyphessobrycon",
     "matchType": "EXACT"
   },
+  "Hyphessobrycon eschwartzae": {
+    "canonicalName": "Hyphessobrycon eschwartzae",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
   "Hyphessobrycon frankei": {
     "canonicalName": "Hyphessobrycon frankei",
     "order": "Characiformes",
@@ -9322,6 +9396,13 @@
     "matchType": "EXACT"
   },
   "Hyphessobrycon has": null,
+  "Hyphessobrycon heliacus": {
+    "canonicalName": "Hyphessobrycon heliacus",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
   "Hyphessobrycon herbertaxelrodi": {
     "canonicalName": "Hyphessobrycon herbertaxelrodi",
     "order": "Characiformes",
@@ -9367,6 +9448,13 @@
   },
   "Hyphessobrycon ornatus": {
     "canonicalName": "Hyphessobrycon rosaceus",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
+  "Hyphessobrycon pando": {
+    "canonicalName": "Hyphessobrycon pando",
     "order": "Characiformes",
     "family": "Characidae",
     "genus": "Hyphessobrycon",
@@ -9472,6 +9560,13 @@
   },
   "Hyphessobrycon takasei": {
     "canonicalName": "Hyphessobrycon takasei",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
+  "Hyphessobrycon taphorni": {
+    "canonicalName": "Hyphessobrycon taphorni",
     "order": "Characiformes",
     "family": "Characidae",
     "genus": "Hyphessobrycon",
@@ -11757,6 +11852,7 @@
     "genus": "Danio",
     "matchType": "EXACT"
   },
+  "Microrasbora has": null,
   "Microrasbora kubotai": {
     "canonicalName": "Microdevario kubotai",
     "order": "Cypriniformes",
@@ -13858,6 +13954,13 @@
     "genus": "Paraphanius",
     "matchType": "EXACT"
   },
+  "Parapristella georgiae": {
+    "canonicalName": "Parapristella georgiae",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Parapristella",
+    "matchType": "EXACT"
+  },
   "Parasphaerichthys lineatus": {
     "canonicalName": "Parasphaerichthys lineatus",
     "order": "Perciformes",
@@ -14585,6 +14688,7 @@
     "genus": "Planiloricaria",
     "matchType": "EXACT"
   },
+  "Plata drainages": null,
   "Platy leopard": null,
   "Platydoras armatulus": {
     "canonicalName": "Platydoras armatulus",
@@ -16964,6 +17068,13 @@
     "genus": "Schistura",
     "matchType": "EXACT"
   },
+  "Schistura robertsi": {
+    "canonicalName": "Schistura robertsi",
+    "order": "Cypriniformes",
+    "family": "Nemacheilidae",
+    "genus": "Schistura",
+    "matchType": "EXACT"
+  },
   "Schistura scaturigina": {
     "canonicalName": "Schistura scaturigina",
     "order": "Cypriniformes",
@@ -16980,6 +17091,13 @@
   },
   "Schistura sertata": {
     "canonicalName": "Schistura sertata",
+    "order": "Cypriniformes",
+    "family": "Nemacheilidae",
+    "genus": "Schistura",
+    "matchType": "EXACT"
+  },
+  "Schistura spilota": {
+    "canonicalName": "Schistura spilota",
     "order": "Cypriniformes",
     "family": "Nemacheilidae",
     "genus": "Schistura",
@@ -17311,6 +17429,13 @@
     "matchType": "EXACT"
   },
   "Siluriformes doradids": null,
+  "Sinibotia pulchra": {
+    "canonicalName": "Sinibotia pulchra",
+    "order": "Cypriniformes",
+    "family": "Cobitidae",
+    "genus": "Sinibotia",
+    "matchType": "EXACT"
+  },
   "Sinibotia reevesae": {
     "canonicalName": "Sinibotia reevesae",
     "order": "Cypriniformes",
@@ -17752,6 +17877,13 @@
   },
   "Synodontis robertsi": {
     "canonicalName": "Synodontis robertsi",
+    "order": "Siluriformes",
+    "family": "Mochokidae",
+    "genus": "Synodontis",
+    "matchType": "EXACT"
+  },
+  "Synodontis schoutedeni": {
+    "canonicalName": "Synodontis schoutedeni",
     "order": "Siluriformes",
     "family": "Mochokidae",
     "genus": "Synodontis",

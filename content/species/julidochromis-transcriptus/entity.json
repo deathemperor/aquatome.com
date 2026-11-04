@@ -1,0 +1,105 @@
+{
+  "id": "julidochromis-transcriptus",
+  "scientificName": "Julidochromis transcriptus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Julidochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lake-tanganyika",
+    "burundi"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-transcriptus",
+      "html": "<p>The masked julie, Julidochromis transcriptus, is a small cichlid endemic to the rocky coastal zones of northwestern Lake Tanganyika. It is known from between Luhanga and Makabola in the Democratic Republic of the Congo and grows to around 65 mm SL.</p><ul><li>Space: medium tank</li><li>Social: best in a pair</li><li>Compatibility: choose tankmates carefully</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-transcriptus",
+      "html": "<p>Endemic to northwestern Lake Tanganyika, between Luhanga and Makabola in the Democratic Republic of the Congo, with type locality given simply as the 'extreme north' of the lake.</p><p>In Lake Tanganyika this species is recorded at Luhanga.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-transcriptus",
+      "html": "<p>Inhabits rocky, coastal zones.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/julidochromis-transcriptus",
+      "html": "<p>Etymology: Julidochromis: from the name 'Julidini', a putative tribe of labrid marine wrasses which Julidochromis resemble, and the Greek chromis, meaning 'fish'. transcriptus: from the Latin transcribo, meaning 'transcribed, copied'.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Rce0sN6CTp0",
+      "title": "Julidochromis transcriptus “Bemba” | Species Spotlight",
+      "durationSec": 157,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DcN9kNtO8Fk",
+      "title": "Tanganyika Aquarium - Julidochromis Transcriptus (1080p HD)",
+      "durationSec": 1844,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dIdyazHcRmU",
+      "title": "Julidochromis Transcriptus (Tanganyikan Cichlid)",
+      "durationSec": 203,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nULBV7iiOm0",
+      "title": "How to Care for Masked Juli Cichlids - Care and Breeding Guide Julidichromis Transcriptus",
+      "durationSec": 238,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cichlid Tanganyika",
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cichlid",
+        "đá tạo hang cho cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc cho bể cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

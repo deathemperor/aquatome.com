@@ -7,7 +7,9 @@
   "group": "tetras",
   "places": [
     "south-america",
-    "rio-uaupes"
+    "rio-uaupes",
+    "brazil",
+    "uaupes"
   ],
   "dataCard": {
     "ph": [
@@ -17,12 +19,53 @@
           "min": 5,
           "max": 5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 1.7
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -34,10 +77,40 @@
       "html": "<p>A tiny, very nice and extremely rare dwarf tetra. It attains a maximum length of around 2 cm and is an ideal fish for nano aquaria.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<p>Tucanoichthys tucano is a miniature characid known only from the rio Uaupés system in the upper Negro basin, Brazil. Adults are less than 17 mm SL, with a conspicuous dark lateral stripe, and the type locality is a small blackwater creek. Much sought after, it is peaceful but not an ideal community fish, given its small size and somewhat specialised requirements.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
       "html": "<p>Tucanoichthys lives endemic in the upper Rio Negro basin, to be more precise in the Rio Uaupes.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<p>Known only from the rio Uaupés system in Brazil with type locality 'brook emptying into Igarape Yavuari River, tributary of River Uaupés, upper Negro River basin, 0°14'31\"N, 68°03'48\"W, Amazonas, Brazil'.</p><p>The full extent of its range is unclear but additional populations may exist.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<p>In 1994 the type locality comprised a 200 metre stretch of a small blackwater creek flowing into the igarapé Yavuari around 20 km upstream of its mouth.</p><p>The Yavuari enters the Uaupés main channel approximately 300 metres downstream of a Tucano village called Açaí.</p><p>The creek was 80–200 cm wide and 50–120 cm wide at the time of collection, the end of the dry season, and flowed swiftly though dense forest composed chiefly of Ficus and Leopoldina spp.</p><p>There were no aquatic plants but the water was full of dead branches and leaf litter, the latter forming beds up to a metre thick in places, and additional cover was provided by overhanging riparian vegetation.</p><p>On 21st February 1994 the water was very clear but heavily-stained with tannins from decomposing organic material.</p><p>Air temperature was measured at 29 °C, while the water was flowing at a rate of 0.5-1 m per second with a temperature of 24–26 °C depending on depth (surface to 50 cm depth), conductivity 24 µS/cm, pH 4.09 and dissolved oxygen 6.3 mg/l.</p><p>Sympatric fish species included Ivanacara adoketa, Crenicichla sp., Amblydoras sp., Rivulus sp. and Poecilocharax weitzmani.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<p>Despite its small size minimum base dimensions of 45 × 30 cm or equivalent (around 41 litres) are recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<p>Best-maintained in a well-structured set-up, ideally comprising a sandy substrate plus some driftwood roots and branches.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments. Alder cones may also be used for the latter purpose.</p><p>This species seems to do best under fairly dim lighting. You can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>For breeding purposes acidic conditions with negligible carbonate hardness and very low general hardness are required so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>It goes without saying that this species is sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
     },
     {
       "key": "waterConditions",
@@ -46,19 +119,84 @@
       "html": "<p>Fishes from that region should be kept in very soft, strongly acidic water (pH 5). The water should be coloured brownish with humic acids.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<p>Probably a micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Daphnia, Moina, grindal worm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<p>Peaceful with other species but does not make an ideal community fish due to its small size and somewhat specialised requirements</p><p>Ideally it should be maintained alone or at most with diminutive, non-aggressive characids and smaller callichthyid or loricariid catfishes.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank.</p><p>Though gregarious by nature it's a shoaling rather than schooling species with territorial rival males sparring on a regular basis.</p><p>8-10 specimens should be the minimum purchase since the fish will be less shy and display more interesting behaviour.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
       "html": "<p>Males have red in the caudal and anal fin, which is missing in females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<p>Adult males are more intensely-coloured than females with reddish pigmentation in the dorsal, caudal and anal fins.</p><p>Sexually mature females may appear rounder-bodied than males, especially when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<p>Has been achieved and in a properly-structured, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>Nuptial males form temporary territories based around a solid surface such as a plant leaf or piece of wood, and wild individuals have been observed to defend this not only against conspecific rivals but any other fish in the vicinity.</p><p>Post-spawning the male remains with the eggs until they hatch with incubation around 24 hours, and once free-swimming the fry have an iridescent bluish-green colour pattern during the early stages of life.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
       "html": "<p>In dark aquaria the pastel, but shining colours of the fish are presented best.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<p>This species is not often available and is much sought after in the aquarium hobby.</p><p>It's currently the only member of the genus and is separated from other characid genera by the following combination of characters: adult size less than 17 mm SL; presence of a conspicuous dark lateral stripe; jaws narrow with a single series of small, acute, slightly recurved conical teeth; premaxilla with a double curve, forming an 'S' shape; lateral line reduced with usually only the 3rd and 4th scales pored; lateral line canal greatly reduced with parietal branch absent; no predorsal scales; no ossified pectoral-fin rays; interneurals and interhaemals relatively numerous but not protruding; no pseudotympanum visible by transparency; no sexual hooks on pelvic, anal or caudal fins; no caudal gland; no frontal organ; no papillae or pit-lines on head; no external teeth.</p><p>The small adult size evolved via a process known as miniaturisation, characterised by sexually mature adults with a significantly reduced size of less than 20 mm SL.</p><p>Among bony fishes characiformes is one of the few groups in which this phenomenon occurs repeatedly with other species representing miniaturised taxa including Axelrodia reisei, Xenurobrycon polyancistrus, X. pteropus, Priocharax ariel, P. pygmaeus, Odontocharacidium aphanes and Nannostomus anduzei.</p><p>All display a preference for still or slow-moving waters and often occur in nutrient-poor habitats such as forest streams.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families.</p><p>This tremendous taxonomical and morphological diversity has historically impaired the ability of researchers to resolve their genetic relationships with many genera remaining incertae sedis.</p><p>A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern molecular phylogenetic techniques have allowed some headway, though, although as far as is known Tucanoichthys has never been included in such a study.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "html": "<ul><li>Géry, J. and U. Römer (1997). Tucanoichthys tucano gen. n. sp. n., a new miniature characid fish (Teleostei: Characiformes: Characidae) from the Rio Uaupes basin in Brazil. Aqua, Journal of Ichthyology and Aquatic Biology 2(4), 65-72</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f44ebfdef7f0dec4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f44ebfdef7f0dec4-480.webp",
+      "width": 640,
+      "height": 476,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bb1d9319e1872dab.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bb1d9319e1872dab-480.webp",
+      "width": 640,
+      "height": 444,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tucanoichthys-tucano",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -82,5 +220,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }
