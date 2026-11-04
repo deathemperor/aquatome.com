@@ -18,7 +18,7 @@ const base = {
   group: z.string().optional(),
   lNumber: z.string().optional(),
   places: z.array(z.object({ continent: z.string(), country: z.string().optional(), region: z.string().optional() })).default([]),
-  dataCard: z.object({ tempC: Range, ph: Range, gh: Range, sizeCm: z.number(), tankCm: z.number(), difficulty: z.number().int().min(1).max(8) }).partial().default({}),
+  dataCard: z.object({ tempC: Range, ph: Range, gh: Range, sizeCm: z.number(), tankCm: z.number(), difficulty: z.number().int().min(1).max(8), lifeYears: Range }).partial().default({}),
   plant: z.object({ difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]), light: z.enum(['low', 'medium', 'high']), co2: z.enum(['none', 'optional', 'required']), growth: z.enum(['slow', 'medium', 'fast']), placement: z.array(z.enum(PLACEMENT)) }).optional(),
   guide: z.object({ kind: z.enum(GUIDE_KINDS), viTitle: z.string(), viBody: z.string() }).optional(),
   productSlots: z.array(z.object({ category: z.string(), keywords: z.array(z.string()) })).default([]),
@@ -35,7 +35,7 @@ export const LLM_SCHEMA = llmSchema
  * Plausible bounds per field; anything outside (e.g. °F given as °C) is dropped rather than published, and so is a tank
  * length that is the page's tank volume (`en`, the page's English sections).
  */
-export const BOUNDS = { tempC: [4, 40], ph: [2, 10.5], gh: [0, 50], sizeCm: [0.3, 300], tankCm: [10, 1000], difficulty: [1, 8] } as const
+export const BOUNDS = { tempC: [4, 40], ph: [2, 10.5], gh: [0, 50], sizeCm: [0.3, 300], tankCm: [10, 1000], difficulty: [1, 8], lifeYears: [0.2, 150] } as const
 function saneCard(card: z.infer<typeof ProcessedPageSchema>['dataCard'], en: string) {
   const out: typeof card = {}
   for (const [k, v] of Object.entries(card) as [keyof typeof BOUNDS, number | { min: number; max: number }][]) {

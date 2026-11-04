@@ -2,7 +2,7 @@ import { sessionOf, tokenOf } from './accounts/session'
 import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
 import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
-import { photosLive, recentPhotos, removePhoto, type PhotosEnv } from './photos'
+import { photosLive, recentPhotos, removePhoto, waitingPhotos, type PhotosEnv } from './photos'
 import { queryReaderDays, queryReaders } from './readers'
 import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
 import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
@@ -13,7 +13,8 @@ import { isFailed, loginPage, soft, unset, type AdminPath, type Soft } from './a
 
 /**
  * The owner's dashboard, /_ab/: one page per part (admin/pages.ts), each open only to the owner signed in to the site,
- * noindex and never stored. Each part loads on its own and says so in its place when it can't.
+ * noindex and never stored; anyone else gets the site's sign-in in its place (signInPage). Each part loads on its own and
+ * says so in its place when it can't.
  * OWNER_ACCOUNTS (a Worker secret): the owner's account ids, comma-separated. AB_DASH_TOKEN, as a bearer token, is the
  * build's and the scripts' key to /_ab/hidden.json; it no longer opens the dashboard, since a token can leak or be shared.
  */
@@ -66,6 +67,31 @@ const see = (location: string, cookies: string[] = []) => {
   const h = new Headers({ location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' })
   for (const c of cookies) h.append('set-cookie', c)
   return new Response(null, { status: 303, headers: h })
+}
+
+/** The site's sign-in page (src/pages/dang-nhap/), and the two places in it the dashboard fills in. */
+const SIGN_IN = '/dang-nhap/'
+const PANEL = '<section id="tai-khoan"'
+const NOT_OWNER = 'id="acc-not-owner" hidden'
+/**
+ * The sign-in page's headers: never stored, noindex. Its referrer is this site's origin alone, never the /_ab/ path:
+ * Google's button and Turnstile read it to know the site they're on, and the dashboard's no-referrer would hide it.
+ * Nothing else on /_ab/ restricts what the page loads (the site sends no CSP).
+ */
+const SIGN_IN_HEADERS = { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'strict-origin' }
+
+/**
+ * Nobody signed in, or (`other`) an account that isn't the owner's, which the page then says: the site's sign-in in this
+ * dashboard page's place, so the owner signs in here and lands back on it (the panel's data-next, scripts/sync.ts
+ * nextPath). The old page that points to "Bể của tôi" when this build can't serve it.
+ */
+async function signInPage(env: AdminEnv, url: URL, key: AdminPath, other: boolean): Promise<Response> {
+  const status = other ? 403 : 200
+  const res = await env.ASSETS?.fetch(new Request(new URL(SIGN_IN, url))).catch(() => undefined)
+  const html = res?.ok && res.headers.get('content-type')?.includes('text/html') ? await res.text() : ''
+  if (!html.includes(PANEL) || (other && !html.includes(NOT_OWNER))) return new Response(loginPage(other), { status, headers: HTML })
+  const page = html.replace(PANEL, `${PANEL} data-next="${key}"`)
+  return new Response(other ? page.replace(NOT_OWNER, 'id="acc-not-owner"') : page, { status, headers: SIGN_IN_HEADERS })
 }
 
 const FONT = /^\/_ab\/fonts\/[a-z0-9-]+\.woff2$/
@@ -130,7 +156,7 @@ const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<s
     return affiliatePage(clicks, summary)
   },
   '/_ab/muon-co/': async (env, _url, now) => wantedPage(now, await soft('wanted', listWanted(env.AB))),
-  '/_ab/anh-ban-doc/': async env => photosPage(await soft('photos', recentPhotos(env))),
+  '/_ab/anh-ban-doc/': async env => photosPage(await soft('photos', recentPhotos(env)), await soft('waiting photos', waitingPhotos(env))),
   '/_ab/an-trang/': async env => hiddenPage(await soft('hidden', loadHidden(env.AB, true))),
   '/_ab/tai-khoan/': async (env, _url, now) => accountsPage(env.DB ? await soft('accounts', accountStats(env.DB, now)) : unset('D1')),
 }
@@ -175,8 +201,8 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   const who = await visitor(req, env, now)
-  // Not the owner: the overview says how to sign in (or that this account isn't the owner's); every other page sends there.
-  if (who !== 'owner') return key === '/_ab/' ? new Response(loginPage(who === 'other'), { status: who === 'other' ? 403 : 200, headers: HTML }) : see('/_ab/')
+  // Not the owner: the sign-in, on this page's address (and that this account isn't the owner's).
+  if (who !== 'owner') return signInPage(env, url, key, who === 'other')
   // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts), and drops the old token cookie.
   const headers = new Headers(HTML)
   for (const c of [OWNER_COOKIE, OLD_TOKEN_COOKIE]) headers.append('set-cookie', c)

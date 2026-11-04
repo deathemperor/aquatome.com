@@ -2,7 +2,7 @@ import { expect, test } from './fixtures'
 import { sourcePages } from './pages'
 
 test('tank volume: the default tank, then a new length, with the result shareable in the address', async ({ page }) => {
-  await page.goto('/vi/cong-cu/the-tich-be/')
+  await page.goto('/cong-cu/the-tich-be/')
   await expect(page.locator('#vf-out .big')).toContainText('64,8 lít')
   await page.locator('#vf-fields input[name=l]').fill('100')
   await expect(page.locator('#vf-out .big')).toContainText('108 lít')
@@ -10,7 +10,7 @@ test('tank volume: the default tank, then a new length, with the result shareabl
 })
 
 // The tank-mates checker's page (E2E_TM_PATH: another address, e.g. the old tools page, to see these fail there).
-const TM = process.env.E2E_TM_PATH ?? '/vi/cong-cu/nuoi-chung/'
+const TM = process.env.E2E_TM_PATH ?? '/cong-cu/nuoi-chung/'
 
 test('tank-mates: "neon" suggests the neon tetras and adds nothing until one is picked', async ({ page, errors }) => {
   await page.goto(TM)
@@ -86,25 +86,25 @@ test('tank-mates: an incompatible pair answers in one sentence first, then the w
 })
 
 test('tank-mates: links to the old place on the tools page open the checker with the same species', async ({ page }) => {
-  await page.goto('/vi/cong-cu/?ca=ca-neon-vua:10,ca-dia#nuoi-chung')
-  await expect(page).toHaveURL(/\/vi\/cong-cu\/nuoi-chung\/\?ca=ca-neon-vua:10,ca-dia:\d+$/)
+  await page.goto('/cong-cu/?ca=ca-neon-vua:10,ca-dia#nuoi-chung')
+  await expect(page).toHaveURL(/\/cong-cu\/nuoi-chung\/\?ca=ca-neon-vua:10,ca-dia:\d+$/)
   await expect(page.locator('#tm-chosen li')).toHaveCount(2)
   await expect(page.locator('#tm-chosen input').first()).toHaveValue('10')
 })
 
 test('tools page: a card for every tool; the calculators below by anchor', async ({ page }) => {
-  await page.goto('/vi/cong-cu/')
+  await page.goto('/cong-cu/')
   await expect(page.locator('.tools a')).toHaveCount(8)
-  await expect(page.locator('.tools a[href="/vi/cong-cu/nhan-dien-ca/"]')).toBeVisible()
+  await expect(page.locator('.tools a[href="/cong-cu/nhan-dien-ca/"]')).toBeVisible()
   await page.locator('.tools a[href="#suoi"]').click()
   await expect(page.locator('#suoi')).toBeInViewport()
-  await page.locator('.tools a[href="/vi/cong-cu/nuoi-chung/"]').click()
-  await expect(page).toHaveURL(/\/vi\/cong-cu\/nuoi-chung\/$/)
+  await page.locator('.tools a[href="/cong-cu/nuoi-chung/"]').click()
+  await expect(page).toHaveURL(/\/cong-cu\/nuoi-chung\/$/)
 })
 
 test('Chihiros page without Bluetooth: says which browsers work; the schedule form still works', async ({ page }) => {
   await page.addInitScript(() => { delete (Navigator.prototype as { bluetooth?: unknown }).bluetooth })
-  await page.goto('/vi/cong-cu/den-chihiros/')
+  await page.goto('/cong-cu/den-chihiros/')
   await expect(page.locator('#ch-unsupported')).toBeVisible()
   await expect(page.locator('#ch-connect')).toBeDisabled()
   await expect(page.locator('#ch-write')).toBeDisabled()
@@ -117,7 +117,7 @@ test('Chihiros page without Bluetooth: says which browsers work; the schedule fo
 test('tank volume: the ready-made tank table fits a small phone in every language, glass column included', async ({ page }, info) => {
   test.skip(info.project.name !== 'phone', 'only a phone is narrow enough')
   await page.setViewportSize({ width: 360, height: 800 })
-  for (const path of ['/vi/cong-cu/the-tich-be/', '/id/alat/volume-akuarium/', '/th/tools/tank-volume/']) {
+  for (const path of ['/cong-cu/the-tich-be/', '/id/alat/volume-akuarium/', '/th/tools/tank-volume/']) {
     await page.goto(path)
     const table = await page.locator('.scroll').first().evaluate(el => ({ fits: el.scrollWidth <= el.clientWidth, hint: getComputedStyle(el).backgroundImage }))
     expect(table.fits, `${path}: the table is wider than a 360 px phone`).toBe(true)
@@ -134,7 +134,7 @@ test('wide tables on a phone show that they scroll sideways', async ({ page }, i
   type Table = { path: string, wide: boolean, overflow: string, hint: string, right: number }
   let found: Table | undefined
   let tried = 0
-  for (const path of sourcePages().filter(p => /^\/vi\/huong-dan\/[^/]+\/$/.test(p))) {
+  for (const path of sourcePages().filter(p => /^\/huong-dan\/[^/]+\/$/.test(p))) {
     if (tried >= 15) break
     if (!/<table/.test(await (await page.request.get(path)).text())) continue
     tried++

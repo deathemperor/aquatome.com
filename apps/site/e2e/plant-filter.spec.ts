@@ -14,7 +14,7 @@ async function openBox(page: Page) {
 const shown = (text: string) => Number(/^(\d+) /.exec(text)![1])
 
 test("plant list: the tank's light and no CO₂ keep the plants that grow there; chips drop a filter, \"Xóa lọc\" all", async ({ page, errors }) => {
-  await page.goto('/vi/cay/')
+  await page.goto('/cay/')
   const all = await total(page)
   await expect(visible(page)).toHaveCount(Math.min(all, PAGE))
   if (all > PAGE) {
@@ -26,7 +26,7 @@ test("plant list: the tank's light and no CO₂ keep the plants that grow there;
   await page.locator('#plant-filter select[name=light]').selectOption('low')
   await page.locator('#plant-filter select[name=co2]').selectOption('none')
   await page.locator('#plant-filter button[type=submit]').click()
-  await expect(page).toHaveURL(/\/vi\/cay\/\?light=low&co2=none$/)
+  await expect(page).toHaveURL(/\/cay\/\?light=low&co2=none$/)
   const count = page.locator('#plant-count')
   await expect(count).toHaveText(/^\d+ loài phù hợp$/)
   const n = shown((await count.textContent())!)
@@ -44,7 +44,7 @@ test("plant list: the tank's light and no CO₂ keep the plants that grow there;
   const chips = page.locator('#plant-chips button')
   await expect(chips).toHaveText(['Ánh sáng bể: Yếu', 'CO₂: Không cần châm'])
   await page.getByRole('button', { name: 'Bỏ Ánh sáng bể: Yếu' }).click()
-  await expect(page).toHaveURL(/\/vi\/cay\/\?co2=none$/)
+  await expect(page).toHaveURL(/\/cay\/\?co2=none$/)
   await expect(chips).toHaveText(['CO₂: Không cần châm'])
   await expect(chips.first()).toBeFocused()
   await expect(page.locator('#plant-filter select[name=light]')).toHaveValue('')
@@ -52,7 +52,7 @@ test("plant list: the tank's light and no CO₂ keep the plants that grow there;
 
   // "Xóa lọc": no filter, no result line, every plant again.
   await page.getByRole('button', { name: 'Xóa lọc' }).click()
-  await expect(page).toHaveURL(/\/vi\/cay\/$/)
+  await expect(page).toHaveURL(/\/cay\/$/)
   await expect(count).toHaveText('')
   await expect(page.locator('#plant-active')).toBeHidden()
   await expect(visible(page)).toHaveCount(Math.min(all, PAGE))
@@ -60,7 +60,7 @@ test("plant list: the tank's light and no CO₂ keep the plants that grow there;
 })
 
 test('a link with filters opens the plant list filtered, the box open', async ({ page }) => {
-  await page.goto('/vi/cay/?placement=foreground&difficultyMax=1')
+  await page.goto('/cay/?placement=foreground&difficultyMax=1')
   await expect(page.locator('#plant-box')).toHaveAttribute('open', '')
   await expect(page.locator('#plant-chips button')).toHaveText(['Vị trí: Tiền cảnh', 'Độ khó tối đa: Dễ'])
   const n = shown((await page.locator('#plant-count').textContent())!)
@@ -84,31 +84,31 @@ for (const path of ['/id/tanaman/', '/th/plants/']) {
   })
 }
 
-// Every plant is a plain link away: "Xem thêm" is a link to the list's next numbered page (/vi/cay/trang/2/), which the
+// Every plant is a plain link away: "Xem thêm" is a link to the list's next numbered page (/cay/trang/2/), which the
 // script shows in place instead; it follows the link when the list's data file can't load.
 test('plant list: "Xem thêm" adds the next page in place, and is a link to the numbered page it follows when the list can\'t load', async ({ page }) => {
-  await page.goto('/vi/cay/')
+  await page.goto('/cay/')
   const all = await total(page)
   test.skip(all <= PAGE, 'every plant fits on the first page')
   const more = page.locator('#plant-more')
-  await expect(more).toHaveAttribute('href', '/vi/cay/trang/2/')
+  await expect(more).toHaveAttribute('href', '/cay/trang/2/')
   await expect(more).toHaveText(`Xem thêm ${Math.min(all - PAGE, PAGE)} loài (còn ${all - PAGE})`)
   await more.click()
-  await expect(page).toHaveURL(/\/vi\/cay\/$/)
+  await expect(page).toHaveURL(/\/cay\/$/)
   await expect(visible(page)).toHaveCount(Math.min(all, 2 * PAGE))
   const second = await visible(page).evaluateAll(els => els.slice(24).map(e => e.getAttribute('data-slug')))
   // The numbered page: the same plants, linked back.
-  await page.goto('/vi/cay/trang/2/')
+  await page.goto('/cay/trang/2/')
   expect(await page.locator('main .pc').evaluateAll(els => els.map(e => e.getAttribute('data-slug')))).toEqual(second)
-  await expect(page.locator('nav.pages a[rel=prev]')).toHaveAttribute('href', '/vi/cay/')
+  await expect(page.locator('nav.pages a[rel=prev]')).toHaveAttribute('href', '/cay/')
   await page.route('**/data/*/plants.json', route => route.abort())
-  await page.goto('/vi/cay/')
+  await page.goto('/cay/')
   await page.locator('#plant-more').click()
-  await expect(page).toHaveURL(/\/vi\/cay\/trang\/2\/$/)
+  await expect(page).toHaveURL(/\/cay\/trang\/2\/$/)
 })
 
 test('a plant with no photo shows a leaf on the plate colour, the shape of a photo, not an empty strip', async ({ page }) => {
-  await page.goto('/vi/cay/')
+  await page.goto('/cay/')
   // The first card without a photo, with more cards shown until it is (the engine may have photographed them all).
   const bare = page.locator('main .pc:visible:not(:has(.plate img))')
   const more = page.locator('#plant-more')

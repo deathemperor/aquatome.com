@@ -13,3 +13,6 @@ export function ct(s: string, vars?: Record<string, string | number>): string {
 
 /** A /vi/… link a browser script writes, in the page's language (lib/i18n localizePath; no dictionaries come along). */
 export const cpath = (path: string) => localizePath(langOf(location.pathname), path)
+
+/** A page's path from the app index (/app/<lang>.json), as this site links it: the index keeps the apps' form (lib/i18n appPath). */
+export const siteHref = (appPath: string) => localizePath('vi', appPath)

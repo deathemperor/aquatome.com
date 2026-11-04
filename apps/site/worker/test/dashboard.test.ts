@@ -99,10 +99,10 @@ test('overview log: the last three days in words, today first; a quiet day says 
   const days = lastDays(NOW, 31)
   ;(o.clicks as { clicks: number[] }).clicks.splice(28, 3, 2, 0, 4)
   o.wanted = { names: [{ kind: 'fish', name: 'Cá A', readers: 2, sources: {}, first: days[29]!, last: days[30]! }], more: false }
-  o.hidden = { '/vi/ca/x/': { at: '2026-11-02T03:00:00.000Z' } }
+  o.hidden = { '/ca/x/': { at: '2026-11-02T03:00:00.000Z' } }
   const l = log(o)
   expect(l.map(d => d.label)).toEqual(['Hôm nay · 02/11', 'Hôm qua · 01/11', 'Thứ Bảy · 31/10'])
-  expect(l[0]!.items).toEqual([{ text: '4 lượt bấm sang sàn' }, { text: 'Ẩn 1 trang', small: '/vi/ca/x/' }])
+  expect(l[0]!.items).toEqual([{ text: '4 lượt bấm sang sàn' }, { text: 'Ẩn 1 trang', small: '/ca/x/' }])
   expect(l[1]!.items).toEqual([{ text: '1 tên mới bạn đọc muốn có', small: 'Cá A' }])
   expect(l[2]!.items).toEqual([{ text: '2 lượt bấm sang sàn' }])
   const html = overviewPage({ ...well() })
@@ -114,7 +114,7 @@ test('dashboard: no A/B table any more, noindex; the sign-in page too', () => {
   expect(html).not.toContain('Đáy sâu')
   expect(html).toContain('noindex')
   expect(loginPage()).toContain('noindex')
-  expect(loginPage()).toContain('href="/vi/cong-cu/be-cua-toi/#tai-khoan"')
+  expect(loginPage()).toContain('href="/cong-cu/be-cua-toi/#tai-khoan"')
   expect(loginPage(true)).toContain('không phải tài khoản chủ trang')
 })
 
@@ -132,10 +132,10 @@ test('dashboard affiliate section summarises clicks and catalog health', async (
 })
 
 test('dashboard: hide form and the hidden list with an unhide button per page', () => {
-  const html = hiddenPage({ '/vi/ca/x/': { at: '2026-10-29T10:00:00.000Z', note: '<b>sai</b>' } })
+  const html = hiddenPage({ '/ca/x/': { at: '2026-10-29T10:00:00.000Z', note: '<b>sai</b>' } })
   expect(html).toContain('action="/_ab/hidden"')
   expect(html).toContain('value="hide"')
-  expect(html).toContain('<a href="/vi/ca/x/">/vi/ca/x/</a>')
+  expect(html).toContain('<a href="/ca/x/">/ca/x/</a>')
   expect(html).toContain('&lt;b&gt;sai&lt;/b&gt;')
   expect(html).toContain('value="unhide"')
 })

@@ -45,7 +45,7 @@ const card = (page: Page) => page.locator('#ch-light')
 
 test('a new light: guided setup, the clock put right, a schedule written in the right order, remembered after a reload', async ({ page, errors }) => {
   await fakeLight(page, 'slow')
-  await page.goto('/vi/cong-cu/den-chihiros/')
+  await page.goto('/cong-cu/den-chihiros/')
   await page.locator('#ch-connect').click()
   await expect(card(page).locator('.steps li')).toHaveCount(4)
   await expect(card(page)).toContainText('Đồng hồ đèn chậm 7 tiếng')
@@ -95,7 +95,7 @@ test('a new light: guided setup, the clock put right, a schedule written in the 
 
 test('quick actions leave the schedule and come back to it; a dropped light reconnects without the picker', async ({ page }) => {
   await fakeLight(page)
-  await page.goto('/vi/cong-cu/den-chihiros/')
+  await page.goto('/cong-cu/den-chihiros/')
   await page.locator('#ch-connect').click()
   await expect(card(page)).toContainText('Đồng hồ đèn đúng giờ')
   await card(page).getByRole('button', { name: 'Tắt đèn' }).click()
@@ -115,7 +115,7 @@ test('quick actions leave the schedule and come back to it; a dropped light reco
 
 test('a light whose tank another tab deleted is saved again on a tank that exists, not back onto the deleted one', async ({ page }) => {
   await fakeLight(page)
-  await page.goto('/vi/cong-cu/den-chihiros/')
+  await page.goto('/cong-cu/den-chihiros/')
   await page.locator('#ch-connect').click()
   await expect(card(page)).toContainText('Đồng hồ đèn đúng giờ')
   // "Bể của tôi" in another tab: the tank deleted, and the light on it (tombstones).
@@ -135,13 +135,13 @@ test('a light whose tank another tab deleted is saved again on a tank that exist
 
 test('a clock reset by a power cut is reported', async ({ page }) => {
   await fakeLight(page, 'reset')
-  await page.goto('/vi/cong-cu/den-chihiros/')
+  await page.goto('/cong-cu/den-chihiros/')
   await page.locator('#ch-connect').click()
   await expect(card(page)).toContainText('Đèn mất giờ, có thể do mất điện')
 })
 
 test('the timeline: handles move by keyboard and by dragging, the plan is kept for the next visit', async ({ page }) => {
-  await page.goto('/vi/cong-cu/den-chihiros/')
+  await page.goto('/cong-cu/den-chihiros/')
   const on = page.locator('#tl-on')
   await on.focus()
   for (let i = 0; i < 4; i++) await page.keyboard.press('ArrowRight')

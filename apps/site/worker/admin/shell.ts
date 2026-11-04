@@ -238,9 +238,9 @@ export function page(current: AdminPath, title: string, body: string, now = new 
 /** Signed out, or `other`: signed in to an account that isn't the owner's. The site's own sign-in is on the My tanks page. */
 export function loginPage(other = false): string {
   return `${HEAD('Đăng nhập')}<body><main style="max-width:28rem"><h1>Quản trị AquaTome</h1>${other ? '<p class="failed">Tài khoản đang đăng nhập không phải tài khoản chủ trang. Đăng xuất rồi đăng nhập bằng tài khoản chủ trang.</p>' : '<p class="lede">Đăng nhập bằng tài khoản AquaTome của chủ trang để xem số liệu.</p>'}
-<p><a class="go" href="/vi/cong-cu/be-cua-toi/#tai-khoan">${other ? 'Đổi tài khoản' : 'Đăng nhập'}</a></p>
+<p><a class="go" href="/cong-cu/be-cua-toi/#tai-khoan">${other ? 'Đổi tài khoản' : 'Đăng nhập'}</a></p>
 <p class="muted">Đăng nhập xong, mở lại <a href="/_ab/">/_ab/</a>.</p>
-<p><a href="/vi/">Về trang chủ</a></p></main></body></html>`
+<p><a href="/">Về trang chủ</a></p></main></body></html>`
 }
 
 /** A part that loads on its own: its data, or why it couldn't load (shown in its place, the rest of the page still renders). */

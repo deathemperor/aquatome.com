@@ -11,6 +11,6 @@ const have = new Map(await Promise.all(plan.map(async t => [t.id, ((JSON.parse(a
 const rows = TIER_ORDER.map(tier => {
   const r = plan.filter(t => t.tier === tier)
   const at = r.filter(t => have.get(t.id)! >= t.target).length
-  return { tier, target: TARGETS[tier], species: r.filter(t => t.kind === 'species').length, plants: r.filter(t => t.kind === 'plants').length, atTarget: at, below: r.length - at, photos: r.reduce((n, t) => n + have.get(t.id)!, 0) }
+  return { tier, target: TARGETS[tier], species: r.filter(t => t.kind === 'species').length, plants: r.filter(t => t.kind === 'plants').length, breeds: r.filter(t => t.kind === 'breeds').length, atTarget: at, below: r.length - at, photos: r.reduce((n, t) => n + have.get(t.id)!, 0) }
 })
 console.log(JSON.stringify({ rows, total: { pages: plan.length, atTarget: rows.reduce((n, r) => n + r.atTarget, 0), photos: rows.reduce((n, r) => n + r.photos, 0), withGallery: [...have.values()].filter(n => n > 0).length } }, null, 1))

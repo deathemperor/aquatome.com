@@ -1,12 +1,39 @@
-name: Nightly comment and photo moderation
-# Comments and reader photos, nightly at 04:00 Vietnam time (was launchd). macOS for the face screen (Apple Vision).
+name: Comment and photo moderation
+# Comments and reader photos, every hour, so a reader's photo shows within the hour instead of the next night. The
+# moderation itself runs on macOS (Apple Vision's face screen), which the iOS jobs queue for too: a small Linux job asks
+# the site whether anything waits, and macOS starts only when something does (or when it's run by hand).
 on:
   schedule:
-    - cron: '0 21 * * *'
+    - cron: '17 * * * *'
   workflow_dispatch:
+concurrency:
+  group: moderate
+  cancel-in-progress: false
 jobs:
+  waiting:
+    name: Anything waiting?
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      count: ${{ steps.queues.outputs.count }}
+    steps:
+      - id: queues
+        env:
+          AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
+        run: |
+          # Each queue is a JSON array (comments, photos). One that can't be read counts as waiting, so a site error
+          # never skips a run.
+          n=0
+          for q in /_c/admin/queue /_p/admin/queue; do
+            c=$(curl -sf --retry 2 -H "Authorization: Bearer $AB_DASH_TOKEN" "https://aquatome.com$q" | jq 'length' 2>/dev/null) || c=1
+            n=$((n + ${c:-1}))
+          done
+          echo "waiting: $n"
+          echo "count=$n" >> "$GITHUB_OUTPUT"
   moderate:
     name: Moderate comments and reader photos
+    needs: waiting
+    if: github.event_name == 'workflow_dispatch' || needs.waiting.outputs.count != '0'
     runs-on: macos-latest
     timeout-minutes: 60
     steps:

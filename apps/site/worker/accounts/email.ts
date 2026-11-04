@@ -15,7 +15,7 @@ export type SendMail = (mail: Mail) => Promise<boolean>
 export type Lang = 'vi' | 'id' | 'th'
 
 /** The "Bể của tôi" page in each language (apps/site/src/lib/i18n.ts: a test keeps them equal). */
-export const TANKS_PAGE: Record<Lang, string> = { vi: '/vi/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/' }
+export const TANKS_PAGE: Record<Lang, string> = { vi: '/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/' }
 export const LINK_PARAM = 'ma'
 
 const EMAIL = /^[^\s@<>()[\]\\,;:"]{1,64}@[a-z0-9-]+(?:\.[a-z0-9-]+)+$/

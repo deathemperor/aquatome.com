@@ -2,6 +2,42 @@
   "id": "butterfly-koi",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/5d63636767678801.webp",
+      "thumb": "https://media.aquatome.com/commons/5d63636767678801-480.webp",
+      "width": 1200,
+      "height": 1800,
+      "licence": "CC BY 2.0",
+      "author": "Thomas Quine",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_Koi_(24555853464).jpg",
+      "caption": "Cá koi bướm cam trắng vây dài nhìn từ trên xuống",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/661ca6d53217c897.webp",
+      "thumb": "https://media.aquatome.com/commons/661ca6d53217c897-480.webp",
+      "width": 1200,
+      "height": 993,
+      "licence": "CC BY 3.0",
+      "author": "Dguendel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Magdeburg,_Elbauenpark,_Schmetterlingshaus,_gelber_Koi.jpg",
+      "caption": "Cá koi bướm màu vàng vây dài bơi trong bể kính",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/15934252a12ce521.webp",
+      "thumb": "https://media.aquatome.com/commons/15934252a12ce521-480.webp",
+      "width": 960,
+      "height": 674,
+      "licence": "CC BY-SA 3.0",
+      "author": "AnahísMéndez",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pez..jpg",
+      "caption": "Cá koi bướm vàng vây dài bơi trong hồ nước",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/deee119c227bb1bf.webp",
       "thumb": "https://media.aquatome.com/commons/deee119c227bb1bf-480.webp",
       "width": 800,
@@ -62,6 +98,7 @@
       "caption": "Cá koi bướm đỏ trắng vây dài bơi gần mặt nước trong hồ"
     }
   ],
-  "seen": 48,
-  "updatedAt": "2026-10-30"
+  "seen": 61,
+  "updatedAt": "2026-11-04",
+  "builtAt": "2026-11-04"
 }

@@ -14,6 +14,7 @@ import { ADSENSE_CLIENT } from '../lib/site'
 import { OWNER_SCRIPT } from '../../worker/owner'
 import type { Credit } from '../lib/credits'
 import { i18n, LANGS, localizePath, OG_LOCALE, served, toVi, type Lang } from '../lib/i18n'
+import { VI_SECTIONS } from '../../worker/paths'
 import CLIENT from '../i18n/client.json'
 
 interface Props {
@@ -30,8 +31,10 @@ interface Props {
   alternates?: Partial<Record<Lang, string>>
   /** In the site search (Pagefind indexes only pages whose <main> carries data-pagefind-body). */
   search?: boolean
+  /** Ads: off on a screen with nothing to read (AdSense's rules), such as the sign-in page. */
+  ads?: boolean
 }
-const { title, description, noindex = false, jsonld = [], credits, creditsLater, image, alternates = {}, search = true } = Astro.props
+const { title, description, noindex = false, jsonld = [], credits, creditsLater, image, alternates = {}, search = true, ads = true } = Astro.props
 const { lang, t } = i18n(Astro.url)
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 // A page without address parameters is the same page in every language that has it; others pass their alternates.
@@ -44,6 +47,10 @@ const langs = LANGS.flatMap(l => {
 const xDefault = langs.find(([l]) => l === 'vi')?.[1] ?? canonical
 // For the language menu in the header (Nav renders inside the header slot, after this runs).
 Astro.locals.langs = langs
+// The pages of this page's language: Vietnamese ones are the home page and its sections, the others under /id/, /th/.
+const own = { href_matches: lang === 'vi' ? ['/', ...VI_SECTIONS.map(s => `/${s}/*`)] : `/${lang}/*` }
+const where = { and: [own, { not: { selector_matches: '[rel~=nofollow],[rel~=sponsored],[target=_blank],[download]' } }] }
+const speculation = JSON.stringify({ prefetch: [{ where, eagerness: 'eager' }], prerender: [{ where, eagerness: 'moderate' }] })
 ---
 <!doctype html>
 <html lang={lang}>
@@ -55,7 +62,7 @@ Astro.locals.langs = langs
     {/* Again when a preloaded page is shown: the reader may have toggled since. */}
     <script is:inline>(function(){var a=function(){try{var t=localStorage.getItem('aq_theme'),d=document.documentElement;t==='dark'||t==='light'?d.setAttribute('data-theme',t):d.removeAttribute('data-theme')}catch(e){}};a();document.prerendering&&document.addEventListener('prerenderingchange',a,{once:true})})()</script>
     {/* Hovering (or touching) a link loads that page in the background (Chrome, Edge, Samsung Internet), so the click is instant. Its HTML is fetched sooner still (10 ms hover; on phones, a link in view), since a page's first request can take ~0.5 s. Site pages only; never affiliate, outbound or admin links. */}
-    <script is:inline type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/vi/*"},{"not":{"selector_matches":"[rel~=nofollow],[rel~=sponsored],[target=_blank],[download]"}}]},"eagerness":"eager"}],"prerender":[{"where":{"and":[{"href_matches":"/vi/*"},{"not":{"selector_matches":"[rel~=nofollow],[rel~=sponsored],[target=_blank],[download]"}}]},"eagerness":"moderate"}]}</script>
+    <script is:inline type="speculationrules" set:html={speculation} />
     <title>{title}</title>
     {description && <meta name="description" content={description} data-pagefind-meta="description[content]" />}
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}
@@ -78,8 +85,8 @@ Astro.locals.langs = langs
     <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     {/* AdSense (and Google's consent message for EEA/UK/CH visitors) — production only. Loaded on the reader's first scroll of the page (not captured: a strip that snaps itself while loading doesn't count), tap or key, not with the page: Google's test cookie is a third-party cookie (Lighthouse Best Practices), and the page's own text and pictures get the connection first. */}
-    {!isStaging() && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
-    {!isStaging() && <script is:inline data-ads set:html={`(function(){var ev=['scroll','pointerdown','keydown','touchstart'],o=function(e){return{capture:e!=='scroll',passive:true}},go=function(){ev.forEach(function(e){removeEventListener(e,go,o(e))});var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}';document.head.appendChild(s)};ev.forEach(function(e){addEventListener(e,go,o(e))})})()`} />}
+    {ads && !isStaging() && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
+    {ads && !isStaging() && <script is:inline data-ads set:html={`(function(){var ev=['scroll','pointerdown','keydown','touchstart'],o=function(e){return{capture:e!=='scroll',passive:true}},go=function(){ev.forEach(function(e){removeEventListener(e,go,o(e))});var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}';document.head.appendChild(s)};ev.forEach(function(e){addEventListener(e,go,o(e))})})()`} />}
   </head>
   <body>
     <slot name="header" />

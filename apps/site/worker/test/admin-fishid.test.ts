@@ -64,7 +64,7 @@ test('unmatched guesses most first with their mean confidence; the last calls wi
   expect(s.unmatched).toEqual([{ sci: 'Trigonostigma heteromorpha', n: 5, conf: 0.8 }, { sci: 'Betta <script>', n: 2, conf: 0.6 }])
   expect(s.recent[0]).toMatchObject({ key: 'a1b2c3d4', from: 'tank', tin: 1500, usd: 0.0084, conf: 0.92 })
   const html = fishIdPage({ now: NOW, stats: s, keys: undefined, pages: new Map([['paracheirodon-innesi', '/vi/ca/ca-neon-xanh/']]) })
-  expect(html).toContain('<a href="/vi/ca/ca-neon-xanh/"><i class="sci">Paracheirodon innesi</i></a>')
+  expect(html).toContain('<a href="/ca/ca-neon-xanh/"><i class="sci">Paracheirodon innesi</i></a>')
   expect(html).toContain('<th>02/11 09:58</th>')
   expect(html).toContain('Bể của tôi')
   expect(html).toContain('không qua kiểm tra chống spam')

@@ -1,4 +1,5 @@
-import { aeSql } from './admin/ae'
+import { EVENTS, eventsSql } from './admin/ae'
+import { withoutVi } from './paths'
 
 /**
  * "Real readers" from our own beacon (only browsers that run the page's JavaScript, minus known bots and the owner):
@@ -40,7 +41,8 @@ export function summariseReaders(sessions: Session[], views: View[], days: numbe
   const firstRef = new Map<string, string>()
   const cc = new Map<string, string>()
   for (const v of views) {
-    if (readerSids.has(v.sid)) pages.set(v.p, (pages.get(v.p) ?? 0) + num(v.views))
+    // A view of an old /vi/… address counts for the page's address now.
+    if (readerSids.has(v.sid)) { const p = withoutVi(v.p); pages.set(p, (pages.get(p) ?? 0) + num(v.views)) }
     if (v.ref && !firstRef.has(v.sid)) firstRef.set(v.sid, v.ref)
     if (v.cc && !cc.has(v.sid)) cc.set(v.sid, v.cc)
   }
@@ -66,18 +68,29 @@ export function summariseReaders(sessions: Session[], views: View[], days: numbe
   }
 }
 
-export const SESSIONS_SQL = (days: number) => `SELECT blob4 AS sid, min(timestamp) AS first,
+export const SESSIONS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, min(timestamp) AS first,
   SUM(IF(blob2 = 'view', _sample_interval, 0)) AS pages, MAX(IF(blob2 = 'time', double1, 0.0)) AS t, MAX(IF(blob2 = 'scroll', double1, 0.0)) AS scroll
-FROM thuysinh_events WHERE timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid FORMAT JSON`
-const VIEWS_SQL = (days: number) => `SELECT blob4 AS sid, blob3 AS p, blob5 AS ref, blob6 AS cc, SUM(_sample_interval) AS views
-FROM thuysinh_events WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid, p, ref, cc FORMAT JSON`
+FROM ${table} WHERE timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid FORMAT JSON`
+const VIEWS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, blob3 AS p, blob5 AS ref, blob6 AS cc, SUM(_sample_interval) AS views
+FROM ${table} WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid, p, ref, cc FORMAT JSON`
+
+/** One row per session: a session the beacon wrote to both datasets (across the move) is one. */
+export function bySession(rows: Session[]): Session[] {
+  const m = new Map<string, Session>()
+  for (const r of rows) {
+    const s = m.get(r.sid)
+    m.set(r.sid, s ? { sid: r.sid, first: r.first < s.first ? r.first : s.first, pages: num(s.pages) + num(r.pages), t: Math.max(num(s.t), num(r.t)), scroll: Math.max(num(s.scroll), num(r.scroll)) } : r)
+  }
+  return [...m.values()]
+}
+export const querySessions = (accountId: string, token: string, days: number, now?: number) => eventsSql<Session>(accountId, token, t => SESSIONS_SQL(days, t), now).then(bySession)
 
 export async function queryReaders(accountId: string, token: string, days = 14): Promise<Readers> {
-  const [sessions, views] = await Promise.all([aeSql<Session>(accountId, token, SESSIONS_SQL(days)), aeSql<View>(accountId, token, VIEWS_SQL(days))])
+  const [sessions, views] = await Promise.all([querySessions(accountId, token, days), eventsSql<View>(accountId, token, t => VIEWS_SQL(days, t))])
   return summariseReaders(sessions, views, days)
 }
 
 /** Sessions and readers per day (UTC, by a session's first event), from the sessions query alone: the overview's. */
 export async function queryReaderDays(accountId: string, token: string, days: number): Promise<Readers['daily']> {
-  return summariseReaders(await aeSql<Session>(accountId, token, SESSIONS_SQL(days)), [], days).daily
+  return summariseReaders(await querySessions(accountId, token, days), [], days).daily
 }

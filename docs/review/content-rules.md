@@ -5,7 +5,7 @@ Indonesian and Thai (`packages/engine/src/content-rules.ts`, docs/governance.md)
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 2988 (Vietnamese 2021, Indonesian 481, Thai 486). Imperial units
+Pages checked: 3231 (Vietnamese 2224, Indonesian 506, Thai 501). Imperial units
 beside a metric figure: feet 2, gallon 7.
 
 ## Numbered headings broken or miscounted (1)
@@ -88,13 +88,13 @@ A figure in °F, inches, feet, gallons or pounds (`pnpm engine metric` converts 
 
 - none
 
-## A photo caption naming another fish, or a map (0)
+## A photo caption naming another fish, a map or an ad video's poster (0)
 
-A species or plant photo whose caption names another species the site has a page for, and not the page's, with nothing saying the fish is still the page's; or says it is a map. The sweep takes the photo off the page; a map leaves every page (engine-state/_photo-rejected.json), a photo of another fish only this one, so it may still join that fish's page. Checked on the Vietnamese page; the photos are the same in every language.
+A species or plant photo whose caption names another species the site has a page for, and not the page's, with nothing saying the fish is still the page's; or says it is a map, or is an ad video's title ("video of: …"). The sweep takes the photo off the page; a map or an ad's poster leaves every page (engine-state/_photo-rejected.json), a photo of another fish only this one, so it may still join that fish's page. Checked on the Vietnamese page; the photos are the same in every language.
 
 - none
 
-## A photo caption that may name another fish (22)
+## A photo caption that may name another fish (21)
 
 A caption naming a Latin name in a genus the site has, that no page has, or another page's species with words saying the fish may still be the page's ("in a batch of", "here with"). Listed, not removed: `pnpm engine check-photos --only <id>` looks again. Checked on the Vietnamese page.
 
@@ -102,13 +102,13 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 - [vi · Cá bắn cung](https://aquatome.com/vi/ca/ca-ban-cung/) — Toxotes chatareus: "Toxotes chatareus adult"
 - [vi · Cá chân kiếm Sumatra](https://aquatome.com/vi/ca/ca-chan-kiem-sumatra/) — Parosphromenus deissneri: "A male Parosphromenus deissneri with its spawn. The 'cave' is a capped length o…"
 - [vi · Cá chuột sọc nói](https://aquatome.com/vi/ca/ca-chuot-soc-noi/) — Platydoras costatus: "Young specimen of Platydoras costatus"; Platydoras costatus: "Platydoras costatus"
-- [vi · Cá da trơn mõm xẻng Pseudoplatystoma corruscans](https://aquatome.com/vi/ca/ca-da-tron-mom-xeng-pseudoplatystoma-corruscans/) — Triportheus pantanensis: "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are liste…"
 - [vi · Cá đầu chúc sọc](https://aquatome.com/vi/ca/ca-dau-chuc-soc/) — Anostomus brevior: "Anostomus brevior in French Guiana"
 - [vi · Cá prochilodus bạc](https://aquatome.com/vi/ca/ca-duoi-co-prochilodus/) — Semaprochilodus insignis: "Semaprochilodus insignis"
 - [vi · Cá Garra rakhinica](https://aquatome.com/vi/ca/ca-garra-rakhinica/) — Garra flavatra: "Specimen from the Thai aquarium trade, imported as a contaminant in a batch of…"
 - [vi · Cá hàm răng Salda](https://aquatome.com/vi/ca/ca-ham-rang-salda/) — Aphanius splendens: "Male of Aphanius splendens."
 - [vi · Cá he vàng](https://aquatome.com/vi/ca/ca-he-vang/) — Barbonymus schwanenfeldii: "Barbonymus schwanenfeldii by OpenCage.jpg"
 - [vi · Cá chạch lá guntea](https://aquatome.com/vi/ca/ca-heo-guntea/) — Garra flavatra: "...and are peaceful with other species. Here with Garra flavatra."
+- [vi · Cá hoplias aimara](https://aquatome.com/vi/ca/ca-hoplias-aimara/) — Hoplias macropthalmus: "Hoplias macropthalmus in a pet shop"
 - [vi · Cá julie vàng](https://aquatome.com/vi/ca/ca-julie-vang/) — Julidochromis regani: "Picture taken in the zoo of Wrocław (Poland): Julidochromis regani (Poll, 1942)"
 - [vi · Cá killifish Bouala lyretail](https://aquatome.com/vi/ca/ca-killifish-bouala-lyretail/) — Aphyosemion elberti: "Male Aphyosemion elberti "Red T", a West African Killifish from Cameroon. This…"
 - [vi · Cá hoàng đế mad barb](https://aquatome.com/vi/ca/ca-ngheo/) — Barbonymus schwanenfeldii: "Barbonymus schwanenfeldii"
@@ -116,13 +116,12 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 - [vi · Cá ăn đất đầu nhọn](https://aquatome.com/vi/ca/ca-satanopera-acuticeps/) — Satanoperca daemon: "Threespot Eartheater (Satanoperca daemon)"
 - [vi · Cá trê nói chuyện cẩm thạch](https://aquatome.com/vi/ca/ca-tre-noi-chuyen-cam-thach/) — Platydoras hancockii: "This species is often traded as A. hancockii, a name currently regarded synonym…"
 - [vi · Cá trê nói chuyện nâu sô-cô-la](https://aquatome.com/vi/ca/ca-tre-noi-chuyen-nau-so-co-la/) — Platydoras armatulus: "This species is most often seen among shipments of Platydoras armatulus or Agam…"
-- [vi · Cá trê Pimelodella gracilis](https://aquatome.com/vi/ca/ca-tre-pimelodella-gracilis/) — Triportheus pantanensis: "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are liste…"
 - [vi · Cá trê suối Thành Đô](https://aquatome.com/vi/ca/ca-tre-suoi-thanh-do/) — Liobagrus chengduensis: "Liobagrus chengduensis: paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Dorsal view-paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Ventral view-paratype"
 - [vi · Cá vòi voi Campylomormyrus compressirostris](https://aquatome.com/vi/ca/ca-voi-voi-campylomormyrus-compressirostris/) — Campylomormyrus rhynchophorus: "Campylomormyrus rhynchophorus at the Tokyo Tower Aquarium"
 - [vi · Bucephalandra diabolica 'Kedagang'](https://aquatome.com/vi/cay/bucephalandra-diabolica-kedagang/) — Bucephalandra spatha: "Bucephalandra spatha, submerged, one day before fully opening, with filaments a…"
 
 ## Data card values outside sane bounds (0)
 
-A figure outside the bounds the engine keeps when it reads a page (temperature 4–40 °C, pH 2–10.5, GH 0–50, size 0.3–300 cm, tank 10–1000 cm, difficulty 1–8), a range upside down, or a minimum tank shorter than twice the adult fish. The sweep hides the figure from the card (kept in the page's file, marked `hidden` with why). Checked on the Vietnamese page; the card is the same in every language.
+A figure outside the bounds the engine keeps when it reads a page (temperature 4–40 °C, pH 2–10.5, GH 0–50, size 0.3–300 cm, tank 10–1000 cm, difficulty 1–8, lifespan 0.2–150 years), a range upside down, or a minimum tank shorter than twice the adult fish. The sweep hides the figure from the card (kept in the page's file, marked `hidden` with why). Checked on the Vietnamese page; the card is the same in every language.
 
 - none

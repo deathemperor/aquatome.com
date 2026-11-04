@@ -5,7 +5,7 @@ import { headingRoles, imperialLeft, ownNumber, type DataCardField, type Lang } 
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice } from './sanitize'
-import type { Page, PageKind } from './pages'
+import { pageUrl, type Page, type PageKind } from './pages'
 
 /**
  * Rules every published page is checked against, every cycle, in each language (`pnpm engine audit`). Each is a small
@@ -554,7 +554,7 @@ export const RULES: Rule[] = [
   {
     // The card is the same in every language: checked on the Vietnamese page.
     id: 'card', title: 'Data card values outside sane bounds',
-    about: 'A figure outside the bounds the engine keeps when it reads a page (temperature 4–40 °C, pH 2–10.5, GH 0–50, size 0.3–300 cm, tank 10–1000 cm, difficulty 1–8), a range upside down, or a minimum tank shorter than twice the adult fish. The sweep hides the figure from the card (kept in the page\'s file, marked `hidden` with why). Checked on the Vietnamese page; the card is the same in every language.',
+    about: 'A figure outside the bounds the engine keeps when it reads a page (temperature 4–40 °C, pH 2–10.5, GH 0–50, size 0.3–300 cm, tank 10–1000 cm, difficulty 1–8, lifespan 0.2–150 years), a range upside down, or a minimum tank shorter than twice the adult fish. The sweep hides the figure from the card (kept in the page\'s file, marked `hidden` with why). Checked on the Vietnamese page; the card is the same in every language.',
     check: p => {
       if (p.lang !== 'vi') return []
       const slips = cardSlips(p.card)
@@ -585,7 +585,6 @@ export function checkPages(pages: Page[], rules: Rule[] = RULES): { findings: Fi
   return { findings, errors }
 }
 
-const SITE = 'https://aquatome.com'
 const md = (s: string) => s.replace(/([[\]|*_`<>\\])/g, '\\$1')
 
 /** docs/review/content-rules.md: one section per rule, each page once with what was found there, in a stable order. */
@@ -601,7 +600,7 @@ export function rulesReport(pages: Page[], r: { findings: Finding[]; errors: str
       byPage.set(f.page.path, e)
     }
     const rows = [...byPage.values()].sort((a, b) => a.page.path.localeCompare(b.page.path))
-      .map(({ page, details }) => `- [${page.lang} · ${md(page.title)}](${SITE}${page.path}) — ${details.map(md).join('; ')}`)
+      .map(({ page, details }) => `- [${page.lang} · ${md(page.title)}](${pageUrl(page)}) — ${details.map(md).join('; ')}`)
     return `## ${rule.title} (${rows.length})\n\n${rule.about}\n\n${rows.join('\n') || '- none'}\n`
   })
   return `# Content rules

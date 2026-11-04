@@ -624,6 +624,22 @@
     "findings": [],
     "ruled": "6cf8353fbf93f351"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-plants-for-profit": {
+    "at": "2026-11-04",
+    "hash": "f59259c7939e4d04",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Grow Aquarium Plants for Profit - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and says nothing about what the photo shows.",
+        "rule": "A caption that matches the source article's title or contains a site name after a dash.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "f59259c7939e4d04"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-aquarium-siphon": {
     "at": "2026-11-02",
     "hash": "c7b9fe633d433f99",
@@ -4012,6 +4028,22 @@
     ],
     "ruled": "261b20775997fc9f"
   },
+  "vi/guides/youtube-_jeiH3OWyiA": {
+    "at": "2026-11-04",
+    "hash": "413b19bc1d128479",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua những gì cây cần",
+        "problem": "'đi qua' is a word-for-word rendering of 'go through', so it reads like a translation, and the 'Bài này' framing goes against the house style.",
+        "fix": "Để cây lên tốt, bạn cần lo mấy thứ: nền, ánh sáng, CO2, phân, và biết cách xử lý khi cây mới về trông thảm hại.",
+        "field": "body"
+      }
+    ],
+    "ruled": "413b19bc1d128479"
+  },
   "vi/guides/youtube-_ZxeBxNRdPU": {
     "at": "2026-11-01",
     "hash": "d50bd3651a38097b",
@@ -4091,6 +4123,18 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/youtube-2NdWisNvjL4": {
+    "at": "2026-11-04",
+    "hash": "85cfd57c8bbc2cf7",
+    "findings": [],
+    "ruled": "85cfd57c8bbc2cf7"
+  },
+  "vi/guides/youtube-3rjwtQRT3pA": {
+    "at": "2026-11-04",
+    "hash": "c6242f49e81d49d6",
+    "findings": [],
+    "ruled": "c6242f49e81d49d6"
   },
   "vi/guides/youtube-4UAMT8frW4s": {
     "at": "2026-11-02",
@@ -4391,6 +4435,12 @@
     ],
     "ruled": "04be1f083eda629e"
   },
+  "vi/guides/youtube-DWXA9p0yH-8": {
+    "at": "2026-11-04",
+    "hash": "a4d578b940c3b5ea",
+    "findings": [],
+    "ruled": "a4d578b940c3b5ea"
+  },
   "vi/guides/youtube-EIjUVVFcNmo": {
     "at": "2026-11-03",
     "hash": "60d085fc09a5e347",
@@ -4557,6 +4607,18 @@
       }
     ],
     "ruled": "4b11cd857b1ff590"
+  },
+  "vi/guides/youtube-FWKn0tGZnoc": {
+    "at": "2026-11-04",
+    "hash": "1ad03b0b0e8a7d18",
+    "findings": [],
+    "ruled": "1ad03b0b0e8a7d18"
+  },
+  "vi/guides/youtube-g6kNBCl1hl0": {
+    "at": "2026-11-04",
+    "hash": "925887ad637c04db",
+    "findings": [],
+    "ruled": "925887ad637c04db"
   },
   "vi/guides/youtube-g6Rqis9uO1Y": {
     "at": "2026-11-01",
@@ -4754,6 +4816,31 @@
     ],
     "ruled": "189edd40ec15f99c"
   },
+  "vi/guides/youtube-Jth3Ks8lm6c": {
+    "at": "2026-11-04",
+    "hash": "b5490084258fc2d3",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Vào nước xong là cơ bản xong năm bước.",
+        "problem": "The page never sets out five steps, so the reader can't tell which five steps this refers to.",
+        "fix": "Vào nước xong là cơ bản đã hoàn thành phần set bể.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhiều người chia sáng 4 tiếng, chiều 4 tiếng",
+        "problem": "The word for splitting the time is missing, so \"chia sáng\" can be misread before the reader sees \"chiều\".",
+        "fix": "Nhiều người chia ra buổi sáng 4 tiếng, buổi chiều 4 tiếng",
+        "field": "body"
+      }
+    ],
+    "ruled": "b5490084258fc2d3"
+  },
   "vi/guides/youtube-jvEJpkByqJ0": {
     "at": "2026-11-02",
     "hash": "0accee578e601f3b",
@@ -4808,6 +4895,31 @@
     ],
     "ruled": "0accee578e601f3b"
   },
+  "vi/guides/youtube-JXMp5tbsgkk": {
+    "at": "2026-11-04",
+    "hash": "90002c24dfc8b2e3",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nước từ bể chính đổ xuống và rơi lả tả qua lớp vật liệu đó",
+        "problem": "\"Rơi lả tả\" is used for leaves or petals scattering down, so it reads oddly for water trickling through filter media.",
+        "fix": "nước từ bể chính đổ xuống và nhỏ giọt đều qua lớp vật liệu đó",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bio ball là lựa chọn dễ chịu nhất vì ít bị nén và ít bị bít.",
+        "problem": "\"Dễ chịu\" (pleasant, comfortable) is the wrong word for a filter material. The FAQ uses \"dễ dùng nhất\", which is the natural wording.",
+        "fix": "Bio ball là lựa chọn dễ dùng nhất vì ít bị nén và ít bị bít.",
+        "field": "body"
+      }
+    ],
+    "ruled": "90002c24dfc8b2e3"
+  },
   "vi/guides/youtube-K972tk73JpU": {
     "at": "2026-11-01",
     "hash": "5b2757e3ac4d09e5",
@@ -4840,11 +4952,33 @@
     ],
     "ruled": "d07139bac22219d9"
   },
+  "vi/guides/youtube-km7iEo-NsD0": {
+    "at": "2026-11-04",
+    "hash": "158270047a71d7ed",
+    "findings": [],
+    "ruled": "158270047a71d7ed"
+  },
   "vi/guides/youtube-kq-MchItRfo": {
     "at": "2026-11-03",
     "hash": "fdb4ac249570930d",
     "findings": [],
     "ruled": "fdb4ac249570930d"
+  },
+  "vi/guides/youtube-Ks0OQdOxYd8": {
+    "at": "2026-11-04",
+    "hash": "df2e2d61f84e95c6",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhờ vậy bạn biết trước nền sẽ cư xử thế nào khi đổ đầy bể.",
+        "problem": "In Vietnamese, \"cư xử\" (to behave, used for people) sounds odd when said of a substrate and reads like a word-for-word translation of English \"behave\".",
+        "fix": "Nhờ vậy bạn biết trước nền sẽ ra sao khi đổ đầy bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "df2e2d61f84e95c6"
   },
   "vi/guides/youtube-kYFZT3em8GU": {
     "at": "2026-11-03",
@@ -4905,6 +5039,37 @@
       }
     ],
     "ruled": "1041f0afad999dfe"
+  },
+  "vi/guides/youtube-mmND8O0j_Qo": {
+    "at": "2026-11-04",
+    "hash": "33e3aa6b3ff58903",
+    "findings": [],
+    "ruled": "33e3aa6b3ff58903"
+  },
+  "vi/guides/youtube-nFXsyqdY37s": {
+    "at": "2026-11-04",
+    "hash": "7a3ec12322487cb9",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chiếc đèn Fluval loại thường (không phải dòng 2.0) dùng trong bể minh họa được đánh giá là không hợp với cây này.",
+        "problem": "This refers to a demonstration tank and its photo from the source video. The page doesn't show either, so the reader can't tell which tank is meant or who judged the light.",
+        "fix": "Đèn Fluval loại thường (không phải dòng 2.0) không đủ mạnh cho cây này.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trong ảnh có thể khó thấy, nhưng ngoài đời cây có ánh đỏ rõ.",
+        "problem": "This points to a photo from the source that isn't on the page.",
+        "fix": "Ngoài đời cây có ánh đỏ khá rõ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7a3ec12322487cb9"
   },
   "vi/guides/youtube-NNbR0grp8iE": {
     "at": "2026-11-02",
@@ -5011,6 +5176,28 @@
     "findings": [],
     "ruled": "9eafa52360e271a5"
   },
+  "vi/guides/youtube-oysXCn_kNCQ": {
+    "at": "2026-11-04",
+    "hash": "515508fb83966606",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một lưu ý chung, không phải điều đã đo: bể càng nhỏ thì nước lạnh vào chiếm tỷ lệ càng lớn",
+        "problem": "The aside 'không phải điều đã đo' reads like an editor's note left in the text, not natural hobbyist Vietnamese.",
+        "fix": "Riêng với bể nhỏ, nước lạnh vào chiếm tỷ lệ lớn hơn nhiều, nên bạn để ý nhiệt độ vài ngày đầu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "515508fb83966606"
+  },
+  "vi/guides/youtube-PF2i10T5JGM": {
+    "at": "2026-11-04",
+    "hash": "cf78a1173d159173",
+    "findings": [],
+    "ruled": "cf78a1173d159173"
+  },
   "vi/guides/youtube-PnwEzP5x8eU": {
     "at": "2026-11-02",
     "hash": "119104fde2aacb1d",
@@ -5096,6 +5283,30 @@
     ],
     "ruled": "30e739e9d0312d8f"
   },
+  "vi/guides/youtube-RMPl2_1u8bU": {
+    "at": "2026-11-04",
+    "hash": "569d711c6f995d9e",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "L11",
+        "quote": "Hai cây nhìn rất giống nhau nên hay bị nhầm. HC Cuba có lá tròn rất nhỏ, chỉ khoảng 1 mm",
+        "problem": "The FAQ asks how HC Cuba differs from dwarf baby tears, but the answer only describes HC Cuba and never gives a difference.",
+        "field": "faq.2.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Không có cây thảm nào sống được trong bể đèn yếu như dương xỉ Java.",
+        "problem": "The comparison is ambiguous. It can read as 'a weak-light tank like a Java fern' instead of 'no carpet plant survives in weak light the way Java fern does'.",
+        "fix": "Dương xỉ Java sống được dưới đèn yếu, còn cây trải thảm thì không có loại nào chịu được như vậy.",
+        "field": "body"
+      }
+    ],
+    "ruled": "569d711c6f995d9e"
+  },
   "vi/guides/youtube-S-FR9u--jVs": {
     "at": "2026-11-01",
     "hash": "788f6e44801add2e",
@@ -5111,6 +5322,22 @@
       }
     ],
     "ruled": "788f6e44801add2e"
+  },
+  "vi/guides/youtube-s2qLCc-Dp7w": {
+    "at": "2026-11-04",
+    "hash": "78cd800de30b0478",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua cách bố trí ống cho một bể khoảng 1.420 lít bằng acrylic",
+        "problem": "\"đi qua\" is a word-for-word copy of the English \"go through\", and the next sentence uses a passive \"được giải thích\", so the intro reads like a translation.",
+        "fix": "Dưới đây là cách bố trí ống cho một bể acrylic khoảng 1.420 lít",
+        "field": "body"
+      }
+    ],
+    "ruled": "78cd800de30b0478"
   },
   "vi/guides/youtube-sFCtqYbZQBg": {
     "at": "2026-11-03",
@@ -5228,6 +5455,12 @@
       }
     ],
     "ruled": "646dd195b9a8ebd9"
+  },
+  "vi/guides/youtube-U9ovPRxMWk8": {
+    "at": "2026-11-04",
+    "hash": "f87b4809364a764b",
+    "findings": [],
+    "ruled": "f87b4809364a764b"
   },
   "vi/guides/youtube-uHt88QgoeZY": {
     "at": "2026-11-01",
@@ -5548,6 +5781,22 @@
     ],
     "ruled": "dbd313a7eeca5c83"
   },
+  "vi/guides/youtube-z3PJqCTO8uQ": {
+    "at": "2026-11-04",
+    "hash": "d6ecf6f171bc2292",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L5",
+        "quote": "giãn lịch thay nước xuống 2–4 tuần một lần",
+        "problem": "Vietnamese would say \"giãn ... ra\", not \"giãn ... xuống\", which reads oddly.",
+        "fix": "giãn lịch thay nước ra 2–4 tuần một lần",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "d6ecf6f171bc2292"
+  },
   "vi/guides/youtube-zfTnqG22oS8": {
     "at": "2026-11-03",
     "hash": "6a9d0b48e0f7335c",
@@ -5615,6 +5864,23 @@
       }
     ],
     "ruled": "441bdd728433938d"
+  },
+  "vi/guides/youtube-zyRJxo5Xn_4": {
+    "at": "2026-11-04",
+    "hash": "33fb88b30fd3c910",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cần khoảng 3,3 m² gạch, tức chừng 3,3 m²",
+        "problem": "The area is restated as the same m² figure; the original 36 sq ft figure was lost, so the 36 USD total no longer follows visibly from the price per square foot.",
+        "fix": "cần khoảng 36 foot vuông gạch, tức chừng 3,3 m²",
+        "rule": "The same number and unit appear on both sides of 'tức' in one sentence.",
+        "field": "body"
+      }
+    ],
+    "ruled": "33fb88b30fd3c910"
   },
   "vi/guides/youtube-ZYwZzYODC4Y": {
     "at": "2026-11-03",

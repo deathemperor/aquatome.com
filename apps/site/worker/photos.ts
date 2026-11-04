@@ -175,7 +175,7 @@ export async function minePhotos(req: Request, url: URL, env: PhotosEnv, now: Da
   return new Response(null, { status: 204, headers: { 'cache-control': 'no-store' } })
 }
 
-const page = (body: string) => new Response(`<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gỡ ảnh — AquaTome</title></head><body style="font:16px/1.6 system-ui,sans-serif;max-width:36rem;margin:4rem auto;padding:0 1rem">${body}<p><a href="/vi/">Về trang chủ AquaTome</a></p></body></html>`,
+const page = (body: string) => new Response(`<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gỡ ảnh — AquaTome</title></head><body style="font:16px/1.6 system-ui,sans-serif;max-width:36rem;margin:4rem auto;padding:0 1rem">${body}<p><a href="/">Về trang chủ AquaTome</a></p></body></html>`,
   { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'referrer-policy': 'no-referrer', 'x-robots-tag': 'noindex' } })
 const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
 
@@ -265,6 +265,12 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
 export async function recentPhotos(env: PhotosEnv): Promise<{ id: string; entity_ref: string; name: string; thumb: string; created_at: string }[] | undefined> {
   if (!live(env)) return undefined
   const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, thumb, created_at FROM photos WHERE status = 'approved' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; name: string; thumb: string; created_at: string }>()
+  return results
+}
+/** Photos waiting for the moderation pass (hourly, moderate.yml), newest first: the dashboard lists them, so a photo just sent shows there. */
+export async function waitingPhotos(env: PhotosEnv): Promise<{ id: string; entity_ref: string; name: string; created_at: string }[] | undefined> {
+  if (!live(env)) return undefined
+  const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, created_at FROM photos WHERE status = 'pending' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; name: string; created_at: string }>()
   return results
 }
 export { live as photosLive }

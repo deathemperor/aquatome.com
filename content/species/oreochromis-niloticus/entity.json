@@ -5,12 +5,78 @@
   "family": "Cichlidae",
   "genus": "Oreochromis",
   "group": "cichlids",
-  "places": [],
+  "places": [
+    "africa",
+    "burkina-faso",
+    "cameroon",
+    "chad",
+    "egypt",
+    "ethiopia",
+    "gambia",
+    "ghana",
+    "guinea",
+    "asia",
+    "israel",
+    "ivory-coast",
+    "liberia",
+    "mali",
+    "niger",
+    "nigeria",
+    "senegal",
+    "sierra-leone",
+    "sudan",
+    "south-sudan",
+    "togo",
+    "uganda"
+  ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 50
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.2,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 30
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 210
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -22,10 +88,64 @@
       "html": "<ul><li>Sexually mature at 6-8 cm</li><li>Maternal mouthbrooder</li><li>Omnivore; plant matter forms a large part of the diet</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<p>The Nile tilapia, Oreochromis niloticus, is a cichlid with a very wide natural range in Africa, from Senegal east to Egypt and Uganda. Bred in huge numbers as a food fish, it has been introduced to over 70 other countries and is one of the most invasive fish species in the world. It reaches 60 cm, though usually around 35 cm, breeds readily, is very messy and does not make a good aquarium subject.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<p>O. n. niloticus has a very wide natural range and is native to (in alphabetical order) Burkina Faso, Cameroon, Chad, Egypt, Ethiopia, Gambia, Ghana, Guinea, Israel, Ivory Coast, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo and Uganda. It has also been introduced as a food fish in over 70 other countries and escaped or released populations now exist in many of these.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<p>A hardy and adaptable species that is found in a wide range of habitats, including rivers, streams, ponds, lakes and coastal plains. It occurs in both fresh and brackish waters and usually inhabits shallow areas.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<p>Standard length: 60 cm SL. Aquarium base: 210 × 60 cm. Volume: ~756 litres.</p><p>210 × 60 × 60 cm - ~756 litres for adult fish. Juveniles can be grown on in smaller aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<p>Not critical. A sandy substrate is best. Plants should not be used as they will be eaten and a large, efficient filtration system is essential as this species is very messy. Otherwise decor is down to personal preference.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<ul><li>Temperature: 21–27°C, although it is found over greater extremes in nature.</li><li>pH: 6.2–8.5</li><li>Hardness: 10–30 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/oreochromis-niloticus/",
       "html": "<p>Omnivore; plant matter forms a large part of the diet.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<p>Very unfussy and will eat most foods offered. Some vegetable matter should be included in the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<p>A very robust species that is territorial when spawning but is otherwise quite peaceful. Obviously an enormous tank is needed to keep it in a community situation. It can be combined successfully with large African and Central American cichlids, Loricariids, Synodontis sp. etc. Small fish will be eaten. If kept with others of its own species, they will squabble amongst themselves but rarely is any real damage done unless breeding occurs.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<p>Male fish develop pointed dorsal and anal fins while the female's are rounded.</p>"
     },
     {
       "key": "reproduction",
@@ -34,13 +154,56 @@
       "html": "<p>Maternal mouthbrooder; mature already at a size of 6-8 cm.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<p>Easy. Maternal mouthbrooder. Buying 5 or 6 youngsters and allowing them to pair up naturally is recommended. Obviously, a massive tank is required but water parameters are less important. Aim for a temperature of 24°C and a pH of around 7.0 and you will be fine. Sand is the preferred substrate.</p><p>Spawning is initiated by the male who excavates a pit in the substrate to act as the spawning site. He will then guard this area fiercely and attempt to entice females to mate with him. A willing female lays her eggs directly onto the substrate of the spawning pit and allows the male to fertilise them before taking them into her mouth. The male now plays no further part in broodcare and the female does not remain in his territory.</p><p>The female will carry the brood for around 5-7 days before releasing the free swimming fry. Generally, she will not eat during this period and can easily be spotted by her distended buccal cavity. Following release of the fry, broodcare by the female lasts for another 2-3 weeks, with the fry seeking refuge in her mouth if threatened or distressed. The fry grow very quickly indeed and are sexually mature at only 6 months of age. They can be fed on brine shrimp nauplii or powdered flake food from the day they become free swimming.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/oreochromis-niloticus/",
       "html": "<p>There is most probably no other species of fish that is so much loved on the one hand and so much hated on the other: the Nile Mouthbrooder, often called simply \"Tilapia\". As a food fish this omnivorous species – plant matter forms a large part of the diet – can be cultured even in the poorest countries of the tropics. Here the Tilapia changes worthless stuff in precious fish protein. But specimens that escaped in the wild or that were released became worldwide the most serious alien pest species of freshwater fish at all.</p><p>Oreochromis niloticus is only very rarely kept in private aquaria. The fish can grow to a maximum size of about 50 cm, but is mature already at a size of 6-8 cm. It is a maternal mouthbrooder.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-niloticus",
+      "html": "<p>One of the most invasive fish species in the world but also one of the most economically important, O. niloticus is bred in huge numbers in many countries as a food fish. It is often cross-bred with other Oreochromis species for colour in order to make the fish more appealing to consumers.</p><p>The destructive effect of O. niloticus on non-native ecosystems into which it escapes or is released is mainly due to its adaptability. It has been recorded over a temperature range of 15.5–43.5°C and in water varying from pure freshwater to full marine conditions. It is often described as an \"aquatic dustbin\" as it eats virtually anything and it breeds under almost any conditions, even when food is scarce. The broods themselves number several hundred and a single female can produce 3 or 4 a year. They also become sexually mature at only a few months of age.</p><p>O. niloticus is not particularly common in the hobby and despite its hardiness, does not make a good aquarium subject. It has a large adult size, a messy nature and is not especially attractive, nor does it exhibit any particularly interesting behaviour. The ease with which the fish breeds, and resultant large broods of swiftly growing fry can also spell trouble as the young are not at all popular with dealers and other hobbyists.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/panitvong/inat-231304834.webp",
+      "thumb": "https://media.aquatome.com/panitvong/inat-231304834-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.inaturalist.org/photos/231304834",
+      "source": "panitvong"
+    },
+    {
+      "url": "https://media.aquatome.com/panitvong/inat-420644977.webp",
+      "thumb": "https://media.aquatome.com/panitvong/inat-420644977-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.inaturalist.org/photos/420644977",
+      "source": "panitvong"
+    },
+    {
+      "url": "https://media.aquatome.com/panitvong/inat-420645007.webp",
+      "thumb": "https://media.aquatome.com/panitvong/inat-420645007-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.inaturalist.org/photos/420645007",
+      "source": "panitvong"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -65,5 +228,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }

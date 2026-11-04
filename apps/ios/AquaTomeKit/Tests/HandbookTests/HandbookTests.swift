@@ -114,6 +114,30 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   let s = HandbookSearch(many)
   #expect(s.find("", kind: .fish).count == 700)
   #expect(s.find("ca").count == 200) // a search still stops at its best 200
+  #expect(s.findAndCount("ca").counts == [nil: 700, .fish: 700], "the count stopped where the list does")
+}
+
+@Test func aSearchCountsWhatEachKindFinds() throws {
+  let s = HandbookSearch(try JSONDecoder().decode(HandbookIndex.self, from: sample).items)
+  let neon = s.findAndCount("NEON ").counts
+  // In all under nil, and each kind it finds: none for the others.
+  #expect(neon == [nil: 3, .fish: 2, .guide: 1])
+  // What a search narrowed to each kind lists, whichever kind the counting search was narrowed to.
+  for k in [nil] + HandbookIndex.Kind.allCases {
+    let (items, counts) = s.findAndCount("neon", kind: k)
+    #expect(counts == neon && items == s.find("neon", kind: k) && neon[k, default: 0] == items.count, "\(String(describing: k))")
+  }
+  #expect(s.findAndCount("van ngua").counts == [nil: 1, .fish: 1])
+  #expect(s.findAndCount("khong co").counts.isEmpty)
+}
+
+@Test func aVideoGuideCountsAsAGuideAndAsAVideo() {
+  let s = HandbookSearch([
+    .init(kind: .video, name: "Rêu hại từ A đến Z", sub: "MJ Aquascaping", path: "/vi/video/reu/", parts: 14),
+    .init(kind: .guide, name: "Cách hạn chế rêu hại", path: "/vi/huong-dan/reu-video/", video: 1755),
+    .init(kind: .guide, name: "Rêu hại và cách trị", path: "/vi/huong-dan/reu/"),
+  ])
+  #expect(s.findAndCount("reu").counts == [nil: 3, .guide: 2, .video: 2])
 }
 
 @Test func aLoadReplacedByAnotherIsNotAFailure() {
@@ -140,6 +164,43 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(route("https://www.youtube-nocookie.com/embed/x", mainFrame: false) == .app)
   #expect(route("about:blank", mainFrame: false) == .app)
   #expect(route("about:blank", newWindow: true) == .none)
+}
+
+@Test func shopLinksAreTheSitesGoPaths() {
+  let site = URL(string: "https://aquatome.com/vi/ca/ca-neon/")!
+  #expect(ShopLink.is(URL(string: "https://aquatome.com/go/shopee/?k=ca-neon")!, site: site))
+  #expect(ShopLink.is(URL(string: "https://www.aquatome.com/go/tiki/?k=loc")!, site: site))
+  #expect(!ShopLink.is(URL(string: "https://aquatome.com/gone/")!, site: site))
+  #expect(!ShopLink.is(URL(string: "https://aquatome.com/vi/go/")!, site: site))
+  #expect(!ShopLink.is(URL(string: "https://shopee.vn/go/x")!, site: site))
+}
+
+// Our copies' taps: the site's redirect is read, not followed, under the mark it leaves out of its click counts.
+@Test func aShopLinksShopIsAskedOfTheSiteUnderTheGivenName() async {
+  let link = URL(string: "https://aquatome.com/go/shopee/?k=ca-neon")!
+  @Sendable func answer(_ status: Int, _ headers: [String: String] = [:]) -> HTTPURLResponse {
+    HTTPURLResponse(url: URL(string: "https://aquatome.com/go/shopee/?k=ca-neon")!, statusCode: status, httpVersion: nil, headerFields: headers)!
+  }
+  // The shop only for the link itself, asked under the name given.
+  let shop = await ShopLink.target(of: link, userAgent: "AquaTome-iOS AquaTomeCheck/1") { r in
+    r.url == link && r.value(forHTTPHeaderField: "User-Agent") == "AquaTome-iOS AquaTomeCheck/1"
+      ? answer(302, ["Location": "https://shopee.vn/search?keyword=ca-neon"]) : answer(500)
+  }
+  #expect(shop.absoluteString == "https://shopee.vn/search?keyword=ca-neon")
+  // Anything else opens the link itself: no redirect, a redirect to no web page, the site out of reach.
+  #expect(await ShopLink.target(of: link, userAgent: "x") { _ in answer(404) } == link)
+  #expect(await ShopLink.target(of: link, userAgent: "x") { _ in answer(302, ["Location": "javascript:alert(1)"]) } == link)
+  #expect(await ShopLink.target(of: link, userAgent: "x") { _ in throw URLError(.notConnectedToInternet) } == link)
+  // A Location given as a path is read against the link.
+  #expect(await ShopLink.target(of: link, userAgent: "x") { _ in answer(302, ["Location": "/vi/"]) }.absoluteString == "https://aquatome.com/vi/")
+  // www. first goes to the bare domain's same link, which is asked too, marked; never more than twice.
+  let www = URL(string: "https://www.aquatome.com/go/shopee/?k=ca-neon")!
+  let viaApex = await ShopLink.target(of: www, userAgent: "x") { r in
+    r.url?.host == "www.aquatome.com" ? answer(301, ["Location": link.absoluteString])
+      : answer(302, ["Location": "https://shopee.vn/search?keyword=ca-neon"])
+  }
+  #expect(viaApex.absoluteString == "https://shopee.vn/search?keyword=ca-neon")
+  #expect(await ShopLink.target(of: www, userAgent: "x") { _ in answer(301, ["Location": link.absoluteString]) } == www)
 }
 
 @Test func readsAFishsFiguresAndBehaviourUnderTheToolsNames() throws {

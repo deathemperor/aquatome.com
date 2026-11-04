@@ -1,7 +1,7 @@
 ---
 url: https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-ludwigia-brevipes
 title: How to grow Ludwigia brevipes - The 2Hr Aquarist
-fetchedAt: 2026-11-03T14:21:49.519Z
+fetchedAt: 2026-11-04T00:27:13.199Z
 hash: 64a37ecf28e86d4e70899c42bbd017c98e429e3cd3082874b24e88c1044e4187
 ---
 
