@@ -168,6 +168,18 @@ event: error    data: Error           (failed | unavailable | resting, after the
 The stream ends after `result` or `error`. The app has one rule: send the header always. With the agent off, the
 stream carries no steps, then the result. Without the header, the answer is JSON as today, with `steps` in it.
 
+A ping is sent only while waiting for Claude: the ping timer stops before the result is read, and the result event is
+written the moment it is, then the stream closes. A slow connection never holds a finished result behind pings.
+
+Retries and the reader's day (the app's ask):
+- An optional `Idempotency-Key` request header (a UUID the app makes per photo it sends). The run goes on even if the
+  client goes away (`waitUntil`), and its result is kept for 15 minutes under the reader and that key. A retry with the
+  same key gets the kept result, as JSON or as one `result` event, with no new run and no new count.
+- The reader's use is taken at admission, as today, so parallel requests can't pass the limit. A run that ends with
+  no result (`failed`, `unavailable`, `resting` after admission) gives it back. A run that produced a result counts,
+  whether or not the stream delivered it, because the retry can fetch it. The JSON path follows the same rule: today a
+  failed call still counts, and after this it doesn't.
+
 `ask` later: one more event (`event: ask`, a question and choices) and a second request that answers it. Nothing above
 has to change for it.
 
