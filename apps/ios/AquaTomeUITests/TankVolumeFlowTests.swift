@@ -130,7 +130,7 @@ final class TankVolumeFlowTests: XCTestCase {
     XCTAssertEqual(app.staticTexts["facts"].label, "60 × 30 × 36 cm · 64,8 lít")
 
     // Back to the tool, still open on the Tìm tab: a cylinder onto the same tank, now picked.
-    app.tabBars.buttons["Tìm"].tap()
+    app.openTab("Tìm")
     XCTAssertTrue(app.navigationBars["Bể bao nhiêu lít?"].waitForExistence(timeout: 5))
     shape(app, "Trụ tròn")
     field(app, "d").clearAndType("40")
@@ -150,7 +150,7 @@ final class TankVolumeFlowTests: XCTestCase {
   /// A page's link to the tool opens the app's screen on the tab it's in: here a tank's guide, on the tanks tab.
   func testOpensFromAPagesLinkOnTheTabInFront() {
     let app = launch("-seed-tanks", "life")
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
     for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
