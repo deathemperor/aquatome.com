@@ -14,8 +14,8 @@ describe('species page', () => {
     // Only the cell the sources disagree on is marked; one toggle per card holds every value's sources.
     expect(dom.querySelectorAll('.card [data-conflict]').map(c => c.getAttribute('data-field'))).toEqual(['tempC'])
     expect(dom.querySelectorAll('.card .mark').length).toBe(1)
-    expect(dom.querySelectorAll('.datacard details').length).toBe(1)
-    expect(dom.querySelector('.datacard summary .label')?.text).toBe('Nguồn và độ tin cậy')
+    expect(dom.querySelectorAll('.datacard details.trust').length).toBe(1) // the difficulty cell's "Vì sao?" is its own (card-guide.test.ts)
+    expect(dom.querySelector('.datacard .trust summary .label')?.text).toBe('Nguồn và độ tin cậy')
     const by = dom.querySelector('.trust [data-src-field="tempC"]')!
     expect(by.querySelector('p')?.text).toBe('Mức mọi nguồn cùng khuyên')
     expect(by.querySelectorAll('li').map(l => l.text)).toEqual(['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'])

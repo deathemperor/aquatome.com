@@ -63,7 +63,7 @@ const alternates = await alternatesOf('species', s.id)
     </div>
     {s.photos.length > 0 && <div class="photo"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>}
     <div class="facts">
-      <DataCard card={s.dataCard} sources={c.sources} />
+      <DataCard card={s.dataCard} sources={c.sources} traits={mates.self} />
       {firstSource && <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>}
       {showMates ? <Companions {...mates} tool={tool} /> : <p class="srcline"><a href={tool}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>}
       {vn && <VnClimate card={s.dataCard} />}

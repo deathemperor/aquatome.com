@@ -75,7 +75,8 @@ test('species page: the jump row takes the reader to a part and marks where they
 test('species data card: one sources toggle, the disagreeing values marked, each source\'s figure inside', async ({ page }, info) => {
   await page.goto('/vi/ca/ca-neon-vua/')
   const card = page.locator('.facts .datacard')
-  const summary = card.locator('summary')
+  // The sources toggle; the difficulty cell's "Vì sao?" is its own (card-guide.spec.ts).
+  const summary = card.locator('.trust > summary')
   await expect(summary).toHaveCount(1)
   expect((await summary.boundingBox())!.height, 'toggle height').toBeGreaterThanOrEqual(44)
   const marked = card.locator('.card [data-conflict]')

@@ -69,6 +69,11 @@ test('served: the pilot pages; a link to a page the language lacks keeps its tex
   expect(localizePath('id', '/vi/cong-cu/den-chihiros/#lich')).toBe('/id/alat/lampu-chihiros/#lich')
   expect(localizePath('th', '/vi/cong-cu/nuoi-chung/?ca=x:6')).toBe('/th/tools/tank-mates/?ca=x:6')
   expect(toVi('/id/alat/kecocokan-ikan/')).toBe('/vi/cong-cu/nuoi-chung/')
+  // The data card's explainer, which every card label links to (with a section's anchor).
+  expect(localizePath('id', '/vi/gioi-thieu/bang-du-lieu/#do-kho')).toBe('/id/tentang/tabel-data/#do-kho')
+  expect(localizePath('th', '/vi/gioi-thieu/bang-du-lieu/')).toBe('/th/about/data-table/')
+  expect(toVi('/th/about/data-table/')).toBe('/vi/gioi-thieu/bang-du-lieu/')
+  for (const lang of ['id', 'th'] as const) expect(served(lang, '/vi/gioi-thieu/bang-du-lieu/#nhiet-do'), lang).toBe(true)
   expect(toVi('/vi/ca/')).toBe('/vi/ca/')
 })
 

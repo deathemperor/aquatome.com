@@ -1,0 +1,104 @@
+---
+// What each figure of a species' data card means, where it comes from, and how the card picks one when sources disagree.
+// Each card label links to its section here (lib/card-guide.ts); the needs' thresholds are careNeeds' own (@aq/schema).
+import { NEED_RULES } from '@aq/schema'
+import Doc from '../../../layouts/Doc.astro'
+import TextFigures from '../../../components/TextFigures.astro'
+import { CONFLICT_ANCHOR, FIELD_ANCHORS, NEEDS_ANCHOR } from '../../../lib/card-guide'
+import { FIELD_LABELS, FIELD_ORDER } from '../../../lib/format'
+import { i18n } from '../../../lib/i18n'
+const { t, lang } = i18n(Astro.url)
+const R = NEED_RULES
+const h = (f: keyof typeof FIELD_ANCHORS) => ({ id: FIELD_ANCHORS[f] })
+---
+<Doc title={t('Cách đọc bảng dữ liệu')} intro={t('Mỗi trang cá có một bảng dữ liệu gồm nhiệt độ, pH, độ cứng, kích thước, tuổi thọ, bể tối thiểu và độ khó. Trang này nói từng ô nghĩa là gì, số lấy từ đâu và bảng chọn số nào khi các nguồn ghi khác nhau.')}>
+  <nav class="fields" aria-label={t('Mục lục')}>
+    <ul>
+      {FIELD_ORDER.map(f => <li><a href={`#${FIELD_ANCHORS[f]}`}>{t(FIELD_LABELS[f])}</a></li>)}
+      <li><a href={`#${CONFLICT_ANCHOR}`}>{t('Khi các nguồn ghi khác nhau')}</a></li>
+    </ul>
+  </nav>
+
+  <h2 {...h('tempC')}>{t('Nhiệt độ')}</h2>
+  <p>{t('Khoảng nhiệt độ nước mà nguồn ghi là cá sống khỏe. Nên giữ bể quanh giữa khoảng, để còn chỗ cho nước nóng lên ban ngày hay mát đi về đêm. Thanh màu dưới số cho thấy khoảng ấy nằm đâu trên thang, từ mát tới ấm.')}</p>
+
+  <h2 {...h('ph')}>pH</h2>
+  <p>{t('pH đo độ chua của nước. 7 là trung tính, dưới 7 là chua, trên 7 là kiềm.')}</p>
+  <p>{t('Thang pH tính theo lũy thừa mười. Nước pH 6 chua gấp mười lần nước pH 7, nên chênh một đơn vị pH đã là nhiều. Chỉnh pH thì làm từ từ.')}</p>
+
+  <h2 {...h('gh')}>{t('Độ cứng (dGH)')}</h2>
+  <p>{t('GH là độ cứng tổng, tức lượng canxi và magie hòa trong nước, đo bằng độ Đức (dGH). Dưới 4 dGH là nước rất mềm, 4 tới 8 là mềm, 8 tới 12 là trung bình, 12 tới 18 là khá cứng, trên 18 là cứng.')}</p>
+  <p>{t('GH khác KH. KH là độ kiềm cacbonat, thứ giữ cho pH đứng yên. Nước mềm thường có KH thấp, nên pH của nó dễ tụt.')}</p>
+
+  <h2 {...h('sizeCm')}>{t('Kích thước')}</h2>
+  <p>{t('Chiều dài cá khi trưởng thành, tính bằng cm. Cá mua ở cửa hàng thường còn nhỏ, nên hãy chọn bể theo số này chứ không theo con cá trong túi.')}</p>
+  <p>{t('Mỗi nguồn đo theo cách của mình. Seriously Fish ghi chiều dài chuẩn, tính từ mõm tới gốc đuôi, không tính vây đuôi.')}</p>
+
+  <h2 {...h('lifeYears')}>{t('Tuổi thọ')}</h2>
+  <p>{t('Số năm cá sống trong bể, đúng như nguồn ghi. AquaTome không tự suy ra tuổi thọ từ kích thước hay họ cá. Nguồn không ghi thì ô này để trống.')}</p>
+
+  <h2 {...h('tankCm')}>{t('Bể tối thiểu')}</h2>
+  <p>{t('Chiều dài bể ngắn nhất mà nguồn khuyên cho cá trưởng thành, tính bằng cm. Đây là chiều dài chứ không phải thể tích, vì cá cần chỗ để bơi theo chiều ngang.')}</p>
+  <p>{t('Nguồn chỉ ghi thể tích (lít hay gallon) thì bảng để trống ô này. Cùng một thể tích có thể là bể dài hay bể cao, nên không đổi ra chiều dài được. Bảng cũng bỏ con số ngắn hơn hai lần chiều dài cá, vì gần như chắc đó là số ghi nhầm.')}</p>
+  <p>{t('Muốn kiểm tra cả một bể nhiều loài, dùng công cụ')} <a href="/vi/cong-cu/nuoi-chung/">{t('Nuôi chung')}</a>.</p>
+
+  <h2 {...h('difficulty')}>{t('Độ khó')}</h2>
+  <p>{t('Độ khó chấm từ 1 (rất dễ) đến 8 (chỉ dành cho người nuôi lâu năm). Bảng ghi số ấy cùng một trong ba mức:')}</p>
+  <ul class="bands">
+    <li data-band="easy"><strong>{t('Dễ')}, 1–3.</strong> {t('Hợp người mới. Cá ở mức này thường chịu được nước máy đã khử clo, nhiệt độ lên xuống vài độ và những sai sót của một bể mới set. Một bể có lọc, thay nước đều đặn là đủ.')}</li>
+    <li data-band="mid"><strong>{t('Vừa')}, 4–5.</strong> {t('Cần chuẩn bị trước một hai điều, như nước mềm hơn nước máy, sưởi hay chỗ mát, bể dài hơn, một đàn đủ đông, hoặc bạn cùng bể chọn kỹ. Nên thả cá vào bể đã chạy ổn định và đo nước định kỳ.')}</li>
+    <li data-band="hard"><strong>{t('Khó')}, 6–8.</strong> {t('Dành cho người đã nuôi vững. Cá cần nước giữ đúng thông số, nhiều khi phải dùng nước RO và đo pH, GH thường xuyên. Cá cũng có thể cần bể lớn, thức ăn riêng, hay khó nuôi chung vì tính khí. Một sai sót nhỏ có thể làm cá bệnh hoặc chết.')}</li>
+  </ul>
+  <h3>{t('Số lấy từ đâu')}</h3>
+  <p>{t('AquaTome không tự chấm độ khó. Mỗi nguồn chấm theo thang riêng của mình, bằng chữ hay bằng số. Khi đọc trang của nguồn, AquaTome quy mức ấy về thang 1 đến 8. Hai nguồn chấm khác nhau thì bảng lấy số của Seriously Fish nếu có, không thì lấy số cao nhất, tức mức thận trọng hơn.')}</p>
+  <h3 id={NEEDS_ANCHOR}>{t('Điều gì làm một loài khó nuôi hơn')}</h3>
+  <p>{t('Trên trang mỗi loài, chạm vào ô Độ khó để xem từng nhu cầu của loài ấy. Mỗi nhu cầu đọc từ các số trên bảng hoặc từ tính cách ghi trong bài, và có một mức dễ, vừa hay khó theo các ngưỡng dưới đây:')}</p>
+  <table class="needs">
+    <thead><tr><th scope="col">{t('Nhu cầu')}</th><th scope="col">{t('Dễ')}</th><th scope="col">{t('Vừa')}</th><th scope="col">{t('Khó')}</th></tr></thead>
+    <tbody>
+      <tr data-need="space"><th scope="row">{t('Không gian')}: {t('Bể tối thiểu').toLocaleLowerCase(lang)}</th>
+        <td><TextFigures text={t('tới {v}')} vars={{ v: { cm: R.tankCm.easy } }} /></td><td><TextFigures text={t('tới {v}')} vars={{ v: { cm: R.tankCm.mid } }} /></td><td>{t('dài hơn')}</td></tr>
+      <tr data-need="space"><th scope="row">{t('Không gian')}: {t('Kích thước').toLocaleLowerCase(lang)}</th>
+        <td><TextFigures text={t('tới {v}')} vars={{ v: { cm: R.sizeCm.easy } }} /></td><td><TextFigures text={t('tới {v}')} vars={{ v: { cm: R.sizeCm.mid } }} /></td><td>{t('lớn hơn')}</td></tr>
+      <tr data-need="water"><th scope="row">{t('Nước')}: pH</th>
+        <td>{t('các khoảng khác')}</td><td><TextFigures text={t('dừng dưới {a}, bắt đầu từ {b} trở lên, hay hẹp hơn {c} đơn vị')} vars={{ a: R.ph.neutral, b: R.ph.alkaline, c: R.ph.narrow }} /></td><td><TextFigures text={t('chỉ tới {v}')} vars={{ v: R.ph.acidHard }} /></td></tr>
+      <tr data-need="water"><th scope="row">{t('Nước')}: {t('độ cứng')}</th>
+        <td>{t('các khoảng khác')}</td><td><TextFigures text={t('bắt đầu từ {a} dGH trở lên, hay hẹp hơn {b} dGH')} vars={{ a: R.gh.veryHard, b: R.gh.narrow }} /></td><td><TextFigures text={t('chỉ tới {v} dGH')} vars={{ v: R.gh.soft }} /></td></tr>
+      <tr data-need="temperature"><th scope="row">{t('Nhiệt độ')}</th>
+        <td>{t('các khoảng khác')}</td><td><TextFigures text={t('bắt đầu từ {a}, chỉ tới {b}, hay hẹp hơn {n} độ')} vars={{ a: { c: [R.tempC.warm, R.tempC.warm] }, b: { c: [R.tempC.cool, R.tempC.cool] }, n: R.tempC.narrow }} /></td><td><TextFigures text={t('bắt đầu từ {a}, hay chỉ tới {b}')} vars={{ a: { c: [R.tempC.warmHard, R.tempC.warmHard] }, b: { c: [R.tempC.coolHard, R.tempC.coolHard] } }} /></td></tr>
+      <tr data-need="temperament"><th scope="row">{t('Tính cách')}</th>
+        <td>{t('Hiền').toLocaleLowerCase(lang)}</td><td>{t('Hơi dữ').toLocaleLowerCase(lang)}, {t('hay cắn vây')}</td><td>{t('Hung dữ').toLocaleLowerCase(lang)}, {t('Săn mồi').toLocaleLowerCase(lang)}</td></tr>
+      <tr data-need="social"><th scope="row">{t('Bầy đàn')}: {t('Đàn tối thiểu').toLocaleLowerCase(lang)}</th>
+        <td>{t('tới {v}', { v: t('{n} con', { n: R.schoolMin.easy }) })}</td><td>{t('tới {v}', { v: t('{n} con', { n: R.schoolMin.mid }) })}</td><td>{t('từ {v}', { v: t('{n} con', { n: R.schoolMin.mid + 1 }) })}</td></tr>
+    </tbody>
+  </table>
+  <p><TextFigures text={t('Không gian lấy mức cao hơn của bể và kích thước cá. Nước lấy mức cao hơn của pH và độ cứng. Nước mềm và chua khó làm, khó giữ hơn nước cứng và kiềm, vì nó ít khoáng đệm nên pH dễ tụt. Ở xứ nóng, nước bể chỉ tới {c} thường phải có máy làm lạnh. Một đàn đông cần bể rộng và lọc khỏe hơn.')} vars={{ c: { c: [R.tempC.coolHard, R.tempC.coolHard] } }} /></p>
+  <p>{t('Thức ăn chưa có trong danh sách. AquaTome mới có nó dưới dạng chữ trong bài, chưa thành số để so. Nhu cầu nào thiếu số thì không hiện, và không được tính là dễ.')}</p>
+  <p>{t('Các mức này không cộng lại thành độ khó. Độ khó là của nguồn, và nguồn có thể tính cả điều bảng không ghi, như thức ăn. Một loài được chấm dễ vẫn có thể có một nhu cầu khó, chẳng hạn cần nước mềm.')}</p>
+
+  <h2 id={CONFLICT_ANCHOR}>{t('Khi các nguồn ghi khác nhau')}</h2>
+  <p>{t('Một chấm đỏ cạnh tên ô nghĩa là các nguồn ghi số khác nhau. Mở "Nguồn và độ tin cậy" dưới bảng để xem số của từng nguồn. Bảng chỉ ghi một số, chọn như sau:')}</p>
+  <ul>
+    <li><TextFigures text={t('Khi mọi nguồn ghi một khoảng, như nhiệt độ, pH hay độ cứng, bảng ghi phần mà mọi nguồn cùng chấp nhận. Một nguồn ghi {a}, nguồn khác ghi {b} thì bảng ghi {c}. Giữ bể trong khoảng ấy là đúng theo mọi nguồn. Mục "Nguồn và độ tin cậy" ghi trường hợp này là "Mức mọi nguồn cùng khuyên".')} vars={{ a: { c: [23, 27] }, b: { c: [24, 30] }, c: { c: [24, 27] } }} /></li>
+    <li>{t('Khi các khoảng không chồng lên nhau, hay nguồn ghi một con số (kích thước, bể tối thiểu, độ khó), bảng lấy số của Seriously Fish nếu nguồn này có ghi. Mục "Nguồn và độ tin cậy" ghi trường hợp này là "Mỗi nguồn ghi một mức".')}</li>
+    <li>{t('Không có Seriously Fish thì bảng ghi khoảng rộng nhất, hay con số lớn nhất.')}</li>
+    <li>{t('Tuổi thọ không bao giờ bị thu hẹp, vì nó không phải mức cần giữ. Một nguồn ghi 3–5 năm, nguồn khác ghi 5–8 năm không có nghĩa là cá sống 5 năm. Bảng ghi số của Seriously Fish nếu có, không thì khoảng rộng nhất, ở đây là 3–8 năm.')}</li>
+  </ul>
+  <p>{t('Số nào rõ ràng sai thì không lên bảng, như °F ghi nhầm thành °C, hay bể ngắn hơn hai lần chiều dài cá.')}</p>
+</Doc>
+<style>
+  .fields ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-4); list-style: none; padding: 0; margin: 0 0 var(--space-2); }
+  .fields li { margin: 0; }
+  .fields a { display: inline-block; min-height: 44px; line-height: 44px; }
+  h2[id], h3[id] { scroll-margin-top: var(--space-6); }
+  /* The needs' thresholds, a row each: a phone's width holds the four columns, each cell wrapping. */
+  .needs { width: 100%; table-layout: fixed; border-collapse: collapse; margin: var(--space-3) 0 var(--space-4); font-size: 0.875rem; line-height: 1.45; }
+  .needs th, .needs td { padding: var(--space-2) var(--space-2) var(--space-2) 0; border-top: 1px solid var(--c-rule); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+  .needs thead th { border-top: 0; font-weight: 600; }
+  /* The medium column says the most. */
+  .needs thead th:nth-child(1) { width: 23%; }
+  .needs thead th:nth-child(2) { width: 22%; }
+  .needs thead th:nth-child(3) { width: 32%; }
+  .needs tbody th { font-weight: 500; color: var(--c-ink-soft); }
+  .needs :global([data-c]), .needs :global([data-cm]) { white-space: nowrap; }
+</style>
