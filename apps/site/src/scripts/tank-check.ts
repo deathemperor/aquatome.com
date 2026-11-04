@@ -61,8 +61,8 @@ const unsizedNote = (names: string[], ct: T, esc: Esc = same) => ct('Chưa có k
 
 /**
  * A tank's rows as the fish the check counts: one for each key, where the first of its rows is, with that row's figures.
- * Its name: what the reader added, for one row (a tank with only a halfmoon betta names the halfmoon); for more, the
- * species' (the first row's `species`, else its name). Its count: every row's added up; with a row that gives none,
+ * Its name: what the reader added, when its rows all name one fish (a tank with only halfmoon bettas names the
+ * halfmoon, once or twice); when they name more, the species' (the first row's `species`, else its name). Its count: every row's added up; with a row that gives none,
  * read as the school size ("a school, the number not given"), at least the school size (one, without one), so adding a
  * row never lowers it; with none given, none (the check reads it as the school size, once).
  */
@@ -71,7 +71,7 @@ export function oneFishEach(rows: TankFish[]): TankFish[] {
   rows.forEach((r, i) => groups.set(r.key ?? i, [...(groups.get(r.key ?? i) ?? []), r]))
   return [...groups.values()].map(group => {
     const { key: _key, count: _count, species, ...fish } = group[0]!
-    if (group.length > 1) fish.name = species ?? fish.name
+    if (new Set(group.map(r => r.name)).size > 1) fish.name = species ?? fish.name
     const given = group.flatMap(r => (r.count === undefined ? [] : [r.count]))
     const sum = given.reduce((a, b) => a + b, 0)
     const count = !given.length ? undefined : given.length === group.length ? sum : Math.max(sum, fish.schoolMin ?? 1)

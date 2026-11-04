@@ -193,7 +193,7 @@ var aqTankCheckStrings = {
     rows.forEach((r, i) => groups.set(r.key ?? i, [...groups.get(r.key ?? i) ?? [], r]));
     return [...groups.values()].map((group) => {
       const { key: _key, count: _count, species, ...fish } = group[0];
-      if (group.length > 1) fish.name = species ?? fish.name;
+      if (new Set(group.map((r) => r.name)).size > 1) fish.name = species ?? fish.name;
       const given = group.flatMap((r) => r.count === void 0 ? [] : [r.count]);
       const sum = given.reduce((a, b) => a + b, 0);
       const count = !given.length ? void 0 : given.length === group.length ? sum : Math.max(sum, fish.schoolMin ?? 1);

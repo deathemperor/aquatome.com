@@ -34,9 +34,11 @@ test('a tank\'s rows are one fish for each key, adding a row never lowering its 
   expect(oneFishEach([neon(), neon()])).toEqual([{ name: 'Cá neon', schoolMin: 6 }])
   // Rows with no key are each a fish of their own, even with one name.
   expect(oneFishEach([{ name: 'Cá neon', count: 2 }, { name: 'Cá neon', count: 3 }])).toHaveLength(2)
-  // A breed alone is named as the reader added it; beside its species, or another breed of it, as the species.
+  // A breed alone is named as the reader added it, also on two rows; beside its species, or another breed of it, as the
+  // species.
   const halfmoon: TankFish = { key: 'betta', name: 'Cá betta Halfmoon', species: 'Cá betta', count: 1 }
   expect(oneFishEach([halfmoon]).map(f => f.name)).toEqual(['Cá betta Halfmoon'])
+  expect(oneFishEach([halfmoon, halfmoon]).map(f => [f.name, f.count])).toEqual([['Cá betta Halfmoon', 2]])
   expect(oneFishEach([halfmoon, betta]).map(f => f.name)).toEqual(['Cá betta'])
   expect(oneFishEach([halfmoon, { ...halfmoon, name: 'Betta đuôi tưa' }]).map(f => [f.name, f.count])).toEqual([['Cá betta', 2]])
 })

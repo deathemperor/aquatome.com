@@ -1136,6 +1136,85 @@
       }
     },
     {
+      "note": "a halfmoon betta on two rows is still the one fish the reader added: named as the halfmoon, its rows added up",
+      "lang": "vi",
+      "fish": [
+        {
+          "key": "betta-splendens",
+          "name": "Cá betta Halfmoon",
+          "species": "Cá betta (cá xiêm)",
+          "tempC": {
+            "min": 24,
+            "max": 30
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 7,
+          "tankCm": 40,
+          "temperament": "aggressive",
+          "count": 1
+        },
+        {
+          "key": "betta-splendens",
+          "name": "Cá betta Halfmoon",
+          "species": "Cá betta (cá xiêm)",
+          "tempC": {
+            "min": 24,
+            "max": 30
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 7,
+          "tankCm": 40,
+          "temperament": "aggressive",
+          "count": 1
+        },
+        {
+          "key": "paracheirodon-innesi",
+          "name": "Cá neon",
+          "tempC": {
+            "min": 20,
+            "max": 26
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "sizeCm": 4,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 6,
+          "count": 10
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [
+          "Cá betta Halfmoon hung dữ, thường phải nuôi riêng hoặc bể chỉ một loài."
+        ],
+        "verdict": {
+          "level": "no",
+          "text": "Không nên nuôi chung: Cá betta Halfmoon hung dữ."
+        },
+        "stocking": {
+          "percent": 63,
+          "level": "ok",
+          "text": "63% · Vừa phải: bể ổn định với lọc và thay nước thường lệ.",
+          "notes": []
+        }
+      }
+    },
+    {
       "note": "two breeds of one species and no row of the species: named as the species",
       "lang": "vi",
       "fish": [
