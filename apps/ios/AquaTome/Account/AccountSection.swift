@@ -2,16 +2,24 @@ import AccountSync
 import SwiftUI
 
 /// The account on the Tài khoản tab, as on the site's page: signing in, the sync, adding a passkey, signing out and
-/// deleting the account. When the server offers no accounts, or the tanks can't be sent, a line says so: the tab is never
-/// blank.
+/// deleting the account. When the server offers no accounts or can't be reached, or the tanks can't be sent, a line says
+/// so: the tab is never blank.
 struct AccountSection: View {
   @Environment(AccountModel.self) private var account
   @State private var confirmDelete = false
 
   var body: some View {
     switch account.state {
-    case .unknown, .off:
-      // Off on the server, or not reached yet.
+    case .unknown:
+      // No answer yet: a moment's wait, or no network (a session kept on the phone shows as signed in instead).
+      Section {
+        if account.unreached {
+          Text("Chưa kết nối được aquatome.com. Các bể vẫn lưu trên máy này.").accessibilityIdentifier("account-unreached")
+        } else {
+          ProgressView().frame(maxWidth: .infinity)
+        }
+      }
+    case .off:
       Section {
         Text("Lúc này chưa đăng nhập được tài khoản aquatome.com. Các bể vẫn lưu trên máy này.").accessibilityIdentifier("account-off")
       }
@@ -36,14 +44,21 @@ struct AccountSection: View {
         Button("Đồng bộ ngay") { Task { await account.sync() } }
           .disabled(account.syncing || !account.canSync)
           .accessibilityIdentifier("sync-now")
-        // An account with a passkey isn't offered another: the passkey syncs to the reader's other Apple devices.
-        if account.offersPasskey && account.hasPasskey {
-          Text("Tài khoản đã có passkey: đăng nhập bằng Face ID, vân tay hoặc mã PIN của máy.")
-            .accessibilityIdentifier("passkey-had")
-        } else if account.offersPasskey {
-          Button("Thêm passkey") { Task { await account.addPasskey() } }
-            .disabled(account.working || account.signingInAgain)
-            .accessibilityIdentifier("passkey-add")
+        if !account.canSync {
+          Text("Các bể trên máy này chưa đồng bộ được: xem lý do trong Bể của tôi.").accessibilityIdentifier("account-cant-sync")
+        }
+        if account.offersPasskey {
+          // The account's passkey may be another device's (one made on aquatome.com in Chrome on Windows isn't on this
+          // phone): one for this phone is still offered, and the server refuses a second for the same phone.
+          if account.hasPasskey {
+            Text("Tài khoản đã có passkey: đăng nhập bằng Face ID, vân tay hoặc mã PIN của máy.")
+              .accessibilityIdentifier("passkey-had")
+          }
+          Button { Task { await account.addPasskey() } } label: {
+            if account.hasPasskey { Text("Thêm passkey cho máy này") } else { Text("Thêm passkey") }
+          }
+          .disabled(account.working || account.signingInAgain)
+          .accessibilityIdentifier("passkey-add")
         }
         if account.signingInAgain {
           Text("Vì an toàn, đăng nhập lại trước khi thêm: chọn một cách tài khoản này đang dùng (\(account.ways)).")

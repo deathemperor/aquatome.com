@@ -1217,6 +1217,22 @@
         }
       }
     },
+    "Chưa kết nối được aquatome.com. Các bể vẫn lưu trên máy này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum bisa terhubung ke aquatome.com. Akuarium tetap tersimpan di perangkat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังเชื่อมต่อ aquatome.com ไม่ได้ ตู้ปลายังคงบันทึกอยู่ในอุปกรณ์นี้"
+          }
+        }
+      }
+    },
     "Chưa kết nối được đèn": {
       "localizations": {
         "id": {
@@ -4317,6 +4333,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่ม passkey"
+          }
+        }
+      }
+    },
+    "Thêm passkey cho máy này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan passkey untuk perangkat ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม passkey สำหรับอุปกรณ์นี้"
           }
         }
       }

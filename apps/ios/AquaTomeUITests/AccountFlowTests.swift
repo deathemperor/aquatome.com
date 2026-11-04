@@ -12,6 +12,7 @@ final class AccountFlowTests: XCTestCase {
     add(app, "Bể phòng khách", first: true)
     signIn(app)
     XCTAssertTrue(app.staticTexts["account-status"].label.contains("Apple"), app.staticTexts["account-status"].label)
+    XCTAssertFalse(badged(app), "a badge on the Tài khoản tab with nothing wrong")
     // Added while signed in: it goes to the account a moment later, by itself.
     let before = syncs(app)
     add(app, "Bể tép")
@@ -90,25 +91,32 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(waitForSyncs(app, 1), "no sync after signing in")
   }
 
-  func testAPasskeyAddedInTheAppOpensItsAccountAndIsNotOfferedAgain() {
+  func testAPasskeyAddedInTheAppOpensItsAccountAndLaterSigningInAgainComesFirst() {
     // Signed in a moment ago: the passkey is made and added straight away, and it signs in on its own.
     var app = launch(resetServer: true)
     signIn(app)
     XCTAssertFalse(element(app, "passkey-had").exists, "said to have a passkey before adding one")
+    XCTAssertTrue(element(app, "passkey-add").waitForExistence(timeout: 5), "no passkey offered")
+    XCTAssertEqual(element(app, "passkey-add").label, "Thêm passkey")
     tap(app, "passkey-add")
     XCTAssertTrue(says(app, "Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy."), message(app))
     XCTAssertTrue(app.staticTexts["account-status"].label.contains("passkey"), app.staticTexts["account-status"].label)
-    // The account has one now: not offered another, and told so.
+    // The account has one now, which another phone or computer may not have: said so, and one for this phone offered.
     hasPasskey(app)
     tap(app, "sign-out")
     tap(app, "passkey-sign-in")
     XCTAssertTrue(app.staticTexts["account-status"].waitForExistence(timeout: 5), "the passkey didn't sign in")
-    hasPasskey(app)
     app.terminate()
 
-    // The same phone later, the session from before the relaunch: still not offered.
+    // The same phone later (a session from before the relaunch counts as signed in long ago): signing in again comes
+    // first, then the add carries on, and finds the phone has this account's passkey already.
     app = launch(newPhone: false)
     hasPasskey(app)
+    tap(app, "passkey-add")
+    XCTAssertTrue(element(app, "sign-in-again").waitForExistence(timeout: 5), "not asked to sign in again")
+    tap(app, "apple-sign-in")
+    XCTAssertTrue(says(app, "Máy này đã có passkey của tài khoản này."), message(app))
+    XCTAssertFalse(element(app, "sign-in-again").exists, "still asked to sign in again")
   }
 
   func testWhatTheAddSaysAfterSigningInAgainByEmailStays() {
@@ -152,6 +160,46 @@ final class AccountFlowTests: XCTestCase {
     tanksTab(app)
     XCTAssertTrue(app.staticTexts["Các bể trên máy này được lưu bằng bản ứng dụng mới hơn. Cập nhật AquaTome để xem và sửa."].waitForExistence(timeout: 5))
     XCTAssertFalse(element(app, "apple-sign-in").waitForExistence(timeout: 2), "sign-in offered for a store this app can't keep")
+  }
+
+  /// Signed in, with a store this app can't keep: "Đồng bộ ngay" can't run, and the tab says why.
+  func testSignedInAStoreFromANewerAppSaysWhyItIsntSynced() {
+    var app = launch(resetServer: true)
+    signIn(app)
+    app.terminate()
+
+    app = launch(newPhone: false, "-seed-tanks", "newer")
+    XCTAssertTrue(app.staticTexts["account-status"].waitForExistence(timeout: 5), "not signed in")
+    XCTAssertFalse(element(app, "sync-now").isEnabled, "a sync offered for a store this app can't keep")
+    XCTAssertTrue(element(app, "account-cant-sync").exists, "no word on why the tanks aren't synced")
+  }
+
+  /// With no network at launch, the account signed in on this phone shows as it was kept, not as accounts off; a change
+  /// that can't reach it marks the Tài khoản tab; a phone never signed in is told the server can't be reached.
+  func testOfflineTheAccountShowsAsKeptAndAProblemMarksItsTab() {
+    var app = launch(resetServer: true)
+    signIn(app)
+    app.terminate()
+
+    app = launch(newPhone: false, "-fake-offline")
+    let status = app.staticTexts["account-status"]
+    XCTAssertTrue(status.waitForExistence(timeout: 5), "signed in on this phone, not shown offline")
+    XCTAssertTrue(status.label.contains("Apple"), status.label)
+    XCTAssertTrue(element(app, "sign-out").exists && element(app, "delete-account").exists, "the account's buttons gone offline")
+    XCTAssertFalse(element(app, "account-off").exists, "offline read as accounts off")
+    XCTAssertFalse(badged(app), "a badge before anything went wrong")
+    // Seen from the tanks tab, where the change is made.
+    add(app, "Bể tép", first: true)
+    XCTAssertTrue(waitForBadge(app), "no badge on the Tài khoản tab for a sync that failed (\(red(app)) red pixels on the tab bar)")
+    accountTab(app)
+    XCTAssertTrue(says(app, "Chưa đồng bộ được: không có mạng. Các thay đổi vẫn lưu trên máy này."), message(app))
+    app.terminate()
+
+    app = launch("-fake-offline")
+    let unreached = element(app, "account-unreached")
+    XCTAssertTrue(unreached.waitForExistence(timeout: 10), "a new phone offline isn't told the server can't be reached")
+    XCTAssertEqual(unreached.label, "Chưa kết nối được aquatome.com. Các bể vẫn lưu trên máy này.")
+    XCTAssertFalse(element(app, "account-off").exists, "offline read as accounts off")
   }
 
   /// The account has a tab of its own: an empty "Bể của tôi" offers a hint that opens it, and a tank list signed in
@@ -205,12 +253,46 @@ final class AccountFlowTests: XCTestCase {
     return app.buttons.matching(identifier: "tank").count
   }
 
-  /// Signed in to an account with a passkey: no "Thêm passkey", and a line saying it has one.
+  /// Signed in to an account with a passkey: a line saying it has one, and one for this phone still offered (the
+  /// account's may have been made on another phone or computer).
   private func hasPasskey(_ app: XCUIApplication) {
     let had = element(app, "passkey-had")
     XCTAssertTrue(had.waitForExistence(timeout: 5), "not told the account has a passkey")
     XCTAssertEqual(had.label, "Tài khoản đã có passkey: đăng nhập bằng Face ID, vân tay hoặc mã PIN của máy.")
-    XCTAssertFalse(element(app, "passkey-add").exists, "a passkey offered to an account that has one")
+    let add = element(app, "passkey-add")
+    XCTAssertTrue(add.exists, "no passkey offered for this phone")
+    XCTAssertEqual(add.label, "Thêm passkey cho máy này")
+  }
+
+  /// Whether the tab bar shows the Tài khoản tab's badge, by its red on the screen: iOS 26's tab bar gives a badge no
+  /// accessibility value or element to read, and nothing else on the tab bar is red.
+  private func badged(_ app: XCUIApplication) -> Bool { red(app) > 20 }
+
+  /// The red pixels on the screen within the tab bar.
+  private func red(_ app: XCUIApplication) -> Int {
+    let bar = app.tabBars.firstMatch
+    guard bar.exists, let cg = XCUIScreen.main.screenshot().image.cgImage else { return 0 }
+    let scale = CGFloat(cg.width) / app.frame.width
+    let f = bar.frame
+    guard let crop = cg.cropping(to: CGRect(x: f.minX * scale, y: f.minY * scale, width: f.width * scale, height: f.height * scale)) else { return 0 }
+    let w = crop.width, h = crop.height
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    guard let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpaceCreateDeviceRGB(),
+                              bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return 0 }
+    ctx.draw(crop, in: CGRect(x: 0, y: 0, width: w, height: h))
+    var red = 0
+    for i in stride(from: 0, to: px.count, by: 4) where px[i] > 200 && px[i + 1] < 100 && px[i + 2] < 100 { red += 1 }
+    return red
+  }
+
+  /// Looked for every half second, for up to 10 s.
+  private func waitForBadge(_ app: XCUIApplication) -> Bool {
+    let until = Date().addingTimeInterval(10)
+    while Date() < until {
+      if badged(app) { return true }
+      RunLoop.current.run(until: Date().addingTimeInterval(0.5))
+    }
+    return badged(app)
   }
 
   private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement { app.descendants(matching: .any)[id].firstMatch }

@@ -11,7 +11,8 @@ import Tanks
 @MainActor
 final class AccountModel {
   enum State: Equatable {
-    /// Not asked yet, or the server couldn't be reached: nothing shown.
+    /// No answer from the server yet: before its first, or with no network then (`unreached`). A session kept on this
+    /// phone starts `signedIn` instead, as the account was last seen.
     case unknown
     /// Accounts are off on the server.
     case off
@@ -36,6 +37,8 @@ final class AccountModel {
   /// "Thêm passkey" long after signing in on this phone: the server wants a sign-in first, and one to this account adds
   /// the passkey.
   private(set) var signingInAgain = false
+  /// The server couldn't be reached the last time it was asked who is signed in.
+  private(set) var unreached = false
 
   // Not shown, so not observed.
   @ObservationIgnored private let tanks: TanksModel
@@ -68,7 +71,15 @@ final class AccountModel {
       UserDefaults.standard.set(true, forKey: "account.installed")
     }
     token = keychain.read()
+    // Signed in on this phone: shown as last seen until the server answers, so with no network too.
+    if token != nil, let kept = UserDefaults.standard.data(forKey: Self.keptUser),
+      let u = try? JSONDecoder().decode(AccountUser.self, from: kept) {
+      state = .signedIn(u)
+    }
   }
+
+  /// The account as last seen signed in on this phone (its id and ways to sign in; nothing secret).
+  private static let keptUser = "account.user"
 
   /// A store on the phone this app can't keep whole (newer, unreadable) isn't sent or replaced.
   var canSync: Bool { tanks.problem == nil || tanks.problem == .saveFailed }
@@ -107,6 +118,7 @@ final class AccountModel {
     let asked = token
     do {
       let answer = try await api.session(token: asked)
+      unreached = false
       // Signed in, out, or deleted meanwhile: the answer is about a session that has gone.
       guard token == asked, !working else { return }
       if case .on(let p, _, _) = answer { offersEmail = p.email; offersPasskey = p.passkey }
@@ -114,7 +126,7 @@ final class AccountModel {
       case .off:
         state = .off
       case .on(_, _, let u?):
-        state = .signedIn(u)
+        signedIn(u)
         await sync()
       case .on(_, _, nil):
         // A token whose session ended elsewhere (signed out there, or the account deleted).
@@ -123,7 +135,8 @@ final class AccountModel {
         if ended { say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true) }
       }
     } catch {
-      // Offline: as it was.
+      // Offline: as it was, said so while nothing is known.
+      unreached = true
     }
   }
 
@@ -166,7 +179,7 @@ final class AccountModel {
     let adding = signingInAgain && s.user.id == user?.id
     if !adding { signingInAgain = false }
     token = s.token
-    state = .signedIn(s.user)
+    signedIn(s.user)
     await sync(first: true)
     if adding { await register(s.token) }
   }
@@ -192,7 +205,7 @@ final class AccountModel {
       let u = try await api.addPasskey(p, token: token)
       // Signed out meanwhile (a sync told the session had ended): nothing to show.
       guard self.token == token else { return }
-      state = .signedIn(u)
+      signedIn(u)
       say(String(localized: "Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy."))
     } catch AccountError.refused("reauth_needed") {
       again = true
@@ -366,15 +379,22 @@ final class AccountModel {
       say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true)
     } catch AccountError.refused("apple_reauth") {
       // Apple was added to the account elsewhere since: its step on the next press.
-      if case .on(_, _, let u?) = try? await api.session(token: token) { state = .signedIn(u) }
+      if case .on(_, _, let u?) = try? await api.session(token: token) { signedIn(u) }
       say(problem(AccountError.refused("apple_reauth")), bad: true)
     } catch {
       say(problem(error), bad: true)
     }
   }
 
+  /// Signed in as `u`, kept on the phone for a launch with no network.
+  private func signedIn(_ u: AccountUser) {
+    state = .signedIn(u)
+    UserDefaults.standard.set(try? JSONEncoder().encode(u), forKey: Self.keptUser)
+  }
+
   private func forget() {
     keychain.delete()
+    UserDefaults.standard.removeObject(forKey: Self.keptUser)
     token = nil
     signingInAgain = false
     synced = nil

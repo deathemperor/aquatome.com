@@ -12,7 +12,9 @@ temperament, difficulty) and a plant's care (difficulty, light, CO₂, growth, w
 substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; one the handbook has no page for put on by name, marked "chưa có trang" until a page has its scientific name, and sent once, with no account, as a name readers want pages for; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough; and the guides that name them, the video guides apart) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
 schedules written to it (as the site does); **Tài khoản** is the aquatome.com account (below) and the posters blocked on
-this phone, saying so when the server offers no accounts, and an empty Bể của tôi offers a hint that opens it. A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
+this phone, saying so when the server offers no accounts or can't be reached (the account signed in on the phone shows
+as last seen), its tab marked while the account has a problem to tell (a sync that failed, a session that ended); an
+empty Bể của tôi offers a hint that opens it. A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
 named for what it powers, with its switch: the app calls Tuya's cloud itself, with the reader's own Tuya project keys
 kept in the Keychain, and no AquaTome account (docs/smart-plugs.md).
 
@@ -24,14 +26,15 @@ just saved.
 Signing in on the Tài khoản tab (Sign in with Apple, a code sent by email, or a passkey) syncs the tanks with an
 aquatome.com account, as the site's page does: the token is in the Keychain, on this phone only. "Thêm passkey" adds one
 made on the phone, as on the site: more than 10 minutes after signing in, the server asks for a sign-in first, and one
-to the same account carries on. An account that has a passkey isn't offered another: the tab says it has one. The email sign-in's
+to the same account carries on. An account that has a passkey is told so, and still offered one for this phone
+("Thêm passkey cho máy này"): its passkey may be another device's, and the server refuses a second for the same phone. The email sign-in's
 Turnstile check runs in a web view on the site's page for it (`/api/v1/auth/email/turnstile`), since Turnstile runs
 only in a web page on the site's host. Passkeys are aquatome.com's, shared with the app through its webcredentials
 association (`Config/AquaTome.entitlements` and the site's `/.well-known/apple-app-site-association`); only a signed
 build on an iPhone can use them, so the simulator never runs the real passkey sheet.
 A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, passkey sheet and
 Turnstile check inside the app instead (`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`;
-every emailed code is `123456`; `-seed-passkey` gives an account the stand-in's passkey; a session kept from an earlier
+every emailed code is `123456`; `-seed-passkey` gives an account the stand-in's passkey; `-fake-offline` answers nothing, as with no network; a session kept from an earlier
 launch counts as signed in long ago), so no test reaches
 aquatome.com; `-real-accounts` tries the real server from the simulator.
 Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`PlugsModel.forSimulator`;

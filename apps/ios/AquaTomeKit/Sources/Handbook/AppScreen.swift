@@ -1,7 +1,8 @@
 import Foundation
 
-/// The site's pages that the app has as its own screens. In the app, a link to one (the tools' "Xem trong Bể của tôi →"
-/// after a save, the site's menus) opens the screen, not the web page.
+/// The site's pages that the app has as its own screens, and the app's account tab, which no page is. In the app, a link
+/// to one of the pages (the tools' "Xem trong Bể của tôi →" after a save, the site's menus) opens the screen, not the web
+/// page.
 public enum AppScreen: Equatable, Sendable {
   /// "Bể của tôi", showing the tank the link names (`#be-<id>`, as the site's page marks each tank), if any.
   case tanks(String?)

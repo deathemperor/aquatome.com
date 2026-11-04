@@ -56,6 +56,8 @@ struct AquaTomeApp: App {
         AccountView()
           .tabItem { Label("Tài khoản", systemImage: "person.crop.circle") }
           .tag(Tab.account)
+          // A problem with the account (a sync that failed, a session that ended) is said on its tab: marked from the others.
+          .badge(account.message?.bad == true ? Text(verbatim: "!") : nil)
       }
       // The tab bar shrinks out of the way while reading down a page, and comes back at the page's top or with a tap on it (iOS 26).
       .minimizingTabBarOnScroll()
