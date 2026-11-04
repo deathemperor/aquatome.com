@@ -31,9 +31,10 @@ export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNa
   // numbered list closes the page's text.
   const refs: { name: string; url: string }[] = []
   const refNo = (name: string, url: string) => { const i = refs.findIndex(r => r.url === url); return i >= 0 ? i + 1 : refs.push({ name, url }) }
-  // A source the range cites by its page's own address there (its first section's); none for one the page has no text of.
+  // A source the range cites by its page's own address there (its first section with text in this language); none for one
+  // the page has no text of.
   const mark = (source: SourceId) => {
-    const url = sections.find(x => x.source === source)?.sourceUrl
+    const url = sections.find(x => x.source === source && t.sections[`${x.key}:${x.source}`])?.sourceUrl
     const name = c.sources[source]?.name ?? source
     return url ? citeMark(lang, refNo(name, url), name, url) : ''
   }
