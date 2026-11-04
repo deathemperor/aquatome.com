@@ -1432,13 +1432,60 @@
       "\"เบาะ\" for \"cushion\" is a bit literal; consider \"พุ่มหนาแน่นคล้ายเบาะ/หมอนนุ่ม\" or \"ก้อนกลมแน่น\""
     ]
   },
+  "micranthemum-tweediei-monte-carlo": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "มอนติคาโล",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 2: \"ใบกลม เล็ก เรียงกันแน่น\" – English says \"compact, round\" leaves; adding \"เล็ก\" (small) is a minor addition not in the source; consider \"ใบกลมกะทัดรัด\".",
+      "Item 2: \"ต้นไม้ชนิดนี้\" is stiff; \"ไม้น้ำชนิดนี้\" is the usual hobby term.",
+      "Item 2: \"เป็นพุ่มแน่นจริง ๆ\" – \"compact\" for a carpet plant is better as \"ขึ้นเป็นพรมแน่น/หนาแน่น\" than \"พุ่ม\" (bush).",
+      "Item 2: \"ที่ร่มรำไร\" is a bit literary; \"แสงน้อย/แสงรำไร\" is more natural for aquarium use.",
+      "Item 1: \"ปลูกในตู้ได้สองเดือน\" – the source says \"in the tank\" and is slightly looser; fine in meaning but \"ซม.\" could be \"cm\" as hobbyists write it."
+    ]
+  },
+  "micranthemum-umbrosum": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "ไมแครนทีมัม อัมโบรซัม",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ไม้ข้อ (ไม้น้ำแบบมีลำต้น)\": acceptable, but the bracketed gloss is redundant; \"ไม้ลำต้น\" or \"ไม้ข้อ\" alone is enough.",
+      "\"ปลูกในตู้ปลาได้สองเดือน\": reads slightly awkwardly; \"หลังปลูกในตู้ได้ 2 เดือน\" is more natural.",
+      "\"ค่อนข้างต้องการแสง\": \"ต้องการแสงค่อนข้างมาก\" is more natural. It also sits oddly beside \"ปานกลาง\" in the spec list, though the source itself is inconsistent.",
+      "\"ต้องเด็ดยอดบ่อย\": \"ตัดแต่งยอด\" is the more common hobby term. \"เด็ดยอด\" is acceptable.",
+      "\"ลำต้นยาวได้ ... และกว้าง 1–2 ซม.\": \"กว้าง\" for a stem is odd. It follows the source, which probably means leaf or plant width, so consider \"ความกว้างกอ\"."
+    ]
+  },
   "microsorum-pteropus": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-04",
+    "from": "2026-10-31",
     "name": "เฟิร์นชวา",
     "confidence": "high",
-    "score": 0.95,
-    "notes": []
+    "score": 0.6,
+    "notes": [
+      "Item 5: 'aquarists have forgotten it for several weeks in a bucket and it still lived' is rendered as 'ลืมทิ้งไว้ในถังหลายสัปดาห์ก็ยังไม่ตาย', which loses 'it still lived'. 'คนเลี้ยงปลา' is also too narrow for 'aquarists'. Say 'นักเลี้ยงไม้น้ำ' and make clear the plant survived.",
+      "Item 5: 'Low to medium-high light is perfect' is rendered 'น้อยถึงค่อนข้างมากถือว่าเหมาะที่สุด'. 'ค่อนข้างมาก' is vague, so use 'ปานกลางถึงค่อนข้างสูง'. 'burn or melt' should be 'ใบไหม้หรือเน่าเละ/ละลาย'. 'ใบ' is added to the Thai, though it is acceptable.",
+      "Item 3: 'The author's favourite method' is rendered 'วิธีที่ชอบใช้กัน', which turns one person's preference into a general one. Use a neutral form such as 'วิธีที่แนะนำคือ'.",
+      "Item 3: 'a dish of water' is rendered 'ถาดน้ำ'. 'ภาชนะใส่น้ำตื้น ๆ' is more natural. 'tie it onto wood' is rendered 'ขอนไม้', which is fine. 'algae eaters' is rendered 'ปลาและสัตว์กินตะไคร่', where 'สัตว์' is added. 'Crew' loses the idea of a group of algae eaters.",
+      "Item 3: 'if algae wins' is rendered 'หากตะไคร่ชนะ', which is literal. Use 'หากตะไคร่เข้ายึดครอง/ลุกลามหนัก'.",
+      "Item 1: 'Other varieties' is rendered 'สายพันธุ์อื่น'. Use 'พันธุ์/วาไรตี้' for variety, and consider giving Thai names for Trident (เฟิร์นชวาทริเดนท์) and Narrow Leaf (เฟิร์นชวาใบเล็ก). 'Java Fern' is rendered 'เฟิร์นชวา' (fine).",
+      "Item 2: 'Origin: cultivar' is rendered 'แหล่งที่มา: พันธุ์ปลูกคัดเลือก'. 'ที่มา: พันธุ์ปลูกเลี้ยง (cultivar)' is more natural. The Thai also adds 'ลงตู้ได้สองเดือน', which is fine.",
+      "Item 4: 'herbivorous fish will not eat it' is translated correctly, but 'ปลากินพืชจะไม่กิน' is too absolute. Use 'ปลากินพืชมักไม่กิน'."
+    ]
+  },
+  "microsorum-pteropus-narrow": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "เฟิร์นชวาใบแคบ",
+    "confidence": "medium",
+    "score": 0.92,
+    "notes": [
+      "\"สายพันธุ์ปลูก\" for \"cultivars\" is slightly unnatural; \"พันธุ์ปลูกเลี้ยง\" or \"คัลทิวาร์\" would read more naturally. Meaning is intact."
+    ]
   },
   "nymphaea-zenkeri": {
     "at": "2026-10-30",

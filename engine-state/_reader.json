@@ -998,11 +998,33 @@
     ],
     "ruled": "8f9d1fb14657ab3e"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-co2-in-planted-aquariums": {
+    "at": "2026-11-04",
+    "hash": "96f965a2721dc415",
+    "findings": [],
+    "ruled": "96f965a2721dc415"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-coldwater-fish": {
     "at": "2026-11-01",
     "hash": "be7e6b71965db191",
     "findings": [],
     "ruled": "be7e6b71965db191"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-cookie-cutter-for-10-gallon-aquarium": {
+    "at": "2026-11-04",
+    "hash": "72b704db74fcbfe6",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Cookie Cutter Setups for 10-Gallon Freshwater Aquariums - Aquarium Co-Op",
+        "problem": "This caption is the source article's title, not a description of the photo, so it doesn't tell the reader what the image shows.",
+        "rule": "A caption that matches the source page's title or ends with a site name after ' - '.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "72b704db74fcbfe6"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-daphnia-culturing-how-to-raise-daphnia": {
     "at": "2026-11-02",
@@ -1244,6 +1266,12 @@
     ],
     "ruled": "f9db00ba7c4b53a7"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-many-fish": {
+    "at": "2026-11-04",
+    "hash": "5397fe74a351763e",
+    "findings": [],
+    "ruled": "5397fe74a351763e"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-care-for-aquarium-fish-while-on-vacation": {
     "at": "2026-11-02",
     "hash": "1ad4cd896e4e6a92",
@@ -1285,6 +1313,12 @@
       }
     ],
     "ruled": "cb58436f0241c8ab"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-drill-glass-aquariums": {
+    "at": "2026-11-04",
+    "hash": "768f60acbd4bf4d2",
+    "findings": [],
+    "ruled": "768f60acbd4bf4d2"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-pick-the-best-planted-aquarium-light": {
     "at": "2026-11-01",
@@ -1758,6 +1792,50 @@
     ],
     "ruled": "fb5717a90cb244f8"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-spawning-mop": {
+    "at": "2026-11-04",
+    "hash": "e177cb9aba7c986f",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- Kéo\n- Quấn len quanh quyển vở chừng 40 đến 100 vòng",
+        "problem": "The step-by-step instructions run straight on from the materials list in the same bullet list, with no heading or lead-in, so the steps read as more materials. The same happens in the ricefish section.",
+        "fix": "Thêm dòng \"Các bước thực hiện:\" trước bước đầu tiên ở cả hai phần.",
+        "rule": "A materials list directly followed by imperative step items with no intervening line.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây là loại tổ đẻ phổ biến nhất.",
+        "problem": "The source only calls this type popular, not the most popular.",
+        "fix": "Đây là loại tổ đẻ rất phổ biến.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tổ len thường không ăn thua bằng",
+        "problem": "\"không ăn thua bằng\" is an awkward, unnatural comparative in Vietnamese.",
+        "fix": "tổ len thường không hiệu quả bằng",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C10",
+        "quote": "Step 2 cut pad - diagram",
+        "problem": "The caption says this image is a diagram, not a photo.",
+        "rule": "A caption containing the word 'diagram'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "e177cb9aba7c986f"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-betta-fish-plants-for-your-aquarium": {
     "at": "2026-11-01",
     "hash": "d88b624e30b9c5ef",
@@ -1870,6 +1948,22 @@
     "hash": "2c89219c032333e5",
     "findings": [],
     "ruled": "2c89219c032333e5"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-7-freshwater-snails": {
+    "at": "2026-11-04",
+    "hash": "0ed9a6129dc1b9e3",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 7 Helpful Snails for Your Next Freshwater Aquarium - Aquarium Co-Op",
+        "problem": "This caption is the source article's title and brand name. It doesn't describe what the photo shows.",
+        "rule": "A caption that is the same as the source page's title or ends with a site name.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "0ed9a6129dc1b9e3"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-dwelling-fish": {
     "at": "2026-11-01",
@@ -2760,6 +2854,12 @@
     ],
     "ruled": "40c764ab85fa40c0"
   },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-l167-arrived-en": {
+    "at": "2026-11-04",
+    "hash": "6f6c66208824474b",
+    "findings": [],
+    "ruled": "6f6c66208824474b"
+  },
   "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
     "at": "2026-11-03",
     "hash": "956dea628b022f60",
@@ -3131,6 +3231,40 @@
       }
     ],
     "ruled": "35120a81755284da"
+  },
+  "vi/guides/seriouslyfish-articles-cycling-an-aquarium": {
+    "at": "2026-11-04",
+    "hash": "22dd8d75145ab867",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Cả hai đều độc hơn ở pH thấp hơn và nhiệt độ thấp hơn.",
+        "problem": "This contradicts the page's own statements that higher pH means more toxic ammonia, and that raising pH turns ammonium into more toxic ammonia. Ammonia is in fact more toxic at higher pH and higher temperature.",
+        "fix": "Cả hai đều độc hơn khi pH cao hơn và nhiệt độ cao hơn.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "hãy hỏi trên diễn đàn và chúng tôi sẽ giúp bạn đưa chúng vượt qua quá trình này",
+        "problem": "These references to the source site's forum and Knowledge Base are leftovers. AquaTome has no such forum, so the 'we will help you' promise is misleading.",
+        "rule": "Flag mentions of 'diễn đàn' or 'Knowledge Base' in the page body.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mark G N Ferguson phân tích một quá trình thiết yếu.",
+        "problem": "The author byline from the original article is left in the text, against the house style.",
+        "rule": "Flag a line naming a person followed by a verb such as 'phân tích' near the top of the body.",
+        "field": "body"
+      }
+    ],
+    "ruled": "22dd8d75145ab867"
   },
   "vi/guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain": {
     "at": "2026-11-01",
@@ -3726,6 +3860,93 @@
       }
     ],
     "ruled": "c29288f431874c7e"
+  },
+  "vi/guides/sprucepets-can-you-keep-a-catfish-as-a-pet-5215456": {
+    "at": "2026-11-04",
+    "hash": "a3496c416e2972b2",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C4",
+        "quote": "Angel Fish Swimming in fishtank with floating plants ( Pterophyllum scalare)",
+        "problem": "The photo shows an angelfish, not a catfish, so it doesn't belong on this page.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C5",
+        "quote": "Female guppy with dropsy pinecone scales",
+        "problem": "The photo shows a guppy with dropsy, which has nothing to do with keeping catfish.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C7",
+        "quote": "A betta fish with red and blue markings",
+        "problem": "The photo shows a betta, not a catfish.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C8",
+        "quote": "Goldfish with Popeye",
+        "problem": "The photo shows a goldfish with popeye, which is unrelated to this page.",
+        "field": "caption"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nền đáy cho cá da trơn nên thiên về loại nhẹ.",
+        "problem": "'Lighter size' in the source means smaller grain size, not lighter weight, so 'loại nhẹ' gives the wrong meaning.",
+        "fix": "Nền đáy cho cá da trơn nên chọn loại hạt nhỏ.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Việc đảm bảo chọn đúng loài cho không gian của bạn có thể cần nhiều nghiên cứu hơn bình thường.",
+        "problem": "The sentence uses a 'việc + verb' subject and reads like a translation from English.",
+        "fix": "Muốn chọn loài vừa với bể, bạn có thể phải tìm hiểu kỹ hơn bình thường.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Kích thước trưởng thành là yếu tố then chốt để cá sống thoải mái suốt đời.",
+        "problem": "The sentence uses the stock phrase 'yếu tố then chốt', which the house style bans.",
+        "fix": "Muốn cá sống thoải mái suốt đời, bạn phải biết nó lớn tới đâu khi trưởng thành.",
+        "rule": "The text contains the banned phrase 'yếu tố then chốt'.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khi mọi con cá lúc đầu đều có kích thước như nhau, rất khó hình dung chúng sẽ lớn đến mức nào",
+        "problem": "The sentence copies the English structure and reads awkwardly in Vietnamese.",
+        "fix": "Lúc mua con nào cũng nhỏ như nhau, nên rất khó hình dung sau này chúng lớn đến đâu",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-04",
+        "field": "body",
+        "score": 0.7,
+        "kept": false,
+        "problems": [
+          "'Lighter size' in the source means smaller grain size, not lighter weight, so 'loại nhẹ' gives the wrong meaning."
+        ]
+      }
+    ],
+    "ruled": "a3496c416e2972b2"
   },
   "vi/guides/sprucepets-common-fish-names-beginning-with-m-1378548": {
     "at": "2026-11-01",
@@ -4702,6 +4923,12 @@
     "findings": [],
     "ruled": "9c2871136b79eb0f"
   },
+  "vi/guides/youtube-buMZbrbhJVs": {
+    "at": "2026-11-04",
+    "hash": "a06d673ce4833953",
+    "findings": [],
+    "ruled": "a06d673ce4833953"
+  },
   "vi/guides/youtube-c86hMeJfPms": {
     "at": "2026-11-01",
     "hash": "f48b2a840f080e21",
@@ -4832,6 +5059,12 @@
       }
     ],
     "ruled": "b6d78afe00497a7a"
+  },
+  "vi/guides/youtube-D8ZPJeMEXiY": {
+    "at": "2026-11-04",
+    "hash": "7e832ba7f9356ed1",
+    "findings": [],
+    "ruled": "7e832ba7f9356ed1"
   },
   "vi/guides/youtube-dS6AJL3CAt0": {
     "at": "2026-11-04",
@@ -5383,6 +5616,56 @@
     ],
     "ruled": "189edd40ec15f99c"
   },
+  "vi/guides/youtube-JpAXeFEVws8": {
+    "at": "2026-11-04",
+    "hash": "a738326f10762dac",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Căn hộ lại ở tầng 1 của tòa nhà, nên sàn có thể không chịu nổi sức nặng của bể 150 cm.",
+        "problem": "In Vietnamese 'tầng 1' means the ground floor, so the reason (a weak floor) makes no sense. The English 'first floor' probably meant one floor above the ground.",
+        "fix": "Căn hộ lại nằm ở tầng 2 (không phải tầng trệt), nên sàn có thể không chịu nổi sức nặng của bể 150 cm.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L4",
+        "quote": "Tủ bể 120 x 50 cm được chọn thay vì 150 cm",
+        "problem": "The summary gives the base as 120 x 50 cm, but the body says the tank base is 121 x 51 cm.",
+        "fix": "Bể 121 x 51 cm được chọn thay vì 150 cm",
+        "field": "summary.3"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Hứng toàn bộ nước cũ vào xô. Đây là nước để đổ lại sau khi dời.",
+        "problem": "It says to catch all of the old water, but the next step leaves water above the plant carpet for the fish.",
+        "fix": "Hứng toàn bộ phần nước rút ra vào xô. Đây là nước để đổ lại sau khi dời.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bốn rổ mút xanh cỡ lớn và một rổ nhỏ mút cỡ vừa",
+        "problem": "The list of baskets names 'one small basket of medium sponge' twice, so the contents read as garbled or duplicated.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thiết bị đặt trong tủ cũng đáng chăm chút như phần bể bên trên.",
+        "problem": "This paragraph about equipment inside the cabinet sits under the heading about what tank size the 850-litre filter suits, which it doesn't answer.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a738326f10762dac"
+  },
   "vi/guides/youtube-Jth3Ks8lm6c": {
     "at": "2026-11-04",
     "hash": "b5490084258fc2d3",
@@ -5732,6 +6015,21 @@
     ],
     "ruled": "ddd991b16fa337f0"
   },
+  "vi/guides/youtube-NJ0a2eaOg5E": {
+    "at": "2026-11-04",
+    "hash": "3f6ee92f7f401acf",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "chỗ dày nhất của cả khối khoảng 25–30 cm",
+        "problem": "A 25–30 cm deep foam background would take up most of the depth of a 122 cm tank. That doesn't fit a light 2 kg panel with a 2.5 cm shell, so the figure is probably a converted or misread value.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3f6ee92f7f401acf"
+  },
   "vi/guides/youtube-NNbR0grp8iE": {
     "at": "2026-11-02",
     "hash": "cc7d99ab51d8a6e5",
@@ -5836,6 +6134,33 @@
     "hash": "9eafa52360e271a5",
     "findings": [],
     "ruled": "9eafa52360e271a5"
+  },
+  "vi/guides/youtube-OtVt0xRW-bI": {
+    "at": "2026-11-04",
+    "hash": "d10feedc90372ae4",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "khoảng 15 lít mỗi giờ. Tính ra gần 380 lít mỗi ngày, và khoảng 2.650 lít mỗi tuần",
+        "problem": "15 L/h works out to about 360 L a day and 2,520 L a week, not 380 and 2,650. The 380 L figure fits roughly 16 L/h.",
+        "fix": "khoảng 16 lít mỗi giờ. Tính ra gần 380 lít mỗi ngày, và khoảng 2.650 lít mỗi tuần",
+        "rule": "Multiply an hourly rate by 24 and by 168 and compare it with the daily and weekly figures given next to it.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "L13",
+        "quote": "Với tốc độ khoảng 15 lít mỗi giờ, hệ nhỏ giọt đưa vào gần 380 lít nước mới mỗi ngày",
+        "problem": "The FAQ repeats the same mismatch: 15 L/h is about 360 L a day, not 380.",
+        "fix": "Với tốc độ khoảng 16 lít mỗi giờ, hệ nhỏ giọt đưa vào gần 380 lít nước mới mỗi ngày",
+        "rule": "Multiply an hourly rate by 24 and compare it with the daily figure given next to it.",
+        "field": "faq.3.a"
+      }
+    ],
+    "ruled": "d10feedc90372ae4"
   },
   "vi/guides/youtube-oysXCn_kNCQ": {
     "at": "2026-11-04",
@@ -6092,6 +6417,18 @@
       }
     ],
     "ruled": "569d711c6f995d9e"
+  },
+  "vi/guides/youtube-ROZPt7M2uIk": {
+    "at": "2026-11-04",
+    "hash": "6a22d3240cba72c2",
+    "findings": [],
+    "ruled": "6a22d3240cba72c2"
+  },
+  "vi/guides/youtube-RSbUTX0qyzs": {
+    "at": "2026-11-04",
+    "hash": "d6d9588cf2d084ed",
+    "findings": [],
+    "ruled": "d6d9588cf2d084ed"
   },
   "vi/guides/youtube-rXQS95MHmTk": {
     "at": "2026-11-04",
@@ -6364,6 +6701,12 @@
     "findings": [],
     "ruled": "f87b4809364a764b"
   },
+  "vi/guides/youtube-UhGWKDI8qn8": {
+    "at": "2026-11-04",
+    "hash": "f55699ab8412e32d",
+    "findings": [],
+    "ruled": "f55699ab8412e32d"
+  },
   "vi/guides/youtube-uHt88QgoeZY": {
     "at": "2026-11-01",
     "hash": "393005aecedbc52c",
@@ -6411,6 +6754,12 @@
     "hash": "8491f489a82eac90",
     "findings": [],
     "ruled": "8491f489a82eac90"
+  },
+  "vi/guides/youtube-vlm_GLWSpMo": {
+    "at": "2026-11-04",
+    "hash": "d6602fac9d684c3c",
+    "findings": [],
+    "ruled": "d6602fac9d684c3c"
   },
   "vi/guides/youtube-vLqQpjxKAgU": {
     "at": "2026-11-01",
@@ -6587,6 +6936,23 @@
       }
     ],
     "ruled": "98f096cf3388b4d4"
+  },
+  "vi/guides/youtube-xLh3yMI-QGA": {
+    "at": "2026-11-04",
+    "hash": "e3419b8e3baac143",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Độ cứng\n| 3–8",
+        "problem": "The water hardness range 3–8 has no unit, so readers can't tell whether it means dGH, dKH or something else. The same bare figure is repeated in the checklist and in L4 and L12.",
+        "fix": "| Độ cứng\n| 3–8 dGH",
+        "rule": "A hardness value (độ cứng) followed by a number with no dGH/dKH/ppm unit.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e3419b8e3baac143"
   },
   "vi/guides/youtube-xuc03DuJ9o4": {
     "at": "2026-11-02",
@@ -6783,6 +7149,12 @@
       }
     ],
     "ruled": "d6ecf6f171bc2292"
+  },
+  "vi/guides/youtube-zAhycbnL1Mk": {
+    "at": "2026-11-04",
+    "hash": "202fa125bdb8b2a2",
+    "findings": [],
+    "ruled": "202fa125bdb8b2a2"
   },
   "vi/guides/youtube-zfTnqG22oS8": {
     "at": "2026-11-03",

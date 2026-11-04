@@ -1466,16 +1466,57 @@
       "\"Asal\" in the spec list is slightly terse; \"Asal daerah\" or \"Asal negara/benua\" reads more naturally; minor."
     ]
   },
+  "micranthemum-tweediei-monte-carlo": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Monte Carlo",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"Asal:\" is slightly unnatural for the Origin label; \"Asal daerah\" or \"Asal negara/wilayah\" reads better.",
+      "\"cepat membentuk karpet\" is a little loose for \"fast-growing carpet\"; \"membentuk karpet yang tumbuh cepat\" is closer.",
+      "\"tambahan CO2\" could be \"injeksi CO2\", the usual hobby term."
+    ]
+  },
+  "micranthemum-umbrosum": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Micranthemum umbrosum",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Kebutuhan cahayanya relatif tinggi\": the English says \"Relatively demanding in terms of light\", which fits. But item 1 lists light demand as \"Sedang\", so the two entries are slightly inconsistent. This comes from the source, so keep the wording but check it.",
+      "\"pucuknya harus sering dipangkas\": \"pinched out\" means the shoots are pinched off. \"dipangkas\" (trimmed) is acceptable, but \"dipotong/dipetik\" or \"dijepit\" would be closer.",
+      "\"tanaman air cantik dari Amerika Serikat\": the English says \"US\". Item 1 gives the origin as Amerika Utara. This is a source discrepancy, so the translation is faithful. The added \"air\" is harmless."
+    ]
+  },
   "microsorum-pteropus": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-04",
+    "from": "2026-10-31",
     "name": "Java Fern",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 5: \"It does best with a 6700K bulb. Low to medium-high light is perfect\" is fine, but \"Cahaya rendah sampai sedang-tinggi sudah ideal\" is awkward; use \"cahaya rendah hingga sedang-terang\".",
+      "Item 3: \"tekan tanaman ke lem selama 30 detik\" is fine, but \"oleskan setitik lem\" (bead of glue) is slightly off; \"teteskan sedikit lem\" is better.",
+      "Item 3: \"jangan sembarangan memulai akuarium dengan tanaman ini\" misses the meaning. It should say not to start a new tank with this plant alone, because algae can overwhelm it. As written, the advice is ambiguous.",
+      "Item 3: \"cabut beberapa helai daun\" and \"ambil tunasnya dan mulai tanam lagi\" are acceptable, but \"cabut\" (uproot) is less apt for leaves; use \"lepaskan\" or \"patahkan\".",
+      "Item 8: \"pendiri perusahaan yang mengembangkannya\" replaces the name \"Tropica\". Tropica is a trade name hobbyists know, so the source name was dropped without need. Use \"pendiri Tropica\".",
+      "Item 4: \"Tanaman ini tidak dimakan ikan herbivora\" is an absolute claim. Keep the original's sense, but \"biasanya tidak dimakan\" would be safer.",
+      "Item 5: \"lupa menyimpannya di ember\" is fine, but \"Hampir semua jenis lampu\" (almost any light) is acceptable. \"akuaris\" is an uncommon term in Indonesia; use \"aquascaper\" or \"hobiis akuarium\"."
+    ]
+  },
+  "microsorum-pteropus-narrow": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Java Fern Narrow",
     "confidence": "high",
     "score": 0.85,
     "notes": [
-      "Item 2: \"Salah satu cara yang paling praktis\" changes \"favourite method\" into a claim about practicality. Use a neutral rendering such as \"Cara yang paling disukai/sering dipakai\".",
-      "Item 2: \"Pasukan pemakan alga\" is a literal rendering of \"crew of algae eaters\". \"Sekelompok/kelompok pemakan alga\" is more natural.",
-      "Item 5: \"diganggu\" is weaker than \"playing with them\". \"dimain-mainkan/diusik\" would be closer."
+      "\"berimpang (rizoma)\": \"berimpang\" is awkward; use \"Berrimpang (rizoma)\" or simply \"Rizoma\" (e.g. \"Tipe: rizomatosa/berrizoma\").",
+      "\"dibiakkan di penangkaran\": \"penangkaran\" is used for animals; for plants use \"dibudidayakan\" or \"dalam budidaya\".",
+      "\"dari batangnya\": the source says stem, but the plant has a rhizome and leaf stalks; consider \"dari tangkai/rimpang\" (minor).",
+      "\"Tanaman hias yang juga cocok...\": sentence fragment, better \"Tanaman hias ini juga cocok untuk akuarium kecil\"; \"rimpangnya 10–15 cm\" lacks \"panjang\" (minor)."
     ]
   },
   "nymphaea-zenkeri": {
