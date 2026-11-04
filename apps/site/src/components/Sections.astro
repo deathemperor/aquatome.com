@@ -1,6 +1,7 @@
 ---
 import type { Range } from '@aq/schema'
 import GlossaryTip from './GlossaryTip.astro'
+import RangeBlock from './RangeBlock.astro'
 import { getContent } from '../lib/content'
 import { figureHtml } from '../lib/figures'
 import { QUESTION_LABELS } from '../lib/sections'
@@ -15,10 +16,11 @@ type Props = SectionProps
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const pair = (v: Range | number) => (isRange(v) ? `${v.min},${v.max}` : `${v},${v}`)
-const { groups, refs, figAfter } = sectionParts(lang, await getContent(lang), Astro.props)
+const { groups, refs, figAfter, wild, wildAt } = sectionParts(lang, await getContent(lang), Astro.props)
 ---
 <div class="wrap body">
   {groups.map((sec, i) => (<>
+    {wild && i === wildAt && <section data-section="range" id="muc-range"><h2>{wild.title}</h2><RangeBlock part={wild} /></section>}
     <section data-section={sec.key} id={`muc-${sec.key}`} data-pagefind-ignore={sec.key === 'references' ? 'index' : undefined}>
       <h2>{tr(QUESTION_LABELS[sec.key])}</h2>
       {sec.blocks.map(b => (<>
@@ -40,6 +42,7 @@ const { groups, refs, figAfter } = sectionParts(lang, await getContent(lang), As
     {figAfter.has(i) && <Fragment set:html={figureHtml(lang, figAfter.get(i)!)} />}
   </>
   ))}
+  {wild && wildAt === groups.length && <section data-section="range" id="muc-range"><h2>{wild.title}</h2><RangeBlock part={wild} /></section>}
   {refs.length > 0 && (
     <section class="refs" id="nguon" aria-labelledby="nguon-h" data-pagefind-ignore>
       <h2 id="nguon-h">{tr('Nguồn')}</h2>

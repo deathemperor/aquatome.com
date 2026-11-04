@@ -50,6 +50,14 @@ that would have caught it).
     sea); each fixture fish's range as the fixture content has it and its entry as the fixture build's index; the
     countries the index names; every fixture species valid against the schema (`UPDATE_VECTORS=1` rewrites the file but
     its notes and made-up ranges).
+  - A fish page's "Phân bố tự nhiên" (`lib/range.ts` rangeParts, `lib/range-map.ts`, `test/range-block.test.ts`): no
+    block without a range, words only without records, one kind of square without native countries; each line marked
+    with its sentences' sources, a sentence shown only from a source the page cites; the records in words; the map's
+    frame holding every cell inside the world, cells drawn together where one would be too small, inside, outside and
+    both by shape. Its app copy is the page's (`app-page-kinds.test.ts`): the same lines, links, marks and sentences,
+    and the map as a figure of the PNG the build made of it (`/app/range/<id>-<hash>.png`, its address changing with
+    the map), at its size, with the page's words for it, its legend and its credit; the neon tetra's copy is in
+    `page-vectors.json`, which the app's tests read with no new block.
   - The Worker's answers when the app posts readers' comments and photos (a bearer, no Turnstile) and reports them,
     against `protocols/talk.openapi.json`: a status the contract lists and a body of its shape, the account's daily
     limits on top of the address's, an account's posts and photo files deleted with it, every public post's `author`,
@@ -352,13 +360,18 @@ The layers above still check the result.
     says where the species lives, only specialists' countries count, and a country only a general site gives is dropped
     (`outranked`, with its sentence); general sites count for a species no specialist covers. A country a source that
     counts calls introduced or misidentified is left out. The sentences and the refusals are in
-    `engine-state/range/<id>.json`, with the species' origin pages (`places`) beside them as a check. A source that says
+    `engine-state/range/<id>.json`, with the species' origin pages (`places`) beside them as a check, and in the
+    content as `quotes`: the sentence each country and region rests on, for the page to cite. A source that says
     nothing gives no `native`; nothing comes from the model's own knowledge, FishBase or IUCN.
   - `records`: its wild records on GBIF, open licences only (CC0, CC BY 4.0; never NC), no living or fossil
     specimens, coordinates without issues, on GBIF's map squares (1.40625°), each with its records in a native country
     by GBIF's country field. About a dozen requests a species, paced and retried, `RANGE_RECORDS` species a cycle, each
     again after 30 days; squares that don't add up to the search's count fail the species.
   - A failed call or request leaves the species as it was, tried again a day later.
+  - The page shows it under "Phân bố tự nhiên", before the sources' own text about the wild: the countries (linked to
+    their origin pages) and regions, each line with its sources' marks and the sentences on request; the records in
+    words; and a small map (inline SVG on Natural Earth's 1:110m outline, cropped to the records, no tiles or map
+    library) with GBIF's credit, the licences and the day, linked to GBIF's own search for the same records.
   - Found on the sample (docs/research/species-range-sample.md): GBIF's records mix native and introduced
     populations, and its checklists call Betta splendens introduced in Thailand, so the native range comes from the
     sources.

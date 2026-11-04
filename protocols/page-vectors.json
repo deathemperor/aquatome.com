@@ -1924,6 +1924,484 @@
       ]
     },
     {
+      "note": "a fish's page with where it lives in the wild (\"Phân bố tự nhiên\"): its countries and regions with their sources' marks, the sentences they rest on, its wild records in words, and their map as a picture, credited to GBIF; all in blocks a level-2 app reads, so its older view is the fish page's own",
+      "doc": {
+        "v": 1,
+        "kind": "fish",
+        "path": "/vi/ca/ca-neon-xanh/",
+        "title": "Cá neon xanh",
+        "sub": "Paracheirodon innesi",
+        "where": [
+          "Characidae, ",
+          {
+            "text": "Peru",
+            "href": "/vi/nguon-goc/south-america/peru/"
+          }
+        ],
+        "aka": "Tên khác: Neon tetra",
+        "credit": [
+          "Dịch và tổng hợp từ Seriously Fish. Cập nhật 2026-10-28."
+        ],
+        "lead": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Neonsalmler_Paracheirodon_innesi.jpg/960px-Neonsalmler_Paracheirodon_innesi.jpg",
+          "w": 960,
+          "h": 636,
+          "alt": "Cá neon xanh, Paracheirodon innesi",
+          "credit": {
+            "text": "Ảnh: Holger Krisp",
+            "licence": "CC BY 3.0",
+            "url": "https://commons.wikimedia.org/wiki/File:Neonsalmler_Paracheirodon_innesi.jpg"
+          }
+        },
+        "talk": {
+          "comments": "species:paracheirodon-innesi",
+          "photos": "species:paracheirodon-innesi"
+        },
+        "blocks": [
+          {
+            "t": "trust",
+            "title": "Nguồn và độ tin cậy",
+            "rows": [
+              {
+                "field": "tempC",
+                "label": "Nhiệt độ",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "ph",
+                "label": "pH",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "sizeCm",
+                "label": "Kích thước",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "lifeYears",
+                "label": "Tuổi thọ",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "tankCm",
+                "label": "Bể tối thiểu",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "difficulty",
+                "label": "Độ khó",
+                "items": [
+                  "Seriously Fish"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "mates",
+            "title": "Nuôi chung",
+            "good": {
+              "title": "Hợp với",
+              "items": [
+                {
+                  "path": "/vi/ca/ca-neon-vua/",
+                  "name": "Cá neon vua",
+                  "img": {
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Cardinal_Paracheirodon_axelrodi_%283%29.jpg/500px-Cardinal_Paracheirodon_axelrodi_%283%29.jpg",
+                    "w": 960,
+                    "h": 758,
+                    "credit": {
+                      "text": "Ảnh: CHUCAO",
+                      "licence": "CC BY-SA 3.0",
+                      "url": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg"
+                    }
+                  }
+                },
+                {
+                  "path": "/vi/ca/ca-boraras-do/",
+                  "name": "Cá boraras đỏ",
+                  "img": {
+                    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Boraras-brigittae-3191524164.jpg/500px-Boraras-brigittae-3191524164.jpg",
+                    "w": 800,
+                    "h": 600,
+                    "credit": {
+                      "text": "Ảnh: Fantomeno 14",
+                      "licence": "CC0",
+                      "url": "https://commons.wikimedia.org/wiki/File:Boraras-brigittae-3191524164.jpg"
+                    }
+                  }
+                }
+              ]
+            },
+            "avoid": {
+              "title": "Tránh",
+              "items": [
+                {
+                  "path": "/vi/ca/ca-apisto-cacatuoides/",
+                  "name": "Cá apisto cacatuoides",
+                  "img": {
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Cacatuoides.JPG/500px-Cacatuoides.JPG",
+                    "w": 960,
+                    "h": 720,
+                    "credit": {
+                      "text": "Ảnh: William Kreijkes",
+                      "licence": "CC BY-SA 3.0",
+                      "url": "https://commons.wikimedia.org/wiki/File:Cacatuoides.JPG"
+                    }
+                  },
+                  "why": "Hơi dữ, có thể rượt đuổi Cá neon xanh"
+                }
+              ]
+            },
+            "note": "Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.",
+            "tool": {
+              "text": "Kiểm tra nuôi chung với loài khác →",
+              "href": "/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6"
+            }
+          },
+          {
+            "t": "climate",
+            "title": "Nuôi ở Việt Nam",
+            "items": [
+              {
+                "label": "Mùa đông miền Bắc",
+                "ok": false,
+                "text": "Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 20°C."
+              },
+              {
+                "label": "Miền Nam",
+                "ok": false,
+                "text": "Không cần sưởi, nhưng mùa nóng cần làm mát (xem dòng dưới)."
+              },
+              {
+                "label": "Mùa hè cả nước",
+                "ok": false,
+                "text": "Nước bể có thể lên 31°C, trên mức tối đa 26°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
+              }
+            ],
+            "note": "Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng 16°C, miền Nam đêm mát tháng 12–1 khoảng 25°C, mùa hè tới 31°C. Đo nhiệt độ bể của bạn để chắc chắn."
+          },
+          {
+            "t": "h",
+            "text": "Nuôi chung với con gì?",
+            "id": "muc-behaviour"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Là ",
+              {
+                "text": "cá đàn",
+                "href": "/vi/thuat-ngu/ca-dan/",
+                "tip": {
+                  "term": "Cá đàn",
+                  "text": "Loài cá sống và bơi theo nhóm, cần nuôi số lượng lớn."
+                }
+              },
+              " hiền lành, hợp bể cộng đồng với cá cùng cỡ.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Phân biệt đực cái thế nào?",
+            "id": "muc-dimorphism"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Con đực thon hơn; vạch xanh của con cái hơi cong do bụng tròn.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Phân bố tự nhiên",
+            "id": "muc-range"
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Sống tự nhiên ở:",
+                "b": true
+              },
+              " ",
+              {
+                "text": "Colombia",
+                "href": "/vi/nguon-goc/south-america/colombia/"
+              },
+              ", ",
+              {
+                "text": "Peru",
+                "href": "/vi/nguon-goc/south-america/peru/"
+              },
+              ", ",
+              {
+                "text": "Brazil",
+                "href": "/vi/nguon-goc/south-america/brazil/"
+              },
+              ", Ecuador",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Sông, hồ, vùng:",
+                "b": true
+              },
+              " Amazon, Orinoco, Purus, Putumayo, Solimões, Napo",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Nguồn ghi gì",
+                "b": true
+              }
+            ]
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Colombia, Peru, Brazil, Amazon",
+                      "b": true
+                    },
+                    " · Seriously Fish",
+                    {
+                      "text": "1",
+                      "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                      "tip": {
+                        "term": "Seriously Fish",
+                        "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                      }
+                    },
+                    ": “The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams.”"
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Ecuador, Napo",
+                      "b": true
+                    },
+                    " · Seriously Fish",
+                    {
+                      "text": "1",
+                      "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                      "tip": {
+                        "term": "Seriously Fish",
+                        "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                      }
+                    },
+                    ": “These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively).”"
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Purus",
+                      "b": true
+                    },
+                    " · Seriously Fish",
+                    {
+                      "text": "1",
+                      "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                      "tip": {
+                        "term": "Seriously Fish",
+                        "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                      }
+                    },
+                    ": “The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.”"
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Putumayo, Solimões",
+                      "b": true
+                    },
+                    " · Seriously Fish",
+                    {
+                      "text": "1",
+                      "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                      "tip": {
+                        "term": "Seriously Fish",
+                        "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                      }
+                    },
+                    ": “Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.”"
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "GBIF có 39 ghi nhận ngoài tự nhiên: 27 trong các nước trên, 12 ở nơi khác (nhiều nhất: Venezuela 12). Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài."
+            ]
+          },
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://aquatome.com/app/range/paracheirodon-innesi-d0610e6d1f.png",
+              "w": 1200,
+              "h": 666,
+              "alt": "Bản đồ 39 ghi nhận ngoài tự nhiên của Cá neon xanh trên GBIF: 27 trong các nước bản địa, 12 ở nơi khác.",
+              "credit": {
+                "text": "Dữ liệu: GBIF.org, 39 ghi nhận, lấy ngày 2026-11-04",
+                "licence": "CC0, CC BY 4.0",
+                "url": "https://www.gbif.org/occurrence/search?taxon_key=2353909&occurrence_status=present&has_coordinate=true&has_geospatial_issue=false&basis_of_record=HUMAN_OBSERVATION&basis_of_record=MACHINE_OBSERVATION&basis_of_record=OBSERVATION&basis_of_record=PRESERVED_SPECIMEN&basis_of_record=MATERIAL_SAMPLE&basis_of_record=MATERIAL_CITATION&basis_of_record=OCCURRENCE&license=CC0_1_0&license=CC_BY_4_0"
+              }
+            },
+            "caption": [
+              "■ Ghi nhận trong các nước bản địa · □ Ghi nhận ở nơi khác · ▒ Nước bản địa. Mỗi ô khoảng 160 km. Bản đồ nền: Natural Earth."
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Môi trường tự nhiên",
+            "id": "muc-habitat"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Suối rừng thượng nguồn Amazon, nước trong đến hơi đục.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Tài liệu tham khảo",
+            "id": "muc-references"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Chen, X.-Y. 2005. A review of the genus ",
+              {
+                "text": "Paracheirodon",
+                "href": "/vi/phan-loai/characiformes/characidae/paracheirodon/"
+              },
+              ". Copeia 2005(3): 566-570.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "refs",
+            "title": "Nguồn",
+            "id": "nguon",
+            "items": [
+              {
+                "title": "Seriously Fish",
+                "url": "https://www.seriouslyfish.com/species/paracheirodon-innesi"
+              }
+            ],
+            "note": "Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó."
+          },
+          {
+            "t": "pages",
+            "title": "Bài viết nhắc đến loài này",
+            "paths": [
+              "/vi/huong-dan/setup-be-thuy-sinh-dau-tien/"
+            ]
+          }
+        ]
+      },
+      "older": [
+        "web",
+        "web",
+        "web",
+        "h",
+        "p",
+        "h",
+        "p",
+        "h",
+        "p",
+        "p",
+        "p",
+        "list",
+        "p",
+        "figure",
+        "h",
+        "p",
+        "h",
+        "p",
+        "refs",
+        "pages"
+      ]
+    },
+    {
       "note": "a plant's page: its gallery, then its text and sources",
       "doc": {
         "v": 1,

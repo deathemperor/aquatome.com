@@ -38,7 +38,11 @@ test('betta: Thailand only; China, on The Spruce Pets alone, dropped and logged;
   const r = checkAnswer(BETTA, blocks)
   expect(r.claims.every(c => c.ok)).toBe(true)
   // Seriously Fish, a specialist, says where it lives, so only its countries count.
-  expect(r.native).toEqual({ countries: ['TH'], regions: ['Chao Phraya'], sources: ['seriouslyfish'] })
+  // Each country and region with the sentence it rests on: Thailand's is Seriously Fish's, not The Spruce Pets'.
+  expect(r.native).toEqual({
+    countries: ['TH'], regions: ['Chao Phraya'], sources: ['seriouslyfish'],
+    quotes: [{ source: 'seriouslyfish', quote: sf1, countries: ['TH'], regions: [] }, { source: 'seriouslyfish', quote: 'Type locality is \'Menam River, Thailand\', which refers to the Chao Phraya river basin.', countries: [], regions: ['Chao Phraya'] }],
+  })
   expect(r.disputed).toEqual(['ID', 'MY', 'VN'])
   // China is the one a general site alone gives: kept for audit with its sentence.
   expect(r.outranked.map(c => [c.code, c.source, c.quote])).toEqual([['CN', 'sprucepets', sp1]])
@@ -56,7 +60,11 @@ test('clown loach: Indonesia only; Malaysia, on The Spruce Pets alone, dropped a
     countries: [{ code: 'MY', status: 'native', source: 'sprucepets', quote: loachSpruce, words: 'Malaysia' }, { code: 'ID', status: 'native', source: 'seriouslyfish', quote: loachSf, words: 'Indonesian' }],
     regions: [{ name: 'Borneo', source: 'seriouslyfish', quote: 'Native to the Greater Sunda Islands of Borneo and Sumatra.', country: '' }, { name: 'Kapuas', source: 'seriouslyfish', quote: loachSf, country: 'ID' }, { name: 'Sumatra', source: 'sprucepets', quote: loachSpruce, country: 'MY' }],
   }, loach)
-  expect(r.native).toEqual({ countries: ['ID'], regions: ['Borneo', 'Kapuas'], sources: ['seriouslyfish'] })
+  // One sentence names Indonesia and the Kapuas: quoted once, for both.
+  expect(r.native).toEqual({
+    countries: ['ID'], regions: ['Borneo', 'Kapuas'], sources: ['seriouslyfish'],
+    quotes: [{ source: 'seriouslyfish', quote: loachSf, countries: ['ID'], regions: ['Kapuas'] }, { source: 'seriouslyfish', quote: 'Native to the Greater Sunda Islands of Borneo and Sumatra.', countries: [], regions: ['Borneo'] }],
+  })
   expect(r.outranked.map(c => [c.code, c.source, c.quote])).toEqual([['MY', 'sprucepets', loachSpruce]])
   expect(r.regions.find(x => x.name === 'Sumatra')?.why).toBe('in MY, which only a general site gives')
   expect(r.disputed).toEqual([])
@@ -66,7 +74,7 @@ test('a species only a general site covers keeps its countries; a specialist tha
   const only: Block[] = [{ source: 'sprucepets', key: 'distribution', text: LOACH_SPRUCE }]
   const answer = { countries: [{ code: 'MY', status: 'native', source: 'sprucepets', quote: loachSpruce, words: 'Malaysia' }], regions: [{ name: 'Borneo', source: 'sprucepets', quote: loachSpruce, country: '' }] }
   const r = checkAnswer(answer, only)
-  expect(r.native).toEqual({ countries: ['MY'], regions: ['Borneo'], sources: ['sprucepets'] })
+  expect(r.native).toEqual({ countries: ['MY'], regions: ['Borneo'], sources: ['sprucepets'], quotes: [{ source: 'sprucepets', quote: loachSpruce, countries: ['MY'], regions: ['Borneo'] }] })
   expect(r.outranked).toEqual([])
   const quiet = checkAnswer(answer, [...only, { source: 'seriouslyfish', key: 'diet', text: 'Micropredator feeding on small invertebrates.' }])
   expect(quiet.native?.countries).toEqual(['MY'])
@@ -75,7 +83,7 @@ test('a species only a general site covers keeps its countries; a specialist tha
 test('a specialist that names only a lake says where it lives: a general site\'s country is dropped, not added', () => {
   const b: Block[] = [{ source: 'seriouslyfish', key: 'distribution', text: 'Endemic to Lake Malawi.' }, { source: 'sprucepets', key: 'distribution', text: 'This fish is native to Malawi.' }]
   const r = checkAnswer({ countries: [{ code: 'MW', status: 'native', source: 'sprucepets', quote: 'This fish is native to Malawi.', words: 'Malawi' }], regions: [{ name: 'Lake Malawi', source: 'seriouslyfish', quote: 'Endemic to Lake Malawi.', country: '' }] }, b)
-  expect(r.native).toEqual({ countries: [], regions: ['Lake Malawi'], sources: ['seriouslyfish'] })
+  expect(r.native).toEqual({ countries: [], regions: ['Lake Malawi'], sources: ['seriouslyfish'], quotes: [{ source: 'seriouslyfish', quote: 'Endemic to Lake Malawi.', countries: [], regions: ['Lake Malawi'] }] })
   expect(r.outranked.map(c => c.code)).toEqual(['MW'])
 })
 
@@ -116,7 +124,7 @@ test('regions: named in a sentence of the source, not a country, each once, at m
     { name: 'Thailand', source: 'seriouslyfish', quote: q }, { name: 'Mekong', source: 'seriouslyfish', quote: q }, { name: 'Malay Peninsula', source: 'seriouslyfish', quote: sf1 },
   ] }, blocks)
   expect(r.regions.map(x => x.why)).toEqual([undefined, undefined, 'a country', 'its name is not in the quote', undefined])
-  expect(r.native).toEqual({ countries: [], regions: ['Chao Phraya', 'Malay Peninsula'], sources: ['seriouslyfish'] })
+  expect(r.native).toMatchObject({ countries: [], regions: ['Chao Phraya', 'Malay Peninsula'], sources: ['seriouslyfish'] })
   // Nine named, six kept, in the answer's order.
   const names = ['Chiang Rai', 'Surat Thani', 'Phang Nga', 'Malay Peninsula', 'Isthmus of Kra', 'Mekong', 'Mekong River', 'Chao Phraya', 'Menam River']
   const many = names.map((name, i) => ({ name, source: 'seriouslyfish', quote: i < 5 ? sf1 : i < 7 ? sf2 : q }))
@@ -186,7 +194,10 @@ test('the step writes each species\' range after its places, keeps the sentences
   const e = SpeciesSchema.parse(JSON.parse(await s.read('betta-splendens')))
   expect(Object.keys(e).slice(6, 8)).toEqual(['places', 'range'])
   expect(e.range).toEqual({
-    native: { countries: ['TH'], regions: ['Chao Phraya'], sources: ['seriouslyfish'] },
+    native: {
+      countries: ['TH'], regions: ['Chao Phraya'], sources: ['seriouslyfish'],
+      quotes: [{ source: 'seriouslyfish', quote: sf1, countries: ['TH'], regions: [] }, { source: 'seriouslyfish', quote: 'Type locality is \'Menam River, Thailand\', which refers to the Chao Phraya river basin.', countries: [], regions: ['Chao Phraya'] }],
+    },
     records: { taxonKey: 2393998, total: 10, fetched: '2026-11-04', countries: [['TH', 6], ['AU', 4]], cells: [[99.84375, 12.65625, 10, 6]] },
   })
   const a = await s.audit('betta-splendens')
@@ -259,7 +270,7 @@ test('model calls stop at the limit, most popular first; new native countries dr
   const only = { countries: BETTA.countries.filter(c => c.source === 'sprucepets'), regions: [] }
   await speciesRanges(s.root, { ...deps(async <T>() => only as T, async () => new Response('down', { status: 500 })), order: ['c-three'] }, { limit: 1, records: 0 })
   const after = SpeciesSchema.parse(JSON.parse(await readFile(file, 'utf8')))
-  expect(after.range).toEqual({ native: { countries: ['TH', 'ID', 'MY', 'VN', 'CN'], regions: [], sources: ['sprucepets'] } })
+  expect(after.range).toEqual({ native: { countries: ['TH', 'ID', 'MY', 'VN', 'CN'], regions: [], sources: ['sprucepets'], quotes: [{ source: 'sprucepets', quote: sp1, countries: ['TH', 'ID', 'MY', 'VN', 'CN'], regions: [] }] } })
 })
 
 test('only sections that say where it lives, from sources the site may publish', () => {

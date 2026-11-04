@@ -15,6 +15,7 @@ import { appLinks, appPath, isVietnamese, served, translator, type Lang, type T 
 import { smallSrc } from './img'
 import { htmlBlocks } from './page-blocks'
 import { plantParts } from './plant-page'
+import type { RangeParts } from './range'
 import { OFF_LABELS, sectionParts, type SectionProps } from './section-parts'
 import { QUESTION_LABELS } from './sections'
 import { seriesParts } from './series-page'
@@ -66,12 +67,27 @@ function pagesBlock(lang: Lang, listed: Set<string>, title: string, viPaths: str
 export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { blocks: Block[]; unknown: string[] } {
   const t = translator(lang)
   const { range } = fmt(lang)
-  const { groups, refs, figAfter } = sectionParts(lang, c, props)
+  const { groups, refs, figAfter, wild, wildAt } = sectionParts(lang, c, props)
   const fig = (field: string, v: Range | number) => (field === 'tempC' ? `${range(v)}°C` : field === 'sizeCm' || field === 'tankCm' ? `${range(v)} cm` : field === 'gh' ? `${range(v)} dGH` : range(v))
   const blocks: Block[] = []
   const unknown = new Set<string>()
   const prose = (html: string) => { const r = proseBlocks(lang, html); r.unknown.forEach(u => unknown.add(u)); blocks.push(...r.blocks) }
+  // "Phân bố tự nhiên" (RangeBlock.astro): its words, its sources' sentences, its records in words, then the map as a picture.
+  const wildBlocks = (w: RangeParts) => {
+    blocks.push({ t: 'h', text: w.title, id: 'muc-range' })
+    prose(w.words)
+    if (w.said) { blocks.push({ t: 'p', c: [{ text: w.said.title, b: true }] }); prose(w.said.html) }
+    if (w.records) prose(w.records)
+    if (w.map && w.credit) {
+      blocks.push({
+        t: 'figure',
+        img: { src: `${ORIGIN}${w.map.file}`, w: w.map.w, h: w.map.h, alt: w.map.alt, credit: { text: w.credit.text, licence: w.credit.licence, url: w.credit.url } },
+        caption: [`${w.map.caption} ${w.credit.base}.`],
+      })
+    }
+  }
   groups.forEach((sec, i) => {
+    if (wild && i === wildAt) wildBlocks(wild)
     blocks.push({ t: 'h', text: t(QUESTION_LABELS[sec.key]), id: `muc-${sec.key}` })
     for (const b of sec.blocks) {
       if (b.off.length) {
@@ -83,6 +99,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
     const f = figAfter.get(i)
     if (f) prose(figureHtml(lang, f))
   })
+  if (wild && wildAt === groups.length) wildBlocks(wild)
   if (refs.length) {
     blocks.push({
       t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: r.name, url: r.url })),
@@ -156,7 +173,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const p = await speciesParts(lang, c, s)
   const lead = image(lang, s.photos[0], `${s.t.name}, ${s.scientificName}`)
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
-  const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard })
+  const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range } })
   // "Nuôi chung" (Companions.astro): the fish to keep with it and away from it; with neither, the tool's link alone.
   const why = avoidWhy(t, p.mates.self.name)
   const mate = (x: Localized<SpeciesEntity>) => { const img = image(lang, cleanPhoto(x.photos), undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, ...(img ? { img } : {}) } }
