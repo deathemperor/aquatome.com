@@ -43,8 +43,9 @@ test('a guess is inert HTML: Claude\'s words are text; only this site\'s pages a
   expect(html).toContain('<li class="hit">')
   expect(guessHtml(vi, guess({ page: { id: 'x', name: 'n', img: 'https://media.example/p.jpg' } }), 'Tên', '')).toContain('<img src="https://media.example/p.jpg"')
   expect(guessHtml(vi, guess(), 'Tên', '<p>thêm</p>')).toMatch(/^<li class="miss"><div><span class="sure">Gần như chắc chắn<\/span><h3>Tên<\/h3>.*<p>thêm<\/p><\/div><\/li>$/)
-  expect(['/vi/ca/x/', '/id/ikan/x/', '/th/fish/x/'].map(own)).toEqual(['/vi/ca/x/', '/id/ikan/x/', '/th/fish/x/'])
-  expect(['javascript:alert(1)', '//evil.test/vi/', 'https://evil.test/vi/', '/en/x/', undefined].map(own)).toEqual([undefined, undefined, undefined, undefined, undefined])
+  // Fish ID's answers name Vietnamese pages in the apps' /vi/ form: the page links their address (the root).
+  expect(['/vi/ca/x/', '/ca/x/', '/id/ikan/x/', '/th/fish/x/'].map(own)).toEqual(['/ca/x/', '/ca/x/', '/id/ikan/x/', '/th/fish/x/'])
+  expect(['javascript:alert(1)', '//evil.test/vi/', 'https://evil.test/vi/', '/en/x/', '/_ab/', undefined].map(own)).toEqual([undefined, undefined, undefined, undefined, undefined, undefined])
 })
 
 test('"not this one?": the genus\'s other pages in a closed list, its genus the matched page\'s, in italics; none without any', () => {

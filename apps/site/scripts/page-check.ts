@@ -199,9 +199,9 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1
   }
   // Lists of fish among the Vietnamese guides: how many, and how many of their fish sections show a picture.
   const facts = await loadFacts(resolve(content))
-  const guides = readdirSync(join(resolve(dist), 'vi/huong-dan')).flatMap(slug => {
-    const f = join(resolve(dist), 'vi/huong-dan', slug, 'index.html')
-    try { const fs = fishSections(`/vi/huong-dan/${slug}/`, readFileSync(f, 'utf8'), facts); return fs.length ? [{ slug, fs }] : [] } catch { return [] }
+  const guides = readdirSync(join(resolve(dist), 'huong-dan')).flatMap(slug => {
+    const f = join(resolve(dist), 'huong-dan', slug, 'index.html')
+    try { const fs = fishSections(`/huong-dan/${slug}/`, readFileSync(f, 'utf8'), facts); return fs.length ? [{ slug, fs }] : [] } catch { return [] }
   })
   const all = guides.flatMap(g => g.fs)
   console.log(`lists of fish: ${guides.length} guides, ${all.length} fish sections, ${all.filter(x => x.photo).length} with a picture`)

@@ -4,7 +4,7 @@ import { expect, test } from './fixtures'
 // touch screen the first tap shows what the figure is, with a link), and the difficulty cell opens "Vì sao?", the needs
 // that make the fish easy or hard. Read from the page (the label's own link, the panel's rows), so it holds on
 // aquatome.com too: Cá neon vua is on the fixture and the live site, with a difficulty, water figures and traits.
-const FISH = '/vi/ca/ca-neon-vua/'
+const FISH = '/ca/ca-neon-vua/'
 
 test('a data card label opens its section of the explainer page', async ({ page, errors }, info) => {
   await page.goto(FISH)

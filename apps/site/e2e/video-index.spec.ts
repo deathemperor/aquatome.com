@@ -1,6 +1,6 @@
 import { expect, test } from './fixtures'
 
-// The video index (/vi/video/) on a 390 px phone. With four cards a series it was 25,064 px long, about 30 screens, and
+// The video index (/video/) on a 390 px phone. With four cards a series it was 25,064 px long, about 30 screens, and
 // each playlist the engine added made it ~1,700 px longer (2026-11-01). Now each series, each channel's single videos and
 // each channel is one short row, and the rest of the page (the newest videos, headings, footer) is a fixed part. Both are
 // read from the page, so the check holds on the test build and on aquatome.com as playlists are added.
@@ -12,7 +12,7 @@ const REST = 1400
 test('the video index grows by one short row a series, and the rest of it stays the same length', async ({ page, errors }, info) => {
   test.skip(info.project.name !== 'phone', 'measured on a phone')
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.goto('/vi/video/')
+  await page.goto('/video/')
   const series = page.locator('main .rows > li')
   const rows = await page.locator('main .rows > li, main .chans > li').evaluateAll(els => els.map(e => e.getBoundingClientRect().height))
   for (const h of rows) expect(h, 'a row, px').toBeLessThanOrEqual(ROW)

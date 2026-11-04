@@ -513,6 +513,10 @@ test('deleting an account that signs in with Apple: a fresh Apple sign-in first,
   expect(calls.some(c => c.redirectUri === 'https://evil.test/')).toBe(false)
   expect(await still()).toBe(true)
 
+  // The Vietnamese tanks page by the address Apple's Services ID lists (worker/paths.ts APPLE_RETURN); its root one is
+  // taken too, for when Apple lists it.
+  expect((await del({ code: 'good-apple-1', clientId: 'com.aquatome.web', redirectUri: `${ORIGIN}/ca/` })).json.error).toBe('bad_redirect')
+  expect((await del({ code: 'expired', clientId: 'com.aquatome.web', redirectUri: `${ORIGIN}/cong-cu/be-cua-toi/` })).status).toBe(502) // asked of Apple
   const page = `${ORIGIN}/vi/cong-cu/be-cua-toi/`
   expect((await del({ code: 'good-apple-1', clientId: 'com.aquatome.web', redirectUri: page })).status).toBe(204)
   expect(calls.at(-1)).toEqual({ clientId: 'com.aquatome.web', code: 'good-apple-1', redirectUri: page })

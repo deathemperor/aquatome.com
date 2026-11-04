@@ -4,7 +4,7 @@ import { expect, test } from './fixtures'
 // screen (logo, a two-line tagline, Tìm, units, theme, language on a row of its own, 7 links on two more), and the units
 // and language buttons were 26 px tall. Now one row; the sections and settings it leaves out are in a menu sheet.
 
-for (const path of ['/vi/', '/id/', '/th/', '/vi/ca/ca-neon-vua/']) {
+for (const path of ['/', '/id/', '/th/', '/ca/ca-neon-vua/']) {
   test(`header ${path}: one short row, every control at least 44 px`, async ({ page }, info) => {
     await page.goto(path)
     const header = page.locator('header.nav')
@@ -20,7 +20,7 @@ for (const path of ['/vi/', '/id/', '/th/', '/vi/ca/ca-neon-vua/']) {
 
 test('computer: the five sections, search and the settings in the row; no menu button', async ({ page }, info) => {
   test.skip(info.project.name === 'phone', 'the phone header has the menu instead')
-  await page.goto('/vi/')
+  await page.goto('/')
   const nav = page.locator('header.nav .sections')
   await expect(nav.getByRole('link')).toHaveText(['Loài cá', 'Cây', 'Hướng dẫn', 'Công cụ', 'Thuật ngữ'])
   for (const sel of ['.find', '[data-units-toggle]', '[data-theme-toggle]', '[data-lang-menu] summary']) await expect(page.locator(`header.nav ${sel}`)).toBeVisible()
@@ -29,7 +29,7 @@ test('computer: the five sections, search and the settings in the row; no menu b
 
 test('menu sheet: a link in it leaves; Enter opens it, Tab stays in it, Esc closes it and focus goes back', async ({ page, errors }, info) => {
   test.skip(info.project.name !== 'phone', 'the full header row has no menu')
-  await page.goto('/vi/')
+  await page.goto('/')
   const button = page.locator('header [data-menu-open]')
   const sheet = page.locator('#site-menu')
   await expect(sheet).toBeHidden()
@@ -40,7 +40,7 @@ test('menu sheet: a link in it leaves; Enter opens it, Tab stays in it, Esc clos
   for (const name of ['Loài cá', 'Cây', 'Hướng dẫn', 'Công cụ', 'Thuật ngữ', 'Thiết bị', 'Mới cập nhật']) await expect(sheet.getByRole('link', { name, exact: true })).toBeVisible()
   for (const sel of ['[data-units-toggle]', '[data-theme-toggle]', '[data-lang-menu] a[data-lang="th"]']) await expect(sheet.locator(sel)).toBeVisible()
   await sheet.getByRole('link', { name: 'Thuật ngữ', exact: true }).tap()
-  await expect(page).toHaveURL(/\/vi\/thuat-ngu\/$/)
+  await expect(page).toHaveURL(/\/thuat-ngu\/$/)
 
   await button.focus()
   await page.keyboard.press('Enter')

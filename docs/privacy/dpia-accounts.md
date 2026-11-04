@@ -122,7 +122,7 @@ Thiết bị người dùng (trình duyệt / ứng dụng iOS)
 
 | Quyền | Cách thực hiện |
 | --- | --- |
-| Được biết | Chính sách bảo mật (`/vi/chinh-sach-bao-mat/`), câu thông báo cạnh nút đăng nhập |
+| Được biết | Chính sách bảo mật (`/chinh-sach-bao-mat/`), câu thông báo cạnh nút đăng nhập |
 | Xem, nhận bản sao | Nút "Tải dữ liệu tài khoản" (tệp JSON) trong trang và ứng dụng: ngay lập tức |
 | Sửa | Người dùng tự sửa thông tin bể trong trang/ứng dụng |
 | Xóa, rút lại đồng ý | Nút "Xóa tài khoản" trong trang và ứng dụng: xóa ngay mọi dữ liệu của tài khoản; với tài khoản Apple, thu hồi luôn quyền đăng nhập bằng Apple của AquaTome |

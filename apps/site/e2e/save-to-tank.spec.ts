@@ -7,7 +7,7 @@ const stored = (page: Page) => page.evaluate(() => JSON.parse(localStorage.getIt
 const live = async (page: Page) => (await stored(page)).tanks.filter(t => !t.deletedAt)
 
 test('volume: a box is saved as a new tank with its size; a round tank then updates the same tank with its litres', async ({ page, errors }) => {
-  await page.goto('/vi/cong-cu/the-tich-be/')
+  await page.goto('/cong-cu/the-tich-be/')
   const save = page.locator('.save-tank')
   await expect(save).toBeVisible()
   await expect(save.locator('select')).toHaveValue('')
@@ -35,7 +35,7 @@ test('volume: a box is saved as a new tank with its size; a round tank then upda
   await page.locator('#vf-fields input').first().fill('')
   await expect(save).toBeHidden()
 
-  await page.goto('/vi/cong-cu/be-cua-toi/')
+  await page.goto('/cong-cu/be-cua-toi/')
   await expect(page.locator('.tank h2')).toHaveText(['Bể phòng khách'])
   await expect(page.locator('.tank')).toContainText('62,8')
   expect(errors).toEqual([])
@@ -43,7 +43,7 @@ test('volume: a box is saved as a new tank with its size; a round tank then upda
 
 test('tank-mates: the chosen fish and their numbers go onto a tank; saving again updates the numbers, no duplicates', async ({ page, errors }) => {
   // Species both the fixture and aquatome.com have (the watch runs these checks on aquatome.com too).
-  await page.goto('/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:12&l=80&w=35&h=40')
+  await page.goto('/cong-cu/nuoi-chung/?ca=ca-neon-xanh:12&l=80&w=35&h=40')
   const save = page.locator('.save-tank')
   await expect(save).toBeVisible()
   await expect(save.locator('input[name=name]')).toHaveAttribute('placeholder', 'Bể 80 × 35 × 40')
@@ -55,11 +55,11 @@ test('tank-mates: the chosen fish and their numbers go onto a tank; saving again
 
   // The link opens the tank on "Bể của tôi".
   await save.locator('[role=status] a').click()
-  await expect(page).toHaveURL(new RegExp(`/vi/cong-cu/be-cua-toi/#be-${tanks[0]!.id}$`))
+  await expect(page).toHaveURL(new RegExp(`/cong-cu/be-cua-toi/#be-${tanks[0]!.id}$`))
   await expect(page.locator('.tank')).toContainText('Bể 80 × 35 × 40')
 
   // More neons and a discus (by its scientific name: aquatome.com has two "Cá đĩa"), onto the same tank.
-  await page.goto('/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:20&l=60&w=30&h=36')
+  await page.goto('/cong-cu/nuoi-chung/?ca=ca-neon-xanh:20&l=60&w=30&h=36')
   await page.locator('#tm-input').fill('Symphysodon aequifasciatus')
   await page.locator('#tm-input').press('Enter')
   await expect(page.locator('#tm-chosen li')).toHaveCount(2)
@@ -100,12 +100,12 @@ test('nothing the account would refuse is saved: sizes past its limits, a 51st t
   const save = page.locator('.save-tank')
   // A side over 10 m (mm typed as cm), more than 100,000 litres, or under 0.1 litre: worked out, but not saved.
   for (const q of ['hinh=chu-nhat&l=1200&w=30&h=36', 'hinh=tru&d=600&h=400', 'hinh=tru&d=3&h=3']) {
-    await page.goto(`/vi/cong-cu/the-tich-be/?${q}`)
+    await page.goto(`/cong-cu/the-tich-be/?${q}`)
     await expect(page.locator('#vf-out .big')).toBeVisible()
     await expect(save).toBeHidden()
   }
   // Tank-mates: a size past the limit makes a tank without a size; 0.4 fish is no number at all.
-  await page.goto('/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:0.4&l=1500&w=30&h=36')
+  await page.goto('/cong-cu/nuoi-chung/?ca=ca-neon-xanh:0.4&l=1500&w=30&h=36')
   await save.locator('button[type=submit]').click()
   await expect(save.locator('[role=status]')).toContainText('Đã lưu vào')
   const [tank] = await live(page)
@@ -116,7 +116,7 @@ test('nothing the account would refuse is saved: sizes past its limits, a 51st t
   const at = '2026-10-30T08:00:00.000Z'
   const tanks = Array.from({ length: 50 }, (_, n) => ({ id: `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`, name: `Bể ${n + 1}`, species: [], plants: [], createdAt: at, updatedAt: at }))
   await page.evaluate(s => localStorage.setItem('aq.tanks', s), JSON.stringify({ v: 1, tanks, devices: [] }))
-  await page.goto('/vi/cong-cu/the-tich-be/')
+  await page.goto('/cong-cu/the-tich-be/')
   await save.locator('button[type=submit]').click()
   await expect(save.locator('[role=status]')).toContainText('Đã đủ 50 bể')
   expect(await live(page)).toHaveLength(50)

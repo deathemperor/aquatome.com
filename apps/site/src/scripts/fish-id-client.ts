@@ -1,4 +1,5 @@
 import { JPEG_QUALITY, MAX_SIDE } from '../../worker/fishid/photo'
+import { isViPage, withoutVi } from '../../worker/paths'
 import { escapeHtml, loadTurnstile, type Turnstile } from './comments'
 import { msg } from '../i18n/msg'
 import type { T } from '../lib/i18n'
@@ -67,8 +68,9 @@ export function genusHtml(t: T, r: Result, item: (l: Linked, i: number) => strin
   return `<details class="genus"><summary>${label}</summary><ul>${list.map((l, i) => `<li>${item(l, i)}</li>`).join('')}</ul></details>`
 }
 
-// Only this site's own pages and our media host's photos, whatever the answer holds.
-export const own = (u?: string) => (u && /^\/(vi|id|th)\//.test(u) ? u : undefined)
+// Only this site's own pages and our media host's photos, whatever the answer holds. A page as this site links it: the
+// answer gives Vietnamese pages in the apps' /vi/ form (lib/i18n appPath).
+export const own = (u?: string) => (u && (/^\/(vi|id|th)\//.test(u) || isViPage(u)) ? withoutVi(u) : undefined)
 const photoSrc = (u?: string) => (u && /^https:\/\//.test(u) ? u : undefined)
 
 /**

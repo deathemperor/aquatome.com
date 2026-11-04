@@ -125,7 +125,7 @@ export async function removePhoto(env: Live, id: string, reason: string, now: Da
   return (r.meta.changes ?? 0) > 0
 }
 
-const page = (body: string) => new Response(`<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gỡ ảnh — AquaTome</title></head><body style="font:16px/1.6 system-ui,sans-serif;max-width:36rem;margin:4rem auto;padding:0 1rem">${body}<p><a href="/vi/">Về trang chủ AquaTome</a></p></body></html>`,
+const page = (body: string) => new Response(`<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gỡ ảnh — AquaTome</title></head><body style="font:16px/1.6 system-ui,sans-serif;max-width:36rem;margin:4rem auto;padding:0 1rem">${body}<p><a href="/">Về trang chủ AquaTome</a></p></body></html>`,
   { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'referrer-policy': 'no-referrer', 'x-robots-tag': 'noindex' } })
 const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
 

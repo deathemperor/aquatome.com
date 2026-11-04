@@ -38,7 +38,7 @@ const KINDS = ['vi//1', 'vi/ca/2', 'vi/ca/3', 'vi/cay/2', 'vi/cay/3', 'vi/huong-
 // script and the slot its Turnstile widget fills).
 // A kind's first page that search engines are offered: a noindex page (a thin species or plant) fails SEO by design
 // (deploy 41244864797 sampled ammannia-gracilis, new and thin, on a local build).
-const pages = onePerKind(sourcePages(), KINDS, ['/vi/tim-kiem/?q=neon', '/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/nhan-dien-ca/'], p => indexed(p))
+const pages = onePerKind(sourcePages(), KINDS, ['/tim-kiem/?q=neon', '/cong-cu/nuoi-chung/', '/cong-cu/nhan-dien-ca/'], p => indexed(p))
 
 test.describe.configure({ retries: 2 })
 for (const path of pages) {

@@ -13,7 +13,7 @@ const PHOTOS = [
 const svg = (i: number) => `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900"><rect width="1200" height="900" fill="#2f6b4f"/><text x="600" y="500" font-size="200" text-anchor="middle" fill="#e6efec">${i}</text></svg>`
 
 test('a reader photo opens in the viewer on the page, not in a new tab; Back closes it', async ({ page, errors }) => {
-  const fish = sourcePages().find(p => /^\/vi\/ca\/[^/]+\/$/.test(p))!
+  const fish = sourcePages().find(p => /^\/ca\/[^/]+\/$/.test(p))!
   await page.route(url => url.pathname === '/_p' && url.searchParams.has('e'), route => route.fulfill({ json: { photos: PHOTOS, sitekey: 'x', verification: 'phone' } }))
   await page.route(url => url.pathname.startsWith('/_e2e/'), route => route.fulfill({ contentType: 'image/svg+xml', body: svg(Number(/(\d+)\.svg$/.exec(route.request().url())![1])) }))
   await page.goto(fish)

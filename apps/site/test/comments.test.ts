@@ -13,7 +13,7 @@ test('comment renderer makes any payload inert', () => {
 })
 
 test('species, plant and guide pages carry a hidden comments section for their entity', () => {
-  for (const [path, ref] of [['/vi/ca/ca-neon-vua/', 'species:paracheirodon-axelrodi'], ['/vi/cay/ray-nana/', 'plant:anubias-barteri-nana'], ['/vi/huong-dan/setup-be-thuy-sinh-dau-tien/', 'guide:']] as const) {
+  for (const [path, ref] of [['/ca/ca-neon-vua/', 'species:paracheirodon-axelrodi'], ['/cay/ray-nana/', 'plant:anubias-barteri-nana'], ['/huong-dan/setup-be-thuy-sinh-dau-tien/', 'guide:']] as const) {
     const s = page(path).dom.querySelector('section[data-comments]')
     expect(s?.getAttribute('data-entity'), path).toMatch(new RegExp(`^${ref}`))
     expect(s?.hasAttribute('hidden'), path).toBe(true)
