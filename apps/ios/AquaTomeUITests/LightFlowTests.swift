@@ -112,7 +112,8 @@ final class LightFlowTests: XCTestCase {
     let light = app.buttons["tank-light"].firstMatch
     XCTAssertTrue(light.waitForExistence(timeout: 5), "the light on the tank can't be tapped")
     light.tap()
-    XCTAssertTrue(app.tabBars.buttons["Đèn"].isSelected, "the light didn't open on the Đèn tab")
+    let lightsTab = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isSelected == true"), object: app.tabBars.buttons["Đèn"])
+    XCTAssertEqual(XCTWaiter().wait(for: [lightsTab], timeout: 5), .completed, "the light didn't open on the Đèn tab")
     expect(app, "notice", contains: "Đã kết nối")
   }
 

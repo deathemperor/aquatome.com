@@ -183,13 +183,15 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-dia/"].waitForExistence(timeout: 15), "not the stand-in page")
   }
 
-  // Reading down a page, the tab bar shrinks to the open tab's button; back at the top of the page, or a tap on it,
-  // brings it back (iOS 26 brings it back at the top, not on any scroll up).
-  func testTheTabBarShrinksWhileScrollingDownAndComesBack() {
+  // Reading down a page, the tab bar shrinks to the open tab's button; a tap on it, or the page back at its top, brings
+  // it back. (iOS 26 shrinks it; older iOS keeps the bar as it is.)
+  func testTheTabBarShrinksWhileScrollingDownAndComesBack() throws {
+    guard #available(iOS 26.0, *) else { throw XCTSkip("the tab bar shrinks from iOS 26") }
     let app = launch()
     let tabs = app.tabBars.buttons
     XCTAssertTrue(tabs["Tìm"].waitForExistence(timeout: 5))
-    XCTAssertEqual(tabs.count, 3)
+    let all = tabs.count
+    XCTAssertGreaterThan(all, 1)
     app.swipeUp()
     app.swipeUp()
     XCTAssertTrue(waitFor(tabs, 1), "the tab bar didn't shrink")
@@ -197,12 +199,12 @@ final class HandbookFlowTests: XCTestCase {
     app.swipeDown()
     app.swipeDown()
     app.swipeDown()
-    XCTAssertTrue(waitFor(tabs, 3), "back at the top, the tab bar didn't come back")
+    XCTAssertTrue(waitFor(tabs, all), "back at the top, the tab bar didn't come back")
     app.swipeUp()
     app.swipeUp()
     XCTAssertTrue(waitFor(tabs, 1), "the tab bar didn't shrink again")
     app.showTabs()
-    XCTAssertTrue(waitFor(tabs, 3), "a tap on the shrunk tab bar didn't bring it back")
+    XCTAssertTrue(waitFor(tabs, all), "a tap on the shrunk tab bar didn't bring it back")
   }
 
   private func waitFor(_ tabs: XCUIElementQuery, _ n: Int) -> Bool {

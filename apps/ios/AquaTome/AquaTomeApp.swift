@@ -54,7 +54,7 @@ struct AquaTomeApp: App {
           .tabItem { Label("Đèn", systemImage: "lightbulb") }
           .tag(Tab.lights)
       }
-      // The tab bar shrinks out of the way while reading down a page, and comes back scrolling up (iOS 26).
+      // The tab bar shrinks out of the way while reading down a page, and comes back at its top or with a tap on it (iOS 26).
       .minimizingTabBarOnScroll()
       .environment(lights)
       .environment(handbook)
