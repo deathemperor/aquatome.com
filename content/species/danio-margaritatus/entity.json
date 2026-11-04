@@ -27,6 +27,13 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -43,6 +50,13 @@
           "min": 6.5,
           "max": 7.5
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6.6,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
@@ -53,6 +67,10 @@
       {
         "source": "seriouslyfish",
         "value": 2.1
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2.5
       }
     ],
     "gh": [
@@ -91,6 +109,12 @@
       "html": "<p>The celestial pearl danio, Danio margaritatus, is a miniature cyprinid from the Salween drainage in Shan State, eastern Myanmar. First marketed as 'Galaxy Rasbora' after its discovery in 2006, it became one of the most hyped fishes the hobby has known, and Myanmar banned exports in 2007 after reports of overfishing. Intensive commercial breeding means specimens with spotted fins or deformities are now common in the ornamental trade.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "html": "<p>Danio margaritatus goes by many common names, such as galaxy rasbora and celestial pearl danio, because of the striking golden spots scattered on their dark bodies. They grow up to 2.5 cm long and feature bright red-orange fins with black striping. Discovered in 2006, they come from Southeast Asia and live in shallow waters with dense vegetation.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
@@ -101,6 +125,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
       "html": "<p>Type locality is 'Pools at foot of mountain near Hopong town 30 kilometers east of Taunggyi, Myanmar, elevation 1040 meters', thought restricted to a single locality around 1,040 m AMSL near the town of Hopong in Shan State, eastern Myanmar.</p><p>It's since been found in waters associated with the Salween (aka Thanlwin) River throughout southern Shan and even across the border in northern Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "html": "<p>They come from Southeast Asia and live in shallow waters with dense vegetation.</p>"
     },
     {
       "key": "habitat",
@@ -121,6 +151,12 @@
       "html": "<p>Despite its small size we wouldn't keep a group of these in anything with base dimensions measuring less than 45 × 30 cm due to the sometimes combative behaviour of dominant males (see 'Behaviour and Compatibility').</p><ul><li>Standard length: 21 mm SL</li><li>Aquarium base: 45 × 30 cm</li><li>Volume: ~41 litres</li></ul>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "html": "<p>Keeping CPDs in at least 40 litres of water is recommended, but if you buy a bigger school of 10–15 fish, go for an aquarium of about 75 litres or larger. Because of their chasing behaviour, add lots of live aquarium plants for them to dart in between.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
@@ -131,6 +167,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
       "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.5–7.5; a value of 7.3 was recorded at the type locality.</li><li>Hardness: 5–15 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "html": "<p>They can handle a fairly wide range of pH from 6.6–8.0, as well as soft to moderate water hardness (GH). They thrive at temperatures of 22–24°C and tolerate up to 26°C. Depending on how warm your home is, you may be able to keep this species in an unheated aquarium without a heater. Many danios, including CPDs, enjoy cooler temperatures than the average tropical fish.</p>"
     },
     {
       "key": "equipment",
@@ -151,6 +193,12 @@
       "html": "<p>Likely to feed on small invertebrates, algae and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively, and as it rarely rises to the surface there's little point in offering floating products.</p><p>Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will not only result in the best colouration but encourage the fish to come into breeding condition.</p><p>Newly-imported specimens are often in poor condition and can be difficult to acclimatise to aquarium life, so small live foods are recommended as an initial diet with dry and frozen products being introduced as the fish become settled.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "html": "<p>Since they like to swim in the middle of the tank, feed tiny, slow-sinking foods in the water column. Their favourite meals include baby brine shrimp, frozen cyclops and daphnia, and micro worms. As for dry foods, crushed flakes and small-fish or fry foods work. The key is to offer a variety of foods to make sure they get all the necessary nutrients.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
@@ -163,16 +211,34 @@
       "html": "<p>Likely to be intimidated or outcompeted for food by larger or more boisterous tankmates, although the presence of similarly-sized, surface-dwelling species seems to help reduce its shyness.</p><p>Other small cyprinids from Myanmar such as Danio choprae or members of the genus Microdevario are suitable companions, and we suspect it might also do well alongside Dario hysginon or D. sp. 'Myanmar'.</p><p>The closely-related Danio erythromicron is not recommended as it's probably capable of hybridising with D. margaritatus (see 'Notes').</p><p>Though gregarious by nature it's a shoaling rather than schooling species with rival males sparring on a regular basis during daylight hours.</p><p>It's not uncommon to see nipped fins within a group though this behaviour does not normally extend to tankmates.</p><p>Buy as many as possible, ideally 20 or more, as when larger numbers are present the aggression is spread between individuals plus the fish are bolder, more often-seen, and exhibit better colouration.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "html": "<p>As a schooling fish, they feel most comfortable in large groups so that they can more easily elude predators, find food, and breed. The rule of thumb is at least six fish of the same species, but 10–15 CPDs are strongly suggested since they can be a bit timid.</p><p>CPDs are peaceful nano fish that do well with other community fish. However, they are still danios, which chase each other to establish dominance or display breeding behaviour. They may nip fins among their own species, but rarely go after other tank mates.</p><p>Avoid any large fish that may eat, bully, or outcompete them for food. Since CPDs sometimes hide, dither fish can encourage them to swim out in the open. They have been kept with friendly community fish such as small tetras, Corydoras catfish and kuhli loaches. Results with cherry shrimp vary: provide plenty of hiding spots and expect the CPDs to prey on baby shrimp. Betta may or may not work because they prefer warmer water and can be hostile to intruders; it may work if the temperature is kept at 25–26°C, the aquarium is large enough, and the betta isn't too aggressive.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
       "html": "<p>Males have a steel-to-deep blue body colouration extending over the majority of the flanks and intense red and black striping in all fins except the pectorals.</p><p>The spots on the body are pearly white to cream-coloured and in nuptial individuals the abdomen turns reddish, overall body colour intensifies and as a result the pale stripe running lengthways over the top of the head becomes better-defined.</p><p>Females have a blue-green base body colouration and less prominent, weakly red to orange colour patches in the fins with the ventrals patternless.</p><p>The body spots are cream to golden and don't extend into the anterior portion of the abdomen.</p><p>They tend to grow a little larger than males and have a more rounded overall body shape, especially when gravid.</p><p>When in spawning condition they display a small dark marking at the vent.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "html": "<p>Male celestial pearl danios are more brightly coloured, while females are rounder in shape.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
       "html": "<p>Like many small cyprinids this species is an egg-scattering spawner that shows no parental care.</p><p>It was first bred by SF members Pete Liptrot and Paul Dixon of the Bolton Museum Aquarium, U.K., only a week or two after entering the country in 2006.</p><p>If the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller, perhaps 10-15 litre, containers should also be set up and filled with aged water.</p><p>Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved plant.</p><p>Neither lighting nor filtration is necessary although you can install a small air-powered sponge filter if you prefer.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container, though it's worth noting that the more individuals involved the greater the risk of egg predation, plus males may distract each other from females if there's more than one in the tank.</p><p>Spawning normally presents few problems with around 30 mildly adhesive eggs deposited in a typical event.</p><p>At this point the adults are best removed as they will eat any they find, plus females need a recovery period before spawning again as they're unable to produce eggs on a daily basis.</p><p>In nature it apparently breeds year-round so you could always select another pair and work a rotation system if continuous production is the aim.</p><p>Incubation is temperature-dependant to an extent but usually takes around 72 hours with the young free-swimming 3-4 days later.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "html": "<p>Celestial pearl danios are relatively easy to breed at home as long as you have at least six fish to ensure there are both males and females. They are egg layers that prefer to spawn in media, so provide dense plants such as java moss or a DIY yarn spawning mop. Feed them well, and once the females develop large bellies full of eggs, they will likely spawn almost every day.</p><p>To prevent the adults from eating the eggs, move the spawning media into a separate tank; the eggs should hatch within a week, depending on water temperature. Another method is to place the fish in an outdoor mini pond with plenty of aquatic plants during warmer seasons and bring them back inside at the end of summer.</p><p>Newborn fry are very tiny and require food smaller than 50 µm, such as infusoria, green water and vinegar eels. Once large enough, feed them live baby brine shrimp, which are packed with healthy fats and proteins to help the fry grow quickly.</p>"
     },
     {
       "key": "notes",
@@ -228,16 +294,6 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/commons/45fd89c099bfebce.webp",
-      "thumb": "https://media.aquatome.com/commons/45fd89c099bfebce-480.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "Cisamarc",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_margaritatus_(zoom).jpg",
-      "caption": "Danio margaritatus male"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/595450b04dc77e10.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/595450b04dc77e10-480.webp",
       "width": 900,
@@ -249,24 +305,48 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/commons/f407695320fbd9f0.webp",
-      "thumb": "https://media.aquatome.com/commons/f407695320fbd9f0-480.webp",
-      "width": 960,
-      "height": 540,
-      "licence": "CC BY-SA 4.0",
-      "author": "Cassius Chaerea",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:D%C3%A1nio_perlov%C3%A9_-_samec.jpg",
-      "caption": "Samec dánio perlové."
+      "url": "https://media.aquatome.com/aquariumcoop/536ad44e206369b8.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/536ad44e206369b8-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "caption": "Care Guide for Celestial Pearl Danios – Miniature Trout for Planted Tanks - Aquarium Co-Op",
+      "source": "aquariumcoop"
     },
     {
-      "url": "https://media.aquatome.com/commons/c895d5fc74d1c9d6.webp",
-      "thumb": "https://media.aquatome.com/commons/c895d5fc74d1c9d6-480.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 4.0",
-      "author": "NasserHalaweh",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyprinidae_Danio_margaritatus_1.jpg",
-      "caption": "Danio margaritatus CELESTIAL PEARL DANIO. Zoo Frankfurt."
+      "url": "https://media.aquatome.com/aquariumcoop/90695130433b88ab.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/90695130433b88ab-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "caption": "galaxy rasboras",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/22e964ec39050f10.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/22e964ec39050f10-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "caption": "Danio margaritatus",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/8ad77e80e6798baf.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/8ad77e80e6798baf-480.webp",
+      "width": 1000,
+      "height": 666,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "caption": "celestial pearl danio (CPD)",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [
@@ -325,5 +405,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-04"
 }

@@ -18,13 +18,16 @@
     "dimorphism:seriouslyfish": "<p>Cá cái thường lớn hơn, và các cá thể trưởng thành sinh dục có thân tròn và rộng hơn rõ rệt so với cá đực, đặc biệt khi mang trứng.</p>",
     "reproduction:seriouslyfish": "<p>Cá đẻ tương tự Corydoras, và thường có thể kích thích bằng cách thay một lượng nước lớn với nước mát hơn nhiều, đặc biệt khi áp suất khí quyển giảm.</p>",
     "notes:seriouslyfish": "<p>Loài này đôi khi được gọi là 'cá chuột giả' hoặc 'cá chuột sáu tia'.</p><p>A. pauciradiatus có thể phân biệt với các loài cùng giống nhờ có 6 tia vây lưng mềm, trong khi các loài Aspidoras khác có 7, cùng kiểu màu sắc đặc trưng.</p><p>Các loài Aspidoras được phân biệt với Corydoras spp. rất giống chủ yếu nhờ có hai thóp sọ, so với một thóp ở Corydoras.</p>",
-    "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Britto, M. R., F. C. T. Lima, and C. R. Moreira (2002). Aspidoras velites, a new catfish from the upper rio Araguaia basin, Brazil (Teleostei: Siluriformes: Callichthyidae). Proceedings of the Biological Society of Washington 115(4), 727-736</li><li>Weitzman, S. H. and M. H. Balph (1979). Some phylogenetic implications of a discovery of Aspidoras pauciradiatus (Pisces: Siluriformes: Callichthyidae) from the rio Negro in Brazil. Proceedings of the Biological Society of Washington 92, 10-22</li><li>Weitzman, S. H. and H. Nijssen (1970). Four new species and one new subspecies of the catfish genus Corydoras from Ecuador, Colombia and Brazil (Pisces, Siluriformes, Callichthyidae). Beaufortia 18(233), 119-132</li></ul>"
+    "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Britto, M. R., F. C. T. Lima, and C. R. Moreira (2002). Aspidoras velites, a new catfish from the upper rio Araguaia basin, Brazil (Teleostei: Siluriformes: Callichthyidae). Proceedings of the Biological Society of Washington 115(4), 727-736</li><li>Weitzman, S. H. and M. H. Balph (1979). Some phylogenetic implications of a discovery of Aspidoras pauciradiatus (Pisces: Siluriformes: Callichthyidae) from the rio Negro in Brazil. Proceedings of the Biological Society of Washington 92, 10-22</li><li>Weitzman, S. H. and H. Nijssen (1970). Four new species and one new subspecies of the catfish genus Corydoras from Ecuador, Colombia and Brazil (Pisces, Siluriformes, Callichthyidae). Beaufortia 18(233), 119-132</li></ul>",
+    "quickFacts:glaser": "<p>Đây là một loài cá da trơn lùn rất dễ thương, quê ở lưu vực sông Rio Negro. Cá trưởng thành chỉ dài tối đa khoảng 3 cm. Nó hợp làm bạn cùng bể với cá tetra, cá cichlid lùn và những loài cá tương tự.</p>",
+    "distribution:glaser": "<p>Loài này sống tự nhiên ở lưu vực sông Rio Negro.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.85
+      "seriouslyfish": 0.85,
+      "glaser": 0.9
     }
   }
 }

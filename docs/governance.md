@@ -52,7 +52,10 @@ that would have caught it).
   - The fish identifier's answers, the page's and the app's (its session as a bearer, no Origin or Turnstile), against
     `protocols/fishid.openapi.json`: a status the contract lists and a body of its shape, the app counted per account
     and not per address, a bearer with no live app session refused rather than taken the page's way, and no wanted
-    names from our own checks (`apps/site/worker/test/fishid.test.ts`).
+    names from our own checks. A photo is kept only when the reader ticks `keep`: a JPEG with its Exif, XMP, IPTC and
+    comments cut, under the account that sent it or no one's, listed and deleted by that account (never the image),
+    deleted with the account and 6 months on, and seen only on the owner's dashboard
+    (`apps/site/worker/test/fishid.test.ts`, `handler.test.ts`).
   - The owner's dashboard (`apps/site/worker/test/admin-*.test.ts`): each chart with no days, one day, only zeros, a
     negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
     the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a
