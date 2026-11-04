@@ -305,6 +305,9 @@ public final class WeekAquaBLELink: NSObject, WeekAquaLink, Droppable {
   private weak var central: Bluetooth?
   private var tx: CBCharacteristic?
   private var setup: CheckedContinuation<Void, Error>?
+  /// A frame waiting for iOS to take writes without response again.
+  private var ready: CheckedContinuation<Void, Error>?
+  private var readyRound = 0
 
   init(peripheral: CBPeripheral, name: String, advert: WeekAquaAdvert, central: Bluetooth) {
     self.peripheral = peripheral
@@ -324,20 +327,47 @@ public final class WeekAquaBLELink: NSObject, WeekAquaLink, Droppable {
     }
   }
 
-  /// One frame, without response. A light whose queue is full would drop it, so that is refused instead.
-  public func send(_ frame: [UInt8]) throws {
+  /// One frame, without response. While iOS can't take one (its queue is full, or the link has only just opened), it
+  /// waits for iOS to say it can, up to `readyTimeout`; written then, rather than dropped unseen.
+  public func send(_ frame: [UInt8]) async throws {
     guard isConnected, let tx else { throw BluetoothError.disconnected }
-    guard peripheral.canSendWriteWithoutResponse else { throw BluetoothError.busy }
+    if !peripheral.canSendWriteWithoutResponse { try await waitUntilReady() }
+    guard isConnected else { throw BluetoothError.disconnected }
     peripheral.writeValue(Data(frame), for: tx, type: .withoutResponse)
   }
 
-  public func disconnect() { central?.cancel(peripheral) }
+  /// How long a frame waits for iOS to take writes again before it is given up.
+  public static let readyTimeout: Duration = .seconds(1)
+
+  /// Let go: no frame is sent after this, even before iOS reports the link closed.
+  public func disconnect() {
+    isConnected = false
+    finish(BluetoothError.disconnected)
+    finishReady(BluetoothError.disconnected)
+    central?.cancel(peripheral)
+  }
 
   func lost() {
     guard isConnected else { return }
     isConnected = false
     finish(BluetoothError.disconnected)
+    finishReady(BluetoothError.disconnected)
     onDisconnect?()
+  }
+
+  private func waitUntilReady() async throws {
+    readyRound += 1
+    let n = readyRound
+    try await withCheckedThrowingContinuation { (c: CheckedContinuation<Void, Error>) in
+      ready = c
+      Task { try? await Task.sleep(for: Self.readyTimeout); if self.readyRound == n { self.finishReady(BluetoothError.busy) } }
+    }
+  }
+
+  private func finishReady(_ error: Error?) {
+    guard let c = ready else { return }
+    ready = nil
+    if let error { c.resume(throwing: error) } else { c.resume() }
   }
 
   private func finish(_ error: Error?) {
@@ -364,5 +394,9 @@ extension WeekAquaBLELink: @preconcurrency CBPeripheralDelegate {
     }
     self.tx = tx
     finish(nil)
+  }
+
+  public func peripheralIsReady(toSendWriteWithoutResponse p: CBPeripheral) {
+    finishReady(nil)
   }
 }

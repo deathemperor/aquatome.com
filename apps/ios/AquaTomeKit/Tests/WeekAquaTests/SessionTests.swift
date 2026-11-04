@@ -92,3 +92,13 @@ func session(_ lights: [FakeWeekAqua], gap: Duration = .zero) throws -> WeekAqua
   let expected = [owners, evening].map { Array(WeekAquaSession.frames($0, now: Date()).dropFirst()) }
   #expect(writes == expected || writes == expected.reversed())
 }
+
+@MainActor @Test func theTwoByteManualFrameOnlyWhenAskedFor() async throws {
+  let light = FakeWeekAqua()
+  try await WeekAquaSession(lights: [light], pacing: .none, manual: .twoBytes).write(evening)
+  #expect(light.sent.map(hex) .filter { $0.hasPrefix("fd f1") } == ["fd f1", "fd f1"])
+  #expect(light.timer == evening.timer) // the fake takes either form
+  let other = FakeWeekAqua()
+  try await session([other]).write(evening)
+  #expect(other.sent[1] == WeekAquaFrame.manual && other.sent[4] == WeekAquaFrame.manual)
+}

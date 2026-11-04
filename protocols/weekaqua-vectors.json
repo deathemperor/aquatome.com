@@ -13,11 +13,11 @@
     ]
   },
   "advert": [
-    { "note": "5746, the lights' manufacturer data: the code, 00 01, then the light's address", "name": "WEEKAQUA3.0", "manufacturerData": "57 46 00 01 a1 b2 c3 d4 e5 f6", "code": "5746", "supported": true, "address": "A1B2C3D4E5F6" },
-    { "note": "the other name seen, the same model code", "name": "B3.0-A430Pro-99", "manufacturerData": "57 46 00 01 a1 b2 c3 d4 e5 f7", "code": "5746", "supported": true, "address": "A1B2C3D4E5F7" },
+    { "note": "5746, the lights' manufacturer data: the code, 00 01, then the light's address", "name": "WEEKAQUA3.0", "manufacturerData": "57 46 00 01 a1 b2 c3 d4 e5 f6", "code": "5746", "supported": true, "address": "A1:B2:C3:D4:E5:F6" },
+    { "note": "the other name seen, the same model code", "name": "B3.0-A430Pro-99", "manufacturerData": "57 46 00 01 a1 b2 c3 d4 e5 f7", "code": "5746", "supported": true, "address": "A1:B2:C3:D4:E5:F7" },
     { "note": "too short for an address", "name": "WEEKAQUA3.0", "manufacturerData": "57 46", "code": "5746", "supported": true, "address": null },
-    { "note": "5745 speaks another protocol: listed, not written to", "name": "WEEKAQUA3.0", "manufacturerData": "57 45 00 01 a1 b2 c3 d4 e5 f8", "code": "5745", "supported": false, "address": "A1B2C3D4E5F8" },
-    { "note": "5752 too", "name": "M-PRO", "manufacturerData": "57 52 00 01 a1 b2 c3 d4 e5 f9", "code": "5752", "supported": false, "address": "A1B2C3D4E5F9" },
+    { "note": "5745 speaks another protocol: listed, not written to", "name": "WEEKAQUA3.0", "manufacturerData": "57 45 00 01 a1 b2 c3 d4 e5 f8", "code": "5745", "supported": false, "address": "A1:B2:C3:D4:E5:F8" },
+    { "note": "5752 too", "name": "M-PRO", "manufacturerData": "57 52 00 01 a1 b2 c3 d4 e5 f9", "code": "5752", "supported": false, "address": "A1:B2:C3:D4:E5:F9" },
     { "note": "a WEEK AQUA name without the data: a Week Aqua light of unknown code", "name": "WEEKAQUA3.0", "manufacturerData": null, "code": null, "supported": false, "address": null },
     { "note": "a board-version name without the data", "name": "B3.0-A430Pro-99", "manufacturerData": null, "code": null, "supported": false, "address": null },
     { "note": "a Chihiros light", "name": "DYSL30A1B2C3", "manufacturerData": null, "isWeekAqua": false },

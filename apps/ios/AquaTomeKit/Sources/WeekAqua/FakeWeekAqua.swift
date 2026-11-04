@@ -20,7 +20,7 @@ public final class FakeWeekAqua: WeekAquaLink {
   /// Its clock as last set (hour, minute, second).
   public private(set) var clock: (hour: Int, minute: Int, second: Int)?
   public private(set) var isConnected = true
-  /// Runs after each frame is taken (the simulator's light drops the connection on one, for a UI test).
+  /// Runs after each frame is taken (a test can drop the light there).
   public var afterSend: (@MainActor ([UInt8]) -> Void)?
 
   private var pending: DailyTimer?

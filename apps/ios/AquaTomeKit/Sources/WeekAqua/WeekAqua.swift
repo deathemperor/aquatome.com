@@ -27,7 +27,7 @@ public enum WeekAquaGATT {
   /// anything else, the firmware-update service above all: the app then has nothing to write to and doesn't connect.
   public static func writeCharacteristic(service: String, characteristics: [String]) -> String? {
     guard short(service) == Self.service else { return nil }
-    return characteristics.first { short($0) == write && !isFirmwareUpdate($0) }
+    return characteristics.first { short($0) == write }
   }
 
   /// Whether a service or characteristic belongs to the firmware-update service (`f000ffc0`, `f000ffc1`, …).
@@ -63,8 +63,9 @@ public struct WeekAquaAdvert: Sendable, Hashable {
   /// Only 5746 lights are written to.
   public var isSupported: Bool { code == Self.supportedCode }
 
-  /// The light's address as one string ("A1B2C3D4E5F6"), to tell apart lights with the same name.
-  public var addressText: String? { address.map { $0.map { String(format: "%02X", $0) }.joined() } }
+  /// The light's address as a record keeps it ("A1:B2:C3:D4:E5:F6": uppercase, colons), to tell apart lights with the
+  /// same name.
+  public var addressText: String? { address.map { $0.map { String(format: "%02X", $0) }.joined(separator: ":") } }
 
   /// The Week Aqua light advertising `manufacturerData` under `name`, if it is one. Its manufacturer data decides the
   /// model code; a name like WEEK AQUA's own (`WEEKAQUA3.0`, `B3.0-A430Pro-…`) without that data is a Week Aqua light of
@@ -80,7 +81,7 @@ public struct WeekAquaAdvert: Sendable, Hashable {
     return looksLikeWeekAqua(name) ? WeekAquaAdvert(code: nil, address: nil) : nil
   }
 
-  /// WEEK AQUA's names: `WEEKAQUA3.0`, and `B3.0-A430Pro-03` (a board version, then the light's line).
+  /// WEEK AQUA's names: `WEEKAQUA3.0`, and `B3.0-A430Pro-99` (a board version, then the light's line).
   static func looksLikeWeekAqua(_ name: String) -> Bool {
     name.uppercased().hasPrefix("WEEKAQUA") || name.range(of: #"^B\d\.\d-"#, options: .regularExpression) != nil
   }
@@ -164,6 +165,9 @@ public enum WeekAquaFrame {
   /// research notes write it `FD F1`). Here it doesn't hand back to the light's own schedule, as alokauz reads it: after
   /// levels of zero it left the lights off.
   public static let manual: [UInt8] = [0xFD, 0xF1, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55]
+  /// Manual mode as the research notes write it, `FD F1` alone: only for the hands-on test of which form the lights
+  /// take (`light-harness weekaqua write --manual-bytes 2`). The app sends `manual`.
+  public static let manualTwoBytes: [UInt8] = [0xFD, 0xF1]
 
   /// The daily timer: `FE F9 onHH onMM offHH offMM r 00`, times in BCD, `r` from `rampByte`.
   public static func timer(_ t: DailyTimer) -> [UInt8] {

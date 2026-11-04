@@ -221,3 +221,14 @@ swift run light-harness restore                      # always, at the end
 
 `restore` writes the owner's everyday schedule (12:00–20:00, 70% red/green/blue, 30-minute ramp) and checks the light
 reports it. Light names carry the device's address, so the harness doesn't print them; keep them out of the repository.
+
+Week Aqua lights (model code 5746 only; another code is listed, never connected to or written):
+
+```sh
+swift run light-harness weekaqua scan                                 # model codes, the end of each address
+swift run light-harness weekaqua write 54 114 57 117 02:50 02:40      # R G B UV (0–235), on, off: every 5746 light as one group
+swift run light-harness weekaqua write 0 0 235 0 02:50 02:40 --manual-bytes 2   # manual mode as FD F1 alone
+```
+
+They report nothing back, so check each write by eye. `weekaqua write 54 114 57 117 02:50 02:40` puts the owner's group back
+as WEEK AQUA leaves it.
