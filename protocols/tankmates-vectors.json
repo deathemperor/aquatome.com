@@ -1,5 +1,5 @@
 {
-  "$comment": "A saved tank checked as the site's tank-mates tool checks the fish chosen there (apps/site/src/scripts/tank-check.ts, from tankmates.ts, stocking.ts and calc.ts). The site's tests run that code on these cases, and the iOS app's tests run the same code bundled (apps/ios/AquaTomeKit/Sources/TankCheck/tank-check.js) in JavaScriptCore: both must answer `check` exactly. `fish`: each one's name and tank-mates figures as the app index gives them, and `count` when the tank has one. `size`: the tank's inside size (cm) and its own litres, either or both. `unlisted`: the names of the tank's fish without a page (its entries without one), which no check counts; `check.unchecked` names them.",
+  "$comment": "A saved tank checked as the site's tank-mates tool checks the fish chosen there (apps/site/src/scripts/tank-check.ts, from tankmates.ts, stocking.ts and calc.ts). The site's tests run that code on these cases, and the iOS app's tests run the same code bundled (apps/ios/AquaTomeKit/Sources/TankCheck/tank-check.js) in JavaScriptCore: both must answer `check` exactly. `fish`: the tank's rows, each one's name and tank-mates figures as the app index gives them, and `count` when the tank has one; `key`, what the check counts the row as (the page's content id, or a breed's species: the app index's `of ?? id`, the row then carrying the species' figures and, as `species`, its name). Rows with one key are one fish, named as the row when it is alone and as the species when there are more, counted as their numbers added up, at least the school size when a row gives none, and as none when none does (`oneFishEach`). `size`: the tank's inside size (cm) and its own litres, either or both. `unlisted`: the names of the tank's fish without a page (its entries without one), which no check counts; `check.unchecked` names them.",
   "cases": [
     {
       "note": "a discus could eat harlequins and wants warmer water than neons; the tank is too short for it",
@@ -768,6 +768,561 @@
           "notes": [
             "Cá đĩa ต้องใช้ตู้ยาวตั้งแต่ 120 cm ขึ้นไป"
           ]
+        }
+      }
+    },
+    {
+      "note": "a breed counts as its species: Cá đĩa ×3 and a pigeon blood ×2 (its row with the discus's figures and name, as the app sends a breed that is a form of a species) are one fish, named as the species, a school of 5",
+      "lang": "vi",
+      "fish": [
+        {
+          "key": "symphysodon-aequifasciatus",
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "temperament": "peaceful",
+          "schoolMin": 5,
+          "count": 3
+        },
+        {
+          "key": "symphysodon-aequifasciatus",
+          "name": "Cá đĩa bồ câu",
+          "species": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "temperament": "peaceful",
+          "schoolMin": 5,
+          "count": 2
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 150,
+          "w": 50,
+          "h": 50
+        }
+      },
+      "check": {
+        "warnings": [],
+        "stocking": {
+          "percent": 62,
+          "level": "ok",
+          "text": "62% · Vừa phải: bể ổn định với lọc và thay nước thường lệ.",
+          "notes": []
+        }
+      }
+    },
+    {
+      "note": "a row with no number is a school, its number not given: Cá đĩa ×3 and a pigeon blood with none count the school size, 5",
+      "lang": "vi",
+      "fish": [
+        {
+          "key": "symphysodon-aequifasciatus",
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "temperament": "peaceful",
+          "schoolMin": 5,
+          "count": 3
+        },
+        {
+          "key": "symphysodon-aequifasciatus",
+          "name": "Cá đĩa bồ câu",
+          "species": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "temperament": "peaceful",
+          "schoolMin": 5
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 150,
+          "w": 50,
+          "h": 50
+        }
+      },
+      "check": {
+        "warnings": [],
+        "stocking": {
+          "percent": 62,
+          "level": "ok",
+          "text": "62% · Vừa phải: bể ổn định với lọc và thay nước thường lệ.",
+          "notes": []
+        }
+      }
+    },
+    {
+      "note": "adding a row never lowers the count: Cá đĩa with no number (a school, 5) and a pigeon blood ×2 stay 5, not 2",
+      "lang": "vi",
+      "fish": [
+        {
+          "key": "symphysodon-aequifasciatus",
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "temperament": "peaceful",
+          "schoolMin": 5
+        },
+        {
+          "key": "symphysodon-aequifasciatus",
+          "name": "Cá đĩa bồ câu",
+          "species": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "temperament": "peaceful",
+          "schoolMin": 5,
+          "count": 2
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 150,
+          "w": 50,
+          "h": 50
+        }
+      },
+      "check": {
+        "warnings": [],
+        "stocking": {
+          "percent": 62,
+          "level": "ok",
+          "text": "62% · Vừa phải: bể ổn định với lọc và thay nước thường lệ.",
+          "notes": []
+        }
+      }
+    },
+    {
+      "note": "no row with a number: one fish read as its school size once, not twice",
+      "lang": "vi",
+      "fish": [
+        {
+          "key": "symphysodon-aequifasciatus",
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "temperament": "peaceful",
+          "schoolMin": 5
+        },
+        {
+          "key": "symphysodon-aequifasciatus",
+          "name": "Cá đĩa bồ câu",
+          "species": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "temperament": "peaceful",
+          "schoolMin": 5
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 150,
+          "w": 50,
+          "h": 50
+        }
+      },
+      "check": {
+        "warnings": [],
+        "stocking": {
+          "percent": 62,
+          "level": "ok",
+          "text": "62% · Vừa phải: bể ổn định với lọc và thay nước thường lệ.",
+          "notes": []
+        }
+      }
+    },
+    {
+      "note": "a betta and a halfmoon betta are one fish beside the neons: one line that the betta is aggressive, not two",
+      "lang": "vi",
+      "fish": [
+        {
+          "key": "betta-splendens",
+          "name": "Cá betta (cá xiêm)",
+          "tempC": {
+            "min": 24,
+            "max": 30
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 7,
+          "tankCm": 40,
+          "temperament": "aggressive",
+          "count": 1
+        },
+        {
+          "key": "betta-splendens",
+          "name": "Cá betta Halfmoon",
+          "species": "Cá betta (cá xiêm)",
+          "tempC": {
+            "min": 24,
+            "max": 30
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 7,
+          "tankCm": 40,
+          "temperament": "aggressive",
+          "count": 1
+        },
+        {
+          "key": "paracheirodon-innesi",
+          "name": "Cá neon",
+          "tempC": {
+            "min": 20,
+            "max": 26
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "sizeCm": 4,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 6,
+          "count": 10
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [
+          "Cá betta (cá xiêm) hung dữ, thường phải nuôi riêng hoặc bể chỉ một loài."
+        ],
+        "verdict": {
+          "level": "no",
+          "text": "Không nên nuôi chung: Cá betta (cá xiêm) hung dữ."
+        },
+        "stocking": {
+          "percent": 63,
+          "level": "ok",
+          "text": "63% · Vừa phải: bể ổn định với lọc và thay nước thường lệ.",
+          "notes": []
+        }
+      }
+    },
+    {
+      "note": "a halfmoon betta alone of its species is named as the reader added it, with the species' figures",
+      "lang": "vi",
+      "fish": [
+        {
+          "key": "betta-splendens",
+          "name": "Cá betta Halfmoon",
+          "species": "Cá betta (cá xiêm)",
+          "tempC": {
+            "min": 24,
+            "max": 30
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 7,
+          "tankCm": 40,
+          "temperament": "aggressive",
+          "count": 1
+        },
+        {
+          "key": "paracheirodon-innesi",
+          "name": "Cá neon",
+          "tempC": {
+            "min": 20,
+            "max": 26
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "sizeCm": 4,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 6,
+          "count": 10
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [
+          "Cá betta Halfmoon hung dữ, thường phải nuôi riêng hoặc bể chỉ một loài."
+        ],
+        "verdict": {
+          "level": "no",
+          "text": "Không nên nuôi chung: Cá betta Halfmoon hung dữ."
+        },
+        "stocking": {
+          "percent": 50,
+          "level": "light",
+          "text": "50% · Còn thưa: thả thêm được.",
+          "notes": []
+        }
+      }
+    },
+    {
+      "note": "two breeds of one species and no row of the species: named as the species",
+      "lang": "vi",
+      "fish": [
+        {
+          "key": "betta-splendens",
+          "name": "Cá betta Halfmoon",
+          "species": "Cá betta (cá xiêm)",
+          "tempC": {
+            "min": 24,
+            "max": 30
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 7,
+          "tankCm": 40,
+          "temperament": "aggressive",
+          "count": 1
+        },
+        {
+          "key": "betta-splendens",
+          "name": "Betta đuôi tưa",
+          "species": "Cá betta (cá xiêm)",
+          "tempC": {
+            "min": 24,
+            "max": 30
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 7,
+          "tankCm": 40,
+          "temperament": "aggressive",
+          "count": 1
+        },
+        {
+          "key": "paracheirodon-innesi",
+          "name": "Cá neon",
+          "tempC": {
+            "min": 20,
+            "max": 26
+          },
+          "ph": {
+            "min": 5,
+            "max": 7
+          },
+          "sizeCm": 4,
+          "tankCm": 60,
+          "temperament": "peaceful",
+          "schoolMin": 6,
+          "count": 10
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [
+          "Cá betta (cá xiêm) hung dữ, thường phải nuôi riêng hoặc bể chỉ một loài."
+        ],
+        "verdict": {
+          "level": "no",
+          "text": "Không nên nuôi chung: Cá betta (cá xiêm) hung dữ."
+        },
+        "stocking": {
+          "percent": 63,
+          "level": "ok",
+          "text": "63% · Vừa phải: bể ổn định với lọc và thay nước thường lệ.",
+          "notes": []
+        }
+      }
+    },
+    {
+      "note": "a betta and a halfmoon betta alone: one fish, so no verdict",
+      "lang": "vi",
+      "fish": [
+        {
+          "key": "betta-splendens",
+          "name": "Cá betta (cá xiêm)",
+          "tempC": {
+            "min": 24,
+            "max": 30
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 7,
+          "tankCm": 40,
+          "temperament": "aggressive",
+          "count": 1
+        },
+        {
+          "key": "betta-splendens",
+          "name": "Cá betta Halfmoon",
+          "species": "Cá betta (cá xiêm)",
+          "tempC": {
+            "min": 24,
+            "max": 30
+          },
+          "ph": {
+            "min": 6,
+            "max": 8
+          },
+          "sizeCm": 7,
+          "tankCm": 40,
+          "temperament": "aggressive",
+          "count": 1
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 60,
+          "w": 30,
+          "h": 36
+        }
+      },
+      "check": {
+        "warnings": [],
+        "stocking": {
+          "percent": 26,
+          "level": "light",
+          "text": "26% · Còn thưa: thả thêm được.",
+          "notes": []
+        }
+      }
+    },
+    {
+      "note": "a hybrid is a fish of its own, with its figures and no temperament: beside the discus the check can't be sure",
+      "lang": "vi",
+      "fish": [
+        {
+          "key": "flowerhorn-cichlid",
+          "name": "Cá La Hán (Flowerhorn)",
+          "tempC": {
+            "min": 26,
+            "max": 30
+          },
+          "ph": {
+            "min": 6.5,
+            "max": 8
+          },
+          "sizeCm": 30,
+          "count": 1
+        },
+        {
+          "key": "symphysodon-aequifasciatus",
+          "name": "Cá đĩa",
+          "tempC": {
+            "min": 28,
+            "max": 31
+          },
+          "ph": {
+            "min": 4.5,
+            "max": 6.5
+          },
+          "sizeCm": 15,
+          "tankCm": 120,
+          "temperament": "peaceful",
+          "schoolMin": 5,
+          "count": 5
+        }
+      ],
+      "size": {
+        "dims": {
+          "l": 150,
+          "w": 50,
+          "h": 50
+        }
+      },
+      "check": {
+        "warnings": [],
+        "verdict": {
+          "level": "unsure",
+          "text": "Chưa thấy điểm xung khắc, nhưng chưa đủ dữ liệu để chắc: chưa có độ cứng, tính cách của Cá La Hán (Flowerhorn); chưa có độ cứng của Cá đĩa."
+        },
+        "stocking": {
+          "percent": 121,
+          "level": "over",
+          "text": "121% · Quá tải: bớt cá hoặc dùng bể lớn hơn.",
+          "notes": []
         }
       }
     }
