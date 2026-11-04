@@ -19,7 +19,10 @@ case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|pho
 TEST_LOG="/tmp/aquatome-engine-test-$PART.log"
 # The Mac's engine parts and video job share one machine, so their builds and test runs take turns: two suites at once
 # slowed a 0.6 s test past vitest's 5 s and failed a cycle. GitHub runs one part a runner.
-checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
+# The Mac's load also comes from the iOS simulators and builds: 500 and more on 16 cores at times (2026-11-04), when even
+# 30 s per test isn't enough. The checks wait for the 5-minute load to fall under 4 a core, up to 45 minutes, then run.
+calm() { local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
+checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else calm; lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
 if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
