@@ -149,7 +149,8 @@ private struct Fact: View {
             .foregroundStyle(level.colour)
             .padding(.horizontal, large ? 8 : 6)
             .padding(.vertical, large ? 2 : 1)
-            .overlay(Capsule().strokeBorder(level.colour, lineWidth: 1))
+            // Square-cornered, as the site draws it.
+            .overlay(Rectangle().strokeBorder(level.colour, lineWidth: 1))
           if let outOf = item.outOf {
             Text(verbatim: outOf).font(large ? .subheadline : .caption).foregroundStyle(Color.inkSoft).monospacedDigit()
           }
@@ -174,7 +175,8 @@ extension HandbookIndex.Facts.Level {
   /// Each is 5:1 or more against the card in both, so the badge's small word reads.
   var colour: Color {
     switch self {
-    case .easy: .accentColor
+    // The colour itself, not the tint, which a view above could change.
+    case .easy: Color("AccentColor")
     case .mid: .inkSoft
     case .hard: .warning
     }

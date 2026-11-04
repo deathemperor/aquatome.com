@@ -21,9 +21,6 @@ extension HandbookIndex.Facts {
   public var any: Bool {
     sizeCm != nil || tempC != nil || ph != nil || gh != nil || tankCm != nil || difficulty != nil || lifeYears != nil
   }
-
-  /// The temperaments the site names (TEMPERAMENT_LABELS); another is left out of the card.
-  public static let temperaments = ["peaceful", "semi-aggressive", "aggressive", "predator"]
 }
 
 extension HandbookIndex.Plant {
