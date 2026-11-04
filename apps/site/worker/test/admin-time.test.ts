@@ -56,7 +56,7 @@ test('the zone: the device\'s from the cookie, else Cloudflare\'s, else Vietnam\
 })
 
 test('pages print times in the viewer\'s zone, never "(UTC)", with the script that keeps the device\'s zone', () => {
-  const photos = photosPage([{ id: 'p', entity_ref: 'species:x', name: 'A', thumb: '/t.webp', created_at: '2026-11-04T08:34:00.000Z' }], NOW, VN)
+  const photos = photosPage([{ id: 'p', entity_ref: 'species:x', name: 'A', thumb: '/t.webp', created_at: '2026-11-04T08:34:00.000Z' }], [], NOW, VN)
   expect(photos).toContain('<time datetime="2026-11-04T08:34:00.000Z">04/11 15:34</time>')
   expect(photos).not.toContain('UTC')
   expect(photos).toContain('<html lang="vi" data-tz="Asia/Ho_Chi_Minh">')

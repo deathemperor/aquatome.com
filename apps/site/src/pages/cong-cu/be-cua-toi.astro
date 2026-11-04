@@ -361,7 +361,7 @@ const { t } = i18n(Astro.url)
   })
   $('mt-export').addEventListener('click', () => {
     const blob = new Blob([JSON.stringify(store.load(), null, 2)], { type: 'application/json' })
-    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `aquatome-be-${new Date().toISOString().slice(0, 10)}.json` })
+    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: `aquatome-be-${new Date().toLocaleDateString('sv')}.json` })
     a.click()
     setTimeout(() => URL.revokeObjectURL(a.href), 1000)
   })

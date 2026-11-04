@@ -67,7 +67,7 @@ test.describe('on a phone set to Berlin', () => {
 
   test('times follow the device\'s zone: the page keeps it in a cookie and loads once more in it', async ({ page, context, errors }) => {
     test.skip(LIVE, 'the live dashboard opens only to the owner')
-    await serve(page, '/_ab/anh-ban-doc/', tz => photosPage([PHOTO], NOW, tz))
+    await serve(page, '/_ab/anh-ban-doc/', tz => photosPage([PHOTO], [], NOW, tz))
     await page.goto('/_ab/anh-ban-doc/')
     // 08:34 UTC: 15:34 in Vietnam, where the first answer was drawn; 09:34 in Berlin.
     await expect(page.locator('td time')).toHaveText(/^04\/11(\/2026)? 09:34$/)

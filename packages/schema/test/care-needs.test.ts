@@ -91,3 +91,10 @@ test('the thresholds, at their edges', () => {
   expect(levels({ schoolMin: 6 }).social).toBe('mid')
   expect(levels({ schoolMin: 10 }).social).toBe('hard')
 })
+
+test('a span of exactly the narrow threshold is not narrow, though a double makes 8.2 − 7.2 just under 1', () => {
+  expect(8.2 - 7.2).toBeLessThan(1)
+  expect(careNeeds({ ph: { min: 7.2, max: 8.2 } })).toEqual([{ key: 'water', level: 'easy', ph: { min: 7.2, max: 8.2 }, why: [] }])
+  expect(11.2 - 7.2).toBeLessThan(4)
+  expect(careNeeds({ gh: { min: 7.2, max: 11.2 } })[0]).toMatchObject({ level: 'easy', why: [] })
+})

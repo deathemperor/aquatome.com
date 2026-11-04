@@ -7,13 +7,60 @@
   "group": "tetras",
   "places": [
     "south-america",
-    "venezuela"
+    "venezuela",
+    "brazil",
+    "rio-negro",
+    "colombia",
+    "vichada"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -25,13 +72,108 @@
       "html": "<p>Nannostomus marylinae is a comparatively small, slender species of pencil fish that becomes only 2.5 – 3 cm long. The absolutely peaceful species likes to swim around in company of conspecifics and is perfectly suited for small, so-called nano tanks.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<p>The greenstripe pencilfish, Nannostomus marilynae, occurs in the rio Negro in Brazil and the Río Vichada in the upper Orinoco basin, Colombia. Also known as 'Marilyn's pencilfish', it is rarely traded in numbers and more often seen as bycatch among shipments of Paracheirodon axelrodi. It most resembles N. minimus, but males lack the highly modified anal fin of that species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<p>The type series was collected from 'rock pools below rapids, São Gabriel,' which probably refers to the city of São Gabriel da Cachoeira which lies on the rio Negro in Amazonas state, Brazil.</p><p>It has also been recorded further upstream in the Negro system at Cucui and downstream at Castanheiro, plus the Río Vichada in Meta department, Colombia, an affluent of the upper Orinoco basin and located much further north.</p><p>Additional records from the upper rio Negro and Orinoco basins in Venezuela may require confirmation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<p>Likely to inhabit sluggish tributaries, small rivers and swampy areas, particularly in areas with dense growth of aquatic vegetation or submerged woody structures and leaf litter.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<p>Base dimensions of at least 60 × 30 cm or equivalent are necessary (about 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<p>Should ideally be kept in a heavily-planted set-up, preferably with a dark substrate.</p><p>The broken lines of sight that exist in such a display allow it to display natural behaviour as well as helping to reduce skittishness.</p><p>Floating plants are a useful addition as are driftwood branches and dried leaf litter, the latter in particular driving establishment of microbe colonies as decomposition occurs.</p><p>Such microorganisms can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves are also thought beneficial.</p><p>Filtration need only be gentle with an air-powered sponge-style unit normally adequate, though a degree of water movement is acceptable.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<ul><li>Temperature: 21–28°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<p>A micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Moina, grindal worm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<p>Relatively peaceful and will not compete well with very boisterous or much larger tankmates.</p><p>In a community it's best kept with similarly-sized, peaceful characids and smaller callichthyid or loricariid catfishes but sedate surface-dwellers such as hatchetfishes are best omitted, especially in smaller aquaria.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank, and does not often predate fry.</p><p>In a more general community set-up it can be combined with smaller rasboras, barbs, anabantoids, etc.</p><p>Buy as many as possible, ideally 10 or more, as when kept in larger groups any aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<p>Adult males are usually slimmer and more intensely-patterned than females.</p><p>Males also possess a slightly modified anal fin with the anterior 5-6 branched rays slightly elongate and thickened.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<p>Has been achieved in aquaria, albeit rarely, and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller containers should also be set up and filled with aged water.</p><p>Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved aquatic plant.</p><p>Neither lighting nor filtration is necessary although you can install a small air-powered sponge filter if you prefer.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container, though it's worth noting that the more individuals involved the greater the risk of egg predation, plus males may distract each other from females if there's more than one in the tank.</p><p>The adults can be removed after 2-3 days and the first fry should be visible a day or two later.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus_marylinae_venezuela_en/",
       "html": "<p>A beautiful, only very rarely available species of pencil fish was imported from Venezuela. Some days after arrival the fish showed two remarkable, reddish-brown spots in the middle of the body, a coloration said to be typical for N. minimus. However, the fish later lost those spots. The original description of N. marylinae was checked, and the two spots are also present in preserved specimens of N. marylinae, so the fish are confirmed to belong to that species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<p>This species is also known as 'Marilyn's pencilfish'.</p><p>It's rarely traded in numbers and more often seen as bycatch among shipments of other species, particularly Paracheirodon axelrodi.</p><p>It can be identified by the following combination of characters: three dark lateral stripes (sometimes referred to as primary, secondary, and tertiary); nocturnal oblique bars relatively narrow, with the anterior bar reaching, but not extending past, the anterior base of the dorsal fin, and posterior bar not extending beyond posterior base of the anal fin; adipose fin always present; 24-27 scales in the lateral series; anal fin in males not elongate and only slightly modified with the anterior 5-6 branched rays slightly elongate and thickened; lower caudal fin lobe somewhat larger than upper lobe.</p><p>In terms of appearance it's most similar to N. minimus but lacks the highly modified anal fin seen in male individuals of that species, and also exhibits some similarities with N. trifasciatus but differs in both diurnal and nocturnal colour pattern.</p><p>Don't worry if your fish look different when you switch on the aquarium lights after dark or in the morning as like most Nannostomus species it assumes a cryptic, vertically-barred colour pattern at night.</p><p>This diurnal rhythm has been shown to occur in blind specimens, suggesting it's an automatic response that the fish cannot control.</p><p>The family Lebiasinidae is included in the order Characiformes and sometimes split into the nominal subfamilies Lebiasininae and Pyrrhulininae, though there has not been a major review of the grouping in recent times.</p><p>All lebiasinid genera possess a relatively long, elongate body shape with 17-33 scales in the lateral series and laterosensory canal system absent or reduced to 7 scales or less.</p><p>Some species have an adipose fin while others do not, and the anal fin has a relatively short base of 13 scales or less.</p><p>In the majority of members males have an enlarged or otherwise well-developed anal fin used in courtship and spawning.</p><p>The frontal/parietal fontanelle is always absent, the cheek well-covered by the orbital and opercular bones, the supraoccipital crest is absent, and the scales of the dorsal body begin over the parietal bones.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families.</p><p>This tremendous taxonomical and morphological diversity has historically impaired the ability of researchers to resolve their genetic relationships with many genera remaining incertae sedis.</p><p>A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern molecular phylogenetic techniques have allowed some headway, though, and a research paper by Calcagnotto et al. published in 2005 revealed some interesting hypotheses.</p><p>Their results suggest that Lebiasinidae forms a trans-atlantic, monophyletic clade alongside the families Ctenoluciidae and Hepsetidae, this clade further forming a sister group to Alestidae.</p><p>Others such as Oliveira et al. (2011) have concluded that the family Erythrinidae is also closely-related to this grouping with Hepsetidae and Alestidae more distant.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "html": "<ul><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Weitzman, S. H. and J. S. Cobb (1975). A revision of the South American fishes of the genus Nannostomus Günther (family Lebiasinidae). Smithsonian Contributions to Zoology 186, i-iii + 1-36</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a0868a21c77541a4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a0868a21c77541a4-480.webp",
+      "width": 640,
+      "height": 471,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "caption": "N. marilynae is rare in the aquarium trade...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/db5b202ac69b66ee.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/db5b202ac69b66ee-480.webp",
+      "width": 640,
+      "height": 420,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-marilynae",
+      "caption": "...but is sometimes exported as bycatch among shipments of the cardinal tetra, Paracheirodon axelrodi, and other species.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -55,5 +197,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }
