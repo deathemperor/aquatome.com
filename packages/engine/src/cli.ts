@@ -38,6 +38,7 @@ import { FB_FISH_SCHEMA, FB_SPECIES_SCHEMA, identifyPhotos, type FbVerdict } fro
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
 import { tidyCredits } from './wiki-author'
+import { fillLifespans } from './lifespans'
 import { hashPictures } from './picture-hashes'
 import { extractTraits } from './traits'
 import { topicCheck } from './topic-check'
@@ -252,6 +253,11 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // provided. X assumed…", "X~commonswiki"): tidied in place. New imports are tidied as they come (authorText).
   const r = await tidyCredits(join(ROOT, 'content'))
   console.log(`credits: ${r.authors} authors tidied in ${r.files} files`)
+} else if (cmd === 'lifespans') {
+  // Lifespans the sources already state as a labelled line ("Life expectancy: 4 years"), put on the data card for each
+  // source that gives one; new reads give theirs through the process prompt.
+  const r = await fillLifespans(join(ROOT, 'content'))
+  console.log(`lifespans: ${r.values} added to ${r.species} species`)
 } else if (cmd === 'picture-hashes') {
   // The image hash of every picture in content, so no page shows the same picture twice from two files.
   const r = await hashPictures(ROOT, {

@@ -233,6 +233,9 @@ test('fish carry the tank-mates tool\'s figures and behaviour under the tool\'s 
   expect(cardinal).toMatchObject({ ph: { min: 4, max: 6 }, gh: { min: 1, max: 6 }, sizeCm: 5, tankCm: 60, difficulty: 3, temperament: 'peaceful', schoolMin: 8 })
   expect(cardinal.tempC).toEqual({ min: expect.any(Number), max: expect.any(Number) })
   expect('finNipper' in cardinal, 'false is left out').toBe(false)
+  // A lifespan, as its card resolves it, always a range; none where no source gives one.
+  expect(vi.find(i => i.id === 'paracheirodon-innesi')?.lifeYears).toEqual({ min: 5, max: 10 })
+  expect('lifeYears' in cardinal).toBe(false)
   // No traits file: its figures, no behaviour.
   const discus = vi.find(i => i.id === 'symphysodon-aequifasciatus')!
   expect(discus).toMatchObject({ sizeCm: 15, tankCm: 120, ph: { min: 4.5, max: 6.5 } })

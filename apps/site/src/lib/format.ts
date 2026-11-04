@@ -15,9 +15,9 @@ export const difficultyLevel = (value: number) => (value <= 3 ? 'easy' : value <
 
 /** Labels here are Vietnamese: a page shows them through t(). */
 export const FIELD_LABELS: Record<DataCardField, string> = {
-  tempC: 'Nhiệt độ', ph: 'pH', gh: 'Độ cứng (dGH)', sizeCm: 'Kích thước', tankCm: 'Bể tối thiểu', difficulty: 'Độ khó',
+  tempC: 'Nhiệt độ', ph: 'pH', gh: 'Độ cứng (dGH)', sizeCm: 'Kích thước', tankCm: 'Bể tối thiểu', difficulty: 'Độ khó', lifeYears: 'Tuổi thọ',
 }
-export const FIELD_ORDER: DataCardField[] = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty']
+export const FIELD_ORDER: DataCardField[] = ['tempC', 'ph', 'gh', 'sizeCm', 'lifeYears', 'tankCm', 'difficulty']
 
 export const CATEGORY_LABELS: Record<string, string> = {
   'be-ca': 'Bể cá', loc: 'Lọc', 'thuc-an': 'Thức ăn', suoi: 'Sưởi', 'cay-thuy-sinh': 'Cây thủy sinh', 'phan-nen': 'Nền và lá', den: 'Đèn', co2: 'CO2', 'test-nuoc': 'Bộ test nước',
