@@ -87,8 +87,8 @@ public final class WeekAquaSession {
       for (n, frame) in frames.enumerated() {
         for (i, light) in self.lights.enumerated() where !dropped.contains(i) {
           do {
-            self.trace?(i, frame)
             try await light.send(frame)
+            self.trace?(i, frame)
           } catch {
             dropped.append(i)
           }

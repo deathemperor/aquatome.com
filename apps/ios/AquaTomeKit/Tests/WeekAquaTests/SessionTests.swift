@@ -65,7 +65,12 @@ func session(_ lights: [FakeWeekAqua], gap: Duration = .zero) throws -> WeekAqua
 @MainActor @Test func aLightThatDropsIsLeftOutAndTheOthersGetEveryFrame() async throws {
   let lights = (0..<3).map { _ in FakeWeekAqua() }
   lights[1].afterSend = { [weak l = lights[1]] f in if f[0] == 0xFB { l?.disconnect() } }
-  await #expect(throws: WeekAquaError.notSent([1])) { try await session(lights).write(evening) }
+  let s = try session(lights)
+  var traced: [(Int, UInt8)] = []
+  s.trace = { traced.append(($0, $1[0])) }
+  await #expect(throws: WeekAquaError.notSent([1])) { try await s.write(evening) }
+  // The trace has only the frames a light took: not the timer the dropped one refused.
+  #expect(traced.filter { $0.0 == 1 }.map(\.1) == [0xFF, 0xFD, 0xFB] && traced.count == 13)
   #expect(lights[0].sent.count == 5 && lights[2].sent.count == 5)
   #expect(lights[1].sent.map { $0[0] } == [0xFF, 0xFD, 0xFB])
   #expect(lights[0].timer == evening.timer && lights[1].timer == nil)
