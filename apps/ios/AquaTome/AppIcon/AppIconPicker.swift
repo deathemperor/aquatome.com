@@ -73,6 +73,8 @@ struct AppIconChoice: Identifiable {
 struct AppIconPicker: View {
   @State private var current = UIApplication.shared.alternateIconName
   @State private var failed = false
+  /// A change iOS hasn't confirmed yet: no second one meanwhile.
+  @State private var changing = false
 
   var body: some View {
     ScrollView {
@@ -96,6 +98,7 @@ struct AppIconPicker: View {
     .navigationTitle("Biểu tượng ứng dụng")
     .navigationBarTitleDisplayMode(.inline)
     .alert("Không đổi được biểu tượng. Thử lại sau.", isPresented: $failed) {}
+    .onAppear { current = UIApplication.shared.alternateIconName }
   }
 
   private func cell(_ icon: AppIconChoice) -> some View {
@@ -135,8 +138,10 @@ struct AppIconPicker: View {
   }
 
   private func choose(_ icon: AppIconChoice) {
-    guard icon.alternate != current else { return }
+    guard icon.alternate != current, !changing else { return }
+    changing = true
     Task {
+      defer { changing = false }
       do {
         try await UIApplication.shared.setAlternateIconName(icon.alternate)
         current = icon.alternate
