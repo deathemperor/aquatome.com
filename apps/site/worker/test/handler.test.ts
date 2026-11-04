@@ -446,7 +446,7 @@ test("the iOS app's association: its passkeys are this site's (webcredentials), 
   expect(await r.json()).toEqual({ webcredentials: { apps: ['Q783W6B4FA.com.aquatome.app'] } })
 })
 
-test('kept fish-ID photos: only the owner sees them, each image and its result, and deletes one; a reader or the app gets nothing', async () => {
+test('kept fish-ID photos: only the owner sees them (the page, or the app\'s session), each image and its result, and deletes one; a reader gets nothing', async () => {
   const { db, owner, reader, app } = await signedIn()
   const r2 = memoryR2()
   const id = crypto.randomUUID()
@@ -461,8 +461,9 @@ test('kept fish-ID photos: only the owner sees them, each image and its result, 
   expect(html.indexOf(anon)).toBeLessThan(html.indexOf(id)) // newest first
   const img = await handle(get(`/_ab/anh-nhan-dien/anh/reader-1/${id}`, { ...browser, cookie: owner }), e)
   expect([img.status, img.headers.get('content-type'), [...new Uint8Array(await img.arrayBuffer())]]).toEqual([200, 'image/jpeg', [0xff, 0xd8, 1]])
-  for (const h of [browser, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }]) {
-    expect((await handle(get(`/_ab/anh-nhan-dien/anh/reader-1/${id}`, h), e)).status).toBe(404)
+  for (const h of [browser, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }] as Record<string, string>[]) {
+    // The owner's app shows the image (owner-api.ts lists it); only the page's cookie posts its form.
+    expect((await handle(get(`/_ab/anh-nhan-dien/anh/reader-1/${id}`, h), e)).status).toBe(h.authorization ? 200 : 404)
     expect((await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: h, body: new URLSearchParams({ who: 'reader-1', id }) }), e)).status).toBe(404)
   }
   const del = await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: { ...browser, cookie: owner }, body: new URLSearchParams({ who: 'anon', id: anon }) }), e)

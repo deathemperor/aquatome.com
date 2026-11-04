@@ -65,7 +65,7 @@ test('overview: a source behind a browser check is the owner\'s to pass; the con
   // The 7 whole days to yesterday: +10 seven days back and +10 yesterday (it carries the days not kept); today's +2 waits.
   expect(a[1]).toMatchObject({ name: 'Nội dung', fig: '20', sub: 'bài mới · 7 ngày · tổng 125 bài' })
   expect(a[1]!.spark).toHaveLength(30)
-  expect(a[1]!.chip).toContain('+20<')
+  expect(a[1]!.chip).toEqual({ text: '+20', tone: 'good', vs: '7 ngày trước đó' })
   expect(a[2]).toMatchObject({ name: 'Engine', fig: '40', sub: 'video chờ viết · 7 bài từ video trong 7 ngày', warn: true })
   expect(a[2]!.spark).toHaveLength(30)
   // One night kept: the total, nothing to compare yet.
@@ -85,8 +85,8 @@ test('overview areas: the last 7 whole days against the 7 before, the 30 whole d
   const a = areas({ ...well(), readers })
   expect(a[0]).toMatchObject({ name: 'Người đọc', fig: '21', sub: 'người đọc · 7 ngày · 70 phiên' })
   expect(a[0]!.spark).toHaveLength(30)
-  expect(a[0]!.chip).toContain('+50%')
-  expect(a[0]!.chip).toContain('chip good')
+  expect(a[0]!.chip).toEqual({ text: '+50%', tone: 'good', vs: '7 ngày trước đó' })
+  expect(overviewPage({ ...well(), readers })).toContain('<span class="chip good">+50%<span class="vh"> so với 7 ngày trước đó</span></span>')
   // Small counts say the difference, not a percentage; nothing on either side says nothing.
   expect(chip(4, 1, 'x')).toContain('+3<')
   expect(chip(1, 4, 'x', 'up')).toContain('chip bad')

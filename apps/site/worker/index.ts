@@ -6,6 +6,7 @@ import { applyDecisions, listComments, moderationQueue, postComment, purgeRemove
 import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
+import { ownerApi } from './owner-api'
 import { recordSnapshot } from './admin/content'
 import { parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
@@ -181,6 +182,8 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   // The iOS app's anonymous events and crash and performance reports (worker/telemetry): no account, no cookie.
   if (url.pathname === '/api/v1/app/events') return finish(await appEventsRoute(req, env, new Date()), env)
   if (url.pathname === '/api/v1/app/diagnostics') return finish(await appDiagnosticsRoute(req, env, new Date()), env)
+  // The owner's dashboard as JSON, for the iOS app (worker/owner-api.ts): the owner's app session only.
+  if (url.pathname === '/api/owner' || url.pathname.startsWith('/api/owner/')) return finish(await ownerApi(req, url, env), env)
   if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps ?? depsFor(env)), env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)

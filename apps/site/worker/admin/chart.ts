@@ -54,6 +54,8 @@ export type DayChart = {
   format?: (n: number) => string
   /** Before each axis number ('$' for money). */
   tickPrefix?: string
+  /** 'usd': money, written as `usd` writes it with '$' before each axis number (format and tickPrefix in one, as data). */
+  unit?: 'usd'
   /** The last day is today and not over yet: drawn lighter, said in its readout. */
   partialLast?: boolean
   /** What to say when every value is 0 or missing, or there are no days. */
@@ -68,7 +70,9 @@ export type DayChart = {
  * labelled back from the last, and the numbers as a table.
  */
 export function dayChart(c: DayChart): string {
-  const format = c.format ?? ((n: number) => fmt(n))
+  const money = c.unit === 'usd'
+  const format = c.format ?? (money ? usd : (n: number) => fmt(n))
+  const prefix = c.tickPrefix ?? (money ? '$' : '')
   const n = c.days.length
   const series = c.series.slice(0, 3)
   const all = c.whole ? [...series, c.whole] : series
@@ -87,9 +91,9 @@ export function dayChart(c: DayChart): string {
   const pct = (v: number) => (100 * v) / (top + bottom)
   const zero = pct(bottom)
   // Counts (no format given) never get a half-way tick of 2,5; a chart with a negative side keeps to its ends.
-  const half = top && !bottom && (c.format || (top / 2) % 1 === 0) ? [top / 2] : []
+  const half = top && !bottom && (c.format || money || (top / 2) % 1 === 0) ? [top / 2] : []
   const ticks = [...(bottom ? [-bottom] : []), 0, ...half, ...(top ? [top] : [])]
-  const tickText = (t: number) => `${t < 0 ? '−' : ''}${c.tickPrefix ?? ''}${tick(Math.abs(t))}`
+  const tickText = (t: number) => `${t < 0 ? '−' : ''}${prefix}${tick(Math.abs(t))}`
   const gutter = Math.max(...ticks.map(t => tickText(t).length))
   const yAxis = ticks.map(t => `<span style="--y:${f2(pct(t + bottom))}">${esc(tickText(t))}</span>`).join('')
   const grid = ticks.map(t => `<b${t === 0 ? ' class="zero"' : ''} style="--y:${f2(pct(t + bottom))}"></b>`).join('')
@@ -187,12 +191,17 @@ export function rankTable(rows: Ranked[], head: string[], format: (n: number) =>
 }
 
 export type Delta = { now: number; before: number; vs: string; /** 'up': more is better (readers, clicks): coloured. */ good?: 'up' }
-/** "+12% so với 7 ngày trước", signed with a real minus; coloured only where more is plainly better. */
-export function deltaHtml(d: Delta): string {
-  if (!d.before) return `<span class="delta">${d.now ? `${esc(d.vs)}: 0` : `như ${esc(d.vs)}`}</span>`
+/** A change in words: "+12% so với 7 ngày trước", signed with a real minus; its tone (none when there was nothing before). */
+export function deltaOf(d: Delta): { text: string; tone?: 'good' | 'bad' | 'flat' } {
+  if (!d.before) return { text: d.now ? `${d.vs}: 0` : `như ${d.vs}` }
   const p = Math.round(((d.now - d.before) / d.before) * 100)
   const tone = !p ? 'flat' : d.good === 'up' ? (p > 0 ? 'good' : 'bad') : 'flat'
-  return `<span class="delta ${tone}">${p > 0 ? '+' : p < 0 ? '−' : '±'}${fmt(Math.abs(p))}% so với ${esc(d.vs)}</span>`
+  return { text: `${p > 0 ? '+' : p < 0 ? '−' : '±'}${fmt(Math.abs(p))}% so với ${d.vs}`, tone }
+}
+/** "+12% so với 7 ngày trước", coloured only where more is plainly better. */
+export function deltaHtml(d: Delta): string {
+  const { text, tone } = deltaOf(d)
+  return `<span class="delta${tone ? ` ${tone}` : ''}">${esc(text)}</span>`
 }
 
 export type Tile = { label: string; value: string; sub?: string; delta?: Delta; href?: string; /** A share of a whole, 0–1, drawn as a meter under the figure. */ meter?: number }
@@ -227,10 +236,17 @@ export function spark(values: (number | null)[], recent = 7): string {
  * plainly better (`good: 'up'`); `vs` is read out after it.
  */
 export function chip(now: number, before: number, vs: string, good?: 'up'): string {
-  if (!now && !before) return ''
+  return chipHtml(chipOf(now, before, vs, good))
+}
+/** A chip as data: its text, its tone (`plain` unless more is plainly better and it changed), and what it compares with. */
+export type Chip = { text: string; tone: 'good' | 'bad' | 'plain'; vs: string }
+export function chipOf(now: number, before: number, vs: string, good?: 'up'): Chip | undefined {
+  if (!now && !before) return undefined
   const d = now - before
   const small = before < 10 || now < 10
   const v = small ? Math.abs(d) : Math.round((Math.abs(d) / before) * 100)
-  const tone = !d || !v ? '' : good === 'up' ? (d > 0 ? ' good' : ' bad') : ''
-  return `<span class="chip${tone}">${d > 0 ? '+' : d < 0 ? '−' : '±'}${fmt(v)}${small ? '' : '%'}<span class="vh"> so với ${esc(vs)}</span></span>`
+  const tone = !d || !v ? 'plain' : good === 'up' ? (d > 0 ? 'good' : 'bad') : 'plain'
+  return { text: `${d > 0 ? '+' : d < 0 ? '−' : '±'}${fmt(v)}${small ? '' : '%'}`, tone, vs }
 }
+export const chipHtml = (c: Chip | undefined) =>
+  c ? `<span class="chip${c.tone === 'plain' ? '' : ` ${c.tone}`}">${esc(c.text)}<span class="vh"> so với ${esc(c.vs)}</span></span>` : ''
