@@ -60,7 +60,7 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
 
   A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
   `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant and a guide top to bottom, light and dark, and CI's
-  job `handbook` uploads them as the `ios-page-shots` artifact. Locally:
+  job `handbook (1)` uploads them as the `ios-page-shots` artifact. Locally:
 
   ```sh
   xcodebuild test -project AquaTome.xcodeproj -scheme AquaTome -destination 'platform=iOS Simulator,name=iPhone 17' \

@@ -9,7 +9,8 @@ import { speciesDepth } from '@aq/schema/depth'
 import { isAllowedLicence } from '@aq/schema/licence'
 import { POPULAR, STAPLE_SPECIES } from '@aq/schema/staples'
 import { setsCookies } from '@aq/schema/thumb'
-import { toVi } from '../src/lib/i18n.ts'
+import { langOf, toVi } from '../src/lib/i18n.ts'
+import { VI_SECTIONS, withoutVi } from '../worker/paths.ts'
 import type { ByLang, ContentStats, EngineStats, EntityKind, Gap, GapKey, Lang, PageKind, PageRow, PhotoStats, SourceRow, Totals } from '../worker/admin/content-shape.ts'
 
 export const MAX_BYTES = 1_000_000
@@ -52,17 +53,18 @@ export function h1Of(html: string): string {
   ).replace(/\s+/g, ' ').trim()
 }
 
-/** Every page under dist/<lang>/: its path ("/vi/ca/x/") and its h1. */
+/** Every page of the languages: its path ("/ca/x/", "/id/ikan/x/") and its h1. Vietnamese ones are the home page and its sections. */
 function builtPages(dist: string): { path: string; title: string }[] {
   const out: { path: string; title: string }[] = []
-  const walk = (dir: string, path: string) => {
+  const walk = (dir: string, path: string, only?: readonly string[]) => {
     for (const f of readdirSync(dir).sort()) {
       const p = join(dir, f)
-      if (statSync(p).isDirectory()) walk(p, `${path}${f}/`)
+      if (statSync(p).isDirectory()) { if (!only || only.includes(f)) walk(p, `${path}${f}/`) }
       else if (f === 'index.html') out.push({ path, title: h1Of(readFileSync(p, 'utf8')) })
     }
   }
-  for (const l of LANGS) if (existsSync(join(dist, l))) walk(join(dist, l), `/${l}/`)
+  if (existsSync(join(dist, 'index.html'))) walk(dist, '/', VI_SECTIONS)
+  for (const l of LANGS) if (l !== 'vi' && existsSync(join(dist, l))) walk(join(dist, l), `/${l}/`)
   return out
 }
 
@@ -75,7 +77,7 @@ const slugMap = (xs: Item[]): Slugs => {
 
 /** What a built page is, from its address: the section (in its Vietnamese form) and, for an item's page, the item's slug. */
 export function classify(path: string, s: { fish: Slugs; breed: Slugs; plant: Slugs; guide: Slugs; video: Set<string>; glossary: Slugs; place: Set<string>; series: Slugs; product: Slugs }): [PageKind, string?] {
-  const lang = path.split('/')[1] as Lang
+  const lang = langOf(path)
   const seg = toVi(path).split('/').slice(2, -1) // "/vi/ca/x/anh/" → ['ca', 'x', 'anh']
   const [section, a, b] = seg
   const id = (m: Slugs, slug?: string) => (slug ? m[lang].get(slug) : undefined)
@@ -170,7 +172,7 @@ export function computeContentStats(o: StatsInput): ContentStats {
     for (const p of builtPages(o.dist)) {
       const [kind, id] = classify(p.path, s)
       ;(pages[kind] ??= []).push(id ? [p.path, p.title, id] : [p.path, p.title])
-      const li = LANGS.indexOf(p.path.split('/')[1] as Lang)
+      const li = LANGS.indexOf(langOf(p.path))
       total[li]++
       ;(byKind[kind] ??= [0, 0, 0])[li]++
     }
@@ -215,7 +217,7 @@ export function computeContentStats(o: StatsInput): ContentStats {
   const rank = (x: Item) => staple.get(x.id) ?? STAPLE_SPECIES.length + (popular.get(String(x.e.scientificName ?? '').toLowerCase()) ?? POPULAR.length)
   const ordered = (xs: Item[]) => [...xs].sort((a, b) => rank(a) - rank(b) || a.id.localeCompare(b.id))
   const prefix: Partial<Record<EntityKind, string>> = { fish: 'ca', breed: 'ca', plant: 'cay', guide: 'huong-dan', videoGuide: 'huong-dan', glossary: 'thuat-ngu' }
-  const viPath = (kind: EntityKind, x: Item) => `/vi/${prefix[kind]}/${x.t.vi!.slug}/`
+  const viPath = (kind: EntityKind, x: Item) => `/${prefix[kind]}/${x.t.vi!.slug}/`
   const gaps: ContentStats['gaps'] = {}
   const gap = (kind: EntityKind, key: GapKey, xs: Item[], test: (x: Item) => boolean, by?: Record<string, (x: Item) => boolean>) => {
     const hit = ordered(xs.filter(x => !hidden.has(viPath(kind, x)) && test(x)))
@@ -343,7 +345,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const contentRoot = resolve(process.env.CONTENT_ROOT ?? resolve(process.cwd(), '../../content'))
   const dist = resolve(process.env.OUT_DIR ?? fileURLToPath(new URL('../dist', import.meta.url)))
   const hiddenFile = process.env.HIDDEN_FILE ?? resolve(process.cwd(), '.hidden.json')
-  const hidden = new Set(Object.keys(read(hiddenFile) ?? {}))
+  const hidden = new Set(Object.keys(read(hiddenFile) ?? {}).map(withoutVi))
   const stats = computeContentStats({ contentRoot, engineState: resolve(process.env.ENGINE_STATE ?? join(contentRoot, '../engine-state')), dist, publicBuild: process.env.PUBLIC_BUILD === '1', hidden })
   const body = JSON.stringify(stats)
   mkdirSync(join(dist, '_ab'), { recursive: true })

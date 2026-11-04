@@ -11,7 +11,7 @@ test('groupCredits merges same author + licence and keeps every source link in o
   ])
 })
 test('footer shows one "Nguồn ảnh" button; the popover lists every photo link', () => {
-  const { dom } = page('/vi/ca/')
+  const { dom } = page('/ca/')
   const btn = dom.querySelector('footer button[popovertarget="photo-credits"]')
   const pop = dom.querySelector('#photo-credits[popover]')
   expect(btn?.text).toMatch(/^Nguồn ảnh \(\d+\)$/)

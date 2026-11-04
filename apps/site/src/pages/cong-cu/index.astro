@@ -1,0 +1,177 @@
+---
+import Browse from '../../layouts/Browse.astro'
+import { VN_WATER } from '../../lib/climate'
+import { SUBSTRATES } from '../../scripts/calc'
+import { EI_WEEK, SALTS } from '../../scripts/ferts'
+import { fmt } from '../../lib/format'
+import { i18n } from '../../lib/i18n'
+
+const { lang, t } = i18n(Astro.url)
+// The heater's default room temperature: unheated tank water in a northern Vietnamese winter; elsewhere a neutral 20 °C to change.
+const room = lang === 'vi' ? VN_WATER.northWinter : 20
+// Every tool, drawn: five have pages of their own, the other three are calculators further down this page.
+const TOOLS: { href: string; name: string; what: string; icon: string }[] = [
+  { href: '/vi/cong-cu/nhan-dien-ca/', name: t('Nhận diện cá'), what: t('Chụp ảnh con cá, tép hay cây: công cụ đoán tên loài và mở hồ sơ.'),
+    icon: '<rect x="5" y="13" width="38" height="26" rx="3"/><path d="M17 13l3-5h8l3 5"/><path d="M14 26c4-5 11-5 15 0-4 5-11 5-15 0z"/><path d="M29 26l5-4v8z"/>' },
+  { href: '/vi/cong-cu/nuoi-chung/', name: t('Nuôi chung'), what: t('Các loài có hợp nước, hợp tính không; thả bao nhiêu con là vừa.'),
+    icon: '<path d="M5 19c6-8 17-8 22 0-5 8-16 8-22 0z"/><path d="M27 19l7-6v12z"/><path d="M21 34c3-4 9-4 12 0-3 4-9 4-12 0z"/><path d="M33 34l5-4v8z"/>' },
+  { href: '/vi/cong-cu/the-tich-be/', name: t('Thể tích bể'), what: t('Bể bao nhiêu lít, 12 kiểu bể, kính dày bao nhiêu.'),
+    icon: '<path d="M7 9v29h34V9"/><path d="M7 16c4 2.5 7.5-2.5 11.5 0s7.5 2.5 11.5 0 7.5-2.5 11 0"/>' },
+  { href: '#nen', name: t('Lượng nền'), what: t('Trải trước thấp sau cao: bao nhiêu lít, mấy bao.'),
+    icon: '<path d="M7 9v29h34V9"/><path d="M7 33l34-9"/><circle cx="14" cy="35" r="1"/><circle cx="24" cy="32" r="1"/><circle cx="33" cy="30" r="1"/>' },
+  { href: '#suoi', name: t('Công suất sưởi'), what: t('Bể này cần sưởi bao nhiêu W cho mùa lạnh.'),
+    icon: '<rect x="20" y="6" width="8" height="34" rx="4"/><path d="M24 30v-6"/><path d="M12 14c-3 3 3 6 0 9s3 6 0 9M36 14c-3 3 3 6 0 9s3 6 0 9"/>' },
+  { href: '#phan-bon', name: t('Liều phân nước'), what: t('Mỗi lần châm bao nhiêu gam, ra bao nhiêu ppm.'),
+    icon: '<path d="M29 7l12 12"/><path d="M26 10l12 12"/><path d="M32 16 17 31l-6 1 1-6 15-15"/><path d="M11 37c-1.5 2-2.5 3.5-2.5 4.5a2.5 2.5 0 0 0 5 0c0-1-1-2.5-2.5-4.5z"/>' },
+  { href: '/vi/cong-cu/den-chihiros/', name: t('Đèn Chihiros'), what: t('Hẹn giờ, chỉnh độ sáng từng màu qua Bluetooth.'),
+    icon: '<rect x="6" y="10" width="36" height="6" rx="1.5"/><path d="M14 21l-3 8M24 21v10M34 21l3 8"/><path d="M9 40h30"/>' },
+  { href: '/vi/cong-cu/be-cua-toi/', name: t('Bể của tôi'), what: t('Ghi lại từng bể: kích thước, nền, cá, cây và lịch đèn, ngay trên máy này.'),
+    icon: '<rect x="10" y="6" width="28" height="36" rx="2"/><path d="M16 14h16M16 21h16M16 28h10"/><path d="M14 6v36"/>' },
+]
+---
+<Browse title={t('Công cụ')} heading={t('Công cụ')} intro={t('Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.')}>
+  <script is:inline>
+    // Old links to the tank-mates checker on this page (?ca=…, #nuoi-chung) open its own page, with the same species.
+    if (/[?&]ca=/.test(location.search) || location.hash === '#nuoi-chung') location.replace('/vi/cong-cu/nuoi-chung/' + location.search)
+  </script>
+  <ul class="tools" aria-label={t('Các công cụ')}>
+    {TOOLS.map(x => (
+      <li>
+        <a href={x.href}>
+          <svg class="ico" viewBox="0 0 48 48" aria-hidden="true" set:html={x.icon} />
+          <span class="tx"><strong>{x.name}</strong><span>{x.what}</span></span>
+          <svg class="go" viewBox="0 0 24 24" aria-hidden="true" set:html={x.href.startsWith('#') ? '<path d="M12 5v14M6 13l6 6 6-6"/>' : '<path d="M5 12h14M13 6l6 6-6 6"/>'} />
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <section class="tool" id="the-tich" aria-labelledby="vol-h">
+    <h2 id="vol-h">{t('Bể bao nhiêu lít?')}</h2>
+    <form id="vol-form" class="row">
+      <label>{t('Dài (cm)')} <input name="l" type="number" inputmode="numeric" min="10" max="400" value="60" /></label>
+      <label>{t('Rộng (cm)')} <input name="w" type="number" inputmode="numeric" min="10" max="200" value="30" /></label>
+      <label>{t('Cao (cm)')} <input name="h" type="number" inputmode="numeric" min="10" max="200" value="36" /></label>
+    </form>
+    <p id="vol-out" class="out" aria-live="polite"></p>
+    <p class="note">{t('Bể lục giác, trụ tròn, bể góc, chữ L, hoặc cần biết kính dày bao nhiêu:')} <a href="/vi/cong-cu/the-tich-be/">{t('tính theo 12 kiểu bể →')}</a></p>
+  </section>
+
+  <section class="tool" id="nen" aria-labelledby="sub-h">
+    <h2 id="sub-h">{t('Cần bao nhiêu nền?')}</h2>
+    <p class="lead">{t('Dùng dài và rộng bể ở trên. Nền dốc từ trước ra sau trông sâu hơn và giữ rễ cây tốt hơn.')}</p>
+    <form id="sub-form" class="row">
+      <label>{t('Loại nền')}
+        <select name="kind">{Object.entries(SUBSTRATES).map(([k, s]) => <option value={k}>{t(s.name)}</option>)}</select>
+      </label>
+      <label>{t('Dày phía trước (cm)')} <input name="front" type="number" inputmode="decimal" min="0" max="30" step="0.5" value="4" /></label>
+      <label>{t('Dày phía sau (cm)')} <input name="back" type="number" inputmode="decimal" min="0" max="40" step="0.5" value="8" /></label>
+    </form>
+    <p id="sub-out" class="out" aria-live="polite"></p>
+    <p class="note">{t('Bể thủy sinh: phân nền 4–5 cm phía trước, 7–10 cm phía sau; có thể lót 1–2 cm đá nham thạch bên dưới cho thoáng rễ (chọn “Đá nham thạch” để tính riêng lớp lót). Cát cho cá chuột, cá đáy: 3–5 cm là đủ.')}</p>
+  </section>
+
+  <section class="tool" id="suoi" aria-labelledby="heat-h">
+    <h2 id="heat-h">{t('Cần sưởi bao nhiêu W?')}</h2>
+    <p class="lead">{lang === 'vi' ? t('Dùng kích thước bể ở trên. Nhiệt độ phòng mặc định là nước bể mùa đông miền Bắc (khoảng {c}°C).', { c: room }) : t('Dùng kích thước bể ở trên. Nhập nhiệt độ nước bể lúc lạnh nhất ở chỗ bạn (mặc định {c}°C).', { c: room })}</p>
+    <form id="heat-form" class="row">
+      <label>{t('Nhiệt độ cần (°C)')} <input name="target" type="number" inputmode="numeric" min="15" max="35" value="26" /></label>
+      <label>{t('Nhiệt độ phòng (°C)')} <input name="room" type="number" inputmode="numeric" min="0" max="40" value={room} /></label>
+    </form>
+    <p id="heat-out" class="out" aria-live="polite"></p>
+    <p class="note">{t('Ước tính cho bể kính có nắp. Bể không nắp, đặt gần cửa sổ hoặc trong phòng có gió cần sưởi lớn hơn; bể dài trên 120 cm nên chia hai sưởi ở hai đầu.')}</p>
+  </section>
+
+  <section class="tool" id="phan-bon" aria-labelledby="fert-h">
+    <h2 id="fert-h">{t('Châm phân nước: bao nhiêu ppm?')}</h2>
+    <p class="lead">{t('Dùng thể tích nước của bể ở trên. Chọn muối phân và số gam mỗi lần châm; nếu pha thành dung dịch, nhập thêm lượng nước pha và số ml mỗi lần châm.')}</p>
+    <form id="fert-form" class="row">
+      <label class="grow">{t('Muối phân')}
+        <select name="salt">{Object.entries(SALTS).map(([k, x]) => <option value={k}>{t(x.name)}</option>)}</select>
+      </label>
+      <label>{t('Số gam')} <input name="g" type="number" inputmode="decimal" min="0" max="1000" step="0.01" value="1" /></label>
+      <label>{t('Pha với (ml nước, không bắt buộc)')} <input name="sol" type="number" inputmode="numeric" min="0" max="5000" placeholder={t('vd. 500')} /></label>
+      <label>{t('Mỗi lần châm (ml)')} <input name="dose" type="number" inputmode="decimal" min="0" max="500" step="0.5" placeholder={t('vd. 10')} /></label>
+    </form>
+    <div id="fert-out" aria-live="polite"></div>
+    <p class="note">{t('Mức EI (Estimative Index) mỗi tuần: NO₃ {no3} ppm, PO₄ {po4} ppm, K {k} ppm, Mg {mg} ppm, Fe {fe} ppm, chia 3 lần châm, thay 50% nước mỗi tuần. Đó là mức cho bể nhiều cây, đèn mạnh, có CO₂; bể ít cây, không CO₂ cần ít hơn nhiều. Châm phân đa lượng và vi lượng khác ngày.', { no3: EI_WEEK.NO3!, po4: EI_WEEK.PO4!, k: EI_WEEK.K!, mg: EI_WEEK.Mg!, fe: fmt(lang).num(EI_WEEK.Fe!) })}</p>
+  </section>
+</Browse>
+<script>
+  import { heaterWatts, substrate, tankVolume, type SubstrateKind } from '../../scripts/calc'
+  import { EI_DOSES, EI_WEEK, gramsFor, MAIN, ppm, SALTS, type Ion, type SaltId } from '../../scripts/ferts'
+  import { ct } from '../../scripts/ct'
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
+  const fmt = (n: number, d = 1) => new Intl.NumberFormat(document.documentElement.lang, { maximumFractionDigits: d }).format(n)
+  const num = (f: HTMLFormElement, k: string) => Number((f.elements.namedItem(k) as HTMLInputElement).value)
+  const params = new URLSearchParams(location.search)
+
+  // Calculators: recompute on every input; ?l=&w=&h= (cm) fills the tank size (links from the tank volume page).
+  for (const k of ['l', 'w', 'h']) { const v = params.get(k); if (v) ($<HTMLFormElement>('vol-form').elements.namedItem(k) as HTMLInputElement).value = v }
+  function renderCalc() {
+    const v = $<HTMLFormElement>('vol-form'), h = $<HTMLFormElement>('heat-form')
+    const [l, w, ht] = [num(v, 'l'), num(v, 'w'), num(v, 'h')]
+    if (!(l > 0 && w > 0 && ht > 0)) { $('vol-out').textContent = ct('Nhập đủ dài, rộng, cao.'); $('heat-out').textContent = ''; return }
+    const vol = tankVolume(l, w, ht)
+    $('vol-out').innerHTML = ct('<strong>{litres} lít</strong> theo kích thước, thực tế khoảng <strong>{water} lít nước</strong> (≈ {water} kg, chưa tính kính, nền và đá).', { litres: fmt(vol.litres, 0), water: fmt(vol.water, 0) })
+    const sf = $<HTMLFormElement>('sub-form')
+    const [front, back] = [num(sf, 'front'), num(sf, 'back')]
+    if (front >= 0 && back >= 0 && front + back > 0) {
+      const sub = substrate(l, w, front, back, (sf.elements.namedItem('kind') as HTMLSelectElement).value as SubstrateKind)
+      $('sub-out').innerHTML = ct('<strong>{litres} lít</strong> (khoảng {kg} kg) → mua <strong>{bags}</strong>.', { litres: fmt(sub.litres), kg: fmt(sub.kg), bags: sub.bags.map(b => ct('{n} bao {size} {unit}', { n: b.n, size: b.size, unit: b.unit === 'lít' ? ct('lít') : b.unit })).join(' + ') })
+    } else $('sub-out').textContent = ct('Nhập độ dày nền.')
+    renderFerts(vol.water)
+    const heat = heaterWatts(l, w, ht, num(h, 'target'), num(h, 'room'))
+    $('heat-out').innerHTML = heat.heater === 0 ? ct('Phòng đã đủ ấm, không cần sưởi.')
+      : heat.heater === null ? ct('Cần khoảng {w} W: dùng nhiều sưởi cộng lại.', { w: fmt(heat.watts, 0) })
+      : ct('Cần khoảng {w} W → chọn sưởi <strong>{heater} W</strong>.', { w: fmt(heat.watts, 0), heater: heat.heater })
+  }
+  const ION: Record<Ion, string> = { NO3: 'NO₃', N: 'N', PO4: 'PO₄', P: 'P', K: 'K', Mg: 'Mg', Ca: 'Ca', SO4: 'SO₄', Fe: 'Fe', Mn: 'Mn', B: 'B' }
+  function renderFerts(water: number) {
+    const f = $<HTMLFormElement>('fert-form')
+    const salt = (f.elements.namedItem('salt') as HTMLSelectElement).value as SaltId
+    const [g, sol, dose] = [num(f, 'g'), num(f, 'sol'), num(f, 'dose')]
+    if (!(g > 0)) { $('fert-out').textContent = ct('Nhập số gam.'); return }
+    const solution = sol > 0 && dose > 0 ? { solutionMl: sol, doseMl: dose } : undefined
+    const r = ppm(salt, g, water, solution)
+    const main = MAIN[salt]
+    const ei = EI_WEEK[main]
+    const want = ei === undefined ? undefined : gramsFor(salt, main, ei / EI_DOSES, water)
+    const rows = (Object.keys(r) as Ion[]).map(ion => `<tr><th scope="row">${ION[ion]}</th><td>${fmt(r[ion]!, 2)}</td><td>${EI_WEEK[ion] === undefined ? '–' : fmt(EI_WEEK[ion]! / EI_DOSES, 2)}</td></tr>`).join('')
+    $('fert-out').innerHTML = `<p>${solution ? ct('Mỗi lần châm {dose} ml dung dịch ({g} g trong {sol} ml) vào {water} lít nước:', { dose: fmt(dose), g: fmt(g, 2), sol: fmt(sol, 0), water: fmt(water, 0) }) : ct('{g} g thả thẳng vào {water} lít nước:', { g: fmt(g, 2), water: fmt(water, 0) })}</p>`
+      + `<div class="scroll"><table><thead><tr><th scope="col">${ct('Chất')}</th><th scope="col">${ct('Thêm (ppm)')}</th><th scope="col">${ct('Mức EI mỗi lần (ppm)')}</th></tr></thead><tbody>${rows}</tbody></table></div>`
+      + (want === undefined ? '' : `<p>${solution
+        ? ct('Để thêm đúng mức EI mỗi lần ({target} ppm {ion}): châm khoảng <strong>{ml} ml</strong> dung dịch này.', { target: fmt(ei! / EI_DOSES, 2), ion: ION[main], ml: fmt((want * sol) / g) })
+        : ct('Để thêm đúng mức EI mỗi lần ({target} ppm {ion}): khoảng <strong>{g} g</strong> {salt}.', { target: fmt(ei! / EI_DOSES, 2), ion: ION[main], g: fmt(want, 2), salt: SALTS[salt].formula })}</p>`)
+  }
+  for (const id of ['vol-form', 'sub-form', 'heat-form', 'fert-form']) { $(id).addEventListener('input', renderCalc); $(id).addEventListener('submit', e => e.preventDefault()) }
+  renderCalc()
+</script>
+<style>
+  /* The tools at a glance: a ruled index, one row each on a phone, three across on a computer. */
+  .tools { list-style: none; padding: 0; margin: 0 0 var(--space-6); display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); column-gap: var(--space-5); }
+  .tools li { border-top: 1px solid var(--c-rule); }
+  .tools a { display: flex; align-items: center; gap: var(--space-3); min-height: 4.5rem; padding: var(--space-3) var(--space-2) var(--space-3) 0; color: var(--c-ink); text-decoration: none; transition: background-color 0.15s ease-out; }
+  .tools a:hover { background: var(--c-plate); }
+  .tools a:hover .go { color: var(--c-moss); transform: translateX(2px); }
+  .tools a[href^="#"]:hover .go { transform: translateY(2px); }
+  .ico { flex: none; width: 3rem; height: 3rem; padding: 0.4rem; background: var(--c-plate); box-shadow: 0 0 0 1px var(--c-rule); color: var(--c-moss); fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .tx { display: grid; gap: 0.1rem; min-width: 0; flex: 1 1 auto; }
+  .tx strong { font-weight: 600; }
+  .tx span { font-size: 0.9rem; line-height: 1.4; color: var(--c-ink-soft); }
+  .go { flex: none; width: 1.1rem; height: 1.1rem; color: var(--c-ink-faint); fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.15s ease-out, color 0.15s ease-out; }
+
+  .tool { max-width: 52rem; padding-block: var(--space-5) var(--space-6); border-top: 1px solid var(--c-rule); scroll-margin-top: var(--space-4); }
+  .tool h2 { font-size: var(--step-2); margin-bottom: var(--space-2); }
+  .lead, .note { color: var(--c-ink-soft); max-width: var(--measure); }
+  .note { font-size: var(--step--1); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; margin: var(--space-3) 0; }
+  .row label { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
+  .row .grow { flex: 1 1 18rem; }
+  .row input, .row select { font: inherit; font-size: 1rem; min-height: 2.75rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); width: 100%; min-width: 6rem; }
+  .out { font-size: 1.05rem; }
+  :global(#fert-out .scroll) { overflow-x: auto; }
+  :global(#fert-out table) { border-collapse: collapse; font-size: 0.95rem; margin: var(--space-2) 0; }
+  :global(#fert-out th), :global(#fert-out td) { text-align: left; padding: var(--space-1) var(--space-4) var(--space-1) 0; border-bottom: 1px solid var(--c-rule); font-variant-numeric: tabular-nums; }
+</style>

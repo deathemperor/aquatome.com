@@ -1,10 +1,10 @@
 import type { Page } from '@playwright/test'
 import { expect, test } from './fixtures'
 
-// The pages that list some of the species: a fish group's (/vi/nhom/<group>/), a taxon's (/vi/phan-loai/…), an
-// origin's (/vi/nguon-goc/…) and the fish an equipment page names (/vi/thiet-bi/<kind>/). Each shows the first page of its species; "Xem thêm" builds the next page in place from the
+// The pages that list some of the species: a fish group's (/nhom/<group>/), a taxon's (/phan-loai/…), an
+// origin's (/nguon-goc/…) and the fish an equipment page names (/thiet-bi/<kind>/). Each shows the first page of its species; "Xem thêm" builds the next page in place from the
 // list's data file (components/PagedSpecies.astro, scripts/list-more.ts). A group's "Xem thêm" is also a link to its
-// numbered pages (/vi/nhom/<group>/trang/2/). The test content has 9 species, so these run on the real build and on
+// numbered pages (/nhom/<group>/trang/2/). The test content has 9 species, so these run on the real build and on
 // aquatome.com; lists and counts are read from the pages.
 const PAGE = 24
 const visible = (page: Page) => page.locator('main [data-slug]:visible')
@@ -19,7 +19,7 @@ const total = async (page: Page) => Number(/\d+/.exec((await page.locator('main 
 
 /** A fish group's page with more than a page of species, from the fish list's group filter; undefined when none has. */
 async function bigGroup(page: Page, lang: 'vi' | 'id' = 'vi') {
-  const [list, groups] = lang === 'vi' ? ['/vi/ca/', '/vi/nhom/'] : ['/id/ikan/', '/id/kelompok/']
+  const [list, groups] = lang === 'vi' ? ['/ca/', '/nhom/'] : ['/id/ikan/', '/id/kelompok/']
   await page.goto(list)
   for (const g of await page.locator('select[name=group] option').evaluateAll(os => os.map(o => (o as HTMLOptionElement).value).filter(Boolean))) {
     await page.goto(`${groups}${g}/`)
@@ -53,7 +53,7 @@ test('a fish group\'s "Xem thêm" adds the next page in place; without the scrip
 test('a taxon\'s, an origin\'s and an equipment page\'s "Xem thêm" adds the next page in place, and says so when the list can\'t load', async ({ page, errors }) => {
   // The first order, continent and kind of equipment (one level down from each index) with more than a page of species.
   const paths: string[] = []
-  for (const [index, links] of [['/vi/phan-loai/', 'main .kids a'], ['/vi/nguon-goc/', 'main .kids a'], ['/vi/thiet-bi/', 'main a.cat']]) {
+  for (const [index, links] of [['/phan-loai/', 'main .kids a'], ['/nguon-goc/', 'main .kids a'], ['/thiet-bi/', 'main a.cat']]) {
     await page.goto(index!)
     for (const k of await page.locator(links!).evaluateAll(as => as.map(a => a.getAttribute('href')!))) {
       await page.goto(k)

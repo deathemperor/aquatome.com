@@ -28,11 +28,11 @@ async function shiftWhenFontsArrive(page: Page, path: string) {
 test('the web fonts arriving move nothing on the first screen', async ({ page }) => {
   // A plant page without a photo has text all down its first screen (the page Lighthouse caught), so the list's first
   // card without one; plus the home page, a list and a guide.
-  await page.goto('/vi/cay/')
+  await page.goto('/cay/')
   const bare = page.locator('main .pc:not(:has(.plate img)) a').first()
   const plant = (await bare.count()) ? await bare.getAttribute('href') : null
-  const guide = await page.goto('/vi/huong-dan/').then(() => page.locator('#guide-list a').first().getAttribute('href'))
-  for (const path of ['/vi/', '/vi/cay/', guide!, ...(plant ? [plant] : [])]) {
+  const guide = await page.goto('/huong-dan/').then(() => page.locator('#guide-list a').first().getAttribute('href'))
+  for (const path of ['/', '/cay/', guide!, ...(plant ? [plant] : [])]) {
     expect.soft(await shiftWhenFontsArrive(page, path), `layout shift on ${path} when the web fonts arrive`).toBeLessThanOrEqual(0.1)
   }
 })

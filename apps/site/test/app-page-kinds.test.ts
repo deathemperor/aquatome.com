@@ -10,7 +10,7 @@ import { getContent } from '../src/lib/content'
 import { smallSrc } from '../src/lib/img'
 import { speciesParts } from '../src/lib/species-page'
 import { translator } from '../src/lib/i18n'
-import { page } from './dist'
+import { appHref, appPage } from './dist'
 
 // The app draws fish, plant and glossary pages from these copies (once the index counts their kinds): what they hold
 // must be the page, credits and sources first.
@@ -84,7 +84,7 @@ function gallery(d: PageDoc, dom: HTMLElement) {
   if (!g) return
   expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))
   expect(g.strip.map(i => g.photos[i]!.thumb ?? g.photos[i]!.src), d.path).toEqual(strip.map(i => i.getAttribute('src')))
-  const all = page(g.href!).dom
+  const all = appPage(g.href!).dom
   expect(g.photos.map(p => p.src), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-full')))
   expect(g.photos.map(p => p.credit!.url), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-src')))
   // "6 ảnh từ Wikimedia Commons, giấy phép mở.": the gallery page's line, without the scientific name before it or the link after.
@@ -103,13 +103,13 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
   for (const s of fish) {
     const d = await fishDoc('vi', c, s, listed)
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
-    const { dom } = page(d.path)
+    const { dom } = appPage(d.path)
     d.blocks.forEach(b => seen.add(b.t))
     // The header: name, scientific name, the line above the name, other names, the line under the card, the photo.
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
     expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
     expect(text(d.where), d.path).toBe(txt(dom.querySelector('.where')))
-    expect(d.where?.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href])), d.path).toEqual(dom.querySelectorAll('.where a').map(a => a.getAttribute('href')))
+    expect(d.where?.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href])), d.path).toEqual(dom.querySelectorAll('.where a').map(a => appHref(a.getAttribute('href')!)))
     expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
     expect(text(d.credit), d.path).toBe(txt(dom.querySelector('.facts > .srcline')).startsWith('Dịch') ? txt(dom.querySelector('.facts > .srcline')) : '')
     expect(d.lead?.src, d.path).toBe(dom.querySelector('.photo img')?.getAttribute('src'))
@@ -128,14 +128,14 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     const box = dom.querySelector('.mates')
     expect(!!mates, d.path).toBe(!!box)
     if (mates && box) {
-      const chips = (sel: string) => box.querySelectorAll(`${sel} li a`).map(a => ({ path: a.getAttribute('href'), name: txt(a.querySelector('.nm')?.childNodes[0] as HTMLElement), why: a.querySelector('.why') ? txt(a.querySelector('.why')) : undefined }))
+      const chips = (sel: string) => box.querySelectorAll(`${sel} li a`).map(a => ({ path: appHref(a.getAttribute('href')!), name: txt(a.querySelector('.nm')?.childNodes[0] as HTMLElement), why: a.querySelector('.why') ? txt(a.querySelector('.why')) : undefined }))
       expect(mates.good?.items.map(m => ({ path: m.path, name: m.name, why: m.why })) ?? [], d.path).toEqual(chips('.row:not(.avoid)'))
       expect(mates.avoid?.items.map(m => ({ path: m.path, name: m.name, why: m.why })) ?? [], d.path).toEqual(chips('.row.avoid'))
-      expect(mates.tool.href, d.path).toBe(box.querySelector('.how a')!.getAttribute('href'))
+      expect(mates.tool.href, d.path).toBe(appHref(box.querySelector('.how a')!.getAttribute('href')!))
       expect(mates.note, d.path).toBe(box.querySelector('.how span') ? txt(box.querySelector('.how span')) : undefined)
     } else {
       const a = dom.querySelector('.facts > .srcline a')!
-      expect(d.blocks.some(b => b.t === 'p' && b.c.some(r => typeof r !== 'string' && r.href === a.getAttribute('href') && r.text === txt(a))), d.path).toBe(true)
+      expect(d.blocks.some(b => b.t === 'p' && b.c.some(r => typeof r !== 'string' && r.href === appHref(a.getAttribute('href')!) && r.text === txt(a))), d.path).toBe(true)
     }
     // Vietnam's climate, on Vietnamese pages.
     const vn = one(d, 'climate')
@@ -146,9 +146,9 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     expect(d.blocks.filter(b => b.t === 'p' && text(b.c).includes(' ghi khác bảng dữ liệu:')).map(b => text((b as B<'p'>).c)), d.path).toEqual(dom.querySelectorAll('.body .off').map(txt))
     // Breeds as cards, each with its picture's credit; videos; the guides that name it.
     const cards = one(d, 'cards')
-    expect(cards?.items.map(i => [i.path, i.name, i.sub, i.img?.src]) ?? [], d.path).toEqual(dom.querySelectorAll('.breeds li').map(l => [l.querySelector('a')!.getAttribute('href'), txt(l.querySelector('h3')), txt(l.querySelector('.kind')), l.querySelector('img')?.getAttribute('src')]))
+    expect(cards?.items.map(i => [i.path, i.name, i.sub, i.img?.src]) ?? [], d.path).toEqual(dom.querySelectorAll('.breeds li').map(l => [appHref(l.querySelector('a')!.getAttribute('href')!), txt(l.querySelector('h3')), txt(l.querySelector('.kind')), l.querySelector('img')?.getAttribute('src')]))
     expect(one(d, 'videos')?.items.map(v => [v.youtubeId, `${v.title}${Math.floor(v.durationSec / 60)}:${String(v.durationSec % 60).padStart(2, '0')}, ${v.lang}`]) ?? [], d.path).toEqual(dom.querySelectorAll('.videos li').map(l => [l.querySelector('button')!.getAttribute('data-youtube-id'), txt(l.querySelector('p'))]))
-    const guides = new Set(dom.querySelectorAll('.guides a, .vg a').map(a => a.getAttribute('href')))
+    const guides = new Set(dom.querySelectorAll('.guides a, .vg a').map(a => appHref(a.getAttribute('href')!)))
     for (const p of all(d, 'pages').flatMap(b => b.paths)) expect(guides.has(p), `${d.path} names ${p}`).toBe(true)
     const summary = one(d, 'summary')
     expect(summary ? [summary.text, ...(summary.mistakes?.items ?? []), summary.by] : [], d.path).toEqual(dom.querySelector('.qs') ? [txt(dom.querySelector('.qs .box > p')), ...dom.querySelectorAll('.qs li').map(txt), txt(dom.querySelector('.qs .by'))] : [])
@@ -225,7 +225,7 @@ test('each plant\'s copy reads as its built page: header, credits, sources, gall
   for (const p of plants) {
     const d = plantDoc('vi', c, p, listed)
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
-    const { dom } = page(d.path)
+    const { dom } = appPage(d.path)
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
     expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
     expect(d.lead?.src, d.path).toBe(dom.querySelector('header .gallery img')?.getAttribute('src'))
@@ -233,7 +233,7 @@ test('each plant\'s copy reads as its built page: header, credits, sources, gall
     expect(d.talk?.comments, d.path).toBeTruthy()
     credited(d, dom, bySource)
     gallery(d, dom)
-    const guides = new Set(dom.querySelectorAll('.guides a, .vg a').map(a => a.getAttribute('href')))
+    const guides = new Set(dom.querySelectorAll('.guides a, .vg a').map(a => appHref(a.getAttribute('href')!)))
     for (const x of all(d, 'pages').flatMap(b => b.paths)) expect(guides.has(x), `${d.path} names ${x}`).toBe(true)
   }
   const w = plantDoc('vi', c, c.plants.find(x => x.id === 'cryptocoryne-wendtii')!, listed)
@@ -248,7 +248,7 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
   for (const g of terms) {
     const d = glossaryDoc('vi', g)
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
-    const { dom } = page(d.path)
+    const { dom } = appPage(d.path)
     expect(d.title).toBe(txt(dom.querySelector('h1')))
     expect(d.blocks.map(b => text((b as B<'p'>).c))).toEqual([txt(dom.querySelector('.en')), ...(dom.querySelector('.def') && txt(dom.querySelector('.def')) ? [txt(dom.querySelector('.def'))] : [])])
   }
@@ -278,9 +278,9 @@ test('a fish\'s copy in Indonesian: the Indonesian page\'s paths and links, no V
 
 test('the fish and plant pages and the app\'s copies are put together by the same code', () => {
   const read = (f: string) => readFileSync(new URL(`../src/${f}`, import.meta.url), 'utf8')
-  const fish = read('pages/vi/ca/[slug].astro'), plant = read('pages/vi/cay/[slug].astro'), sections = read('components/Sections.astro')
-  expect(fish).toContain("from '../../../lib/species-page'")
-  expect(plant).toContain("from '../../../lib/plant-page'")
+  const fish = read('pages/ca/[slug].astro'), plant = read('pages/cay/[slug].astro'), sections = read('components/Sections.astro')
+  expect(fish).toContain("from '../../lib/species-page'")
+  expect(plant).toContain("from '../../lib/plant-page'")
   expect(sections).toContain("from '../lib/section-parts'")
   for (const own of ['pagePictures(', 'distinctPhotos(', 'takeEach(', 'companionsOf(', 'approvedSummary(', 'breedsOf(', 'guidesMentioning(']) {
     expect(fish, own).not.toContain(own)

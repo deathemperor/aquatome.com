@@ -4,6 +4,7 @@ import { checkEmail, consume, emailHash, normalEmail, startEmail, TANKS_PAGE, ty
 import { verifyIdToken as realVerifyIdToken, type Provider, type VerifyIdToken } from './idtoken'
 import { cloudflareMailer, type EmailBinding } from './mailer'
 import { addPasskey, checkPasskey, loginOptions, registrationOptions, type Rp } from './passkey'
+import { APPLE_RETURN } from '../paths'
 import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
@@ -165,8 +166,9 @@ async function revokeAppleFirst(env: Live, deps: AccountDeps, req: Request, url:
   const a = body?.apple as { code?: unknown; clientId?: unknown; redirectUri?: unknown } | undefined
   if (typeof a?.code !== 'string' || typeof a.clientId !== 'string') return fail('apple_reauth', 409)
   if (!ids(env.APPLE_CLIENT_IDS).includes(a.clientId)) return fail('bad_request', 400)
-  // The web's code is tied to the page it was asked from: one of the tanks pages, exactly, or Apple refuses it.
-  const pages = Object.values(TANKS_PAGE).map(p => `${url.origin}${p}`)
+  // The web's code is tied to the page it was asked from: one of Apple's return addresses (the tanks pages), exactly, or
+  // Apple refuses it. The Vietnamese page's old address is the one Apple has (worker/paths.ts APPLE_RETURN).
+  const pages = [...Object.values(TANKS_PAGE), ...Object.values(APPLE_RETURN)].map(p => `${url.origin}${p}`)
   if (a.redirectUri !== undefined && !(typeof a.redirectUri === 'string' && pages.includes(a.redirectUri))) return fail('bad_redirect', 400)
   // Every try costs a signed request to Apple.
   if (!(await allow(env.DB, env.ACCOUNT_HMAC_KEY, `apple-revoke|${userId}`, 10, HOUR_MS, now))) return fail('rate_limited', 429)

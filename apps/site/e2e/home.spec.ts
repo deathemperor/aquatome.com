@@ -5,7 +5,7 @@ import { expect, test } from './fixtures'
 // (the AI page review, 2026-11-02).
 test('home on a phone: the group row starts at the page margin, like its heading', async ({ page }, info) => {
   test.skip(info.project.name !== 'phone', 'the row scrolls sideways on narrow screens only')
-  await page.goto('/vi/')
+  await page.goto('/')
   const row = page.locator('ul.groups')
   await row.scrollIntoViewIfNeeded()
   const heading = await row.evaluate(ul => ul.closest('section')!.querySelector('h2')!.getBoundingClientRect().left)

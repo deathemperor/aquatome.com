@@ -1,4 +1,5 @@
 import { EVENTS, eventsSql } from './admin/ae'
+import { withoutVi } from './paths'
 
 /**
  * "Real readers" from our own beacon (only browsers that run the page's JavaScript, minus known bots and the owner):
@@ -40,7 +41,8 @@ export function summariseReaders(sessions: Session[], views: View[], days: numbe
   const firstRef = new Map<string, string>()
   const cc = new Map<string, string>()
   for (const v of views) {
-    if (readerSids.has(v.sid)) pages.set(v.p, (pages.get(v.p) ?? 0) + num(v.views))
+    // A view of an old /vi/… address counts for the page's address now.
+    if (readerSids.has(v.sid)) { const p = withoutVi(v.p); pages.set(p, (pages.get(p) ?? 0) + num(v.views)) }
     if (v.ref && !firstRef.has(v.sid)) firstRef.set(v.sid, v.ref)
     if (v.cc && !cc.has(v.sid)) cc.set(v.sid, v.cc)
   }

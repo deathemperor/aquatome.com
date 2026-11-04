@@ -1,3 +1,4 @@
+import { withoutVi } from '../paths'
 import { isReader, querySessions, type Session } from '../readers'
 import { EVENTS, eventsSql, num } from './ae'
 import type { ByLang, ContentStats, EntityKind, Lang, PageKind, PageRow, Totals } from './content-shape'
@@ -36,9 +37,12 @@ export function pageIndex(s: ContentStats): Map<string, PageInfo> {
   return m
 }
 
-/** A path as the beacon sends it → the index's form: the site's pages all end in "/" (force-trailing-slash). */
+/**
+ * A path as the beacon sends it → the index's form: the site's pages all end in "/" (force-trailing-slash), and a view
+ * of an old /vi/… address (before the Vietnamese pages moved to the root) counts for the page's address now.
+ */
 export const pagePathOf = (p: string) => {
-  const path = p.split(/[?#]/)[0]!.replace(/index\.html$/, '')
+  const path = withoutVi(p.split(/[?#]/)[0]!.replace(/index\.html$/, ''))
   return path.endsWith('/') ? path : `${path}/`
 }
 

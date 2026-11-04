@@ -70,8 +70,8 @@ const see = (location: string, cookies: string[] = []) => {
   return new Response(null, { status: 303, headers: h })
 }
 
-/** The site's sign-in page (src/pages/vi/dang-nhap/), and the two places in it the dashboard fills in. */
-const SIGN_IN = '/vi/dang-nhap/'
+/** The site's sign-in page (src/pages/dang-nhap/), and the two places in it the dashboard fills in. */
+const SIGN_IN = '/dang-nhap/'
 const PANEL = '<section id="tai-khoan"'
 const NOT_OWNER = 'id="acc-not-owner" hidden'
 /**

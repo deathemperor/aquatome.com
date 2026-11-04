@@ -1,5 +1,6 @@
 import type { FishIdStatus } from '../fishid/api'
 import type { Hidden } from '../hidden'
+import { isViPage, withoutVi } from '../paths'
 import type { Readers } from '../readers'
 import type { Wanted } from '../wanted'
 import { chip, dayChart, deltaHtml, esc, fmt, lastDays, rankTable, spark, tiles, usd } from './chart'
@@ -277,7 +278,7 @@ function recentHtml(xs: Call[], pages: Map<string, string>): string {
     if (!c.sci) return '<span class="muted">—</span>'
     const url = c.page ? pages.get(c.page) : undefined
     const name = `<i class="sci">${esc(c.sci)}</i>`
-    return url ? `<a href="${esc(url)}">${name}</a>` : c.page ? `${name} <span class="muted">(${esc(c.page)})</span>` : `${name} <span class="muted">· chưa có trang</span>`
+    return url ? `<a href="${esc(withoutVi(url))}">${name}</a>` : c.page ? `${name} <span class="muted">(${esc(c.page)})</span>` : `${name} <span class="muted">· chưa có trang</span>`
   }
   const rows = xs.map(c => `<tr><th>${esc(c.t.slice(5, 16).replace(/^(\d\d)-(\d\d)/, '$2/$1'))}</th><td class="l">${esc(OUTCOME[c.outcome] ?? c.outcome)}</td><td class="l">${esc(VERDICT[c.verdict] ?? (c.verdict || '—'))}</td><td class="l wrap">${guess(c)}</td><td>${c.guesses ? `${fmt(c.conf * 100)}%` : '—'}</td><td>${fmt(c.tin)}</td><td>${fmt(c.tout)}</td><td>${c.usd ? usd(c.usd) : '—'}</td><td>${fmt(c.ms)}</td><td class="l">${c.key ? `<code>${esc(c.key)}</code>` : '—'}</td><td>${fmt(c.attempts)}</td><td class="l">${esc(FROM[c.from] ?? (c.from || '—'))}</td><td class="l">${esc(c.country || '—')}</td></tr>`).join('')
   return `<div class="scroll"><table class="wide"><thead><tr><th>Lúc (UTC)</th><th>Kết quả</th><th>Loại</th><th>Đoán nhiều nhất</th><th>Chắc</th><th>Token vào</th><th>Token ra</th><th>Chi phí</th><th>ms</th><th>Key</th><th>Lần gọi</th><th>Từ</th><th>Nước</th></tr></thead><tbody>${rows || '<tr><td colspan="13" class="none">Chưa có lượt nào được ghi.</td></tr>'}</tbody></table></div>`
@@ -286,7 +287,7 @@ function recentHtml(xs: Call[], pages: Map<string, string>): string {
 // ——— Người đọc ———
 
 /** A path from the beacon is anything a script sent: a link only for one of the site's pages ("//other.site" stays text). */
-export const pageLink = (path: string) => (/^\/(?:vi|id|th)\//.test(path) ? `<a href="${esc(path)}">${esc(path)}</a>` : esc(path))
+export const pageLink = (path: string) => (isViPage(path) || /^\/(?:id|th)\//.test(path) ? `<a href="${esc(path)}">${esc(path)}</a>` : esc(path))
 
 export function readersPage(now: Date, r: Soft<Readers> | undefined): string {
   let body = '<h1>Người đọc thật</h1>'
@@ -350,7 +351,7 @@ export function photosPage(xs: Soft<RecentPhoto[] | undefined>): string {
 
 export function hiddenPage(h: Soft<Hidden>): string {
   let body = `<h1>Ẩn trang</h1><p class="lede">Trang bị ẩn trả về 410 (đã gỡ), kể cả bản Markdown: thường sau 1–2 phút, chậm nhất là lần build sau (≤3 giờ), khi nó cũng biến khỏi danh sách, sitemap và tìm kiếm. Hiện lại: nếu đã qua một lần build, trang quay lại ở lần build tiếp theo.</p>
-<form class="inline" method="post" action="/_ab/hidden"><input name="url" required placeholder="https://aquatome.com/vi/ca/..." aria-label="Địa chỉ trang"><input name="note" placeholder="Lý do (tuỳ chọn)" aria-label="Lý do"><button class="go" name="action" value="hide">Ẩn</button></form>`
+<form class="inline" method="post" action="/_ab/hidden"><input name="url" required placeholder="https://aquatome.com/ca/..." aria-label="Địa chỉ trang"><input name="note" placeholder="Lý do (tuỳ chọn)" aria-label="Lý do"><button class="go" name="action" value="hide">Ẩn</button></form>`
   if (isFailed(h)) body += failedBox('danh sách trang ẩn', h)
   else {
     const rows = Object.entries(h).sort(([, a], [, b]) => b.at.localeCompare(a.at)).map(([path, v]) =>

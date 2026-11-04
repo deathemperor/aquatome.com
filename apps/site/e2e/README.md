@@ -19,7 +19,7 @@ E2E_SEED=3 pnpm --filter site e2e --grep @invariants   # other pages of each kin
 - `search.spec.ts`, `glossary.spec.ts`, `tools.spec.ts`: journeys, one file per feature. Add one for each new feature.
 - `lighthouse.spec.ts`: Lighthouse's scores and budgets on one page of each main kind (`E2E_LIGHTHOUSE=1`, alone:
   `E2E_LIGHTHOUSE=1 pnpm --filter site e2e --grep @lighthouse --workers=1`). Each run's numbers are in the log.
-- `review.spec.ts`: the AI page review (`E2E_REVIEW=1`; needs the `claude` CLI signed in). `E2E_REVIEW_PAGES=/vi/ca/?q=neon,/vi/` reviews other pages once. With `CLAUDE_CODE_OAUTH_TOKENS` (one token a line), an account out of its usage limit or rejected is set aside and the review goes to the next (`claude-accounts.ts`). A review stopped by Claude's usage limit on every account is skipped, with the CLI's text as the reason (`claude-limit.ts`).
+- `review.spec.ts`: the AI page review (`E2E_REVIEW=1`; needs the `claude` CLI signed in). `E2E_REVIEW_PAGES=/ca/?q=neon,/` reviews other pages once. With `CLAUDE_CODE_OAUTH_TOKENS` (one token a line), an account out of its usage limit or rejected is set aside and the review goes to the next (`claude-accounts.ts`). A review stopped by Claude's usage limit on every account is skipped, with the CLI's text as the reason (`claude-limit.ts`).
 - `page-shots.mjs`: before and after (governance rule 6). The same pages of two builds at both sizes; the pairs that
   differ, side by side, and `summary.md` listing them. CI's job `shots` runs it on PRs that change `apps/site/src`. Before
   pushing, build the base in a worktree and compare:

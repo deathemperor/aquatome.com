@@ -9,6 +9,7 @@ import { adminRoute, bearerOk as dashBearer } from './dashboard'
 import { recordSnapshot } from './admin/content'
 import { parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
+import { isViPage, withoutVi } from './paths'
 import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
 import { deleteRoute, listPhotos, photosAdmin, postPhoto } from './photos'
@@ -105,6 +106,23 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
   return Response.json(await applyDecisions(env.DB, body, new Date()))
 }
 
+/** A page's address in any language: Vietnamese ones at the root, the others under /id/ and /th/. */
+const isPage = (path: string) => isViPage(path) || /^\/(id|th)\//.test(path)
+
+/**
+ * An old Vietnamese address (/vi/…, before the pages moved to the root) → 301 to its page, in one hop: the path without
+ * /vi, with its trailing slash (force-trailing-slash would add a second hop), through redirects.json when the page was
+ * renamed since, the query kept.
+ */
+async function fromVi(url: URL, env: Env): Promise<Response> {
+  // One leading slash: "/vi//evil.test/" must not become "//evil.test/", another site's address.
+  let path = withoutVi(url.pathname).replace(/^[/\\]+/, '/')
+  if (!path.endsWith('/') && !/\.[a-z0-9]+$/i.test(path)) path += '/'
+  const renamed = await redirectFor(env.ASSETS, url.origin, path)
+  const location = !renamed ? `${path}${url.search}` : url.search ? `${renamed}${renamed.includes('?') ? '&' : '?'}${url.search.slice(1)}` : renamed
+  return new Response(null, { status: 301, headers: { location } })
+}
+
 /** The site language a browser ranks highest among ours (Accept-Language, q order); Vietnamese when none. */
 export function rootLang(header: string | null): 'vi' | 'id' | 'th' {
   const ranked = (header ?? '').split(',').map((part, i) => {
@@ -127,15 +145,15 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
   }
+  if (url.pathname === '/vi' || url.pathname.startsWith('/vi/')) return finish(await fromVi(url, env), env)
   // Pages taken down from the dashboard: 410 for HTML, markdown and index.* alike (see isHidden for how soon).
-  if (/^\/(vi|id|th)\//.test(url.pathname)) {
+  if (isPage(url.pathname)) {
     const p = pagePath(url.pathname)
     if (p && isHidden(env.AB, p, env.HIDDEN_PAGES, wait)) return finish(gonePage(), env)
   }
-  // Agents asking for text/markdown get the build-time index.md (the root answers with /vi/'s); no cookie.
-  const mdPath = url.pathname === '/' ? '/vi/' : url.pathname
-  if (/^\/(vi|id|th)\//.test(mdPath) && mdPath.endsWith('/') && prefersMarkdown(req.headers.get('accept'))) {
-    const md = await env.ASSETS.fetch(new Request(new URL(`${mdPath}index.md`, url)))
+  // Agents asking for text/markdown get the build-time index.md (the root: the Vietnamese home page's); no cookie.
+  if (isPage(url.pathname) && url.pathname.endsWith('/') && prefersMarkdown(req.headers.get('accept'))) {
+    const md = await env.ASSETS.fetch(new Request(new URL(`${url.pathname}index.md`, url)))
     if (md.ok) {
       const text = await md.text()
       return finish(new Response(text, { headers: {
@@ -146,16 +164,12 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   }
   if (url.pathname === '/.well-known/api-catalog') return finish(apiCatalog(url.origin), env)
   if (url.pathname === '/.well-known/apple-app-site-association') return finish(new Response(JSON.stringify(APP_SITE_ASSOCIATION), { headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=3600' } }), env)
-  // The root: the language the reader picked in the language menu, else a browser that prefers Indonesian or Thai goes
-  // to that language (302, by Accept-Language); everyone else, crawlers included, to /vi/ for good. The 301 is cached
-  // for an hour only, so a reader who later picks another language isn't stuck on a redirect their browser kept.
+  // The root is the Vietnamese home page. A reader who picked Indonesian or Thai in the language menu goes to that
+  // language's (302), and so does a browser that prefers one of them (Accept-Language) when its reader picked none;
+  // everyone else, crawlers included, gets the page (below).
   if (url.pathname === '/') {
-    const chosen = chosenLang(req.headers.get('cookie'))
-    const lang = chosen ?? rootLang(req.headers.get('accept-language'))
-    const vary = 'Accept-Language, Cookie'
-    return finish(lang === 'vi' && !chosen
-      ? new Response(null, { status: 301, headers: { location: `/vi/${url.search}`, link: DISCOVERY_LINK, vary, 'cache-control': 'max-age=3600' } })
-      : new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary, 'cache-control': 'private, no-store' } }), env)
+    const lang = chosenLang(req.headers.get('cookie')) ?? rootLang(req.headers.get('accept-language'))
+    if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
   }
   if (url.pathname === '/_e') return events(req, env)
   // Names readers keep that have no page (worker/wanted.ts): open to everyone, signed in or not, accounts on or off.
@@ -184,7 +198,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   const t = Date.now()
   const res = await env.ASSETS.fetch(plain)
   const assetMs = Date.now() - t // Server-Timing: a cold edge fetches the page from storage (0.3–2 s), a warm one ~10 ms
-  if (res.status === 404 && /^\/(vi|id|th)\//.test(url.pathname)) {
+  if (res.status === 404 && isPage(url.pathname)) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
     if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
   }
@@ -192,7 +206,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   const extra: Record<string, string> = { Vary: 'Accept', 'Server-Timing': `asset;dur=${assetMs}` }
   // The design A/B test is over: clear its cookie from returning visitors.
   if (/(?:^|;\s*)skin=/.test(req.headers.get('cookie') ?? '')) extra['Set-Cookie'] = 'skin=; Path=/; Max-Age=0; SameSite=Lax; Secure'
-  if (url.pathname === '/vi/') extra.Link = DISCOVERY_LINK
+  if (url.pathname === '/') Object.assign(extra, { Link: DISCOVERY_LINK, Vary: 'Accept, Accept-Language, Cookie' })
   const out = finish(res, env, extra)
   out.headers.set('Cache-Control', 'private, max-age=0, must-revalidate')
   out.headers.delete('etag')

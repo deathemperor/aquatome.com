@@ -171,16 +171,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/panitvong/Pamye_u0.webp",
-      "thumb": "https://media.aquatome.com/panitvong/Pamye_u0-480.webp",
-      "width": 640,
-      "height": 296,
-      "licence": "dùng với sự cho phép",
-      "author": "Nonn Panitvong",
-      "sourceUrl": "https://fishbase.se/photos/PicturesSummary.php?pic=Pamye_u0.jpg&personnel=1825&what=collab_pic",
-      "source": "panitvong"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/dc22fdf82e2fb2b1.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/dc22fdf82e2fb2b1-480.webp",
       "width": 640,
@@ -190,6 +180,16 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/pangio-myersi",
       "caption": "Base body colour is a vivid orange.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/panitvong/Pamye_u0.webp",
+      "thumb": "https://media.aquatome.com/panitvong/Pamye_u0-480.webp",
+      "width": 640,
+      "height": 296,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://fishbase.se/photos/PicturesSummary.php?pic=Pamye_u0.jpg&personnel=1825&what=collab_pic",
+      "source": "panitvong"
     }
   ],
   "videos": [],

@@ -3,7 +3,7 @@ import { expect, test } from './fixtures'
 // Dotted glossary terms (a.gl): hover shows the term and its meaning, a click opens its page; on a touch screen the
 // first tap shows the card and a second tap (or "Đọc thêm") opens the page.
 // A guide with glossary terms: in the fixture content, and on aquatome.com (production checks).
-const GUIDE = process.env.E2E_BASE_URL ? '/vi/huong-dan/10-cach-tri-reu-hai-nhanh-va-de-trong-be-thuy-sinh/' : '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/'
+const GUIDE = process.env.E2E_BASE_URL ? '/huong-dan/10-cach-tri-reu-hai-nhanh-va-de-trong-be-thuy-sinh/' : '/huong-dan/setup-be-thuy-sinh-dau-tien/'
 
 test('hover shows the card; a click still opens the term page', async ({ page, errors }, info) => {
   test.skip(info.project.name === 'phone', 'mouse only')
@@ -18,7 +18,7 @@ test('hover shows the card; a click still opens the term page', async ({ page, e
   await page.mouse.move(0, 0)
   await expect(tip).toBeHidden()
   await term.click()
-  await expect(page).toHaveURL(/\/vi\/thuat-ngu\//)
+  await expect(page).toHaveURL(/\/thuat-ngu\//)
   expect(errors).toEqual([])
 })
 
@@ -39,6 +39,6 @@ test('first tap shows the card with a link; tapping elsewhere closes it; a secon
   await expect(tip).toBeHidden()
   await term.tap()
   await term.tap()
-  await expect(page).toHaveURL(/\/vi\/thuat-ngu\//)
+  await expect(page).toHaveURL(/\/thuat-ngu\//)
   expect(errors).toEqual([])
 })

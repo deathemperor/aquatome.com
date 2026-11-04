@@ -3,7 +3,7 @@ import { backend, connect, onPasskeyHost } from './accounts-stand-in'
 import { expect, test } from './fixtures'
 
 // Sign-in and sync on "Bể của tôi", against the real accounts API run in this process (accounts-stand-in.ts).
-const PAGE = '/vi/cong-cu/be-cua-toi/'
+const PAGE = '/cong-cu/be-cua-toi/'
 const SIGN_IN_SCRIPTS = /accounts\.google\.com|appleid\.cdn-apple\.com|challenges\.cloudflare\.com/
 
 async function addTank(page: Page, name: string) {

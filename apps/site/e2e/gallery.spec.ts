@@ -5,7 +5,7 @@ import { sourcePages } from './pages'
 // A photo gallery, from the fish's or plant's page: the strip's link opens the gallery page, a photo opens in the viewer
 // with its author and licence, the arrow keys step through, Escape closes. The pages come from the build (or, live, the
 // sitemap), so the journey holds on aquatome.com's real galleries too.
-const galleryOf = (section: string) => sourcePages().find(p => new RegExp(`^/vi/${section}/[^/]+/anh/$`).test(p))
+const galleryOf = (section: string) => sourcePages().find(p => new RegExp(`^/${section}/[^/]+/anh/$`).test(p))
 
 for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
   test(`${what} gallery: from the page's strip to the gallery, then through the photos in the viewer`, async ({ page, errors }) => {
@@ -56,9 +56,10 @@ test('gallery viewer: #a3 opens photo 3, a swipe goes to the next, Back closes i
   // The photos follow the finger until it lifts.
   const stage = viewer.locator('.pv-stage')
   const width = (await stage.boundingBox())!.width
+  // Chrome hands a finger's moves to the page with the next frame, so the last one can land just after it is sent.
   await swipe(page, stage, -0.6, info.project.name === 'phone', async () => {
-    const x = await viewer.locator('.pv-track').evaluate(t => new DOMMatrix(getComputedStyle(t).transform).m41)
-    expect(x).toBeCloseTo(-0.6 * width, -1)
+    const x = () => viewer.locator('.pv-track').evaluate(t => new DOMMatrix(getComputedStyle(t).transform).m41)
+    await expect.poll(x).toBeCloseTo(-0.6 * width, -1)
   })
   await expect(by).toContainText(`4/${n}`)
   await expect(page).toHaveURL(new RegExp(`${gallery}#a4$`))

@@ -3,7 +3,8 @@ const tables = new WeakMap<Fetcher, Promise<Record<string, string>>>() // static
 export function redirectFor(assets: Fetcher, origin: string, path: string): Promise<string | undefined> {
   let t = tables.get(assets)
   if (!t) {
-    t = assets.fetch(new Request(`${origin}/redirects.json`)).then(r => (r.ok ? r.json<Record<string, string>>() : {}), () => ({}))
+    // Any failure reads as no renamed pages: every old /vi/ address asks (worker/index.ts fromVi), so it must not throw.
+    t = assets.fetch(new Request(`${origin}/redirects.json`)).then(r => (r.ok ? r.json<Record<string, string>>() : {})).catch(() => ({}))
     tables.set(assets, t)
   }
   return t.then(x => x[path.replace(/\/?$/, '/')])

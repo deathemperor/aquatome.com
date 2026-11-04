@@ -7,7 +7,14 @@
   "compatibility_date": "2026-10-28",
   "assets": {
     "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page", "html_handling": "force-trailing-slash",
-    "run_worker_first": ["/", "/.well-known/api-catalog", "/.well-known/apple-app-site-association", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*"]
+    // The Worker runs first on every Vietnamese page (the root and each section, worker/paths.ts VI_SECTIONS; a test keeps
+    // them equal) and on the old /vi/ addresses, which it 301s to the root.
+    "run_worker_first": [
+      "/", "/.well-known/api-catalog", "/.well-known/apple-app-site-association", "/vi", "/vi/*",
+      "/ca/*", "/cay/*", "/chinh-sach-bao-mat/*", "/cong-cu/*", "/dang-nhap/*", "/gioi-thieu/*", "/huong-dan/*", "/kham-pha/*", "/lien-he/*", "/moi-cap-nhat/*",
+      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/video/*",
+      "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*"
+    ]
   },
   // The owner's dashboard (/_ab/) opens only to the owner's account signed in on the site: secret OWNER_ACCOUNTS, the
   // account ids, comma-separated. Secret AB_DASH_TOKEN is the build's and scripts' bearer token (/_ab/hidden.json and the

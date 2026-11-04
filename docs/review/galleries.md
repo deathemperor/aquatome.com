@@ -2,15 +2,15 @@
 
 Written by `pnpm engine gallery` (2026-11-04). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
-| Tier | Target | Species | Plants | At target | Below |
-| --- | --- | --- | --- | --- | --- |
-| staple | 100 | 12 | 0 | 4 | 8 |
-| shop | 60 | 124 | 77 | 27 | 174 |
-| popular | 40 | 21 | 0 | 2 | 19 |
-| covered | 30 | 277 | 3 | 7 | 273 |
-| rest | 20 | 881 | 94 | 1 | 974 |
+| Tier | Target | Species | Plants | Breeds | At target | Below |
+| --- | --- | --- | --- | --- | --- | --- |
+| staple | 100 | 12 | 0 | 0 | 4 | 8 |
+| shop | 60 | 124 | 77 | 24 | 29 | 196 |
+| popular | 40 | 21 | 0 | 0 | 2 | 19 |
+| covered | 30 | 277 | 3 | 9 | 7 | 282 |
+| rest | 20 | 881 | 94 | 0 | 1 | 974 |
 
-## Short of target: every source read (25)
+## Short of target: every source read (29)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -24,9 +24,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/puntius-titteya | staple | 9 | 100 |
 | species/danio-rerio | staple | 35 | 100 |
 | species/mikrogeophagus-ramirezi | staple | 28 | 100 |
+| breeds/balloon-molly | shop | 2 | 60 |
 | species/anentome-helena | shop | 14 | 60 |
 | plants/anubias-barteri | shop | 14 | 60 |
+| breeds/flowerhorn-cichlid | shop | 23 | 60 |
 | plants/microsorum-pteropus | shop | 33 | 60 |
+| species/gymnocorymbus-ternetzi | shop | 48 | 60 |
+| plants/blyxa-japonica | shop | 2 | 60 |
 | species/hyphessobrycon-herbertaxelrodi | shop | 11 | 60 |
 | species/phenacogrammus-interruptus | shop | 16 | 60 |
 | species/corydoras-similis | shop | 0 | 60 |
