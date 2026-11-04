@@ -89,7 +89,8 @@ struct AquaTomeApp: App {
       .onChange(of: tanks.store) { account.changed() }
       .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
       .task { await OwnCopy.check() }
-      // After the first screen: iOS's reports, and sending every 30 s once the site and the reader allow it.
+      // After the first screen: iOS's reports, and sending every 30 s once the site (its index read fresh this launch)
+      // and the reader allow it.
       .task { await telemetry.start() }
       .onChange(of: handbook.siteTelemetry, initial: true) { if let on = handbook.siteTelemetry { telemetry.siteAllows(on) } }
       .onChange(of: tab, initial: true) { telemetry.telemetry.record(.view(tab.screen)) }
@@ -101,8 +102,13 @@ struct AquaTomeApp: App {
       .preferredColorScheme(Self.testScheme)
       #if DEBUG
       .background {
-        // What the stand-in Worker received, for the UI tests to read (debug builds only).
-        Text(verbatim: telemetry.received.isEmpty ? "none" : telemetry.received.joined(separator: " | ")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("telemetry-received")
+        // What the stand-in Worker received, and whether the queue's file is on the phone, for the UI tests to read
+        // (debug builds only).
+        VStack {
+          Text(verbatim: telemetry.received.isEmpty ? "none" : telemetry.received.joined(separator: " | ")).accessibilityIdentifier("telemetry-received")
+          Text(verbatim: telemetry.queueKept ? "kept" : "none").accessibilityIdentifier("telemetry-queue")
+        }
+        .font(.system(size: 1)).opacity(0.01)
       }
       #endif
     }

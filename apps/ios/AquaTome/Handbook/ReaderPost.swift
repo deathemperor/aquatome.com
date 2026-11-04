@@ -117,8 +117,8 @@ struct ReaderPost: View {
     switch answer {
     case .shown?, .held?, .received?: telemetry.telemetry.record(.action(action, ok: true))
     case let .refused(code)?: telemetry.telemetry.record(.action(action, refused: code))
-    case .signedOut?: telemetry.telemetry.record(.action(action, ok: false, kind: "signed-out"))
-    case nil: telemetry.telemetry.record(.action(action, ok: false, kind: "no-answer"))
+    case .signedOut?: telemetry.telemetry.record(.action(action, ok: false, kind: .signedOut))
+    case nil: telemetry.telemetry.record(.action(action, ok: false, kind: .noAnswer))
     }
     switch answer {
     case let .shown(c)?:

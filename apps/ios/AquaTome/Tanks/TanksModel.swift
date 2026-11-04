@@ -63,7 +63,7 @@ final class TanksModel {
       try s.updateTank(t.id) { change(&$0) }
       try commit(s)
     } catch {
-      telemetry?.record(.action(.tankAdd, error: error))
+      telemetry?.record(.action(.tankAdd, ok: false, kind: Event.Kind(error)))
       throw error
     }
     telemetry?.record(.action(.tankAdd, ok: true))

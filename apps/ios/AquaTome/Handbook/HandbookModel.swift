@@ -41,7 +41,8 @@ final class HandbookModel {
   private(set) var labels = HandbookIndex.Labels()
   /// How many shards of pages each kind has: the kinds the app draws itself (PageDoc).
   private var shardCounts: [String: Int] = [:]
-  /// Whether the site takes the app's anonymous telemetry, as its index last read says; nil until one is read.
+  /// Whether the site takes the app's anonymous telemetry, as its index read fresh this launch says; nil until then. Not
+  /// from the copy kept from an earlier launch: a flag the site has turned off since must not let anything go.
   private(set) var siteTelemetry: Bool?
   /// The app's anonymous telemetry: each page opened. The app sets it.
   @ObservationIgnored var telemetry: Telemetry?
@@ -267,6 +268,9 @@ final class HandbookModel {
         pagesLater = ix
         return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels, telemetry: ix.telemetry), .ready)
       }
+      // `-index-kept-only`: only the copy kept from an earlier launch is read, and the site's never comes (offline, or a
+      // slow site).
+      if ProcessInfo.processInfo.arguments.contains("-index-kept-only") { return use(ix, .offline) }
       #endif
       return use(ix, .ready)
     }
@@ -294,7 +298,7 @@ final class HandbookModel {
     matcher = PageMatcher(index: ix.items)
     byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
     shardCounts = ix.pages
-    siteTelemetry = ix.telemetry
+    if s == .ready { siteTelemetry = ix.telemetry }
     dropKeptOfOtherCounts()
     shelves = HandbookShelves(ix)
     labels = ix.labels

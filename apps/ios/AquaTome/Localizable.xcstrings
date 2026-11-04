@@ -4449,22 +4449,6 @@
         }
       }
     },
-    "Trang bạn mở, thời gian đọc, kết quả một số thao tác và báo cáo lỗi của iOS, không gắn với tài khoản hay tên của bạn.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Halaman yang Anda buka, waktu baca, hasil beberapa tindakan, dan laporan kesalahan dari iOS, tanpa dikaitkan dengan akun atau nama Anda."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "หน้าที่คุณเปิด เวลาที่ใช้อ่าน ผลของการทำงานบางอย่าง และรายงานข้อผิดพลาดจาก iOS โดยไม่ผูกกับบัญชีหรือชื่อของคุณ"
-          }
-        }
-      }
-    },
     "Trong dự án: Devices → Link App Account → Add App Account. Mở Smart Life, bấm Tôi → biểu tượng quét ở góc trên, rồi quét mã QR trên màn hình.": {
       "localizations": {
         "id": {
@@ -5773,6 +5757,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "https://aquatome.com/th/privacy/#tai-khoan"
+          }
+        }
+      }
+    },
+    "https://aquatome.com/vi/chinh-sach-bao-mat/#thong-ke-ung-dung": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/id/kebijakan-privasi/#thong-ke-ung-dung"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/th/privacy/#thong-ke-ung-dung"
           }
         }
       }

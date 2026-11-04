@@ -4,7 +4,7 @@ import Foundation
 /// lists: the page opened (its site path) or the app's screen, how far down it was read and for how long, a shop link
 /// tapped, and how some actions went. Never an account, a name, a device's address or name, a tank's name, search text
 /// or a photo: the constructors below are the only way to make one, and each takes a fixed name, a number, a site path
-/// or a short code. One the contract would refuse is never sent (`fits`).
+/// or a code from a fixed list (`Kind`, `refusals`). One the contract would refuse is never sent (`fits`).
 public struct Event: Codable, Sendable, Equatable {
   /// `view`, `scroll`, `time`, `aff` or `action`.
   public let t: String
@@ -21,7 +21,8 @@ public struct Event: Codable, Sendable, Equatable {
   /// The shop a shop link goes to (the network in its /go/ link), and the link itself, on the site.
   public let shop: String?
   public let href: String?
-  /// An action's name (`Action`), whether it worked, and why not: an error kind, a refusal code, or fish ID's verdict.
+  /// An action's name (`Action`), whether it worked, and why not (`Kind`, or "refused:" and one of `refusals`), or fish
+  /// ID's verdict.
   public let name: String?
   public let ok: Bool?
   public let kind: String?
@@ -37,7 +38,7 @@ public struct Event: Codable, Sendable, Equatable {
     self.href = href
     self.name = name
     self.ok = ok
-    self.kind = kind.map(Self.code)
+    self.kind = kind
   }
 
   /// A page of the site opened in the app, drawn by the app or as the web page.
@@ -65,15 +66,20 @@ public struct Event: Codable, Sendable, Equatable {
     }
     return Event("aff", path: path, shop: shop, href: href)
   }
-  /// How an action went: `kind` says why it didn't (or, for fish ID, its verdict).
-  public static func action(_ a: Action, ok: Bool, kind: String? = nil) -> Event { Event("action", name: a.rawValue, ok: ok, kind: kind) }
-  /// An action that failed, by its error's case (`BluetoothError.notFound` is "not-found"), never its text or what it
-  /// holds.
-  public static func action(_ a: Action, error: any Error) -> Event {
-    action(a, ok: false, kind: String(String(describing: error).prefix { isLetter($0) || isDigit($0) }))
+  /// How an action went: `kind` says why it didn't (or, for fish ID, its verdict), from a fixed list.
+  public static func action(_ a: Action, ok: Bool, kind: Kind? = nil) -> Event { Event("action", name: a.rawValue, ok: ok, kind: kind?.rawValue) }
+  /// A post the site refused, by its code: "refused:<code>" for one of `refusals`, "refused:other" for any other.
+  public static func action(_ a: Action, refused code: String) -> Event {
+    Event("action", name: a.rawValue, ok: false, kind: "refused:" + (refusals.contains(code) ? code : Kind.other.rawValue))
   }
-  /// A post the server refused, by its code: "refused:<code>".
-  public static func action(_ a: Action, refused code: String) -> Event { action(a, ok: false, kind: "refused:" + code) }
+
+  /// The codes the site's Worker refuses a reader's comment or photo with (apps/site/worker/comments/api.ts,
+  /// apps/site/worker/photos.ts; protocols/talk.openapi.json), as `Readers.answer` gives them; "failed" when it gave none.
+  /// Only these are sent as they are: a code the Worker adds later is "other" until it's listed here.
+  public static let refusals: Set<String> = [
+    "rate", "too large", "bad name", "bad entity", "bad form", "consent", "kind", "no file", "not an image", "not found",
+    "comments_off", "photos_off", "turnstile", "verification_required", "cross-origin", "failed",
+  ]
 
   /// The scroll depths a page reports, as the site's pages do (apps/site/src/layouts/Base.astro).
   public static let depths = [50, 90]
@@ -134,18 +140,6 @@ public struct Event: Codable, Sendable, Equatable {
     return kind.allSatisfy { isLower($0) || isDigit($0) || " _:.-".contains($0) }
   }
 
-  /// A short code as the contract takes it: a case's name in lowercase, its words split by "-" ("plugOffline" is
-  /// "plug-offline"); anything else, such as a message or a device's name with spaces, is sent as "other".
-  static func code(_ s: String) -> String {
-    var out = ""
-    var last: Character?
-    for c in s {
-      if c.isUppercase, let l = last, l.isLowercase || l.isNumber { out.append("-") }
-      out += c.lowercased()
-      last = c
-    }
-    return fits(kind: out) ? out : "other"
-  }
 }
 
 private func isLower(_ c: Character) -> Bool { c.isASCII && c.isLowercase }
@@ -160,13 +154,37 @@ public enum Screen: String, Sendable, CaseIterable {
   case tank, shelf
 }
 
+extension Event {
+  /// Why an action didn't work, or fish ID's verdict: the only words an `action` event carries. An error the app has no
+  /// case for here is `other`; never an error's text or what it holds (a light's or plug's name, a message).
+  public enum Kind: String, Sendable, CaseIterable {
+    // A light (Lights): none found by its name, a model the app doesn't drive, or a schedule it didn't read back; then
+    // Bluetooth's errors (BluetoothError) and the light's (SessionError).
+    case notNearby = "not-nearby", unsupportedModel = "unsupported-model", notReadBack = "not-read-back"
+    case unauthorized, poweredOff = "powered-off", unsupported, timeout, notFound = "not-found", disconnected
+    case noUART = "no-uart", failed, busy, firmwareTooOld = "firmware-too-old", noStatus = "no-status"
+    // A plug (PlugBoard's outcome), then the maker's cloud's errors (PlugError); `busy` and `notFound` above too.
+    case unconfirmed, unknown, offline, badKeys = "bad-keys", expired, notSubscribed = "not-subscribed", quota, clock
+    case noAccess = "no-access", plugOffline = "plug-offline", noSuchPlug = "no-such-plug", maker, badReply = "bad-reply"
+    // A tank not added (TankStoreError).
+    case unknownVersion = "unknown-version", notAStore = "not-a-store", tooManyTanks = "too-many-tanks"
+    case tooManyDevices = "too-many-devices", blankName = "blank-name", invalid
+    // A post: the account's session over, or no answer from the site.
+    case signedOut = "signed-out", noAnswer = "no-answer"
+    // Fish ID's verdict (protocols/fishid.openapi.json): never what the photo shows, by name or species.
+    case fish, plant, unclear
+    /// Anything else.
+    case other
+  }
+}
+
 /// The actions whose outcome is sent.
 public enum Action: String, Sendable, CaseIterable {
   case lightConnect = "light.connect"
   case lightWrite = "light.write"
   case plugSwitch = "plug.switch"
-  /// Fish ID's answer to a reader's photo, `kind` its verdict (never the photo): recorded by the fish ID screen's model
-  /// where its answer comes, once that screen is in the app.
+  /// Fish ID's answer to a reader's photo, `kind` its verdict (`fish`, `plant`, `unclear` or `other`; never the photo or
+  /// a species): recorded by the fish ID screen's model where its answer comes, once that screen is in the app.
   case fishID = "fishid"
   case tankAdd = "tank.add"
   case postComment = "post.comment"

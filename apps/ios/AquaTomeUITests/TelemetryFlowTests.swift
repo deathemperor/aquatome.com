@@ -1,9 +1,10 @@
 import XCTest
 
 /// The app's anonymous telemetry, against the simulator's stand-in Worker (`FakeCollector`, in `TelemetryModel`),
-/// whose requests the app shows the tests (`telemetry-received`). It sends nothing until the site's index says it takes
-/// it (`-site-telemetry` on the fixed index), sends every 30 s and when the app goes to the background, and nothing it
-/// sends names the reader's account or a light.
+/// whose requests the app shows the tests (`telemetry-received`), with whether the queue's file is on the phone
+/// (`telemetry-queue`). It sends nothing until the site's index, read fresh, says it takes it (`-site-telemetry` on the
+/// fixed index), sends every 30 s and when the app goes to the background, and nothing it sends names the reader's
+/// account or a light.
 final class TelemetryFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -21,6 +22,16 @@ final class TelemetryFlowTests: XCTestCase {
     leaveAndComeBack(app)
     expectSent(app, #""path":"/vi/huong-dan/nuoi-ca-neon/","t":"view""#)
     expectSent(app, #""screen":"handbook","t":"view""#)
+  }
+
+  func testTheFlagOfTheIndexKeptFromBeforeSendsNothingWhileTheSitesDoesntCome() {
+    // The index kept from an earlier launch says the site takes it, and the site's own never comes (offline, or slow):
+    // the site may have turned it off since.
+    let app = launch("-site-telemetry", "-index-kept-only")
+    openGuide(app)
+    leaveAndComeBack(app)
+    let quiet = expectation(for: NSPredicate(format: "label != 'none'"), evaluatedWith: received(app))
+    XCTAssertEqual(XCTWaiter.wait(for: [quiet], timeout: 5), .timedOut, "sent on the kept index's flag: \(received(app).label)")
   }
 
   func testConnectingTheLightIsSentWithoutTheLightsNameOrTheAccount() {
@@ -57,7 +68,10 @@ final class TelemetryFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
     addTank(app)
     leaveAndComeBack(app)
+    expectQueue(app, "kept")
     toggle(app, on: false)
+    // Emptied by the switch itself, before any relaunch.
+    expectQueue(app, "none")
     app.terminate()
 
     // The next launch, the Worker up: the switch is still off, and nothing goes.
@@ -75,6 +89,17 @@ final class TelemetryFlowTests: XCTestCase {
     XCTAssertFalse(received(app).label.contains(#""screen":"tanks""#), "recorded with the switch off")
   }
 
+  func testWithNoTanksAndSignedOutTheSwitchIsThereAndOffEmptiesTheQueue() {
+    // The Worker down: the tabs opened wait in the queue's file.
+    let app = launch("-site-telemetry", "-telemetry-down")
+    app.openTab("Bể của tôi")
+    XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "not the empty tanks tab")
+    leaveAndComeBack(app)
+    expectQueue(app, "kept")
+    toggle(app, on: false)
+    expectQueue(app, "none")
+  }
+
   // MARK: Helpers
 
   private func launch(_ args: String..., reset: Bool = true) -> XCUIApplication {
@@ -85,6 +110,13 @@ final class TelemetryFlowTests: XCTestCase {
   }
 
   private func received(_ app: XCUIApplication) -> XCUIElement { app.descendants(matching: .any)["telemetry-received"].firstMatch }
+
+  /// "kept" or "none": whether the queue's file is on the phone.
+  private func expectQueue(_ app: XCUIApplication, _ state: String, file: StaticString = #filePath, line: UInt = #line) {
+    let queue = app.descendants(matching: .any)["telemetry-queue"].firstMatch
+    let seen = expectation(for: NSPredicate(format: "label == %@", state), evaluatedWith: queue)
+    XCTAssertEqual(XCTWaiter.wait(for: [seen], timeout: 10), .completed, "the queue's file: \(queue.label), not \(state)", file: file, line: line)
+  }
 
   private func expectSent(_ app: XCUIApplication, _ part: String, file: StaticString = #filePath, line: UInt = #line) {
     let sent = expectation(for: NSPredicate(format: "label CONTAINS %@", part), evaluatedWith: received(app))
@@ -113,7 +145,7 @@ final class TelemetryFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "the tank isn't listed")
   }
 
-  /// "Gửi thống kê ẩn danh", at the end of the tanks list.
+  /// "Gửi thống kê ẩn danh", in Bể của tôi: at the end of its list, or under the empty tab's sign-in.
   private func toggle(_ app: XCUIApplication, on: Bool) {
     let s = app.switches["telemetry-switch"]
     for _ in 0..<6 where !(s.exists && s.isHittable) { app.swipeUp() }

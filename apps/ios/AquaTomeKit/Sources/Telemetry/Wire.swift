@@ -21,8 +21,8 @@ public enum Wire {
   /// A batch's body: `{app, os, device, lang, session, events}`.
   static func body(_ b: Batch) -> Data { (try? encoder.encode(b)) ?? Data() }
 
-  /// A diagnostics report's body: `{kind, app, os, device, payload}`, MetricKit's own JSON written in as `payload`,
-  /// unparsed.
+  /// A diagnostics report's body: `{kind, app, os, device, payload}`, the payload (`Diagnostic.kept`) written in as it
+  /// is.
   static func body(_ d: Diagnostic) -> Data {
     let head = (try? encoder.encode(Report(kind: d.kind, app: d.about.app, os: d.about.os, device: d.about.device))) ?? Data("{}".utf8)
     return head.dropLast() + Data(#","payload":"#.utf8) + Data(d.payload.utf8) + Data("}".utf8)
@@ -92,7 +92,8 @@ struct Batch: Codable, Sendable, Equatable {
   let os: String
   let device: String
   let lang: String
-  /// Random for each launch of the app; never kept for another. A batch waiting on the phone keeps its own until sent.
+  /// Random, made anew at each launch and never reused for another launch. A batch waiting in the queue keeps its
+  /// launch's until it is sent.
   let session: String
   var events: [Event]
 
@@ -106,12 +107,60 @@ struct Batch: Codable, Sendable, Equatable {
   }
 }
 
-/// A crash, hang, launch or memory report from iOS (MetricKit), sent as iOS wrote it.
+/// A crash, hang, launch or memory report from iOS (MetricKit), cut down to what the privacy policy names (`kept`).
 public struct Diagnostic: Codable, Sendable, Equatable {
   /// `metric`: a day's measures (launch time, memory, hangs…); `diagnostic`: a crash or hang with its call stacks.
   public enum Kind: String, Codable, Sendable { case metric, diagnostic }
   public let kind: Kind
   let about: About
-  /// MetricKit's `jsonRepresentation()`, as text.
+  /// MetricKit's `jsonRepresentation()`, cut down (`kept`), as text.
   let payload: String
+
+  /// What of MetricKit's `jsonRepresentation()` is sent, as the privacy policy names it: unexpected quits, hangs, launch
+  /// time and memory, and crashes and hangs with their call stacks; nil when none of that is in it. From the report's
+  /// own details only the app's build, iOS's version and the phone's model. The rest never leaves the phone: the
+  /// phone's region and low power mode, network, cellular, location, display, GPU, disk and animation measures, other
+  /// kinds of diagnostics, and any free text (an exception's message, a reason for ending the app).
+  static func kept(_ kind: Kind, json: Data) -> Data? {
+    guard let all = try? JSONSerialization.jsonObject(with: json) as? [String: Any],
+          let kept = Keep.apply(all, kind == .metric ? Keep.metric : Keep.diagnostic) as? [String: Any],
+          kept.contains(where: { k, v in k != "metaData" && (v as? [Any])?.isEmpty != true }) else { return nil }
+    return try? JSONSerialization.data(withJSONObject: kept, options: [.sortedKeys, .withoutEscapingSlashes])
+  }
+
+  /// A part of a report kept: whole, only the fields named (in each item, for a list), or a call stack's frame.
+  private indirect enum Keep: Sendable {
+    case all, frame
+    case only([String: Keep])
+
+    /// The report's details (`metaData`, a diagnostic's `diagnosticMetaData`): the build, iOS's version, the model.
+    static let about: [String: Keep] = ["appBuildVersion": .all, "osVersion": .all, "deviceType": .all]
+    static let metric = Keep.only([
+      "metaData": .only(about), "applicationExitMetrics": .all, "applicationResponsivenessMetrics": .all,
+      "applicationLaunchMetrics": .all, "memoryMetrics": .all,
+    ])
+    /// The threads' call stacks: frames by their binary's name and id and an address in it.
+    static let stacks = Keep.only(["callStackPerThread": .all, "callStacks": .only(["threadAttributed": .all, "callStackRootFrames": .frame])])
+    static let frameFields: [String: Keep] = [
+      "binaryUUID": .all, "binaryName": .all, "address": .all, "offsetIntoBinaryTextSegment": .all, "sampleCount": .all, "subFrames": .frame,
+    ]
+    static let diagnostic = Keep.only([
+      "crashDiagnostics": .only(["version": .all, "callStackTree": stacks,
+                                 "diagnosticMetaData": .only(about.merging(["exceptionType": .all, "exceptionCode": .all, "signal": .all]) { a, _ in a })]),
+      "hangDiagnostics": .only(["version": .all, "callStackTree": stacks, "diagnosticMetaData": .only(about.merging(["hangDuration": .all]) { a, _ in a })]),
+    ])
+
+    static func apply(_ v: Any, _ keep: Keep) -> Any? {
+      if let list = v as? [Any] { return list.compactMap { apply($0, keep) } }
+      switch keep {
+      case .all: return v
+      case .frame: return apply(v, .only(frameFields))
+      case .only(let fields):
+        guard let o = v as? [String: Any] else { return nil }
+        var out: [String: Any] = [:]
+        for (k, f) in fields { if let x = o[k], let y = apply(x, f) { out[k] = y } }
+        return out
+      }
+    }
+  }
 }

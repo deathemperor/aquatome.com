@@ -74,8 +74,9 @@ private let sent: [Event] = [.view(path: neon), .view(path: "/th/"), .scroll(pat
   + [.aff(path: neon, link: URL(string: "https://aquatome.com/go/shopee/?k=c%C3%A1%20neon&c=fish")!)!,
      .aff(path: neon, link: URL(string: "https://aquatome.com/go/lazada/?k=ca(neon)/1:2")!)!,
      .aff(path: neon, link: URL(string: "https://aquatome.com/go/tiki")!)!]
-  + Action.allCases.flatMap { [Event.action($0, ok: true), .action($0, ok: false, kind: "timeout"), .action($0, refused: "rate_limited")] }
-  + [.action(.lightConnect, error: CocoaError(.fileNoSuchFile)), .action(.fishID, ok: true, kind: "betta-splendens")]
+  + Action.allCases.flatMap { [Event.action($0, ok: true), .action($0, ok: false, kind: .timeout), .action($0, refused: "rate")] }
+  + Event.Kind.allCases.map { .action(.lightConnect, ok: false, kind: $0) } + Event.refusals.map { .action(.postPhoto, refused: $0) }
+  + [.action(.postComment, refused: "a code the Worker adds later"), .action(.fishID, ok: true, kind: .fish)]
 
 @Test("Batches of every event the app sends fit the contract's Batch, and a report its Report")
 func sentFitsTheContract() {
@@ -88,11 +89,16 @@ func sentFitsTheContract() {
   b.events[99].at = Event.maxAt
   #expect(misfits(json(Wire.body(b)), schema("Batch")) == [])
 
-  let payload = #"{"appVersion":"1.0","metaData":{"appBuildVersion":"114","osVersion":"iPhone OS 26.5"},"cpuMetrics":{"cumulativeCPUTime":"12 sec"}}"#
-  for kind in [Diagnostic.Kind.metric, .diagnostic] {
-    let body = Wire.body(Diagnostic(kind: kind, about: about, payload: payload))
-    #expect(misfits(json(body), schema("Report")) == [])
+  // iOS's reports, as the app cuts them down.
+  for (kind, sample) in [(Diagnostic.Kind.metric, metricSample), (.diagnostic, diagnosticSample())] {
+    let payload = String(decoding: Diagnostic.kept(kind, json: sample)!, as: UTF8.self)
+    #expect(misfits(json(Wire.body(Diagnostic(kind: kind, about: about, payload: payload))), schema("Report")) == [])
   }
+}
+
+/// An action with any `kind`, as the app can't make one (its kinds are a fixed list): to check `fits` against the contract.
+private func action(kind: String) -> Event {
+  try! JSONDecoder().decode(Event.self, from: JSONSerialization.data(withJSONObject: ["t": "action", "at": 0, "name": "plug.switch", "ok": false, "kind": kind] as [String: Any]))
 }
 
 @Test("What the app refuses to send is what the contract refuses: each event, and the batch's fields made to fit")
@@ -104,8 +110,8 @@ func refusesWhatTheContractRefuses() {
     .view(path: "/vi/cá/"), .view(path: "/vi/" + String(repeating: "a", count: 196) + "/"), .view(path: "/vi/" + String(repeating: "a", count: 195) + "/"),
     .scroll(path: neon, depth: 25), .scroll(path: neon, depth: 100), .scroll(path: "/en/", depth: 50),
     .time(path: neon, seconds: 45), .time(path: neon, seconds: 0), late,
-    .action(.plugSwitch, ok: false, kind: "DYSL30A1B2C3 không trả lời"), .action(.plugSwitch, ok: false, kind: String(repeating: "a", count: 41)),
-    .action(.plugSwitch, ok: false, kind: "plugOffline"), .action(.lightConnect, ok: false, kind: "-x"),
+    action(kind: "DYSL30A1B2C3 không trả lời"), action(kind: String(repeating: "a", count: 41)), action(kind: "plugOffline"), action(kind: "-x"),
+    action(kind: "refused:name must be 1–40 characters"),
   ]
   for e in candidates {
     let refused = misfits(json(e), schema("Event"))

@@ -12,12 +12,17 @@ import UIKit
 @Observable
 @MainActor
 final class TelemetryModel {
-  /// "Gửi thống kê ẩn danh". Off drops what waits to be sent, and nothing more is recorded.
+  /// "Gửi thống kê ẩn danh". Off, at once, nothing more is recorded or sent, and what waits is dropped (the queue's
+  /// file a moment later).
   var readerOn: Bool {
     didSet {
       UserDefaults.standard.set(readerOn, forKey: Self.key)
-      let on = readerOn
-      Task { await telemetry.readerAllows(on) }
+      #if DEBUG
+      let clearing = telemetry.readerAllows(readerOn)
+      Task { await clearing?.value; look() }
+      #else
+      telemetry.readerAllows(readerOn)
+      #endif
     }
   }
   @ObservationIgnored let telemetry: Telemetry
@@ -25,6 +30,9 @@ final class TelemetryModel {
   #if DEBUG
   /// What the stand-in Worker received (the newest last), for the UI tests to read.
   fileprivate(set) var received: [String] = []
+  /// Whether the queue's file is on the phone, for the UI tests to read: looked at after each send and each switch.
+  private(set) var queueKept = false
+  private func look() { queueKept = FileManager.default.fileExists(atPath: Self.file.path(percentEncoded: false)) }
   #endif
 
   private static let key = "telemetry.on"
@@ -48,6 +56,8 @@ final class TelemetryModel {
     })
     // `-telemetry-down`: it answers 503, as a Worker that's down (or a phone offline) leaves the queue waiting.
     if ProcessInfo.processInfo.arguments.contains("-telemetry-down") { fake.answer(503) }
+    // `-reset-defaults`: no queue left by an earlier test.
+    if ProcessInfo.processInfo.arguments.contains("-reset-defaults") { try? FileManager.default.removeItem(at: Self.file) }
     send = { try await fake.send($0) }
     #endif
     telemetry = Telemetry(about: about, readerAllows: on, file: Self.file, site: AccountsClient.site, send: send, userAgent: mark)
@@ -67,8 +77,15 @@ final class TelemetryModel {
     await telemetry.run()
   }
 
-  /// The site's index said whether it takes the app's telemetry.
-  func siteAllows(_ on: Bool) { Task { await telemetry.siteAllows(on) } }
+  /// The site's index, read fresh this launch, said whether it takes the app's telemetry.
+  func siteAllows(_ on: Bool) {
+    #if DEBUG
+    let clearing = telemetry.siteAllows(on)
+    Task { await clearing?.value; look() }
+    #else
+    telemetry.siteAllows(on)
+    #endif
+  }
 
   /// The app went to the background: what's recorded goes now, with a little time asked of iOS to finish.
   func leave() {
@@ -77,6 +94,9 @@ final class TelemetryModel {
     id = UIApplication.shared.beginBackgroundTask(withName: "telemetry") { UIApplication.shared.endBackgroundTask(id) }
     Task {
       await t.flush()
+      #if DEBUG
+      look()
+      #endif
       UIApplication.shared.endBackgroundTask(id)
     }
   }
@@ -102,7 +122,7 @@ private final class Relay {
 #endif
 
 /// iOS's reports, as MetricKit gives them: a day's measures (launch time, memory, hangs) and crashes and hangs with their
-/// call stacks, each sent as iOS wrote it.
+/// call stacks, each cut down to what the privacy policy names before it's kept (`Telemetry.diagnostic`).
 private final class Reports: NSObject, MXMetricManagerSubscriber, Sendable {
   let telemetry: Telemetry
   init(_ telemetry: Telemetry) { self.telemetry = telemetry }

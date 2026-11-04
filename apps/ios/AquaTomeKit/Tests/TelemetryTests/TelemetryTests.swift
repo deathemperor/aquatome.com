@@ -21,7 +21,7 @@ private func telemetry(_ fake: FakeCollector, file: URL? = nil, clock: Clock = C
                        ours: Bool = false) async -> Telemetry {
   let t = Telemetry(about: about, readerAllows: reader, file: file, site: site, send: { try await fake.send($0) },
                     userAgent: { ours ? "AquaTome-iOS AquaTomeCheck/1" : nil }, now: { clock.now })
-  if let on { await t.siteAllows(on) }
+  if let on { await t.siteAllows(on)?.value }
   return t
 }
 
@@ -33,14 +33,14 @@ private func tempFile() -> URL { FileManager.default.temporaryDirectory.appendin
 private let everyKind: [Event] = [.view(path: "/vi/ca/ca-neon/")] + Screen.allCases.map { Event.view($0) } + [
   .scroll(path: "/vi/ca/ca-neon/", depth: 50), .time(path: "/vi/ca/ca-neon/", seconds: 30),
   .aff(path: "/vi/ca/ca-neon/", link: URL(string: "https://aquatome.com/go/shopee/?k=ca+neon&c=fish")!)!,
-] + Action.allCases.flatMap { [Event.action($0, ok: true), Event.action($0, ok: false, kind: "timeout")] }
+] + Action.allCases.flatMap { [Event.action($0, ok: true), Event.action($0, ok: false, kind: .timeout)] }
 
 @Test("A batch as the contract has it: the app, iOS, the phone's model, the language, the session, and each event's fields")
 func encodesABatch() async throws {
   var b = Batch(about, session: "6f1c9a52-6d0e-4a8e-9a43-0f5a1d2c3b4e", events: [
     .view(path: "/vi/ca/ca-neon/"), .view(.tanks), .scroll(path: "/vi/ca/ca-neon/", depth: 50), .time(path: "/vi/ca/ca-neon/", seconds: 30),
     .aff(path: "/vi/ca/ca-neon/", link: URL(string: "https://aquatome.com/go/shopee/?k=ca%20neon&c=fish")!)!,
-    .action(.lightConnect, ok: true), .action(.plugSwitch, ok: false, kind: "plugOffline"),
+    .action(.lightConnect, ok: true), .action(.plugSwitch, ok: false, kind: .plugOffline),
   ])
   for i in b.events.indices { b.events[i].at = 1000 * i }
   let expected = """
@@ -75,14 +75,13 @@ func carriesOnlyThePolicysFields() async throws {
   #expect(Set(report.allKeys as! [String]).isSubset(of: Wire.diagnosticFields))
   #expect(report["lang"] == nil)
 
-  // An error's message, or a light's name in it, is not a code: sent as "other".
-  #expect(Event.action(.lightConnect, ok: false, kind: "DYSL30A1B2C3 không trả lời").kind == "other")
-  #expect(Event.action(.postComment, refused: "rate_limited").kind == "refused:rate_limited")
-  #expect(Event.action(.lightWrite, ok: false, kind: String(repeating: "a", count: 41)).kind == "other")
-  // An error by its case alone, in lowercase: not the text or the name it carries.
-  enum LinkError: Error { case timeout, notFound, failed(String) }
-  #expect(Event.action(.lightConnect, error: LinkError.failed("DYSL30A1B2C3 không trả lời")).kind == "failed")
-  #expect(Event.action(.lightConnect, error: LinkError.notFound).kind == "not-found")
+  // A code is from a fixed list (Event.Kind), and a refusal's is one of the site's: any other refusal, such as a message
+  // or a light's name in it, is sent as "other".
+  #expect(Event.action(.plugSwitch, ok: false, kind: .noSuchPlug).kind == "no-such-plug")
+  #expect(Event.action(.postComment, refused: "rate").kind == "refused:rate")
+  #expect(Event.action(.postComment, refused: "DYSL30A1B2C3 không trả lời").kind == "refused:other")
+  #expect(Event.action(.postPhoto, refused: "name must be 1–40 characters").kind == "refused:other")
+  #expect(Event.action(.postPhoto, refused: "rate_limited").kind == "refused:other")
   // A path with a query (a search's words) isn't sent.
   let t = await telemetry(FakeCollector())
   t.record(.view(path: "/vi/tim/?q=ca+dia"))
@@ -212,17 +211,17 @@ func readersSwitchClearsTheQueue() async throws {
   let queued = await t.queued.events
   #expect(queued.count == 1 && t.recorded.count == 1)
 
-  await t.readerAllows(false)
+  await t.readerAllows(false)?.value
   let after = await t.queued.events
   #expect(after.isEmpty && t.recorded.isEmpty)
   #expect(!FileManager.default.fileExists(atPath: file.path), "the file is still there")
   t.record(.view(.handbook))
-  t.diagnostic(.metric, json: Data("{}".utf8))
+  t.diagnostic(.metric, json: metricSample)
   fake.answer(nil)
   await t.flush()
   #expect(t.recorded.isEmpty && fake.received.count == 1)
 
-  await t.readerAllows(true)
+  #expect(t.readerAllows(true) == nil)
   t.record(.view(.handbook))
   clock.pass(30) // the first failure's wait
   await t.flush()
@@ -240,15 +239,15 @@ func waitsForTheSite() async throws {
   #expect(fake.received.isEmpty && !FileManager.default.fileExists(atPath: file.path))
   #expect(t.recorded.count == 1)
   // Known now, and on.
-  await t.siteAllows(true)
+  t.siteAllows(true)
   await t.flush()
   #expect(fake.received.count == 1)
 
   // Off: what waits goes, and nothing more is kept.
   t = await telemetry(fake, file: file, site: nil)
   t.record(.view(.handbook))
-  t.diagnostic(.diagnostic, json: Data("{}".utf8))
-  await t.siteAllows(false)
+  t.diagnostic(.diagnostic, json: diagnosticSample())
+  await t.siteAllows(false)?.value
   #expect(t.recorded.isEmpty)
   t.record(.view(.lights))
   await t.flush()
@@ -260,7 +259,7 @@ func waitsForTheSite() async throws {
   await before.flush()
   #expect(FileManager.default.fileExists(atPath: file.path))
   let later = await telemetry(fake, file: file, site: nil)
-  await later.siteAllows(false)
+  await later.siteAllows(false)?.value
   #expect(!FileManager.default.fileExists(atPath: file.path))
 }
 
@@ -286,18 +285,55 @@ func outlastsALaunch() async throws {
 func sendsDiagnostics() async throws {
   let fake = FakeCollector()
   let t = await telemetry(fake)
-  for i in 0..<10 { t.diagnostic(.diagnostic, json: Data(#"{"n":\#(i)}"#.utf8)) }
+  for i in 0..<10 { t.diagnostic(.diagnostic, json: diagnosticSample(hang: "\(i) sec")) }
   t.record(.view(.tanks))
   await t.flush()
   #expect(fake.received.map(\.path) == ["/api/v1/app/events"] + Array(repeating: "/api/v1/app/diagnostics", count: 8))
   let first = json(fake.received[1].body)
-  #expect(first["kind"] as? String == "diagnostic" && (first["payload"] as? NSDictionary)?["n"] as? Int == 2)
+  let hang = ((first["payload"] as? NSDictionary)?["hangDiagnostics"] as? [NSDictionary])?.first?["diagnosticMetaData"] as? NSDictionary
+  #expect(first["kind"] as? String == "diagnostic" && hang?["hangDuration"] as? String == "2 sec")
   #expect(first["device"] as? String == "iPhone17,3")
 
   // One larger than the Worker takes (1 MiB with its wrapper) isn't kept.
-  let big = Data(("{\"x\":\"" + String(repeating: "a", count: Wire.maxReport) + "\"}").utf8)
+  let big = Data(("{\"hangDiagnostics\":[{\"version\":\"" + String(repeating: "a", count: Wire.maxReport) + "\"}]}").utf8)
   t.diagnostic(.diagnostic, json: big)
   t.record(.view(.tanks))
   await t.flush()
   #expect(fake.received.count == 10 && fake.received.last?.path == "/api/v1/app/events")
+}
+
+/// Holds the Telemetry a stand-in's callback turns off, and the switch's task.
+private final class Turning: @unchecked Sendable {
+  var t: Telemetry?
+  var clearing: Task<Void, Never>?
+}
+
+@Test("A switch takes hold at once: turned on then off, nothing is sent; turned off while the queue is being sent, no request follows")
+func aSwitchTakesHoldAtOnce() async throws {
+  // On, then off at once (a quick tap and tap again), then a send: nothing goes.
+  let fake = FakeCollector()
+  let t = await telemetry(fake, reader: false)
+  t.readerAllows(true)
+  t.record(.view(.tanks))
+  t.readerAllows(false)
+  await t.flush()
+  #expect(fake.received.isEmpty && t.recorded.isEmpty)
+
+  // Three batches waiting; either switch turned off as the first is received: the other two aren't sent, and go.
+  for off in ["reader", "site"] {
+    let turning = Turning()
+    let fake = FakeCollector(told: { _ in
+      guard turning.clearing == nil else { return }
+      turning.clearing = off == "reader" ? turning.t?.readerAllows(false) : turning.t?.siteAllows(false)
+    })
+    let file = tempFile()
+    let t = await telemetry(fake, file: file)
+    turning.t = t
+    for _ in 0..<(2 * Wire.batchSize + 1) { t.record(.view(.tanks)) }
+    await t.flush()
+    #expect(fake.received.count == 1, "\(off): \(fake.received.count) requests")
+    await turning.clearing?.value
+    let left = await t.queued.events
+    #expect(left.isEmpty && !FileManager.default.fileExists(atPath: file.path), "\(off): still queued")
+  }
 }

@@ -30,6 +30,7 @@ struct TanksView: View {
                 Button("Thêm bể đầu tiên") { adding = true }.buttonStyle(.borderedProminent).accessibilityIdentifier("add-first")
                 AccountSignIn()
                 BlockedPanel()
+                TelemetrySwitch(panel: true)
               }
               .frame(minHeight: g.size.height)
             }
@@ -55,7 +56,6 @@ struct TanksView: View {
             }
             AccountSection()
             BlockedSection()
-            // Under Tài khoản once it has its own tab, as the privacy policy names it.
             TelemetrySwitch()
           }
         }

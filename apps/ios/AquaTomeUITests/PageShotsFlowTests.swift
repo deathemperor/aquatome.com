@@ -3,8 +3,8 @@ import XCTest
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
 /// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`);
-/// and Bể của tôi's list. And a search's results under the kinds it finds, light and dark, at the default and the largest
-/// text size. Each checks only that its screen opened: what it shows, the other flows check.
+/// and Bể của tôi, empty and with a tank. And a search's results under the kinds it finds, light and dark, at the default
+/// and the largest text size. Each checks only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -20,7 +20,8 @@ final class PageShotsFlowTests: XCTestCase {
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
 
-  /// Bể của tôi with a tank: the list, to its end (the account, the blocked, "Gửi thống kê ẩn danh").
+  /// Bể của tôi empty (signed out: the sign-in, "Gửi thống kê ẩn danh"), then with a tank: the list, to its end (the
+  /// account, the blocked, "Gửi thống kê ẩn danh").
   func testTheTanksList() {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"]
@@ -28,6 +29,12 @@ final class PageShotsFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
     let first = app.buttons["add-first"]
     XCTAssertTrue(first.waitForExistence(timeout: 5), "no tanks tab")
+    // Empty first: no tanks, signed out.
+    settle()
+    let empty = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    empty.name = "shot-tanks-empty-light-01"
+    empty.lifetime = .keepAlways
+    add(empty)
     first.tap()
     let field = app.textFields["name"]
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no tank form")

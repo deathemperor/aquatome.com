@@ -42,9 +42,9 @@ final class PlugsModel {
     board.switched = { [weak self] outcome in
       let event: Event = switch outcome {
       case .confirmed: .action(.plugSwitch, ok: true)
-      case .unconfirmed: .action(.plugSwitch, ok: false, kind: "unconfirmed")
-      case .unknown: .action(.plugSwitch, ok: false, kind: "unknown")
-      case .refused(let e): .action(.plugSwitch, error: e)
+      case .unconfirmed: .action(.plugSwitch, ok: false, kind: .unconfirmed)
+      case .unknown: .action(.plugSwitch, ok: false, kind: .unknown)
+      case .refused(let e): .action(.plugSwitch, ok: false, kind: Event.Kind(e))
       }
       self?.telemetry?.record(event)
     }

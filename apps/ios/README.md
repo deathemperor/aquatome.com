@@ -120,26 +120,34 @@ What the privacy policy lists, to aquatome.com's own Worker, nothing to anyone e
 to the contract `protocols/app-telemetry.openapi.json`; `Wire.swift` holds the requests):
 
 - **Events**, in batches of up to 100 with the app's version, iOS's version, the phone's model (`iPhone17,3`), the
-  language and a session id made at launch and never kept for another: `view` (a page opened, drawn by the app or as
+  language and a session id made anew at each launch and never reused for another launch (a batch waiting in the queue
+  keeps its launch's): `view` (a page opened, drawn by the app or as
   the web page, by its path; a tab, a tank's screen, a shelf), and on a page the app draws, `scroll` (50 and 90%) and
   `time` (30, 60 and 180 s on the screen with the app in front), the site beacon's marks, and `aff` (a shop link
   tapped); and `action` (`light.connect`, `light.write`, `plug.switch`, `tank.add`, `post.comment`, `post.photo`, and
-  `fishid` once its screen is in: whether it worked and why not, as a short code). No account, name, device address or
+  `fishid` once its screen is in: whether it worked and why not, as a code from a fixed list, `Event.Kind`, or a post's
+  refusal by the site's code from a list, else `other`; never an error's text). No account, name, device address or
   name, tank name, search text or photo. An event the contract wouldn't take isn't sent (`Event.fits`); `ContractTests`
   checks the app's rules against the contract's schema, and fails when they differ.
-- **iOS's reports** (MetricKit): a day's measures, and crashes and hangs with their call stacks, as iOS writes them,
-  in a `{kind, app, os, device, payload}` wrapper; one over 1 MiB isn't sent.
+- **iOS's reports** (MetricKit), cut down to what the privacy policy names (`Diagnostic.kept`): of a day's measures,
+  the build, iOS's version, the model and the quit, hang, launch and memory measures; crashes and hangs with their call
+  stacks, their codes or length, and no free text. The region, low power mode, network, cellular, location, display,
+  GPU, disk and animation measures and other kinds of diagnostics never leave the phone. In a
+  `{kind, app, os, device, payload}` wrapper; one over 1 MiB isn't sent.
 - **When**: every 30 s and when the app goes to the background, off the main thread. They wait in a file in the caches
   folder (500 events at most, the oldest dropped; 8 reports). After a failure the next try waits 30 s, doubling up to 30
   minutes; a batch refused as it is, or for too many this hour (429), is dropped. Our own copies are marked as their
   page views are (`OwnCopy`), and the Worker stores theirs as tests.
-- **Off** until the site's index says `telemetry: true` (`HandbookIndex.telemetry`; absent or false, the app drops what
-  waits and records nothing), and whenever the reader turns off "Gửi thống kê ẩn danh" (Tài khoản; for now the end of
-  Bể của tôi's list), which drops what waits too.
+- **Off** until the site's index, read fresh at this launch, says `telemetry: true` (`HandbookIndex.telemetry`; the
+  copy kept from an earlier launch doesn't count; absent or false, the app drops what waits and records nothing), and
+  whenever the reader turns off "Gửi thống kê ẩn danh" (for now in Bể của tôi, whatever it shows; in Tài khoản once the
+  app has that tab). Either switch holds at once: nothing more is sent, the queue asks both before each request, and
+  what waits is dropped.
 
 On the simulator the requests go to a stand-in Worker (`FakeCollector`), shown to the UI tests as `telemetry-received`
-(`TelemetryFlowTests`); `-site-telemetry` gives the fixed index the site's flag, and `-telemetry-down` makes the
-stand-in answer 503.
+(`TelemetryFlowTests`), and whether the queue's file is on the phone as `telemetry-queue`; `-site-telemetry` gives the
+fixed index the site's flag, `-index-kept-only` reads only the copy kept from an earlier launch (the site's never
+comes), and `-telemetry-down` makes the stand-in answer 503.
 
 ## Performance budgets
 

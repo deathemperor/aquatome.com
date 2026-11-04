@@ -29,7 +29,7 @@
     "/api/v1/app/diagnostics": {
       "post": {
         "summary": "One MetricKit payload, as iOS gave it",
-        "description": "One request per payload: an MXMetricPayload (about one a day) or an MXDiagnosticPayload (crashes, hangs and other exceptions), its `jsonRepresentation()` unchanged as `payload`, wrapped with what the app knows about itself. The app can write the wrapper around the payload's bytes without parsing them. No session.\n\nThe whole request is stored as received in a private bucket for 30 days (`diagnostics/<yyyy-mm-dd>/<kind>/<id>.json`), and the dashboard keeps a summary of it (crash and hang counts, launch time, peak memory) for 3 months.",
+        "description": "One request per payload: an MXMetricPayload (about one a day) or an MXDiagnosticPayload (crashes, hangs and other exceptions), its `jsonRepresentation()` as `payload`, cut down by the app to what the privacy policy names (unexpected quits, hangs, launch time, memory): `metaData` with only the build, OS and device type; the exit, hang (responsiveness), launch and memory metrics; crash and hang diagnostics with their call stacks but no `composedMessage` or other free text. Network, location, display, GPU and disk metrics never leave the phone. It is wrapped with what the app knows about itself. The app can write the wrapper around the payload's bytes without parsing them. No session.\n\nThe whole request is stored as received in a private bucket for 30 days (`diagnostics/<yyyy-mm-dd>/<kind>/<id>.json`), and the dashboard keeps a summary of it (crash and hang counts, launch time, peak memory) for 3 months.",
         "requestBody": {
           "required": true,
           "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Report" } } }
@@ -78,7 +78,7 @@
           "os": { "$ref": "#/components/schemas/Os" },
           "device": { "$ref": "#/components/schemas/Device" },
           "lang": { "type": "string", "enum": ["vi", "id", "th"], "description": "The handbook language the app shows." },
-          "session": { "type": "string", "pattern": "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$", "description": "A random UUID made anew at each launch; never kept across launches." },
+          "session": { "type": "string", "pattern": "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$", "description": "A random UUID made anew at each launch and never reused for another launch. A batch waiting in the app's queue keeps its launch's id until it is sent." },
           "events": { "type": "array", "minItems": 1, "maxItems": 100, "items": { "$ref": "#/components/schemas/Event" } }
         },
         "additionalProperties": false
@@ -155,7 +155,7 @@
           "app": { "$ref": "#/components/schemas/App" },
           "os": { "$ref": "#/components/schemas/Os" },
           "device": { "$ref": "#/components/schemas/Device" },
-          "payload": { "type": "object", "description": "The payload's jsonRepresentation(), unchanged. Its field names and units vary between iOS versions; the Worker reads what it recognises and stores the rest as it is." }
+          "payload": { "type": "object", "description": "The payload's jsonRepresentation(), cut down to the subset above. Its field names and units vary between iOS versions; the Worker reads what it recognises, needs none of it, and stores the rest as it is." }
         },
         "additionalProperties": false
       },

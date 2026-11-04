@@ -3,8 +3,8 @@ import Foundation
 public typealias Send = @Sendable (URLRequest) async throws -> (Data, HTTPURLResponse)
 
 /// What waits to be sent, kept in a file so it outlasts the app being closed, and sending it: oldest first, one request
-/// a batch or report, and after a failure not again until a wait that doubles each time. Capped: past `cap` events,
-/// the oldest go; past `diagnosticsCap` reports, the oldest go.
+/// a batch or report, each only while both switches are on (`allowed`), and after a failure not again until a wait that
+/// doubles each time. Capped: past `cap` events, the oldest go; past `diagnosticsCap` reports, the oldest go.
 actor Outbox {
   static let cap = 500
   static let diagnosticsCap = 8
@@ -34,13 +34,17 @@ actor Outbox {
   private let userAgent: @Sendable () -> String?
   /// Seconds, on a clock that only goes forward.
   private let now: @Sendable () -> Double
+  /// Both switches on, asked before each request: one turned off while the queue is being sent stops it there.
+  private let allowed: @Sendable () -> Bool
 
-  init(file: URL?, site: URL, send: @escaping Send, userAgent: @escaping @Sendable () -> String?, now: @escaping @Sendable () -> Double) {
+  init(file: URL?, site: URL, send: @escaping Send, userAgent: @escaping @Sendable () -> String?, now: @escaping @Sendable () -> Double,
+       allowed: @escaping @Sendable () -> Bool = { true }) {
     self.file = file
     self.site = site
     self.send = send
     self.userAgent = userAgent
     self.now = now
+    self.allowed = allowed
   }
 
   /// Events of one session, in batches of at most `Wire.batchSize` (which keeps a batch under `Wire.maxBatch`: the
@@ -100,8 +104,10 @@ actor Outbox {
 
   /// Whether it's done with: taken (a 2xx), refused as it is (any other 4xx), or refused as too many this hour (429:
   /// dropped, as the contract asks, and nothing more sent until a wait). Otherwise (no network, a 5xx, the Worker not set
-  /// up for it yet) it's tried again after a wait. Each wait doubles with each failure in a row.
+  /// up for it yet) it's tried again after a wait. Each wait doubles with each failure in a row. Not sent, and kept,
+  /// when a switch is off (the switch's own task empties the queue).
   private func post(_ path: String, _ body: Data) async -> Bool {
+    guard allowed() else { return false }
     let r = Wire.request(path, body: body, site: site, userAgent: userAgent())
     let status = (try? await send(r))?.1.statusCode
     if let status, (200..<500).contains(status), status != 408, status != 429 {

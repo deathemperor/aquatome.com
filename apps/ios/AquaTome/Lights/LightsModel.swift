@@ -222,14 +222,14 @@ final class LightsModel {
       guard let hit else {
         connecting = nil
         notice = Notice(text: String(localized: "Không thấy \(Self.title(d)) quanh đây. Bật đèn, lại gần rồi thử lại."), isError: true)
-        telemetry?.record(.action(.lightConnect, ok: false, kind: "not-nearby"))
+        telemetry?.record(.action(.lightConnect, ok: false, kind: .notNearby))
         return
       }
       await connect(hit)
     } catch {
       guard mine == attempt else { return }
       connecting = nil
-      telemetry?.record(.action(.lightConnect, error: error))
+      telemetry?.record(.action(.lightConnect, ok: false, kind: Event.Kind(error)))
       fail(error)
     }
   }
@@ -248,7 +248,7 @@ final class LightsModel {
   func connect(_ l: FoundLight, again: Bool = false) async -> Bool {
     guard let m = Model.of(name: l.name) else {
       notice = Notice(text: String(localized: "Đèn \(l.name) chưa được hỗ trợ."), isError: true)
-      telemetry?.record(.action(.lightConnect, ok: false, kind: "unsupported-model"))
+      telemetry?.record(.action(.lightConnect, ok: false, kind: .unsupportedModel))
       return true
     }
     stopScan()
@@ -304,7 +304,7 @@ final class LightsModel {
       session?.disconnect()
       session = nil
       light = nil
-      telemetry?.record(.action(.lightConnect, error: error))
+      telemetry?.record(.action(.lightConnect, ok: false, kind: Event.Kind(error)))
       fail(error)
       return true
     }
@@ -458,7 +458,7 @@ final class LightsModel {
       while self.flushing { try await Task.sleep(for: .milliseconds(20)) }
       let snap: Snapshot
       do { snap = try await session.writeSchedule(s) } catch {
-        if self.session === session { self.telemetry?.record(.action(.lightWrite, error: error)) }
+        if self.session === session { self.telemetry?.record(.action(.lightWrite, ok: false, kind: Event.Kind(error))) }
         throw error
       }
       guard self.session === session else { return }
@@ -474,7 +474,7 @@ final class LightsModel {
           $0.clockSyncedAt = Timestamp.string(Date())
         }
         self.notice = Notice(text: String(localized: "Đèn chưa báo lại lịch mới. Kiểm tra lại sau ít phút."), isError: true)
-        self.telemetry?.record(.action(.lightWrite, ok: false, kind: "not-read-back"))
+        self.telemetry?.record(.action(.lightWrite, ok: false, kind: .notReadBack))
         return
       }
       self.telemetry?.record(.action(.lightWrite, ok: true))
