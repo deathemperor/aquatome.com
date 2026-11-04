@@ -146,6 +146,12 @@ size as ARGB, lzfse), where the flat earlier designs cost 20 kB. With the 40, 29
 @3x, stored lossy: 308 kB for the 33 by actool alone, where lossless pictures are 1,178 kB and SVG 2,233 kB (actool keeps
 three pictures of an SVG beside it). The last row also has #445's code (+18 kB).
 
+The default since 2026-11-04, the round fish with leaf fins (the owner's choice; the AT stays an alternate), costs more
+than the AT did: its 1024, kept for iPhone and iPad, is gradients (935.8 kB in `Assets.car`, the AT's 50.6), and so are
+the PNGs iOS keeps beside the app for the home screen (58.9 kB, the AT's 8.5). With the picker's three new alternates
+(a fish with a book-page fin, one behind a magnifier, the AT) and their previews (+343.8 kB), the archive is 9,573.3 kB,
+5,041.3 kB on one iPhone (the same estimate).
+
 Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
 the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
 Debug builds, so they don't see it.
