@@ -142,6 +142,43 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(route("about:blank", newWindow: true) == .none)
 }
 
+@Test func shopLinksAreTheSitesGoPaths() {
+  let site = URL(string: "https://aquatome.com/vi/ca/ca-neon/")!
+  #expect(ShopLink.is(URL(string: "https://aquatome.com/go/shopee/?k=ca-neon")!, site: site))
+  #expect(ShopLink.is(URL(string: "https://www.aquatome.com/go/tiki/?k=loc")!, site: site))
+  #expect(!ShopLink.is(URL(string: "https://aquatome.com/gone/")!, site: site))
+  #expect(!ShopLink.is(URL(string: "https://aquatome.com/vi/go/")!, site: site))
+  #expect(!ShopLink.is(URL(string: "https://shopee.vn/go/x")!, site: site))
+}
+
+// Our copies' taps: the site's redirect is read, not followed, under the mark it leaves out of its click counts.
+@Test func aShopLinksShopIsAskedOfTheSiteUnderTheGivenName() async {
+  let link = URL(string: "https://aquatome.com/go/shopee/?k=ca-neon")!
+  @Sendable func answer(_ status: Int, _ headers: [String: String] = [:]) -> HTTPURLResponse {
+    HTTPURLResponse(url: URL(string: "https://aquatome.com/go/shopee/?k=ca-neon")!, statusCode: status, httpVersion: nil, headerFields: headers)!
+  }
+  // The shop only for the link itself, asked under the name given.
+  let shop = await ShopLink.target(of: link, userAgent: "AquaTome-iOS AquaTomeCheck/1") { r in
+    r.url == link && r.value(forHTTPHeaderField: "User-Agent") == "AquaTome-iOS AquaTomeCheck/1"
+      ? answer(302, ["Location": "https://shopee.vn/search?keyword=ca-neon"]) : answer(500)
+  }
+  #expect(shop.absoluteString == "https://shopee.vn/search?keyword=ca-neon")
+  // Anything else opens the link itself: no redirect, a redirect to no web page, the site out of reach.
+  #expect(await ShopLink.target(of: link, userAgent: "x") { _ in answer(404) } == link)
+  #expect(await ShopLink.target(of: link, userAgent: "x") { _ in answer(302, ["Location": "javascript:alert(1)"]) } == link)
+  #expect(await ShopLink.target(of: link, userAgent: "x") { _ in throw URLError(.notConnectedToInternet) } == link)
+  // A Location given as a path is read against the link.
+  #expect(await ShopLink.target(of: link, userAgent: "x") { _ in answer(302, ["Location": "/vi/"]) }.absoluteString == "https://aquatome.com/vi/")
+  // www. first goes to the bare domain's same link, which is asked too, marked; never more than twice.
+  let www = URL(string: "https://www.aquatome.com/go/shopee/?k=ca-neon")!
+  let viaApex = await ShopLink.target(of: www, userAgent: "x") { r in
+    r.url?.host == "www.aquatome.com" ? answer(301, ["Location": link.absoluteString])
+      : answer(302, ["Location": "https://shopee.vn/search?keyword=ca-neon"])
+  }
+  #expect(viaApex.absoluteString == "https://shopee.vn/search?keyword=ca-neon")
+  #expect(await ShopLink.target(of: www, userAgent: "x") { _ in answer(301, ["Location": link.absoluteString]) } == www)
+}
+
 @Test func readsAFishsFiguresAndBehaviourUnderTheToolsNames() throws {
   let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
   {"version":1,"lang":"vi","items":[
