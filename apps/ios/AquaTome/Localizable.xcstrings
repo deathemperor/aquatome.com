@@ -4385,6 +4385,22 @@
         }
       }
     },
+    "Thử lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coba lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Thử màu trên đèn": {
       "localizations": {
         "id": {
@@ -6033,6 +6049,22 @@
         }
       }
     },
+    "Đang tải ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memuat foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังโหลดรูปภาพ"
+          }
+        }
+      }
+    },
     "Đang xem bản đã lưu (ngoại tuyến).": {
       "localizations": {
         "id": {
@@ -7229,6 +7261,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปภาพ"
+          }
+        }
+      }
+    },
+    "Ảnh %lld trên %lld": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto %lld dari %lld"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปที่ %lld จาก %lld"
           }
         }
       }
