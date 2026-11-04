@@ -24,5 +24,5 @@ export default defineConfig({
     { name: 'phone', use: ours(devices['Pixel 7']!) },
     { name: 'desktop', use: { ...ours(devices['Desktop Chrome']!), viewport: { width: 1280, height: 800 } } },
   ],
-  webServer: live ? undefined : { command: `node e2e/serve.mjs ${process.env.E2E_DIST ?? 'dist'} ${PORT}`, url: `http://127.0.0.1:${PORT}/vi/`, reuseExistingServer: !process.env.CI },
+  webServer: live ? undefined : { command: `node e2e/serve.mjs ${process.env.E2E_DIST ?? 'dist'} ${PORT}`, url: `http://127.0.0.1:${PORT}/`, reuseExistingServer: !process.env.CI },
 })

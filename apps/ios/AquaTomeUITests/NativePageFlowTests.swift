@@ -10,12 +10,33 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Tóm tắt nhanh"].exists, "no summary")
     XCTAssertTrue(app.staticTexts["Bể và nước"].exists, "no heading")
     XCTAssertTrue(app.staticTexts["Chăm sóc · đọc khoảng 4 phút"].exists, "no header line")
-    // A list numbered, a table as lines under its columns' names, the answers under their questions, the sources.
+    // A list numbered, the answers under their questions, the sources.
     XCTAssertTrue(text(app, "2. Cây thủy sinh và lũa.").exists, "no numbered list")
-    XCTAssertTrue(text(app, "Mức: 20–26°C").exists, "no table under its columns' names")
     XCTAssertTrue(text(app, "Nuôi mấy con?\nTừ 6 con trở lên.").exists, "no answer under its question")
     XCTAssertTrue(app.links["Neon tetra care"].exists, "no sources")
     XCTAssertFalse(app.descendants(matching: .any)["page"].exists, "the web page")
+  }
+
+  /// A table as the site's: a short one as a grid, its columns side by side under their names; one whose columns don't
+  /// fit side by side, each cell under its column's name. No column's name left out, the first one's too.
+  func testATableKeepsEachCellUnderItsColumnsName() {
+    let app = openGuide()
+    let tables = app.descendants(matching: .any).matching(identifier: "page-table")
+    XCTAssertEqual(tables.count, 2, "not drawn as tables")
+    let short = tables.element(boundBy: 0), long = tables.element(boundBy: 1)
+    // The parameters: a grid, "Nhiệt độ" beside its "20–26°C", under "Thông số" and "Mức".
+    for name in ["Thông số", "Mức", "Nhiệt độ", "20–26°C"] { XCTAssertTrue(short.staticTexts[name].exists, "no \(name)") }
+    let label = short.staticTexts["Nhiệt độ"].frame, value = short.staticTexts["20–26°C"].frame
+    XCTAssertEqual(label.midY, value.midY, accuracy: 2, "the row's cells not side by side")
+    XCTAssertEqual(short.staticTexts["Thông số"].frame.minX, label.minX, accuracy: 2, "a cell not under its column's name")
+    // Pros and cons, too long side by side: each under its name, the first column's ("Ưu điểm") too.
+    let pros = long.staticTexts["Ưu điểm"], cons = long.staticTexts["Nhược điểm"]
+    XCTAssertTrue(pros.exists && cons.exists, "a column without its name")
+    XCTAssertLessThan(pros.frame.maxY, cons.frame.minY, "the long table drawn as a grid, its columns off the screen")
+    let consText = long.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "• Nước nóng lên")).firstMatch
+    XCTAssertTrue(consText.exists, "no cons")
+    XCTAssertLessThanOrEqual(cons.frame.maxY, consText.frame.minY + 1, "the cons not under their name")
+    XCTAssertEqual(cons.frame.minX, consText.frame.minX, accuracy: 2, "the cons not under their name")
   }
 
   /// Every part VoiceOver lands on says what it is: no picture read as an empty or dimmed button.
@@ -45,7 +66,7 @@ final class NativePageFlowTests: XCTestCase {
   /// From the tanks tab, a link in a guide pushes its page on the tanks tab, not on the Tìm tab.
   func testALinkFromTheTanksTabOpensOnTheTanksTab() {
     let app = launch("-seed-tanks", "life") // "Bể cá neon": a guide names its neons
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
     for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
@@ -67,7 +88,7 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, tool)
     tool.tap()
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "not the tanks tab")
-    app.tabBars.buttons["Tìm"].tap()
+    app.openTab("Tìm")
     XCTAssertTrue(app.navigationBars["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "the tool's web page was pushed on the Tìm tab")
   }
 
@@ -266,7 +287,7 @@ final class NativePageFlowTests: XCTestCase {
   /// From the tanks tab, the group's shelf opens on the tanks tab too, as a page does.
   func testAGroupFromTheTanksTabOpensOnTheTanksTab() {
     let app = launch("-seed-tanks", "life") // "Bể cá neon": a guide names its neons
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
     for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }

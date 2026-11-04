@@ -89,6 +89,15 @@
         "source": "sprucepets",
         "value": 4
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 3,
+          "max": 5
+        }
+      }
     ]
   },
   "sections": [

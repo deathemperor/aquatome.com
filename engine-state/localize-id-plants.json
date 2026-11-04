@@ -1247,15 +1247,132 @@
       "Minor: \"Stolon\" type could be \"Stolon (menjalar)\" - optional only."
     ]
   },
+  "limnobium-laevigatum": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Amazon Frogbit",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "In 3: 'Tanaman air hasil kultur jaringan dalam cup tertutup' is fine, but 'akuarium biasa' for 'traditional aquariums' could be 'akuarium tertutup/konvensional' for clarity (minor).",
+      "In 2: 'Mungkin perlu membuang sebagian' leaves the object vague; 'membuang sebagian daun' would be clearer (minor)."
+    ]
+  },
+  "limnophila-aquatica": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Limnophila aquatica",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 3: \"circled by light-green and finely branched leaves\" is rendered as leaves arranged in whorls around the stem (\"tersusun melingkar mengelilingi batang\"). This is an interpretation. Keep it closer to the source, e.g. \"dikelilingi daun hijau muda yang bercabang halus\", or use the standard term \"berkarang\" for whorled leaves.",
+      "Item 3: \"beberapa batang ditanam berkelompok dalam satu grup kecil\" is redundant (\"berkelompok\" and \"grup kecil\"). Use \"ditanam dalam kelompok kecil\".",
+      "Item 2: \"substrat dasar yang kaya nutrisi\" is slightly redundant. \"Substrat yang kaya nutrisi\" is enough.",
+      "Item 2: \"each stem up to 15 cm wide\" is translated as \"lebar tiap batang sampai 15 cm\". This is ambiguous, since a stem does not have a width of 15 cm. The source is also odd, so keep the meaning but consider \"lebar rumpun\"."
+    ]
+  },
+  "limnophila-hippuridoides": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Limnophila hippuridoides",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 2: \"tumbuh sangat cepat\" overstates the source: \"vigorously growing\" is closer to \"tumbuh subur/kuat\", and item 1 says the growth rate is medium (sedang), so this contradicts it.",
+      "Item 2: \"dijarangkan\" is slightly awkward for \"thinning\". Use \"dipangkas/dikurangi\" for clarity.",
+      "Item 3: \"Tanaman ini mudah dirawat\" renders \"A simple plant\". It is acceptable but could be \"tanaman yang tidak rewel\"."
+    ]
+  },
   "limnophila-sessiliflora": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-04",
+    "from": "2026-10-30",
     "name": "Ambulia",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "Item 8: \"leggy\" is rendered as \"gundul\" (bare). Leggy means stretched and sparse, so \"memanjang dan jarang daunnya\" or \"kurus memanjang\" would be closer. The same applies to the \"Batang gundul\" heading in item 6.",
-      "Item 9: \"bergerigi atau bergerigi tajam\" repeats the same word. Use \"bergerigi atau bergerigi halus (serrate)\" to keep the dentate/serrated distinction."
+      "Item 9: \"Pendapat ini tidak sepenuhnya disetujui\" softens the English \"does not agree\". Use a neutral, firm phrasing such as \"Pendapat ini tidak sesuai dengan pengamatan: ...\".",
+      "Item 10: \"bergerigi atau bergerigi tajam\" repeats the same word. Use \"bergerigi atau bergerigi kasar/berduri halus\", or \"bergerigi\" and \"bergigi\" for jagged/serrated."
+    ]
+  },
+  "lindernia-rotundifolia": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Lindernia rotundifolia",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"mungkin perlu dipangkas sesekali\": \"sesekali\" (occasionally) is added; the English only says \"may require some pruning\". Use \"mungkin perlu dipangkas\".",
+      "\"sungai kecil\" for \"streams\" is fine, but \"as a solitary mid-ground plant\" is slightly loose; \"soliter\" is acceptable, though \"tunggal\" is more natural."
+    ]
+  },
+  "littorella-uniflora": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Littorella uniflora",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Asal: kosmopolitan\" is slightly terse; \"Asal\" could be \"Asal daerah\" or \"Persebaran\", which reads more naturally for origin.",
+      "\"Di alam, tanaman ini tumbuh liar\" is redundant; \"tumbuh liar\" or \"tumbuh di alam\" alone would be enough."
+    ]
+  },
+  "lobelia-cardinalis": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Lobelia cardinalis",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"Pertumbuhannya pendek dan rapat\" is fine, but \"tanpa CO2 pun tetap tumbuh dengan baik\" is slightly loose; consider \"tetap tumbuh baik tanpa CO2\".",
+      "Item 3: \"makanya namanya diberi tambahan 'Mini'\" is too colloquial for a handbook; use \"sehingga diberi tambahan nama 'Mini'\".",
+      "Item 3: \"produksi umum Lobelia cardinalis\" is a literal rendering and unclear; consider \"produksi massal/budidaya umum Lobelia cardinalis\".",
+      "Item 3: \"Kadang tanaman bisa mengejutkan\" is slightly abrupt; consider \"Terkadang tanaman memberi kejutan\"."
+    ]
+  },
+  "ludwigia-arcuata": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Ludwigia arcuata",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Ludwigia daun jarum\" is not in the English \"Other names\" list. Remove it, or leave it out unless it is an established local name.",
+      "Item 2: \"sekitar 5–10 cm\" renders \"a few inches\" a little loosely. \"sekitar 5–8 cm\" is closer."
+    ]
+  },
+  "ludwigia-glandulosa": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Ludwigia glandulosa",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"5-12 cm wide\" is rendered \"lebar 5–12 cm\" faithfully (the source's odd figure is preserved), so there is nothing to fix. Optionally use \"Batangnya bisa tumbuh setinggi...\" for smoother phrasing.",
+      "Item 1: \"tanaman batang (stem)\" is acceptable, but \"Jenis: tanaman batang\" is enough; the bracketed English is optional."
+    ]
+  },
+  "ludwigia-palustris": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Ludwigia palustris 'Super Green'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"Tanaman ini termasuk tanaman batang\" is repetitive; use \"Ini termasuk tanaman batang (stem plant)\" or similar.",
+      "Item 3: \"Warna merah dan hijau muda keduanya akan saling menonjolkan secara visual\" is awkward; use \"Warna merah dan hijau muda akan saling menonjolkan\".",
+      "Item 2: \"Setiap batang tumbuh dengan lebar 2–4 cm\" is slightly unnatural; the width refers to the leaves/whorl, so consider \"lebar 2–4 cm\" phrased more naturally."
+    ]
+  },
+  "ludwigia-repens": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Ludwigia repens 'Rubin'",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"Tanaman ini tidak banyak tuntutan\" is a bit stiff; more natural: \"Tanaman ini tidak rewel / mudah dirawat\".",
+      "\"Panjang batang 20–50 cm dengan lebar 4–6 cm\": fine in meaning, but \"lebar\" most likely refers to leaf/stem spread; consider \"lebar rumpun\" for clarity if the source means that.",
+      "\"Asal\" for Origin is okay but \"Asal daerah\" or \"Asal usul\" is more natural in a handbook."
     ]
   },
   "lysimachia-nummularia": {
@@ -1272,6 +1389,18 @@
       "Section 9: \"Bunga kuning yang biasanya bermahkota 5 helai\" is okay but stiff; \"berkelopak 5\" or \"berpetal 5\" is more common.",
       "Section 5: \"Pertumbuhan memanjang (leggy)\" is slightly vague; \"batang melar/kurus memanjang\" would be clearer.",
       "Section 1: \"Area tengah dan belakang\" is fine, but hobbyists usually say \"bagian tengah dan belakang akuarium\"."
+    ]
+  },
+  "lysimachia-parvifolia": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Lysimachia parvifolia 'Red'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"tanaman air berwarna hijau\" for \"green aquarium plant\": better \"tanaman akuarium berwarna hijau\" (\"tanaman air\" is broader and less precise).",
+      "\"sehingga tanaman ini menjadi tanaman aksen\": repetitive \"tanaman\"; consider \"menjadi aksen yang menarik\".",
+      "\"memberikan perkembangan warna terbaik\": slightly stiff; consider \"menghasilkan warna terbaik\"."
     ]
   },
   "marsilea-hirsuta": {

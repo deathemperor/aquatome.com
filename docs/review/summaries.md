@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (54)
+# Tóm tắt chờ duyệt (57)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -243,7 +243,7 @@ Cá minnow bụng đỏ phương Nam hợp với người muốn nuôi cá bắt
 Kiểm tra:
 - "Tính bể theo cỡ cá hiện có rồi quên cá lớn tới 12 cm; nên tính chỗ cho con trưởng thành": the page says nothing about sizing a tank or planning space for adults. It only gives the current size (5-7 cm) and the maximum size. This mistake and its fix are advice the page does not give.
 
-## Cá chim hoa mai Orinoco (Cichla orinocensis)
+## Cá hổ Orinoco (Cichla orinocensis)
 id: `cichla-orinocensis`
 
 Cá chim hoa mai Orinoco (Cichla orinocensis) hợp với người đã có kinh nghiệm và chịu chơi cá săn mồi lớn, vì thẻ dữ liệu ghi kích thước trưởng thành 70 cm. Hồ sơ không nêu bể tối thiểu, nhiệt độ hay pH nên chưa đủ căn cứ để chốt thông số nước. Điểm khó nhất là khẩu phần: cá ăn mồi, lớn lên phải chuyển dần sang cá ốt đông lạnh.
@@ -375,6 +375,27 @@ Cá lau kiếng vàng (Hypostomus luteus) lớn tới 31 cm, nên hợp với ng
 Kiểm tra:
 - The mistake "Mua cá khi còn nhỏ mà chỉ chuẩn bị bể nhỏ... nên tính bể đủ rộng ngay từ đầu" gives tank-sizing advice that the page never gives. The page has no tank, housing or purchase guidance, only the 31 cm size, temperature, distribution and a note that there are no breeding reports.
 - "nên hợp với người có bể to và chịu nuôi cá cỡ lớn" claims a suitability and tank requirement that the page does not state. The page does not say anything about tank size or who the fish suits.
+
+## Cá trê thủy tinh Mekong (Kryptopterus geminus)
+id: `kryptopterus-geminus`
+
+Cá trê thủy tinh Kryptopterus geminus hợp người có bể cỡ lớn, vì cá dài tới 20 cm. Nước giữ ở 24–28 °C, pH 6–8. Cá ăn cá, tôm, côn trùng và ấu trùng côn trùng, nên khó nhất là chọn bạn cùng bể.
+
+- Thả chung với cá nhỏ hoặc tôm: loài này ăn cá và tôm, nên chọn bạn cùng bể là cá đủ lớn.
+- Coi nó như cá trê thủy tinh Kryptopterus vitreolus nhỏ phổ biến rồi nuôi bể nhỏ: K. geminus dài tới 20 cm, nên chuẩn bị bể cỡ lớn từ đầu.
+
+Kiểm tra:
+- "nên khó nhất là chọn bạn cùng bể": the page never says tank mates are the hardest part. It only lists the diet (fish, shrimp, insects), so this is an inference stated as fact.
+- "chọn bạn cùng bể là cá đủ lớn": the page gives no tank-mate advice and no size at which fish are safe from it, so this fix is invented.
+
+## Cá Laetacara dorsigera (Laetacara dorsigera)
+id: `laetacara-dorsigera`
+
+Cá Laetacara dorsigera là cichlid lùn gốc Paraguay, trưởng thành dài 8 cm. Hợp với người thích cichlid nhỏ, màu đẹp, nhất là lúc vào độ sinh sản khi họng chuyển tím hoa cà. Hồ sơ không nêu thông số nước hay bể tối thiểu, và cá trên thị trường là cá bắt ngoài tự nhiên nên cần cân nhắc kỹ trước khi mua.
+
+
+Kiểm tra:
+- "cá trên thị trường là cá bắt ngoài tự nhiên nên cần cân nhắc kỹ trước khi mua": the page only says the fish on the market are wild-caught. It gives no advice to think carefully before buying and does not present wild-caught as a drawback. This advice is invented.
 
 ## Cá cichlid ốc meeli (Lepidiolamprologus meeli)
 id: `lepidiolamprologus-meeli`
@@ -555,6 +576,18 @@ Cá đuối nước ngọt Potamotrygon scobina là loài đuối tương đối
 
 Kiểm tra:
 - "loài này chỉ phân bố ở sông Rio Tocantins tại Brazil" drops the page's hedge "Theo những gì đã biết" (as far as is known), so a cautious claim becomes a certainty.
+
+## Tôm hùm đất hang động Miami (Procambarus milleri)
+id: `procambarus-milleri`
+
+Tôm hùm đất hang động Miami (Procambarus milleri) hợp với người mới: độ khó 2/8, dài 10 cm, sống tới 4 năm. Bể tối ưu 40 lít, nước 22–24 °C, pH 7–8, độ cứng 10–25 dGH. Con trưởng thành khá hiền nên nuôi bể cộng đồng tương đối an toàn, nhưng con non tranh ăn, tranh chỗ rất quyết liệt và loài này hay bày bừa, phá đồ trong bể.
+
+- Cho ăn thiếu đạm thì tôm hung hăng và có thể ăn thịt lẫn nhau; nên để đạm chiếm ít nhất 30–40 % khẩu phần.
+- Để thức ăn thừa nằm lại làm bẩn nước; nên vớt phần chưa ăn hết sau 12–24 giờ và kiểm tra chỗ tôm tha thức ăn về trốn.
+- Thả con non chung với tôm hoặc cá khác vì tưởng loài này hiền; con non hung dữ nhất, nên chú ý tách riêng hoặc chỉ nuôi chung khi đã trưởng thành.
+
+Kiểm tra:
+- Third mistake: "Thả con non chung với tôm hoặc cá khác ... nên chú ý tách riêng hoặc chỉ nuôi chung khi đã trưởng thành". The page only says juveniles compete fiercely for food and space, and that adults are fairly safe in a community tank. It says nothing about juveniles attacking other shrimp or fish, and it never advises separating them. That fix is advice the page doesn't give.
 
 ## Cá tetra săn mồi Araguaito (Roeboides araguaito)
 id: `roeboides-araguaito`

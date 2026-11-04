@@ -19,6 +19,7 @@ const { t } = i18n(Astro.url)
       <div data-turnstile></div>
       <button type="submit">{t('Gửi ảnh')}</button>
       <p class="msg" data-msg role="status" aria-live="polite"></p>
+      <div class="sent" data-sent hidden></div>
       <p class="rules">{t('Không cần tài khoản. Ảnh được kiểm duyệt trước khi hiện: ảnh có người, không đúng loài hoặc không phù hợp sẽ bị loại. Vị trí GPS và thông tin máy trong ảnh được xóa trước khi gửi.')}</p>
     </form>
   </details>
@@ -33,7 +34,8 @@ const { t } = i18n(Astro.url)
   .list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--space-4) var(--space-3); }
   .list:empty { display: none; }
   .list :global(li) { font-size: 0.85rem; color: var(--c-ink-soft); }
-  .list :global(a) { display: block; padding: 4px; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: 4px; }
+  .list :global(button) { display: block; width: 100%; padding: 4px; border: 0; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: 4px; cursor: zoom-in; }
+  .list :global(button:focus-visible) { outline: 3px solid var(--c-focus); outline-offset: 2px; }
   .list :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
   .empty, .rules { color: var(--c-ink-soft); }
   .send { margin-top: var(--space-4); max-width: var(--measure); }
@@ -49,4 +51,12 @@ const { t } = i18n(Astro.url)
   .msg:empty { display: none; }
   .msg { overflow-wrap: anywhere; }
   .rules { font-size: var(--step--1); }
+  /* The photo just sent, and its take-back link to keep (scripts/reader-photos.ts showSent). */
+  .sent { display: grid; gap: var(--space-2); }
+  .sent :global(img) { width: 160px; max-width: 100%; height: auto; padding: 4px; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); }
+  .sent :global(p) { margin: 0; }
+  .sent :global(.keep) { display: flex; gap: var(--space-2); min-width: 0; }
+  .sent :global(input) { flex: 1; min-width: 0; min-height: 44px; font: inherit; font-size: var(--step--1); padding: 0 var(--space-2); border: 1px solid var(--c-rule); background: var(--c-plate); color: var(--c-ink); }
+  .sent :global(button) { flex: none; min-height: 44px; font: 600 var(--step--1) var(--f-body); padding: 0 var(--space-4); border: 1px solid var(--c-ink); background: var(--c-plate); color: var(--c-ink); cursor: pointer; }
+  .sent :global(input:focus-visible), .sent :global(button:focus-visible) { outline: 3px solid var(--c-focus); outline-offset: 2px; }
 </style>

@@ -60,7 +60,7 @@ export async function unsplashPhotos(root: string, api: UnsplashApi, d: GalleryD
     const breed = breeds.has(id)
     const file = join(content, 'gallery', `${id}.json`)
     const gallery = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { id: string; photos: Photo[]; seen: number; updatedAt: string } | null
-      // The gallery step makes species galleries first (Commons, iNaturalist); it never makes a breed's.
+      // The gallery step makes species galleries first (Commons, iNaturalist); a breed's may not exist yet.
       ?? (breed ? { id, photos: [], seen: 0, updatedAt: d.now().toISOString().slice(0, 10) } : null)
     if (!gallery) continue
     if (remaining < 1 + MAX) { report.stopped = `rate limit (${remaining} requests left this hour)`; break }

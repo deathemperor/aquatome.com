@@ -2,6 +2,42 @@
   "id": "glofish",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/08df37ad9a64d0d7.webp",
+      "thumb": "https://media.aquatome.com/commons/08df37ad9a64d0d7-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "CC BY-SA 4.0",
+      "author": "Andrey Butko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023-08-20._%D0%90%D0%BD%D0%B0%D0%BF%D0%B0_DSC_5622.jpg",
+      "caption": "Đàn cá GloFish tetra nhiều màu hồng, trắng, vàng trong bể",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5e7bd74adf8dd24c.webp",
+      "thumb": "https://media.aquatome.com/commons/5e7bd74adf8dd24c-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "CC BY-SA 4.0",
+      "author": "Andrey Butko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023-08-20._%D0%90%D0%BD%D0%B0%D0%BF%D0%B0_DSC_5620.jpg",
+      "caption": "Đàn cá GloFish tetra đỏ, tím, trắng, vàng trong bể",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/dc2ab805da825cac.webp",
+      "thumb": "https://media.aquatome.com/commons/dc2ab805da825cac-480.webp",
+      "width": 1200,
+      "height": 672,
+      "licence": "CC BY-SA 4.0",
+      "author": "Aliva Sahoo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colorful_GloFish_(Fluorescent_Aquarium_Fish)_Display.jpg",
+      "caption": "Đàn cá GloFish vàng, cam, xanh lá trong bể thủy sinh",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/68fd6ed56b869e47.webp",
       "thumb": "https://media.aquatome.com/commons/68fd6ed56b869e47-480.webp",
       "width": 1200,
@@ -80,8 +116,33 @@
       "author": "Phishboyman",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Long-fin-tetra-glofish.jpg",
       "caption": "Cá GloFish tetra màu xanh dương đậm nhìn cận cảnh"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6f7dcc2fe482e23b.webp",
+      "thumb": "https://media.aquatome.com/commons/6f7dcc2fe482e23b-480.webp",
+      "width": 1200,
+      "height": 897,
+      "licence": "CC BY-SA 4.0",
+      "author": "Aliva Sahoo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GloFish_Tetra_Aquarium_Display.jpg",
+      "caption": "Đàn cá GloFish cam vàng bơi quanh cây thủy sinh",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b43f20ec6e27ccf9.webp",
+      "thumb": "https://media.aquatome.com/commons/b43f20ec6e27ccf9-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "CC BY-SA 4.0",
+      "author": "Andrey Butko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023-08-20._%D0%90%D0%BD%D0%B0%D0%BF%D0%B0_DSC_5623.jpg",
+      "caption": "Cá GloFish tetra màu hồng tím và trắng bơi trong bể",
+      "best": false,
+      "kind": "group"
     }
   ],
-  "seen": 34,
-  "updatedAt": "2026-10-30"
+  "seen": 54,
+  "updatedAt": "2026-11-04",
+  "builtAt": "2026-11-04"
 }

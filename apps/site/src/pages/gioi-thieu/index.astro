@@ -1,0 +1,31 @@
+---
+import Doc from '../../layouts/Doc.astro'
+import { getContent } from '../../lib/content'
+import { CONTACT_EMAIL } from '../../lib/site'
+import { i18n, isVietnamese } from '../../lib/i18n'
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
+const sources = Object.values(c.sources).filter(s => s && (process.env.PUBLIC_BUILD !== '1' || s.publish))
+---
+<Doc title={t('Giới thiệu')} intro={t('AquaTome là cẩm nang cá cảnh và thủy sinh: hồ sơ loài cá, cây thủy sinh, hướng dẫn chăm sóc và thuật ngữ.')}>
+  <h2>{t('Nội dung được làm thế nào')}</h2>
+  <p>{t('Mỗi hồ sơ và bài hướng dẫn được dịch, biên soạn sang tiếng Việt từ các nguồn chuyên ngành uy tín đã cho phép AquaTome sử dụng. Bản dịch do AI (Claude của Anthropic) thực hiện, sau đó được chấm điểm chất lượng tự động. Trang chưa đạt ngưỡng chất lượng vẫn xem được nhưng không được đưa lên công cụ tìm kiếm cho đến khi được cải thiện.')}</p>
+  <p>{t('Mỗi trang ghi rõ nguồn và liên kết tới bản gốc. Khi các nguồn đưa ra thông số khác nhau (nhiệt độ, pH, độ cứng…), trang đánh dấu chỗ khác biệt thay vì chọn bừa một con số.')}</p>
+  <p>{t('Xem')} <a href="/vi/gioi-thieu/bang-du-lieu/">{t('Cách đọc bảng dữ liệu')}</a> {t('để biết mỗi ô nghĩa là gì và bảng chọn số nào khi các nguồn ghi khác nhau.')}</p>
+
+  <h2 id="nguon">{t('Nguồn nội dung')}</h2>
+  <ul>
+    {/* A source's own Vietnamese name (Diễn Đàn Cá Cảnh) is a name, marked as Vietnamese on every language's page. */}
+    {sources.map(s => <li><a href={s!.homepage} rel="noopener" lang={isVietnamese(s!.name) ? 'vi' : undefined}>{s!.name}</a></li>)}
+  </ul>
+  <p>{t('Ảnh thuộc về tác giả và được dùng theo giấy phép ghi ở cuối mỗi trang. Nếu bạn là tác giả và muốn chỉnh sửa cách ghi nguồn hoặc gỡ nội dung, hãy')} <a href="/vi/lien-he/">{t('liên hệ')}</a>{t(', chúng tôi xử lý trong vòng vài ngày.')}</p>
+
+  <h2>{t('Bình luận')}</h2>
+  <p>{t('Bạn chỉ cần nhập tên để bình luận, không cần tài khoản. Bình luận được kiểm duyệt hằng ngày; bình luận chứa liên kết quảng cáo, nội dung trùng lặp hoặc không liên quan sẽ bị gỡ.')}</p>
+
+  <h2>{t('Quảng cáo và liên kết mua hàng')}</h2>
+  <p>{t('AquaTome hiển thị quảng cáo của Google AdSense để duy trì trang. Một số liên kết tới Shopee, Lazada hoặc Tiki là liên kết tiếp thị: chúng tôi có thể nhận hoa hồng khi bạn mua hàng qua liên kết, giá bạn trả không đổi. Các liên kết này luôn có nhãn và không ảnh hưởng tới nội dung bài viết.')}</p>
+
+  <h2>{t('Liên hệ')}</h2>
+  <p>{t('Báo lỗi, góp ý hoặc hợp tác:')} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. {t('Xem thêm')} <a href="/vi/chinh-sach-bao-mat/">{t('Chính sách bảo mật')}</a>.</p>
+</Doc>

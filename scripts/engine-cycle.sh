@@ -17,9 +17,8 @@ PART="${1:-all}"
 case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|photos|rewrite]" >&2; exit 2 ;; esac
 # One a part: the Mac runs three parts at once.
 TEST_LOG="/tmp/aquatome-engine-test-$PART.log"
-# The Mac's engine parts and video job share one machine, so their builds and test runs take turns: two suites at once
-# slowed a 0.6 s test past vitest's 5 s and failed a cycle. GitHub runs one part a runner.
-checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
+# calm, checks and verify: the build and tests before publishing, on a Mac other jobs share.
+source "$REPO/scripts/cycle-checks.sh"
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
 if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
@@ -35,7 +34,7 @@ push() {
       git rebase --abort 2>/dev/null || true
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then build + test again.
       if git pull -q --rebase -X theirs; then
-        checks 'pnpm build && pnpm test' >"$TEST_LOG" 2>&1 || { log "build/tests failed after that merge, not publishing"; return 1; }
+        verify 'pnpm build && pnpm test' || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
@@ -133,8 +132,9 @@ if part photos; then
   # first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
-  # and plants: iNaturalist, then Commons, GBIF, Openverse; open licences, screened (right species, no faces). GALLERY_SHEETS
-  # model calls a cycle (about 480 a day on the subscription); each page continues next cycle where this one stopped.
+  # and plants: iNaturalist, then Commons, GBIF, Openverse; bred fish by their English names on Commons and Openverse;
+  # open licences, screened (right species or line, no faces). GALLERY_SHEETS model calls a cycle (about 480 a day on
+  # the subscription); each page continues next cycle where this one stopped.
   pnpm engine gallery --sheets "${GALLERY_SHEETS:-60}" || log "gallery: failed"
   # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
   pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
@@ -149,6 +149,10 @@ if part pages sf photos; then
   pnpm engine watermarks --limit "${WATERMARK_LIMIT:-40}" || log "watermarks: failed (unscreened photos may publish)"
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
+  # Wikimedia photos credited before Commons' placeholder authors were tidied on import: "RuthJM", not its sentence.
+  pnpm engine credits || log "credits: failed (some photos keep Commons' placeholder author)"
+  # Lifespans the sources already state as a labelled line, on the data card ("Tuổi thọ"); never read from prose.
+  pnpm engine lifespans || log "lifespans: failed"
   # The image hash of every new picture, so no page shows one picture twice from two files (a failure: compared by address).
   pnpm engine picture-hashes || log "picture-hashes: failed (new pictures compared by address only)"
 fi
@@ -224,7 +228,7 @@ if [ -z "$(git status --porcelain -- content sources)" ]; then
 fi
 # Real content must build (the test suite builds fixtures), then the suite must pass. I18N_LENIENT: a UI string a new
 # Indonesian or Thai page needs and src/i18n lacks shows in Vietnamese (and is logged) instead of holding back the content.
-if ! checks 'I18N_LENIENT=1 pnpm build && pnpm test' >"$TEST_LOG" 2>&1; then
+if ! verify 'I18N_LENIENT=1 pnpm build && pnpm test'; then
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
 git add content sources engine-state docs/review apps/site/src/i18n

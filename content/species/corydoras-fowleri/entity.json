@@ -1,0 +1,74 @@
+{
+  "id": "corydoras-fowleri",
+  "scientificName": "Corydoras fowleri",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-fowleri-german-bred/",
+      "html": "<p>Corydoras fowleri from Peru becomes 6-8 cm long and certainly belongs to the most beautiful Corydoras at all.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-fowleri-german-bred/",
+      "html": "<p>The species is only rarely bred, because the eggs are relatively small and the fish – despite their size – relatively unproductive. German-bred specimens are now available.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "htC8CjBop0Q",
+      "title": "Corydoras Habitat -  a Compilation of Biotopes",
+      "durationSec": 672,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát thủy sinh mịn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc treo bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

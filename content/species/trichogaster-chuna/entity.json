@@ -20,6 +20,13 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -28,6 +35,13 @@
         "value": {
           "min": 6,
           "max": 7.5
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6,
+          "max": 8
         }
       }
     ],
@@ -44,6 +58,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -56,6 +74,10 @@
       {
         "source": "seriouslyfish",
         "value": 3
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
       }
     ]
   },
@@ -73,10 +95,22 @@
       "html": "<p>The coloration of the honey gurami, Colisa chuna, is unique among the freshwater fish of the world and also among the labyrinth fish, to which the honey gurami belongs. All other Colisa species have a pattern of vertical stripes, only the honey gurami has no such pattern. In neutral mood the animals are beige with a dark longitudinal band. Males in breeding mood, on the other hand, become bright orange on the body, the throat deep black and the dorsal fin lemon yellow. With regard to these striking colours, the honey gurami can certainly be counted among the most beautiful freshwater fish of all.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>The honey gourami stays around 5 cm. It is peaceful, hardy and suited to beginners. Like bettas, it builds bubble nests and has a labyrinth organ that lets it breathe air directly.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-chuna",
       "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. Keep the tank well-covered and do not fill it to the top as like all osphronemids it requires occasional access to the layer of humid air that will form above the water surface, and may jump on occasion.</li></ul><p>The honey gourami, Trichogaster chuna, is a labyrinth fish from the Ganges and Brahmaputra systems of India and Bangladesh, with records from Nepal. Virtually all fish on sale are commercially produced, and ornamental strains such as 'red', 'sunset' and 'golden' exist. Slow-moving and easily outcompeted, it needs peaceful tankmates and does best in a group of four to six.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>The dwarf gourami is a different species, Trichogaster lalius, which grows to 8 cm, while the honey gourami stays around 5 cm. Dwarf gouramis come in more colour varieties, but they are feistier and more prone to bullying other fish.</p><p>The most common kinds are wild type, yellow gold and red. The red type is sometimes called \"sunset honey gourami\", but that name is often confused with the sunset thick-lipped gourami (Trichogaster labiosa), which grows up to 9–10 cm, so make sure you buy the correct species. Yellow or gold honey gouramis are the most common variety in fish stores.</p><p>Males are mostly solid-coloured, but the throat and belly of a male can turn dark blue-black when courting a female.</p>"
     },
     {
       "key": "distribution",
@@ -91,16 +125,34 @@
       "html": "<p>The honey gurami originates from India and Bangladesh. However, it is not as widespread there as the other members of the genus, which is probably the reason why the species was imported for aquaristics only in 1962.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>Trichogaster chuna comes from India and Bangladesh.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-chuna",
       "html": "<p>Typically inhabits low altitude, heavily-vegetated, sluggish waters including ponds, ditches, beels, and flooded fields.</p><p>Many such habitats undergo seasonal fluctuations in water volume, chemistry, and turbidity due to the annual monsoons which occur between June and October.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>It is found in slow-moving ponds full of vegetation. Because of the seasonal monsoon rains, its habitat experiences sudden fluctuations in water chemistry, making it a hardy fish.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-chuna",
       "html": "<p>An aquarium with base dimensions of 60 × 30 cm (24 × 12 in) or equivalent is sufficient to house a pair or small group. Volume is about 54 litres.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>A single honey gourami can live in a 20–40 litre tank, but a group of three would do better in a 75-litre aquarium.</p>"
     },
     {
       "key": "maintenance",
@@ -115,10 +167,28 @@
       "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>Honey gouramis are used to a wide range of conditions: pH 6.0–8.0, temperature 23–28°C, and soft to hard water (GH).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>Honey gouramis live in sluggish waters, so use a filter with slower flow.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-chuna",
       "html": "<p>Likely to prey on insects and other small invertebrates in nature. Captive fish will accept dried products but should also be offered plenty of small live or frozen foods such as Daphnia, Artemia, or bloodworm regularly to ensure development of optimal colour and condition.</p><p>Small insects such as micro-crickets or Drosophila fruit flies are also suitable to use; it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>In the wild they eat small insect larvae, crustaceans and other invertebrates, similar to bettas. They are not picky and willingly eat an omnivore diet of flakes, nano pellets, gel food, freeze-dried foods, frozen foods and live foods. They swim all over the tank and readily eat both floating and sinking foods.</p>"
     },
     {
       "key": "behaviour",
@@ -127,16 +197,34 @@
       "html": "<p>Tankmates must be chosen with care since this species is slow-moving and will easily be intimidated or outcompeted for food by larger or more vigorous tankmates.</p><p>Peaceful, pelagic cyprinids make good choices as do less active loaches such as Pangio spp. or certain nemacheilids. Territorial or otherwise aggressive species are best omitted.</p><p>Though not gregarious in the sense of schooling fishes it does seem to require interaction with conspecifics and displays more interesting behaviour when maintained in numbers, meaning the purchase of no less than 4-6 specimens is recommended. Groups develop noticeable hierarchies and you'll often see dominant individuals chasing away their rivals at feeding time or when occupying their favourite spot.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>They are peaceful community fish that get along with everyone. If a semi-aggressive fish becomes the \"tank boss\", the honey gourami can become shy and hide all the time. They sometimes squabble among themselves, especially a male defending his territory during breeding. A dominant female may chase away another female at mealtimes, so spread out the food and provide lots of cover.</p><p>Both sexes are equally good-natured and can live alone or in a group. They are not schooling fish. If you keep a pair, make sure they have plenty of room and that one is not dominating the other.</p><p>They get along with similar-sized community fish, such as green neon tetras or blue neon rasboras (Sundadanio axelrodi 'blue'), and with bottom dwellers like cory catfish, rosy loaches and kuhli loaches. They have been kept with a betta, but only when the betta was not very aggressive, so be prepared to separate them. They do not seem to go after adult amano or cherry shrimp but will opportunistically eat any babies.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-chuna",
       "html": "<p>Adult females are brownish in colour, noticeably larger than males and possess a broad, brownish midlateral stripe extending posteriorly from behind the eye to the caudal peduncle.</p><p>Non-nuptial males possess a similar lateral stripe but the base body colour is slightly orangish, and the anterior portion of the dorsal and anal fins have yellowish margins. In nuptial individuals the body and opercular region become bright orange with the head, anterioventral portion of the body, and spiny rays of the anal-fin coloured dark blue to black.</p><p>These changes do not occur in males of the various ornamental strains (see 'Notes').</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>The male is usually more vibrant in colour than the female, and his throat turns dark blue-black during courtship.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-chuna",
       "html": "<p>This species is a bubblenester which forms temporary pair bonds. Some hobbyists prefer to isolate individual pairs for spawning purposes whereas others may maintain a small group.</p><p>Either way the tank to be used for spawning should be furnished with plenty of floating and/or stem plants with leaves reaching the surface. Gentle filtration via an air-powered sponge filter is the best option, as it will not break up the bubblenest of the male or suck up fry.</p><p>The tank should have the tightest-fitting cover available (some breeders use clingfilm instead, to ensure no gaps), as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Condition the fish with plenty of small live foods and they should quickly come into spawning condition with the female appearing plump with eggs and the male assuming his nuptial colour pattern (see 'Sexual dimorphism'). Unlike those of some related species the bubblenest does not include pieces of plant material and is usually constructed beneath a broad leaf or even in the corner of the aquarium using the glass for stability.</p><p>The male initially builds a relatively small nest and once complete will begin to display to gravid females in the vicinity. As a receptive female approaches the pair will be seen touching each other with their modified ventral fins.</p><p>Following a protracted courtship spawning occurs beneath the nest in the typical osphronemid 'embrace', the male wrapping his body around that of his mate with eggs and milt released simultaneously at the climax.</p><p>The male collects the eggs and transports them to the nest. Several more spawnings occur and when there are no more eggs the female is chased away. It is best to remove her at this point. The male then tends to the nest until the eggs hatch, usually in around 24-36 hours. The male can then also be removed. The fry become free swimming in another 24-48 hours and are very small. They should be fed infusoria or liquid fry food for the first week, after which they are large enough to accept brine shrimp nauplii or microworm. Care should be taken when performing water changes as the young are very sensitive to changes in water chemistry and temperature, and remain so for some time.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "html": "<p>Honey gouramis are bubble nesters and are fun to breed. Unlike betta breeding, there is no need to separate the juveniles because of aggression. You need at least one male and one female.</p><p>A 40-litre breeding tank was set up with about 15–20 cm of water, a heater set to 28°C and a gentle sponge filter with minimal surface agitation. Add plenty of floating plants such as water sprite and water wisteria so the male has places to anchor his bubble nest. Many hobbyists also recommend sealing the lid with plastic wrap to raise humidity and support proper labyrinth organ development in the fry.</p><p>Add a pair and feed plenty of frozen and live foods such as baby brine shrimp to condition them. After the male builds a bubble nest and courts the female, he embraces her several times and collects the eggs she drops with his mouth, placing them in the nest. He then guards the clutch fiercely and chases away anyone nearby, including the mother, so remove the female at this point. Depending on temperature, the eggs may hatch after 24–36 hours and the fry become free swimming after another 1–2 days. Once the fry leave the nest, remove the male too.</p><p>Honey gouramis can lay hundreds of eggs, but fry mortality is usually high in the first two weeks. The fry are very tiny and need constant access to minuscule foods like infusoria, vinegar eels and powdered fry food. Around 2 weeks old, they should be big enough to eat live baby brine shrimp as their main food. Feed small meals several times a day and do small daily water changes so the fry have enough to eat without fouling the water.</p>"
     },
     {
       "key": "notes",
@@ -191,6 +279,50 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/general/colisa-chuna-2/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/ba6ceef8c0cd21fe.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/ba6ceef8c0cd21fe-480.webp",
+      "width": 1000,
+      "height": 668,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "caption": "male honey gourami with blue-black throat",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/351e451b201d4606.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/351e451b201d4606-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "caption": "Care Guide for Honey Gouramis – Our Favorite Peaceful Gourami - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/f049beca9c105f68.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/f049beca9c105f68-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "caption": "honey gourami",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/c1596dd796bd8fa3.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/c1596dd796bd8fa3-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/honey-gourami",
+      "caption": "honey gourami with tank mate in planted tank",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [
@@ -250,5 +382,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-04"
 }

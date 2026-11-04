@@ -1,0 +1,17 @@
+---
+/**
+ * A translated sentence with figures in it: each {name} becomes its value, a °C range or a length in cm as a span the
+ * units toggle converts (scripts/units.ts), a number as the page's language writes it.
+ */
+import { fmt } from '../lib/format'
+import { i18n } from '../lib/i18n'
+type Value = string | number | { c: [number, number] } | { cm: number }
+interface Props { text: string; vars: Record<string, Value> }
+const { text, vars } = Astro.props
+const { num, range } = fmt(i18n(Astro.url).lang)
+const parts = text.split(/(\{\w+\})/).map(p => { const k = /^\{(\w+)\}$/.exec(p)?.[1]; return k !== undefined && k in vars ? vars[k]! : p })
+---
+{parts.map(p => (typeof p === 'number' ? num(p)
+  : typeof p === 'string' ? p
+  : 'c' in p ? <span data-c={p.c.join(',')}>{range({ min: p.c[0], max: p.c[1] })}°C</span>
+  : <span data-cm={`${p.cm},${p.cm}`}>{num(p.cm)} cm</span>))}

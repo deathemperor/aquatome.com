@@ -1,10 +1,10 @@
-import type { BreedEntity, Content, Photo, PlantEntity, Traits } from '@aq/schema'
+import { resolveDataCard, type BreedEntity, type Content, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
 import { smallSrc } from './img'
-import { localizePath, served, translator, type Lang } from './i18n'
+import { appPath, served, translator, type Lang } from './i18n'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
 import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES, RANKS, TAXON_INTRO } from './taxa-places'
@@ -55,13 +55,18 @@ export type AppItem = {
    * order it names them: the origin pages that list it. None when it names none of them; breeds have none.
    */
   from?: string[]
+  /**
+   * A species' lifespan in years, as its data card resolves it (the site's "Tuổi thọ"): one figure is min = max. None
+   * when no source states it; breeds have none.
+   */
+  lifeYears?: Range
 } & Partial<Facts>
 /**
  * A species' figures and behaviour (fish), named as the tank-mates tool names them (SpeciesIndexItem), so the app checks
  * a tank with the tool's own code. Each one the content has no value for is left out; breeds have none.
  */
 export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
-const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
+export const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
 export type AppIndex = {
   version: 1; lang: Lang; items: AppItem[]; home: AppHome; labels: AppLabels
   /**
@@ -98,7 +103,7 @@ export function appPlants(lang: Lang, c: Content): Content['plants'] {
 }
 /**
  * The glossary terms the index lists in this language, and the app has pages of: every one the glossary list shows
- * (pages/vi/thuat-ngu/index.astro), a page out of search engines too.
+ * (pages/thuat-ngu/index.astro), a page out of search engines too.
  */
 export function appGlossary(lang: Lang, c: Content): Content['glossary'] {
   return served(lang, '/vi/thuat-ngu/x/') ? c.glossary : []
@@ -149,7 +154,7 @@ export type AppPlace = {
  */
 export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map(), everySpecies: Content['species'] = c.species): AppIndex {
   const t = translator(lang)
-  const at = (viPath: string) => localizePath(lang, viPath)
+  const at = (viPath: string) => appPath(lang, viPath)
   const img = (photos: Photo[]) => (photos[0] ? smallSrc(photos[0]) : undefined)
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
@@ -161,7 +166,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     origin: words({ title: ORIGINS, intro: PLACE_INTRO }),
     placeTitle: words(PLACE_TITLES), placeIntro: words(PLACE_INTROS),
   }
-  // The places with a page, as the origin pages list them (pages/vi/nguon-goc/[...path].astro): the continents, and the
+  // The places with a page, as the origin pages list them (pages/nguon-goc/[...path].astro): the continents, and the
   // countries under one. A species is on those it names itself (lib/list-data.ts speciesLists).
   const origins = served(lang, '/vi/nguon-goc/x/') ? c.places.filter(p => p.kind === 'continent' || (p.kind === 'country' && p.parent)) : []
   const paged = new Set(origins.map(p => p.id))
@@ -178,9 +183,11 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const f = toIndexItem(s, traits.get(s.id))
       const facts = Object.fromEntries(FACTS.map(k => [k, f[k]]))
       const from = [...new Set(s.places)].filter(id => paged.has(id))
+      const life = resolveDataCard(s.dataCard.lifeYears ?? [], 'lifeYears')?.value
+      const lifeYears = life === undefined ? undefined : typeof life === 'number' ? { min: life, max: life } : life
       items.push(clean({
         kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), group: groupOf.get(s.id),
-        tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, ...facts,
+        tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, ...facts,
       }))
     }
     // Every breed, as the fish list shows them.
@@ -201,7 +208,9 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const g of appGuides(lang, c)) {
       const m = mentions.get(g.id)
       const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: img(g.photos), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      // Its card's picture on the site: its own photo, else its video's thumbnail, else a fish or plant it names.
+      const ph = guideImage(c, g)
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }

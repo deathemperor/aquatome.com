@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test'
 import { expect, test } from './fixtures'
 
-// The discovery notes (/vi/kham-pha/) and each video channel's guides (/vi/video/kenh/<channel>/) show their first page;
+// The discovery notes (/kham-pha/) and each video channel's guides (/video/kenh/<channel>/) show their first page;
 // "Xem thêm" builds the next page in place from the list's data file (components/MoreList.astro, scripts/list-more.ts),
 // and is a link to the list's numbered pages (…/trang/2/). The test content has 2 notes and 2 videos, so these run on
 // the real build and on aquatome.com; lists and counts are read from the pages.
@@ -15,9 +15,9 @@ const shown = (page: Page, scope = 'main') => page.locator(`${scope} .gc:visible
 
 /** The discovery notes' page, and the channel with the most videos (the video index lists channels by size). */
 async function lists(page: Page) {
-  await page.goto('/vi/video/')
+  await page.goto('/video/')
   const channel = await page.locator('main .chans a').first().getAttribute('href').catch(() => null)
-  return ['/vi/kham-pha/', ...(channel ? [channel] : [])]
+  return ['/kham-pha/', ...(channel ? [channel] : [])]
 }
 
 test('a list of guides: "Xem thêm" adds the next page in place, the same cards its numbered page renders', async ({ page, request, errors }) => {
@@ -45,10 +45,10 @@ test('a list of guides: "Xem thêm" adds the next page in place, the same cards 
 })
 
 test('a list of guides follows "Xem thêm" to its next numbered page when the list can\'t load', async ({ page }) => {
-  await page.goto('/vi/kham-pha/')
+  await page.goto('/kham-pha/')
   test.skip(!(await page.locator('[data-paged]').count()), 'one page of discovery notes')
   await page.route('**/data/*/guides/**', route => route.abort())
   await page.locator('[data-more]').click()
-  await expect(page).toHaveURL(/\/vi\/kham-pha\/trang\/2\/$/)
+  await expect(page).toHaveURL(/\/kham-pha\/trang\/2\/$/)
   await expect(page.locator('main .gc')).not.toHaveCount(0)
 })

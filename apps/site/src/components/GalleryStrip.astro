@@ -7,29 +7,56 @@ import { i18n, served } from '../lib/i18n'
  * `href`: the gallery page; without one (too few photos for a page, or none in this language) each thumb opens its photo.
  * `shown`: of the first photos, those the page doesn't show already (lib/pictures.ts), null for the others: each thumb
  * keeps its place, so it still opens its own photo on the gallery page.
+ * `column`: in the photo column of a fish's page, under its photo (pages/ca/[slug].astro): inside the page's margins,
+ * and beside the facts (above 860 px) headed like their parts.
+ * `more`: the gallery's next photos, after `shown` and placed like them (lib/pictures.ts morePhotos), for the column on
+ * a tall computer screen, which they fill in whole rows; elsewhere they don't show.
  */
-interface Props { photos: Photo[]; href?: string; name: string; shown?: (Photo | null)[] }
+interface Props { photos: Photo[]; href?: string; name: string; shown?: (Photo | null)[]; column?: boolean; more?: (Photo | null)[] }
 const { t, lang } = i18n(Astro.url)
 const href = Astro.props.href && served(lang, Astro.props.href) ? Astro.props.href : undefined
-const { photos, name } = Astro.props
+const { photos, name, column, more = [] } = Astro.props
 const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
 ---
-<section class="wrap strip" aria-labelledby="gal-h">
+<section class:list={['strip', column ? 'column' : 'wrap']} aria-labelledby="gal-h">
   <div class="head"><h2 id="gal-h">{t('Ảnh {name}', { name })}</h2>{href && <a href={href}>{t('Xem tất cả {n} ảnh →', { n: photos.length })}</a>}</div>
-  <ul>
-    {shown.map((p, i) => p && (
-      <li><a href={href ? `${href}#a${i + 1}` : p.url}><img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading="lazy" decoding="async" /></a></li>
+  <ul style={column ? `--rows: ${Math.ceil(shown.filter(Boolean).length / 4)}` : undefined}>
+    {[...shown, ...more].map((p, i) => p && (
+      <li class={i >= shown.length ? 'more' : undefined}><a href={href ? `${href}#a${i + 1}` : p.url}><img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading="lazy" decoding="async" /></a></li>
     ))}
   </ul>
 </section>
 <style>
   .strip { padding-block: var(--space-5); }
-  .head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-4); }
+  .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-1) var(--space-4); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-4); }
   h2 { font-size: var(--step-2); }
   .head a { white-space: nowrap; font-size: 0.95rem; }
   ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); }
   li a { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--c-plate); }
   img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
   li a:hover img { transform: scale(1.04); }
+  .column { padding-bottom: 0; }
+  .more { display: none; }
+  @media (min-width: 861px) {
+    .column h2 { font-size: var(--step-1); }
+    .column .head { margin-bottom: var(--space-3); }
+  }
+  /* In the photo column on a tall screen, the list takes the height the column leaves it (pages/ca/[slug].astro) and
+     fills it in whole rows of the same thumbnails, 4 across, as many as fit: a row is a quarter of the width less the
+     gaps, at 4:3 (--row). Its height is the room it's given, never what it holds (height 0, then flex-grow: Safari sized
+     the column, and the page's top, by every thumbnail with contain: size instead), and never less than the strip's own
+     rows (--rows). A thumbnail past the last whole row goes to the foot of a row far below the list, which clips it:
+     never cut, never seen, and never downloaded (loading="lazy" loads only what the clip lets through). */
+  @media (min-width: 861px) and (min-height: 50rem) {
+    .column { display: flex; flex-direction: column; container-type: inline-size; }
+    .column ul {
+      --row: calc((100cqi - 3 * var(--space-2)) * 3 / 16);
+      flex-grow: 1; height: 0; overflow: clip;
+      min-height: calc(var(--rows) * var(--row) + (var(--rows) - 1) * var(--space-2));
+      grid-template-rows: repeat(auto-fill, var(--row)); grid-auto-rows: calc(4 * var(--row));
+    }
+    .column li { align-self: end; }
+    .column .more { display: block; }
+  }
   @media (max-width: 640px) { ul { grid-template-columns: repeat(3, 1fr); } li:nth-child(n + 7) { display: none; } }
 </style>

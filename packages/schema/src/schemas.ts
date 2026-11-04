@@ -12,7 +12,7 @@ const Range = z.object({ min: z.number(), max: z.number() })
  * minimum tank shorter than twice the fish). The figure stays here, with its source, for a person to look at.
  */
 const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional() })
-const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty'])
+const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'])
 
 const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string() })
 const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), licence: z.string(), author: z.string(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
@@ -169,7 +169,7 @@ export const TranslationSchema = z.object({
   parents: z.array(z.string()).optional(),
   /** Products: names for the spec keys in this language. */
   labels: z.record(z.string(), z.string()).optional(),
-  /** Owner-chosen main name: the engine never replaces it (variety names go to altNames). */
+  /** Owner-chosen main name: the engine never replaces it. */
   nameFixed: z.boolean().optional(),
   /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */
   redirectFrom: z.array(z.object({ slug: z.string(), name: z.string() })).optional(),

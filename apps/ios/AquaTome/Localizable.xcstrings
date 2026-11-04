@@ -3345,6 +3345,22 @@
         }
       }
     },
+    "Lọc kết quả": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saring hasil"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กรองผลการค้นหา"
+          }
+        }
+      }
+    },
     "Lọc theo bể của bạn": {
       "localizations": {
         "id": {
@@ -3613,6 +3629,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิด platform.tuya.com"
+          }
+        }
+      }
+    },
+    "Mở trong tab Đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka di tab Lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดในแท็บไฟ"
           }
         }
       }

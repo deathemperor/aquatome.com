@@ -15,7 +15,9 @@ type Figure = Range | number
 
 /**
  * A quick-facts item's English label → what it repeats. "Care" (The Spruce Pets) and "Keeping" (Aquarium Breeder) are
- * their words for difficulty; Aquarium Breeder's "Optimal …" figures are the ones it gives the card.
+ * their words for difficulty; Aquarium Breeder's "Optimal …" figures are the ones it gives the card. Not a lifespan
+ * yet: the app's facts card has none, and the app's copy of a page reads as the page, so the line stays on both until
+ * the app shows the card's (`lifeYears` in the app index).
  */
 const LABELS: [RegExp, DataCardField | 'family'][] = [
   [/^family$/, 'family'],
@@ -161,7 +163,7 @@ export function figuresOffCard(card: Card, source: string, html: string): { fiel
   return FIELDS.flatMap(field => {
     const vals = card[field] ?? []
     const own = vals.find(v => v.source === source)
-    const r = resolveDataCard(vals)
+    const r = resolveDataCard(vals, field)
     return own && r && key(own.value) !== key(r.value) && states(html, field, own.value) ? [{ field, own: own.value, card: r.value }] : []
   })
 }

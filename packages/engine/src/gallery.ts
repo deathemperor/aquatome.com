@@ -78,7 +78,7 @@ Reject: herbarium sheets, dried or pressed plants; held in a hand or with any pe
 For each kept photo give n, kind and a caption. kind: "submersed" (growing under water), "scape" (one plant among others in a planted tank), "emersed" (growing above water or in a pot), "flower", "detail" (leaves or stem up close), "habitat" (in the wild), else "other". caption: Vietnamese, at most 12 words, saying what the photo shows, e.g. "Bụi ${viName} mọc dưới nước trong bể thủy sinh".
 best: up to 3 numbers of the most beautiful, clearest photos on this sheet.`
   : `Numbered photos that may show ${name} (${viName}), for a photo gallery in an aquarium handbook.
-${strict ? `${name} is a man-made line or hybrid: keep only photos of it, not other varieties, colour forms or hybrids of the same fish.\n` : ''}Keep a photo only if it clearly shows a living ${name}: in an aquarium or in the wild, the fish the main subject, sharp enough to enjoy.
+${strict ? `${name} is a man-made line or hybrid: keep only photos of it, not the plain species or other varieties, colour forms or hybrids of the same fish.\n` : ''}Keep a photo only if it clearly shows a living ${name}: in an aquarium or in the wild, the fish the main subject, sharp enough to enjoy.
 Reject: dead, preserved or in a jar; held in a hand or with any person or body part; drawings, diagrams, maps, collages, screenshots, text overlays or banners; another species as the main subject; very blurry, or the fish tiny in the frame; a near-copy of a photo you keep (keep the better one).
 For each kept photo give n, kind and a caption. kind: "male", "female", "pair", "juvenile", "group" (several together), "form" (a bred colour or fin form), "habitat" (in its wild place), else "other". caption: Vietnamese, at most 12 words, saying what the photo shows (sex, colour form, where), e.g. "Cá betta đực đuôi dài màu đỏ trong bể thủy sinh".
 best: up to 3 numbers of the most beautiful, clearest photos on this sheet.`
@@ -182,10 +182,10 @@ export function rankGallery(photos: GalleryPhoto[]): GalleryPhoto[] {
 }
 
 /**
- * Where each source stands for one species or plant (engine-state/gallery/<id>.json), so each run continues where the
- * last stopped: iNaturalist's cursor, when Commons was read, GBIF's and Openverse's next page; candidates found but not
- * screened yet (`queue`); every candidate screened, kept or not (`judged`), never screened again; the image hash of
- * every photo shown, against near-copies; `exhausted`: the day every source ran dry below target (tried again later).
+ * Where each source stands for one species, plant or breed (engine-state/gallery/<id>.json), so each run continues
+ * where the last stopped: iNaturalist's cursor, when Commons was read, GBIF's and Openverse's next page; candidates found
+ * but not screened yet (`queue`); every candidate screened, kept or not (`judged`), never screened again; the image hash
+ * of every photo shown, against near-copies; `exhausted`: the day every source ran dry below target (tried again later).
  */
 export type GalleryState = {
   inat?: InatCursor
@@ -205,12 +205,67 @@ const UNSPLASH = 'Unsplash License'
 export const sourceOfKey = (key: string) => (key.startsWith('inat:') ? 'iNaturalist' : key.startsWith('flickr:') ? 'Openverse (Flickr)' : key.startsWith('gbif:') ? 'GBIF' : 'Wikimedia Commons')
 class OutOfBudget extends Error {}
 
-type Page = { scientificName: string; photos: Photo[] }
+type Page = { scientificName?: string; photos: Photo[]; commons?: string }
 
 /**
- * Tops up the galleries of species and plants below their tier's target (gallery-plan.ts), most popular first, until
- * `sheets` contact sheets (model calls) are spent. Candidates come from iNaturalist first (every observation with an
- * open-licence photo, research grade, then a community ID that agrees), then Wikimedia Commons, GBIF and Openverse;
+ * The names a breed's photos are searched by: its English and trade names from its research
+ * (engine-state/breeds/<id>.json, where its page's English names come from; Commons and Flickr describe photos in
+ * English, so never its Vietnamese names), each without a note in brackets ("King Kong parrot (large form)"); its id's
+ * words when it has no research. Its own name first; left out, a single word but its own name ("Moor", "Lionhead",
+ * "Plakat" are other things there) and a name another breed has too (koi's "Butterfly koi").
+ */
+export async function breedNames(root: string, id: string): Promise<string[]> {
+  const read = async (b: string) => (JSON.parse(await readFile(join(root, 'engine-state/breeds', `${b}.json`), 'utf8').catch(() => '{}')) as { enNames?: string[] }).enNames ?? []
+  const clean = (n: string) => n.replace(/\s*\([^)]*\)/g, '').trim()
+  const others = new Set<string>()
+  for (const b of await readdir(join(root, 'content/breeds')).catch(() => [] as string[])) if (b !== id) for (const n of await read(b)) others.add(clean(n).toLowerCase())
+  const research = (await read(id)).map(clean).filter(Boolean)
+  const out: string[] = []
+  for (const [i, n] of (research.length ? research : [id.replace(/-/g, ' ')]).entries()) {
+    if (out.some(x => x.toLowerCase() === n.toLowerCase()) || (i > 0 && (!n.includes(' ') || others.has(n.toLowerCase())))) continue
+    out.push(n)
+  }
+  return out
+}
+
+/**
+ * Commons photos of a breed: its own category when it has one (Category:Koi), then each of its names as a phrase, and
+ * the first name's words when it has no category (few files carry "Balloon molly" as such). Each file once.
+ */
+async function breedCommons(category: string | undefined, names: string[], http: Http): Promise<Candidate[]> {
+  const cat = category?.replace(/^Category:/i, '').trim()
+  const out = new Map<string, Candidate>()
+  if (cat) for (const c of await commonsCandidates(cat, http)) out.set(c.key, c)
+  for (const [i, n] of names.entries()) {
+    if (n.toLowerCase() === cat?.toLowerCase()) continue
+    for (const c of await commonsCandidates(n, http, 450, !cat && i === 0)) if (!out.has(c.key)) out.set(c.key, c)
+  }
+  return [...out.values()]
+}
+
+/**
+ * What every other breed page shows (its photos and gallery): their addresses, and their image hashes from the gallery
+ * state. A photo there stays there: Commons and Flickr rarely say which line a fish is (red-tailed golden or super red).
+ */
+async function otherBreeds(root: string, id: string): Promise<{ urls: Set<string>; hashes: string[] }> {
+  const read = async <T>(f: string) => JSON.parse(await readFile(join(root, f), 'utf8').catch(() => 'null')) as T | null
+  const urls = new Set<string>()
+  const hashes: string[] = []
+  for (const b of await readdir(join(root, 'content/breeds')).catch(() => [] as string[])) {
+    if (b === id) continue
+    const e = await read<{ photos?: Photo[] }>(`content/breeds/${b}/entity.json`)
+    const g = await read<{ photos: Photo[] }>(`content/gallery/${b}.json`)
+    for (const p of [...e?.photos ?? [], ...g?.photos ?? []]) urls.add(p.url).add(p.sourceUrl)
+    hashes.push(...Object.values((await read<GalleryState>(`engine-state/gallery/${b}.json`))?.hashes ?? {}).filter(Boolean))
+  }
+  return { urls, hashes }
+}
+
+/**
+ * Tops up the galleries of species, plants and breeds below their tier's target (gallery-plan.ts), most popular first,
+ * until `sheets` contact sheets (model calls) are spent. Candidates come from iNaturalist first (every observation with an
+ * open-licence photo, research grade, then a community ID that agrees), then Wikimedia Commons, GBIF and Openverse; a
+ * breed's from Commons and Openverse only, by its English and trade names (`breedNames`), screened for that line alone;
  * photos the owner rejected or the page already shows are left out; the rest go through the shared screening
  * (`screenTagged`), and only the photos it keeps are added. A page whose sources run dry below target is reported as
  * short and tried again after 30 days. Photos the owner rejected leave every gallery. Stops on a model failure (usage
@@ -262,8 +317,9 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
       if (st.gbif?.key) st.gbif.next = 0
       delete st.openverse
     }
-    // A gallery the old step built screened every Commons candidate it found then: those count as judged.
-    const legacy = !saved && gallery.some(p => !p.source && p.licence !== UNSPLASH)
+    // A gallery the old step built screened every Commons candidate it found then: those count as judged. Not a breed's:
+    // the breed step searched one name, and the photos it kept stay out by address and image hash.
+    const legacy = !saved && t.kind !== 'breeds' && gallery.some(p => !p.source && p.licence !== UNSPLASH)
     const before = gallery.length
     let seenCount = g?.seen ?? 0
     let page: Page | undefined
@@ -278,12 +334,18 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
       const e = JSON.parse(await readFile(join(content, t.kind, t.id, 'entity.json'), 'utf8')) as Page
       page = e
       const vi = JSON.parse(await readFile(join(content, t.kind, t.id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }
-      const sci = e.scientificName
-      // A cultivar or trade form ("Anubias barteri 'Mini Coin'", "Eriocaulon sp. 'Vietnam'"): only its own name, never its
-      // species' photos, and screened for that form alone. A variety's name also as iNaturalist writes it ("Anubias barteri nana").
-      const line = /['‘’"]|\bsp\./.test(sci)
+      // A breed (a line, colour form or hybrid people made) has no scientific name: it goes by its first English name, is
+      // searched on Commons and Openverse (iNaturalist and GBIF know species, and give the wild fish), and a photo another
+      // breed's page shows is not a candidate.
+      const breed = t.kind === 'breeds'
+      const search = breed ? await breedNames(root, t.id) : []
+      const other = breed ? await otherBreeds(root, t.id) : { urls: new Set<string>(), hashes: [] }
+      const sci = breed ? search[0]! : e.scientificName!
+      // A cultivar or trade form ("Anubias barteri 'Mini Coin'", "Eriocaulon sp. 'Vietnam'"), and every breed: only its own
+      // name, never its species' photos, and screened for that form alone. A variety's name also as iNaturalist writes it ("Anubias barteri nana").
+      const line = breed || /['‘’"]|\bsp\./.test(sci)
       const names = line ? [sci] : [sci, sci.replace(/\s(?:var|subsp|ssp|f)\.\s/, ' '), gbifNames[sci]?.canonicalName ?? '']
-      const seen = new Set([...e.photos, ...gallery].flatMap(p => [p.url, p.sourceUrl]))
+      const seen = new Set([...[...e.photos, ...gallery].flatMap(p => [p.url, p.sourceUrl]), ...other.urls])
       const judged = new Set(st.judged)
       const isNew = (c: Candidate) => !isRejected(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
       for (const p of [...e.photos, ...gallery]) {
@@ -300,7 +362,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
             return undefined
           }
         }
-        if (!skip.has('inat') && st.inat?.pass !== 'done') {
+        if (!breed && !skip.has('inat') && st.inat?.pass !== 'done') {
           const r = await attempt('inat', async () => {
             st.inat ??= newInatCursor(await inatTaxon(names, inat))
             const p = await inatPage(st.inat, inat)
@@ -310,7 +372,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
           if (r) return r
         }
         if (!skip.has('commons') && !st.commons) {
-          const r = await attempt('commons', () => commonsCandidates(sci, d.http))
+          const r = await attempt('commons', () => (breed ? breedCommons(e.commons, search, d.http) : commonsCandidates(sci, d.http)))
           if (r) {
             st.commons = today
             if (!legacy) return r
@@ -318,7 +380,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
             return []
           }
         }
-        if (!skip.has('gbif') && (!st.gbif || (st.gbif.key && st.gbif.next !== null))) {
+        if (!breed && !skip.has('gbif') && (!st.gbif || (st.gbif.key && st.gbif.next !== null))) {
           const r = await attempt('gbif', async () => {
             st.gbif ??= { key: line ? null : await gbifUsageKey(gbifNames[sci]?.canonicalName ?? sci, gbif), next: 0 }
             if (!st.gbif.key || st.gbif.next === null) return []
@@ -343,7 +405,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
         }
         return null
       }
-      const dry = () => st.inat?.pass === 'done' && !!st.commons && !!st.gbif && (!st.gbif.key || st.gbif.next === null) && (!d.openverse || st.openverse?.next === null)
+      const dry = () => (breed || (st.inat?.pass === 'done' && !!st.gbif && (!st.gbif.key || st.gbif.next === null))) && !!st.commons && (!d.openverse || st.openverse?.next === null)
 
       while (gallery.length < t.target && left.sheets > 0) {
         const want = Math.max(SHEET, (t.target - gallery.length) * 2)
@@ -354,7 +416,9 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
         }
         if (!st.queue.length) break
         const chunk = st.queue.slice(0, SHEET)
-        const r = await screenTagged(chunk, sci, vi.name ?? sci, d, { plant: t.kind === 'plants', strict: line, hashes: Object.values(st.hashes).filter(Boolean) })
+        // A breed's Vietnamese name without the English one in brackets ("Cá bình tích balloon (Balloon molly)").
+        const viName = (breed ? vi.name?.replace(/\s*\(.*\)\s*$/, '') : vi.name) || sci
+        const r = await screenTagged(chunk, sci, viName, d, { plant: t.kind === 'plants', strict: line, hashes: [...Object.values(st.hashes).filter(Boolean), ...other.hashes] })
         st.queue = st.queue.slice(chunk.length)
         st.judged.push(...chunk.map(c => c.key))
         chunk.forEach(c => judged.add(c.key))
@@ -409,10 +473,10 @@ export async function galleryReview(root: string, plan: PlanItem[], today: strin
   const lines = [
     '# Photo galleries', '',
     `Written by \`pnpm engine gallery\` (${today}). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".`, '',
-    '| Tier | Target | Species | Plants | At target | Below |', '| --- | --- | --- | --- | --- | --- |',
+    '| Tier | Target | Species | Plants | Breeds | At target | Below |', '| --- | --- | --- | --- | --- | --- | --- |',
     ...TIER_ORDER.map(tier => {
       const r = rows.filter(x => x.tier === tier)
-      return `| ${tier} | ${TARGETS[tier]} | ${r.filter(x => x.kind === 'species').length} | ${r.filter(x => x.kind === 'plants').length} | ${r.filter(x => x.have >= x.target).length} | ${r.filter(x => x.have < x.target).length} |`
+      return `| ${tier} | ${TARGETS[tier]} | ${r.filter(x => x.kind === 'species').length} | ${r.filter(x => x.kind === 'plants').length} | ${r.filter(x => x.kind === 'breeds').length} | ${r.filter(x => x.have >= x.target).length} | ${r.filter(x => x.have < x.target).length} |`
     }),
     '', `## Short of target: every source read (${short.length})`, '',
     'Open-licence photos run out for these; each is read again 30 days after it ran dry.', '',

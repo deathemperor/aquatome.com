@@ -8,9 +8,9 @@ import { appPages, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, shardsOf } f
 import { getContent } from '../src/lib/content'
 import { GUIDE_KIND_LABELS } from '../src/lib/format'
 import { guideParts } from '../src/lib/guide-page'
-import { LANGS, localizePath, translator } from '../src/lib/i18n'
+import { appPath, LANGS, translator } from '../src/lib/i18n'
 import { htmlBlocks } from '../src/lib/page-blocks'
-import { DIST, page } from './dist'
+import { appPage, DIST } from './dist'
 
 // The app draws guides from these files instead of loading the web page: what they hold must be the page.
 type Vectors = {
@@ -85,7 +85,7 @@ test('a guide\'s header line, credit and lead photo read as its built page\'s', 
   let leads = 0
   for (const g of appGuides('vi', c)) {
     const d = guideDoc('vi', c, g, listed)
-    const { dom } = page(d.path)
+    const { dom } = appPage(d.path)
     expect(d.title, d.path).toBe(clean(dom.querySelector('h1')!.textContent))
     expect(d.meta, d.path).toBe(clean(dom.querySelector('.kind')!.textContent))
     expect(textOf(d.credit), d.path).toBe(clean(dom.querySelector('.credit')!.textContent))
@@ -165,7 +165,7 @@ test('each page of each kind is in the shard its path names, the shards hold not
     expect(ix.shards ?? {}, lang).toEqual(Object.fromEntries(Object.entries(counts).map(([k, n]) => [k, { n, level: PAGE_LEVELS[k as PageDoc['kind']] }])))
     expect(ix.pages ?? {}, lang).toEqual(counts.guide ? { guide: counts.guide } : {})
     // A kind's pages are the ones the index lists of it (a breed is listed as a fish, and has no page here yet).
-    const at = (vi: string) => localizePath(lang, vi)
+    const at = (vi: string) => appPath(lang, vi)
     const want: Record<PageDoc['kind'], string[]> = {
       guide: ix.items.filter(i => i.kind === 'guide').map(i => i.path),
       fish: appSpecies(lang, c).map(s => at(`/vi/ca/${s.t.slug}/`)),
@@ -232,7 +232,7 @@ test('each kind\'s copies use only the blocks its level reads, inside lists too:
 })
 
 test('the guide page and the app\'s copy are put together by the same code', () => {
-  const page = readFileSync(new URL('../src/pages/vi/huong-dan/[slug].astro', import.meta.url), 'utf8')
-  expect(page).toContain("from '../../../lib/guide-page'")
+  const page = readFileSync(new URL('../src/pages/huong-dan/[slug].astro', import.meta.url), 'utf8')
+  expect(page).toContain("from '../../lib/guide-page'")
   for (const own of ['placeFigures(', 'withToc(', 'mentionIndex(', 'nextGuides(']) expect(page, own).not.toContain(own)
 })

@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e-8kgdc
 title: Stiphodon Ornatus – BWAquatics
-fetchedAt: 2026-10-29T05:27:30.659Z
+fetchedAt: 2026-11-04T14:18:25.897Z
 hash: 38523cc713e2549d12c945b3375ed5caaf602a9991bec8700707d9e66deaa1b9
 ---
 

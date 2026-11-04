@@ -38,15 +38,39 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/c7d7ad5c91eb483f.webp",
-      "thumb": "https://media.aquatome.com/commons/c7d7ad5c91eb483f-480.webp",
-      "width": 853,
-      "height": 1280,
-      "licence": "CC BY 2.0",
-      "author": "Cliff from Arlington, Virginia, USA",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altum_Angelfish_(Pterophyllum_altum)_(3152823826).jpg",
-      "caption": "Cá ông tiên altum thân cao giữa cây thủy sinh xanh",
-      "best": false,
+      "url": "https://media.aquatome.com/inaturalist/85056963.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/85056963-480.webp",
+      "width": 953,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Vince Smith",
+      "sourceUrl": "https://www.inaturalist.org/photos/85056963",
+      "caption": "Cá ông tiên altum bơi cạnh đá và lũa trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/137501252.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/137501252-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Matt Schultz",
+      "sourceUrl": "https://www.inaturalist.org/photos/137501252",
+      "caption": "Cá ông tiên altum sọc đậm trong bể cây thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/145416143.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/145416143-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Afonso Nóbrega",
+      "sourceUrl": "https://www.inaturalist.org/photos/145416143",
+      "caption": "Cá ông tiên altum bơi trên nền cát trong bể",
+      "best": true,
       "kind": "other"
     },
     {
@@ -84,9 +108,21 @@
       "caption": "Cá ông tiên altum bơi cạnh đá và cây thủy sinh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c7d7ad5c91eb483f.webp",
+      "thumb": "https://media.aquatome.com/commons/c7d7ad5c91eb483f-480.webp",
+      "width": 853,
+      "height": 1280,
+      "licence": "CC BY 2.0",
+      "author": "Cliff from Arlington, Virginia, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altum_Angelfish_(Pterophyllum_altum)_(3152823826).jpg",
+      "caption": "Cá ông tiên altum thân cao giữa cây thủy sinh xanh",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 20,
-  "updatedAt": "2026-11-03",
-  "builtAt": "2026-11-03"
+  "seen": 24,
+  "updatedAt": "2026-11-04",
+  "builtAt": "2026-11-04"
 }

@@ -1,12 +1,12 @@
 import type { Device } from '@aq/schema'
-import { MODE, clockDrift, hoursLit, levelAt, modelOf, setLevel, setMode, setSchedule, setTime, type Channel, type Model } from './chihiros'
+import { MODE, clockDrift, hoursLit, isChihiros, levelAt, modelOf, setLevel, setMode, setSchedule, setTime, type Channel, type Model } from './chihiros'
 import { ct } from './ct'
 import { connect, type Bluetooth, type Light } from './light-ble'
 import { css, curve, lit, mix, snap, toMin, toTime } from './light-view'
 import * as store from './tank-store'
 
 /**
- * The Chihiros page (pages/vi/cong-cu/den-chihiros.astro): the light card, the day's timeline, colour, writing the
+ * The Chihiros page (pages/cong-cu/den-chihiros.astro): the light card, the day's timeline, colour, writing the
  * schedule, and what this browser remembers of each light (tank-store.ts).
  */
 type Plan = { on: string; off: string; ramp: number; levels: number[]; name?: string }
@@ -221,7 +221,7 @@ function say(text: string, o: { bad?: boolean; action?: [string, () => void] } =
 
 function paintCard() {
   if (state === 'idle') {
-    const known = store.liveDevices(db).filter(d => d.kind === 'light')
+    const known = store.liveDevices(db).filter(isChihiros)
     const list = $('ch-known')
     list.hidden = !known.length
     $('ch-howto').hidden = !!known.length && !lost

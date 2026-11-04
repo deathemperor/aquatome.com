@@ -1,8 +1,8 @@
 ---
 url: https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica
 title: How to grow Limnophila aromatica - The 2Hr Aquarist
-fetchedAt: 2026-11-03T14:21:27.086Z
-hash: 576c29dea2a1673f2d7aa38fe0546e33e37f066e71610b5306aaa2ee3dcf7fb0
+fetchedAt: 2026-11-04T00:26:40.526Z
+hash: e78f99d85408f8a9f0753d2fb6203ccee808219431058be73fc7b373da614587
 ---
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ Your Cart is Empty
 - Algae APT FIX APT FIXLITE APT PURE
 - Trident Circle
 - How To Hot Topics Solve Algae Optimise CO2 Fine-tune Lighting Fertilise & Boost Tackle specific plants Target water parameters Choose Tanks & Filters Select Substrate Care for animals
-- 3 ACES Network Dealer Direct Affiliate Program
+- 3 ACES Network Dealer Direct
 - Help Dosing Calculators Product Help Center Contact Us Returns and refunds
 Home / Plants
 Previous / Next

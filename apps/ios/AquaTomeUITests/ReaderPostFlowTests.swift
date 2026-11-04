@@ -47,8 +47,8 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Đã đăng bình luận."].waitForExistence(timeout: 5), "the comment wasn't posted")
     app.buttons["Đóng"].tap()
     // Away to another tab and back: the page reads its comments again, as the site had them before.
-    app.tabBars.buttons["Bể của tôi"].tap()
-    app.tabBars.buttons["Tìm"].tap()
+    app.openTab("Bể của tôi")
+    app.openTab("Tìm")
     XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "not back on the page")
     let comments = app.descendants(matching: .any).matching(identifier: "comment")
     let mine = comments.matching(NSPredicate(format: "label ENDSWITH %@", "\nĐàn 12 con khỏe.")).firstMatch
@@ -78,7 +78,9 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Chọn một ảnh trước đã."].waitForExistence(timeout: 5), "sent with no photo")
   }
 
-  /// A photo sent with consent: received for moderation, and the link that takes it back shown this once.
+  /// A photo sent with consent: received for moderation, the photo sent still shown, and the link that takes it back
+  /// shown this once, to keep: a tap on it doesn't open the page that removes the photo (a reader took the link for
+  /// their photo).
   func testAPhotoSentWithConsentShowsItsTakeBackLinkOnce() {
     let app = launch("-picked-photo")
     openNeon(app)
@@ -92,7 +94,13 @@ final class ReaderPostFlowTests: XCTestCase {
     let link = app.descendants(matching: .any)["post-delete"]
     XCTAssertTrue(link.waitForExistence(timeout: 3), "no link to take the photo back")
     XCTAssertTrue(link.label.hasPrefix("https://aquatome.com/_p/xoa/?id="), link.label)
+    XCTAssertTrue(app.images["post-sent"].exists, "the photo sent not shown")
+    XCTAssertEqual(app.images["post-sent"].label, "Ảnh của Hà")
+    XCTAssertEqual(link.elementType, .staticText, "the take-back link is a link to follow")
+    link.tap()
     app.buttons["Đóng"].tap()
+    // The fish's page, not the page that removes the photo, pushed behind the form.
+    XCTAssertTrue(app.buttons["post-photo"].waitForExistence(timeout: 5), "a tap on the link opened a page behind the form")
     app.buttons["post-photo"].tap()
     XCTAssertTrue(app.buttons["post-send"].waitForExistence(timeout: 5))
     XCTAssertFalse(app.descendants(matching: .any)["post-delete"].exists, "the link shown again")
@@ -132,7 +140,7 @@ final class ReaderPostFlowTests: XCTestCase {
   }
 
   /// A reader's photo reported from its viewer, with no reason given: the viewer closes on the thanks, the photo gone
-  /// from the page. The page's last one reported takes its viewer with it, and the page says what it hides.
+  /// from the page. The page's last one too, though its row goes with it; the page then says what it hides.
   func testAReadersPhotoIsReportedFromItsViewer() {
     let app = launch()
     openNeon(app)
@@ -157,9 +165,8 @@ final class ReaderPostFlowTests: XCTestCase {
     app.buttons["Báo cáo"].tap()
     XCTAssertTrue(app.buttons["Spam hoặc quảng cáo"].waitForExistence(timeout: 5), "not asked why")
     app.buttons["Spam hoặc quảng cáo"].tap()
-    // The row goes with its last photo, and its viewer with it: the thanks, if it shows at all, closed.
-    let thanks = app.alerts["Đã gửi báo cáo. Cảm ơn bạn."]
-    if thanks.waitForExistence(timeout: 3) { thanks.buttons["Đóng"].tap() }
+    // The page's last photo: the thanks still shows in its viewer, and the row goes as it closes.
+    thanked(app)
     XCTAssertTrue(gone(app.descendants(matching: .any)["gallery"]), "the viewer stayed open")
     XCTAssertFalse(app.buttons["Ảnh của Minh"].exists, "the reported photo still shows")
     let note = app.descendants(matching: .any)["readers-hidden"]
@@ -200,7 +207,7 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(block.waitForExistence(timeout: 5), "not asked")
     block.tap()
     XCTAssertTrue(gone(comment(app, "Minh")), "the blocked poster's comment still shows")
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     let header = app.descendants(matching: .any)["blocked-header"]
     for _ in 0..<4 where !header.exists { app.swipeUp() }
     XCTAssertTrue(header.waitForExistence(timeout: 5), "no blocked list in the tanks tab")
@@ -208,7 +215,7 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertEqual(unblock.label, "Bỏ chặn Minh")
     unblock.tap()
     XCTAssertTrue(gone(header), "the list stayed with no one in it")
-    app.tabBars.buttons["Tìm"].tap()
+    app.openTab("Tìm")
     XCTAssertTrue(comment(app, "Minh").waitForExistence(timeout: 5), "let back, still hidden")
   }
 
@@ -287,7 +294,9 @@ final class ReaderPostFlowTests: XCTestCase {
     let box = app.switches["post-consent"]
     for _ in 0..<4 where !box.isHittable { app.swipeUp() }
     box.switches.firstMatch.exists ? box.switches.firstMatch.tap() : box.coordinate(withNormalizedOffset: CGVector(dx: 0.95, dy: 0.5)).tap()
-    XCTAssertEqual(box.value as? String, "1", "consent not ticked")
+    // Its value follows the tap a moment later, as the switch slides (read at once, it failed on #450's run).
+    let on = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value == '1'"), object: box)
+    XCTAssertEqual(XCTWaiter().wait(for: [on], timeout: 3), .completed, "consent not ticked")
   }
 
   /// Scrolled into view half a screen at a time, without a fling, so no part is scrolled past: the readers' part sits

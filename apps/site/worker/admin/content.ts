@@ -1,5 +1,6 @@
-import { isReader, SESSIONS_SQL, type Session } from '../readers'
-import { aeSql, num } from './ae'
+import { withoutVi } from '../paths'
+import { isReader, querySessions, type Session } from '../readers'
+import { EVENTS, eventsSql, num } from './ae'
 import type { ByLang, ContentStats, EntityKind, Lang, PageKind, PageRow, Totals } from './content-shape'
 
 export type * from './content-shape'
@@ -36,9 +37,12 @@ export function pageIndex(s: ContentStats): Map<string, PageInfo> {
   return m
 }
 
-/** A path as the beacon sends it → the index's form: the site's pages all end in "/" (force-trailing-slash). */
+/**
+ * A path as the beacon sends it → the index's form: the site's pages all end in "/" (force-trailing-slash), and a view
+ * of an old /vi/… address (before the Vietnamese pages moved to the root) counts for the page's address now.
+ */
 export const pagePathOf = (p: string) => {
-  const path = p.split(/[?#]/)[0]!.replace(/index\.html$/, '')
+  const path = withoutVi(p.split(/[?#]/)[0]!.replace(/index\.html$/, ''))
   return path.endsWith('/') ? path : `${path}/`
 }
 
@@ -46,8 +50,8 @@ export const pagePathOf = (p: string) => {
 
 export type PageView = { sid: string; p: string; views: number | string }
 /** Views per session and page; the sessions come from readers.ts's query, so "reader" means what it means there. */
-export const PAGE_VIEWS_SQL = (days: number) => `SELECT blob4 AS sid, blob3 AS p, SUM(_sample_interval) AS views
-FROM thuysinh_events WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid, p FORMAT JSON`
+export const PAGE_VIEWS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, blob3 AS p, SUM(_sample_interval) AS views
+FROM ${table} WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid, p FORMAT JSON`
 
 export type PageReads = { path: string; title: string; kind: PageKind; readers: number; views: number }
 export type ContentReads = {
@@ -110,8 +114,8 @@ export function joinReads(stats: ContentStats, sessions: Session[], views: PageV
   }
 }
 
-export async function queryContentReads(accountId: string, token: string, stats: ContentStats, days = 30): Promise<ContentReads> {
-  const [sessions, views] = await Promise.all([aeSql<Session>(accountId, token, SESSIONS_SQL(days)), aeSql<PageView>(accountId, token, PAGE_VIEWS_SQL(days))])
+export async function queryContentReads(accountId: string, token: string, stats: ContentStats, days = 30, now?: number): Promise<ContentReads> {
+  const [sessions, views] = await Promise.all([querySessions(accountId, token, days, now), eventsSql<PageView>(accountId, token, t => PAGE_VIEWS_SQL(days, t), now)])
   return joinReads(stats, sessions, views, days)
 }
 

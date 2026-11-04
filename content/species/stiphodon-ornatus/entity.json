@@ -59,18 +59,6 @@
   },
   "sections": [
     {
-      "key": "quickFacts",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e-8kgdc",
-      "html": "<p>Stiphodon ornatus is an algae-grazing goby. It is a peaceful fish.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e-8kgdc",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
-    },
-    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-ornatus",
@@ -81,12 +69,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-ornatus",
       "html": "<p>Known only from the provinces of Aceh and West Sumatra, Sumatra, Indonesia.</p><p>Type locality is 'Barung Belantai River, Sumatra, Indonesia', which appears to correspond to a small river running close to a village named Barung Barung Belantai in West Sumatra province.</p><p>Western Sumatra appears to be the main source of Stiphodon species for the aquarium trade (Maeda and Tan, 2013) and this has aided in the positive identification of S. ornatus since its known range does not overlap with any similar-looking congener, of which there are several (see 'Notes').</p><p>All Stiphodon in the aquarium trade are wild-collected and concerns have been raised regarding their conservation status since some are locally endemic and may already be threatened by habitat degradation, pollution or introduction of exotic species such as tilapia.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e-8kgdc",
-      "html": "<p>They prefer fast-moving water with high oxygen levels. A river tank set-up would be ideal for this type of species, but they can be kept well in other tanks.</p>"
     },
     {
       "key": "habitat",
@@ -113,16 +95,22 @@
       "html": "<ul><li>Temperature: 20–28°C; increased surface agitation is needed to maintain dissolved oxygen levels towards the upper end of this range.</li><li>pH: 6.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e-8kgdc",
+      "html": "<p>It prefers fast-moving water with high oxygen levels. A river tank set-up would be ideal for this species, but it can also be kept well in other tanks.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-ornatus",
       "html": "<p>Stiphodon spp. are specialised grazers feeding on benthic algae plus associated micro-organisms and possess subterminal, extrusible mouthparts with dentition designed for the purpose including regenerative teeth. The pelvic disc is also important not only to maintain position in rapidly-flowing water but also to provide leverage.</p><p>In the aquarium some sinking dried products and small, meaty foods such as live or frozen bloodworm may be accepted but should only be offered irregularly since the elongate gut is specifically designed to process vegetable matter. For long-term success it's thus essential to provide a mature aquarium with a plentiful supply of algae-covered rocks and other surfaces.</p><p>If unable to grow sufficient algae in the main tank or you have a community containing numerous herbivorous fishes which consume what's available quickly, it may be necessary to maintain a separate container in which to grow algae on rocks and switch them with those in the main tank on a cyclical basis. Such a 'nursery' doesn't have to be very large, requires only strong lighting and in sunny climates can be kept outdoors.</p><p>Algal type is also important, with diatoms, cyanobacteria (commonly referred to as blue-green 'algae') and green varieties preferred to tougher ones like rhodophytic 'black brush' algae.</p><p>Unfortunately, as a result of their specialised diet and oxygen requirements, Stiphodon spp. are regularly seen on sale in an emaciated state which can be tricky to correct. A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a readily-available source of suitable foods in the absence of competitors if they're to recover.</p>"
     },
     {
-      "key": "behaviour",
+      "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e-8kgdc",
-      "html": "<p>Peaceful, but may get territorial towards other gobies. Their colours come out most when they are most comfortable, especially in the dominant males of the group.</p>"
+      "html": "<p>Stiphodon ornatus is an algae-grazing goby.</p>"
     },
     {
       "key": "behaviour",
@@ -131,10 +119,22 @@
       "html": "<p>Stiphodon spp. can be kept in a community provided tankmates are chosen with care. Peaceful, similarly-sized species which naturally inhabit well-oxygenated streams such as Tanichthys, Microdevario, or smaller Danio species are the best choices for the upper levels, but it has also been seen maintained with various characins, small poeciliid livebearers, and freshwater shrimp of the genera Caridina and Neocaridina.</p><p>Other bottom-dwellers can include small loaches from genera such as Gastromyzon, Pseudogastromyzon, Barbucca, or Acanthopsoides, and in high-turnover set-ups obligate torrent-dwellers like Annamia, Homaloptera, etc. Avoid those that feed aggressively such as many Schistura spp.</p><p>Bigger fishes are best omitted entirely although in large set-ups it may be possible to add a few non-predatory, surface-dwelling species, while the majority of cichlids and other territorial fishes inhabiting the lower reaches should be avoided entirely.</p><p>Males tend to be loosely territorial, especially when breeding, but several can be kept together provided sufficient space and suitable foods are available, and other stream-dwelling gobies such as Sicyopus, Sicyopterus, Rhinogobius, or Schismatogobius spp. also make good companions.</p><p>Though males aren't necessarily gregarious, females tend to exist in loose groups, meaning a single male with two or more females is the recommended minimum purchase. Females of different species will group together but males appear able to differentiate between them.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e-8kgdc",
+      "html": "<p>A peaceful fish, but it may become territorial towards other gobies.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/stiphodon-ornatus",
       "html": "<p>As with all members of the genus sexual dimorphism is pronounced, though in this case males are hard to define. Base body colouration varies from pale olive to dark brown with dark-edged scales but they're capable of rapidly changing to a much darker patterning, and the degree to which this occurs is also highly variable. While some specimens remain dark much of the time once settled into the aquarium, others switch between dark and light colouration, are only dark rarely, or even not at all.</p><p>Cheek colouration can be orange or gold to vivid blue and is easily distorted by flash photography. Basic fin colouration is orange/red with dark rays, the second dorsal, anal, and distal portion of the caudal-fin are bordered in whitish blue and all the fins contain irregular rows of dark markings and chromatophores. In dark individuals the finnage also tends to darken and can appear completely black with just a thin orange to bluish border in extreme cases.</p><p>Females are relatively plain and similar in appearance to those of some other species, with a pale base colouration and two dark, lateral body stripes. The latter have relatively uniform, straight edges compared with most other species, especially in the anterior portion of the body. Two additional thin dark stripes run over the head and dorsal surface, merging into one around the second dorsal-fin and meeting the upper body stripe on the caudal peduncle. When an individual is stressed or excited colouration pales considerably, the body scales appear edged in black, and the fins contain irregular rows of black markings and in some specimens, lighter chromatophores.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/stiphodon-atropurpureus-6e83k-k4m3e-8kgdc",
+      "html": "<p>Its colours show most when the fish are most comfortable, especially in the dominant males of the group.</p>"
     },
     {
       "key": "reproduction",
@@ -211,7 +211,32 @@
       "caption": "France, by Laurent Pasteur"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "4VNFFnTHhkk",
+      "title": "RAINBOW GOBY: FULL CARE GUIDE (STIPHODON ORNATUS)",
+      "durationSec": 374,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "022AmVzjpNA",
+      "title": "Stiphodon ornatus. Rainbow Goby is the BEST bottom feeder for planted tank! (Leopard Aquatic K029A)",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "b2LKO_moh2w",
+      "title": "Stiphodon ornatus (rainbow goby). Just chilling in 300L asiatic aquarium.",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ts-GKerFb5k",
+      "title": "Adding COLORFUL RAINBOW GOBY to RIVER AQUARIUM | EP7 HILLSTREAM AQUARIUM",
+      "durationSec": 521,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "loc",
@@ -227,5 +252,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }

@@ -1,0 +1,74 @@
+{
+  "id": "corydoras-reticulatus",
+  "scientificName": "Corydoras reticulatus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-reticulatus-2/",
+      "html": "<p>The maximum length of C. reticulatus is around 6-7 cm in total, including the caudal fin. The species makes no special demands on care. Medium water values, temperatures in the range of 22-26°C and a sandy bottom, company of conspecifics: these are the key data for successful care.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-reticulatus-2/",
+      "html": "<p>C. reticulatus can be easily distinguished from the similar species Corydoras sodalis by the deep black spot on the dorsal fin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-reticulatus-2/",
+      "html": "<p>A special feature of this species are the extremely pointed fin spines of the dorsal and pectoral fins, which make it very easy for them to get tangled in the net. The risk is reduced (but by no means eliminated) if the nets used are as fine-meshed as possible. However, it is better to catch these animals with a large cup.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "cát mịn cho cá chuột"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên chìm cá chuột"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

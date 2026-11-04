@@ -40,12 +40,12 @@ export function profile(s: Localized<SpeciesEntity>): string {
 /** The data card as every page shows it: one resolved value per field. */
 export type Card = Partial<Record<DataCardField, Range | number>>
 export const cardOf = (s: SpeciesEntity): Card =>
-  Object.fromEntries(Object.entries(s.dataCard).flatMap(([k, v]) => { const r = resolveDataCard(v ?? []); return r ? [[k, r.value]] : [] }))
+  Object.fromEntries(Object.entries(s.dataCard).flatMap(([k, v]) => { const r = resolveDataCard(v ?? [], k as DataCardField); return r ? [[k, r.value]] : [] }))
 
 const vn = (n: number) => String(n).replace('.', ',')
 const span = (v: Range | number) => (typeof v === 'number' ? vn(v) : v.min === v.max ? vn(v.min) : `${vn(v.min)}–${vn(v.max)}`)
 const CARD_LINES: [DataCardField, string, string][] = [
-  ['tempC', 'Nhiệt độ', ' °C'], ['ph', 'pH', ''], ['gh', 'Độ cứng', ' dGH'], ['sizeCm', 'Kích thước trưởng thành', ' cm'], ['tankCm', 'Bể tối thiểu (chiều dài)', ' cm'], ['difficulty', 'Độ khó', '/8 (1–3 dễ, 4–5 vừa, 6–8 khó)'],
+  ['tempC', 'Nhiệt độ', ' °C'], ['ph', 'pH', ''], ['gh', 'Độ cứng', ' dGH'], ['sizeCm', 'Kích thước trưởng thành', ' cm'], ['tankCm', 'Bể tối thiểu (chiều dài)', ' cm'], ['difficulty', 'Độ khó', '/8 (1–3 dễ, 4–5 vừa, 6–8 khó)'], ['lifeYears', 'Tuổi thọ', ' năm'],
 ]
 export function cardBlock(card: Card): string {
   const lines = CARD_LINES.flatMap(([f, label, unit]) => (card[f] === undefined ? [] : [`- ${label}: ${span(card[f]!)}${unit}`]))
@@ -70,7 +70,7 @@ const UNIT_FIELDS: [RegExp, DataCardField][] = [
   [new RegExp(`\\bpH\\s*(?::\\s*|khoảng\\s+|từ\\s+)?${N}(?:${TO}${N})?`, 'gi'), 'ph'],
   [new RegExp(`${N}(?:${TO}${N})?\\s*dGH|\\bGH\\s*(?::\\s*|khoảng\\s+|từ\\s+)?${N}(?:${TO}${N})?`, 'g'), 'gh'],
 ]
-const LABEL: Record<DataCardField, string> = { tempC: 'temperature', ph: 'pH', gh: 'hardness', sizeCm: 'adult size', tankCm: 'minimum tank', difficulty: 'difficulty' }
+const LABEL: Record<DataCardField, string> = { tempC: 'temperature', ph: 'pH', gh: 'hardness', sizeCm: 'adult size', tankCm: 'minimum tank', difficulty: 'difficulty', lifeYears: 'lifespan' }
 /** A length: "3,5 cm", "35 mm", "4–5 cm", or a tank's dimensions "60 × 30 cm" (its first figure is the length). */
 const LENGTH = new RegExp(`${N}((?:\\s*[×x]\\s*\\d+(?:[.,]\\d+)?)+)?(?:${TO}${N})?\\s*(cm|mm)(?!\\p{L})`, 'gu')
 const TANK_WORD = /(?<!\p{L})bể(?!\p{L})/gu

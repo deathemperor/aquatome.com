@@ -1,11 +1,15 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import type { Content } from '@aq/schema'
+import { withoutVi } from '../../worker/paths'
 import { localizePath, type Lang } from './i18n'
 
-/** Paths hidden from the /_ab/ dashboard, fetched by deploy.sh into .hidden.json; none when the file is absent. */
+/**
+ * Paths hidden from the /_ab/ dashboard, fetched by deploy.sh into .hidden.json; none when the file is absent. A page
+ * hidden by its old /vi/ address counts by its root one.
+ */
 export function readHidden(file = process.env.HIDDEN_FILE ?? resolve(process.cwd(), '.hidden.json')): Set<string> {
-  return existsSync(file) ? new Set(Object.keys(JSON.parse(readFileSync(file, 'utf8')))) : new Set()
+  return existsSync(file) ? new Set(Object.keys(JSON.parse(readFileSync(file, 'utf8'))).map(withoutVi)) : new Set()
 }
 
 /** Drop hidden pages from the content, so every list, the sitemap, search and index.md follow. */

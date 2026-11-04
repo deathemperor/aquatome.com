@@ -1,4 +1,5 @@
 import { esc } from './chart'
+import { HOME_TZ, stamp } from './time'
 
 /** The admin pages' frame: one stylesheet in the site's world (light or dark as the phone is set), the nav, a section that failed to load. */
 
@@ -6,7 +7,9 @@ export const NAV = [
   ['/_ab/', 'Tổng quan'],
   ['/_ab/noi-dung/', 'Nội dung'],
   ['/_ab/doc-gia/', 'Người đọc'],
+  ['/_ab/ung-dung/', 'Ứng dụng'],
   ['/_ab/nhan-dien-ca/', 'Nhận diện cá'],
+  ['/_ab/anh-nhan-dien/', 'Ảnh nhận diện'],
   ['/_ab/affiliate/', 'Affiliate'],
   ['/_ab/muon-co/', 'Bạn đọc muốn có'],
   ['/_ab/anh-ban-doc/', 'Ảnh bạn đọc'],
@@ -30,11 +33,11 @@ const FONTS = ['latin', 'vietnamese'].flatMap(sub => [
 const CSS = `${FONTS}
 :root{--paper:#f3eee3;--plate:#fbf8f1;--mat:#fff;--ink:#1d2a22;--ink-2:#3f4c44;--muted:#5a665e;--rule:#d9d0bd;--grid:#e7e0d0;--axis:#b3a88f;
 --moss:#2f6b4f;--moss-wash:#e1eadf;--rust:#a0522d;--rust-wash:#f6e4d7;--water:#0a1a1d;--on-dark:#e4efed;--on-dark-soft:#9db7b3;--select:#e8d5b5;--focus:#c46a36;
---s1:#2f6b4f;--s2:#3b6d8c;--s3:#a0522d;--good:var(--moss);--bad:var(--rust);
+--s1:#0c6944;--s2:#2d76a3;--s3:#a6552d;--whole:#d9e2d5;--mute:#a19c8e;--good:var(--moss);--bad:var(--rust);
 --sans:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--serif:'Newsreader',Georgia,'Times New Roman',serif;--r:12px;color-scheme:light}
 @media (prefers-color-scheme:dark){:root{--paper:#0b1a1e;--plate:#11262b;--mat:#16302f;--ink:#e6efec;--ink-2:#c3d4cf;--muted:#94ada7;--rule:#24423f;--grid:#1a3335;--axis:#3d5d5a;
 --moss:#6fd6be;--moss-wash:#123631;--rust:#ff9b7f;--rust-wash:#3b2119;--water:#061013;--on-dark:#e6efec;--on-dark-soft:#9db7b3;--select:#2e5a52;--focus:#6fd6be;
---s1:#6fd6be;--s2:#8ab9e3;--s3:#ff9b7f;color-scheme:dark}}
+--s1:#36a980;--s2:#359bd9;--s3:#cb7a5b;--whole:#244a45;--mute:#5d7a75;color-scheme:dark}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;background:var(--paper);scrollbar-color:var(--axis) transparent}
 body{margin:0;font:15px/1.5 var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
@@ -91,11 +94,11 @@ section>h2:first-child{margin-top:28px}
 .area .trend{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
 .area .chev{color:var(--axis)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--rust);flex:none}
-.spark{display:block;width:96px;height:30px;overflow:visible}
-.spark .ln{fill:none;stroke:var(--moss);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
-.spark .ar{fill:var(--moss);opacity:.12}
-.spark .end{fill:var(--moss)}
-.spark.warn .ln{stroke:var(--rust)}.spark.warn .ar,.spark.warn .end{fill:var(--rust)}
+.spark{display:block;width:104px;height:30px}
+.spark line{stroke:var(--rule);stroke-width:1}
+.spark .now{fill:var(--s1)}
+.spark .was{fill:color-mix(in srgb,var(--s1) 42%,var(--plate))}
+.spark .old{fill:color-mix(in srgb,var(--muted) 30%,var(--plate))}
 .chip{display:inline-block;font-size:12px;font-weight:600;line-height:1.3;padding:3px 8px;border-radius:999px;white-space:nowrap;background:var(--grid);color:var(--ink-2)}
 .chip.good{background:var(--moss-wash);color:var(--moss)}
 .chip.bad{background:var(--rust-wash);color:var(--rust)}
@@ -150,37 +153,73 @@ code{font:.85em ui-monospace,SFMono-Regular,Menlo,monospace}
 .delta.bad{color:var(--bad);font-weight:600}
 .charts{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));margin-top:12px}
 .chart{margin:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);padding:14px 14px 6px;min-width:0}
-.chart figcaption{margin-bottom:6px}
-.chart svg{display:block;width:100%;max-width:560px;height:auto;overflow:visible}
-.chart .empty{color:var(--muted);margin:24px 0 18px}
-.chart details{margin:6px 0 4px}
+.chart figcaption{margin-bottom:2px}
+.chart .empty{color:var(--muted);margin:16px 0 14px;padding:22px 0;border-bottom:1px solid var(--axis)}
+.chart details{margin:4px 0 4px}
 .chart details .scroll{margin-top:6px;max-height:22rem;overflow:auto}
 summary{cursor:pointer;color:var(--muted);font-size:.85rem;padding:8px 0;min-height:36px}
 summary:hover{color:var(--ink)}
-.legend{display:flex;flex-wrap:wrap;gap:4px 16px;margin:0 0 6px;padding:0;list-style:none;font-size:.85rem;color:var(--ink-2)}
-.key{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.key.kl{width:16px;height:2px;border-radius:1px;vertical-align:4px}
-.s1{fill:var(--s1);background:var(--s1)}
-.s2{fill:var(--s2);background:var(--s2)}
-.s3{fill:var(--s3);background:var(--s3)}
-.chart .line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
-.chart .line.s1{stroke:var(--s1)}
-.chart .line.s2{stroke:var(--s2)}
-.chart .line.s3{stroke:var(--s3)}
-.chart .dot{stroke:var(--plate);stroke-width:2;width:auto;height:auto;border-radius:0;background:none}
-.chart .today{opacity:.45}
-.chart .grid{stroke:var(--grid);stroke-width:1}
-.chart .base{stroke:var(--axis);stroke-width:1}
-.chart .tick{font:12px var(--sans);fill:var(--muted);font-variant-numeric:tabular-nums}
-.chart .end{font:600 12px var(--sans);fill:var(--ink)}
-.chart .hit{fill:transparent}
-.chart .hit:hover{fill:color-mix(in srgb,var(--ink) 7%,transparent)}
+/* A chart's readout: the period's totals, or the day picked; each series keyed by its colour */
+.readout{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 14px;margin:4px 0 0;max-width:none;font-size:.85rem;color:var(--ink-2);line-height:1.5}
+.readout .when{color:var(--muted);flex:0 0 100%}
+.readout.sel .when{color:var(--ink);font-weight:600}
+.readout .v{white-space:nowrap}
+.readout b{font:600 1.15rem/1.3 var(--serif);color:var(--ink);letter-spacing:-.005em}
+.readout:not(.multi) b{font-size:1.5rem;line-height:1.2}
+.readout .hint{display:none;flex:0 0 100%;font-size:.78rem;color:var(--muted)}
+.js .readout.first .hint{display:block}
+.js .readout.first.sel .hint{visibility:hidden}
+.js .readout .hint:before{content:'Chạm vào một cột để xem ngày đó.'}
+@media (hover:hover){.js .readout .hint:before{content:'Trỏ vào một cột để xem ngày đó.'}}
+.key{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+.cols .s1,.key.s1{background:var(--s1)}
+.cols .s2,.key.s2{background:var(--s2)}
+.cols .s3,.cols .bad,.key.s3,.key.bad{background:var(--s3)}
+.cols .mute,.key.mute{background:var(--mute)}
+.cols .whole,.key.whole{background:var(--whole)}
+/* The plot: the axis in a gutter as wide as its longest number, columns on a zero line, every seventh day named */
+.plot{display:grid;grid-template-columns:calc(var(--gut) * 1ch + 8px) minmax(0,1fr);grid-template-rows:136px 24px;margin:10px 0 0;font:12px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--muted);touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;border-radius:6px}
+.plot:focus-visible{outline-offset:4px}
+.plot .yax{grid-area:1/1;position:relative}
+.plot .yax span{position:absolute;right:8px;bottom:calc(var(--y) * 1%);transform:translateY(50%);white-space:nowrap}
+.plot .area{grid-area:1/2;position:relative}
+.plot .grid b{position:absolute;left:0;right:0;bottom:calc(var(--y) * 1%);border-top:1px solid var(--grid)}
+.plot .grid b.zero{border-top-color:var(--axis)}
+.plot .xax{grid-area:2/2;position:relative}
+.plot .xax span{position:absolute;top:8px;left:calc(var(--x) * 1%);transform:translateX(-50%);white-space:nowrap}
+.plot .xax span.s{transform:none}
+.plot .xax span.e{transform:translateX(-100%)}
+.cols{position:absolute;inset:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));margin:0;padding:0;list-style:none}
+.cols li{position:relative;border-radius:3px}
+.cols li.on{background:color-mix(in srgb,var(--ink) 9%,transparent)}
+.cols li.miss{background:repeating-linear-gradient(135deg,transparent 0 3px,color-mix(in srgb,var(--muted) 22%,transparent) 3px 4px)}
+.cols li.miss.on{background-color:color-mix(in srgb,var(--ink) 9%,transparent)}
+.cols i{position:absolute;left:50%;width:min(24px,calc(100% - 2px));transform:translateX(-50%);bottom:calc(var(--b) * 1%);height:calc(var(--h) * 1%)}
+.cols i.up{bottom:calc(var(--b) * 1% + 2px);height:max(0px,calc(var(--h) * 1% - 2px))}
+.cols i.dn{height:max(0px,calc(var(--h) * 1% - 2px))}
+.cols i.cap,.cols i.whole{border-radius:4px 4px 0 0}
+.cols i.neg.cap{border-radius:0 0 4px 4px}
+.cols .today i{opacity:.45}
+.cols .today.on i{opacity:.7}
+/* Ranked bars: each label over its bar, the numbers in their own column */
 .rank th{min-width:9rem;max-width:28rem;overflow-wrap:anywhere}
-.rank td{white-space:nowrap}
+.rank thead th+th{text-align:right}
+.rank .lb{display:block}
+.rank .track{display:block;position:relative;height:6px;margin:7px 0 1px}
+.rank .bar{position:absolute;top:0;bottom:0;left:calc(var(--x) * 1%);width:calc(var(--w) * 1%);min-width:2px;background:var(--s1);border-radius:0 3px 3px 0}
+.rank .bar.neg{background:var(--s3);border-radius:3px 0 0 3px}
+.rank .bar.parts{background:var(--whole)}
+.rank .bar i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--p) * 1%);background:var(--s1);border-radius:0 3px 3px 0}
+.rank .track.signed:before{content:'';position:absolute;left:calc(var(--z) * 1%);top:-4px;bottom:-4px;border-left:1px solid var(--axis)}
+.rank caption{caption-side:top;text-align:left;padding:10px .8rem 4px;font-size:.8rem;color:var(--ink-2)}
+.rank caption span{display:inline-block;margin-right:16px;white-space:nowrap}
 .chart>.scroll{border:0;border-radius:0;background:none}
 .chart .rank th{min-width:6rem}
-.rank td.bar{text-align:left}
-.rank td.bar span{display:inline-block;width:calc(var(--w) * 0.07rem);max-width:7rem;height:8px;margin-right:8px;background:var(--s1);border-radius:0 4px 4px 0;vertical-align:1px}
+/* A share of a whole: a thin bar on a pale track of its own hue */
+.meter{display:block;height:6px;max-width:14rem;margin:6px 0 4px;border-radius:3px;overflow:hidden;background:color-mix(in srgb,var(--s1) 16%,var(--plate))}
+.meter>span{display:block;height:100%;width:calc(var(--w) * 1%);background:var(--s1);border-radius:3px}
+.meter.warn{background:color-mix(in srgb,var(--s3) 16%,var(--plate))}
+.meter.warn>span{background:var(--s3)}
 .charts>.failed,.split>.failed{align-self:start}
 .failed{background:var(--rust-wash);border:1px solid color-mix(in srgb,var(--rust) 35%,var(--rule));border-radius:var(--r);padding:12px 14px;color:var(--ink)}
 .failed code{display:block;margin-top:6px;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--rust)}
@@ -209,9 +248,9 @@ main{padding:24px 24px 64px}
 .home-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
 .home-grid>.side h2:first-child{margin-top:28px}
 }
-@media (max-width:420px){.masthead time span{display:none}th,td{padding:.55rem .6rem}.chart{padding:12px 10px 4px}.rank th{min-width:7rem}.rank td.bar span{max-width:3rem}}`
+@media (max-width:420px){.masthead time span{display:none}th,td{padding:.55rem .6rem}.chart{padding:12px 12px 4px}.rank th{min-width:7rem}}`
 
-const HEAD = (title: string) => `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a1a1d"><title>${esc(title)} · Quản trị AquaTome</title><link rel="preload" href="/_ab/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin><style>${CSS}</style></head>`
+const HEAD = (title: string, tz?: string) => `<!doctype html><html lang="vi"${tz ? ` data-tz="${esc(tz)}"` : ''}><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a1a1d"><title>${esc(title)} · Quản trị AquaTome</title><link rel="preload" href="/_ab/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin><style>${CSS}</style></head>`
 
 /** Drawn icons, one stroke: the arrow on an area row, a to-do's mark, the all-clear. */
 export const ICON = {
@@ -220,27 +259,53 @@ export const ICON = {
   check: '<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m6.4 10.2 2.4 2.4 4.8-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
 }
 
-/** The day and time in Vietnam, for the bar: when this page was put together. */
-const stamp = (now: Date) => {
-  const vn = new Date(now.getTime() + 7 * 3_600_000)
-  const day = ['Chủ nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'][vn.getUTCDay()]
-  const p = (n: number) => String(n).padStart(2, '0')
-  return `<time datetime="${now.toISOString()}"><span>${day}, </span>${p(vn.getUTCDate())}/${p(vn.getUTCMonth() + 1)} · ${p(vn.getUTCHours())}:${p(vn.getUTCMinutes())}</time>`
-}
+/**
+ * The page's clock (admin/time.ts): the device's time zone kept in the aq_tz cookie for the next page; times rewritten in
+ * it when this page was put together in another; then one reload, so the days follow it as well.
+ */
+const TIME_JS = `(()=>{const d=document.documentElement,z=Intl.DateTimeFormat().resolvedOptions().timeZone
+if(!z)return
+const c='aq_tz='+encodeURIComponent(z);document.cookie=c+'; Path=/_ab; Max-Age=31536000; SameSite=Lax; Secure'
+if(z===d.dataset.tz)return
+const f=new Intl.DateTimeFormat('en-GB',{timeZone:z,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',weekday:'short',hourCycle:'h23'}),p=t=>Object.fromEntries(f.formatToParts(t).map(x=>[x.type,x.value])),y=p(new Date()).year,W={Sun:'Chủ nhật',Mon:'Thứ Hai',Tue:'Thứ Ba',Wed:'Thứ Tư',Thu:'Thứ Năm',Fri:'Thứ Sáu',Sat:'Thứ Bảy'}
+for(const t of document.querySelectorAll('time[datetime]')){const q=p(new Date(t.dateTime)),hm=q.hour+':'+q.minute
+if(t.dataset.f==='stamp'){t.firstElementChild.textContent=W[q.weekday]+', ';t.lastChild.textContent=q.day+'/'+q.month+' · '+hm}else t.textContent=q.day+'/'+q.month+(q.year!==y?'/'+q.year:'')+' '+hm}
+try{if(document.cookie.includes(c)&&sessionStorage.getItem('aq_tz')!==z){sessionStorage.setItem('aq_tz',z);location.reload()}}catch{}})()`
+
+/**
+ * Reading a chart's days (chart.ts dayChart), the page's only script: a tap on a column, a finger sliding across, the
+ * pointer over it or the arrow keys put that day's values in the chart's readout; tapping the same column again, Escape
+ * or the pointer leaving put the period's totals back, and a touch that turns into a scroll leaves the readout as it was. Without it the readout keeps the totals and the table has every day.
+ */
+const CHART_JS = `(()=>{document.documentElement.classList.add('js');let first=true
+for(const p of document.querySelectorAll('[data-plot]')){const out=p.closest('figure').querySelector('.readout'),area=p.querySelector('.area'),when=out.querySelector('.when'),bs=[...out.querySelectorAll('b')],cols=[...p.querySelectorAll('.cols li')],init=[when.textContent,...bs.map(b=>b.textContent)]
+if(first){out.classList.add('first');first=false}
+let on=-1,down=-1,was=-1
+const pick=i=>{cols[on]?.classList.remove('on');on=i;const li=cols[i];out.classList.toggle('sel',!!li)
+if(!li){when.textContent=init[0];bs.forEach((b,k)=>{b.textContent=init[k+1]});return}
+li.classList.add('on');when.textContent=li.dataset.d;const v=li.dataset.v.split('|');bs.forEach((b,k)=>{b.textContent=v[k]??'—'})}
+const at=e=>{const r=area.getBoundingClientRect();return Math.max(0,Math.min(cols.length-1,Math.floor((e.clientX-r.left)/r.width*cols.length)))}
+area.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')return;const i=at(e);was=on;down=i;pick(i===on?-1:i)})
+area.addEventListener('pointercancel',()=>pick(was))
+area.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')return pick(at(e));if(e.buttons&&at(e)!==down){down=-2;pick(at(e))}})
+area.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')pick(-1)})
+p.addEventListener('keydown',e=>{const l=cols.length-1,k=e.key,i=k==='ArrowRight'?(on<0?0:Math.min(l,on+1)):k==='ArrowLeft'?(on<0?l:Math.max(0,on-1)):k==='Home'?0:k==='End'?l:k==='Escape'?-1:null
+if(i===null)return;e.preventDefault();pick(i)})}})()`
 
 /** An admin page: the bar, the areas (a rail on a computer, chips on a phone), then the page's own content. */
-export function page(current: AdminPath, title: string, body: string, now = new Date()): string {
+export function page(current: AdminPath, title: string, body: string, now = new Date(), tz = HOME_TZ): string {
   const nav = NAV.map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
-  return `${HEAD(title)}<body${current === '/_ab/' ? ' class="home"' : ''}><header class="masthead"><a class="brand" href="/_ab/">AquaTome<span>Quản trị</span></a>${stamp(now)}</header><div class="frame"><nav class="rail" aria-label="Các mục quản trị"><ul>${nav}</ul></nav><main>${body}</main></div></body></html>`
+  const script = body.includes('data-plot') ? `<script>${CHART_JS}</script>` : ''
+  return `${HEAD(title, tz)}<body${current === '/_ab/' ? ' class="home"' : ''}><header class="masthead"><a class="brand" href="/_ab/">AquaTome<span>Quản trị</span></a>${stamp(now, tz)}</header><div class="frame"><nav class="rail" aria-label="Các mục quản trị"><ul>${nav}</ul></nav><main>${body}</main></div><script>${TIME_JS}</script>${script}</body></html>`
 }
 
 /** /_ab/ without a valid token: ask for it (POST /_ab/login). */
 /** Signed out, or `other`: signed in to an account that isn't the owner's. The site's own sign-in is on the My tanks page. */
 export function loginPage(other = false): string {
   return `${HEAD('Đăng nhập')}<body><main style="max-width:28rem"><h1>Quản trị AquaTome</h1>${other ? '<p class="failed">Tài khoản đang đăng nhập không phải tài khoản chủ trang. Đăng xuất rồi đăng nhập bằng tài khoản chủ trang.</p>' : '<p class="lede">Đăng nhập bằng tài khoản AquaTome của chủ trang để xem số liệu.</p>'}
-<p><a class="go" href="/vi/cong-cu/be-cua-toi/#tai-khoan">${other ? 'Đổi tài khoản' : 'Đăng nhập'}</a></p>
+<p><a class="go" href="/cong-cu/be-cua-toi/#tai-khoan">${other ? 'Đổi tài khoản' : 'Đăng nhập'}</a></p>
 <p class="muted">Đăng nhập xong, mở lại <a href="/_ab/">/_ab/</a>.</p>
-<p><a href="/vi/">Về trang chủ</a></p></main></body></html>`
+<p><a href="/">Về trang chủ</a></p></main></body></html>`
 }
 
 /** A part that loads on its own: its data, or why it couldn't load (shown in its place, the rest of the page still renders). */

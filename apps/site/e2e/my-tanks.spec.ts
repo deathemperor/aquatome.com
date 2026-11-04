@@ -1,8 +1,12 @@
 import { expect, test } from './fixtures'
 import { fakeTurnstile, mockFishId, PNG } from './fish-id-api'
 
+// The app's index (/app/vi.json) and fish ID's answers keep the old /vi/ addresses until the app reads both (APP_VI_ROOT);
+// the page links a fish by its own address, at the root.
+const href = (f: { path: string }) => f.path.replace(/^\/vi\//, '/')
+
 // "Bể của tôi": tanks kept in this browser (localStorage aq.tanks, the shared model in packages/schema/src/tanks.ts).
-const PAGE = '/vi/cong-cu/be-cua-toi/'
+const PAGE = '/cong-cu/be-cua-toi/'
 const at = '2026-10-30T08:00:00.000Z'
 const id = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`
 
@@ -76,9 +80,9 @@ test('a light saved from the Chihiros page shows on its tank with its schedule; 
   await expect(light.locator('.sched')).toContainText('7 tiếng')
   await expect(light.locator('svg path')).toHaveAttribute('d', /^M0 48 L780 48 L810/)
   await expect(light.locator('.meta')).toContainText('40% · 55% · 60% · 30%')
-  await expect(light.locator('a')).toHaveAttribute('href', '/vi/cong-cu/den-chihiros/')
+  await expect(light.locator('a')).toHaveAttribute('href', '/cong-cu/den-chihiros/')
   const fish = page.locator('.tank .chips li').first()
-  await expect(fish.locator('a')).toHaveAttribute('href', /^\/vi\/ca\//)
+  await expect(fish.locator('a')).toHaveAttribute('href', /^\/ca\//)
   await expect(fish).toContainText('× 20')
   await expect(fish.locator('a')).not.toHaveText(/paracheirodon/)
   expect(errors).toEqual([])
@@ -252,7 +256,7 @@ test('an entry a page has the scientific name of is shown as that page; a plant 
   })
   await page.goto(PAGE)
   const tank = page.locator('.tank')
-  const linked = tank.locator('.chips li', { has: page.locator(`a[href="${fish.path}"]`) })
+  const linked = tank.locator('.chips li', { has: page.locator(`a[href="${href(fish)}"]`) })
   await expect(linked.locator('a')).toHaveText(fish.name)
   await expect(linked).toContainText('× 4')
   const plants = tank.locator('.life', { has: page.locator('h3', { hasText: 'Cây' }) })
@@ -265,7 +269,7 @@ test('an entry a page has the scientific name of is shown as that page; a plant 
   const hit = page.locator('#mt-opts [role=option]:not(.new)', { hasText: fish.name }).first()
   await expect(hit).toBeVisible()
   await hit.click()
-  await expect(page.locator(`.life-rows a[href="${fish.path}"]`)).toHaveCount(2)
+  await expect(page.locator(`.life-rows a[href="${href(fish)}"]`)).toHaveCount(2)
   await page.locator('#mt-form button[type=submit]').click()
   await expect(tank.locator('.chips a', { hasText: fish.name })).toHaveCount(2)
   const saved = (await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))).tanks[0]
@@ -342,7 +346,7 @@ test('a photo names a fish the handbook has: its page joins the tank as from the
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
 
   await first.getByRole('button', { name: `Thêm vào bể: ${fish.name}` }).click()
-  const row = page.locator('.life-rows li', { has: page.locator(`a[href="${fish.path}"]`) })
+  const row = page.locator('.life-rows li', { has: page.locator(`a[href="${href(fish)}"]`) })
   await expect(row.locator('input[type=number]')).toHaveValue(String(fish.schoolMin ?? 1))
   // Ready for the next fish: no photo, no guesses.
   await expect(panel.locator('[data-out] li')).toHaveCount(0)
@@ -355,7 +359,7 @@ test('a photo names a fish the handbook has: its page joins the tank as from the
   expect(sent[1]).toContain('token-2')
 
   await page.locator('#mt-form button[type=submit]').click()
-  await expect(page.locator(`.tank .chips a[href="${fish.path}"]`)).toHaveText(fish.name)
+  await expect(page.locator(`.tank .chips a[href="${href(fish)}"]`)).toHaveText(fish.name)
   const saved = (await page.evaluate(() => JSON.parse(localStorage.getItem('aq.tanks')!))).tanks[0]
   expect(saved.species).toEqual([{ id: fish.id, count: fish.schoolMin ?? 1 }])
   expect(bodies).toEqual([])
@@ -381,7 +385,7 @@ test('"not this one?": a photo\'s guess lists its genus\'s other pages, and pick
   await genus.locator('summary').click()
   await expect(genus.getByRole('button', { name: `Đã có: ${there.name}`, exact: true })).toBeDisabled()
   await genus.getByRole('button', { name: `Thêm vào bể: ${picked.name}`, exact: true }).click()
-  const row = page.locator('.life-rows li', { has: page.locator(`a[href="${picked.path}"]`) })
+  const row = page.locator('.life-rows li', { has: page.locator(`a[href="${href(picked)}"]`) })
   await expect(row.locator('input[type=number]')).toHaveValue(String(picked.schoolMin ?? 1))
   // Ready for the next fish: no photo, no guesses.
   await expect(panel.locator('[data-out] li')).toHaveCount(0)

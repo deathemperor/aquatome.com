@@ -5,6 +5,12 @@ import { fishIdStatus, type FishIdDeps } from '../fishid/api'
 import { keyHash, loadKeys, parseKeys } from '../fishid/keys'
 import { fishIdPage } from '../admin/pages'
 import { unset } from '../admin/shell'
+import { COOKIE, createSession, type Client } from '../accounts/session'
+import { contract } from './contract'
+import { testD1 } from './d1'
+import { deleteUser } from '../accounts/users'
+import { KEEP_DAYS, stripJpeg, sweepKept } from '../fishid/kept'
+import { memoryR2 } from './r2'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
@@ -62,7 +68,7 @@ function kv() {
   }
 }
 type Point = { blobs: string[]; doubles: number[]; indexes: string[] }
-function env(extra: Record<string, string | undefined> = {}) {
+function env(extra: Record<string, unknown> = {}) {
   const store = kv()
   // Every test writes the Analytics Engine log, so a branch that throws while logging fails its own test.
   const points: Point[] = []
@@ -72,6 +78,7 @@ function env(extra: Record<string, string | undefined> = {}) {
     AB: store.ns,
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'site-key', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: 'tok',
     ANTHROPIC_KEYS: KEYS,
+    DB: testD1(),
     ...extra,
   } as unknown as Env
   return { e, kv: store.m, points }
@@ -87,14 +94,33 @@ const post = (file: Blob = new Blob([JPEG]), fields: Record<string, string> = { 
   const f = new FormData()
   f.set('file', file, 'photo.jpg')
   for (const [k, v] of Object.entries(fields)) f.set(k, v)
-  return new Request('https://x.test/api/fish-id', { method: 'POST', body: f, headers: { origin: 'https://x.test', 'cf-connecting-ip': '203.0.113.7', ...headers } })
+  return new Request('https://x.test/api/fish-id', { method: 'POST', body: f, headers: { origin: 'https://x.test', 'cf-connecting-ip': '203.0.113.7', ...READER, ...headers } })
+}
+/** A reader's phone, as a browser or the app sends it. */
+const READER = { 'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1', 'accept-language': 'vi-VN,vi;q=0.9' }
+/** The app's way: its session as a bearer, no Origin and no Turnstile token, the photo as base64 JSON. */
+const appPost = (token: string, headers: Record<string, string> = {}) => new Request('https://x.test/api/fish-id', {
+  method: 'POST',
+  headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json', 'cf-connecting-ip': '203.0.113.7', ...READER, ...headers },
+  body: JSON.stringify({ image: btoa(String.fromCharCode(...JPEG)), lang: 'vi', from: 'page' }),
+})
+async function signIn(db: D1Database, client: Client = 'app', at = new Date()) {
+  const id = crypto.randomUUID()
+  await db.prepare('INSERT INTO users (id, created_at) VALUES (?, ?)').bind(id, at.toISOString()).run()
+  return { id, token: await createSession(db, id, client, at) }
 }
 // The random pick lands on the first healthy key: key A, while it is healthy.
 const deps = (fetch: typeof globalThis.fetch, extra: Partial<FishIdDeps> = {}): FishIdDeps & { lines: Record<string, unknown>[] } => {
   const lines: Record<string, unknown>[] = []
   return { fetch, random: () => 0, siteverify: async () => true, log: l => { lines.push(l) }, lines, ...extra }
 }
-const run = (req: Request, e: Env, d: FishIdDeps) => handle(req, e, undefined, undefined, d)
+/** Every answer of /api/fish-id is checked against the app's contract (protocols/fishid.openapi.json). */
+const { answer } = contract('fishid.openapi.json')
+async function run(req: Request, e: Env, d: FishIdDeps): Promise<Response> {
+  const res = await handle(req, e, undefined, undefined, d)
+  if (new URL(req.url).pathname === '/api/fish-id') await answer('/api/fish-id', req.method.toLowerCase() as 'get' | 'post', res.clone())
+  return res
+}
 type Body = { verdict?: string; error?: string; refused?: boolean; results?: { scientificName: string; page?: { id: string; url?: string; name: string }; species?: { id: string }; sameGenus?: { id: string; url?: string }[] }[] }
 
 test('the keys file: one key per line, its workspace beside it; comments, blank lines and duplicates skipped; bad lines counted, never echoed', async () => {
@@ -159,7 +185,8 @@ test('a fish Claude is fairly sure of with no page counts as a reader\'s request
   const other = new Request(tank.url, { method: 'POST', body: JSON.stringify({ kind: 'fish', name: 'Harlequin rasbora', sci: 'Trigonostigma heteromorpha' }), headers: { ...Object.fromEntries(tank.headers), 'cf-connecting-ip': '198.51.100.9' } })
   expect((await run(other, sure.e, deps(claude({}).fetch))).status).toBe(204)
   expect(wanted(sure.kv)[0]).toMatchObject({ readers: 2, sources: { 'fish-id': 1, tank: 1 } })
-  for (const [answer, headers] of [[harlequin(0.4), {}], [NEON, {}], [harlequin(0.85), { cookie: 'aq_owner=1' }]] as const) {
+  // Our own checks are no readers: the browser checks' and the app's test builds' user agent.
+  for (const [answer, headers] of [[harlequin(0.4), {}], [NEON, {}], [harlequin(0.85), { cookie: 'aq_owner=1' }], [harlequin(0.85), { 'user-agent': 'AquaTome/1 CFNetwork/3826 Darwin/25.0 AquaTomeCheck/1' }]] as const) {
     const other = env()
     await run(post(undefined, undefined, headers), other.e, deps(claude({ [A]: () => message(answer) }).fetch))
     expect(wanted(other.kv)).toEqual([])
@@ -323,7 +350,7 @@ test('every key set aside: no call, the tool rests (GET says so too); keys found
   expect(r.status).toBe(503)
   expect(await r.json()).toEqual({ error: 'resting' })
   expect(fake.calls).toHaveLength(0)
-  expect(await (await run(new Request('https://x.test/api/fish-id'), e, deps(fake.fetch))).json()).toEqual({ on: true, sitekey: 'site-key', resting: true, perIp: 10 })
+  expect(await (await run(new Request('https://x.test/api/fish-id'), e, deps(fake.fetch))).json()).toEqual({ on: true, sitekey: 'site-key', resting: true, perIp: 10, perAccount: 10 })
   // Resting isn't a reader's use: nothing counted.
   expect([...kv.keys()].some(k => k.startsWith('fishid:ip:'))).toBe(false)
   // A mark whose time is past is no mark.
@@ -351,6 +378,55 @@ test('limits: a reader\'s 11th of the day and the site\'s day are refused before
   expect(r2.status).toBe(429)
   expect(await r2.json()).toEqual({ error: 'busy' })
   expect(site.calls).toHaveLength(2)
+})
+
+test('the app: its live session stands in for Origin and Turnstile, and its day is counted per account, not per address', async () => {
+  const db = testD1()
+  const { e, kv } = env({ DB: db, FISH_ID_PER_ACCOUNT: '2' })
+  const fake = claude({})
+  let verified = 0
+  const d = deps(fake.fetch, { siteverify: async () => { verified++; return true } })
+  const me = await signIn(db)
+  const r = await run(appPost(me.token), e, d)
+  expect(r.status).toBe(200)
+  expect(await r.json()).toMatchObject({ verdict: 'fish', model: 'claude-opus-5-5' })
+  expect(verified).toBe(0)
+  // Counted under the account (by HMAC, never its id), and not under the address.
+  const keys = () => [...kv.keys()]
+  expect(keys().filter(k => k.startsWith('fishid:acct:'))).toHaveLength(1)
+  expect(keys().filter(k => k.startsWith('fishid:ip:'))).toEqual([])
+  expect(keys().join(' ')).not.toContain(me.id)
+  expect(kv.get(keys().find(k => k.startsWith('fishid:acct:'))!)).toEqual({ v: '1', ttl: 86_400 })
+  // The same form the page sends works too, without its token.
+  expect((await run(post(undefined, { lang: 'vi' }, { authorization: `Bearer ${me.token}`, origin: '' }), e, d)).status).toBe(200)
+  const third = await run(appPost(me.token), e, d)
+  expect(third.status).toBe(429)
+  expect(await third.json()).toEqual({ error: 'rate', limit: 2 })
+  // Another account behind the same carrier address still can.
+  expect((await run(appPost((await signIn(db)).token), e, d)).status).toBe(200)
+  expect(fake.calls).toHaveLength(3)
+  // The tool's state says both days' limits.
+  expect(await (await run(new Request('https://x.test/api/fish-id'), e, d)).json()).toEqual({ on: true, sitekey: 'site-key', resting: false, perIp: 10, perAccount: 2 })
+})
+
+test('the app: a bearer with no live app session is 401 session, even with a Turnstile token: never the page\'s way', async () => {
+  const db = testD1()
+  const { e } = env({ DB: db })
+  const fake = claude({})
+  const web = await signIn(db, 'web')
+  const expired = await signIn(db, 'app', new Date(Date.now() - 400 * 86_400_000))
+  for (const req of [
+    appPost('not-a-token'),
+    appPost(web.token), // a browser's session, sent as a bearer
+    appPost(expired.token),
+    post(undefined, { token: 't', lang: 'vi' }, { authorization: 'Bearer not-a-token' }),
+    post(undefined, { token: 't', lang: 'vi' }, { authorization: '' }),
+  ]) {
+    const r = await run(req, e, deps(fake.fetch))
+    expect(r.status).toBe(401)
+    expect(await r.json()).toEqual({ error: 'session' })
+  }
+  expect(fake.calls).toHaveLength(0)
 })
 
 test('refused before any call: not an image, too big, no file, another site, Turnstile failed', async () => {
@@ -481,9 +557,106 @@ test('the owner\'s dashboard: each key by number and hash, its state and today\'
   expect(status.today).toBe(1)
   const html = fishIdPage({ now: new Date(), stats: unset('AE'), keys: status, pages: new Map() })
   expect(html).toContain('hết credit')
-  expect(html).toContain('Lần gọi API hôm nay')
+  // The tool counts by UTC day: the column says when that day began, in the viewer's time (07:00 in Vietnam).
+  expect(html).toMatch(/Lần gọi API từ 07:00 hôm (nay|qua)/)
   expect(html).toContain('Claude trả lời')
   expect(html).toContain(await keyHash(A))
   for (const k of [A, B, C, 'wrkspc_orgA']) expect(html).not.toContain(k)
   expect(kv.size).toBeGreaterThan(0)
+})
+
+// A JPEG as a phone might send it: JFIF, Exif with a GPS position, IPTC, a comment, a table, then the scan.
+const seg = (marker: number, body: number[]) => [0xff, marker, (body.length + 2) >> 8, (body.length + 2) & 0xff, ...body]
+const ascii = (t: string) => [...new TextEncoder().encode(t)]
+const SCAN = [0xff, 0xda, 0, 4, 1, 2, 9, 9, 9, 0xff, 0xd9]
+const PHONE_JPEG = new Uint8Array([0xff, 0xd8, ...seg(0xe0, ascii('JFIF\0')), ...seg(0xe1, ascii('Exif\0\0GPS 10.77N 106.70E')), ...seg(0xed, ascii('Photoshop 3.0\0IPTC')), ...seg(0xfe, ascii('my tank')), ...seg(0xdb, [0, 1, 2, 3]), ...SCAN])
+const accounts = contract('accounts.openapi.json')
+const keepEnv = async () => {
+  const db = testD1()
+  const r2 = memoryR2()
+  return { db, r2, ...env({ DB: db, UPLOADS: r2.bucket, ACCOUNTS: 'on', ACCOUNT_HMAC_KEY: 'a' }) }
+}
+const appJson = (token: string | undefined, extra: Record<string, unknown> = {}, image = PHONE_JPEG) => new Request('https://x.test/api/fish-id', {
+  method: 'POST',
+  headers: { ...(token ? { authorization: `Bearer ${token}` } : {}), 'content-type': 'application/json', 'cf-connecting-ip': '203.0.113.7', ...READER },
+  body: JSON.stringify({ image: btoa(String.fromCharCode(...image)), lang: 'vi', token: 't', ...extra }),
+})
+
+test('a kept JPEG loses its Exif, XMP, IPTC and comments and keeps its image; anything else is not walked', () => {
+  const out = stripJpeg(PHONE_JPEG)!
+  const text = new TextDecoder().decode(out)
+  expect(text).toContain('JFIF')
+  for (const gone of ['GPS', 'Exif', 'IPTC', 'my tank']) expect(text).not.toContain(gone)
+  expect([...out.slice(out.length - SCAN.length)]).toEqual(SCAN)
+  expect(out.length).toBe(PHONE_JPEG.length - 3 * 4 - ascii('Exif\0\0GPS 10.77N 106.70E').length - ascii('Photoshop 3.0\0IPTC').length - ascii('my tank').length)
+  expect(stripJpeg(new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a]))).toBeNull()
+  expect(stripJpeg(PHONE_JPEG.slice(0, 12))).toBeNull()
+})
+
+test('keeping: a ticked photo is kept under the app\'s account with its result, its metadata cut; listed and deleted with the bearer; unticked, nothing is', async () => {
+  const { e, db, r2 } = await keepEnv()
+  const d = deps(claude({}).fetch)
+  const me = await signIn(db)
+  // Unticked: nothing stored, and no `kept` in the answer.
+  expect(await (await run(appJson(me.token), e, d)).json()).not.toHaveProperty('kept')
+  expect(r2.m.size).toBe(0)
+  expect(await (await run(appJson(me.token, { keep: true }), e, d)).json()).toMatchObject({ verdict: 'fish', kept: true })
+  const [key, o] = [...r2.m][0]!
+  expect(key).toMatch(new RegExp(`^fish-id/${me.id}/[0-9a-f-]{36}$`))
+  expect(new TextDecoder().decode(o.bytes)).not.toContain('GPS')
+  expect(o.customMetadata).toEqual({ created: expect.any(String), verdict: 'fish', guesses: expect.any(String), model: 'claude-opus-5-5', lang: 'vi' })
+  expect(JSON.parse(o.customMetadata!.guesses!).map((g: { scientificName: string }) => g.scientificName)).toEqual(['Paracheirodon innesi', 'Hyphessobrycon amandae', 'Paracheirodon simulans'])
+  expect(JSON.stringify([...r2.m.keys(), o.customMetadata])).not.toContain('203.0.113.7')
+  // The account's list: the date and the result, never the image.
+  const bearer = { authorization: `Bearer ${me.token}` }
+  const list = await accounts.answer('/api/v1/fish-id/photos', 'get', await run(new Request('https://x.test/api/v1/fish-id/photos', { headers: bearer }), e, d)) as { photos: { id: string; verdict: string; guesses: unknown[] }[] }
+  expect(list.photos).toEqual([{ id: key.split('/')[2], created: o.customMetadata!.created, verdict: 'fish', guesses: JSON.parse(o.customMetadata!.guesses!) }])
+  // In the account's export too.
+  expect(await (await run(new Request('https://x.test/api/v1/account/export', { headers: bearer }), e, d)).json()).toMatchObject({ fishIdPhotos: list.photos })
+  // Another account can't delete it, nor anyone signed out; its own bearer does, once.
+  const other = await signIn(db)
+  const del = (h: Record<string, string>) => run(new Request(`https://x.test/api/v1/fish-id/photos/${list.photos[0]!.id}`, { method: 'DELETE', headers: h }), e, d)
+  expect((await accounts.answer('/api/v1/fish-id/photos/{id}', 'delete', await del({ authorization: `Bearer ${other.token}` }))).error).toBe('not_found')
+  expect((await accounts.answer('/api/v1/fish-id/photos', 'get', await run(new Request('https://x.test/api/v1/fish-id/photos'), e, d))).error).toBe('signed_out')
+  expect((await del(bearer)).status).toBe(204)
+  expect(r2.m.size).toBe(0)
+  expect((await del(bearer)).status).toBe(404)
+})
+
+test('keeping on the page: under the signed-in reader\'s cookie, or signed out tied to no one; a PNG is not kept but still identified', async () => {
+  const { e, db, r2 } = await keepEnv()
+  const d = deps(claude({}).fetch)
+  const reader = await signIn(db, 'web')
+  const page = (fields: Record<string, string>, headers: Record<string, string> = {}, file = new Blob([PHONE_JPEG])) => post(file, { token: 't', lang: 'vi', ...fields }, headers)
+  expect(await (await run(page({ keep: '1' }, { cookie: `${COOKIE}=${reader.token}` }), e, d)).json()).toMatchObject({ kept: true })
+  expect(await (await run(page({ keep: '1' }), e, d)).json()).toMatchObject({ kept: true })
+  const PNG = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0, 0, 0, 0])
+  expect(await (await run(page({ keep: '1' }, {}, new Blob([PNG])), e, d)).json()).toMatchObject({ verdict: 'fish', kept: false })
+  expect([...r2.m.keys()].map(k => k.split('/').slice(0, 2).join('/')).sort()).toEqual(['fish-id/anon', `fish-id/${reader.id}`].sort())
+  // Without the bucket: identified, not kept.
+  const bare = env({ DB: db })
+  expect(await (await run(page({ keep: '1' }), bare.e, d)).json()).toMatchObject({ verdict: 'fish', kept: false })
+  // A refusal is kept too, as unclear.
+  expect(await (await run(page({ keep: '1' }), e, deps(claude({ [A]: () => message('{}', 'refusal') }).fetch))).json()).toMatchObject({ refused: true, kept: true })
+})
+
+test('kept photos go with their account, and from everyone 6 months on (the daily cron)', async () => {
+  const { e, db, r2 } = await keepEnv()
+  const d = deps(claude({}).fetch)
+  const [a, b] = [await signIn(db), await signIn(db)]
+  const now = Date.now()
+  r2.setNow(() => new Date(now - KEEP_DAYS * 86_400_000 - 60_000))
+  await run(appJson(a.token, { keep: true }), e, d)
+  r2.setNow(() => new Date(now - 10 * 86_400_000))
+  await run(appJson(b.token, { keep: true }), e, d)
+  await run(appJson(a.token, { keep: true }), e, d)
+  expect(r2.m.size).toBe(3)
+  expect(await sweepKept(r2.bucket, new Date(now))).toBe(1)
+  expect(r2.m.size).toBe(2)
+  await deleteUser(db, a.id, { UPLOADS: r2.bucket })
+  expect([...r2.m.keys()].every(k => k.startsWith(`fish-id/${b.id}/`))).toBe(true)
+  // Across R2's pages of a listing.
+  const paged = memoryR2(2)
+  for (let i = 0; i < 5; i++) await paged.bucket.put(`fish-id/anon/${crypto.randomUUID()}`, PHONE_JPEG)
+  expect(await sweepKept(paged.bucket, new Date(now + (KEEP_DAYS + 1) * 86_400_000))).toBe(5)
 })

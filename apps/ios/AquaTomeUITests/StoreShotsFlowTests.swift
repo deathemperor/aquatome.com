@@ -1,3 +1,5 @@
+import ImageIO
+import UniformTypeIdentifiers
 import XCTest
 
 /// The App Store's screenshots (apps/ios/store/listing.json): six screens in each of the listing's languages, on the
@@ -181,6 +183,7 @@ final class StoreShotsFlowTests: XCTestCase {
 
   /// A tab by its name: in the tab bar on an iPhone, and at the top on an iPad.
   private func tab(_ app: XCUIApplication, _ name: String) {
+    app.showTabs()
     let bar = app.tabBars.buttons[name]
     if bar.waitForExistence(timeout: 5) { return bar.tap() }
     let top = app.buttons[name].firstMatch
@@ -244,17 +247,32 @@ final class StoreShotsFlowTests: XCTestCase {
   /// The screen as it is once pictures have drawn and scrolling has stopped, kept with the run: a PNG at the screen's
   /// own pixels with no alpha channel, which the App Store refuses.
   private func shoot(_ l: Lang, _ n: Int, _ name: String, settle: TimeInterval = 1.5) {
+    // The whole tab bar, even where scrolling down to the part shown shrank it.
+    XCUIApplication().showTabs()
     let until = Date().addingTimeInterval(settle)
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
-    let image = XCUIScreen.main.screenshot().image
-    let format = UIGraphicsImageRendererFormat()
-    format.scale = image.scale
-    format.opaque = true
-    let png = UIGraphicsImageRenderer(size: image.size, format: format).pngData { _ in image.draw(at: .zero) }
+    let png = Self.rgbPNG(XCUIScreen.main.screenshot().image)
+    // A PNG's colour type is its 26th byte: 2 is RGB; 6, RGB with alpha.
+    XCTAssertEqual(png.count > 25 ? png[25] : 0, 2, "the picture isn't written as an RGB PNG with no alpha channel, which the App Store requires")
     let shot = XCTAttachment(data: png, uniformTypeIdentifier: "public.png")
     shot.name = String(format: "store-%@-%02d-%@", l.code, n, name)
     shot.lifetime = .keepAlways
     add(shot)
+  }
+
+  /// The picture as a PNG with no alpha channel: drawn into pixels that have none, in its own colour space, and written
+  /// by ImageIO, which then writes RGB. (UIGraphicsImageRenderer's PNG keeps an alpha channel even when opaque.)
+  private static func rgbPNG(_ image: UIImage) -> Data {
+    guard let cg = image.cgImage else { return Data() }
+    let space = cg.colorSpace.flatMap { $0.model == .rgb ? $0 : nil } ?? CGColorSpace(name: CGColorSpace.sRGB)!
+    guard let ctx = CGContext(data: nil, width: cg.width, height: cg.height, bitsPerComponent: 8, bytesPerRow: 0,
+                              space: space, bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else { return Data() }
+    ctx.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
+    let out = NSMutableData()
+    guard let flat = ctx.makeImage(),
+          let file = CGImageDestinationCreateWithData(out, UTType.png.identifier as CFString, 1, nil) else { return Data() }
+    CGImageDestinationAddImage(file, flat, nil)
+    return CGImageDestinationFinalize(file) ? out as Data : Data()
   }
 }
 

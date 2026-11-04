@@ -76,14 +76,21 @@ test('vague or phrase-like regions are dropped', () => {
   expect(ensurePlaces([{ continent: 'Europe', country: 'Italy', region: 'north' }], new Set()).map(p => p.entity.id)).toEqual(['europe', 'italy'])
 })
 
-test('an owner-fixed name and its redirects survive every source; a name Seriously Fish replaces stays an alternative name', () => {
+test('an owner-fixed name and its redirects survive every source; a name Seriously Fish replaces stays an alternative name, unless a variety\'s', () => {
   const a = mergeSpecies({}, page({ viName: 'Cá neon vua Super Red' }), ctx('glaser'))
   const sf = mergeSpecies(a, page(), ctx('seriouslyfish'))
   expect(sf.vi.name).toBe('Cá neon vua')
-  expect(sf.vi.altNames).toContain('Cá neon vua Super Red')
+  expect(sf.vi.altNames).not.toContain('Cá neon vua Super Red') // a shop's variety named the page first
+  expect(mergeSpecies(mergeSpecies({}, page({ viName: 'Cá neon đỏ' }), ctx('glaser')), page(), ctx('seriouslyfish')).vi.altNames).toContain('Cá neon đỏ')
   const fixed = { ...a, vi: { ...a.vi!, name: 'Cá neon đỏ', slug: 'ca-neon-do', nameFixed: true, redirectFrom: [{ slug: a.vi!.slug, name: 'Cá neon vua Super Red' }] } }
   const b = mergeSpecies(fixed, page(), ctx('seriouslyfish'))
   expect(b.vi).toMatchObject({ name: 'Cá neon đỏ', slug: 'ca-neon-do', nameFixed: true, redirectFrom: [{ slug: 'ca-neon-vua-super-red', name: 'Cá neon vua Super Red' }] })
+})
+
+test("a shop listing of one variety adds none of its names to the species', and one name written twice is kept once", () => {
+  const sf = mergeSpecies({}, page({ viAltNames: ['Neon đỏ'], enCommonNames: ['Cardinal tetra'] }), ctx('seriouslyfish'))
+  const shop = mergeSpecies(sf, page({ viName: 'Cá neon vua Albino', viAltNames: ['Cá neon vua bạch tạng', 'Cá neon đỏ'], enCommonNames: ['Albino Cardinal Tetra', 'Cardinal Tetra'] }), ctx('glaser'))
+  expect(shop.vi.altNames).toEqual(['Cá neon đỏ', 'Cardinal tetra'])
 })
 
 test("Seriously Fish's name doesn't replace one when another fish already has it (#228)", () => {

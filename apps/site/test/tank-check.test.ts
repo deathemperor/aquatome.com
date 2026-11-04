@@ -30,7 +30,7 @@ test('the app\'s copy is built from this code, and answers each case in its lang
 })
 
 test('the tool page writes its verdict, warnings and meter with this code, so the app\'s copy can\'t say other words', () => {
-  const page = readFileSync(new URL('../src/pages/vi/cong-cu/nuoi-chung.astro', import.meta.url), 'utf8')
-  expect(page).toMatch(/import \{ LEVEL, stockingNotes, verdictSentence, warningsOf \} from '..\/..\/..\/scripts\/tank-check'/)
+  const page = readFileSync(new URL('../src/pages/cong-cu/nuoi-chung.astro', import.meta.url), 'utf8')
+  expect(page).toMatch(/import \{ LEVEL, stockingNotes, verdictSentence, warningsOf \} from '..\/..\/scripts\/tank-check'/)
   for (const copy of ['có thể ăn {small}', 'Còn thưa', 'sống theo đàn: nên nuôi từ', 'chưa tính vào mật độ']) expect(page, copy).not.toContain(copy)
 })

@@ -37,6 +37,8 @@ import { FB } from './facebook/config'
 import { FB_FISH_SCHEMA, FB_SPECIES_SCHEMA, identifyPhotos, type FbVerdict } from './facebook/identify'
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
+import { tidyCredits } from './wiki-author'
+import { fillLifespans } from './lifespans'
 import { hashPictures } from './picture-hashes'
 import { extractTraits } from './traits'
 import { topicCheck } from './topic-check'
@@ -82,7 +84,7 @@ process.env.YOUTUBE_API_KEY ??= (() => { try { return readFileSync(join(homedir(
 const youtube = () => (process.env.YOUTUBE_API_KEY ? ytApi(process.env.YOUTUBE_API_KEY) : ytDlp)
 const media = () => r2Media({
   accountId: conf('CF_ACCOUNT_ID', 'cf-account'), token: conf('CLOUDFLARE_API_TOKEN', 'cf-token'),
-  bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
+  bucket: process.env.MEDIA_BUCKET ?? 'aquatome-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
 /**
@@ -245,6 +247,16 @@ if (cmd === 'run' || cmd === 'card-fill') {
   console.log(`thumbs: ${r.checked} photos, ${r.made} made, ${r.failed.length} failed`)
   for (const f of r.failed) console.log(`failed: ${f}`)
   if (r.failed.length) process.exitCode = 1
+} else if (cmd === 'credits') {
+  // Wikimedia photos credited before the import tidied Commons' placeholder authors ("No machine-readable author
+  // provided. X assumed…", "X~commonswiki"): tidied in place. New imports are tidied as they come (authorText).
+  const r = await tidyCredits(join(ROOT, 'content'))
+  console.log(`credits: ${r.authors} authors tidied in ${r.files} files`)
+} else if (cmd === 'lifespans') {
+  // Lifespans the sources already state as a labelled line ("Life expectancy: 4 years"), put on the data card for each
+  // source that gives one; new reads give theirs through the process prompt.
+  const r = await fillLifespans(join(ROOT, 'content'))
+  console.log(`lifespans: ${r.values} added to ${r.species} species`)
 } else if (cmd === 'picture-hashes') {
   // The image hash of every picture in content, so no page shows the same picture twice from two files.
   const r = await hashPictures(ROOT, {
@@ -335,11 +347,11 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // The content rules' safe fixes on every page, each cycle before the build (sweep.ts): the source site's comments and
   // related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another fish or a map
   // taken off the page, card figures out of bounds hidden, titles promising a count the text lacks rewritten (--titles N
-  // model rewrites a run, reviewer-gated; 0: none) or their number dropped.
+  // model rewrites a run, reviewer-gated; 0: none) or their number dropped, species' other names kept to their own.
   const titles = Number(values.titles ?? 3)
   const r = await sweep(ROOT, titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {})
-  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.titles.length} titles${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-  for (const x of [...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.titles.map(x => `title: ${x}`)]) console.log(x)
+  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.titles.length} titles; ${r.names.length} other names off${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of [...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.names.map(x => `name off: ${x}`)]) console.log(x)
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md; every published page against the content rules, in each language →
   // docs/review/content-rules.md (reports only; nothing is hidden). --fix: first the rules' safe fixes on the stored text,
@@ -437,7 +449,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const x of [...r.done, ...r.failed]) console.log(x)
 } else if (cmd === 'gallery') {
   // Galleries topped up to their tier's target, most popular first (iNaturalist, Commons, GBIF, Openverse; open licences,
-  // screened): pnpm engine gallery [--sheets N (model calls, default 40)] [--only <species or plant id>] [--shard i/n (n runs at once)]
+  // screened): pnpm engine gallery [--sheets N (model calls, default 40)] [--only <species, plant or breed id>] [--shard i/n (n runs at once)]
   const env = (k: string) => (process.env[k] ? Number(process.env[k]) : undefined)
   const budget = Object.fromEntries((['inat', 'gbif', 'openverse'] as const).flatMap(k => (env(`GALLERY_${k.toUpperCase()}`) === undefined ? [] : [[k, env(`GALLERY_${k.toUpperCase()}`)!]])))
   const r = await galleries(ROOT, { ...galleryDeps(), openverse: await openverseApi() }, { sheets: values.sheets ? Number(values.sheets) : 40, ...(values.only ? { only: values.only } : {}), ...(values.shard ? { shard: values.shard.split('/').map(Number) as [number, number] } : {}), budget })

@@ -7,8 +7,8 @@ import { expect, test } from './fixtures'
 // on the fixture build and on aquatome.com (read from the page): the other languages have no species in the fixture.
 const PAGE = 24
 const LISTS = [
-  { path: '/vi/ca/', prefix: 'species' }, { path: '/id/ikan/', prefix: 'species' }, { path: '/th/fish/', prefix: 'species' },
-  { path: '/vi/cay/', prefix: 'plant' }, { path: '/id/tanaman/', prefix: 'plant' }, { path: '/th/plants/', prefix: 'plant' },
+  { path: '/ca/', prefix: 'species' }, { path: '/id/ikan/', prefix: 'species' }, { path: '/th/fish/', prefix: 'species' },
+  { path: '/cay/', prefix: 'plant' }, { path: '/id/tanaman/', prefix: 'plant' }, { path: '/th/plants/', prefix: 'plant' },
 ]
 type Item = { slug: string; group?: string; photo?: { url: string } }
 /** A card in the HTML, as the server renders it: the slug is its first match. */
@@ -91,9 +91,9 @@ for (const { path, prefix } of LISTS) {
 // Past the first page: only the real build and aquatome.com have it (the test content has 9 species). Each card built
 // from the data file is compared with the card its group's page renders.
 test('the cards the fish list builds past its first page are the ones its groups\' pages render', async ({ page, request }) => {
-  const { items } = await listOf(request, '/vi/ca/')
+  const { items } = await listOf(request, '/ca/')
   test.skip(items.length <= PAGE, 'every species fits on the first page')
-  await page.goto('/vi/ca/')
+  await page.goto('/ca/')
   const n = await page.locator('main [data-slug]:visible').count()
   await page.locator('#species-more').click()
   await expect(page.locator('main [data-slug]:visible')).not.toHaveCount(n)
@@ -105,7 +105,7 @@ test('the cards the fish list builds past its first page are the ones its groups
   const where = (slug: string) => {
     const group = items.find(i => i.slug === slug)!.group!
     const n = Math.floor(items.filter(i => i.group === group).findIndex(i => i.slug === slug) / PAGE) + 1
-    return n === 1 ? `/vi/nhom/${group}/` : `/vi/nhom/${group}/trang/${n}/`
+    return n === 1 ? `/nhom/${group}/` : `/nhom/${group}/trang/${n}/`
   }
   for (const path of new Set(built.map(([slug]) => where(slug)))) {
     await page.goto(path)
@@ -119,7 +119,7 @@ test('a link with filters shows no unfiltered cards while the list loads, and sa
   let release!: () => void
   const held = new Promise<void>(r => { release = r })
   await page.route('**/data/*/species.json', async route => { await held; await route.continue() })
-  await page.goto('/vi/ca/?q=neon')
+  await page.goto('/ca/?q=neon')
   await expect(page.locator('#species-count')).toHaveText('Đang lọc…')
   await expect(page.locator('main [data-slug]:visible')).toHaveCount(0)
   release()
@@ -129,7 +129,7 @@ test('a link with filters shows no unfiltered cards while the list loads, and sa
 
   // The data file failing: the result line says so, the first page shows again, and the next try loads it.
   await page.route('**/data/*/species.json', route => route.abort())
-  await page.goto('/vi/ca/?q=neon')
+  await page.goto('/ca/?q=neon')
   await expect(page.locator('#species-count')).toHaveText('Chưa tải được danh sách. Kiểm tra mạng rồi thử lại.')
   await expect(page.locator('main [data-slug]:visible').first()).toBeVisible()
   await page.unroute('**/data/*/species.json')

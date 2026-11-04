@@ -1,0 +1,119 @@
+{
+  "id": "ilyodon-furcidens",
+  "scientificName": "Ilyodon furcidens",
+  "order": "Cyprinodontiformes",
+  "family": "Goodeidae",
+  "genus": "Ilyodon",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "mexico",
+    "jalisco",
+    "colima"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 17,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>The species of the genus Ilyodon are among the larger members of the splitfins (Goodeids). In exceptional cases, individual specimens can reach a length of 15 cm. For this reason, Ilyodon are sometimes even found on the human menu.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>Mexican states of Jalisco and Colima.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>This splitfin is a river dweller.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>For the long-term care of these peaceful fish, the largest possible aquariums should be used, also due to their potential adult size.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>Because it is a river dweller, this species has somewhat higher demands on water quality. Generous weekly water changes (up to 80%) and good oxygen levels (not below 8 mg/l) should therefore be the norm.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>As with almost all Goodeids, water temperatures below 26°C in summer and around 17°C in winter are ideal.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>In the wild, this species feeds primarily on algae and aufwuchs. Therefore, a diet that is too high in fat and protein is not recommended.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>These fish are peaceful.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>Ilyodon, like all Goodeids, are livebearers. The juveniles are usually not preyed upon, so a thriving colony is usually established quickly. Temporary outdoor housing is extremely beneficial for the fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>The number of species within the genus Ilyodon has been (and, to some extent, still is) a subject of debate. For a long time, the broad-mouthed I. xanthusi was distinguished from the narrow-mouthed I. furcidens, until it was experimentally proven that both can occur in a single litter of a female (Ilyodon, like all Goodeids, are livebearers). Since I. furcidens is the older name, it is the valid one.</p><p>Ilyodon furcidens is still generally considered “not endangered,” but there are many warnings that introduced food fish (especially Micropterus) and livebearers (Poeciliopsis gracilis) are putting at least certain populations of I. furcidens in serious jeopardy. However, the species’ total range in the Mexican states of Jalisco and Colima is extensive, and there is no evidence that the various populations differ significantly from one another, either physically or genetically.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "máy lọc nước bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tảo spirulina cho cá",
+        "thức ăn ít đạm cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

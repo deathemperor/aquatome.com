@@ -7,15 +7,59 @@
   "group": "catfish",
   "places": [
     "asia",
-    "japan"
+    "japan",
+    "lake-biwa"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_reinii.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern</li></ul>"
+    },
     {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1099",
       "html": "<p>Asia: Japan. Type locality: Southern Japan.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_reinii.htm",
+      "html": "<p>Japan: Honshu, Shikoku and Kyushu Islands. Type locality: Lake Biwa, Japan.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_reinii.htm",
+      "html": "<p>Specimens were captured from under cobbles and boulders, interstices in bedrock, and in clumps of roots of terrestrial vegetation along banks.</p>"
     },
     {
       "key": "reproduction",
@@ -30,52 +74,86 @@
       "html": "<p>Etymology: from the Greek leios, meaning smooth, and bagrus, a name usually used for catfishes; in reference to the smooth head. IUCN Red List: Least Concern (last assessed 2018).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_reinii.htm",
+      "html": "<p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 6-7; anal spines: 0; anal soft rays: 11-13. Body elongated, anteriorly depressed, posteriorly laterally compressed. Mouth with 4 pairs of barbels. Scales not present on body. Pectoral and dorsal fins with spinous first ray. Adipose fin continuous with caudal fin. Posterior margin of caudal fin rounded.</p><p>Etymology: The specific name reinii honours \"Prof. Rein,\" who collected the type, probably the German geographer Johannes Justus Rein (1835-1918), who explored Japan in 1874-1875.</p><p>IUCN Red List: This species is widespread across Japan with a stable population trend. Therefore, it is assessed as Least Concern (IUCN 2019).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1099",
       "html": "<p>Sitzungsberichte der Gesellschaft Naturforschender Freunde zu Berlin 1878, pp 155.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_reinii.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org.</li><li>Katano, O., T. Nakamura, S. Yamamoto and S. Abe, 2005. Summer daytime habitat and population density of the torrent catfish, Liobagrus reini, in the Urano River. Ichthyol. Res. 52:60-56.</li><li>Masuda, H., K. Amaoka, C. Araga, T. Uyeno and T. Yoshino, 1984. The fishes of the Japanese Archipelago. Vol. 1. Tokai University Press, Tokyo, Japan. 437 p. (text).</li><li>Mukai, T., Taniguchi, Y. &amp; Watanabe, K. 2019. Liobagrus reinii. The IUCN Red List of Threatened Species 2019.</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/69705c8400bca4bf.webp",
+      "thumb": "https://media.aquatome.com/scotcat/69705c8400bca4bf-480.webp",
+      "width": 500,
+      "height": 148,
+      "licence": "dùng với sự cho phép",
+      "author": "Nakamura, M; / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_reinii.htm",
+      "caption": "Liobagrus reinii",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/7d5c3b1d13865c76.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7d5c3b1d13865c76-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Yuichi Kano / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_reinii.htm",
+      "caption": "Liobagrus reinii",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/4c307f923428e83d.webp",
+      "thumb": "https://media.aquatome.com/commons/4c307f923428e83d-480.webp",
       "width": 960,
       "height": 338,
       "licence": "CC BY-SA 4.0",
       "author": "Totti",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liobagrus_reini_Sagamihara2.jpg",
-      "caption": "アカザ。相模川ふれあい科学館飼育展示個体。",
-      "thumb": "https://media.aquatome.com/commons/4c307f923428e83d-480.webp"
+      "caption": "アカザ。相模川ふれあい科学館飼育展示個体。"
     },
     {
       "url": "https://media.aquatome.com/commons/6d02aea96675c028.webp",
+      "thumb": "https://media.aquatome.com/commons/6d02aea96675c028-480.webp",
       "width": 960,
       "height": 411,
       "licence": "CC BY-SA 4.0",
       "author": "Totti",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liobagrus_reini_Sagamihara3.jpg",
-      "caption": "アカザ。相模川ふれあい科学館飼育展示個体。",
-      "thumb": "https://media.aquatome.com/commons/6d02aea96675c028-480.webp"
+      "caption": "アカザ。相模川ふれあい科学館飼育展示個体。"
     },
     {
       "url": "https://media.aquatome.com/commons/b327ff00ab8c34bd.webp",
+      "thumb": "https://media.aquatome.com/commons/b327ff00ab8c34bd-480.webp",
       "width": 960,
       "height": 462,
       "licence": "CC BY-SA 4.0",
       "author": "Totti",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liobagrus_reinii_Gobius.jpg",
-      "caption": "ja:アカザ。ja:宍道湖自然館ゴビウス飼育展示個体。",
-      "thumb": "https://media.aquatome.com/commons/b327ff00ab8c34bd-480.webp"
+      "caption": "ja:アカザ。ja:宍道湖自然館ゴビウス飼育展示個体。"
     },
     {
       "url": "https://media.aquatome.com/commons/15c75103a5320e32.webp",
+      "thumb": "https://media.aquatome.com/commons/15c75103a5320e32-480.webp",
       "width": 960,
       "height": 388,
       "licence": "CC BY-SA 4.0",
       "author": "Totti",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liobagrus_reini_Sagamihara1.jpg",
-      "caption": "アカザ。相模川ふれあい科学館飼育展示個体。",
-      "thumb": "https://media.aquatome.com/commons/15c75103a5320e32-480.webp"
+      "caption": "アカザ。相模川ふれあい科学館飼育展示個体。"
     }
   ],
   "videos": [],
@@ -94,5 +172,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-04"
 }

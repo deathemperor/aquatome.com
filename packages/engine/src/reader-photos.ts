@@ -22,12 +22,12 @@ export const VERDICT_SCHEMA = {
   additionalProperties: false,
 }
 
-/** `reports`: readers' reasons for reporting it ('' for none); absent from a Worker older than reports. */
 /**
- * `moved_from`: the page it was sent for when moderation already moved it, null when it didn't; absent from a Worker
- * that can't record a move (older than moves), which then never gets one.
+ * `reports`: readers' reasons for reporting it ('' for none); absent from a Worker older than reports. `moved_from`: the
+ * page it was sent for when moderation already moved it, null when it didn't; absent from a Worker that can't record a
+ * move (older than moves), which then never gets one. `ownerOk`: the owner approved it on the dashboard.
  */
-export type PhotoItem = { id: string; entity_ref: string; name: string; created_at: string; moved_from?: string | null; reports?: string[] }
+export type PhotoItem = { id: string; entity_ref: string; name: string; created_at: string; moved_from?: string | null; reports?: string[]; ownerOk?: boolean }
 /** `why`: a removal's code. `entity`: an approval's page when the photo moved there (the Worker records where it came from). */
 export type PhotoDecision = { id: string; action: 'approve' | 'remove'; reason: string; why?: Why; entity?: string; width?: number; height?: number }
 /** The Worker's /_p/admin routes (null queue = photos are off). */
@@ -93,7 +93,8 @@ export const judgePrompt = (s: Named, reports: string[] = []) => TEMPLATE.replac
  * with a face, ask Claude whether it shows this species, then publish (files first, then the decision) or remove,
  * with the code its sender sees. A photo of another fish the handbook has a page of, when Claude is sure which
  * (MOVE_CONFIDENCE), is judged again for that fish and, approved, published on its page instead; never moved twice.
- * A failed model call leaves the photo pending for the next run.
+ * A photo the owner approved skips the face screen and Claude (the owner looked), so it stays on its page. A failed
+ * model call leaves the photo pending for the next run.
  */
 export async function moderatePhotos(api: PhotoAdmin, d: PhotoDeps): Promise<{ off: true } | { off: false; queued: number; approved: number; removed: number; failed: number }> {
   const queue = await api.queue()
@@ -114,27 +115,31 @@ export async function moderatePhotos(api: PhotoAdmin, d: PhotoDeps): Promise<{ o
         } catch {
           await remove(item.id, 'unreadable image', 'quality'); continue
         }
-        const file = join(dir, `${item.id}.webp`)
-        await writeFile(file, full.data)
-        const [faces] = await d.faces([file])
-        if (faces === undefined || faces < 0) { await remove(item.id, 'unreadable image', 'quality'); continue }
-        if (faces > 0) { await remove(item.id, 'person in photo', 'face'); continue }
-        const v = await d.judge(file, judgePrompt(sp, item.reports))
-        let ok = v.approve ? v : undefined
+        let reason = 'approved by owner'
         let to: string | undefined
-        // Moved once at most, and only by a Worker that records the move (its queue says whether it moved).
-        if (!v.approve && v.why === 'species' && (v.confidence ?? 0) >= MOVE_CONFIDENCE && v.species && item.moved_from === null) {
-          const right = d.find(v.species)
-          if (right && right.ref !== item.entity_ref) {
-            const again = await d.judge(file, judgePrompt(right, item.reports))
-            if (again.approve) { ok = again; to = right.ref }
+        if (!item.ownerOk) {
+          const file = join(dir, `${item.id}.webp`)
+          await writeFile(file, full.data)
+          const [faces] = await d.faces([file])
+          if (faces === undefined || faces < 0) { await remove(item.id, 'unreadable image', 'quality'); continue }
+          if (faces > 0) { await remove(item.id, 'person in photo', 'face'); continue }
+          const v = await d.judge(file, judgePrompt(sp, item.reports))
+          let ok = v.approve ? v : undefined
+          // Moved once at most, and only by a Worker that records the move (its queue says whether it moved).
+          if (!v.approve && v.why === 'species' && (v.confidence ?? 0) >= MOVE_CONFIDENCE && v.species && item.moved_from === null) {
+            const right = d.find(v.species)
+            if (right && right.ref !== item.entity_ref) {
+              const again = await d.judge(file, judgePrompt(right, item.reports))
+              if (again.approve) { ok = again; to = right.ref }
+            }
           }
+          // Turned down here, and not taken on the right fish's page: the first look's reason.
+          if (!ok) { await remove(item.id, v.reason || 'rejected', whyOf(v.why)); continue }
+          reason = ok.reason
         }
-        // Turned down here, and not taken on the right fish's page: the first look's reason.
-        if (!ok) { await remove(item.id, v.reason || 'rejected', whyOf(v.why)); continue }
         await api.put(item.id, 'full', full.data)
         await api.put(item.id, 'thumb', thumb)
-        const r = await api.decide([{ id: item.id, action: 'approve', reason: ok.reason, width: full.info.width, height: full.info.height, ...(to ? { entity: to } : {}) }])
+        const r = await api.decide([{ id: item.id, action: 'approve', reason, width: full.info.width, height: full.info.height, ...(to ? { entity: to } : {}) }])
         if (r.applied) approved++
         else failed++
       } catch (e) {
