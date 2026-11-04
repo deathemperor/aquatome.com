@@ -12,6 +12,11 @@ final class FactsCardFlowTests: XCTestCase {
     XCTAssertTrue(card.waitForExistence(timeout: 5), "no facts card")
     let facts = card.descendants(matching: .any).matching(identifier: "fact").allElementsBoundByIndex.map { $0.label }
     XCTAssertEqual(facts, ["Kích thước, 4 cm", "Nhiệt độ, 20–26°C", "pH, 5–7", "Độ cứng (dGH), 1–2", "Bể tối thiểu, 60 cm", "Tính cách, Hiền", "Độ khó, Dễ"])
+    // Three to a row, then two and two: the last not alone on its row.
+    let rows = card.descendants(matching: .any).matching(identifier: "fact").allElementsBoundByIndex.map { $0.frame.minY }
+    XCTAssertEqual(rows[6], rows[5], accuracy: 1, "the difficulty alone on its row")
+    XCTAssertEqual(rows[4], rows[3], accuracy: 1)
+    XCTAssertGreaterThan(rows[3], rows[2])
   }
 
   func testAFishWithoutATemperamentShowsWhatItHas() {

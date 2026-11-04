@@ -304,10 +304,43 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
   - Right after a schedule write, the snapshot sometimes still shows the **cleared** curve (all zero). A second read a moment later shows the new one. The app reads again until it does.
   - Connecting again right after a disconnect was once dropped at once; the next try worked.
 
-**Week Aqua-type lights** (3 came on together with the Chihiros: two named `WEEKAQUA3.0`, one `B3.0-A430Pro-03`; manufacturer ID 18007). Identified, but no commands were sent.
+**Week Aqua-type lights** (3 came on together with the Chihiros: two named `WEEKAQUA3.0`, one `B3.0-A430Pro-03`; manufacturer ID 18007).
 - Chip: Beken `BK-BLE-1.0`. Service `fff0`: `fff2` write, `fff1` notify.
 - They also expose a firmware-update (OAD) service, `f000ffc0`. The app must never write to it.
-- The model code (test 3) is still unread. Per alokauz, these lights can't report their state.
+- Per alokauz, these lights can't report their state.
+
+**Hands-on with the three Week Aqua lights (2026-11-03).** The owner watched the lights with the WEEK AQUA app closed, and a CoreBluetooth probe on the Mac sent the commands. The owner runs the three as one group in WEEK AQUA, on its Mode tab: the Green preset, with a timer from 02:50 to 02:40 (on almost all day). The Advanced tab is empty.
+
+- **Model code (test 3): 5746 on all three.** Their manufacturer data starts `57 46` (ID 18007), then `00 01` and the light's own address.
+- **What the lights expose:**
+  - `fff2` takes writes without response.
+  - `fff1` can be read and notified. A read gives 128 zero bytes, and nothing was ever notified, whatever was sent. So there's still no way to read a light's state.
+  - Device information (`180A`): Beken, `BK-BLE-1.0`, firmware 1.0.0, software 6.3.0, hardware 6.1.2.
+- **Levels work on all three:** `FB F9 R G B UV 55 55`, each 0–235, takes effect at once. Blue only (`FB F9 00 00 EB 00 55 55`) and off (all four 0) were confirmed by eye on each light. This is alokauz's frame. The ad960009 spec gives 5746 `FB EF` instead, which wasn't needed.
+- **Putting a light back as the app left it:** `FD F1`, then the preset's levels. Green is `6C E3 73 EB` (alokauz's preset table). Confirmed by eye on all three.
+  - `FD F1` alone after levels of zero left the light off, and so did `FD F2`.
+  - So here `FD F1` doesn't hand back to the light's own schedule, as alokauz reads it. It acts as the spec's "manual levels" mode, keeping the last levels sent.
+- **The clock frame** `FF hh mm ss 55 55 55 55` (BCD) is accepted. It can't be read back, and its effect on the timer is untested.
+- **The first timer tries failed because of the order.** A timer ending two minutes later did not switch the light off when sent after `FD F1` and the levels:
+  - `FE F9 02 50 HH MM 01 00` (the spec's simple timer, which it lists for 5745);
+  - `FE EF 02 50 HH MM 55 55` (the spec's timer for 5746).
+- **What WEEK AQUA sends (captured the same evening).** The iPhone's Bluetooth logging profile was installed, the owner changed the group's timer in the app, and the phone's Bluetooth log came out of a sysdiagnose. The app writes each frame to `fff2` on all three lights within a millisecond.
+  - On connecting: `FF hh mm ss 55 55 55 55` (the clock, BCD, the phone's local time), `F9 55 55 55 55 55 55 55`, `FD F1`, `FB F9 R G B UV 55 55` (the group's levels), then `FE F9` with the timer.
+    - The levels were `36 72 39 75`: the Green preset (`6C E3 73 EB`) at half brightness. So the app's brightness slider scales the preset, and a light is put back with these levels, not the preset's.
+  - On each change of the timer: `FE F9 onHH onMM offHH offMM r 00`, then `FD F1` about half a second later. Times are BCD.
+    - The owner's own timer is `FE F9 02 50 02 40 01 00`.
+    - The seventh byte read `01` on long windows and `00` on short ones (about two hours or less). It was `24` when on and off were the same time. It's most likely the sunrise/sunset ramp, in hours, but that is unconfirmed.
+- **The timer works when sent in the app's order.** `FF` clock, then `FE F9 02 50 21 37 00 00`, then `FD F1`. The owner saw the light switch off at 21:37.
+  - So `FD F1` applies the timer and levels written before it. It doesn't hand back to an earlier schedule.
+  - All three lights were then put back as the app sets them: clock, `FD F1`, `FB F9 36 72 39 75 55 55`, `FE F9 02 50 02 40 01 00`, `FD F1`.
+- **Still unknown:**
+  - the `F9 55 …` frame the app sends on connecting (the spec's 5746 fan frame is `F9 [level]`);
+  - the timer's seventh byte;
+  - the Advanced tab's multi-slot frames (the owner's is empty).
+- **Sources:**
+  - [alokauz/ha-weekaqua](https://github.com/alokauz/ha-weekaqua) (MIT; frames, presets, tests).
+  - [ad960009/WeekAquaProject](https://github.com/ad960009/WeekAquaProject)'s protocol spec (no licence; facts only, no code taken).
+  - The two disagree on which frames 5746 takes and on what `FD F1` means. The lights followed alokauz's frames.
 
 **The owner's Love Ecology light uses the "Fish lamp" app.** The app is by [Shenzhen Miaoxiang Intelligent](https://apps.apple.com/mo/app/fish-lamp/id6738646596), which makes several "control lights over Bluetooth" apps. Its App Store label says it collects no data and has no account.
 - So it is not Tuya: Tuya devices need a cloud account.

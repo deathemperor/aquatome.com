@@ -1,0 +1,88 @@
+{
+  "id": "youtube-05rdfkzKYfM",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=05rdfkzKYfM",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-03",
+  "video": {
+    "youtubeId": "05rdfkzKYfM",
+    "title": "HOW TO: Build an aquarium overflow weir",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 669,
+    "publishedAt": "2016-05-22",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maaUyj_mIPcLirbHl-kzWxM",
+      "position": 3
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/05rdfkzKYfM/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 99
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 32
+      },
+      {
+        "category": "khac",
+        "brand": "Krylon",
+        "model": "Fusion for Plastic",
+        "t": 519
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao bể khoan lỗ cần ống tràn đứng",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/05rdfkzKYfM/t10.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Nước chảy xối xả xuống bể, minh họa cảnh nước dâng không kiểm soát."
+          }
+        ]
+      },
+      {
+        "heading": "Ba lý do nên làm lược tràn",
+        "moments": [
+          {
+            "t": 15,
+            "url": "https://media.aquatome.com/video/05rdfkzKYfM/t15.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Nước chảy qua các khe răng của lược tràn xuống bên dưới."
+          }
+        ]
+      },
+      {
+        "heading": "Nước chạy thế nào khi bơm chạy và khi mất điện",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/05rdfkzKYfM/p5-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/05rdfkzKYfM/p5-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Hồ sump acrylic nhiều ngăn đang lắp, có bơm và skimmer đặt bên trong."
+        }
+      }
+    ]
+  }
+}

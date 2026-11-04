@@ -11,7 +11,11 @@ struct NativePage: View {
   let pieces: [Piece]
   /// A fish's facts or a plant's care (FactsCard), where the page puts them (`.facts`).
   var facts: FactsCard?
+  /// A fish's or plant's: onto one of the reader's tanks, from under its name (`.facts`), not a button in the bar.
+  var put: (() -> Void)?
   let web: () -> Void
+  /// Told whether the page's name is on the screen (iOS 18 on): the bar shows it only once it has scrolled away.
+  var nameInView: (Bool) -> Void = { _ in }
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @State private var tip: Tip?
@@ -120,6 +124,7 @@ struct NativePage: View {
         .accessibilityAddTraits([.title, .heading, .subheading].contains(look) ? .isHeader : [])
         .accessibilityFocused($focus, equals: anchor ?? "piece-\(i)")
         .id(anchor ?? "piece-\(i)")
+        .modifier(InView(report: look == .title ? nameInView : nil))
     case let .photo(src, ratio, alt, caption, credit, href, play, hero):
       VStack(alignment: hero ? .trailing : .leading, spacing: 6) {
         // The page's own photo no taller than 4:3, cut to fit: a fish's side, not a screen of water.
@@ -170,7 +175,10 @@ struct NativePage: View {
         if let note { Text(note).font(.footnote).foregroundStyle(.secondary) }
       }
     case .facts:
-      if let facts { facts }
+      VStack(alignment: .leading, spacing: 16) {
+        if let put { PutButton(put: put) }
+        if let facts { facts }
+      }
     case .web:
       Button(action: web) { Label("Xem phần này trên web", systemImage: "safari") }
         .buttonStyle(.bordered)
@@ -549,8 +557,15 @@ private struct PagesBlock: View {
     if !items.isEmpty {
       VStack(alignment: .leading, spacing: 8) {
         Text(title).font(.pageHeading).accessibilityAddTraits(.isHeader)
-        // As in a list of results: a tool opens its tab (AppScreen), a page pushes on this one.
-        ForEach(items) { item in Row(item: item, chevron: true).buttonStyle(.plain) }
+        // As in a list of results: a tool opens its tab (AppScreen), a page pushes on this one. In one panel, as the
+        // page's other rows of pages (CardsPart) are.
+        VStack(alignment: .leading, spacing: 0) {
+          ForEach(Array(items.enumerated()), id: \.element.id) { j, item in
+            if j > 0 { Divider().padding(.leading, 12) }
+            Row(item: item, chevron: true, inPanel: true).buttonStyle(.plain)
+          }
+        }
+        .background(.fill.quaternary, in: .rect(cornerRadius: 12))
       }
       .padding(.top, 40)
     }
@@ -646,7 +661,14 @@ private struct GalleryViewer: View {
           ToolbarItem(placement: .topBarLeading) { ReaderMenu(item: readers[index], reporting: $reporting, blocking: $blocking) }
         }
       }
-      .readerActions(reporting: $reporting, blocking: $blocking) { dismiss() }
+      .readerActions(reporting: $reporting, blocking: $blocking, inViewer: true) { dismiss() }
+      // A photo reported, the viewer closed some other way than its thanks, or before the report's answer came: hidden
+      // all the same.
+      .onAppear { handbook.safety.viewing = true }
+      .onDisappear {
+        handbook.safety.viewing = false
+        handbook.safety.hidePending()
+      }
       .accessibilityIdentifier("gallery")
     }
   }
@@ -743,7 +765,12 @@ private struct ReadersPart: View {
   private func line(_ c: Readers.Comment) -> AttributedString {
     var out = styled(c.name, .body.bold())
     out += styled("  " + Readers.day(c.createdAt, lang: handbook.lang), .footnote, secondary: true)
-    if c.helpful { out += styled("  " + String(localized: "Trả lời hay"), .footnote.bold()) }
+    if c.helpful {
+      // The site's mark, in the page's green: a mark on the answer, not a heading over it.
+      var mark = styled("  " + String(localized: "Trả lời hay"), .footnote.weight(.semibold))
+      mark.foregroundColor = .accentColor
+      out += mark
+    }
     return out + styled("\n" + c.body)
   }
 }
@@ -859,4 +886,31 @@ private func youtube(_ id: String, at: Int) -> URL { URL(string: "https://www.yo
 /// phone's own time style, which writes "1.15" in Indonesian.
 func clock(_ s: Int) -> String {
   s >= 3600 ? String(format: "%d:%02d:%02d", s / 3600, s / 60 % 60, s % 60) : String(format: "%d:%02d", s / 60, s % 60)
+}
+
+/// Reports whether a view is on the screen as the page scrolls, where the system can say (iOS 18 on).
+private struct InView: ViewModifier {
+  let report: ((Bool) -> Void)?
+  func body(content: Content) -> some View {
+    if #available(iOS 18, *), let report {
+      content.onScrollVisibilityChange(threshold: 0.3, report)
+    } else {
+      content
+    }
+  }
+}
+
+/// A fish's or plant's page: onto one of the reader's tanks (TankLife.swift), under its name, to see on opening.
+private struct PutButton: View {
+  let put: () -> Void
+  @Environment(TanksModel.self) private var tanks
+
+  var body: some View {
+    Button(action: put) { Label("Thêm vào bể", systemImage: "plus").frame(maxWidth: .infinity) }
+      .buttonStyle(.bordered)
+      .controlSize(.large)
+      // Not into a store this app must leave alone (newer, unreadable).
+      .disabled(!tanks.canEdit)
+      .accessibilityIdentifier("put-on-tank")
+  }
 }

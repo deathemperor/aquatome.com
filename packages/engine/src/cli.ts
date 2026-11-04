@@ -37,6 +37,7 @@ import { FB } from './facebook/config'
 import { FB_FISH_SCHEMA, FB_SPECIES_SCHEMA, identifyPhotos, type FbVerdict } from './facebook/identify'
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
+import { tidyCredits } from './wiki-author'
 import { hashPictures } from './picture-hashes'
 import { extractTraits } from './traits'
 import { topicCheck } from './topic-check'
@@ -55,6 +56,7 @@ import { addWikidataNames } from './wikidata'
 import { addPlantSynonyms } from './plant-synonyms'
 import { localizeTopic, makeTopic } from './topics'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
+import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytStoryboard } from './youtube'
 import { isMarketplace } from './marketplaces'
@@ -245,6 +247,11 @@ if (cmd === 'run' || cmd === 'card-fill') {
   console.log(`thumbs: ${r.checked} photos, ${r.made} made, ${r.failed.length} failed`)
   for (const f of r.failed) console.log(`failed: ${f}`)
   if (r.failed.length) process.exitCode = 1
+} else if (cmd === 'credits') {
+  // Wikimedia photos credited before the import tidied Commons' placeholder authors ("No machine-readable author
+  // provided. X assumed…", "X~commonswiki"): tidied in place. New imports are tidied as they come (authorText).
+  const r = await tidyCredits(join(ROOT, 'content'))
+  console.log(`credits: ${r.authors} authors tidied in ${r.files} files`)
 } else if (cmd === 'picture-hashes') {
   // The image hash of every picture in content, so no page shows the same picture twice from two files.
   const r = await hashPictures(ROOT, {
@@ -505,6 +512,18 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const sections = values.match ? FORUM_SECTIONS.filter(s => new RegExp(values.match!, 'i').test(s)) : undefined
   const r = await readForum(ROOT, { get, llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { limit: Number(values.limit ?? 10), pages: Number(values.pages ?? 5), sections, extra: [CLASSIFICATION_THREAD] })
   console.log(`forum: ${r.listed} list pages read, ${r.found} threads found, ${r.read.length} read, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}\n${[...r.read, ...r.failed].join('\n')}`)
+} else if (cmd === 'ideas') {
+  // Vietnamese shops' blogs, read for ideas (their posts' titles, never their text), a week apart unless --force: the
+  // topics the handbook has no guide on, most asked first, in engine-state/_ideas.json. pnpm engine ideas [--force]
+  const get = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.text() }
+  const r = await refreshIdeas(ROOT, { get, llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force })
+  const s = await readIdeas(ROOT)
+  console.log(r.fresh ? `ideas: read ${s.readAt}, still fresh` : `ideas: ${r.posts} posts, ${r.ideas} new ideas${r.failed.length ? `; failed: ${r.failed.join('; ')}` : ''}`)
+  for (const i of s.ideas.filter(x => !x.guide && !x.skipped).slice(0, 15)) console.log(`${i.sites} sites, ${i.posts.length} posts: ${i.topic} (${i.kind})`)
+} else if (cmd === 'write-ideas') {
+  // AquaTome's own guides on the most asked ideas (engine ideas), researched as pnpm engine topic is: --limit a day (UTC).
+  const r = await writeIdeas(ROOT, { research: claudeResearch, llm: claudeCli, now: () => new Date() }, { perDay: Number(values.limit ?? 2), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
+  console.log(`write-ideas: ${r.written.length} written, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}\n${[...r.written, ...r.skipped, ...r.failed].join('\n')}`)
 } else if (cmd === 'topic') {
   // A guide AquaTome writes itself from web research: pnpm engine topic "<chủ đề tiếng Việt>" --kind disease|care|setup|plantCare|breeding|aquascaping|discovery [--redo]
   // --redo: rewrite the guide from the research already kept (engine-state/topics), no new searching.
@@ -647,6 +666,6 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const t = await thinSpecies(join(ROOT, 'content'), popularityOrder(await popularFirst(ROOT)))
   printDepth(depthReport(t.pages, t.thin))
 } else {
-  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--parallel N] [--only id] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine metric | pnpm engine localize --lang id|th [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang id|th [--only ids] [--redo] | pnpm engine localize-places --lang id|th [--redo] | pnpm engine localize-captions --lang id|th [--limit N] | pnpm engine wikidata-names --lang id|th | pnpm engine localize-equipment --lang id|th [--only cats] [--redo] | pnpm engine status')
+  console.log('usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine ideas [--force] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--parallel N] [--only id] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine metric | pnpm engine localize --lang id|th [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang id|th [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang id|th [--only ids] [--redo] | pnpm engine localize-places --lang id|th [--redo] | pnpm engine localize-captions --lang id|th [--limit N] | pnpm engine wikidata-names --lang id|th | pnpm engine localize-equipment --lang id|th [--only cats] [--redo] | pnpm engine status')
   process.exitCode = 1
 }

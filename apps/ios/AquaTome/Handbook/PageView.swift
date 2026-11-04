@@ -21,12 +21,19 @@ struct PageView: View {
   @State private var pieces: [NativePage.Piece]?
   @State private var tried = false
   @State private var onWeb = false
+  /// The name under the page's photo on the screen: the bar's name hidden, not said twice. In view at first where the
+  /// page says when it scrolls away (iOS 18 on): a page opens on its name, and the bar shouldn't show it then fade.
+  @State private var nameInView: Bool = {
+    if #available(iOS 18, *) { return true }
+    return false
+  }()
 
   var body: some View {
     let native = handbook.drawsItself(item) && !onWeb
     Group {
       if native, let pieces {
-        NativePage(pieces: pieces, facts: facts(inPage: true)) { onWeb = true }
+        NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, web: { onWeb = true },
+                   nameInView: { nameInView = $0 })
       } else if native && !tried {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {
@@ -46,20 +53,31 @@ struct PageView: View {
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
-        // A fish or plant page: onto one of the reader's tanks (TankLife.swift).
-        if Life(item) != nil {
-          // Not into a store this app must leave alone (newer, unreadable).
-          Button { putting = true } label: { Label("Thêm vào bể", systemImage: "plus.circle") }
-            .disabled(!tanks.canEdit).accessibilityIdentifier("put-on-tank")
+        // The page the app draws shows its name under its photo: the bar's, once that has scrolled away.
+        if native && pieces != nil {
+          ToolbarItem(placement: .principal) {
+            Text(item.name).font(.headline).lineLimit(1)
+              .opacity(nameInView ? 0 : 1)
+              .animation(.easeOut(duration: 0.2), value: nameInView)
+              .accessibilityHidden(nameInView)
+          }
         }
-        // Saved to read later, on this phone (the Tìm tab lists them).
-        let saved = handbook.reading.isSaved(item.path)
-        Button { handbook.toggleSaved(item) } label: {
-          Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
+        ToolbarItemGroup(placement: .primaryAction) {
+          // A fish or plant page: onto one of the reader's tanks (TankLife.swift); the page the app draws has it under
+          // the name (none in the bar while it is read, to come and go).
+          if Life(item) != nil, !(native && (inPagePut || !tried)) {
+            // Not into a store this app must leave alone (newer, unreadable).
+            Button { putting = true } label: { Label("Thêm vào bể", systemImage: "plus.circle") }
+              .disabled(!tanks.canEdit).accessibilityIdentifier("put-on-tank")
+          }
+          // Saved to read later, on this phone (the Tìm tab lists them).
+          let saved = handbook.reading.isSaved(item.path)
+          Button { handbook.toggleSaved(item) } label: {
+            Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
+          }
+          .accessibilityIdentifier("save-for-later")
+          PageMore(url: url)
         }
-        .accessibilityIdentifier("save-for-later")
-        ShareLink(item: url)
-        Link(destination: url) { Image(systemName: "safari") }.accessibilityLabel(Text("Mở trong trình duyệt"))
       }
       .safeAreaInset(edge: .top) {
         VStack(spacing: 0) {
@@ -77,6 +95,11 @@ struct PageView: View {
       }
       .onAppear { handbook.read(item) }
       .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+  }
+
+  /// The page the app draws has a place for putting the fish or plant on a tank, under its name (`.facts`).
+  private var inPagePut: Bool {
+    Life(item) != nil && pieces?.contains { if case .facts = $0 { true } else { false } } == true
   }
 
   /// A fish's facts, from the index on the phone (there offline, with or without the page); a plant's care, as its page
@@ -102,10 +125,7 @@ struct WebScreen: View {
       .accessibilityIdentifier("page")
       .ignoresSafeArea(edges: .bottom)
       .navigationBarTitleDisplayMode(.inline)
-      .toolbar {
-        ShareLink(item: url)
-        Link(destination: url) { Image(systemName: "safari") }.accessibilityLabel(Text("Mở trong trình duyệt"))
-      }
+      .toolbar { PageMore(url: url) }
       .safeAreaInset(edge: .top) {
         if offline || failed {
           Text(failed ? "Không tải được trang. Kiểm tra kết nối mạng." : "Đang xem bản đã lưu (ngoại tuyến).")
@@ -275,5 +295,19 @@ private final class WeakHandler: NSObject, WKScriptMessageHandler {
   init(_ target: WKScriptMessageHandler) { self.target = target }
   func userContentController(_ content: WKUserContentController, didReceive message: WKScriptMessage) {
     target?.userContentController(content, didReceive: message)
+  }
+}
+
+/// A page's less used ways out, in one place in the bar: shared, or opened in the browser.
+private struct PageMore: View {
+  let url: URL
+  var body: some View {
+    Menu {
+      ShareLink(item: url)
+      Link(destination: url) { Label("Mở trong trình duyệt", systemImage: "safari") }
+    } label: {
+      Label("Khác", systemImage: "ellipsis")
+    }
+    .accessibilityIdentifier("page-actions")
   }
 }

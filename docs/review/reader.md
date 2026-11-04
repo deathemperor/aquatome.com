@@ -5,7 +5,7 @@ The model reads a few pages a cycle as a careful reader would, against a rubric 
 yet first, then those whose text changed. Vietnamese wording it flags is rewritten and kept only when the reviewer passes
 it; the rest is listed here. A page is read again only when its text changes.
 
-Read as they are now: Vietnamese 289 of 2204, Indonesian 0 of 495, Thai 0 of 501. Open findings: 385 on
+Read as they are now: Vietnamese 289 of 2224, Indonesian 0 of 506, Thai 0 of 501. Open findings: 385 on
 205 pages.
 
 ## Could become a rule (88)

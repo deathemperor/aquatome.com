@@ -164,7 +164,7 @@ final class PlugFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"]
       + (reset ? ["-reset-defaults"] : []) + (keys ? ["-seed-tuya-keys"] : [])
     app.launch()
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     if reset {
       XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "not a new phone")
       app.buttons["add-first"].tap()

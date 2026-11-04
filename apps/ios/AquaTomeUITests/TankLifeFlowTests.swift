@@ -8,6 +8,9 @@ final class TankLifeFlowTests: XCTestCase {
   func testPutsAFishFromItsPageOnATankStartingAtItsSchoolSize() {
     let app = launch("-seed-tanks", "litres") // one tank, "Bể cũ", no fish
     openPage(app, "Cá neon")
+    // On the page the app draws, under the fish's name, not in the bar.
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].buttons["put-on-tank"].exists, "not on the page")
+    XCTAssertFalse(app.navigationBars.buttons["put-on-tank"].exists, "in the bar as well")
     app.buttons["put-on-tank"].tap()
     let count = app.textFields["put-count"]
     XCTAssertTrue(count.waitForExistence(timeout: 5))
@@ -53,7 +56,7 @@ final class TankLifeFlowTests: XCTestCase {
 
   func testAddsAFishFromTheTankChangesItsNumberAndTakesItOffKeptAfterARelaunch() {
     var app = launch("-seed-tanks", "life")
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     app.buttons["add-life"].tap()
     let field = app.searchFields.firstMatch
@@ -90,7 +93,7 @@ final class TankLifeFlowTests: XCTestCase {
 
     app.terminate()
     app = launch(reset: false)
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     XCTAssertTrue(life(app, "Cá ngựa vằn").waitForExistence(timeout: 5), "the fish wasn't kept")
     XCTAssertTrue(life(app, "Cá ngựa vằn").label.contains("× 10"))
@@ -100,7 +103,7 @@ final class TankLifeFlowTests: XCTestCase {
 
   func testChangesTheNumberOfTheFirstFishOnATankLongerThanTheScreen() {
     let app = launch("-seed-tanks", "many") // 20 kinds: the add row is far below
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let neon = life(app, "Cá neon")
     XCTAssertTrue(neon.waitForExistence(timeout: 5))
@@ -116,7 +119,7 @@ final class TankLifeFlowTests: XCTestCase {
 
   func testListsTheGuidesThatNameTheTanksFishAndOpensThem() {
     let app = launch("-seed-tanks", "life") // neons: one guide names them, and one video guide
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     XCTAssertTrue(life(app, "Cá neon").waitForExistence(timeout: 5))
     // Under the fish, the plants and the tank-mates check: it may start under the tab bar.
@@ -282,7 +285,7 @@ final class TankLifeFlowTests: XCTestCase {
   }
 
   private func openTank(_ app: XCUIApplication) {
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     XCTAssertTrue(app.buttons["add-life"].waitForExistence(timeout: 5), "the tank didn't open")
   }

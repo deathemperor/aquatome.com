@@ -51,7 +51,8 @@ export async function readShopList(root: string, lang: ShopLang, goods: ShopGood
 
 /**
  * Researches the country's shop lists (web, never marketplaces) and maps each item to a species and its local name.
- * `seed`: one shop's list the owner supplied (trade names as written), mapped item by item before anything else.
+ * `seed`: one shop's list the owner supplied (trade names as written), mapped item by item before anything else. Its
+ * species the list already kept lacks go after them: the order ranks the species, and one shop doesn't reorder it.
  */
 export async function makeShopList(root: string, research: Llm, lang: ShopLang, o: { seed?: string[]; model?: string; now: () => Date; goods?: ShopGoods }): Promise<ShopList> {
   const c = COUNTRY[lang]
@@ -63,7 +64,14 @@ export async function makeShopList(root: string, research: Llm, lang: ShopLang, 
   const prompt = PROMPT.replaceAll('{{SHOPS}}', g.shops).replace('{{LEAVE_OUT}}', g.leaveOut).replaceAll('{{COUNTRY}}', c.country).replaceAll('{{LANG}}', c.lang).replace('{{NAME_FORM}}', goods === 'fish' ? c.nameForm : c.plantNameForm).replace('{{TASK}}', task)
   const r = await research<{ items: ShopItem[]; sources: { url: string; title: string }[] }>({ system: 'You research what aquarium shops sell and cite your sources. Reply only with JSON.', prompt, schema: SCHEMA, model: o.model })
   const items = r.items.map(i => ({ ...i, trade: i.trade.trim(), name: i.name?.trim() || null, scientificName: i.scientificName?.trim().replace(/\s+/g, ' ') || null, confidence: Math.max(0, Math.min(1, i.confidence)) }))
-  const list: ShopList = { lang, items, sources: r.sources, updatedAt: o.now().toISOString().slice(0, 10) }
+  const prev = o.seed?.length ? await readShopList(root, lang, goods) : null
+  const kept = new Set((prev?.items ?? []).map(i => (i.scientificName ?? i.trade).toLowerCase()))
+  const list: ShopList = {
+    lang,
+    items: [...prev?.items ?? [], ...items.filter(i => !kept.has((i.scientificName ?? i.trade).toLowerCase()))],
+    sources: [...new Map([...prev?.sources ?? [], ...r.sources].map(x => [x.url, x])).values()],
+    updatedAt: o.now().toISOString().slice(0, 10),
+  }
   await mkdir(join(root, 'engine-state/shop-lists'), { recursive: true })
   await writeFile(file(root, lang, goods), `${JSON.stringify(list, null, 2)}\n`)
   return list
