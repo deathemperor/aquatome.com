@@ -4,8 +4,8 @@ import { careNeeds, NEED_ORDER, NEED_RULES, rangeSpan, type Need, type NeedKey, 
 import { FACTS, type AppIndex, type Facts } from '../src/lib/app-index'
 import { guideLink, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../src/lib/card-guide'
 import { fmt } from '../src/lib/format'
-import { LANGS, localizePath, missing, translator, type Lang } from '../src/lib/i18n'
-import { DIST, page } from './dist'
+import { appPath, LANGS, missing, translator, type Lang } from '../src/lib/i18n'
+import { appHref, appPage, DIST } from './dist'
 
 // Shared with the iOS app, which reads the "Vì sao?" panel's needs from a fish's index entry with its own port of
 // careNeeds, and writes them in these words. Only the notes, the made-up entries and the `species` ids are written by
@@ -28,14 +28,18 @@ const PANEL = {
   school: 'đàn từ {n} con', note: 'Độ khó {n}/8 là mức nguồn chấm. Nguồn có thể tính cả điều bảng không ghi, như thức ăn.', how: 'Cách tính các mức',
 }
 
-/** Each word as a page in `lang` writes it: through the site's t(), the temperament lower-cased as the panel does. */
+/**
+ * Each word as a page in `lang` writes it: through the site's t(), the temperament lower-cased as the panel does. The
+ * link to how the levels are worked out is the page as the app names it (appPath: a Vietnamese one by its /vi/ form until
+ * APP_VI_ROOT turns on).
+ */
 function words(lang: Lang): Words {
   const t = translator(lang)
   const each = <K extends string>(o: Record<K, string>, f = (s: string) => s) => Object.fromEntries(Object.entries<string>(o).map(([k, v]) => [k, f(t(v))])) as Record<K, string>
   return {
     summary: t(PANEL.summary), lead: t(PANEL.lead), need: each(NEED_LABELS), level: each(LEVEL_WORDS), why: each(WHY_WORDS),
     temperament: each(TEMPERAMENT_WORDS, s => s.toLocaleLowerCase(lang)), finNipper: t(PANEL.finNipper),
-    tank: t(PANEL.tank), size: t(PANEL.size), school: t(PANEL.school), note: t(PANEL.note), how: t(PANEL.how), howPath: localizePath(lang, guideLink(NEEDS_ANCHOR)),
+    tank: t(PANEL.tank), size: t(PANEL.size), school: t(PANEL.school), note: t(PANEL.note), how: t(PANEL.how), howPath: appPath(lang, guideLink(NEEDS_ANCHOR)),
   }
 }
 
@@ -152,7 +156,7 @@ test('each fixture fish\'s built page shows these lines in these words, from its
     const entry = entryOf(id)
     const needs = careNeeds(entry)
     const item = index.items.find(i => i.id === id)!
-    const why = page(item.path).dom.querySelector('.card [data-field="difficulty"] details.why')
+    const why = appPage(item.path).dom.querySelector('.card [data-field="difficulty"] details.why')
     expect(why !== null, `${id}: a panel`).toBe(entry.difficulty !== undefined && needs.length > 0)
     if (!why) continue
     const listed = kept.cases.find(c => c.species === id)?.shown.vi ?? lines(needs, 'vi', w)
@@ -163,7 +167,7 @@ test('each fixture fish\'s built page shows these lines in these words, from its
     expect(norm(why.querySelector('summary .q')?.text), id).toBe(w.summary)
     expect(norm(why.querySelector('.lead')?.text), id).toBe(w.lead)
     expect(norm(why.querySelector('.note')?.text), id).toBe(`${w.note.replace('{n}', String(entry.difficulty))} ${w.how}`)
-    expect(why.querySelector('.note a')?.getAttribute('href'), id).toBe(w.howPath)
+    expect(appHref(why.querySelector('.note a')?.getAttribute('href') ?? ''), id).toBe(w.howPath)
   }
   expect(kept.cases.filter(c => c.species).length).toBeGreaterThanOrEqual(2)
 })
