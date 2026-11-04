@@ -129,7 +129,8 @@ to the contract `protocols/app-telemetry.openapi.json`; `Wire.swift` holds the r
   refusal by the site's code from a list, else `other`; never an error's text). No account, name, device address or
   name, tank name, search text or photo. An event the contract wouldn't take isn't sent (`Event.fits`); `ContractTests`
   checks the app's rules against the contract's schema, and fails when they differ.
-- **iOS's reports** (MetricKit), cut down to what the privacy policy names (`Diagnostic.kept`): of a day's measures,
+- **iOS's reports** (MetricKit), cut down to what the privacy policy names by an allow-list at every level
+  (`Diagnostic.kept`; a field it doesn't name, or of another shape, is dropped, and a report left empty isn't sent): of a day's measures,
   the build, iOS's version, the model and the quit, hang, launch and memory measures; crashes and hangs with their call
   stacks, their codes or length, and no free text. The region, low power mode, network, cellular, location, display,
   GPU, disk and animation measures and other kinds of diagnostics never leave the phone. In a

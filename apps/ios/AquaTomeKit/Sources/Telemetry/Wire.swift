@@ -117,49 +117,93 @@ public struct Diagnostic: Codable, Sendable, Equatable {
   let payload: String
 
   /// What of MetricKit's `jsonRepresentation()` is sent, as the privacy policy names it: unexpected quits, hangs, launch
-  /// time and memory, and crashes and hangs with their call stacks; nil when none of that is in it. From the report's
+  /// time and memory, and crashes and hangs with their call stacks, each by the fields MetricKit writes for it; nil when
+  /// none of that is in it. From the report's
   /// own details only the app's build, iOS's version and the phone's model. The rest never leaves the phone: the
   /// phone's region and low power mode, network, cellular, location, display, GPU, disk and animation measures, other
   /// kinds of diagnostics, and any free text (an exception's message, a reason for ending the app).
   static func kept(_ kind: Kind, json: Data) -> Data? {
-    guard let all = try? JSONSerialization.jsonObject(with: json) as? [String: Any],
+    guard let all = try? JSONSerialization.jsonObject(with: json),
           let kept = Keep.apply(all, kind == .metric ? Keep.metric : Keep.diagnostic) as? [String: Any],
-          kept.contains(where: { k, v in k != "metaData" && (v as? [Any])?.isEmpty != true }) else { return nil }
+          kept.keys.contains(where: { $0 != "metaData" }) else { return nil }
     return try? JSONSerialization.data(withJSONObject: kept, options: [.sortedKeys, .withoutEscapingSlashes])
   }
 
-  /// A part of a report kept: whole, only the fields named (in each item, for a list), or a call stack's frame.
+  /// A part of a report kept, by an allow-list at every level: a field it doesn't name is dropped, however deep, and so
+  /// is a field of another shape than named (an object where a number goes). A part left empty is dropped too.
   private indirect enum Keep: Sendable {
-    case all, frame
+    /// A number (or true or false) or a string.
+    case value
+    /// An object, with only these fields, each kept by its own rule.
     case only([String: Keep])
+    /// A list, each item kept by the rule.
+    case list(Keep)
+    /// An object of numbered entries, as a histogram's buckets ("0", "1"…), each kept by the rule.
+    case numbered(Keep)
+    /// A call stack's frame, its subframes frames too.
+    case frame
+
+    static func fields(_ names: [String], _ keep: Keep = .value) -> [String: Keep] {
+      Dictionary(uniqueKeysWithValues: names.map { ($0, keep) })
+    }
 
     /// The report's details (`metaData`, a diagnostic's `diagnosticMetaData`): the build, iOS's version, the model.
-    static let about: [String: Keep] = ["appBuildVersion": .all, "osVersion": .all, "deviceType": .all]
+    static let about = fields(["appBuildVersion", "osVersion", "deviceType"])
+    /// A histogram, as MetricKit writes launch times and hangs: its buckets' counts and bounds.
+    static let histogram = Keep.only([
+      "histogramNumBuckets": .value,
+      "histogramValue": .numbered(.only(fields(["bucketCount", "bucketStart", "bucketEnd"]))),
+    ])
+    /// Each way the app ended, counted, in the front or in the background.
+    static let exits = Keep.only(fields([
+      "cumulativeNormalAppExitCount", "cumulativeMemoryResourceLimitExitCount", "cumulativeCPUResourceLimitExitCount",
+      "cumulativeMemoryPressureExitCount", "cumulativeBadAccessExitCount", "cumulativeAbnormalExitCount",
+      "cumulativeIllegalInstructionExitCount", "cumulativeAppWatchdogExitCount", "cumulativeSuspendedWithLockedFileExitCount",
+      "cumulativeBackgroundTaskAssertionTimeoutExitCount", "cumulativeBackgroundURLSessionCompletionTimeoutExitCount",
+      "cumulativeBackgroundFetchCompletionTimeoutExitCount",
+    ]))
     static let metric = Keep.only([
-      "metaData": .only(about), "applicationExitMetrics": .all, "applicationResponsivenessMetrics": .all,
-      "applicationLaunchMetrics": .all, "memoryMetrics": .all,
+      "metaData": .only(about),
+      "applicationExitMetrics": .only(["foregroundExitData": exits, "backgroundExitData": exits]),
+      // MetricKit's JSON names, and its properties' names, which some iOS versions write instead.
+      "applicationResponsivenessMetrics": .only(fields(["histogrammedAppHangTime", "histogrammedApplicationHangTime"], histogram)),
+      "applicationLaunchMetrics": .only(fields([
+        "histogrammedTimeToFirstDrawKey", "histogrammedTimeToFirstDraw", "histogrammedOptimizedTimeToFirstDrawKey",
+        "histogrammedOptimizedTimeToFirstDraw", "histogrammedResumeTime", "histogrammedApplicationResumeTime", "histogrammedExtendedLaunch",
+      ], histogram)),
+      "memoryMetrics": .only([
+        "peakMemoryUsage": .value, "averageSuspendedMemory": .only(fields(["averageValue", "standardDeviation", "sampleCount"])),
+      ]),
     ])
     /// The threads' call stacks: frames by their binary's name and id and an address in it.
-    static let stacks = Keep.only(["callStackPerThread": .all, "callStacks": .only(["threadAttributed": .all, "callStackRootFrames": .frame])])
-    static let frameFields: [String: Keep] = [
-      "binaryUUID": .all, "binaryName": .all, "address": .all, "offsetIntoBinaryTextSegment": .all, "sampleCount": .all, "subFrames": .frame,
-    ]
+    static let stacks = Keep.only(["callStackPerThread": .value, "callStacks": .list(.only(["threadAttributed": .value, "callStackRootFrames": .list(.frame)]))])
+    static let frameFields = fields(["binaryUUID", "binaryName", "address", "offsetIntoBinaryTextSegment", "sampleCount"]).merging(["subFrames": .list(.frame)]) { a, _ in a }
     static let diagnostic = Keep.only([
-      "crashDiagnostics": .only(["version": .all, "callStackTree": stacks,
-                                 "diagnosticMetaData": .only(about.merging(["exceptionType": .all, "exceptionCode": .all, "signal": .all]) { a, _ in a })]),
-      "hangDiagnostics": .only(["version": .all, "callStackTree": stacks, "diagnosticMetaData": .only(about.merging(["hangDuration": .all]) { a, _ in a })]),
+      "crashDiagnostics": .list(.only(["version": .value, "callStackTree": stacks,
+                                       "diagnosticMetaData": .only(about.merging(fields(["exceptionType", "exceptionCode", "signal"])) { a, _ in a })])),
+      "hangDiagnostics": .list(.only(["version": .value, "callStackTree": stacks, "diagnosticMetaData": .only(about.merging(fields(["hangDuration"])) { a, _ in a })])),
     ])
 
+    /// `v` as the rule keeps it, or nil when nothing of it is.
     static func apply(_ v: Any, _ keep: Keep) -> Any? {
-      if let list = v as? [Any] { return list.compactMap { apply($0, keep) } }
       switch keep {
-      case .all: return v
-      case .frame: return apply(v, .only(frameFields))
-      case .only(let fields):
+      case .value:
+        return v is NSNumber || v is String ? v : nil
+      case .list(let item):
+        let kept = (v as? [Any])?.compactMap { apply($0, item) } ?? []
+        return kept.isEmpty ? nil : kept
+      case .only(let named):
         guard let o = v as? [String: Any] else { return nil }
-        var out: [String: Any] = [:]
-        for (k, f) in fields { if let x = o[k], let y = apply(x, f) { out[k] = y } }
-        return out
+        let kept = named.reduce(into: [String: Any]()) { out, f in if let x = o[f.key], let y = apply(x, f.value) { out[f.key] = y } }
+        return kept.isEmpty ? nil : kept
+      case .numbered(let item):
+        guard let o = v as? [String: Any] else { return nil }
+        let kept = o.reduce(into: [String: Any]()) { out, e in
+          if !e.key.isEmpty, e.key.allSatisfy({ $0.isASCII && $0.isNumber }), let y = apply(e.value, item) { out[e.key] = y }
+        }
+        return kept.isEmpty ? nil : kept
+      case .frame:
+        return apply(v, .only(frameFields))
       }
     }
   }

@@ -69,3 +69,69 @@ func sendsOnlyTheCutDownReport() async throws {
   }
   #expect(keys(object(fake.received[1].body)["payload"]) == ["crashDiagnostics", "hangDiagnostics"])
 }
+
+/// Every object in `v`, at every level, with a field MetricKit doesn't write (an iOS to come, or text that shouldn't
+/// go): as `x-unknown`, holding a string, a number and an object in turn.
+private func withUnknowns(_ v: Any) -> Any {
+  if let list = v as? [Any] { return list.map(withUnknowns) }
+  guard let o = v as? [String: Any] else { return v }
+  var out = o.mapValues(withUnknowns)
+  out["x-unknown"] = ["free text from somewhere", 42, ["x-unknown-inner": "more text"]][o.count % 3]
+  return out
+}
+
+/// The value at `path` in `v` (field names, and list indexes as numbers).
+private func at(_ v: Any, _ path: [Any]) -> Any? {
+  path.reduce(Optional(v)) { cur, step in
+    if let i = step as? Int { return (cur as? [Any]).flatMap { i < $0.count ? $0[i] : nil } }
+    return (cur as? [String: Any])?[step as! String]
+  }
+}
+
+@Test("Allow-listed at every level: a field MetricKit doesn't write, anywhere in a report, is dropped, and the rest is as before")
+func dropsUnknownFieldsAtEveryLevel() throws {
+  for (kind, sample, levels) in [
+    (Diagnostic.Kind.metric, metricSample, [
+      [], ["metaData"], ["applicationExitMetrics"], ["applicationExitMetrics", "foregroundExitData"], ["applicationResponsivenessMetrics"],
+      ["applicationResponsivenessMetrics", "histogrammedAppHangTime"], ["applicationResponsivenessMetrics", "histogrammedAppHangTime", "histogramValue"],
+      ["applicationResponsivenessMetrics", "histogrammedAppHangTime", "histogramValue", "0"], ["applicationLaunchMetrics"],
+      ["memoryMetrics"], ["memoryMetrics", "averageSuspendedMemory"],
+    ] as [[Any]]),
+    (.diagnostic, diagnosticSample(), [
+      [], ["crashDiagnostics", 0], ["crashDiagnostics", 0, "diagnosticMetaData"], ["crashDiagnostics", 0, "callStackTree"],
+      ["crashDiagnostics", 0, "callStackTree", "callStacks", 0], ["crashDiagnostics", 0, "callStackTree", "callStacks", 0, "callStackRootFrames", 0],
+      ["crashDiagnostics", 0, "callStackTree", "callStacks", 0, "callStackRootFrames", 0, "subFrames", 0], ["hangDiagnostics", 0],
+      ["hangDiagnostics", 0, "diagnosticMetaData"], ["hangDiagnostics", 0, "callStackTree", "callStacks", 0, "callStackRootFrames", 0, "subFrames", 0],
+    ] as [[Any]]),
+  ] {
+    let unknown = withUnknowns(try JSONSerialization.jsonObject(with: sample))
+    // The field is there at each level the test names, so a deny-list (dropping only what's known to be bad) fails here.
+    for level in levels { #expect((at(unknown, level) as? [String: Any])?["x-unknown"] != nil, "\(kind): none at \(level)") }
+    let sent = try #require(Diagnostic.kept(kind, json: JSONSerialization.data(withJSONObject: unknown)))
+    #expect(!String(decoding: sent, as: UTF8.self).contains("x-unknown"), "\(kind): an unknown field is sent")
+    #expect(sent == Diagnostic.kept(kind, json: sample), "\(kind): what's known changed")
+  }
+}
+
+@Test("A field of another shape than MetricKit writes is dropped: a single value only a number or a string")
+func dropsFieldsOfAnotherShape() throws {
+  let crash = #"{"crashDiagnostics":[{"version":"1.0.0","diagnosticMetaData":{"osVersion":"26.5","exceptionCode":{"text":"a message"},"signal":[11,"more"],"exceptionType":1}}]}"#
+  let kept = object(Diagnostic.kept(.diagnostic, json: Data(crash.utf8)))
+  #expect(keys(((kept["crashDiagnostics"] as? [Any])?.first as? [String: Any])?["diagnosticMetaData"]) == ["osVersion", "exceptionType"])
+  let metric = #"{"memoryMetrics":{"peakMemoryUsage":{"note":"a message"},"averageSuspendedMemory":{"averageValue":"31 MB"}},"applicationExitMetrics":["x"]}"#
+  #expect(String(decoding: Diagnostic.kept(.metric, json: Data(metric.utf8)) ?? Data(), as: UTF8.self) == #"{"memoryMetrics":{"averageSuspendedMemory":{"averageValue":"31 MB"}}}"#)
+}
+
+@Test("A report left with nothing is not sent: an empty section, a list of empty items, or only unknown fields")
+func sendsNoEmptyReport() {
+  for (kind, json) in [
+    (Diagnostic.Kind.metric, #"{"metaData":{"osVersion":"26.5"},"applicationExitMetrics":{}}"#),
+    (.metric, #"{"metaData":{"osVersion":"26.5"},"applicationExitMetrics":{"foregroundExitData":{}},"memoryMetrics":{"x-unknown":1}}"#),
+    (.metric, #"{"applicationLaunchMetrics":{"histogrammedTimeToFirstDrawKey":{"histogramValue":{"x":{"bucketCount":1}}}}}"#),
+    (.diagnostic, #"{"crashDiagnostics":[{}]}"#),
+    (.diagnostic, #"{"crashDiagnostics":[{},{}],"hangDiagnostics":[{"x-unknown":"a message"}]}"#),
+    (.diagnostic, #"{"hangDiagnostics":[{"callStackTree":{"callStacks":[{"callStackRootFrames":[{}]}]}}]}"#),
+  ] {
+    #expect(Diagnostic.kept(kind, json: Data(json.utf8)) == nil, "\(json) is sent")
+  }
+}

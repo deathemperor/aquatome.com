@@ -319,6 +319,10 @@ func aSwitchTakesHoldAtOnce() async throws {
   t.readerAllows(false)
   await t.flush()
   #expect(fake.received.isEmpty && t.recorded.isEmpty)
+  // And it stays off: what comes next isn't recorded or sent either.
+  t.record(.view(.lights))
+  await t.flush()
+  #expect(fake.received.isEmpty && t.recorded.isEmpty)
 
   // Three batches waiting; either switch turned off as the first is received: the other two aren't sent, and go.
   for off in ["reader", "site"] {
@@ -337,4 +341,44 @@ func aSwitchTakesHoldAtOnce() async throws {
     let left = await t.queued.events
     #expect(left.isEmpty && !FileManager.default.fileExists(atPath: file.path), "\(off): still queued")
   }
+}
+
+/// Both switches as the queue asks them, set by hand.
+private final class Switches: Sendable {
+  private let on = OSAllocatedUnfairLock(initialState: true)
+  var allowed: Bool { on.withLock { $0 } }
+  func set(_ v: Bool) { on.withLock { $0 = v } }
+}
+
+private func pages(_ n: Int) -> [Event] { (0..<n).map { Event.view(path: "/vi/ca/p\($0)/") } }
+
+@Test("The queue asks the switches before each request: turned off as the first is received, no other request follows")
+func asksTheSwitchesBeforeEachRequest() async throws {
+  let switches = Switches()
+  let fake = FakeCollector(told: { _ in switches.set(false) })
+  let file = tempFile()
+  let outbox = Outbox(file: file, site: site, send: { try await fake.send($0) }, userAgent: { nil }, now: { 0 }, allowed: { switches.allowed })
+  await outbox.add(pages(2 * Wire.batchSize + 1), about: about, session: "s")
+  await outbox.add([Diagnostic(kind: .metric, about: about, payload: "{}")])
+  await outbox.flush()
+  #expect(fake.received.count == 1, "\(fake.received.count) requests")
+  // Not sent, and not counted as a failure: the switch's own task empties the queue.
+  let left = await outbox.state
+  #expect(left.batches.count == 2 && left.diagnostics.count == 1)
+}
+
+@Test("What reaches the queue after a switch went off (taken just before) isn't kept: nothing in the file, nothing sent when it's on again")
+func dropsWhatReachesTheQueueAfterASwitchWentOff() async throws {
+  let switches = Switches()
+  let fake = FakeCollector()
+  let file = tempFile()
+  let outbox = Outbox(file: file, site: site, send: { try await fake.send($0) }, userAgent: { nil }, now: { 0 }, allowed: { switches.allowed })
+  switches.set(false)
+  await outbox.add(pages(3), about: about, session: "s")
+  await outbox.add([Diagnostic(kind: .metric, about: about, payload: "{}")])
+  await outbox.flush()
+  #expect(!FileManager.default.fileExists(atPath: file.path), "kept in the file")
+  switches.set(true)
+  await outbox.flush()
+  #expect(fake.received.isEmpty, "sent when on again: \(fake.received.map(\.path))")
 }

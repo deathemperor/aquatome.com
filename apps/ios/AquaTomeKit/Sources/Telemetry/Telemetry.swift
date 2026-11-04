@@ -97,10 +97,9 @@ public final class Telemetry: Sendable {
       return (w.events, w.diagnostics)
     }
     guard let taken else { return }
+    // A switch turned off since: the queue takes none of it (`Outbox.add`), and sends nothing.
     await outbox.add(taken.events, about: about, session: session)
     await outbox.add(taken.diagnostics)
-    // Turned off meanwhile: what was just queued goes too.
-    if waiting.withLock({ $0.closed }) { return await outbox.clear() }
     await outbox.flush()
   }
 
