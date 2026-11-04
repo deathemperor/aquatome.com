@@ -2,6 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { mayPublish, QUALITY_THRESHOLD, shownCard, type DataCardField, type Lang, type SpeciesEntity } from '@aq/schema'
 import { breedNames, cleanAltNames, type BreedName } from './alt-names'
+import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
@@ -25,6 +26,9 @@ import { carryTopicChecks } from './topic-check'
  * - a species' other names, in each language: its own only (alt-names.ts). A breed page's name leaves it (that page is
  *   found by it), a colour form's or bred line's goes, a name written twice is kept once. Each name taken off is kept in
  *   engine-state/_names-off.json with why, for a person to check.
+ * - a breed with no link to the species page its research names, or a parent with none (breeds.ts linkBreed): linked,
+ *   when exactly one page is that species, by its name or a synonym GBIF gives. A link it has stays. Each link made is
+ *   kept in engine-state/_breed-links.json.
  */
 export type SweepReport = {
   /** Files changed, `kind/id/file`. */
@@ -39,6 +43,10 @@ export type SweepReport = {
   titles: string[]
   /** Other names taken off species pages: `lang/id: "name" (why)`. */
   names: string[]
+  /** Links made from breeds to species pages, `breeds/id: what → species ("research name")`. */
+  links: string[]
+  /** Breeds whose parents no longer match their research, left unlinked. */
+  unmatched: string[]
   stopped: string
 }
 
@@ -100,7 +108,7 @@ function hideSlips(card: Partial<Record<DataCardField, Value[]>>, shown: (card: 
 
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string } = {}): Promise<SweepReport> {
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], titles: [], names: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], titles: [], names: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: Lang; id: string }[] = [] // raw: for its indentation
@@ -151,6 +159,24 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     }
   }
   if (report.names.length) await writeFile(offFile, `${JSON.stringify(Object.fromEntries(Object.entries(offLog).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
+
+  // A breed's links to the species pages its research names: one written before its species had a page links once it has.
+  const species = await speciesResolver(root)
+  const linkFile = join(root, 'engine-state', '_breed-links.json')
+  const linkLog = JSON.parse(await readFile(linkFile, 'utf8').catch(() => '{}')) as Record<string, string[]>
+  for (const id of (await readdir(join(content, 'breeds')).catch(() => [] as string[])).sort()) {
+    const file = join(content, 'breeds', id, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    const research = JSON.parse(await readFile(join(root, 'engine-state', 'breeds', `${id}.json`), 'utf8').catch(() => 'null')) as BreedFacts | null
+    if (!raw || !research?.found) continue
+    const { entity, links, unmatched } = linkBreed(JSON.parse(raw), research, species)
+    if (unmatched) report.unmatched.push(`breeds/${id}: ${unmatched}`)
+    if (!links.length) continue
+    await write(file, raw, entity)
+    changed(`breeds/${id}/entity.json`)
+    for (const l of links) { report.links.push(`breeds/${id}: ${l}`); (linkLog[id] ??= []).push(`${l}, ${today}`) }
+  }
+  if (report.links.length) await writeFile(linkFile, `${JSON.stringify(Object.fromEntries(Object.entries(linkLog).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
 
   // A title promising a count its text lacks: the model's rewrite when it passes, else the number dropped.
   let budget = o.llm ? (o.titles ?? 3) : 0

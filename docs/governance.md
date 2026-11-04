@@ -401,6 +401,14 @@ The layers above still check the result.
       shop listings of one variety each that every merge had kept. A run on a copy (2026-11-04) took 769 names off 451 species
       (571 pages in three languages): 5 breed names (4 species), 52 variety names (15), 335 written twice (239), 174 the
       page's own name again, 203 its scientific name again. The betta keeps 6.
+    - a breed's links to the species it is a form of (`basedOn`) and to its parents' pages (`parents[].species`),
+      from its research (`engine-state/breeds/<id>.json`, `breeds.ts` linkBreed): set where it has none and exactly one
+      species page is that species, by the page's scientific name or a synonym GBIF gave the engine
+      (`engine-state/_gbif-names.json`, exact matches only). Never two species ("Poecilia sphenops / Poecilia
+      latipinna"), a genus or a variety. A link it has stays, and when the engine writes the page again it keeps what
+      the breed is a form of (and its parents' links on a `--redo`). Each link is in `engine-state/_breed-links.json`. A breed used to be linked only when written, so those written before their
+      species had a page never were: a run on a copy (2026-11-05) made 13 links on 12 breeds (9 species a variety is a
+      form of, 4 parents' pages).
   - Text that reports what "the page" says ("Trang lưu ý…", "Trang cũng nêu…") has no safe fix: the reader's writer
     rewrites it on Vietnamese pages, reviewer-gated.
   - First run (2026-11-02, 2,599 pages): the source site's comments or related posts cut on 22 guides, a heading left at

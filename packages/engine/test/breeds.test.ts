@@ -109,6 +109,23 @@ test('--redo keeps a name the owner fixed and the addresses the page had', async
   expect(prompts.at(-2)).toContain('Tên trang đã chốt: "Cá vàng Lan thọ (Ranchu)"')
 })
 
+test('a page written again keeps the links it has: what it is a form of, and on a --redo its parents\'', async () => {
+  const r = await root()
+  const hybrid: BreedFacts = { ...facts, kind: 'hybrid', commons: undefined, parents: [{ name: 'Goldfish', scientificName: 'Carassius auratus', certain: true, source: 0 }, { name: 'Crucian carp', certain: false, source: 2 }] }
+  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá lai X', altNames: [], summary: [], body: '', faq: [] }) as T
+  const d = { research: (async () => hybrid) as Llm, llm, gallery: gallery([]) }
+  await makeBreed(r, d, { name: 'X hybrid' })
+  const file = join(r, 'content/breeds/x-hybrid/entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  expect(e.basedOn).toBe('carassius-auratus')
+  // Linked by hand: a line of another breed, and the crucian carp's page.
+  await writeFile(file, JSON.stringify({ ...e, basedOn: 'other-breed', parents: [e.parents[0], { ...e.parents[1], species: 'carassius-carassius' }] }))
+  await makeBreed(r, d, { name: 'X hybrid' }, { reuse: true })
+  const again = JSON.parse(await readFile(file, 'utf8'))
+  expect(again.basedOn).toBe('other-breed')
+  expect(again.parents.map((p: { species?: string }) => p.species)).toEqual(['carassius-auratus', 'carassius-carassius'])
+})
+
 test('something research could not find (or a wild species) is skipped, nothing written', async () => {
   const r = await root()
   const out = await makeBreed(r, { research: (async () => ({ ...facts, found: false })) as Llm, llm: (async () => { throw new Error('not called') }) as Llm, gallery: gallery([]) }, { name: 'Nope' })
