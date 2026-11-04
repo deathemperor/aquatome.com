@@ -1056,7 +1056,6 @@
   "Còn {n} loài cá và cây khác trong bài.": "ยังมีปลาและพืชอีก {n} ชนิดในบทความนี้",
   "Ảnh bạn chọn": "รูปที่คุณเลือก",
   "Ảnh chưa rõ lắm, đây chỉ là phỏng đoán. Ảnh rõ hơn sẽ cho kết quả chắc hơn.": "ภาพยังไม่ค่อยชัด นี่เป็นเพียงการเดา ภาพที่ชัดกว่าจะให้ผลที่แน่นอนกว่า",
-  "Ảnh gửi để nhận diện cá: không lưu.": "รูปที่ส่งมาระบุชนิดปลา: ไม่เก็บไว้",
   "Ảnh không được lưu lại: ảnh được gửi tới Claude, mô hình AI của Anthropic, để nhận diện rồi bỏ đi.": "เราไม่เก็บรูปของคุณ: รูปจะถูกส่งให้ Claude โมเดล AI ของ Anthropic ระบุชนิดแล้วทิ้งไป",
   "Ảnh này có vẻ không có cá, tép, ốc hay cây thủy sinh nào. Thử một ảnh khác nhé.": "ดูเหมือนว่าในรูปนี้ไม่มีปลา กุ้ง หอย หรือไม้น้ำ ลองรูปอื่นนะ",
   "Ảnh quá lớn. Chọn ảnh khác nhé.": "รูปใหญ่เกินไป เลือกรูปอื่นนะ",
@@ -1082,7 +1081,6 @@
   "Có thể": "อาจเป็น",
   "Có thể là": "น่าจะเป็น",
   "Công cụ chỉ đoán từ ảnh và có thể nhầm giữa các loài giống nhau. Đọc hồ sơ để đối chiếu màu, vây và kích thước trước khi mua hay thả chung.": "เครื่องมือนี้เดาจากภาพเท่านั้นและอาจสับสนระหว่างสายพันธุ์ที่คล้ายกัน อ่านหน้าข้อมูลเพื่อเทียบสี ครีบ และขนาดก่อนซื้อหรือปล่อยเลี้ยงรวมกัน",
-  "Công cụ cũng dùng Cloudflare Turnstile chống bot và đếm số lượt mỗi ngày bằng mã băm một chiều của địa chỉ IP kèm ngày, lưu 24 giờ, như ô bình luận.": "เครื่องมือนี้ยังใช้ Cloudflare Turnstile ป้องกันบอต และนับจำนวนครั้งต่อวันด้วยค่าแฮชทางเดียวของที่อยู่ IP พร้อมวันที่ เก็บไว้ 24 ชั่วโมง เช่นเดียวกับช่องแสดงความคิดเห็น",
   "Nút “Chụp ảnh nhận diện” trong Bể của tôi gửi ảnh theo đúng cách này.": "ปุ่ม “ถ่ายรูปเพื่อระบุชนิด” ในหน้า “ตู้ของฉัน” ส่งรูปด้วยวิธีเดียวกันนี้",
   "Công cụ đang tạm nghỉ. Bạn quay lại sau vài giờ nhé.": "เครื่องมือกำลังพักชั่วคราว กลับมาใหม่อีกสักสองสามชั่วโมงนะ",
   "Công cụ nhận diện tạm thời chưa dùng được. Bạn tìm cá theo tên trong danh sách cá nhé.": "เครื่องมือระบุชนิดยังใช้ไม่ได้ชั่วคราว ลองค้นหาปลาตามชื่อในรายชื่อปลานะ",
@@ -1106,10 +1104,14 @@
   "Nhận diện cá qua ảnh": "ระบุชนิดปลาจากรูปภาพ",
   "Nhận diện qua ảnh": "ระบุชนิดจากรูปภาพ",
   "Nhận diện qua ảnh tạm thời chưa dùng được. Bạn gõ tên cá hoặc cây vào ô tìm nhé.": "การระบุชนิดจากรูปยังใช้ไม่ได้ชั่วคราว พิมพ์ชื่อปลาหรือไม้น้ำในช่องค้นหาแทนนะ",
-  "Ở công cụ nhận diện cá, trình duyệt thu nhỏ ảnh bạn chọn (bỏ luôn thông tin kèm theo như vị trí GPS) rồi gửi tới máy chủ của chúng tôi, nơi ảnh được chuyển ngay tới Claude, mô hình AI của Anthropic, để nhận diện. Chúng tôi không lưu ảnh và không ghi ảnh vào nhật ký. Anthropic xử lý ảnh theo": "ในเครื่องมือระบุชนิดปลา เบราว์เซอร์จะย่อรูปที่คุณเลือก (และลบข้อมูลที่แนบมา เช่น ตำแหน่ง GPS) แล้วส่งไปยังเซิร์ฟเวอร์ของเรา ซึ่งส่งต่อให้ Claude โมเดล AI ของ Anthropic ระบุชนิดทันที เราไม่เก็บรูปและไม่บันทึกรูปลงในล็อก Anthropic ประมวลผลรูปตาม",
   "Tắt đèn flash, bật đèn bể.": "ปิดแฟลช เปิดไฟตู้แทน",
   "Xem hồ sơ": "ดูหน้าข้อมูล",
   "Chia sẻ ảnh": "แชร์ภาพ",
   "Đã đăng xuất.": "ออกจากระบบแล้ว",
-  "Đổi tài khoản": "เปลี่ยนบัญชี"
+  "Đổi tài khoản": "เปลี่ยนบัญชี",
+  "Ảnh gửi để nhận diện cá: không lưu, trừ khi bạn cho phép giữ: 6 tháng, rồi tự xóa.": "รูปที่ส่งมาระบุชนิดปลา: ไม่เก็บไว้ เว้นแต่คุณอนุญาตให้เก็บ: 6 เดือน แล้วลบอัตโนมัติ",
+  "Trên trang web, công cụ dùng Cloudflare Turnstile chống bot và đếm số lượt mỗi ngày bằng mã băm một chiều của địa chỉ IP kèm ngày, lưu 24 giờ. Trong ứng dụng, phiên đăng nhập tài khoản aquatome.com thay cho bước chống bot, và số lượt mỗi ngày được đếm theo tài khoản, lưu 24 giờ.": "บนเว็บไซต์ เครื่องมือนี้ใช้ Cloudflare Turnstile ป้องกันบอต และนับจำนวนครั้งต่อวันด้วยค่าแฮชทางเดียวของที่อยู่ IP พร้อมวันที่ เก็บไว้ 24 ชั่วโมง ในแอป การเข้าสู่ระบบบัญชี aquatome.com ใช้แทนขั้นตอนป้องกันบอต และจำนวนครั้งต่อวันนับตามบัญชี เก็บไว้ 24 ชั่วโมง",
+  "Ở công cụ nhận diện cá, trang web hoặc ứng dụng thu nhỏ ảnh bạn chọn (bỏ luôn thông tin kèm theo như vị trí GPS) rồi gửi tới máy chủ của chúng tôi, nơi ảnh được chuyển ngay tới Claude, mô hình AI của Anthropic, để nhận diện. Mặc định chúng tôi không lưu ảnh và không ghi ảnh vào nhật ký. Nếu bạn đánh dấu “Cho phép AquaTome giữ ảnh này để cải thiện nhận diện”, chúng tôi giữ ảnh cùng kết quả nhận diện trong 6 tháng để kiểm tra và cải thiện việc nhận diện. Chỉ quản trị viên xem được ảnh, ảnh không bao giờ hiện công khai và tự xóa sau 6 tháng. Ảnh gửi khi đã đăng nhập gắn với tài khoản của bạn, và bạn xóa được bất cứ lúc nào ở mục Tài khoản. Ảnh gửi khi chưa đăng nhập không gắn với ai: muốn xóa sớm, hãy liên hệ chúng tôi. Anthropic xử lý ảnh theo": "ในเครื่องมือระบุชนิดปลา เว็บไซต์หรือแอปจะย่อรูปที่คุณเลือก (และลบข้อมูลที่แนบมา เช่น ตำแหน่ง GPS) แล้วส่งไปยังเซิร์ฟเวอร์ของเรา ซึ่งส่งต่อให้ Claude โมเดล AI ของ Anthropic ระบุชนิดทันที โดยค่าเริ่มต้นเราไม่เก็บรูปและไม่บันทึกรูปลงในล็อก หากคุณเลือก “อนุญาตให้ AquaTome เก็บรูปนี้ไว้เพื่อปรับปรุงการระบุชนิด” เราจะเก็บรูปพร้อมผลการระบุชนิดไว้ 6 เดือนเพื่อตรวจสอบและปรับปรุงการระบุชนิด มีเพียงผู้ดูแลระบบของเราที่ดูรูปได้ รูปจะไม่แสดงต่อสาธารณะ และถูกลบอัตโนมัติหลัง 6 เดือน รูปที่ส่งขณะเข้าสู่ระบบจะผูกกับบัญชีของคุณ และคุณลบได้ทุกเมื่อในหัวข้อบัญชี รูปที่ส่งโดยไม่ได้เข้าสู่ระบบจะไม่ผูกกับใคร หากต้องการให้ลบเร็วกว่านั้น โปรดติดต่อเรา Anthropic ประมวลผลรูปตาม",
+  "Chép link": "คัดลอกลิงก์",
+  "Đã chép": "คัดลอกแล้ว"
 }

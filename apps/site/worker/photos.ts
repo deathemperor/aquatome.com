@@ -27,6 +27,9 @@ export const MEDIA_BASE = 'https://media.aquatome.com'
 export const SPECIES_RE = /^(species|breed):[a-z0-9-]{1,140}$/
 const fullKey = (id: string) => `readers/${id}.webp`
 const thumbKey = (id: string) => `readers/${id}-480.webp`
+/** The owner's "Duyệt" on a waiting photo (KV): the next moderation pass publishes it without its checks. */
+const okKey = (id: string) => `photo-ok:${id}`
+const ownerOk = async (kv: KVNamespace, id: string) => (await kv.get(okKey(id))) !== null
 
 const json = (data: unknown, status = 200, extra: Record<string, string> = {}) => Response.json(data, { status, headers: { 'cache-control': 'no-store', ...extra } })
 const live = (env: PhotosEnv): env is Live => Boolean(env.DB && env.UPLOADS && env.MEDIA && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY)
@@ -147,8 +150,8 @@ export async function deleteRoute(req: Request, url: URL, env: PhotosEnv, now: D
   return page('<h1>Đã gỡ ảnh</h1><p>Ảnh của bạn đã bị xóa.</p>')
 }
 
-/** `reports`: each reader's reason for reporting it ('' when they gave none). */
-export type PhotoQueueItem = { id: string; entity_ref: string; name: string; created_at: string; reports: string[] }
+/** `reports`: each reader's reason for reporting it ('' when they gave none). `ownerOk`: the owner approved it on the dashboard. */
+export type PhotoQueueItem = { id: string; entity_ref: string; name: string; created_at: string; reports: string[]; ownerOk: boolean }
 export type PhotoDecision = { id: string; action: 'approve' | 'remove'; reason: string; width?: number; height?: number }
 
 /** /_p/admin/{queue, raw/:id, file/:id?kind=full|thumb, decisions} for the nightly pass (Bearer dashboard token, checked by the caller). */
@@ -157,14 +160,16 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
   const p = url.pathname
   if (p === '/_p/admin/queue' && req.method === 'GET') {
     // Pending photos, and published ones reported since the pass last looked (reported before that, they're shown again).
+    // Only a pending photo carries the owner's approval: a published one reported again is judged.
     const { results } = await env.DB.prepare(
-      `SELECT id, entity_ref, name, created_at,
+      `SELECT id, entity_ref, name, created_at, status,
          (SELECT json_group_array(COALESCE(reason, '')) FROM reports WHERE kind = 'photo' AND item_id = photos.id) AS reports
        FROM photos
        WHERE status = 'pending' OR (status = 'approved' AND EXISTS (SELECT 1 FROM reports WHERE kind = 'photo' AND item_id = photos.id AND created_at > photos.decided_at))
        ORDER BY created_at LIMIT 200`,
-    ).all<Omit<PhotoQueueItem, 'reports'> & { reports: string }>()
-    return json(results.map(r => ({ ...r, reports: JSON.parse(r.reports) as string[] })))
+    ).all<Omit<PhotoQueueItem, 'reports' | 'ownerOk'> & { reports: string; status: string }>()
+    return json(await Promise.all(results.map(async ({ status, ...r }): Promise<PhotoQueueItem> =>
+      ({ ...r, reports: JSON.parse(r.reports) as string[], ownerOk: status === 'pending' && (await ownerOk(env.AB, r.id)) }))))
   }
   const raw = p.match(/^\/_p\/admin\/raw\/([0-9a-f-]{36})$/)
   if (raw && req.method === 'GET') {
@@ -192,7 +197,8 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
       if (!(await env.MEDIA.head(fullKey(d.id))) || !(await env.MEDIA.head(thumbKey(d.id)))) continue // files first, then publish
       const r = await env.DB.prepare(`UPDATE photos SET status = 'approved', url = ?, thumb = ?, width = ?, height = ?, reason = ?, decided_at = ? WHERE id = ? AND status IN ('pending', 'approved')`)
         .bind(`${MEDIA_BASE}/${fullKey(d.id)}`, `${MEDIA_BASE}/${thumbKey(d.id)}`, d.width, d.height, d.reason.slice(0, 300), now.toISOString(), d.id).run()
-      if ((r.meta.changes ?? 0) > 0) { applied++; await env.UPLOADS.delete(`pending/${d.id}`) }
+      // Published: the owner's approval is spent, so a later report is judged.
+      if ((r.meta.changes ?? 0) > 0) { applied++; await Promise.all([env.UPLOADS.delete(`pending/${d.id}`), env.AB.delete(okKey(d.id))]) }
     }
     return json({ applied, ignored: items.length - applied })
   }
@@ -204,5 +210,23 @@ export async function recentPhotos(env: PhotosEnv): Promise<{ id: string; entity
   if (!live(env)) return undefined
   const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, thumb, created_at FROM photos WHERE status = 'approved' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; name: string; thumb: string; created_at: string }>()
   return results
+}
+/**
+ * Photos waiting for the moderation pass (hourly, moderate.yml), newest first: the dashboard lists them, so a photo just
+ * sent shows there, and says which ones the owner approved.
+ */
+export async function waitingPhotos(env: PhotosEnv): Promise<{ id: string; entity_ref: string; name: string; created_at: string; ownerOk: boolean }[] | undefined> {
+  if (!live(env)) return undefined
+  const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, created_at FROM photos WHERE status = 'pending' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; name: string; created_at: string }>()
+  return Promise.all(results.map(async r => ({ ...r, ownerOk: await ownerOk(env.AB, r.id) })))
+}
+const isWaiting = async (db: D1Database, id: string) => Boolean(await db.prepare(`SELECT 1 FROM photos WHERE id = ? AND status = 'pending'`).bind(id).first())
+/** A waiting photo's upload, for the owner's dashboard; null once it's published or removed. */
+export async function waitingUpload(env: Live, id: string): Promise<R2ObjectBody | null> {
+  return (await isWaiting(env.DB, id)) ? env.UPLOADS.get(`pending/${id}`) : null
+}
+/** The owner's "Duyệt": kept 30 days, the queue's `ownerOk` while the photo waits. A photo that no longer waits is left alone. */
+export async function approveByOwner(env: Live, id: string, now: Date): Promise<void> {
+  if (await isWaiting(env.DB, id)) await env.AB.put(okKey(id), now.toISOString(), { expirationTtl: 30 * 86_400 })
 }
 export { live as photosLive }

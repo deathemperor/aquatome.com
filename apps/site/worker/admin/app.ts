@@ -2,6 +2,7 @@ import { aeSql, num } from './ae'
 import { esc, fmt, rankTable } from './chart'
 import { pageLink } from './pages'
 import { failedBox, isFailed, page, type Soft } from './shell'
+import { HOME_TZ } from './time'
 
 /**
  * The iOS app's telemetry (worker/telemetry, dataset aquatome_app) for /_ab/ung-dung/: six bounded queries over 30 days,
@@ -116,7 +117,7 @@ function versionsTable(xs: Version[]): string {
   return `<div class="scroll"><table class="wide"><thead><tr><th>Phiên bản</th><th>Báo cáo hằng ngày</th><th>Crash</th><th>Treo</th><th>Thoát bất thường</th><th>Mở app p50</th><th>Mở app p90</th><th>Bộ nhớ đỉnh p50</th><th>Bộ nhớ đỉnh p90</th></tr></thead><tbody>${rows || '<tr><td colspan="9" class="none">Chưa có báo cáo nào.</td></tr>'}</tbody></table></div>`
 }
 
-export function appPage(now: Date, test: boolean, s: Soft<AppStats>): string {
+export function appPage(now: Date, test: boolean, s: Soft<AppStats>, tz = HOME_TZ): string {
   const which = test
     ? '<p><b>Đang xem các bản thử</b> (bản debug, TestFlight). <a href="/_ab/ung-dung/">Xem bản App Store</a></p>'
     : '<p>Không tính các bản thử (bản debug, TestFlight). <a href="/_ab/ung-dung/?test=1">Xem các bản thử</a></p>'
@@ -134,5 +135,5 @@ export function appPage(now: Date, test: boolean, s: Soft<AppStats>): string {
 <h2>Ổn định và hiệu năng theo phiên bản</h2>${versionsTable(s.versions)}
 <p class="note">Crash, treo: số báo cáo chẩn đoán iOS gửi, mỗi lần một báo cáo, tính cho phiên bản đã gặp lỗi. Thoát bất thường: số lần ứng dụng đang mở bị thoát không bình thường, iOS đếm trong báo cáo hằng ngày. Mở app: thời gian tới khung hình đầu tiên (trung vị trong mỗi báo cáo hằng ngày); bộ nhớ đỉnh: MB. p50, p90 tính trên ${fmt(PERF_ROWS)} báo cáo hằng ngày mới nhất.</p>`
   }
-  return page('/_ab/ung-dung/', 'Ứng dụng', body, now)
+  return page('/_ab/ung-dung/', 'Ứng dụng', body, now, tz)
 }

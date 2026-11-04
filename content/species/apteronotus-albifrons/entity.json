@@ -26,6 +26,13 @@
           "min": 23,
           "max": 28
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -34,6 +41,13 @@
         "value": {
           "min": 6,
           "max": 8
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6.8,
+          "max": 7.8
         }
       }
     ],
@@ -44,12 +58,23 @@
           "min": 5,
           "max": 10
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
         "value": 50
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 45
       }
     ],
     "tankCm": [
@@ -62,6 +87,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 5
       }
     ]
   },
@@ -71,6 +100,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
       "html": "<p>The black ghost knifefish, Apteronotus albifrons, is a weakly electric knifefish from the upper half of South America, from Colombia to Paraguay. Usually sold at around 4 inches, it grows to 50 cm and needs a long-term housing plan. Its eyesight is very poor, and it navigates, finds prey and communicates using a weak electric field. In the wild it lives in swiftly flowing streams and rivers over sand.</p><ul><li>Max size: 500 mm TL (20 in)</li><li>Aquarium size: 180 × 60 cm (72 × 24 in)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–10 dGH</li><li>Difficulty: 6 of 8 (moderate), rated moderate because it needs a very large tank.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/black-ghost-knifefish",
+      "html": "<p><em>Apteronotus albifrons</em> is a South American nocturnal fish with weak eyesight that uses electrical signals to navigate its surroundings. The common name \"knifefish\" comes from the fact that it has no dorsal or caudal fin, giving it a blade-like appearance. Instead, an extended anal fin runs along the bottom edge of its body and ripples back and forth like a wave, allowing the knifefish to maneuver both forward and backward between tight spaces.</p><p>It is a considerably larger fish than most beginner fish, requires a lot of room and may live for over a decade. It is an intermediate-level oddball fish.</p><p>Adults reach 35–45 cm. In the source's experience, they grow up to 20 cm in the first year, and then about 5 cm a year.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/black-ghost-knifefish",
+      "html": "<p>Most black ghost knifefish are captive-bred nowadays. Juveniles are often sold in crowded tanks and may get into scrapes with other fish, so choose a healthy one that has both white spots on its tail, a good weight, active behaviour and its entire tail.</p><p>Since this fish can live as long as a pet dog, it helps to ask the store to feed it first so you can confirm it is eating well before taking it home.</p>"
     },
     {
       "key": "distribution",
@@ -91,6 +132,12 @@
       "html": "<p>Total length: 500 mm TL (20 in TL). Aquarium base: 180 × 60 cm (72 × 24 in). Volume: ~648 litres (~171 US gal).</p><p>Something in the region of 180 × 60 × 60 cm (72 × 24 × 24 in), about 648 litres (~171 US gal), is the minimum required for an adult fish.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/black-ghost-knifefish",
+      "html": "<p>A 208-litre aquarium might be okay for the first year, but it is too small for the long term. A 284-litre tank is the next upgrade and may last a few more years. Ultimately, a 454- or 681-litre aquarium is recommended for an adult black knifefish.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
@@ -103,16 +150,40 @@
       "html": "<ul><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/black-ghost-knifefish",
+      "html": "<p>They generally do fine with pH 6.8–7.8, a temperature of 24–28°C and a GH of at least 5° (90 ppm).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/black-ghost-knifefish",
+      "html": "<p>Create a heavily decorated setup with low lighting and lots of nooks and crannies, such as clear PVC pipes, rock caves, pleco caves, large driftwood and aquarium plants. As they grow bigger, upgrade the size of their caves and tunnels so they can feel completely safe and enclosed in their shelters. Plecos may quarrel with the knifefish over the best hiding places, so provide more caves if needed.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
       "html": "<p>A predator that feeds mainly on insects and worms in nature. Live and frozen foods should thus form a large part of the diet. It is particularly fond of meaty foods such as prawn or earthworms. Most specimens also learn to accept dried foods over time.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/black-ghost-knifefish",
+      "html": "<p>They are not too difficult to feed and eat a primarily carnivorous diet. Despite being a bottom dweller, they willingly go after both floating and sinking foods. A variety of worms, bloodworms, brine shrimp, pellets that fit in their mouths and freeze-dried foods are all taken. Once old enough, they will prey on small fish and invertebrates.</p><p>They can be a bit shy at first and spend all day in their favourite hiding spot until feeding time. Many keepers have trained theirs to eat from the hand or from the water surface using floating foods.</p><p>Flake food may not be nutritionally dense enough for knifefish in the long run, especially since they are easily outcompeted for food by other fish. Frozen, freeze-dried and pellet foods are preferred to help them maintain a healthy weight.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
       "html": "<p>Generally peaceful to the point of timidity, although larger specimens are likely to eat small fish. It will not do well with very active or aggressive tankmates and is best kept with other peaceful species that it cannot fit into its mouth. Considering its potential size, species attaining less than 6\" should therefore be discounted. South American cichlids such as Geophagus or Satanoperca sp., angelfish and even discus are good choices. Other possibilities include larger characins and peaceful catfish.</p><p>It can be somewhat belligerent towards conspecifics and is best maintained either as a single specimen or as a group in a very big tank. If only a couple are kept together, the dominant fish tends to bully the weaker to the extent that it will often not feed and simply wastes away.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/black-ghost-knifefish",
+      "html": "<p>In the right conditions, they can live in a community aquarium with other similar-sized, peaceful fish. Avoid tank mates that bully them or outcompete them for food, such as aggressive cichlids or fast rainbowfish. An adult will happily eat neon tetras and any other small fish that fit in its mouth, so avoid nano fish.</p><p>Hobbyists have kept adult black ghost knifefish with Geophagus \"eartheater\" cichlids, peaceful catfish, angelfish and other friendly tank mates larger than 15 cm.</p><p>Keeping two together is not recommended since problems tend to arise. Knifefish are territorial and don't like sharing space with other electric fish, such as baby whale fish, elephant nose fish and other knifefish, although with a large enough aquarium anything is doable.</p><p>It is a weakly electric fish and cannot shock people, in contrast to strongly electric fish like the electric eel. Its electric organ generates a very weak electrical field, and sensing organs pick up the slightest distortions in this field, similar to a radar system. This helps it navigate, locate prey, and communicate with potential mates or intruders.</p>"
     },
     {
       "key": "dimorphism",
@@ -131,38 +202,66 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apteronotus-albifrons",
       "html": "<p>A strikingly marked fish and an interesting addition to a South American community tank. Many fishkeepers buy this fish as a cute 4\" specimen, completely unaware of the large size that this fish can attain. If you want to own one of these a long term housing plan is a must! It is an amazing fish to watch with its undulating fins and weird movements (it can swim in virtually any direction without bending its body and can even swim backwards!), and fascinatingly will learn to recognise you quite quickly. Once this is achieved, it will hand feed willingly.</p><p>The Black Ghost Knife uses a form of electric organ in the wild to navigate and find prey, as the waters it inhabits are often dark to the point of being black. This organ produces a weak electric field around the fish. Disturbances in the field allow it to sense objects and movements around it. Its eyesight is very poor, so this electrosensory ability is by far its primary sense. It has been proven that the fish also use it to communicate with each other and find mates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/black-ghost-knifefish",
+      "html": "<p>Many people call them \"sensitive\" fish that don't live very long, but that has not been the source's experience. The keys to success are feeding them really well, making sure they don't get picked on, and maintaining good water quality. Usually, fish can handle one stress factor, but multiple stress factors increase the likelihood of health issues.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumcoop/cd6c57ddca2403d0.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/cd6c57ddca2403d0-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/black-ghost-knifefish",
+      "caption": "Care Guide for Black Ghost Knifefish — 18-Inch Electrical Oddball Fish - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/ed1b28d12b85fba3.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/ed1b28d12b85fba3-480.webp",
+      "width": 667,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/black-ghost-knifefish",
+      "caption": "black ghost knifefish and angelfish",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/commons/358cf62059041bc1.webp",
+      "thumb": "https://media.aquatome.com/commons/358cf62059041bc1-480.webp",
       "width": 960,
       "height": 623,
       "licence": "CC0",
       "author": "Vassil",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Apteronotus_albifrons_Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_10_04_2016_1.jpg",
-      "caption": "Black ghost ( Apteronotus albifrons ). Aquarium tropical du Palais de la Porte Dorée, in Paris.",
-      "thumb": "https://media.aquatome.com/commons/358cf62059041bc1-480.webp"
+      "caption": "Black ghost ( Apteronotus albifrons ). Aquarium tropical du Palais de la Porte Dorée, in Paris."
     },
     {
       "url": "https://media.aquatome.com/commons/07e3872f4877fb53.webp",
+      "thumb": "https://media.aquatome.com/commons/07e3872f4877fb53-480.webp",
       "width": 960,
       "height": 338,
       "licence": "CC BY 2.0",
       "author": "Clinton & Charles Robertson",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Apteronotus_albifrons.jpg",
-      "caption": "Weißstirn-Messerfisch (Apteronotus albifrons)",
-      "thumb": "https://media.aquatome.com/commons/07e3872f4877fb53-480.webp"
+      "caption": "Weißstirn-Messerfisch (Apteronotus albifrons)"
     },
     {
       "url": "https://media.aquatome.com/commons/c0a393980a5b69ae.webp",
+      "thumb": "https://media.aquatome.com/commons/c0a393980a5b69ae-480.webp",
       "width": 960,
       "height": 544,
       "licence": "Public domain",
       "author": "Bloch, Marcus Elieser; Hennig, J. F.; Schneider, Johann Gottlob",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:M.E._Blochii_..._Systema_ichthyologiae_iconibus_CX_illustratum_(Plate_94)_(6006036808).jpg",
-      "caption": "■ ^ ^ I",
-      "thumb": "https://media.aquatome.com/commons/c0a393980a5b69ae-480.webp"
+      "caption": "■ ^ ^ I"
     }
   ],
   "videos": [],
@@ -196,5 +295,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-04"
 }

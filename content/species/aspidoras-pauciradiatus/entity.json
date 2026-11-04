@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "araguaia"
+    "araguaia",
+    "rio-negro"
   ],
   "dataCard": {
     "tempC": [
@@ -42,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 3
       }
     ],
     "tankCm": [
@@ -65,10 +70,22 @@
       "html": "<p>Aspidoras pauciradiatus is a small armoured catfish that appears restricted to the upper Araguaia basin in Goiás state, Brazil. Sometimes called the 'false corydoras' or 'sixray corydoras', it has 6 soft dorsal-fin rays against 7 in other Aspidoras, plus a distinctive colour pattern. Aspidoras are told from the very similar Corydoras mainly by having two cranial fontanels.</p><ul><li>Max size: 35 mm SL (1.4 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 20–27°C (68–81°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/aspidoras_pauciradiatus_en/",
+      "html": "<p>This charming dwarf catfish originates from the Rio Negro basin and attains a maximum length of about 3 cm. It is an ideal tankmate for tetras, dwarf cichlids and similar fish.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
       "html": "<p>Type locality is 'Rio Araquaia near Aruana, 14°58'S, 51°04'W, Goias State, Brazil', and this species appears restricted to the upper Araguaia basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/aspidoras_pauciradiatus_en/",
+      "html": "<p>The species originates from the Rio Negro basin.</p>"
     },
     {
       "key": "aquariumSize",
@@ -128,17 +145,42 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/c44e63d27eefed19.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c44e63d27eefed19-480.webp",
       "width": 1000,
       "height": 667,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
       "caption": "Adult male specimen.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/c44e63d27eefed19-480.webp"
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "j1hN8qzdBTc",
+      "title": "Aspidoras pauciradiatus",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AD9odzuAvRU",
+      "title": "Aspidoras Pauciradiatus",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "yLE9JsLVP4w",
+      "title": "Aspidoras Pauciradiatus",
+      "durationSec": 35,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "j1qeAPWucvA",
+      "title": "Aspidoras pauciradiatus",
+      "durationSec": 17,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -169,5 +211,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-04"
 }

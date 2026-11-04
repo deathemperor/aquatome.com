@@ -39,6 +39,11 @@ that would have caught it).
     guides and glossary terms are the site's lists', a page out of search engines too, each with its page's copy in a
     shard; a species' `tax` and `from` lead to the taxon and origin pages that list it, `places` are the origin pages
     with what each lists, and `labels` say what those pages say.
+  - A fish's "Vì sao?" needs (`careNeeds`, `packages/schema/src/care-needs.ts`) against
+    `protocols/care-needs-vectors.json`, which the app's own port of it will read: `careNeeds`' answer for each case,
+    given the fish's app index entry as it is (every threshold, and just past it); each fixture fish page's panel as the
+    file's lines and words; its Indonesian and Thai words as the site's translations (`UPDATE_VECTORS=1` rewrites the
+    file but its notes and entries).
   - The Worker's answers when the app posts readers' comments and photos (a bearer, no Turnstile) and reports them,
     against `protocols/talk.openapi.json`: a status the contract lists and a body of its shape, the account's daily
     limits on top of the address's, an account's posts and photo files deleted with it, every public post's `author`,
@@ -47,16 +52,24 @@ that would have caught it).
   - The fish identifier's answers, the page's and the app's (its session as a bearer, no Origin or Turnstile), against
     `protocols/fishid.openapi.json`: a status the contract lists and a body of its shape, the app counted per account
     and not per address, a bearer with no live app session refused rather than taken the page's way, and no wanted
-    names from our own checks (`apps/site/worker/test/fishid.test.ts`).
+    names from our own checks. A photo is kept only when the reader ticks `keep`: a JPEG with its Exif, XMP, IPTC and
+    comments cut, under the account that sent it or no one's, listed and deleted by that account (never the image),
+    deleted with the account and 6 months on, and seen only on the owner's dashboard
+    (`apps/site/worker/test/fishid.test.ts`, `handler.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
     stored from a browser (an Origin), past the size caps or past the address's hour, our own copies stored marked as
     tests, a report kept as received in the private bucket only, and the dashboard's page with nothing yet and with data
     (`apps/site/worker/test/telemetry.test.ts`, `admin-app.test.ts`).
+  - The owner's dashboard (`apps/site/worker/test/admin-*.test.ts`): each chart with no days, one day, only zeros, a
+    negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
+    the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a
+    bad zone cookie).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
-    tools).
+    tools), and the owner's dashboard: a chart's day read by a tap, the pointer or the keys, and times following a
+    device set to another zone (`dashboard-charts.spec.ts`, local only).
   - **Page checks** on one or two pages of every kind, found from the build (a new kind of page is covered from its first
     build):
     - status 200 and a title

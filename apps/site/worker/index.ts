@@ -21,6 +21,7 @@ import { wantedRoute } from './wanted'
 import { fishId, type FishIdDeps, type FishIdEnv } from './fishid/api'
 import { appEventsRoute } from './telemetry/events'
 import { appDiagnosticsRoute } from './telemetry/diagnostics'
+import { sweepKept } from './fishid/kept'
 
 export interface Env {
   ASSETS: Fetcher
@@ -221,14 +222,16 @@ export default {
   fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, p => ctx.waitUntil(p)),
 
   /**
-   * Daily: the affiliate checker, the removed-comment purge, expired sign-in data and the day's content totals (KV
-   * stats:YYYY-MM-DD, admin/content.ts) — independent, so one failing never blocks the others.
+   * Daily: the affiliate checker, the removed-comment purge, expired sign-in data, kept fish-ID photos past their 6
+   * months (fishid/kept.ts) and the day's content totals (KV stats:YYYY-MM-DD, admin/content.ts) — independent, so one
+   * failing never blocks the others.
    */
   async scheduled(_: ScheduledController, env: FullEnv): Promise<void> {
     const results = await Promise.allSettled([
       env.DB ? runChecks(env.DB, env, new Date()) : Promise.resolve(),
       env.DB ? purgeRemoved(env.DB, new Date()) : Promise.resolve(),
       env.DB ? purgeExpired(env.DB, new Date()) : Promise.resolve(),
+      env.UPLOADS ? sweepKept(env.UPLOADS, new Date()) : Promise.resolve(),
       recordSnapshot(env.AB, env.ASSETS, `https://${env.CANONICAL_HOST ?? 'aquatome.com'}`, new Date()),
     ])
     for (const r of results) if (r.status === 'rejected') console.error('scheduled task failed:', r.reason)
