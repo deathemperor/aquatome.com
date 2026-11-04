@@ -16,6 +16,25 @@ private let index = HandbookSearch((0..<700).map { HandbookIndex.Item(kind: .fis
   #expect(s.results.count == 701 && s.left == 0)
 }
 
+// A page more ran the whole search again, though it had ranked every match already.
+@Test func aPageMoreListsTheNextBestWithNoSearch() {
+  var s = SearchState(index)
+  s.query = "ca"
+  let runs = s.runs
+  s.showMore()
+  #expect(s.runs == runs, "searched \(s.runs - runs) times")
+  #expect(s.results == index.find("ca", limit: 400))
+}
+
+// `-search-page 0` listed nothing and a page more nothing more; a negative page crashed.
+@Test(arguments: [0, -2]) func aPageListsOneAtLeast(page: Int) {
+  var s = SearchState(index, page: page)
+  s.query = "ca"
+  #expect(s.page == 1 && s.results.count == 1 && s.left == 700)
+  s.showMore()
+  #expect(s.results.count == 2)
+}
+
 @Test func aNewQueryOrKindListsTheBest200Again() {
   var s = SearchState(index)
   s.query = "ca"

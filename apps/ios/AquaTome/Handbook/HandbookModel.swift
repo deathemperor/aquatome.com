@@ -25,7 +25,10 @@ final class HandbookModel {
   var left: Int { searching.left }
   func showMore() { searching.showMore() }
 
-  private var search: HandbookSearch { searching.search }
+  /// The index searched, for the tanks tab's guides and fish picker: a copy of the one in `searching`, set with it, so
+  /// what they read changes with the index, not with each letter typed in the Tìm tab, which would redraw them and
+  /// search again for them.
+  private var search = HandbookSearch([])
   /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold.
   private var pages: [String: HandbookIndex.Item] = [:]
   /// The page a tank's entry without a page is shown as, by its scientific name.
@@ -79,7 +82,24 @@ final class HandbookModel {
     kept = UserDefaults.standard.stringArray(forKey: "handbook.kept.\(lang)") ?? []
     keptCounts = UserDefaults.standard.dictionary(forKey: "handbook.kept.counts.\(lang)") as? [String: Int] ?? [:]
     drawn = Self.pageCache(source, site: site)
+    #if DEBUG
+    if ProcessInfo.processInfo.arguments.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
+    #endif
   }
+
+  #if DEBUG
+  /// UI tests (`-watch-tank-searches`): how many times what the tanks tab's guides and fish picker search has changed
+  /// (each change redraws them and searches again), shown in the Tìm tab. Nil unless watched.
+  private(set) var tankSearchChanges: Int?
+  private func watchTankSearches() {
+    withObservationTracking { _ = guides(about: []); _ = life("") } onChange: { [weak self] in
+      Task { @MainActor in
+        self?.tankSearchChanges? += 1
+        self?.watchTankSearches()
+      }
+    }
+  }
+  #endif
 
   /// Whether the app draws this page itself: the site publishes its kind as blocks.
   func drawsItself(_ item: HandbookIndex.Item) -> Bool { shardCounts[item.kind.rawValue] != nil }
@@ -284,7 +304,8 @@ final class HandbookModel {
   }
 
   private func use(_ ix: HandbookIndex, _ s: Status) {
-    searching.search = HandbookSearch(ix.items)
+    search = HandbookSearch(ix.items)
+    searching.search = search
     pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
     matcher = PageMatcher(index: ix.items)
     byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })

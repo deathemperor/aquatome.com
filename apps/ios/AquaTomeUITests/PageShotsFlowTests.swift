@@ -4,8 +4,8 @@ import XCTest
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
 /// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
 /// And a search's results under the kinds it finds, light and dark, at the default and the largest text size, with more
-/// found than listed, and with a kind picked that it finds none of. Each checks only that its screen opened: what it
-/// shows, the other flows check.
+/// found than listed, and with a kind picked that it finds none of, at both sizes. Each checks only that its screen
+/// opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -20,12 +20,16 @@ final class PageShotsFlowTests: XCTestCase {
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
   func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
-  func testAKindASearchFindsNoneOf() {
-    shootSearch("search-none-of-kind-light", typing: "do") { app in
-      app.buttons["kind-plant"].tap()
-      app.searchFields.firstMatch.typeText("n\n")
-      return app.buttons["kind-plant"]
-    }
+  func testAKindASearchFindsNoneOf() { shootSearch("search-none-of-kind-light", typing: "do", then: noneOfPlants) }
+  func testAKindASearchFindsNoneOfInTheLargestText() {
+    shootSearch("search-none-of-kind-largest-light", size: largest, typing: "do", then: noneOfPlants)
+  }
+
+  /// "Cây" picked, then a letter more that finds no plant: there once it says so, with its way back to every kind.
+  private func noneOfPlants(_ app: XCUIApplication) -> XCUIElement {
+    app.buttons["kind-plant"].tap()
+    app.searchFields.firstMatch.typeText("n\n")
+    return app.buttons["see-all"]
   }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"

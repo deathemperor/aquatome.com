@@ -19,6 +19,11 @@ struct HandbookView: View {
         } else {
           Section {
             ForEach(handbook.results) { item in Row(item: item) }
+            // The kind picked has none but others have some: said under the chips, as a row the list scrolls. Laid over
+            // the list, at the largest text it covered the chips, and with the keyboard up its button was under it.
+            if handbook.results.isEmpty, let kind = handbook.kind, handbook.counts[nil, default: 0] > 0 {
+              NoneOfKind(kind: kind).listRowBackground(Color.clear)
+            }
           } header: {
             // The kinds found, under the search field and right above their results, as the reader types (and none
             // before: the home shows then, which a kind doesn't change). In the list, not a bar over it: a bar's
@@ -39,12 +44,15 @@ struct HandbookView: View {
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .overlay {
         if handbook.status == .loading { ProgressView() }
-        else if handbook.results.isEmpty && !handbook.query.isEmpty {
-          // The kind picked has none but others have some: the system's "no results" would contradict their chips.
-          if let kind = handbook.kind, handbook.counts[nil, default: 0] > 0 { NoneOfKind(kind: kind) }
-          else { ContentUnavailableView.search(text: handbook.query) }
-        }
+        // Nothing found of any kind (none of one, with others found, is a row: NoneOfKind).
+        else if !handbook.query.isEmpty && handbook.counts[nil, default: 0] == 0 { ContentUnavailableView.search(text: handbook.query) }
       }
+      #if DEBUG
+      // UI tests (`-watch-tank-searches`): how many times what the tanks tab searches has changed (HandbookModel).
+      .overlay(alignment: .bottomLeading) {
+        if let n = handbook.tankSearchChanges { Text(verbatim: "\(n)").font(.caption2).accessibilityIdentifier("tank-search-changes") }
+      }
+      #endif
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
     }
@@ -114,7 +122,7 @@ private struct KindChip: View {
 }
 
 /// Under results that stop short of what the kind picked finds: how many show, and a page more, as the site's search
-/// page has it. The search ranks every match already, so a page more costs no search.
+/// page has it. A page more is the next part of what the search ranked (SearchState): no search.
 private struct MoreResults: View {
   @Environment(HandbookModel.self) private var handbook
 
@@ -122,6 +130,8 @@ private struct MoreResults: View {
     let shown = handbook.results.count
     VStack(alignment: .leading, spacing: 4) {
       Text("Đang hiện \(shown.formatted()) trong \((shown + handbook.left).formatted()) kết quả. Gõ thêm để thu hẹp.")
+        // As the chips' counts: the footer's secondary measured 3.3:1 on the light look's background.
+        .foregroundStyle(Color.primary.opacity(0.6))
         .accessibilityIdentifier("more-note")
       Button("Xem thêm kết quả") { handbook.showMore() }
         .font(.subheadline.weight(.medium))

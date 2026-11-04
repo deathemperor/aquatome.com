@@ -219,10 +219,25 @@ final class HandbookFlowTests: XCTestCase {
     app.buttons["more"].tap()
     XCTAssertFalse(note.waitForExistence(timeout: 1), "still short, with all of it listed")
     XCTAssertEqual(rows(app), 7)
-    // A kind picked lists its best 3 again.
     chip(app, "fish").tap()
     XCTAssertFalse(note.waitForExistence(timeout: 1), "short of a kind that has only 3")
     XCTAssertEqual(rows(app), 3)
+    // Another kind picked lists its best 3 again, not as many as the last one had.
+    chip(app, "all").tap()
+    XCTAssertTrue(note.waitForExistence(timeout: 5), "all 7 listed again, not the best 3")
+    XCTAssertEqual(note.label, "Đang hiện 3 trong 7 kết quả. Gõ thêm để thu hẹp.")
+    XCTAssertEqual(rows(app), 3)
+  }
+
+  // The note under the rows was the footer's secondary: 3.3:1 on the light look's background.
+  func testTheNoteUnderTheRowsReadsClearly() { noteReadsClearly(launch("-search-page", "3")) }
+  func testTheNoteUnderTheRowsReadsClearlyInTheDark() { noteReadsClearly(launch("-search-page", "3", "-dark")) }
+
+  private func noteReadsClearly(_ app: XCUIApplication) {
+    search(app, "ca\n")
+    let note = app.staticTexts["more-note"]
+    XCTAssertTrue(note.waitForExistence(timeout: 5), "no word under the rows listed")
+    readsClearly(app, note, "the note")
   }
 
   // With "Cây" picked and "don" typed, it said there were no results, under "Loài cá 2".
@@ -238,14 +253,72 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertEqual(rows(app), 2)
   }
 
+  // At the largest text that message, laid over the whole list, covered the chips, and with the keyboard up its
+  // "Xem tất cả" was under the keyboard, out of reach.
+  func testAKindWithNoneLeavesTheChipsAndTheWayBackInReachAtTheLargestText() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    search(app, "do")
+    chip(app, "plant").tap()
+    app.searchFields.firstMatch.typeText("n")
+    let said = [app.staticTexts["Không có kết quả trong “Cây”"], app.staticTexts["“don” có kết quả trong Loài cá (2)."]]
+    XCTAssertTrue(said[0].waitForExistence(timeout: 5) && said[1].exists, "not said which kind has none")
+    XCTAssertTrue(app.keyboards.firstMatch.exists, "the keyboard isn't up")
+    XCTAssertTrue(chip(app, "plant").isHittable, "the kind picked can't be tapped")
+    for kind in ["all", "fish", "plant"] {
+      let c = chip(app, kind)
+      XCTAssertTrue(c.exists, "no \(kind) chip")
+      // A chip on screen (the row scrolls sideways) can be tapped, and nothing said is over it.
+      if app.frame.contains(c.frame) { XCTAssertTrue(c.isHittable, "\(kind)'s chip can't be tapped") }
+      for text in said { XCTAssertFalse(text.frame.intersects(c.frame), "“\(text.label)” is over \(kind)'s chip") }
+    }
+    // In reach with the keyboard up: on screen, or once the list is moved up under the chips.
+    let all = app.buttons["see-all"], list = app.collectionViews.firstMatch
+    var moves = 0
+    while !all.isHittable && moves < 3 {
+      drag(list, from: 0.55, to: 0.2)
+      moves += 1
+    }
+    XCTContext.runActivity(named: "“Xem tất cả” in reach after \(moves) drags") { _ in }
+    XCTAssertTrue(all.isHittable, "“Xem tất cả” out of reach")
+    all.tap()
+    // Back up to the chips, from below the search field (at this size it reaches a fifth of the way down).
+    for _ in 0..<3 where !(chip(app, "all").exists && chip(app, "all").isHittable) { drag(list, from: 0.3, to: 0.6) }
+    XCTAssertTrue(chip(app, "all").exists && chip(app, "all").isSelected, "not back to every kind")
+  }
+
+  // Typing here redrew the tanks tab's guides and fish picker, and searched again for them, letter by letter: they
+  // read the index searched through this tab's search, which each letter changes.
+  func testTypingHereLeavesWhatTheTanksTabSearchesAlone() {
+    let app = launch("-watch-tank-searches", "-search-page", "3")
+    let changes = app.staticTexts["tank-search-changes"]
+    XCTAssertTrue(changes.waitForExistence(timeout: 5), "not watched")
+    // The index coming in is a change: what the tanks tab searches is new.
+    let loaded = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label != '0'"), object: changes)
+    XCTAssertEqual(XCTWaiter().wait(for: [loaded], timeout: 5), .completed, "the index didn't come in")
+    let before = changes.label
+    search(app, "ca\n")
+    app.buttons["more"].tap()
+    chip(app, "fish").tap()
+    let field = app.searchFields.firstMatch
+    field.tap()
+    field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 2))
+    XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5), "not the home")
+    XCTAssertEqual(changes.label, before, "typing, a page more and a kind picked changed what the tanks tab searches")
+  }
+
   // At the largest text the rows run past the screen, and counting only the rows drawn found 2 of 7.
   func testTheCountsMatchTheRowsAtTheLargestText() {
     let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
     search(app, "ca")
     XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5))
     XCTAssertEqual(chip(app, "all").value as? String, "7")
-    let seen = pages(app)
-    XCTAssertEqual(seen.count, 7, "\(seen.sorted())")
+    let seen = screens(app)
+    XCTAssertEqual(Self.count(seen), 7, "\(seen)")
+  }
+
+  // Counting each name once, a row listed twice counted as one.
+  func testARowListedTwiceCountsTwice() {
+    XCTAssertEqual(Self.count([["Cá neon", "Cá neon", "Cá đĩa"], ["Cá đĩa", "Cá ngựa vằn"]]), 4)
   }
 
   // A chip's count off the picked chip read 3.1:1 on its fill in the light look, under the 4.5:1 text needs.
@@ -255,13 +328,16 @@ final class HandbookFlowTests: XCTestCase {
   private func countsReadClearly(_ app: XCUIApplication) {
     search(app, "ca")
     XCTAssertTrue(chip(app, "fish").waitForExistence(timeout: 5))
+    for kind in ["all", "fish"] { readsClearly(app, chip(app, kind).staticTexts.element(boundBy: 1), "\(kind)'s count") }
+  }
+
+  /// `text` reads at least 4.5:1 on what's behind it, once the screen is still: the ratio is in the test's log.
+  private func readsClearly(_ app: XCUIApplication, _ text: XCUIElement, _ what: String) {
     let until = Date().addingTimeInterval(1)
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
-    for kind in ["all", "fish"] {
-      let ratio = contrast(app, chip(app, kind).staticTexts.element(boundBy: 1))
-      XCTContext.runActivity(named: String(format: "%@'s count: %.2f:1", kind, ratio)) { _ in }
-      XCTAssertGreaterThanOrEqual(ratio, 4.5, "\(kind)'s count reads \(ratio):1")
-    }
+    let ratio = contrast(app, text)
+    XCTContext.runActivity(named: String(format: "%@: %.2f:1", what, ratio)) { _ in }
+    XCTAssertGreaterThanOrEqual(ratio, 4.5, "\(what) reads \(ratio):1")
   }
 
   func testTheGlossaryGoesByLetter() {
@@ -366,13 +442,27 @@ final class HandbookFlowTests: XCTestCase {
 
   /// How many result rows there are: the list's cells holding a page, not the chips' header, told apart by what they read
   /// (a row's button and what it draws both carry its "item"). The list draws only the cells on screen, so it's dragged
-  /// a part of a screen at a time, above the keyboard, until it stops moving (a row taller than a drag can stay on
-  /// screen through one), and back. Each screen is read in one snapshot: a query per cell took seconds each.
-  private func rows(_ app: XCUIApplication) -> Int { pages(app).count }
+  /// a part of a screen at a time, the keyboard put away first, until it stops moving (a row taller than a drag can stay
+  /// on screen through one), and back. Each screen is read in one snapshot: a query per cell took seconds each.
+  private func rows(_ app: XCUIApplication) -> Int { Self.count(screens(app)) }
 
-  private func pages(_ app: XCUIApplication) -> Set<String> {
+  /// How many rows the screens hold: each name as many times as it shows on any one of them, so a row listed twice
+  /// counts twice, and a row on two screens once.
+  private static func count(_ screens: [[String]]) -> Int {
+    var most: [String: Int] = [:]
+    for screen in screens {
+      for (name, n) in Dictionary(screen.map { ($0, 1) }, uniquingKeysWith: +) { most[name] = max(most[name] ?? 0, n) }
+    }
+    return most.values.reduce(0, +)
+  }
+
+  /// The names of the rows on each screen of the list, top to bottom.
+  private func screens(_ app: XCUIApplication) -> [[String]] {
+    // A drag with the keyboard up once waited 116 s for the app's animations to end.
+    if app.keyboards.firstMatch.exists { app.searchFields.firstMatch.typeText("\n") }
+    XCTAssertTrue(app.keyboards.firstMatch.waitForNonExistence(timeout: 5), "the keyboard is still up")
     let list = app.collectionViews.firstMatch
-    var seen = Set<String>()
+    var screens: [[String]] = []
     var last: [String] = []
     var moves = 0
     while moves < 30 {
@@ -386,15 +476,15 @@ final class HandbookFlowTests: XCTestCase {
         if let snap = try? list.snapshot() { walk(snap, cell: nil) }
         return found
       }
-      for row in here { seen.insert(String(row.prefix { $0 != "\u{0}" })) }
       if here == last { break }
+      screens.append(here.map { String($0.prefix { $0 != "\u{0}" }) })
       last = here
       drag(list, from: 0.55, to: 0.2)
       moves += 1
     }
-    // Back to the top, where the chips are.
-    for _ in 0..<moves { drag(list, from: 0.2, to: 0.55) }
-    return seen
+    // Back to the top, where the chips are, from below the search field (at the largest text it reaches 0.22 down).
+    for _ in 0..<moves { drag(list, from: 0.3, to: 0.65) }
+    return screens
   }
 
   private func drag(_ list: XCUIElement, from: CGFloat, to: CGFloat) {
