@@ -34,6 +34,8 @@ E2E_SEED=3 pnpm --filter site e2e --grep @invariants   # other pages of each kin
 
 - `fixtures.ts`: blocks every request that isn't the site itself (ads, analytics, photo hosts), and collects script
   errors in `errors`.
+- `gestures.ts`: a swipe, pinch or double tap, as a finger on the phone project and the mouse on the computer (the
+  photo viewer's journeys, `gallery.spec.ts` and `reader-photos.spec.ts`).
 - `E2E_DIST`: another build folder to serve.
 - `E2E_PORT`: another port for that server (default 4419). A server already on the port is reused, so with two
   checkouts running checks, give each its own port or one tests the other's build.
