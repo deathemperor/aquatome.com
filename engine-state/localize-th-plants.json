@@ -1386,6 +1386,52 @@
       "\"ปลานีออน\": specify it as \"ปลาเตตร้านีออน\" to keep the species clear."
     ]
   },
+  "marsilea-minuta": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "ผักแว่น",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": []
+  },
+  "mayaca-fluviatilis": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "มายาก้า",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ต้นไม้มาเป็นมัดของกิ่งหรือต้นอ่อนที่รัดรวมกันไว้ด้วยตัวถ่วง\": \"ต้นไม้\" is awkward, so use \"ไม้น้ำ\". \"กิ่ง\" is also not quite right for stems. Use \"ลำต้น\" or \"ยอด\". \"ตัวถ่วง\" (weight) is fine for anchor, but \"แถบตะกั่ว/ที่รัดโลหะ\" is more specific. Consider mentioning this.",
+      "\"ไม่ได้ผลิตในฟาร์มของผู้ผลิตเอง\": this is vague. Name the producer, e.g. \"ฟาร์มของ Tropica เอง\", or say \"ฟาร์มของผู้ผลิต\".",
+      "\"ลำต้นอ่อนนุ่มและพลิ้วไหวได้มาก\": acceptable, but \"expression\" is rendered as \"ดู...\", which is slightly loose.",
+      "\"ปลาที่บอบบาง\": \"other delicate fish\" is fine, but the recommendation \"ไม่ควรนำลงตู้...โดยตรง\" is OK. Consider saying \"ปลาชนิดอื่นที่บอบบาง\" for completeness."
+    ]
+  },
+  "micranthemum-callitrichoides": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "HC คิวบา",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "\"มีใบกลมขนาดเพียงไม่กี่มิลลิเมตร\" changes the source: \"millimetre-sized\" means the leaves are about 1 mm. Use \"ขนาดระดับมิลลิเมตร\" or similar.",
+      "\"เพราะเลี้ยงง่ายกว่า\" is fine, but \"ไม่ใช่ไม้น้ำที่เลี้ยงยาก\" and the shift to \"ไม้หน้าตู้\" are loose. Hobbyists also use \"ไม้ปูพื้น\" for the foreground carpet, so keep the term consistent.",
+      "\"พบในคิวบา\" drops the sense of \"on Cuba\" (the island). Use \"พบบนเกาะคิวบา\".",
+      "\"ฟองออกซิเจนเม็ดเล็กๆ เกิดขึ้นบนต้นไม้\" is vague. The source says \"on top of the plants\" and \"pearls or bubbles\", so use \"บนต้นไม้น้ำ\" or \"เหนือใบ\", and mention the pearling (ไข่มุก/ฟองอากาศ).",
+      "\"ทำให้รากตาย\" says the roots die, which matches the source. The cause, though, is lack of light in the lower parts, so \"ทำให้ส่วนล่างและรากเน่าตาย\" would read more naturally. Optional."
+    ]
+  },
+  "micranthemum-glomeratum": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Pearl Weed",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"ไม้หน้าตู้\" is fine, but \"เลื้อยแผ่ไปตามพื้น\" for \"trailing growth\" is slightly wordy; consider \"เลื้อยทอดยาว\"",
+      "\"เบาะ\" for \"cushion\" is a bit literal; consider \"พุ่มหนาแน่นคล้ายเบาะ/หมอนนุ่ม\" or \"ก้อนกลมแน่น\""
+    ]
+  },
   "microsorum-pteropus": {
     "at": "2026-10-30",
     "from": "2026-10-29",

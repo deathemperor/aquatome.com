@@ -1417,6 +1417,55 @@
       "Item 8: \"Endler\" alone is incomplete; use \"guppy Endler\" or \"Endler's livebearer\"."
     ]
   },
+  "marsilea-minuta": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Marsilea minuta",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Tinggi: 3–5+ cm\" is fine, but it conflicts with the source's own inconsistency (3-5+ vs 1-3 cm). Keep as is; no fix needed unless you want to flag the source.",
+      "Item 2: \"tahan terhadap cahaya yang kurang\" is slightly awkward; \"tahan kondisi cahaya redup/minim\" is more natural for \"poor light conditions\".",
+      "Item 2: \"tanaman yang tangguh\" is acceptable, but \"mudah dirawat/tahan banting\" is more common among hobbyists for \"hardy\"."
+    ]
+  },
+  "mayaca-fluviatilis": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Mayaca fluviatilis",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"Tidak ada jaminan bahwa tanaman ini bebas dari pestisida\" drops the actor of the English \"We are unable to guarantee\"; better \"Kami tidak dapat menjamin\" rendered neutrally, e.g. \"Produsen tidak dapat menjamin...\". Meaning is slightly weakened.",
+      "\"Tanaman dijual sebagai ikatan batang...\" adds a claim (sold as) not in the English \"A bundle of stems or young plants gathered in an anchor\"; also \"anchor\" is rendered as \"pemberat\" (weight), which is acceptable but \"ikatan/pengikat (anchor)\" would be closer.",
+      "\"di nursery milik produsennya sendiri\" replaces \"Tropica's own nursery\"; fine as neutral, but \"nursery\" should be \"pembibitan/kebun produksi\" for natural Indonesian.",
+      "\"Tinggi: 15–30+ cm\" and \"Jenis\" are fine; \"udang dan ikan lain yang sensitif\" changes \"shrimps and other delicate fish\" slightly (shrimp are not fish, but it follows the source)."
+    ]
+  },
+  "micranthemum-callitrichoides": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "HC Cuba",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"Ditemukan di Kuba\" - English says \"on Cuba\" (island); fine, but could say \"di Pulau Kuba\" for faithfulness.",
+      "Item 3: \"Sebenarnya tidak sulit\" - subject unclear and \"Sebenarnya\" adds nuance; use \"Tanaman ini tidak sulit dirawat, tetapi...\".",
+      "Item 3: \"tuntutannya lebih rendah\" is awkward; use \"perawatannya lebih mudah / kebutuhannya lebih rendah\".",
+      "Item 3: \"akarnya mati\" - fine, but \"Pangkas karpetnya\" could be \"Pangkas karpet secara rutin\"; \"latar depan\" is better as \"latar depan (foreground)\" or \"tanaman latar depan\" is OK."
+    ]
+  },
+  "micranthemum-glomeratum": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Pearl Grass",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Tanaman karpet\" is acceptable, but \"tanaman latar depan\" could be written \"tanaman latar depan (foreground)\" for clarity; minor.",
+      "\"Asal\" in the spec list is slightly terse; \"Asal daerah\" or \"Asal negara/benua\" reads more naturally; minor."
+    ]
+  },
   "microsorum-pteropus": {
     "at": "2026-10-30",
     "from": "2026-10-29",
