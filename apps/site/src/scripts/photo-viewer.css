@@ -1,0 +1,54 @@
+/* The photo viewer (photo-viewer.ts), added to the page when it first opens. Dark in either theme: a photo reads best on
+   blackwater. Phone: the close (and share) buttons on top, the photo, then the caption between the step buttons, in
+   thumb's reach. Wider: the step buttons either side of the photo. */
+html:has(.pv[open]) { overflow: hidden; }
+.pv { inset: 0; width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; overflow: hidden; overscroll-behavior: contain; background: var(--c-blackwater); color: var(--c-on-dark); font-family: var(--f-body); }
+.pv[open] {
+  display: grid; grid-template: "bar bar bar" auto "stage stage stage" minmax(0, 1fr) "prev text next" auto / 3.75rem minmax(0, 1fr) 3.75rem;
+  opacity: 1; transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@starting-style { .pv[open] { opacity: 0; } }
+.pv::backdrop { background: var(--c-blackwater); }
+.pv ::selection { background: rgb(111 214 190 / 0.32); color: inherit; }
+
+.pv-bar { grid-area: bar; display: flex; justify-content: flex-end; gap: var(--space-2); padding: max(var(--space-2), env(safe-area-inset-top)) var(--space-2) var(--space-2); }
+.pv-btn { display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 0; border-radius: 50%; background: rgb(230 239 236 / 0.08); color: inherit; cursor: pointer; transition: background-color 150ms ease-out; -webkit-tap-highlight-color: transparent; }
+.pv-btn:hover { background: rgb(230 239 236 / 0.16); }
+.pv-btn:active { background: rgb(230 239 236 / 0.24); }
+.pv-btn:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+.pv .prev { grid-area: prev; place-self: center; }
+.pv .next { grid-area: next; place-self: center; }
+.pv-one .step { visibility: hidden; }
+
+.pv-stage { grid-area: stage; position: relative; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
+.pv-track, .pv-slide { position: absolute; inset: 0; }
+.pv-track.pv-anim { transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1); }
+.pv-slide { display: grid; place-items: center; }
+.pv-slide[hidden] { display: none; }
+.pv-pic { position: relative; background: rgb(230 239 236 / 0.05); transform-origin: center; cursor: zoom-in; }
+.pv-pic.pv-ease { transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+.pv[data-zoom='in'] .pv-pic { cursor: grab; }
+.pv[data-zoom='in'] .pv-stage:active .pv-pic { cursor: grabbing; }
+.pv-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; }
+/* The tile's picture holds the place; the full photo fades in over it once decoded. */
+.pv-full { opacity: 0; transition: opacity 180ms ease-out; }
+.pv-pic.ready .pv-full { opacity: 1; }
+
+.pv-text { grid-area: text; justify-self: center; width: 100%; max-width: 60ch; min-height: 3.5rem; padding: var(--space-3) var(--space-1) max(var(--space-4), env(safe-area-inset-bottom)); text-align: center; display: grid; align-content: center; gap: var(--space-1); }
+.pv-text p { margin: 0; }
+.pv .cap { font-size: 0.9375rem; line-height: 1.45; text-wrap: pretty; }
+.pv .cap[hidden] { display: none; }
+.pv .by { font-size: var(--step--1); line-height: 1.45; color: var(--c-on-dark-soft); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.pv .by a { color: inherit; text-decoration: underline; text-decoration-color: rgb(157 183 179 / 0.5); text-underline-offset: 0.2em; }
+.pv .by a:hover { color: var(--c-on-dark); text-decoration-color: currentColor; }
+.pv .by a:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; border-radius: 2px; }
+.pv-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (min-width: 720px) {
+  .pv[open] { grid-template: "bar bar bar" auto "prev stage next" minmax(0, 1fr) ". text ." auto / 5.5rem minmax(0, 1fr) 5.5rem; }
+  .pv-bar { padding: var(--space-3) var(--space-4) 0; }
+  .pv-text { padding-inline: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pv[open], .pv-track.pv-anim, .pv-pic.pv-ease, .pv-full { transition: none; }
+}
