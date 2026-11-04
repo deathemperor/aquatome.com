@@ -8,6 +8,12 @@ round fish with leaf fins), is drawn here too, at 1024. The AT, the default unti
 an alternate, shrunk from design/at-1024.png. AppIconPicker.swift lists the same ids with their names; AppIconFlowTests
 checks that each is in the app.
 
+Every icon set drawn here is quantized (`quantize`: pngquant, dithered, 256 colours at most). CoreUI keeps an icon set's
+pictures as ARGB, lzfse, whatever the asset catalog says (its "lossy" is for image sets), and gradients barely compress
+that way; quantized, the 34 alternates drawn here cost half as much of the archive (measured 2026-11-04: Assets.car
+6,243.8 → 3,171.9 kB), alike at home-screen size, with faint grain in the dark glows only when zoomed with the contrast
+pushed. The AT isn't: it's flat, and its picture's gamma moves its colour when quantized.
+
 An icon set doesn't load as an image (UIImage(named:) gives nil), so the picker shows each icon, the default too, from
 AppIconPreviews/AppIconPreview-<id>.imageset: the icon at the picker's 64 points, @2x and @3x, stored lossy. Measured
 with actool for the first 33 icons: 308 kB in all (195 kB on one iPhone), where lossless is 1,178 kB and SVG 2,233 kB (actool
@@ -325,6 +331,15 @@ DEFAULT = icon('aqua', 'leafy', 'L')
 SLOTS = {120: [('iphone','60x60','2x')], 180: [('iphone','60x60','3x')],
          152: [('ipad','76x76','2x')], 167: [('ipad','83.5x83.5','2x')]}
 
+def quantize(png, out, alpha=False):
+    """png, dithered to 256 colours at most (a picture with fewer stays as it is), written to out as PNG colour type 2
+    (RGB, on black), or 6 (RGBA) with alpha."""
+    subprocess.run(['pngquant', '--quality', '90-100', '--speed', '1', '--force', '--output', png, png], check=True)
+    flat = [] if alpha else ['-background', 'black', '-alpha', 'remove', '-alpha', 'off']
+    # Without its date chunks, so a rerun writes the same bytes.
+    subprocess.run(['magick', png, *flat, '-define', f'png:color-type={6 if alpha else 2}',
+                    '-define', 'png:exclude-chunks=date,time', out], check=True)
+
 if __name__ == '__main__':
     here = os.path.dirname(os.path.abspath(__file__))
     cat = os.path.join(here, '..', 'AquaTome', 'Assets.xcassets')
@@ -342,11 +357,9 @@ if __name__ == '__main__':
 
     # The default: the round fish with leaf fins, at the 1024 iOS draws every size from, in the three looks of the home
     # screen: as drawn (no alpha: App Store Connect refuses one), dark (the fish alone on transparent, iOS's dark tile
-    # behind it: alpha allowed there) and tinted (the fish in grey on black, tinted by iOS). Each is quantized
-    # (pngquant, dithered): its gradients stored as they are cost 885 kB of the archive for the 1024 alone, iPhone and
-    # iPad (CoreUI keeps app icons as ARGB, lzfse; the asset catalog's "lossy" doesn't apply to them). Dithered to 256
-    # colours they cost about half, alike at home-screen and App Store sizes (faint rings around the glows only at full
-    # size, looked for).
+    # behind it: alpha allowed there) and tinted (the fish in grey on black, tinted by iOS). Each is quantized: its
+    # gradients stored as they are cost 885 kB of the archive for the 1024 alone, iPhone and iPad; quantized, about half,
+    # alike at home-screen and App Store sizes (faint rings around the glows only at full size, looked for).
     icon_set = os.path.join(cat, 'AppIcon.appiconset')
     alone = re.sub(r'<rect width="1024" height="1024" fill="url\(#(?:g|r1|r2)L\)"/>', '', DEFAULT)
     assert alone != DEFAULT, 'the default lost its background'
@@ -359,10 +372,7 @@ if __name__ == '__main__':
             subprocess.run(['rsvg-convert', '-w', '1024', '-h', '1024', src, '-o', png], check=True)
             if kind == 'grey':
                 subprocess.run(['magick', png, '-background', 'black', '-alpha', 'remove', '-colorspace', 'Gray', png], check=True)
-            subprocess.run(['pngquant', '--quality', '90-100', '--speed', '1', '--force', '--output', png, png], check=True)
-            # PNG colour type 2 (RGB) where there's no alpha, 6 (RGBA) for the dark look.
-            flat = ['-background', 'black', '-alpha', 'remove', '-alpha', 'off'] if kind != 'alpha' else []
-            subprocess.run(['magick', png, *flat, '-define', f'png:color-type={6 if kind == "alpha" else 2}', os.path.join(icon_set, f)], check=True)
+            quantize(png, os.path.join(icon_set, f), alpha=kind == 'alpha')
     json.dump({'images': [{**({'appearances': [{'appearance': 'luminosity', 'value': a}]} if a else {}), 'filename': f, 'idiom': 'universal',
                            'platform': 'ios', 'size': '1024x1024'} for f, a, _, _ in looks],
                'info': {'author': 'xcode', 'version': 1}}, open(os.path.join(icon_set, 'Contents.json'), 'w'), indent=2)
@@ -388,6 +398,7 @@ if __name__ == '__main__':
         for px, slots in SLOTS.items():
             f = f'{px}.png'
             subprocess.run(['rsvg-convert', '-w', str(px), '-h', str(px), '-b', 'black', t.name, '-o', os.path.join(d, f)], check=True)
+            quantize(os.path.join(d, f), os.path.join(d, f))
             images += [{'filename': f, 'idiom': idiom, 'scale': scale, 'size': size} for idiom, size, scale in slots]
         json.dump({'images': images, 'info': {'author': 'xcode', 'version': 1}}, open(os.path.join(d, 'Contents.json'), 'w'), indent=2)
         preview(i, lambda px, out: subprocess.run(['rsvg-convert', '-w', str(px), '-h', str(px), t.name, '-o', out], check=True))
