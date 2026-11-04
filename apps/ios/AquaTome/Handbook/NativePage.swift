@@ -27,7 +27,7 @@ struct NativePage: View {
 
   /// What the page shows, in order.
   enum Piece {
-    /// Text: a heading, paragraphs, a list, a table, questions, sources. `anchor` is the id a `#id` link scrolls to;
+    /// Text: a heading, paragraphs, a list, questions, sources. `anchor` is the id a `#id` link scrolls to;
     /// `look`, its place on the page.
     case text(AttributedString, anchor: String? = nil, look: Look = .body)
     /// A photo with its caption (its links live, as a video's moments and a figure's fish are) and its credit (a quiet
@@ -53,6 +53,8 @@ struct NativePage: View {
     case web
     /// Its readers' photos and comments, read from the site when the page opens; `name`, the page's (a species').
     case readers(PageDoc.Talk, name: String)
+    /// A table: its columns' names (the site's header row) and its rows' cells.
+    case table(head: [AttributedString]?, rows: [[AttributedString]])
   }
 
   /// A text's place on the page, which sets the space above it: a heading sits close to what it heads and far from what
@@ -185,6 +187,8 @@ struct NativePage: View {
         .accessibilityIdentifier("page-web")
     case let .readers(talk, name):
       ReadersPart(talk: talk, name: name)
+    case let .table(head, rows):
+      TablePart(head: head, rows: rows)
     }
   }
 
@@ -291,7 +295,7 @@ struct NativePage: View {
       list(ordered, items, depth: 0, into: &text, out: &out)
       if !text.characters.isEmpty { out.append(.text(text)) }
     case let .table(head, rows):
-      out.append(.text(table(head, rows)))
+      out.append(.table(head: head.map { $0.map { styled($0) } }, rows: rows.map { $0.map { styled($0) } }))
     case let .figure(img, caption, href):
       out.append(photo(img, caption: caption, href: href.flatMap(URL.init(string:))))
     case let .moments(title, id, items):
@@ -390,22 +394,6 @@ struct NativePage: View {
         first = false
       }
     }
-  }
-
-  /// A table as lines, which read on a phone where columns don't fit: with a header, each row's first cell, then each
-  /// other cell under its column's name.
-  private static func table(_ head: [[PageDoc.Run]]?, _ rows: [[[PageDoc.Run]]]) -> AttributedString {
-    var text = AttributedString()
-    for (r, row) in rows.enumerated() {
-      if r > 0 { text += AttributedString("\n\n") }
-      for (c, cell) in row.enumerated() {
-        if c > 0 { text += AttributedString("\n") }
-        if c == 0 { text += styled(cell, font: .body.bold()); continue }
-        if let h = head?[safe: c], !h.isEmpty { text += styled(h) + AttributedString(": ") }
-        text += styled(cell)
-      }
-    }
-    return text
   }
 
 
@@ -917,5 +905,74 @@ private struct PutButton: View {
       // Not into a store this app must leave alone (newer, unreadable).
       .disabled(!tanks.canEdit)
       .accessibilityIdentifier("put-on-tank")
+  }
+}
+
+/// A table as the site's, in a panel: a grid with its columns' names over them while they fit side by side; else each
+/// row's cells one under another, each under its column's name. No cell is shown without its column's name, the first
+/// column's too (a pros-and-cons table's "Ưu điểm").
+private struct TablePart: View {
+  let head: [AttributedString]?
+  let rows: [[AttributedString]]
+
+  private var columns: Int { max(head?.count ?? 0, rows.map(\.count).max() ?? 0) }
+
+  var body: some View {
+    ViewThatFits(in: .horizontal) {
+      grid
+      stacked
+    }
+    .font(.callout)
+    .padding(14)
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .background(.fill.quaternary, in: .rect(cornerRadius: 12))
+    .accessibilityElement(children: .contain)
+    .accessibilityIdentifier("page-table")
+  }
+
+  /// Columns side by side, as wide as their longest line: chosen only when that fits the screen.
+  private var grid: some View {
+    Grid(alignment: .topLeading, horizontalSpacing: 20, verticalSpacing: 10) {
+      if let head {
+        GridRow {
+          ForEach(0..<columns, id: \.self) { c in name(head[safe: c], header: true).fixedSize(horizontal: true, vertical: false) }
+        }
+        // As wide as the columns, not widening them.
+        Divider().gridCellUnsizedAxes(.horizontal)
+      }
+      ForEach(rows.indices, id: \.self) { r in
+        if r > 0 { Divider().gridCellUnsizedAxes(.horizontal) }
+        GridRow {
+          ForEach(0..<columns, id: \.self) { c in
+            Text(rows[r][safe: c] ?? AttributedString()).fixedSize(horizontal: true, vertical: false)
+          }
+        }
+      }
+    }
+  }
+
+  /// Each row's cells one under another, each under its column's name.
+  private var stacked: some View {
+    VStack(alignment: .leading, spacing: 12) {
+      ForEach(rows.indices, id: \.self) { r in
+        if r > 0 { Divider() }
+        VStack(alignment: .leading, spacing: 10) {
+          ForEach(rows[r].indices, id: \.self) { c in
+            VStack(alignment: .leading, spacing: 2) {
+              if let h = head?[safe: c], !h.characters.isEmpty { name(h, header: false) }
+              Text(rows[r][c]).lineSpacing(2).frame(maxWidth: .infinity, alignment: .leading)
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /// A column's name, over its cells; an empty one keeps its column. A heading to VoiceOver in the grid's top row only,
+  /// not each time it's repeated over a cell.
+  private func name(_ h: AttributedString?, header: Bool) -> some View {
+    Text(h ?? AttributedString()).font(.footnote.weight(.semibold)).foregroundStyle(.secondary)
+      .accessibilityAddTraits(header ? .isHeader : [])
+      .accessibilityHidden(h?.characters.isEmpty ?? true)
   }
 }

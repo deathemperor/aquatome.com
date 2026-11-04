@@ -387,6 +387,7 @@ extension HandbookIndex {
     {"t":"p","c":["Cá ",{"text":"neon","href":"/vi/ca/ca-neon/"}," sống theo đàn và cần nước có ",{"text":"pH","href":"/vi/thuat-ngu/dem-ph/","tip":{"term":"Đệm pH","text":"Khả năng giữ pH của nước khi có thêm axit."}}," từ 5 đến 7."]},
     {"t":"list","ordered":true,"items":[[{"t":"p","c":["Bể từ ",{"text":"60 cm","b":true},"."]}],[{"t":"p","c":["Cây thủy sinh và lũa."]}]]},
     {"t":"table","head":[["Thông số"],["Mức"]],"rows":[[["Nhiệt độ"],["20–26°C"]],[["pH"],["5–7"]]]},
+    {"t":"table","head":[["Ưu điểm"],["Nhược điểm"]],"rows":[[["• Rẻ, đặt vừa trên bàn làm việc\n• Ít nước, thay nước nhanh"],["• Nước nóng lên và bẩn đi nhanh hơn bể lớn\n• Ít chỗ cho cá bơi theo đàn"]]]},
     {"t":"carousel","items":[{"src":"https://example.org/1.webp"}]},
     {"t":"quiz","q":"Cá neon sống ở đâu?"},
     {"t":"h","text":"Cho ăn","id":"cho-an"},
