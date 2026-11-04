@@ -483,8 +483,8 @@ private struct CardsPart: View {
   let good: Bool?
   let open: (URL) -> Void
   @ScaledMetric(relativeTo: .body) private var thumb: CGFloat = 56
-  /// The width each of a credit's numbers takes, so a finger can tell them apart.
-  @ScaledMetric(relativeTo: .caption2) private var number: CGFloat = 32
+  /// The width each of a credit's numbers takes: 44 points to tap, as the app's other small controls have.
+  @ScaledMetric(relativeTo: .caption2) private var number: CGFloat = 44
   private typealias CreditRow = (line: AttributedString, who: String, licence: String, urls: [String?])
 
   var body: some View {
@@ -546,7 +546,8 @@ private struct CardsPart: View {
       LazyVGrid(columns: [GridItem(.adaptive(minimum: number), spacing: 0, alignment: .leading)], alignment: .leading, spacing: 0) {
         ForEach(Array(row.urls.compactMap { $0.flatMap(URL.init(string:)) }.enumerated()), id: \.offset) { i, url in
           Link(destination: url) {
-            Text(verbatim: String(i + 1)).font(.caption2).padding(.vertical, 4).frame(maxWidth: .infinity, alignment: .leading).contentShape(.rect)
+            // Small to the eye, 44 points to the finger.
+            Text(verbatim: String(i + 1)).font(.caption2).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading).contentShape(.rect)
           }
           .accessibilityLabel(Text("\(row.who), ảnh \(i + 1)"))
           .accessibilityRemoveTraits(.isButton)
