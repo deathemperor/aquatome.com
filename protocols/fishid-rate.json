@@ -1,0 +1,11 @@
+{
+  "status": 429,
+  "headers": {
+    "content-type": "application/json",
+    "cache-control": "no-store"
+  },
+  "body": {
+    "error": "rate",
+    "limit": 10
+  }
+}

@@ -55,7 +55,9 @@ that would have caught it).
     names from our own checks. A photo is kept only when the reader ticks `keep`: a JPEG with its Exif, XMP, IPTC and
     comments cut, under the account that sent it or no one's, listed and deleted by that account (never the image),
     deleted with the account and 6 months on, and seen only on the owner's dashboard
-    (`apps/site/worker/test/fishid.test.ts`, `handler.test.ts`).
+    (`apps/site/worker/test/fishid.test.ts`, `handler.test.ts`). The recorded answers the app's fake server replays
+    (`protocols/fishid-stream-*.sse`, `fishid-rate.json`) against the same contract, and the contract naming each
+    (`fishid-stream.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
