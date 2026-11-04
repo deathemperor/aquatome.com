@@ -617,6 +617,13 @@ describe('photo gallery', () => {
     expect(strip.innerHTML).not.toContain('Neon3')
     const credits = dom.querySelector('#photo-credits')!.innerHTML
     for (const n of [1, 2, 4, 5, 6, 7]) expect(credits).toContain(`File:Neon${n}.jpg`)
+    // On a tall computer screen the photo column goes on with the gallery's next photos (`.more`), each at its own place
+    // on the gallery page and credited, up to 40 thumbnails, never the fish's own photo (#a19).
+    const more = [...strip.querySelectorAll('li.more a')].map(a => a.getAttribute('href'))
+    expect(links.slice(0, 8)).toEqual([1, 2, 3, 4, 5, 6, 7, 8].map(n => `/ca/ca-neon-vua/anh/#a${n}`))
+    expect(more).toEqual([...Array.from({ length: 33 }, (_, i) => i + 9).filter(n => n !== 19)].map(n => `/ca/ca-neon-vua/anh/#a${n}`))
+    expect(credits).toContain('File:NeonVua43.jpg')
+    expect(credits).not.toContain('File:NeonVua44.jpg')
   })
   test('a species with too few photos gets no strip and no gallery page', () => {
     expect(page('/ca/ca-neon-xanh/').dom.querySelector('section.strip')).toBeNull()

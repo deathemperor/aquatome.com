@@ -36,6 +36,20 @@ export function listPictures<T>(c: Content, list: string, items: T[], photos: (x
   return chosen
 }
 
+/**
+ * A fish page's photo column (GalleryStrip.astro `more`): the gallery's photos after its strip, in order, each one the page
+ * doesn't show yet, else null so each keeps its place (its #aN on the gallery page), until the column holds `most`
+ * thumbnails with the strip's.
+ */
+export function morePhotos(pics: PictureSet, gallery: Photo[], strip: (Photo | null)[], most: number): (Photo | null)[] {
+  const more: (Photo | null)[] = []
+  for (const p of gallery.slice(strip.length)) {
+    if (strip.filter(Boolean).length + more.filter(Boolean).length >= most) break
+    more.push(pics.take([p]) ?? null)
+  }
+  return more
+}
+
 /** A grid of fish cards' pictures, none twice (a fish and its colour form often share a photo): what SpeciesGrid shows. */
 export const gridPhotos = (c: Content, species: { photos: Photo[] }[], pics = pagePictures(c)) => takeEach(pics, species, s => photosOf(s.photos))
 

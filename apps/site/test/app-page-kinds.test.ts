@@ -76,10 +76,13 @@ function credited(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>) 
   expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2'))]))
 }
 
-/** The gallery as the page's strip shows it and its gallery page lists it. */
+/**
+ * The gallery as the page's strip shows it and its gallery page lists it. The strip's own thumbnails: the further ones a
+ * computer's photo column shows (`li.more`) are the gallery's, which the copy carries whole.
+ */
 function gallery(d: PageDoc, dom: HTMLElement) {
   const g = one(d, 'gallery')
-  const strip = dom.querySelectorAll('.strip li img')
+  const strip = dom.querySelectorAll('.strip li:not(.more) img')
   expect(!!g, d.path).toBe(strip.length > 0)
   if (!g) return
   expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))

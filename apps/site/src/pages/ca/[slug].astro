@@ -44,10 +44,10 @@ const jsonld = [
     { '@type': 'ListItem', position: served(lang, '/vi/phan-loai/x/') ? 3 : 2, name: s.t.name, item: url } ] },
 ]
 // What the page shows, chosen in page order (lib/species-page.ts, which the app's copy reads too).
-const { country, firstSource, summary, gallery, galleryPath, strip, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
+const { country, firstSource, summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
 const alternates = await alternatesOf('species', s.id)
 ---
-<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...breedPhotos].map(p => p ?? undefined))}>
+<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...more, ...breedPhotos].map(p => p ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`}>{s.family}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/${s.genus.toLowerCase()}/`} class="sci">{s.genus}</a>
@@ -64,7 +64,7 @@ const alternates = await alternatesOf('species', s.id)
     {s.photos.length > 0 && (
       <div class="side">
         <div class="photo"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>
-        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} column />}
+        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column />}
       </div>
     )}
     <div class="facts">
@@ -113,7 +113,9 @@ const alternates = await alternatesOf('species', s.id)
   .srcline { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-3); }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); padding-block: var(--space-7); }
   /* The photo column stays in view while the facts beside it scroll by: all of it where the screen is tall enough to
-     show it whole, else its last part (the thumbnails, or the photo alone). */
+     show it whole, else its last part (the thumbnails, or the photo alone). On a tall screen a column with thumbnails is
+     as tall as its room: the window under its pinned top, or its grid area (100%) when the facts beside it end first.
+     The thumbnails fill what the photo leaves (GalleryStrip.astro). */
   @media (min-width: 861px) {
     .side { align-self: stretch; }
     .side > :global(:last-child) { position: sticky; top: calc(var(--sticky-top, 0px) + var(--space-4)); }
@@ -121,6 +123,8 @@ const alternates = await alternatesOf('species', s.id)
   @media (min-width: 861px) and (min-height: 50rem) {
     .side { align-self: start; position: sticky; top: calc(var(--sticky-top, 0px) + var(--space-4)); }
     .side > :global(:last-child) { position: static; }
+    .side:has(> :global(.strip)) { display: flex; flex-direction: column; height: min(100%, calc(100dvh - var(--sticky-top, 0px) - var(--space-4))); }
+    .side > :global(.strip) { flex: 1; }
   }
   @media (max-width: 860px) {
     /* minmax(0, …): nothing in the column (the thumbnails' heading, a long word) can widen it past the screen. */
