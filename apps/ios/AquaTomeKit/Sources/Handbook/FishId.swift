@@ -103,8 +103,10 @@ public enum FishId {
                               boundary: String = UUID().uuidString) -> URLRequest {
     var r = status(site: site, version: version, ownCopy: ownCopy)
     r.httpMethod = "POST"
-    // The Worker's run is capped at 45 s and takes about 20 (#473's design), past the app's usual 20 s with nothing heard.
-    r.timeoutInterval = 60
+    // Claude has up to 25 s on the Worker (apps/site/worker/fishid/keys.ts), and #473's agent would cap a run at 45 s:
+    // past the app's usual 20 s with nothing heard. 65, not 60: 60 is URLRequest's own, so a test couldn't tell it set,
+    // and unset, the accounts session's 20 s applies.
+    r.timeoutInterval = 65
     r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     r.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
     var body = Data()

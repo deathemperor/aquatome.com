@@ -3,8 +3,10 @@ import XCTest
 /// The fish-ID tool as the app's own screen, on the stand-in server (no network): opened from the handbook's tool, a
 /// photo sent whole or with one fish boxed, as the reader's account; the guesses as the site shows them, each page
 /// opening in the app; signed out, the sign-in first; the account's day and the site's day used up, accounts off and no
-/// network, each said in the site's words; a long wait said as it goes. The stand-in's first guess names the photo it
-/// got (its width × height), so a flow tells a box from the whole photo.
+/// network, each said in the site's words; a long wait said as it goes, the photo kept as it was while it's identified;
+/// back from a guess's page, the guesses and the box as they were. The photo is picked as the library's picker picks one
+/// (`-picked-photo`). The stand-in's first guess names the photo it got (its width × height), so a flow tells a box from
+/// the whole photo.
 final class FishIdFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -132,17 +134,71 @@ final class FishIdFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "fish-id-send").exists)
   }
 
-  /// A run the Worker takes long over (it may take 45 s): past the first seconds the screen says it may take a minute,
-  /// and with no answer in the request's time, the site's words for a run that failed, not "no network".
-  func testALongWaitIsSaidAndNoAnswerIsNotNoNetwork() {
+  /// A run the Worker takes long over: past the first seconds the screen says it may take a minute, and with no answer
+  /// in the request's time, the site's words for a run that failed, not "no network". Meanwhile the photo can't be
+  /// changed (the library, the box), so the answer comes in under the photo it's for.
+  func testWhileWaitingThePhotoStaysAndALongWaitIsSaid() {
     let app = launch("-picked-photo", "-fish-id-slow")
     openTool(app)
     signIn(app)
     send(app)
+    // Back to the top, where the photo's controls are.
+    for _ in 0..<3 { app.swipeDown() }
+    let library = element(app, "fish-id-library"), box = element(app, "fish-id-box")
+    XCTAssertTrue(library.waitForExistence(timeout: 5) && box.exists, "the photo's controls aren't shown")
+    XCTAssertFalse(library.isEnabled, "another photo can be picked while one is identified")
+    XCTAssertFalse(box.isEnabled, "the photo can be boxed while it's identified")
+    // Under "Nhận diện", below the photo.
     let said = element(app, "fish-id-said")
-    XCTAssertTrue(said.waitForLabel("Vẫn đang nhận diện… có thể mất đến một phút.", timeout: 20), said.label)
-    XCTAssertTrue(said.waitForLabel("Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.", timeout: 30), said.label)
+    reveal(app, said)
+    // The stand-in holds the request 40 s: the line changes at 10.
+    XCTAssertTrue(said.waitForLabel("Vẫn đang nhận diện… có thể mất đến một phút.", timeout: 30), said.saying)
+    XCTAssertTrue(said.waitForLabel("Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.", timeout: 45), said.saying)
     XCTAssertTrue(element(app, "fish-id-send").isEnabled, "can't send again")
+    XCTAssertTrue(box.isEnabled, "the box stays off")
+    reveal(app, library, up: true)
+    XCTAssertTrue(library.isEnabled, "the library stays off")
+  }
+
+  /// Back from a guess's page, the guesses and the box are as they were: the photo isn't read again, which would take
+  /// them away and cost another identification to get them back.
+  func testBackFromAGuesssPageTheGuessesAndTheBoxStay() {
+    let app = launch("-picked-photo")
+    openTool(app)
+    signIn(app)
+    tap(app, "fish-id-box")
+    let photo = element(app, "fish-id-photo")
+    reveal(app, photo)
+    photo.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.25))
+      .press(forDuration: 0.2, thenDragTo: photo.coordinate(withNormalizedOffset: CGVector(dx: 0.75, dy: 0.75)))
+    let boxed = "Sẽ gửi phần trong khung. Kéo lại để khoanh chỗ khác."
+    XCTAssertTrue(element(app, "fish-id-box-said").waitForLabel(boxed, timeout: 5), "not boxed")
+    send(app)
+    let first = app.descendants(matching: .any).matching(identifier: "fish-id-guess").element(boundBy: 0)
+    XCTAssertTrue(first.waitForExistence(timeout: 10), "no guesses")
+    let guess = first.label
+    let open = element(app, "fish-id-open")
+    reveal(app, open)
+    open.tap()
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "the page didn't open")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    XCTAssertTrue(element(app, "fish-id").waitForExistence(timeout: 5), "not back on the fish-ID screen")
+    XCTAssertTrue(first.waitForExistence(timeout: 5), "back from the page, the guesses are gone")
+    XCTAssertEqual(first.label, guess)
+    let said = element(app, "fish-id-box-said")
+    reveal(app, said, up: true)
+    XCTAssertEqual(said.label, boxed, "back from the page, the box is gone")
+  }
+
+  /// A session the Worker refuses while the account still holds it: the screen says it didn't work, not nothing.
+  func testARefusedSessionWhileStillSignedInIsSaid() {
+    let app = launch("-picked-photo", "-fish-id-session-refused")
+    openTool(app)
+    signIn(app)
+    send(app)
+    XCTAssertTrue(element(app, "fish-id-said").waitForLabel("Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.", timeout: 10),
+                  element(app, "fish-id-said").saying)
+    XCTAssertTrue(element(app, "fish-id-send").exists, "the tool went")
   }
 
   // MARK: Helpers
@@ -191,12 +247,13 @@ final class FishIdFlowTests: XCTestCase {
     send.tap()
   }
 
-  /// Scrolled into view a little at a time, without a fling, by the screen's edge: while boxing, a drag on the photo
-  /// draws a box.
-  private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
+  /// Scrolled into view a little at a time (down the screen, or `up` it), without a fling, by the screen's edge: while
+  /// boxing, a drag on the photo draws a box.
+  private func reveal(_ app: XCUIApplication, _ e: XCUIElement, up: Bool = false) {
+    let (from, to) = up ? (0.4, 0.7) : (0.7, 0.4)
     for _ in 0..<12 where !(e.exists && e.isHittable) {
-      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
-        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast,
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: from))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: to)), withVelocity: .fast,
                thenHoldForDuration: 0.1)
     }
     XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
@@ -207,6 +264,8 @@ private extension XCUIElement {
   func waitForLabel(_ label: String, timeout: TimeInterval) -> Bool {
     XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == %@", label), object: self)], timeout: timeout) == .completed
   }
+  /// Its words, or that nothing is said.
+  var saying: String { exists ? label : "nothing said" }
   func waitForEnabled(timeout: TimeInterval) -> Bool {
     XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "isEnabled == true"), object: self)], timeout: timeout) == .completed
   }

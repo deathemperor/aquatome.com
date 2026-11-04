@@ -75,20 +75,28 @@ struct FishIdView: View {
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
     .onChange(of: said) { _, s in if let s { AccessibilityNotification.Announcement(s).post() } }
     // Asked once: back from a page the guesses opened, the screen is as it was.
-    .task { if tool == .checking { await ask() } }
-    .task(id: picked) {
+    .task {
+      guard tool == .checking else { return }
       #if DEBUG
-      // UI tests can't drive the system's photo picker: a photo as if picked.
-      if picked == nil, original == nil, let photo = Self.testPhoto { return await take(photo) }
+      // UI tests can't drive the system's photo picker: an item picked as the picker picks one (`load` reads it).
+      if Self.picksTestPhoto { picked = PhotosPickerItem(itemIdentifier: Self.testItem) }
       #endif
-      guard let picked else { return }
-      await take(try? await picked.loadTransferable(type: Data.self))
+      await ask()
+    }
+    // Read when picked, not each time the screen shows again (back from a guess's page or from the camera), which would
+    // take the guesses and the box away and cost another identification to get them back.
+    .onChange(of: picked) { _, item in
+      guard let item else { return }
+      Task { await take { await load(item) } }
     }
     .task(id: box) { await cut() }
     .fullScreenCover(isPresented: $camera) {
       CameraPicker { data in
         camera = false
-        if let data { Task { await take(data) } }
+        guard let data else { return }
+        // The library's photo is no longer the one shown: picking it again is a change.
+        picked = nil
+        Task { await take { data } }
       }
       .ignoresSafeArea()
     }
@@ -134,24 +142,27 @@ struct FishIdView: View {
 
   @ViewBuilder private var photo: some View {
     Section {
+      // While a photo is being identified, it stays the one shown: its guesses come in under it.
       if UIImagePickerController.isSourceTypeAvailable(.camera) {
         Button { camera = true } label: { Label("Chụp ảnh", systemImage: "camera") }
+          .disabled(sending)
           .accessibilityIdentifier("fish-id-camera")
       }
       PhotosPicker(selection: $picked, matching: .images) { Label("Chọn ảnh có sẵn", systemImage: "photo.on.rectangle") }
+        .disabled(sending)
         .accessibilityIdentifier("fish-id-library")
     } footer: {
       Text("Mẹo: chuyển đèn bể sang ánh trắng (tắt màu đỏ, hồng) và chụp gần một con cá. Ảnh cả bể thường chỉ nhận ra con nổi bật nhất.")
     }
     Section {
       if let preview {
-        BoxedPhoto(image: preview, boxing: boxing, box: $box)
+        BoxedPhoto(image: preview, boxing: boxing && !sending, box: $box)
           .frame(maxWidth: .infinity)
           .listRowInsets(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
         if boxing {
-          Button("Dùng cả ảnh") { boxing = false; box = nil }.accessibilityIdentifier("fish-id-whole")
+          Button("Dùng cả ảnh") { boxing = false; box = nil }.disabled(sending).accessibilityIdentifier("fish-id-whole")
         } else {
-          Button("Khoanh một con cá") { boxing = true }.accessibilityIdentifier("fish-id-box")
+          Button("Khoanh một con cá") { boxing = true }.disabled(sending).accessibilityIdentifier("fish-id-box")
         }
         if boxing {
           Text(boxSaid).font(.footnote).foregroundStyle(.secondary).accessibilityIdentifier("fish-id-box-said")
@@ -219,13 +230,16 @@ struct FishIdView: View {
     if account.state == .unknown { await account.refresh() }
   }
 
-  /// A new photo: shrunk whole for its preview and for sending; any box, guesses and message before it go.
-  private func take(_ data: Data?) async {
+  /// A new photo, once `read` gives it: shrunk whole for its preview and for sending; any box, guesses and message
+  /// before it go.
+  private func take(_ read: () async -> Data?) async {
     round += 1
     let mine = round
     (original, whole, preview, part, box, boxing, found) = (nil, nil, nil, nil, nil, false, nil)
-    guard let data else { return }
     said = String(localized: "Đang thu nhỏ ảnh…")
+    let data = await read()
+    guard mine == round else { return }
+    guard let data else { return said = String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.") }
     // Off the main thread: a phone's photo is tens of megapixels.
     let small = await Task.detached(priority: .userInitiated) { FishId.photo(data) }.value
     guard mine == round else { return }
@@ -233,6 +247,14 @@ struct FishIdView: View {
     whole = small
     preview = small.flatMap(UIImage.init(data:))
     said = small == nil ? String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.") : nil
+  }
+
+  /// A photo picked from the library, as data.
+  private func load(_ item: PhotosPickerItem) async -> Data? {
+    #if DEBUG
+    if item.itemIdentifier == Self.testItem { return Self.testPhoto }
+    #endif
+    return try? await item.loadTransferable(type: Data.self)
   }
 
   /// The box's part, cut from the full-size photo and shrunk as the whole one is.
@@ -250,7 +272,7 @@ struct FishIdView: View {
     sending = true
     found = nil
     said = String(localized: "Đang nhận diện… thường mất vài giây.")
-    // The Worker may take up to 45 s, and the app waits 60: past the first seconds, the screen says so.
+    // Claude may take up to 25 s on the Worker, and the app waits 65: past the first seconds, the screen says so.
     let longer = Task {
       try await Task.sleep(for: .seconds(10))
       guard !Task.isCancelled else { return }
@@ -267,7 +289,8 @@ struct FishIdView: View {
     }
     longer.cancel()
     sending = false
-    // No answer within the minute: most likely the Worker's run, not the network, so the site's words for a run that failed.
+    // No answer in the request's time: most likely the Worker's run, not the network, so the site's words for a run that
+    // failed.
     if timedOut { return said = String(localized: "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.") }
     guard let answer else { return said = String(localized: "Không có mạng: thử lại khi có mạng.") }
     switch FishId.answer(answer.0, status: answer.1) {
@@ -275,8 +298,13 @@ struct FishIdView: View {
       said = nil
       found = f
     case .signedOut:
-      // The account looked itself up again: the sign-in takes the tool's place, saying so, and the photo waits.
-      said = nil
+      // The account looked itself up again. Its session over, the sign-in takes the tool's place, saying so, and the
+      // photo waits; still signed in (or not reached), the screen says it didn't work.
+      if case .signedIn = account.state {
+        said = String(localized: "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.")
+      } else {
+        said = nil
+      }
     case let .refused(code, limit):
       said = problem(code, limit)
     }
@@ -303,9 +331,12 @@ struct FishIdView: View {
   private static var ownCopy: String? { OwnCopy.isOurs ? AccountsClient.ourCopy : nil }
 
   #if DEBUG
-  /// `-picked-photo`: a 1600 × 1200 photo of a fish, to box and send.
+  /// `-picked-photo`: a library item picked as the screen opens, read as `testPhoto`.
+  static let picksTestPhoto = ProcessInfo.processInfo.arguments.contains("-picked-photo")
+  static let testItem = "ui-test-photo"
+
+  /// A 1600 × 1200 photo of a fish, to box and send.
   static var testPhoto: Data? {
-    guard ProcessInfo.processInfo.arguments.contains("-picked-photo") else { return nil }
     let format = UIGraphicsImageRendererFormat()
     format.scale = 1
     return UIGraphicsImageRenderer(size: CGSize(width: 1600, height: 1200), format: format).jpegData(withCompressionQuality: 0.9) { c in

@@ -33,8 +33,9 @@ private func parts(_ r: URLRequest, boundary: String) throws -> [String: (head: 
   #expect(r.value(forHTTPHeaderField: "Origin") == nil && r.value(forHTTPHeaderField: "Cookie") == nil && !r.httpShouldHandleCookies)
   #expect(r.value(forHTTPHeaderField: "Content-Type") == "multipart/form-data; boundary=B")
   #expect(r.value(forHTTPHeaderField: "User-Agent") == "AquaTome-iOS/1.4")
-  // The Worker's run is capped at 45 s and takes about 20: the app waits a minute, not its usual 20 s.
-  #expect(r.timeoutInterval == 60)
+  // Claude has up to 25 s on the Worker: the app waits longer than its usual 20 s (65 s, set: unset reads URLRequest's
+  // 60 and leaves the session's 20 in charge).
+  #expect(r.timeoutInterval == 65)
   let p = try parts(r, boundary: "B")
   // A file only as a part with a filename and its type: the Worker reads no other part as one.
   #expect(p["file"]?.head.contains(#"filename="photo.jpg""#) == true && p["file"]?.head.contains("Content-Type: image/jpeg") == true)
