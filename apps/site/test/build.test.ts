@@ -25,8 +25,10 @@ describe('species page', () => {
   })
   test('the name and four key facts come before the photo, from the data card\'s own values', () => {
     const top = dom.querySelector('header.top')!
-    const order = top.childNodes.filter(n => n.nodeType === 1).map(n => (n as typeof top).getAttribute('class')?.split(' ')[0])
-    expect(order).toEqual(['id', 'photo', 'facts'])
+    const order = (el: typeof top) => el.childNodes.filter(n => n.nodeType === 1).map(n => (n as typeof top).getAttribute('class')?.split(' ')[0])
+    expect(order(top)).toEqual(['id', 'side', 'facts'])
+    // The photo column: the photo, then the gallery's thumbnails (after the facts on a phone).
+    expect(order(top.querySelector('.side')!)).toEqual(['photo', 'strip'])
     const facts = top.querySelectorAll('.id .keyfacts > div')
     expect(facts.map(f => f.getAttribute('data-field'))).toEqual(['tempC', 'ph', 'tankCm', 'difficulty'])
     expect(facts[0]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('24,27') // the card's resolved range, °F toggle too
