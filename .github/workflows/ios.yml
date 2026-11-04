@@ -44,8 +44,8 @@ env:
 jobs:
   # Whether a pull request is ready (a draft runs nothing on macOS), and which of the two long flow jobs it needs
   # (apps/ios/scripts/flows-to-run.py says how it decides): a change the lights' flows can't reach doesn't hold a macOS
-  # runner for them, which the site's engine shares. Jobs `kit` and `app` run on every ready pull request, and main
-  # runs everything after a merge.
+  # runner for them, which the site's engine shares. Jobs `kit`, `app` and `perf` run on every ready pull request, and
+  # main runs everything after a merge.
   changes:
     name: "iOS app: which flows this change needs"
     runs-on: ubuntu-latest
@@ -79,11 +79,15 @@ jobs:
               python3 apps/ios/scripts/flows-to-run.py | tee -a "$GITHUB_OUTPUT"
           fi
       # Where jobs `kit`, `app` and `handbook` run: the repository's own Mac (label `aquatome`, apps/ios/README.md) for
-      # main and this repository's own branches, while the repository variable IOS_LOCAL_RUNNER is "on"; GitHub's Macs
-      # otherwise. A fork's pull request never runs on the own Mac: its code would run as that Mac's user.
+      # main and for pull requests its owner opened from this repository's own branches, while the repository variable
+      # IOS_LOCAL_RUNNER is "on"; GitHub's Macs otherwise. This only routes: a fork's pull request runs its own copy of
+      # this file, so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
       - id: where
         env:
-          LOCAL: ${{ vars.IOS_LOCAL_RUNNER == 'on' && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) }}
+          LOCAL: >-
+            ${{ vars.IOS_LOCAL_RUNNER == 'on' && (github.event_name == 'push' ||
+            (github.event.pull_request.head.repo.full_name == github.repository &&
+            github.event.pull_request.user.login == github.repository_owner)) }}
         run: |
           if [ "$LOCAL" = true ]; then echo 'runner=["self-hosted","macOS","aquatome"]'; else echo 'runner="macos-26"'; fi |
             tee -a "$GITHUB_OUTPUT"
@@ -273,6 +277,9 @@ jobs:
       - name: Tests that passed only on a retry
         if: always()
         run: apps/ios/scripts/retried-tests.py build/lights.xcresult
+      - name: The own Mac's simulator shut down
+        if: always()
+        run: apps/ios/scripts/wait-for-simulator.sh --done
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
