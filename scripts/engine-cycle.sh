@@ -136,8 +136,9 @@ if part photos; then
   # first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
-  # and plants: iNaturalist, then Commons, GBIF, Openverse; open licences, screened (right species, no faces). GALLERY_SHEETS
-  # model calls a cycle (about 480 a day on the subscription); each page continues next cycle where this one stopped.
+  # and plants: iNaturalist, then Commons, GBIF, Openverse; bred fish by their English names on Commons and Openverse;
+  # open licences, screened (right species or line, no faces). GALLERY_SHEETS model calls a cycle (about 480 a day on
+  # the subscription); each page continues next cycle where this one stopped.
   pnpm engine gallery --sheets "${GALLERY_SHEETS:-60}" || log "gallery: failed"
   # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
   pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
