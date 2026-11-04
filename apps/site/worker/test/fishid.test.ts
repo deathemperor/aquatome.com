@@ -164,8 +164,8 @@ test('happy path: the photo goes to Claude with the workspace header for an orga
   const logged = JSON.stringify(d.lines)
   for (const secret of [A, 'wrkspc_orgA', '203.0.113.7', btoa(String.fromCharCode(...JPEG))]) expect(logged).not.toContain(secret)
   expect(d.lines[0]).toMatchObject({ fishId: 'ok', in: 1500, out: 120, attempts: [{ key: await keyHash(A) }] })
-  // Counted: the reader's day and the site's, with the key's call.
-  expect(JSON.parse(kv.get(`fishid:day:${new Date().toISOString().slice(0, 10)}`)!.v)).toEqual({ calls: 1, keys: { [await keyHash(A)]: 1 }, ok: { [await keyHash(A)]: 1 } })
+  // Counted: the reader's day and the site's, with the key's call and its cost at list price (1,500 in and 120 out on Opus 5.5).
+  expect(JSON.parse(kv.get(`fishid:day:${new Date().toISOString().slice(0, 10)}`)!.v)).toEqual({ calls: 1, keys: { [await keyHash(A)]: 1 }, ok: { [await keyHash(A)]: 1 }, usd: 0.0084 })
 })
 
 test('a fish Claude is fairly sure of with no page counts as a reader\'s request; a matched, unsure or owner\'s one does not', async () => {

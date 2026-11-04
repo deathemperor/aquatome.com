@@ -233,9 +233,11 @@ function periodTable(s: FishIdStats, full: boolean): string {
   const cell = (p: ReturnType<typeof PERIODS>[number], pick: (t: Totals) => number, f: (n: number) => string) =>
     `<td>${esc(f(pick(p.cur)))}<br>${p.context ? `<span class="delta">${esc(p.vs)}: ${esc(f(pick(p.prev)))}</span>` : shortDelta(pick(p.cur), pick(p.prev))}</td>`
   const head = full
-    ? '<th>Kỳ</th><th>Lượt gọi Claude</th><th>Có kết quả</th><th>Không có kết quả</th><th>Chặn trước khi gọi</th><th>Token vào</th><th>Token ra</th><th>Chi phí</th>'
-    : '<th>Kỳ</th><th>Lượt gọi Claude</th><th>Chi phí</th>'
-  const rows = PERIODS(s).map(p => `<tr><th>${esc(p.label)}<br><span class="note">${esc(p.note)}</span></th>${cell(p, t => t.calls, n => fmt(n))}${full ? `<td>${fmt(p.cur.ok)}</td><td>${fmt(p.cur.none)}</td><td>${fmt(p.cur.blocked)}</td><td>${fmt(p.cur.tin)}</td><td>${fmt(p.cur.tout)}</td>` : ''}${cell(p, t => t.usd, usd)}</tr>`).join('')
+    ? '<th>Kỳ</th><th>Lượt gọi Claude</th><th>Có kết quả</th><th>Không có kết quả</th><th>Chặn trước khi gọi</th><th>Token vào</th><th>Token ra</th><th>Chi phí</th><th>Mỗi lượt</th>'
+    : '<th>Kỳ</th><th>Lượt gọi Claude</th><th>Chi phí</th><th>Mỗi lượt</th>'
+  // Each identification that reached Claude: the agent's several calls are one identification.
+  const each = (t: Totals) => (t.calls ? t.usd / t.calls : 0)
+  const rows = PERIODS(s).map(p => `<tr><th>${esc(p.label)}<br><span class="note">${esc(p.note)}</span></th>${cell(p, t => t.calls, n => fmt(n))}${full ? `<td>${fmt(p.cur.ok)}</td><td>${fmt(p.cur.none)}</td><td>${fmt(p.cur.blocked)}</td><td>${fmt(p.cur.tin)}</td><td>${fmt(p.cur.tout)}</td>` : ''}${cell(p, t => t.usd, usd)}${cell(p, each, usd)}</tr>`).join('')
   return `<div class="scroll"><table${full ? ' class="wide"' : ''}><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`
 }
 const shortDelta = (now: number, before: number) => {
@@ -248,7 +250,10 @@ const OUTCOME: Record<string, string> = {
   ok: 'có kết quả', refused: 'Claude từ chối', unreadable: 'câu trả lời đọc không được', request: 'API từ chối yêu cầu', unavailable: 'API lỗi tạm thời',
   resting: 'mọi key đang nghỉ', error: 'lỗi máy chủ', fish_id_off: 'công cụ đang tắt', 'cross-origin': 'gửi từ trang khác', 'too large': 'ảnh quá lớn',
   'bad form': 'form hỏng', 'no file': 'không có ảnh', 'not an image': 'không phải ảnh', turnstile: 'không qua kiểm tra chống spam', rate: 'bạn đọc hết lượt', busy: 'cả trang hết lượt',
+  retry: 'gửi lại, trả kết quả đã có',
 }
+/** Why the agent stopped (fishid/log.ts blob10). */
+const STOPPED: Record<string, string> = { answer: 'tự trả lời', calls: 'hết lượt gọi', tools: 'hết lượt công cụ', time: 'hết giờ', tokens: 'hết token', fallback: 'quay về một lần gọi', error: 'lỗi, không kịp gọi lại' }
 const VERDICT: Record<string, string> = { fish: 'động vật', plant: 'cây', other: 'không có', unclear: 'chưa rõ' }
 const FROM: Record<string, string> = { page: 'trang nhận diện', tank: 'Bể của tôi' }
 const KEY_STATE: Record<FishIdStatus['rows'][number]['state'], string> = { ok: 'đang dùng', credit: 'hết credit', auth: 'key bị từ chối', rate: 'bị giới hạn tốc độ' }
@@ -296,8 +301,8 @@ function recentHtml(xs: Call[], pages: Map<string, string>, now: Date, tz: strin
     const name = `<i class="sci">${esc(c.sci)}</i>`
     return url ? `<a href="${esc(withoutVi(url))}">${name}</a>` : c.page ? `${name} <span class="muted">(${esc(c.page)})</span>` : `${name} <span class="muted">· chưa có trang</span>`
   }
-  const rows = xs.map(c => `<tr><th>${timeTag(c.t, tz, now)}</th><td class="l">${esc(OUTCOME[c.outcome] ?? c.outcome)}</td><td class="l">${esc(VERDICT[c.verdict] ?? (c.verdict || '—'))}</td><td class="l wrap">${guess(c)}</td><td>${c.guesses ? `${fmt(c.conf * 100)}%` : '—'}</td><td>${fmt(c.tin)}</td><td>${fmt(c.tout)}</td><td>${c.usd ? usd(c.usd) : '—'}</td><td>${fmt(c.ms)}</td><td class="l">${c.key ? `<code>${esc(c.key)}</code>` : '—'}</td><td>${fmt(c.attempts)}</td><td class="l">${esc(FROM[c.from] ?? (c.from || '—'))}</td><td class="l">${esc(c.country || '—')}</td></tr>`).join('')
-  return `<div class="scroll"><table class="wide"><thead><tr><th>Lúc</th><th>Kết quả</th><th>Loại</th><th>Đoán nhiều nhất</th><th>Chắc</th><th>Token vào</th><th>Token ra</th><th>Chi phí</th><th>ms</th><th>Key</th><th>Lần gọi</th><th>Từ</th><th>Nước</th></tr></thead><tbody>${rows || '<tr><td colspan="13" class="none">Chưa có lượt nào được ghi.</td></tr>'}</tbody></table></div>`
+  const rows = xs.map(c => `<tr><th>${timeTag(c.t, tz, now)}</th><td class="l">${esc(OUTCOME[c.outcome] ?? c.outcome)}</td><td class="l">${esc(VERDICT[c.verdict] ?? (c.verdict || '—'))}</td><td class="l wrap">${guess(c)}</td><td>${c.guesses ? `${fmt(c.conf * 100)}%` : '—'}</td><td>${fmt(c.tin)}</td><td>${fmt(c.tout)}</td><td>${c.usd ? usd(c.usd) : '—'}</td><td>${fmt(c.ms)}</td><td class="l">${c.key ? `<code>${esc(c.key)}</code>` : '—'}</td><td>${fmt(c.attempts)}</td><td class="l">${c.stopped ? `${fmt(c.turns)} · ${fmt(c.tools)} · ${fmt(c.refs)} <span class="muted">${esc(STOPPED[c.stopped] ?? c.stopped)}</span>` : '—'}</td><td class="l">${esc(FROM[c.from] ?? (c.from || '—'))}</td><td class="l">${esc(c.country || '—')}</td></tr>`).join('')
+  return `<div class="scroll"><table class="wide"><thead><tr><th>Lúc</th><th>Kết quả</th><th>Loại</th><th>Đoán nhiều nhất</th><th>Chắc</th><th>Token vào</th><th>Token ra</th><th>Chi phí</th><th>ms</th><th>Key</th><th>Lần gọi</th><th>Agent: lượt Claude · công cụ · ảnh</th><th>Từ</th><th>Nước</th></tr></thead><tbody>${rows || '<tr><td colspan="14" class="none">Chưa có lượt nào được ghi.</td></tr>'}</tbody></table></div>`
 }
 
 // ——— Người đọc ———

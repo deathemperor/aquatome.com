@@ -57,7 +57,13 @@ that would have caught it).
     deleted with the account and 6 months on, and seen only on the owner's dashboard
     (`apps/site/worker/test/fishid.test.ts`, `handler.test.ts`). The recorded answers the app's fake server replays
     (`protocols/fishid-stream-*.sse`, `fishid-rate.json`) against the same contract, and the contract naming each
-    (`fishid-stream.test.ts`).
+    (`fishid-stream.test.ts`). Fish ID as an agent (`FISH_ID_AGENT`, off unless `1`): the loop's limits each forcing the
+    last call with `tool_choice: none` (calls, tool calls, photos, input tokens, time on a fake clock), a tool that
+    throws, an unknown tool, an append-only history (`agent-loop.test.ts`); the agent off answering today's request and
+    today's bytes, the progress stream only after admission, the fallback to today's call after a failed later call,
+    the day's dollar cap, retries by `Idempotency-Key`, a run with no result giving the reader's count back
+    (`fishid-agent.test.ts`); the search and the pages it opens (`fishid-agent-tools.test.ts`); every catalog page in
+    exactly one facts shard of the build (`apps/site/test/fish-id.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing

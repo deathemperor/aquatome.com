@@ -177,7 +177,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/api/v1/wanted' || url.pathname === '/api/v1/wanted/') return finish(await wantedRoute(req, env, new Date()), env)
   // Readers report a comment or photo (worker/report.ts): signed in or not, accounts on or off.
   if (url.pathname === '/api/v1/report') return finish(await reportRoute(req, env, new Date()), env)
-  if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps), env)
+  if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps, wait), env)
   // The iOS app's anonymous events and crash and performance reports (worker/telemetry): no account, no cookie.
   if (url.pathname === '/api/v1/app/events') return finish(await appEventsRoute(req, env, new Date()), env)
   if (url.pathname === '/api/v1/app/diagnostics') return finish(await appDiagnosticsRoute(req, env, new Date()), env)

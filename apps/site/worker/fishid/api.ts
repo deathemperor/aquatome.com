@@ -1,9 +1,14 @@
+import type Anthropic from '@anthropic-ai/sdk'
+import type { Limits } from '../agent/loop'
 import { sessionOf } from '../accounts/session'
 import { isBot } from '../bots'
 import { accountDayKey, appAccount, ipDayKey, siteverify as realSiteverify } from '../comments/api'
 import { sniff } from '../photos'
+import { identifyWithAgent, type AgentOutcome } from './agent'
+import type { Step } from './agent-tools'
 import type { Catalog, Lang } from './catalog'
-import { askClaude, costOf, DEFAULT_MODEL, readAnswer, type Answer, type ImageType } from './claude'
+import { askClaude, costOf, DEFAULT_MODEL, readAnswer, type Answer, type ImageType, type Usage } from './claude'
+import { factShardOf, factShards, type Facts, type FactsShard } from './facts'
 import { healthyKeys, loadKeys, parseKeys, rotate, type Attempt, type HealthStore, type KeyEntry, type KeyHealth, type KeyProblem } from './keys'
 import { keepPhoto } from './kept'
 import { emptyLog, FROM, toFishIdPoint, type CallLog, type From } from './log'
@@ -34,6 +39,10 @@ export type FishIdEnv = {
   FISH_ID_PER_IP?: string
   FISH_ID_PER_ACCOUNT?: string
   FISH_ID_PER_DAY?: string
+  /** The site's spend a day at list price, in USD (default 15): past it, identifications answer busy as past the count. */
+  FISH_ID_USD_PER_DAY?: string
+  /** "1": fish ID as an agent (agent.ts), which checks its guesses against the handbook; anything else, today's single call. */
+  FISH_ID_AGENT?: string
   TURNSTILE_SECRET?: string
   TURNSTILE_SITEKEY?: string
   COMMENT_HMAC_KEY?: string
@@ -52,6 +61,9 @@ export type FishIdDeps = {
   fetch?: typeof fetch
   random?: () => number
   log?: (line: Record<string, unknown>) => void
+  /** The agent's limits (tests make them small), and the stream's ping interval. */
+  limits?: Partial<Limits>
+  pingMs?: number
 }
 
 /** The page sends a JPEG of 1024 px at most (~200 KB); anything this big is not from it. */
@@ -59,6 +71,9 @@ export const MAX_IMAGE = 1.5 * 1024 * 1024
 const PER_IP = 10
 const PER_ACCOUNT = 10
 const PER_DAY = 300
+const USD_PER_DAY = 15
+/** A stream's keep-alive while Claude works, so no proxy closes it. */
+const PING_MS = 10_000
 /** How sure Claude must be of a guess with no page for it to count as a reader's request. */
 const WANTED_CONFIDENCE = 0.6
 const DAY_SEC = 86_400
@@ -67,6 +82,7 @@ const json = (data: unknown, status = 200) => Response.json(data, { status, head
 /** On with at least one readable key (a file of comments only is none), Turnstile, the rate-limit key and the accounts' database. */
 const live = (env: FishIdEnv): env is Live => Boolean(parseKeys(env.ANTHROPIC_KEYS).entries.length && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY && env.DB)
 const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
+const usdLimit = (env: FishIdEnv) => (Number(env.FISH_ID_USD_PER_DAY) > 0 ? Number(env.FISH_ID_USD_PER_DAY) : USD_PER_DAY)
 const LANGS: Lang[] = ['vi', 'id', 'th']
 
 /**
@@ -90,8 +106,11 @@ export const kvHealth = (kv: KVNamespace): HealthStore => {
     },
   }
 }
-/** Today's (UTC) count: identifications, calls per key, and the calls each key got an answer to. One KV value, written once per identification. */
-type Day = { calls: number; keys: Record<string, number>; ok?: Record<string, number> }
+/**
+ * Today's (UTC) count: identifications, calls per key, the calls each key got an answer to, and the spend at list price
+ * (`usd`, the cap: Analytics Engine can't be read back in the Worker). One KV value, written once per identification.
+ */
+type Day = { calls: number; keys: Record<string, number>; ok?: Record<string, number>; usd?: number }
 const dayKey = (now: Date) => `fishid:day:${now.toISOString().slice(0, 10)}`
 const readDay = async (kv: KVNamespace, now: Date): Promise<Day> => (await kv.get<Day>(dayKey(now), 'json')) ?? { calls: 0, keys: {} }
 
@@ -109,6 +128,24 @@ export function catalogOf(env: Pick<FishIdEnv, 'ASSETS'>, origin: string): Promi
   })
   catalogCache = entry
   return entry.catalog
+}
+
+const factsCache = new Map<string, { at: number; shard: Promise<FactsShard | null> }>()
+/** A page's facts for the agent's get_entry (facts.ts): its shard from the deploy's assets, kept 10 minutes per isolate; a failed read isn't kept. */
+export function factsOf(env: Pick<FishIdEnv, 'ASSETS'>, origin: string, catalog: Catalog): (id: string) => Promise<Facts | undefined> {
+  const shards = catalog.shards ?? factShards(catalog)
+  return async id => {
+    const n = factShardOf(id, shards)
+    const k = `${origin} ${shards} ${n}`
+    let hit = factsCache.get(k)
+    if (!hit || Date.now() - hit.at > 600_000) {
+      const entry = { at: Date.now(), shard: env.ASSETS.fetch(new Request(new URL(`/app/fish-id/facts-${n}.json`, origin))).then(r => (r.ok ? (r.json() as Promise<FactsShard>) : null)).catch(() => null) }
+      factsCache.set(k, entry)
+      entry.shard.then(s => { if (!s && factsCache.get(k) === entry) factsCache.delete(k) })
+      hit = entry
+    }
+    return (await hit.shard)?.entries.find(f => f.id === id)
+  }
 }
 
 /** Bytes → base64 in slices (spreading a whole photo into fromCharCode overflows the stack). */
@@ -165,7 +202,7 @@ async function parseUpload(req: Request, body: Uint8Array): Promise<Upload | nul
   return null
 }
 
-export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, deps: FishIdDeps = {}): Promise<Response> {
+export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, deps: FishIdDeps = {}, wait: (p: Promise<unknown>) => void = p => void p): Promise<Response> {
   if (req.method === 'GET') {
     // The page asks this as it loads: off is an answer, not an error (a 503 there is a console error on every visit, as
     // Lighthouse counts them, until the keys are set). The identification itself answers 503 fish_id_off.
@@ -176,19 +213,33 @@ export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, 
   }
   if (req.method !== 'POST') return new Response(null, { status: 405 })
   // One data point per POST, however it ends; a fault of ours (a throw) is 'error'. Writing it never fails the request.
+  // A stream writes it when its run ends (identify takes it over), not when the stream starts.
   const arrived = Date.now()
   const rec = emptyLog(env.FISH_ID_MODEL || DEFAULT_MODEL)
   rec.country = String((req as { cf?: { country?: string } }).cf?.country ?? '')
-  try {
-    return await identify(req, url, env, now, deps, rec)
-  } finally {
+  const point = { later: false, write: () => {
     rec.ms = Date.now() - arrived
     rec.outcome ||= 'error'
     try { env.FISHID_LOG?.writeDataPoint(toFishIdPoint(rec)) } catch (e) { console.error('fish-id log:', e) }
+  } }
+  try {
+    return await identify(req, url, env, now, deps, rec, wait, point)
+  } finally {
+    if (!point.later) point.write()
   }
 }
 
-async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps: FishIdDeps, rec: CallLog): Promise<Response> {
+/** What an identification answers: the JSON body and its status (a stream sends the body as its last event). */
+type Done = { status: number; body: Record<string, unknown> }
+/** A run's outcome, from today's single call or the agent, before its answer is read. */
+type Called = { attempts: Attempt[]; usage: Usage; agent?: Omit<AgentOutcome, 'ok' | 'attempts' | 'spent'> } & ({ ok: true; message: Anthropic.Message; hash: string } | { ok: false; reason: 'resting' | 'unavailable' | 'request' })
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+/** How long a result is kept for a retry with the same Idempotency-Key. */
+const RETRY_SEC = 15 * 60
+const sse = (event: string, data: unknown) => `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`
+const streamHeaders = { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-store' }
+
+async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps: FishIdDeps, rec: CallLog, wait: (p: Promise<unknown>) => void, point: { later: boolean; write: () => void }): Promise<Response> {
   /** A refusal before any call: the reader's error code is the outcome. */
   const refuse = (error: string, status: number, extra: Record<string, unknown> = {}) => {
     rec.outcome = error
@@ -221,10 +272,19 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
   const readerKey = account
     ? `fishid:acct:${(await accountDayKey(env.COMMENT_HMAC_KEY, account, now)).slice(3)}`
     : `fishid:ip:${(await ipDayKey(env.COMMENT_HMAC_KEY, ip ?? 'unknown', now)).slice(3)}`
+  const stream = /(^|[\s,])text\/event-stream\b/i.test(req.headers.get('accept') ?? '')
+  // A retry of a photo already answered (the app's Idempotency-Key): the kept result, no call and no count.
+  const idem = req.headers.get('idempotency-key')?.trim() ?? ''
+  const retryKey = UUID.test(idem) ? `fishid:run:${readerKey.slice(7)}:${idem.toLowerCase()}` : ''
+  const kept = retryKey ? await env.AB.get<Record<string, unknown>>(retryKey, 'json') : null
+  if (kept) {
+    rec.outcome = 'retry'
+    return stream ? new Response(sse('result', kept), { headers: streamHeaders }) : json(kept)
+  }
   const used = Number((await env.AB.get(readerKey)) ?? 0)
   if (used >= perReader) return refuse('rate', 429, { limit: perReader })
   const day = await readDay(env.AB, now)
-  if (day.calls >= limit(env.FISH_ID_PER_DAY, PER_DAY)) return refuse('busy', 429)
+  if (day.calls >= limit(env.FISH_ID_PER_DAY, PER_DAY) || (day.usd ?? 0) >= usdLimit(env)) return refuse('busy', 429)
   const store = kvHealth(env.AB)
   const healthy = await healthyKeys((await keysOf(env.ANTHROPIC_KEYS)).keys, store, now.getTime())
   if (!healthy.length) return refuse('resting', 503)
@@ -232,63 +292,126 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
 
   const model = rec.model
   const photo = { data: base64(up.bytes), type: type as ImageType }
-  const t = Date.now()
-  const out = await rotate(healthy, store, (key, timeoutMs) => askClaude(key, photo, { model, lang: up.lang, timeoutMs, fetch: deps.fetch ?? (env.FISHID_RELAY ? relayFetch(env.FISHID_RELAY) : undefined) }), { random: deps.random })
-  day.calls++
-  for (const a of out.attempts) day.keys[a.hash] = (day.keys[a.hash] ?? 0) + 1
-  if (out.ok) day.ok = { ...day.ok, [out.hash]: (day.ok?.[out.hash] ?? 0) + 1 }
-  await env.AB.put(dayKey(now), JSON.stringify(day), { expirationTtl: 3 * DAY_SEC })
+  const fetchImpl = deps.fetch ?? (env.FISHID_RELAY ? relayFetch(env.FISHID_RELAY) : undefined)
   const line = deps.log ?? (l => console.log(JSON.stringify(l)))
-  const log = (outcome: string, extra: Record<string, unknown> = {}) => {
-    rec.outcome = outcome
-    line({ fishId: outcome, model, ms: Date.now() - t, attempts: out.attempts.map(slim), ...extra })
+
+  /** The identification, after admission: today's call, or the agent with the flag on and the page list readable. */
+  const work = async (onStep?: (step: Step) => void): Promise<Done> => {
+    const t = Date.now()
+    const catalogFirst = env.FISH_ID_AGENT === '1' ? await catalogOf(env, url.origin) : null
+    let out: Called
+    if (catalogFirst) {
+      const a = await identifyWithAgent({ healthy, store, photo, model, lang: up.lang, fetch: fetchImpl, random: deps.random, limits: deps.limits, onStep, tools: { catalog: catalogFirst, facts: factsOf(env, url.origin, catalogFirst) } })
+      const { ok: _ok, attempts, spent, ...agent } = a
+      out = { ...(a.ok ? { ok: true, message: a.message, hash: a.hash } : { ok: false, reason: a.reason }), attempts, usage: { input: spent.input, output: spent.output, cacheRead: spent.cacheRead, cacheWrite: spent.cacheWrite }, agent }
+    } else {
+      const r = await rotate(healthy, store, (key, timeoutMs) => askClaude(key, photo, { model, lang: up.lang, timeoutMs, fetch: fetchImpl }), { random: deps.random })
+      out = r.ok
+        ? { ok: true, message: r.value, hash: r.hash, attempts: r.attempts, usage: { input: r.value.usage?.input_tokens ?? 0, output: r.value.usage?.output_tokens ?? 0 } }
+        : { ok: false, reason: r.reason, attempts: r.attempts, usage: { input: 0, output: 0 } }
+    }
+    // Tokens from the messages themselves: an answer that can't be read was still paid for, and so were the agent's calls before one failed.
+    rec.input = out.usage.input + (out.usage.cacheRead ?? 0) + (out.usage.cacheWrite ?? 0)
+    rec.output = out.usage.output
+    rec.cost = costOf(model, out.usage) ?? 0
+    if (out.agent) Object.assign(rec, { turns: out.agent.calls, tools: out.agent.tools, refs: out.agent.photos, stopped: out.agent.stopped } satisfies Partial<CallLog>)
+    else if (out.ok) rec.turns = 1
+    // The site's day, read again: the run took a while, and other identifications may have counted since.
+    const today = await readDay(env.AB, now)
+    today.calls++
+    for (const a of out.attempts) today.keys[a.hash] = (today.keys[a.hash] ?? 0) + 1
+    if (out.ok) today.ok = { ...today.ok, [out.hash]: (today.ok?.[out.hash] ?? 0) + 1 }
+    if (rec.cost) today.usd = (today.usd ?? 0) + rec.cost
+    await env.AB.put(dayKey(now), JSON.stringify(today), { expirationTtl: 3 * DAY_SEC })
+    const log = (outcome: string, extra: Record<string, unknown> = {}) => {
+      rec.outcome = outcome
+      // The agent's counts and its steps' kinds; never what it searched for.
+      const agent = out.agent ? { turns: out.agent.calls, tools: out.agent.tools, refs: out.agent.photos, stopped: out.agent.stopped, steps: out.agent.steps.map(s => s.kind) } : {}
+      line({ fishId: outcome, model, ms: Date.now() - t, attempts: out.attempts.map(slim), ...agent, ...extra })
+    }
+    rec.attempts = out.attempts.length
+    rec.key = out.ok ? out.hash : (out.attempts.at(-1)?.hash ?? '')
+    if (!out.ok) {
+      log(out.reason)
+      return out.reason === 'request' ? { status: 502, body: { error: 'failed' } } : { status: 503, body: { error: out.reason } }
+    }
+    let answer: Answer
+    try {
+      answer = readAnswer(out.message)
+    } catch (e) {
+      log('unreadable', { why: String((e as Error).message).slice(0, 80) })
+      return { status: 502, body: { error: 'failed' } }
+    }
+    const usage = out.agent ? { in: rec.input, out: rec.output } : { in: answer.usage.input, out: answer.usage.output }
+    const steps = out.agent?.steps.length ? { steps: out.agent.steps } : {}
+    // Kept only when asked, with the answer: a JPEG (what the page and the app send), its own metadata cut, under the
+    // account that sent it (the app's bearer, or the page's signed-in cookie), or no one's. `kept` says whether it was.
+    const keep = async (verdict: string, guesses: Result[]) => {
+      if (!up.keep) return {}
+      const owner = account ?? (await sessionOf(req, env.DB, now))?.userId
+      const id = env.UPLOADS && type === 'image/jpeg'
+        ? await keepPhoto(env.UPLOADS, owner, up.bytes!, { verdict, guesses, model, lang: up.lang }, now).catch(e => { console.error('fish-id keep:', e); return null })
+        : null
+      return { kept: Boolean(id) }
+    }
+    if (answer.refused) {
+      log('refused', usage)
+      return { status: 200, body: { verdict: 'unclear', results: [], refused: true, model, ...steps, ...await keep('unclear', []) } }
+    }
+    const { verdict, guesses } = answer.id
+    const catalog = verdict === 'other' ? null : (catalogFirst ?? await catalogOf(env, url.origin))
+    const results = verdict === 'other' ? [] : catalog ? matchGuesses(guesses, catalog, up.lang) : guesses.map(({ id: _id, ...g }) => g)
+    // A fish or plant Claude is fairly sure of that has no page: a reader's request, as a tank's entry without a page is
+    // (worker/wanted.ts), counted once a reader a day. Not the owner trying it out, nor our own checks.
+    const top = catalog && (verdict === 'fish' || verdict === 'plant') ? results[0] : undefined
+    const reader = !/(?:^|;\s*)aq_owner=1(?:;|$)/.test(req.headers.get('cookie') ?? '') && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
+    if (top && !('page' in top && top.page) && top.confidence >= WANTED_CONFIDENCE && reader) {
+      await recordWanted(env, { kind: verdict, name: top.commonName || top.scientificName, sci: top.scientificName, source: 'fish-id', reader: await readerOf(req, env, now) }, now).catch(() => undefined)
+    }
+    const first: Result | undefined = results[0]
+    Object.assign(rec, { verdict, top: first?.scientificName ?? '', confidence: first?.confidence ?? 0, page: first?.page?.id ?? '', guesses: results.length } satisfies Partial<CallLog>)
+    log('ok', { ...usage, verdict, guesses: results.length, linked: results.filter(r => 'page' in r && r.page).length, ...(catalog || verdict === 'other' ? {} : { catalog: 'missing' }) })
+    return { status: 200, body: { verdict, results, model, ...steps, ...await keep(verdict, results) } }
   }
-  rec.attempts = out.attempts.length
-  rec.key = out.ok ? out.hash : (out.attempts.at(-1)?.hash ?? '')
-  if (!out.ok) {
-    log(out.reason)
-    return out.reason === 'request' ? json({ error: 'failed' }, 502) : json({ error: out.reason }, 503)
+  /** After the run: a result is kept for a retry; no result gives the reader's count back. */
+  const settle = async (d: Done): Promise<Done> => {
+    if (d.status === 200 && retryKey) await env.AB.put(retryKey, JSON.stringify(d.body), { expirationTtl: RETRY_SEC }).catch(() => undefined)
+    if (d.status >= 500) {
+      const n = Number((await env.AB.get(readerKey)) ?? 0)
+      await env.AB.put(readerKey, String(Math.max(0, n - 1)), { expirationTtl: DAY_SEC }).catch(() => undefined)
+    }
+    return d
   }
-  // Tokens from the message itself: an answer that can't be read was still paid for.
-  rec.input = out.value.usage?.input_tokens ?? 0
-  rec.output = out.value.usage?.output_tokens ?? 0
-  rec.cost = costOf(model, { input: rec.input, output: rec.output }) ?? 0
-  let answer: Answer
-  try {
-    answer = readAnswer(out.value)
-  } catch (e) {
-    log('unreadable', { why: String((e as Error).message).slice(0, 80) })
-    return json({ error: 'failed' }, 502)
+
+  if (!stream) {
+    // The run goes on if the reader's connection drops (waitUntil), so a retry can fetch its result.
+    const p = work().then(settle)
+    wait(p.catch(() => undefined))
+    const d = await p
+    return json(d.body, d.status)
   }
-  const usage = { in: answer.usage.input, out: answer.usage.output }
-  // Kept only when asked, with the answer: a JPEG (what the page and the app send), its own metadata cut, under the
-  // account that sent it (the app's bearer, or the page's signed-in cookie), or no one's. `kept` says whether it was.
-  const keep = async (verdict: string, guesses: Result[]) => {
-    if (!up.keep) return {}
-    const owner = account ?? (await sessionOf(req, env.DB, now))?.userId
-    const id = env.UPLOADS && type === 'image/jpeg'
-      ? await keepPhoto(env.UPLOADS, owner, up.bytes!, { verdict, guesses, model, lang: up.lang }, now).catch(e => { console.error('fish-id keep:', e); return null })
-      : null
-    return { kept: Boolean(id) }
-  }
-  if (answer.refused) {
-    log('refused', usage)
-    return json({ verdict: 'unclear', results: [], refused: true, model, ...await keep('unclear', []) })
-  }
-  const { verdict, guesses } = answer.id
-  const catalog = verdict === 'other' ? null : await catalogOf(env, url.origin)
-  const results = verdict === 'other' ? [] : catalog ? matchGuesses(guesses, catalog, up.lang) : guesses
-  // A fish or plant Claude is fairly sure of that has no page: a reader's request, as a tank's entry without a page is
-  // (worker/wanted.ts), counted once a reader a day. Not the owner trying it out, nor our own checks.
-  const top = catalog && (verdict === 'fish' || verdict === 'plant') ? results[0] : undefined
-  const reader = !/(?:^|;\s*)aq_owner=1(?:;|$)/.test(req.headers.get('cookie') ?? '') && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
-  if (top && !('page' in top && top.page) && top.confidence >= WANTED_CONFIDENCE && reader) {
-    await recordWanted(env, { kind: verdict, name: top.commonName || top.scientificName, sci: top.scientificName, source: 'fish-id', reader: await readerOf(req, env, now) }, now).catch(() => undefined)
-  }
-  const first: Result | undefined = results[0]
-  Object.assign(rec, { verdict, top: first?.scientificName ?? '', confidence: first?.confidence ?? 0, page: first?.page?.id ?? '', guesses: results.length } satisfies Partial<CallLog>)
-  log('ok', { ...usage, verdict, guesses: results.length, linked: results.filter(r => 'page' in r && r.page).length, ...(catalog || verdict === 'other' ? {} : { catalog: 'missing' }) })
-  return json({ verdict, results, model, ...await keep(verdict, results) })
+  // The stream: steps as they happen, a ping every 10 s while Claude works, then the result or the error, and the end.
+  point.later = true
+  const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>()
+  const writer = writable.getWriter()
+  const enc = new TextEncoder()
+  let open = true
+  const send = (text: string) => { if (open) writer.write(enc.encode(text)).catch(() => { open = false }) }
+  const ping = setInterval(() => send(': ping\n\n'), deps.pingMs ?? PING_MS)
+  const done = work(step => send(sse('step', step)))
+    .then(settle)
+    .catch((e): Done => {
+      console.error('fish-id:', e)
+      return { status: 502, body: { error: 'failed' } }
+    })
+    .then(async d => {
+      clearInterval(ping)
+      point.write()
+      send(d.status === 200 ? sse('result', d.body) : sse('error', { error: d.body.error }))
+      await writer.close().catch(() => undefined)
+    })
+  wait(done)
+  return new Response(readable, { headers: streamHeaders })
 }
 const slim = (a: Attempt) => ({ key: a.hash, ms: a.ms, ...(a.status ? { status: a.status } : {}), ...(a.marked ? { marked: a.marked } : {}) })
 

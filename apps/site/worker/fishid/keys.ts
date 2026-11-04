@@ -94,6 +94,21 @@ export type Rotated<T> =
   /** resting: every key is set aside. unavailable: the keys tried failed for now (overloaded, network, out of time). request: our request was refused. */
   | { ok: false; reason: 'resting' | 'unavailable' | 'request'; attempts: Attempt[] }
 
+/**
+ * A call with `key` that threw: the attempt as the log keeps it, and the key set aside in `store` when the failure says
+ * it is out of credit, refused or rate-limited. The rotation's, and the agent's from its second call (fishid/agent.ts).
+ */
+export async function failed(key: KeyEntry, e: unknown, store: HealthStore, ms: number, clock: () => number = Date.now): Promise<{ attempt: Attempt; verdict: Verdict }> {
+  const v = classify(e)
+  const a: Attempt = { hash: key.hash, ms, ...(isApiError(e) && e.status !== undefined ? { status: e.status } : {}), ...(isApiError(e) && e.type ? { type: e.type } : {}) }
+  if (v.mark) {
+    a.marked = v.mark.why
+    // KV keeps an entry 60 s at least; the `until` inside is what counts.
+    await store.mark(key.hash, { until: clock() + v.mark.ttlSec * 1000, why: v.mark.why }, Math.max(60, v.mark.ttlSec)).catch(() => {})
+  }
+  return { attempt: a, verdict: v }
+}
+
 /** The keys not set aside right now, in the order given. */
 export async function healthyKeys(keys: KeyEntry[], store: HealthStore, now: number): Promise<KeyEntry[]> {
   const health = await Promise.all(keys.map(k => store.get(k.hash).catch(() => null)))
@@ -123,14 +138,8 @@ export async function rotate<T>(healthy: KeyEntry[], store: HealthStore, call: (
       attempts.push({ hash: key.hash, ms: clock() - t })
       return { ok: true, value, hash: key.hash, attempts }
     } catch (e) {
-      const v = classify(e)
-      const a: Attempt = { hash: key.hash, ms: clock() - t, ...(isApiError(e) && e.status !== undefined ? { status: e.status } : {}), ...(isApiError(e) && e.type ? { type: e.type } : {}) }
+      const { attempt: a, verdict: v } = await failed(key, e, store, clock() - t, clock)
       attempts.push(a)
-      if (v.mark) {
-        a.marked = v.mark.why
-        // KV keeps an entry 60 s at least; the `until` inside is what counts.
-        await store.mark(key.hash, { until: clock() + v.mark.ttlSec * 1000, why: v.mark.why }, Math.max(60, v.mark.ttlSec)).catch(() => {})
-      }
       if (!v.next) {
         if (!isApiError(e)) throw e // a bug of ours, not an answer from the API
         return { ok: false, reason: 'request', attempts }
