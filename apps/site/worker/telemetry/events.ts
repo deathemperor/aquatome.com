@@ -40,7 +40,7 @@ export function parseEvent(x: unknown): AppEvent | null {
     case 'scroll':
       return only('path', 'depth') && path && DEPTHS.includes(e.depth as number) ? { ...base, t: 'scroll', value: e.depth as number } : null
     case 'time':
-      return only('path', 'seconds') && path && SECONDS.includes(e.seconds as number) ? { ...base, t: 'time', value: e.seconds } : null
+      return only('path', 'seconds') && path && SECONDS.includes(e.seconds as number) ? { ...base, t: 'time', value: e.seconds as number } : null
     case 'aff': {
       const net = typeof e.href === 'string' && e.href.length <= 300 ? HREF.exec(e.href)?.[1] : undefined
       return only('path', 'shop', 'href') && path && typeof e.shop === 'string' && SHOP.test(e.shop) && net === e.shop
