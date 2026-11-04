@@ -60,7 +60,8 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
 
   A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
   `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant and a guide top to bottom, light and dark, and CI's
-  job `handbook (1)` uploads them as the `ios-page-shots` artifact. Locally:
+  job `handbook (1)` uploads them as the `ios-page-shots` artifact (on a pull request, when its change can reach
+  the pages). Locally:
 
   ```sh
   xcodebuild test -project AquaTome.xcodeproj -scheme AquaTome -destination 'platform=iOS Simulator,name=iPhone 17' \
@@ -128,31 +129,52 @@ Release builds optimize for size (`-Osize`: the project's Release setting, and `
 the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
 Debug builds, so they don't see it.
 
+## The flows on CI
+
+`ios.yml` runs the UI flows in two tiers:
+
+- **A pull request** runs the smoke set, ten flows across the app's main journeys (the app starts and its tabs open, a
+  search opens a page the app draws, a fish's facts, a tank made and a fish put on it, the tank-mates check, the fake
+  light connected and a preset written, a sign-in on the stand-in server, a shelf kept for offline: about 6 minutes
+  after the build), and the flow classes its change can reach. `scripts/flows-to-run.py` maps the app's folders and
+  files to those classes, and its `--test` fails when a flow it names is renamed. A change only to what every screen
+  sits in (the app's start, the project, the flows' shared helpers, the workflow) runs the smoke set alone; a path under
+  `apps/ios/` the script has no rule for runs every flow. Jobs `kit` and `perf` (with the translations) run on every
+  ready pull request.
+- **Every flow** runs after each merge to main, every night at 02:30 Vietnam time on main, by hand (Actions → "iOS app:
+  build and tests" → Run workflow), and on a pull request labelled `ios-full`. Adding that label starts the full run;
+  any other label starts nothing and cancels nothing, though its run's skipped jobs then stand in for the last run's in
+  `gh pr checks` (a push or a re-run shows them again). Main's runs are never cancelled: each merge's run finishes.
+
+A break that only main's run catches is fixed forward first, in a pull request of its own. If the flow could have run on
+the pull request that broke it, give `flows-to-run.py` the rule that would have run it.
+
 ## CI's own Mac
 
-Jobs `kit`, `app` and `handbook` of `ios.yml` run on the repository's own Mac (a self-hosted runner, label `aquatome`)
-for main and for pull requests its owner opens from this repository's own branches. GitHub's Macs keep everything else:
-a fork's or a bot's pull request (the automatic fixes'), job `lights` (paced by the fake light, not the CPU) and job
-`perf` (its budgets are GitHub's Macs' readings). One runner there runs one job at a time, so `app` and the two
-`handbook` halves take turns.
+Jobs `kit`, `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (self-hosted runners, label
+`aquatome`) for main (each merge, the nightly run and a run by hand) and for pull requests its owner opens from this
+repository's own branches. GitHub's Macs keep everything else: a fork's or a bot's pull request (the automatic fixes'),
+and job `perf` (its budgets are GitHub's Macs' readings). The Mac has two runners, `aquatome-mac-1` and
+`aquatome-mac-2`, each running one job at a time, so the jobs take turns two at a time.
 
-The runner runs as that Mac's user, with its keys. `ios.yml` only routes: a fork's pull request runs its own copy of the
-workflows, which can name the label. What keeps others' code off the Mac is the runner's job-started hook
-(`ACTIONS_RUNNER_HOOK_JOB_STARTED` in its `.env`, a script outside the repository): any job but a push to main or a pull
-request from the owner off one of this repository's branches fails before its first step. Approving an outside
-contributor's run (required for every one, by the repository's Actions setting) runs their workflows, on GitHub's Macs
-if the hook holds; read them first.
+The runners run as that Mac's user, with its keys. `ios.yml` only routes: a fork's pull request runs its own copy of
+the workflows, which can name the label. What keeps others' code off the Mac is each runner's job-started hook
+(`ACTIONS_RUNNER_HOOK_JOB_STARTED` in its `.env`, a script outside the repository): any job but one of main's (a push,
+the nightly run, a run by hand) or a pull request from the owner off one of this repository's branches fails before its
+first step. Approving an outside contributor's run (required for every one, by the repository's Actions setting) runs
+their workflows, on GitHub's Macs if the hook holds; read them first.
 
 - Off, when the Mac is away or asleep: `gh variable set IOS_LOCAL_RUNNER --body off`. New runs then go to GitHub's Macs;
   runs already queued for the Mac wait for it. "Re-run failed jobs" keeps where the jobs ran: re-run all jobs instead.
   `--body on` brings them back.
-- The runner: in `~/actions-runner/<name>`, registered with `--labels aquatome` and run as a login service
-  (`./svc.sh install && ./svc.sh start`), its hook in `~/actions-runner/hooks/`. The Mac must not sleep. It builds with
-  that Mac's own Xcode, which can be newer than GitHub's.
-- Its simulator: `xcrun simctl create aquatome-ci-1 "iPhone 17" com.apple.CoreSimulator.SimRuntime.iOS-26-5`, with its
-  id in the runner's `.env` as `AQ_CI_UDID=<id>`. The simulator jobs' `scripts/wait-for-simulator.sh` erases it first,
-  points xcodebuild at it, and shuts it down after. Nothing else on that Mac may use a simulator named `aquatome-ci-*`.
-  A second runner on the same Mac needs its own simulator and `.env`: sharing one, each would erase the other's mid-test.
+- The runners: each in `~/actions-runner/<name>`, registered with `--labels aquatome` and run as a login service
+  (`./svc.sh install && ./svc.sh start`), their hook in `~/actions-runner/hooks/`. The Mac must not sleep. They build
+  with that Mac's own Xcode, which can be newer than GitHub's.
+- Their simulators: one each, `aquatome-ci-1` for `aquatome-mac-1` and `aquatome-ci-2` for `aquatome-mac-2`, made with
+  `xcrun simctl create aquatome-ci-<n> "iPhone 17" com.apple.CoreSimulator.SimRuntime.iOS-26-5`, with its id in that
+  runner's `.env` as `AQ_CI_UDID=<id>`. The simulator jobs' `scripts/wait-for-simulator.sh` erases it first, points
+  xcodebuild at it, and shuts it down after. Two runners never share one (each would erase the other's mid-test), and
+  nothing else on that Mac may use a simulator named `aquatome-ci-*`.
 
 ## AquaTomeKit
 
