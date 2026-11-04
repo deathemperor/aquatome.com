@@ -149,6 +149,8 @@ if part pages sf photos; then
   pnpm engine watermarks --limit "${WATERMARK_LIMIT:-40}" || log "watermarks: failed (unscreened photos may publish)"
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
+  # Wikimedia photos credited before Commons' placeholder authors were tidied on import: "RuthJM", not its sentence.
+  pnpm engine credits || log "credits: failed (some photos keep Commons' placeholder author)"
   # The image hash of every new picture, so no page shows one picture twice from two files (a failure: compared by address).
   pnpm engine picture-hashes || log "picture-hashes: failed (new pictures compared by address only)"
 fi
