@@ -84,7 +84,7 @@ process.env.YOUTUBE_API_KEY ??= (() => { try { return readFileSync(join(homedir(
 const youtube = () => (process.env.YOUTUBE_API_KEY ? ytApi(process.env.YOUTUBE_API_KEY) : ytDlp)
 const media = () => r2Media({
   accountId: conf('CF_ACCOUNT_ID', 'cf-account'), token: conf('CLOUDFLARE_API_TOKEN', 'cf-token'),
-  bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
+  bucket: process.env.MEDIA_BUCKET ?? 'aquatome-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
 /**

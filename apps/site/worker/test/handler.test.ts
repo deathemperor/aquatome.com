@@ -201,7 +201,7 @@ test('non-canonical hosts 301 to the production host, path and query kept', asyn
   const r = await handle(new Request('https://www.aquatome.com/vi/ca/?skin=a', { headers: browser }), e)
   expect(r.status).toBe(301)
   expect(r.headers.get('location')).toBe('https://aquatome.com/vi/ca/?skin=a')
-  expect((await handle(new Request('https://thuysinh.infinitus.run/', { headers: browser }), e)).headers.get('location')).toBe('https://aquatome.com/')
+  expect((await handle(new Request('https://old.example/', { headers: browser }), e)).headers.get('location')).toBe('https://aquatome.com/')
   expect((await handle(new Request('https://aquatome.com/vi/', { headers: browser }), e)).status).toBe(200)
 })
 
