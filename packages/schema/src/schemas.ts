@@ -169,7 +169,7 @@ export const TranslationSchema = z.object({
   parents: z.array(z.string()).optional(),
   /** Products: names for the spec keys in this language. */
   labels: z.record(z.string(), z.string()).optional(),
-  /** Owner-chosen main name: the engine never replaces it (variety names go to altNames). */
+  /** Owner-chosen main name: the engine never replaces it. */
   nameFixed: z.boolean().optional(),
   /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */
   redirectFrom: z.array(z.object({ slug: z.string(), name: z.string() })).optional(),

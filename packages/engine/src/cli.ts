@@ -348,11 +348,11 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // The content rules' safe fixes on every page, each cycle before the build (sweep.ts): the source site's comments and
   // related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another fish or a map
   // taken off the page, card figures out of bounds hidden, titles promising a count the text lacks rewritten (--titles N
-  // model rewrites a run, reviewer-gated; 0: none) or their number dropped.
+  // model rewrites a run, reviewer-gated; 0: none) or their number dropped, species' other names kept to their own.
   const titles = Number(values.titles ?? 3)
   const r = await sweep(ROOT, titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {})
-  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.titles.length} titles${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-  for (const x of [...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.titles.map(x => `title: ${x}`)]) console.log(x)
+  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.titles.length} titles; ${r.names.length} other names off${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of [...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.names.map(x => `name off: ${x}`)]) console.log(x)
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md; every published page against the content rules, in each language →
   // docs/review/content-rules.md (reports only; nothing is hidden). --fix: first the rules' safe fixes on the stored text,
