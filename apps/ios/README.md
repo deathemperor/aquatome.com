@@ -161,10 +161,14 @@ size as ARGB, lzfse), where the flat earlier designs cost 20 kB. With the 40, 29
 three pictures of an SVG beside it). The last row also has #445's code (+18 kB).
 
 The default since 2026-11-04, the round fish with leaf fins (the owner's choice; the AT stays an alternate), costs more
-than the AT did: its 1024, kept for iPhone and iPad, is gradients (935.8 kB in `Assets.car`, the AT's 50.6), and so are
-the PNGs iOS keeps beside the app for the home screen (58.9 kB, the AT's 8.5). With the picker's three new alternates
-(a fish with a book-page fin, one behind a magnifier, the AT) and their previews (+343.8 kB), the archive is 9,573.3 kB,
-5,041.3 kB on one iPhone (the same estimate).
+than the AT did. Its 1024 is kept for iPhone and iPad (one universal entry; actool writes one for each, and a device gets
+its own), in three looks: as drawn, dark and tinted. They are gradients, which CoreUI stores as ARGB, lzfse, whatever the
+asset catalog says, so `app-icons.py` quantizes each (pngquant, dithered, 256 colours): the drawn one costs 246.4 kB a
+device where it cost 467.9 lossless, alike at home-screen and App Store sizes (faint rings around its glows only at full
+size). Without dithering it bands; without its glows it would cost 155 kB lossless but look flatter. Per device: the
+drawn 1024 246.4 kB (the AT's 25.3), dark 89.1, tinted 33.7; the home-screen PNGs beside the app 49.2 kB (the AT's 8.5).
+With the picker's three new alternates (a book-page fin, a magnifier, the AT) and their previews, the archive is 9,367.4
+kB, 4,933.5 kB on one iPhone (the same estimate).
 
 Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
 the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
