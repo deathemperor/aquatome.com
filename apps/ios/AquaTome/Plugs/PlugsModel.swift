@@ -26,7 +26,8 @@ final class PlugsModel {
 
   @ObservationIgnored private let store: TuyaKeyStore
   @ObservationIgnored private let source: (TuyaKeys) -> TuyaPlugs
-  @ObservationIgnored private var current: TuyaPlugs?
+  /// Where the plugs come from, with the keys kept here; nil without keys. A light's card reads its outlet's timers from it.
+  @ObservationIgnored private(set) var current: TuyaPlugs?
 
   init(store: TuyaKeyStore = TuyaKeyStore(), source: @escaping (TuyaKeys) -> TuyaPlugs = { TuyaPlugs(keys: $0) }) {
     self.store = store
@@ -41,12 +42,6 @@ final class PlugsModel {
 
   /// The tank screen opened, or the reader pulled to refresh.
   func refresh() async { await board.refresh(current) }
-
-  /// One plug's timers in the maker's app, read when a light's card opens; nil without keys. Never kept.
-  func timers(provider: String, device: String) async throws -> [PlugTimer]? {
-    guard let current else { return nil }
-    return try await current.timers(provider: provider, device: device)
-  }
 
   /// Reads the list with these keys, and keeps them once they work.
   func check(_ keys: TuyaKeys) async -> Check {

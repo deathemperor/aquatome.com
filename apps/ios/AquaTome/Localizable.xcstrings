@@ -1,6 +1,22 @@
 {
   "sourceLanguage": "vi",
   "strings": {
+    "%@ (giờ %@)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ (waktu %2$@)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ (เวลา %2$@)"
+          }
+        }
+      }
+    },
     "%@ (gợi ý)": {
       "localizations": {
         "id": {
@@ -1665,6 +1681,22 @@
         }
       }
     },
+    "Chọn ổ cắm của đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih colokan lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกช่องปลั๊กของโคมไฟ"
+          }
+        }
+      }
+    },
     "Chọn ổ để AquaTome xem hẹn giờ của ổ có cắt điện đèn không.": {
       "localizations": {
         "id": {
@@ -2973,6 +3005,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่พบ %@ ในบริเวณนี้ เปิดโคมไฟ ขยับเข้าใกล้แล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không thấy hẹn giờ tắt nào của ổ này trong Smart Life.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada timer mati untuk colokan ini di Smart Life."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่พบการตั้งเวลาปิดของช่องนี้ใน Smart Life"
           }
         }
       }
@@ -6833,6 +6881,22 @@
         }
       }
     },
+    "Đèn không cắm ổ cắm Smart Life": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu tidak dicolokkan ke stopkontak Smart Life"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟไม่ได้เสียบปลั๊กไฟ Smart Life"
+          }
+        }
+      }
+    },
     "Đèn không trả lời. Ngắt kết nối rồi kết nối lại.": {
       "localizations": {
         "id": {
@@ -7645,22 +7709,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ช่องนี้จ่ายไฟให้ฮีตเตอร์ หากเปิดหรือปิดผิด น้ำอาจเย็นหรือร้อนเกินไป"
-          }
-        }
-      }
-    },
-    "Ổ này không có hẹn giờ tắt.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Colokan ini tidak punya timer mati."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ช่องนี้ไม่มีการตั้งเวลาปิด"
           }
         }
       }

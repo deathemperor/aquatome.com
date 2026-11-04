@@ -22,22 +22,44 @@ public struct PlugTimer: Sendable, Equatable {
   public let days: [Bool]
   /// As the maker gives it ("20261105"): for a timer that runs once, its day.
   public let date: String?
+  /// The plug's zone, as the maker gives it ("Asia/Ho_Chi_Minh"): `time` and `date` are in it.
+  public let timezone: String?
   /// Turned on in the maker's app.
   public let enabled: Bool
 
-  public init(actions: [Action], time: String, days: [Bool], date: String?, enabled: Bool) {
+  public init(actions: [Action], time: String, days: [Bool], date: String?, timezone: String?, enabled: Bool) {
     self.actions = actions
     self.time = time
     self.days = days
     self.date = date
+    self.timezone = timezone
     self.enabled = enabled
   }
 
   public var everyDay: Bool { days.allSatisfy { $0 } }
   public var once: Bool { !days.contains(true) }
 
-  /// Whether it cuts this outlet's power: turned on, and switching the outlet off.
-  public func cuts(_ code: String) -> Bool { enabled && actions.contains { $0.code == code && !$0.on } }
+  /// Whether it cuts this outlet's power from `now` on: turned on, switching the outlet off, and not a timer that ran
+  /// once on a day already gone.
+  public func cuts(_ code: String, at now: Date) -> Bool { enabled && !isPast(now) && actions.contains { $0.code == code && !$0.on } }
+
+  /// A timer that runs once, on a day before today in its own zone (the phone's, when it gives none): it has run. One
+  /// whose day can't be read may still run.
+  public func isPast(_ now: Date) -> Bool {
+    guard once, let date, date.count == 8, date.allSatisfy({ $0.isASCII && $0.isNumber }) else { return false }
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.timeZone = timezone.flatMap(TimeZone.init(identifier:)) ?? .current
+    let today = calendar.dateComponents([.year, .month, .day], from: now)
+    return date < String(format: "%04d%02d%02d", today.year ?? 0, today.month ?? 0, today.day ?? 0)
+  }
+
+  /// Whether its times are another zone's than `zone`'s (the phone's): told by the time each keeps now, so another name
+  /// for the same zone is the same. A zone the phone doesn't know is another; none given is the phone's.
+  public func zoneDiffers(from zone: TimeZone, at now: Date) -> Bool {
+    guard let timezone else { return false }
+    guard let own = TimeZone(identifier: timezone) else { return timezone != zone.identifier }
+    return own.secondsFromGMT(for: now) != zone.secondsFromGMT(for: now)
+  }
 }
 
 extension PlugTimer {
@@ -62,6 +84,7 @@ extension PlugTimer {
       return Action(code: code, on: on)
     }
     guard !actions.isEmpty else { return nil }
-    return PlugTimer(actions: actions, time: time, days: loops.map { $0 == "1" }, date: o["date"]?.string, enabled: status == 1)
+    return PlugTimer(actions: actions, time: time, days: loops.map { $0 == "1" }, date: o["date"]?.string, timezone: o["timezone_id"]?.string,
+                     enabled: status == 1)
   }
 }

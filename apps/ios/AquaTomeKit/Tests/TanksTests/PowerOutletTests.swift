@@ -25,6 +25,18 @@ private func setUp() throws -> (TankStore, light: Device, strip: Device, other: 
   #expect(s.outlets(for: strip).isEmpty, "a plug offered outlets to plug into")
 }
 
+@Test func onlyTuyaPlugsAreOfferedAsTheirTimersAreTheOnesTheAppReads() throws {
+  var s = TankStore()
+  let t = try s.addTank(name: "Bể", now: t0)
+  let light = try s.metLight(bleName: "DYNWRGB0BEEF", model: "WRGB II", tankName: "Bể", now: t0)
+  let sonoff = try s.addPlug(tankId: t.id, brand: "ewelink", remoteId: "fake-ewelink-1", name: "Sonoff", outlets: [("switch", "Đèn")], now: t0)
+  let strip = try s.addPlug(tankId: t.id, brand: "tuya", remoteId: "fake-strip-1", name: "Ổ", outlets: [("switch_1", "CO2")], now: t0)
+  #expect(s.outlets(for: light).map(\.plug.id) == [strip.id], "another maker's plug offered")
+  #expect(s.suggestedOutlet(for: light) == nil)
+  try s.updateDevice(light.id, now: t0) { $0.powerOutlet = PowerOutlet(plugId: sonoff.id, code: "switch") }
+  #expect(s.powerOutlet(of: try #require(s.device(light.id))) == nil)
+}
+
 @Test func theOutletPickedIsKeptOnTheLightsRecordAndValid() throws {
   let f = try setUp()
   var s = f.0

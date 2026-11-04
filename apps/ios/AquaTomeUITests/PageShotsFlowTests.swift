@@ -3,8 +3,9 @@ import XCTest
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
 /// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size. Each checks
-/// only that its screen opened: what it shows, the other flows check.
+/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size; and the
+/// lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in Tuya cloud. Each
+/// checks only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -17,6 +18,7 @@ final class PageShotsFlowTests: XCTestCase {
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+  func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
 
@@ -73,12 +75,35 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
-  private func launch(dark: Bool, size: String?) -> XCUIApplication {
+  /// The fake light connected on the Đèn tab, its clock lost in a cut, on a tank with the stand-in strip whose outlet
+  /// "Đèn" Smart Life turns off every night: the outlet picked and its warning shown. One screen.
+  private func shootLightCard(_ name: String) {
+    let app = launch(dark: false, size: nil, ["-seed-tanks", "plug", "-seed-tuya-keys", "-stand-in-timer", "enabled", "-fake-clock-unset"])
+    app.openTab("Đèn")
+    app.buttons["scan"].tap()
+    let light = app.buttons["light"].firstMatch
+    XCTAssertTrue(light.waitForExistence(timeout: 5), "no light found")
+    light.tap()
+    let pick = app.descendants(matching: .any)["pick-outlet"].firstMatch
+    XCTAssertTrue(pick.waitForExistence(timeout: 10), "no outlet to pick")
+    pick.tap()
+    let item = app.buttons["Đèn · Ổ cắm bể 60 (gợi ý)"].firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "the outlet isn't offered")
+    item.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["outlet-warning"].waitForExistence(timeout: 10), "no warning")
+    settle()
+    let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    a.name = "shot-\(name)-01"
+    a.lifetime = .keepAlways
+    add(a)
+  }
+
+  private func launch(dark: Bool, size: String?, _ more: [String] = []) -> XCUIApplication {
     let app = XCUIApplication()
     // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
-      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? []) + more
     app.launch()
     return app
   }

@@ -36,10 +36,11 @@ extension Device {
 }
 
 extension TankStore {
-  /// What a light can be plugged into: the outlets of the plugs on its tank, in order.
+  /// What a light can be plugged into: the outlets of the Tuya plugs on its tank, in order (Tuya's are the timers the
+  /// app can read).
   public func outlets(for light: Device) -> [TankOutlet] {
     guard light.kind == "light" else { return [] }
-    return plugs(in: light.tankId).flatMap { p in p.outlets.enumerated().map { TankOutlet(plug: p, outlet: $1, number: $0 + 1) } }
+    return plugs(in: light.tankId).filter { $0.brand == "tuya" }.flatMap { p in p.outlets.enumerated().map { TankOutlet(plug: p, outlet: $1, number: $0 + 1) } }
   }
 
   /// The outlet the reader picked for this light, while that plug is still on the light's tank with that outlet.

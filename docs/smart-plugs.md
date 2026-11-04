@@ -102,15 +102,20 @@ A Chihiros light keeps no time without power: a power cut resets its clock to ze
 (docs/research/aquarium-device-control.md), and its own schedule then never reaches its on-time. A strip's timer that
 switches the light's outlet off (off at 00:00, on at 18:00) does exactly that, every day. So the light's card says so.
 
-- **Which outlet powers the light** is the reader's pick, made once on the light's card from the outlets of the plugs on
-  the light's tank, and kept on the light's record (`powerOutlet`: the plug's record `plugId` and the outlet's `code`),
-  synced with the rest of "Bể của tôi". An outlet named for a light ("đèn" or "light", ignoring case and accents, or
-  given the light role) is offered first, never picked for the reader. A pick whose plug has left the tank counts as none.
-- **The timers** of that strip are read when the light's card opens (one call), never kept. Each one that is turned on
-  and switches the picked outlet off, on any days or once, is a warning beside the light's clock, with its time (as the
-  strip keeps it, in its own zone) and days, and what to do: turn the outlet's timer off in Smart Life so the light runs
-  its own schedule. An outlet with none says so; a read that fails says why, as the tank's plugs do.
-- Without keys on the phone, or no plug on the light's tank, the card shows nothing of this.
+- **Which outlet powers the light** is the reader's pick, made once on the light's card from the outlets of the Tuya
+  plugs on the light's tank (the timers the app can read), and kept on the light's record (`powerOutlet`: the plug's
+  record `plugId` and the outlet's `code`), synced with the rest of "Bể của tôi". An outlet named for a light ("đèn" or
+  "light", ignoring case and accents, or given the light role) is offered first, never picked for the reader. A pick
+  whose plug has left the tank counts as none. "Bỏ chọn ổ" takes the pick back.
+- **Not on a smart plug:** the reader can say so instead, and the card stops asking for that light, on this phone only
+  (it is not on the record): a quiet "Chọn ổ cắm của đèn" stays, to pick after all.
+- **The timers** of that strip are read once each time the light's card opens, never again while it stays open, and
+  never kept (`OutletTimers`). Each one that is turned on and switches the picked outlet off, on any days or once, is a
+  warning beside the light's clock, with its time and days as the strip keeps them (its zone named when it isn't the
+  phone's), and what to do: turn the outlet's timer off in Smart Life so the light runs its own schedule. A timer that ran
+  once, on a day before today in its own zone, is left out. With none, the card says it found none in Smart Life (a
+  strip's own modes, Circulate or Random, may not be listed there); a read that fails says why, as the tank's plugs do.
+- Without keys on the phone, or no Tuya plug on the light's tank, the card shows nothing of this.
 
 ## Plugs on a tank
 

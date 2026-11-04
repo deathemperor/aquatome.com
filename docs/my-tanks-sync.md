@@ -29,6 +29,9 @@ levels on the phone can't overwrite the tank's notes edited on the web at the sa
 
 Tanks and devices have `id`, `createdAt` and `updatedAt`; a tombstone has `id`, `updatedAt` and `deletedAt` only.
 
+No check runs across records: a light's `powerOutlet.plugId` whose plug is gone or on another tank is still a valid
+record, and the app ignores it (`powerOutlet(of:)`), as each copy may sync the two records at different times.
+
 Why devices keep schedules and levels: a Chihiros light reports its clock (status reply `0xfe`, bytes 6–8: ISO weekday,
 hour, minute; `00 00 xx` after a power cut reset it) but not its sunrise/sunset schedule (`a5 19`) or its manual levels.
 What we wrote is the only record of them: `schedules`, `activeScheduleId` and `manual`.

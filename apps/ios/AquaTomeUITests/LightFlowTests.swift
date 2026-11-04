@@ -646,10 +646,7 @@ final class LightFlowTests: XCTestCase {
     expect(app, "clock", contains: "Đèn mất giờ, có thể do mất điện")
     // Nothing assumed: the outlet named for a light is offered first, and only the reader's pick is kept.
     XCTAssertFalse(element(app, "outlet-warning").exists, "warned before an outlet was picked")
-    tap(app, "pick-outlet")
-    let suggested = app.buttons["Đèn · Ổ cắm bể 60 (gợi ý)"]
-    XCTAssertTrue(suggested.waitForExistence(timeout: 5), "the outlet named for a light isn't offered")
-    suggested.tap()
+    pickOutlet(app, "Đèn · Ổ cắm bể 60 (gợi ý)")
     expect(app, "light-outlet", contains: "Cắm vào ổ “Đèn” (Ổ cắm bể 60).")
     expect(app, "outlet-warning", contains: "Ổ “Đèn” tự tắt lúc 00:00 mỗi ngày. Mất điện là đèn mất giờ nên không tự bật theo lịch của nó.")
     app.terminate()
@@ -657,9 +654,45 @@ final class LightFlowTests: XCTestCase {
     // The timers turned off in Smart Life: the pick is kept, the timers read again, and no warning.
     app = launch("-seed-tuya-keys", "-stand-in-timer", "disabled", reset: false)
     connect(app)
-    expect(app, "outlet-timers", contains: "Ổ này không có hẹn giờ tắt.")
+    expect(app, "outlet-timers", contains: "Không thấy hẹn giờ tắt nào của ổ này trong Smart Life.")
     expect(app, "light-outlet", contains: "Cắm vào ổ “Đèn” (Ổ cắm bể 60).")
     XCTAssertFalse(element(app, "outlet-warning").exists, "warned of a timer turned off")
+  }
+
+  func testTakingTheOutletBackAsksAgainAndDropsTheWarning() {
+    var app = launch("-seed-tanks", "plug", "-seed-tuya-keys", "-stand-in-timer", "enabled")
+    connect(app)
+    pickOutlet(app, "Đèn · Ổ cắm bể 60 (gợi ý)")
+    expect(app, "outlet-warning", contains: "Ổ “Đèn” tự tắt lúc 00:00 mỗi ngày.")
+    // "Đổi ổ" → "Bỏ chọn ổ": no outlet, no warning, the question again.
+    pickOutlet(app, "Bỏ chọn ổ")
+    expect(app, "outlet-question", contains: "Đèn cắm vào ổ nào?")
+    XCTAssertFalse(element(app, "outlet-warning").exists || element(app, "light-outlet").exists, "the outlet taken back is still shown")
+    app.terminate()
+    // Gone from the light's record, not only from the screen.
+    app = launch("-seed-tuya-keys", "-stand-in-timer", "enabled", reset: false)
+    connect(app)
+    expect(app, "outlet-question", contains: "Đèn cắm vào ổ nào?")
+    XCTAssertFalse(element(app, "light-outlet").exists, "the outlet taken back was kept")
+  }
+
+  func testALightNotOnASmartPlugIsAskedNoMoreOnThisPhone() {
+    var app = launch("-seed-tanks", "plug", "-seed-tuya-keys", "-stand-in-timer", "enabled")
+    connect(app)
+    expect(app, "outlet-question", contains: "Đèn cắm vào ổ nào?")
+    pickOutlet(app, "Đèn không cắm ổ cắm Smart Life")
+    // The question goes; a quiet way to pick after all stays.
+    expect(app, "pick-outlet", contains: "Chọn ổ cắm của đèn")
+    XCTAssertFalse(element(app, "outlet-question").exists, "still asked which outlet")
+    app.terminate()
+    // Kept on this phone across a launch.
+    app = launch("-seed-tuya-keys", "-stand-in-timer", "enabled", reset: false)
+    connect(app)
+    expect(app, "pick-outlet", contains: "Chọn ổ cắm của đèn")
+    XCTAssertFalse(element(app, "outlet-question").exists, "asked again after a launch")
+    // Picked after all: the outlet and its warning.
+    pickOutlet(app, "Đèn · Ổ cắm bể 60 (gợi ý)")
+    expect(app, "outlet-warning", contains: "Ổ “Đèn” tự tắt lúc 00:00 mỗi ngày.")
   }
 
   // MARK: Helpers
@@ -672,6 +705,14 @@ final class LightFlowTests: XCTestCase {
     app.launch()
     app.openTab(tab)
     return app
+  }
+
+  /// Opens the light's outlet menu ("Chọn ổ", "Đổi ổ") and taps one of its items.
+  private func pickOutlet(_ app: XCUIApplication, _ item: String) {
+    tap(app, "pick-outlet")
+    let b = app.buttons[item].firstMatch
+    XCTAssertTrue(b.waitForExistence(timeout: 5), "no “\(item)” in the outlet menu")
+    b.tap()
   }
 
   /// Connects and waits for the first status read (the notice says so), not just the light's screen.
