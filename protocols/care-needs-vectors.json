@@ -1,0 +1,854 @@
+{
+  "$comment": "The needs of the species page's \"Vì sao?\" panel, under the data card's difficulty (apps/site/src/components/DataCard.astro), and the words it writes them in. careNeeds (packages/schema/src/care-needs.ts, its thresholds NEED_RULES) gives the needs; the iOS app reads them from a fish's index entry with its own port of it, and must answer `needs` exactly and write `shown` exactly. apps/site/test/care-needs-vectors.test.ts runs careNeeds on these cases, holds each fixture fish's built Vietnamese page to `shown` and `words.vi`, and the Indonesian and Thai words to the site's translations (apps/site/src/i18n/id.json, th.json). UPDATE_VECTORS=1 pnpm --filter site test rewrites the file: edit only the notes, the made-up entries and the `species` ids. `entry`: a fish's item in the app index (/app/<lang>.json; `Facts` in apps/site/src/lib/app-index.ts), with the fields careNeeds reads, named and shaped as the index has them: tempC, ph and gh as {min, max}; sizeCm and tankCm one number (the longest); temperament, finNipper and schoolMin from the fish's traits; difficulty 1–8. The app passes its entry as it is: careNeeds' input has the same names and shapes, and it reads neither difficulty nor the item's other fields. The index leaves out a figure the fish doesn't have, finNipper unless it is true, and schoolMin unless there is one. `species`: a real fish, its entry the fixture build's (apps/site/test/fixture-content). `needs`: careNeeds' answer, in NEED_ORDER (space, water, temperature, temperament, social). A need whose figures the entry lacks is left out, never counted easy. Each carries the figures it is read from: space tankCm and sizeCm, water ph and gh (each when given), temperature tempC, temperament its temperament (when given) and finNipper, social schoolMin. Space, water and temperament take the worse level of their parts. The thresholds compare the figures as they are, not rounded, and a range's span is max − min in doubles (8.2 − 7.2 is 0.9999999999999991, under 1). `why` codes come in this order: pH's (acid, alkaline, narrowPh) before GH's (veryHard, narrowGh); temperature's warm, cool, narrow. A hard pH (acid), GH (soft) or temperature (warm or cool) gives that one code and no other for that figure. The panel shows only when the entry has a difficulty and careNeeds gives a need. Its summary is the difficulty badge, \"<difficulty>/8\" and words.summary; then words.lead; then a line per need; then words.note ({n}: the difficulty) and a link, words.how, to words.howPath. `shown`: each need's line in each language, [words.need[key], words.level[level], its figures]. The figures: space, words.tank with {cm} as \"<tankCm> cm\", \", \", words.size with {cm} as \"<sizeCm> cm\" (each when given). Water, the why words joined by \", \" and then \" · \" (when there are any), then \"pH <ph>\", \", \", \"<gh> dGH\" (each when given). Temperature, the why words and \" · \" as for water, then \"<tempC>°C\" (no space). Temperament, words.temperament[temperament] and words.finNipper (each when given), joined by \", \". Social, words.school with {n} as schoolMin. A figure is written as the page's language writes numbers (Intl.NumberFormat with vi-VN, id-ID or th-TH, at most one decimal, rounded half away from zero, so 4.25 is 4,3): a decimal comma in vi and id, a point in th. A range is \"<min>–<max>\" (an en dash, no spaces), or one number when min = max. {n} in words.school and words.note is the number as it is. pH, cm, dGH and °C are the same in every language; the figures in cm and °C are the ones the page's units toggle converts (to inches and °F). words.temperament is the tank-mates tool's words, lower-cased in the page's language as the panel writes them. Plants have no panel: a plant's page has no data card, and its index item holds only its care (`plant`), so careNeeds is never read for one. A breed's page reads careNeeds from its own data card, but its index item has no figures, so the app can't: there are no breeds here.",
+  "cases": [
+    {
+      "note": "a 60 cm tank is the last easy one",
+      "entry": {"tankCm": 60},
+      "needs": [{"key": "space", "level": "easy", "tankCm": 60}],
+      "shown": {
+        "vi": [["Không gian", "Dễ", "bể từ 60 cm"]],
+        "id": [["Ruang", "Mudah", "akuarium mulai 60 cm"]],
+        "th": [["พื้นที่", "ง่าย", "ตู้ตั้งแต่ 60 cm"]]
+      }
+    },
+    {
+      "note": "61 cm is medium",
+      "entry": {"tankCm": 61},
+      "needs": [{"key": "space", "level": "mid", "tankCm": 61}],
+      "shown": {
+        "vi": [["Không gian", "Vừa", "bể từ 61 cm"]],
+        "id": [["Ruang", "Sedang", "akuarium mulai 61 cm"]],
+        "th": [["พื้นที่", "ปานกลาง", "ตู้ตั้งแต่ 61 cm"]]
+      }
+    },
+    {
+      "note": "100 cm is the last medium tank",
+      "entry": {"tankCm": 100},
+      "needs": [{"key": "space", "level": "mid", "tankCm": 100}],
+      "shown": {
+        "vi": [["Không gian", "Vừa", "bể từ 100 cm"]],
+        "id": [["Ruang", "Sedang", "akuarium mulai 100 cm"]],
+        "th": [["พื้นที่", "ปานกลาง", "ตู้ตั้งแต่ 100 cm"]]
+      }
+    },
+    {
+      "note": "101 cm is hard",
+      "entry": {"tankCm": 101},
+      "needs": [{"key": "space", "level": "hard", "tankCm": 101}],
+      "shown": {
+        "vi": [["Không gian", "Khó", "bể từ 101 cm"]],
+        "id": [["Ruang", "Sulit", "akuarium mulai 101 cm"]],
+        "th": [["พื้นที่", "ยาก", "ตู้ตั้งแต่ 101 cm"]]
+      }
+    },
+    {
+      "note": "a 10 cm fish is the last easy size",
+      "entry": {"sizeCm": 10},
+      "needs": [{"key": "space", "level": "easy", "sizeCm": 10}],
+      "shown": {
+        "vi": [["Không gian", "Dễ", "cá dài 10 cm"]],
+        "id": [["Ruang", "Mudah", "ikan sepanjang 10 cm"]],
+        "th": [["พื้นที่", "ง่าย", "ปลายาว 10 cm"]]
+      }
+    },
+    {
+      "note": "11 cm is medium",
+      "entry": {"sizeCm": 11},
+      "needs": [{"key": "space", "level": "mid", "sizeCm": 11}],
+      "shown": {
+        "vi": [["Không gian", "Vừa", "cá dài 11 cm"]],
+        "id": [["Ruang", "Sedang", "ikan sepanjang 11 cm"]],
+        "th": [["พื้นที่", "ปานกลาง", "ปลายาว 11 cm"]]
+      }
+    },
+    {
+      "note": "20 cm is the last medium size",
+      "entry": {"sizeCm": 20},
+      "needs": [{"key": "space", "level": "mid", "sizeCm": 20}],
+      "shown": {
+        "vi": [["Không gian", "Vừa", "cá dài 20 cm"]],
+        "id": [["Ruang", "Sedang", "ikan sepanjang 20 cm"]],
+        "th": [["พื้นที่", "ปานกลาง", "ปลายาว 20 cm"]]
+      }
+    },
+    {
+      "note": "21 cm is hard",
+      "entry": {"sizeCm": 21},
+      "needs": [{"key": "space", "level": "hard", "sizeCm": 21}],
+      "shown": {
+        "vi": [["Không gian", "Khó", "cá dài 21 cm"]],
+        "id": [["Ruang", "Sulit", "ikan sepanjang 21 cm"]],
+        "th": [["พื้นที่", "ยาก", "ปลายาว 21 cm"]]
+      }
+    },
+    {
+      "note": "space is the worse of the tank and the fish: an easy tank and a 12 cm fish are medium",
+      "entry": {"sizeCm": 12, "tankCm": 60},
+      "needs": [{"key": "space", "level": "mid", "tankCm": 60, "sizeCm": 12}],
+      "shown": {
+        "vi": [["Không gian", "Vừa", "bể từ 60 cm, cá dài 12 cm"]],
+        "id": [["Ruang", "Sedang", "akuarium mulai 60 cm, ikan sepanjang 12 cm"]],
+        "th": [["พื้นที่", "ปานกลาง", "ตู้ตั้งแต่ 60 cm, ปลายาว 12 cm"]]
+      }
+    },
+    {
+      "note": "the other way round: a long tank and a small fish are hard",
+      "entry": {"sizeCm": 5, "tankCm": 120},
+      "needs": [{"key": "space", "level": "hard", "tankCm": 120, "sizeCm": 5}],
+      "shown": {
+        "vi": [["Không gian", "Khó", "bể từ 120 cm, cá dài 5 cm"]],
+        "id": [["Ruang", "Sulit", "akuarium mulai 120 cm, ikan sepanjang 5 cm"]],
+        "th": [["พื้นที่", "ยาก", "ตู้ตั้งแต่ 120 cm, ปลายาว 5 cm"]]
+      }
+    },
+    {
+      "note": "a figure shows one decimal at most, rounded half away from zero: 4.25 cm is 4,3 (vi, id) and 4.3 (th)",
+      "entry": {"sizeCm": 4.25, "tankCm": 45},
+      "needs": [{"key": "space", "level": "easy", "tankCm": 45, "sizeCm": 4.25}],
+      "shown": {
+        "vi": [["Không gian", "Dễ", "bể từ 45 cm, cá dài 4,3 cm"]],
+        "id": [["Ruang", "Mudah", "akuarium mulai 45 cm, ikan sepanjang 4,3 cm"]],
+        "th": [["พื้นที่", "ง่าย", "ตู้ตั้งแต่ 45 cm, ปลายาว 4.3 cm"]]
+      }
+    },
+    {
+      "note": "pH that tops out at 6.5 is hard, and says only acid",
+      "entry": {"ph": {"min": 5, "max": 6.5}},
+      "needs": [{"key": "water", "level": "hard", "ph": {"min": 5, "max": 6.5}, "why": ["acid"]}],
+      "shown": {
+        "vi": [["Nước", "Khó", "nước chua · pH 5–6,5"]],
+        "id": [["Air", "Sulit", "air asam · pH 5–6,5"]],
+        "th": [["น้ำ", "ยาก", "น้ำเป็นกรด · pH 5–6.5"]]
+      }
+    },
+    {
+      "note": "topping out at 6.6 is not hard, still acid: medium",
+      "entry": {"ph": {"min": 5, "max": 6.6}},
+      "needs": [{"key": "water", "level": "mid", "ph": {"min": 5, "max": 6.6}, "why": ["acid"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "nước chua · pH 5–6,6"]],
+        "id": [["Air", "Sedang", "air asam · pH 5–6,6"]],
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นกรด · pH 5–6.6"]]
+      }
+    },
+    {
+      "note": "topping out just under 7 is acid: medium",
+      "entry": {"ph": {"min": 5.5, "max": 6.9}},
+      "needs": [{"key": "water", "level": "mid", "ph": {"min": 5.5, "max": 6.9}, "why": ["acid"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "nước chua · pH 5,5–6,9"]],
+        "id": [["Air", "Sedang", "air asam · pH 5,5–6,9"]],
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นกรด · pH 5.5–6.9"]]
+      }
+    },
+    {
+      "note": "reaching 7 is not acid, and a span of exactly 1 is not narrow: easy",
+      "entry": {"ph": {"min": 6, "max": 7}},
+      "needs": [{"key": "water", "level": "easy", "ph": {"min": 6, "max": 7}, "why": []}],
+      "shown": {"vi": [["Nước", "Dễ", "pH 6–7"]], "id": [["Air", "Mudah", "pH 6–7"]], "th": [["น้ำ", "ง่าย", "pH 6–7"]]}
+    },
+    {
+      "note": "starting at 7.5 is alkaline: medium",
+      "entry": {"ph": {"min": 7.5, "max": 8.5}},
+      "needs": [{"key": "water", "level": "mid", "ph": {"min": 7.5, "max": 8.5}, "why": ["alkaline"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "nước kiềm · pH 7,5–8,5"]],
+        "id": [["Air", "Sedang", "air basa · pH 7,5–8,5"]],
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นด่าง · pH 7.5–8.5"]]
+      }
+    },
+    {
+      "note": "starting at 7.4 is not: easy",
+      "entry": {"ph": {"min": 7.4, "max": 8.5}},
+      "needs": [{"key": "water", "level": "easy", "ph": {"min": 7.4, "max": 8.5}, "why": []}],
+      "shown": {
+        "vi": [["Nước", "Dễ", "pH 7,4–8,5"]],
+        "id": [["Air", "Mudah", "pH 7,4–8,5"]],
+        "th": [["น้ำ", "ง่าย", "pH 7.4–8.5"]]
+      }
+    },
+    {
+      "note": "a span of 1 is not narrow: easy",
+      "entry": {"ph": {"min": 6.5, "max": 7.5}},
+      "needs": [{"key": "water", "level": "easy", "ph": {"min": 6.5, "max": 7.5}, "why": []}],
+      "shown": {
+        "vi": [["Nước", "Dễ", "pH 6,5–7,5"]],
+        "id": [["Air", "Mudah", "pH 6,5–7,5"]],
+        "th": [["น้ำ", "ง่าย", "pH 6.5–7.5"]]
+      }
+    },
+    {
+      "note": "a span of 0.9 is narrow: medium",
+      "entry": {"ph": {"min": 6.6, "max": 7.5}},
+      "needs": [{"key": "water", "level": "mid", "ph": {"min": 6.6, "max": 7.5}, "why": ["narrowPh"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "pH trong khoảng hẹp · pH 6,6–7,5"]],
+        "id": [["Air", "Sedang", "rentang pH sempit · pH 6,6–7,5"]],
+        "th": [["น้ำ", "ปานกลาง", "ช่วง pH แคบ · pH 6.6–7.5"]]
+      }
+    },
+    {
+      "note": "spans are double subtraction: 8.2 − 7.2 is under 1, so narrow",
+      "entry": {"ph": {"min": 7.2, "max": 8.2}},
+      "needs": [{"key": "water", "level": "mid", "ph": {"min": 7.2, "max": 8.2}, "why": ["narrowPh"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "pH trong khoảng hẹp · pH 7,2–8,2"]],
+        "id": [["Air", "Sedang", "rentang pH sempit · pH 7,2–8,2"]],
+        "th": [["น้ำ", "ปานกลาง", "ช่วง pH แคบ · pH 7.2–8.2"]]
+      }
+    },
+    {
+      "note": "acid and narrow: both codes, acid first",
+      "entry": {"ph": {"min": 6, "max": 6.8}},
+      "needs": [{"key": "water", "level": "mid", "ph": {"min": 6, "max": 6.8}, "why": ["acid", "narrowPh"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "nước chua, pH trong khoảng hẹp · pH 6–6,8"]],
+        "id": [["Air", "Sedang", "air asam, rentang pH sempit · pH 6–6,8"]],
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นกรด, ช่วง pH แคบ · pH 6–6.8"]]
+      }
+    },
+    {
+      "note": "alkaline and narrow: both codes, alkaline first",
+      "entry": {"ph": {"min": 7.5, "max": 8}},
+      "needs": [{"key": "water", "level": "mid", "ph": {"min": 7.5, "max": 8}, "why": ["alkaline", "narrowPh"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "nước kiềm, pH trong khoảng hẹp · pH 7,5–8"]],
+        "id": [["Air", "Sedang", "air basa, rentang pH sempit · pH 7,5–8"]],
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นด่าง, ช่วง pH แคบ · pH 7.5–8"]]
+      }
+    },
+    {
+      "note": "one figure (min = max) is written once, and is narrow",
+      "entry": {"ph": {"min": 7, "max": 7}},
+      "needs": [{"key": "water", "level": "mid", "ph": {"min": 7, "max": 7}, "why": ["narrowPh"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "pH trong khoảng hẹp · pH 7"]],
+        "id": [["Air", "Sedang", "rentang pH sempit · pH 7"]],
+        "th": [["น้ำ", "ปานกลาง", "ช่วง pH แคบ · pH 7"]]
+      }
+    },
+    {
+      "note": "GH that tops out at 6 is hard, and says only soft, though 3–6 is also narrow",
+      "entry": {"gh": {"min": 3, "max": 6}},
+      "needs": [{"key": "water", "level": "hard", "gh": {"min": 3, "max": 6}, "why": ["soft"]}],
+      "shown": {
+        "vi": [["Nước", "Khó", "nước mềm · 3–6 dGH"]],
+        "id": [["Air", "Sulit", "air lunak · 3–6 dGH"]],
+        "th": [["น้ำ", "ยาก", "น้ำอ่อน · 3–6 dGH"]]
+      }
+    },
+    {
+      "note": "topping out at 7 is not soft: easy",
+      "entry": {"gh": {"min": 2, "max": 7}},
+      "needs": [{"key": "water", "level": "easy", "gh": {"min": 2, "max": 7}, "why": []}],
+      "shown": {
+        "vi": [["Nước", "Dễ", "2–7 dGH"]],
+        "id": [["Air", "Mudah", "2–7 dGH"]],
+        "th": [["น้ำ", "ง่าย", "2–7 dGH"]]
+      }
+    },
+    {
+      "note": "starting at 15 is very hard: medium",
+      "entry": {"gh": {"min": 15, "max": 25}},
+      "needs": [{"key": "water", "level": "mid", "gh": {"min": 15, "max": 25}, "why": ["veryHard"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "nước rất cứng · 15–25 dGH"]],
+        "id": [["Air", "Sedang", "air sangat keras · 15–25 dGH"]],
+        "th": [["น้ำ", "ปานกลาง", "น้ำกระด้างมาก · 15–25 dGH"]]
+      }
+    },
+    {
+      "note": "starting at 14 is not: easy",
+      "entry": {"gh": {"min": 14, "max": 25}},
+      "needs": [{"key": "water", "level": "easy", "gh": {"min": 14, "max": 25}, "why": []}],
+      "shown": {
+        "vi": [["Nước", "Dễ", "14–25 dGH"]],
+        "id": [["Air", "Mudah", "14–25 dGH"]],
+        "th": [["น้ำ", "ง่าย", "14–25 dGH"]]
+      }
+    },
+    {
+      "note": "a span of 4 dGH is not narrow: easy",
+      "entry": {"gh": {"min": 8, "max": 12}},
+      "needs": [{"key": "water", "level": "easy", "gh": {"min": 8, "max": 12}, "why": []}],
+      "shown": {
+        "vi": [["Nước", "Dễ", "8–12 dGH"]],
+        "id": [["Air", "Mudah", "8–12 dGH"]],
+        "th": [["น้ำ", "ง่าย", "8–12 dGH"]]
+      }
+    },
+    {
+      "note": "a span of 3 is narrow: medium",
+      "entry": {"gh": {"min": 8, "max": 11}},
+      "needs": [{"key": "water", "level": "mid", "gh": {"min": 8, "max": 11}, "why": ["narrowGh"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "độ cứng trong khoảng hẹp · 8–11 dGH"]],
+        "id": [["Air", "Sedang", "rentang kesadahan sempit · 8–11 dGH"]],
+        "th": [["น้ำ", "ปานกลาง", "ช่วงความกระด้างแคบ · 8–11 dGH"]]
+      }
+    },
+    {
+      "note": "very hard and narrow: both codes",
+      "entry": {"gh": {"min": 15, "max": 18}},
+      "needs": [{"key": "water", "level": "mid", "gh": {"min": 15, "max": 18}, "why": ["veryHard", "narrowGh"]}],
+      "shown": {
+        "vi": [["Nước", "Vừa", "nước rất cứng, độ cứng trong khoảng hẹp · 15–18 dGH"]],
+        "id": [["Air", "Sedang", "air sangat keras, rentang kesadahan sempit · 15–18 dGH"]],
+        "th": [["น้ำ", "ปานกลาง", "น้ำกระด้างมาก, ช่วงความกระด้างแคบ · 15–18 dGH"]]
+      }
+    },
+    {
+      "note": "water is the worse of pH and GH: an easy pH and soft water are hard",
+      "entry": {"ph": {"min": 6, "max": 8}, "gh": {"min": 2, "max": 6}},
+      "needs": [
+        {"key": "water", "level": "hard", "ph": {"min": 6, "max": 8}, "gh": {"min": 2, "max": 6}, "why": ["soft"]}
+      ],
+      "shown": {
+        "vi": [["Nước", "Khó", "nước mềm · pH 6–8, 2–6 dGH"]],
+        "id": [["Air", "Sulit", "air lunak · pH 6–8, 2–6 dGH"]],
+        "th": [["น้ำ", "ยาก", "น้ำอ่อน · pH 6–8, 2–6 dGH"]]
+      }
+    },
+    {
+      "note": "a hard pH and an easy GH are hard, with pH's code only",
+      "entry": {"ph": {"min": 4.5, "max": 6.5}, "gh": {"min": 2, "max": 10}},
+      "needs": [
+        {"key": "water", "level": "hard", "ph": {"min": 4.5, "max": 6.5}, "gh": {"min": 2, "max": 10}, "why": ["acid"]}
+      ],
+      "shown": {
+        "vi": [["Nước", "Khó", "nước chua · pH 4,5–6,5, 2–10 dGH"]],
+        "id": [["Air", "Sulit", "air asam · pH 4,5–6,5, 2–10 dGH"]],
+        "th": [["น้ำ", "ยาก", "น้ำเป็นกรด · pH 4.5–6.5, 2–10 dGH"]]
+      }
+    },
+    {
+      "note": "a narrow pH and a narrow GH: pH's code first",
+      "entry": {"ph": {"min": 6.6, "max": 7.5}, "gh": {"min": 8, "max": 11}},
+      "needs": [
+        {
+          "key": "water",
+          "level": "mid",
+          "ph": {"min": 6.6, "max": 7.5},
+          "gh": {"min": 8, "max": 11},
+          "why": ["narrowPh", "narrowGh"]
+        }
+      ],
+      "shown": {
+        "vi": [["Nước", "Vừa", "pH trong khoảng hẹp, độ cứng trong khoảng hẹp · pH 6,6–7,5, 8–11 dGH"]],
+        "id": [["Air", "Sedang", "rentang pH sempit, rentang kesadahan sempit · pH 6,6–7,5, 8–11 dGH"]],
+        "th": [["น้ำ", "ปานกลาง", "ช่วง pH แคบ, ช่วงความกระด้างแคบ · pH 6.6–7.5, 8–11 dGH"]]
+      }
+    },
+    {
+      "note": "alkaline and very hard",
+      "entry": {"ph": {"min": 7.5, "max": 8.5}, "gh": {"min": 15, "max": 25}},
+      "needs": [
+        {
+          "key": "water",
+          "level": "mid",
+          "ph": {"min": 7.5, "max": 8.5},
+          "gh": {"min": 15, "max": 25},
+          "why": ["alkaline", "veryHard"]
+        }
+      ],
+      "shown": {
+        "vi": [["Nước", "Vừa", "nước kiềm, nước rất cứng · pH 7,5–8,5, 15–25 dGH"]],
+        "id": [["Air", "Sedang", "air basa, air sangat keras · pH 7,5–8,5, 15–25 dGH"]],
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นด่าง, น้ำกระด้างมาก · pH 7.5–8.5, 15–25 dGH"]]
+      }
+    },
+    {
+      "note": "a temperature that starts at 28 °C is hard, and says only warm",
+      "entry": {"tempC": {"min": 28, "max": 31}},
+      "needs": [{"key": "temperature", "level": "hard", "tempC": {"min": 28, "max": 31}, "why": ["warm"]}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Khó", "nước ấm · 28–31°C"]],
+        "id": [["Suhu", "Sulit", "air hangat · 28–31°C"]],
+        "th": [["อุณหภูมิ", "ยาก", "น้ำอุ่น · 28–31°C"]]
+      }
+    },
+    {
+      "note": "starting at 27 is not hard, still warm: medium",
+      "entry": {"tempC": {"min": 27, "max": 31}},
+      "needs": [{"key": "temperature", "level": "mid", "tempC": {"min": 27, "max": 31}, "why": ["warm"]}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Vừa", "nước ấm · 27–31°C"]],
+        "id": [["Suhu", "Sedang", "air hangat · 27–31°C"]],
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำอุ่น · 27–31°C"]]
+      }
+    },
+    {
+      "note": "starting at 26 is warm: medium",
+      "entry": {"tempC": {"min": 26, "max": 30}},
+      "needs": [{"key": "temperature", "level": "mid", "tempC": {"min": 26, "max": 30}, "why": ["warm"]}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Vừa", "nước ấm · 26–30°C"]],
+        "id": [["Suhu", "Sedang", "air hangat · 26–30°C"]],
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำอุ่น · 26–30°C"]]
+      }
+    },
+    {
+      "note": "starting at 25 is not: easy",
+      "entry": {"tempC": {"min": 25, "max": 30}},
+      "needs": [{"key": "temperature", "level": "easy", "tempC": {"min": 25, "max": 30}, "why": []}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Dễ", "25–30°C"]],
+        "id": [["Suhu", "Mudah", "25–30°C"]],
+        "th": [["อุณหภูมิ", "ง่าย", "25–30°C"]]
+      }
+    },
+    {
+      "note": "topping out at 22 is hard, and says only cool",
+      "entry": {"tempC": {"min": 16, "max": 22}},
+      "needs": [{"key": "temperature", "level": "hard", "tempC": {"min": 16, "max": 22}, "why": ["cool"]}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Khó", "nước mát · 16–22°C"]],
+        "id": [["Suhu", "Sulit", "air sejuk · 16–22°C"]],
+        "th": [["อุณหภูมิ", "ยาก", "น้ำเย็น · 16–22°C"]]
+      }
+    },
+    {
+      "note": "topping out at 23 is not hard, still cool: medium",
+      "entry": {"tempC": {"min": 18, "max": 23}},
+      "needs": [{"key": "temperature", "level": "mid", "tempC": {"min": 18, "max": 23}, "why": ["cool"]}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Vừa", "nước mát · 18–23°C"]],
+        "id": [["Suhu", "Sedang", "air sejuk · 18–23°C"]],
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น · 18–23°C"]]
+      }
+    },
+    {
+      "note": "topping out at 25 is cool: medium",
+      "entry": {"tempC": {"min": 20, "max": 25}},
+      "needs": [{"key": "temperature", "level": "mid", "tempC": {"min": 20, "max": 25}, "why": ["cool"]}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Vừa", "nước mát · 20–25°C"]],
+        "id": [["Suhu", "Sedang", "air sejuk · 20–25°C"]],
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น · 20–25°C"]]
+      }
+    },
+    {
+      "note": "topping out at 26 is not: easy",
+      "entry": {"tempC": {"min": 20, "max": 26}},
+      "needs": [{"key": "temperature", "level": "easy", "tempC": {"min": 20, "max": 26}, "why": []}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Dễ", "20–26°C"]],
+        "id": [["Suhu", "Mudah", "20–26°C"]],
+        "th": [["อุณหภูมิ", "ง่าย", "20–26°C"]]
+      }
+    },
+    {
+      "note": "a span of 4 degrees is not narrow: easy",
+      "entry": {"tempC": {"min": 22, "max": 26}},
+      "needs": [{"key": "temperature", "level": "easy", "tempC": {"min": 22, "max": 26}, "why": []}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Dễ", "22–26°C"]],
+        "id": [["Suhu", "Mudah", "22–26°C"]],
+        "th": [["อุณหภูมิ", "ง่าย", "22–26°C"]]
+      }
+    },
+    {
+      "note": "a span of 3 is narrow: medium",
+      "entry": {"tempC": {"min": 23, "max": 26}},
+      "needs": [{"key": "temperature", "level": "mid", "tempC": {"min": 23, "max": 26}, "why": ["narrow"]}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Vừa", "khoảng nhiệt độ hẹp · 23–26°C"]],
+        "id": [["Suhu", "Sedang", "rentang suhu sempit · 23–26°C"]],
+        "th": [["อุณหภูมิ", "ปานกลาง", "ช่วงอุณหภูมิแคบ · 23–26°C"]]
+      }
+    },
+    {
+      "note": "warm and narrow: both codes, warm first",
+      "entry": {"tempC": {"min": 26, "max": 29}},
+      "needs": [{"key": "temperature", "level": "mid", "tempC": {"min": 26, "max": 29}, "why": ["warm", "narrow"]}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Vừa", "nước ấm, khoảng nhiệt độ hẹp · 26–29°C"]],
+        "id": [["Suhu", "Sedang", "air hangat, rentang suhu sempit · 26–29°C"]],
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำอุ่น, ช่วงอุณหภูมิแคบ · 26–29°C"]]
+      }
+    },
+    {
+      "note": "cool and narrow: both codes, cool first",
+      "entry": {"tempC": {"min": 22, "max": 25}},
+      "needs": [{"key": "temperature", "level": "mid", "tempC": {"min": 22, "max": 25}, "why": ["cool", "narrow"]}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Vừa", "nước mát, khoảng nhiệt độ hẹp · 22–25°C"]],
+        "id": [["Suhu", "Sedang", "air sejuk, rentang suhu sempit · 22–25°C"]],
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น, ช่วงอุณหภูมิแคบ · 22–25°C"]]
+      }
+    },
+    {
+      "note": "halves keep their decimal: 24,5–28,5 (vi, id), 24.5–28.5 (th); a span of 4, not narrow",
+      "entry": {"tempC": {"min": 24.5, "max": 28.5}},
+      "needs": [{"key": "temperature", "level": "easy", "tempC": {"min": 24.5, "max": 28.5}, "why": []}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Dễ", "24,5–28,5°C"]],
+        "id": [["Suhu", "Mudah", "24,5–28,5°C"]],
+        "th": [["อุณหภูมิ", "ง่าย", "24.5–28.5°C"]]
+      }
+    },
+    {
+      "note": "one figure (min = max) is written once: cool and narrow",
+      "entry": {"tempC": {"min": 25, "max": 25}},
+      "needs": [{"key": "temperature", "level": "mid", "tempC": {"min": 25, "max": 25}, "why": ["cool", "narrow"]}],
+      "shown": {
+        "vi": [["Nhiệt độ", "Vừa", "nước mát, khoảng nhiệt độ hẹp · 25°C"]],
+        "id": [["Suhu", "Sedang", "air sejuk, rentang suhu sempit · 25°C"]],
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น, ช่วงอุณหภูมิแคบ · 25°C"]]
+      }
+    },
+    {
+      "note": "a peaceful fish is easy",
+      "entry": {"temperament": "peaceful"},
+      "needs": [{"key": "temperament", "level": "easy", "temperament": "peaceful", "finNipper": false}],
+      "shown": {
+        "vi": [["Tính cách", "Dễ", "hiền"]],
+        "id": [["Perilaku", "Mudah", "damai"]],
+        "th": [["นิสัย", "ง่าย", "นิสัยสงบ"]]
+      }
+    },
+    {
+      "note": "a semi-aggressive fish is medium",
+      "entry": {"temperament": "semi-aggressive"},
+      "needs": [{"key": "temperament", "level": "mid", "temperament": "semi-aggressive", "finNipper": false}],
+      "shown": {
+        "vi": [["Tính cách", "Vừa", "hơi dữ"]],
+        "id": [["Perilaku", "Sedang", "agak agresif"]],
+        "th": [["นิสัย", "ปานกลาง", "ค่อนข้างดุ"]]
+      }
+    },
+    {
+      "note": "an aggressive fish is hard",
+      "entry": {"temperament": "aggressive"},
+      "needs": [{"key": "temperament", "level": "hard", "temperament": "aggressive", "finNipper": false}],
+      "shown": {
+        "vi": [["Tính cách", "Khó", "hung dữ"]],
+        "id": [["Perilaku", "Sulit", "agresif"]],
+        "th": [["นิสัย", "ยาก", "ดุร้าย"]]
+      }
+    },
+    {
+      "note": "a predator is hard",
+      "entry": {"temperament": "predator"},
+      "needs": [{"key": "temperament", "level": "hard", "temperament": "predator", "finNipper": false}],
+      "shown": {
+        "vi": [["Tính cách", "Khó", "săn mồi"]],
+        "id": [["Perilaku", "Sulit", "predator"]],
+        "th": [["นิสัย", "ยาก", "ล่าเหยื่อ"]]
+      }
+    },
+    {
+      "note": "a fin nipper with no temperament is medium, its need with no temperament",
+      "entry": {"finNipper": true},
+      "needs": [{"key": "temperament", "level": "mid", "finNipper": true}],
+      "shown": {
+        "vi": [["Tính cách", "Vừa", "hay cắn vây"]],
+        "id": [["Perilaku", "Sedang", "suka menggigit sirip"]],
+        "th": [["นิสัย", "ปานกลาง", "ชอบกัดครีบ"]]
+      }
+    },
+    {
+      "note": "a peaceful fin nipper is medium",
+      "entry": {"temperament": "peaceful", "finNipper": true},
+      "needs": [{"key": "temperament", "level": "mid", "temperament": "peaceful", "finNipper": true}],
+      "shown": {
+        "vi": [["Tính cách", "Vừa", "hiền, hay cắn vây"]],
+        "id": [["Perilaku", "Sedang", "damai, suka menggigit sirip"]],
+        "th": [["นิสัย", "ปานกลาง", "นิสัยสงบ, ชอบกัดครีบ"]]
+      }
+    },
+    {
+      "note": "an aggressive fin nipper stays hard, with both words",
+      "entry": {"temperament": "aggressive", "finNipper": true},
+      "needs": [{"key": "temperament", "level": "hard", "temperament": "aggressive", "finNipper": true}],
+      "shown": {
+        "vi": [["Tính cách", "Khó", "hung dữ, hay cắn vây"]],
+        "id": [["Perilaku", "Sulit", "agresif, suka menggigit sirip"]],
+        "th": [["นิสัย", "ยาก", "ดุร้าย, ชอบกัดครีบ"]]
+      }
+    },
+    {
+      "note": "a group of 5 is the last easy one",
+      "entry": {"schoolMin": 5},
+      "needs": [{"key": "social", "level": "easy", "schoolMin": 5}],
+      "shown": {
+        "vi": [["Bầy đàn", "Dễ", "đàn từ 5 con"]],
+        "id": [["Kelompok", "Mudah", "kelompok mulai 5 ekor"]],
+        "th": [["การอยู่เป็นฝูง", "ง่าย", "ฝูงตั้งแต่ 5 ตัว"]]
+      }
+    },
+    {
+      "note": "6 is medium",
+      "entry": {"schoolMin": 6},
+      "needs": [{"key": "social", "level": "mid", "schoolMin": 6}],
+      "shown": {
+        "vi": [["Bầy đàn", "Vừa", "đàn từ 6 con"]],
+        "id": [["Kelompok", "Sedang", "kelompok mulai 6 ekor"]],
+        "th": [["การอยู่เป็นฝูง", "ปานกลาง", "ฝูงตั้งแต่ 6 ตัว"]]
+      }
+    },
+    {
+      "note": "9 is the last medium group",
+      "entry": {"schoolMin": 9},
+      "needs": [{"key": "social", "level": "mid", "schoolMin": 9}],
+      "shown": {
+        "vi": [["Bầy đàn", "Vừa", "đàn từ 9 con"]],
+        "id": [["Kelompok", "Sedang", "kelompok mulai 9 ekor"]],
+        "th": [["การอยู่เป็นฝูง", "ปานกลาง", "ฝูงตั้งแต่ 9 ตัว"]]
+      }
+    },
+    {
+      "note": "10 is hard",
+      "entry": {"schoolMin": 10},
+      "needs": [{"key": "social", "level": "hard", "schoolMin": 10}],
+      "shown": {
+        "vi": [["Bầy đàn", "Khó", "đàn từ 10 con"]],
+        "id": [["Kelompok", "Sulit", "kelompok mulai 10 ekor"]],
+        "th": [["การอยู่เป็นฝูง", "ยาก", "ฝูงตั้งแต่ 10 ตัว"]]
+      }
+    },
+    {
+      "note": "an empty entry has no needs, so no panel",
+      "entry": {},
+      "needs": [],
+      "shown": {"vi": [], "id": [], "th": []}
+    },
+    {
+      "note": "a difficulty alone gives no need either: it is the sources' rating, not a need",
+      "entry": {"difficulty": 3},
+      "needs": [],
+      "shown": {"vi": [], "id": [], "th": []}
+    },
+    {
+      "note": "cardinal tetra: all five needs; soft acid water is hard, the sources' shared temperature range is narrow",
+      "species": "paracheirodon-axelrodi",
+      "entry": {
+        "tempC": {"min": 24, "max": 27},
+        "ph": {"min": 4, "max": 6},
+        "gh": {"min": 1, "max": 6},
+        "sizeCm": 5,
+        "tankCm": 60,
+        "temperament": "peaceful",
+        "schoolMin": 8,
+        "difficulty": 3
+      },
+      "needs": [
+        {"key": "space", "level": "easy", "tankCm": 60, "sizeCm": 5},
+        {
+          "key": "water",
+          "level": "hard",
+          "ph": {"min": 4, "max": 6},
+          "gh": {"min": 1, "max": 6},
+          "why": ["acid", "soft"]
+        },
+        {"key": "temperature", "level": "mid", "tempC": {"min": 24, "max": 27}, "why": ["narrow"]},
+        {"key": "temperament", "level": "easy", "temperament": "peaceful", "finNipper": false},
+        {"key": "social", "level": "mid", "schoolMin": 8}
+      ],
+      "shown": {
+        "vi": [
+          ["Không gian", "Dễ", "bể từ 60 cm, cá dài 5 cm"],
+          ["Nước", "Khó", "nước chua, nước mềm · pH 4–6, 1–6 dGH"],
+          ["Nhiệt độ", "Vừa", "khoảng nhiệt độ hẹp · 24–27°C"],
+          ["Tính cách", "Dễ", "hiền"],
+          ["Bầy đàn", "Vừa", "đàn từ 8 con"]
+        ],
+        "id": [
+          ["Ruang", "Mudah", "akuarium mulai 60 cm, ikan sepanjang 5 cm"],
+          ["Air", "Sulit", "air asam, air lunak · pH 4–6, 1–6 dGH"],
+          ["Suhu", "Sedang", "rentang suhu sempit · 24–27°C"],
+          ["Perilaku", "Mudah", "damai"],
+          ["Kelompok", "Sedang", "kelompok mulai 8 ekor"]
+        ],
+        "th": [
+          ["พื้นที่", "ง่าย", "ตู้ตั้งแต่ 60 cm, ปลายาว 5 cm"],
+          ["น้ำ", "ยาก", "น้ำเป็นกรด, น้ำอ่อน · pH 4–6, 1–6 dGH"],
+          ["อุณหภูมิ", "ปานกลาง", "ช่วงอุณหภูมิแคบ · 24–27°C"],
+          ["นิสัย", "ง่าย", "นิสัยสงบ"],
+          ["การอยู่เป็นฝูง", "ปานกลาง", "ฝูงตั้งแต่ 8 ตัว"]
+        ]
+      }
+    },
+    {
+      "note": "discus: three hard needs; no traits, so no temperament or social need",
+      "species": "symphysodon-aequifasciatus",
+      "entry": {
+        "tempC": {"min": 28, "max": 31},
+        "ph": {"min": 4.5, "max": 6.5},
+        "sizeCm": 15,
+        "tankCm": 120,
+        "difficulty": 7
+      },
+      "needs": [
+        {"key": "space", "level": "hard", "tankCm": 120, "sizeCm": 15},
+        {"key": "water", "level": "hard", "ph": {"min": 4.5, "max": 6.5}, "why": ["acid"]},
+        {"key": "temperature", "level": "hard", "tempC": {"min": 28, "max": 31}, "why": ["warm"]}
+      ],
+      "shown": {
+        "vi": [
+          ["Không gian", "Khó", "bể từ 120 cm, cá dài 15 cm"],
+          ["Nước", "Khó", "nước chua · pH 4,5–6,5"],
+          ["Nhiệt độ", "Khó", "nước ấm · 28–31°C"]
+        ],
+        "id": [
+          ["Ruang", "Sulit", "akuarium mulai 120 cm, ikan sepanjang 15 cm"],
+          ["Air", "Sulit", "air asam · pH 4,5–6,5"],
+          ["Suhu", "Sulit", "air hangat · 28–31°C"]
+        ],
+        "th": [
+          ["พื้นที่", "ยาก", "ตู้ตั้งแต่ 120 cm, ปลายาว 15 cm"],
+          ["น้ำ", "ยาก", "น้ำเป็นกรด · pH 4.5–6.5"],
+          ["อุณหภูมิ", "ยาก", "น้ำอุ่น · 28–31°C"]
+        ]
+      }
+    },
+    {
+      "note": "a semi-aggressive dwarf cichlid with no smallest group: no social need",
+      "species": "apistogramma-cacatuoides",
+      "entry": {
+        "tempC": {"min": 24, "max": 29},
+        "ph": {"min": 5, "max": 7.5},
+        "sizeCm": 9,
+        "tankCm": 60,
+        "temperament": "semi-aggressive",
+        "difficulty": 4
+      },
+      "needs": [
+        {"key": "space", "level": "easy", "tankCm": 60, "sizeCm": 9},
+        {"key": "water", "level": "easy", "ph": {"min": 5, "max": 7.5}, "why": []},
+        {"key": "temperature", "level": "easy", "tempC": {"min": 24, "max": 29}, "why": []},
+        {"key": "temperament", "level": "mid", "temperament": "semi-aggressive", "finNipper": false}
+      ],
+      "shown": {
+        "vi": [
+          ["Không gian", "Dễ", "bể từ 60 cm, cá dài 9 cm"],
+          ["Nước", "Dễ", "pH 5–7,5"],
+          ["Nhiệt độ", "Dễ", "24–29°C"],
+          ["Tính cách", "Vừa", "hơi dữ"]
+        ],
+        "id": [
+          ["Ruang", "Mudah", "akuarium mulai 60 cm, ikan sepanjang 9 cm"],
+          ["Air", "Mudah", "pH 5–7,5"],
+          ["Suhu", "Mudah", "24–29°C"],
+          ["Perilaku", "Sedang", "agak agresif"]
+        ],
+        "th": [
+          ["พื้นที่", "ง่าย", "ตู้ตั้งแต่ 60 cm, ปลายาว 9 cm"],
+          ["น้ำ", "ง่าย", "pH 5–7.5"],
+          ["อุณหภูมิ", "ง่าย", "24–29°C"],
+          ["นิสัย", "ปานกลาง", "ค่อนข้างดุ"]
+        ]
+      }
+    },
+    {
+      "note": "angelfish: a size and nothing else, so one need, and no difficulty, so no panel",
+      "species": "pterophyllum-scalare",
+      "entry": {"sizeCm": 15},
+      "needs": [{"key": "space", "level": "mid", "sizeCm": 15}],
+      "shown": {
+        "vi": [["Không gian", "Vừa", "cá dài 15 cm"]],
+        "id": [["Ruang", "Sedang", "ikan sepanjang 15 cm"]],
+        "th": [["พื้นที่", "ปานกลาง", "ปลายาว 15 cm"]]
+      }
+    }
+  ],
+  "words": {
+    "vi": {
+      "summary": "Vì sao?",
+      "lead": "Điều làm loài này dễ hay khó nuôi, đọc từ bảng:",
+      "need": {
+        "space": "Không gian",
+        "water": "Nước",
+        "temperature": "Nhiệt độ",
+        "temperament": "Tính cách",
+        "social": "Bầy đàn"
+      },
+      "level": {"easy": "Dễ", "mid": "Vừa", "hard": "Khó"},
+      "why": {
+        "acid": "nước chua",
+        "alkaline": "nước kiềm",
+        "narrowPh": "pH trong khoảng hẹp",
+        "soft": "nước mềm",
+        "veryHard": "nước rất cứng",
+        "narrowGh": "độ cứng trong khoảng hẹp",
+        "warm": "nước ấm",
+        "cool": "nước mát",
+        "narrow": "khoảng nhiệt độ hẹp"
+      },
+      "temperament": {"peaceful": "hiền", "semi-aggressive": "hơi dữ", "aggressive": "hung dữ", "predator": "săn mồi"},
+      "finNipper": "hay cắn vây",
+      "tank": "bể từ {cm}",
+      "size": "cá dài {cm}",
+      "school": "đàn từ {n} con",
+      "note": "Độ khó {n}/8 là mức nguồn chấm. Nguồn có thể tính cả điều bảng không ghi, như thức ăn.",
+      "how": "Cách tính các mức",
+      "howPath": "/vi/gioi-thieu/bang-du-lieu/#nhu-cau"
+    },
+    "id": {
+      "summary": "Kenapa?",
+      "lead": "Yang membuat spesies ini mudah atau sulit dipelihara, menurut tabel:",
+      "need": {"space": "Ruang", "water": "Air", "temperature": "Suhu", "temperament": "Perilaku", "social": "Kelompok"},
+      "level": {"easy": "Mudah", "mid": "Sedang", "hard": "Sulit"},
+      "why": {
+        "acid": "air asam",
+        "alkaline": "air basa",
+        "narrowPh": "rentang pH sempit",
+        "soft": "air lunak",
+        "veryHard": "air sangat keras",
+        "narrowGh": "rentang kesadahan sempit",
+        "warm": "air hangat",
+        "cool": "air sejuk",
+        "narrow": "rentang suhu sempit"
+      },
+      "temperament": {
+        "peaceful": "damai",
+        "semi-aggressive": "agak agresif",
+        "aggressive": "agresif",
+        "predator": "predator"
+      },
+      "finNipper": "suka menggigit sirip",
+      "tank": "akuarium mulai {cm}",
+      "size": "ikan sepanjang {cm}",
+      "school": "kelompok mulai {n} ekor",
+      "note": "Tingkat kesulitan {n}/8 adalah nilai dari sumber. Sumber bisa ikut menimbang hal yang tidak ada di tabel, seperti pakan.",
+      "how": "Cara tingkat dihitung",
+      "howPath": "/id/tentang/tabel-data/#nhu-cau"
+    },
+    "th": {
+      "summary": "ทำไม?",
+      "lead": "สิ่งที่ทำให้ปลาชนิดนี้เลี้ยงง่ายหรือยาก อ่านจากตาราง:",
+      "need": {
+        "space": "พื้นที่",
+        "water": "น้ำ",
+        "temperature": "อุณหภูมิ",
+        "temperament": "นิสัย",
+        "social": "การอยู่เป็นฝูง"
+      },
+      "level": {"easy": "ง่าย", "mid": "ปานกลาง", "hard": "ยาก"},
+      "why": {
+        "acid": "น้ำเป็นกรด",
+        "alkaline": "น้ำเป็นด่าง",
+        "narrowPh": "ช่วง pH แคบ",
+        "soft": "น้ำอ่อน",
+        "veryHard": "น้ำกระด้างมาก",
+        "narrowGh": "ช่วงความกระด้างแคบ",
+        "warm": "น้ำอุ่น",
+        "cool": "น้ำเย็น",
+        "narrow": "ช่วงอุณหภูมิแคบ"
+      },
+      "temperament": {
+        "peaceful": "นิสัยสงบ",
+        "semi-aggressive": "ค่อนข้างดุ",
+        "aggressive": "ดุร้าย",
+        "predator": "ล่าเหยื่อ"
+      },
+      "finNipper": "ชอบกัดครีบ",
+      "tank": "ตู้ตั้งแต่ {cm}",
+      "size": "ปลายาว {cm}",
+      "school": "ฝูงตั้งแต่ {n} ตัว",
+      "note": "ความยาก {n}/8 เป็นคะแนนจากแหล่งข้อมูล ซึ่งอาจคิดรวมสิ่งที่ตารางไม่ได้ระบุ เช่น อาหาร",
+      "how": "วิธีคิดระดับ",
+      "howPath": "/th/about/data-table/#nhu-cau"
+    }
+  }
+}
