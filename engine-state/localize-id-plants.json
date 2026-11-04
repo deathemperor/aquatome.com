@@ -1340,6 +1340,41 @@
       "Item 2: \"sekitar 5–10 cm\" renders \"a few inches\" a little loosely. \"sekitar 5–8 cm\" is closer."
     ]
   },
+  "ludwigia-glandulosa": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Ludwigia glandulosa",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"5-12 cm wide\" is rendered \"lebar 5–12 cm\" faithfully (the source's odd figure is preserved), so there is nothing to fix. Optionally use \"Batangnya bisa tumbuh setinggi...\" for smoother phrasing.",
+      "Item 1: \"tanaman batang (stem)\" is acceptable, but \"Jenis: tanaman batang\" is enough; the bracketed English is optional."
+    ]
+  },
+  "ludwigia-palustris": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Ludwigia palustris 'Super Green'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"Tanaman ini termasuk tanaman batang\" is repetitive; use \"Ini termasuk tanaman batang (stem plant)\" or similar.",
+      "Item 3: \"Warna merah dan hijau muda keduanya akan saling menonjolkan secara visual\" is awkward; use \"Warna merah dan hijau muda akan saling menonjolkan\".",
+      "Item 2: \"Setiap batang tumbuh dengan lebar 2–4 cm\" is slightly unnatural; the width refers to the leaves/whorl, so consider \"lebar 2–4 cm\" phrased more naturally."
+    ]
+  },
+  "ludwigia-repens": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Ludwigia repens 'Rubin'",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"Tanaman ini tidak banyak tuntutan\" is a bit stiff; more natural: \"Tanaman ini tidak rewel / mudah dirawat\".",
+      "\"Panjang batang 20–50 cm dengan lebar 4–6 cm\": fine in meaning, but \"lebar\" most likely refers to leaf/stem spread; consider \"lebar rumpun\" for clarity if the source means that.",
+      "\"Asal\" for Origin is okay but \"Asal daerah\" or \"Asal usul\" is more natural in a handbook."
+    ]
+  },
   "lysimachia-nummularia": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -1354,6 +1389,18 @@
       "Section 9: \"Bunga kuning yang biasanya bermahkota 5 helai\" is okay but stiff; \"berkelopak 5\" or \"berpetal 5\" is more common.",
       "Section 5: \"Pertumbuhan memanjang (leggy)\" is slightly vague; \"batang melar/kurus memanjang\" would be clearer.",
       "Section 1: \"Area tengah dan belakang\" is fine, but hobbyists usually say \"bagian tengah dan belakang akuarium\"."
+    ]
+  },
+  "lysimachia-parvifolia": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Lysimachia parvifolia 'Red'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"tanaman air berwarna hijau\" for \"green aquarium plant\": better \"tanaman akuarium berwarna hijau\" (\"tanaman air\" is broader and less precise).",
+      "\"sehingga tanaman ini menjadi tanaman aksen\": repetitive \"tanaman\"; consider \"menjadi aksen yang menarik\".",
+      "\"memberikan perkembangan warna terbaik\": slightly stiff; consider \"menghasilkan warna terbaik\"."
     ]
   },
   "marsilea-hirsuta": {

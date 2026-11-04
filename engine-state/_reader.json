@@ -293,6 +293,22 @@
     ],
     "ruled": "085d7c3bd96d2bf7"
   },
+  "vi/guides/aquariumbreeder-submerged-aquarium-plants-as-nitrate-suppressors": {
+    "at": "2026-11-04",
+    "hash": "80cf7ff07a8f2fb6",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Rất hợp bể nano",
+        "problem": "The red tiger lotus is listed as very suitable for nano tanks, but the same section says it can grow to 60 cm, can take over the tank and has a very large root system.",
+        "fix": "Không hợp bể nano",
+        "field": "body"
+      }
+    ],
+    "ruled": "80cf7ff07a8f2fb6"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-10-best-aquarium-fish-for-beginners": {
     "at": "2026-11-01",
     "hash": "ef0ab3e5d5369e89",
@@ -651,6 +667,12 @@
     "hash": "d1280689326c79c6",
     "findings": [],
     "ruled": "d1280689326c79c6"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-algae": {
+    "at": "2026-11-04",
+    "hash": "1f67b770d78418c4",
+    "findings": [],
+    "ruled": "1f67b770d78418c4"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-aquarium-cleaning": {
     "at": "2026-11-04",
@@ -3760,6 +3782,37 @@
     ],
     "ruled": "028a4b843310444d"
   },
+  "vi/guides/sprucepets-gourami-care-and-breeding-1378303": {
+    "at": "2026-11-04",
+    "hash": "5a5c9644d59f493f",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C2",
+        "quote": "Pepper corydora sifting through substrate",
+        "problem": "The photo shows a pepper cory, not a gourami, on a page about gouramis.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C3",
+        "quote": "Two silver arowana in a planted aquarium",
+        "problem": "The photo shows silver arowana, not a gourami.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C4",
+        "quote": "Electric blue heap fish with light blue scales and dark blue stripes",
+        "problem": "The photo shows an electric blue hap (a cichlid), not a gourami.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "5a5c9644d59f493f"
+  },
   "vi/guides/sprucepets-gourami-species-1381077": {
     "at": "2026-11-01",
     "hash": "a0f6c377edd7a698",
@@ -4326,6 +4379,28 @@
     ],
     "ruled": "ecd88a93367ce2b2"
   },
+  "vi/guides/youtube-49xcIOK1F1s": {
+    "at": "2026-11-04",
+    "hash": "f077c78310b93b3f",
+    "findings": [],
+    "ruled": "f077c78310b93b3f"
+  },
+  "vi/guides/youtube-4GFdgPkH4WI": {
+    "at": "2026-11-04",
+    "hash": "c14cc77769b73745",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "tỉa liễu và chọn đèn hợp với túi tiền",
+        "problem": "The intro promises sections on trimming Rotala and choosing an affordable light, but the page has neither.",
+        "fix": "Bài này gom lại những kinh nghiệm thực tế về các việc đó: hút cặn đỡ phí nước, xử lý bụi trong bể rêu và giữ rêu hại ở mức chấp nhận được.",
+        "field": "body"
+      }
+    ],
+    "ruled": "c14cc77769b73745"
+  },
   "vi/guides/youtube-4UAMT8frW4s": {
     "at": "2026-11-02",
     "hash": "769e5615886e405f",
@@ -4341,6 +4416,23 @@
       }
     ],
     "ruled": "769e5615886e405f"
+  },
+  "vi/guides/youtube-5qe8mXaetcY": {
+    "at": "2026-11-04",
+    "hash": "6c4408d0abde0408",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Phụ đề tự động của video khá nhiễu, nên những chỗ không rõ được ghi là kinh nghiệm chung chứ không phải quy tắc cứng.",
+        "problem": "This is a leftover note from the writing process about the source video's auto-subtitles. It makes no sense to a reader of the handbook page.",
+        "fix": "Một số điểm dưới đây là kinh nghiệm chung của dân chơi, không phải quy tắc cứng.",
+        "rule": "Flag body text that contains 'phụ đề' or 'video' on a guide page.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6c4408d0abde0408"
   },
   "vi/guides/youtube-5TtDfNZFJE4": {
     "at": "2026-11-03",
@@ -4403,6 +4495,22 @@
     "hash": "6ddc6217e2afd0f3",
     "findings": [],
     "ruled": "6ddc6217e2afd0f3"
+  },
+  "vi/guides/youtube-8EelCQTnsQ0": {
+    "at": "2026-11-04",
+    "hash": "73f9cc757791f0ce",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "dành khoảng 3/4 diện tích cho cây chậm, chỉ để 1/3 phía hậu cảnh cho cây mọc nhanh",
+        "problem": "The two shares add up to more than the whole tank (3/4 + 1/3 > 1). The fast-growing share should be 1/4.",
+        "fix": "dành khoảng 3/4 diện tích cho cây chậm, chỉ để 1/4 phía hậu cảnh cho cây mọc nhanh",
+        "field": "body"
+      }
+    ],
+    "ruled": "73f9cc757791f0ce"
   },
   "vi/guides/youtube-8SwotDmf5eM": {
     "at": "2026-11-03",
@@ -4659,6 +4767,22 @@
     "findings": [],
     "ruled": "a4d578b940c3b5ea"
   },
+  "vi/guides/youtube-eBSkRyVXnhU": {
+    "at": "2026-11-04",
+    "hash": "ef75fea57b794aff",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có hai khúc lũa thì làm lần lượt từng khúc.",
+        "problem": "This line seems to come from the original author's own two pieces of driftwood. It reads as if the reader has two pieces and adds no real advice.",
+        "fix": "Nếu có nhiều khúc lũa thì dội lần lượt từng khúc.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ef75fea57b794aff"
+  },
   "vi/guides/youtube-EIjUVVFcNmo": {
     "at": "2026-11-03",
     "hash": "60d085fc09a5e347",
@@ -4783,6 +4907,12 @@
     ],
     "ruled": "5f22003c77b417b3"
   },
+  "vi/guides/youtube-FaGycOl_GyA": {
+    "at": "2026-11-04",
+    "hash": "8644fd3c453e5b88",
+    "findings": [],
+    "ruled": "8644fd3c453e5b88"
+  },
   "vi/guides/youtube-FCEKuUr_Z-U": {
     "at": "2026-11-01",
     "hash": "2b7ff097936890f0",
@@ -4849,6 +4979,22 @@
     "hash": "d5518bd7e257116e",
     "findings": [],
     "ruled": "d5518bd7e257116e"
+  },
+  "vi/guides/youtube-GDaWgKk-hDo": {
+    "at": "2026-11-04",
+    "hash": "0a8c46bba8e7a41f",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "châm dư không có nghĩa là bể nào cũng lớn nhanh và tốn công tỉa hơn",
+        "problem": "The sentence is about how individual plants respond, but it says 'bể nào' (every tank), which makes the conclusion read wrongly.",
+        "fix": "châm dư không có nghĩa là cây nào cũng lớn nhanh và tốn công tỉa hơn",
+        "field": "body"
+      }
+    ],
+    "ruled": "0a8c46bba8e7a41f"
   },
   "vi/guides/youtube-GtRKlzO4MNE": {
     "at": "2026-11-03",
@@ -5160,6 +5306,12 @@
     ],
     "ruled": "90002c24dfc8b2e3"
   },
+  "vi/guides/youtube-k3xDjE_A8t0": {
+    "at": "2026-11-04",
+    "hash": "5c61da9fa748a6f4",
+    "findings": [],
+    "ruled": "5c61da9fa748a6f4"
+  },
   "vi/guides/youtube-K972tk73JpU": {
     "at": "2026-11-01",
     "hash": "5b2757e3ac4d09e5",
@@ -5191,6 +5343,23 @@
       }
     ],
     "ruled": "d07139bac22219d9"
+  },
+  "vi/guides/youtube-KjUE_aid3BI": {
+    "at": "2026-11-04",
+    "hash": "ac3fb85d695cc9b4",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Bacillus\n| PSB\n| Nhu cầu oxy\n| Ăn oxy nhiều",
+        "problem": "The Bacillus vs PSB comparison table is broken: each cell is on its own line with no header row or separator, so readers can't tell which value belongs to which strain or row.",
+        "fix": "| | Bacillus | PSB |\n|---|---|---|\n| Nhu cầu oxy | Ăn oxy nhiều | Dùng ánh sáng để quang hợp, ít phụ thuộc oxy hơn |\n| Lúc nên dùng | Bể đủ oxy, lọc và sủi tốt | Bể có dấu hiệu thiếu oxy, mùa nóng |",
+        "rule": "Flag lines that start with '|' and have only one cell, with no '|---|' separator row.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ac3fb85d695cc9b4"
   },
   "vi/guides/youtube-km7iEo-NsD0": {
     "at": "2026-11-04",
@@ -5285,6 +5454,12 @@
       }
     ],
     "ruled": "1041f0afad999dfe"
+  },
+  "vi/guides/youtube-MLuT3K5yg44": {
+    "at": "2026-11-04",
+    "hash": "e53c12be59db7534",
+    "findings": [],
+    "ruled": "e53c12be59db7534"
   },
   "vi/guides/youtube-mmND8O0j_Qo": {
     "at": "2026-11-04",
@@ -5460,6 +5635,12 @@
     ],
     "ruled": "119104fde2aacb1d"
   },
+  "vi/guides/youtube-pY7e33xGcyQ": {
+    "at": "2026-11-04",
+    "hash": "fcff4c4c39ab7385",
+    "findings": [],
+    "ruled": "fcff4c4c39ab7385"
+  },
   "vi/guides/youtube-qgic_Fj3WS4": {
     "at": "2026-11-03",
     "hash": "60a7c56ab4398df3",
@@ -5535,6 +5716,12 @@
     "findings": [],
     "ruled": "c8d9c15a372d1a45"
   },
+  "vi/guides/youtube-RJE1PUdhy6I": {
+    "at": "2026-11-04",
+    "hash": "b235788fe99ffd8b",
+    "findings": [],
+    "ruled": "b235788fe99ffd8b"
+  },
   "vi/guides/youtube-RMPl2_1u8bU": {
     "at": "2026-11-04",
     "hash": "569d711c6f995d9e",
@@ -5606,6 +5793,22 @@
       }
     ],
     "ruled": "78cd800de30b0478"
+  },
+  "vi/guides/youtube-s9MMmXyOyec": {
+    "at": "2026-11-04",
+    "hash": "7f96975831108869",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Về kiến thức chung, bọt này là khí oxy do cây quang hợp mạnh thải ra.",
+        "problem": "The lead-in 'Về kiến thức chung' sounds unnatural, like an editor's note left in the text rather than how a Vietnamese hobbyist would write.",
+        "fix": "Bọt này là khí oxy do cây quang hợp mạnh thải ra.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7f96975831108869"
   },
   "vi/guides/youtube-sFCtqYbZQBg": {
     "at": "2026-11-03",
@@ -5902,6 +6105,12 @@
     ],
     "ruled": "847d761969df80c5"
   },
+  "vi/guides/youtube-wV9FK0MHv5g": {
+    "at": "2026-11-04",
+    "hash": "ee4ff189667f396e",
+    "findings": [],
+    "ruled": "ee4ff189667f396e"
+  },
   "vi/guides/youtube-WVCXRvyshIA": {
     "at": "2026-11-03",
     "hash": "48531652cd90f45c",
@@ -5933,6 +6142,22 @@
       }
     ],
     "ruled": "4b3b5c1a739240ee"
+  },
+  "vi/guides/youtube-X2BR1dbx4Sw": {
+    "at": "2026-11-04",
+    "hash": "a7e59b6bc5b79b52",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Điều quan trọng là tuần nào cũng phải châm, đừng bỏ cách quãng.",
+        "problem": "\"Bỏ cách quãng\" is not a natural Vietnamese phrase, and the sentence opens with a stock \"Điều quan trọng là\".",
+        "fix": "Tuần nào cũng phải châm, đừng bỏ tuần nào.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a7e59b6bc5b79b52"
   },
   "vi/guides/youtube-xdP5ITWcw3s": {
     "at": "2026-11-03",
@@ -6050,6 +6275,12 @@
     ],
     "ruled": "3c99b9958d85d475"
   },
+  "vi/guides/youtube-YNmy5T_dwC8": {
+    "at": "2026-11-04",
+    "hash": "24d23aa630e1e426",
+    "findings": [],
+    "ruled": "24d23aa630e1e426"
+  },
   "vi/guides/youtube-Yv6gkqeQ0aE": {
     "at": "2026-11-03",
     "hash": "506b306e30ef3d17",
@@ -6091,6 +6322,32 @@
       }
     ],
     "ruled": "dbd313a7eeca5c83"
+  },
+  "vi/guides/youtube-Z2Wv0RxD67g": {
+    "at": "2026-11-04",
+    "hash": "f06ef7245b5a6dc5",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "nhưng chỗ này nghe không rõ",
+        "problem": "This is a leftover from transcribing the video audio. It tells the reader nothing about the tank and gives away that the page was copied from a recording.",
+        "fix": "Đến cuối tháng thứ hai có thể đã tăng lên khoảng 9 tiếng.",
+        "rule": "Flag phrases about audio clarity such as \"nghe không rõ\" or \"nghe không rõ lắm\" in body text.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "lá già phía trên lên màu hồng đỏ, còn lá non phía dưới lại màu nâu",
+        "problem": "On a stem plant the young leaves grow at the top and the old leaves are lower down, so the page has old and young the wrong way round.",
+        "fix": "lá non phía trên lên màu hồng đỏ, còn lá già phía dưới lại màu nâu",
+        "field": "body"
+      }
+    ],
+    "ruled": "f06ef7245b5a6dc5"
   },
   "vi/guides/youtube-z3PJqCTO8uQ": {
     "at": "2026-11-04",
