@@ -11,7 +11,7 @@ import { approvedSummary } from './summaries'
 const JUMPS: [SectionKey, string][] = [['aquariumSize', 'Bể'], ['waterConditions', 'Nước'], ['diet', 'Thức ăn'], ['behaviour', 'Nuôi chung'], ['reproduction', 'Sinh sản']]
 
 /**
- * What a species' page shows, put together once for the page (pages/vi/ca/[slug].astro) and for the app's copy of it
+ * What a species' page shows, put together once for the page (pages/ca/[slug].astro) and for the app's copy of it
  * (lib/app-page.ts), so the two can't differ: its country, summary, gallery strip, photos between the sections, breeds,
  * tank mates, videos and the guides that name it. Every picture is chosen here in page order, none twice
  * (lib/pictures.ts): the photo, the gallery's first photos, the photos between the sections, the breeds' cards.

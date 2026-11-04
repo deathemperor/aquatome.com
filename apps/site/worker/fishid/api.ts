@@ -1,8 +1,11 @@
-import { ipDayKey, siteverify as realSiteverify } from '../comments/api'
+import { sessionOf } from '../accounts/session'
+import { isBot } from '../bots'
+import { accountDayKey, appAccount, ipDayKey, siteverify as realSiteverify } from '../comments/api'
 import { sniff } from '../photos'
 import type { Catalog, Lang } from './catalog'
 import { askClaude, costOf, DEFAULT_MODEL, readAnswer, type Answer, type ImageType } from './claude'
 import { healthyKeys, loadKeys, parseKeys, rotate, type Attempt, type HealthStore, type KeyEntry, type KeyHealth, type KeyProblem } from './keys'
+import { keepPhoto } from './kept'
 import { emptyLog, FROM, toFishIdPoint, type CallLog, type From } from './log'
 import { matchGuesses, type Result } from './match'
 import { relayFetch } from './relay'
@@ -10,11 +13,13 @@ import { readerOf, recordWanted } from '../wanted'
 
 /**
  * /api/fish-id: a reader's photo → Claude's guesses → the handbook's pages for them (the page
- * /vi/cong-cu/nhan-dien-ca/; the app can call it too).
+ * /vi/cong-cu/nhan-dien-ca/, and the app: protocols/fishid.openapi.json).
  *
  * GET: whether the tool is on ({ on: false } when off), and the Turnstile site key. POST (multipart: file, token, lang;
- * or JSON: image as base64, token, lang): the identification, 503 fish_id_off when off. Off without a key in the
- * ANTHROPIC_KEYS secret, Turnstile or the rate-limit key. The photo is never stored or logged; the log has counts, timings, the model, token usage and keys by hash only.
+ * or JSON: image as base64, token, lang): the identification, 503 fish_id_off when off. The app sends its session as a
+ * bearer instead of Origin and Turnstile, and is counted per account instead of per address. Off without a key in the
+ * ANTHROPIC_KEYS secret, Turnstile, the rate-limit key or the database. The photo is never logged, and stored only when
+ * the reader ticks "keep" (`keep`): 6 months, private (kept.ts). The log has counts, timings, the model, token usage and keys by hash only.
  * Each POST also writes one data point to Analytics Engine (FISHID_LOG, log.ts) for the owner's dashboard.
  */
 export type FishIdEnv = {
@@ -25,16 +30,21 @@ export type FishIdEnv = {
   FISH_ID_MODEL?: string
   /** The Durable Object the calls to Claude go out through (relay.ts); without it, straight from the Worker. */
   FISHID_RELAY?: DurableObjectNamespace
-  /** Identifications per reader (IP) per day, and for the whole site per day (defaults 10 and 300). */
+  /** Identifications per reader (IP) per day, per app account per day, and for the whole site per day (defaults 10, 10 and 300). */
   FISH_ID_PER_IP?: string
+  FISH_ID_PER_ACCOUNT?: string
   FISH_ID_PER_DAY?: string
   TURNSTILE_SECRET?: string
   TURNSTILE_SITEKEY?: string
   COMMENT_HMAC_KEY?: string
+  /** The app's sessions (worker/accounts). */
+  DB?: D1Database
+  /** The private bucket photos a reader lets us keep go to (kept.ts); without it, none is kept. */
+  UPLOADS?: R2Bucket
   /** Every POST's outcome, tokens and cost (log.ts); optional, as the readers' EVENTS is. */
   FISHID_LOG?: AnalyticsEngineDataset
 }
-type Live = FishIdEnv & { ANTHROPIC_KEYS: string; TURNSTILE_SECRET: string; TURNSTILE_SITEKEY: string; COMMENT_HMAC_KEY: string }
+type Live = FishIdEnv & { ANTHROPIC_KEYS: string; TURNSTILE_SECRET: string; TURNSTILE_SITEKEY: string; COMMENT_HMAC_KEY: string; DB: D1Database }
 type Siteverify = typeof realSiteverify
 export type FishIdDeps = {
   siteverify?: Siteverify
@@ -47,14 +57,15 @@ export type FishIdDeps = {
 /** The page sends a JPEG of 1024 px at most (~200 KB); anything this big is not from it. */
 export const MAX_IMAGE = 1.5 * 1024 * 1024
 const PER_IP = 10
+const PER_ACCOUNT = 10
 const PER_DAY = 300
 /** How sure Claude must be of a guess with no page for it to count as a reader's request. */
 const WANTED_CONFIDENCE = 0.6
 const DAY_SEC = 86_400
 
 const json = (data: unknown, status = 200) => Response.json(data, { status, headers: { 'cache-control': 'no-store' } })
-/** On with at least one readable key (a file of comments only is none), Turnstile and the rate-limit key. */
-const live = (env: FishIdEnv): env is Live => Boolean(parseKeys(env.ANTHROPIC_KEYS).entries.length && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY)
+/** On with at least one readable key (a file of comments only is none), Turnstile, the rate-limit key and the accounts' database. */
+const live = (env: FishIdEnv): env is Live => Boolean(parseKeys(env.ANTHROPIC_KEYS).entries.length && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY && env.DB)
 const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
 const LANGS: Lang[] = ['vi', 'id', 'th']
 
@@ -133,7 +144,8 @@ async function readBytes(req: Request, max: number): Promise<Uint8Array | null> 
   return all
 }
 
-type Upload = { bytes: Uint8Array | null; token: string; lang: Lang; from: From | '' }
+/** `keep`: the reader ticked "Cho phép AquaTome giữ ảnh này để cải thiện nhận diện". */
+type Upload = { bytes: Uint8Array | null; token: string; lang: Lang; from: From | ''; keep: boolean }
 async function parseUpload(req: Request, body: Uint8Array): Promise<Upload | null> {
   const type = req.headers.get('content-type') ?? ''
   const langOf = (v: unknown) => LANGS.find(l => l === v) ?? 'vi'
@@ -143,12 +155,12 @@ async function parseUpload(req: Request, body: Uint8Array): Promise<Upload | nul
     if (!form) return null
     const file = form.get('file')
     const bytes = file instanceof Blob ? new Uint8Array(await file.arrayBuffer()) : null
-    return { bytes, token: String(form.get('token') ?? ''), lang: langOf(form.get('lang')), from: fromOf(form.get('from')) }
+    return { bytes, token: String(form.get('token') ?? ''), lang: langOf(form.get('lang')), from: fromOf(form.get('from')), keep: ['1', 'true', 'on'].includes(String(form.get('keep') ?? '')) }
   }
   if (type.startsWith('application/json')) {
     const raw = (() => { try { return JSON.parse(new TextDecoder().decode(body)) as Record<string, unknown> } catch { return null } })()
     if (!raw) return null
-    return { bytes: typeof raw.image === 'string' ? fromBase64(raw.image) : null, token: typeof raw.token === 'string' ? raw.token : '', lang: langOf(raw.lang), from: fromOf(raw.from) }
+    return { bytes: typeof raw.image === 'string' ? fromBase64(raw.image) : null, token: typeof raw.token === 'string' ? raw.token : '', lang: langOf(raw.lang), from: fromOf(raw.from), keep: raw.keep === true }
   }
   return null
 }
@@ -160,7 +172,7 @@ export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, 
     if (!live(env)) return json({ on: false })
     const { keys } = await keysOf(env.ANTHROPIC_KEYS)
     const resting = !(await healthyKeys(keys, kvHealth(env.AB), now.getTime())).length
-    return json({ on: true, sitekey: env.TURNSTILE_SITEKEY, resting, perIp: limit(env.FISH_ID_PER_IP, PER_IP) })
+    return json({ on: true, sitekey: env.TURNSTILE_SITEKEY, resting, perIp: limit(env.FISH_ID_PER_IP, PER_IP), perAccount: limit(env.FISH_ID_PER_ACCOUNT, PER_ACCOUNT) })
   }
   if (req.method !== 'POST') return new Response(null, { status: 405 })
   // One data point per POST, however it ends; a fault of ours (a throw) is 'error'. Writing it never fails the request.
@@ -183,9 +195,12 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
     return json({ error, ...extra }, status)
   }
   if (!live(env)) return refuse('fish_id_off', 503)
-  // Browsers send Origin: another site's page may not use our quota. A native app sends none.
+  // The app: its live session stands in for Origin and Turnstile. A bearer without one is refused, never the page's way.
+  const account = await appAccount(req, env.DB, now)
+  if (account === 'session') return refuse('session', 401)
+  // Browsers send Origin: another site's page may not use our quota.
   const origin = req.headers.get('origin')
-  if (origin && origin !== url.origin) return refuse('cross-origin', 403)
+  if (!account && origin && origin !== url.origin) return refuse('cross-origin', 403)
   // Base64 in JSON is 4/3 of the photo, plus the form's other fields.
   const body = await readBytes(req, Math.ceil(MAX_IMAGE * 4 / 3) + 16 * 1024)
   if (!body) return refuse('too large', 413)
@@ -198,19 +213,22 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
   const type = sniff(up.bytes)
   if (!type) return refuse('not an image', 415)
   const ip = req.headers.get('cf-connecting-ip')
-  if (!up.token || !(await (deps.siteverify ?? realSiteverify)(env.TURNSTILE_SECRET, up.token, ip, url.hostname))) return refuse('turnstile', 403)
+  if (!account && (!up.token || !(await (deps.siteverify ?? realSiteverify)(env.TURNSTILE_SECRET, up.token, ip, url.hostname)))) return refuse('turnstile', 403)
 
-  // Limits, before any call: a reader's day, then the site's.
-  const perIp = limit(env.FISH_ID_PER_IP, PER_IP)
-  const ipKey = `fishid:ip:${(await ipDayKey(env.COMMENT_HMAC_KEY, ip ?? 'unknown', now)).slice(3)}`
-  const used = Number((await env.AB.get(ipKey)) ?? 0)
-  if (used >= perIp) return refuse('rate', 429, { limit: perIp })
+  // Limits, before any call: a reader's day, then the site's. The app's reader is its account: many phones share one
+  // carrier address.
+  const perReader = account ? limit(env.FISH_ID_PER_ACCOUNT, PER_ACCOUNT) : limit(env.FISH_ID_PER_IP, PER_IP)
+  const readerKey = account
+    ? `fishid:acct:${(await accountDayKey(env.COMMENT_HMAC_KEY, account, now)).slice(3)}`
+    : `fishid:ip:${(await ipDayKey(env.COMMENT_HMAC_KEY, ip ?? 'unknown', now)).slice(3)}`
+  const used = Number((await env.AB.get(readerKey)) ?? 0)
+  if (used >= perReader) return refuse('rate', 429, { limit: perReader })
   const day = await readDay(env.AB, now)
   if (day.calls >= limit(env.FISH_ID_PER_DAY, PER_DAY)) return refuse('busy', 429)
   const store = kvHealth(env.AB)
   const healthy = await healthyKeys((await keysOf(env.ANTHROPIC_KEYS)).keys, store, now.getTime())
   if (!healthy.length) return refuse('resting', 503)
-  await env.AB.put(ipKey, String(used + 1), { expirationTtl: DAY_SEC })
+  await env.AB.put(readerKey, String(used + 1), { expirationTtl: DAY_SEC })
 
   const model = rec.model
   const photo = { data: base64(up.bytes), type: type as ImageType }
@@ -243,23 +261,34 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
     return json({ error: 'failed' }, 502)
   }
   const usage = { in: answer.usage.input, out: answer.usage.output }
+  // Kept only when asked, with the answer: a JPEG (what the page and the app send), its own metadata cut, under the
+  // account that sent it (the app's bearer, or the page's signed-in cookie), or no one's. `kept` says whether it was.
+  const keep = async (verdict: string, guesses: Result[]) => {
+    if (!up.keep) return {}
+    const owner = account ?? (await sessionOf(req, env.DB, now))?.userId
+    const id = env.UPLOADS && type === 'image/jpeg'
+      ? await keepPhoto(env.UPLOADS, owner, up.bytes!, { verdict, guesses, model, lang: up.lang }, now).catch(e => { console.error('fish-id keep:', e); return null })
+      : null
+    return { kept: Boolean(id) }
+  }
   if (answer.refused) {
     log('refused', usage)
-    return json({ verdict: 'unclear', results: [], refused: true, model })
+    return json({ verdict: 'unclear', results: [], refused: true, model, ...await keep('unclear', []) })
   }
   const { verdict, guesses } = answer.id
   const catalog = verdict === 'other' ? null : await catalogOf(env, url.origin)
   const results = verdict === 'other' ? [] : catalog ? matchGuesses(guesses, catalog, up.lang) : guesses
   // A fish or plant Claude is fairly sure of that has no page: a reader's request, as a tank's entry without a page is
-  // (worker/wanted.ts), counted once a reader a day. Not the owner trying it out.
+  // (worker/wanted.ts), counted once a reader a day. Not the owner trying it out, nor our own checks.
   const top = catalog && (verdict === 'fish' || verdict === 'plant') ? results[0] : undefined
-  if (top && !('page' in top && top.page) && top.confidence >= WANTED_CONFIDENCE && !/(?:^|;\s*)aq_owner=1(?:;|$)/.test(req.headers.get('cookie') ?? '')) {
+  const reader = !/(?:^|;\s*)aq_owner=1(?:;|$)/.test(req.headers.get('cookie') ?? '') && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
+  if (top && !('page' in top && top.page) && top.confidence >= WANTED_CONFIDENCE && reader) {
     await recordWanted(env, { kind: verdict, name: top.commonName || top.scientificName, sci: top.scientificName, source: 'fish-id', reader: await readerOf(req, env, now) }, now).catch(() => undefined)
   }
   const first: Result | undefined = results[0]
   Object.assign(rec, { verdict, top: first?.scientificName ?? '', confidence: first?.confidence ?? 0, page: first?.page?.id ?? '', guesses: results.length } satisfies Partial<CallLog>)
   log('ok', { ...usage, verdict, guesses: results.length, linked: results.filter(r => 'page' in r && r.page).length, ...(catalog || verdict === 'other' ? {} : { catalog: 'missing' }) })
-  return json({ verdict, results, model })
+  return json({ verdict, results, model, ...await keep(verdict, results) })
 }
 const slim = (a: Attempt) => ({ key: a.hash, ms: a.ms, ...(a.status ? { status: a.status } : {}), ...(a.marked ? { marked: a.marked } : {}) })
 

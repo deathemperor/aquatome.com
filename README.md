@@ -24,7 +24,7 @@ Node 24.22.1 (`nvm use` reads `.nvmrc`; not 25.x) and pnpm 10+.
 | | |
 |---|---|
 | `pnpm i` | install |
-| `pnpm dev` | local site at http://localhost:4321/vi/ |
+| `pnpm dev` | local site at http://localhost:4321/ |
 | `pnpm test` | every package's tests; builds the site from `apps/site/test/fixture-content/` |
 | `pnpm typecheck` | `tsc` and `astro check` |
 | `pnpm --filter site e2e` | browser checks on that build ([e2e/README](apps/site/e2e/README.md)) |

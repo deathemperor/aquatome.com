@@ -18,6 +18,8 @@ test('quick facts: the items the card carries for that source, and the family, g
   expect(cardRepeats(spruceEn, 'sprucepets', neon)).toEqual([0, 2, 3, 4, 5, 6, 7])
   expect(dropCardRepeats(spruceEn, spruceVi, 'sprucepets', neon)).toBe(
     '<ul><li><strong>Nguồn gốc:</strong> Brazil, Colombia và Venezuela</li><li><strong>Tuổi thọ:</strong> 4 năm</li></ul>')
+  // The lifespan stays, even on the card from this source: the app's facts card has none yet.
+  expect(cardRepeats(spruceEn, 'sprucepets', { ...neon, lifeYears: [{ source: 'sprucepets', value: { min: 4, max: 4 } }] })).toEqual([0, 2, 3, 4, 5, 6, 7])
   // A figure the card has from another source only is this source's own word: it stays.
   expect(cardRepeats(spruceEn, 'sprucepets', { tempC: neon.tempC.slice(0, 1) })).toEqual([0])
 })

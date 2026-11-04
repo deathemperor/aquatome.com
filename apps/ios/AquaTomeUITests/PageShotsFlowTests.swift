@@ -3,7 +3,8 @@ import XCTest
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
 /// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// Each checks only that its page opened: what a page shows, the other flows check.
+/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size. Each checks
+/// only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -12,15 +13,16 @@ final class PageShotsFlowTests: XCTestCase {
   func testAFishInLargeText() { shoot("fish-large", "ca neon", "Cá neon", large: true, screens: 3) }
   func testAPlant() { shoot("plant-light", "rotala", "Rotala đỏ") }
   func testAGuide() { shoot("guide-light", "nuoi ca neon", "Nuôi cá neon trong bể nhỏ") }
+  func testASearch() { shootSearch("search-light") }
+  func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
+  func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
+  func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+
+  private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
 
   /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
   private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12) {
-    let app = XCUIApplication()
-    // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
-      + (dark ? ["-dark"] : [])
-      + (large ? ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"] : [])
-    app.launch()
+    let app = launch(dark: dark, size: large ? "UICTContentSizeCategoryAccessibilityL" : nil)
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
@@ -52,6 +54,33 @@ final class PageShotsFlowTests: XCTestCase {
     // A whole page (not the large text's top screens) ends before the shots run out: else its end wasn't seen, and the
     // shots repeat it to the last.
     if !large { XCTAssertTrue(ended, "\(name): no end found in \(screens) screens") }
+  }
+
+  /// The results of a search that finds most kinds, under its chips, the keyboard put away: one screen.
+  private func shootSearch(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size)
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("ca\n")
+    XCTAssertTrue(app.descendants(matching: .any)["item"].firstMatch.waitForExistence(timeout: 5), "no results")
+    settle()
+    let shot = XCUIScreen.main.screenshot()
+    XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
+    let a = XCTAttachment(screenshot: shot)
+    a.name = "shot-\(name)-01"
+    a.lifetime = .keepAlways
+    add(a)
+  }
+
+  private func launch(dark: Bool, size: String?) -> XCUIApplication {
+    let app = XCUIApplication()
+    // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
+      + (dark ? ["-dark"] : [])
+      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+    app.launch()
+    return app
   }
 
   /// A screen as a small grey picture, below the status bar and the navigation bar.

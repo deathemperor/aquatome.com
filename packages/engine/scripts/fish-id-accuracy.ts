@@ -214,7 +214,7 @@ function report(results: Map<string, Outcome[]>, samples: Sample[], byId: Map<st
       const e = byId.get(o.sample.id)!
       const g = o.results?.[0]
       const verdict = o.answer?.refused ? 'refused' : o.answer?.id.verdict ?? ''
-      lines.push(`| [${cell(e.name.vi)}](https://aquatome.com${e.url.vi}) | [photo](${o.sample.url}) | ${cell(e.sci ?? (e.basedOn ? `breed of ${byId.get(e.basedOn)?.sci ?? e.basedOn}` : 'breed'))} | ${g ? cell(`${g.scientificName}${g.variety ? ` (${g.variety})` : ''}`) : `— (${verdict})`} | ${g ? g.confidence.toFixed(2) : ''} | ${cell(g?.page?.id ?? (g?.sameGenus ? 'same genus only' : '—'))} |`)
+      lines.push(`| [${cell(e.name.vi)}](https://aquatome.com${e.url.vi.replace(/^\/vi\//, '/')}) | [photo](${o.sample.url}) | ${cell(e.sci ?? (e.basedOn ? `breed of ${byId.get(e.basedOn)?.sci ?? e.basedOn}` : 'breed'))} | ${g ? cell(`${g.scientificName}${g.variety ? ` (${g.variety})` : ''}`) : `— (${verdict})`} | ${g ? g.confidence.toFixed(2) : ''} | ${cell(g?.page?.id ?? (g?.sameGenus ? 'same genus only' : '—'))} |`)
     }
   }
   const failed = [...results].flatMap(([model, outs]) => outs.filter(o => o.failed).map(o => `${model}: ${o.sample.id} (${o.failed})`))

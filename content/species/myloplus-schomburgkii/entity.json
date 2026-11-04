@@ -7,13 +7,61 @@
   "group": "other",
   "places": [
     "south-america",
-    "colombia"
+    "colombia",
+    "venezuela",
+    "orinoco",
+    "peru",
+    "nanay",
+    "brazil"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 45
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,10 +73,46 @@
       "html": "<p>Myloplus schomburgkii is one of the most beautiful large tetras in South America. The maximum length is approx. 45 cm. Available size: 5-7 cm.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump.</p><p>The black-barred myleus, Myleus schomburgkii, is a close relative of the redhook from parts of Venezuela, Peru and Brazil. The black vertical bar on the flanks distinguishes it, and it is a smaller adult fish, though it is sometimes offered for sale as a redhook. Also called the black-ear pacu and disc pacu, it should be kept in groups of at least five, and a tight-fitting lid is a good idea as it moves extremely quickly when startled.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
+      "html": "<p>Northeastern South America, in parts of Venezuela, Peru and Brazil. It occurs in a number of river basins, including the Rio Nanay and Rio Orinoco.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
+      "html": "<p>Standard length: 12 cm SL.</p><p>Aquarium base: 120 × 38 cm.</p><p>Volume: ~173 litres (120 × 38 × 38 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
+      "html": "<p>Hardy plants should be chosen but will still need to be replaced regularly. Artificial plants could be used as an alternative as some of the fabric and silk-type plants that are now available make convincing fakes. Dim lighting and areas of refuge will boost their confidence. A tight-fitting lid is a good idea as these fish move extremely quickly when startled and may launch themselves out of the tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: up to 10 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/myleus_schomburgkii_en/",
       "html": "<p>These close relatives of piranhas feed mainly on plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
+      "html": "<p>Mainly herbivorous. Provide a large amount of vegetable matter in the diet, including courgette, cucumber, peas, spring greens and other green vegetables. Commercial foods such as algae wafers, spirulina and vegetable flake are also recommended. Silver dollars will also accept the majority of aquarium foods and will relish such treats as bloodworm and brineshrimp.</p>"
     },
     {
       "key": "behaviour",
@@ -37,19 +121,84 @@
       "html": "<p>Just like piranhas, a hierarchy is fought out. In appropriately sized aquaria, Myloplus schomburgkii is one of the most attractive fish imaginable.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
+      "html": "<p>Best kept in groups of at least five fish. Generally peaceful community fish and can be kept with other larger peaceful species. Much smaller fish may be eaten. Myleus mainly occupy the middle and top areas of the aquarium, so it is a good idea to select tankmates that occupy both the bottom of the tank to add contrast. Larger peaceful catfish such as plecos and doradids would be a good choice.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/myleus_schomburgkii_en/",
       "html": "<p>Sex differences are not yet discernible in juveniles. In adult specimens, however, the sexes are unmistakable. In all Myloplus species, the males acquire a two-lobed anal fin as they grow older. In M. schomburgkii, the males also develop thread-like dorsal fin filaments. Males that are active in courtship become splendidly red.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
+      "html": "<p>Males have more pointed dorsal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
+      "html": "<p>No reports of breeding in the hobby.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/myleus_schomburgkii_en/",
       "html": "<p>In contrast to many other silver dollars, the identification of Myloplus schomburgkii is relatively easy, as only three species show the vertical black stripe in the middle of the body. However, the shape and expression of the stripe varies considerably in animals of different geographical origin and it cannot be ruled out that several species are hidden behind the name M. schomburgkii.</p><p>Lexicon: Myloplus: not explained. Myleus: after the ancient Greek term for \"millstone\". schomburgkii: dedication name for the important German naturalist and explorer Robert Hermann Schomburgk (1804-1865).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
+      "html": "<p>Similar in care and appearance to its close relative, the Redhook (Myloplus rubripinnis), Myleus schomburgkii is easily distinguished by the black vertical bar on the flanks. It is also a smaller adult fish. Despite this, it is sometimes offered for sale marked as a Redhook. This fish is also variously referred to as the Black-ear Pacu, Disc Pacu and Disk Tetra.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/44e2a783b57f8df0.webp",
+      "width": 960,
+      "height": 696,
+      "licence": "Public domain",
+      "author": "Ltshears",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Myleus_schomburgkii.jpg",
+      "caption": "Black-barred Myleus ( Myleus schomburgkii ) at Newport Aquarium, newport ky",
+      "thumb": "https://media.aquatome.com/commons/44e2a783b57f8df0-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4e6d2b6efe36a006.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Serrasalmidae_Myloplus_schomburgkii_2.jpg",
+      "caption": "Myloplus schomburgkii DISK TETRA. Frankfurt Zoological Garden.",
+      "thumb": "https://media.aquatome.com/commons/4e6d2b6efe36a006-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fae1902f42ca84fd.webp",
+      "width": 960,
+      "height": 586,
+      "licence": "Public domain",
+      "author": "Carl H. Eigenmann",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_52307_Myloplus_schomburghi_(Jardine)_Female_CM_No5748_197_mm_Santarem.jpeg",
+      "caption": "Myloplus schomburghi (Jardine). Female. C.M. No.5748. 197 mm. Santarem Subject: Characidae Tag: Fish",
+      "thumb": "https://media.aquatome.com/commons/fae1902f42ca84fd-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ec2b20860a112ab2.webp",
+      "width": 960,
+      "height": 847,
+      "licence": "CC BY-SA 4.0",
+      "author": "Photo by David J. Stang",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Myleus_schomburgkii_6zz.jpg",
+      "caption": "Location taken: National Aquarium in Baltimore, Baltimore MD.. Names: Myleus schomburgkii (Jardine, 1841), Black band myleus, Black Barred Characin, Blackear pacu, Disk pacu, Disk tetra, Kiilalevytetr",
+      "thumb": "https://media.aquatome.com/commons/ec2b20860a112ab2-480.webp"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "QzMLfSqEe4A",
@@ -99,5 +248,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }

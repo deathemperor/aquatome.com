@@ -2,6 +2,18 @@
   "id": "bubble-eye-goldfish",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/d430dee062de1332.webp",
+      "thumb": "https://media.aquatome.com/commons/d430dee062de1332-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "Public domain",
+      "author": "KoS",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salon_agriculture_2009_-_Poisson.jpg",
+      "caption": "Cá vàng mắt bong bóng màu vàng nhạt bơi trong bể tối",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/60dced638fdbe365.webp",
       "thumb": "https://media.aquatome.com/commons/60dced638fdbe365-480.webp",
       "width": 912,
@@ -42,6 +54,7 @@
       "caption": "Cá vàng mắt bong bóng đốm nhiều màu, bóng mắt lớn trong bể"
     }
   ],
-  "seen": 41,
-  "updatedAt": "2026-10-30"
+  "seen": 48,
+  "updatedAt": "2026-11-04",
+  "builtAt": "2026-11-04"
 }

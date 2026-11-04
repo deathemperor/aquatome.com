@@ -5,12 +5,60 @@
   "family": "Characidae",
   "genus": "Chalceus",
   "group": "tetras",
-  "places": [],
+  "places": [
+    "south-america",
+    "peru",
+    "amazon",
+    "brazil"
+  ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ]
   },
@@ -22,10 +70,46 @@
       "html": "<p>Bred specimens of this beautiful large tetra – the real one, with bright yellow ventral fins – are now available. Currently the fish are 7-9 cm long.</p><p>These tetras grow up to 20-25 cm long.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Make sure the tank cover is very well-fitting, as it is a renowned jumper.</p><p>The tucanfish, Chalceus erythrurus, is a large characin from parts of the Amazon basin in Peru and Brazil. It lives in the surface waters of floodplain rivers and lakes. The red or yellow caudal fin separates it from the pink-tailed C. macrolepidotus. Fast and a renowned jumper, it needs a lot of swimming space and a well-fitting cover, and it does best singly or in a group of more than six.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<p>Parts of the Amazon basin in Peru and Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<p>Inhabits surface waters of floodplain rivers and lakes.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/chalceus-erythrurus/",
       "html": "<p>The fish need really spacious tanks to grow to a good size.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<p>Standard length: 200 mm SL. Aquarium base: 120 × 45 cm. Volume: ~243 litres.</p><p>120 × 45 × 45 cm (~243 litres) should be the smallest tank considered. It's capable of a real turn of speed and can injure itself quite easily in small tanks.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<p>It requires a lot of swimming space, so decor is not really critical, although a sandy substrate with some beech branches and floating plants looks very effective, and mimics many of its natural biotopes. Make sure the tank cover is very well-fitting, as it is a renowned jumper.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.0</li><li>Hardness: 5–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -40,13 +124,84 @@
       "html": "<p>The members of the genus Chalceus can be best compared with native species of trout. Like these, Chalceus prefer to feed on insects etc. that fall on the water surface.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<p>Feeds primarily on insects and aquatic crustaceans in nature. While dried foods are usually accepted, a good proportion of the diet should contain meaty foods such as prawns, mussel, bloodworm, chopped earthworms etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/chalceus-erythrurus/",
       "html": "<p>One should keep them in groups, best 10 specimens or more, because otherwise the fish can be quarrelsome against conspecifics.</p><p>Against other tankmates Chalceus are absolutely peaceful. Plants are ignored.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<p>It does best when kept either as a single specimen, or in a group with more than 6 fish. In smaller groups, the fish tend to scrap with one another. Other than this, it is a good addition to many larger communities. Tankmates can include similarly-sized characins such as Leporinus, Metynnis, Mylossoma and Brycon sp., large Loricariids, Pimelodiids, and cichlids such as Geophagus or Satanoperca sp. Try to avoid other surface-dwelling species unless the tank is huge.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<p>Not achieved in the hobby to date. In all likelihood it spawns in a similar fashion to C. macrolepidotus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chalceus-erythrurus",
+      "html": "<p>This species can be distinguished from its congener C. macrolepidotus mainly by the red or yellow (as opposed to pink) caudal fin. In addition, it has yellow pectoral and pelvic fins and may also have some yellow colouration on the body. It is seen for sale as often as its relative, although it's quite abundant in nature.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/2a21bd9f4f8784c0.webp",
+      "width": 850,
+      "height": 350,
+      "licence": "CC BY 4.0",
+      "author": "Zanata, Angela M.; Toledo-Piza, Mônica",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chalceus_erythrurus_(INPA_16190).png",
+      "caption": "Chalceus erythrurus, male, INPA 16190, 149.3 mm SL, Brazil, Amazonas, Rio Amazonas, Ilha do Careiro, Igapó Terra Nova.",
+      "thumb": "https://media.aquatome.com/commons/2a21bd9f4f8784c0-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d6447fc4c4701ea4.webp",
+      "width": 850,
+      "height": 350,
+      "licence": "CC BY 4.0",
+      "author": "Zanata, Angela M.; Toledo-Piza, Mônica",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chalceus_erythrurus_juvenile_(USNM_308820).png",
+      "caption": "Chalceus erythrurus, juvenile, USNM 308820, 28.8 mm SL, Brazil, Amazonas, Manaus, Lago Janauari, small house in front of brickworks.",
+      "thumb": "https://media.aquatome.com/commons/d6447fc4c4701ea4-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/03d54eb88032ab53.webp",
+      "width": 850,
+      "height": 350,
+      "licence": "CC BY 4.0",
+      "author": "Zanata, Angela M.; Toledo-Piza, Mônica",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chalceus_erythrurus_(AMNH_78064).png",
+      "caption": "Chalceus erythrurus, AMNH 78064, 139.0 mm SL, Peru, Loreto, Río Yarapa, tributary of Río Ucayali, one of several sites along a 10-km stretch of river.",
+      "thumb": "https://media.aquatome.com/commons/03d54eb88032ab53-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5c8f476b67fe9c6a.webp",
+      "width": 952,
+      "height": 714,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Characidae_Chalceus_erythrurus_1.jpg",
+      "caption": "Chalceus sp. Wilhelma Zoological-Botanical Garden Stuttgart.",
+      "thumb": "https://media.aquatome.com/commons/5c8f476b67fe9c6a-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -71,5 +226,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }

@@ -19,7 +19,10 @@ case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|pho
 TEST_LOG="/tmp/aquatome-engine-test-$PART.log"
 # The Mac's engine parts and video job share one machine, so their builds and test runs take turns: two suites at once
 # slowed a 0.6 s test past vitest's 5 s and failed a cycle. GitHub runs one part a runner.
-checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
+# The Mac's load also comes from the iOS simulators and builds: 500 and more on 16 cores at times (2026-11-04), when even
+# 30 s per test isn't enough. The checks wait for the 5-minute load to fall under 4 a core, up to 45 minutes, then run.
+calm() { local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
+checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else calm; lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
 if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
@@ -133,8 +136,9 @@ if part photos; then
   # first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
-  # and plants: iNaturalist, then Commons, GBIF, Openverse; open licences, screened (right species, no faces). GALLERY_SHEETS
-  # model calls a cycle (about 480 a day on the subscription); each page continues next cycle where this one stopped.
+  # and plants: iNaturalist, then Commons, GBIF, Openverse; bred fish by their English names on Commons and Openverse;
+  # open licences, screened (right species or line, no faces). GALLERY_SHEETS model calls a cycle (about 480 a day on
+  # the subscription); each page continues next cycle where this one stopped.
   pnpm engine gallery --sheets "${GALLERY_SHEETS:-60}" || log "gallery: failed"
   # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
   pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
@@ -151,6 +155,8 @@ if part pages sf photos; then
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
   # Wikimedia photos credited before Commons' placeholder authors were tidied on import: "RuthJM", not its sentence.
   pnpm engine credits || log "credits: failed (some photos keep Commons' placeholder author)"
+  # Lifespans the sources already state as a labelled line, on the data card ("Tuổi thọ"); never read from prose.
+  pnpm engine lifespans || log "lifespans: failed"
   # The image hash of every new picture, so no page shows one picture twice from two files (a failure: compared by address).
   pnpm engine picture-hashes || log "picture-hashes: failed (new pictures compared by address only)"
 fi

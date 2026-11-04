@@ -4,15 +4,15 @@ import { createHash } from 'node:crypto'
 // /.well-known/api-catalog and the homepage Link header live in the Worker (they need a content type / header).
 
 const SECTIONS = [
-  ['/vi/ca/', 'Loài cá', 'fish, shrimp and snail profiles: water parameters, size, temperament, care, breeding'],
-  ['/vi/cay/', 'Cây', 'aquarium plant profiles'],
-  ['/vi/huong-dan/', 'Hướng dẫn', 'guides: tank setup, care, breeding, planting'],
-  ['/vi/thiet-bi/', 'Thiết bị', 'equipment: tanks, filters, heaters, lights, food'],
-  ['/vi/cong-cu/', 'Công cụ', 'tools: an index of every tool, and the substrate, heater wattage and fertiliser dose calculators'],
-  ['/vi/cong-cu/nuoi-chung/', 'Nuôi chung được không? Thả bao nhiêu con?', 'tank-mates and stocking checker: up to 6 species, whether they can share a tank, and how full the tank would be; ?ca=<slug>:<count>,…&l=&w=&h= in cm'],
-  ['/vi/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', 'tank volume for 12 tank shapes (litres, US gallons), real water volume, weight and front glass thickness; ?hinh=<shape>&l=&w=&h= in cm'],
-  ['/vi/cong-cu/den-chihiros/', 'Đèn Chihiros', 'control a Chihiros LED light from the browser over Web Bluetooth (Chrome or Edge on Android and computers): daily on/off schedule with sunrise and sunset ramp, brightness per colour channel, clock sync; planted-tank presets'],
-  ['/vi/thuat-ngu/', 'Thuật ngữ', 'glossary of aquarium terms'],
+  ['/ca/', 'Loài cá', 'fish, shrimp and snail profiles: water parameters, size, temperament, care, breeding'],
+  ['/cay/', 'Cây', 'aquarium plant profiles'],
+  ['/huong-dan/', 'Hướng dẫn', 'guides: tank setup, care, breeding, planting'],
+  ['/thiet-bi/', 'Thiết bị', 'equipment: tanks, filters, heaters, lights, food'],
+  ['/cong-cu/', 'Công cụ', 'tools: an index of every tool, and the substrate, heater wattage and fertiliser dose calculators'],
+  ['/cong-cu/nuoi-chung/', 'Nuôi chung được không? Thả bao nhiêu con?', 'tank-mates and stocking checker: up to 6 species, whether they can share a tank, and how full the tank would be; ?ca=<slug>:<count>,…&l=&w=&h= in cm'],
+  ['/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', 'tank volume for 12 tank shapes (litres, US gallons), real water volume, weight and front glass thickness; ?hinh=<shape>&l=&w=&h= in cm'],
+  ['/cong-cu/den-chihiros/', 'Đèn Chihiros', 'control a Chihiros LED light from the browser over Web Bluetooth (Chrome or Edge on Android and computers): daily on/off schedule with sunrise and sunset ramp, brightness per colour channel, clock sync; planted-tank presets'],
+  ['/thuat-ngu/', 'Thuật ngữ', 'glossary of aquarium terms'],
 ] as const
 
 export function llmsTxt(site: string): string {
@@ -48,11 +48,11 @@ description: ${SKILL_DESCRIPTION}
 
 # Look up species care on AquaTome
 
-AquaTome (${u('/vi/')}) is a Vietnamese aquarium handbook. Content is in Vietnamese; scientific names are in Latin.
+AquaTome (${u('/')}) is a Vietnamese aquarium handbook. Content is in Vietnamese; scientific names are in Latin.
 
 ## Find a page
 
-- Species list: ${u('/vi/ca/')} (plants: ${u('/vi/cay/')}). Each profile is \`/vi/ca/<slug>/\`; slugs are the Vietnamese common name
+- Species list: ${u('/ca/')} (plants: ${u('/cay/')}). Each profile is \`/ca/<slug>/\`; slugs are the Vietnamese common name
   without diacritics (for example \`ca-neon-xanh\` for cá neon xanh, the green neon tetra Paracheirodon simulans).
 - Every page URL is listed in ${u('/sitemap.xml')}; search the sitemap or the species list for a common or scientific name.
 
@@ -64,7 +64,7 @@ then sections such as "Nước cần thế nào?" (water), "Nuôi ở Việt Nam
 
 ## Check tank mates and stocking
 
-Link a person to ${u('/vi/cong-cu/nuoi-chung/')}?ca=<slug>:<count>,<slug>:<count> (up to 6 species; the count is optional) to see
+Link a person to ${u('/cong-cu/nuoi-chung/')}?ca=<slug>:<count>,<slug>:<count> (up to 6 species; the count is optional) to see
 whether species can share a tank (overlapping temperature, pH and hardness, size and temperament) and how full the tank
 would be. Add &l=<cm>&w=<cm>&h=<cm> for the tank size (default 60 × 30 × 36 cm).
 
@@ -87,7 +87,7 @@ export const openApi = (site: string) => ({
   info: { title: 'AquaTome content', version: '1.0.0', description: 'Read-only access to AquaTome pages (Vietnamese aquarium handbook).' },
   servers: [{ url: new URL('/', site).href.replace(/\/$/, '') }],
   paths: {
-    '/vi/{path}/': {
+    '/{path}/': {
       get: {
         summary: 'A page (species, plant, guide, equipment, glossary…) as HTML, or Markdown with Accept: text/markdown',
         parameters: [{ name: 'path', in: 'path', required: true, schema: { type: 'string' }, example: 'ca/ca-dia' }],

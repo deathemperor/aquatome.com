@@ -20,3 +20,13 @@ export const POPULAR = [
   'Carinotetraodon travancoricus', 'Dichotomyctere nigroviridis', 'Toxotes jaculatrix', 'Monodactylus argenteus', 'Phenacogrammus interruptus',
   'Caridina cantonensis', 'Pomacea diffusa', 'Vittina natalensis',
 ]
+
+/** The bred fish (breed ids) Vietnamese hobbyists and shops keep most, most popular first: their galleries are filled like what shops sell (engine/gallery-plan). */
+export const POPULAR_BREEDS = [
+  'balloon-molly', 'koi', 'flowerhorn-cichlid', 'blood-parrot-cichlid',
+  'oranda-goldfish', 'ranchu-goldfish', 'ryukin-goldfish', 'lionhead-goldfish', 'pearlscale-goldfish', 'black-moor-goldfish', 'bubble-eye-goldfish',
+  'halfmoon-betta', 'plakat-betta', 'crowntail-betta', 'koi-betta',
+  'full-red-guppy', 'koi-guppy', 'dumbo-ear-guppy',
+  'super-red-arowana', 'red-tailed-golden-arowana', 'crossback-golden-arowana',
+  'mickey-mouse-platy', 'butterfly-koi', 'pigeon-blood-discus',
+]

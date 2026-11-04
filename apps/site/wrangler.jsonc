@@ -7,26 +7,33 @@
   "compatibility_date": "2026-10-28",
   "assets": {
     "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page", "html_handling": "force-trailing-slash",
-    "run_worker_first": ["/", "/.well-known/api-catalog", "/.well-known/apple-app-site-association", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*"]
+    // The Worker runs first on every Vietnamese page (the root and each section, worker/paths.ts VI_SECTIONS; a test keeps
+    // them equal) and on the old /vi/ addresses, which it 301s to the root.
+    "run_worker_first": [
+      "/", "/.well-known/api-catalog", "/.well-known/apple-app-site-association", "/vi", "/vi/*",
+      "/ca/*", "/cay/*", "/chinh-sach-bao-mat/*", "/cong-cu/*", "/dang-nhap/*", "/gioi-thieu/*", "/huong-dan/*", "/kham-pha/*", "/lien-he/*", "/moi-cap-nhat/*",
+      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/video/*",
+      "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*"
+    ]
   },
   // The owner's dashboard (/_ab/) opens only to the owner's account signed in on the site: secret OWNER_ACCOUNTS, the
   // account ids, comma-separated. Secret AB_DASH_TOKEN is the build's and scripts' bearer token (/_ab/hidden.json and the
   // admin APIs); it no longer opens the dashboard.
-  // Affiliate catalog, click counts and comments. Schema: `wrangler d1 migrations apply thuysinh --remote`.
+  // Affiliate catalog, click counts and comments. Schema: `wrangler d1 migrations apply aquatome --remote`.
   // Comments also need secrets TURNSTILE_SECRET and COMMENT_HMAC_KEY; without them /_c answers 503 and the section stays hidden.
   // Accounts for saved tanks (/api/v1/*, worker/accounts/): ACCOUNTS "on" (unset: off; "preview": the owner only). Needs the
   // ACCOUNT_HMAC_KEY secret, migration 0004, and per provider GOOGLE_CLIENT_IDS / APPLE_CLIENT_IDS (public ids, below); email
   // also Turnstile and the EMAIL binding (Cloudflare Email Sending, aquatome.com onboarded); revoking Apple tokens when an
   // account is deleted, the APPLE_SIGNIN_KEY secret (Key ID and team below).
-  "d1_databases": [{ "binding": "DB", "database_name": "thuysinh", "database_id": "3e477e5b-486e-4af0-8e10-130f8f57a747", "migrations_dir": "migrations" }],
+  "d1_databases": [{ "binding": "DB", "database_name": "aquatome", "database_id": "ffebf861-d781-47a9-a77d-e7a3506af189", "migrations_dir": "migrations" }],
   // Reader photos: raw uploads wait in the private bucket; screened WebP copies go to the public media bucket (readers/).
-  "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "thuysinh-media" }],
+  "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "aquatome-media" }],
   // Fish ID's calls to Claude go out from the eastern US (worker/fishid/relay.ts): Anthropic refuses Cloudflare's Hong Kong location.
   "durable_objects": { "bindings": [{ "name": "FISHID_RELAY", "class_name": "FishIdRelay" }] },
   "migrations": [{ "tag": "v1-fishid-relay", "new_sqlite_classes": ["FishIdRelay"] }],
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
   // Readers' beacon events (worker/events.ts); every fish-ID request's outcome, tokens and cost (worker/fishid/log.ts).
-  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "thuysinh_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }],
+  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "aquatome_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }],
   "triggers": { "crons": ["17 20 * * *"] },
   "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com"] }],
   "vars": {
@@ -42,7 +49,6 @@
   },
   "routes": [
     { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
-    { "pattern": "www.aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
-    { "pattern": "thuysinh.infinitus.run", "zone_name": "infinitus.run", "custom_domain": true }
+    { "pattern": "www.aquatome.com", "zone_name": "aquatome.com", "custom_domain": true }
   ]
 }

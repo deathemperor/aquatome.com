@@ -1,0 +1,114 @@
+{
+  "id": "corydoras-loxozonus",
+  "scientificName": "Corydoras loxozonus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "lNumber": "C83",
+  "places": [
+    "south-america",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_loxozonus_en/",
+      "html": "<p>Corydoras loxozonus is among the most attractive members of the genus Corydoras and is also very easy to keep.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_loxozonus_en/",
+      "html": "<p>C. loxozonus originates from the Rio Orinoco and its affluents.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_loxozonus_en/",
+      "html": "<p>This species prefers higher temperatures. The water temperature should not sink below 25°C for longer periods.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_loxozonus_en/",
+      "html": "<p>Among wild-collected fish, some specimens always appear with a rather broken dorsal band. Formerly these individuals were often mistaken for Corydoras evelynae. It is now known that Corydoras loxozonus can have a very variable pattern. Most experts believe that even such aberrant fish as C82 and C83 belong to this species.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "aVrycuh611I",
+      "title": "Deckeri / Loxozonus Corydoras: What I Learned",
+      "durationSec": 364,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "saPzv_0s2_w",
+      "title": "Corydoras loxozonus",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SbLjHbsg5Io",
+      "title": "Corydoras loxozonus feeding time",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "embHrvVslx8",
+      "title": "Corydoras Axelrodi & Loxozonus Aquarium",
+      "durationSec": 117,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể nuôi cá chuột"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi 100W"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn nuôi cá chuột"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá chuột",
+        "thức ăn chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

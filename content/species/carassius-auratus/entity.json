@@ -80,6 +80,22 @@
         "source": "sprucepets",
         "value": 2
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 15,
+          "max": 15
+        }
+      },
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
     ]
   },
   "sections": [

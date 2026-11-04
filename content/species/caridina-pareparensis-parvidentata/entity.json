@@ -1,0 +1,118 @@
+{
+  "id": "caridina-pareparensis-parvidentata",
+  "scientificName": "Caridina pareparensis parvidentata",
+  "order": "Decapoda",
+  "family": "Atyidae",
+  "genus": "Caridina",
+  "group": "shrimp",
+  "places": [
+    "asia",
+    "indonesia",
+    "sulawesi"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 1.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-pareparensis-parvidentata-2/",
+      "html": "<p>Dwarf shrimp from Sulawesi (formerly Celebes) in Indonesia are famous for their colorfulness and notorious for their high demands on care. However, Caridina pareparensis is one of the easiest dwarf shrimp to keep and maintain. It grows only about 1.5 cm long and reproduces very productively.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-pareparensis-parvidentata-2/",
+      "html": "<p>Caridina pareparensis lives in rivers in the south of Sulawesi. The species was described from a river near Parepare. The form kept in the hobby is usually assigned to the subspecies (described as a variant) Caridina pareparensis parvidentata, whose origin is a spring called Malawa near the village of Tjamba, about 150 km further south from Parepare. Where exactly the animals kept in aquariums were or are collected is not known.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-pareparensis-parvidentata-2/",
+      "html": "<p>The shrimp adapts to pretty much all conditions imaginable in a normal aquarium: soft and hard water, acidic or alkaline pH. Even some salt in the water is tolerated, and the temperature can be between 16 and 30°C. Under all these conditions it lives and reproduces.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-pareparensis-parvidentata-2/",
+      "html": "<p>Although this dwarf shrimp is not very colorful, it is still pretty, and because it is not shy at all, keeping it gives a lot of pleasure.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-pareparensis-parvidentata-2/",
+      "html": "<p>Breeding is very productive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-pareparensis-parvidentata-2/",
+      "html": "<p>The difference between the typical form and parvidentata lies in the dentition of the rostrum: parvidentata has 6-10 denticles, all located on the rostrum, while the typical pareparensis has 13-18 denticles, of which 3-4 are located on the cephalothorax.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "POChHdIlamo",
+      "title": "Malawa shrimp Caridina pareparensis parvidentata",
+      "durationSec": 170,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "asQFh3uEGTE",
+      "title": "Malawa Shrimp - The Active, Algae Eating- Sulawesi Shrimp - Caridina Pareparensis Parvidentata",
+      "durationSec": 797,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "csnZtokHWXY",
+      "title": "Malawa Shrimp,Caridina pareparensis parvidentata, Feeding Frenzy!",
+      "durationSec": 187,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "khdbClsb7BU",
+      "title": "Malawa Shrimp colour change - Caridina pareparensis parvidentata",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể tép cảnh 30cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút cho tép",
+        "lọc sủi tép cảnh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tép cảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

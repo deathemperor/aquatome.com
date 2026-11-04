@@ -1,0 +1,187 @@
+---
+import { linkTerms } from '@aq/schema'
+import Browse from '../../layouts/Browse.astro'
+import ProductSlots from '../../components/ProductSlots.astro'
+import PagedSpecies from '../../components/PagedSpecies.astro'
+import PlantCard from '../../components/PlantCard.astro'
+import GuideCard from '../../components/GuideCard.astro'
+import GlossaryTip from '../../components/GlossaryTip.astro'
+import { getContent } from '../../lib/content'
+import { categoriesIn, normKeyword, type CategoryUse } from '../../lib/equipment'
+import { alternatesWhere } from '../../lib/alternates'
+import { categoryLabel, goLink } from '../../lib/format'
+import { creditsFor } from '../../lib/credits'
+import { pagePictures, takeEach } from '../../lib/pictures'
+import { kitPictures, speciesListPhotos, speciesLists } from '../../lib/list-data'
+import { PAGE } from '../../scripts/filter-list'
+import { smallSrc } from '../../lib/img'
+import { guideImages, guidesMentioning, mentionIndex } from '../../lib/mentions'
+import { creatorsUse } from '../../lib/gear'
+import { productHref } from '../../lib/products'
+import { i18n, langOf } from '../../lib/i18n'
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const lang = langOf(routePattern)
+  return categoriesIn(lang, await getContent(lang)).map(u => ({ params: { category: u.category }, props: { u } }))
+}
+const { u } = Astro.props as { u: CategoryUse }
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
+// Every picture once, in page order (lib/list-data.ts kitPictures): the kit's, each type's, the fish beside each type, the
+// plants, then the fish list's first page as its data file has it, then the guides.
+const { g, types, plants, typePhotos, whoPhotos, plantPhotos, above } = kitPictures(lang, c, u.category)
+const label = g?.name ?? t(categoryLabel(u.category))
+const entity = `equipment:${u.category}`
+const guides = guidesMentioning(c, entity).slice(0, 6)
+// Brands and models the video guides use for this kind of kit (engine video-items).
+const used = creatorsUse(lang, c, u.category)
+// Products with their own page (engine product), per type of this kit.
+const picks = (type: string) => c.products.filter(p => p.category === u.category && p.type === type)
+// The species suggesting this kit, a page at a time (components/PagedSpecies).
+const users = speciesLists(lang, c).get(`thiet-bi/${u.category}`) ?? []
+const plantsPage = u.category === 'cay-thuy-sinh'
+const needCo2 = plants.filter(p => p.co2 === 'required').length
+// Editorial text links glossary terms, species and other equipment once each, never this page.
+const targets = mentionIndex(c).targets
+const seen = new Set([entity])
+const link = (html: string) => linkTerms(html, targets, 'ml', seen).html
+const intro = g ? link(g.intro) : ''
+// The shop searches the most species and plants suggest, most first: a page of them (each species and plant page lists its
+// own). Every one any of them suggests made the list grow with the catalogue.
+const suggested = new Map<string, number>()
+for (const x of [...c.species, ...c.plants]) for (const k of new Set(x.productSlots.filter(s => s.category === u.category).flatMap(s => s.keywords.map(normKeyword)))) suggested.set(k, (suggested.get(k) ?? 0) + 1)
+const keywords = [...suggested].sort((a, b) => b[1] - a[1]).slice(0, PAGE).map(([k]) => k)
+const shops = ['shopee', 'lazada', 'tiki'] as const
+const SHOP_NAMES = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
+const faq = g && g.faq.length > 0 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []
+const userPhotos = plantsPage ? [] : speciesListPhotos(lang, c, `thiet-bi/${u.category}`, users).slice(0, PAGE)
+const pics = pagePictures(c)
+for (const p of [...above, ...userPhotos]) pics.add(p?.url)
+const guidePhotos = takeEach(pics, guides, x => guideImages(c, x))
+const credits = creditsFor([g?.hero, ...typePhotos, ...whoPhotos.flat(), ...plantPhotos, ...userPhotos, ...guidePhotos].map(p => p ?? undefined))
+// Shop links, shop keywords and the gear Vietnamese videos use are for the Vietnamese market: that page only.
+const vn = lang === 'vi'
+const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.equipment.some(e => e.category === u.category && (e.quality?.indexable ?? true)))
+---
+<Browse title={g ? t('{label}: chọn loại nào, dùng cho loài nào', { label }) : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', t('Thiết bị')]]} jsonld={faq} image={g?.hero.url} credits={credits} creditsLater={!plantsPage && users.length > PAGE} noindex={g?.quality ? !g.quality.indexable : false} alternates={alternates}>
+  {g && (
+    <header class="hero">
+      <img src={g.hero.url} width={g.hero.width} height={g.hero.height} alt={label} fetchpriority="high" />
+      <div>
+        <p class="lead">{g.lead}</p>
+        <ul class="chips">{users.length > 0 && <li>{t('{n} loài cá cần', { n: users.length })}</li>}{plants.length > 0 && <li>{t('{n} loài cây', { n: plants.length })}</li>}<li>{t('{n} loại', { n: g.types.length })}</li>{guides.length > 0 && <li>{t('{n} bài viết', { n: guides.length })}</li>}</ul>
+        <div class="intro" set:html={intro} />
+      </div>
+    </header>
+  )}
+
+  {types.length > 0 && <>
+    <h2 class="h">{t('Các loại {label}', { label: label.toLowerCase() })}</h2>
+    <div class="types">
+      {types.map((ty, k) => (
+        <article class:list={['type', { bare: !typePhotos[k] }]} id={ty.id}>
+          {typePhotos[k] && <div class="ph"><img src={smallSrc(typePhotos[k])} width={typePhotos[k].width} height={typePhotos[k].height} alt={ty.name} loading="lazy" /></div>}
+          <div class="body">
+            <h3>{ty.name}</h3>
+            <p set:html={link(ty.desc)} />
+            <p class="pick"><strong>{t('Chọn thế nào:')}</strong> {ty.pick}</p>
+            {picks(ty.id).length > 0 && <p class="picks">{t('Đã tìm hiểu kỹ:')} {picks(ty.id).map(p => <a href={productHref(p)}>{p.brand} {p.model}</a>)}</p>}
+            {vn && <p class="buy">{t('Mua')} <em>{ty.buy}</em>: {shops.map(s => <a href={goLink(s, ty.buy, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{SHOP_NAMES[s]}</a>)}</p>}
+            {vn && ty.keywords.length > 1 && <p class="more">{t('Hay tìm:')} {ty.keywords.filter(k => k !== ty.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{k}</a>)}</p>}
+            {ty.species.length > 0 && (
+              <ul class="who" aria-label={t('Loài dùng {name}', { name: ty.name.toLowerCase() })}>
+                {ty.species.slice(0, 6).map((s, i) => { const p = whoPhotos[k]![i]; return <li><a href={`/vi/ca/${s.t.slug}/`}>{p && <img src={smallSrc(p)} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li> })}
+                {ty.species.length > 6 && <li class="n">{t('+{n} loài', { n: ty.species.length - 6 })}</li>}
+              </ul>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </>}
+
+  {g && (
+    <div class="two">
+      <section><h2 class="h">{t('Cách chọn')}</h2><ul class="tips">{g.choose.map(x => <li set:html={link(x)} />)}</ul></section>
+      <section><h2 class="h">{t('Sai lầm thường gặp')}</h2><ul class="tips warn">{g.mistakes.map(x => <li set:html={link(x)} />)}</ul></section>
+    </div>
+  )}
+
+  {vn && used.length > 0 && (
+    <section class="creators">
+      <h2 class="h">{t('Dân chơi dùng gì trong video')}</h2>
+      <ul>{used.slice(0, 10).map(x => (
+        <li><strong>{x.product ? <a href={x.product}>{x.name}</a> : x.name}</strong> <span class="n">{t('{n} video', { n: x.guides.length })}</span> {x.guides.slice(0, 3).map(v => <a href={`/vi/huong-dan/${v.t.slug}/`}>{v.t.name}</a>)}</li>
+      ))}</ul>
+    </section>
+  )}
+
+  {plants.length > 0 && <>
+    <h2 class="h">{plantsPage ? t('Cây thủy sinh trên AquaTome') : t('Cây cần CO2')}</h2>
+    <div class="plants">{plants.slice(0, PAGE).map((p, i) => <PlantCard p={p} photo={plantPhotos[i]} />)}</div>
+    {plants.length > PAGE && (plantsPage || needCo2 > 0) && <p class="list"><a href={plantsPage ? '/vi/cay/' : '/vi/cay/?co2=required'}>{plantsPage ? t('Xem cả {n} loài cây', { n: plants.length }) : t('Xem cả {n} loài cây bắt buộc có CO₂', { n: needCo2 })}</a></p>}
+  </>}
+  {!plantsPage && users.length > 0 && <>
+    <h2 class="h">{t('Loài cá cần {label}', { label: label.toLowerCase() })}</h2>
+    <PagedSpecies species={users} list={`thiet-bi/${u.category}`} photos={userPhotos} />
+  </>}
+
+  {g && g.faq.length > 0 && <>
+    <h2 class="h">{t('Hỏi đáp')}</h2>
+    <div class="faq">{g.faq.map(f => <details><summary>{f.q}</summary><p set:html={link(f.a)} /></details>)}</div>
+  </>}
+
+  {guides.length > 0 && <>
+    <h2 class="h">{t('Bài viết liên quan')}</h2>
+    <div class="guides">{guides.map((x, i) => <GuideCard g={x} photo={guidePhotos[i]} />)}</div>
+  </>}
+
+  {vn && (
+    <details class="all"><summary>{t('Gợi ý mua hay gặp ({n})', { n: keywords.length })}</summary>
+      <ProductSlots slots={[{ category: u.category, keywords }]} heading={t('Gợi ý mua')} entity={entity} />
+    </details>
+  )}
+  <GlossaryTip />
+</Browse>
+<style>
+  .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-6); align-items: start; margin-bottom: var(--space-6); }
+  .hero img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-media); }
+  .lead { font: 400 var(--step-1) / 1.4 var(--f-display); margin: 0 0 var(--space-3); }
+  .chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0 0 var(--space-4); }
+  .chips li { font-size: 0.8rem; padding: 0.2rem 0.7rem; border-radius: 999px; background: var(--c-plate); border: 1px solid var(--c-rule); }
+  .intro :global(p) { max-width: var(--measure); color: var(--c-ink-soft); }
+  .h { font-size: var(--step-2); margin: var(--space-7) 0 var(--space-4); }
+  .types { display: grid; gap: var(--space-5); }
+  .type { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: var(--space-5); padding-bottom: var(--space-5); border-bottom: 1px solid var(--c-rule); }
+  .type.bare { grid-template-columns: minmax(0, 1fr); }
+  .type .ph img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-media); background: var(--c-plate); }
+  .type h3 { font-size: var(--step-1); margin: 0 0 var(--space-2); }
+  .type p { margin: 0 0 var(--space-2); max-width: var(--measure); }
+  .pick { color: var(--c-ink-soft); }
+  .buy a, .more a { margin-left: var(--space-2); }
+  .more { font-size: 0.85rem; color: var(--c-ink-faint); }
+  .who { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .who a { display: inline-flex; align-items: center; gap: var(--space-2); padding: 0.15rem 0.7rem 0.15rem 0.15rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); text-decoration: none; font-size: 0.85rem; }
+  .who img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+  .who .n { font-size: 0.85rem; color: var(--c-ink-faint); align-self: center; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+  .tips { padding-left: 1.2rem; display: grid; gap: var(--space-2); }
+  .warn li::marker { content: '✕  '; color: var(--c-coral, #b5482f); }
+  .plants, .guides { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
+  .faq details { border-bottom: 1px solid var(--c-rule); padding: var(--space-3) 0; }
+  .faq summary { cursor: pointer; font-weight: 500; }
+  .faq p { margin: var(--space-2) 0 0; max-width: var(--measure); color: var(--c-ink-soft); }
+  .all { margin-top: var(--space-6); }
+  .all summary { cursor: pointer; color: var(--c-moss); }
+  .list { margin-top: var(--space-5); }
+  .list a { display: inline-block; padding-block: 10px; font-weight: 600; }
+  @media (max-width: 720px) {
+    .hero, .two { grid-template-columns: minmax(0, 1fr); }
+    .type { grid-template-columns: 96px minmax(0, 1fr); gap: var(--space-4); }
+    .type.bare { grid-template-columns: minmax(0, 1fr); }
+  }
+  .creators ul { list-style: none; padding: 0; margin: 0; }
+  .creators li { padding-block: var(--space-3); border-bottom: 1px dotted var(--c-rule); display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); align-items: baseline; }
+  .creators .n { font-size: var(--step--1); color: var(--c-ink-faint); }
+  .creators a { font-size: 0.9rem; }
+  .picks a { margin-left: var(--space-2); font-weight: 500; }
+</style>

@@ -38,6 +38,7 @@ import { FB_FISH_SCHEMA, FB_SPECIES_SCHEMA, identifyPhotos, type FbVerdict } fro
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
 import { tidyCredits } from './wiki-author'
+import { fillLifespans } from './lifespans'
 import { hashPictures } from './picture-hashes'
 import { extractTraits } from './traits'
 import { topicCheck } from './topic-check'
@@ -83,7 +84,7 @@ process.env.YOUTUBE_API_KEY ??= (() => { try { return readFileSync(join(homedir(
 const youtube = () => (process.env.YOUTUBE_API_KEY ? ytApi(process.env.YOUTUBE_API_KEY) : ytDlp)
 const media = () => r2Media({
   accountId: conf('CF_ACCOUNT_ID', 'cf-account'), token: conf('CLOUDFLARE_API_TOKEN', 'cf-token'),
-  bucket: process.env.MEDIA_BUCKET ?? 'thuysinh-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
+  bucket: process.env.MEDIA_BUCKET ?? 'aquatome-media', publicBase: process.env.MEDIA_BASE ?? 'https://media.aquatome.com',
 })
 
 /**
@@ -252,6 +253,11 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // provided. X assumed…", "X~commonswiki"): tidied in place. New imports are tidied as they come (authorText).
   const r = await tidyCredits(join(ROOT, 'content'))
   console.log(`credits: ${r.authors} authors tidied in ${r.files} files`)
+} else if (cmd === 'lifespans') {
+  // Lifespans the sources already state as a labelled line ("Life expectancy: 4 years"), put on the data card for each
+  // source that gives one; new reads give theirs through the process prompt.
+  const r = await fillLifespans(join(ROOT, 'content'))
+  console.log(`lifespans: ${r.values} added to ${r.species} species`)
 } else if (cmd === 'picture-hashes') {
   // The image hash of every picture in content, so no page shows the same picture twice from two files.
   const r = await hashPictures(ROOT, {
@@ -444,7 +450,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const x of [...r.done, ...r.failed]) console.log(x)
 } else if (cmd === 'gallery') {
   // Galleries topped up to their tier's target, most popular first (iNaturalist, Commons, GBIF, Openverse; open licences,
-  // screened): pnpm engine gallery [--sheets N (model calls, default 40)] [--only <species or plant id>] [--shard i/n (n runs at once)]
+  // screened): pnpm engine gallery [--sheets N (model calls, default 40)] [--only <species, plant or breed id>] [--shard i/n (n runs at once)]
   const env = (k: string) => (process.env[k] ? Number(process.env[k]) : undefined)
   const budget = Object.fromEntries((['inat', 'gbif', 'openverse'] as const).flatMap(k => (env(`GALLERY_${k.toUpperCase()}`) === undefined ? [] : [[k, env(`GALLERY_${k.toUpperCase()}`)!]])))
   const r = await galleries(ROOT, { ...galleryDeps(), openverse: await openverseApi() }, { sheets: values.sheets ? Number(values.sheets) : 40, ...(values.only ? { only: values.only } : {}), ...(values.shard ? { shard: values.shard.split('/').map(Number) as [number, number] } : {}), budget })

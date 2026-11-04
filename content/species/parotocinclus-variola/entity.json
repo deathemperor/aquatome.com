@@ -1,0 +1,86 @@
+{
+  "id": "parotocinclus-variola",
+  "scientificName": "Parotocinclus variola",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Parotocinclus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "cachoeira-do-el-dorado"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/parotocinclus_cf_variola_en/",
+      "html": "<p>This dwarf suckermouth catfish originates from a only recently discovered region, namely the waterfalls of Cachoeira do el Dorado in the far northern parts of Brazil, almost at the border to Venezuela. This area has not been explored ichthyologically yet.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/parotocinclus_cf_variola_en/",
+      "html": "<p>Of all the different species of Parotocinclus described so far, these new importations are most similar to P. variola, a species described only this year on the basis of specimens collected near Leticia in Colombia.</p><p>However, the fish differ from P. variola in some details. It cannot currently be said whether these differences are of any importance, because the fish are very variable in respect of coloration (all specimens on the photos have the same size, about 3 cm total length including the caudal fin).</p><p>In contrast to many other Parotocinclus of this relationship, these new importations are quite hardy fish. Besides this, the liveliness of the fish is worth mentioning.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "oFSjsHW1QVU",
+      "title": "Rhinotocinclus variola (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 65,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7Smhf52f1qM",
+      "title": "Rhinotocinclus variola",
+      "durationSec": 49,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "yl23kPGbkjM",
+      "title": "Parotocinclus jumbo Gruppe",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ud0vhDUwPrQ",
+      "title": "Parotocinclus haroldoi 2",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ",
+        "lọc sủi mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính",
+        "viên rau củ cho cá dọn bể"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể thủy sinh",
+        "sỏi nhỏ bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}
