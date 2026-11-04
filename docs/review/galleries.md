@@ -1,14 +1,14 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-03). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-04). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | At target | Below |
 | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 4 | 8 |
 | shop | 60 | 124 | 77 | 27 | 174 |
 | popular | 40 | 21 | 0 | 2 | 19 |
-| covered | 30 | 217 | 3 | 7 | 213 |
-| rest | 20 | 827 | 93 | 1 | 919 |
+| covered | 30 | 277 | 3 | 7 | 273 |
+| rest | 20 | 881 | 94 | 1 | 974 |
 
 ## Short of target: every source read (25)
 
@@ -25,7 +25,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/danio-rerio | staple | 35 | 100 |
 | species/mikrogeophagus-ramirezi | staple | 28 | 100 |
 | species/anentome-helena | shop | 14 | 60 |
-| plants/anubias-barteri | shop | 15 | 60 |
+| plants/anubias-barteri | shop | 14 | 60 |
 | plants/microsorum-pteropus | shop | 33 | 60 |
 | species/hyphessobrycon-herbertaxelrodi | shop | 11 | 60 |
 | species/phenacogrammus-interruptus | shop | 16 | 60 |

@@ -1,6 +1,6 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-03), most-read pages first. Rules: docs/governance.md, "Photos".
+Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules: docs/governance.md, "Photos".
 2889 verdicts. Shows it: 2194; its habitat: 43; something else: 91; not a photo of it: 57; can't tell: 490.
 
 ## Left with no photo (5)
