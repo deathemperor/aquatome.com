@@ -1,7 +1,7 @@
 import type { ContentReads, ContentStats, EntityKind, GapKey, KindClicks, PageKind, Snapshot, Talk, Totals } from './content'
 import { dayChart, esc, fmt, lastDays, meter, rankTable, tiles, type DayChart, type Ranked, type Tile } from './chart'
 import { cellOf, chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Block, type Cell, type Section } from './blocks'
-import { failedBox, isFailed, page, type Failed, type Soft } from './shell'
+import { failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ, hourMinute, localDay, sameClock, timeTag } from './time'
 
 /** The dashboard's Nội dung page: what the site holds (the build's content.json), how it grows, what the engine is doing, what's missing, and how readers use it. */
@@ -106,7 +106,7 @@ function totalsHtml(s: ContentStats): string {
 }
 function totalsBlocks(s: ContentStats): Block[] {
   const p = totalsParts(s)
-  return [heading('Tổng'), figures(p.tiles), table(TOTALS_HEAD, cells(p.rows))]
+  return [heading('Tổng', 2, 'tong'), figures(p.tiles), table(TOTALS_HEAD, cells(p.rows))]
 }
 
 const GROWTH_NONE = 'Mỗi đêm lưu tổng số một lần; cần ít nhất hai ngày để thấy tăng thêm bao nhiêu.'
@@ -151,7 +151,7 @@ function growthHtml(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>, tz: str
   return out
 }
 function growthBlocks(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>, tz: string): Block[] {
-  const out = [heading('Tăng thêm')]
+  const out = [heading('Tăng thêm', 2, 'tang')]
   if (isFailed(snaps)) return [...out, failedNote('số liệu từng ngày', snaps)]
   if (snaps.length < 2) return [...out, note(GROWTH_NONE, 'muted')]
   const p = growthParts(now, s, snaps, tz)
@@ -180,7 +180,8 @@ function engineParts(now: Date, e: NonNullable<ContentStats['engine']>, tz: stri
     ] as Tile[],
     chart: { id: 'n-videos', title: 'Bài từ video viết mỗi ngày · 30 ngày', days: days.slice(1), series: [{ label: 'Bài', values: written.slice(1) }], partialLast: true, empty: 'Chưa viết bài nào trong 30 ngày.' } as DayChart,
     rewriteTiles: [{ label: 'Đã viết lại', value: fmt(e.rewrite.done), meter: rewriteShare(e.rewrite), sub: `${pct(e.rewrite.done, e.rewrite.done + e.rewrite.waiting + e.rewrite.failed)} số trang cần viết lại` }, { label: 'Còn chờ', value: fmt(e.rewrite.waiting), sub: `${fmt(e.rewrite.failed)} lỗi` }] as Tile[],
-    rows: sources.map(r => ({ needsYou: human.has(r.id), cells: [`${esc(r.name)}${human.has(r.id) ? ' <span class="chip bad">cần bạn</span>' : ''}`, fmt(r.waiting), fmt(r.failed), fmt(r.blocked), r.lastAt ? timeTag(r.lastAt, tz, now) : '—', `${fmt(r.found)}${r.discovered ? ` <span class="muted">/ ${fmt(r.discovered)}</span>` : ''}`, fmt(r.done), fmt(r.skipped)] })),
+    // The source, marked when it waits on the owner; the rest of its row as the page writes it.
+    rows: sources.map(r => ({ source: { text: r.name, ...(human.has(r.id) ? { sub: 'cần bạn', tone: 'bad' as const } : {}) } as Cell, cells: [fmt(r.waiting), fmt(r.failed), fmt(r.blocked), r.lastAt ? timeTag(r.lastAt, tz, now) : '—', `${fmt(r.found)}${r.discovered ? ` <span class="muted">/ ${fmt(r.discovered)}</span>` : ''}`, fmt(r.done), fmt(r.skipped)] })),
     note: `Thành trang: viết thành trang, hoặc gộp vào một trang có sẵn. Bỏ qua: trang danh mục, trùng, không phải cá. Lỗi 3 lần: thôi thử cho tới khi trang nguồn đổi.${e.lastRun ? ` Lần chạy gần nhất trên máy build: ${timeTag(e.lastRun.startedAt, tz, now)}–${esc(hourMinute(e.lastRun.finishedAt, tz))}, đổi ${fmt(e.lastRun.changed)} mục, ${fmt(e.lastRun.errors)} lỗi.` : ''}`,
   }
 }
@@ -194,17 +195,17 @@ function engineHtml(now: Date, s: ContentStats, tz: string): string {
   out += `<h3 class="sub-h">Bài từ video YouTube</h3>${tiles(p.videoTiles)}
 <div class="charts">${dayChart(p.chart)}
 <figure class="chart" aria-labelledby="n-rw"><figcaption><h3 id="n-rw">Viết lại tiếng Việt cũ</h3></figcaption>${tiles(p.rewriteTiles)}</figure></div>`
-  out += `<h3 class="sub-h">Nguồn trang</h3><div class="scroll"><table class="wide">${headHtml(ENGINE_HEAD)}<tbody>${p.rows.map(r => rowHtml(r.cells)).join('') || '<tr><td colspan="8" class="none">Chưa có.</td></tr>'}</tbody></table></div>
+  out += `<h3 class="sub-h">Nguồn trang</h3><div class="scroll"><table class="wide">${headHtml(ENGINE_HEAD)}<tbody>${p.rows.map(r => rowHtml([`${esc(r.source.text)}${r.source.sub ? ` <span class="chip bad">${esc(r.source.sub)}</span>` : ''}`, ...r.cells])).join('') || '<tr><td colspan="8" class="none">Chưa có.</td></tr>'}</tbody></table></div>
 <p class="note">${p.note}</p></section>`
   return out
 }
 function engineBlocks(now: Date, s: ContentStats, tz: string): Block[] {
-  const out = [heading('Engine')]
+  const out = [heading('Engine', 2, 'engine')]
   const e = s.engine
   if (!e) return [...out, note(NO_ENGINE, 'muted')]
   const p = engineParts(now, e, tz)
   if (p.human) out.push(note(textOf(p.human), 'bad'))
-  const rows = p.rows.map(r => r.cells.map((c, i) => cellOf(c, i === 0 && r.needsYou ? { tone: 'bad' } : {})))
+  const rows = p.rows.map(r => [r.source, ...r.cells.map(c => cellOf(c))])
   return [...out, heading('Bài từ video YouTube', 3), figures(p.videoTiles), chart(p.chart), heading('Viết lại tiếng Việt cũ', 3), figures(p.rewriteTiles),
     heading('Nguồn trang', 3), table(ENGINE_HEAD, rows, { empty: 'Chưa có.' }), note(textOf(p.note))]
 }
@@ -249,7 +250,7 @@ function gapsHtml(s: ContentStats): string {
 }
 /** Each kind: its heading, then each gap as a figure and, folded under it, the first pages to fix. */
 function gapsBlocks(s: ContentStats): Block[] {
-  return [heading('Còn thiếu'), note(GAPS_NOTE), ...gapsParts(s).flatMap(x => [
+  return [heading('Còn thiếu', 2, 'thieu'), note(GAPS_NOTE), ...gapsParts(s).flatMap(x => [
     heading(textOf(x.title), 3),
     ...x.gaps.flatMap(g => [
       figures([{ label: textOf(`${g.label}${g.by ? ` ${g.by}` : ''}`), value: fmt(g.n), sub: g.share, meter: g.meter }]),
@@ -273,7 +274,7 @@ function photosHtml(s: ContentStats): string {
 }
 function photosBlocks(s: ContentStats): Block[] {
   const p = photosParts(s)
-  return [heading('Ảnh'), figures(p.tiles), heading('Theo giấy phép', 3), rankBlock(p.licences, LICENCE_HEAD), heading('Theo nơi lấy', 3), rankBlock(p.origins, ORIGIN_HEAD)]
+  return [heading('Ảnh', 2, 'anh'), figures(p.tiles), heading('Theo giấy phép', 3), rankBlock(p.licences, LICENCE_HEAD), heading('Theo nơi lấy', 3), rankBlock(p.origins, ORIGIN_HEAD)]
 }
 
 const READS_HEAD = ['Loại', 'Trang', 'Có người đọc', 'Người đọc', 'Lượt xem']
@@ -281,7 +282,8 @@ const READ_TOP_HEAD = ['Trang', 'Người đọc', 'Lượt xem']
 function readsParts(r: ContentReads) {
   return {
     lede: `${r.days} ngày gần nhất · người đọc: phiên cuộn ≥ 50% hoặc ở lại ≥ 30 giây, như trang Người đọc.`,
-    rows: r.byKind.map(k => [esc(KIND[k.kind]), fmt(k.pages), `${fmt(k.read)}${k.read ? ` <span class="muted">${pct(k.read, k.pages)}</span>` : ''}`, fmt(k.readers), fmt(k.views)]),
+    // Pages with a reader, and their share under it.
+    rows: r.byKind.map((k): Cell[] => [{ text: KIND[k.kind] }, { text: fmt(k.pages) }, { text: fmt(k.read), ...(k.read ? { sub: pct(k.read, k.pages) } : {}) }, { text: fmt(k.readers) }, { text: fmt(k.views) }]),
     top: r.top.map(x => ({ label: link(x.path, x.title), value: x.readers, cells: [fmt(x.views)] })) as Ranked[],
     unreadTitle: `${fmt(r.unread.n)} trang chưa ai đọc trong ${r.days} ngày`,
     unread: Object.entries(r.unread.byKind).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${KIND[k as PageKind]} ${fmt(n)}`).join(' · '),
@@ -294,16 +296,16 @@ function readsHtml(r: Soft<ContentReads>): string {
   if (isFailed(r)) return `${out}${failedBox('người đọc theo trang', r)}</section>`
   const p = readsParts(r)
   return `${out}<p class="lede">${p.lede}</p>
-<div class="scroll"><table>${headHtml(READS_HEAD)}<tbody>${p.rows.map(rowHtml).join('') || '<tr><td colspan="5" class="none">Chưa có.</td></tr>'}</tbody></table></div>
+<div class="scroll"><table>${headHtml(READS_HEAD)}<tbody>${p.rows.map(r => rowHtml(r.map(c => `${esc(c.text)}${c.sub ? ` <span class="muted">${esc(c.sub)}</span>` : ''}`))).join('') || '<tr><td colspan="5" class="none">Chưa có.</td></tr>'}</tbody></table></div>
 <div class="split"><section><h3 class="sub-h">Trang nhiều người đọc nhất</h3>${rankTable(p.top, READ_TOP_HEAD)}</section>
 <section><h3 class="sub-h">${p.unreadTitle}</h3><p class="note">${esc(p.unread)}</p>${r.unread.pages.length ? `<details><summary>${p.unreadSummary}</summary><ol class="pages">${r.unread.pages.map(x => `<li>${link(x.path, x.title)}</li>`).join('')}</ol></details>` : ''}
 ${p.elsewhere ? `<p class="note">${p.elsewhere}</p>` : ''}</section></div></section>`
 }
 function readsBlocks(r: Soft<ContentReads>): Block[] {
-  const out = [heading('Người đọc theo loại trang')]
+  const out = [heading('Người đọc theo loại trang', 2, 'doc')]
   if (isFailed(r)) return [...out, failedNote('người đọc theo trang', r)]
   const p = readsParts(r)
-  return [...out, note(p.lede), table(READS_HEAD, cells(p.rows), { empty: 'Chưa có.' }), heading('Trang nhiều người đọc nhất', 3), rankBlock(p.top, READ_TOP_HEAD),
+  return [...out, note(p.lede), table(READS_HEAD, p.rows, { empty: 'Chưa có.' }), heading('Trang nhiều người đọc nhất', 3), rankBlock(p.top, READ_TOP_HEAD),
     heading(p.unreadTitle, 3), note(p.unread), ...(r.unread.pages.length ? [table(['Trang'], r.unread.pages.map(x => [{ text: x.title, href: x.path }]), { folded: p.unreadSummary })] : []),
     ...(p.elsewhere ? [note(p.elsewhere)] : [])]
 }
@@ -326,7 +328,7 @@ function talkHtml(t: Soft<Talk>): string {
 <section><h3 class="sub-h">Trang nhiều nhất</h3>${rankTable(p.top, TALK_TOP_HEAD)}</section></div></section>`
 }
 function talkBlocks(t: Soft<Talk>): Block[] {
-  const out = [heading('Bình luận và ảnh bạn đọc theo trang')]
+  const out = [heading('Bình luận và ảnh bạn đọc theo trang', 2, 'binh-luan')]
   if (isFailed(t)) return [...out, failedNote('bình luận theo trang', t)]
   const p = talkParts(t)
   return [...out, note(p.lede), heading('Theo loại', 3), rankBlock(p.kinds, TALK_KIND_HEAD), heading('Trang nhiều nhất', 3), rankBlock(p.top, TALK_TOP_HEAD)]
@@ -350,8 +352,8 @@ function clicksHtml(k: Soft<KindClicks>, now: Date, tz: string): string {
 <section><h3 class="sub-h">Trang dẫn nhiều nhất</h3>${rankTable(p.top, CLICK_TOP_HEAD)}</section></div></section>`
 }
 function clicksBlocks(k: Soft<KindClicks>, now: Date, tz: string): Block[] {
-  const out = [heading('Affiliate theo loại trang')]
-  if (isFailed(k)) return [...out, failedNote('lượt bấm theo trang', k as Failed)]
+  const out = [heading('Affiliate theo loại trang', 2, 'affiliate')]
+  if (isFailed(k)) return [...out, failedNote('lượt bấm theo trang', k)]
   const p = clicksParts(k, now, tz)
   return [...out, note(textOf(p.lede)), heading('Theo loại', 3), rankBlock(p.kinds, CLICK_KIND_HEAD), heading('Trang dẫn nhiều nhất', 3), rankBlock(p.top, CLICK_TOP_HEAD)]
 }
@@ -365,5 +367,5 @@ function sourcesHtml(s: ContentStats): string {
 <div class="scroll"><table>${headHtml(SOURCES_HEAD)}<tbody>${sourceRows(s).map(rowHtml).join('') || '<tr><td colspan="4" class="none">Chưa có.</td></tr>'}</tbody></table></div></section>`
 }
 function sourcesBlocks(s: ContentStats): Block[] {
-  return [heading('Nguồn nội dung'), note(SOURCES_NOTE), table(SOURCES_HEAD, cells(sourceRows(s)), { empty: 'Chưa có.' })]
+  return [heading('Nguồn nội dung', 2, 'nguon'), note(SOURCES_NOTE), table(SOURCES_HEAD, cells(sourceRows(s)), { empty: 'Chưa có.' })]
 }

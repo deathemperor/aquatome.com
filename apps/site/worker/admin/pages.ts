@@ -5,7 +5,7 @@ import { isViPage, withoutVi } from '../paths'
 import type { Readers } from '../readers'
 import type { Wanted } from '../wanted'
 import { chipHtml, chipOf, dayChart, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
-import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Action, type Block, type Cell, type PhotoItem, type Section } from './blocks'
+import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Action, type Block, type Cell, type PhotoItem, type RankRow, type Section, type TextTone } from './blocks'
 import type { AccountStats, Waiting } from './data'
 import type { ContentStats, Snapshot } from './content'
 import { inLang, items as itemCount, KIND as PAGE_KIND, MAIN, perDay, writtenPerDay } from './content-page'
@@ -161,7 +161,8 @@ export function areas(o: Overview): Area[] {
   return out
 }
 
-export type LogItem = { text: string; small?: string }
+/** `section`: the dashboard page the item counts for (the app opens it). */
+export type LogItem = { text: string; small?: string; section: string }
 export type LogDay = { day: string; label: string; partial: boolean; items: LogItem[] }
 /** The last `n` of the viewer's days, today first, in words: what each area counted that day. A part that didn't load is left out (its to-do says so). */
 export function log(o: Overview, n = 3): LogDay[] {
@@ -177,29 +178,29 @@ export function log(o: Overview, n = 3): LogDay[] {
     if (kept && before) {
       const added = MAIN.map(k => [k, (kept.totals.kinds[k]?.[0] ?? 0) - (before.totals.kinds[k]?.[0] ?? 0)] as const).filter(([, n]) => n > 0)
       const n = added.reduce((a, [, x]) => a + x, 0)
-      if (n) items.push({ text: `${fmt(n)} bài mới`, small: added.map(([k, x]) => `${fmt(x)} ${PAGE_KIND[k].toLowerCase()}`).join(' · ') })
+      if (n) items.push({ text: `${fmt(n)} bài mới`, small: added.map(([k, x]) => `${fmt(x)} ${PAGE_KIND[k].toLowerCase()}`).join(' · '), section: 'noi-dung' })
       const id = inLang(kept.totals, 1) - inLang(before.totals, 1)
       const th = inLang(kept.totals, 2) - inLang(before.totals, 2)
-      if (id > 0 || th > 0) items.push({ text: `${fmt(Math.max(id, 0))} bài tiếng Indonesia, ${fmt(Math.max(th, 0))} bài tiếng Thái mới` })
+      if (id > 0 || th > 0) items.push({ text: `${fmt(Math.max(id, 0))} bài tiếng Indonesia, ${fmt(Math.max(th, 0))} bài tiếng Thái mới`, section: 'noi-dung' })
     }
-    if (r && (at(r.readers, back) || at(r.sessions, back))) items.push({ text: `${fmt(at(r.readers, back))} người đọc`, small: `${fmt(at(r.sessions, back))} phiên` })
-    if (!isFailed(clicks) && at(clicks.clicks, back)) items.push({ text: `${fmt(at(clicks.clicks, back))} lượt bấm sang sàn` })
+    if (r && (at(r.readers, back) || at(r.sessions, back))) items.push({ text: `${fmt(at(r.readers, back))} người đọc`, small: `${fmt(at(r.sessions, back))} phiên`, section: 'doc-gia' })
+    if (!isFailed(clicks) && at(clicks.clicks, back)) items.push({ text: `${fmt(at(clicks.clicks, back))} lượt bấm sang sàn`, section: 'affiliate' })
     if (!isFailed(fish)) {
       const d = fish.perDay
       const calls = at(d.ok, back) + at(d.none, back)
-      if (calls || at(d.blocked, back)) items.push({ text: `${fmt(calls)} lượt nhận diện cá gọi Claude · ${usd(at(d.usd, back))}`, small: `${fmt(at(d.ok, back))} có kết quả${at(d.blocked, back) ? ` · ${fmt(at(d.blocked, back))} chặn trước khi gọi` : ''}` })
+      if (calls || at(d.blocked, back)) items.push({ text: `${fmt(calls)} lượt nhận diện cá gọi Claude · ${usd(at(d.usd, back))}`, small: `${fmt(at(d.ok, back))} có kết quả${at(d.blocked, back) ? ` · ${fmt(at(d.blocked, back))} chặn trước khi gọi` : ''}`, section: 'nhan-dien-ca' })
     }
     if (!isFailed(accounts)) {
-      if (at(accounts.newComments, back)) items.push({ text: `${fmt(at(accounts.newComments, back))} bình luận mới` })
-      if (at(accounts.newUsers, back)) items.push({ text: `${fmt(at(accounts.newUsers, back))} tài khoản mới` })
+      if (at(accounts.newComments, back)) items.push({ text: `${fmt(at(accounts.newComments, back))} bình luận mới`, section: 'tai-khoan' })
+      if (at(accounts.newUsers, back)) items.push({ text: `${fmt(at(accounts.newUsers, back))} tài khoản mới`, section: 'tai-khoan' })
     }
     if (!isFailed(wanted)) {
       const fresh = wanted.names.filter(w => w.first === day)
-      if (fresh.length) items.push({ text: `${fmt(fresh.length)} tên mới bạn đọc muốn có`, small: `${fresh.slice(0, 3).map(w => w.name).join(', ')}${fresh.length > 3 ? '…' : ''}` })
+      if (fresh.length) items.push({ text: `${fmt(fresh.length)} tên mới bạn đọc muốn có`, small: `${fresh.slice(0, 3).map(w => w.name).join(', ')}${fresh.length > 3 ? '…' : ''}`, section: 'muon-co' })
     }
     if (!isFailed(hidden)) {
       const hid = Object.entries(hidden).filter(([, v]) => localDay(v.at, tz) === day).map(([path]) => path)
-      if (hid.length) items.push({ text: `Ẩn ${fmt(hid.length)} trang`, small: `${hid.slice(0, 2).join(', ')}${hid.length > 2 ? '…' : ''}` })
+      if (hid.length) items.push({ text: `Ẩn ${fmt(hid.length)} trang`, small: `${hid.slice(0, 2).join(', ')}${hid.length > 2 ? '…' : ''}`, section: 'an-trang' })
     }
     const dm = `${day.slice(8, 10)}/${day.slice(5, 7)}`
     const label = back === 0 ? `Hôm nay · ${dm}` : back === 1 ? `Hôm qua · ${dm}` : `${WEEKDAY[new Date(`${day}T00:00:00Z`).getUTCDay()]} · ${dm}`
@@ -207,33 +208,53 @@ export function log(o: Overview, n = 3): LogDay[] {
   })
 }
 
+const QUIET = 'Không có gì mới.'
+const PARTIAL = 'chưa hết ngày'
+/** The note under the areas: how to read a row. */
+const areasNote = (o: Overview) =>
+  `Số lớn: 7 ngày trọn đến hết hôm qua, so với 7 ngày trước đó. Cột nhỏ: 30 ngày trọn, mỗi cột một ngày; 7 cột đậm là 7 ngày của số lớn, 7 cột nhạt trước chúng là 7 ngày đem so. ${zoneNote(o.tz ?? HOME_TZ, o.now)}${sameClock(o.tz ?? HOME_TZ, HOME_TZ, o.now) ? '' : ' Lượt bấm affiliate và tên bạn đọc muốn có được lưu theo ngày giờ Việt Nam.'}`
+
 export function overviewPage(o: Overview): string {
   const t = todos(o)
   const todoHtml = t.length
     ? `<ul class="todo">${t.map(x => `<li>${ICON.alert}<div><b>${esc(x.title)}</b><p>${esc(x.text)}</p></div><a class="act" href="${esc(x.href)}">${esc(x.action)}</a></li>`).join('')}</ul>`
     : `<p class="clear panel">${ICON.check}Không có việc gì cần bạn lúc này.</p>`
   const rows = areas(o).map(a => `<li><a class="area" href="${esc(a.href)}"><span><span class="name">${a.warn ? '<span class="dot" role="img" aria-label="cần xem"></span>' : ''}${esc(a.name)}</span><span class="fig">${esc(a.fig)}</span><span class="sub">${esc(a.sub)}</span></span><span class="trend">${a.spark ? spark(a.spark) : ''}${chipHtml(a.chip)}</span>${ICON.chevron}</a></li>`).join('')
-  const days = log(o).map(d => `<section><h3>${esc(d.label)}${d.partial ? ' <span class="muted">· chưa hết ngày</span>' : ''}</h3>${d.items.length ? `<ol>${d.items.map(i => `<li><p>${esc(i.text)}</p>${i.small ? `<small>${esc(i.small)}</small>` : ''}</li>`).join('')}</ol>` : '<p class="muted">Không có gì mới.</p>'}</section>`).join('')
+  const days = log(o).map(d => `<section><h3>${esc(d.label)}${d.partial ? ` <span class="muted">· ${PARTIAL}</span>` : ''}</h3>${d.items.length ? `<ol>${d.items.map(i => `<li><p>${esc(i.text)}</p>${i.small ? `<small>${esc(i.small)}</small>` : ''}</li>`).join('')}</ol>` : `<p class="muted">${QUIET}</p>`}</section>`).join('')
   return page('/_ab/', 'Tổng quan', `<h1 class="vh">Tổng quan</h1><div class="home-grid"><div>
 <section aria-labelledby="h-todo"><h2 id="h-todo">Cần bạn${t.length ? ` <span class="badge">${fmt(t.length)}<span class="vh"> việc</span></span>` : ''}</h2>${todoHtml}</section>
-<section aria-labelledby="h-areas"><h2 id="h-areas">Các mục</h2><ul class="areas">${rows}</ul><p class="note">Số lớn: 7 ngày trọn đến hết hôm qua, so với 7 ngày trước đó. Cột nhỏ: 30 ngày trọn, mỗi cột một ngày; 7 cột đậm là 7 ngày của số lớn, 7 cột nhạt trước chúng là 7 ngày đem so. ${zoneNote(o.tz ?? HOME_TZ, o.now)}${sameClock(o.tz ?? HOME_TZ, HOME_TZ, o.now) ? '' : ' Lượt bấm affiliate và tên bạn đọc muốn có được lưu theo ngày giờ Việt Nam.'}</p></section>
-</div><div class="side"><section aria-labelledby="h-log"><h2 id="h-log">Mấy ngày qua</h2><div class="log">${days}</div></section></div></div>`, o.now, o.tz ?? HOME_TZ)
+<section aria-labelledby="h-areas"><h2 id="h-areas">Các mục</h2><ul class="areas">${rows}</ul><p class="note">${areasNote(o)}</p></section>
+</div><div class="side"><section aria-labelledby="h-log"><h2 id="h-log">${LOG_TITLE}</h2><div class="log">${days}</div></section></div></div>`, o.now, o.tz ?? HOME_TZ)
 }
 
-/** A dashboard page's section key, from an address on it ("/_ab/noi-dung/#engine" → noi-dung); undefined for one elsewhere. */
-export const sectionOf = (href: string) => /^\/_ab\/([a-z0-9-]+)\//.exec(href)?.[1]
-export type DashboardJson = {
-  todos: { title: string; text: string; action: { label: string; section?: string; url?: string } }[]
-  areas: { name: string; section: string; fig: string; sub: string; spark: (number | null)[]; chip?: Chip; warn: boolean }[]
+const LOG_TITLE = 'Mấy ngày qua'
+/** A place on the dashboard: its section by key and the spot on its page ("/_ab/noi-dung/#engine"), or an address elsewhere as it is. */
+type Place = { section: string; anchor?: string } | { url: string }
+const placeOf = (href: string): Place => {
+  const m = /^\/_ab\/([a-z0-9-]+)\/(?:#([a-z0-9-]+))?$/.exec(href)
+  return m ? { section: m[1]!, ...(m[2] ? { anchor: m[2] } : {}) } : { url: href }
 }
-/** The overview's to-dos and area rows as data: the very ones its page draws. */
+type LogEntry = { at: string; text: string; sub?: string; tone?: TextTone; section?: string }
+type DashboardJson = {
+  todos: { title: string; text: string; action: { label: string } & Place }[]
+  areas: ({ name: string; fig: string; sub: string; spark: (number | null)[]; chip?: Chip; warn: boolean } & Place)[]
+  areasNote: string
+  log: { title: string; entries: LogEntry[] }
+}
+/** The overview's to-dos, area rows, their note and the last days' log as data: the very ones its page draws. */
 export function overviewJson(o: Overview): DashboardJson {
   return {
-    todos: todos(o).map(t => {
-      const section = sectionOf(t.href)
-      return { title: t.title, text: t.text, action: { label: t.action, ...(section ? { section } : { url: t.href }) } }
-    }),
-    areas: areas(o).map(a => ({ name: a.name, section: sectionOf(a.href)!, fig: a.fig, sub: a.sub, spark: a.spark ?? [], ...(a.chip ? { chip: a.chip } : {}), warn: Boolean(a.warn) })),
+    todos: todos(o).map(t => ({ title: t.title, text: t.text, action: { label: t.action, ...placeOf(t.href) } })),
+    areas: areas(o).map(a => ({ name: a.name, ...placeOf(a.href), fig: a.fig, sub: a.sub, spark: a.spark ?? [], ...(a.chip ? { chip: a.chip } : {}), warn: Boolean(a.warn) })),
+    areasNote: areasNote(o),
+    // Each day as the page heads it, then what it counted; a quiet day says so.
+    log: {
+      title: LOG_TITLE,
+      entries: log(o).flatMap((d): LogEntry[] => {
+        const at = `${d.label}${d.partial ? ` · ${PARTIAL}` : ''}`
+        return d.items.length ? d.items.map(i => ({ at, text: i.text, ...(i.small ? { sub: i.small } : {}), section: i.section })) : [{ at, text: QUIET, tone: 'muted' as const }]
+      }),
+    },
   }
 }
 
@@ -332,7 +353,7 @@ export function fishIdSection(f: FishPage): Section {
     blocks.push(heading('Tổng'), periodBlock(s, false), periodBlock(s, true), note(FISH_TOTALS_NOTE), ...fishCharts(s).map(chart),
       heading('Có trang trong cẩm nang'), figures(fishShare(s)), heading('Đoán nhiều mà chưa có trang · 30 ngày'), rankBlock(unmatchedRows(s), UNMATCHED_HEAD))
   }
-  blocks.push(heading('Key Anthropic'))
+  blocks.push(heading('Key Anthropic', 2, 'key'))
   if (isFailed(f.keys)) blocks.push(failedNote('trạng thái key', f.keys))
   else if (!f.keys) blocks.push(note(NO_KEYS, 'muted'))
   else {
@@ -368,7 +389,7 @@ const RECENT_NONE = 'Chưa có lượt nào được ghi.'
 function guessOf(c: Call, pages: Map<string, string>): Cell {
   if (!c.sci) return { text: '—', tone: 'muted' }
   const url = c.page ? pages.get(c.page) : undefined
-  return url ? { text: c.sci, href: withoutVi(url) } : { text: c.page ? `${c.sci} (${c.page})` : `${c.sci} · chưa có trang` }
+  return url ? { text: c.sci, href: withoutVi(url) } : { text: c.sci, sub: c.page ? `(${c.page})` : 'chưa có trang' }
 }
 const recentCells = (c: Call, pages: Map<string, string>, now: Date, tz: string): Cell[] => [
   { text: timeText(c.t, tz, now) }, { text: OUTCOME[c.outcome] ?? c.outcome }, { text: VERDICT[c.verdict] ?? (c.verdict || '—') }, guessOf(c, pages),
@@ -487,11 +508,15 @@ function wantedParts(now: Date, w: { names: Wanted[]; more: boolean }) {
   return {
     tiles: [{ label: 'Tên', value: `${fmt(w.names.length)}${w.more ? '+' : ''}` }, { label: 'Lượt bạn đọc', value: fmt(w.names.reduce((s, x) => s + x.readers, 0)) }, { label: 'Tên mới · 7 ngày gần nhất', value: fmt(w.names.filter(x => x.first >= since).length) }] as Tile[],
     title: `Nhiều người muốn nhất${w.names.length > top.length ? ` · ${fmt(top.length)} tên đầu` : ''}`,
-    rows: top.map(x => ({
-      label: `${esc(x.name)}${x.sci && x.sci !== x.name ? ` <i class="sci muted">${esc(x.sci)}</i>` : ''}`,
-      value: x.readers,
-      cells: [esc(KIND[x.kind] ?? x.kind), esc(Object.entries(x.sources).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${SOURCE[k] ?? k} ${fmt(n)}`).join(' · ')), esc(dayText(x.first, now, HOME_TZ)), esc(dayText(x.last, now, HOME_TZ))],
-    })) as Ranked[],
+    rows: top.map((x): RankRow => {
+      // The name, and its scientific name under it when it's another.
+      const cell: Cell = { text: x.name, ...(x.sci && x.sci !== x.name ? { sub: x.sci } : {}) }
+      return {
+        cell, label: `${esc(cell.text)}${cell.sub ? ` <i class="sci muted">${esc(cell.sub)}</i>` : ''}`,
+        value: x.readers,
+        cells: [esc(KIND[x.kind] ?? x.kind), esc(Object.entries(x.sources).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${SOURCE[k] ?? k} ${fmt(n)}`).join(' · ')), esc(dayText(x.first, now, HOME_TZ)), esc(dayText(x.last, now, HOME_TZ))],
+      }
+    }),
   }
 }
 
@@ -632,7 +657,12 @@ export function hiddenPage(h: Soft<Hidden>, now = new Date(), tz = HOME_TZ): str
 }
 
 export function hiddenSection(h: Soft<Hidden>, now = new Date(), tz = HOME_TZ): Section {
-  const blocks: Block[] = [note(HIDDEN_LEDE)]
+  // The page's form: a page's address and why, hidden at once.
+  const form: Block = {
+    kind: 'form', method: 'POST', path: '/api/owner/hidden', body: { hide: true }, submit: 'Ẩn',
+    fields: [{ name: 'path', label: 'Địa chỉ trang', kind: 'text', required: true, placeholder: 'https://aquatome.com/ca/...' }, { name: 'note', label: 'Lý do', kind: 'text', placeholder: 'Lý do (tuỳ chọn)' }],
+  }
+  const blocks: Block[] = [note(HIDDEN_LEDE), form]
   if (isFailed(h)) blocks.push(failedNote('danh sách trang ẩn', h))
   else blocks.push({
     kind: 'hidden',

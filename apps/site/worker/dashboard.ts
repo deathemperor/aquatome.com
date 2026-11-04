@@ -47,13 +47,15 @@ export async function visitor(req: Request, env: AdminEnv, now: Date): Promise<'
   return owners(env).includes(session.userId) ? 'owner' : 'other'
 }
 /**
- * The owner's app (owner-api.ts, and the dashboard's images): a bearer token for an app session (accounts/session.ts)
- * of an account OWNER_ACCOUNTS names. Never the cookie, and never the dashboard token.
+ * Who the app is (owner-api.ts, and the dashboard's images): the owner (a bearer token for a live app session,
+ * accounts/session.ts, of an account OWNER_ACCOUNTS names), another account's app, or no app session at all (none, one
+ * that ended, a web session's token, the dashboard token, a cookie). Never the cookie.
  */
-export async function ownerApp(req: Request, env: AdminEnv, now: Date): Promise<boolean> {
-  if (!env.DB || tokenOf(req)?.via !== 'bearer') return false
+export async function appVisitor(req: Request, env: AdminEnv, now: Date): Promise<'owner' | 'other' | 'none'> {
+  if (!env.DB || tokenOf(req)?.via !== 'bearer') return 'none'
   const session = await sessionOf(req, env.DB, now)
-  return Boolean(session && owners(env).includes(session.userId))
+  if (!session) return 'none'
+  return owners(env).includes(session.userId) ? 'owner' : 'other'
 }
 /** The token cookie the dashboard used to set (Path=/_ab): cleared when the owner signs in the new way. */
 const OLD_TOKEN_COOKIE = 'ab_token=; Path=/_ab; Max-Age=0; HttpOnly; Secure; SameSite=Strict'
@@ -123,8 +125,8 @@ const contentOf = async (env: AdminEnv, origin: string) => {
 const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
 
 type Load<T> = (env: AdminEnv, url: URL, now: Date, tz: string) => Promise<T>
-/** A dashboard page: its HTML, and (a section) the same page as blocks for the app, both from one load. */
-type View = { html: Load<string>; json?: Load<Section> }
+/** A dashboard section: its HTML page, and the same page as blocks for the app, both from one load. */
+type View = { html: Load<string>; json: Load<Section> }
 const view = <T>(load: Load<T>, html: (d: T) => string, json: (d: T) => Section): View => ({
   html: async (...a) => html(await load(...a)),
   json: async (...a) => json(await load(...a)),
@@ -150,9 +152,9 @@ export const loadOverview: Load<Overview> = async (env, url, now, tz) => {
   return { now, tz, readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden, content, snapshots }
 }
 
-/** Each page: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
-const PAGES: Record<AdminPath, View> = {
-  '/_ab/': { html: async (...a) => overviewPage(await loadOverview(...a)) },
+const overviewHtml: Load<string> = async (...a) => overviewPage(await loadOverview(...a))
+/** Each section: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
+const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   '/_ab/noi-dung/': view(async (env, url, now, tz) => {
     const a = ae(env)
     const [stats, snapshots] = await Promise.all([contentOf(env, url.origin), soft('snapshots', listSnapshots(env.AB))])
@@ -200,16 +202,16 @@ const PAGES: Record<AdminPath, View> = {
   '/_ab/tai-khoan/': view(async (env, _url, now, tz) => ({ now, tz, a: env.DB ? await soft('accounts', accountStats(env.DB, now, tz)) : unset('D1') }),
     d => accountsPage(d.a, d.now, d.tz), d => accountsSection(d.a, d.now, d.tz)),
 }
-export const ADMIN_PAGES = Object.keys(PAGES) as AdminPath[]
+export const ADMIN_PAGES: AdminPath[] = ['/_ab/', ...(Object.keys(PAGES) as (keyof typeof PAGES)[])]
 
 /** A dashboard page's key, its path's name: /_ab/noi-dung/ → noi-dung. */
 export const sectionKey = (path: AdminPath) => path.slice('/_ab/'.length, -1)
 /** Every page but the overview, as the app reads them (GET /api/owner/sections/{key}), in the dashboard's order and with its names. */
-export const SECTIONS = NAV.filter(([path]) => path !== '/_ab/').map(([path, name]) => ({ key: sectionKey(path), name, path }))
+export const SECTIONS = NAV.flatMap(([path, name]) => (path === '/_ab/' ? [] : [{ key: sectionKey(path), name, path }]))
 /** A section as blocks, from the same load as its page; undefined for a key that isn't one. */
 export async function sectionJson(key: string, env: AdminEnv, url: URL, now: Date, tz: string): Promise<Section | undefined> {
   const path = SECTIONS.find(x => x.key === key)?.path
-  return path ? PAGES[path].json!(env, url, now, tz) : undefined
+  return path ? PAGES[path].json(env, url, now, tz) : undefined
 }
 
 /** Every /_ab path: the pages, the owner's actions, a waiting photo, and the hidden list the build reads. */
@@ -217,7 +219,7 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   const path = url.pathname
   const owner = async () => (await visitor(req, env, now)) === 'owner'
   // The two private images the app shows too: the owner's app session as a bearer, or the owner's cookie.
-  const ownerOrApp = async () => (await ownerApp(req, env, now)) || (await owner())
+  const ownerOrApp = async () => (await appVisitor(req, env, now)) === 'owner' || (await owner())
   // The site's two faces for these pages (scripts/admin-fonts.ts): public, like the site's own copies.
   if (FONT.test(path) && env.ASSETS) {
     if (req.method !== 'GET' && req.method !== 'HEAD') return notFound()
@@ -239,7 +241,7 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     if (req.method !== 'GET' || !(await ownerOrApp()) || !photosLive(env)) return notFound()
     const o = await waitingUpload(env, photo[1]!)
     if (!o) return notFound()
-    return new Response(o.body, { headers: { 'content-type': o.httpMetadata?.contentType ?? 'application/octet-stream', 'cache-control': 'private, no-store', 'x-content-type-options': 'nosniff' } })
+    return new Response(o.body, { headers: { 'content-type': o.httpMetadata?.contentType ?? 'application/octet-stream', 'cache-control': 'private, no-store', 'x-content-type-options': 'nosniff', 'x-robots-tag': 'noindex, nofollow' } })
   }
   if (path === '/_ab/photos') {
     if (req.method !== 'POST' || !(await owner()) || !photosLive(env)) return notFound()
@@ -256,7 +258,7 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   if (shot) {
     if (req.method !== 'GET' || !env.UPLOADS || !(await ownerOrApp())) return notFound()
     const o = await keptImage(env.UPLOADS, shot[1] === 'anon' ? undefined : shot[1], shot[2]!)
-    return o ? new Response(o.body, { headers: { 'content-type': 'image/jpeg', 'cache-control': 'private, no-store' } }) : notFound()
+    return o ? new Response(o.body, { headers: { 'content-type': 'image/jpeg', 'cache-control': 'private, no-store', 'x-robots-tag': 'noindex, nofollow' } }) : notFound()
   }
   if (path === '/_ab/anh-nhan-dien/xoa') {
     if (req.method !== 'POST' || !env.UPLOADS || !(await owner())) return notFound()
@@ -276,7 +278,7 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   }
 
   const key = (path.endsWith('/') ? path : `${path}/`) as AdminPath
-  const render = Object.hasOwn(PAGES, key) ? PAGES[key].html : undefined
+  const render = key === '/_ab/' ? overviewHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   const who = await visitor(req, env, now)

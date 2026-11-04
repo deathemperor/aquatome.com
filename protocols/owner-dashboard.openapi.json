@@ -3,7 +3,7 @@
   "info": {
     "title": "AquaTome owner's dashboard",
     "version": "1",
-    "description": "The owner's dashboard (/_ab/ on the site) as JSON, for the iOS app to draw natively (apps/site/worker/owner-api.ts). The server drives it: the dashboard lists its sections, each section is a title and a list of blocks, and each button says the request it makes, so a new section, block or button needs no app release.\n\nOnly the owner: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), of an account the server's OWNER_ACCOUNTS names. Anyone else, signed in or not, gets 404 `not_found`, as for a path that doesn't exist: a cookie never opens these paths (the web pages at /_ab/ stay cookie-only), nor does a web session's token sent as a bearer or the build's dashboard token. Every reply is `cache-control: no-store` and `x-robots-tag: noindex, nofollow`.\n\nText comes written as the web pages write it: Vietnamese, numbers formatted (1.234, 12,5%, $0,11), days and times in the viewer's zone (the `Time-Zone` header). A chart's numbers stay raw (see Chart). Show text as it comes; don't parse it.\n\nReading: the app skips a block whose `kind` it doesn't know (the section's web page, /_ab/{key}/, has everything), and ignores fields it doesn't know. A block, a section or a field may be added at any time; one is removed or changed only with a new version of this contract.\n\nLinks: a cell's `href` and a photo's `src` that start with \"/\" are on https://aquatome.com: a cell's opens the site's page; a photo's is a private image the app fetches with the same bearer. A `src` that is a whole address is public: fetch it without the bearer.\n\nButtons (Action): send `method` to `path` with the bearer and, when there is a `body`, that body as JSON (`Content-Type: application/json`). On 200, read the section again. On an error, show its `message` when it has one.\n\nErrors are `{error, message?}`: `message`, when there is one, is Vietnamese to show the owner.\n\nSamples: protocols/owner-dashboard-vectors.json has a reply of each path, from the Worker's own code, for the app's fake server."
+    "description": "The owner's dashboard (/_ab/ on the site) as JSON, for the iOS app to draw natively (apps/site/worker/owner-api.ts). The server drives it: the dashboard lists its sections, each section is a title and a list of blocks, and each button says the request it makes, so a new section, block or button needs no app release.\n\nOnly the owner: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), of an account the server's OWNER_ACCOUNTS names. Without a live app session, every path answers 401 `signed_out`, as the accounts API does: no Authorization, a malformed one, a session that ended or was signed out, a web session's token sent as a bearer, the build's dashboard token, or a cookie (the web pages at /_ab/ stay cookie-only; a cookie never opens these paths). Sign in again. Another account's app session gets 404 `not_found`, as for a path that doesn't exist. Both come before any other check, so a path, a method or a key tells nobody else anything. Every reply is `cache-control: no-store` and `x-robots-tag: noindex, nofollow`.\n\nText comes written as the web pages write it: Vietnamese, numbers formatted (1.234, 12,5%, $0,11), days and times in the viewer's zone (the `Time-Zone` header). A chart's numbers stay raw (see Chart). Show text as it comes; don't parse it.\n\nReading: the app skips a block whose `kind` it doesn't know (the section's web page, /_ab/{key}/, has everything), and ignores fields it doesn't know. A block, a section or a field may be added at any time; one is removed or changed only with a new version of this contract.\n\nLinks: a cell's `href` and a photo's `src` that start with a single \"/\" are on https://aquatome.com: a cell's opens the site's page; a photo's is a private image the app fetches with the same bearer. Send the bearer only for a `src` that starts with a single \"/\", to aquatome.com, never for one that starts with \"//\". A `src` that is a whole address is public: fetch it without the bearer.\n\nButtons (Action): send `method` to `path` with the bearer and, when there is a `body`, that body as JSON (`Content-Type: application/json`). On 200, read the section again. On an error, show its `message` when it has one. A form block is the same with fields: its fields' values (by `name`) and its `body` go as one JSON object. A switch block reads the section again from its `href`.\n\nErrors are `{error, message?}`: `message`, when there is one, is Vietnamese to show the owner. Any path may answer 503 `unavailable` when the server can't read or write its storage just then (D1, KV, R2): try again later.\n\nSamples: protocols/owner-dashboard-vectors.json has a reply of each path, from the Worker's own code, for the app's fake server."
   },
   "servers": [
     {
@@ -44,8 +44,18 @@
               }
             }
           },
+          "401": {
+            "description": "Error: signed_out (no live app session: no Authorization or a malformed one, a session that ended or was signed out, a web session's token, the dashboard token, a cookie)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
-            "description": "Error: not_found (not the owner's app session: no Authorization, a cookie, another account, a web session's token, the dashboard token, a session that ended; or no such path)",
+            "description": "Error: not_found (another account's app session; no such path)",
             "content": {
               "application/json": {
                 "schema": {
@@ -56,6 +66,16 @@
           },
           "405": {
             "description": "Error: method",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then; try again)",
             "content": {
               "application/json": {
                 "schema": {
@@ -96,7 +116,7 @@
             "name": "test",
             "in": "query",
             "required": false,
-            "description": "ung-dung only: \"1\" counts only our own test builds (debug, TestFlight), as the web page's link does; without it, only readers' builds.",
+            "description": "ung-dung only: \"1\" counts only our own test builds (debug, TestFlight), as the web page's link does; without it, only readers' builds. The section's switch block gives the address with it flipped.",
             "schema": {
               "type": "string",
               "enum": [
@@ -128,8 +148,18 @@
               }
             }
           },
+          "401": {
+            "description": "Error: signed_out (no live app session: no Authorization or a malformed one, a session that ended or was signed out, a web session's token, the dashboard token, a cookie)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
-            "description": "Error: not_found (not the owner's app session: no Authorization, a cookie, another account, a web session's token, the dashboard token, a session that ended; or no such path; or a key that isn't a section)",
+            "description": "Error: not_found (another account's app session; no such path; or a key that isn't a section)",
             "content": {
               "application/json": {
                 "schema": {
@@ -140,6 +170,16 @@
           },
           "405": {
             "description": "Error: method",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then; try again)",
             "content": {
               "application/json": {
                 "schema": {
@@ -196,8 +236,18 @@
               }
             }
           },
+          "401": {
+            "description": "Error: signed_out (no live app session: no Authorization or a malformed one, a session that ended or was signed out, a web session's token, the dashboard token, a cookie)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
-            "description": "Error: not_found (not the owner's app session: no Authorization, a cookie, another account, a web session's token, the dashboard token, a session that ended; or no such path)",
+            "description": "Error: not_found (another account's app session; no such path)",
             "content": {
               "application/json": {
                 "schema": {
@@ -217,7 +267,7 @@
             }
           },
           "503": {
-            "description": "Error: unavailable (readers' photos aren't set up on this server)",
+            "description": "Error: unavailable (readers' photos aren't set up on this server, or the server couldn't read or write its storage just then)",
             "content": {
               "application/json": {
                 "schema": {
@@ -264,8 +314,18 @@
               }
             }
           },
+          "401": {
+            "description": "Error: signed_out (no live app session: no Authorization or a malformed one, a session that ended or was signed out, a web session's token, the dashboard token, a cookie)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
-            "description": "Error: not_found (not the owner's app session: no Authorization, a cookie, another account, a web session's token, the dashboard token, a session that ended; or no such path)",
+            "description": "Error: not_found (another account's app session; no such path)",
             "content": {
               "application/json": {
                 "schema": {
@@ -276,6 +336,16 @@
           },
           "405": {
             "description": "Error: method",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then; try again)",
             "content": {
               "application/json": {
                 "schema": {
@@ -322,8 +392,18 @@
               }
             }
           },
+          "401": {
+            "description": "Error: signed_out (no live app session: no Authorization or a malformed one, a session that ended or was signed out, a web session's token, the dashboard token, a cookie)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
-            "description": "Error: not_found (not the owner's app session: no Authorization, a cookie, another account, a web session's token, the dashboard token, a session that ended; or no such path)",
+            "description": "Error: not_found (another account's app session; no such path)",
             "content": {
               "application/json": {
                 "schema": {
@@ -343,7 +423,7 @@
             }
           },
           "503": {
-            "description": "Error: unavailable (no photo storage on this server)",
+            "description": "Error: unavailable (no photo storage on this server, or the server couldn't read or write its storage just then)",
             "content": {
               "application/json": {
                 "schema": {
@@ -358,7 +438,7 @@
     "/_ab/anh/{id}": {
       "get": {
         "summary": "A waiting reader photo's upload (a photos block's `src`), while it waits",
-        "description": "The same address the web page shows; it takes the owner's app bearer too. Private: never stored (`cache-control: private, no-store`).",
+        "description": "The same address the web page shows; it takes the owner's app bearer too. Private: never stored (`cache-control: private, no-store`), never indexed (`x-robots-tag: noindex, nofollow`).",
         "parameters": [
           {
             "name": "id",
@@ -378,7 +458,7 @@
             }
           },
           "404": {
-            "description": "Not the owner, or the photo no longer waits (text, not JSON)."
+            "description": "Not the owner (signed out too: these stay 404, never 401), or the photo no longer waits (text, not JSON)."
           }
         }
       }
@@ -386,7 +466,7 @@
     "/_ab/anh-nhan-dien/anh/{who}/{id}": {
       "get": {
         "summary": "A kept fish-ID photo (a photos block's `src`)",
-        "description": "The same address the web page shows; it takes the owner's app bearer too. Private: never stored.",
+        "description": "The same address the web page shows; it takes the owner's app bearer too. Private: never stored, never indexed (`x-robots-tag: noindex, nofollow`).",
         "parameters": [
           {
             "name": "who",
@@ -415,7 +495,7 @@
             }
           },
           "404": {
-            "description": "Not the owner, or no such photo (text, not JSON)."
+            "description": "Not the owner (signed out too: these stay 404, never 401), or no such photo (text, not JSON)."
           }
         }
       }
@@ -441,6 +521,8 @@
           "tz",
           "todos",
           "areas",
+          "areasNote",
+          "log",
           "sections"
         ],
         "properties": {
@@ -460,6 +542,13 @@
               "$ref": "#/components/schemas/Area"
             },
             "description": "One row an area, in the page's order."
+          },
+          "areasNote": {
+            "type": "string",
+            "description": "The note under the areas: what the figures and chips compare."
+          },
+          "log": {
+            "$ref": "#/components/schemas/Log"
           },
           "sections": {
             "type": "array",
@@ -506,6 +595,11 @@
               },
               "section": {
                 "type": "string"
+              },
+              "anchor": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$",
+                "description": "Where in the section: the `anchor` of one of its headings. Open the section scrolled to it."
               }
             }
           },
@@ -545,7 +639,7 @@
           },
           "section": {
             "type": "string",
-            "description": "The section it opens."
+            "description": "The section it opens (and `anchor`, where in it)."
           },
           "fig": {
             "type": "string",
@@ -571,6 +665,11 @@
           "warn": {
             "type": "boolean",
             "description": "Marked as needing a look."
+          },
+          "anchor": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Where in the section: the `anchor` of one of its headings. Open the section scrolled to it."
           }
         }
       },
@@ -598,6 +697,68 @@
           "vs": {
             "type": "string",
             "description": "What it compares with, for VoiceOver: \"so với {vs}\"."
+          }
+        }
+      },
+      "Log": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "entries"
+        ],
+        "description": "What happened over the last days, newest day first: the web page's \"Mấy ngày qua\".",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LogEntry"
+            },
+            "description": "Each day's entries, newest day first. A day with nothing new is one entry, tone muted. Group them by `at`."
+          }
+        }
+      },
+      "LogEntry": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "at",
+          "text"
+        ],
+        "properties": {
+          "at": {
+            "type": "string",
+            "description": "The day, written in the viewer's zone (\"Hôm nay · 04/11 · chưa hết ngày\", \"Hôm qua · 03/11\", \"Thứ Hai · 02/11\"); the same for every entry of that day."
+          },
+          "text": {
+            "type": "string"
+          },
+          "sub": {
+            "type": "string",
+            "description": "A second line, smaller."
+          },
+          "tone": {
+            "type": "string",
+            "enum": [
+              "plain",
+              "muted",
+              "good",
+              "bad"
+            ],
+            "description": "plain: ordinary text; muted: secondary, or an empty state; good: done, better; bad: needs the owner, failed, worse, or (a button) deletes."
+          },
+          "section": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "The section it opens, when there is one."
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://",
+            "description": "Or an address elsewhere, to open in the browser."
           }
         }
       },
@@ -664,6 +825,12 @@
           },
           {
             "$ref": "#/components/schemas/Hidden"
+          },
+          {
+            "$ref": "#/components/schemas/Form"
+          },
+          {
+            "$ref": "#/components/schemas/Switch"
           }
         ]
       },
@@ -688,6 +855,11 @@
             "minimum": 2,
             "maximum": 3,
             "description": "2: a part of the section; 3: a part within it."
+          },
+          "anchor": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "The name a to-do, an area or a log entry gives as `anchor` to open the section here (the web page's #id)."
           }
         }
       },
@@ -1067,6 +1239,110 @@
             "items": {
               "$ref": "#/components/schemas/Action"
             }
+          }
+        }
+      },
+      "Form": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "method",
+          "path",
+          "fields",
+          "submit"
+        ],
+        "description": "A form: on submit, send `method` to `path` as an Action does, with the fields' values (each under its `name`; an empty optional field left out) and `body` as one JSON object.",
+        "properties": {
+          "kind": {
+            "const": "form",
+            "type": "string"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "POST"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^/api/owner/"
+          },
+          "fields": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/FormField"
+            }
+          },
+          "body": {
+            "type": "object",
+            "description": "Sent with the fields, as it is."
+          },
+          "submit": {
+            "type": "string",
+            "description": "The button's label."
+          }
+        }
+      },
+      "FormField": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "label",
+          "kind"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "description": "What the field asks, for the label or VoiceOver."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "text",
+              "textarea"
+            ],
+            "description": "text: one line; textarea: several."
+          },
+          "required": {
+            "type": "boolean",
+            "description": "true: don't send it empty."
+          },
+          "placeholder": {
+            "type": "string"
+          }
+        }
+      },
+      "Switch": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "label",
+          "on",
+          "href"
+        ],
+        "description": "A switch between two forms of the section: show it `on` or off; flipping it reads the section from `href` and shows that instead.",
+        "properties": {
+          "kind": {
+            "const": "switch",
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "on": {
+            "type": "boolean"
+          },
+          "href": {
+            "type": "string",
+            "pattern": "^/api/owner/sections/",
+            "description": "The section with the switch flipped: GET it with the bearer."
           }
         }
       },

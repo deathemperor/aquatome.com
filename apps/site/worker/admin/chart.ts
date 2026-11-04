@@ -233,12 +233,9 @@ export function spark(values: (number | null)[], recent = 7): string {
 
 /**
  * A change as a chip: "+18%", or the difference itself while the counts are small ("+4"). Coloured only where more is
- * plainly better (`good: 'up'`); `vs` is read out after it.
+ * plainly better (`good: 'up'`); `vs` is read out after it. As data: its text, its tone (`plain` unless more is plainly
+ * better and it changed), and what it compares with; chipHtml draws it.
  */
-export function chip(now: number, before: number, vs: string, good?: 'up'): string {
-  return chipHtml(chipOf(now, before, vs, good))
-}
-/** A chip as data: its text, its tone (`plain` unless more is plainly better and it changed), and what it compares with. */
 export type Chip = { text: string; tone: 'good' | 'bad' | 'plain'; vs: string }
 export function chipOf(now: number, before: number, vs: string, good?: 'up'): Chip | undefined {
   if (!now && !before) return undefined

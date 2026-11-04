@@ -4,7 +4,7 @@ import { parse, type HTMLElement } from 'node-html-parser'
 import { afterEach, expect, test, vi } from 'vitest'
 import { handle, type Env } from '../index'
 import { appPage, appSection, summariseApp } from '../admin/app'
-import type { Block, Section } from '../admin/blocks'
+import type { Action, Block, FormField, Section } from '../admin/blocks'
 import { contentPage, contentSection } from '../admin/content-page'
 import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewJson,
@@ -112,11 +112,39 @@ const folded = (el: HTMLElement) => {
 }
 type Fig = { label: string; value: string; sub?: string; delta?: string }
 type Tab = { columns?: string[]; rows: { text: string; href?: string }[][]; empty?: string; folded?: string }
-type ActRow = { src?: string; text: string; buttons: string[] }
-/** What the page draws, in its order: headings, tiles (and the gaps' counts), charts, tables (and folded page lists), rows with buttons. */
+type Req = { label: string; method: string; path: string; body?: Record<string, unknown> }
+type ActRow = { src?: string; text: string; buttons: Req[] }
+type Form = { method: string; path: string; fields: FormField[]; body?: Record<string, unknown>; submit: string }
+/** What owner-api.ts does for each of the pages' forms: the request, from the form's fields and the button pressed. */
+const REQUEST: Record<string, (v: Record<string, string>) => Omit<Req, 'label'>> = {
+  '/_ab/photos': v => ({ method: 'POST', path: `/api/owner/photos/${v.id}`, body: { action: v.action } }),
+  '/_ab/hidden': v => ({ method: 'POST', path: '/api/owner/hidden', body: { ...(v.url ? { path: v.url } : {}), hide: v.action !== 'unhide' } }),
+  '/_ab/anh-nhan-dien/xoa': v => ({ method: 'DELETE', path: `/api/owner/fishid-shots/${v.who}/${v.id}` }),
+}
+/** A form's field as the API names it. */
+const FIELD: Record<string, string> = { url: 'path' }
+/** A page's button as the request the app makes for it. */
+function requestOf(button: HTMLElement): Req {
+  const f = button.closest('form')!
+  const to = REQUEST[f.getAttribute('action')!]
+  if (!to) throw new Error(`no request for the page's form ${f.getAttribute('action')}`)
+  const v = Object.fromEntries(f.querySelectorAll('input[type="hidden"]').map(i => [i.getAttribute('name')!, i.getAttribute('value')!]))
+  if (button.getAttribute('name')) v[button.getAttribute('name')!] = button.getAttribute('value')!
+  return { label: txt(button), ...to(v) }
+}
+/** A page's form with fields to fill (hide a page) as the app's form block: its fields, and the request its button makes. */
+function formOf(f: HTMLElement): Form {
+  const { label, ...req } = requestOf(f.querySelector('button')!)
+  const fields = f.querySelectorAll('input, textarea').filter(i => i.getAttribute('type') !== 'hidden').map((i): FormField => ({
+    name: FIELD[i.getAttribute('name')!] ?? i.getAttribute('name')!, label: i.getAttribute('aria-label')!, kind: i.tagName === 'TEXTAREA' ? 'textarea' : 'text',
+    ...(i.hasAttribute('required') ? { required: true } : {}), ...(i.getAttribute('placeholder') ? { placeholder: i.getAttribute('placeholder')! } : {}),
+  }))
+  return { method: req.method, path: req.path, fields, ...(req.body ? { body: req.body } : {}), submit: label }
+}
+/** What the page draws, in its order: headings (an h2's id with it), tiles (and the gaps' counts), charts, tables (and folded page lists), rows with buttons, forms. */
 function fromHtml(html: string) {
   const main = dom(html)
-  const out = { title: txt(main.querySelector('h1')), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], text: txt(main) }
+  const out = { title: txt(main.querySelector('h1')), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], links: main.querySelectorAll('a').map(a => a.getAttribute('href') ?? ''), text: txt(main) }
   const cell = (c: HTMLElement) => {
     const a = c.querySelectorAll('a')
     return { text: txt(c), ...(a.length === 1 && txt(a[0]) === txt(c) ? { href: a[0]!.getAttribute('href')! } : {}) }
@@ -125,7 +153,11 @@ function fromHtml(html: string) {
     for (const n of el.childNodes as HTMLElement[]) {
       if (n.nodeType !== 1) continue
       const tag = n.tagName
-      if ((tag === 'H2' || tag === 'H3') && !n.id.endsWith('-t')) out.headings.push(`${tag[1]} ${txt(n)}`)
+      if ((tag === 'H2' || tag === 'H3') && !n.id.endsWith('-t')) out.headings.push(`${tag[1]} ${txt(n)}${tag === 'H2' && n.id ? ` #${n.id}` : ''}`)
+      else if (tag === 'FORM') {
+        out.forms.push(formOf(n))
+        continue
+      }
       else if (tag === 'FIGURE' && n.getAttribute('aria-labelledby')?.endsWith('-t')) {
         out.charts.push(`${n.getAttribute('aria-labelledby')!.slice(0, -2)} ${txt(n.querySelector('h3'))}`)
         continue // its readout, plot and numbers are the chart's own
@@ -148,7 +180,7 @@ function fromHtml(html: string) {
           // Rows with buttons (a photo, a hidden page): the photos' tables have no head, the others an empty last one.
           for (const r of rows) {
             if (r.querySelector('td.none')) { out.actsEmpty.push(txt(r)); continue }
-            const buttons = r.querySelectorAll('button').map(b => txt(b))
+            const buttons = r.querySelectorAll('button').map(requestOf)
             for (const f of r.querySelectorAll('form')) f.remove()
             out.acts.push({ ...(r.querySelector('img') ? { src: r.querySelector('img')!.getAttribute('src')! } : {}), text: norm(r.querySelectorAll('th, td').map(c => txt(c)).join(' ')), buttons })
           }
@@ -165,10 +197,11 @@ function fromHtml(html: string) {
   return out
 }
 /** The same, from the blocks. */
+const reqOf = (a: Action): Req => ({ label: a.label, method: a.method, path: a.path, ...(a.body ? { body: a.body } : {}) })
 function fromJson(s: Section, withColumns: (t: Tab) => boolean) {
-  const out = { title: norm(s.title), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], notes: [] as string[] }
+  const out = { title: norm(s.title), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], switches: [] as { on: boolean; href: string }[], notes: [] as string[] }
   for (const b of s.blocks as Block[]) {
-    if (b.kind === 'heading') out.headings.push(`${b.level} ${norm(b.text)}`)
+    if (b.kind === 'heading') out.headings.push(`${b.level} ${norm(b.text)}${b.anchor ? ` #${b.anchor}` : ''}`)
     else if (b.kind === 'figures') out.figures.push(...b.items.map(f => ({ label: norm(f.label), value: f.value, ...(f.sub ? { sub: norm(f.sub) } : {}), ...(f.delta ? { delta: norm(f.delta.text) } : {}) })))
     else if (b.kind === 'chart') out.charts.push(`${b.id} ${norm(b.title)}`)
     else if (b.kind === 'table') {
@@ -178,9 +211,11 @@ function fromJson(s: Section, withColumns: (t: Tab) => boolean) {
     } else if (b.kind === 'photos' || b.kind === 'hidden') {
       if (!b.items.length && b.empty) out.actsEmpty.push(b.empty)
       for (const x of b.items) out.acts.push('src' in x
-        ? { src: x.src, text: norm([x.caption, ...x.meta].join(' ')), buttons: x.actions.map(a => a.label) }
-        : { text: norm([x.path, x.note ?? '', x.since].join(' ')), buttons: x.actions.map(a => a.label) })
-    } else if (b.kind === 'note') out.notes.push(b.text)
+        ? { src: x.src, text: norm([x.caption, ...x.meta].join(' ')), buttons: x.actions.map(reqOf) }
+        : { text: norm([x.path, x.note ?? '', x.since].join(' ')), buttons: x.actions.map(reqOf) })
+    } else if (b.kind === 'form') out.forms.push({ method: b.method, path: b.path, fields: b.fields, ...(b.body ? { body: b.body } : {}), submit: b.submit })
+    else if (b.kind === 'switch') out.switches.push({ on: b.on, href: b.href })
+    else if (b.kind === 'note') out.notes.push(b.text)
   }
   return out
 }
@@ -197,27 +232,57 @@ for (const [key, variants] of Object.entries(VARIANTS)) {
       expect(j.charts, at).toEqual(h.charts)
       // A page's list of pages has no column heads; its table does.
       expect(j.tables, at).toEqual(h.tables)
+      // Each button makes the request its page's form makes (owner-api.ts), with the page's words.
       expect(j.acts, at).toEqual(h.acts)
       expect(j.actsEmpty, at).toEqual(h.actsEmpty)
+      expect(j.forms, at).toEqual(h.forms)
+      // The page's link to its other form (the app's test builds) is a switch: on when that link goes back to the plain page.
+      const own = h.links.filter(l => l === `/_ab/${key}/` || l.startsWith(`/_ab/${key}/?`))
+      expect(j.switches, at).toEqual(own.map(l => ({ on: !l.includes('?'), href: `/api/owner/sections/${key}${l.slice(`/_ab/${key}/`.length)}` })))
       // Every note is on the page, word for word.
       for (const n of j.notes) expect(h.text.replace(/\s/g, ''), `${at}: ${n}`).toContain(norm(n).replace(/\s/g, '').replace(/·/g, ''))
     }
   })
 }
 
-test('the overview: its to-dos and areas are the page\'s, each to-do and area opening a section or an address', () => {
-  for (const o of [S.OVERVIEW, { ...S.OVERVIEW, readers: F, clicks: F, fish: F, keys: F, photos: F, waiting: F, wanted: F, accounts: F, hidden: F, content: F, snapshots: F }]) {
+test('the overview: its to-dos, areas, their note and the last days are the page\'s; each opens a section (at one of its headings) or an address', () => {
+  const anchors = (key: string) => VARIANTS[key]![0]![2]().blocks.flatMap(b => (b.kind === 'heading' && b.anchor ? [b.anchor] : []))
+  const hrefOf = (p: { section: string; anchor?: string } | { url: string }) => ('url' in p ? p.url : `/_ab/${p.section}/${p.anchor ? `#${p.anchor}` : ''}`)
+  const failed = { ...S.OVERVIEW, readers: F, clicks: F, fish: F, keys: F, photos: F, waiting: F, wanted: F, accounts: F, hidden: F, content: F, snapshots: F }
+  for (const o of [S.OVERVIEW, failed, { ...S.OVERVIEW, tz: 'America/New_York' }]) {
     const j = overviewJson(o)
     const page = dom(overviewPage(o))
-    expect(page.querySelectorAll('ul.todo > li').map(li => txt(li.querySelector('b')))).toEqual(j.todos.map(t => norm(t.title)))
-    expect(page.querySelectorAll('ul.todo a.act').map(a => a.getAttribute('href')!.replace(/#.*$/, ''))).toEqual(j.todos.map(t => (t.action.section ? `/_ab/${t.action.section}/` : t.action.url)))
+    expect(page.querySelectorAll('ul.todo > li').map(li => [txt(li.querySelector('b')), txt(li.querySelector('p'))])).toEqual(j.todos.map(t => [norm(t.title), norm(t.text)]))
+    expect(page.querySelectorAll('ul.todo a.act').map(a => [txt(a), a.getAttribute('href')])).toEqual(j.todos.map(t => [t.action.label, hrefOf(t.action)]))
     const rows = page.querySelectorAll('a.area')
-    expect(rows.map(a => [txt(a.querySelector('.name')), txt(a.querySelector('.fig')), txt(a.querySelector('.sub')), a.getAttribute('href')!.replace(/#.*$/, ''), Boolean(a.querySelector('.dot'))]))
-      .toEqual(j.areas.map(a => [a.name, a.fig, norm(a.sub), `/_ab/${a.section}/`, a.warn]))
+    expect(rows.map(a => [txt(a.querySelector('.name')), txt(a.querySelector('.fig')), txt(a.querySelector('.sub')), a.getAttribute('href'), Boolean(a.querySelector('.dot'))]))
+      .toEqual(j.areas.map(a => [a.name, a.fig, norm(a.sub), hrefOf(a), a.warn]))
     expect(rows.map(a => txt(a.querySelector('.chip')))).toEqual(j.areas.map(a => a.chip?.text ?? ''))
-    for (const a of j.areas) expect(KEYS).toContain(a.section)
+    expect(txt(page.querySelector('section[aria-labelledby="h-areas"] p.note'))).toBe(norm(j.areasNote))
+    // The last days: each day's heading, then its entries (text, the line under it); a quiet day says so, muted.
+    expect(txt(page.querySelector('#h-log'))).toBe(j.log.title)
+    const days = page.querySelectorAll('.log > section').map(d => ({
+      at: txt(d.querySelector('h3')),
+      items: d.querySelector('ol') ? d.querySelectorAll('li').map(li => [txt(li.querySelector('p')), txt(li.querySelector('small')), '']) : [[txt(d.querySelector('p.muted')), '', 'muted']],
+    }))
+    const entries: typeof days = []
+    for (const e of j.log.entries) {
+      const item = [norm(e.text), norm(e.sub ?? ''), e.tone ?? '']
+      if (entries.at(-1)?.at === norm(e.at)) entries.at(-1)!.items.push(item)
+      else entries.push({ at: norm(e.at), items: [item] })
+    }
+    expect(entries).toEqual(days)
+    // Every place is a section, and an anchor one of that section's headings.
+    for (const x of [...j.todos.map(t => t.action), ...j.areas, ...j.log.entries]) {
+      if (!('section' in x) || !x.section) continue
+      expect(KEYS).toContain(x.section)
+      if ('anchor' in x && x.anchor) expect(anchors(x.section), `${x.section}#${x.anchor}`).toContain(x.anchor)
+    }
   }
-  expect(overviewJson(S.OVERVIEW).todos.map(t => t.action)).toEqual([{ label: 'Xem key', section: 'nhan-dien-ca' }, { label: 'Xem engine', section: 'noi-dung' }])
+  const j = overviewJson(S.OVERVIEW)
+  expect(j.todos.map(t => t.action)).toEqual([{ label: 'Xem key', section: 'nhan-dien-ca', anchor: 'key' }, { label: 'Xem engine', section: 'noi-dung', anchor: 'engine' }])
+  expect(j.areas.find(a => a.name === 'Engine')).toMatchObject({ section: 'noi-dung', anchor: 'engine' })
+  expect(j.log.entries.filter(e => e.section).length).toBeGreaterThan(2)
 })
 
 // ——— The Worker: who opens it, and the replies ———
@@ -241,7 +306,7 @@ function kv() {
 }
 /** A Worker with the owner's account and a reader's, each signed in on the web and in the app; a photo waiting and one shown; two kept fish-ID photos. */
 async function worker(over: Partial<Record<string, unknown>> = {}) {
-  const { createSession } = await import('../accounts/session')
+  const { createSession, sha256 } = await import('../accounts/session')
   const db = testD1()
   const now = new Date()
   for (const id of ['owner-1', 'reader-1']) await db.prepare('INSERT INTO users (id, created_at) VALUES (?, ?)').bind(id, '2026-11-01T00:00:00Z').run()
@@ -250,6 +315,9 @@ async function worker(over: Partial<Record<string, unknown>> = {}) {
     readerApp: await createSession(db, 'reader-1', 'app', now), readerWeb: await createSession(db, 'reader-1', 'web', now), ended: await createSession(db, 'owner-1', 'app', now),
   }
   await db.prepare('UPDATE sessions SET expires_at = ? WHERE id = (SELECT id FROM sessions ORDER BY rowid DESC LIMIT 1)').bind('2026-01-01T00:00:00.000Z').run()
+  // Signed out: its row gone, as signing out leaves it.
+  const signedOut = await createSession(db, 'owner-1', 'app', now)
+  await db.prepare('DELETE FROM sessions WHERE id = ?').bind(await sha256(signedOut)).run()
   const at = new Date(now.getTime() - 3_600_000).toISOString()
   await db.prepare("INSERT INTO photos (id, entity_ref, name, status, delete_hash, created_at) VALUES (?, 'species:betta-splendens', 'Lan', 'pending', 'h', ?)").bind(S.PHOTO_WAITING, at).run()
   await db.prepare("INSERT INTO photos (id, entity_ref, name, status, url, thumb, delete_hash, created_at) VALUES (?, 'species:x', 'Minh', 'approved', 'https://media.aquatome.com/readers/x.webp', 'https://media.aquatome.com/readers/x-480.webp', 'h', ?)").bind(S.PHOTO_LIVE, at).run()
@@ -270,7 +338,7 @@ async function worker(over: Partial<Record<string, unknown>> = {}) {
     ASSETS: assets, AB: ab.ns, DB: db, UPLOADS: uploads.bucket, MEDIA: media.bucket, EVENTS: { writeDataPoint: () => {} },
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'k', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: DASH_TOKEN, OWNER_ACCOUNTS: 'owner-1', ...over,
   } as unknown as Env
-  return { e, db, ab, uploads, media, ...sessions }
+  return { e, db, ab, uploads, media, signedOut, ...sessions }
 }
 const bearer = (t: string) => ({ authorization: `Bearer ${t}` })
 const call = (e: Env, method: string, path: string, headers: Record<string, string> = {}, body?: unknown) =>
@@ -286,21 +354,28 @@ const contracted = async (r: Response, method: 'get' | 'post' | 'delete', path: 
 }
 afterEach(() => vi.restoreAllMocks())
 
-test('only the owner\'s app session opens it: anyone else, the cookie, a web token, the dashboard token, an ended session get 404 and nothing changes', async () => {
+test('only the owner\'s app session opens it: without a live app session 401 signed_out, another account\'s app 404, before any other check; nothing changes for them', async () => {
   const w = await worker()
   const ACTIONS: [string, string, unknown][] = [
     ['POST', `/api/owner/photos/${S.PHOTO_WAITING}`, { action: 'remove' }], ['POST', '/api/owner/hidden', { path: '/ca/y/', hide: true }],
     ['DELETE', `/api/owner/fishid-shots/anon/${S.KEPT_ANON}`, undefined],
   ]
-  const others: Record<string, string>[] = [
-    {}, { cookie: `__Host-aq_session=${w.ownerWeb}` }, bearer(w.ownerWeb), bearer(w.readerApp), { cookie: `__Host-aq_session=${w.readerWeb}` }, bearer(DASH_TOKEN),
-    bearer(w.ended), bearer('x'.repeat(43)), { authorization: 'Basic b3duZXI6eA==' }, { ...bearer(w.ownerApp), 'x-ignore': '1', authorization: `Bearer ${w.ownerApp}x` },
+  // In the contract, and not: a wrong method, a key that isn't a section, a path that isn't one.
+  const CALLS = [['GET', '/api/owner/dashboard', undefined], ...KEYS.map(k => ['GET', `/api/owner/sections/${k}`, undefined]), ...ACTIONS] as [string, string, unknown][]
+  const ELSE = [['POST', '/api/owner/dashboard', {}], ['GET', `/api/owner/photos/${S.PHOTO_WAITING}`, undefined], ['GET', '/api/owner/sections/tong-quan', undefined], ['GET', '/api/owner', undefined], ['GET', '/api/owner/nothing', undefined]] as [string, string, unknown][]
+  const signedOut: Record<string, string>[] = [
+    {}, { cookie: `__Host-aq_session=${w.ownerWeb}` }, bearer(w.ownerWeb), { cookie: `__Host-aq_session=${w.readerWeb}` }, bearer(w.readerWeb), bearer(DASH_TOKEN),
+    bearer(w.ended), bearer(w.signedOut), bearer('x'.repeat(43)), { authorization: 'Basic b3duZXI6eA==' }, { authorization: `bearer ${w.ownerApp}` }, { authorization: `Bearer ${w.ownerApp}!` },
   ]
-  for (const h of others) {
-    for (const [method, path, body] of [['GET', '/api/owner/dashboard', undefined], ...KEYS.map(k => ['GET', `/api/owner/sections/${k}`, undefined]), ...ACTIONS] as [string, string, unknown][]) {
+  for (const [h, status, error] of [...signedOut.map(h => [h, 401, 'signed_out']), [bearer(w.readerApp), 404, 'not_found']] as [Record<string, string>, number, string][]) {
+    for (const [method, path, body] of CALLS) {
       const r = await call(w.e, method, path, h, body)
-      expect(r.status, `${JSON.stringify(h)} ${method} ${path}`).toBe(404)
-      expect(await contracted(r, method.toLowerCase() as 'get', path)).toEqual({ error: 'not_found' })
+      expect(r.status, `${JSON.stringify(h)} ${method} ${path}`).toBe(status)
+      expect(await contracted(r, method.toLowerCase() as 'get', path)).toEqual({ error })
+    }
+    for (const [method, path, body] of ELSE) {
+      const r = await call(w.e, method, path, h, body)
+      expect([r.status, await r.json(), r.headers.get('cache-control'), r.headers.get('x-robots-tag'), r.headers.get('allow')], `${JSON.stringify(h)} ${method} ${path}`).toEqual([status, { error }, 'no-store', 'noindex, nofollow', null])
     }
   }
   // Nothing was done for them.
@@ -312,9 +387,36 @@ test('only the owner\'s app session opens it: anyone else, the cookie, a web tok
   expect(dash.status).toBe(200)
   const d = await contracted(dash, 'get', '/api/owner/dashboard')
   expect(d.sections).toEqual(SECTIONS.map(({ key, name }) => ({ key, name })))
-  // No owner named: nobody is.
+  // No owner named: nobody is, and the owner's app is just another account's.
   const none = await worker({ OWNER_ACCOUNTS: undefined })
   expect((await call(none.e, 'GET', '/api/owner/dashboard', bearer(none.ownerApp))).status).toBe(404)
+})
+
+test('a part that throws (D1, KV, R2) is 503 unavailable, as JSON, never stored or indexed, and changes nothing', async () => {
+  const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
+  const boom = () => { throw new Error('storage down') }
+  const w = await worker()
+  const over = (o: Record<string, unknown>) => ({ ...w.e, ...o }) as unknown as Env
+  const unavailable = async (e: Env, method: string, path: string, body?: unknown) => {
+    const r = await call(e, method, path, bearer(w.ownerApp), body)
+    expect(r.status, `${method} ${path}`).toBe(503)
+    expect(await contracted(r, method.toLowerCase() as 'get', path), `${method} ${path}`).toEqual({ error: 'unavailable', message: expect.any(String) })
+  }
+  // D1 down: not even the session reads.
+  const d1Down = over({ DB: { prepare: boom, batch: boom } })
+  await unavailable(d1Down, 'GET', '/api/owner/dashboard')
+  await unavailable(d1Down, 'GET', '/api/owner/sections/an-trang')
+  // After the owner check: D1 for the photo, KV for the hidden pages, R2 for a kept photo.
+  const photosDown = { prepare: (sql: string) => (/\bphotos\b/.test(sql) ? boom() : w.db.prepare(sql)), batch: boom } as unknown as D1Database
+  await unavailable(over({ DB: photosDown }), 'POST', `/api/owner/photos/${S.PHOTO_WAITING}`, { action: 'approve' })
+  await unavailable(over({ DB: photosDown }), 'POST', `/api/owner/photos/${S.PHOTO_WAITING}`, { action: 'remove' })
+  await unavailable(over({ AB: Object.assign(Object.create(w.ab.ns), { put: async () => boom() }) }), 'POST', '/api/owner/hidden', { path: '/ca/y/', hide: true })
+  await unavailable(over({ UPLOADS: Object.assign(Object.create(w.uploads.bucket), { delete: async () => boom() }) }), 'DELETE', `/api/owner/fishid-shots/anon/${S.KEPT_ANON}`)
+  expect(errors).toHaveBeenCalled()
+  expect((await w.db.prepare('SELECT status FROM photos WHERE id = ?').bind(S.PHOTO_WAITING).first())).toEqual({ status: 'pending' })
+  expect(w.ab.m.has(`photo-ok:${S.PHOTO_WAITING}`)).toBe(false)
+  expect(JSON.parse(w.ab.m.get('hidden')!.value)).not.toHaveProperty(['/ca/y/'])
+  expect(w.uploads.m.has(`fish-id/anon/${S.KEPT_ANON}`)).toBe(true)
 })
 
 test('every section through the Worker: the contract\'s shape, as its page says it, from the Worker\'s own loaders', async () => {
@@ -329,7 +431,13 @@ test('every section through the Worker: the contract\'s shape, as its page says 
       expect(s.tz).toBe('Asia/Ho_Chi_Minh')
       expect(norm(s.title), key).toBe(fromHtml(VARIANTS[key]![0]![1]()).title)
       expect(s.blocks.some(b => b.kind === 'note' && b.tone === 'bad'), `${key}: ${JSON.stringify(s.blocks.filter(b => b.kind === 'note' && b.tone === 'bad'))}`).toBe(false)
-      if (q) expect(s.blocks[1]).toEqual({ kind: 'note', text: 'Đang xem các bản thử (bản debug, TestFlight).', tone: 'plain' })
+      if (key === 'ung-dung') {
+        // The switch reads the other builds' section from its href, where the switch is flipped.
+        const sw = { kind: 'switch', label: 'Chỉ các bản thử (bản debug, TestFlight)', on: Boolean(q), href: `/api/owner/sections/ung-dung${q ? '' : '?test=1'}` }
+        expect(s.blocks[1]).toEqual(sw)
+        const flipped = (await (await call(w.e, 'GET', sw.href, bearer(w.ownerApp))).json()) as Section
+        expect(flipped.blocks[1]).toMatchObject({ kind: 'switch', on: !q })
+      }
     }
   }
   const photos = (await (await call(w.e, 'GET', '/api/owner/sections/anh-ban-doc', bearer(w.ownerApp))).json()) as Section
@@ -373,6 +481,10 @@ test('a reader\'s photo: approved (the next pass publishes it) or removed now, b
   const ok = await post(S.PHOTO_WAITING, { action: 'approve' })
   expect(await contracted(ok, 'post', `/api/owner/photos/${S.PHOTO_WAITING}`)).toEqual({ ok: true, changed: true })
   expect(w.ab.m.has(`photo-ok:${S.PHOTO_WAITING}`)).toBe(true)
+  // Approved again: nothing to do, and its 30 days don't start over.
+  w.ab.m.set(`photo-ok:${S.PHOTO_WAITING}`, { value: '2026-10-20T00:00:00.000Z' })
+  expect(await (await post(S.PHOTO_WAITING, { action: 'approve' })).json()).toEqual({ ok: true, changed: false })
+  expect(w.ab.m.get(`photo-ok:${S.PHOTO_WAITING}`)!.value).toBe('2026-10-20T00:00:00.000Z')
   // The page shows it approved, and its blocks too.
   const s = (await (await call(w.e, 'GET', '/api/owner/sections/anh-ban-doc', bearer(w.ownerApp))).json()) as Section
   expect(s.blocks.find(b => b.kind === 'photos')).toMatchObject({ items: [{ id: S.PHOTO_WAITING, meta: ['species:betta-splendens', expect.any(String), 'Đã duyệt · đăng trong lượt duyệt tới'], actions: [{ label: 'Gỡ' }] }] })
@@ -442,15 +554,15 @@ test('a kept fish-ID photo deleted from the app; only one an account or no one s
   expect((await call(off.e, 'DELETE', `/api/owner/fishid-shots/anon/${S.KEPT_ANON}`, bearer(off.ownerApp))).status).toBe(503)
 })
 
-test('the two private images take the owner\'s app session too; a reader\'s, the dashboard token or nobody get 404', async () => {
+test('the two private images take the owner\'s app session too, never stored or indexed; a reader\'s, the dashboard token, an ended session or nobody get 404', async () => {
   const w = await worker()
   const get = (path: string, h: Record<string, string>) => call(w.e, 'GET', path, h)
   for (const [path, bytes] of [[`/_ab/anh/${S.PHOTO_WAITING}`, [0xff, 0xd8, 9]], [`/_ab/anh-nhan-dien/anh/reader-1/${S.KEPT_ID}`, [0xff, 0xd8, 1]], [`/_ab/anh-nhan-dien/anh/anon/${S.KEPT_ANON}`, [0xff, 0xd8, 2]]] as [string, number[]][]) {
     for (const h of [bearer(w.ownerApp), { cookie: `__Host-aq_session=${w.ownerWeb}` }]) {
       const r = await get(path, h)
-      expect([r.status, r.headers.get('cache-control'), [...new Uint8Array(await r.arrayBuffer())]], path).toEqual([200, 'private, no-store', bytes])
+      expect([r.status, r.headers.get('cache-control'), r.headers.get('x-robots-tag'), [...new Uint8Array(await r.arrayBuffer())]], path).toEqual([200, 'private, no-store', 'noindex, nofollow', bytes])
     }
-    for (const h of [{}, bearer(w.readerApp), bearer(w.ownerWeb), bearer(DASH_TOKEN), { cookie: `__Host-aq_session=${w.readerWeb}` }] as Record<string, string>[]) expect((await get(path, h)).status, `${path} ${JSON.stringify(h)}`).toBe(404)
+    for (const h of [{}, bearer(w.readerApp), bearer(w.ownerWeb), bearer(DASH_TOKEN), bearer(w.ended), bearer(w.signedOut), { cookie: `__Host-aq_session=${w.readerWeb}` }] as Record<string, string>[]) expect((await get(path, h)).status, `${path} ${JSON.stringify(h)}`).toBe(404)
   }
   // The pages' own forms stay the cookie's: the app's bearer can't post them.
   const form = (path: string, fields: Record<string, string>) => handle(new Request(`https://x.test${path}`, { method: 'POST', headers: bearer(w.ownerApp), body: new URLSearchParams(fields) }), w.e)
@@ -481,19 +593,25 @@ async function replies(): Promise<Reply[]> {
     ['bring a page back', 'POST', '/api/owner/hidden', { path: '/ca/ca-y/', hide: false }],
     ['hide the home page', 'POST', '/api/owner/hidden', { path: '/', hide: true }],
     ['delete a kept fish-ID photo', 'DELETE', `/api/owner/fishid-shots/anon/${S.KEPT_ANON}`, undefined],
+    ['signed out', 'GET', '/api/owner/dashboard', undefined],
     ['not the owner', 'GET', '/api/owner/dashboard', undefined],
+    ['storage down', 'GET', '/api/owner/dashboard', undefined],
   ]
+  const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
   for (const [name, method, path, body] of actions) {
-    const r = await call(w.e, method, path, name === 'not the owner' ? bearer(w.readerApp) : bearer(w.ownerApp), body)
+    const h = name === 'signed out' ? {} : name === 'not the owner' ? bearer(w.readerApp) : bearer(w.ownerApp)
+    const e = name === 'storage down' ? ({ ...w.e, DB: { prepare: () => { throw new Error('D1 down') } } } as unknown as Env) : w.e
+    const r = await call(e, method, path, h, body)
     out.push({ name, request: { method, path, ...(body === undefined ? {} : { body }) }, status: r.status, body: await r.json() })
   }
+  errors.mockRestore()
   return out
 }
 
 test('the samples the app\'s fake server serves are the Worker\'s replies, and the contract\'s (UPDATE_VECTORS=1 rewrites them)', async () => {
   const now = { replies: await replies() }
   const file = {
-    $comment: 'Generated by apps/site/worker/test/owner-api.test.ts from apps/site/worker/test/owner-sample.ts (UPDATE_VECTORS=1 pnpm test): the owner dashboard\'s replies (protocols/owner-dashboard.openapi.json) at 2026-11-04T09:00:00Z in Asia/Ho_Chi_Minh, for the app\'s fake server and UI tests. Each `request` is what the app sends (with the owner\'s bearer; "not the owner" with another account\'s), each `body` what the Worker answers. Photo and page ids are the sample\'s.',
+    $comment: 'Generated by apps/site/worker/test/owner-api.test.ts from apps/site/worker/test/owner-sample.ts (UPDATE_VECTORS=1 pnpm test): the owner dashboard\'s replies (protocols/owner-dashboard.openapi.json) at 2026-11-04T09:00:00Z in Asia/Ho_Chi_Minh, for the app\'s fake server and UI tests. Each `request` is what the app sends (with the owner\'s bearer; "signed out" with none, "not the owner" with another account\'s, "storage down" while D1 is down), each `body` what the Worker answers. Photo and page ids are the sample\'s.',
     ...now,
   }
   if (process.env.UPDATE_VECTORS) writeFileSync(VECTORS, `${JSON.stringify(file, null, 2)}\n`)

@@ -1,6 +1,6 @@
 import { aeSql, num } from './ae'
 import { esc, fmt, rankTable, type Ranked } from './chart'
-import { cellOf, failedNote, heading, note, rankBlock, table, textOf, type Block, type Section } from './blocks'
+import { cellOf, failedNote, heading, note, rankBlock, table, textOf, type Block, type Cell, type RankRow, type Section } from './blocks'
 import { pageLink } from './pages'
 import { failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ } from './time'
@@ -103,6 +103,8 @@ export const ACTION_NAME: Record<string, string> = {
   'light.connect': 'Kết nối đèn', 'light.write': 'Ghi lịch đèn', 'plug.switch': 'Bật, tắt ổ cắm', fishid: 'Nhận diện cá',
   'tank.add': 'Thêm bể', 'post.comment': 'Gửi bình luận', 'post.photo': 'Gửi ảnh',
 }
+/** An action by its name in words, with its code under it; the page shows the code after it. */
+const actionCell = (name: string): Cell => ({ text: ACTION_NAME[name] ?? name, sub: name })
 const action = (name: string) => `${esc(ACTION_NAME[name] ?? name)} <code>${esc(name)}</code>`
 const percent = (part: number, whole: number) => (whole ? `${fmt((100 * part) / whole, 1)}%` : '—')
 const ms = (p?: Pct) => (p ? [`${fmt(p.p50)} ms`, `${fmt(p.p90)} ms`] : ['—', '—'])
@@ -141,7 +143,10 @@ const SHOP_PAGES_HEAD = ['Trang', 'Lượt bấm']
 const appRanks = (s: AppStats) => ({
   pages: s.pages.map(x => ({ label: pageLink(x.path), value: x.views })) as Ranked[],
   screens: s.screens.map(x => ({ label: `<code>${esc(x.screen)}</code>`, value: x.views })) as Ranked[],
-  errors: s.errors.map(e => ({ label: `${action(e.name)} · <code>${esc(e.kind || '(không ghi)')}</code>`, value: e.n })) as Ranked[],
+  errors: s.errors.map((e): RankRow => {
+    const kind = e.kind || '(không ghi)'
+    return { cell: { ...actionCell(e.name), sub: `${e.name} · ${kind}` }, label: `${action(e.name)} · <code>${esc(kind)}</code>`, value: e.n }
+  }),
   shops: s.shops.map(x => ({ label: esc(x.shop), value: x.taps })) as Ranked[],
   shopPages: s.shopPages.map(x => ({ label: pageLink(x.path), value: x.taps })) as Ranked[],
 })
@@ -167,14 +172,16 @@ export function appPage(now: Date, test: boolean, s: Soft<AppStats>, tz = HOME_T
 }
 
 export function appSection(test: boolean, s: Soft<AppStats>): Section {
-  const blocks: Block[] = [note(textOf(APP_LEDE)), note(textOf(which(test).text))]
+  // The page's link to the other builds, as a switch: on, only our test builds.
+  const builds: Block = { kind: 'switch', label: 'Chỉ các bản thử (bản debug, TestFlight)', on: test, href: `/api/owner/sections/ung-dung${test ? '' : '?test=1'}` }
+  const blocks: Block[] = [note(textOf(APP_LEDE)), builds]
   if (isFailed(s)) blocks.push(failedNote('số liệu ứng dụng (Analytics Engine)', s))
   else {
     if (isEmpty(s)) blocks.push(note(appEmpty(test), 'muted'))
     const r = appRanks(s)
     blocks.push(
       heading('Lượt xem'), heading('Trang trong cẩm nang', 3), rankBlock(r.pages, PAGES_HEAD), heading('Màn hình của ứng dụng', 3), rankBlock(r.screens, SCREENS_HEAD),
-      heading('Thao tác'), table(ACTIONS_HEAD, s.actions.map(a => actionCells(a).map(c => cellOf(c))), { empty: 'Chưa có.' }),
+      heading('Thao tác'), table(ACTIONS_HEAD, s.actions.map(a => [actionCell(a.name), ...actionCells(a).slice(1).map(c => cellOf(c))]), { empty: 'Chưa có.' }),
       heading('Lỗi hay gặp', 3), rankBlock(r.errors, ERRORS_HEAD),
       heading('Bấm sang sàn'), heading('Theo sàn', 3), rankBlock(r.shops, SHOPS_HEAD), heading('Theo trang', 3), rankBlock(r.shopPages, SHOP_PAGES_HEAD),
       heading('Ổn định và hiệu năng theo phiên bản'), table(VERSIONS_HEAD, s.versions.map(v => versionCells(v).map(c => cellOf(c))), { empty: NO_REPORTS }), note(APP_NOTE),

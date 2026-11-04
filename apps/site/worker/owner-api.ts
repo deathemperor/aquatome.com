@@ -1,6 +1,6 @@
 import { HOME_TZ, validZone } from './admin/time'
 import { overviewJson } from './admin/pages'
-import { loadOverview, ownerApp, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
+import { appVisitor, loadOverview, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
 import { deleteKept } from './fishid/kept'
 import { NOT_ONE_PAGE, setHidden } from './hidden'
 import { approveByOwner, photosLive, removePhoto } from './photos'
@@ -8,12 +8,14 @@ import { approveByOwner, photosLive, removePhoto } from './photos'
 /**
  * The owner's dashboard as JSON, for the iOS app to draw natively (protocols/owner-dashboard.openapi.json): the
  * overview's to-dos and areas, each /_ab/ page as blocks (from the same load as the page, dashboard.ts), and the pages'
- * three actions. Only the owner's app session, as a bearer, opens it: anyone else, signed in or not, the cookie, and the
- * dashboard token get 404. Never stored, never indexed.
+ * three actions. Only the owner's app session, as a bearer, opens it. Without a live app session (none, one that ended,
+ * a web session's token, the dashboard token, the cookie): 401 signed_out, as the accounts API says it. Another
+ * account's app: 404, as for a path that isn't there. That check comes first, so nobody else learns the paths. A part
+ * that throws (D1, KV, R2) is 503 unavailable. Never stored, never indexed.
  */
 
 /** The viewer's IANA time zone, which the app sends; Vietnam's when it sends none or one this runtime doesn't know. */
-export const TZ_HEADER = 'time-zone'
+const TZ_HEADER = 'time-zone'
 const HEADERS = { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' }
 const reply = (body: unknown, status = 200, extra: Record<string, string> = {}) => new Response(JSON.stringify(body), { status, headers: { ...HEADERS, ...extra } })
 const fail = (status: number, error: string, message?: string, extra: Record<string, string> = {}) => reply(message ? { error, message } : { error }, status, extra)
@@ -30,7 +32,18 @@ const PHOTO = /^\/api\/owner\/photos\/([0-9a-f-]{36})$/
 const SHOT = /^\/api\/owner\/fishid-shots\/([0-9a-z-]+)\/([0-9a-f-]{36})$/
 
 export async function ownerApi(req: Request, url: URL, env: AdminEnv, now = new Date()): Promise<Response> {
-  if (!(await ownerApp(req, env, now))) return notFound()
+  try {
+    return await route(req, url, env, now)
+  } catch (e) {
+    console.error('owner api:', e)
+    return fail(503, 'unavailable', 'Không làm được lúc này: máy chủ không đọc hay ghi được. Thử lại sau.')
+  }
+}
+
+async function route(req: Request, url: URL, env: AdminEnv, now: Date): Promise<Response> {
+  const who = await appVisitor(req, env, now)
+  if (who === 'none') return fail(401, 'signed_out')
+  if (who !== 'owner') return notFound()
   const path = url.pathname
   const tz = validZone(req.headers.get(TZ_HEADER)) ?? HOME_TZ
 
