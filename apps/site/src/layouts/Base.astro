@@ -30,8 +30,10 @@ interface Props {
   alternates?: Partial<Record<Lang, string>>
   /** In the site search (Pagefind indexes only pages whose <main> carries data-pagefind-body). */
   search?: boolean
+  /** Ads: off on a screen with nothing to read (AdSense's rules), such as the sign-in page. */
+  ads?: boolean
 }
-const { title, description, noindex = false, jsonld = [], credits, creditsLater, image, alternates = {}, search = true } = Astro.props
+const { title, description, noindex = false, jsonld = [], credits, creditsLater, image, alternates = {}, search = true, ads = true } = Astro.props
 const { lang, t } = i18n(Astro.url)
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 // A page without address parameters is the same page in every language that has it; others pass their alternates.
@@ -78,8 +80,8 @@ Astro.locals.langs = langs
     <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     {/* AdSense (and Google's consent message for EEA/UK/CH visitors) — production only. Loaded on the reader's first scroll of the page (not captured: a strip that snaps itself while loading doesn't count), tap or key, not with the page: Google's test cookie is a third-party cookie (Lighthouse Best Practices), and the page's own text and pictures get the connection first. */}
-    {!isStaging() && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
-    {!isStaging() && <script is:inline data-ads set:html={`(function(){var ev=['scroll','pointerdown','keydown','touchstart'],o=function(e){return{capture:e!=='scroll',passive:true}},go=function(){ev.forEach(function(e){removeEventListener(e,go,o(e))});var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}';document.head.appendChild(s)};ev.forEach(function(e){addEventListener(e,go,o(e))})})()`} />}
+    {ads && !isStaging() && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
+    {ads && !isStaging() && <script is:inline data-ads set:html={`(function(){var ev=['scroll','pointerdown','keydown','touchstart'],o=function(e){return{capture:e!=='scroll',passive:true}},go=function(){ev.forEach(function(e){removeEventListener(e,go,o(e))});var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}';document.head.appendChild(s)};ev.forEach(function(e){addEventListener(e,go,o(e))})})()`} />}
   </head>
   <body>
     <slot name="header" />

@@ -1,6 +1,6 @@
 import type { TankStore } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { codeInHash, getSession, PENDING, pendingFlow, signInWith, syncOnce } from '../src/scripts/sync'
+import { codeInHash, getSession, nextPath, PENDING, pendingFlow, signInWith, syncOnce } from '../src/scripts/sync'
 
 const at = '2026-10-31T10:00:00.000Z'
 const later = '2026-10-31T11:00:00.000Z'
@@ -51,4 +51,14 @@ test('the email sign-in waiting for its code: kept until it expires; the code co
   expect(codeInHash('#ma=012345')).toBe('012345')
   expect(codeInHash('#ma=12345')).toBeUndefined()
   expect(codeInHash('#du-lieu')).toBeUndefined()
+})
+
+test('after signing in on the sign-in page: on to a dashboard page of this site, never anywhere else', () => {
+  const site = 'https://aquatome.com'
+  expect(nextPath('/_ab/', site)).toBe('/_ab/')
+  expect(nextPath('/_ab/doc-gia/?ngay=7#bang', site)).toBe('/_ab/doc-gia/?ngay=7#bang')
+  // Another site, the site's other pages, and paths that only look like the dashboard's.
+  const elsewhere = [undefined, null, '', '/', '/vi/', '/_ab', '/_abc/', 'https://evil.test/_ab/', '//evil.test/_ab/', '/\\evil.test/_ab/', `${site}/_ab/`,
+    '/_ab/../vi/', '/_ab/%2e%2e/vi/', '/_ab/..\\vi/', 'javascript:alert(1)//_ab/']
+  for (const next of elsewhere) expect(nextPath(next, site), String(next)).toBeUndefined()
 })

@@ -44,6 +44,10 @@ that would have caught it).
     limits on top of the address's, an account's posts and photo files deleted with it, every public post's `author`,
     and a report that takes a post down only from a signed-in reader and never once the moderation has kept it
     (`apps/site/worker/test/talk.test.ts`).
+  - The fish identifier's answers, the page's and the app's (its session as a bearer, no Origin or Turnstile), against
+    `protocols/fishid.openapi.json`: a status the contract lists and a body of its shape, the app counted per account
+    and not per address, a bearer with no live app session refused rather than taken the page's way, and no wanted
+    names from our own checks (`apps/site/worker/test/fishid.test.ts`).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools).
@@ -208,20 +212,25 @@ The layers above still check the result.
   good), each photo must show its species, open licences or permission only.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
-  - **Galleries and their targets.** Every species and plant has a gallery, topped up each cycle to a target set by how
-    much readers want it (`packages/engine/src/gallery-plan.ts`, the reason beside each number): the 12 staples 100,
-    what shops in Vietnam, Indonesia and Thailand sell 60 (fish lists and plant lists, `engine-state/shop-lists/`), the
-    most-kept fish 40, pages two or more sources write about 30, every other page 20. The most popular pages go first,
-    `GALLERY_SHEETS` model calls a cycle (`scripts/engine-cycle.sh`). A gallery is never padded: a page whose sources run
-    dry stays short and is listed in `docs/review/galleries.md`, then read again a month later.
+  - **Galleries and their targets.** Every species, plant and breed has a gallery, topped up each cycle to a target set
+    by how much readers want it (`packages/engine/src/gallery-plan.ts`, the reason beside each number): the 12 staples
+    100, what shops in Vietnam, Indonesia and Thailand sell 60 (fish lists and plant lists, `engine-state/shop-lists/`)
+    and so do the bred fish they keep most (`POPULAR_BREEDS`: balloon molly, koi, the goldfish, betta and guppy forms…),
+    the most-kept fish 40, pages two or more sources write about 30 (a breed: two or more sites), every other page 20.
+    The most popular pages go first, `GALLERY_SHEETS` model calls a cycle (`scripts/engine-cycle.sh`). A gallery is
+    never padded: a page whose sources run dry stays short and is listed in `docs/review/galleries.md`, then read again
+    a month later.
   - **Sources.** iNaturalist first: every observation of the taxon (found by its name or a synonym) with a CC0, CC BY or
     CC BY-SA photo, research grade first, then those whose community ID agrees; aquarium and garden observations count.
     Then Wikimedia Commons, GBIF occurrence photos (observations and living collections, not preserved specimens, not
-    iNaturalist's copy) and Openverse (Flickr). Each photo's licence is read from the source's API for that photo, never
-    assumed: CC BY-NC, the default on iNaturalist and Flickr, stays out, since the site carries ads and affiliate links.
-    Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through their own steps. Each
-    source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200 a day without a key),
-    and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues there.
+    iNaturalist's copy) and Openverse (Flickr). A breed has no scientific name: Commons (its category, then its English
+    and trade names) and Openverse, never iNaturalist or GBIF, which give the wild fish; it is screened for that line
+    alone, and a photo another breed's page shows stays there. Each photo's licence is read from the source's API for
+    that photo, never assumed: CC BY-NC, the default on iNaturalist and Flickr, stays out, since the site carries ads
+    and affiliate links. Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through
+    their own steps. Each source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200
+    a day without a key), and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues
+    there.
   - **Checks every photo passes,** through one shared step (`screenTagged` in `gallery.ts`): at least 800 px; not a photo
     the owner rejected (`engine-state/_photo-rejected.json`); not a near-copy of a photo already shown (an image hash,
     as when Commons holds a copy of an iNaturalist or Flickr photo); no human face (Apple Vision); then Claude, on contact

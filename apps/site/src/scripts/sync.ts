@@ -80,6 +80,20 @@ export function pendingFlow(storage: Pick<Storage, 'getItem' | 'removeItem'>, no
 export const codeInHash = (hash: string) => /^#ma=(\d{6})$/.exec(hash)?.[1]
 
 /**
+ * Where a sign-in on the sign-in page may go next: a page of the owner's dashboard on this site (a path under /_ab/),
+ * as the path it resolves to. Anything else, another site's address or a path out of /_ab/ included: nowhere.
+ */
+export function nextPath(next: string | null | undefined, origin: string): string | undefined {
+  if (!next?.startsWith('/_ab/')) return undefined
+  try {
+    const u = new URL(next, origin)
+    return u.origin === origin && u.pathname.startsWith('/_ab/') ? `${u.pathname}${u.search}${u.hash}` : undefined
+  } catch {
+    return undefined
+  }
+}
+
+/**
  * Sends this browser's store and takes back the account's, merged with what changed here meanwhile. Another sync of
  * the same account in progress (409 busy): tries again a little later, three times.
  */

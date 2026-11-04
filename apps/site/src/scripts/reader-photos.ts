@@ -1,13 +1,38 @@
-import { escapeHtml, loadTurnstile } from './comments'
+import { date, escapeHtml, loadTurnstile } from './comments'
 import { ct } from './ct'
+import type { Viewer } from './photo-viewer'
 
 export type ShownPhoto = { id: string; name: string; url: string; thumb: string; width: number; height: number; createdAt: string }
 const MAX_BYTES = 8 * 1024 * 1024
 const MAX_SIDE = 2000
 
-/** One gallery tile: the thumb links to the full photo; the reader's name as credit. Every user string escaped. */
-export function photoHtml(p: ShownPhoto): string {
-  return `<li><a href="${escapeHtml(p.url)}" target="_blank" rel="noopener"><img src="${escapeHtml(p.thumb)}" width="${p.width}" height="${p.height}" alt="${ct('Ảnh của {name}', { name: escapeHtml(p.name) })}" loading="lazy"></a><span>${escapeHtml(p.name)}</span></li>`
+/**
+ * One gallery tile: the thumb, a button opening photo `i` in the viewer; the reader's name as credit. Every user string
+ * escaped.
+ */
+export function photoHtml(p: ShownPhoto, i: number): string {
+  return `<li><button type="button" data-i="${i}" aria-haspopup="dialog"><img src="${escapeHtml(p.thumb)}" width="${p.width}" height="${p.height}" alt="${ct('Ảnh của {name}', { name: escapeHtml(p.name) })}" loading="lazy"></button><span>${escapeHtml(p.name)}</span></li>`
+}
+
+/**
+ * A tap on a tile opens the page's readers' photos in the viewer, loaded then (pages without readers' photos never load
+ * it). Should it fail to load (a deploy replaced it since the page loaded), the photo opens on its own.
+ */
+function viewReaderPhotos(list: HTMLElement, photos: ShownPhoto[]) {
+  const lang = document.documentElement.lang
+  let viewer: Promise<Viewer> | undefined
+  const view = () => (viewer ??= import('./photo-viewer').then(m => m.createViewer({
+    id: 'reader',
+    photos: photos.map(p => ({ src: p.url, thumb: p.thumb, width: p.width, height: p.height, alt: ct('Ảnh của {name}', { name: p.name }), credit: () => [`${ct('Ảnh của {name}', { name: p.name })} · ${date(p.createdAt, lang)}`] })),
+    tile: i => list.querySelectorAll<HTMLElement>('button[data-i]')[i],
+  })))
+  list.addEventListener('click', e => {
+    const b = (e.target as Element).closest<HTMLButtonElement>('button[data-i]')
+    const i = Number(b?.dataset.i)
+    if (b) view().then(v => v.open(i, { from: b }), () => location.assign(photos[i]!.url))
+  })
+  // Reloaded with a photo open: open it again (its history entry is the viewer's, photo-view.ts viewerHistory).
+  if ((history.state as { viewer?: unknown } | null)?.viewer === 'reader') view().then(v => v.restore(), () => {})
 }
 
 /** Part of a photo, in fractions (0–1) of its width and height as shown (turned upright). */
@@ -58,6 +83,7 @@ export async function mountReaderPhotos(section: HTMLElement) {
   const msg = section.querySelector<HTMLElement>('[data-msg]')!
   list.innerHTML = data.photos.map(photoHtml).join('')
   empty.hidden = data.photos.length > 0
+  viewReaderPhotos(list, data.photos)
   section.hidden = false
   if (data.verification === 'phone') return
   const ts = await loadTurnstile().catch(() => null)

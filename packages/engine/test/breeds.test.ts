@@ -65,7 +65,7 @@ test('makeBreed: researched facts → Vietnamese page checked against them; spec
   // The checker's notes went into one rewrite.
   expect(prompts.filter(p => p.includes('"from 1800s" is not in the facts'))).toHaveLength(1)
   expect(prompts.filter(p => p.includes('first bred in 1986'))).toEqual([])
-  expect(looks[0]).toContain('keep only photos of it, not other varieties')
+  expect(looks[0]).toContain('keep only photos of it, not the plain species or other varieties')
 
   const read = async (f: string) => JSON.parse(await readFile(join(r, 'content', f), 'utf8'))
   const e = await read('breeds/ranchu-goldfish/entity.json')

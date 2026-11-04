@@ -6,7 +6,7 @@ export type ShownComment = { id: string; name: string; body: string; helpful: bo
 const ESC: Record<string, string> = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }
 export const escapeHtml = (s: string) => s.replace(/[&<>"']/g, ch => ESC[ch]!)
 
-const date = (iso: string, lang: string) => new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'Asia/Ho_Chi_Minh' }).format(new Date(iso))
+export const date = (iso: string, lang: string) => new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'Asia/Ho_Chi_Minh' }).format(new Date(iso))
 
 /** One comment as inert HTML: every user string escaped, links stay plain text. */
 export function commentHtml(c: ShownComment, ct: T, lang: string): string {
