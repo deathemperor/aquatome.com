@@ -1,0 +1,110 @@
+{
+  "id": "rasbora-patrickyapi",
+  "scientificName": "Rasbora patrickyapi",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Rasbora",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "indonesia",
+    "kalimantan"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_patrickyapi_en/",
+      "html": "<p>A blackwater Rasbora that reaches a maximum length of about 5 cm. Available sizes: 4-5 cm. Origin: Indonesia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_patrickyapi_en/",
+      "html": "<p>In its natural habitat the species is restricted to peat swamps in the central parts of Kalimantan (the Indonesian part of Borneo).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_patrickyapi_en/",
+      "html": "<p>The pH in the peat swamps is very low.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_patrickyapi_en/",
+      "html": "<p>Nevertheless the species adapts very well to normal aquarium conditions and is not difficult to keep at all. However, the water has to be very clean, especially the bacterial pressure should be as low as possible. Under these conditions the fish display wonderful colours.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_patrickyapi_en/",
+      "html": "<p>Males can be recognized (among other features) by the much brighter red colours of the fins.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "vHIqdNFUDNo",
+      "title": "Rasbora patrickyapi",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ryN_hvjqcAM",
+      "title": "Rasbora patrickyapi. Rare fish",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AmDVkXYCdQo",
+      "title": "Rasbora patrickyapi - Rare fish - please visit FB 👉Budi patrickyapi",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4if1UCnb5LY",
+      "title": "Fish | Rasbora patrickyapi ikan endemik Kalimantan cocok buat jadi ikan Aquascape #aquascape",
+      "durationSec": 22,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 60cm",
+        "bể cá nước đen"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc cho bể cá nhỏ",
+        "bộ lọc thùng"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "lá bàng khô",
+        "nền cát cho cá nước đen"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

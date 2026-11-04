@@ -1258,6 +1258,94 @@
       "Item 4: \"endemic to Asia\" → \"พืชถิ่นเดียวของเอเชีย\" sounds like it is found only in Asia, yet the next paragraph lists Africa and Australia. \"มีถิ่นกำเนิดในเอเชีย\" reads more naturally."
     ]
   },
+  "lindernia-rotundifolia": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "ลินเดอร์เนีย โรทันดิโฟเลีย",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": []
+  },
+  "littorella-uniflora": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "ลิตโตเรลลา",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"cosmopolitan\" rendered as \"พบได้ทั่วโลก\" is acceptable, but \"ไม้น้ำที่แตกไหล\" for \"stolon\" is fine; no real issue beyond this.",
+      "Item 3: \"ด้วยรูปลักษณ์ของ Littorella uniflora ทำให้เป็นไม้น้ำ...\" is a slightly awkward sentence (no clear subject); rephrase e.g. \"Littorella uniflora มีรูปลักษณ์เฉพาะตัว จึงเป็นไม้น้ำที่จดจำได้ง่ายในตู้ปลา\".",
+      "Item 3: \"lakeshores\" -> \"ริมทะเลสาบ\" is fine, but \"garden ponds\" -> \"บ่อในสวน\" could be more natural as \"บ่อน้ำในสวน\"; \"เทอร์ราเรียม\" is OK, optionally add \"ตู้ปลูกไม้บก\"."
+    ]
+  },
+  "lobelia-cardinalis": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "โลบีเลีย คาร์ดินาลิส",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ไม้ต้น (ไม้ข้อ)\": \"Stem plant\" is usually just \"ไม้ข้อ\"; \"ไม้ต้น\" is vague, so drop it or use \"ไม้ข้อ (Stem plant)\".",
+      "\"เติบโตเป็นพุ่มเตี้ยและแน่น\": \"The growth is low and dense\" is rendered a bit loosely, but the meaning is intact.",
+      "\"เกิดขึ้นมาจากการผลิต Lobelia cardinalis ตามปกติ\": \"general production\" means commercial cultivation or propagation. \"การผลิต\" is stiff, so use \"การเพาะเลี้ยง/ขยายพันธุ์เพื่อการค้า\".",
+      "\"ถึงไม่เติมก็ยังเติบโตได้ดี\": add \"CO2\" to make clear that it grows well without CO2.",
+      "\"ปักลงในวัสดุปลูก\": \"bottom layer\" means the substrate. Use \"พื้นตู้/วัสดุปลูก\"; the current wording is acceptable but could be more precise."
+    ]
+  },
+  "ludwigia-arcuata": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "ลัดวิเจีย อาร์คัวต้า",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 2: \"a few inches off\" was rendered as \"ราว 5–8 ซม.\". The conversion is acceptable, but \"cycles the substrate\" became \"ช่วยให้วัสดุปลูกผ่านวงจรไนโตรเจน\". That adds \"nitrogen\", which the source does not say. Use \"ช่วยให้วัสดุปลูกผ่านการไซเคิล\" or similar.",
+      "Item 2: \"It can grow aerial roots; cut above the node and stick it in the substrate\" is fine. However, the Thai \"ตัดกิ่ง\" for \"take sizeable cuttings from the stems\" is acceptable. Do not change it.",
+      "Item 5: \"Discoloration\" was translated as \"สีซีดผิดปกติ\" (abnormally pale). This narrows the meaning. Use \"สีผิดปกติ\" or \"สีเปลี่ยน\".",
+      "Item 5: \"Excess iron will not make it red\" was translated as \"ธาตุเหล็กที่มากเกินไปไม่ได้ทำให้ต้นแดง\". It is slightly ambiguous. Say \"ธาตุเหล็กเกินจะไม่ช่วยให้ต้นแดงขึ้น\".",
+      "Item 5: \"pond snails, slugs\" became \"หอยเล็ก ทาก\". Use the common hobby term \"หอยฝาเดียว/หอยขม\" or \"หอยกระดิ่ง\" for pond snails.",
+      "Item 5: \"ฆ่าเชื้อหรือกักโรค\" is fine. \"Pests\" as \"ศัตรูพืช\" is fine. \"Melting\" as \"ใบละลาย\" in the problems list, but item 3 says \"ละลายได้ง่าย\" without \"ใบ\". Add \"ใบ\" for consistency.",
+      "Item 3: \"Submerged leaves formed at 23 °C were clearly narrower\" is translated acceptably. \"พึงระวัง\" is stiff for a handbook, so use \"ควรระวัง\"."
+    ]
+  },
+  "ludwigia-glandulosa": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "ลัดวิเจีย แกลนดูโลซ่า",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 2: \"5-12 cm wide\" is rendered as \"กว้าง 5-12 ซม.\" and is faithful, but the source is likely meant to be the plant's width; keep the numbers as is. This is not an error.",
+      "Item 2: \"The leaves turn greener\" is mistranslated. The Thai \"ใบจะกลายเป็นสีเขียวมากขึ้น\" is fine, but the translation puts the condition before the clause and reads as if the leaves turn green because of the poor light. Reword it to \"ถ้าแสงไม่เพียงพอ ใบจะเขียวขึ้นและใบล่างอาจร่วง\" so the cause-and-effect is clear.",
+      "Item 2: \"ร่วงหลุดไป\" is slightly redundant. Use \"ร่วง\" instead."
+    ]
+  },
+  "ludwigia-palustris": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Ludwigia palustris 'Super Green'",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Origin: cultivar\" — 'แหล่งกำเนิด' means place of origin; fine as meaning, but 'สายพันธุ์ปรับปรุง (cultivar)' is slightly awkward; consider 'พันธุ์ปลูกเลี้ยง (cultivar)'.",
+      "Item 2: \"Each stalk\" rendered as 'แต่ละต้น' and \"ต้นนี้\" for 'the plant' is slightly awkward; 'แต่ละก้าน/ลำต้น' and 'ไม้น้ำชนิดนี้' would read more naturally.",
+      "Item 3: 'เลี้ยงขึ้นแน่นอน' is awkward for 'reliable'; use 'เลี้ยงรอดแน่นอน' or 'ปลูกแล้วขึ้นง่ายแน่นอน'.",
+      "Item 3: 'สายพันธุ์ที่แปรมาจาก' for 'variation' is stiff; consider 'เป็นพันธุ์ที่กลายมาจาก' or 'พัฒนามาจาก'."
+    ]
+  },
+  "ludwigia-repens": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "ลัดวิเจีย รูบิน",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"สายพันธุ์หนึ่งของ\" is slightly stiff for \"Variety of\"; \"ไม้น้ำสายพันธุ์/พันธุ์ปลูกเลี้ยงของ Ludwigia repens\" would be more natural.",
+      "Item 3: \"ช่วยตัดกับโทนสีเขียว\" is slightly incomplete for \"provides a great colour contrast\"; consider \"ให้สีตัดกับโทนสีเขียวในตู้ได้อย่างโดดเด่น\".",
+      "Item 2: \"เลี้ยงไม่ยาก\" for \"has few demands\" is fine in meaning, but \"ไม่ต้องการการดูแลมาก\" is closer.",
+      "Item 3: \"กว้าง 4–6 ซม.\" is ambiguous (stem vs. leaf/bush width); the original is also unclear, so check the source."
+    ]
+  },
   "lysimachia-nummularia": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -1269,6 +1357,18 @@
       "\"ลำต้นมีครีบ 4 ด้าน\" for \"4 wings\": botanical term is \"ปีก\" (ลำต้นมีปีก 4 ปีก), not \"ครีบ\" (fish fin).",
       "\"หอยศัตรูพืช\" for \"pest snails\": more natural to say \"หอยที่เป็นศัตรูในตู้ (เช่น หอยฝาเดียว/หอยเจาะ)\" or \"หอยตัวรบกวน\".",
       "\"ไม้หน้าตู้แบบปูพรม\" is fine in meaning, but \"ไม้ปูพรม\" (carpet plant) is the usual hobby term; drop \"หน้าตู้\"."
+    ]
+  },
+  "lysimachia-parvifolia": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Lysimachia parvifolia 'Red'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ก็เริ่มมีสีออกแดงแล้ว\": the English says it already develops a reddish colour. This is fine, but \"แม้เลี้ยง...\" is slightly stiff. You could write \"ในตู้ที่มีสภาพทั่วไปก็ออกสีแดงอยู่แล้ว\".",
+      "\"ไม้น้ำเน้นจุดเด่น\" is a little literal for \"accent plant\". \"ไม้น้ำแต่งจุดเด่น\" or \"ไม้น้ำเด่น\" is more natural.",
+      "\"ตำแหน่งกลางตู้หรือหลังตู้\": \"midground\" is better rendered as \"ฉากกลาง\" and \"background\" as \"ฉากหลัง\", which are the terms hobbyists use."
     ]
   },
   "marsilea-hirsuta": {
@@ -1284,6 +1384,52 @@
       "\"ปลาเพลทตี้ sunburst\" and \"หอย black devil\": English is left in place. Transliterate them, e.g. \"ปลาเพลตี้ซันเบิร์สต์\" and \"หอยแบล็กเดวิล\".",
       "\"ปลาคาร์ดินัลจีน (white cloud mountain minnow)\" is not the usual hobby name. Use \"ปลาไวท์คลาวด์\" or \"ปลาคาร์ดินัล\".",
       "\"ปลานีออน\": specify it as \"ปลาเตตร้านีออน\" to keep the species clear."
+    ]
+  },
+  "marsilea-minuta": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "ผักแว่น",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": []
+  },
+  "mayaca-fluviatilis": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "มายาก้า",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ต้นไม้มาเป็นมัดของกิ่งหรือต้นอ่อนที่รัดรวมกันไว้ด้วยตัวถ่วง\": \"ต้นไม้\" is awkward, so use \"ไม้น้ำ\". \"กิ่ง\" is also not quite right for stems. Use \"ลำต้น\" or \"ยอด\". \"ตัวถ่วง\" (weight) is fine for anchor, but \"แถบตะกั่ว/ที่รัดโลหะ\" is more specific. Consider mentioning this.",
+      "\"ไม่ได้ผลิตในฟาร์มของผู้ผลิตเอง\": this is vague. Name the producer, e.g. \"ฟาร์มของ Tropica เอง\", or say \"ฟาร์มของผู้ผลิต\".",
+      "\"ลำต้นอ่อนนุ่มและพลิ้วไหวได้มาก\": acceptable, but \"expression\" is rendered as \"ดู...\", which is slightly loose.",
+      "\"ปลาที่บอบบาง\": \"other delicate fish\" is fine, but the recommendation \"ไม่ควรนำลงตู้...โดยตรง\" is OK. Consider saying \"ปลาชนิดอื่นที่บอบบาง\" for completeness."
+    ]
+  },
+  "micranthemum-callitrichoides": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "HC คิวบา",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "\"มีใบกลมขนาดเพียงไม่กี่มิลลิเมตร\" changes the source: \"millimetre-sized\" means the leaves are about 1 mm. Use \"ขนาดระดับมิลลิเมตร\" or similar.",
+      "\"เพราะเลี้ยงง่ายกว่า\" is fine, but \"ไม่ใช่ไม้น้ำที่เลี้ยงยาก\" and the shift to \"ไม้หน้าตู้\" are loose. Hobbyists also use \"ไม้ปูพื้น\" for the foreground carpet, so keep the term consistent.",
+      "\"พบในคิวบา\" drops the sense of \"on Cuba\" (the island). Use \"พบบนเกาะคิวบา\".",
+      "\"ฟองออกซิเจนเม็ดเล็กๆ เกิดขึ้นบนต้นไม้\" is vague. The source says \"on top of the plants\" and \"pearls or bubbles\", so use \"บนต้นไม้น้ำ\" or \"เหนือใบ\", and mention the pearling (ไข่มุก/ฟองอากาศ).",
+      "\"ทำให้รากตาย\" says the roots die, which matches the source. The cause, though, is lack of light in the lower parts, so \"ทำให้ส่วนล่างและรากเน่าตาย\" would read more naturally. Optional."
+    ]
+  },
+  "micranthemum-glomeratum": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Pearl Weed",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"ไม้หน้าตู้\" is fine, but \"เลื้อยแผ่ไปตามพื้น\" for \"trailing growth\" is slightly wordy; consider \"เลื้อยทอดยาว\"",
+      "\"เบาะ\" for \"cushion\" is a bit literal; consider \"พุ่มหนาแน่นคล้ายเบาะ/หมอนนุ่ม\" or \"ก้อนกลมแน่น\""
     ]
   },
   "microsorum-pteropus": {

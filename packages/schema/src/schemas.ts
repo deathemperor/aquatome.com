@@ -1,4 +1,6 @@
 import { z } from 'zod'
+import { isCountryCode } from './countries'
+import { byCount, CELL_DEG } from './range'
 
 export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc'] as const
 export const LANGS = ['vi', 'id', 'th'] as const
@@ -19,9 +21,50 @@ const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
 
+const CountryCode = z.string().refine(isCountryCode, { message: 'not an ISO 3166-1 alpha-2 country code' })
+const Edge = (max: number) => z.number().refine(v => Number.isInteger(v / CELL_DEG) && v >= -max && v < max, { message: `not a cell edge (a multiple of ${CELL_DEG}° in [-${max}, ${max}))` })
+const Records = z.number().int().positive()
+/**
+ * Where a species lives in the wild (engine range.ts; `@aq/schema` range.ts), each part present once the engine has it:
+ * - `native`: the countries (ISO 3166-1 alpha-2) and named regions (river basins, lakes, islands, provinces, as the
+ *   source writes them) its cited sources give as its natural range, in the order they name them, and those sources. A
+ *   country comes only from a sentence of a source that names it (quoted in engine-state/range/<id>.json); one a source
+ *   calls introduced, or its records misidentified, is not native. None when the sources say nothing about it.
+ * - `records`: its wild occurrence records on GBIF (`taxonKey`; present, coordinates without issues, not living or
+ *   fossil specimens, CC0 or CC BY 4.0 only), as fetched on `fetched`: the `total`, the records in each country (GBIF's
+ *   country field, most first), and the cells (CELL_DEG degrees) with any, each with how many are in a native country
+ *   when there are native countries (a cell on a border can hold both).
+ */
+export const RangeSchema = z.object({
+  native: z.object({ countries: z.array(CountryCode), regions: z.array(z.string().min(1)), sources: z.array(SourceId).min(1) }).optional(),
+  records: z.object({
+    taxonKey: z.number().int().positive(), total: z.number().int().nonnegative(), fetched: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    countries: z.array(z.tuple([CountryCode, Records])),
+    cells: z.array(z.union([z.tuple([Edge(180), Edge(90), Records]), z.tuple([Edge(180), Edge(90), Records, z.number().int().nonnegative()])])),
+  }).optional(),
+}).superRefine((r, ctx) => {
+  const fail = (message: string) => ctx.addIssue({ code: 'custom', message })
+  const dupes = (xs: string[]) => xs.length !== new Set(xs).size
+  if (r.native) {
+    if (!r.native.countries.length && !r.native.regions.length) fail('native names no country and no region')
+    if (dupes(r.native.countries)) fail('a native country twice')
+  }
+  if (!r.records) return
+  const { total, countries, cells } = r.records
+  const native = new Set(r.native?.countries ?? [])
+  if (dupes(countries.map(([c]) => c))) fail('a country twice in records.countries')
+  if (JSON.stringify([...countries].sort(byCount)) !== JSON.stringify(countries)) fail('records.countries not most first, then by code')
+  if (countries.reduce((s, [, n]) => s + n, 0) > total) fail('records.countries add up to more than total')
+  if (cells.reduce((s, c) => s + c[2], 0) !== total) fail('the cells\' records don\'t add up to total')
+  if (dupes(cells.map(c => `${c[0]},${c[1]}`))) fail('a cell twice')
+  if (cells.some(c => (c.length === 4) !== native.size > 0)) fail('cells count records inside exactly when there are native countries')
+  if (cells.some(c => c.length === 4 && c[3] > c[2])) fail('a cell with more records inside than it has')
+  if (native.size && cells.reduce((s, c) => s + (c[3] ?? 0), 0) !== countries.reduce((s, [c, n]) => s + (native.has(c) ? n : 0), 0)) fail('the cells\' records inside don\'t add up to the native countries\' records')
+})
+
 export const SpeciesSchema = z.object({
   id: z.string(), scientificName: z.string(), order: z.string(), family: z.string(), genus: z.string(), group: z.string(),
-  lNumber: z.string().optional(), places: z.array(z.string()),
+  lNumber: z.string().optional(), places: z.array(z.string()), range: RangeSchema.optional(),
   dataCard: z.partialRecord(DataCardField, z.array(SourcedValue)),
   sections: z.array(Section), photos: z.array(Photo), videos: z.array(Video), productSlots: z.array(ProductSlot), updatedAt: z.string(),
 })
@@ -169,7 +212,7 @@ export const TranslationSchema = z.object({
   parents: z.array(z.string()).optional(),
   /** Products: names for the spec keys in this language. */
   labels: z.record(z.string(), z.string()).optional(),
-  /** Owner-chosen main name: the engine never replaces it (variety names go to altNames). */
+  /** Owner-chosen main name: the engine never replaces it. */
   nameFixed: z.boolean().optional(),
   /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */
   redirectFrom: z.array(z.object({ slug: z.string(), name: z.string() })).optional(),

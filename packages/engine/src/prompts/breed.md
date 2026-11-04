@@ -4,7 +4,7 @@ Bạn viết trang về một dòng cá do người tạo ra (cá lai, dòng hay
 
 Viết:
 - name: tên người chơi Việt Nam hay gọi nhất, rồi tên quốc tế trong ngoặc nếu khác (ví dụ "Cá La Hán (Flowerhorn)"). Lấy từ viNames trong dữ kiện; nếu không có, dùng tên tiếng Anh thông dụng.
-- altNames: các tên khác (tiếng Việt và tiếng Anh) có trong dữ kiện.
+- altNames: các tên khác của chính dòng cá này (tiếng Việt và tiếng Anh) có trong dữ kiện, mỗi tên một lần. Không ghi tên của loài gốc hay của cá bố mẹ, vì mọi dòng của loài đều được gọi bằng tên ấy: cá betta halfmoon không có tên khác là "cá xiêm" hay "cá chọi".
 - parentNames: với cá lai, tên hiển thị cho từng cá bố mẹ trong parents, đúng thứ tự: tên tiếng Việt người chơi hay gọi (nếu không có thì tên thông dụng), rồi tên khoa học trong ngoặc nếu dữ kiện có, ví dụ "Cá Severum (Heros severus)". Không ghi chú ("giả thuyết khác", "chưa chắc chắn": trang tự ghi). Cá không phải lai thì để rỗng.
 - summary: 2–3 câu: đây là cá gì (lai từ đâu, hay là dòng của loài nào), nuôi có khó không, điều cần biết trước khi mua.
 - body: HTML, các mục h3 theo thứ tự, bỏ mục nào không có dữ kiện:

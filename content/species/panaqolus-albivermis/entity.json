@@ -6,12 +6,15 @@
   "genus": "Panaqolus",
   "group": "catfish",
   "lNumber": "L204",
-  "places": [],
+  "places": [
+    "south-america",
+    "peru"
+  ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
-        "value": 14
+        "value": 10
       }
     ]
   },
@@ -19,14 +22,20 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaqolus-albivermis-l204/",
-      "html": "<p>Panaqolus albivermis, L204. Fully grown specimens in the size class of 11-14 cm show how different the individual pattern in loricariids can be: some have small spots, others are banded in the species-specific way, with all thinkable intergrades between them.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l204_panaqolus_albivermis_en/",
+      "html": "<p>Panaqolus albivermis received an official, valid name in 2013. It is one of the most beautiful L-numbers. Maximum length is around 10 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l204_panaqolus_albivermis_en/",
+      "html": "<p>The species originates from Peru.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaqolus-albivermis-l204/",
-      "html": "<p>Photos were made from four fully grown specimens, size class 11-14 cm. The fish were offered as L204 in all sizes, including fully grown specimens.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l204_panaqolus_albivermis_en/",
+      "html": "<p>Some spotted individuals were stocked under the name L204a; however, they do not represent a different species. Even among captive bred specimens from wild collected, striped parents, spotted youngsters appear every now and then.</p>"
     }
   ],
   "photos": [

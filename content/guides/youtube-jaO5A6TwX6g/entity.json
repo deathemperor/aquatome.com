@@ -1,0 +1,86 @@
+{
+  "id": "youtube-jaO5A6TwX6g",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=jaO5A6TwX6g",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-04",
+  "video": {
+    "youtubeId": "jaO5A6TwX6g",
+    "title": "HOW TO: DIY Aquarium Plants",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 605,
+    "publishedAt": "2012-07-08",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mY7YLePay_u8zUf68Y4heeL",
+      "position": 8
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/jaO5A6TwX6g/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 510
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cây có lõi dây kim loại có an toàn không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/jaO5A6TwX6g/p1-hcXVhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/jaO5A6TwX6g/p1-hcXVhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Billjones94",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fishes,_multicolored_pebbles_and_artificial_plants_within_an_aquarium.jpg",
+          "caption": "Bể cá cảnh trang trí bằng cây lụa giả, cá bơi quanh rất an toàn."
+        }
+      },
+      {
+        "heading": "Đúc đế xi măng từng bước",
+        "moments": [
+          {
+            "t": 268,
+            "url": "https://media.aquatome.com/video/jaO5A6TwX6g/t268.webp",
+            "width": 240,
+            "height": 180,
+            "caption": "Phần đáy chai đã cắt xong, dùng làm khuôn đúc đế xi măng."
+          },
+          {
+            "t": 293,
+            "url": "https://media.aquatome.com/video/jaO5A6TwX6g/t293.webp",
+            "width": 240,
+            "height": 180,
+            "caption": "Khuấy xi măng trong hộp nhựa cho đặc sệt như bùn."
+          }
+        ]
+      },
+      {
+        "heading": "Chờ xi măng khô bao lâu thì tháo khuôn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/jaO5A6TwX6g/p3-0ZV9zdGFpci5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/jaO5A6TwX6g/p3-0ZV9zdGFpci5KUEc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "User:Mattes",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Formwork_for_concrete_stair.JPG",
+          "caption": "Khuôn gỗ quanh khối bê tông nhỏ, cần chờ khô hẳn mới tháo."
+        }
+      }
+    ]
+  }
+}

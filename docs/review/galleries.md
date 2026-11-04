@@ -7,7 +7,7 @@ Written by `pnpm engine gallery` (2026-11-04). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 124 | 77 | 24 | 29 | 196 |
 | popular | 40 | 21 | 0 | 0 | 2 | 19 |
-| covered | 30 | 307 | 3 | 9 | 9 | 310 |
+| covered | 30 | 307 | 3 | 9 | 11 | 308 |
 | rest | 20 | 919 | 94 | 0 | 1 | 1012 |
 
 ## Short of target: every source read (30)

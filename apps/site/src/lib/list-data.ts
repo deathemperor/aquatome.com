@@ -10,6 +10,7 @@ import { listPictures, pagePictures, photosOf, takeEach } from './pictures'
 import { PAGE } from '../scripts/filter-list'
 import { toIndexItem } from './species-index'
 import { clock, videoChannels } from './video'
+import { taxonKeys } from './taxa-places'
 
 /**
  * The fish and plant lists' data, a file per language (/data/<lang>/species.json, /data/<lang>/plants.json) that the
@@ -82,14 +83,13 @@ export function speciesLists(lang: Lang, c: Content): Map<string, Localized<Spec
   const places = new Map(c.places.map(p => [p.id, p]))
   const lists = new Map<string, Localized<SpeciesEntity>[]>()
   for (const s of listOrder(lang, c)) {
-    const [o, f, g] = [s.order, s.family, s.genus].map(x => x.toLowerCase())
     // A continent's page and a country's (under its parent): the places with a page of their own.
     const from = [...new Set(s.places)].flatMap(id => {
       const p = places.get(id)
       return p?.kind === 'continent' ? [`nguon-goc/${id}`] : p?.kind === 'country' && p.parent ? [`nguon-goc/${p.parent}/${id}`] : []
     })
     const kit = [...new Set(s.productSlots.map(x => `thiet-bi/${x.category}`))]
-    for (const k of [`nhom/${s.group}`, `phan-loai/${o}`, `phan-loai/${o}/${f}`, `phan-loai/${o}/${f}/${g}`, ...from, ...kit]) (lists.get(k) ?? lists.set(k, []).get(k)!).push(s)
+    for (const k of [`nhom/${s.group}`, ...taxonKeys(s), ...from, ...kit]) (lists.get(k) ?? lists.set(k, []).get(k)!).push(s)
   }
   return lists
 }
