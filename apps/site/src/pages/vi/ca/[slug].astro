@@ -61,7 +61,12 @@ const alternates = await alternatesOf('species', s.id)
       <KeyFacts card={s.dataCard} />
       {s.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
     </div>
-    {s.photos.length > 0 && <div class="photo"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>}
+    {s.photos.length > 0 && (
+      <div class="side">
+        <div class="photo"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>
+        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} column />}
+      </div>
+    )}
     <div class="facts">
       <DataCard card={s.dataCard} sources={c.sources} traits={mates.self} />
       {firstSource && <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>}
@@ -71,7 +76,8 @@ const alternates = await alternatesOf('species', s.id)
   </header>
   <JumpChips items={jumps} />
 
-  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} />}
+  {/* A page with no photo of its own has a one-column top: its thumbnails stay below it, the page's width. */}
+  {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} />}
   {vn && summary && <QuickSummary summary={summary} />}
   <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} />
   <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
@@ -91,10 +97,12 @@ const alternates = await alternatesOf('species', s.id)
 <style>
   .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }
   .crumb a { color: var(--c-ink-soft); }
-  /* Computer: photo on the left, name then facts on the right. Phone: name and key facts, the photo, then the facts. */
+  /* Computer: the photo column on the left (the photo, then the gallery's thumbnails), name then facts on the right.
+     Phone: name and key facts, the photo, the facts, then the thumbnails. */
   .top { display: grid; grid-template-columns: 1.1fr 1fr; grid-template-rows: auto 1fr; grid-template-areas: 'photo id' 'photo facts'; column-gap: var(--space-6); padding-block: var(--space-4) var(--space-6); align-items: start; }
   .top.bare { grid-template-columns: minmax(0, 40rem); grid-template-areas: 'id' 'facts'; }
   .id { grid-area: id; }
+  .side { grid-area: photo; }
   .photo { grid-area: photo; }
   .facts { grid-area: facts; }
   .where { font-size: 0.85rem; color: var(--c-ink-soft); margin: 0 0 var(--space-2); }
@@ -104,9 +112,21 @@ const alternates = await alternatesOf('species', s.id)
   .facts { margin-top: var(--space-4); }
   .srcline { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-3); }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); padding-block: var(--space-7); }
+  /* The photo column stays in view while the facts beside it scroll by: all of it where the screen is tall enough to
+     show it whole, else its last part (the thumbnails, or the photo alone). */
+  @media (min-width: 861px) {
+    .side { align-self: stretch; }
+    .side > :global(:last-child) { position: sticky; top: calc(var(--sticky-top, 0px) + var(--space-4)); }
+  }
+  @media (min-width: 861px) and (min-height: 50rem) {
+    .side { align-self: start; position: sticky; top: calc(var(--sticky-top, 0px) + var(--space-4)); }
+    .side > :global(:last-child) { position: static; }
+  }
   @media (max-width: 860px) {
     .top, .two { grid-template-columns: 1fr; }
-    .top { grid-template-rows: none; grid-template-areas: 'id' 'photo' 'facts'; }
+    .top { grid-template-rows: none; grid-template-areas: 'id' 'photo' 'facts' 'strip'; }
+    .side { display: contents; }
+    .side > :global(.strip) { grid-area: strip; }
     .photo { margin-top: var(--space-4); }
     .photo :global(.plate img) { aspect-ratio: 16 / 9; }
   }
