@@ -1,4 +1,15 @@
 #!/bin/sh
+# On the repository's own Mac (apps/ios/README.md), its runner's .env names the simulator kept for it (AQ_CI_UDID):
+# erased before a job, so each starts as on a fresh hosted runner (no app, keychain or settings left by the last), and
+# shut down after (`--done`, a cancelled job's too). Nothing else on that Mac uses it.
+if [ -n "$AQ_CI_UDID" ]; then
+  xcrun simctl shutdown "$AQ_CI_UDID" 2>/dev/null
+  [ "$1" = --done ] && exit 0
+  xcrun simctl erase "$AQ_CI_UDID" && exit 0
+  echo "::error::the own Mac's simulator (AQ_CI_UDID in its runner's .env) is gone: make it again, as apps/ios/README.md says"
+  exit 1
+fi
+[ "$1" = --done ] && exit 0
 # Some runners don't list the simulator yet when the job starts: xcodebuild then stops at once with "Unable to find a
 # device matching the provided destination specifier", on the same image a passing run used (twice on 2026-10-31).
 # Wait for it, up to two minutes; the list goes in the log if it never shows.

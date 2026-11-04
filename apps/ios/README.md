@@ -117,7 +117,7 @@ they're sent. The App Review contact is entered on the App Store Connect website
 ## Performance budgets
 
 `AquaTomeUITests/PerformanceTests` measures launch (to the first screen answering touches) and flinging through 800 fish
-(`-large-handbook`: the app's CPU time and peak memory). Job `app` runs them on the CI simulator, archives the app
+(`-large-handbook`: the app's CPU time and peak memory). Job `perf` runs them on a GitHub-hosted Mac's simulator, archives the app
 unsigned for its size, and `scripts/check-perf.py` checks each median against `perf-budgets.json`; a budgeted measurement
 that's missing or reads 0 fails. The simulator reports no scroll hitches, so the list is budgeted by the CPU time it
 costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instructions as 0.
@@ -127,6 +127,24 @@ Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in
 Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
 the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
 Debug builds, so they don't see it.
+
+## CI's own Mac
+
+Jobs `kit`, `app` and `handbook` of `ios.yml` run on the repository's own Mac (a self-hosted runner, label `aquatome`)
+for main and this repository's own branches. GitHub's Macs keep a fork's pull requests, job `lights` (paced by the fake
+light, not the CPU) and job `perf` (its budgets are GitHub's Macs' readings). The runner runs as that Mac's user, so a
+fork's code never reaches it, and an outside contributor's workflows wait for approval (the repository's Actions
+setting).
+
+- Off, when the Mac is away or asleep: `gh variable set IOS_LOCAL_RUNNER --body off`. New runs then go to GitHub's Macs
+  (runs already queued for the Mac wait for it). `--body on` brings them back.
+- The runner: in `~/actions-runner/<name>`, registered with `--labels aquatome` and run as a login service
+  (`./svc.sh install && ./svc.sh start`). The Mac must not sleep. It builds with that Mac's own Xcode, which can be
+  newer than GitHub's.
+- Its simulator: `xcrun simctl create aquatome-ci-1 "iPhone 17" com.apple.CoreSimulator.SimRuntime.iOS-26-5`, with
+  its id in the runner's `.env` as `AQ_CI_UDID=<id>` and `AQ_CI_DEST=platform=iOS Simulator,id=<id>`. Each job's
+  `scripts/wait-for-simulator.sh` erases it first and shuts it down after. Nothing else on that Mac may use a simulator
+  named `aquatome-ci-*`.
 
 ## AquaTomeKit
 
