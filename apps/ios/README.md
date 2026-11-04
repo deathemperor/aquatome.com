@@ -11,7 +11,9 @@ and the pages they link to become native the same way, tools stay web pages unti
 temperament, difficulty) and a plant's care (difficulty, light, CO₂, growth, where it goes), from the index on the phone, so offline too, and the pages saved to read later and read last; **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
 substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; one the handbook has no page for put on by name, marked "chưa có trang" until a page has its scientific name, and sent once, with no account, as a name readers want pages for; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough; and the guides that name them, the video guides apart) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
-schedules written to it (as the site does). A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
+schedules written to it (as the site does). Week Aqua lights (model code 5746) have their own screen there: one or a
+group written together, their colour, daily timer and clock, and, since they report nothing, what AquaTome last sent
+them kept on their records (`lastSent`, `bleAddress`: keys the sync contract doesn't name yet). A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
 named for what it powers, with its switch: the app calls Tuya's cloud itself, with the reader's own Tuya project keys
 kept in the Keychain, and no AquaTome account (docs/smart-plugs.md).
 

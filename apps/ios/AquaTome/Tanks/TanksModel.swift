@@ -161,6 +161,25 @@ final class TanksModel {
     return (try? commit(s)) != nil
   }
 
+  /// Week Aqua lights just connected together: their saved records, or new ones, the group on one tank.
+  func metWeekAqua(_ lights: [(address: String, bleName: String)]) {
+    var s = store
+    guard (try? s.metWeekAqua(lights, model: Self.weekAquaModel, tankName: Self.newTankName)) != nil else { return }
+    try? commit(s)
+  }
+
+  /// A change to a connected Week Aqua light's record, as the store has it now (met again if its tank went).
+  @discardableResult
+  func changeWeekAqua(address: String, bleName: String, _ change: (inout Device) -> Void) -> Bool {
+    var s = store
+    guard let d = try? s.metWeekAqua([(address, bleName)], model: Self.weekAquaModel, tankName: Self.newTankName).first,
+          (try? s.updateDevice(d.id) { change(&$0) }) != nil else { return false }
+    return (try? commit(s)) != nil
+  }
+
+  /// The model a Week Aqua light's record names: the only code this app drives.
+  static let weekAquaModel = "Week Aqua 5746"
+
   /// "Quên đèn này" on the lights screen: a tombstone, so a copy elsewhere doesn't bring it back when they sync.
   func forgetLight(_ id: String) {
     var s = store

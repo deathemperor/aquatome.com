@@ -77,7 +77,8 @@ PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'Rea
 LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testKeepsTheLightAndWhatWasWrittenOnATank', 'testALightOnATankOpensOnTheLightsTabAndConnects',
     'testALightOnATankOpensTheConnectedLightAsItIs',
-    'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten')]
+    'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten',
+    'testWeekAquaKeepsTheGroupOnATankAndConnectsItFromThere')]
 REACH = {
     # The app's start (it routes a page's links to the tabs, wires a tank's wanted names and pages, sends the lights back
     # to their schedule when the app leaves, syncs the account), and what selects and runs the flows: every flow, as
