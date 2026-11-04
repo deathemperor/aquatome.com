@@ -47,7 +47,7 @@ function setup(over: Record<string, string> = {}) {
   const db = testD1()
   const env = {
     ASSETS: { fetch: async () => new Response('x') },
-    AB: { get: async (k: string) => kv.get(k) ?? null, put: async (k: string, v: string) => { kv.set(k, v) } },
+    AB: { get: async (k: string) => kv.get(k) ?? null, put: async (k: string, v: string) => { kv.set(k, v) }, delete: async (k: string) => { kv.delete(k) } },
     DB: db, UPLOADS: uploads.bucket, MEDIA: media.bucket,
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'k', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: 'tok',
     ACCOUNTS: 'on', ACCOUNT_HMAC_KEY: 'a'.repeat(32), ...over,
