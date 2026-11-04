@@ -163,7 +163,12 @@ struct FishIdView: View {
       }
       .disabled(sending || sent == nil)
       .accessibilityIdentifier("fish-id-send")
-      if let said { Text(said).accessibilityIdentifier("fish-id-said") }
+      if let said {
+        HStack(spacing: 8) {
+          if sending { ProgressView().accessibilityHidden(true) }
+          Text(said).accessibilityIdentifier("fish-id-said")
+        }
+      }
     }
   }
 
@@ -245,11 +250,25 @@ struct FishIdView: View {
     sending = true
     found = nil
     said = String(localized: "Đang nhận diện… thường mất vài giây.")
-    let lang = handbook.lang, site = handbook.site
-    let answer = await account.post { token in
-      FishId.identify(jpeg: jpeg, lang: lang, site: site, token: token, version: Self.version, ownCopy: Self.ownCopy)
+    // The Worker may take up to 45 s, and the app waits 60: past the first seconds, the screen says so.
+    let longer = Task {
+      try await Task.sleep(for: .seconds(10))
+      guard !Task.isCancelled else { return }
+      said = String(localized: "Vẫn đang nhận diện… có thể mất đến một phút.")
     }
+    let lang = handbook.lang, site = handbook.site
+    var answer: (Data, Int)?, timedOut = false
+    do {
+      answer = try await account.send { token in
+        FishId.identify(jpeg: jpeg, lang: lang, site: site, token: token, version: Self.version, ownCopy: Self.ownCopy)
+      }
+    } catch {
+      timedOut = (error as? URLError)?.code == .timedOut
+    }
+    longer.cancel()
     sending = false
+    // No answer within the minute: most likely the Worker's run, not the network, so the site's words for a run that failed.
+    if timedOut { return said = String(localized: "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.") }
     guard let answer else { return said = String(localized: "Không có mạng: thử lại khi có mạng.") }
     switch FishId.answer(answer.0, status: answer.1) {
     case .identified(let f):

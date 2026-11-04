@@ -3,8 +3,8 @@ import XCTest
 /// The fish-ID tool as the app's own screen, on the stand-in server (no network): opened from the handbook's tool, a
 /// photo sent whole or with one fish boxed, as the reader's account; the guesses as the site shows them, each page
 /// opening in the app; signed out, the sign-in first; the account's day and the site's day used up, accounts off and no
-/// network, each said in the site's words. The stand-in's first guess names the photo it got (its width × height), so a
-/// flow tells a box from the whole photo.
+/// network, each said in the site's words; a long wait said as it goes. The stand-in's first guess names the photo it
+/// got (its width × height), so a flow tells a box from the whole photo.
 final class FishIdFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -130,6 +130,19 @@ final class FishIdFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "fish-id-said").waitForLabel("Không có mạng: thử lại khi có mạng.", timeout: 5), element(app, "fish-id-said").label)
     XCTAssertTrue(app.buttons["Thử lại"].exists)
     XCTAssertFalse(element(app, "fish-id-send").exists)
+  }
+
+  /// A run the Worker takes long over (it may take 45 s): past the first seconds the screen says it may take a minute,
+  /// and with no answer in the request's time, the site's words for a run that failed, not "no network".
+  func testALongWaitIsSaidAndNoAnswerIsNotNoNetwork() {
+    let app = launch("-picked-photo", "-fish-id-slow")
+    openTool(app)
+    signIn(app)
+    send(app)
+    let said = element(app, "fish-id-said")
+    XCTAssertTrue(said.waitForLabel("Vẫn đang nhận diện… có thể mất đến một phút.", timeout: 20), said.label)
+    XCTAssertTrue(said.waitForLabel("Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.", timeout: 30), said.label)
+    XCTAssertTrue(element(app, "fish-id-send").isEnabled, "can't send again")
   }
 
   // MARK: Helpers

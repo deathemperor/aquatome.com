@@ -21,7 +21,8 @@ those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "X
 just saved. The fish-ID tool is the app's own screen too (`FishIdView`): a photo from the library or the camera, one fish
 boxed on it if the reader likes, shrunk and stripped as the site's page sends it, and sent as the reader's aquatome.com
 account (`protocols/fishid.openapi.json`: a bearer in place of the page's Turnstile check, counted per account); the
-guesses as the site shows them, each page opening in the app. Signed out, the sign-in comes first.
+guesses as the site shows them, each page opening in the app. Signed out, the sign-in comes first. The Worker's run
+may take up to 45 s, so the request waits a minute and the screen says so after the first seconds.
 
 Signing in (Sign in with Apple, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
 the site's page does: the token is in the Keychain, on this phone only. "Thêm passkey" adds one made on the phone, as on

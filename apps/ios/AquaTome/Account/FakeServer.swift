@@ -8,11 +8,13 @@ import Tanks
 /// otherwise); `-reset-fake-server` starts with no accounts; `-seed-passkey` adds `FakePasskeySignIn`'s passkey to the
 /// Apple user `ui-apple`'s account, as "Thêm passkey" on aquatome.com would. It stands in for the fish-ID tool too
 /// (`/api/fish-id`): `-fish-id-used N` gives each account N identifications made today already, `-fish-id-busy` uses up
-/// the site's day. `-server-offline`: it can't be reached, as with no network.
+/// the site's day, `-fish-id-slow` keeps an identification waiting 25 s, then fails it as a request's time running out
+/// does. `-server-offline`: it can't be reached, as with no network.
 @MainActor
 final class FakeServer {
   private let fake: FakeAccounts
   private let file = FileManager.default.temporaryDirectory.appendingPathComponent("fake-accounts.json")
+  private let slowFishId: Bool
 
   init(_ args: [String]) {
     if args.contains("-reset-fake-server") { try? FileManager.default.removeItem(at: file) }
@@ -22,6 +24,7 @@ final class FakeServer {
     if let i = args.firstIndex(of: "-fish-id-used"), i + 1 < args.count, let n = Int(args[i + 1]) { fake.fishIdUsedBefore = n }
     if args.contains("-fish-id-busy") { fake.fishIdSiteLeft = 0 }
     fake.offline = args.contains("-server-offline")
+    slowFishId = args.contains("-fish-id-slow")
     // The fixed pages' readers' comments and photos (HandbookIndex.fixtureReaders), as reports find them.
     fake.reportable.formUnion(["comment:c1", "comment:c2", "photo:p1", "photo:p2"])
   }
@@ -29,6 +32,10 @@ final class FakeServer {
   func send(_ r: URLRequest) async throws -> (Data, HTTPURLResponse) {
     // As URLSession: a request from a cancelled task fails.
     if Task.isCancelled { throw URLError(.cancelled) }
+    if slowFishId, r.httpMethod == "POST", r.url?.path == "/api/fish-id" {
+      try await Task.sleep(for: .seconds(25))
+      throw URLError(.timedOut)
+    }
     let out = try await fake.send(r)
     try? fake.snapshot.data().write(to: file, options: .atomic)
     return out

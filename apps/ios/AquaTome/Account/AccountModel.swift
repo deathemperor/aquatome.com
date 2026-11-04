@@ -85,8 +85,13 @@ final class AccountModel {
   /// Sends one of the reader's own posts to a page (a comment, a photo: protocols/talk.openapi.json) as this account,
   /// `make` given the session's token: its status and body, or nil signed out or offline. A session the site says is over
   /// is looked up again, so the reader is asked to sign in.
-  func post(_ make: (String) -> URLRequest) async -> (Data, Int)? {
-    guard let token, let (data, res) = try? await api.send(make(token)) else { return nil }
+  func post(_ make: (String) -> URLRequest) async -> (Data, Int)? { try? await send(make) }
+
+  /// As `post`, with what stopped the request when it went nowhere (URLSession's error: no network, or no answer in
+  /// the request's time).
+  func send(_ make: (String) -> URLRequest) async throws -> (Data, Int)? {
+    guard let token else { return nil }
+    let (data, res) = try await api.send(make(token))
     if res.statusCode == 401 { await refresh() }
     return (data, res.statusCode)
   }
