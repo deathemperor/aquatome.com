@@ -1,21 +1,30 @@
 {
   "slug": "ca-l234-megalancistrus",
-  "name": "Cá L234 Megalancistrus",
+  "name": "Cá tỳ bà L113",
   "altNames": [
     "L234",
-    "Megalancistrus sp. Rio Urguayo"
+    "Megalancistrus sp. Rio Urguayo",
+    "Cá L234 Megalancistrus"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Hai con Megalancistrus này nhập về từ Paraguay, xuất xứ từ sông Rio Urguayo. Hiện tại chúng dài 40-50 cm. Nhìn kích thước là hiểu vì sao chi này mang tên Megalancistrus, nghĩa là \"Ancistrus khổng lồ\".</p>",
     "notes:glaser": "<p>Xét về mặt khoa học, rất có thể hai con cá này thuộc loài M. parananus.</p>",
-    "distribution:glaser": "<p>Nhập về từ Paraguay, xuất xứ từ sông Rio Urguayo.</p>"
+    "distribution:glaser": "<p>Nhập về từ Paraguay, xuất xứ từ sông Rio Urguayo.</p>",
+    "quickFacts:seriouslyfish": "<p>L113, tên khoa học Megalancistrus parananus, là một loài cá da trơn miệng hút cỡ lớn. Cá sống ở các sông Paraná, Paraguay và Uruguay, thuộc lãnh thổ Brazil, Paraguay, Uruguay và Argentina. Trước đây người ta xếp cả L234 vào loài này. Tuy vậy, có vẻ chỉ L113 là cá bản địa của các lưu vực trên, còn L234 đến từ sông São Francisco. Cá thể lớn nhất từng ghi nhận dài 588 mm. Khi bị nhốt trong không gian chật, cá có thể trở nên rất hung dữ.</p><ul><li>Cần bể dài ít nhất 2 m</li></ul>",
+    "distribution:seriouslyfish": "<p>Cá phân bố khắp các sông Paraná, Paraguay và Uruguay ở miền nam Brazil, Paraguay, Uruguay và Argentina.</p><p>Địa điểm thu mẫu chuẩn là 'Río Paraná tại La Paz, Entre-Ríos, Argentina'.</p>",
+    "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn (SL): 58,8 cm.</p><p>Loài này chỉ hợp với bể trưng bày công cộng hoặc những bể nuôi tại nhà thuộc loại lớn nhất.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–28°C</li><li>pH: 6,0–7,5</li><li>Độ cứng: 2–12 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Người ta đã mổ ruột cá bắt ngoài tự nhiên để phân tích. Kết quả cho thấy cá ăn chủ yếu bọt biển nước ngọt và các loài động vật không xương sống dưới nước khác, kèm một ít gỗ. Hiện chưa rõ gỗ là phần bắt buộc trong khẩu phần hay cá chỉ nuốt phải khi đang kiếm ăn.</p><p>Trong bể, cá khỏe nhất khi được ăn đa dạng. Bạn có thể cho ăn thức ăn khô loại chìm, Daphnia đông lạnh, lăng quăng, trùng huyết (ấu trùng chironomid) và tôm, cùng với trái cây tươi, khoai tây luộc sơ, v.v.</p><p>Thức ăn tự làm cũng rất có ích. Bạn trộn các nguyên liệu tự nhiên rồi dùng gelatin kết dính lại. Cách này cho phép bạn tùy chỉnh thành phần, thêm rau tươi, Spirulina và các nguyên liệu nhiều thịt hơn.</p>",
+    "behaviour:seriouslyfish": "<p>Trong không gian chật, cá có thể trở nên rất hung dữ. Bạn chỉ nên nuôi chung với những loài cá cứng cáp, cỡ tương đương, trong bể đủ rộng (xem 'Kích thước bể').</p>",
+    "notes:seriouslyfish": "<p>Nguồn gốc tên gọi: Megalancistrus ghép từ chữ Hy Lạp μέγας (mégas), nghĩa là 'to, lớn', với tên giống Ancistrus. Tên parananus đặt theo Río Paraná, nơi thu mẫu chuẩn của loài.</p><p>Trước đây loài này được coi là gồm hai mã L113 và L234. Tuy nhiên, có vẻ chỉ L113 là cá bản địa của các lưu vực Paraná, Paraguay và Uruguay. Còn L234 được bắt ở sông São Francisco, miền đông Brazil.</p><p>M. barrae và M. sp. 'LDA097' cũng được xuất khẩu từ hệ thống sông São Francisco.</p>",
+    "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li></ul>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.9
-    },
-    "reason": "thin"
+      "glaser": 0.9,
+      "seriouslyfish": 0.93
+    }
   }
 }
