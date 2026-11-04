@@ -45,7 +45,7 @@ final class NativePageFlowTests: XCTestCase {
   /// From the tanks tab, a link in a guide pushes its page on the tanks tab, not on the Tìm tab.
   func testALinkFromTheTanksTabOpensOnTheTanksTab() {
     let app = launch("-seed-tanks", "life") // "Bể cá neon": a guide names its neons
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
     for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
@@ -67,7 +67,7 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, tool)
     tool.tap()
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "not the tanks tab")
-    app.tabBars.buttons["Tìm"].tap()
+    app.openTab("Tìm")
     XCTAssertTrue(app.navigationBars["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "the tool's web page was pushed on the Tìm tab")
   }
 
@@ -266,7 +266,7 @@ final class NativePageFlowTests: XCTestCase {
   /// From the tanks tab, the group's shelf opens on the tanks tab too, as a page does.
   func testAGroupFromTheTanksTabOpensOnTheTanksTab() {
     let app = launch("-seed-tanks", "life") // "Bể cá neon": a guide names its neons
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
     for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
