@@ -84,7 +84,8 @@ private struct KindChip: View {
     Button(action: pick) {
       HStack(spacing: 6) {
         Text(title)
-        Text(count, format: .number).monospacedDigit().foregroundStyle(.secondary)
+        // Faded only off the picked chip: faded on its green, the count falls under 4.5:1.
+        Text(count, format: .number).monospacedDigit().foregroundStyle(picked ? HierarchicalShapeStyle.primary : .secondary)
       }
       .font(.subheadline.weight(.medium))
       .lineLimit(1)
