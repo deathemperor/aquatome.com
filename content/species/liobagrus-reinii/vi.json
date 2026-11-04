@@ -2,20 +2,27 @@
   "slug": "ca-da-tron-liobagrus-reinii",
   "name": "Cá da trơn Liobagrus reinii",
   "altNames": [
-    "Bachschmerlen-Wels"
+    "Bachschmerlen-Wels",
+    "Cá trê suối Rein",
+    "Torrent catfish"
   ],
   "sections": {
     "distribution:planetcatfish": "<p>Châu Á: Nhật Bản. Nơi thu mẫu chuẩn: miền nam Nhật Bản.</p>",
     "reproduction:planetcatfish": "<p>Cá đẻ trứng trong hang. Trứng màu vàng cam, có lớp màng dính bọc ngoài, và cá đực sẽ đứng canh ổ. Lúc mới nở, cá bột vẫn còn mang túi noãn hoàng lớn. Giai đoạn này tốt nhất nên nuôi chúng trong một túi lưới mắt mịn treo lơ lửng giữa tầng nước để tránh nhiễm bệnh. Khi đã tiêu hết túi noãn hoàng, cá bột lúc này khá to và ăn rất háu. Chúng ăn được đủ loại, từ thức ăn dạng mảnh, dạng bột cho đến Artemia mới nở.</p>",
     "notes:planetcatfish": "<p>Từ nguyên: tên ghép từ tiếng Hy Lạp leios (nhẵn) và bagrus, tên thường dùng để gọi các loài cá da trơn. Tên này nói đến phần đầu nhẵn của cá. Danh sách Đỏ IUCN: Ít quan tâm (đánh giá lần gần nhất năm 2018).</p>",
-    "references:planetcatfish": "<p>Sitzungsberichte der Gesellschaft Naturforschender Freunde zu Berlin 1878, pp 155.</p>"
+    "references:planetcatfish": "<p>Sitzungsberichte der Gesellschaft Naturforschender Freunde zu Berlin 1878, pp 155.</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách Đỏ IUCN: Ít quan tâm</li></ul>",
+    "distribution:scotcat": "<p>Loài này sống ở Nhật Bản, trên các đảo Honshu, Shikoku và Kyushu. Địa điểm thu mẫu chuẩn là hồ Biwa, Nhật Bản.</p>",
+    "habitat:scotcat": "<p>Người ta bắt được mẫu vật dưới những viên đá cuội và tảng đá lớn, trong các khe của nền đá gốc. Chúng cũng nấp trong các búi rễ của cây trên cạn mọc dọc bờ.</p>",
+    "notes:scotcat": "<p>Mô tả: Vây lưng có tổng cộng 1 gai và 6-7 tia mềm. Vây hậu môn không có gai, có 11-13 tia mềm. Thân thon dài, phần trước dẹt theo chiều lưng bụng, còn phần sau dẹt hai bên. Miệng có 4 đôi râu. Thân không có vảy. Tia đầu tiên của vây ngực và vây lưng hóa thành gai. Vây mỡ nối liền với vây đuôi. Mép sau của vây đuôi tròn.</p><p>Nguồn gốc tên gọi: Tên loài reinii đặt để vinh danh \"Giáo sư Rein\", người đã thu thập mẫu chuẩn. Người này nhiều khả năng là nhà địa lý người Đức Johannes Justus Rein (1835-1918), từng khảo sát Nhật Bản vào năm 1874-1875.</p><p>Danh sách Đỏ IUCN: Loài này phân bố rộng khắp Nhật Bản và quần thể đang giữ ổn định. Vì vậy IUCN xếp nó vào nhóm Ít quan tâm (IUCN 2019).</p>",
+    "references:scotcat": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org.</li><li>Katano, O., T. Nakamura, S. Yamamoto and S. Abe, 2005. Summer daytime habitat and population density of the torrent catfish, Liobagrus reini, in the Urano River. Ichthyol. Res. 52:60-56.</li><li>Masuda, H., K. Amaoka, C. Araga, T. Uyeno and T. Yoshino, 1984. The fishes of the Japanese Archipelago. Vol. 1. Tokai University Press, Tokyo, Japan. 437 p. (text).</li><li>Mukai, T., Taniguchi, Y. &amp; Watanabe, K. 2019. Liobagrus reinii. The IUCN Red List of Threatened Species 2019.</li></ul>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.85
+    }
   }
 }

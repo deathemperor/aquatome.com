@@ -114,8 +114,8 @@ test('engine: each source\'s addresses by state, the blocked ones, the video que
   expect(e.needsHuman).toEqual([{ source: '2hraquarist', since: '2026-11-02T12:04:44.939Z' }])
   // v1–v5 from the playlist, v5 again and v6 as single videos, v7 and the skipped playlist's v9 left out.
   expect(e.videos).toMatchObject({ listed: 6, written: 1, skipped: 1, waiting: 3, failed: 1, playlists: { queued: 1, skipped: 1 }, singles: { queued: 2, skipped: 1 } })
-  expect(e.videos.perDay).toHaveLength(31)
-  expect(e.videos.perDay.slice(-2)).toEqual([{ day: '2026-11-01', n: 1 }, { day: '2026-11-02', n: 1 }])
+  // When each guide was written, so the dashboard counts them by its viewer's days (both are within 32 days of the build).
+  expect(e.videos.writtenAt).toEqual(['2026-11-01T04:00:00.000Z', '2026-11-02T08:00:00.000Z'])
   expect(e.rewrite).toEqual({ done: 1, waiting: 8 + 4 + 7 + 3, failed: 1 })
   expect(e.lastRun).toEqual({ startedAt: '2026-11-02T18:00:00.000Z', finishedAt: '2026-11-02T20:30:00.000Z', needsHuman: ['2hraquarist'], errors: 1, changed: 2 })
 })

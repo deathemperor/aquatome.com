@@ -9,7 +9,8 @@
     "south-america",
     "venezuela",
     "colombia",
-    "orinoco"
+    "orinoco",
+    "guyana"
   ],
   "dataCard": {
     "tempC": [
@@ -19,6 +20,13 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -27,6 +35,13 @@
         "value": {
           "min": 6,
           "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
         }
       }
     ],
@@ -42,6 +57,10 @@
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 6
+      },
+      {
+        "source": "scotcat",
         "value": 6
       }
     ],
@@ -148,6 +167,48 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-septentrionalis",
       "html": "<p>There are 2 other species that superficially resemble C. septentrionalis. These are C. simulatus and C. amapaensis. Simulatus differs from septentrionalis by the absence of the third set of small, upper (rictal) barbels, situated behind the other two pairs in both septentrionalis and amapaensis. Amapaensis differs in that it has a clear caudal fin. This fin is noticeably barred in septentrionalis.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_septentrionalis.htm",
+      "html": "<ul><li>C-numbers: C061, C099 (same species)</li><li>Size: male 5.0 cm, female 6.0 cm</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_septentrionalis.htm",
+      "html": "<p>C. septentrionalis is one of only four species that possess a third pair of rictal barbels; C. amapaensis, C. geoffroy and C. simulatus are the other three. These extra barbels are short and not easy to see unless the fish is stationary. It is sometimes imported under the exporter's name C. \"Olga\" (also used for C. simulatus). For identification purposes, this species should have fairly strong lines in the caudal fin.</p><p>Lineage: placed in Lineage 1, which, when there is a revision, will stay as Corydoras (Lacépède, 1803) with the type species C. geoffroy La Cépède, 1803. As of the latest update (Dias et al 2024), C. septentrionalis has been placed in Lineage 1 and has retained the genus name Corydoras.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_septentrionalis.htm",
+      "html": "<p>South America: Venezuela, Monagas, Rio Piña, 6 km north of Maturin. According to the IUCN Red List, it is a common species found throughout the lowlands of the Orinoco River Basin in Colombia, Venezuela and the north of Guyana.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_septentrionalis.htm",
+      "html": "<p>As this is one of the longer-snouted species, it is well suited to most community tanks. Keep in a well-planted tank with a soft substrate such as sand, so they can bury their snouts while searching for food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_septentrionalis.htm",
+      "html": "<p>Readily accepts a mixed and varied diet including granular foods, tablet food, frozen bloodworm and good quality flake.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_septentrionalis.htm",
+      "html": "<p>Etymology: the specific name septentrionalis comes from the Latin septentrionalis = 'northern', meaning that this Corydoras comes from the northern part of South America.</p><p>Remarks: the C-numbers C061 and C099 are the same species.</p><p>Conservation: the species is evaluated as Least Concern (IUCN 2021). There are no adequate records to recognise the population trend. Ornamental fishing pressure could be an important threat, but this information is unknown. There are known conservation sites and protected areas within its wide extent of occurrence.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_septentrionalis.htm",
+      "html": "<p>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited.</p><p>Angelica C Dias, Luiz F C Tencatt, Fabio F Roxo, Gabriel de Souza da Costa Silva, Sérgio A Santos, Marcelo R Britto, Martin I Taylor, Claudio Oliveira, Phylogenomic analyses in the complex Neotropical subfamily Corydoradinae (Siluriformes: Callichthyidae) with a new classification based on morphological and molecular data, Zoological Journal of the Linnean Society, 2024; zlae053.</p><p>Fuller, I.A.M. &amp; Evers, H-G: 2005 Identifying Corydoradinae Catfish 384 p.</p><p>Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises.</p><p>Rodríguez-Olarte, D., DoNascimiento, CD, Mojica, J.I., Usma, S., Villa-Navarro, F. &amp; Herrera-Collazos, E.E. 2021. Corydoras septentrionalis. The IUCN Red List of Threatened Species 2021.</p>"
     }
   ],
   "photos": [
@@ -216,5 +277,6 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-04",
+  "lNumber": "C061"
 }

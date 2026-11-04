@@ -5,7 +5,7 @@ export type Point = { x: number; y: number }
 
 /** How far a photo zooms in: pinch, double-tap and the wheel stop here. */
 export const MAX_ZOOM = 4
-/** A double tap or double click zooms to this, or back to 1×. */
+/** A click (a mouse) or a double tap (a finger) zooms to this, or back to 1×. */
 export const TAP_ZOOM = 2.5
 
 /** Photo `i` of `n`, going round: after the last comes the first, before the first the last. */

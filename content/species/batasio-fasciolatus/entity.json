@@ -7,7 +7,10 @@
   "group": "catfish",
   "places": [
     "asia",
-    "india"
+    "india",
+    "brahmaputra",
+    "bhutan",
+    "tista"
   ],
   "dataCard": {
     "tempC": [
@@ -17,12 +20,32 @@
           "min": 18,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 23
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "scotcat",
+        "value": 7
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -40,10 +63,28 @@
       "html": "<p>This species was obtained from North Bengal in India.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/batasio_fasciolatus.htm",
+      "html": "<p>Asia: Tista River basin, Brahmaputra River system, India and Bhutan. Batasio fasciolatus was described from the Brahmaputra River drainage in West Bengal, India (Ng 2006). It has often been misidentified as B. tengana in the older literature (e.g. Hora and Law 1941).</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/batasio-fasciolatus-2/",
       "html": "<p>These fish inhabit brooks and other flowing waters.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/batasio_fasciolatus.htm",
+      "html": "<p>Batasio species are small, laterally compressed bagrid catfishes generally found in fast-flowing hill streams throughout South Asia, Myanmar, the Salween and Mae Khlong drainages of Thailand and the northern Malay Peninsula. They occur in rivers and streams with moderate to swift current and a predominantly rocky bottom; less often in slow-flowing streams with a muddy substrate. They hide among stones or submerged vegetation during the day and come out at night to feed.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/batasio_fasciolatus.htm",
+      "html": "<p>Batasio are shy, rarely moving freely once settled in the tank. To keep them long term, a proper hillstream-type setup must be provided with rocks and ample hiding spaces, with pristine, oxygen-saturated water. Since they come from hill streams, the temperature should also be on the lower side (Mishra, Abhisek 2024).</p>"
     },
     {
       "key": "waterConditions",
@@ -58,6 +99,12 @@
       "html": "<p>Batasio fasciolatus feeds readily on any type of usual fish food, whether flakes, granulated food, frozen or live food.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/batasio_fasciolatus.htm",
+      "html": "<p>They can be difficult to feed at first but gradually will take frozen or live food and can be weaned on to take pellets (Mishra, Abhisek 2024).</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/batasio-fasciolatus-2/",
@@ -68,20 +115,21 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/batasio-fasciolatus-2/",
       "html": "<p>Keeping Batasio in aquaria is rather easy, in contrast to determining the species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/batasio_fasciolatus.htm",
+      "html": "<p>Etymology: The genus name Batasio comes from the local (Bengali) name of the fish (batasio or batashi). The specific name fasciolatus is a diminutive of fasciatus (L.), banded, i.e. with small bands, referring to six vertical dark brown bars on head and body.</p><p>Batasio fasciolatus is a poorly studied species with a fairly wide distribution in northeastern India. Although the population size and trend remain unknown, it is only known from scanty museum records, and there is very little information on its biology and the potential impacts of threats (especially anthropogenic ones). Based only on its distribution it is assessed as Least Concern at present. Further studies are recommended to establish the missing information to adequately assess its status later (IUCN 2010 needs updating).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/batasio_fasciolatus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2024).</p><p>Mishra, Abhisek pers comm, 2024.</p><p>Ng, H.H., 2006. The identity of Batasio tengana (Hamilton, 1822), with the descripton of two new species Batasio from north-eastern India (Teleostei: Bagridae). J. Fish Biol. 68(Suppl.A):101-118.</p><p>Ng, H.H. 2010. Batasio fasciolatus. The IUCN Red List of Threatened Species 2010.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/38455471b2fbf7da.webp",
-      "thumb": "https://media.aquatome.com/scotcat/38455471b2fbf7da-480.webp",
-      "width": 500,
-      "height": 364,
-      "licence": "dùng với sự cho phép",
-      "author": "Abhisek Mishra / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/bagridae/batasio_fasciolatus.htm",
-      "caption": "Batasio fasciolatus: head view",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/7931e7ce1de5fd45.webp",
       "thumb": "https://media.aquatome.com/scotcat/7931e7ce1de5fd45-480.webp",
@@ -91,6 +139,17 @@
       "author": "Frank M. Greco / ScotCat",
       "sourceUrl": "https://www.scotcat.com/bagridae/batasio_fasciolatus.htm",
       "caption": "Batasio fasciolatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/38455471b2fbf7da.webp",
+      "thumb": "https://media.aquatome.com/scotcat/38455471b2fbf7da-480.webp",
+      "width": 500,
+      "height": 364,
+      "licence": "dùng với sự cho phép",
+      "author": "Abhisek Mishra / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/batasio_fasciolatus.htm",
+      "caption": "Batasio fasciolatus: head view",
       "source": "scotcat"
     }
   ],
@@ -142,5 +201,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }
