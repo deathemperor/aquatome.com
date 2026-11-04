@@ -291,6 +291,29 @@ private func keptSwapping(_ dir: URL) throws -> (String, String) {
   #expect(try FileManager.default.contentsOfDirectory(atPath: folder.path(percentEncoded: false)).sorted() == ["guide-3-0.json", "guide-3-1.json"])
 }
 
+/// A page in the new form both in its shard and in a new file a move left (its rename failed), the shard read from the
+/// site since: the shard's copy, the newer, is kept, whatever the left file's name.
+@Test func theShardsOwnCopyOutlastsOneAMoveLeftBehind() async throws {
+  let (_, b) = swapping(count: 3)
+  let rb = PathForm.atRoot.path(b)
+  #expect(PageDoc.shard(of: rb, count: 3) == 0)
+  let one = { (text: String) in
+    try! JSONSerialization.data(withJSONObject: ["v": 1, "pages": [
+      rb: ["v": 1, "kind": "guide", "path": rb, "title": "Rêu", "blocks": [["t": "p", "c": [text]]]],
+    ]] as [String: Any])
+  }
+  for run in ["00000000", "0a1b2c3d", "ffffffff"] {
+    let dir = tmp(), folder = dir.appending(path: "vi")
+    try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+    try one("Mới.").write(to: folder.appending(path: "guide-3-0.json"))
+    try one("Cũ.").write(to: folder.appending(path: "guide-3-0.\(run).json"))
+    let c = cache(dir, Site(nil))
+    #expect(await c.move(to: .atRoot, lang: "vi"))
+    #expect(text(await c.doc(path: rb, kind: "guide", lang: "vi", count: 3)) == "Mới.", "\(run): the left file's copy kept")
+    #expect(try FileManager.default.contentsOfDirectory(atPath: folder.path(percentEncoded: false)) == ["guide-3-0.json"])
+  }
+}
+
 /// Writes files, the `failing`th one (from 1) failing.
 private final class Writes: @unchecked Sendable {
   private var n = 0

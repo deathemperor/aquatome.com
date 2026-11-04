@@ -41,11 +41,15 @@ public final class HandbookPaths {
     let form = PathForm(index)
     self.form = form
     byPath = Dictionary(index.items.map { (form?.path($0.path) ?? $0.path, $0) }, uniquingKeysWith: { a, _ in a })
-    guard let form, form != keptForm else { return }
+    guard let form else { return }
+    // The lists by the index's form, not the shards': a move cut short, then the site back the way it was, finds the
+    // shards where they were but the lists already moved.
+    var listed = reading
+    listed.move(to: form)
+    if listed != reading { change { $0 = listed } }
+    if form.paths(kept) != kept { kept = form.paths(kept); saveKept() }
+    guard form != keptForm else { return }
     keptForm = form
-    change { $0.move(to: form) }
-    kept = form.paths(kept)
-    saveKept()
     let before = moving
     moving = Task {
       await before?.value

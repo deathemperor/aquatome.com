@@ -136,6 +136,22 @@ private final class Phone: Sendable {
   #expect(await cache.doc(path: "/huong-dan/nuoi-ca-neon/", kind: "guide", lang: "vi", count: 32) != nil, "not moved")
 }
 
+/// A move cut short, then the site back under "/vi/" by the next launch: the shards never moved, and the lists, moved
+/// at once, move back.
+@Test @MainActor func aMoveCutShortThenBackUnderViKeepsTheLists() async {
+  let phone = Phone()
+  _ = await keptUnderVi(phone)
+  await phone.launch(phone.cache(nil, failing: true), index(atRoot: true)).settled()
+  #expect(phone.savedForm == nil, "saved as moved")
+  let cache = phone.cache(nil)
+  let back = phone.launch(cache, index(atRoot: false))
+  await back.settled()
+  let item = back.item(at: guide)!
+  #expect(back.kept == [guide] && back.reading.saved == [guide] && back.reading.recent == [guide], "the lists stayed at the root")
+  #expect(back.keptItems == [item] && back.saved(nil) == [item] && back.recent(nil) == [item])
+  #expect(await cache.doc(path: guide, kind: "guide", lang: "vi", count: 32) != nil)
+}
+
 /// And back, should the site put "/vi" back.
 @Test @MainActor func whatsKeptMovesBackUnderVi() async {
   let phone = Phone()

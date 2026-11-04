@@ -87,12 +87,15 @@ public actor PageCache {
     // "<kind>-<count>-<n>.json", by kind and count ("<kind>-<count>-<n>.<move>.json" too: a move's new file not yet in
     // place). A kind split anew is another count's files, left as they are.
     let files = Dictionary(grouping: names.filter { $0.hasSuffix(".json") }) { $0.dropLast(5).split(separator: "-").dropLast().joined(separator: "-") }
+    let isNew = { (name: String) in name.dropLast(5).contains(".") }
     var whole = true
     for (prefix, names) in files {
       guard let count = prefix.split(separator: "-").last.flatMap({ Int($0) }) else { continue }
       var moved: [Int: [String: Any]] = [:], stayed: [Int: [String: Any]] = [:]
       var read: [String] = []
-      for name in names {
+      // A move's new files first: a page in one of them and in its shard too (a move whose rename failed, the shard
+      // read from the site since), the shard's copy, read last, is the one kept.
+      for name in names.sorted(by: { isNew($0) && !isNew($1) }) {
         guard let o = (try? Data(contentsOf: folder.appending(path: name))).flatMap({ try? JSONSerialization.jsonObject(with: $0) }) as? [String: Any],
               o["v"] as? Int == PageDoc.version, let pages = o["pages"] as? [String: Any] else { continue }
         read.append(name)
@@ -105,7 +108,7 @@ public actor PageCache {
         }
       }
       // Nothing to move, and no new file of a move cut short.
-      guard !moved.isEmpty || read.contains(where: { $0.dropLast(5).contains(".") }) else { continue }
+      guard !moved.isEmpty || read.contains(where: isNew) else { continue }
       // A shard is often both where pages leave and where others arrive. Each new file is written beside the old ones
       // first, under a name the next move reads too; once all are written, each takes its shard's name, and the old
       // files no longer used go. Cut short at any point, every page is still in a file the next move reads.
