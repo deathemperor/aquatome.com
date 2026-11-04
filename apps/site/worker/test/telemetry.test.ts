@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
 import { PAGE_PATH, parseEvent } from '../telemetry/events'
@@ -291,6 +292,6 @@ test('events: a Vietnamese page counts by its root address, sent either way; a p
 
 // The contract's page pattern is the Worker's, built from the site's Vietnamese sections: a new section changes both.
 test("the contract's page path pattern is the Worker's, from the Vietnamese sections", () => {
-  const api = JSON.parse(readFileSync(new URL('../../../../protocols/app-telemetry.openapi.json', import.meta.url), 'utf8'))
+  const api = JSON.parse(readFileSync(fileURLToPath(new URL('../../../../protocols/app-telemetry.openapi.json', import.meta.url).href), 'utf8'))
   expect(new RegExp(api.components.schemas.Path.pattern).source).toBe(PAGE_PATH.source)
 })
