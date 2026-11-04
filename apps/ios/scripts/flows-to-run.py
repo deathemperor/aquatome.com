@@ -270,7 +270,7 @@ def test():
     # The handbook's screens: its halves as main splits them, and the flows from a page in `app`.
     got = runs([APP + 'Handbook/HomeList.swift'])
     assert got['handbook_1'] == sorted(set(HANDBOOK_FIRST) - {'TankCheckFlowTests'}), got
-    assert got['handbook_2'] == ['HandbookFlowTests', 'OfflineFlowTests', 'TankLifeFlowTests'], got
+    assert got['handbook_2'] == ['HandbookFlowTests', 'OfflineFlowTests', 'TankLifeFlowTests', 'VideoFlowTests'], got
     assert got['app'][0] == 'ReaderPostFlowTests' and 'lights_1' not in got, got
     # The handbook's model: as the kit's Handbook, the tank-mates check and a tank's fish and plants too.
     got = runs([APP + 'Handbook/HandbookModel.swift'])
@@ -278,7 +278,7 @@ def test():
     assert got['handbook_1'] == sorted(HANDBOOK_FIRST), got
     assert 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages' in got['app'], got
     got = runs([APP + 'Handbook/NativePage.swift'])
-    assert got['handbook_2'] == ['OfflineFlowTests', 'TankLifeFlowTests'], got
+    assert got['handbook_2'] == ['OfflineFlowTests', 'TankLifeFlowTests', 'VideoFlowTests'], got
     assert 'HandbookFlowTests/testAPageOpensInTheApp' in got['app'], got
     got = runs([APP + 'Handbook/KeepOffline.swift'])
     assert got['handbook_2'] == ['OfflineFlowTests'] and 'handbook_1' not in got, got
