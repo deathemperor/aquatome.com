@@ -2661,6 +2661,159 @@
         "p",
         "web"
       ]
+    },
+    {
+      "note": "a breed's page, a fish's to the app: what it is a form of (linked) in its line above the name, no scientific name, the card's sources, its gallery, summary, text, questions, guides and sources; its figures are the index's `card`",
+      "doc": {
+        "v": 1,
+        "kind": "fish",
+        "path": "/vi/ca/ca-dia-pigeon-blood/",
+        "title": "Cá đĩa Pigeon Blood",
+        "where": [
+          "Dòng cá cảnh, dòng của ",
+          {
+            "text": "Cá đĩa",
+            "href": "/vi/ca/ca-dia/"
+          }
+        ],
+        "aka": "Tên khác: Pigeon Blood Discus, Đĩa bồ câu máu",
+        "credit": [
+          "AquaTome tổng hợp từ 2 nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật 30/10/2026."
+        ],
+        "lead": {
+          "src": "https://images.unsplash.com/photo-1000000000001-pigeonblood1?ixid=fixture&w=1280&q=80&fm=jpg&fit=max",
+          "w": 1280,
+          "h": 960,
+          "alt": "Cá đĩa Pigeon Blood",
+          "credit": {
+            "text": "Ảnh: Mai Lin trên Unsplash",
+            "licence": "Unsplash License",
+            "url": "https://unsplash.com/photos/a-red-discus-fish-Pb1Fixture1?utm_source=aquatome&utm_medium=referral",
+            "authorUrl": "https://unsplash.com/@mailin?utm_source=aquatome&utm_medium=referral",
+            "author": "Mai Lin"
+          }
+        },
+        "talk": {
+          "comments": "breed:pigeon-blood-discus",
+          "photos": "breed:pigeon-blood-discus"
+        },
+        "blocks": [
+          {
+            "t": "trust",
+            "title": "Nguồn và độ tin cậy",
+            "legend": "Các nguồn ghi khác nhau",
+            "rows": [
+              {
+                "field": "tempC",
+                "label": "Nhiệt độ",
+                "conflict": true,
+                "note": "Mức mọi nguồn cùng khuyên",
+                "items": [
+                  "Trại cá đĩa A: 28–30°C",
+                  "Diễn đàn B: 27–31°C"
+                ]
+              },
+              {
+                "field": "sizeCm",
+                "label": "Kích thước",
+                "items": [
+                  "Trại cá đĩa A"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "gallery",
+            "title": "Ảnh Cá đĩa Pigeon Blood",
+            "note": "1 ảnh từ Wikimedia Commons, giấy phép mở.",
+            "photos": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Breed2.jpg/1280px-Breed2.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá lai 2",
+                "credit": {
+                  "text": "Ảnh: Người chụp 2",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:Breed2.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Breed2.jpg/500px-Breed2.jpg"
+              }
+            ],
+            "strip": [
+              0
+            ]
+          },
+          {
+            "t": "summary",
+            "title": "Tóm tắt",
+            "items": [
+              "Một dòng cá đĩa lai tạo ở Thái Lan."
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Nguồn gốc"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Dòng của ",
+              {
+                "text": "cá đĩa",
+                "href": "/vi/ca/ca-dia/"
+              },
+              ", hay nuôi chung với ",
+              {
+                "text": "Cá La Hán",
+                "href": "/vi/ca/ca-la-han/"
+              },
+              " là không nên. Cá đĩa Pigeon Blood có đốm đen."
+            ]
+          },
+          {
+            "t": "faq",
+            "title": "Hỏi đáp",
+            "items": [
+              {
+                "q": "Có khó nuôi không?",
+                "a": "Khó hơn cá đĩa hoang dã một chút."
+              }
+            ]
+          },
+          {
+            "t": "pages",
+            "title": "Bài viết nhắc đến",
+            "paths": [
+              "/vi/huong-dan/phan-loai-ca-dia/"
+            ]
+          },
+          {
+            "t": "refs",
+            "title": "Nguồn",
+            "items": [
+              {
+                "title": "Trại cá đĩa A",
+                "url": "https://breeder.example/pigeon"
+              },
+              {
+                "title": "Diễn đàn B",
+                "url": "https://forum.example/t/1"
+              }
+            ]
+          }
+        ]
+      },
+      "older": [
+        "web",
+        "web",
+        "summary",
+        "h",
+        "p",
+        "faq",
+        "pages",
+        "refs"
+      ]
     }
   ],
   "levels": [

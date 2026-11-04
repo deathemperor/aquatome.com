@@ -1,6 +1,7 @@
 import { resolveDataCard, type BreedEntity, type Content, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
+import { breedFigures, speciesOf, type BreedFigures } from './breeds'
 import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
 import { smallSrc } from './img'
@@ -63,10 +64,22 @@ export type AppItem = {
   lifeYears?: Range
   /** Where a species lives in the wild and its wild records (lib/range.ts, protocols/range-vectors.json); breeds have none. */
   range?: AppRange
+  /**
+   * A breed that is a form of a species (`basedOn`, through a parent breed, up to the species): that species' id, when
+   * this index lists it. A tank's check counts the breed as that species (tank-check.ts groups a tank's fish by
+   * `of ?? id`), so the breed has none of the `Facts` of its own. Hybrids, and breeds linked to no species here, have none.
+   */
+  of?: string
+  /**
+   * A breed's own figures, as its page's data card shows them (breedFigures): what the app's facts card shows for it.
+   * An app that predates it shows none, as for a breed before.
+   */
+  card?: BreedFigures
 } & Partial<Facts>
 /**
  * A species' figures and behaviour (fish), named as the tank-mates tool names them (SpeciesIndexItem), so the app checks
- * a tank with the tool's own code. Each one the content has no value for is left out; breeds have none.
+ * a tank with the tool's own code. Each one the content has no value for is left out. A breed has its figures only when
+ * it has no `of`: a hybrid, or a breed linked to no species, is a fish of its own, checked with no behaviour ("unsure").
  */
 export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
 export const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
@@ -103,6 +116,10 @@ export function appGuides(lang: Lang, c: Content): Content['guides'] {
  */
 export function appSpecies(lang: Lang, c: Content): Content['species'] {
   return served(lang, '/vi/ca/x/') ? listOrder(lang, c) : []
+}
+/** The breeds the index lists in this language, and the app has pages of: every one the fish list shows. */
+export function appBreeds(lang: Lang, c: Content): Content['breeds'] {
+  return served(lang, '/vi/ca/x/') ? c.breeds : []
 }
 /** The plants the index lists in this language, and the app has pages of: every one the plant list shows, as for species. */
 export function appPlants(lang: Lang, c: Content): Content['plants'] {
@@ -198,8 +215,18 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
         tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, range: appRange(s.range, regionName), ...facts,
       }))
     }
-    // Every breed, as the fish list shows them.
-    for (const b of c.breeds) items.push(clean({ kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds) }))
+    // Every breed, as the fish list shows them: a form of a listed species counted as it, any other with its own figures.
+    const listed = new Set(appSpecies(lang, c).map(s => s.id))
+    for (const b of appBreeds(lang, c)) {
+      const species = speciesOf(c, b)
+      const of = species && listed.has(species) ? species : undefined
+      const card = breedFigures(b)
+      const { tempC, ph, gh, sizeCm, tankCm, difficulty } = card
+      items.push(clean({
+        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds),
+        of, card: Object.keys(card).length ? card : undefined, ...(of ? {} : { tempC, ph, gh, sizeCm, tankCm, difficulty }),
+      }))
+    }
     home.groups = groupTiles(lang, c).map(g => (g.photo ? { id: g.group, img: smallSrc(g.photo) } : { id: g.group }))
     home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
   }
