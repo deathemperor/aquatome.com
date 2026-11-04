@@ -38,7 +38,7 @@ public final class Telemetry: Sendable {
   /// whether this copy is one of ours is learnt after launch.
   public init(about: About, readerAllows: Bool, file: URL?, site: URL, send: @escaping Send,
               userAgent: @escaping @Sendable () -> String? = { nil },
-              now: @escaping @Sendable () -> Double = { ProcessInfo.processInfo.systemUptime }) {
+              now: @escaping @Sendable () -> Double = { Telemetry.seconds() }) {
     self.about = about
     waiting = OSAllocatedUnfairLock(initialState: Waiting(reader: readerAllows))
     outbox = Outbox(file: file, site: site, send: send, userAgent: userAgent, now: now)
@@ -97,6 +97,11 @@ public final class Telemetry: Sendable {
       await flush()
     }
   }
+
+  /// Seconds on a clock that only goes forward, since this run's first look at it: not the phone's uptime, which is an
+  /// API Apple asks a reason for.
+  static func seconds() -> Double { epoch.duration(to: .now) / .seconds(1) }
+  private static let epoch = ContinuousClock.now
 
   /// What's queued now, for tests.
   var queued: (events: [Event], diagnostics: [Diagnostic]) {

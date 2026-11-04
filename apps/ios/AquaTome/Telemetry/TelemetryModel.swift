@@ -59,6 +59,8 @@ final class TelemetryModel {
 
   /// After the first screen: iOS's reports, then a send every 30 s.
   func start() async {
+    // Once a launch, whatever shows the app's first screen again.
+    guard reports == nil else { return }
     let reports = Reports(telemetry)
     self.reports = reports
     await Task.detached(priority: .utility) { MXMetricManager.shared.add(reports) }.value

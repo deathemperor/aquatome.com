@@ -2,9 +2,9 @@ import XCTest
 
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
-/// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size. Each checks
-/// only that its screen opened: what it shows, the other flows check.
+/// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`);
+/// and Bể của tôi's list. And a search's results under the kinds it finds, light and dark, at the default and the largest
+/// text size. Each checks only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -19,6 +19,29 @@ final class PageShotsFlowTests: XCTestCase {
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
+
+  /// Bể của tôi with a tank: the list, to its end (the account, the blocked, "Gửi thống kê ẩn danh").
+  func testTheTanksList() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"]
+    app.launch()
+    app.openTab("Bể của tôi")
+    let first = app.buttons["add-first"]
+    XCTAssertTrue(first.waitForExistence(timeout: 5), "no tanks tab")
+    first.tap()
+    let field = app.textFields["name"]
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no tank form")
+    field.tap()
+    field.typeText("Bể 60")
+    app.buttons["save"].tap()
+    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "the tank isn't listed")
+    app.swipeUp()
+    settle()
+    let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    a.name = "shot-tanks-light-01"
+    a.lifetime = .keepAlways
+    add(a)
+  }
 
   /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
   private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12) {
