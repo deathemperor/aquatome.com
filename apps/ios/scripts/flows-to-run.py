@@ -21,7 +21,7 @@ TESTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', UI)
 # The flows of the handbook and of what a tank reads from it (its fish, plants and guides, the tank-mates check), run by
 # job `handbook`; job `app` runs every other flow but the lights', so a class missing here still runs, in `app`.
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
-            'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'PhotoViewerFlowTests']
+            'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests']
 # The first half, run by `handbook (1)` with the page shots; `handbook (2)` runs the rest of HANDBOOK, so a class added
 # there later runs in it. Split by their times on #400's run of 2026-11-03 (the whole job past its hour): 1,647 s here,
 # 1,182 s in the rest before the tank volume flows' 605 s join it.
@@ -65,15 +65,14 @@ NONE, ALL = None, 'all'
 APP, KIT = 'apps/ios/AquaTome/', 'apps/ios/AquaTomeKit/'
 # Every screen of the handbook: its flows, and those that start from a page (a comment posted, a fish put on a tank).
 HANDBOOK_SCREENS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
-                    'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests',
-                    'PhotoViewerFlowTests']
+                    'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests']
 # The handbook's model and the kit's Handbook: its screens, and the tanks tab's parts that read it (the tank-mates check,
 # a tank's fish and plants, its guides).
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages']
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one.
 PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
-         'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'PhotoViewerFlowTests']
+         'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages']
 # The light flows that start from a tank or keep a light on one.
 LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testKeepsTheLightAndWhatWasWrittenOnATank', 'testALightOnATankOpensOnTheLightsTabAndConnects',
@@ -271,7 +270,7 @@ def test():
     # The handbook's screens: its halves as main splits them, and the flows from a page in `app`.
     got = runs([APP + 'Handbook/HomeList.swift'])
     assert got['handbook_1'] == sorted(set(HANDBOOK_FIRST) - {'TankCheckFlowTests'}), got
-    assert got['handbook_2'] == ['HandbookFlowTests', 'OfflineFlowTests', 'PhotoViewerFlowTests', 'TankLifeFlowTests'], got
+    assert got['handbook_2'] == ['HandbookFlowTests', 'OfflineFlowTests', 'TankLifeFlowTests'], got
     assert got['app'][0] == 'ReaderPostFlowTests' and 'lights_1' not in got, got
     # The handbook's model: as the kit's Handbook, the tank-mates check and a tank's fish and plants too.
     got = runs([APP + 'Handbook/HandbookModel.swift'])
@@ -279,7 +278,7 @@ def test():
     assert got['handbook_1'] == sorted(HANDBOOK_FIRST), got
     assert 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages' in got['app'], got
     got = runs([APP + 'Handbook/NativePage.swift'])
-    assert got['handbook_2'] == ['OfflineFlowTests', 'PhotoViewerFlowTests', 'TankLifeFlowTests'], got
+    assert got['handbook_2'] == ['OfflineFlowTests', 'TankLifeFlowTests'], got
     assert 'HandbookFlowTests/testAPageOpensInTheApp' in got['app'], got
     got = runs([APP + 'Handbook/KeepOffline.swift'])
     assert got['handbook_2'] == ['OfflineFlowTests'] and 'handbook_1' not in got, got
