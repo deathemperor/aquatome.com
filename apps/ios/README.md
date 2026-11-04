@@ -184,7 +184,8 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 | Module | What |
 | --- | --- |
 | `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), the timeline's rules as the site's light page has them (`Plan.swift`: handles kept apart, ramps that fit, the day's curve, the day preview's pace; `Colour.swift`: the colour a mix shows, a tank lit by it, the looks), `LightSession` (the order and pace the light accepts, and going back to the schedule after levels set by hand), `FakeLight` (tests, simulator) |
-| `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
+| `WeekAqua` | Week Aqua lights of model code 5746 (docs/research/aquarium-device-control.md): the frames, the light told by its manufacturer data and name (other codes listed, never written to), `WeekAquaSession` (one light or a group, in the order the lights take: clock, manual mode, levels, timer, manual mode, each frame to every light, half a second apart; the lights never answer), `FakeWeekAqua` (tests, simulator) |
+| `ChihirosBLE` | CoreBluetooth: scan for lights (Chihiros and Week Aqua), connect, acknowledged writes; a Week Aqua light's frames go to `fff2` only, without response, never to its firmware-update service |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`) |
 | `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
@@ -203,7 +204,7 @@ counts only.
 
 The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json`, `protocols/tankmates-vectors.json`,
 `protocols/filter-vectors.json`, `protocols/page-vectors.json` and `protocols/unlisted-vectors.json`, the same vectors as
-the site's tests. A protocol or schema change updates the vectors and both implementations together.
+the site's tests, and `protocols/weekaqua-vectors.json`, for the site to share when it drives Week Aqua lights. A protocol or schema change updates the vectors and both implementations together.
 
 ## Testing on a real light
 

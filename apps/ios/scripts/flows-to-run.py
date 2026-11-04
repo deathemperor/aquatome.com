@@ -132,6 +132,8 @@ REACH = {
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'],
     KIT + 'Sources/Chihiros/': ['LightFlowTests'],
+    # Week Aqua lights, on the lights tab beside the Chihiros ones.
+    KIT + 'Sources/WeekAqua/': ['LightFlowTests'],
     # A Mac command line, not in the app: job `kit` builds it.
     KIT + 'Sources/light-harness/': NONE,
     KIT + 'Tests/': NONE, 'protocols/': NONE, 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
@@ -267,6 +269,7 @@ def test():
     assert got['lights_1'] == ['LightFlowTests/' + t for t in LIGHT_FIRST], got
     assert pick([APP + 'Lights/LightsView.swift'])[2]['2'] == everything['lights']['2']
     assert runs([KIT + 'Sources/Chihiros/Frames.swift']) == got
+    assert runs([KIT + 'Sources/WeekAqua/WeekAquaSession.swift']) == got
     # The handbook's screens: its halves as main splits them, and the flows from a page in `app`.
     got = runs([APP + 'Handbook/HomeList.swift'])
     assert got['handbook_1'] == sorted(set(HANDBOOK_FIRST) - {'TankCheckFlowTests'}), got
