@@ -17,12 +17,8 @@ PART="${1:-all}"
 case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|photos|rewrite]" >&2; exit 2 ;; esac
 # One a part: the Mac runs three parts at once.
 TEST_LOG="/tmp/aquatome-engine-test-$PART.log"
-# The Mac's engine parts and video job share one machine, so their builds and test runs take turns: two suites at once
-# slowed a 0.6 s test past vitest's 5 s and failed a cycle. GitHub runs one part a runner.
-# The Mac's load also comes from the iOS simulators and builds: 500 and more on 16 cores at times (2026-11-04), when even
-# 30 s per test isn't enough. The checks wait for the 5-minute load to fall under 4 a core, up to 45 minutes, then run.
-calm() { local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
-checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else calm; lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
+# calm, checks and verify: the build and tests before publishing, on a Mac other jobs share.
+source "$REPO/scripts/cycle-checks.sh"
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
 if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
@@ -38,7 +34,7 @@ push() {
       git rebase --abort 2>/dev/null || true
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then build + test again.
       if git pull -q --rebase -X theirs; then
-        checks 'pnpm build && pnpm test' >"$TEST_LOG" 2>&1 || { log "build/tests failed after that merge, not publishing"; return 1; }
+        verify 'pnpm build && pnpm test' || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
@@ -232,7 +228,7 @@ if [ -z "$(git status --porcelain -- content sources)" ]; then
 fi
 # Real content must build (the test suite builds fixtures), then the suite must pass. I18N_LENIENT: a UI string a new
 # Indonesian or Thai page needs and src/i18n lacks shows in Vietnamese (and is logged) instead of holding back the content.
-if ! checks 'I18N_LENIENT=1 pnpm build && pnpm test' >"$TEST_LOG" 2>&1; then
+if ! verify 'I18N_LENIENT=1 pnpm build && pnpm test'; then
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
 git add content sources engine-state docs/review apps/site/src/i18n
