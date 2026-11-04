@@ -14,7 +14,8 @@ public enum Owner {
   /// browser, or a page of the site (from "/").
   public enum Destination: Sendable {
     case section(String, anchor: String?)
-    case url(URL)
+    /// From "https://".
+    case url(String)
     case page(String)
   }
 
@@ -55,10 +56,16 @@ public enum Owner {
   }
 
   /// A chip, or a figure's change: "+18%", what it means, and what it compares with (for VoiceOver).
-  public struct Chip: Sendable {
+  public final class Chip: Sendable {
     public let text: String
     public let tone: Tone
     public let vs: String
+
+    init(text: String, tone: Tone, vs: String) {
+      self.text = text
+      self.tone = tone
+      self.vs = vs
+    }
   }
 
   public struct Section: Sendable {
@@ -86,7 +93,7 @@ public enum Owner {
     case toggle(String, on: Bool, href: String)
   }
 
-  public struct Form: Sendable {
+  public final class Form: Sendable {
     public let method: String
     public let path: String
     public let fields: [Field]
@@ -94,6 +101,14 @@ public enum Owner {
     public let body: String?
     /// The button's label.
     public let submit: String
+
+    init(method: String, path: String, fields: [Field], body: String?, submit: String) {
+      self.method = method
+      self.path = path
+      self.fields = fields
+      self.body = body
+      self.submit = submit
+    }
 
     /// The request, with the fields' values (trimmed; an empty one left out) and `body` as one JSON object; nil while a
     /// field it needs is empty.
@@ -107,16 +122,24 @@ public enum Owner {
     }
   }
 
-  public struct Field: Sendable {
+  public final class Field: Sendable {
     public let name: String
     public let label: String
     /// Several lines.
     public let multiline: Bool
     public let required: Bool
     public let placeholder: String?
+
+    init(name: String, label: String, multiline: Bool, required: Bool, placeholder: String?) {
+      self.name = name
+      self.label = label
+      self.multiline = multiline
+      self.required = required
+      self.placeholder = placeholder
+    }
   }
 
-  public struct Figure: Sendable {
+  public final class Figure: Sendable {
     public let label: String
     public let value: String
     public let sub: String?
@@ -129,11 +152,22 @@ public enum Owner {
     /// Marked as needing a look.
     public let warn: Bool
     public let to: Destination?
+
+    init(label: String, value: String, sub: String?, delta: Chip?, meter: Double?, spark: [Double?], warn: Bool, to: Destination?) {
+      self.label = label
+      self.value = value
+      self.sub = sub
+      self.delta = delta
+      self.meter = meter
+      self.spark = spark
+      self.warn = warn
+      self.to = to
+    }
   }
 
   /// Columns over days, as the site's charts (apps/site/worker/admin/chart.ts): stacked from the baseline in the series'
   /// order, a negative value below it, `whole` a pale column behind them.
-  public struct Chart: Sendable {
+  public final class Chart: Sendable {
     public let title: String
     /// yyyy-mm-dd, oldest first.
     public let days: [String]
@@ -148,19 +182,36 @@ public enum Owner {
     /// Why a day without a value has none.
     public let missing: String?
 
+    init(title: String, days: [String], series: [Series], whole: Series?, unit: String?, partialLast: Bool, empty: String?, missing: String?) {
+      self.title = title
+      self.days = days
+      self.series = series
+      self.whole = whole
+      self.unit = unit
+      self.partialLast = partialLast
+      self.empty = empty
+      self.missing = missing
+    }
+
     /// Every value 0 or not recorded: nothing to draw.
     public var isEmpty: Bool { (series + [whole].compactMap { $0 }).allSatisfy { $0.values.allSatisfy { ($0 ?? 0) == 0 } } }
   }
 
-  public struct Series: Sendable {
+  public final class Series: Sendable {
     public let label: String
     /// One a day; nil: the day wasn't recorded.
     public let values: [Double?]
     /// "s1", "s2", "s3", "bad" (the status colour) or "mute" (context only); nil: s1, s2, s3 by position.
     public let tone: String?
+
+    init(label: String, values: [Double?], tone: String?) {
+      self.label = label
+      self.values = values
+      self.tone = tone
+    }
   }
 
-  public struct Table: Sendable {
+  public final class Table: Sendable {
     public let columns: [String]
     /// A cell a column (`text`: its second line; `to`: the site's page it links to); the first names the row.
     public let rows: [[Link]]
@@ -168,15 +219,29 @@ public enum Owner {
     public let empty: String?
     /// Drawn closed, opened by this label.
     public let folded: String?
+
+    init(columns: [String], rows: [[Link]], empty: String?, folded: String?) {
+      self.columns = columns
+      self.rows = rows
+      self.empty = empty
+      self.folded = folded
+    }
   }
 
   /// A photo (its caption, the lines under it, `src`: from "/" private, fetched with the bearer, else public), or a hidden
   /// page (its path, why, since when), with its buttons.
-  public struct Card: Sendable {
+  public final class Card: Sendable {
     public let title: String
     public let lines: [String]
     public let src: String?
     public let actions: [Action]
+
+    init(title: String, lines: [String], src: String?, actions: [Action]) {
+      self.title = title
+      self.lines = lines
+      self.src = src
+      self.actions = actions
+    }
   }
 
   /// A button: the request it makes, sent as it is (OwnerClient.run).
@@ -220,8 +285,7 @@ public enum Owner {
 
   /// A chart's day as the site labels it: 2026-11-02 → 02/11.
   public static func dayLabel(_ day: String) -> String {
-    let p = day.split(separator: "-")
-    return p.count == 3 ? "\(p[2])/\(p[1])" : day
+    day.count == 10 ? "\(day.suffix(2))/\(day.dropFirst(5).prefix(2))" : day
   }
 
   /// A section key as the dashboard lists them: only these characters, so it is one path segment.
@@ -239,62 +303,68 @@ public enum Owner {
 
 typealias Dict = [String: Any]
 
+// One accessor a type, in place of a cast at each use: less code.
+private func str(_ o: Dict, _ k: String) -> String? { o[k] as? String }
+private func flag(_ o: Dict, _ k: String) -> Bool? { o[k] as? Bool }
+private func obj(_ o: Dict, _ k: String) -> Dict? { o[k] as? Dict }
+private func strs(_ o: Dict, _ k: String) -> [String] { o[k] as? [String] ?? [] }
+private func num(_ o: Dict, _ k: String) -> Double? { (o[k] as? NSNumber)?.doubleValue }
 private func list(_ o: Dict, _ k: String) -> [Dict] { (o[k] as? [Any] ?? []).compactMap { $0 as? Dict } }
-private func tone(_ o: Dict) -> Owner.Tone { (o["tone"] as? String).flatMap(Owner.Tone.init) ?? .plain }
+private func tone(_ o: Dict) -> Owner.Tone { (str(o, "tone")).flatMap(Owner.Tone.init) ?? .plain }
 /// Numbers, a day not recorded (null, or anything else) nil.
 private func values(_ v: Any?) -> [Double?] { (v as? [Any] ?? []).map { ($0 as? NSNumber)?.doubleValue } }
 private func chip(_ v: Any?) -> Owner.Chip? {
-  guard let c = v as? Dict, let text = c["text"] as? String else { return nil }
-  return Owner.Chip(text: text, tone: tone(c), vs: c["vs"] as? String ?? "")
+  guard let c = v as? Dict, let text = str(c, "text") else { return nil }
+  return Owner.Chip(text: text, tone: tone(c), vs: str(c, "vs") ?? "")
 }
 
 private func destination(_ o: Dict) -> Owner.Destination? {
-  if let key = o["section"] as? String, Owner.isKey(key) { return .section(key, anchor: (o["anchor"] as? String).flatMap { Owner.isKey($0) ? $0 : nil }) }
-  if let s = o["url"] as? String, let u = URL(string: s), u.scheme == "https", u.host != nil { return .url(u) }
+  if let key = str(o, "section"), Owner.isKey(key) { return .section(key, anchor: (str(o, "anchor")).flatMap { Owner.isKey($0) ? $0 : nil }) }
+  if let s = str(o, "url"), s.hasPrefix("https://") { return .url(s) }
   return nil
 }
 
 /// A path a button, a form or a switch sends the account's session to: on the owner's API (under `under`), as the
 /// contract has them; nil for any other, and the part is left out.
 private func ownerPath(_ v: Any?, under: String = "/api/owner/") -> String? {
-  guard let p = v as? String, p.hasPrefix(under), !p.contains("//"), !p.split(separator: "/").contains("..") else { return nil }
+  guard let p = v as? String, p.hasPrefix(under), !p.contains("//"), !p.contains("..") else { return nil }
   return p
 }
 
 /// A part's buttons.
 private func actions(_ o: Dict) -> [Owner.Action] {
   list(o, "actions").compactMap { a in
-    guard let label = a["label"] as? String, let method = a["method"] as? String, method == "POST" || method == "DELETE",
+    guard let label = str(a, "label"), let method = str(a, "method"), method == "POST" || method == "DELETE",
           let path = ownerPath(a["path"]) else { return nil }
-    return Owner.Action(label: label, method: method, path: path, json: (a["body"] as? Dict).flatMap(Owner.text), tone: tone(a))
+    return Owner.Action(label: label, method: method, path: path, json: (obj(a, "body")).flatMap(Owner.text), tone: tone(a))
   }
 }
 
 extension Owner.Dashboard {
   init(_ o: Dict) {
-    tz = o["tz"] as? String ?? ""
+    tz = str(o, "tz") ?? ""
     todos = list(o, "todos").compactMap { t in
-      guard let title = t["title"] as? String, let text = t["text"] as? String else { return nil }
-      let a = t["action"] as? Dict ?? [:]
-      return Owner.Link(title: title, text: text, label: a["label"] as? String, to: destination(a))
+      guard let title = str(t, "title"), let text = str(t, "text") else { return nil }
+      let a = obj(t, "action") ?? [:]
+      return Owner.Link(title: title, text: text, label: str(a, "label"), to: destination(a))
     }
     areas = list(o, "areas").compactMap { a in
-      guard let name = a["name"] as? String, let fig = a["fig"] as? String else { return nil }
-      return Owner.Figure(label: name, value: fig, sub: a["sub"] as? String, delta: chip(a["chip"]), meter: nil, spark: values(a["spark"]),
-                          warn: a["warn"] as? Bool ?? false, to: destination(a))
+      guard let name = str(a, "name"), let fig = str(a, "fig") else { return nil }
+      return Owner.Figure(label: name, value: fig, sub: str(a, "sub"), delta: chip(a["chip"]), meter: nil, spark: values(a["spark"]),
+                          warn: flag(a, "warn") ?? false, to: destination(a))
     }
-    areasNote = o["areasNote"] as? String
-    log = (o["log"] as? Dict).map { l in
+    areasNote = str(o, "areasNote")
+    log = (obj(o, "log")).map { l in
       var days: [(at: String, entries: [Owner.Link])] = []
       for e in list(l, "entries") {
-        guard let at = e["at"] as? String, let text = e["text"] as? String else { continue }
-        let line = Owner.Link(title: text, text: e["sub"] as? String, tone: tone(e), to: destination(e))
+        guard let at = str(e, "at"), let text = str(e, "text") else { continue }
+        let line = Owner.Link(title: text, text: str(e, "sub"), tone: tone(e), to: destination(e))
         if days.last?.at == at { days[days.count - 1].entries.append(line) } else { days.append((at, [line])) }
       }
-      return (l["title"] as? String ?? "", days)
+      return (str(l, "title") ?? "", days)
     }
     sections = list(o, "sections").compactMap { s in
-      guard let key = s["key"] as? String, Owner.isKey(key), let name = s["name"] as? String else { return nil }
+      guard let key = str(s, "key"), Owner.isKey(key), let name = str(s, "name") else { return nil }
       return Owner.Link(title: name, to: .section(key, anchor: nil))
     }
   }
@@ -302,60 +372,61 @@ extension Owner.Dashboard {
 
 extension Owner.Section {
   init(_ o: Dict) {
-    tz = o["tz"] as? String ?? ""
-    title = o["title"] as? String ?? ""
+    tz = str(o, "tz") ?? ""
+    title = str(o, "title") ?? ""
     blocks = list(o, "blocks").compactMap(block)
   }
 }
 
 /// nil: a kind this app doesn't know, or one missing what it needs; the rest of the section still comes.
 private func block(_ o: Dict) -> Owner.Block? {
-  let text = o["text"] as? String
-  switch o["kind"] as? String {
+  let text = str(o, "text")
+  switch str(o, "kind") {
   case "heading":
-    return text.map { .heading($0, level: (o["level"] as? NSNumber)?.intValue ?? 2, anchor: o["anchor"] as? String) }
+    return text.map { .heading($0, level: num(o, "level").map(Int.init) ?? 2, anchor: str(o, "anchor")) }
   case "note":
     return text.map { .note($0, tone(o)) }
   case "figures":
     return .figures(list(o, "items").compactMap { f in
-      guard let label = f["label"] as? String, let value = f["value"] as? String else { return nil }
-      return Owner.Figure(label: label, value: value, sub: f["sub"] as? String, delta: chip(f["delta"]),
-                          meter: (f["meter"] as? NSNumber).map { min(max($0.doubleValue, 0), 1) }, spark: [], warn: false, to: nil)
+      guard let label = str(f, "label"), let value = str(f, "value") else { return nil }
+      return Owner.Figure(label: label, value: value, sub: str(f, "sub"), delta: chip(f["delta"]),
+                          meter: num(f, "meter").map { min(max($0, 0), 1) }, spark: [], warn: false, to: nil)
     })
   case "chart":
-    guard o["id"] is String, let title = o["title"] as? String else { return nil }
-    return .chart(Owner.Chart(title: title, days: o["days"] as? [String] ?? [], series: list(o, "series").compactMap(series),
-                              whole: (o["whole"] as? Dict).flatMap(series), unit: o["unit"] as? String, partialLast: o["partialLast"] as? Bool ?? false,
-                              empty: o["empty"] as? String, missing: o["missing"] as? String))
+    guard o["id"] is String, let title = str(o, "title") else { return nil }
+    return .chart(Owner.Chart(title: title, days: strs(o, "days"), series: list(o, "series").compactMap(series),
+                              whole: (obj(o, "whole")).flatMap(series), unit: str(o, "unit"), partialLast: flag(o, "partialLast") ?? false,
+                              empty: str(o, "empty"), missing: str(o, "missing")))
   case "table":
     let rows = (o["rows"] as? [Any] ?? []).compactMap { r in
       (r as? [Any])?.compactMap { c -> Owner.Link? in
-        guard let c = c as? Dict, let text = c["text"] as? String else { return nil }
-        let page = (c["href"] as? String).flatMap { Owner.isSitePath($0) ? Owner.Destination.page($0) : nil }
-        return Owner.Link(title: text, text: c["sub"] as? String, tone: tone(c), to: page)
+        guard let c = c as? Dict, let text = str(c, "text") else { return nil }
+        let page = (str(c, "href")).flatMap { Owner.isSitePath($0) ? Owner.Destination.page($0) : nil }
+        return Owner.Link(title: text, text: str(c, "sub"), tone: tone(c), to: page)
       }
     }
-    return .table(Owner.Table(columns: o["columns"] as? [String] ?? [], rows: rows, empty: o["empty"] as? String, folded: o["folded"] as? String))
+    return .table(Owner.Table(columns: strs(o, "columns"), rows: rows, empty: str(o, "empty"), folded: str(o, "folded")))
   case "photos":
     return .cards(list(o, "items").compactMap { p in
-      guard p["id"] is String, let src = p["src"] as? String else { return nil }
-      return Owner.Card(title: p["caption"] as? String ?? "", lines: p["meta"] as? [String] ?? [], src: src, actions: actions(p))
-    }, empty: o["empty"] as? String, hidden: false)
+      guard p["id"] is String, let src = str(p, "src") else { return nil }
+      return Owner.Card(title: str(p, "caption") ?? "", lines: strs(p, "meta"), src: src, actions: actions(p))
+    }, empty: str(o, "empty"), hidden: false)
   case "hidden":
     return .cards(list(o, "items").compactMap { h in
-      guard let path = h["path"] as? String else { return nil }
-      return Owner.Card(title: path, lines: [h["note"] as? String, h["since"] as? String].compactMap { $0 }, src: nil, actions: actions(h))
-    }, empty: o["empty"] as? String, hidden: true)
+      guard let path = str(h, "path") else { return nil }
+      return Owner.Card(title: path, lines: [str(h, "note"), str(h, "since")].compactMap { $0 }, src: nil, actions: actions(h))
+    }, empty: str(o, "empty"), hidden: true)
   case "form":
-    guard o["method"] as? String == "POST", let path = ownerPath(o["path"]), let submit = o["submit"] as? String else { return nil }
-    let fields = list(o, "fields").compactMap { f -> Owner.Field? in
-      guard let name = f["name"] as? String, let label = f["label"] as? String else { return nil }
-      return Owner.Field(name: name, label: label, multiline: f["kind"] as? String == "textarea", required: f["required"] as? Bool ?? false,
-                         placeholder: f["placeholder"] as? String)
+    guard str(o, "method") == "POST", let path = ownerPath(o["path"]), let submit = str(o, "submit") else { return nil }
+    var fields: [Owner.Field] = []
+    for f in list(o, "fields") {
+      // A field this app can't draw (a kind it doesn't know): the whole form is left out, as a part never sent half.
+      guard let name = str(f, "name"), let label = str(f, "label"), let kind = str(f, "kind"), kind == "text" || kind == "textarea" else { return nil }
+      fields.append(Owner.Field(name: name, label: label, multiline: kind == "textarea", required: flag(f, "required") ?? false, placeholder: str(f, "placeholder")))
     }
-    return fields.isEmpty ? nil : .form(Owner.Form(method: "POST", path: path, fields: fields, body: (o["body"] as? Dict).flatMap(Owner.text), submit: submit))
+    return fields.isEmpty ? nil : .form(Owner.Form(method: "POST", path: path, fields: fields, body: (obj(o, "body")).flatMap(Owner.text), submit: submit))
   case "switch":
-    guard let label = o["label"] as? String, let on = o["on"] as? Bool, let href = ownerPath(o["href"], under: "/api/owner/sections/") else { return nil }
+    guard let label = str(o, "label"), let on = flag(o, "on"), let href = ownerPath(o["href"], under: "/api/owner/sections/") else { return nil }
     return .toggle(label, on: on, href: href)
   default:
     return nil
@@ -363,6 +434,6 @@ private func block(_ o: Dict) -> Owner.Block? {
 }
 
 private func series(_ o: Dict) -> Owner.Series? {
-  guard let label = o["label"] as? String else { return nil }
-  return Owner.Series(label: label, values: values(o["values"]), tone: o["tone"] as? String)
+  guard let label = str(o, "label") else { return nil }
+  return Owner.Series(label: label, values: values(o["values"]), tone: str(o, "tone"))
 }

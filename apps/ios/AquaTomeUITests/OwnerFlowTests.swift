@@ -34,13 +34,32 @@ final class OwnerFlowTests: XCTestCase {
     section(app, "Ảnh bạn đọc")
     let approve = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Duyệt'")).firstMatch
     XCTAssertTrue(approve.waitForExistence(timeout: 10), "no photo waiting")
-    let approved = app.staticTexts.matching(NSPredicate(format: "label CONTAINS 'Đã duyệt · đăng trong lượt duyệt tới'"))
-    XCTAssertEqual(approved.count, 1)
+    // Lan's photo, the one waiting to be approved.
+    let approved = text(app, "label BEGINSWITH 'Lan' AND label CONTAINS 'Đã duyệt · đăng trong lượt duyệt tới'")
+    XCTAssertFalse(approved.exists)
     approve.tap()
     // Read again: the photo approved is marked so, and has nothing more to approve.
-    let marked = expectation(for: NSPredicate(format: "count == 2"), evaluatedWith: approved)
-    wait(for: [marked], timeout: 10)
+    XCTAssertTrue(approved.waitForExistence(timeout: 10), "not marked approved")
     XCTAssertFalse(approve.exists, "still waiting to be approved")
+  }
+
+  func testRemovingAReadersPhotoAsksFirst() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    section(app, "Ảnh bạn đọc")
+    // Lan's photo: its Duyệt goes with it.
+    let approve = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Duyệt'")).firstMatch
+    let remove = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Gỡ'")).firstMatch
+    XCTAssertTrue(remove.waitForExistence(timeout: 10), "no photo to remove")
+    XCTAssertTrue(approve.exists)
+    remove.tap()
+    // Asked first, and nothing gone before the answer.
+    XCTAssertTrue(app.staticTexts["Không hoàn tác được."].waitForExistence(timeout: 5), "removed without asking")
+    XCTAssertTrue(approve.exists, "removed before the answer")
+    app.buttons.matching(NSPredicate(format: "label == 'Gỡ' AND identifier != 'owner-action'")).firstMatch.tap()
+    let gone = expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: approve)
+    wait(for: [gone], timeout: 10)
   }
 
   func testHidesAPageThenBringsItBack() {
@@ -89,7 +108,10 @@ final class OwnerFlowTests: XCTestCase {
     // The stand-in's owner is another account: this one's overview answers 404.
     let app = launch(owner: "someone-else")
     signIn(app)
-    XCTAssertFalse(app.descendants(matching: .any)["owner-dashboard"].waitForExistence(timeout: 5), "a dashboard row for an account that isn't the owner's")
+    // The dashboard asked about this account and was told it isn't the owner's: then no row.
+    let told = expectation(for: NSPredicate(format: "value == 'not owner'"), evaluatedWith: app.buttons["sync-now"])
+    wait(for: [told], timeout: 10)
+    XCTAssertFalse(app.descendants(matching: .any)["owner-dashboard"].exists, "a dashboard row for an account that isn't the owner's")
   }
 
   func testASessionEndingWhileTheDashboardIsOpenAsksToSignInAgainAndKeepsTheRow() {
@@ -133,31 +155,9 @@ final class OwnerFlowTests: XCTestCase {
     return app
   }
 
-  /// Signs in with the stand-in Apple sheet, and waits for the sync that follows.
-  private func signIn(_ app: XCUIApplication) {
-    open(app, "apple-sign-in")
-    let status = app.staticTexts["account-status"]
-    XCTAssertTrue(status.waitForExistence(timeout: 10), "not signed in")
-    let synced = expectation(for: NSPredicate { _, _ in Int(status.value as? String ?? "") ?? 0 >= 1 }, evaluatedWith: nil)
-    wait(for: [synced], timeout: 10)
-  }
-
-  /// Scrolls until the element is on screen, then taps it.
-  private func open(_ app: XCUIApplication, _ id: String) {
-    let e = app.descendants(matching: .any)[id].firstMatch
-    XCTAssertTrue(e.waitForExistence(timeout: 10), "no \(id)")
-    for _ in 0..<6 where !e.isHittable { app.swipeUp() }
-    e.tap()
-  }
-
-  /// A section, from the overview's list of them, at its end: the list makes its rows only as they scroll into view.
-  private func section(_ app: XCUIApplication, _ name: String) {
-    XCTAssertTrue(app.buttons["owner-area"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load")
-    let row = app.buttons.matching(NSPredicate(format: "identifier == 'owner-section' AND label == %@", name)).firstMatch
-    for _ in 0..<10 where !(row.exists && row.isHittable) { app.swipeUp() }
-    XCTAssertTrue(row.isHittable, "no section \(name)")
-    row.tap()
-  }
+  private func signIn(_ app: XCUIApplication) { app.signInWithStandInApple() }
+  private func open(_ app: XCUIApplication, _ id: String) { app.scrollToAndTap(id) }
+  private func section(_ app: XCUIApplication, _ name: String) { app.openOwnersSection(name) }
 
   /// A text by its words: a part's lines are one text, its first line first.
   private func text(_ app: XCUIApplication, _ predicate: String) -> XCUIElement {
@@ -179,5 +179,36 @@ final class OwnerFlowTests: XCTestCase {
       app.textFields["owner-field-note"].typeText(note)
     }
     app.buttons["owner-submit"].tap()
+  }
+}
+
+/// The owner's dashboard on the stand-in server, for these flows and the page shots.
+extension XCUIApplication {
+  static let standInOwner = ["-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple"]
+
+  /// Signs in with the stand-in Apple sheet, and waits for the sync that follows.
+  func signInWithStandInApple(file: StaticString = #filePath, line: UInt = #line) {
+    scrollToAndTap("apple-sign-in", file: file, line: line)
+    let status = staticTexts["account-status"]
+    XCTAssertTrue(status.waitForExistence(timeout: 10), "not signed in", file: file, line: line)
+    let synced = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in Int(status.value as? String ?? "") ?? 0 >= 1 }, object: nil)
+    XCTAssertEqual(XCTWaiter.wait(for: [synced], timeout: 10), .completed, "no sync", file: file, line: line)
+  }
+
+  /// Scrolls until the element is on screen, then taps it.
+  func scrollToAndTap(_ id: String, file: StaticString = #filePath, line: UInt = #line) {
+    let e = descendants(matching: .any)[id].firstMatch
+    XCTAssertTrue(e.waitForExistence(timeout: 10), "no \(id)", file: file, line: line)
+    for _ in 0..<6 where !e.isHittable { swipeUp() }
+    e.tap()
+  }
+
+  /// A section, from the overview's list of them, at its end: the list makes its rows only as they scroll into view.
+  func openOwnersSection(_ name: String, file: StaticString = #filePath, line: UInt = #line) {
+    XCTAssertTrue(buttons["owner-area"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load", file: file, line: line)
+    let row = buttons.matching(NSPredicate(format: "identifier == 'owner-section' AND label == %@", name)).firstMatch
+    for _ in 0..<10 where !(row.exists && row.isHittable) { swipeUp() }
+    XCTAssertTrue(row.isHittable, "no section \(name)", file: file, line: line)
+    row.tap()
   }
 }

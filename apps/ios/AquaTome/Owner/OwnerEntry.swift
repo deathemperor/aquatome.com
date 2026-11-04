@@ -6,7 +6,7 @@ struct OwnerEntry: View {
   @Environment(AccountModel.self) private var account
 
   var body: some View {
-    if account.owner.isOwner {
+    if account.owner.isOwner == true {
       Section {
         NavigationLink(value: OwnerRoute(key: "", anchor: nil)) {
           account.owner.sessionEnded

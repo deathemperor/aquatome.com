@@ -29,10 +29,18 @@ Turnstile check runs in a web view on the site's page for it (`/api/v1/auth/emai
 only in a web page on the site's host. Passkeys are aquatome.com's, shared with the app through its webcredentials
 association (`Config/AquaTome.entitlements` and the site's `/.well-known/apple-app-site-association`); only a signed
 build on an iPhone can use them, so the simulator never runs the real passkey sheet.
+
+The site's owner signed in sees one more row in "Bể của tôi", **Bảng điều khiển**: the owner's dashboard (the site's
+/_ab/ pages), drawn by the app from the site's JSON (`protocols/owner-dashboard.openapi.json`) with the account's
+session: the overview's to-dos, area cards and "Mấy ngày qua", and each section's charts, tables, photos and buttons,
+its form and switch. The server drives it, so a new section, block or button needs no app release. Only the account the
+overview answers 200 sees the row; its photos stay in memory, never on the phone's storage.
 A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, passkey sheet and
 Turnstile check inside the app instead (`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`;
 every emailed code is `123456`; `-seed-passkey` gives an account the stand-in's passkey; a session kept from an earlier
-launch counts as signed in long ago), so no test reaches
+launch counts as signed in long ago; `-fake-owner <account>` serves the owner's dashboard from
+`protocols/owner-dashboard-vectors.json` to that account (`ui-apple` is the stand-in Apple sheet's), `-owner-session-ends`
+ends its session at the first section read and `-owner-storage-down` answers that read 503), so no test reaches
 aquatome.com; `-real-accounts` tries the real server from the simulator.
 Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`PlugsModel.forSimulator`;
 `-seed-tuya-keys` starts with its keys entered), so no test reaches Tuya; `-real-tuya` tries Tuya itself.
@@ -219,7 +227,7 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`), the outlet a light is plugged into (`PowerOutlet`) |
 | `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
 | `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code |
-| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
+| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator). The owner's dashboard (`protocols/owner-dashboard.openapi.json`): `Owner`, its replies read leniently; `OwnerClient`, its requests with the account's session; `OwnerAccess`, who sees it (200 the owner, the Worker's 404 not, 401 signed out) and what is kept; `FakeOwner`, its replies on the stand-in server |
 | `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back, a strip's timers read: `PlugTimer`, once per light's card: `OutletTimers`), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
 
 ```sh

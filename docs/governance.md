@@ -588,9 +588,9 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `OfflineFlowTests`: a shelf of guides kept for reading offline, at once on Wi-Fi, listed in one place on the home and let go of there, asked first on mobile data, stopped with nothing half-kept, also from the shelf left and come back to, stopped by removing the kept pages, no longer listed once the site splits its pages anew, not started with too little room.
 
-- `OwnerFlowTests`: the owner's dashboard (the stand-in server serving `protocols/owner-dashboard-vectors.json`) shown only to the owner's account, its "Mấy ngày qua", a to-do opening its section at the heading it names, a section's chart and table, a reader's photo approved and the section read again, a page hidden by the section's form and brought back, a refusal showing the server's message, a session ending while it's open (sign in again, the row kept), and the server's storage down (its message, then tried again).
+- `OwnerFlowTests`: the owner's dashboard (the stand-in server serving `protocols/owner-dashboard-vectors.json`) shown only to the owner's account, its "Mấy ngày qua", a to-do opening its section at the heading it names, a section's chart and table, a reader's photo approved and the section read again, one removed only once the owner says yes, a page hidden by the section's form and brought back, a refusal showing the server's message, a session ending while it's open (sign in again, the row kept), and the server's storage down (its message, then tried again).
 
-- `PageShotsFlowTests`: a fish, a plant and a guide screenshotted top to bottom for a change's before and after.
+- `PageShotsFlowTests`: a fish, a plant and a guide screenshotted top to bottom for a change's before and after, and the owner's dashboard (its overview, and a section with charts and tables).
 
 - `PhotoViewerFlowTests`: its photo viewer (opened where tapped, the row's thumbnail at once while the full photo comes, only the two photos either side fetched, swiped, tapped bare, zoomed without swiping, pulled down to close).
 
@@ -623,8 +623,9 @@ Rules (as for the site):
 6. **A change to how a screen looks shows it before and after**, so its author critiques their own work against them
    before asking for review, and a reviewer can check what it claims. `PageShotsFlowTests` screenshots the handbook's
    pages top to bottom (a fish, a plant and a guide, in light and dark, and the fish's top in large text), with
-   stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, and the lights tab's card with its
-   outlet's warning (the fake light and the stand-in Tuya cloud). Job `handbook (1)` puts them in its `ios-page-shots`
+   stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the lights tab's card with its
+   outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on the stand-in server (its
+   overview, and a section with charts and tables). Job `handbook (1)` puts them in its `ios-page-shots`
    artifact whenever it runs
    them (`apps/ios/scripts/shots.py`): on every run on main, and on a PR whose change can reach the pages, or one
    labelled `ios-full`. The PR links main's last run (the before) and its own (the after), and names the pair behind each

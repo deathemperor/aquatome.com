@@ -6,7 +6,8 @@ import XCTest
 /// stand-ins (`-fixed-pictures`). And a search's results under the kinds it finds, light and dark, at the default and the
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the
 /// app's icon picker; and the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on
-/// the stand-in Tuya cloud. Each checks only that its screen opened: what it shows, the other flows check.
+/// the stand-in Tuya cloud; and the owner's dashboard on the stand-in server, its overview and a section with charts and
+/// tables. Each checks only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -23,6 +24,8 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheAppIcons() { shootIcons("icons-light") }
   func testTheAppIconsInTheDark() { shootIcons("icons-dark", dark: true) }
   func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
+  func testTheOwnersDashboard() { shootOwner("owner-light", section: nil) }
+  func testAnOwnersSection() { shootOwner("owner-section-light", section: "Nhận diện cá") }
 
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
   func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
@@ -67,6 +70,25 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(row)")
     item.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
+    shootScreens(app, name, dark: dark, large: large, screens: screens)
+  }
+
+  /// The owner's dashboard, signed in as its owner on the stand-in server: the overview, or one of its sections.
+  private func shootOwner(_ name: String, section: String?) {
+    let app = launch(dark: false, size: nil, XCUIApplication.standInOwner)
+    app.openTab("Bể của tôi")
+    app.signInWithStandInApple()
+    app.scrollToAndTap("owner-dashboard")
+    XCTAssertTrue(app.buttons["owner-area"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load")
+    if let section {
+      app.openOwnersSection(section)
+      XCTAssertTrue(app.descendants(matching: .any)["owner-chart"].firstMatch.waitForExistence(timeout: 10), "\(section) didn't load")
+    }
+    shootScreens(app, name, dark: false, large: false, screens: 16)
+  }
+
+  /// Each screen, scrolled most of a screen at a time without a fling, to its end.
+  private func shootScreens(_ app: XCUIApplication, _ name: String, dark: Bool, large: Bool, screens: Int) {
     var seen: [[UInt8]] = []
     var ended = false
     for n in 1...screens {

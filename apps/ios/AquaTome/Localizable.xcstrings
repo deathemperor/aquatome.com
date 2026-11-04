@@ -129,6 +129,22 @@
         }
       }
     },
+    "%@ đến %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ sampai %2$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ ถึง %2$@"
+          }
+        }
+      }
+    },
     "%@, ảnh %lld": {
       "localizations": {
         "id": {
@@ -141,6 +157,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ ภาพที่ %lld"
+          }
+        }
+      }
+    },
+    "%@: mới nhất %@, thấp nhất %@, cao nhất %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@: terbaru %2$@, terendah %3$@, tertinggi %4$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@: ล่าสุด %2$@, ต่ำสุด %3$@, สูงสุด %4$@"
           }
         }
       }
@@ -6769,6 +6801,22 @@
         }
       }
     },
+    "cần chú ý": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "perlu perhatian"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ต้องให้ความสนใจ"
+          }
+        }
+      }
+    },
     "https://aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan": {
       "localizations": {
         "id": {
@@ -6941,6 +6989,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค่อยๆ หรี่ลง"
+          }
+        }
+      }
+    },
+    "tốt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baik"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดี"
           }
         }
       }

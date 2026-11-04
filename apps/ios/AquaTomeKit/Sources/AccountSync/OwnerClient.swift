@@ -5,7 +5,9 @@ public enum OwnerError: Error {
   case offline
   /// 401: no session the server takes (it ended, or the token isn't the app's): the account must sign in again.
   case signedOut
-  /// 404. From the dashboard: this account isn't the owner's. From a section or a button: also no such section or path.
+  /// The Worker's 404 `not_found`. From the dashboard: this account isn't the owner's. From a section or a button: also no
+  /// such section or path. A 404 without that body (a page in front of the Worker, a path not deployed yet) is
+  /// `refused("http_404")`, and says nothing about who is the owner.
   case notFound
   /// Any other refusal, by its code (`http_<status>` without one), with the Vietnamese to show the owner when it has some.
   case refused(String, message: String?)
@@ -107,7 +109,7 @@ public struct OwnerClient: Sendable {
       guard let reply else { throw OwnerError.badReply }
       return reply
     case 401: throw OwnerError.signedOut
-    case 404: throw OwnerError.notFound
+    case 404 where reply?["error"] as? String == "not_found": throw OwnerError.notFound
     default:
       throw OwnerError.refused(reply?["error"] as? String ?? "http_\(res.statusCode)", message: reply?["message"] as? String)
     }

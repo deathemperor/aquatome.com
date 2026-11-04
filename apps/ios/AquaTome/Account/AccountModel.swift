@@ -54,8 +54,11 @@ final class AccountModel {
   @ObservationIgnored private var again = false
   /// The store as the last sync left it: a change seen after that is the reader's, and is sent.
   @ObservationIgnored private var synced: TankStore?
-  /// The owner's dashboard (Owner/): shown only to the owner's account, read with its session.
-  @ObservationIgnored private(set) lazy var owner = OwnerModel(send: api.send, account: self)
+  /// The owner's dashboard (Owner/): shown only to the owner's account, read with its session; a reply saying the
+  /// session is over signs it out.
+  @ObservationIgnored private(set) lazy var owner = OwnerAccess(send: api.send, session: { [unowned self] in
+    user.flatMap { u in token.map { (u.id, $0) } }
+  }, ended: { [unowned self] in sessionEnded() })
 
   init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false) {
     self.tanks = tanks
@@ -71,9 +74,6 @@ final class AccountModel {
     }
     token = keychain.read()
   }
-
-  /// The session's token, for the owner's dashboard, which sends its own requests with it.
-  var bearer: String? { token }
 
   /// A store on the phone this app can't keep whole (newer, unreadable) isn't sent or replaced.
   var canSync: Bool { tanks.problem == nil || tanks.problem == .saveFailed }

@@ -9,6 +9,8 @@ import SwiftUI
 struct OwnerDraw {
   let working: Bool
   let run: @MainActor (Owner.Action) -> Void
+  /// A form's request: whether the server took it.
+  let send: @MainActor (Owner.Action) async -> Bool
   /// Reads the section from another address (a switch's).
   let open: @MainActor (String) -> Void
   /// A site page the app has as its own (pushed), from a link.
@@ -24,7 +26,8 @@ struct OwnerDraw {
       // Where a link opens the section at it.
       return anchor.map { AnyView(t.id($0)) } ?? AnyView(t)
     case .note(let text, let tone):
-      return AnyView(Text(verbatim: text).font(.callout).foregroundStyle(tone == .plain ? Color.secondary : tone.color))
+      return AnyView(Text(verbatim: text).font(.callout).foregroundStyle(tone == .plain ? Color.secondary : tone.color)
+        .accessibilityLabel(Text(verbatim: said(text, tone.said))))
     case .figures(let items):
       return grid(items.map { tile($0, id) })
     case .chart(let c):
@@ -33,10 +36,14 @@ struct OwnerDraw {
       return table(t)
     case .cards(let cards, let empty, let hidden):
       let views = cards.isEmpty ? [AnyView(Text(verbatim: empty ?? "").foregroundStyle(.secondary))] : cards.map(card)
-      guard hidden else { return grid(views) }
+      // Photos two to a row, made as they scroll into view: a section may keep a hundred.
+      guard hidden else {
+        return AnyView(LazyVGrid(columns: [GridItem(.flexible(), spacing: 12, alignment: .top), GridItem(.flexible(), alignment: .top)], alignment: .leading,
+                                 spacing: 12) { ForEach(views.indices, id: \.self) { views[$0] } })
+      }
       return AnyView(VStack(alignment: .leading, spacing: 14) { ForEach(views.indices, id: \.self) { views[$0] } })
     case .form(let f):
-      return AnyView(OwnerForm(form: f, working: working, run: run))
+      return AnyView(OwnerForm(form: f, working: working, send: send))
     case .toggle(let label, let on, let href):
       return AnyView(Toggle(isOn: Binding(get: { on }, set: { _ in open(href) })) { Text(verbatim: label) }
         .disabled(working)
@@ -46,7 +53,7 @@ struct OwnerDraw {
       if let s = l.text { t = t + Text(verbatim: "\n" + s).font(.subheadline).foregroundStyle(.secondary) }
       if let label = l.label, !label.isEmpty { t = t + Text(verbatim: "\n" + label).font(.subheadline.weight(.semibold)).foregroundStyle(Color.accentColor) }
       return go(l.to, AnyView(HStack {
-        t
+        t.accessibilityLabel(Text(verbatim: said(l.title, l.text, l.label, l.tone.said)))
         Spacer(minLength: 0)
         if l.to != nil { Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true) }
       }
@@ -54,6 +61,9 @@ struct OwnerDraw {
       .contentShape(.rect)), id)
     }
   }
+
+  /// What VoiceOver says for a part: its words, the tone too (it can't see the colour).
+  private func said(_ parts: String?...) -> String { parts.compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: ", ") }
 
   /// Two to a row, all made at once (a screen of them, at most).
   private func grid(_ views: [AnyView]) -> AnyView {
@@ -72,18 +82,13 @@ struct OwnerDraw {
     var t = Text(verbatim: f.label).font(.footnote).foregroundStyle(.secondary)
     if f.warn { t = t + Text(verbatim: " ⚠︎").foregroundStyle(Color.warning) }
     t = t + Text(verbatim: "\n" + f.value).font(.title2.bold())
-    var said = t
-    if let d = f.delta {
-      t = t + Text(verbatim: "  " + d.text).font(.caption.weight(.semibold)).foregroundStyle(d.tone.color)
-      said = t + (d.vs.isEmpty ? Text(verbatim: "") : Text(verbatim: ", ") + Text("so với \(d.vs)"))
-    }
-    if let s = f.sub {
-      t = t + Text(verbatim: "\n" + s).font(.caption).foregroundStyle(.secondary)
-      said = said + Text(verbatim: ", " + s)
-    }
+    if let d = f.delta { t = t + Text(verbatim: "  " + d.text).font(.caption.weight(.semibold)).foregroundStyle(d.tone.color) }
+    if let s = f.sub { t = t + Text(verbatim: "\n" + s).font(.caption).foregroundStyle(.secondary) }
+    let d = f.delta
+    let words = said(f.label, f.warn ? Owner.Tone.bad.said : nil, f.value, d?.text, d?.tone.said, d.flatMap { $0.vs.isEmpty ? nil : String(localized: "so với \($0.vs)") }, f.sub)
     let spark = f.spark
     return go(f.to, AnyView(VStack(alignment: .leading, spacing: 6) {
-      t.accessibilityLabel(said)
+      t.accessibilityLabel(Text(verbatim: words))
       if let m = f.meter { ProgressView(value: m).accessibilityHidden(true) }
       if !spark.isEmpty {
         // The last 7 days (the figure's) strong, the 7 before (the chip's comparison) paler, the rest faint.
@@ -133,7 +138,7 @@ struct OwnerDraw {
   private func cell(_ c: Owner.Link) -> AnyView {
     var t = Text(verbatim: c.title).foregroundStyle(c.to != nil ? Color.accentColor : c.tone.color)
     if let s = c.text { t = t + Text(verbatim: "\n" + s).font(.caption).foregroundStyle(.secondary) }
-    return go(c.to, AnyView(t.frame(maxWidth: 240, alignment: .leading)), "")
+    return go(c.to, AnyView(t.accessibilityLabel(Text(verbatim: said(c.title, c.text, c.tone.said))).frame(maxWidth: 240, alignment: .leading)), "")
   }
 
   /// A photo or a hidden page, with its buttons.
@@ -161,7 +166,7 @@ struct OwnerDraw {
     var out = v
     switch to {
     case .section(let key, let anchor)?: out = AnyView(NavigationLink(value: OwnerRoute(key: key, anchor: anchor)) { v }.buttonStyle(.plain))
-    case .url(let u)?: out = AnyView(Link(destination: u) { v }.buttonStyle(.plain))
+    case .url(let s)?: if let u = URL(string: s) { out = AnyView(Link(destination: u) { v }.buttonStyle(.plain)) }
     case .page(let p)?:
       if let i = item(p) { out = AnyView(NavigationLink(value: i) { v }.buttonStyle(.plain)) }
       else if let u = site(p) { out = AnyView(Link(destination: u) { v }.buttonStyle(.plain)) }
@@ -171,22 +176,12 @@ struct OwnerDraw {
   }
 }
 
-extension Owner.Tone {
-  var color: Color {
-    switch self {
-    case .plain: .primary
-    case .muted: .secondary
-    case .good: .green
-    case .bad: .red
-    }
-  }
-}
-
-/// A form's fields, each under its label, and its button: sent as a button's request is, then emptied.
+/// A form's fields, each under its label, and its button: sent as a button's request is; emptied once the server took
+/// it, kept to fix when it didn't.
 struct OwnerForm: View {
   let form: Owner.Form
   let working: Bool
-  let run: @MainActor (Owner.Action) -> Void
+  let send: @MainActor (Owner.Action) async -> Bool
   @State private var values: [String: String] = [:]
   @FocusState private var typing: Bool
 
@@ -204,9 +199,8 @@ struct OwnerForm: View {
       }
       Button {
         guard let action else { return }
-        run(action)
-        values = [:]
         typing = false
+        Task { if await send(action) { values = [:] } }
       } label: { Text(verbatim: form.submit) }
       .buttonStyle(.borderedProminent)
       .disabled(working || action == nil)
@@ -234,7 +228,10 @@ struct OwnerImage: View {
       .clipShape(.rect(cornerRadius: 10))
       .accessibilityHidden(true)
       .task(id: src) {
-        image = await account.owner.image(src)
+        // Another photo in this place: not the last one's picture meanwhile.
+        image = nil
+        missing = false
+        image = await account.owner.picture(src)
         missing = image == nil
       }
   }
@@ -261,7 +258,8 @@ struct OwnerChart: View {
           }
           .font(.caption2).foregroundStyle(.secondary).monospacedDigit()
           Canvas { ctx, size in draw(ctx, size, low, high) }
-            .accessibilityLabel(Text(verbatim: readout))
+            .accessibilityLabel(Text(verbatim: chart.title))
+            .accessibilityValue(Text(verbatim: readout))
         }
         .frame(height: 150)
         HStack {
@@ -270,7 +268,10 @@ struct OwnerChart: View {
           Text(verbatim: chart.days.last.map(Owner.dayLabel) ?? "")
         }
         .font(.caption2).foregroundStyle(.secondary)
-        if chart.series.count > 1 || chart.whole != nil { key.font(.caption) }
+        if chart.series.count > 1 || chart.whole != nil {
+          // The colours' squares aren't words: VoiceOver gets the names.
+          key.font(.caption).accessibilityLabel(Text(verbatim: (chart.series + [chart.whole].compactMap { $0 }).map(\.label).joined(separator: ", ")))
+        }
         if let m = chart.missing, chart.series.contains(where: { $0.values.contains(nil) }) {
           Text(verbatim: "— " + m).font(.caption).foregroundStyle(.secondary)
         }
@@ -316,12 +317,14 @@ struct OwnerChart: View {
     return t.foregroundStyle(.secondary)
   }
 
-  /// For VoiceOver: the last day's numbers ("—": not recorded).
+  /// For VoiceOver: the days it covers, then each series' latest value and its lowest and highest ("—": not recorded).
   private var readout: String {
-    guard let i = chart.days.indices.last else { return "" }
-    let all = chart.series + [chart.whole].compactMap { $0 }
-    return ([Owner.dayLabel(chart.days[i])] + all.map { s in "\(s.label) \((s.values[safe: i] ?? nil).map { Owner.number($0, unit: chart.unit) } ?? "—")" })
-      .joined(separator: " · ")
+    guard let first = chart.days.first, let last = chart.days.last else { return "" }
+    let n = { (v: Double?) in v.map { Owner.number($0, unit: chart.unit) } ?? "—" }
+    return ([String(localized: "\(Owner.dayLabel(first)) đến \(Owner.dayLabel(last))")] + (chart.series + [chart.whole].compactMap { $0 }).map { s in
+      let v = s.values.compactMap { $0 }
+      return String(localized: "\(s.label): mới nhất \(n(s.values.last ?? nil)), thấp nhất \(n(v.min())), cao nhất \(n(v.max()))")
+    }).joined(separator: ". ")
   }
 
   /// The site's series colours (moss, water, rust), as its admin pages draw them in each mode; `bad` the status colour,

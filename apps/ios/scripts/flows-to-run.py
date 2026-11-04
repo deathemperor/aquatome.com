@@ -141,7 +141,8 @@ REACH = {
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name), and serves the
     # owner's dashboard.
     APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'OwnerFlowTests'],
-    APP + 'Owner/': ['OwnerFlowTests'],
+    # Its page shots too: the overview and a section.
+    APP + 'Owner/': ['OwnerFlowTests', 'PageShotsFlowTests'],
     KIT + 'Sources/Handbook/': HANDBOOK_MODEL,
     KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests'],
     # Also the fish filtered to a tank (ShelfFilter reads its size).
@@ -154,7 +155,7 @@ REACH = {
     KIT + 'Sources/light-harness/': NONE,
     KIT + 'Tests/': NONE, 'protocols/': NONE,
     # The owner's dashboard's flows read it: the stand-in server serves its replies.
-    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests'], 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
+    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'PageShotsFlowTests'], 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
     # Run by job `perf`, which runs on every ready pull request.
     'apps/ios/scripts/check-strings.py': NONE,
@@ -331,8 +332,9 @@ def test():
                   ['apps/ios/Gemfile'], [], [APP + 'Handbook/HomeList.swift', APP + 'FishID/FishIDView.swift']):
         assert is_full(paths), paths
     # The owner's dashboard: its flows, and the tanks tab's with them where its row is; its vectors run them too.
-    assert runs([APP + 'Owner/OwnerBlocks.swift']) == {'app': ['OwnerFlowTests'] + SMOKE}
-    assert runs(['protocols/owner-dashboard-vectors.json']) == runs([APP + 'Owner/OwnerModel.swift'])
+    got = runs([APP + 'Owner/OwnerBlocks.swift'])
+    assert got['app'] == ['OwnerFlowTests'] + SMOKE and 'PageShotsFlowTests' in got['handbook_1'], got
+    assert runs(['protocols/owner-dashboard-vectors.json']) == runs([APP + 'Owner/OwnerText.swift'])
     assert 'OwnerFlowTests' in runs([APP + 'Tanks/TanksView.swift'])['app']
     assert 'OwnerFlowTests' not in runs([APP + 'Tanks/TankForm.swift'])['app']
     # A new file in a folder that has a rule takes that folder's flows: the plugs', and the light's outlet's.

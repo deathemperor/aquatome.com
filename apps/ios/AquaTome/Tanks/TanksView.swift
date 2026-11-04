@@ -16,7 +16,7 @@ struct TanksView: View {
       Group {
         // A store left alone (newer, unreadable) is said so in the list; after a failed save there's still a first tank to add.
         // Signed in, the list stays, for the account's buttons; so does the owner's dashboard after its session ended.
-        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil && !account.owner.isOwner {
+        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil && account.owner.isOwner != true {
           // Centred on the screen; it scrolls when the sign-in and its fine print run past the tab bar (a small phone,
           // large text).
           GeometryReader { g in

@@ -17,8 +17,14 @@ func path(_ v: Object) -> String { v["request"]!.object!["path"]!.string! }
 /// A reply as the client reads it, from JSONSerialization.
 func dict(_ j: JSON) -> [String: Any] { try! JSONSerialization.jsonObject(with: j.data()) as! [String: Any] }
 func dict(_ s: String) -> [String: Any] { try! JSONSerialization.jsonObject(with: Data(s.utf8)) as! [String: Any] }
-/// The types keep no Equatable (app size): compared as they print, every field and value.
-func same<T>(_ a: T, _ b: T) -> Bool { String(reflecting: a) == String(reflecting: b) }
+/// The types keep no Equatable (app size), and some are classes, which print as their name only: compared field by field,
+/// down through every value.
+func describe(_ x: Any) -> String {
+  let m = Mirror(reflecting: x)
+  guard !m.children.isEmpty else { return String(reflecting: x) }
+  return "\(m.subjectType)(" + m.children.map { "\($0.label ?? "_"): \(describe($0.value))" }.joined(separator: ", ") + ")"
+}
+func same<T>(_ a: T, _ b: T) -> Bool { describe(a) == describe(b) }
 /// What a call threw, by name ("signedOut", "refused(…)"); nil when it didn't.
 func failure(isolation: isolated (any Actor)? = #isolation, _ call: () async throws -> Void) async -> String? {
   do { try await call(); return nil } catch { return "\(error)" }
@@ -205,7 +211,7 @@ func theLog() throws {
   #expect(log.days.map(\.at) == ["Hôm nay · 04/11 · chưa hết ngày", "Hôm qua · 03/11", "Thứ Hai · 02/11"])
   #expect(same(log.days.flatMap(\.entries), [
     Owner.Link(title: "2 ảnh bạn đọc chờ duyệt", tone: .bad, to: .section("anh-ban-doc", anchor: nil)),
-    Owner.Link(title: "Engine chạy xong", text: "15 bài mới", to: .url(URL(string: "https://example.com/engine/runs")!)),
+    Owner.Link(title: "Engine chạy xong", text: "15 bài mới", to: .url("https://example.com/engine/runs")),
     Owner.Link(title: "Không có gì mới", tone: .muted),
     Owner.Link(title: "Một địa chỉ không an toàn"),
   ]))
@@ -258,6 +264,29 @@ func forms() throws {
   let multiline = Owner.Section(dict(#"{"title":"T","blocks":[{"kind":"form","method":"POST","path":"/api/owner/x","submit":"Gửi","fields":[{"name":"n","label":"L","kind":"textarea"}]}]}"#))
   guard case .form(let f)? = multiline.blocks.first else { Issue.record("no form"); return }
   #expect(f.fields[0].multiline && f.body == nil && f.action([:])?.body == "{}")
+  // A field of a kind the app can't draw: the form is left out, not drawn as text.
+  let later = Owner.Section(dict(#"{"title":"T","blocks":[{"kind":"form","method":"POST","path":"/api/owner/x","submit":"Gửi","fields":[{"name":"n","label":"L","kind":"text"},{"name":"d","label":"Ngày","kind":"date"}]}]}"#))
+  #expect(later.blocks.isEmpty)
+}
+
+@Test("Two values one field apart are not the same, a class's too: the comparison the other tests rely on looks inside")
+func comparerLooksInside() {
+  let section = #"""
+  {"title":"T","blocks":[
+    {"kind":"figures","items":[{"label":"L","value":"1","meter":0.5,"delta":{"text":"+1%","tone":"good","vs":"tuần trước"}}]},
+    {"kind":"chart","id":"c","title":"C","days":["2026-11-01","2026-11-02"],"series":[{"label":"S","values":[1,2]}],"missing":"M"},
+    {"kind":"table","columns":["A"],"rows":[],"empty":"E"},
+    {"kind":"photos","items":[{"id":"p","src":"/_ab/anh/p","caption":"c","meta":["m"],"actions":[]}]},
+    {"kind":"form","method":"POST","path":"/api/owner/x","submit":"Gửi","fields":[{"name":"n","label":"L","kind":"text","placeholder":"P"}]}
+  ]}
+  """#
+  let original = Owner.Section(dict(section))
+  #expect(same(original, Owner.Section(dict(section))))
+  // One field each of Figure, Chip, Chart, Series, Table, Card, Form and Field.
+  for (from, to) in [("0.5", "0.6"), ("tuần trước", "tháng trước"), (#""M""#, #""N""#), ("[1,2]", "[1,3]"), (#""E""#, #""F""#), (#"["m"]"#, #"["n"]"#),
+                     (#""Gửi""#, #""Gửi đi""#), (#""P""#, #""Q""#)] {
+    #expect(!same(original, Owner.Section(dict(section.replacingOccurrences(of: from, with: to)))), "\(from) → \(to)")
+  }
 }
 
 @Test("A photo from \"/\" is fetched from the site with the bearer; a whole address without it; any other host never gets it")
@@ -440,4 +469,140 @@ func standInSessionEnds() async throws {
   #expect(await failure { _ = try await mine.section("doc-gia") } == "signedOut")
   #expect(await failure { _ = try await mine.dashboard() } == "signedOut")
   #expect(fake.sessionCount == 0)
+}
+
+// MARK: Who sees the dashboard (OwnerAccess)
+
+/// The account the app has signed in, as OwnerAccess asks for it, and how many times a reply signed it out.
+@MainActor final class Who {
+  var now: (id: String, token: String)?
+  var ends = 0
+  init(_ id: String) { now = (id, "token-" + id) }
+}
+
+@MainActor func access(_ who: Who, _ store: UserDefaults, _ send: @escaping Send) -> OwnerAccess {
+  OwnerAccess(send: send, defaults: store, session: { who.now }, ended: { who.ends += 1; who.now = nil })
+}
+func store() -> UserDefaults { UserDefaults(suiteName: "owner-tests-\(UUID())")! }
+let dashboardReply = text(ownerReplies.first { $0["name"]?.string == "dashboard" }!["body"]!)
+let notTheOwner = #"{"error":"not_found"}"#
+
+@MainActor @Test("Not the owner only on the Worker's 404: remembered across a launch, forgotten at a sign-out, another account, or any 200")
+func notTheOwnerIsRemembered() async throws {
+  let defaults = store(), who = Who("acct-a")
+  // A 404 that isn't the Worker's (a page in front of it, a path not deployed yet): nothing known, asked again next time.
+  let stub = Stub([(404, "<html>Not Found</html>"), (404, notTheOwner)])
+  let a = access(who, defaults) { try await stub.send($0) }
+  await a.check()
+  #expect(a.isOwner == nil && defaults.string(forKey: OwnerAccess.notOwner) == nil)
+  await a.check()
+  #expect(a.isOwner == false && defaults.string(forKey: OwnerAccess.notOwner) == "acct-a")
+  #expect(await stub.requests.count == 2)
+
+  // A launch later, the same account: not asked again.
+  let quiet = Stub([])
+  let b = access(who, defaults) { try await quiet.send($0) }
+  await b.check()
+  let asked = await quiet.requests
+  #expect(b.isOwner == false && asked.isEmpty)
+  // Signed out: forgotten.
+  who.now = nil
+  await b.check()
+  #expect(b.isOwner == nil && defaults.string(forKey: OwnerAccess.notOwner) == nil)
+
+  // Another account signs in: forgotten, and that one is asked.
+  defaults.set("acct-a", forKey: OwnerAccess.notOwner)
+  who.now = ("acct-b", "token-b")
+  let owners = Stub([(200, dashboardReply)])
+  let c = access(who, defaults) { try await owners.send($0) }
+  await c.check()
+  #expect(c.isOwner == true && defaults.string(forKey: OwnerAccess.notOwner) == nil)
+
+  // Remembered, then any 200 for that account: the owner's after all.
+  defaults.set("acct-a", forKey: OwnerAccess.notOwner)
+  who.now = ("acct-a", "token-a")
+  let later = Stub([(200, dashboardReply)])
+  let d = access(who, defaults) { try await later.send($0) }
+  await d.check()
+  #expect(d.isOwner == false)
+  try await d.overview()
+  #expect(d.isOwner == true && defaults.string(forKey: OwnerAccess.notOwner) == nil)
+}
+
+@MainActor @Test("A section's or a button's 404 asks the overview again, and the overview decides")
+func aSectionsNotFoundAsksAgain() async throws {
+  let who = Who("acct-a")
+  let stub = Stub([(200, dashboardReply), (404, notTheOwner), (200, dashboardReply), (404, notTheOwner), (404, notTheOwner)])
+  let a = access(who, store()) { try await stub.send($0) }
+  await a.check()
+  #expect(a.isOwner == true)
+  // A section gone: the overview still answers, so the owner stays.
+  await #expect(throws: OwnerError.self) { try await a.ask { try await $0.section("da-bo") } }
+  await a.failed(OwnerError.notFound, overview: false)
+  #expect(a.isOwner == true && a.dashboard != nil)
+  // A button's 404, and the overview's too: not the owner any more.
+  await #expect(throws: OwnerError.self) { try await a.ask { try await $0.run(Owner.Action(label: "x", method: "POST", path: "/api/owner/hidden")) } }
+  await a.failed(OwnerError.notFound, overview: false)
+  #expect(a.isOwner == false && a.dashboard == nil)
+  #expect(await stub.requests.map { $0.url!.path } == ["/api/owner/dashboard", "/api/owner/sections/da-bo", "/api/owner/dashboard", "/api/owner/hidden",
+                                                         "/api/owner/dashboard"])
+}
+
+@MainActor @Test("Another account signed in: the owner's overview, photos and answer go, and screens are told (era)")
+func anotherAccountClearsEverything() async throws {
+  let who = Who("acct-a")
+  let stub = Stub([(200, dashboardReply)])
+  let a = access(who, store()) { try await stub.send($0) }
+  await a.check()
+  a.pictures.setObject(NSData(), forKey: "/_ab/anh/p")
+  #expect(a.isOwner == true && a.dashboard != nil)
+  let era = a.era
+  // The other account's check doesn't get through: what it would answer can't hide what was kept.
+  await stub.failing(URLError(.notConnectedToInternet))
+  who.now = ("acct-b", "token-b")
+  await a.check()
+  #expect(a.isOwner == nil && a.dashboard == nil && a.pictures.object(forKey: "/_ab/anh/p") == nil && a.era > era)
+}
+
+@MainActor @Test("A 401 signs the account out once, drops what was read, and keeps the row until an account signs in")
+func aSessionThatEnded() async throws {
+  let who = Who("acct-a")
+  let stub = Stub([(200, dashboardReply), (401, #"{"error":"signed_out"}"#)])
+  let a = access(who, store()) { try await stub.send($0) }
+  await a.check()
+  a.pictures.setObject(NSData(), forKey: "/_ab/anh/p")
+  do { _ = try await a.ask { try await $0.section("doc-gia") } } catch { await a.failed(error, overview: false) }
+  #expect(who.ends == 1 && who.now == nil)
+  #expect(a.sessionEnded && a.isOwner == true && a.dashboard == nil && a.pictures.object(forKey: "/_ab/anh/p") == nil)
+  // The check after the sign-out keeps the row.
+  await a.check()
+  #expect(a.sessionEnded && a.isOwner == true)
+  // Signed in again, the same account: the row as before, not asked again.
+  who.now = ("acct-a", "token-a2")
+  await a.check()
+  let sent = await stub.requests
+  #expect(!a.sessionEnded && a.isOwner == true && sent.count == 2)
+}
+
+@MainActor @Test("An answer that comes after the session changed is dropped: it never makes the owner, and never signs anyone out")
+func aLateAnswerIsDropped() async throws {
+  let who = Who("acct-a")
+  // The reply to the first account's request, arriving once another has signed in.
+  let late = { (status: Int, body: String) -> Send in
+    { r in
+      await MainActor.run { who.now = ("acct-b", "token-b") }
+      return (Data(body.utf8), HTTPURLResponse(url: r.url!, statusCode: status, httpVersion: nil, headerFields: nil)!)
+    }
+  }
+  let a = access(who, store(), late(200, dashboardReply))
+  await a.check()
+  #expect(a.isOwner == nil && a.dashboard == nil)
+  who.now = ("acct-a", "token-a")
+  let b = access(who, store(), late(401, #"{"error":"signed_out"}"#))
+  await b.check()
+  #expect(who.ends == 0 && !b.sessionEnded && who.now?.id == "acct-b")
+  who.now = ("acct-a", "token-a")
+  let c = access(who, store(), late(404, notTheOwner))
+  await c.check()
+  #expect(c.isOwner == nil)
 }

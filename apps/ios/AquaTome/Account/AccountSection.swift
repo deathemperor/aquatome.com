@@ -30,6 +30,7 @@ struct AccountSection: View {
         Button("Đồng bộ ngay") { Task { await account.sync() } }
           .disabled(account.syncing || !account.canSync)
           .accessibilityIdentifier("sync-now")
+          .accessibilityValue(ownerForTests)
         if account.offersPasskey {
           Button("Thêm passkey") { Task { await account.addPasskey() } }
             .disabled(account.working || account.signingInAgain)
@@ -59,6 +60,15 @@ struct AccountSection: View {
         Button("Xóa tài khoản vĩnh viễn", role: .destructive) { Task { await account.deleteAccount() } }
       }
     }
+  }
+
+  /// The UI tests wait here for the owner's dashboard to have asked about this account; nothing in a release build.
+  private var ownerForTests: String {
+    #if DEBUG
+    account.owner.isOwner.map { $0 ? "owner" : "not owner" } ?? ""
+    #else
+    ""
+    #endif
   }
 
   /// The UI tests wait for a sync by this count; nothing for VoiceOver in a release build.
