@@ -225,8 +225,13 @@ const isWaiting = async (db: D1Database, id: string) => Boolean(await db.prepare
 export async function waitingUpload(env: Live, id: string): Promise<R2ObjectBody | null> {
   return (await isWaiting(env.DB, id)) ? env.UPLOADS.get(`pending/${id}`) : null
 }
-/** The owner's "Duyệt": kept 30 days, the queue's `ownerOk` while the photo waits. A photo that no longer waits is left alone. */
-export async function approveByOwner(env: Live, id: string, now: Date): Promise<void> {
-  if (await isWaiting(env.DB, id)) await env.AB.put(okKey(id), now.toISOString(), { expirationTtl: 30 * 86_400 })
+/**
+ * The owner's "Duyệt": kept 30 days, the queue's `ownerOk` while the photo waits. False, and nothing written, for a
+ * photo that no longer waits or is already approved: a second tap doesn't restart its 30 days.
+ */
+export async function approveByOwner(env: Live, id: string, now: Date): Promise<boolean> {
+  if (!(await isWaiting(env.DB, id)) || (await ownerOk(env.AB, id))) return false
+  await env.AB.put(okKey(id), now.toISOString(), { expirationTtl: 30 * 86_400 })
+  return true
 }
 export { live as photosLive }

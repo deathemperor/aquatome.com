@@ -66,6 +66,14 @@ that would have caught it).
     negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
     the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a
     bad zone cookie).
+  - The owner's dashboard as JSON for the iOS app (`apps/site/worker/owner-api.ts`), against
+    `protocols/owner-dashboard.openapi.json`: only the owner's app session, as a bearer, opens it (without a live app
+    session, 401; another account's, 404; nothing changes for either); each section's blocks say what its page shows
+    from the same data, in each of the page's states (headings, figures, tables, charts, photos and hidden pages, word
+    for word), and the overview's to-dos, areas and last days what the overview shows; each button makes the request
+    its page's form makes; a part that throws is 503; the times follow the zone the app sends; and
+    `protocols/owner-dashboard-vectors.json`, the replies the app's fake server serves, are the Worker's own
+    (`UPDATE_VECTORS=1` rewrites them) (`apps/site/worker/test/owner-api.test.ts`).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools), and the owner's dashboard: a chart's day read by a tap, the pointer or the keys, and times following a
