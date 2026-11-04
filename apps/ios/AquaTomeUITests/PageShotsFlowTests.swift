@@ -3,8 +3,9 @@ import XCTest
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
 /// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size. Each checks
-/// only that its screen opened: what it shows, the other flows check.
+/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size, with more
+/// found than listed, and with a kind picked that it finds none of. Each checks only that its screen opened: what it
+/// shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -17,6 +18,15 @@ final class PageShotsFlowTests: XCTestCase {
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+  // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
+  func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
+  func testAKindASearchFindsNoneOf() {
+    shootSearch("search-none-of-kind-light", typing: "do") { app in
+      app.buttons["kind-plant"].tap()
+      app.searchFields.firstMatch.typeText("n\n")
+      return app.buttons["kind-plant"]
+    }
+  }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
 
@@ -57,13 +67,16 @@ final class PageShotsFlowTests: XCTestCase {
   }
 
   /// The results of a search that finds most kinds, under its chips, the keyboard put away: one screen.
-  private func shootSearch(_ name: String, dark: Bool = false, size: String? = nil) {
-    let app = launch(dark: dark, size: size)
+  /// `then`, after typing, gives what shows once the screen is there: a result row unless it says otherwise.
+  private func shootSearch(_ name: String, dark: Bool = false, size: String? = nil, more: [String] = [], typing query: String = "ca\n",
+                           then: ((XCUIApplication) -> XCUIElement)? = nil) {
+    let app = launch(dark: dark, size: size, more)
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
-    field.typeText("ca\n")
-    XCTAssertTrue(app.descendants(matching: .any)["item"].firstMatch.waitForExistence(timeout: 5), "no results")
+    field.typeText(query)
+    let there = then?(app) ?? app.descendants(matching: .any)["item"].firstMatch
+    XCTAssertTrue(there.waitForExistence(timeout: 5), "\(name): not there")
     settle()
     let shot = XCUIScreen.main.screenshot()
     XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
@@ -73,12 +86,12 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
-  private func launch(dark: Bool, size: String?) -> XCUIApplication {
+  private func launch(dark: Bool, size: String?, _ more: [String] = []) -> XCUIApplication {
     let app = XCUIApplication()
     // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
-      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? []) + more
     app.launch()
     return app
   }

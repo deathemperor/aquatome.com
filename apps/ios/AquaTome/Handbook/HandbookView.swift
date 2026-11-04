@@ -24,6 +24,9 @@ struct HandbookView: View {
             // before: the home shows then, which a kind doesn't change). In the list, not a bar over it: a bar's
             // scroll view reaches up under the navigation bar, and iOS 26 drew none of its chips.
             KindChips().padding(.bottom, 4).listRowInsets(EdgeInsets()).textCase(nil)
+          } footer: {
+            // More found than listed (a search lists its best 200): says so, under chips that count them all.
+            if handbook.left > 0 { MoreResults() }
           }
         }
       }
@@ -36,7 +39,11 @@ struct HandbookView: View {
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .overlay {
         if handbook.status == .loading { ProgressView() }
-        else if handbook.results.isEmpty && !handbook.query.isEmpty { ContentUnavailableView.search(text: handbook.query) }
+        else if handbook.results.isEmpty && !handbook.query.isEmpty {
+          // The kind picked has none but others have some: the system's "no results" would contradict their chips.
+          if let kind = handbook.kind, handbook.counts[nil, default: 0] > 0 { NoneOfKind(kind: kind) }
+          else { ContentUnavailableView.search(text: handbook.query) }
+        }
       }
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
@@ -84,8 +91,9 @@ private struct KindChip: View {
     Button(action: pick) {
       HStack(spacing: 6) {
         Text(title)
-        // Faded only off the picked chip: faded on its green, the count falls under 4.5:1.
-        Text(count, format: .number).monospacedDigit().foregroundStyle(picked ? HierarchicalShapeStyle.primary : .secondary)
+        // Faded only off the picked chip (faded on its green, the count falls under 4.5:1), and less than the system's
+        // secondary there, which measured 3.1:1 on the chip's fill.
+        Text(count, format: .number).monospacedDigit().opacity(picked ? 1 : 0.6)
       }
       .font(.subheadline.weight(.medium))
       .lineLimit(1)
@@ -102,6 +110,41 @@ private struct KindChip: View {
     .accessibilityLabel(title)
     .accessibilityValue(Text(count, format: .number))
     .accessibilityAddTraits(picked ? .isSelected : [])
+  }
+}
+
+/// Under results that stop short of what the kind picked finds: how many show, and a page more, as the site's search
+/// page has it. The search ranks every match already, so a page more costs no search.
+private struct MoreResults: View {
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    let shown = handbook.results.count
+    VStack(alignment: .leading, spacing: 4) {
+      Text("Đang hiện \(shown.formatted()) trong \((shown + handbook.left).formatted()) kết quả. Gõ thêm để thu hẹp.")
+        .accessibilityIdentifier("more-note")
+      Button("Xem thêm kết quả") { handbook.showMore() }
+        .font(.subheadline.weight(.medium))
+        .frame(minHeight: 44)
+        .accessibilityIdentifier("more")
+    }
+  }
+}
+
+/// The kind picked finds nothing the search finds elsewhere: which kinds have some, and a way to all of them.
+private struct NoneOfKind: View {
+  let kind: HandbookIndex.Kind
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    let found = HandbookIndex.Kind.allCases.compactMap { k in handbook.counts[k].map { "\(k.title) (\($0.formatted()))" } }
+    ContentUnavailableView {
+      Label("Không có kết quả trong “\(kind.title)”", systemImage: "magnifyingglass")
+    } description: {
+      Text("“\(handbook.query)” có kết quả trong \(found.formatted(.list(type: .and))).")
+    } actions: {
+      Button("Xem tất cả") { handbook.kind = nil }.accessibilityIdentifier("see-all")
+    }
   }
 }
 

@@ -204,6 +204,66 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertEqual(rows(app), 7)
   }
 
+  // "c" counted 2,183 over the 200 rows a search lists, with nothing saying so. Three to a page here (`-search-page`),
+  // as 200 are on the site's index.
+  func testMoreFoundThanListedSaysSoAndListsMore() {
+    let app = launch("-search-page", "3")
+    // The keyboard put away, so the button under the rows can be tapped.
+    search(app, "ca\n")
+    let note = app.staticTexts["more-note"]
+    XCTAssertTrue(note.waitForExistence(timeout: 5), "no word under the rows listed")
+    XCTAssertEqual(note.label, "Đang hiện 3 trong 7 kết quả. Gõ thêm để thu hẹp.")
+    XCTAssertEqual(chip(app, "all").value as? String, "7")
+    app.buttons["more"].tap()
+    XCTAssertEqual(note.label, "Đang hiện 6 trong 7 kết quả. Gõ thêm để thu hẹp.")
+    app.buttons["more"].tap()
+    XCTAssertFalse(note.waitForExistence(timeout: 1), "still short, with all of it listed")
+    XCTAssertEqual(rows(app), 7)
+    // A kind picked lists its best 3 again.
+    chip(app, "fish").tap()
+    XCTAssertFalse(note.waitForExistence(timeout: 1), "short of a kind that has only 3")
+    XCTAssertEqual(rows(app), 3)
+  }
+
+  // With "Cây" picked and "don" typed, it said there were no results, under "Loài cá 2".
+  func testAKindWithNoneSaysWhichKindsHaveSome() {
+    let app = launch()
+    search(app, "do")
+    chip(app, "plant").tap()
+    app.searchFields.firstMatch.typeText("n")
+    XCTAssertTrue(app.staticTexts["Không có kết quả trong “Cây”"].waitForExistence(timeout: 5), "not said which kind has none")
+    XCTAssertTrue(app.staticTexts["“don” có kết quả trong Loài cá (2)."].exists, "not said where the results are")
+    app.buttons["see-all"].tap()
+    XCTAssertTrue(chip(app, "all").isSelected)
+    XCTAssertEqual(rows(app), 2)
+  }
+
+  // At the largest text the rows run past the screen, and counting only the rows drawn found 2 of 7.
+  func testTheCountsMatchTheRowsAtTheLargestText() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    search(app, "ca")
+    XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5))
+    XCTAssertEqual(chip(app, "all").value as? String, "7")
+    let seen = pages(app)
+    XCTAssertEqual(seen.count, 7, "\(seen.sorted())")
+  }
+
+  // A chip's count off the picked chip read 3.1:1 on its fill in the light look, under the 4.5:1 text needs.
+  func testTheKindsCountsReadClearly() { countsReadClearly(launch()) }
+  func testTheKindsCountsReadClearlyInTheDark() { countsReadClearly(launch("-dark")) }
+
+  private func countsReadClearly(_ app: XCUIApplication) {
+    search(app, "ca")
+    XCTAssertTrue(chip(app, "fish").waitForExistence(timeout: 5))
+    let until = Date().addingTimeInterval(1)
+    while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
+    for kind in ["all", "fish"] {
+      let ratio = contrast(app, chip(app, kind).staticTexts.element(boundBy: 1))
+      XCTContext.runActivity(named: String(format: "%@'s count: %.2f:1", kind, ratio)) { _ in }
+      XCTAssertGreaterThanOrEqual(ratio, 4.5, "\(kind)'s count reads \(ratio):1")
+    }
+  }
+
   func testTheGlossaryGoesByLetter() {
     let app = launch()
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
@@ -304,9 +364,75 @@ final class HandbookFlowTests: XCTestCase {
   /// The chip of a kind under the search field (`all` for every kind).
   private func chip(_ app: XCUIApplication, _ kind: String) -> XCUIElement { app.buttons["kind-\(kind)"] }
 
-  /// How many result rows show: the list's cells holding a page, not the chips' header (and once each: a row's button and
-  /// what it draws both carry its "item").
-  private func rows(_ app: XCUIApplication) -> Int { app.collectionViews.firstMatch.cells.containing(.any, identifier: "item").count }
+  /// How many result rows there are: the list's cells holding a page, not the chips' header, told apart by what they read
+  /// (a row's button and what it draws both carry its "item"). The list draws only the cells on screen, so it's dragged
+  /// a part of a screen at a time, above the keyboard, until it stops moving (a row taller than a drag can stay on
+  /// screen through one), and back. Each screen is read in one snapshot: a query per cell took seconds each.
+  private func rows(_ app: XCUIApplication) -> Int { pages(app).count }
+
+  private func pages(_ app: XCUIApplication) -> Set<String> {
+    let list = app.collectionViews.firstMatch
+    var seen = Set<String>()
+    var last: [String] = []
+    var moves = 0
+    while moves < 30 {
+      // Tests run on the main thread, where the snapshot is read.
+      let here: [String] = MainActor.assumeIsolated {
+        var found: [String] = []
+        func walk(_ e: XCUIElementSnapshot, cell: XCUIElementSnapshot?) {
+          if e.identifier == "item", let cell { return found.append("\(e.label)\u{0}\(Int(cell.frame.minY))") }
+          for c in e.children { walk(c, cell: e.elementType == .cell ? e : cell) }
+        }
+        if let snap = try? list.snapshot() { walk(snap, cell: nil) }
+        return found
+      }
+      for row in here { seen.insert(String(row.prefix { $0 != "\u{0}" })) }
+      if here == last { break }
+      last = here
+      drag(list, from: 0.55, to: 0.2)
+      moves += 1
+    }
+    // Back to the top, where the chips are.
+    for _ in 0..<moves { drag(list, from: 0.2, to: 0.55) }
+    return seen
+  }
+
+  private func drag(_ list: XCUIElement, from: CGFloat, to: CGFloat) {
+    list.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: from))
+      .press(forDuration: 0.05, thenDragTo: list.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: to)), withVelocity: .fast,
+             thenHoldForDuration: 0.2)
+  }
+
+  /// How `text` reads on what's behind it, as WCAG measures contrast: its most contrasting pixel against the colour most
+  /// of its box is (a chip's fill, for its count).
+  private func contrast(_ app: XCUIApplication, _ text: XCUIElement) -> Double {
+    guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return 0 }
+    let scale = CGFloat(shot.width) / app.frame.width
+    let f = text.frame
+    guard let box = shot.cropping(to: CGRect(x: f.minX * scale, y: f.minY * scale, width: f.width * scale, height: f.height * scale).integral)
+    else { return 0 }
+    let w = box.width, h = box.height
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    guard let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                              bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else { return 0 }
+    ctx.draw(box, in: CGRect(x: 0, y: 0, width: w, height: h))
+    func luminance(_ i: Int) -> Double {
+      func channel(_ v: UInt8) -> Double { let c = Double(v) / 255; return c <= 0.04045 ? c / 12.92 : pow((c + 0.055) / 1.055, 2.4) }
+      return 0.2126 * channel(px[i]) + 0.7152 * channel(px[i + 1]) + 0.0722 * channel(px[i + 2])
+    }
+    var often: [Int: Int] = [:]
+    for i in stride(from: 0, to: px.count, by: 4) { often[Int(px[i]) << 16 | Int(px[i + 1]) << 8 | Int(px[i + 2]), default: 0] += 1 }
+    guard let fill = often.max(by: { $0.value < $1.value })?.key,
+      let back = stride(from: 0, to: px.count, by: 4).first(where: { Int(px[$0]) << 16 | Int(px[$0 + 1]) << 8 | Int(px[$0 + 2]) == fill })
+    else { return 0 }
+    let b = luminance(back)
+    var best = 1.0
+    for i in stride(from: 0, to: px.count, by: 4) {
+      let l = luminance(i)
+      best = max(best, (max(l, b) + 0.05) / (min(l, b) + 0.05))
+    }
+    return best
+  }
 
   /// A result row, by its name (the row reads its name, then its scientific name or kind).
   private func item(_ app: XCUIApplication, _ name: String) -> XCUIElement {
