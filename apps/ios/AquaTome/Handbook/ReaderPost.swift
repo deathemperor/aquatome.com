@@ -116,9 +116,9 @@ struct ReaderPost: View {
     let action: Action = kind == .comment ? .postComment : .postPhoto
     switch answer {
     case .shown?, .held?, .received?: telemetry.telemetry.record(.action(action, ok: true))
-    case let .refused(code)?: telemetry.telemetry.record(.action(action, ok: false, kind: code))
-    case .signedOut?: telemetry.telemetry.record(.action(action, ok: false, kind: "signedOut"))
-    case nil: telemetry.telemetry.record(.action(action, ok: false, kind: "noAnswer"))
+    case let .refused(code)?: telemetry.telemetry.record(.action(action, refused: code))
+    case .signedOut?: telemetry.telemetry.record(.action(action, ok: false, kind: "signed-out"))
+    case nil: telemetry.telemetry.record(.action(action, ok: false, kind: "no-answer"))
     }
     switch answer {
     case let .shown(c)?:

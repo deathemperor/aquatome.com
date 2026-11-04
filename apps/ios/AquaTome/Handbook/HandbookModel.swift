@@ -2,6 +2,7 @@ import Foundation
 import Handbook
 import Observation
 import Tanks
+import Telemetry
 
 /// The handbook tab: the site's index for this language (kept on the phone for offline use), searched natively.
 @Observable
@@ -42,6 +43,8 @@ final class HandbookModel {
   private var shardCounts: [String: Int] = [:]
   /// Whether the site takes the app's anonymous telemetry, as its index last read says; nil until one is read.
   private(set) var siteTelemetry: Bool?
+  /// The app's anonymous telemetry: each page opened. The app sets it.
+  @ObservationIgnored var telemetry: Telemetry?
   /// Pages saved to read later, and the ones read last (kept in the app's settings, on this phone, one list per
   /// language: the pages are this language's).
   private(set) var reading: ReadingList
@@ -227,8 +230,10 @@ final class HandbookModel {
     return (HandbookIndex.guides(about: ids, in: all.filter { $0.video == nil }), HandbookIndex.guides(about: ids, in: all.filter { $0.video != nil }))
   }
 
+  /// A page opened (drawn by the app or as the web page): on the pages read last, and its view for the telemetry.
   func read(_ item: HandbookIndex.Item) {
     change { $0.read(item.path) }
+    telemetry?.record(.view(path: item.path))
     #if DEBUG
     // UI tests (`-pages-later`): the index says which kinds the app draws only once a page has opened.
     if let ix = pagesLater {

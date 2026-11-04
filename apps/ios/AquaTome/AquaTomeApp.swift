@@ -56,6 +56,7 @@ struct AquaTomeApp: App {
     // Each records where it knows how an action went.
     let telemetry = TelemetryModel(lang: handbook.lang)
     _telemetry = State(initialValue: telemetry)
+    handbook.telemetry = telemetry.telemetry
     tanks.telemetry = telemetry.telemetry
     lights.telemetry = telemetry.telemetry
     plugs.telemetry = telemetry.telemetry

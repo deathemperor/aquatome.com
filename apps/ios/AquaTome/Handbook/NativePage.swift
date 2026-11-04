@@ -1,5 +1,6 @@
 import Handbook
 import SwiftUI
+import Telemetry
 import UIKit
 
 /// A page the app draws itself from the site's blocks (PageDoc, kept on the phone by PageCache): the site's page, read
@@ -20,7 +21,8 @@ struct NativePage: View {
   var path: String?
   @Environment(HandbookModel.self) private var handbook
   @Environment(TelemetryModel.self) private var telemetry
-  /// This page being read: its view, how far down and how long, its shop links (made when it first shows).
+  @Environment(\.scenePhase) private var phase
+  /// This page being read: how far down and how long, its shop links (made when it first shows).
   @State private var reading: PageReading?
   @Environment(\.openScreen) private var openScreen
   @State private var tip: Tip?
@@ -99,9 +101,10 @@ struct NativePage: View {
     .accessibilityIdentifier("native-page")
     .onAppear {
       if reading == nil, let path { reading = PageReading(path: path, telemetry: telemetry.telemetry) }
-      reading?.appeared()
+      reading?.shown(true)
     }
-    .onDisappear { reading?.disappeared() }
+    .onDisappear { reading?.shown(false) }
+    .onChange(of: phase) { reading?.inFront(phase == .active) }
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
       if let h = t.href, let u = URL(string: h) { Button("Xem thêm") { _ = open(u, nil) } }
@@ -905,16 +908,17 @@ private struct InView: ViewModifier {
   }
 }
 
-/// Reports the share of the page seen down to, in quarters, as it scrolls (iOS 18 on; as the site's pages measure it:
-/// the bottom of the screen against the page's height).
+/// Reports the share of the page seen down to as it scrolls past each of the site beacon's marks, 50 and 90% (iOS 18
+/// on; as the site's pages measure it: the bottom of the screen against the page's height).
 private struct SeenDown: ViewModifier {
   let report: (Double) -> Void
   func body(content: Content) -> some View {
     if #available(iOS 18, *) {
       content.onScrollGeometryChange(for: Int.self) { g in
-        g.contentSize.height > 0 ? Int(4 * g.visibleRect.maxY / g.contentSize.height) : 0
-      } action: { _, quarters in
-        report(Double(quarters) / 4)
+        let share = g.contentSize.height > 0 ? 100 * g.visibleRect.maxY / g.contentSize.height : 0
+        return Event.depths.last { share >= Double($0) } ?? 0
+      } action: { _, mark in
+        report(Double(mark) / 100)
       }
     } else {
       content

@@ -1,13 +1,16 @@
 import Foundation
 
-/// What the app sends aquatome.com's Worker, and how: all of it here, so the site's contract changes this file alone.
-/// Built against the draft of `POST /api/v1/app/events` and `POST /api/v1/app/diagnostics` (JSON, no sign-in, no
-/// cookie); the Worker adds the country from Cloudflare, so the app doesn't send it.
+/// What the app sends aquatome.com's Worker, and how (protocols/app-telemetry.openapi.json): `POST /api/v1/app/events`
+/// and `POST /api/v1/app/diagnostics`, JSON, no sign-in, no cookie, no Origin. The Worker adds the country from
+/// Cloudflare, so the app doesn't send it. What each event may hold is `Event.fits`.
 public enum Wire {
   public static let events = "/api/v1/app/events"
   public static let diagnostics = "/api/v1/app/diagnostics"
-  /// The most events one request carries.
+  /// The most events one request carries, and the most bytes.
   public static let batchSize = 100
+  public static let maxBatch = 64 * 1024
+  /// The most bytes a report's request carries, the wrapper included.
+  public static let maxReport = 1024 * 1024
 
   /// The fields a batch, an event and a diagnostics report may carry: the privacy policy's list. A field outside them
   /// fails the field audit (TelemetryTests).
@@ -18,12 +21,19 @@ public enum Wire {
   /// A batch's body: `{app, os, device, lang, session, events}`.
   static func body(_ b: Batch) -> Data { (try? encoder.encode(b)) ?? Data() }
 
-  /// A diagnostics report's body: MetricKit's own JSON as `payload`, with what it is and which app, iOS and phone
-  /// model sent it.
+  /// A diagnostics report's body: `{kind, app, os, device, payload}`, MetricKit's own JSON written in as `payload`,
+  /// unparsed.
   static func body(_ d: Diagnostic) -> Data {
-    let payload = (try? JSONSerialization.jsonObject(with: Data(d.payload.utf8))) ?? [String: Any]()
-    let o: [String: Any] = ["kind": d.kind.rawValue, "app": d.about.app, "os": d.about.os, "device": d.about.device, "payload": payload]
-    return (try? JSONSerialization.data(withJSONObject: o, options: [.sortedKeys])) ?? Data()
+    let head = (try? encoder.encode(Report(kind: d.kind, app: d.about.app, os: d.about.os, device: d.about.device))) ?? Data("{}".utf8)
+    return head.dropLast() + Data(#","payload":"#.utf8) + Data(d.payload.utf8) + Data("}".utf8)
+  }
+
+  /// A report's wrapper, around its payload.
+  private struct Report: Encodable {
+    let kind: Diagnostic.Kind
+    let app: String
+    let os: String
+    let device: String
   }
 
   /// A POST of `body` to `path` on `site`: JSON, no cookie; `userAgent` marks our own copies of the app
@@ -56,11 +66,23 @@ public struct About: Codable, Sendable, Equatable {
   /// The app's language: vi, id or th.
   public let lang: String
 
+  /// Each as the contract takes it, or a stand-in it takes: a batch with one it doesn't would be refused whole.
   public init(app: String, os: String, device: String, lang: String) {
-    self.app = app
-    self.os = os
-    self.device = device
-    self.lang = lang
+    let digits = { (s: Substring, most: Int) in (1...most).contains(s.count) && s.allSatisfy { $0.isASCII && $0.isNumber } }
+    let version = { (s: Substring, most: Int) in
+      let parts = s.split(separator: ".", omittingEmptySubsequences: false)
+      return (1...4).contains(parts.count) && parts.allSatisfy { digits($0, most) }
+    }
+    // "1.0 (114)"
+    let a = app.split(separator: " ", maxSplits: 1)
+    let build = a.count == 2 && a[1].hasPrefix("(") && a[1].hasSuffix(")") ? a[1].dropFirst().dropLast() : ""
+    self.app = a.count == 2 && version(a[0], 4) && digits(build, 9) ? app : "0 (0)"
+    self.os = version(Substring(os), 3) ? os : "0"
+    // "iPhone17,3"
+    let d = device.first.map { $0.isASCII && $0.isLetter } == true && (2...32).contains(device.count)
+      && device.allSatisfy { $0.isASCII && ($0.isLetter || $0.isNumber || $0 == "," || $0 == "_") }
+    self.device = d ? device : "unknown"
+    self.lang = ["vi", "id", "th"].contains(lang) ? lang : "vi"
   }
 }
 

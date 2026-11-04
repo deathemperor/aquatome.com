@@ -43,7 +43,8 @@ actor Outbox {
     self.now = now
   }
 
-  /// Events of one session, in batches of at most `Wire.batchSize`; then the cap.
+  /// Events of one session, in batches of at most `Wire.batchSize` (which keeps a batch under `Wire.maxBatch`: the
+  /// largest event the contract takes is under 650 bytes); then the cap.
   func add(_ events: [Event], about: About, session: String) {
     load()
     for part in stride(from: 0, to: events.count, by: Wire.batchSize) {
@@ -81,31 +82,34 @@ actor Outbox {
     sending = true
     defer { sending = false; save() }
     while let q = state.batches.first {
-      // Taken, or refused as it is (it would be refused again): either way it goes. Found by its number, since the cap
-      // or a switch turned off may have changed the queue meanwhile.
+      // Done with: it goes. Found by its number, since the cap or a switch turned off may have changed the queue meanwhile.
       guard await post(Wire.events, Wire.body(q.batch)) else { return }
       state.batches.removeAll { $0.seq == q.seq }
       changed = true
+      if now() < retryAt { return }
     }
     while let d = state.diagnostics.first {
       guard await post(Wire.diagnostics, Wire.body(d)) else { return }
       if let i = state.diagnostics.firstIndex(of: d) { state.diagnostics.remove(at: i) }
       changed = true
+      if now() < retryAt { return }
     }
   }
 
-  /// Whether it's done with: taken (a 2xx) or refused as it is (a 4xx other than 408 and 429). Otherwise (no network, a
-  /// 5xx, too many requests) it's tried again later, after a wait that doubles with each failure.
+  /// Whether it's done with: taken (a 2xx), refused as it is (any other 4xx), or refused as too many this hour (429:
+  /// dropped, as the contract asks, and nothing more sent until a wait). Otherwise (no network, a 5xx, the Worker not set
+  /// up for it yet) it's tried again after a wait. Each wait doubles with each failure in a row.
   private func post(_ path: String, _ body: Data) async -> Bool {
     let r = Wire.request(path, body: body, site: site, userAgent: userAgent())
-    if let status = (try? await send(r))?.1.statusCode, (200..<500).contains(status), status != 408, status != 429 {
+    let status = (try? await send(r))?.1.statusCode
+    if let status, (200..<500).contains(status), status != 408, status != 429 {
       failures = 0
       retryAt = 0
       return true
     }
     failures += 1
     retryAt = now() + Self.wait(afterFailures: failures)
-    return false
+    return status == 429
   }
 
   /// 30 s after the first failure, doubling, at most 30 minutes.

@@ -1,0 +1,182 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AquaTome app telemetry",
+    "version": "1",
+    "description": "The iOS app's anonymous usage events and the crash and performance reports iOS collects for it (MetricKit), for the owner's dashboard (/_ab/ung-dung/; apps/site/worker/telemetry). The privacy policy's \"Thống kê ẩn danh từ ứng dụng\" says what is sent.\n\nOff until the site says otherwise: the app sends nothing unless its config, `/app/<lang>.json`, has `telemetry: true` (absent or false: off), and nothing while the reader has turned it off (Tài khoản → Gửi thống kê ẩn danh).\n\nBoth paths take JSON from the app alone: no Authorization header, no cookie, no Origin (a request with an Origin is a browser's, and is refused). Nothing is tied to an account, and neither path sets or reads a cookie. The Worker adds the country from the edge (`request.cf.country`); the app never sends it.\n\nOur own copies (debug and TestFlight builds, whose User-Agent carries `AquaTomeCheck/1`, as for wanted names and shop links) are stored marked as tests and left out of the dashboard unless asked for.\n\nLimits per address (an IPv6 /64 counts as one): 600 event batches and 60 reports an hour. Past them, 429 `rate_limited`; drop the batch rather than retry it soon.\n\nThe Worker validates strictly and stores nothing it doesn't expect. A batch whose envelope breaks this contract is refused whole (400). Inside a valid batch, an event that breaks it (an unknown `t`, a field it doesn't list, a value out of range) is dropped alone, and the answer counts it.\n\nEach stored event and report is one point in the Analytics Engine dataset aquatome_app (binding APP_EVENTS; its columns: apps/site/worker/telemetry/shared.ts).\n\nErrors are `{error}`. Retrying helps only after 429 or 503."
+  },
+  "paths": {
+    "/api/v1/app/events": {
+      "post": {
+        "summary": "A batch of anonymous usage events from one session",
+        "description": "Send when there are events to send (the app chooses when: on going to the background, every few minutes, or at 100 events). Each event's `at` is milliseconds since the session started; `session` is a random UUID made anew at each launch.",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Batch" } } }
+        },
+        "responses": {
+          "202": { "description": "Stored: `stored` events, `dropped` events that broke the contract.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Stored" } } } },
+          "400": { "description": "Error: bad_request (not JSON, or an envelope this contract doesn't describe: nothing was stored)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "403": { "description": "Error: cross_origin (the request has an Origin: a browser's)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "405": { "description": "Error: method", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "413": { "description": "Error: too_large (over 64 KiB)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "415": { "description": "Error: json (Content-Type isn't application/json)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "429": { "description": "Error: rate_limited", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "503": { "description": "Error: telemetry_off (the server isn't set up for it)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/api/v1/app/diagnostics": {
+      "post": {
+        "summary": "One MetricKit payload, as iOS gave it",
+        "description": "One request per payload: an MXMetricPayload (about one a day) or an MXDiagnosticPayload (crashes, hangs and other exceptions), its `jsonRepresentation()` unchanged as `payload`, wrapped with what the app knows about itself. The app can write the wrapper around the payload's bytes without parsing them. No session.\n\nThe whole request is stored as received in a private bucket for 30 days (`diagnostics/<yyyy-mm-dd>/<kind>/<id>.json`), and the dashboard keeps a summary of it (crash and hang counts, launch time, peak memory) for 3 months.",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Report" } } }
+        },
+        "responses": {
+          "202": { "description": "Stored, under `id`.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Received" } } } },
+          "400": { "description": "Error: bad_request (not JSON, or a wrapper this contract doesn't describe)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "403": { "description": "Error: cross_origin (the request has an Origin: a browser's)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "405": { "description": "Error: method", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "413": { "description": "Error: too_large (over 1 MiB, the wrapper included)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "415": { "description": "Error: json (Content-Type isn't application/json)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "429": { "description": "Error: rate_limited", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "503": { "description": "Error: telemetry_off (the server isn't set up for it)", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/app/{lang}.json": {
+      "get": {
+        "summary": "The app's config and handbook index: only its telemetry switch is described here",
+        "description": "Built with the site (apps/site/src/pages/app/[lang].json.ts). The site lead turns telemetry on by adding `telemetry: true` there.",
+        "parameters": [{ "name": "lang", "in": "path", "required": true, "schema": { "type": "string", "enum": ["vi", "id", "th"] } }],
+        "responses": {
+          "200": { "description": "The index, with its other fields (apps/site/src/lib/app-index.ts).", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/AppConfig" } } } }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AppConfig": {
+        "type": "object",
+        "properties": {
+          "telemetry": { "type": "boolean", "description": "true: the app may send events and reports (unless the reader turned them off). Absent or false: it sends nothing." }
+        }
+      },
+      "App": { "type": "string", "pattern": "^\\d{1,4}(\\.\\d{1,4}){0,3} \\(\\d{1,9}\\)$", "description": "The app's version and build, as \"1.0 (114)\"." },
+      "Os": { "type": "string", "pattern": "^\\d{1,3}(\\.\\d{1,3}){0,3}$", "description": "The iOS version, as \"26.5\"." },
+      "Device": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9,_]{1,31}$", "description": "The model identifier, as \"iPhone17,3\" (the same for every phone of that model; a simulator's is its own, as \"arm64\")." },
+      "Path": { "type": "string", "maxLength": 200, "pattern": "^/(vi|id|th)/([A-Za-z0-9_-]+/)*$", "description": "A handbook page's path on the site, as \"/vi/ca/ca-neon-vua/\": no host, query or fragment." },
+      "At": { "type": "integer", "minimum": 0, "maximum": 2592000000, "description": "Milliseconds since the session started." },
+      "Batch": {
+        "type": "object",
+        "required": ["app", "os", "device", "lang", "session", "events"],
+        "properties": {
+          "app": { "$ref": "#/components/schemas/App" },
+          "os": { "$ref": "#/components/schemas/Os" },
+          "device": { "$ref": "#/components/schemas/Device" },
+          "lang": { "type": "string", "enum": ["vi", "id", "th"], "description": "The handbook language the app shows." },
+          "session": { "type": "string", "pattern": "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$", "description": "A random UUID made anew at each launch; never kept across launches." },
+          "events": { "type": "array", "minItems": 1, "maxItems": 100, "items": { "$ref": "#/components/schemas/Event" } }
+        },
+        "additionalProperties": false
+      },
+      "Event": {
+        "oneOf": [
+          { "$ref": "#/components/schemas/PageView" },
+          { "$ref": "#/components/schemas/ScreenView" },
+          { "$ref": "#/components/schemas/Scroll" },
+          { "$ref": "#/components/schemas/Time" },
+          { "$ref": "#/components/schemas/ShopTap" },
+          { "$ref": "#/components/schemas/Action" }
+        ]
+      },
+      "PageView": {
+        "type": "object",
+        "required": ["t", "at", "path"],
+        "description": "A handbook page shown, the app's own drawing or the web page.",
+        "properties": { "t": { "const": "view", "type": "string" }, "at": { "$ref": "#/components/schemas/At" }, "path": { "$ref": "#/components/schemas/Path" } },
+        "additionalProperties": false
+      },
+      "ScreenView": {
+        "type": "object",
+        "required": ["t", "at", "screen"],
+        "description": "One of the app's own screens shown: \"lights\", \"tanks\", \"account\", \"fishid\"…",
+        "properties": { "t": { "const": "view", "type": "string" }, "at": { "$ref": "#/components/schemas/At" }, "screen": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,23}$" } },
+        "additionalProperties": false
+      },
+      "Scroll": {
+        "type": "object",
+        "required": ["t", "at", "path", "depth"],
+        "description": "The reader reached `depth` % of a page, once per depth and page shown: 50 and 90, the site beacon's marks (apps/site/src/layouts/Base.astro), measured as it measures them: the bottom of the screen against the page's height. The same marks let the dashboard put the app's reading beside the site's.",
+        "properties": { "t": { "const": "scroll", "type": "string" }, "at": { "$ref": "#/components/schemas/At" }, "path": { "$ref": "#/components/schemas/Path" }, "depth": { "type": "integer", "enum": [50, 90] } },
+        "additionalProperties": false
+      },
+      "Time": {
+        "type": "object",
+        "required": ["t", "at", "path", "seconds"],
+        "description": "The page had been on screen, with the app in front, for `seconds`: sent once at each of the site beacon's marks, 30, 60 and 180 s (apps/site/src/layouts/Base.astro), for the page shown.",
+        "properties": { "t": { "const": "time", "type": "string" }, "at": { "$ref": "#/components/schemas/At" }, "path": { "$ref": "#/components/schemas/Path" }, "seconds": { "type": "integer", "enum": [30, 60, 180] } },
+        "additionalProperties": false
+      },
+      "ShopTap": {
+        "type": "object",
+        "required": ["t", "at", "path", "shop", "href"],
+        "description": "A tap on a shop link on a page: `href` is the site's own link (/go/<shop>/…), never the shop's address, and `shop` is the network it names.",
+        "properties": {
+          "t": { "const": "aff", "type": "string" },
+          "at": { "$ref": "#/components/schemas/At" },
+          "path": { "$ref": "#/components/schemas/Path" },
+          "shop": { "type": "string", "pattern": "^[a-z0-9-]{1,24}$", "description": "shopee, lazada, tiki: the network in `href`." },
+          "href": { "type": "string", "maxLength": 300, "pattern": "^/go/[a-z0-9-]{1,24}/(\\?[A-Za-z0-9%._~&=+,-]*)?$" }
+        },
+        "additionalProperties": false
+      },
+      "Action": {
+        "type": "object",
+        "required": ["t", "at", "name", "ok"],
+        "description": "How one of the app's actions ended. `kind` says why it failed (\"timeout\", \"refused:<code>\") or, for fishid, the verdict or the site's error code.",
+        "properties": {
+          "t": { "const": "action", "type": "string" },
+          "at": { "$ref": "#/components/schemas/At" },
+          "name": { "type": "string", "enum": ["light.connect", "light.write", "plug.switch", "fishid", "tank.add", "post.comment", "post.photo"] },
+          "ok": { "type": "boolean" },
+          "kind": { "type": "string", "pattern": "^[a-z0-9][a-z0-9 _:.-]{0,39}$" }
+        },
+        "additionalProperties": false
+      },
+      "Report": {
+        "type": "object",
+        "required": ["kind", "app", "os", "device", "payload"],
+        "properties": {
+          "kind": { "type": "string", "enum": ["metric", "diagnostic"], "description": "metric: an MXMetricPayload; diagnostic: an MXDiagnosticPayload." },
+          "app": { "$ref": "#/components/schemas/App" },
+          "os": { "$ref": "#/components/schemas/Os" },
+          "device": { "$ref": "#/components/schemas/Device" },
+          "payload": { "type": "object", "description": "The payload's jsonRepresentation(), unchanged. Its field names and units vary between iOS versions; the Worker reads what it recognises and stores the rest as it is." }
+        },
+        "additionalProperties": false
+      },
+      "Stored": {
+        "type": "object",
+        "required": ["stored", "dropped"],
+        "properties": { "stored": { "type": "integer", "minimum": 0 }, "dropped": { "type": "integer", "minimum": 0 } },
+        "additionalProperties": false
+      },
+      "Received": {
+        "type": "object",
+        "required": ["id"],
+        "properties": { "id": { "type": "string", "pattern": "^[0-9a-f-]{36}$" } },
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "required": ["error"],
+        "properties": { "error": { "type": "string" } },
+        "additionalProperties": false
+      }
+    }
+  }
+}

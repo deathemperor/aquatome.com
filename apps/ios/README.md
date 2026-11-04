@@ -116,21 +116,23 @@ they're sent. The App Review contact is entered on the App Store Connect website
 
 ## Anonymous telemetry
 
-What the privacy policy lists, to aquatome.com's own Worker, nothing to anyone else (`AquaTomeKit/Sources/Telemetry`;
-`Wire.swift` holds the requests, built against the draft of `POST /api/v1/app/events` and
-`POST /api/v1/app/diagnostics` until the contract is in `protocols/`):
+What the privacy policy lists, to aquatome.com's own Worker, nothing to anyone else (`AquaTomeKit/Sources/Telemetry`,
+to the contract `protocols/app-telemetry.openapi.json`; `Wire.swift` holds the requests):
 
 - **Events**, in batches of up to 100 with the app's version, iOS's version, the phone's model (`iPhone17,3`), the
-  language and a session id made at launch and never kept for another: `view` (a page the app draws, by its path; a
-  tab, a tank's screen, a shelf), `scroll` (25, 50, 75, 100%) and `time` (30, 60, 180 s) on a page the app draws,
-  `aff` (a shop link tapped there), and `action` (`light.connect`, `light.write`, `plug.switch`, `tank.add`,
-  `post.comment`, `post.photo`, and `fishid` once its screen is in: whether it worked and why not, as a code). The
-  site's pages shown as web pages are counted by their own script, as on the site. No account, name, device address or
-  name, tank name, search text or photo: `TelemetryTests` fails on a field outside the policy's list.
-- **iOS's reports** (MetricKit): a day's measures, and crashes and hangs with their call stacks, as iOS writes them.
+  language and a session id made at launch and never kept for another: `view` (a page opened, drawn by the app or as
+  the web page, by its path; a tab, a tank's screen, a shelf), and on a page the app draws, `scroll` (50 and 90%) and
+  `time` (30, 60 and 180 s on the screen with the app in front), the site beacon's marks, and `aff` (a shop link
+  tapped); and `action` (`light.connect`, `light.write`, `plug.switch`, `tank.add`, `post.comment`, `post.photo`, and
+  `fishid` once its screen is in: whether it worked and why not, as a short code). No account, name, device address or
+  name, tank name, search text or photo. An event the contract wouldn't take isn't sent (`Event.fits`); `ContractTests`
+  checks the app's rules against the contract's schema, and fails when they differ.
+- **iOS's reports** (MetricKit): a day's measures, and crashes and hangs with their call stacks, as iOS writes them,
+  in a `{kind, app, os, device, payload}` wrapper; one over 1 MiB isn't sent.
 - **When**: every 30 s and when the app goes to the background, off the main thread. They wait in a file in the caches
-  folder (500 events at most, the oldest dropped; 8 reports), and after a failure the next try waits 30 s, doubling
-  up to 30 minutes. Our own copies are marked as their page views are (`OwnCopy`).
+  folder (500 events at most, the oldest dropped; 8 reports). After a failure the next try waits 30 s, doubling up to 30
+  minutes; a batch refused as it is, or for too many this hour (429), is dropped. Our own copies are marked as their
+  page views are (`OwnCopy`), and the Worker stores theirs as tests.
 - **Off** until the site's index says `telemetry: true` (`HandbookIndex.telemetry`; absent or false, the app drops what
   waits and records nothing), and whenever the reader turns off "Gửi thống kê ẩn danh" (Tài khoản; for now the end of
   Bể của tôi's list), which drops what waits too.

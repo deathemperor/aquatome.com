@@ -222,7 +222,7 @@ final class LightsModel {
       guard let hit else {
         connecting = nil
         notice = Notice(text: String(localized: "Không thấy \(Self.title(d)) quanh đây. Bật đèn, lại gần rồi thử lại."), isError: true)
-        telemetry?.record(.action(.lightConnect, ok: false, kind: "notNearby"))
+        telemetry?.record(.action(.lightConnect, ok: false, kind: "not-nearby"))
         return
       }
       await connect(hit)
@@ -248,7 +248,7 @@ final class LightsModel {
   func connect(_ l: FoundLight, again: Bool = false) async -> Bool {
     guard let m = Model.of(name: l.name) else {
       notice = Notice(text: String(localized: "Đèn \(l.name) chưa được hỗ trợ."), isError: true)
-      telemetry?.record(.action(.lightConnect, ok: false, kind: "unsupportedModel"))
+      telemetry?.record(.action(.lightConnect, ok: false, kind: "unsupported-model"))
       return true
     }
     stopScan()
@@ -474,7 +474,7 @@ final class LightsModel {
           $0.clockSyncedAt = Timestamp.string(Date())
         }
         self.notice = Notice(text: String(localized: "Đèn chưa báo lại lịch mới. Kiểm tra lại sau ít phút."), isError: true)
-        self.telemetry?.record(.action(.lightWrite, ok: false, kind: "notReadBack"))
+        self.telemetry?.record(.action(.lightWrite, ok: false, kind: "not-read-back"))
         return
       }
       self.telemetry?.record(.action(.lightWrite, ok: true))

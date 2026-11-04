@@ -38,16 +38,18 @@ public final class Telemetry: Sendable {
   /// whether this copy is one of ours is learnt after launch.
   public init(about: About, readerAllows: Bool, file: URL?, site: URL, send: @escaping Send,
               userAgent: @escaping @Sendable () -> String? = { nil },
-              now: @escaping @Sendable () -> Double = { Telemetry.seconds() }) {
+              now: (@Sendable () -> Double)? = nil) {
     self.about = about
     waiting = OSAllocatedUnfairLock(initialState: Waiting(reader: readerAllows))
-    outbox = Outbox(file: file, site: site, send: send, userAgent: userAgent, now: now)
+    outbox = Outbox(file: file, site: site, send: send, userAgent: userAgent, now: now ?? { Telemetry.seconds() })
   }
 
-  /// An event, stamped with the time since the session started. Dropped when a switch is off; the oldest go past the cap.
+  /// An event, stamped with the time since the session started. Dropped when a switch is off, or when the contract
+  /// wouldn't take it (the Worker would drop it); the oldest go past the cap.
   public func record(_ e: Event) {
     var stamped = e
     stamped.at = Int(started.duration(to: .now) / .milliseconds(1))
+    guard stamped.fits else { return }
     let e = stamped
     waiting.withLock { w in
       guard !w.closed else { return }
@@ -56,9 +58,10 @@ public final class Telemetry: Sendable {
     }
   }
 
-  /// A report iOS gave the app (MetricKit's `jsonRepresentation()`).
+  /// A report iOS gave the app (MetricKit's `jsonRepresentation()`). Dropped when it's larger than the Worker takes.
   public func diagnostic(_ kind: Diagnostic.Kind, json: Data) {
     let d = Diagnostic(kind: kind, about: about, payload: String(decoding: json, as: UTF8.self))
+    guard Wire.body(d).count <= Wire.maxReport else { return }
     waiting.withLock { w in
       guard !w.closed else { return }
       w.diagnostics = Array((w.diagnostics + [d]).suffix(Outbox.diagnosticsCap))
