@@ -30,8 +30,8 @@
       "test": "bundle",
       "metric": "AquaTome.app",
       "unit": "kB",
-      "max": 3255,
-      "reason": "raised 2026-11-03 from 2890 kB for reporting and blocking readers' comments and photos, and the contact link (#420), App Store guideline 1.2, part of the native content program: CI read 2956.9 kB on #420 (7e99f894, run 41567746526), over main's 2865.9 kB after posting (#404). Measured on one Mac (Release archive, #404 → #420): 2882.0 → 2988.3 kB, +106.3 kB: code +57.6 kB (the report and block dialogs and sending 14.8, the page's readers' part 8.4, the blocked and reported store 6.7, the menu 5.0, the report's request and answer 3.5, the photo viewer 3.2, the blocked lists 3.9, closures and metadata 9.9), the text segment four 16 kB pages larger and the data segments two, the Indonesian and Thai strings 5.2. Nothing to cut that isn't the feature: Apple requires report and block before review (the app lead's OK at +106.3 kB). Budget: CI's 2956.9 kB ×1.1, rounded to 5 kB"
+      "max": 3640,
+      "reason": "raised 2026-11-04 from 3255 kB for the app's own fish-ID screen (#PR), signed in as the reader's account (protocols/fishid.openapi.json): the owner decided the app gets its own screen, not the web page. Measured on one Mac (Release archive, main 5e1c9853 → this branch): 3112.7 → 3306.6 kB, +193.9 kB: the binary +177.0 kB (the screen's code 108.1 and its SwiftUI type references 22.6: the photo from the library or the camera, the box drawn on it, the guesses with their pages and genus lists, the sign-in, limit, off and offline lines; the kit's request, photo and answers 28.3; the route, the account's fetch and the rest 3.7; metadata and the segments' 16 kB pages the remaining 14.3), the Indonesian and Thai strings 16.3 (45 new, 36 of them the site's own), the camera prompt in three languages 0.6. The screen costs what ReaderPost does a line (108 kB of code for 464 lines, against 37 kB for 156). CI hasn't read it: a draft runs no iOS jobs. Budget: this Mac's 3306.6 kB ×1.1, rounded to 5 kB; this Mac read 31 kB above CI on #420, so lower it to CI's reading ×1.1 once job app has read it"
     }
   ]
 }
