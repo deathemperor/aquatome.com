@@ -48,6 +48,12 @@ that would have caught it).
     `protocols/fishid.openapi.json`: a status the contract lists and a body of its shape, the app counted per account
     and not per address, a bearer with no live app session refused rather than taken the page's way, and no wanted
     names from our own checks (`apps/site/worker/test/fishid.test.ts`).
+  - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
+    `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
+    one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
+    stored from a browser (an Origin), past the size caps or past the address's hour, our own copies stored marked as
+    tests, a report kept as received in the private bucket only, and the dashboard's page with nothing yet and with data
+    (`apps/site/worker/test/telemetry.test.ts`, `admin-app.test.ts`).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools).

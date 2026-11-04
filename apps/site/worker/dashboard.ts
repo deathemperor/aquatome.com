@@ -8,6 +8,7 @@ import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } 
 import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
 import { contentPage } from './admin/content-page'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
+import { appPage, queryApp } from './admin/app'
 import { accountsPage, affiliatePage, fishIdPage, hiddenPage, overviewPage, photosPage, readersPage, wantedPage, type AffSummary } from './admin/pages'
 import { isFailed, loginPage, soft, unset, type AdminPath, type Soft } from './admin/shell'
 
@@ -138,6 +139,11 @@ const PAGES: Record<AdminPath, (env: AdminEnv, url: URL, now: Date) => Promise<s
   '/_ab/doc-gia/': async (env, _url, now) => {
     const a = ae(env)
     return readersPage(now, a ? await soft('readers', queryReaders(a.account, a.token)) : undefined)
+  },
+  '/_ab/ung-dung/': async (env, url, now) => {
+    const a = ae(env)
+    const test = url.searchParams.get('test') === '1'
+    return appPage(now, test, a ? await soft('app', queryApp(a.account, a.token, test)) : unset(NO_AE))
   },
   '/_ab/nhan-dien-ca/': async (env, url, now) => {
     const a = ae(env)
