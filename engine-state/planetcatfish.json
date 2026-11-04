@@ -2444,9 +2444,23 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1245": {
     "entityIds": [],
-    "updatedAt": "2026-11-03T09:38:18.720Z",
+    "updatedAt": "2026-11-04T08:00:41.543Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
+    "error": "no archived copy (HTTP 429)"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1246": {
+    "entityIds": [],
+    "updatedAt": "2026-11-04T08:01:48.370Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 429)"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1247": {
+    "entityIds": [],
+    "updatedAt": "2026-11-04T08:02:54.681Z",
+    "status": "error",
+    "attempts": 1,
     "error": "no archived copy (HTTP 429)"
   }
 }

@@ -1,3 +1,4 @@
+import { deleteAllKept } from '../fishid/kept'
 import { deletePhotoFiles } from '../photos'
 
 /** Accounts and their ways to sign in (credentials). An account holds no name, phone number or email address. */
@@ -47,12 +48,14 @@ export async function methodsOf(db: D1Database, userId: string): Promise<Method[
 }
 
 /**
- * Everything of an account. First the files of the photos it sent from the app (once their rows are gone nothing finds
+ * Everything of an account. First the fish-ID photos it let us keep, and the files of the photos it sent from the app (once their rows are gone nothing finds
  * them again; deleting twice does no harm). Then in one batch: its comments and photos, its saved tanks, pending email
  * codes for its addresses (so a code sent before can't sign in after), sign-ins and sessions, then the account.
  */
 export async function deleteUser(db: D1Database, userId: string, buckets: { UPLOADS?: R2Bucket; MEDIA?: R2Bucket } = {}): Promise<void> {
   const { UPLOADS, MEDIA } = buckets
+  // The fish-ID photos it let us keep (fishid/kept.ts): files only, no rows.
+  if (UPLOADS) await deleteAllKept(UPLOADS, userId)
   if (UPLOADS && MEDIA) {
     const { results } = await db.prepare(`SELECT id FROM photos WHERE account_id = ?`).bind(userId).all<{ id: string }>()
     await Promise.all(results.map(p => deletePhotoFiles({ UPLOADS, MEDIA }, p.id)))

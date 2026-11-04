@@ -77,6 +77,15 @@
         "source": "seriouslyfish",
         "value": 45
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 2,
+          "max": 3
+        }
+      }
     ]
   },
   "sections": [
