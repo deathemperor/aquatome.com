@@ -578,3 +578,34 @@ test('the reader\'s own photos need the app\'s bearer: none, a bad one or a brow
   expect(await mine(off, { bearer: a.token })).toEqual({ error: 'photos_off' })
   expect(await takeBack(off, p.id, { bearer: a.token })).toEqual({ error: 'photos_off' })
 })
+
+test('a photo moved again keeps the page it was sent for, and forgets it when moved back; the queue says which moved', async () => {
+  const t = setup()
+  const a = await t.signIn()
+  const p = await sent(t, { bearer: a.token })
+  expect(await photoQueue(t)).toMatchObject([{ id: p.id, moved_from: null }])
+  for (const kind of ['full', 'thumb']) await asOwner(t, `/_p/admin/file/${p.id}?kind=${kind}`, { method: 'PUT', body: WEBP })
+  const moveTo = async (entity: string) => (await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id: p.id, action: 'approve', reason: 'ok', width: 10, height: 10, entity }]) })).json()
+  const row = async () => (await mine(t, { bearer: a.token })).photos[0]!
+  expect(await moveTo('species:betta-splendens')).toEqual({ applied: 1, ignored: 0 })
+  expect(await moveTo('species:carassius-auratus')).toEqual({ applied: 1, ignored: 0 })
+  expect(await row()).toMatchObject({ e: 'species:carassius-auratus', movedFrom: PAGE })
+  // Reported, it is back in the queue with the page it was sent for.
+  await report(t, { kind: 'photo', id: p.id, reason: 'không phải cá vàng' }, { bearer: (await t.signIn()).token })
+  expect(await photoQueue(t)).toMatchObject([{ id: p.id, moved_from: PAGE }])
+  expect(await moveTo(PAGE)).toEqual({ applied: 1, ignored: 0 })
+  expect(await row()).toMatchObject({ e: PAGE })
+  expect(await row()).not.toHaveProperty('movedFrom')
+})
+
+test('a photo taken back while the nightly pass looks at it: the files the pass publishes are deleted, the approval ignored', async () => {
+  const t = setup()
+  const a = await t.signIn()
+  const p = await sent(t, { bearer: a.token })
+  expect(await takeBack(t, p.id, { bearer: a.token })).toBeUndefined()
+  for (const kind of ['full', 'thumb']) await asOwner(t, `/_p/admin/file/${p.id}?kind=${kind}`, { method: 'PUT', body: WEBP })
+  expect(t.media.size).toBe(2)
+  expect(await (await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id: p.id, action: 'approve', reason: 'ok', width: 10, height: 10 }]) })).json()).toEqual({ applied: 0, ignored: 1 })
+  expect(t.media.size).toBe(0)
+  expect(await t.db.prepare(`SELECT status, why FROM photos WHERE id = ?`).bind(p.id).first()).toEqual({ status: 'removed', why: 'withdrawn' })
+})

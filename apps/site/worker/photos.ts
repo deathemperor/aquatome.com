@@ -197,8 +197,11 @@ export async function deleteRoute(req: Request, url: URL, env: PhotosEnv, now: D
   return page('<h1>Đã gỡ ảnh</h1><p>Ảnh của bạn đã bị xóa.</p>')
 }
 
-/** `reports`: each reader's reason for reporting it ('' when they gave none). */
-export type PhotoQueueItem = { id: string; entity_ref: string; name: string; created_at: string; reports: string[] }
+/**
+ * `reports`: each reader's reason for reporting it ('' when they gave none). `moved_from`: the page it was sent for when
+ * moderation already moved it (null when it didn't): a photo moves once.
+ */
+export type PhotoQueueItem = { id: string; entity_ref: string; name: string; created_at: string; moved_from: string | null; reports: string[] }
 /** `why`: a removal's code (WHY). `entity`: an approval's page when moderation moved it there, a species' page (its sender sees `movedFrom`). */
 export type PhotoDecision = { id: string; action: 'approve' | 'remove'; reason: string; why?: string; entity?: string; width?: number; height?: number }
 
@@ -209,7 +212,7 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
   if (p === '/_p/admin/queue' && req.method === 'GET') {
     // Pending photos, and published ones reported since the pass last looked (reported before that, they're shown again).
     const { results } = await env.DB.prepare(
-      `SELECT id, entity_ref, name, created_at,
+      `SELECT id, entity_ref, name, created_at, moved_from,
          (SELECT json_group_array(COALESCE(reason, '')) FROM reports WHERE kind = 'photo' AND item_id = photos.id) AS reports
        FROM photos
        WHERE status = 'pending' OR (status = 'approved' AND EXISTS (SELECT 1 FROM reports WHERE kind = 'photo' AND item_id = photos.id AND created_at > photos.decided_at))
@@ -242,13 +245,16 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
       if (d.action !== 'approve' || !Number.isInteger(d.width) || !Number.isInteger(d.height)) continue
       if (!(await env.MEDIA.head(fullKey(d.id))) || !(await env.MEDIA.head(thumbKey(d.id)))) continue // files first, then publish
       if (d.entity !== undefined && (typeof d.entity !== 'string' || !MOVE_RE.test(d.entity))) continue
-      // Moved: the page it was sent for is kept (SET reads the row as it was), the photo shows on the right one.
+      // Moved: the page it was sent for is kept, however often it moves (SET reads the row as it was), and forgotten if it
+      // goes back there; the photo shows on the right one.
       const to = d.entity ?? null
       const r = await env.DB.prepare(`UPDATE photos SET status = 'approved', url = ?1, thumb = ?2, width = ?3, height = ?4, reason = ?5, why = NULL, decided_at = ?6,
-          moved_from = CASE WHEN ?7 IS NOT NULL AND ?7 != entity_ref THEN entity_ref ELSE moved_from END, entity_ref = COALESCE(?7, entity_ref)
+          moved_from = CASE WHEN ?7 IS NOT NULL AND ?7 != entity_ref THEN NULLIF(COALESCE(moved_from, entity_ref), ?7) ELSE moved_from END, entity_ref = COALESCE(?7, entity_ref)
         WHERE id = ?8 AND status IN ('pending', 'approved')`)
         .bind(`${MEDIA_BASE}/${fullKey(d.id)}`, `${MEDIA_BASE}/${thumbKey(d.id)}`, d.width, d.height, d.reason.slice(0, 300), now.toISOString(), to, d.id).run()
       if ((r.meta.changes ?? 0) > 0) { applied++; await env.UPLOADS.delete(`pending/${d.id}`) }
+      // Taken back while the pass was looking at it: the files it just published go too.
+      else await env.MEDIA.delete([fullKey(d.id), thumbKey(d.id)])
     }
     return json({ applied, ignored: items.length - applied })
   }
