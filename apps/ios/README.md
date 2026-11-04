@@ -38,7 +38,9 @@ Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`Plu
 And for the handbook: `-fixed-handbook` gives a small fixed index and guide pages (`HandbookIndex.fixture`), and each of
 the site's web pages opens as a stand-in page naming its path (`WebPage.standIn`), so no test reaches aquatome.com. A
 video's player gets a stand-in for YouTube's script that shows what the page asked of it (`PagePlayer.standIn`;
-`-slow-player` makes it late, `-silent-player` never ready), so no test reaches YouTube.
+`-slow-player` makes it late, `-silent-player` never ready, `-impatient` gives up on it after 3 s; a video id starting
+`noEmbed` is refused), so no test reaches YouTube. `-count-players` has the app count its players' web views, made and
+still alive (`PlayerCount`).
 
 ## The app
 

@@ -4481,6 +4481,22 @@
         }
       }
     },
+    "Toàn màn hình: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Layar penuh: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เต็มจอ: %@"
+          }
+        }
+      }
+    },
     "Trong dự án: Devices → Link App Account → Add App Account. Mở Smart Life, bấm Tôi → biểu tượng quét ở góc trên, rồi quét mã QR trên màn hình.": {
       "localizations": {
         "id": {
@@ -5249,6 +5265,22 @@
         }
       }
     },
+    "Video này chỉ xem được trên YouTube.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video ini hanya bisa ditonton di YouTube."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วิดีโอนี้ดูได้บน YouTube เท่านั้น"
+          }
+        }
+      }
+    },
     "Video: %@": {
       "localizations": {
         "id": {
@@ -5501,6 +5533,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูบน YouTube"
+          }
+        }
+      }
+    },
+    "Xem trên YouTube: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tonton di YouTube: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูบน YouTube: %@"
           }
         }
       }
