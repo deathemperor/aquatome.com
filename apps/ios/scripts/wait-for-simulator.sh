@@ -8,6 +8,28 @@ if [ "$RUNNER_ENVIRONMENT" = self-hosted ] && [ -z "$AQ_CI_UDID" ]; then
   exit 1
 fi
 if [ -n "$AQ_CI_UDID" ]; then
+  # A job cancelled on this runner (a newer push to its pull request) can leave its xcodebuild running for a while,
+  # still driving the simulator and writing its result bundle: the next job then stopped at once on "Existing file at
+  # -resultBundlePath" (main's run 41843159724, 2026-11-04). So before erasing, wait up to a minute for any xcodebuild
+  # working in this runner's own checkout to end, then stop it. Another runner's checkout is another folder: never its.
+  if [ "$1" != --done ] && [ -n "$GITHUB_WORKSPACE" ]; then
+    left() {
+      for p in $(pgrep -x xcodebuild); do
+        lsof -a -p "$p" -d cwd -Fn 2>/dev/null | grep -qxF "n$GITHUB_WORKSPACE" && echo "$p"
+      done
+    }
+    i=0
+    while [ -n "$(left)" ] && [ "$i" -lt 60 ]; do sleep 1; i=$((i + 1)); done
+    pids=$(left)
+    # The ids are a list, split on purpose.
+    # shellcheck disable=SC2086
+    if [ -n "$pids" ]; then
+      echo "::warning::stopping xcodebuild left by an earlier job on this runner: $pids"
+      kill $pids 2>/dev/null; sleep 5
+      pids=$(left); [ -n "$pids" ] && kill -9 $pids 2>/dev/null
+    fi
+    rm -rf "$GITHUB_WORKSPACE"/build/*.xcresult
+  fi
   xcrun simctl shutdown "$AQ_CI_UDID" 2>/dev/null
   [ "$1" = --done ] && exit 0
   if xcrun simctl erase "$AQ_CI_UDID"; then
