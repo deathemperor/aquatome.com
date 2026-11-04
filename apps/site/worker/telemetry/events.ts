@@ -14,7 +14,9 @@ const SCREEN = /^[a-z][a-z0-9-]{0,23}$/
 const SHOP = /^[a-z0-9-]{1,24}$/
 const HREF = /^\/go\/([a-z0-9-]{1,24})\/(?:\?[A-Za-z0-9%._~&=+,-]*)?$/
 const KIND = /^[a-z0-9][a-z0-9 _:.-]{0,39}$/
-const DEPTHS = [25, 50, 75, 100]
+// The site beacon's marks (layouts/Base.astro), so the app's reading compares with the site's.
+const DEPTHS = [50, 90]
+const SECONDS = [30, 60, 180]
 const MAX_AT = 30 * 86_400_000
 
 export type AppEvent = { t: 'view' | 'scroll' | 'time' | 'aff' | 'action'; at: number; path: string; screen: string; shop: string; href: string; name: string; kind: string; value: number }
@@ -38,7 +40,7 @@ export function parseEvent(x: unknown): AppEvent | null {
     case 'scroll':
       return only('path', 'depth') && path && DEPTHS.includes(e.depth as number) ? { ...base, t: 'scroll', value: e.depth as number } : null
     case 'time':
-      return only('path', 'seconds') && path && int(e.seconds, 1, 86_400) ? { ...base, t: 'time', value: e.seconds } : null
+      return only('path', 'seconds') && path && SECONDS.includes(e.seconds as number) ? { ...base, t: 'time', value: e.seconds } : null
     case 'aff': {
       const net = typeof e.href === 'string' && e.href.length <= 300 ? HREF.exec(e.href)?.[1] : undefined
       return only('path', 'shop', 'href') && path && typeof e.shop === 'string' && SHOP.test(e.shop) && net === e.shop

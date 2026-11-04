@@ -110,15 +110,15 @@
       "Scroll": {
         "type": "object",
         "required": ["t", "at", "path", "depth"],
-        "description": "The reader reached `depth` % of a page, once per depth and page shown. Measured as the site's beacon measures it (apps/site/src/layouts/Base.astro): the bottom of the screen against the page's height.",
-        "properties": { "t": { "const": "scroll", "type": "string" }, "at": { "$ref": "#/components/schemas/At" }, "path": { "$ref": "#/components/schemas/Path" }, "depth": { "type": "integer", "enum": [25, 50, 75, 100] } },
+        "description": "The reader reached `depth` % of a page, once per depth and page shown: 50 and 90, the site beacon's marks (apps/site/src/layouts/Base.astro), measured as it measures them: the bottom of the screen against the page's height. The same marks let the dashboard put the app's reading beside the site's.",
+        "properties": { "t": { "const": "scroll", "type": "string" }, "at": { "$ref": "#/components/schemas/At" }, "path": { "$ref": "#/components/schemas/Path" }, "depth": { "type": "integer", "enum": [50, 90] } },
         "additionalProperties": false
       },
       "Time": {
         "type": "object",
         "required": ["t", "at", "path", "seconds"],
-        "description": "The page had been on screen, with the app in front, for `seconds`.",
-        "properties": { "t": { "const": "time", "type": "string" }, "at": { "$ref": "#/components/schemas/At" }, "path": { "$ref": "#/components/schemas/Path" }, "seconds": { "type": "integer", "minimum": 1, "maximum": 86400 } },
+        "description": "The page had been on screen, with the app in front, for `seconds`: sent once at each of the site beacon's marks, 30, 60 and 180 s (apps/site/src/layouts/Base.astro), for the page shown.",
+        "properties": { "t": { "const": "time", "type": "string" }, "at": { "$ref": "#/components/schemas/At" }, "path": { "$ref": "#/components/schemas/Path" }, "seconds": { "type": "integer", "enum": [30, 60, 180] } },
         "additionalProperties": false
       },
       "ShopTap": {

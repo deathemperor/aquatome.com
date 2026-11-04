@@ -74,8 +74,9 @@ const BAD_EVENTS = [
   { t: 'view', path: '/vi/' },
   { t: 'view', at: 0, path: '/vi/', user: 'x' }, // a field the contract doesn't list
   { t: 'scroll', at: 0, path: '/vi/', depth: 60 },
+  { t: 'scroll', at: 0, path: '/vi/', depth: 75 }, // the site's marks only: 50 and 90
   { t: 'time', at: 0, path: '/vi/', seconds: 0 },
-  { t: 'time', at: 0, path: '/vi/', seconds: 86_401 },
+  { t: 'time', at: 0, path: '/vi/', seconds: 45 }, // the site's marks only: 30, 60, 180
   OTHER_SHOP,
   { t: 'aff', at: 0, path: '/vi/', shop: 'shopee', href: 'https://shopee.vn/x' },
   { t: 'aff', at: 0, path: '/vi/', shop: 'shopee', href: '/go/shopee/?k=<script>' },
