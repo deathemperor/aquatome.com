@@ -1,11 +1,12 @@
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { GallerySchema, loadAll } from '@aq/schema'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { mirrorPlan } from '../src/mirror-photos'
-import { commonsCandidates, dhash, galleries, rankGallery, screenTagged, type GalleryDeps, type GalleryPhoto, type Vet } from '../src/gallery'
+import { breedNames, commonsCandidates, dhash, galleries, rankGallery, screenTagged, type GalleryDeps, type GalleryPhoto, type Vet } from '../src/gallery'
 
 const meta = (licence: string, artist = '<a href="x">Ann</a>, [[User:Bo K|Bo]]') => ({ LicenseShortName: { value: licence }, Artist: { value: artist } })
 const info = (title: string, licence: string, width = 2000) => ({
@@ -307,4 +308,115 @@ test('commons author: the "(talk)" link beside a user name is not part of the na
   expect(authorText('--<a>Nightflyer</a> (<a>talk</a>) 19:58, 7 October 2019 (UTC)')).toBe('Nightflyer')
   expect(authorText('<a>Neale_Monks</a> (<a>talk</a>) (<a>Uploads</a>)')).toBe('Neale_Monks')
   expect(authorText('Ann (photographer)')).toBe('Ann (photographer)')
+})
+
+/** A breed's page: no scientific name; its research's English and trade names (engine-state/breeds), as makeBreed keeps them. */
+async function breedPage(r: string, id: string, o: { enNames?: string[]; photos?: { url: string; sourceUrl: string }[]; vi?: string } = {}) {
+  await mkdir(join(r, 'content/breeds', id), { recursive: true })
+  const photos = (o.photos ?? []).map(p => ({ width: 1280, height: 960, licence: 'CC BY-SA 4.0', author: 'a', ...p }))
+  await writeFile(join(r, 'content/breeds', id, 'entity.json'), JSON.stringify({ id, kind: 'variety', parents: [], care: {}, photos, sources: [{ url: 'https://a.example/x', title: 'A', kind: 'article', at: '2026-10-01' }, { url: 'https://b.example/y', title: 'B', kind: 'shop', at: '2026-10-01' }], updatedAt: '2026-10-01' }))
+  await writeFile(join(r, 'content/breeds', id, 'vi.json'), JSON.stringify({ slug: `ca-${id}`, name: o.vi ?? id, altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
+  if (o.enNames) {
+    await mkdir(join(r, 'engine-state/breeds'), { recursive: true })
+    await writeFile(join(r, 'engine-state/breeds', `${id}.json`), JSON.stringify({ found: true, enNames: o.enNames }))
+  }
+}
+const molly = (r: string) => breedPage(r, 'balloon-molly', {
+  enNames: ['Balloon molly', 'Balloon belly molly', 'Belly molly', 'Molly'], vi: 'Cá bình tích balloon (Balloon molly)',
+  photos: [{ url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Page.jpg/1280px-Page.jpg', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Page.jpg' }],
+})
+/** Commons for the balloon molly: no category of its own; a search for its first name's words finds two files (one NC), each phrase one more. */
+const breedCommons = (asked: string[]) => async (u: string) => {
+  const q = new URL(u).searchParams
+  if (q.get('list') === 'categorymembers') { asked.push(q.get('cmtitle')!); return { query: { categorymembers: [] } } }
+  if (q.get('list') === 'search') {
+    asked.push(q.get('srsearch')!)
+    const hits: Record<string, string[]> = { 'filetype:bitmap Balloon molly': ['File:BM1.jpg', 'File:BM-nc.jpg', 'File:Page.jpg'], 'filetype:bitmap "Balloon belly molly"': ['File:BM2.jpg'], 'filetype:bitmap "Belly molly"': ['File:BM2.jpg', 'File:BM3.jpg'] }
+    return { query: { search: (hits[q.get('srsearch')!] ?? []).map(title => ({ title })) } }
+  }
+  const all: Record<string, unknown> = Object.fromEntries(['File:BM1.jpg', 'File:BM2.jpg', 'File:BM3.jpg', 'File:Page.jpg'].map(t => [t, info(t, 'CC BY-SA 4.0')]))
+  all['File:BM-nc.jpg'] = info('File:BM-nc.jpg', 'CC BY-NC 2.0')
+  return { query: { pages: Object.fromEntries(q.get('titles')!.split('|').filter(t => all[t]).map((t, i) => [String(i), all[t]])) } }
+}
+/** Openverse: one Flickr photo for any query. */
+const flickr = (queries: string[]): GalleryDeps['openverse'] => async u => {
+  queries.push(new URL(u).searchParams.get('q')!)
+  return { json: { page_count: 1, results: [{ id: 'f1', url: 'https://live.staticflickr.com/65535/4242_abcdef.jpg', creator: 'Ann', license: 'by', license_version: '2.0', foreign_landing_url: 'https://www.flickr.com/photos/ann/4242', width: 2000, height: 1500, source: 'flickr' }] }, remaining: 100 }
+}
+const breedDeps = (asked: string[], queries: string[], over: Partial<GalleryDeps> = {}) => deps({
+  http: async u => { asked.push(u); if (/inaturalist|gbif/.test(u)) throw new Error(`asked a species source: ${u}`); return breedCommons(asked)(u) },
+  openverse: flickr(queries), ...over,
+})
+
+test('breed names: its English and trade names, a bracketed note dropped; not a single word but its own, nor another breed\'s name; its id\'s words without research', async () => {
+  const r = await mkdtemp(join(tmpdir(), 'aq-breed-names-'))
+  await molly(r)
+  await breedPage(r, 'koi', { enNames: ['Koi', 'Nishikigoi', 'Japanese koi', 'Butterfly koi (long-finned form)', 'japanese KOI'] })
+  await breedPage(r, 'butterfly-koi', { enNames: ['Butterfly koi', 'Longfin koi'] })
+  await breedPage(r, 'mickey-mouse-platy')
+  expect(await breedNames(r, 'balloon-molly')).toEqual(['Balloon molly', 'Balloon belly molly', 'Belly molly'])
+  expect(await breedNames(r, 'koi')).toEqual(['Koi', 'Japanese koi'])
+  expect(await breedNames(r, 'mickey-mouse-platy')).toEqual(['mickey mouse platy'])
+})
+
+test('a breed: candidates from its English and trade names on Commons and Openverse, never iNaturalist or GBIF; screened as that line alone; its gallery and state written', async () => {
+  const r = await mkdtemp(join(tmpdir(), 'aq-breed-gallery-'))
+  await mkdir(join(r, 'engine-state'), { recursive: true })
+  await molly(r)
+  const asked: string[] = []
+  const queries: string[] = []
+  const prompts: string[] = []
+  const report = await galleries(r, breedDeps(asked, queries, { look: async (f, p) => { prompts.push(p); return keepAll(f, p, 4) } }), { sheets: 5 })
+  expect(asked.filter(u => /inaturalist|gbif/.test(u))).toEqual([])
+  // Its first name's words (no category of its own), then each name as a phrase; never "Molly" alone, never the Vietnamese name.
+  expect(asked.filter(a => a.startsWith('filetype:'))).toEqual(['filetype:bitmap Balloon molly', 'filetype:bitmap "Balloon belly molly"', 'filetype:bitmap "Belly molly"'])
+  expect(asked.filter(a => a.startsWith('Category:'))).toEqual(['Category:Balloon molly', 'Category:Balloon belly molly', 'Category:Belly molly'])
+  expect(queries).toEqual(['"Balloon molly"'])
+  // Screened as that line, by its English name and its Vietnamese one without the English in brackets.
+  expect(prompts[0]).toContain('Numbered photos that may show Balloon molly (Cá bình tích balloon), for a photo gallery')
+  expect(prompts[0]).toContain('Balloon molly is a man-made line or hybrid: keep only photos of it, not the plain species or other varieties')
+  // Open licences only, the page's own photo left out; the Commons finds, then Flickr.
+  const g = GallerySchema.parse(await read(r, 'content/gallery/balloon-molly.json'))
+  expect(g.photos.map(p => p.sourceUrl).sort()).toEqual(['https://commons.wikimedia.org/wiki/File:BM1.jpg', 'https://commons.wikimedia.org/wiki/File:BM2.jpg', 'https://commons.wikimedia.org/wiki/File:BM3.jpg', 'https://www.flickr.com/photos/ann/4242'])
+  expect(report.added).toEqual({ 'Wikimedia Commons': 3, 'Openverse (Flickr)': 1 })
+  // A popular breed's target (POPULAR_BREEDS: a shop's 60); every source read short of it, so it rests a month.
+  expect(report.done).toEqual(['balloon-molly: 4/60 (+4)'])
+  const st = await read(r, 'engine-state/gallery/balloon-molly.json')
+  expect(st).toMatchObject({ commons: '2026-10-30', openverse: { next: null }, queue: [], exhausted: '2026-10-30' })
+  expect(st.inat).toBeUndefined()
+  expect(st.gbif).toBeUndefined()
+  const review = await readFile(join(r, 'docs/review/galleries.md'), 'utf8')
+  expect(review).toContain('| Tier | Target | Species | Plants | Breeds | At target | Below |')
+  expect(review).toContain('| shop | 60 | 0 | 0 | 1 | 0 | 1 |')
+  expect(review).toContain('| breeds/balloon-molly | shop | 4 | 60 |')
+})
+
+test('a breed: a photo another breed\'s page shows is not a candidate; its old gallery\'s Commons finds are screened, not counted as judged', async () => {
+  const r = await mkdtemp(join(tmpdir(), 'aq-breed-gallery-'))
+  await mkdir(join(r, 'engine-state'), { recursive: true })
+  await molly(r)
+  // The platy's page shows BM2 already; the molly has a gallery the breed step made (no state yet).
+  await breedPage(r, 'mickey-mouse-platy', { photos: [{ url: 'https://media.aquatome.com/commons/bm2.webp', sourceUrl: 'https://commons.wikimedia.org/wiki/File:BM2.jpg' }] })
+  await mkdir(join(r, 'content/gallery'), { recursive: true })
+  const old = { url: 'https://media.aquatome.com/commons/old.webp', width: 1200, height: 800, licence: 'CC BY-SA 4.0', author: 'a', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Old.jpg' }
+  await writeFile(join(r, 'content/gallery/balloon-molly.json'), JSON.stringify({ id: 'balloon-molly', photos: [old], seen: 5, updatedAt: '2026-10-01' }))
+  const screened: string[] = []
+  await galleries(r, breedDeps([], [], { get: async u => { screened.push(u); return new Uint8Array(await picture(u)) } }), { sheets: 5, only: 'balloon-molly' })
+  expect(screened.some(u => u.includes('BM2.jpg'))).toBe(false)
+  const g = await read(r, 'content/gallery/balloon-molly.json')
+  expect(urls(g)).toEqual(expect.arrayContaining([old.sourceUrl, 'https://commons.wikimedia.org/wiki/File:BM1.jpg', 'https://commons.wikimedia.org/wiki/File:BM3.jpg']))
+  expect(urls(g)).not.toContain('https://commons.wikimedia.org/wiki/File:BM2.jpg')
+})
+
+test('a breed\'s gallery as the step writes it is the one the site loads for that breed', async () => {
+  const r = await mkdtemp(join(tmpdir(), 'aq-breed-gallery-'))
+  await cp(new URL('../../../apps/site/test/fixture-content', import.meta.url), join(r, 'content'), { recursive: true })
+  await mkdir(join(r, 'engine-state'), { recursive: true })
+  await molly(r)
+  await galleries(r, breedDeps([], []), { sheets: 5, only: 'balloon-molly' })
+  const written = await read(r, 'content/gallery/balloon-molly.json')
+  const c = await loadAll({ root: join(r, 'content'), lang: 'vi', publicBuild: false })
+  expect(c.breeds.map(b => b.id)).toContain('balloon-molly')
+  expect(c.galleries['balloon-molly']!.map(p => p.sourceUrl)).toEqual(urls(written))
+  expect(c.galleries['balloon-molly']).toHaveLength(4)
 })

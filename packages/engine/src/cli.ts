@@ -450,7 +450,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const x of [...r.done, ...r.failed]) console.log(x)
 } else if (cmd === 'gallery') {
   // Galleries topped up to their tier's target, most popular first (iNaturalist, Commons, GBIF, Openverse; open licences,
-  // screened): pnpm engine gallery [--sheets N (model calls, default 40)] [--only <species or plant id>] [--shard i/n (n runs at once)]
+  // screened): pnpm engine gallery [--sheets N (model calls, default 40)] [--only <species, plant or breed id>] [--shard i/n (n runs at once)]
   const env = (k: string) => (process.env[k] ? Number(process.env[k]) : undefined)
   const budget = Object.fromEntries((['inat', 'gbif', 'openverse'] as const).flatMap(k => (env(`GALLERY_${k.toUpperCase()}`) === undefined ? [] : [[k, env(`GALLERY_${k.toUpperCase()}`)!]])))
   const r = await galleries(ROOT, { ...galleryDeps(), openverse: await openverseApi() }, { sheets: values.sheets ? Number(values.sheets) : 40, ...(values.only ? { only: values.only } : {}), ...(values.shard ? { shard: values.shard.split('/').map(Number) as [number, number] } : {}), budget })
