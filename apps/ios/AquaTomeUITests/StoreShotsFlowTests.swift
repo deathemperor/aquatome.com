@@ -253,7 +253,7 @@ final class StoreShotsFlowTests: XCTestCase {
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
     let png = Self.rgbPNG(XCUIScreen.main.screenshot().image)
     // A PNG's colour type is its 26th byte: 2 is RGB; 6, RGB with alpha.
-    XCTAssertEqual(png.count > 25 ? png[25] : 0, 2, "the picture has an alpha channel, which the App Store refuses")
+    XCTAssertEqual(png.count > 25 ? png[25] : 0, 2, "the picture isn't written as an RGB PNG with no alpha channel, which the App Store requires")
     let shot = XCTAttachment(data: png, uniformTypeIdentifier: "public.png")
     shot.name = String(format: "store-%@-%02d-%@", l.code, n, name)
     shot.lifetime = .keepAlways
