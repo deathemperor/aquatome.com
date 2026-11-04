@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { careNeeds, NEED_ORDER, NEED_RULES, type Need, type NeedKey, type NeedLevel, type Range, type Temperament, type TempWhy, type WaterWhy } from '@aq/schema'
+import { careNeeds, NEED_ORDER, NEED_RULES, rangeSpan, type Need, type NeedKey, type NeedLevel, type Range, type Temperament, type TempWhy, type WaterWhy } from '@aq/schema'
 import { FACTS, type AppIndex, type Facts } from '../src/lib/app-index'
 import { guideLink, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../src/lib/card-guide'
 import { fmt } from '../src/lib/format'
@@ -115,7 +115,7 @@ test('careNeeds gives each case\'s needs, in NEED_ORDER, from the entry as the a
 
 test('the cases sit on every threshold of NEED_RULES and just past it, and give every level, why code and temperament', () => {
   const R = NEED_RULES
-  const span = (r?: Range) => (r ? r.max - r.min : undefined)
+  const span = (r?: Range) => (r ? rangeSpan(r) : undefined)
   const entries = kept.cases.map(c => c.entry)
   // [the threshold, the figure it reads, its value, the step past it to the next level]
   const edges: [string, (e: Facts) => number | undefined, number, number][] = [
