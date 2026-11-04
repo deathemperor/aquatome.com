@@ -29,6 +29,16 @@ struct PageView: View {
   }()
 
   var body: some View {
+    // A taxon or origin page: the app's shelf of the fish it lists (HandbookShelves.page(at:)); the web page if the
+    // index no longer has it.
+    if item.kind == .taxon || item.kind == .origin, let shelf = handbook.shelves.page(at: item.path) {
+      TaxaShelf(page: shelf)
+    } else {
+      page
+    }
+  }
+
+  @ViewBuilder private var page: some View {
     let native = handbook.drawsItself(item) && !onWeb
     Group {
       if native, let pieces {

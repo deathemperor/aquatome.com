@@ -301,6 +301,53 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "not on the tanks tab")
   }
 
+  /// A taxon named in the text (a family, linked to the site's taxon page) opens the app's shelf of it, as the site's
+  /// page lists it: its line, the rank below with how many fish each has, then its fish. A genus opens its own shelf.
+  /// Not the web page.
+  func testATaxonNamedInTheTextOpensTheAppsShelfOfIt() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    let family = app.links["Characidae"].firstMatch
+    reveal(app, family)
+    family.tap()
+    XCTAssertTrue(app.navigationBars["Characidae"].waitForExistence(timeout: 5), "not the family's shelf")
+    XCTAssertEqual(app.staticTexts["shelf-intro"].label, "Họ Characidae: 1 loài.")
+    XCTAssertTrue(shelfFish(app, "Cá neon").exists, "the family's fish not on it")
+    XCTAssertFalse(app.descendants(matching: .any)["page"].exists, "the taxon's web page")
+    let genus = app.buttons.matching(identifier: "shelf-link").firstMatch
+    XCTAssertTrue(genus.label.hasPrefix("Paracheirodon") && genus.label.contains("1 loài"), "not the genus with its count: \(genus.label)")
+    genus.tap()
+    XCTAssertTrue(app.navigationBars["Paracheirodon"].waitForExistence(timeout: 5), "the genus didn't open")
+    XCTAssertEqual(app.staticTexts["shelf-intro"].label, "Chi Paracheirodon: 1 loài.")
+    XCTAssertFalse(app.buttons.matching(identifier: "shelf-link").firstMatch.exists, "a rank below a genus")
+  }
+
+  /// Where a fish is from (the country under its name) and a place named in the text (a continent) open the app's
+  /// shelves of the fish from there: a country's rivers named, a continent's countries a tap away. Not the web page.
+  func testAPlaceOpensTheAppsShelfOfTheFishFromThere() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    let country = app.links["Peru"].firstMatch
+    XCTAssertTrue(country.waitForExistence(timeout: 5), "no country under the name")
+    country.tap()
+    XCTAssertTrue(app.navigationBars["Peru"].waitForExistence(timeout: 5), "not the country's shelf")
+    XCTAssertEqual(app.staticTexts["shelf-intro"].label, "2 loài có nguồn gốc từ Peru.")
+    XCTAssertEqual(app.staticTexts["shelf-words"].label, "Nanay · Ucayali", "not its rivers")
+    XCTAssertTrue(shelfFish(app, "Cá neon").exists && shelfFish(app, "Cá đĩa").exists, "the fish from there not on it")
+    XCTAssertFalse(app.descendants(matching: .any)["page"].exists, "the place's web page")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    let continent = app.links["Nam Mỹ"].firstMatch
+    reveal(app, continent)
+    continent.tap()
+    XCTAssertTrue(app.navigationBars["Nam Mỹ"].waitForExistence(timeout: 5), "not the continent's shelf")
+    XCTAssertEqual(app.staticTexts["shelf-intro"].label, "2 loài có nguồn gốc từ Nam Mỹ.")
+    let countries = app.buttons.matching(identifier: "shelf-link")
+    XCTAssertEqual(countries.allElementsBoundByIndex.map { $0.label }, ["Brazil", "Colombia", "Peru"], "not its countries, in the site's order")
+    countries.element(boundBy: 1).tap()
+    XCTAssertTrue(app.navigationBars["Colombia"].waitForExistence(timeout: 5), "the country didn't open")
+    XCTAssertFalse(app.staticTexts["shelf-words"].exists, "rivers for a country the site names none in")
+  }
+
   /// The tank-mates tool, set to this fish by the page's link: its web page in the app, fish and all (not the tool left
   /// empty, nor the browser).
   func testTheTankMatesToolOpensSetToTheFish() {
@@ -398,6 +445,11 @@ final class NativePageFlowTests: XCTestCase {
     let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch
     XCTAssertTrue(row.waitForExistence(timeout: 5), "no \(name)")
     row.tap()
+  }
+
+  /// A fish on a shelf, by its name.
+  private func shelfFish(_ app: XCUIApplication, _ name: String) -> XCUIElement {
+    app.descendants(matching: .any)["shelf-pages"].buttons.matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch
   }
 
   private func card(_ app: XCUIApplication, _ name: String) -> XCUIElement {
