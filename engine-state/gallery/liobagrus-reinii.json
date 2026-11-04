@@ -1,0 +1,38 @@
+{
+ "queue": [],
+ "judged": [
+  "inat:241116882",
+  "inat:314322398",
+  "inat:422913835",
+  "inat:422915609",
+  "inat:558792525",
+  "inat:721852534",
+  "File:Liobagrus reini Sagamihara4.jpg",
+  "File:Liobagrus reinii Enosui1.jpg",
+  "File:Liobagrus reinii Enosui2.jpg",
+  "File:Liobagrus reinii from iNaturalist photo 422913835.jpg",
+  "File:Liobagrus reinii558792525.jpg"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/scotcat/69705c8400bca4bf.webp": "1466c65106423615",
+  "https://media.aquatome.com/scotcat/7d5c3b1d13865c76.webp": "46f68907f3641b17",
+  "https://media.aquatome.com/commons/4c307f923428e83d.webp": "e0e2f07cc9f0fad9",
+  "https://media.aquatome.com/commons/6d02aea96675c028.webp": "f0fbf8b490d4edb2",
+  "https://media.aquatome.com/commons/b327ff00ab8c34bd.webp": "3d876ef9dbc3334c",
+  "https://media.aquatome.com/commons/15c75103a5320e32.webp": "f0b2b8cce1e9f878",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/422913835/large.jpeg": "9697d7dcc8fcff8f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/558792525/large.jpg": "f6f5e5a068cb9727",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Liobagrus_reini_Sagamihara4.jpg/1280px-Liobagrus_reini_Sagamihara4.jpg": "7a687e7e68707fee",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Liobagrus_reinii_Enosui1.jpg/1280px-Liobagrus_reinii_Enosui1.jpg": "004f1ce466209b59",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Liobagrus_reinii_Enosui2.jpg/1280px-Liobagrus_reinii_Enosui2.jpg": "1681e7b89ec6a7b3"
+ },
+ "inat": {
+  "taxon": 472679,
+  "pass": "done",
+  "after": {
+   "research": 393798063,
+   "agree": 404693474
+  }
+ },
+ "commons": "2026-11-04"
+}

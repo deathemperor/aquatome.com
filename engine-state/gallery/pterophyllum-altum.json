@@ -20,7 +20,11 @@
   "File:Wiki submission 002.jpg",
   "File:Angelfish 2.jpg",
   "File:Pterophyllum scalare 03.jpg",
-  "File:Angelfish, Popok Bayi dan Koral di Malalayang Bay, Manado.jpg"
+  "File:Angelfish, Popok Bayi dan Koral di Malalayang Bay, Manado.jpg",
+  "inat:85056963",
+  "inat:137501252",
+  "inat:145416143",
+  "inat:200387822"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/74ad92ff7bac6980.webp": "f3b38c8e15064604",
@@ -32,7 +36,18 @@
   "https://media.aquatome.com/commons/c7d7ad5c91eb483f.webp": "6b3731f3676757df",
   "https://media.aquatome.com/commons/257f4e70c374d82e.webp": "e179d8ec78381c7c",
   "https://media.aquatome.com/commons/df845c128407e904.webp": "f4b8e6b4b3bbedcd",
-  "https://media.aquatome.com/commons/4a03034a5cf34a09.webp": "152c32a677368b8b"
+  "https://media.aquatome.com/commons/4a03034a5cf34a09.webp": "152c32a677368b8b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/85056963/large.jpg": "26361a06165a782c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/137501252/large.jpeg": "329372e8d3d94858",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/145416143/large.jpeg": "0a36a9c3f7380a32"
  },
- "commons": "2026-11-03"
+ "commons": "2026-11-03",
+ "inat": {
+  "taxon": 418114,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 262747394
+  }
+ }
 }
