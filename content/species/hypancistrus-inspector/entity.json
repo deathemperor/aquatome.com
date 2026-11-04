@@ -9,13 +9,37 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-negro"
+    "rio-negro",
+    "venezuela",
+    "rio-casiquiare"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 16
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -27,16 +51,76 @@
       "html": "<p>The Snowball Pleco (Hypancistrus inspector, L102) can reach a maximum length of about 18-20 cm and is one of the largest species in Hypancistrus.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_inspector.htm",
+      "html": "<ul><li>Common name: Snowball Peckoltia</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_inspector.htm",
+      "html": "<p>Shown in Aqualog and Datz as L201, which is a different species with a more squat body shape. It can be confused with H. lunaorum and H. contradens, but is known for its unusually large eyes, forked tail and the black edging to the dorsal and caudal fins. Similar species: H. debilittera (L129), H. furunculus (L199) and H. lunaorum (L339). It is now known as the true Hypancistrus inspector.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l102_hypancistrus_inspector_en/",
       "html": "<p>The species comes from the Rio Negro in Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_inspector.htm",
+      "html": "<p>South America: Amazonas, Rio Casiquiare, upper Rio Negro drainage, Venezuela. Type locality: Río Casiquiare, Río Negro, Río Amazonas drainage, about 10 river kilometres above the Río Negro, below Solano, 1°58'N, 67°05'W, Dpto. Casiquiare, Amazonas, Venezuela.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_inspector.htm",
+      "html": "<p>In its natural habitat specimens were collected from rocks and rapids.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_inspector.htm",
+      "html": "<p>They prefer water that is on the warm side (27-30°C), soft and slightly acidic.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_inspector.htm",
+      "html": "<p>Omnivores. Juveniles are keen on vegetable foods whereas adults are less so. Frozen foods such as brine shrimp, mosquito larvae and mussels as well as tablet foods are taken. Stomach contents in the wild included algae and detritus, as well as seeds (dicotyledonous and monocotyledonous).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_inspector.htm",
+      "html": "<p>No problem with keeping in groups, but keep only one Hypancistrus species to a tank as there have been reports of hybridisation.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_inspector.htm",
+      "html": "<p>Males have a broader and longer head and odontodes on the posterior part of the body, behind the gill covers and on the pectoral fin spines. The latter two are much shorter in females.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l102_hypancistrus_inspector_en/",
       "html": "<p>Most L102 have large white spots on the body and dorsal fin, hence the popular name snowball pleco. However, very finely spotted individuals, dashed ones and almost black ones also occur. L102 can always be easily recognised by the dark seam of the dorsal fin, which makes the species unmistakable. All these colour morphs therefore belong to H. inspector. This is another good example that plecos can be very variable in individual pattern, and that one should not rely too much on pattern for determining the species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_inspector.htm",
+      "html": "<p>Description: dorsal spines 2; dorsal soft rays 7; anal spines 1; anal soft rays 3-4. The ventral surface from head to anus is largely naked in adults, with a few small platelets on the skin ventral to the pectoral girdle. Lateral plates are unkeeled, although the ventral row may have moderately elongate odontodes forming one or more keel-like rows on the caudal peduncle. Cheek plates have 20-40 hypertrophied odontodes in adults. Caudal fin emarginate. Lateral line plates 22-24.</p><p>Colouration: body brown to black, with large white to yellow spots on the sides. The colour and size of the spotted pattern can vary. Similar to the Panaque/Panaqolus and Peckoltia genera, but with fewer and larger teeth in the lower and upper jaw.</p><p>Etymology: the specific name inspector is Latin for \"observer\", referring to the large eyes.</p><p>IUCN Red List: despite the little information available, the species has a wide range and no apparent threats, so it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_inspector.htm",
+      "html": "<ul><li>Armbruster, J.W., N.K. Lujan and D.C. Taphorn, 2007 Four new Hypancistrus (Siluriformes: Loricariidae) from Amazonas, Veneuzela. Copeia (1):62-79.</li><li>Armbruster, J.W., 2002. Hypancistrus inspector: a new species of suckermouth armored catfish (Loricariidae: Ancistrinae). Copeia 2002(1):86-92.</li><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (06/2012).</li><li>Salvador, G.N. 2023. Hypancistrus inspector. The IUCN Red List of Threatened Species 2023.</li><li>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</li></ul>"
     }
   ],
   "photos": [

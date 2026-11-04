@@ -2,17 +2,20 @@
   "slug": "ca-l204",
   "name": "Cá L204",
   "altNames": [
-    "L204"
+    "L204",
+    "Cá da báo L204",
+    "L204a"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Panaqolus albivermis, L204. Nhìn những con đã trưởng thành, cỡ 11-14 cm, mới thấy hoa văn ở cá họ Loricariidae khác nhau giữa từng con nhiều đến mức nào. Có con chỉ có đốm nhỏ, có con mang kiểu vằn đặc trưng của loài, và giữa hai kiểu này có đủ mọi dạng trung gian.</p>",
-    "notes:glaser": "<p>Ảnh chụp từ bốn con đã trưởng thành, cỡ 11-14 cm. Cá này được bán dưới tên L204 ở đủ mọi cỡ, có cả cá trưởng thành.</p>"
+    "quickFacts:glaser": "<p>Panaqolus albivermis mới có tên khoa học chính thức và hợp lệ từ năm 2013. Đây là một trong những loài L-number đẹp nhất. Cá dài tối đa khoảng 10 cm.</p>",
+    "distribution:glaser": "<p>Loài này có nguồn gốc từ Peru.</p>",
+    "notes:glaser": "<p>Từng có một số cá thể mang đốm được nhập về dưới tên L204a. Dù vậy, chúng không phải là một loài khác. Ngay cả khi cho sinh sản từ bố mẹ có sọc bắt ngoài tự nhiên, thỉnh thoảng trong bầy con vẫn có vài con mang đốm.</p>"
   },
   "quality": {
-    "score": 0.93,
+    "score": 0.85,
     "indexable": false,
     "bySource": {
-      "glaser": 0.93
+      "glaser": 0.85
     },
     "reason": "thin"
   }

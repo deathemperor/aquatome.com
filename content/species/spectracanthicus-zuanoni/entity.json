@@ -1,0 +1,68 @@
+{
+  "id": "spectracanthicus-zuanoni",
+  "scientificName": "Spectracanthicus zuanoni",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Spectracanthicus",
+  "group": "catfish",
+  "lNumber": "L354",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-iriri"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/finally_available_again_after_many_years_l354_en/",
+      "html": "<p>Spectracanthicus zuanoni was scientifically described in early 2014. It attains a maximum length of about 15 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/finally_available_again_after_many_years_l354_en/",
+      "html": "<p>L354 comes from the Rio Iriri, an affluent of the Rio Xingu.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/finally_available_again_after_many_years_l354_en/",
+      "html": "<p>The scientists declare this species conspecific with L20 from the Rio Xingu. However, L20 has much smaller spots. In the same scientific paper the genus Oligancistrus was declared a synonym of Spectracanthicus.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá chuột",
+        "viên chìm cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}
