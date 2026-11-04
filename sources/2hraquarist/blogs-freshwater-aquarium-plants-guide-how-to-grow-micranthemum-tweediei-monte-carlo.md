@@ -1,7 +1,7 @@
 ---
 url: https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-micranthemum-tweediei-monte-carlo
 title: How to grow micranthemum tweediei "Monte carlo" - The 2Hr Aquarist
-fetchedAt: 2026-11-03T14:21:40.528Z
+fetchedAt: 2026-11-04T00:27:05.637Z
 hash: af0bb197afffbcba9fc1e91b35900f251ed290a23e8491689bdef583d9287b68
 ---
 
