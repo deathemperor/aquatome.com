@@ -29,6 +29,8 @@ struct ReaderPost: View {
   @State private var said: String?
   /// Where the reader takes back the photo just sent: shown this once, as the site shows it.
   @State private var deleteLink: URL?
+  /// The photo just sent, kept in view under the line saying it was received: a reader looks for it there.
+  @State private var sent: UIImage?
 
   var body: some View {
     NavigationStack {
@@ -47,9 +49,14 @@ struct ReaderPost: View {
               .disabled(sending)
               .accessibilityIdentifier("post-send")
             if let said { Text(said).accessibilityIdentifier("post-said") }
+            if let sent {
+              Image(uiImage: sent).resizable().scaledToFit().frame(maxHeight: 220)
+                .accessibilityLabel(Text("Ảnh")).accessibilityIdentifier("post-sent")
+            }
             if let deleteLink {
               Text("Muốn gỡ ảnh sau này? Lưu link riêng này (chỉ hiện một lần):")
-              Link(deleteLink.absoluteString, destination: deleteLink).accessibilityIdentifier("post-delete")
+              // To keep, not to follow: a tap opened the page that removes the photo, and a reader took it for their photo.
+              Text(verbatim: deleteLink.absoluteString).textSelection(.enabled).accessibilityIdentifier("post-delete")
               ShareLink(item: deleteLink)
             }
           } footer: {
@@ -102,6 +109,7 @@ struct ReaderPost: View {
     }
     sending = true
     deleteLink = nil
+    sent = nil
     said = String(localized: "Đang gửi…")
     let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0"
     let answer = await account.post { token in
@@ -119,6 +127,7 @@ struct ReaderPost: View {
       text = ""
       said = String(localized: "Bình luận đang chờ duyệt.")
     case let .received(delete)?:
+      sent = preview
       picked = nil; jpeg = nil; preview = nil; consent = false
       deleteLink = delete.flatMap { URL(string: $0, relativeTo: handbook.site)?.absoluteURL }
       said = String(localized: "Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày.")
