@@ -10,16 +10,25 @@
   "File:Xenomystus nigri (cropped).jpg",
   "File:Aquarium de la Porte Dorée - Poisson 78.jpg",
   "File:Xenomystus nigri 53146309.jpg",
-  "File:African Knife Fish.jpg"
+  "File:African Knife Fish.jpg",
+  "inat:53146309"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/07838b55174f3827.webp": "f1811b3e3f7eb1c5",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Xenomystus_nigri_1.JPG/1280px-Xenomystus_nigri_1.JPG": "a5a71c1e3b994149",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Xenomystus_nigri_2.JPG/1280px-Xenomystus_nigri_2.JPG": "604707031387a9b0",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Fishyy.jpg/1280px-Fishyy.jpg": "0f054d9ba4c686a7",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_78.jpg/1280px-Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_78.jpg": "3036b36242420305",
-  "https://upload.wikimedia.org/wikipedia/commons/3/3e/Xenomystus_nigri_53146309.jpg": "81c1e28c1c30c0a0",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/African_Knife_Fish.jpg/1280px-African_Knife_Fish.jpg": "839391d3a7c24bcd"
+  "https://media.aquatome.com/commons/f994a48481d1a32f.webp": "8f2f4d92e4c68683",
+  "https://media.aquatome.com/commons/4070688370479769.webp": "81c1e2cc3838c0a0",
+  "https://media.aquatome.com/commons/f2103c4501d844ec.webp": "a5a71c1e3b994149",
+  "https://media.aquatome.com/commons/06cd27e1a3623d60.webp": "839383d3a2c24bc9",
+  "https://media.aquatome.com/commons/fb81c0cd83876cf0.webp": "b436336742420705",
+  "https://media.aquatome.com/commons/b3a01edda5e66604.webp": "680707031785a9a0"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 115057,
+  "pass": "done",
+  "after": {
+   "research": 33814680,
+   "agree": 270547176
+  }
+ }
 }

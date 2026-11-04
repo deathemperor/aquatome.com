@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-04). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 124 | 77 | 24 | 29 | 196 |
 | popular | 40 | 21 | 0 | 0 | 2 | 19 |
-| covered | 30 | 307 | 3 | 9 | 11 | 308 |
-| rest | 20 | 919 | 94 | 0 | 1 | 1012 |
+| covered | 30 | 314 | 3 | 9 | 12 | 314 |
+| rest | 20 | 931 | 94 | 0 | 2 | 1023 |
 
-## Short of target: every source read (30)
+## Short of target: every source read (37)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -32,7 +32,14 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/gymnocorymbus-ternetzi | shop | 48 | 60 |
 | plants/blyxa-japonica | shop | 2 | 60 |
 | breeds/oranda-goldfish | shop | 29 | 60 |
+| plants/pogostemon-helferi | shop | 4 | 60 |
+| breeds/ranchu-goldfish | shop | 3 | 60 |
+| species/hemigrammus-bleheri | shop | 9 | 60 |
+| plants/hygrophila-polysperma | shop | 42 | 60 |
+| breeds/ryukin-goldfish | shop | 3 | 60 |
+| breeds/lionhead-goldfish | shop | 0 | 60 |
 | species/hyphessobrycon-herbertaxelrodi | shop | 11 | 60 |
+| breeds/pearlscale-goldfish | shop | 4 | 60 |
 | species/phenacogrammus-interruptus | shop | 16 | 60 |
 | species/corydoras-similis | shop | 0 | 60 |
 | species/corydoras-caudimaculatus | shop | 0 | 60 |
