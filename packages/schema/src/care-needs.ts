@@ -55,6 +55,8 @@ export const NEED_ORDER: NeedKey[] = ['space', 'water', 'temperature', 'temperam
 const RANK: Record<NeedLevel, number> = { easy: 0, mid: 1, hard: 2 }
 const worst = (...ls: NeedLevel[]): NeedLevel => ls.reduce((a, b) => (RANK[b] > RANK[a] ? b : a), 'easy')
 const steps = (v: number, r: { easy: number; mid: number }): NeedLevel => (v <= r.easy ? 'easy' : v <= r.mid ? 'mid' : 'hard')
+/** A range's span to the hundredth, as written: 8.2 − 7.2 is 1, not the 0.9999999999999991 a double gives. */
+export const rangeSpan = (r: Range) => Math.round((r.max - r.min) * 100) / 100
 
 function phLevel(p: Range): [NeedLevel, WaterWhy[]] {
   const R = NEED_RULES.ph
@@ -62,7 +64,7 @@ function phLevel(p: Range): [NeedLevel, WaterWhy[]] {
   const why: WaterWhy[] = []
   if (p.max < R.neutral) why.push('acid')
   if (p.min >= R.alkaline) why.push('alkaline')
-  if (p.max - p.min < R.narrow) why.push('narrowPh')
+  if (rangeSpan(p) < R.narrow) why.push('narrowPh')
   return [why.length ? 'mid' : 'easy', why]
 }
 
@@ -71,7 +73,7 @@ function ghLevel(g: Range): [NeedLevel, WaterWhy[]] {
   if (g.max <= R.soft) return ['hard', ['soft']]
   const why: WaterWhy[] = []
   if (g.min >= R.veryHard) why.push('veryHard')
-  if (g.max - g.min < R.narrow) why.push('narrowGh')
+  if (rangeSpan(g) < R.narrow) why.push('narrowGh')
   return [why.length ? 'mid' : 'easy', why]
 }
 
@@ -82,7 +84,7 @@ function tempLevel(t: Range): [NeedLevel, TempWhy[]] {
   const why: TempWhy[] = []
   if (t.min >= R.warm) why.push('warm')
   if (t.max <= R.cool) why.push('cool')
-  if (t.max - t.min < R.narrow) why.push('narrow')
+  if (rangeSpan(t) < R.narrow) why.push('narrow')
   return [why.length ? 'mid' : 'easy', why]
 }
 

@@ -3,7 +3,7 @@
   "info": {
     "title": "AquaTome fish ID",
     "version": "1",
-    "description": "A reader's photo → Claude's guesses → the handbook's pages for them, for the site's tool (/vi/cong-cu/nhan-dien-ca/) and the iOS app (apps/site/worker/fishid/api.ts).\n\nGET says whether the tool is on, and its daily limits.\n\nPOST comes one of two ways:\n- The site's page: same-origin (`Origin`), with a Turnstile `token`. Counted per address: `perIp` a day.\n- The app: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), checked as GET /api/v1/session checks it. No Origin and no Turnstile. Counted per account (`perAccount` a day, kept 24 h), not per address: many phones share one carrier address. A bearer that is present but missing, expired or signed out is `401 {error: \"session\"}`, even with a `token` too: it never falls back to the page's way.\n\nEvery identification also counts against the site's day (`busy` past it).\n\nThe photo: JPEG, PNG or WebP, at most 1.5 MB. Send it shrunk (the page sends a JPEG of 1024 px at most) and without its metadata (location, camera). It goes to Claude, Anthropic's model, and is not stored; the log keeps counts, timings, the model, tokens and keys by hash only.\n\nOur own copies (a user agent with `AquaTomeCheck/1`) are answered as anyone's, but their guesses add no wanted names.\n\nErrors are `{error}`; the app shows each with the site's own words for it (apps/site/src/scripts/fish-id.ts)."
+    "description": "A reader's photo → Claude's guesses → the handbook's pages for them, for the site's tool (/vi/cong-cu/nhan-dien-ca/) and the iOS app (apps/site/worker/fishid/api.ts).\n\nGET says whether the tool is on, and its daily limits.\n\nPOST comes one of two ways:\n- The site's page: same-origin (`Origin`), with a Turnstile `token`. Counted per address: `perIp` a day.\n- The app: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), checked as GET /api/v1/session checks it. No Origin and no Turnstile. Counted per account (`perAccount` a day, kept 24 h), not per address: many phones share one carrier address. A bearer that is present but missing, expired or signed out is `401 {error: \"session\"}`, even with a `token` too: it never falls back to the page's way.\n\nEvery identification also counts against the site's day (`busy` past it).\n\nThe photo: JPEG, PNG or WebP, at most 1.5 MB. Send it shrunk (the page sends a JPEG of 1024 px at most) and without its metadata (location, camera). It goes to Claude, Anthropic's model, and is not logged; the log keeps counts, timings, the model, tokens and keys by hash only.\n\nKeeping (the reader's opt-in, one per photo, unticked by default: \"Cho phép AquaTome giữ ảnh này để cải thiện nhận diện\"): with `keep`, a JPEG is kept with its result for 6 months, private (only the site's admins see it), its own metadata cut, then deleted. It is kept under the account that sent it (the app's bearer, or the page's signed-in cookie), or, sent signed out, tied to no one. The answer then says `kept`: false when it wasn't (not a JPEG, or storage unavailable); the identification stands either way. Every answered photo is kept when asked, `other` and refusals (`unclear`) too: they are results to check. Without `keep`, nothing is stored and the answer has no `kept`. The account lists and deletes its kept photos with GET /api/v1/fish-id/photos and DELETE /api/v1/fish-id/photos/{id} (protocols/accounts.openapi.json); they go when the account is deleted.\n\nOur own copies (a user agent with `AquaTomeCheck/1`) are answered as anyone's, but their guesses add no wanted names.\n\nErrors are `{error}`; the app shows each with the site's own words for it (apps/site/src/scripts/fish-id.ts)."
   },
   "paths": {
     "/api/fish-id": {
@@ -62,7 +62,8 @@
           "file": { "type": "string", "contentMediaType": "image/jpeg", "description": "The photo, shrunk and without its metadata." },
           "lang": { "type": "string", "enum": ["vi", "id", "th"], "description": "The reader's language: the reasons' language and the pages' addresses. vi when missing." },
           "from": { "type": "string", "enum": ["page", "tank"], "description": "Where the reader started: the tool's page, or a tank's \"identify by photo\" button. For the owner's log only." },
-          "token": { "type": "string", "description": "Turnstile's token: the page's way only." }
+          "token": { "type": "string", "description": "Turnstile's token: the page's way only." },
+          "keep": { "type": "string", "enum": ["1", "true", "on"], "description": "The reader ticked the opt-in for this photo: keep it with its result for 6 months. Leave it out otherwise." }
         }
       },
       "NewPhotoJson": {
@@ -72,7 +73,8 @@
           "image": { "type": "string", "description": "The photo as base64 (a data: URL's prefix is ignored)." },
           "lang": { "type": "string", "enum": ["vi", "id", "th"] },
           "from": { "type": "string", "enum": ["page", "tank"] },
-          "token": { "type": "string" }
+          "token": { "type": "string" },
+          "keep": { "type": "boolean", "description": "true: the reader ticked the opt-in for this photo. Leave it out otherwise." }
         }
       },
       "Identification": {
@@ -82,7 +84,8 @@
           "verdict": { "type": "string", "enum": ["fish", "plant", "other", "unclear"], "description": "other: no fish or plant in the photo (no results); unclear: one is there but can't be told." },
           "results": { "type": "array", "items": { "$ref": "#/components/schemas/Result" }, "description": "Most likely first." },
           "model": { "type": "string" },
-          "refused": { "type": "boolean", "const": true, "description": "Claude declined to answer: verdict unclear, no results." }
+          "refused": { "type": "boolean", "const": true, "description": "Claude declined to answer: verdict unclear, no results." },
+          "kept": { "type": "boolean", "description": "Only when `keep` was sent: whether the photo was kept." }
         },
         "additionalProperties": false
       },

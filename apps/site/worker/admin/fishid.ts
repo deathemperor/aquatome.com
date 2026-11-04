@@ -3,7 +3,7 @@ import { aeSql, num } from './ae'
 
 /**
  * The fish-ID log (worker/fishid/log.ts, dataset aquatome_fishid) for the dashboard: three bounded queries, run side by
- * side. Days are UTC, as the key table's KV day and the affiliate clicks are. Counts and sums go through
+ * side. Days are the viewer's (admin/time.ts): the query buckets them in that zone. Counts and sums go through
  * _sample_interval. Aliases stay clear of SQL words (day, key, from), and IF() branches are one type.
  */
 type N = number | string
@@ -11,8 +11,8 @@ export type DayRow = { d: string; outcome: string; n: N; called: N; tin: N; tout
 export type UnmatchedRow = { sci: string; n: N; conf: N }
 export type CallRow = { t: string; outcome: string; model: string; kh: string; verdict: string; sci: string; page: string; lang: string; src: string; cc: string; tin: N; tout: N; usd: N; ms: N; attempts: N; conf: N; guesses: N }
 
-/** Per day and outcome, 62 days back: enough for 30 days and the 30 before, and this month against the last. */
-export const DAYS_SQL = `SELECT formatDateTime(timestamp, '%Y-%m-%d', 'Etc/UTC') AS d, blob1 AS outcome, SUM(_sample_interval) AS n,
+/** Per day (in `tz`, a zone validZone passed) and outcome, 62 days back: enough for 30 days and the 30 before, and this month against the last. */
+export const DAYS_SQL = (tz: string) => `SELECT formatDateTime(timestamp, '%Y-%m-%d', '${tz}') AS d, blob1 AS outcome, SUM(_sample_interval) AS n,
   SUM(IF(double5 > 0, _sample_interval, 0)) AS called, SUM(_sample_interval * double1) AS tin, SUM(_sample_interval * double2) AS tout,
   SUM(_sample_interval * double3) AS usd, SUM(IF(double7 > 0, _sample_interval, 0)) AS guessed, SUM(IF(blob6 != '', _sample_interval, 0)) AS linked
 FROM aquatome_fishid WHERE timestamp > NOW() - INTERVAL '62' DAY GROUP BY d, outcome FORMAT JSON`
@@ -58,7 +58,8 @@ function add(t: Totals, r: DayRow): void {
 }
 const iso = (ms: number) => new Date(ms).toISOString().slice(0, 10)
 
-export function summariseFishId(rows: DayRow[], unmatched: UnmatchedRow[], recent: CallRow[], now: Date): FishIdStats {
+/** `rows`' days are `tz`'s, and so are today, the weeks and the month. */
+export function summariseFishId(rows: DayRow[], unmatched: UnmatchedRow[], recent: CallRow[], now: Date, tz = 'UTC'): FishIdStats {
   const byDay = new Map<string, Totals>()
   for (const r of rows) {
     const t = byDay.get(r.d) ?? zero()
@@ -70,15 +71,13 @@ export function summariseFishId(rows: DayRow[], unmatched: UnmatchedRow[], recen
     if (t) for (const k of Object.keys(acc) as (keyof Totals)[]) acc[k] += t[k]
     return acc
   }, zero())
-  const back = lastDays(now, 61) // back[60] is today
+  const back = lastDays(now, 61, tz) // back[60] is today
   const span = (from: number, to: number) => back.slice(60 - from, 61 - to) // days ago, `from` ≥ `to`
-  const y = now.getUTCFullYear()
-  const m = now.getUTCMonth()
-  const dom = now.getUTCDate()
+  const [y, m, dom] = back[60]!.split('-').map((x, i) => Number(x) - (i === 1 ? 1 : 0)) as [number, number, number]
   const prevMonthDays = new Date(Date.UTC(y, m, 0)).getUTCDate()
   const mtdPrev = Array.from({ length: Math.min(dom, prevMonthDays) }, (_, i) => iso(Date.UTC(y, m - 1, i + 1)))
 
-  const days = lastDays(now, 30)
+  const days = lastDays(now, 30, tz)
   const per = days.map(d => byDay.get(d) ?? zero())
   return {
     days,
@@ -98,15 +97,15 @@ export function summariseFishId(rows: DayRow[], unmatched: UnmatchedRow[], recen
   }
 }
 
-export async function queryFishId(accountId: string, token: string, now: Date): Promise<FishIdStats> {
+export async function queryFishId(accountId: string, token: string, now: Date, tz = 'UTC'): Promise<FishIdStats> {
   const [rows, unmatched, recent] = await Promise.all([
-    aeSql<DayRow>(accountId, token, DAYS_SQL),
+    aeSql<DayRow>(accountId, token, DAYS_SQL(tz)),
     aeSql<UnmatchedRow>(accountId, token, UNMATCHED_SQL),
     aeSql<CallRow>(accountId, token, RECENT_SQL),
   ])
-  return summariseFishId(rows, unmatched, recent, now)
+  return summariseFishId(rows, unmatched, recent, now, tz)
 }
 /** The overview's share: the per-day query only. */
-export async function queryFishIdDays(accountId: string, token: string, now: Date): Promise<FishIdStats> {
-  return summariseFishId(await aeSql<DayRow>(accountId, token, DAYS_SQL), [], [], now)
+export async function queryFishIdDays(accountId: string, token: string, now: Date, tz = 'UTC'): Promise<FishIdStats> {
+  return summariseFishId(await aeSql<DayRow>(accountId, token, DAYS_SQL(tz)), [], [], now, tz)
 }

@@ -2,19 +2,26 @@
   "slug": "ca-chuot-vittatus",
   "name": "Cá chuột vittatus",
   "altNames": [
-    "Cá chuột sọc"
+    "Cá chuột sọc",
+    "C155",
+    "CW055"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Corydoras vittatus có tên loài nghĩa là \"có sọc\". Đây là một trong những loài Corydoras có hoa văn khác nhau nhiều nhất giữa các cá thể.</p>",
     "distribution:glaser": "<p>Loài cá này có nguồn gốc từ Brazil.</p>",
-    "notes:glaser": "<p>Trước đây, người ta thường xếp loài này là một phân loài của Corydoras blochi. C. blochi sống ở Guyana và Venezuela, và hoa văn của nó cũng rất đa dạng. Hiện nay, phần lớn các nhà phân loại công nhận C. vittatus là một loài riêng.</p><p>Điểm hút mắt nhất của C. vittatus nằm ở chỗ một số cá thể có màu sẫm lan từ dải đen ngang mắt ra phủ kín cả đầu. Dải ngang mắt thì con nào cũng có. Những con như vậy trông rất lạ mắt.</p>"
+    "notes:glaser": "<p>Trước đây, người ta thường xếp loài này là một phân loài của Corydoras blochi. C. blochi sống ở Guyana và Venezuela, và hoa văn của nó cũng rất đa dạng. Hiện nay, phần lớn các nhà phân loại công nhận C. vittatus là một loài riêng.</p><p>Điểm hút mắt nhất của C. vittatus nằm ở chỗ một số cá thể có màu sẫm lan từ dải đen ngang mắt ra phủ kín cả đầu. Dải ngang mắt thì con nào cũng có. Những con như vậy trông rất lạ mắt.</p>",
+    "quickFacts:scotcat": "<p>Loài này từng được mô tả là một phân loài của C. blochi, với tên Corydoras blochi vittatus. Về sau nó được nâng lên thành loài riêng. C155 và CW055 là cùng một loài. Họ: Callichthyidae. Kích thước: con đực 5,5 cm, con cái 6,0 cm. Nhiệt độ: 23-26°C. pH: 6,0-7,2.</p><p>Dòng phát sinh (Lineage): loài này thuộc Lineage 1. Nếu chi Corydoras được phân loại lại, dòng này vẫn mang tên Corydoras (Lacépède, 1803), với loài chuẩn là C. geoffroy Lacépède, 1803. Theo bản cập nhật mới nhất (Dias và cs. 2024), Corydoras vittatus nằm trong Lineage 1 và vẫn giữ tên chi Corydoras.</p><p>Nguồn gốc tên gọi: tên loài vittatus có nghĩa là có dải hoặc có sọc.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: Brazil, bang Maranhão, một nhánh của sông Rio Itapecuru tại Caxias.</p><p>Corydoras vittatus sống ở lưu vực sông Itapecuru và sông Parnaíba, thuộc hai bang Maranhão và Piauí. Ngoài tự nhiên, loài này vốn ít gặp và số lượng không nhiều. Dù vậy, hiện chưa thấy mối đe dọa đáng kể nào với quần thể của nó. IUCN xếp loài này ở mức Ít quan tâm (LC) (IUCN 2022).</p>",
+    "maintenance:scotcat": "<p>Đây là một trong những loài cory mõm dài, và nó hợp với hầu hết các bể cộng đồng. Bạn nên set bể trồng nhiều cây, dùng nền mềm như cát. Cá sẽ vùi mõm xuống cát để kiếm ăn.</p>",
+    "diet:scotcat": "<p>Loài này dễ ăn và nhận nhiều loại thức ăn khác nhau. Bạn có thể cho ăn cám hạt, thức ăn viên, trùng huyết đông lạnh và cám vảy loại tốt.</p>",
+    "references:scotcat": "<ul><li>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited.</li><li>Angelica C Dias, Luiz F C Tencatt, Fabio F Roxo, Gabriel de Souza da Costa Silva, Sérgio A Santos, Marcelo R Britto, Martin I Taylor, Claudio Oliveira, Phylogenomic analyses in the complex Neotropical subfamily Corydoradinae (Siluriformes: Callichthyidae) with a new classification based on morphological and molecular data, Zoological Journal of the Linnean Society, 2024; zlae053.</li><li>Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises.</li><li>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio) 2022. Corydoras vittatus. The IUCN Red List of Threatened Species 2022.</li></ul>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.85
+    }
   }
 }
