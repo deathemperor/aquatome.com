@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The app's icons a reader can choose (Tài khoản → Biểu tượng ứng dụng), drawn here and rendered into the asset catalog.
 
-Usage: apps/ios/scripts/app-icons.py. Needs rsvg-convert (Homebrew librsvg). Writes AquaTome/Assets.xcassets/
+Usage: apps/ios/scripts/app-icons.py. Needs rsvg-convert (Homebrew librsvg), pngquant and ImageMagick (magick). Writes AquaTome/Assets.xcassets/
 AppIcon-<id>.appiconset for each icon in ICONS: explicit home-screen sizes only (SLOTS), for an iPhone and an iPad, no
 1024 (only the primary icon needs one); a 1024 would cost about 430 kB an icon. The primary icon, AppIcon (DEFAULT, the
 round fish with leaf fins), is drawn here too, at 1024. The AT, the default until 2026-11-04, was drawn by hand: it stays
@@ -13,7 +13,7 @@ AppIconPreviews/AppIconPreview-<id>.imageset: the icon at the picker's 64 points
 with actool for the first 33 icons: 308 kB in all (195 kB on one iPhone), where lossless is 1,178 kB and SVG 2,233 kB (actool
 keeps three pictures of an SVG beside it, and iOS draws one without its filters).
 """
-import json, math, os, random, shutil, subprocess, sys, tempfile
+import json, math, os, random, re, shutil, subprocess, sys, tempfile
 P = {  # a: top-left, b: glow top-right, c: glow bottom-left, d: bottom-right, x: the fish's accent
  'pink':    ('#FF4FA3','#FF8A3D','#6E5BFF','#B44CFF','#FF4FA3'),
  'aqua':    ('#1FD1C1','#7CF0B0','#3B6BFF','#6E5BFF','#21B8E0'),
@@ -340,11 +340,33 @@ if __name__ == '__main__':
                    'info': {'author': 'xcode', 'version': 1}, 'properties': {'compression-type': 'lossy'}},
                   open(os.path.join(d, 'Contents.json'), 'w'), indent=2)
 
-    # The default: the round fish with leaf fins, at the 1024 iOS draws every size from (no alpha: App Store Connect
-    # refuses one).
-    primary = os.path.join(cat, 'AppIcon.appiconset', 'AppIcon-1024.png')
+    # The default: the round fish with leaf fins, at the 1024 iOS draws every size from, in the three looks of the home
+    # screen: as drawn (no alpha: App Store Connect refuses one), dark (the fish alone on transparent, iOS's dark tile
+    # behind it: alpha allowed there) and tinted (the fish in grey on black, tinted by iOS). Each is quantized
+    # (pngquant, dithered): its gradients stored as they are cost 885 kB of the archive for the 1024 alone, iPhone and
+    # iPad (CoreUI keeps app icons as ARGB, lzfse; the asset catalog's "lossy" doesn't apply to them). Dithered to 256
+    # colours they cost about half, alike at home-screen and App Store sizes (faint rings around the glows only at full
+    # size, looked for).
+    icon_set = os.path.join(cat, 'AppIcon.appiconset')
+    alone = re.sub(r'<rect width="1024" height="1024" fill="url\(#(?:g|r1|r2)L\)"/>', '', DEFAULT)
+    assert alone != DEFAULT, 'the default lost its background'
+    looks = [('AppIcon-1024.png', None, DEFAULT, 'opaque'), ('AppIcon-1024-dark.png', 'dark', alone, 'alpha'),
+             ('AppIcon-1024-tinted.png', 'tinted', alone, 'grey')]
+    for f, appearance, svg, kind in looks:
+        with tempfile.TemporaryDirectory() as tmp:
+            src, png = os.path.join(tmp, 'icon.svg'), os.path.join(tmp, 'icon.png')
+            open(src, 'w').write(svg)
+            subprocess.run(['rsvg-convert', '-w', '1024', '-h', '1024', src, '-o', png], check=True)
+            if kind == 'grey':
+                subprocess.run(['magick', png, '-background', 'black', '-alpha', 'remove', '-colorspace', 'Gray', png], check=True)
+            subprocess.run(['pngquant', '--quality', '90-100', '--speed', '1', '--force', '--output', png, png], check=True)
+            # PNG colour type 2 (RGB) where there's no alpha, 6 (RGBA) for the dark look.
+            flat = ['-background', 'black', '-alpha', 'remove', '-alpha', 'off'] if kind != 'alpha' else []
+            subprocess.run(['magick', png, *flat, '-define', f'png:color-type={6 if kind == "alpha" else 2}', os.path.join(icon_set, f)], check=True)
+    json.dump({'images': [{**({'appearances': [{'appearance': 'luminosity', 'value': a}]} if a else {}), 'filename': f, 'idiom': 'universal',
+                           'platform': 'ios', 'size': '1024x1024'} for f, a, _, _ in looks],
+               'info': {'author': 'xcode', 'version': 1}}, open(os.path.join(icon_set, 'Contents.json'), 'w'), indent=2)
     with tempfile.NamedTemporaryFile('w', suffix='.svg', delete=False) as t: t.write(DEFAULT)
-    subprocess.run(['rsvg-convert', '-w', '1024', '-h', '1024', '-b', 'black', t.name, '-o', primary], check=True)
     preview('default', lambda px, out: subprocess.run(['rsvg-convert', '-w', str(px), '-h', str(px), t.name, '-o', out], check=True))
     os.unlink(t.name)
     # The AT, the default until 2026-11-04, drawn by hand (design/at-1024.png): an alternate at the same sizes.
