@@ -27,7 +27,10 @@ extension Event.Kind {
       case .firmwareTooOld: .firmwareTooOld
       case .noStatus: .noStatus
       }
+    #if DEBUG
+    // The stand-in light's own error (the kit has it in debug builds only).
     case is FakeLightError: self = .disconnected
+    #endif
     case let e as PlugError:
       self = switch e {
       case .offline: .offline
