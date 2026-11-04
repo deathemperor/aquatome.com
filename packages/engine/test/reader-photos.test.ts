@@ -62,12 +62,12 @@ test('a reported photo\'s reasons reach the judge, as claims to check; an unrepo
 })
 
 /** Pending photos all on the neon's page, each judged by `verdicts` in turn (a second look for the fish it was moved to). */
-async function run(ids: string[], verdicts: (id: string, prompt: string, n: number) => Verdict, find: (name: string) => { ref: string; name: string; scientificName: string } | undefined) {
+async function run(ids: string[], verdicts: (id: string, prompt: string, n: number) => Verdict, find: (name: string) => { ref: string; name: string; scientificName: string } | undefined, movedFrom: (id: string) => string | null | undefined = () => null) {
   const raw = await jpeg(800, 600)
   const decisions: PhotoDecision[] = []
   const prompts: Record<string, string[]> = {}
   const api: PhotoAdmin = {
-    queue: async () => ids.map(id => ({ id, entity_ref: 'species:neon', name: 'n', created_at: '' })),
+    queue: async () => ids.map(id => { const m = movedFrom(id); return { id, entity_ref: 'species:neon', name: 'n', created_at: '', ...(m === undefined ? {} : { moved_from: m }) } }),
     raw: async () => raw, put: async () => {}, decide: async d => { decisions.push(...d); return { applied: d.length, ignored: 0 } },
   }
   const r = await moderatePhotos(api, {
@@ -128,4 +128,30 @@ test('a breed\'s page takes photos as that breed of its species (a hybrid: of it
   }, { ...pages, faces: async f => f.map(() => 0), judge: async (_f, p) => { prompts.push(p); return { approve: true, reason: 'an albino oscar' } } })
   expect(prompts[0]).toContain('Cá oscar bạch tạng (Astronotus ocellatus)')
   expect(decisions).toMatchObject([{ id: 'b', action: 'approve', reason: 'an albino oscar' }])
+})
+
+test('a photo moves once: not one already moved, and not when the Worker\'s queue can\'t say (a Worker older than moves)', async () => {
+  const { decisions, prompts } = await run(['moved', 'old-worker', 'fresh'], (_id, _p, n) => (n === 2 ? { approve: true, reason: 'a goldfish' } : wrong('Carassius auratus', 0.99)), () => GOLDFISH,
+    id => (id === 'moved' ? 'species:betta-splendens' : id === 'old-worker' ? undefined : null))
+  expect(decisions.map(d => [d.id, d.action, d.entity ?? null])).toEqual([['moved', 'remove', null], ['old-worker', 'remove', null], ['fresh', 'approve', 'species:carassius-auratus']])
+  expect(decisions.filter(d => d.action === 'remove').every(d => d.why === 'species')).toBe(true)
+  expect(Object.fromEntries(Object.entries(prompts).map(([k, v]) => [k, v.length]))).toEqual({ moved: 1, 'old-worker': 1, fresh: 2 })
+})
+
+test('a species is found by genus and species when Claude adds more; a breed of a breed is named by the species under both; a breed with none by its name alone', async () => {
+  const pages = photoPages({
+    species: [{ id: 'carassius-auratus', t: { name: 'Cá vàng' }, scientificName: 'Carassius auratus' }],
+    breeds: [
+      { id: 'oranda', t: { name: 'Cá vàng oranda' }, basedOn: 'carassius-auratus', parents: [] },
+      { id: 'red-cap-oranda', t: { name: 'Cá vàng hạc đỉnh hồng' }, basedOn: 'oranda', parents: [] },
+      { id: 'electric-blue-ram', t: { name: 'Cá phượng hoàng lam (Electric blue ram)' }, parents: [] },
+    ],
+  })
+  for (const n of ['Carassius auratus (goldfish)', 'carassius  auratus Linnaeus, 1758', 'Carassius auratus auratus']) expect(pages.find(n)?.ref, n).toBe('species:carassius-auratus')
+  expect(pages.find('Carassius gibelio')).toBeUndefined()
+  expect(pages.page('breed:red-cap-oranda')?.scientificName).toBe('Carassius auratus')
+  const ram = pages.page('breed:electric-blue-ram')!
+  expect(ram.scientificName).toBe('')
+  expect(judgePrompt(ram)).toContain('the species page of Cá phượng hoàng lam (Electric blue ram) on AquaTome')
+  expect(judgePrompt(ram)).not.toContain('()')
 })
