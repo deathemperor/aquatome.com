@@ -122,6 +122,6 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 
 ## Data card values outside sane bounds (0)
 
-A figure outside the bounds the engine keeps when it reads a page (temperature 4–40 °C, pH 2–10.5, GH 0–50, size 0.3–300 cm, tank 10–1000 cm, difficulty 1–8), a range upside down, or a minimum tank shorter than twice the adult fish. The sweep hides the figure from the card (kept in the page's file, marked `hidden` with why). Checked on the Vietnamese page; the card is the same in every language.
+A figure outside the bounds the engine keeps when it reads a page (temperature 4–40 °C, pH 2–10.5, GH 0–50, size 0.3–300 cm, tank 10–1000 cm, difficulty 1–8, lifespan 0.2–150 years), a range upside down, or a minimum tank shorter than twice the adult fish. The sweep hides the figure from the card (kept in the page's file, marked `hidden` with why). Checked on the Vietnamese page; the card is the same in every language.
 
 - none
