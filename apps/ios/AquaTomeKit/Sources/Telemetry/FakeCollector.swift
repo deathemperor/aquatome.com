@@ -1,8 +1,9 @@
 import Foundation
 import os
 
-/// The Worker's telemetry endpoints in process (tests, the simulator), so nothing reaches aquatome.com: it keeps every
-/// request it's sent, in order, and answers 202, or `status` when set (a failing server).
+#if DEBUG
+/// The Worker's telemetry endpoints in process (tests, the simulator; debug builds only), so nothing reaches
+/// aquatome.com: it keeps every request it's sent, in order, and answers 202, or `status` when set (a failing server).
 public final class FakeCollector: Sendable {
   public struct Received: Sendable, Equatable {
     public let path: String
@@ -34,3 +35,4 @@ public final class FakeCollector: Sendable {
     return (Data(), HTTPURLResponse(url: r.url!, statusCode: status, httpVersion: "HTTP/1.1", headerFields: nil)!)
   }
 }
+#endif

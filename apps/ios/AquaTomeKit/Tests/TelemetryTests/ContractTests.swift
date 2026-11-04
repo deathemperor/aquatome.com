@@ -62,7 +62,7 @@ private func misfits(_ v: Any, _ s: [String: Any], at: String = "$") -> [String]
 }
 
 private func json(_ d: Data) -> Any { try! JSONSerialization.jsonObject(with: d) }
-private func json(_ e: Event) -> Any { json(try! JSONEncoder().encode(e)) }
+private func json(_ e: Event) -> Any { json(Wire.json(e.json)) }
 
 private let about = About(app: "1.0 (114)", os: "26.5", device: "iPhone18,3", lang: "vi")
 private let session = "6f1c9a52-6d0e-4a8e-9a43-0f5a1d2c3b4e"
@@ -99,7 +99,7 @@ func sentFitsTheContract() {
 
 /// An action with any `kind`, as the app can't make one (its kinds are a fixed list): to check `fits` against the contract.
 private func action(kind: String) -> Event {
-  try! JSONDecoder().decode(Event.self, from: JSONSerialization.data(withJSONObject: ["t": "action", "at": 0, "name": "plug.switch", "ok": false, "kind": kind] as [String: Any]))
+  Event(json: ["t": "action", "at": 0, "name": "plug.switch", "ok": false, "kind": kind] as [String: Any])!
 }
 
 @Test("What the app refuses to send is what the contract refuses: each event, and the batch's fields made to fit")
@@ -125,16 +125,17 @@ func refusesWhatTheContractRefuses() {
     let b = Batch(a, session: session, events: [.view(path: neon)])
     #expect(misfits(json(Wire.body(b)), schema("Batch")) == [], "\(a)")
   }
-  #expect(About(app: "1.0 beta", os: "x", device: "iPhone 17", lang: "en") == About(app: "0 (0)", os: "0", device: "unknown", lang: "vi"))
+  let odd = About(app: "1.0 beta", os: "x", device: "iPhone 17", lang: "en")
+  #expect([odd.app, odd.os, odd.device, odd.lang] == ["0 (0)", "0", "unknown", "vi"])
 }
 
 @Test("The app's own lists are the contract's: fields, action names, marks, languages, limits")
 func listsAreTheContracts() {
   func props(_ name: String) -> Set<String> { Set((resolve(schema(name))["properties"] as! [String: Any]).keys) }
-  #expect(Wire.batchFields == props("Batch"))
-  #expect(Wire.diagnosticFields == props("Report"))
+  #expect(Policy.batchFields == props("Batch"))
+  #expect(Policy.diagnosticFields == props("Report"))
   let kinds = ["PageView", "ScreenView", "Scroll", "Time", "ShopTap", "Action"]
-  #expect(Wire.eventFields == kinds.reduce(Set()) { $0.union(props($1)) })
+  #expect(Policy.eventFields == kinds.reduce(Set()) { $0.union(props($1)) })
   func values(_ name: String, _ field: String) -> [AnyHashable] { ((schema(name)["properties"] as! [String: Any])[field] as! [String: Any])["enum"] as! [AnyHashable] }
   #expect(Set(values("Action", "name")) == Set(Action.allCases.map(\.rawValue)))
   #expect(values("Scroll", "depth") as? [Int] == Event.depths)

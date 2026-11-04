@@ -12,28 +12,14 @@ public enum Wire {
   /// The most bytes a report's request carries, the wrapper included.
   public static let maxReport = 1024 * 1024
 
-  /// The fields a batch, an event and a diagnostics report may carry: the privacy policy's list. A field outside them
-  /// fails the field audit (TelemetryTests).
-  public static let batchFields: Set<String> = ["app", "os", "device", "lang", "session", "events"]
-  public static let eventFields: Set<String> = ["t", "at", "path", "screen", "depth", "seconds", "shop", "href", "name", "ok", "kind"]
-  public static let diagnosticFields: Set<String> = ["kind", "app", "os", "device", "payload"]
-
   /// A batch's body: `{app, os, device, lang, session, events}`.
-  static func body(_ b: Batch) -> Data { (try? encoder.encode(b)) ?? Data() }
+  static func body(_ b: Batch) -> Data { json(b.json) }
 
   /// A diagnostics report's body: `{kind, app, os, device, payload}`, the payload (`Diagnostic.kept`) written in as it
   /// is.
   static func body(_ d: Diagnostic) -> Data {
-    let head = (try? encoder.encode(Report(kind: d.kind, app: d.about.app, os: d.about.os, device: d.about.device))) ?? Data("{}".utf8)
+    let head = json(["kind": d.kind.rawValue, "app": d.about.app, "os": d.about.os, "device": d.about.device])
     return head.dropLast() + Data(#","payload":"#.utf8) + Data(d.payload.utf8) + Data("}".utf8)
-  }
-
-  /// A report's wrapper, around its payload.
-  private struct Report: Encodable {
-    let kind: Diagnostic.Kind
-    let app: String
-    let os: String
-    let device: String
   }
 
   /// A POST of `body` to `path` on `site`: JSON, no cookie; `userAgent` marks our own copies of the app
@@ -48,15 +34,12 @@ public enum Wire {
     return r
   }
 
-  private static let encoder: JSONEncoder = {
-    let e = JSONEncoder()
-    e.outputFormatting = [.sortedKeys, .withoutEscapingSlashes]
-    return e
-  }()
+  /// JSON as it's sent and kept: keys sorted, "/" as it is. (JSONSerialization, not Codable: the app's size.)
+  static func json(_ o: Any) -> Data { (try? JSONSerialization.data(withJSONObject: o, options: [.sortedKeys, .withoutEscapingSlashes])) ?? Data() }
 }
 
 /// Which app, iOS and phone a batch or report comes from, and the app's language.
-public struct About: Codable, Sendable, Equatable {
+public struct About: Sendable {
   /// The app's version and build, as "1.0 (114)".
   public let app: String
   /// iOS's version, as "26.5".
@@ -87,7 +70,7 @@ public struct About: Codable, Sendable, Equatable {
 }
 
 /// One request's events: those of one session, in the order they happened.
-struct Batch: Codable, Sendable, Equatable {
+struct Batch: Sendable {
   let app: String
   let os: String
   let device: String
@@ -105,16 +88,45 @@ struct Batch: Codable, Sendable, Equatable {
     self.session = session
     self.events = events
   }
+
+  /// As it's sent, and kept in the queue's file.
+  var json: [String: Any] { ["app": app, "os": os, "device": device, "lang": lang, "session": session, "events": events.map(\.json)] }
+
+  /// One read back from the queue's file.
+  init?(json: Any) {
+    guard let o = json as? [String: Any], let app = o["app"] as? String, let os = o["os"] as? String, let device = o["device"] as? String,
+          let lang = o["lang"] as? String, let session = o["session"] as? String, let events = o["events"] as? [Any] else { return nil }
+    self.init(About(app: app, os: os, device: device, lang: lang), session: session, events: events.compactMap(Event.init(json:)))
+  }
 }
 
 /// A crash, hang, launch or memory report from iOS (MetricKit), cut down to what the privacy policy names (`kept`).
-public struct Diagnostic: Codable, Sendable, Equatable {
+public struct Diagnostic: Sendable {
   /// `metric`: a day's measures (launch time, memory, hangs…); `diagnostic`: a crash or hang with its call stacks.
-  public enum Kind: String, Codable, Sendable { case metric, diagnostic }
+  public enum Kind: String, Sendable { case metric, diagnostic }
   public let kind: Kind
   let about: About
   /// MetricKit's `jsonRepresentation()`, cut down (`kept`), as text.
   let payload: String
+
+  init(kind: Kind, about: About, payload: String) {
+    self.kind = kind
+    self.about = about
+    self.payload = payload
+  }
+
+  /// As it's kept in the queue's file.
+  var json: [String: Any] {
+    ["kind": kind.rawValue, "app": about.app, "os": about.os, "device": about.device, "lang": about.lang, "payload": payload]
+  }
+
+  /// One read back from the queue's file.
+  init?(json: Any) {
+    guard let o = json as? [String: Any], let kind = (o["kind"] as? String).flatMap(Kind.init(rawValue:)), let app = o["app"] as? String,
+          let os = o["os"] as? String, let device = o["device"] as? String, let lang = o["lang"] as? String,
+          let payload = o["payload"] as? String else { return nil }
+    self.init(kind: kind, about: About(app: app, os: os, device: device, lang: lang), payload: payload)
+  }
 
   /// What of MetricKit's `jsonRepresentation()` is sent, as the privacy policy names it: unexpected quits, hangs, launch
   /// time and memory, and crashes and hangs with their call stacks, each by the fields MetricKit writes for it; nil when

@@ -9,16 +9,34 @@ actor Outbox {
   static let cap = 500
   static let diagnosticsCap = 8
 
-  struct Queued: Codable, Equatable {
+  struct Queued {
     /// This phone's order, to find a batch again after sending it; not sent.
     let seq: Int
     var batch: Batch
   }
 
-  struct State: Codable, Equatable {
+  struct State {
     var batches: [Queued] = []
     var diagnostics: [Diagnostic] = []
     var next = 0
+
+    init() {}
+
+    /// As it's kept in the file.
+    var json: [String: Any] {
+      ["next": next, "batches": batches.map { ["seq": $0.seq, "batch": $0.batch.json] as [String: Any] }, "diagnostics": diagnostics.map(\.json)]
+    }
+
+    /// Read back from the file: what of it is whole.
+    init?(json: Any) {
+      guard let o = json as? [String: Any], let next = o["next"] as? Int else { return nil }
+      self.next = next
+      batches = (o["batches"] as? [[String: Any]] ?? []).compactMap { q in
+        guard let seq = q["seq"] as? Int, let batch = q["batch"].flatMap(Batch.init(json:)) else { return nil }
+        return Queued(seq: seq, batch: batch)
+      }
+      diagnostics = (o["diagnostics"] as? [Any] ?? []).compactMap(Diagnostic.init(json:))
+    }
   }
 
   private(set) var state = State()
@@ -97,7 +115,7 @@ actor Outbox {
     }
     while let d = state.diagnostics.first {
       guard await post(Wire.diagnostics, Wire.body(d)) else { return }
-      if let i = state.diagnostics.firstIndex(of: d) { state.diagnostics.remove(at: i) }
+      if let i = state.diagnostics.firstIndex(where: { $0.kind == d.kind && $0.payload == d.payload }) { state.diagnostics.remove(at: i) }
       changed = true
       if now() < retryAt { return }
     }
@@ -127,7 +145,7 @@ actor Outbox {
   private func load() {
     guard !loaded else { return }
     loaded = true
-    guard let file, let data = try? Data(contentsOf: file), let kept = try? JSONDecoder().decode(State.self, from: data) else { return }
+    guard let file, let data = try? Data(contentsOf: file), let o = try? JSONSerialization.jsonObject(with: data), let kept = State(json: o) else { return }
     state = kept
   }
 
@@ -140,6 +158,6 @@ actor Outbox {
       return
     }
     try? FileManager.default.createDirectory(at: file.deletingLastPathComponent(), withIntermediateDirectories: true)
-    try? JSONEncoder().encode(state).write(to: file, options: .atomic)
+    try? Wire.json(state.json).write(to: file, options: .atomic)
   }
 }

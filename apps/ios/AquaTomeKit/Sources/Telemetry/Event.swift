@@ -5,7 +5,7 @@ import Foundation
 /// tapped, and how some actions went. Never an account, a name, a device's address or name, a tank's name, search text
 /// or a photo: the constructors below are the only way to make one, and each takes a fixed name, a number, a site path
 /// or a code from a fixed list (`Kind`, `refusals`). One the contract would refuse is never sent (`fits`).
-public struct Event: Codable, Sendable, Equatable {
+public struct Event: Sendable {
   /// `view`, `scroll`, `time`, `aff` or `action`.
   public let t: String
   /// Milliseconds since this launch's session started, set when it's recorded.
@@ -40,6 +40,29 @@ public struct Event: Codable, Sendable, Equatable {
     self.name = name
     self.ok = ok
     self.kind = kind
+  }
+
+  /// As it's sent, and kept in the queue's file: the fields it has.
+  var json: [String: Any] {
+    var o: [String: Any] = ["t": t, "at": at]
+    o["path"] = path
+    o["screen"] = screen
+    o["depth"] = depth
+    o["seconds"] = seconds
+    o["shop"] = shop
+    o["href"] = href
+    o["name"] = name
+    o["ok"] = ok
+    o["kind"] = kind
+    return o
+  }
+
+  /// One read back from the queue's file (whether the contract takes it is `fits`, asked again before it's sent).
+  init?(json: Any) {
+    guard let o = json as? [String: Any], let t = o["t"] as? String, let at = o["at"] as? Int else { return nil }
+    self.init(t, path: o["path"] as? String, screen: o["screen"] as? String, depth: o["depth"] as? Int, seconds: o["seconds"] as? Int,
+              shop: o["shop"] as? String, href: o["href"] as? String, name: o["name"] as? String, ok: o["ok"] as? Bool, kind: o["kind"] as? String)
+    self.at = at
   }
 
   /// A page of the site opened in the app, drawn by the app or as the web page.

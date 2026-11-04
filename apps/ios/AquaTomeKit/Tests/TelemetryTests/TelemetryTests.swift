@@ -65,14 +65,14 @@ func encodesABatch() async throws {
 func carriesOnlyThePolicysFields() async throws {
   let b = Batch(about, session: "s", events: everyKind)
   let body = json(Wire.body(b))
-  #expect(Set(body.allKeys as! [String]).isSubset(of: Wire.batchFields))
+  #expect(Set(body.allKeys as! [String]).isSubset(of: Policy.batchFields))
   #expect((body["events"] as! [NSDictionary]).count == everyKind.count)
   for e in body["events"] as! [NSDictionary] {
     let keys = Set(e.allKeys as! [String])
-    #expect(keys.isSubset(of: Wire.eventFields), "\(keys.subtracting(Wire.eventFields)) in \(e)")
+    #expect(keys.isSubset(of: Policy.eventFields), "\(keys.subtracting(Policy.eventFields)) in \(e)")
   }
   let report = json(Wire.body(Diagnostic(kind: .diagnostic, about: about, payload: "{}")))
-  #expect(Set(report.allKeys as! [String]).isSubset(of: Wire.diagnosticFields))
+  #expect(Set(report.allKeys as! [String]).isSubset(of: Policy.diagnosticFields))
   #expect(report["lang"] == nil)
 
   // A code is from a fixed list (Event.Kind), and a refusal's is one of the site's: any other refusal, such as a message
