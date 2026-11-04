@@ -27,7 +27,11 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
       if (!nodes.has(k)) nodes.set(k, { path: path.slice(0, i), name: names[i - 1]!, species: lists.get(`phan-loai/${k}`)! })
     }
   }
+  // The ranks under a taxon: most species first, then A–Z by name in plain character order (Latin, ASCII), a rule the
+  // app applies to its index too, so its shelves list them in the same order.
+  const byName = (a: Node, b: Node) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
   const children = (n: Node) => [...nodes.values()].filter(m => m.path.length === n.path.length + 1 && m.path.slice(0, -1).join('/') === n.path.join('/'))
+    .sort((a, b) => b.species.length - a.species.length || byName(a, b))
   return [...nodes.values()].map(n => ({ params: { path: n.path.join('/') || undefined }, props: { node: n, kids: children(n) } }))
 }
 const { node, kids } = Astro.props as { node: Node; kids: Node[] }
