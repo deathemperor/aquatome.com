@@ -4,7 +4,7 @@ import css from './photo-viewer.css?inline'
 
 /**
  * The photo viewer, for a gallery page's photos and readers' photos: full screen, in place, the phone's Back button
- * closes it. Swipe (it follows the finger), the arrow keys or its buttons step through; pinch, double-tap, double-click
+ * closes it. Swipe (it follows the finger), the arrow keys or its buttons step through; pinch, double-tap, a click
  * or the wheel zoom, and a zoomed photo pans. The tile's own picture shows, scaled up, until the full photo is decoded,
  * and the photos either side load in the slides beside it. Its history and arithmetic: photo-view.ts.
  */
@@ -253,9 +253,19 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
     stage.addEventListener('pointerup', up)
     stage.addEventListener('pointercancel', up)
 
-    /** A double tap or double click on the photo zooms in there, or back out; a click beside it closes the viewer. */
+    /**
+     * With a mouse, a click on the photo zooms in there, or back out (its cursor is a magnifier), and the second click of
+     * a double click changes nothing more; a click beside it closes the viewer. A finger zooms with a double tap.
+     */
     function tap(p: Point, e: PointerEvent) {
       const on = onPhoto(p)
+      if (e.pointerType === 'mouse' && on) {
+        if (e.timeStamp - tapped.t < 300) { tapped = { t: -1e9, x: 0, y: 0 }; return }
+        tapped = { t: e.timeStamp, x: p.x, y: p.y }
+        if (scale > 1) zoom(1, { x: 0, y: 0 }, true)
+        else zoomBy(TAP_ZOOM, centre(p), true)
+        return
+      }
       if (on && e.timeStamp - tapped.t < 300 && Math.hypot(p.x - tapped.x, p.y - tapped.y) < 30) {
         tapped = { t: -1e9, x: 0, y: 0 }
         if (scale > 1) zoom(1, { x: 0, y: 0 }, true)
