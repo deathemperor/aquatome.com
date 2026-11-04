@@ -41,6 +41,10 @@ struct TanksView: View {
                 NavigationLink(value: t.id) { TankRow(tank: t, lights: tanks.devices(in: t).filter { $0.kind == "light" }.count) }
                   .accessibilityIdentifier("tank")
               }
+              // In the list too, where it's seen: the + in the bar above is easy to miss.
+              Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }
+                .disabled(!tanks.canAdd)
+                .accessibilityIdentifier("add-row")
             } footer: {
               if account.user != nil {
                 Text("Các bể lưu trên máy này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy.")
@@ -86,7 +90,10 @@ private struct TankRow: View {
       Text(tank.name).font(.headline)
       let f = facts(tank)
       if !f.isEmpty { Text(f.joined(separator: " · ")).font(.subheadline).foregroundStyle(.secondary) }
-      if lights > 0 { Label("\(lights) đèn", systemImage: "lightbulb").font(.caption).foregroundStyle(.secondary) }
+      // Not a Label: in a list, a Label's icon goes in the row's icon column, far from its text.
+      if lights > 0 {
+        HStack(spacing: 4) { Image(systemName: "lightbulb").accessibilityHidden(true); Text("\(lights) đèn") }.font(.caption).foregroundStyle(.secondary)
+      }
     }
     .accessibilityElement(children: .combine)
   }
@@ -128,7 +135,7 @@ private struct TankDetail: View {
         // Guides that name its fish and plants (TankGuides.swift).
         TankGuidesSection(tank: t)
         if !lights.isEmpty {
-          Section("Đèn") { ForEach(lights) { d in LightRow(device: d) } }
+          Section("Đèn") { ForEach(lights) { d in LightButton(device: d) } }
         }
         PlugsSection(tank: t)
         Section {
@@ -154,6 +161,30 @@ private struct TankDetail: View {
     } else {
       ContentUnavailableView("Bể này đã bị xóa.", systemImage: "trash")
     }
+  }
+}
+
+/// A light on the tank opens on the Đèn tab: connected to, as from Đèn's saved lights, when no light is; the one
+/// connected, or another light that is, is shown as it is (connecting one more would leave that one hanging).
+private struct LightButton: View {
+  let device: Device
+  @Environment(LightsModel.self) private var lights
+  @Environment(\.openScreen) private var openScreen
+
+  var body: some View {
+    Button {
+      openScreen(.lights)
+      if lights.card == .idle { Task { await lights.connect(saved: device) } }
+    } label: {
+      HStack {
+        LightRow(device: device).foregroundStyle(Color.primary)
+        Spacer()
+        // It goes somewhere, as the list's other rows that do show.
+        Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
+      }
+    }
+    .accessibilityHint(Text("Mở trong tab Đèn"))
+    .accessibilityIdentifier("tank-light")
   }
 }
 

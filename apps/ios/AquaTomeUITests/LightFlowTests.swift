@@ -82,7 +82,7 @@ final class LightFlowTests: XCTestCase {
     let app = launch()
     connect(app)
     // Met: kept on a new tank, as the site does, with nothing written yet.
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     let row = app.buttons["tank"].firstMatch
     XCTAssertTrue(row.waitForExistence(timeout: 5), "the light wasn't kept on a tank")
     XCTAssertTrue(row.label.contains("Bể của tôi") && row.label.contains("1 đèn"), row.label)
@@ -90,13 +90,50 @@ final class LightFlowTests: XCTestCase {
     XCTAssertTrue(text(app, "WRGB II Slim").waitForExistence(timeout: 5))
     XCTAssertTrue(text(app, "Chưa lưu lịch nào cho đèn này.").exists)
 
-    app.tabBars.buttons["Đèn"].tap()
+    app.openTab("Đèn")
     tap(app, "preset-new")
     write(app)
     expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
-    app.tabBars.buttons["Bể của tôi"].tap()
+    app.openTab("Bể của tôi")
     XCTAssertTrue(text(app, "13:00 → 19:00 · sáng dần 30 phút · Bể mới trồng").waitForExistence(timeout: 5),
                   "the schedule written wasn't kept with its preset's name")
+  }
+
+  // A light on a tank was shown there but did nothing when tapped.
+  func testALightOnATankOpensOnTheLightsTabAndConnects() {
+    let app = launch()
+    connect(app)
+    tap(app, "disconnect")
+    XCTAssertTrue(element(app, "scan").waitForExistence(timeout: 5), "not disconnected")
+    app.openTab("Bể của tôi")
+    let tank = app.buttons["tank"].firstMatch
+    XCTAssertTrue(tank.waitForExistence(timeout: 5), "the light wasn't kept on a tank")
+    tank.tap()
+    let light = app.buttons["tank-light"].firstMatch
+    XCTAssertTrue(light.waitForExistence(timeout: 5), "the light on the tank can't be tapped")
+    light.tap()
+    XCTAssertTrue(app.tabBars.buttons["Đèn"].isSelected, "the light didn't open on the Đèn tab")
+    expect(app, "notice", contains: "Đã kết nối")
+  }
+
+  // A light already connected stays as it is: the tap opens Đèn, and no second connection starts and lets it go.
+  func testALightOnATankOpensTheConnectedLightAsItIs() {
+    let app = launch()
+    connect(app)
+    // What was written to the light: a second connection would read the light again, and add to it.
+    let written = element(app, "frames").label
+    app.openTab("Bể của tôi")
+    let tank = app.buttons["tank"].firstMatch
+    XCTAssertTrue(tank.waitForExistence(timeout: 5), "the light wasn't kept on a tank")
+    tank.tap()
+    let light = app.buttons["tank-light"].firstMatch
+    XCTAssertTrue(light.waitForExistence(timeout: 5), "the light on the tank can't be tapped")
+    light.tap()
+    let looking = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Đang tìm'")).firstMatch
+    XCTAssertFalse(looking.waitForExistence(timeout: 3), "a second connection started")
+    XCTAssertEqual(element(app, "frames").label, written, "a second connection started")
+    expect(app, "notice", contains: "Đã kết nối")
+    XCTAssertTrue(element(app, "disconnect").exists, "the light was let go")
   }
 
   func testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten() {
@@ -608,7 +645,7 @@ final class LightFlowTests: XCTestCase {
     let (language, locale, tab) = indonesian ? ("id", "id_ID", "Lampu") : ("vi", "vi_VN", "Đèn")
     app.launchArguments = ["-AppleLanguages", "(\(language))", "-AppleLocale", locale, "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args
     app.launch()
-    app.tabBars.buttons[tab].tap()
+    app.openTab(tab)
     return app
   }
 
