@@ -391,8 +391,7 @@ The layers above still check the result.
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
     - a species' other names ("Tên khác", its search names, the names other pages' text links it by), in each language:
       its own only (`packages/engine/src/alt-names.ts`). A breed page's own name leaves it, that page being found by it
-      ("Bubble Eye Goldfish"; never a breed's other names, which list the species' too: "Cá xiêm" under the plakat
-      betta). A bred line's or colour form's (the species' name with a word such as Alien, hybrid, lai, albino, koi,
+      ("Bubble Eye Goldfish"; never a breed's other names: a name both list is the species'). A bred line's or colour form's (the species' name with a word such as Alien, hybrid, lai, albino, koi,
       Super, spade tail: "Alien Betta Green Hybrid") goes. A name written twice (case, accents, punctuation, "Cá" or
       ปลา before it, "X (Y)" of two it has, its own name or scientific name again) is kept once, best written; words
       joined or split ("Horse face", "Horseface") are two names, as search reads them. Each name off is in
@@ -409,6 +408,19 @@ The layers above still check the result.
       the breed is a form of (and its parents' links on a `--redo`). Each link is in `engine-state/_breed-links.json`. A breed used to be linked only when written, so those written before their
       species had a page never were: a run on a copy (2026-11-05) made 13 links on 12 breeds (9 species a variety is a
       form of, 4 parents' pages).
+    - a breed's other names, in each language, after its links: its own only (`alt-names.ts` cleanBreedAltNames). A name
+      its species has, or a hybrid's parent (its name, other names or scientific name, compared as above), leaves it:
+      other pages' text names the species by it, and the breed's page listed every guide naming the species. So do the
+      names a note calls the species' ("Cá xiêm / cá chọi (tên chung của loài)", and "Cá chọi" with it). A breed whose
+      own name is the species' (the koi, "Cá koi" on *Cyprinus rubrofuscus*) keeps the names they share. Another breed
+      page's own name leaves it ("Cá vàng Lan Thọ" under the lionhead: the Ranchu's), and a name written twice is kept
+      once, as on a species page; a breed has no colour-form rule (its lines' names are its own). Logged in
+      `engine-state/_names-off.json` as `lang/breeds/id`. The engine's breed writer and its prompts keep to the same.
+      Then a guide's breeds (`mentions`, which `topics.ts` breedsNamed set when it wrote the guide) that its text no
+      longer names by their names leave it. Found by the owner: the halfmoon betta listed "Cá xiêm" and "Cá chọi", so
+      its page listed the betta's guides and a pea puffer video. A run on a copy (2026-11-05) took 22 names off 10 breed
+      pages: 7 the species' (halfmoon 3, plakat 4), 3 another breed's (koi 2, lionhead 1), 12 written twice; the koi
+      kept the 7 it shares with its species; and the halfmoon and plakat off one guide.
   - Text that reports what "the page" says ("Trang lưu ý…", "Trang cũng nêu…") has no safe fix: the reader's writer
     rewrites it on Vietnamese pages, reviewer-gated.
   - First run (2026-11-02, 2,599 pages): the source site's comments or related posts cut on 22 guides, a heading left at

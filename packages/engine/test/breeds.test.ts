@@ -192,5 +192,23 @@ test("localizeBreed: a name a species already has in the language is refused; th
   await makeBreed(r, { research: (async () => facts) as Llm, llm: vi, gallery: gallery([]) }, { name: 'Ranchu' })
   const th: Llm = async <T,>(a: { schema: object }) => ('score' in (a.schema as { properties: object }).properties ? { score: 0.9, notes: [] } : { name: 'ปลา ทอง', slug: 'ranchu', altNames: [], parentNames: [], summary: ['ส'], body: '<p>บ</p>', faq: [] }) as T
   await localizeBreed(r, th, 'ranchu', 'th')
-  expect(JSON.parse(await readFile(join(r, 'content/breeds/ranchu/th.json'), 'utf8'))).toMatchObject({ name: 'Ranchu goldfish', altNames: ['ปลา ทอง'] })
+  // Nor is it one of its other names: "ปลา ทอง" is every goldfish's name.
+  expect(JSON.parse(await readFile(join(r, 'content/breeds/ranchu/th.json'), 'utf8'))).toMatchObject({ name: 'Ranchu goldfish', altNames: [] })
+})
+
+test("a breed page's other names are its own: research and the writer give its species' too, and they leave it", async () => {
+  const r = await root()
+  await writeFile(join(r, 'content/species/carassius-auratus/vi.json'), JSON.stringify({ slug: 'ca-vang-ranchu', name: 'Cá vàng', altNames: ['Goldfish', 'Cá ba đuôi'] }))
+  const researched: BreedFacts = { ...facts, enNames: ['Ranchu goldfish', 'Goldfish'], viNames: [{ name: 'Cá vàng Ranchu', source: 0 }, { name: 'cá ba đuôi', source: 0 }, { name: 'Cá vàng', source: 0 }] }
+  const prompts: string[] = []
+  const research: Llm = async <T,>(a: { prompt: string }) => (prompts.push(a.prompt), researched as T)
+  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá vàng Ranchu', altNames: ['Vua cá vàng', 'Goldfish'], summary: [], body: '', faq: [] }) as T
+  await makeBreed(r, { research, llm, gallery: gallery([]) }, { name: 'Ranchu goldfish' })
+  expect(prompts[0]).toContain('not its species\' names')
+  expect(JSON.parse(await readFile(join(r, 'content/breeds/ranchu-goldfish/vi.json'), 'utf8')).altNames).toEqual(['Vua cá vàng', 'Ranchu goldfish'])
+  // In another language too.
+  await writeFile(join(r, 'content/species/carassius-auratus/id.json'), JSON.stringify({ slug: 'ikan-mas-koki', name: 'Ikan mas koki', altNames: ['Koki'] }))
+  const id: Llm = async <T,>(a: { schema: object }) => ('score' in (a.schema as { properties: object }).properties ? { score: 0.9, notes: [] } : { name: 'Koki Ranchu', slug: 'ranchu', altNames: ['Ranchu Jepang', 'Mas koki', 'Koki'], summary: ['s'], body: '<p>b</p>', faq: [] }) as T
+  await localizeBreed(r, id, 'ranchu-goldfish', 'id')
+  expect(JSON.parse(await readFile(join(r, 'content/breeds/ranchu-goldfish/id.json'), 'utf8')).altNames).toEqual(['Ranchu Jepang'])
 })
