@@ -136,7 +136,10 @@ test('a breed with no species page linked: still each name once; another breed p
 })
 
 test('cleaning a breed\'s cleaned names changes nothing', () => {
-  for (const [page, kin] of [[halfmoon(HALFMOON), BETTA_KIN], [plakat(PLAKAT), BETTA_KIN], [{ id: 'koi', name: 'Cá Koi (Nishikigoi)', altNames: ['Koi Nhật', 'Koi bướm', 'Butterfly koi', 'koi nhật'] }, []]] as const) {
+  const pages: [{ id: string; name: string; altNames: string[] }, Kin[]][] = [
+    [halfmoon(HALFMOON), BETTA_KIN], [plakat(PLAKAT), BETTA_KIN], [{ id: 'koi', name: 'Cá Koi (Nishikigoi)', altNames: ['Koi Nhật', 'Koi bướm', 'Butterfly koi', 'koi nhật'] }, []],
+  ]
+  for (const [page, kin] of pages) {
     const breeds = [...BETTA_BREEDS, { id: 'butterfly-koi', name: 'Koi bướm (Butterfly koi)' }]
     const once = cleanBreedAltNames(page, kin, breeds)
     expect(once.off.length).toBeGreaterThan(0)
