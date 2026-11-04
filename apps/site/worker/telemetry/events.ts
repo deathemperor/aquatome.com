@@ -1,4 +1,5 @@
 import { readCapped } from '../comments/api'
+import { isViPage, withoutVi } from '../paths'
 import { allowed, countryOf, done, fail, gate, isOurCopy, metaOf, objectOf, type Meta, type TelemetryEnv } from './shared'
 
 /** POST /api/v1/app/events (protocols/app-telemetry.openapi.json): a batch of one session's events, each a data point. */
@@ -9,7 +10,16 @@ export const MAX_EVENTS = 100
 export const ACTIONS = ['light.connect', 'light.write', 'plug.switch', 'fishid', 'tank.add', 'post.comment', 'post.photo'] as const
 const LANGS = ['vi', 'id', 'th']
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
-const PATH = /^\/(?:vi|id|th)\/(?:[A-Za-z0-9_-]+\/)*$/
+const SEGMENTS = /^\/(?:[A-Za-z0-9_-]+\/)*$/
+/**
+ * A handbook page's path, stored as the site's address: a Vietnamese page at the root (/ca/x/), whether the app sends that
+ * or the old /vi/ca/x/ its index still gives (worker/paths.ts), so both join one page. Anything that isn't a page: ''.
+ */
+const pageOf = (v: unknown) => {
+  if (typeof v !== 'string' || v.length > 200 || !SEGMENTS.test(v)) return ''
+  const p = withoutVi(v)
+  return /^\/(?:id|th)\//.test(p) || isViPage(p) ? p : ''
+}
 const SCREEN = /^[a-z][a-z0-9-]{0,23}$/
 const SHOP = /^[a-z0-9-]{1,24}$/
 const HREF = /^\/go\/([a-z0-9-]{1,24})\/(?:\?[A-Za-z0-9%._~&=+,-]*)?$/
@@ -30,7 +40,7 @@ export function parseEvent(x: unknown): AppEvent | null {
   const e = x as Record<string, unknown>
   if (!int(e.at, 0, MAX_AT)) return null
   const only = (...keys: string[]) => Object.keys(e).every(k => k === 't' || k === 'at' || keys.includes(k))
-  const path = typeof e.path === 'string' && e.path.length <= 200 && PATH.test(e.path) ? e.path : ''
+  const path = pageOf(e.path)
   const base = { at: e.at, path, screen: '', shop: '', href: '', name: '', kind: '', value: 1 }
   switch (e.t) {
     case 'view':

@@ -53,18 +53,20 @@ test('every sample in this file is what the contract describes, and its refusals
   expect(misfits(DIAGNOSTIC, schema('Report'))).toEqual([])
   expect(misfits({ telemetry: true, fish: [] }, schema('AppConfig'))).toEqual([])
   // A shop that isn't the link's: the contract says so in words, the Worker checks it.
-  for (const bad of BAD_EVENTS.filter(b => b !== OTHER_SHOP)) expect(misfits(bad, schema('Event')), JSON.stringify(bad)).not.toEqual([])
+  for (const bad of BAD_EVENTS.filter(b => b !== OTHER_SHOP && b !== NOT_A_PAGE)) expect(misfits(bad, schema('Event')), JSON.stringify(bad)).not.toEqual([])
   for (const bad of [{ ...BATCH, events: [] }, { ...BATCH, events: Array(101).fill(EACH[0]) }, { ...BATCH, country: 'VN' }, { ...BATCH, session: 'abc' }])
     expect(misfits(bad, schema('Batch'))).not.toEqual([])
 })
 
+// A path the contract's pattern allows but no page of the site has: the contract says so in words, the Worker checks it.
+const NOT_A_PAGE = { t: 'view', at: 0, path: '/en/fish/' }
 const OTHER_SHOP = { t: 'aff', at: 0, path: '/vi/', shop: 'lazada', href: SHOP_LINK }
 /** Events the Worker drops one by one, as the contract refuses them. */
 const BAD_EVENTS = [
   { t: 'view', at: 0 }, // neither path nor screen
   { t: 'view', at: 0, path: '/vi/', screen: 'lights' }, // both
   { t: 'view', at: 0, path: 'https://evil.example/vi/' },
-  { t: 'view', at: 0, path: '/en/fish/' },
+  NOT_A_PAGE,
   { t: 'view', at: 0, path: '/vi/ca/x/?q=1' },
   { t: 'view', at: 0, path: `/vi/${'a'.repeat(200)}/` },
   { t: 'view', at: 0, screen: 'Lights' },
@@ -97,11 +99,11 @@ test('events: each a data point with the app, its country and its session; nothi
   const s = SESSION.toLowerCase()
   const meta = ['1.0 (114)', '26.5', 'iPhone17,3', 'vi', 'VN', s, '', '']
   expect(points.map(p => [p.blobs.slice(0, 7), p.doubles, p.indexes])).toEqual([
-    [['view', '/vi/ca/ca-neon-vua/', '', '', '', '', ''], [1, 0], [s]],
+    [['view', '/ca/ca-neon-vua/', '', '', '', '', ''], [1, 0], [s]],
     [['view', '', 'lights', '', '', '', ''], [1, 1200], [s]],
-    [['scroll', '/vi/ca/ca-neon-vua/', '', '', '', '', ''], [50, 4000], [s]],
-    [['time', '/vi/ca/ca-neon-vua/', '', '', '', '', ''], [30, 30_000], [s]],
-    [['aff', '/vi/ca/ca-neon-vua/', '', 'shopee', SHOP_LINK, '', ''], [1, 31_000], [s]],
+    [['scroll', '/ca/ca-neon-vua/', '', '', '', '', ''], [50, 4000], [s]],
+    [['time', '/ca/ca-neon-vua/', '', '', '', '', ''], [30, 30_000], [s]],
+    [['aff', '/ca/ca-neon-vua/', '', 'shopee', SHOP_LINK, '', ''], [1, 31_000], [s]],
     [['action', '', '', '', '', 'light.connect', 'timeout'], [0, 40_000], [s]],
     [['action', '', '', '', '', 'fishid', 'fish'], [1, 41_000], [s]],
     [['action', '', '', '', '', 'tank.add', ''], [1, 42_000], [s]],
@@ -269,4 +271,17 @@ test('reports: kept as received in the private bucket under diagnostics/<day>/<k
   expect([...objects.keys()][1]).toMatch(/^diagnostics\/\d{4}-\d\d-\d\d\/metric\/[0-9a-f-]{36}\.json$/)
   for (const bad of ['{', JSON.stringify({ ...METRIC, kind: 'crash' })])
     expect(await answer(DIAGNOSTICS, 'post', await handle(post(DIAGNOSTICS, bad), e))).toEqual({ error: 'bad_request' })
+})
+
+// The app's index still gives Vietnamese pages under /vi/ (until it moves to the root with the site): either form is
+// stored as the site's address, so a page's views join; a path that isn't a page of the site is dropped.
+test('events: a Vietnamese page counts by its root address, sent either way; a path that is no page is dropped', async () => {
+  const { e, points } = env()
+  const events = [
+    { t: 'view', at: 0, path: '/vi/ca/ca-neon-vua/' }, { t: 'view', at: 1, path: '/ca/ca-neon-vua/' }, { t: 'view', at: 2, path: '/vi/' },
+    { t: 'view', at: 3, path: '/id/ikan/neon-tetra/' }, { t: 'view', at: 4, path: '/_ab/' }, { t: 'view', at: 5, path: '/api/v1/' },
+  ]
+  const r = await handle(post(EVENTS, { ...BATCH, events }), e)
+  expect(await r.json()).toEqual({ stored: 4, dropped: 2 })
+  expect(points.map(p => p.blobs[1])).toEqual(['/ca/ca-neon-vua/', '/ca/ca-neon-vua/', '/', '/id/ikan/neon-tetra/'])
 })
