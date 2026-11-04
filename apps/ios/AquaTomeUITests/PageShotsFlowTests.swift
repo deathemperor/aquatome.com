@@ -19,7 +19,7 @@ final class PageShotsFlowTests: XCTestCase {
   /// One of the app's tabs, once `showing` is there, accounts on and signed out, each screen of it to its end.
   private func shoot(_ name: String, tab: String, showing: String) {
     let app = launch(dark: false, large: false, "-fake-accounts", "on")
-    app.tabBars.buttons[tab].tap()
+    app.openTab(tab)
     XCTAssertTrue(app.descendants(matching: .any)[showing].firstMatch.waitForExistence(timeout: 5), "\(tab) isn't showing")
     shots(app, name, dark: false, large: false, screens: 12)
   }
