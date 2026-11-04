@@ -610,7 +610,7 @@ describe('photo gallery', () => {
     const { dom } = page('/ca/ca-neon-vua/')
     const strip = dom.querySelector('section.strip')!
     expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/ca/ca-neon-vua/anh/')
-    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 6 ảnh')
+    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 45 ảnh')
     const links = [...strip.querySelectorAll('li a')].map(a => a.getAttribute('href'))
     expect(links[0]).toBe('/ca/ca-neon-vua/anh/#a1')
     expect(strip.querySelector('img')!.getAttribute('src')).toMatch(/500px-Neon1\.jpg$/)
@@ -625,7 +625,7 @@ describe('photo gallery', () => {
   test('gallery page: every photo credited (author, licence, source), each tile its full photo for the viewer, ImageObject licence data, captions escaped', () => {
     const { html, dom } = page('/ca/ca-neon-vua/anh/')
     const items = [...dom.querySelectorAll('[data-gallery] a[data-i]')]
-    expect(items).toHaveLength(6)
+    expect(items).toHaveLength(45)
     expect(items[0]!.getAttribute('data-author')).toBe('Tác giả 1')
     expect(items[0]!.getAttribute('data-lic')).toBe('CC BY 2.0')
     expect(items[0]!.getAttribute('data-src')).toBe('https://commons.wikimedia.org/wiki/File:Neon1.jpg')
@@ -637,7 +637,7 @@ describe('photo gallery', () => {
     expect(html.lastIndexOf('<script')).toBeLessThan(html.indexOf('</html>'))
     const ld = [...dom.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent!)).flat()
     const g = ld.find((x: { '@type': string }) => x['@type'] === 'ImageGallery')
-    expect(g.image).toHaveLength(6)
+    expect(g.image).toHaveLength(45)
     expect(g.image[0]).toMatchObject({ '@type': 'ImageObject', creditText: 'Tác giả 1', license: 'https://creativecommons.org/licenses/by/2.0/', acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' })
     expect(g.image.find((x: { license?: string }) => x.license?.includes('publicdomain'))).toBeTruthy()
     expect(dom.querySelector('a[href="/ca/ca-neon-vua/"]')).toBeTruthy()
