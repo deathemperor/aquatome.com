@@ -23,7 +23,7 @@ permissions:
 env:
   HANDBOOK_FLOWS: >-
     HandbookFlowTests FactsCardFlowTests ReadingFlowTests NativePageFlowTests OfflineFlowTests TankCheckFlowTests
-    TankLifeFlowTests PageShotsFlowTests
+    TankLifeFlowTests PageShotsFlowTests ViAtRootFlowTests
   # The handbook flows' first half, run by `handbook (1)` with the page shots; `handbook (2)` runs the rest of
   # HANDBOOK_FLOWS, so a class added there later runs in it. Split by their times on #400's run of 2026-11-03 (the
   # whole job past its hour): 1,647 s here, 1,182 s in the rest before the tank volume flows' 605 s join it.

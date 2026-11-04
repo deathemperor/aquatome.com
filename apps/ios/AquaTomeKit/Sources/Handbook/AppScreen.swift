@@ -12,12 +12,14 @@ public enum AppScreen: Equatable, Sendable {
   /// A group's page ("/vi/nhom/catfish/", and its numbered pages): the app's shelf of that group's fish.
   case group(String)
 
-  /// The screen `url` is, if it's one of these pages on `site`, in any of the site's languages; with `listed` (whether
-  /// the app index has a path), also any other page the index lists; with `group` (whether the app has fish of a
-  /// group), also those groups' pages.
+  /// The screen `url` is, if it's one of these pages on `site`, in any of the site's languages (Vietnamese under "/vi/"
+  /// or at the root, PathForm); with `listed` (whether the app index has a path, as the link gives it), also any other
+  /// page the index lists; with `group` (whether the app has fish of a group), also those groups' pages.
   public static func of(_ url: URL, site: URL, listed: (String) -> Bool = { _ in false }, group: (String) -> Bool = { _ in false }) -> AppScreen? {
     guard ["http", "https"].contains(url.scheme?.lowercased() ?? ""), bare(url.host) == bare(site.host) else { return nil }
-    switch url.pathComponents.filter({ $0 != "/" }).joined(separator: "/") {
+    // A Vietnamese page at the root ("/cong-cu/be-cua-toi/") or under "/vi/": matched as the latter.
+    let parts = PathForm.underVi.path(url.path(percentEncoded: false)).split(separator: "/").map(String.init)
+    switch parts.joined(separator: "/") {
     // apps/site/src/lib/i18n.ts: the tools section and each page's segment in each language.
     case "vi/cong-cu/be-cua-toi", "id/alat/akuarium-saya", "th/tools/my-tanks":
       let id = url.fragment(percentEncoded: false).flatMap { $0.hasPrefix("be-") ? String($0.dropFirst(3)) : nil }
@@ -28,7 +30,7 @@ public enum AppScreen: Equatable, Sendable {
       // A link asking for more than the page (the tank-mates tool set to a fish, `?ca=ca-neon:6`) isn't the page as the
       // app shows it: the web takes it whole.
       guard url.query == nil else { return nil }
-      if let g = Self.group(url.pathComponents.filter { $0 != "/" }), group(g) { return .group(g) }
+      if let g = Self.group(parts), group(g) { return .group(g) }
       // The index's paths end in "/", as the site's pages do; a link may leave it off.
       let path = url.path(percentEncoded: false)
       let page = path.hasSuffix("/") ? path : path + "/"

@@ -26,6 +26,14 @@ final class HandbookModel {
   private var matcher = PageMatcher([])
   /// Every page by its path: what the reading list keeps.
   private var byPath: [String: HandbookIndex.Item] = [:]
+  /// Where the index has its Vietnamese pages, under "/vi/" or at the root (nil for an Indonesian or Thai one): the form
+  /// every path is put in before it's looked up.
+  private var form: PathForm?
+  /// The form of the paths kept on this phone (the reading list, the pages kept for offline and their shards): the
+  /// index's when they were last moved; "/vi/" from an app older than the move.
+  private var keptForm: PathForm
+  /// The kept shards being moved to the index's form: pages are read from the phone once that's done.
+  private var moving: Task<Void, Never>?
   /// The index arranged to browse: groups, placements, subjects, the home's picks.
   private(set) var shelves = HandbookShelves(HandbookIndex(lang: "vi", items: []))
   /// The reader's own comments shown at once, by page key, until the site's list has them (`readers`).
@@ -72,6 +80,7 @@ final class HandbookModel {
     reading = UserDefaults.standard.data(forKey: "handbook.reading.\(lang)").flatMap { try? JSONDecoder().decode(ReadingList.self, from: $0) } ?? ReadingList()
     kept = UserDefaults.standard.stringArray(forKey: "handbook.kept.\(lang)") ?? []
     keptCounts = UserDefaults.standard.dictionary(forKey: "handbook.kept.counts.\(lang)") as? [String: Int] ?? [:]
+    keptForm = UserDefaults.standard.string(forKey: "handbook.paths.\(lang)").flatMap(PathForm.init(rawValue:)) ?? .underVi
     drawn = Self.pageCache(source, site: site)
   }
 
@@ -81,7 +90,8 @@ final class HandbookModel {
   /// The page as blocks, from the phone or the site; nil when the web page is to show instead.
   func doc(_ item: HandbookIndex.Item) async -> PageDoc? {
     guard let count = shardCounts[item.kind.rawValue] else { return nil }
-    return await drawn.doc(path: item.path, kind: item.kind.rawValue, lang: lang, count: count)
+    await moving?.value
+    return await drawn.doc(path: path(of: item), kind: item.kind.rawValue, lang: lang, count: count)
   }
 
   /// A page's readers' comments and photos, from the site (Readers): each nil when the page has none to ask for or the
@@ -114,21 +124,27 @@ final class HandbookModel {
     return data
   }
 
-  /// The page at a path the index lists ("/vi/ca/ca-neon/").
-  func item(at path: String) -> HandbookIndex.Item? { byPath[path] }
+  /// An item's path in the index's form: one from before the index changed form (a page open then) too.
+  private func path(of item: HandbookIndex.Item) -> String { form?.path(item.path) ?? item.path }
+
+  /// The page at a path the index lists ("/vi/ca/ca-neon/"), the path in either form (PathForm): a link from a page
+  /// read before the site moved its Vietnamese pages, or after.
+  func item(at path: String) -> HandbookIndex.Item? { byPath[form?.path(path) ?? path] }
 
   /// Keeps these pages for reading offline: the shards they're in, read from the site now, then every picture in them,
   /// telling how many pictures are kept so far. Returns how many of the pages are on the phone.
   /// A stop (the task cancelled) ends it; a page counts as kept only once it's whole on the phone (KeepPages).
   func keep(_ items: [HandbookIndex.Item], progress: (_ done: Int, _ of: Int) -> Void) async -> Int {
-    await KeepPages.run(items.map(\.path), docs: { _ in
+    await KeepPages.run(items.map(path(of:)), docs: { _ in
+      await moving?.value
       var docs: [PageDoc] = []
       for (kind, list) in Dictionary(grouping: items, by: \.kind) {
         guard let count = shardCounts[kind.rawValue] else { continue }
-        docs += await drawn.keep(list.map(\.path), kind: kind.rawValue, lang: lang, count: count)
+        docs += await drawn.keep(list.map(path(of:)), kind: kind.rawValue, lang: lang, count: count)
       }
       return docs
-    }, picture: { await PageImages.keep($0) }, kept: { path in
+    }, picture: { await PageImages.keep($0) }, kept: { page in
+      let path = form?.path(page) ?? page
       kept.removeAll { $0 == path }
       kept.insert(path, at: 0)
       if let kind = byPath[path]?.kind.rawValue { keptCounts[kind] = shardCounts[kind] }
@@ -164,7 +180,7 @@ final class HandbookModel {
     UserDefaults.standard.set(keptCounts, forKey: "handbook.kept.counts.\(lang)")
   }
 
-  func isKept(_ item: HandbookIndex.Item) -> Bool { kept.contains(item.path) }
+  func isKept(_ item: HandbookIndex.Item) -> Bool { kept.contains(path(of: item)) }
 
   /// The pages kept for offline that the index has now.
   var keptItems: [HandbookIndex.Item] { ReadingList.items(kept, in: byPath, kind: nil) }
@@ -175,17 +191,18 @@ final class HandbookModel {
   func unkeep(_ items: [HandbookIndex.Item]) async {
     let running = Array(runs.values)
     for shelf in Array(runs.keys) { stopKeeping(shelf) }
-    let gone = Set(items.map(\.path))
+    let gone = Set(items.map(path(of:)))
     kept.removeAll { gone.contains($0) }
     saveKept()
     for t in running { await t.value }
     for (kind, list) in Dictionary(grouping: items, by: \.kind) {
       guard let count = shardCounts[kind.rawValue] else { continue }
-      await forget(list.map(\.path), kind: kind.rawValue, count: count)
+      await forget(list.map(path(of:)), kind: kind.rawValue, count: count)
     }
   }
 
   private func forget(_ paths: [String], kind: String, count: Int) async {
+    await moving?.value
     let staying = kept.filter { byPath[$0]?.kind.rawValue == kind }
     for src in await drawn.forget(paths, keeping: staying, kind: kind, lang: lang, count: count) { PageImages.forget(src) }
   }
@@ -222,7 +239,7 @@ final class HandbookModel {
   }
 
   func read(_ item: HandbookIndex.Item) {
-    change { $0.read(item.path) }
+    change { $0.read(path(of: item)) }
     #if DEBUG
     // UI tests (`-pages-later`): the index says which kinds the app draws only once a page has opened.
     if let ix = pagesLater {
@@ -231,7 +248,8 @@ final class HandbookModel {
     }
     #endif
   }
-  func toggleSaved(_ item: HandbookIndex.Item) { change { $0.toggleSaved(item.path) } }
+  func toggleSaved(_ item: HandbookIndex.Item) { change { $0.toggleSaved(path(of: item)) } }
+  func isSaved(_ item: HandbookIndex.Item) -> Bool { reading.isSaved(path(of: item)) }
 
   private func change(_ edit: (inout ReadingList) -> Void) {
     edit(&reading)
@@ -282,6 +300,8 @@ final class HandbookModel {
     pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
     matcher = PageMatcher(index: ix.items)
     byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
+    form = PathForm(ix)
+    if let form, form != keptForm { move(to: form) }
     shardCounts = ix.pages
     dropKeptOfOtherCounts()
     shelves = HandbookShelves(ix)
@@ -293,6 +313,22 @@ final class HandbookModel {
 
   private func refresh() { results = search.find(query, kind: kind) }
 
+  /// The site moved its Vietnamese pages (PathForm), or moved them back: what's kept on the phone by path is put in the
+  /// index's form, the reading list and the kept list at once, then the kept shards. Each step can run again: a move cut
+  /// short runs again on the next launch.
+  private func move(to form: PathForm) {
+    keptForm = form
+    change { $0.move(to: form) }
+    kept = form.paths(kept)
+    saveKept()
+    let before = moving
+    moving = Task { [drawn, lang] in
+      await before?.value
+      await drawn.move(to: form, lang: lang)
+      UserDefaults.standard.set(form.rawValue, forKey: "handbook.paths.\(lang)")
+    }
+  }
+
   /// The site, except in UI tests (`-fixed-handbook`), which use a small fixed index: no network, same answers each run.
   /// Performance tests use `-large-handbook`: as many fish as the site has, still without the network.
   static func defaultSource() -> Source {
@@ -300,12 +336,13 @@ final class HandbookModel {
     let args = ProcessInfo.processInfo.arguments
     if args.contains("-large-handbook") { return .fixed(.large) }
     if args.contains("-fixed-handbook") {
+      // `-vi-at-root`: the site has taken "/vi" out of its Vietnamese pages' addresses.
+      let f = args.contains("-vi-at-root") ? HandbookIndex.fixtureAtRoot : .fixture
       // `-pages-count N`: the site has split its guides into N shards since the last launch.
       if let i = args.firstIndex(of: "-pages-count"), i + 1 < args.count, let n = Int(args[i + 1]) {
-        let f = HandbookIndex.fixture
         return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: ["guide": n]))
       }
-      return .fixed(.fixture)
+      return .fixed(f)
     }
     #endif
     return .site
@@ -316,7 +353,8 @@ final class HandbookModel {
     #if DEBUG
     if case .fixed = source {
       let dir = FileManager.default.temporaryDirectory.appending(path: "pages-\(UUID().uuidString)")
-      return PageCache(dir: dir, site: site, fetch: { _ in HandbookIndex.fixturePages })
+      let pages = ProcessInfo.processInfo.arguments.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot : HandbookIndex.fixturePages
+      return PageCache(dir: dir, site: site, fetch: { _ in pages })
     }
     #endif
     var dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appending(path: "pages")
@@ -406,6 +444,19 @@ extension HandbookIndex {
   "/vi/cay/rotala-do/":{"v":1,"kind":"plant","path":"/vi/cay/rotala-do/","title":"Rotala đỏ","sub":"Rotala rotundifolia","lead":{"src":"https://media.aquatome.com/a/rotala.webp","w":1200,"h":900,"alt":"Rotala đỏ, Rotala rotundifolia","credit":{"text":"Ảnh: Tropica","licence":"dùng với sự cho phép","url":"https://example.org/photo/rotala"}},"talk":{"comments":"plant:rotala-rotundifolia"},"blocks":[{"t":"h","text":"Trồng và chăm","id":"muc-care"},{"t":"p","c":["Cần ánh sáng mạnh để lên màu đỏ."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Tropica","url":"https://example.org/rotala"}]}]},
   "/vi/thuat-ngu/dem-ph/":{"v":1,"kind":"glossary","path":"/vi/thuat-ngu/dem-ph/","title":"Đệm pH","blocks":[{"t":"p","c":["Tiếng Anh: pH buffer"]},{"t":"p","c":["Khả năng giữ pH của nước khi có thêm axit."]}]}}}
   """#.utf8)
+
+  /// UI tests (`-vi-at-root`): the fixture and its pages with the Vietnamese pages at the root, as the site has them
+  /// once it takes "/vi" out of their addresses: every path and link that starts "/vi/" without it.
+  static let fixtureAtRoot: HandbookIndex = {
+    let e = JSONEncoder()
+    e.outputFormatting = .withoutEscapingSlashes
+    return try! JSONDecoder().decode(HandbookIndex.self, from: atRoot(e.encode(fixture)))
+  }()
+  static let fixturePagesAtRoot = atRoot(fixturePages)
+  /// Only a string that starts with the path: not the "/vi/" in a YouTube picture's address.
+  private static func atRoot(_ json: Data) -> Data {
+    Data(String(decoding: json, as: UTF8.self).replacingOccurrences(of: #""/vi/"#, with: #""/"#).utf8)
+  }
 
   /// UI tests' readers' content, by the address the app asks for it: the neon's comments (one a good answer) and two
   /// readers' photos, as the site's Worker answers. The plant asks too, and the site has none for it.

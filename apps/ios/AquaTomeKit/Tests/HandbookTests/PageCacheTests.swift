@@ -202,3 +202,40 @@ private func docOf(_ path: String, _ pictures: [String]) -> PageDoc { PageShard(
   kept.remove(src)
   #expect(KeptPictures(dir: dir).data(src) == nil)
 }
+
+/// The site took "/vi" out of its addresses: each page lives in the shard its new path falls in.
+@Test func aPageKeptUnderViOpensOfflineUnderItsRootPathAndBack() async {
+  let root = "/huong-dan/nuoi-ca-neon/"
+  #expect(PageDoc.shard(of: neon, count: 32) != PageDoc.shard(of: root, count: 32), "the move would be untested")
+  let dir = tmp()
+  #expect(await cache(dir, Site(shard("Cá neon sống theo đàn."))).keep([neon], kind: "guide", lang: "vi", count: 32).count == 1)
+  // Next run, offline, the index at the root.
+  let c = cache(dir, Site(nil))
+  await c.move(to: .atRoot, lang: "vi")
+  let doc = await c.doc(path: root, kind: "guide", lang: "vi", count: 32)
+  #expect(text(doc) == "Cá neon sống theo đàn." && doc?.path == root)
+  #expect(await c.doc(path: neon, kind: "guide", lang: "vi", count: 32) == nil, "still under /vi/")
+  // Moved again in the same form, nothing changes; moved back, it's where it was.
+  await c.move(to: .atRoot, lang: "vi")
+  #expect(text(await c.doc(path: root, kind: "guide", lang: "vi", count: 32)) == "Cá neon sống theo đàn.")
+  await c.move(to: .underVi, lang: "vi")
+  #expect(text(await cache(dir, Site(nil)).doc(path: neon, kind: "guide", lang: "vi", count: 32)) == "Cá neon sống theo đàn.")
+  // Another language's shards are left alone.
+  await c.move(to: .atRoot, lang: "id")
+  #expect(text(await cache(dir, Site(nil)).doc(path: neon, kind: "guide", lang: "vi", count: 32)) == "Cá neon sống theo đàn.")
+}
+
+@Test func aPageOnThePhoneInBothFormsKeepsTheOneReadInTheNewForm() async {
+  let root = "/huong-dan/nuoi-ca-neon/"
+  let dir = tmp(), s = Site(shard("Cũ."))
+  let c = cache(dir, s)
+  _ = await c.doc(path: neon, kind: "guide", lang: "vi", count: 32)
+  // The site moved first: its shard now holds the page at its root path.
+  await s.set(try! JSONSerialization.data(withJSONObject: ["v": 1, "pages": [
+    root: ["v": 1, "kind": "guide", "path": root, "title": "Nuôi cá neon trong bể nhỏ", "blocks": [["t": "p", "c": ["Mới."]]]],
+  ]] as [String: Any]))
+  #expect(text(await c.doc(path: root, kind: "guide", lang: "vi", count: 32)) == "Mới.")
+  await c.move(to: .atRoot, lang: "vi")
+  await s.set(nil)
+  #expect(text(await cache(dir, s).doc(path: root, kind: "guide", lang: "vi", count: 32)) == "Mới.")
+}

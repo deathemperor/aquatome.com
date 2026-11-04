@@ -69,6 +69,51 @@ public actor PageCache {
     return pictures.sorted()
   }
 
+  /// The shards of `lang` on the phone with their pages' paths put in `form` (PathForm), each page moved to the shard
+  /// its path falls in now, as the site's shards in that form hold it: a page kept for offline still opens offline under
+  /// its new path. A page on the phone in both forms keeps the one already in `form` (read from the site since).
+  public func move(to form: PathForm, lang: String) {
+    let folder = dir.appending(path: lang)
+    let names = (try? FileManager.default.contentsOfDirectory(atPath: folder.path(percentEncoded: false))) ?? []
+    // "<kind>-<count>-<n>.json", by kind and count: a kind split anew is another count's files, left as they are.
+    let files = Dictionary(grouping: names.filter { $0.hasSuffix(".json") }) { $0.dropLast(5).split(separator: "-").dropLast().joined(separator: "-") }
+    for (prefix, names) in files {
+      guard let count = prefix.split(separator: "-").last.flatMap({ Int($0) }) else { continue }
+      var moved: [Int: [String: Any]] = [:], stayed: [Int: [String: Any]] = [:]
+      var read: [String] = []
+      for name in names {
+        guard let o = (try? Data(contentsOf: folder.appending(path: name))).flatMap({ try? JSONSerialization.jsonObject(with: $0) }) as? [String: Any],
+              o["v"] as? Int == PageDoc.version, let pages = o["pages"] as? [String: Any] else { continue }
+        read.append(name)
+        for case let (path, page as [String: Any]) in pages {
+          var page = page
+          let to = form.path(path)
+          page["path"] = to
+          let n = PageDoc.shard(of: to, count: count)
+          if to == path { stayed[n, default: [:]][to] = page } else { moved[n, default: [:]][to] = page }
+        }
+      }
+      guard !moved.isEmpty else { continue }
+      // The new files first, then the old ones no longer written, once every new one is: a move cut short leaves every
+      // page on the phone.
+      let out = moved.merging(stayed, uniquingKeysWith: { a, b in a.merging(b) { _, inForm in inForm } })
+      var written: Set<String> = []
+      for (n, pages) in out {
+        let name = "\(prefix)-\(n).json"
+        guard let data = try? JSONSerialization.data(withJSONObject: ["v": PageDoc.version, "pages": pages] as [String: Any]),
+              (try? data.write(to: folder.appending(path: name), options: .atomic)) != nil else { continue }
+        written.insert(name)
+      }
+      guard written.count == out.count else { continue }
+      for name in read where !written.contains(name) { try? FileManager.default.removeItem(at: folder.appending(path: name)) }
+    }
+    // Read again from the phone, as moved, and from the site for next time.
+    let ours = { (k: String) in k.hasPrefix("\(lang)/") }
+    shards = shards.filter { !ours($0.key) }
+    fetched = fetched.filter { !ours($0) }
+    fresh = fresh.filter { !ours($0) }
+  }
+
   /// A page's shard: its key on the phone (the count is in the kept file's name: with another count, the pages are in
   /// other shards) and its address on the site.
   private func place(_ path: String, kind: String, lang: String, count: Int) -> (key: String, url: URL) {
