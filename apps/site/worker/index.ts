@@ -19,6 +19,8 @@ import { APP_SITE_ASSOCIATION } from './accounts/passkey'
 import { purgeExpired } from './accounts/ratelimit'
 import { wantedRoute } from './wanted'
 import { fishId, type FishIdDeps, type FishIdEnv } from './fishid/api'
+import { appEventsRoute } from './telemetry/events'
+import { appDiagnosticsRoute } from './telemetry/diagnostics'
 import { sweepKept } from './fishid/kept'
 
 export interface Env {
@@ -26,6 +28,8 @@ export interface Env {
   AB: KVNamespace
   /** Optional until Analytics Engine is enabled on the account; events are accepted and dropped without it. */
   EVENTS?: AnalyticsEngineDataset
+  /** The iOS app's events and MetricKit summaries (worker/telemetry); without it the app's routes answer 503. */
+  APP_EVENTS?: AnalyticsEngineDataset
   STAGING?: string
   /** Production host; any other host (www, the old staging domain) 301s here. */
   CANONICAL_HOST?: string
@@ -176,6 +180,9 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps), env)
   // A reader's own photos, sent from the app (worker/photos.ts): listed or taken back with its account's bearer.
   if (url.pathname.startsWith('/api/v1/talk/photos/mine')) return finish(await minePhotos(req, url, env, new Date()), env)
+  // The iOS app's anonymous events and crash and performance reports (worker/telemetry): no account, no cookie.
+  if (url.pathname === '/api/v1/app/events') return finish(await appEventsRoute(req, env, new Date()), env)
+  if (url.pathname === '/api/v1/app/diagnostics') return finish(await appDiagnosticsRoute(req, env, new Date()), env)
   if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps ?? depsFor(env)), env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)

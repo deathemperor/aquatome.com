@@ -5,7 +5,7 @@ import { i18n } from '../../lib/i18n'
 const { t } = i18n(Astro.url)
 const mail = `mailto:${CONTACT_EMAIL}`
 ---
-<Doc title={t('Chính sách bảo mật')} updated="03/11/2026" intro={t('AquaTome thu thập rất ít dữ liệu. Trang này nói rõ dữ liệu nào, để làm gì và bạn có quyền gì.')}>
+<Doc title={t('Chính sách bảo mật')} updated="04/11/2026" intro={t('AquaTome thu thập rất ít dữ liệu. Trang này nói rõ dữ liệu nào, để làm gì và bạn có quyền gì.')}>
   <p><a href="#english" lang="en">English version below.</a></p>
 
   <h2>{t('1. Chúng tôi là ai')}</h2>
@@ -36,6 +36,10 @@ const mail = `mailto:${CONTACT_EMAIL}`
     <li>{t('Bên xử lý: Cloudflare (máy chủ, cơ sở dữ liệu, gửi email đăng nhập, Turnstile chống bot ở ô email); Google hoặc Apple, khi bạn chọn đăng nhập bằng họ. Tập lệnh đăng nhập của Google, Apple và Turnstile chỉ tải sau khi bạn bấm “Đăng nhập để đồng bộ” hoặc “Thêm cách đăng nhập”; riêng tập lệnh của Apple cũng tải khi bạn mở mục “Xóa tài khoản” của một tài khoản đăng nhập bằng Apple.')}</li>
     <li>{t('Tải dữ liệu và xóa tài khoản: ngay ở trang Bể của tôi khi đã đăng nhập. Xóa tài khoản là xóa ngay tài khoản, các cách đăng nhập, phiên, mọi bể trong tài khoản, và các bình luận, ảnh (cả tệp ảnh) gửi từ ứng dụng bằng tài khoản này; nếu tài khoản đăng nhập bằng Apple, quyền đăng nhập bằng Apple của AquaTome cũng được thu hồi.')}</li>
   </ul>
+  <h3 id="thong-ke-ung-dung">{t('Thống kê ẩn danh từ ứng dụng')}</h3>
+  <p>{t('Ứng dụng AquaTome trên iPhone gửi các sự kiện ẩn danh như trang web: trang bạn mở trong ứng dụng, mức cuộn, thời gian đọc, lượt bấm liên kết mua hàng, và kết quả của một số thao tác (kết nối đèn hoặc ổ cắm thành công hay lỗi, kết quả nhận diện cá, không kèm ảnh). Kèm theo: phiên bản ứng dụng, phiên bản iOS, loại máy, ngôn ngữ, quốc gia và một mã phiên ngẫu nhiên tạo mới mỗi lần mở ứng dụng.')}</p>
+  <p>{t('Ứng dụng cũng gửi báo cáo lỗi và hiệu năng do iOS thu thập: ứng dụng thoát đột ngột, bị treo, thời gian mở, bộ nhớ.')}</p>
+  <p>{t('Không dữ liệu nào trong số này gắn với tài khoản, tên, email hay mã quảng cáo của bạn, và không dùng để theo dõi bạn qua ứng dụng hay trang web khác. Tắt được trong Tài khoản → Gửi thống kê ẩn danh. Lưu tối đa 3 tháng.')}</p>
 
   <h2>{t('3. Cookie và bộ nhớ trình duyệt')}</h2>
   <ul>
@@ -71,7 +75,7 @@ const mail = `mailto:${CONTACT_EMAIL}`
     <li>{t('Báo cáo bình luận hoặc ảnh: đến khi bình luận hoặc ảnh đó bị xóa.')}</li>
     <li>{t('Ảnh gửi để nhận diện cá: không lưu, trừ khi bạn cho phép giữ: 6 tháng, rồi tự xóa.')}</li>
     <li>{t('Mã băm chống spam: 24 giờ.')}</li>
-    <li>{t('Thống kê ẩn danh: tối đa 3 tháng.')}</li>
+    <li>{t('Thống kê ẩn danh (trang web và ứng dụng): tối đa 3 tháng.')}</li>
     <li>{t('Tài khoản và các bể trong tài khoản: đến khi bạn xóa bể hoặc xóa tài khoản. Phiên đăng nhập: 180 ngày (ứng dụng: 365 ngày) kể từ lần dùng cuối, hoặc đến khi đăng xuất. Mã đăng nhập qua email: 15 phút.')}</li>
     <li>{t('Bản sao lưu tự động của cơ sở dữ liệu: tối đa 30 ngày, sau đó dữ liệu đã xóa mất hẳn.')}</li>
   </ul>
@@ -86,7 +90,7 @@ const mail = `mailto:${CONTACT_EMAIL}`
 
   <section id="english" lang="en">
     <h2>Privacy policy (English)</h2>
-    <p>Last updated: 3 November 2026. AquaTome (aquatome.com) is a Vietnamese-language aquarium fish and plant guide. Contact: <a href={mail}>{CONTACT_EMAIL}</a>.</p>
+    <p>Last updated: 4 November 2026. AquaTome (aquatome.com) is a Vietnamese-language aquarium fish and plant guide. Contact: <a href={mail}>{CONTACT_EMAIL}</a>.</p>
     <h3>What we process</h3>
     <ul>
       <li><strong>Comments:</strong> the display name and text you enter, shown publicly at once if they pass automatic filters; flagged comments wait for review, and comments that break the rules are removed in daily moderation. No email or IP address is stored, and no account is needed. To limit spam, a one-way hash of your IP address plus the date is kept for 24 hours.</li>
@@ -106,6 +110,10 @@ const mail = `mailto:${CONTACT_EMAIL}`
       <li><strong>Processors:</strong> Cloudflare (hosting, database, sending the sign-in email, Turnstile bot check on the email form); Google or Apple when you choose to sign in with them. The Google, Apple and Turnstile sign-in scripts load only after you press “Sign in to sync” or “Add a way to sign in”; Apple's script also loads when you open “Delete account” for an account that signs in with Apple.</li>
       <li><strong>Export and deletion:</strong> on the My tanks page while signed in. Deleting the account at once deletes the account, its sign-in methods, sessions, every tank in it, and the comments and photos (photo files included) sent from the app with it; for an account that signs in with Apple, AquaTome's Sign in with Apple access is revoked too.</li>
     </ul>
+    <h3 id="app-statistics">Anonymous statistics from the app</h3>
+    <p>The AquaTome iPhone app sends anonymous events, as the website does: the pages you open in the app, how far you scroll, reading time, taps on shop links, and the outcome of some actions (whether connecting a light or a smart plug worked or failed, the result of a fish identification, without the photo). With them: the app version, iOS version, device model, language, country and a random session ID created anew each time the app is opened.</p>
+    <p>The app also sends error and performance reports collected by iOS: unexpected quits, hangs, launch time, memory.</p>
+    <p>None of this data is tied to your account, name, email or advertising ID, and it is not used to track you across other apps or websites. You can turn it off in Account → Send anonymous statistics. Kept for up to 3 months.</p>
     <h3>Cookies and storage</h3>
     <ul>
       <li><strong>units</strong> (local storage): your °C/cm or °F/inch choice.</li>
@@ -123,7 +131,7 @@ const mail = `mailto:${CONTACT_EMAIL}`
     <h3>Videos</h3>
     <p>YouTube videos load only after you press play: the player from youtube-nocookie.com and YouTube's player-control script (youtube.com/iframe_api), used to turn on Vietnamese captions and jump to chapters. Before that only a preview image from YouTube's image server is shown.</p>
     <h3>Retention</h3>
-    <p>Approved comments: while they are shown. Comments awaiting review: until approved or removed. Removed comments: deleted after 30 days. Reader photos: originals until the next moderation run (usually under a day); published photos while shown, deleted at once when you or we remove them. Reports of a comment or photo: until it is deleted. Photos sent to the fish identifier: not stored, unless you let us keep them: 6 months, then deleted automatically. Spam-check hash: 24 hours. Anonymous statistics: up to 3 months. Accounts and the tanks in them: until you delete the tank or the account. Sign-in sessions: 180 days (app: 365 days) from last use, or until you sign out. Email sign-in codes: 15 minutes. Automatic database backups: up to 30 days, after which deleted data is gone for good.</p>
+    <p>Approved comments: while they are shown. Comments awaiting review: until approved or removed. Removed comments: deleted after 30 days. Reader photos: originals until the next moderation run (usually under a day); published photos while shown, deleted at once when you or we remove them. Reports of a comment or photo: until it is deleted. Photos sent to the fish identifier: not stored, unless you let us keep them: 6 months, then deleted automatically. Spam-check hash: 24 hours. Anonymous statistics (website and app): up to 3 months. Accounts and the tanks in them: until you delete the tank or the account. Sign-in sessions: 180 days (app: 365 days) from last use, or until you sign out. Email sign-in codes: 15 minutes. Automatic database backups: up to 30 days, after which deleted data is gone for good.</p>
     <h3>Your rights</h3>
     <p>You can access, correct or delete your data, or withdraw consent, under Vietnam's Personal Data Protection Law (2025) and Decree 356/2025/ND-CP and, where it applies, the GDPR. With an account, export your data, edit your tanks and delete the account yourself on the My tanks page. Comments and photos sent from the website are not tied to an email or account: include the page URL, display name and comment text in your request to <a href={mail}>{CONTACT_EMAIL}</a>.</p>
   </section>
