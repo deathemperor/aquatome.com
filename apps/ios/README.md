@@ -140,11 +140,11 @@ Spotlight, Settings and notifications), measured on one Mac, 2026-11-03 (the pre
 
 \* An estimate: `assetutil` thinning of the archive's `Assets.car` for an iPhone at @3x, the rest as archived (the
 binary is arm64 only). Not an App Store export's thinning report, which needs signing. The size budget is on the
-archive. Each icon costs about 150 kB there and 40 kB on one iPhone: its gradients barely compress (CoreUI keeps each
-size as ARGB, lzfse), where the flat earlier designs cost 20 kB. With the 40, 29 and 20 pt sizes too the archive was
-10,625 kB. An icon set doesn't load as an image, so the picker shows each icon from a preview at its 64 points, @2x and
-@3x, stored lossy: 308 kB for the 33 by actool alone, where lossless pictures are 1,178 kB and SVG 2,233 kB (actool keeps
-three pictures of an SVG beside it). The last row also has #445's code (+18 kB).
+archive. Each icon cost about 150 kB there and 40 kB on one iPhone, before quantizing: its gradients barely compress
+(CoreUI keeps each size as ARGB, lzfse), where the flat earlier designs cost 20 kB. With the 40, 29 and 20 pt sizes too
+the archive was 10,625 kB. An icon set doesn't load as an image, so the picker shows each icon from a preview at its 64
+points, @2x and @3x, stored lossy: 308 kB for the 33 by actool alone, where lossless pictures are 1,178 kB and SVG 2,233
+kB (actool keeps three pictures of an SVG beside it). The last row also has #445's code (+18 kB).
 
 The default since 2026-11-04, the round fish with leaf fins (the owner's choice; the AT stays an alternate), costs more
 than the AT did. Its 1024 is kept for iPhone and iPad (one universal entry; actool writes one for each, and a device gets
@@ -159,7 +159,7 @@ kB, 4,933.5 kB on one iPhone (the same estimate).
 The alternates drawn by `app-icons.py` (34 of them; the AT, flat and hand-drawn, isn't: its gamma moves its colour) are
 quantized the same way since 2026-11-04: Assets.car 6,243.8 → 3,171.9 kB, so the archive is 6,295.5 kB, 4,211.8 kB on
 one iPhone (the table above is from before). At home-screen size each looks as it did; zoomed in with the contrast
-pushed, the dark glows show faint grain, no bands.
+pushed, the dark glows show faint grain, and one glow's edge faint rings; no bands.
 
 Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
 the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run

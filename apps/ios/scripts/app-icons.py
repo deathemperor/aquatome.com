@@ -11,8 +11,9 @@ checks that each is in the app.
 Every icon set drawn here is quantized (`quantize`: pngquant, dithered, 256 colours at most). CoreUI keeps an icon set's
 pictures as ARGB, lzfse, whatever the asset catalog says (its "lossy" is for image sets), and gradients barely compress
 that way; quantized, the 34 alternates drawn here cost half as much of the archive (measured 2026-11-04: Assets.car
-6,243.8 → 3,171.9 kB), alike at home-screen size, with faint grain in the dark glows only when zoomed with the contrast
-pushed. The AT isn't: it's flat, and its picture's gamma moves its colour when quantized.
+6,243.8 → 3,171.9 kB), alike at home-screen size, with faint grain in the dark glows, and faint rings at one glow's
+edge, only when zoomed with the contrast pushed. The AT isn't: it's flat, and its picture's gamma moves its colour when
+quantized.
 
 An icon set doesn't load as an image (UIImage(named:) gives nil), so the picker shows each icon, the default too, from
 AppIconPreviews/AppIconPreview-<id>.imageset: the icon at the picker's 64 points, @2x and @3x, stored lossy. Measured
