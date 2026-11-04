@@ -31,6 +31,9 @@ export const WHY = ['face', 'species', 'quality', 'unsafe', 'advert', 'not_photo
 const MOVE_RE = /^species:[a-z0-9-]{1,140}$/
 const fullKey = (id: string) => `readers/${id}.webp`
 const thumbKey = (id: string) => `readers/${id}-480.webp`
+/** The owner's "Duyệt" on a waiting photo (KV): the next moderation pass publishes it without its checks. */
+const okKey = (id: string) => `photo-ok:${id}`
+const ownerOk = async (kv: KVNamespace, id: string) => (await kv.get(okKey(id))) !== null
 
 const json = (data: unknown, status = 200, extra: Record<string, string> = {}) => Response.json(data, { status, headers: { 'cache-control': 'no-store', ...extra } })
 const live = (env: PhotosEnv): env is Live => Boolean(env.DB && env.UPLOADS && env.MEDIA && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY)
@@ -199,9 +202,9 @@ export async function deleteRoute(req: Request, url: URL, env: PhotosEnv, now: D
 
 /**
  * `reports`: each reader's reason for reporting it ('' when they gave none). `moved_from`: the page it was sent for when
- * moderation already moved it (null when it didn't): a photo moves once.
+ * moderation already moved it (null when it didn't): a photo moves once. `ownerOk`: the owner approved it on the dashboard.
  */
-export type PhotoQueueItem = { id: string; entity_ref: string; name: string; created_at: string; moved_from: string | null; reports: string[] }
+export type PhotoQueueItem = { id: string; entity_ref: string; name: string; created_at: string; moved_from: string | null; reports: string[]; ownerOk: boolean }
 /** `why`: a removal's code (WHY). `entity`: an approval's page when moderation moved it there, a species' page (its sender sees `movedFrom`). */
 export type PhotoDecision = { id: string; action: 'approve' | 'remove'; reason: string; why?: string; entity?: string; width?: number; height?: number }
 
@@ -211,14 +214,16 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
   const p = url.pathname
   if (p === '/_p/admin/queue' && req.method === 'GET') {
     // Pending photos, and published ones reported since the pass last looked (reported before that, they're shown again).
+    // Only a pending photo carries the owner's approval: a published one reported again is judged.
     const { results } = await env.DB.prepare(
-      `SELECT id, entity_ref, name, created_at, moved_from,
+      `SELECT id, entity_ref, name, created_at, moved_from, status,
          (SELECT json_group_array(COALESCE(reason, '')) FROM reports WHERE kind = 'photo' AND item_id = photos.id) AS reports
        FROM photos
        WHERE status = 'pending' OR (status = 'approved' AND EXISTS (SELECT 1 FROM reports WHERE kind = 'photo' AND item_id = photos.id AND created_at > photos.decided_at))
        ORDER BY created_at LIMIT 200`,
-    ).all<Omit<PhotoQueueItem, 'reports'> & { reports: string }>()
-    return json(results.map(r => ({ ...r, reports: JSON.parse(r.reports) as string[] })))
+    ).all<Omit<PhotoQueueItem, 'reports' | 'ownerOk'> & { reports: string; status: string }>()
+    return json(await Promise.all(results.map(async ({ status, ...r }): Promise<PhotoQueueItem> =>
+      ({ ...r, reports: JSON.parse(r.reports) as string[], ownerOk: status === 'pending' && (await ownerOk(env.AB, r.id)) }))))
   }
   const raw = p.match(/^\/_p\/admin\/raw\/([0-9a-f-]{36})$/)
   if (raw && req.method === 'GET') {
@@ -252,7 +257,8 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
           moved_from = CASE WHEN ?7 IS NOT NULL AND ?7 != entity_ref THEN NULLIF(COALESCE(moved_from, entity_ref), ?7) ELSE moved_from END, entity_ref = COALESCE(?7, entity_ref)
         WHERE id = ?8 AND status IN ('pending', 'approved')`)
         .bind(`${MEDIA_BASE}/${fullKey(d.id)}`, `${MEDIA_BASE}/${thumbKey(d.id)}`, d.width, d.height, d.reason.slice(0, 300), now.toISOString(), to, d.id).run()
-      if ((r.meta.changes ?? 0) > 0) { applied++; await env.UPLOADS.delete(`pending/${d.id}`) }
+      // Published: the owner's approval is spent, so a later report is judged.
+      if ((r.meta.changes ?? 0) > 0) { applied++; await Promise.all([env.UPLOADS.delete(`pending/${d.id}`), env.AB.delete(okKey(d.id))]) }
       // Taken back while the pass was looking at it: the files it just published go too.
       else await env.MEDIA.delete([fullKey(d.id), thumbKey(d.id)])
     }
@@ -267,10 +273,22 @@ export async function recentPhotos(env: PhotosEnv): Promise<{ id: string; entity
   const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, thumb, created_at FROM photos WHERE status = 'approved' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; name: string; thumb: string; created_at: string }>()
   return results
 }
-/** Photos waiting for the moderation pass (hourly, moderate.yml), newest first: the dashboard lists them, so a photo just sent shows there. */
-export async function waitingPhotos(env: PhotosEnv): Promise<{ id: string; entity_ref: string; name: string; created_at: string }[] | undefined> {
+/**
+ * Photos waiting for the moderation pass (hourly, moderate.yml), newest first: the dashboard lists them, so a photo just
+ * sent shows there, and says which ones the owner approved.
+ */
+export async function waitingPhotos(env: PhotosEnv): Promise<{ id: string; entity_ref: string; name: string; created_at: string; ownerOk: boolean }[] | undefined> {
   if (!live(env)) return undefined
   const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, created_at FROM photos WHERE status = 'pending' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; name: string; created_at: string }>()
-  return results
+  return Promise.all(results.map(async r => ({ ...r, ownerOk: await ownerOk(env.AB, r.id) })))
+}
+const isWaiting = async (db: D1Database, id: string) => Boolean(await db.prepare(`SELECT 1 FROM photos WHERE id = ? AND status = 'pending'`).bind(id).first())
+/** A waiting photo's upload, for the owner's dashboard; null once it's published or removed. */
+export async function waitingUpload(env: Live, id: string): Promise<R2ObjectBody | null> {
+  return (await isWaiting(env.DB, id)) ? env.UPLOADS.get(`pending/${id}`) : null
+}
+/** The owner's "Duyệt": kept 30 days, the queue's `ownerOk` while the photo waits. A photo that no longer waits is left alone. */
+export async function approveByOwner(env: Live, id: string, now: Date): Promise<void> {
+  if (await isWaiting(env.DB, id)) await env.AB.put(okKey(id), now.toISOString(), { expirationTtl: 30 * 86_400 })
 }
 export { live as photosLive }

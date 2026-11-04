@@ -23,6 +23,10 @@
       {
         "source": "seriouslyfish",
         "value": 17.1
+      },
+      {
+        "source": "scotcat",
+        "value": 17
       }
     ],
     "tempC": [
@@ -30,6 +34,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 20,
+          "max": 28
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
           "max": 28
         }
       }
@@ -40,6 +51,13 @@
         "value": {
           "min": 6,
           "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
         }
       }
     ],
@@ -155,6 +173,48 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-geminus",
       "html": "<ul><li>Bornbusch, A. H. (1995). Phylogenetic relationships within the Eurasian catfish family Siluridae (Pisces: Siluriformes), with comments on generic validities and biogeography. Zoological Journal of the Linnean Society 115, 1-46</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ng, H. H. (2003). Kryptopterus geminus, a new species of silurid catfish (Teleostei: Siluridae) from mainland Southeast Asia. Zootaxa 305, 1-11</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Ng, H-H. and M. Kottelat (2013). After eighty years of misidentification, a name for the glass catfish (Teleostei: Siluridae). Zootaxa 3630, 308-316</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_geminus.htm",
+      "html": "<p>Family: Siluridae. Adult size: 17 cm. Temperature: 24–28°C. pH: 6.0–8.0.</p><p>IUCN Red List: Least Concern. There is no information on population size and trends, but survey data indicate the species is still abundant throughout much of its range (IUCN 2012; assessment needs updating).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_geminus.htm",
+      "html": "<p>Asia: Mekong, Mae Khlong, Bang Pakong and Chao Phraya River drainages in mainland Southeast Asia. Type locality: Cambodia: Stung Treng, Mekong River 2 km downstream from mouth of Tonle San on sandbars, Mekong River drainage.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_geminus.htm",
+      "html": "<p>Kryptopterus geminus is described from the Bang Pakong, Mekong, Mae Khlong and Chao Phraya River drainages in mainland Southeast Asia. It occurs in large rivers with turbid waters and in streams and canals.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_geminus.htm",
+      "html": "<p>Feeds on fish, prawns, insects and their larvae.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_geminus.htm",
+      "html": "<p>Spawns during the early part of the rainy season. The young move toward the seasonally flooded habitats and are first seen in August.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_geminus.htm",
+      "html": "<p>K. geminus, together with K. cryptopterus, can be distinguished from congeners by the dorsal profile lacking a nuchal concavity and short maxillary barbels extending to the base of the pectoral fin. Kryptopterus geminus can be further distinguished from K. cryptopterus in having a narrower head (9.5–12.0% SL vs. 12.2–14.2), longer anal fin (62.2–72.7% SL vs. 57.2–62.9) and snout (39.5–45.3% HL vs. 35.1–39.8), and more laterally-placed eyes (only ventral half, vs. ventral two-thirds, of the orbital margin visible when the head is viewed ventrally).</p><p>Often misidentified as K. cryptopterus.</p><p>Etymology: the specific name geminus is from the Latin geminus, meaning twin-born, in allusion to the close morphological similarity with Kryptopterus cryptopterus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_geminus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, (01/2016).</p><p>Kottelat, M., 1998. Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyol. Explor. Freshwat. 9(1):1-128.</p><p>Ng, H.H., 2003. Kryptopterus geminus, a new silurid catfish (Teleostei: Siluridae) from mainland Southeast Asia. Zootaxa 305:1-11.</p><p>Ng, H.H. 2012. Kryptopterus geminus. The IUCN Red List of Threatened Species 2012.</p>"
     }
   ],
   "photos": [
