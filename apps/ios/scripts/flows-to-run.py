@@ -28,7 +28,8 @@ HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'Nati
 HANDBOOK_FIRST = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests',
                   'TankCheckFlowTests']
 # The light flows' first half, run by `lights (1)`; `lights (2)` runs the rest of LightFlowTests, so a flow added later
-# runs there. Split by their times on main's run of 2026-11-01 (1,034 s and 1,017 s).
+# runs there. Split by their times on main's run of 2026-11-01 (1,034 s and 1,017 s); the slowest Week Aqua flow (202 s
+# on a local simulator) here, as the others joined the rest.
 LIGHT_FIRST = [
     'testADroppedLightConnectsAgainWithoutAScan', 'testALightThatDropsMidTestIsKeptAsSetByHandUntilTheoLich',
     'testALightThatDropsWhileBeingReadCanBeConnectedAgain',
@@ -38,7 +39,7 @@ LIGHT_FIRST = [
     'testSchedulesWrittenAreListedOnlyWhileTheLightIsConnected', 'testTheDayPreviewStopsAtOnceOnTheScreenAndOnTheLight',
     'testTheLightsOwnScheduleIsNeverShownAsWhatItRuns', 'testThePlanIsKeptWithoutALight',
     'testTheWriteBarStaysInViewAndSaysWhatWillBeWritten', 'testWritesAPresetThenAnotherThenUndoesBackToTheFirst',
-    'testWritingAScheduleEndsTheManualLevels']
+    'testWritingAScheduleEndsTheManualLevels', 'testWeekAquaWritesAGroupInTheOrderTheLightsTakeThenSetsTheirClock']
 # Run elsewhere: the performance tests by job `perf`, the App Store's screenshots by app-store.yml.
 ELSEWHERE = ['PerformanceTests', 'StoreShotsFlowTests']
 
@@ -120,7 +121,8 @@ REACH = {
     APP + 'Tanks/TankLife.swift': ['TankLifeFlowTests', 'TankCheckFlowTests', 'TanksFlowTests', 'NativePageFlowTests'],
     APP + 'Tanks/TankForm.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     APP + 'Tanks/CappedField.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
-    APP + 'Lights/': ['LightFlowTests'],
+    # The lights tab and the Week Aqua screen are among the page shots (governance's before and after).
+    APP + 'Lights/': ['LightFlowTests', 'PageShotsFlowTests'],
     APP + 'Plugs/': ['PlugFlowTests'],
     APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests'],
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name).
@@ -269,8 +271,11 @@ def test():
     assert got['app'] == [t for t in SMOKE if not t.startswith('Light')], got
     assert got['lights_1'] == ['LightFlowTests/' + t for t in LIGHT_FIRST], got
     assert pick([APP + 'Lights/LightsView.swift'])[2]['2'] == everything['lights']['2']
-    assert runs([KIT + 'Sources/Chihiros/Frames.swift']) == got
-    assert runs([KIT + 'Sources/WeekAqua/WeekAquaSession.swift']) == got
+    # Its screens' shots too, in `handbook (1)`; the kit's frames change no screen.
+    assert got['handbook_1'] == ['PageShotsFlowTests'] and 'handbook_2' not in got, got
+    lights = {j: t for j, t in got.items() if j != 'handbook_1'}
+    assert runs([KIT + 'Sources/Chihiros/Frames.swift']) == lights
+    assert runs([KIT + 'Sources/WeekAqua/WeekAquaSession.swift']) == lights
     # The handbook's screens: its halves as main splits them, and the flows from a page in `app`.
     got = runs([APP + 'Handbook/HomeList.swift'])
     assert got['handbook_1'] == sorted(set(HANDBOOK_FIRST) - {'TankCheckFlowTests'}), got

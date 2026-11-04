@@ -18,7 +18,6 @@ struct LightsView: View {
     NavigationStack {
       ScrollView {
         VStack(alignment: .leading, spacing: 24) {
-          WeekAquaEntry().modifier(Panel())
           LightCard()
           ScheduleSection()
           ColourSection().modifier(Panel())
@@ -30,6 +29,8 @@ struct LightsView: View {
             AboutText()
           }
           .font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 4)
+          // Week Aqua lights after all of the Chihiros screen, which the tab is named for: last for VoiceOver too.
+          WeekAquaEntry().modifier(Panel())
         }
         .padding()
       }

@@ -60,7 +60,8 @@ final class BluetoothRadio: Radio {
 /// takes 1.5 s), `-fake-no-bluetooth` (the reader refused Bluetooth), `-fake-drop` (the light drops the first connection
 /// at the first level set by hand, and isn't seen by a scan again: it can only be connected to again as the light it was),
 /// `-fake-drop-reading` (the same, at the first status request, while the app reads the light), `-fake-weekaqua` (three
-/// Week Aqua 5746 lights are found too, as the owner's group, and one of code 5745, which isn't supported).
+/// Week Aqua 5746 lights are found too, as the owner's group, and one of code 5745, which isn't supported),
+/// `-fake-weekaqua-drop` (the second of them drops the first time it's connected, once it takes the levels of a write).
 @MainActor
 final class FakeRadio: Radio {
   static let light = FoundLight(id: UUID(uuidString: "00000000-0000-0000-0000-000000000001")!, name: "DYSL30A1B2C3", rssi: -58)
@@ -143,6 +144,13 @@ final class FakeRadio: Radio {
     let old = weekAquaHeld[light.id]
     let fake = FakeWeekAqua(advert: advert, shown: old?.shown, timer: old?.timer)
     weekAquaHeld[light.id] = fake
+    if arguments.contains("-fake-weekaqua-drop"), light.id == Self.weekAqua[1].id, old == nil {
+      fake.afterSend = { [weak fake] f in
+        guard f.starts(with: [0xFB, 0xF9]), let fake else { return }
+        fake.disconnect()
+        onLost()
+      }
+    }
     return fake
   }
 }

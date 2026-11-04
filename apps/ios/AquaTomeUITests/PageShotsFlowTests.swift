@@ -3,8 +3,9 @@ import XCTest
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
 /// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size. Each checks
-/// only that its screen opened: what it shows, the other flows check.
+/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size; the lights
+/// tab top to bottom (its Week Aqua row last), and the Week Aqua screen with the simulator's group connected
+/// (`-fake-weekaqua`). Each checks only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -17,6 +18,31 @@ final class PageShotsFlowTests: XCTestCase {
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+  func testTheLightsTab() {
+    let app = launch(dark: false, size: nil)
+    app.openTab("Đèn")
+    XCTAssertTrue(app.descendants(matching: .any)["weekaqua"].waitForExistence(timeout: 5), "no Week Aqua row on the lights tab")
+    shootScreens(app, "lights-light", dark: false, from: 0.6, x: 0.97)
+  }
+  func testTheWeekAquaScreen() {
+    let app = launch(dark: false, size: nil, ["-fake-weekaqua"])
+    app.openTab("Đèn")
+    let entry = app.descendants(matching: .any)["weekaqua"]
+    XCTAssertTrue(entry.waitForExistence(timeout: 5), "no Week Aqua row on the lights tab")
+    // The row is last, above the write bar once the tab is scrolled to its end.
+    for _ in 0..<8 { app.swipeUp() }
+    entry.tap()
+    let scan = app.buttons["wa-scan"]
+    XCTAssertTrue(scan.waitForExistence(timeout: 5), "the Week Aqua screen didn't open")
+    scan.tap()
+    let lights = app.buttons.matching(identifier: "wa-light")
+    XCTAssertTrue(lights.element(boundBy: 2).waitForExistence(timeout: 5), "the three 5746 lights weren't found")
+    for i in 0..<3 { lights.element(boundBy: i).tap() }
+    app.buttons["wa-connect"].tap()
+    XCTAssertTrue(app.staticTexts["wa-title"].waitForExistence(timeout: 10), "the group didn't connect")
+    for _ in 0..<4 { app.swipeDown() }
+    shootScreens(app, "weekaqua-light", dark: false, from: 0.6, x: 0.97)
+  }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
 
@@ -31,6 +57,13 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(row)")
     item.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
+    shootScreens(app, name, dark: dark, large: large, screens: screens)
+  }
+
+  /// Each screen of what `app` shows, scrolled most of a screen at a time without a fling (from `from` of the height,
+  /// above a bar pinned to the bottom; at `x` of the width, the right edge to stay clear of sliders), to its end.
+  private func shootScreens(_ app: XCUIApplication, _ name: String, dark: Bool, large: Bool = false, screens: Int = 12,
+                            from: CGFloat = 0.8, x: CGFloat = 0.5) {
     var seen: [[UInt8]] = []
     var ended = false
     for n in 1...screens {
@@ -47,9 +80,9 @@ final class PageShotsFlowTests: XCTestCase {
       a.name = String(format: "shot-%@-%02d", name, n)
       a.lifetime = .keepAlways
       add(a)
-      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
-      from.press(forDuration: 0.1, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25)), withVelocity: .slow,
-                 thenHoldForDuration: 0.2)
+      let start = app.coordinate(withNormalizedOffset: CGVector(dx: x, dy: from))
+      start.press(forDuration: 0.1, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: x, dy: from - 0.55)), withVelocity: .slow,
+                  thenHoldForDuration: 0.2)
     }
     // A whole page (not the large text's top screens) ends before the shots run out: else its end wasn't seen, and the
     // shots repeat it to the last.
@@ -73,12 +106,12 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
-  private func launch(dark: Bool, size: String?) -> XCUIApplication {
+  private func launch(dark: Bool, size: String?, _ extra: [String] = []) -> XCUIApplication {
     let app = XCUIApplication()
     // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
-      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? []) + extra
     app.launch()
     return app
   }

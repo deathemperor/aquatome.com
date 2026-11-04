@@ -13,7 +13,7 @@ substrate, notes, the fish and plants on it, each opening its page; put on from 
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
 schedules written to it (as the site does). Week Aqua lights (model code 5746) have their own screen there: one or a
 group written together, their colour, daily timer and clock, and, since they report nothing, what AquaTome last sent
-them kept on their records (`lastSent`, `bleAddress`: keys the sync contract doesn't name yet). A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
+them kept on their records, known by their address (`bleAddress`), as docs/my-tanks-sync.md describes. A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
 named for what it powers, with its switch: the app calls Tuya's cloud itself, with the reader's own Tuya project keys
 kept in the Keychain, and no AquaTome account (docs/smart-plugs.md).
 

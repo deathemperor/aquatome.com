@@ -207,8 +207,8 @@ private struct LightRow: View {
   private var weekAqua: some View {
     VStack(alignment: .leading, spacing: 2) {
       // Two can share a name: the end of the address tells them apart.
-      Text(verbatim: [device.nickname ?? device.bleName ?? "Week Aqua", device.bleAddress.map { "…\($0.suffix(4))" }].compactMap { $0 }.joined(separator: " · "))
-      if let s = device.lastSent {
+      Text(verbatim: [device.nickname ?? device.bleName ?? "Week Aqua", device.bleAddress.map { "…\(WeekAquaModel.tail($0))" }].compactMap { $0 }.joined(separator: " · "))
+      if let s = device.weekAquaSent {
         Text(verbatim: WeekAquaModel.label(s)).font(.caption).foregroundStyle(.secondary)
       } else {
         Text("AquaTome chưa gửi gì tới đèn này.").font(.caption).foregroundStyle(.secondary)

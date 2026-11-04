@@ -738,6 +738,36 @@ final class LightFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "saved-light").exists, "a Week Aqua light among the Chihiros ones")
   }
 
+  func testWeekAquaALightLostWhileWritingLeavesTheOthersWrittenWholeAndTheRecordTrue() {
+    let app = launch("-fake-weekaqua", "-fake-weekaqua-drop")
+    connectWeekAquaGroup(app)
+    tap(app, "wa-write")
+    app.alerts.buttons["Ghi màu và giờ"].tap()
+    // The second light drops once it took the levels; the other two get the timer and manual mode after them.
+    expect(app, "wa-notice", contains: "Mất kết nối với WEEKAQUA3.0 · …E5:F7 khi đang ghi: các đèn còn lại đã nhận đủ.")
+    let clock = "ff [0-9]{2} [0-9]{2} [0-9]{2} 55 55 55 55", manual = "fd f1 55 55 55 55 55 55"
+    let each: [(frame: String, lights: Int)] = [(clock, 3), (manual, 3), ("fb f9 6c e3 73 eb 55 55", 3), ("fe f9 12 00 20 00 01 00", 2),
+                                                (manual, 2)]
+    let frames = each.map { Array(repeating: $0.frame, count: $0.lights).joined(separator: " \\| ") }.joined(separator: " \\| ")
+    wait(app, "wa-frames", NSPredicate(format: "label MATCHES %@", frames), "frames like /\(frames)/", file: #filePath, line: #line)
+    // The group let go whole, to be connected again together.
+    XCTAssertTrue(element(app, "wa-saved").waitForExistence(timeout: 5), "the group wasn't let go")
+    // On the tank: the two written with what they were sent, the lost one with nothing.
+    app.openTab("Bể của tôi")
+    let row = app.buttons["tank"].firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "the lights weren't kept on a tank")
+    row.tap()
+    let sent = app.staticTexts.matching(NSPredicate(format: "label == %@", "Green 100% · bật 12:00, tắt 20:00"))
+    XCTAssertTrue(sent.firstMatch.waitForExistence(timeout: 5), "what was sent isn't on the tank")
+    XCTAssertEqual(sent.count, 2)
+    XCTAssertEqual(app.staticTexts.matching(NSPredicate(format: "label == %@", "AquaTome chưa gửi gì tới đèn này.")).count, 1)
+    // Connected again, the group asks before writing: one of its lights has nothing from AquaTome yet.
+    app.buttons["tank-light"].firstMatch.tap()
+    expect(app, "wa-notice", contains: "Đã kết nối 3 đèn Week Aqua.", timeout: 20)
+    tap(app, "wa-write")
+    XCTAssertTrue(app.alerts.buttons["Ghi màu và giờ"].waitForExistence(timeout: 5), "the light never written to wasn't asked for")
+  }
+
   // MARK: Helpers
 
   /// The Week Aqua screen, its lights found (`-fake-weekaqua`).

@@ -50,6 +50,11 @@ final class WeekAquaModel {
   private var scanTask: Task<Void, Never>?
   /// Counts connection attempts: one that was cancelled or overtaken reports nothing.
   private var attempt = 0
+  /// A light of the group that dropped while a write ran: the group is let go once the write ends, so the others get
+  /// the whole of it first.
+  private var droppedWhileWriting: FoundLight?
+  /// Keeps the app running while a write ends in the background.
+  private var keptAwake = UIBackgroundTaskIdentifier.invalid
 
   init(radio: Radio, tanks: TanksModel?) {
     self.radio = radio
@@ -60,18 +65,24 @@ final class WeekAquaModel {
   /// The levels a write sends.
   var levels: WeekAquaLevels { (WeekAquaLevels(mix) ?? .off).scaled(by: brightness) }
   var timer: DailyTimer { DailyTimer(on: on, off: off) }
-  var canWrite: Bool { isConnected && !isWriting }
+  /// On and off at the same minute isn't offered: WEEK AQUA's timer frame marks it apart (its seventh byte), and what
+  /// the lights do with it (lit all day, or never) hasn't been tried on them yet.
+  var timerIsEmpty: Bool { on == off }
+  var canWrite: Bool { isConnected && !isWriting && !timerIsEmpty }
   /// The clock is set with what was last sent: nothing to set it with before the first write.
-  var canSetClock: Bool { canWrite && lastSent != nil }
-  /// The first write from AquaTome replaces the colour and timer the lights hold, maybe set in WEEK AQUA: ask.
-  var writeNeedsConfirming: Bool { lastSent == nil }
+  var canSetClock: Bool { isConnected && !isWriting && lastSent != nil }
+  /// The first write from AquaTome to a light replaces the colour and timer it holds, maybe set in WEEK AQUA: asked
+  /// while any light of the group has no write from AquaTome kept.
+  var writeNeedsConfirming: Bool {
+    group.contains { l in Self.key(l).flatMap { tanks?.store.weekAquaLight(address: $0.address)?.weekAquaSent } == nil }
+  }
 
   /// The records of the lights connected.
-  var devices: [Device] { group.compactMap { tanks?.store.weekAquaLight(address: Self.key($0).address) } }
+  var devices: [Device] { group.compactMap { l in Self.key(l).flatMap { tanks?.store.weekAquaLight(address: $0.address) } } }
   /// What AquaTome last sent to the group: the newest send among its lights, which are written together.
-  var lastSent: WeekAquaSent? { devices.compactMap(\.lastSent).max { $0.at < $1.at } }
+  var lastSent: WeekAquaSent? { devices.compactMap(\.weekAquaSent).max { $0.at < $1.at } }
   /// Not every light of the group was sent the same last (one was written apart, or missed a write).
-  var sentDiffers: Bool { let last = lastSent; return devices.contains { $0.lastSent != last } }
+  var sentDiffers: Bool { let last = lastSent; return devices.contains { $0.weekAquaSent != last } }
 
   /// The Week Aqua lights on one of the reader's tanks: a group.
   struct SavedGroup: Identifiable {
@@ -191,7 +202,7 @@ final class WeekAquaModel {
       group = lights
       found = []
       chosen = []
-      tanks?.metWeekAqua(lights.map(Self.key))
+      tanks?.metWeekAqua(lights.compactMap(Self.key))
       if let sent = lastSent, !edited { fill(sent) }
       notice = Notice(text: String(localized: "Đã kết nối \(lights.count) đèn Week Aqua."))
     } catch {
@@ -211,19 +222,33 @@ final class WeekAquaModel {
     s?.disconnect()
   }
 
-  /// A light of the group dropped: the group is let go whole, to be connected again together.
+  /// A light of the group dropped: the group is let go whole, to be connected again together. During a write, once it
+  /// ends: the lights still connected get all of it.
   private func lost(_ l: FoundLight) {
     guard group.contains(where: { $0.id == l.id }) else { return }
+    if isWriting {
+      if droppedWhileWriting == nil { droppedWhileWriting = l }
+      return
+    }
+    letGo(after: l)
+  }
+
+  private func letGo(after l: FoundLight) {
+    dropGroup()
+    notice = Notice(text: String(localized: "Mất kết nối với \(Self.name(l)). Kết nối lại cả nhóm đèn."), isError: true)
+  }
+
+  private func dropGroup() {
     let s = session
     reset()
     s?.disconnect()
-    notice = Notice(text: String(localized: "Mất kết nối với \(l.name). Kết nối lại cả nhóm đèn."), isError: true)
   }
 
   private func reset() {
     session = nil
     group = []
     isConnecting = false
+    droppedWhileWriting = nil
   }
 
   private func fail(_ error: Error) {
@@ -283,10 +308,13 @@ final class WeekAquaModel {
   private func send(_ s: WeekAquaSetting, preset: String?, brightness: Int?, clockOnly: Bool) async {
     guard let session, !isWriting else { return }
     isWriting = true
-    defer { isWriting = false }
     // A write takes about two seconds: one cut off by the app leaving would leave a light half written.
-    let keep = UIApplication.shared.beginBackgroundTask(withName: "Week Aqua")
-    defer { if keep != .invalid { UIApplication.shared.endBackgroundTask(keep) } }
+    if keptAwake == .invalid { keptAwake = UIApplication.shared.beginBackgroundTask { [weak self] in self?.letSleep() } }
+    defer {
+      isWriting = false
+      letSleep()
+      if let l = droppedWhileWriting { letGo(after: l) }
+    }
     let lights = group
     let now = Date()
     var missed: [Int] = []
@@ -299,19 +327,23 @@ final class WeekAquaModel {
       return
     }
     // Kept only for the lights that took the whole write.
-    let at = Timestamp.string(now)
-    let sent = WeekAquaSent(levels: s.levels.array, on: s.timer.on.description, off: s.timer.off.description, preset: preset,
-                            brightness: brightness, at: at)
     for (i, l) in lights.enumerated() where !missed.contains(i) {
-      let k = Self.key(l)
+      guard let k = Self.key(l) else { continue }
       tanks?.changeWeekAqua(address: k.address, bleName: k.bleName) {
-        $0.lastSent = sent
-        $0.clockSyncedAt = at
+        $0.wroteWeekAqua(levels: s.levels.array, on: s.timer.on.description, off: s.timer.off.description, preset: preset,
+                         brightness: brightness, at: now)
       }
     }
     if !missed.isEmpty {
-      let names = missed.map { lights[$0].name }.joined(separator: ", ")
-      notice = Notice(text: String(localized: "Không gửi hết được tới \(names). Lại gần đèn rồi ghi lại."), isError: true)
+      let names = missed.map { Self.name(lights[$0]) }.joined(separator: ", ")
+      if droppedWhileWriting != nil {
+        // The group is let go now, with this notice in place of the lost connection's: it says what the others got.
+        dropGroup()
+        notice = Notice(text: String(localized: "Mất kết nối với \(names) khi đang ghi: các đèn còn lại đã nhận đủ. Kết nối lại cả nhóm rồi ghi lại."),
+                        isError: true)
+      } else {
+        notice = Notice(text: String(localized: "Không gửi hết được tới \(names). Lại gần đèn rồi ghi lại."), isError: true)
+      }
     } else if clockOnly {
       notice = Notice(text: String(localized: "Đã chỉnh giờ \(lights.count) đèn theo máy này, cùng màu và hẹn giờ đã gửi lần cuối."))
     } else {
@@ -319,11 +351,26 @@ final class WeekAquaModel {
     }
   }
 
+  /// The background time asked for during a write, given back.
+  private func letSleep() {
+    guard keptAwake != .invalid else { return }
+    UIApplication.shared.endBackgroundTask(keptAwake)
+    keptAwake = .invalid
+  }
+
   // MARK: Words
 
-  /// A light's record key: its own address, else (it didn't advertise one) this phone's id for it.
-  static func key(_ l: FoundLight) -> (address: String, bleName: String) {
-    (l.weekAqua?.addressText ?? l.id.uuidString, l.name)
+  /// A light's record key: its own address. A light that doesn't advertise one isn't kept on a tank.
+  static func key(_ l: FoundLight) -> (address: String, bleName: String)? {
+    l.weekAqua?.addressText.map { ($0, l.name) }
+  }
+
+  /// The end of a light's address ("E5:F6"): two lights can share a name.
+  static func tail(_ address: String) -> String { String(address.suffix(5)) }
+
+  /// A light as the rows show it: "WEEKAQUA3.0 · …E5:F6".
+  static func name(_ l: FoundLight) -> String {
+    l.weekAqua?.addressText.map { "\(l.name) · …\(tail($0))" } ?? l.name
   }
 
   /// WEEK AQUA's name for a preset, as its app shows it ("Green").

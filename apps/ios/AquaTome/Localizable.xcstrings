@@ -817,6 +817,38 @@
         }
       }
     },
+    "Bật lúc, giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyala pukul, jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดเวลา, ชั่วโมง"
+          }
+        }
+      }
+    },
+    "Bật lúc, phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyala pukul, menit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดเวลา, นาที"
+          }
+        }
+      }
+    },
     "Bật tắt nhanh": {
       "localizations": {
         "id": {
@@ -845,22 +877,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิดปิดปลั๊กไฟ Smart Life ได้จากหน้าตู้ ด้วยโปรเจกต์ Tuya ของคุณเอง ไม่ต้องมีบัญชี AquaTome"
-          }
-        }
-      }
-    },
-    "Bật và tắt cùng giờ: đèn sáng cả ngày.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nyala dan mati pada jam yang sama: lampu menyala sepanjang hari."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เปิดและปิดเวลาเดียวกัน: โคมไฟสว่างทั้งวัน"
           }
         }
       }
@@ -2465,6 +2481,22 @@
         }
       }
     },
+    "Giờ tắt phải khác giờ bật.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jam mati harus berbeda dari jam nyala."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เวลาปิดต้องไม่ตรงกับเวลาเปิด"
+          }
+        }
+      }
+    },
     "Giờ tắt phải sau giờ bật, trong cùng một ngày.": {
       "localizations": {
         "id": {
@@ -4045,6 +4077,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ขาดการเชื่อมต่อกับ %@"
+          }
+        }
+      }
+    },
+    "Mất kết nối với %@ khi đang ghi: các đèn còn lại đã nhận đủ. Kết nối lại cả nhóm rồi ghi lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koneksi ke %@ terputus saat menulis: lampu lainnya sudah menerima semuanya. Hubungkan ulang seluruh grup lalu tulis lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขาดการเชื่อมต่อกับ %@ ระหว่างเขียน: โคมไฟดวงอื่นได้รับครบแล้ว เชื่อมต่อทั้งกลุ่มอีกครั้งแล้วเขียนใหม่"
           }
         }
       }
@@ -5661,6 +5709,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปิดเวลา %@"
+          }
+        }
+      }
+    },
+    "Tắt lúc, giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mati pukul, jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดเวลา, ชั่วโมง"
+          }
+        }
+      }
+    },
+    "Tắt lúc, phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mati pukul, menit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดเวลา, นาที"
           }
         }
       }

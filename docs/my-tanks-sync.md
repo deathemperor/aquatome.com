@@ -33,6 +33,16 @@ Why devices keep schedules and levels: a Chihiros light reports its clock (statu
 hour, minute; `00 00 xx` after a power cut reset it) but not its sunrise/sunset schedule (`a5 19`) or its manual levels.
 What we wrote is the only record of them: `schedules`, `activeScheduleId` and `manual`.
 
+A Week Aqua light (`brand: "weekaqua"`, written by the iOS app) reports nothing at all, and two can share a name
+(`WEEKAQUA3.0`), so it goes by its own address (`bleAddress`, `A1:B2:C3:D4:E5:F6`, uppercase; lights only). Its daily
+timer is its one schedule, active, with `ramp` 0 (the app sends no sunrise; what the light does with the timer frame's
+seventh byte isn't confirmed) and the levels as percents of each channel's full scale (red, green, blue, UV): `round(v ×
+100 / 235)`, where no level falls halfway, and back `round(p × 235 / 100)`, half up. It never has `manual`: its levels
+go with the timer, not instead of it. `clockSyncedAt` is when it was written, as every write sets the clock first.
+`lastSent` holds what those fields can't: `levels` as sent, 0–235 (the percents round them), the `preset` and
+`brightness` they came from, and `timer {on, off}` only for a timer that ends past midnight, which a schedule can't be
+(the light then keeps no schedule).
+
 - **Ids**: lowercase UUIDs, made by the client that creates the record (`crypto.randomUUID()`; on iOS
   `UUID().uuidString.lowercased()`).
 - **Timestamps**: real UTC instants with milliseconds, exactly `2026-10-31T12:00:00.000Z`. One form only, so comparing the strings

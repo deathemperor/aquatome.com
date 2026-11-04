@@ -102,7 +102,7 @@ private struct Connected: View {
     let wa = lights.weekAqua
     Text("\(wa.group.count) đèn đang kết nối").font(.title3.weight(.semibold)).accessibilityIdentifier("wa-title")
     ForEach(wa.group) { l in
-      Label { Text(verbatim: "\(l.name) · …\(String(WeekAquaModel.key(l).address.suffix(4)))") } icon: { Image(systemName: "lightbulb") }
+      Label { Text(verbatim: WeekAquaModel.name(l)) } icon: { Image(systemName: "lightbulb") }
         .font(.subheadline)
     }
     Group {
@@ -116,7 +116,9 @@ private struct Connected: View {
     if wa.sentDiffers {
       Text("Các đèn trong nhóm không cùng lần gửi cuối. Lần ghi tới sẽ đặt chúng như nhau.").font(.footnote).foregroundStyle(Color.warning)
     }
-    Button("Ngắt kết nối") { wa.disconnect() }.buttonStyle(.bordered).controlSize(.large).accessibilityIdentifier("wa-disconnect")
+    // Not while writing: the write goes on to the end for every light still connected.
+    Button("Ngắt kết nối") { wa.disconnect() }.buttonStyle(.bordered).controlSize(.large).disabled(wa.isWriting)
+      .accessibilityIdentifier("wa-disconnect")
   }
 }
 
@@ -132,7 +134,7 @@ private struct Finding: View {
       HStack {
         VStack(alignment: .leading, spacing: 2) {
           Text(verbatim: "\(g.tank.name) · ") + Text("\(g.lights.count) đèn")
-          if let s = g.lights.compactMap(\.lastSent).max(by: { $0.at < $1.at }) {
+          if let s = g.lights.compactMap(\.weekAquaSent).max(by: { $0.at < $1.at }) {
             Text(verbatim: WeekAquaModel.label(s)).font(.caption).foregroundStyle(.secondary)
           }
         }
@@ -171,7 +173,7 @@ private struct FoundRow: View {
   var body: some View {
     let wa = lights.weekAqua
     let advert = light.weekAqua
-    let tail = advert?.addressText.map { " · …\($0.suffix(4))" } ?? ""
+    let tail = advert?.addressText.map { " · …\(WeekAquaModel.tail($0))" } ?? ""
     if advert?.isSupported == true {
       let chosen = wa.chosen.contains(light.id)
       Button { wa.toggle(light) } label: {
@@ -265,12 +267,12 @@ private struct WeekAquaTimer: View {
     @Bindable var wa = lights.weekAqua
     VStack(alignment: .leading, spacing: 12) {
       Text("Hẹn giờ bật tắt").font(.title3.weight(.semibold))
-      TimeRow(title: "Bật lúc", time: $wa.on, id: "wa-on")
-      TimeRow(title: "Tắt lúc", time: $wa.off, id: "wa-off")
+      TimeRow(title: "Bật lúc", hourLabel: "Bật lúc, giờ", minuteLabel: "Bật lúc, phút", time: $wa.on, id: "wa-on")
+      TimeRow(title: "Tắt lúc", hourLabel: "Tắt lúc, giờ", minuteLabel: "Tắt lúc, phút", time: $wa.off, id: "wa-off")
       let m = wa.timer.minutesOn
       Group {
-        if m == 0 {
-          Text("Bật và tắt cùng giờ: đèn sáng cả ngày.")
+        if wa.timerIsEmpty {
+          Text("Giờ tắt phải khác giờ bật.").foregroundStyle(Color.warning)
         } else if m % 60 == 0 {
           Text("Đèn sáng \(m / 60) tiếng mỗi ngày.")
         } else {
@@ -284,26 +286,31 @@ private struct WeekAquaTimer: View {
 }
 
 /// A time of day as an hour and a minute, each picked from a menu (minutes 5 apart, and the one set if it isn't).
+/// VoiceOver reads each menu with the row's title ("Bật lúc, giờ"), not the title apart.
 private struct TimeRow: View {
   let title: LocalizedStringKey
+  let hourLabel: LocalizedStringKey
+  let minuteLabel: LocalizedStringKey
   @Binding var time: TimeOfDay
   let id: String
 
   var body: some View {
     let minutes = Array(Set(stride(from: 0, to: 60, by: 5)).union([time.minute])).sorted()
     HStack {
-      Text(title)
+      Text(title).accessibilityHidden(true)
       Spacer()
       Picker("Giờ", selection: Binding { time.hour } set: { time = TimeOfDay(hour: $0, minute: time.minute) }) {
         ForEach(0..<24, id: \.self) { Text(verbatim: String(format: "%02d", $0)).tag($0) }
       }
       .pickerStyle(.menu)
+      .accessibilityLabel(Text(hourLabel))
       .accessibilityIdentifier("\(id)-hour")
       Text(verbatim: ":").accessibilityHidden(true)
       Picker("Phút", selection: Binding { time.minute } set: { time = TimeOfDay(hour: time.hour, minute: $0) }) {
         ForEach(minutes, id: \.self) { Text(verbatim: String(format: "%02d", $0)).tag($0) }
       }
       .pickerStyle(.menu)
+      .accessibilityLabel(Text(minuteLabel))
       .accessibilityIdentifier("\(id)-minute")
     }
     .frame(minHeight: 44)

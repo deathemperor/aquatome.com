@@ -77,6 +77,7 @@ struct Checker {
 
   mutating func device(_ v: JSON, _ p: [PathKey]) {
     guard let o = object(v, p) else { return }
+    let before = problems.count
     field(o, "id", p) { c, v, p in c.recordId(v, p) }
     field(o, "tankId", p) { c, v, p in c.recordId(v, p) }
     field(o, "kind", p) { c, v, p in c.string(v, p, min: 1, max: 40) }
@@ -92,6 +93,23 @@ struct Checker {
       c.field(m, "at", p) { c, v, p in c.timestamp(v, p) }
     }
     field(o, "clockSyncedAt", p, optional: true) { c, v, p in c.timestamp(v, p) }
+    field(o, "bleAddress", p, optional: true) { c, v, p in
+      c.matches(v, p, "^[0-9A-F]{2}(:[0-9A-F]{2}){5}$", "Bluetooth address, uppercase AA:BB:CC:DD:EE:FF")
+    }
+    field(o, "lastSent", p, optional: true) { c, v, p in
+      guard let s = c.object(v, p) else { return }
+      c.field(s, "levels", p) { c, v, p in
+        c.list(v, p, max: nil) { c, v, p in c.int(v, p, min: 0, max: 235) }
+        if let a = v.array, a.count != 4 { c.fail(p, "4 levels") }
+      }
+      c.field(s, "timer", p, optional: true) { c, v, p in
+        guard let t = c.object(v, p) else { return }
+        c.field(t, "on", p) { c, v, p in c.timeOfDay(v, p) }
+        c.field(t, "off", p) { c, v, p in c.timeOfDay(v, p) }
+      }
+      c.field(s, "preset", p, optional: true) { c, v, p in c.string(v, p, min: 1, max: 40) }
+      c.field(s, "brightness", p, optional: true) { c, v, p in c.int(v, p, min: 0, max: 100) }
+    }
     field(o, "remoteId", p, optional: true) { c, v, p in c.string(v, p, min: 1, max: 64) }
     field(o, "outlets", p, optional: true) { c, v, p in
       c.list(v, p, max: 16) { c, v, p in
@@ -102,6 +120,10 @@ struct Checker {
       }
     }
     stamps(o, p)
+    // As zod: the cross-field rule only once each field is right.
+    if problems.count == before, o["bleAddress"] != nil, o["kind"]?.string != "light" {
+      fail(p + [.key("bleAddress")], "only lights have a Bluetooth address")
+    }
   }
 
   mutating func schedule(_ v: JSON, _ p: [PathKey]) {

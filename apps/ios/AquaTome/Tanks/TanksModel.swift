@@ -169,12 +169,11 @@ final class TanksModel {
   }
 
   /// A change to a connected Week Aqua light's record, as the store has it now (met again if its tank went).
-  @discardableResult
-  func changeWeekAqua(address: String, bleName: String, _ change: (inout Device) -> Void) -> Bool {
+  func changeWeekAqua(address: String, bleName: String, _ change: (inout Device) -> Void) {
     var s = store
     guard let d = try? s.metWeekAqua([(address, bleName)], model: Self.weekAquaModel, tankName: Self.newTankName).first,
-          (try? s.updateDevice(d.id) { change(&$0) }) != nil else { return false }
-    return (try? commit(s)) != nil
+          (try? s.updateDevice(d.id) { change(&$0) }) != nil else { return }
+    try? commit(s)
   }
 
   /// The model a Week Aqua light's record names: the only code this app drives.
