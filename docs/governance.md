@@ -288,7 +288,8 @@ The layers above still check the result.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped, and so is a minimum tank length that
   its source gives only as a volume (its "75 gallons (about 284 litres)" once made Cá đĩa's card say 284 cm; The Spruce
   Pets' "10 gallons (about 38 litres)" became 40 cm on 19 cards), when the engine reads a page and again at every build
-  (`tankIsVolume`). Where sources disagree, every page shows the range they all accept.
+  (`tankIsVolume`). Where sources disagree, every page shows the range they all accept; a lifespan, no care target,
+  the widest (Seriously Fish's when it gives one).
 - **Card figures from sources that state them.** A data card lacks a figure when no source read for the page states
   it. On 2026-11-01, 445 of 1,016 species pages showed no minimum tank, among them the betta, neon tetra and cherry
   barb, whose sources (The Spruce Pets, Aquarium Co-op, BW Aquatics, Glaser) give a tank as a volume or not at all.

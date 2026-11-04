@@ -47,6 +47,15 @@
         "source": "seriouslyfish",
         "value": 2
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 10
+        }
+      }
     ]
   },
   "sections": [

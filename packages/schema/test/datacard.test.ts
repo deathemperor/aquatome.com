@@ -20,6 +20,14 @@ test('plain numbers: SF else max', () => {
   expect(resolveDataCard([{ source: 'glaser', value: 3 }, { source: 'planetcatfish', value: 5 }])?.value).toBe(5)
   expect(resolveDataCard([{ source: 'glaser', value: 3 }, { source: 'seriouslyfish', value: 2 }])?.value).toBe(2)
 })
+test('a lifespan is no care target: sources that disagree give the widest, not what they share', () => {
+  const a: SourcedValue = { source: 'sprucepets', value: { min: 3, max: 5 } }
+  const b: SourcedValue = { source: 'aquariumbreeder', value: { min: 5, max: 8 } }
+  expect(resolveDataCard([a, b], 'lifeYears')).toEqual({ value: { min: 3, max: 8 }, sources: ['sprucepets', 'aquariumbreeder'], conflict: true, agreed: false })
+  // The same ranges as a temperature: what they share.
+  expect(resolveDataCard([a, b])?.value).toEqual({ min: 5, max: 5 })
+  expect(resolveDataCard([a, { source: 'seriouslyfish', value: { min: 4, max: 6 } }], 'lifeYears')?.value).toEqual({ min: 4, max: 6 })
+})
 test('empty input returns null', () => {
   expect(resolveDataCard([])).toBeNull()
 })

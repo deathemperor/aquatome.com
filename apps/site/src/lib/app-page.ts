@@ -119,7 +119,7 @@ function trustBlock(t: T, lang: Lang, card: SpeciesEntity['dataCard'], sources: 
   if (!rows.length) return []
   const nameOf = (id: string) => sources[id]?.name ?? id
   const named = (id: string) => (lang !== 'vi' && isVietnamese(nameOf(id)) ? `${nameOf(id)} (${t('tiếng Việt')})` : nameOf(id))
-  const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' || field === 'tankCm' ? ' cm' : '')
+  const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' || field === 'tankCm' ? ' cm' : field === 'lifeYears' ? ` ${t('năm')}` : '')
   return [{
     t: 'trust', title: t('Nguồn và độ tin cậy'),
     ...(rows.some(r => r.conflict) ? { legend: t('Các nguồn ghi khác nhau') } : {}),

@@ -1,4 +1,4 @@
-import type { BreedEntity, Content, Photo, PlantEntity, Traits } from '@aq/schema'
+import { resolveDataCard, type BreedEntity, type Content, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
@@ -55,6 +55,11 @@ export type AppItem = {
    * order it names them: the origin pages that list it. None when it names none of them; breeds have none.
    */
   from?: string[]
+  /**
+   * A species' lifespan in years, as its data card resolves it (the site's "Tuổi thọ"): one figure is min = max. None
+   * when no source states it; breeds have none.
+   */
+  lifeYears?: Range
 } & Partial<Facts>
 /**
  * A species' figures and behaviour (fish), named as the tank-mates tool names them (SpeciesIndexItem), so the app checks
@@ -178,9 +183,11 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const f = toIndexItem(s, traits.get(s.id))
       const facts = Object.fromEntries(FACTS.map(k => [k, f[k]]))
       const from = [...new Set(s.places)].filter(id => paged.has(id))
+      const life = resolveDataCard(s.dataCard.lifeYears ?? [], 'lifeYears')?.value
+      const lifeYears = life === undefined ? undefined : typeof life === 'number' ? { min: life, max: life } : life
       items.push(clean({
         kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), group: groupOf.get(s.id),
-        tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, ...facts,
+        tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, ...facts,
       }))
     }
     // Every breed, as the fish list shows them.

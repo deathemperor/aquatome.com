@@ -151,6 +151,8 @@ if part pages sf photos; then
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
   # Wikimedia photos credited before Commons' placeholder authors were tidied on import: "RuthJM", not its sentence.
   pnpm engine credits || log "credits: failed (some photos keep Commons' placeholder author)"
+  # Lifespans the sources already state as a labelled line, on the data card ("Tuổi thọ"); never read from prose.
+  pnpm engine lifespans || log "lifespans: failed"
   # The image hash of every new picture, so no page shows one picture twice from two files (a failure: compared by address).
   pnpm engine picture-hashes || log "picture-hashes: failed (new pictures compared by address only)"
 fi

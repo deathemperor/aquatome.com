@@ -20,7 +20,7 @@ const unitAttrs = (field: string, v: number | { min: number; max: number }) => {
   if (field === 'sizeCm' || field === 'tankCm') return { 'data-cm': `${a},${b}` }
   return {}
 }
-const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' || field === 'tankCm' ? ' cm' : '')
+const unit = (field: string) => (field === 'tempC' ? '°C' : field === 'sizeCm' || field === 'tankCm' ? ' cm' : field === 'lifeYears' ? ` ${t('năm')}` : '')
 ---
 {rows.length > 0 && (
   <div class="datacard">
