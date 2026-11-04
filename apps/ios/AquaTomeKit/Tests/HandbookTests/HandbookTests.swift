@@ -114,6 +114,30 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   let s = HandbookSearch(many)
   #expect(s.find("", kind: .fish).count == 700)
   #expect(s.find("ca").count == 200) // a search still stops at its best 200
+  #expect(s.findAndCount("ca").counts == [nil: 700, .fish: 700], "the count stopped where the list does")
+}
+
+@Test func aSearchCountsWhatEachKindFinds() throws {
+  let s = HandbookSearch(try JSONDecoder().decode(HandbookIndex.self, from: sample).items)
+  let neon = s.findAndCount("NEON ").counts
+  // In all under nil, and each kind it finds: none for the others.
+  #expect(neon == [nil: 3, .fish: 2, .guide: 1])
+  // What a search narrowed to each kind lists, whichever kind the counting search was narrowed to.
+  for k in [nil] + HandbookIndex.Kind.allCases {
+    let (items, counts) = s.findAndCount("neon", kind: k)
+    #expect(counts == neon && items == s.find("neon", kind: k) && neon[k, default: 0] == items.count, "\(String(describing: k))")
+  }
+  #expect(s.findAndCount("van ngua").counts == [nil: 1, .fish: 1])
+  #expect(s.findAndCount("khong co").counts.isEmpty)
+}
+
+@Test func aVideoGuideCountsAsAGuideAndAsAVideo() {
+  let s = HandbookSearch([
+    .init(kind: .video, name: "Rêu hại từ A đến Z", sub: "MJ Aquascaping", path: "/vi/video/reu/", parts: 14),
+    .init(kind: .guide, name: "Cách hạn chế rêu hại", path: "/vi/huong-dan/reu-video/", video: 1755),
+    .init(kind: .guide, name: "Rêu hại và cách trị", path: "/vi/huong-dan/reu/"),
+  ])
+  #expect(s.findAndCount("reu").counts == [nil: 3, .guide: 2, .video: 2])
 }
 
 @Test func aLoadReplacedByAnotherIsNotAFailure() {

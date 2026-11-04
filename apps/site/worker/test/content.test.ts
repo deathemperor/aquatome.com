@@ -52,8 +52,8 @@ test('the loader reads content.json through ASSETS; a build without it gives und
   await expect(loadContentStats(assets(JSON.stringify({ v: 2 })), 'https://x.test')).rejects.toThrow('content.json v2')
   // Every built page by path, each with its kind and, for an item's page, its item.
   const index = pageIndex(STATS)
-  expect(index.size).toBe(130)
-  expect(index.get('/vi/ca/ca-neon-vua/')).toEqual({ path: '/vi/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' })
+  expect(index.size).toBe(134)
+  expect(index.get('/ca/ca-neon-vua/')).toEqual({ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' })
 })
 
 const sessions = [
@@ -62,11 +62,11 @@ const sessions = [
   { sid: 's3', first: '2026-11-01 09:00:00', pages: '2', t: '0', scroll: '0' }, // a bounce: not a reader
 ]
 const views = [
-  { sid: 's1', p: '/vi/ca/ca-neon-vua/', views: '2' },
-  { sid: 's1', p: '/vi/huong-dan/thay-nuoc-dung-cach', views: '1' }, // no trailing slash: the same page
-  { sid: 's2', p: '/vi/ca/ca-neon-vua/', views: '1' },
-  { sid: 's3', p: '/vi/cay/monte-carlo/', views: '1' },
-  { sid: 's3', p: '/vi/ca/ca-cu/', views: '4' }, // an address this build doesn't have
+  { sid: 's1', p: '/vi/ca/ca-neon-vua/', views: '2' }, // its old address (before the Vietnamese pages moved to the root): the same page
+  { sid: 's1', p: '/huong-dan/thay-nuoc-dung-cach', views: '1' }, // no trailing slash: the same page
+  { sid: 's2', p: '/ca/ca-neon-vua/', views: '1' },
+  { sid: 's3', p: '/cay/monte-carlo/', views: '1' },
+  { sid: 's3', p: '/ca/ca-cu/', views: '4' }, // an address this build doesn't have
 ]
 
 test('reads: readers per page kind, the most-read pages with their titles, the pages no reader opened', () => {
@@ -77,13 +77,13 @@ test('reads: readers per page kind, the most-read pages with their titles, the p
   // Viewed, but by no reader: counts as views, not as read.
   expect(r.byKind.find(k => k.kind === 'plant')).toEqual({ kind: 'plant', pages: 4, read: 0, readers: 0, views: 1 })
   expect(r.top.map(p => [p.path, p.title, p.kind, p.readers, p.views])).toEqual([
-    ['/vi/ca/ca-neon-vua/', 'Cá neon vua', 'fish', 2, 3],
-    ['/vi/huong-dan/thay-nuoc-dung-cach/', 'Thay nước đúng cách', 'guide', 1, 1],
-    ['/vi/cay/monte-carlo/', 'Monte Carlo', 'plant', 0, 1],
+    ['/ca/ca-neon-vua/', 'Cá neon vua', 'fish', 2, 3],
+    ['/huong-dan/thay-nuoc-dung-cach/', 'Thay nước đúng cách', 'guide', 1, 1],
+    ['/cay/monte-carlo/', 'Monte Carlo', 'plant', 0, 1],
   ])
-  expect(r.unread.n).toBe(128)
+  expect(r.unread.n).toBe(132)
   expect(r.unread.byKind).toMatchObject({ fish: 8, guide: 6, plant: 4 })
-  expect(r.unread.pages.map(p => p.path)).not.toContain('/vi/ca/ca-neon-vua/')
+  expect(r.unread.pages.map(p => p.path)).not.toContain('/ca/ca-neon-vua/')
   expect(r.unread.pages).toHaveLength(100)
   expect(r.elsewhere).toEqual({ views: 4, paths: 1 })
 })
@@ -121,7 +121,7 @@ test('a session the beacon wrote to both datasets is one session: its first mome
 
 test('comments and reader photos per page: each language\'s comments on its own page, photos on the Vietnamese one', async () => {
   const db = testD1()
-  const guide = STATS.pages!.guide!.find(r => r[0] === '/vi/huong-dan/thay-nuoc-dung-cach/')![2]!
+  const guide = STATS.pages!.guide!.find(r => r[0] === '/huong-dan/thay-nuoc-dung-cach/')![2]!
   const c = (id: string, ref: string, status: string) => db.prepare("INSERT INTO comments (id, entity_ref, name, body, status, created_at) VALUES (?, ?, 'A', 'b', ?, '2026-11-01T00:00:00Z')").bind(id, ref, status).run()
   await c('c1', 'species:paracheirodon-axelrodi', 'approved')
   await c('c2', 'species:paracheirodon-axelrodi', 'approved')
@@ -136,8 +136,8 @@ test('comments and reader photos per page: each language\'s comments on its own 
   expect([t.comments, t.photos]).toEqual([3, 1])
   expect(t.elsewhere).toEqual({ comments: 1, photos: 1 })
   expect(t.top).toEqual([
-    { path: '/vi/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', comments: 2, photos: 1 },
-    { path: '/vi/huong-dan/thay-nuoc-dung-cach/', title: 'Thay nước đúng cách', kind: 'guide', comments: 1, photos: 0 },
+    { path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', comments: 2, photos: 1 },
+    { path: '/huong-dan/thay-nuoc-dung-cach/', title: 'Thay nước đúng cách', kind: 'guide', comments: 1, photos: 0 },
   ])
   expect(t.byKind).toEqual([{ kind: 'fish', comments: 2, photos: 1 }, { kind: 'guide', comments: 1, photos: 0 }])
 })
@@ -153,7 +153,7 @@ test('affiliate clicks per page kind; a video guide\'s gear list names the guide
   const k = await clicksByKind(db, STATS, NOW)
   expect([k.since, k.clicks, k.elsewhere]).toEqual(['2026-10-04', 10, 4])
   expect(k.byKind).toEqual([{ kind: 'fish', clicks: 3 }, { kind: 'videoGuide', clicks: 2 }, { kind: 'equipment', clicks: 1 }])
-  expect(k.top[1]).toEqual({ path: '/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/', title: 'Bón phân cho cây thủy sinh', kind: 'videoGuide', clicks: 2 })
+  expect(k.top[1]).toEqual({ path: '/huong-dan/bon-phan-cho-cay-thuy-sinh/', title: 'Bón phân cho cây thủy sinh', kind: 'videoGuide', clicks: 2 })
 })
 
 test('growth: the day\'s totals kept under stats:YYYY-MM-DD with them as metadata, and every day read back in order', async () => {

@@ -7,9 +7,35 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "brazil"
+    "brazil",
+    "itapecuru"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 6
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -18,19 +44,72 @@
       "html": "<p>Corydoras vittatus – the specific name means \"striped\" – is one of the most variable Corydoras species in respect of the individual pattern.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_vittatus.htm",
+      "html": "<p>This species was once described as a subspecies of C. blochi and known as Corydoras blochi vittatus, but it has since been raised to a full species. C155 and CW055 are the same species. Family: Callichthyidae. Size: male 5.5 cm, female 6.0 cm. Temperature: 23-26°C. pH: 6.0-7.2.</p><p>Lineage: placed in Lineage 1. If the genus is revised, this lineage will stay as Corydoras (Lacépède, 1803), with the type species C. geoffroy Lacépède, 1803. As of the latest update (Dias et al. 2024), Corydoras vittatus has been placed in Lineage 1 and has retained the genus name Corydoras.</p><p>Etymology: the specific name vittatus means banded or striped.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_vittatus_en/",
       "html": "<p>The fish originates from Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_vittatus.htm",
+      "html": "<p>South America: Brazil, state of Maranhão, tributary of the Rio Itapecuru at Caxias.</p><p>Corydoras vittatus occurs in the Itapecuru and Parnaíba river basins, in the states of Maranhão and Piauí. It is naturally infrequent and not very abundant. However, no significant threats have been identified that would endanger its population, and it is categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_vittatus.htm",
+      "html": "<p>As this is one of the longer-snouted species, it is well suited to most community tanks. Provide a well-planted tank with a soft substrate such as sand, so they can bury their snouts while searching for food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_vittatus.htm",
+      "html": "<p>Readily accepts a mixed and varied diet, including granular foods, tablet food, frozen bloodworm and good quality flake.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_vittatus_en/",
       "html": "<p>Formerly it was often regarded as a subspecies of the also very variable species Corydoras blochi from Guyana and Venezuela, but currently most authorities accept C. vittatus as a full species on its own.</p><p>One of the most attractive features of C. vittatus is that in some specimens the dark colour spreads from the obligate eyeband over the complete head, which makes the fish look very unusual.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_vittatus.htm",
+      "html": "<ul><li>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited.</li><li>Angelica C Dias, Luiz F C Tencatt, Fabio F Roxo, Gabriel de Souza da Costa Silva, Sérgio A Santos, Marcelo R Britto, Martin I Taylor, Claudio Oliveira, Phylogenomic analyses in the complex Neotropical subfamily Corydoradinae (Siluriformes: Callichthyidae) with a new classification based on morphological and molecular data, Zoological Journal of the Linnean Society, 2024; zlae053.</li><li>Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises.</li><li>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio) 2022. Corydoras vittatus. The IUCN Red List of Threatened Species 2022.</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/65248491617f0ab0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/65248491617f0ab0-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_vittatus.htm",
+      "caption": "Corydoras vittatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/32ccc145370662c9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/32ccc145370662c9-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "Alan Pinkerton / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_vittatus.htm",
+      "caption": "Corydoras vittatus",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -62,5 +141,6 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04",
+  "lNumber": "C155"
 }

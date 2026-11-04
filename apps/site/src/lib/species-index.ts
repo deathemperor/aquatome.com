@@ -1,8 +1,9 @@
 import { resolveDataCard, type Localized, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
 import type { SpeciesIndexItem } from '../scripts/filter'
 
-const asRange = (v: Range | number | undefined): Range | undefined => (v === undefined ? undefined : typeof v === 'number' ? { min: v, max: v } : v)
-const asNum = (v: Range | number | undefined): number | undefined => (v === undefined ? undefined : typeof v === 'number' ? v : v.max)
+/** A card value as the index holds it: temperature, pH and hardness as ranges, size and tank as their longest. */
+export const asRange = (v: Range | number | undefined): Range | undefined => (v === undefined ? undefined : typeof v === 'number' ? { min: v, max: v } : v)
+export const asNum = (v: Range | number | undefined): number | undefined => (v === undefined ? undefined : typeof v === 'number' ? v : v.max)
 
 export function toIndexItem(s: Localized<SpeciesEntity>, t?: Traits): SpeciesIndexItem {
   const r = (f: keyof SpeciesEntity['dataCard']) => resolveDataCard(s.dataCard[f] ?? [])?.value

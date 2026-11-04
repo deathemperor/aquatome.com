@@ -63,50 +63,50 @@ function tab(first: string) {
 }
 
 test('the viewer adds one entry, whatever it steps through, and closing it by its button or Esc takes it off', () => {
-  const t = tab('/vi/ca/x/anh/')
+  const t = tab('/ca/x/anh/')
   const v = viewerHistory(t.h, 'gallery')
   expect(v.current()).toBeNull()
   v.open(2, '#a3')
-  expect(t.urls()).toEqual(['/vi/ca/x/anh/', '/vi/ca/x/anh/#a3'])
+  expect(t.urls()).toEqual(['/ca/x/anh/', '/ca/x/anh/#a3'])
   expect(v.current()).toBe(2)
   v.step(3, '#a4')
   v.step(4, '#a5')
-  expect(t.urls()).toEqual(['/vi/ca/x/anh/', '/vi/ca/x/anh/#a5'])
+  expect(t.urls()).toEqual(['/ca/x/anh/', '/ca/x/anh/#a5'])
   v.close()
-  expect([t.at(), t.here(), v.current()]).toEqual([0, '/vi/ca/x/anh/', null])
+  expect([t.at(), t.here(), v.current()]).toEqual([0, '/ca/x/anh/', null])
   v.close() // closed already: Back isn't pressed again
   expect(t.at()).toBe(0)
 })
 
 test('Back closes it (the entry under it is not the viewer\'s), Forward opens it again on the same photo', () => {
-  const t = tab('/vi/ca/x/')
+  const t = tab('/ca/x/')
   const v = viewerHistory(t.h, 'reader')
   const seen: (number | null)[] = []
   t.popped(() => seen.push(v.current()))
   v.open(1) // a reader photo: the address stays the page's
-  expect(t.urls()).toEqual(['/vi/ca/x/', '/vi/ca/x/'])
+  expect(t.urls()).toEqual(['/ca/x/', '/ca/x/'])
   t.h.back()
   t.forward()
   expect(seen).toEqual([null, 1])
 })
 
 test('a page opened on a photo\'s own address (#a5) gets an entry under it, so Back shows the gallery, not the photo again', () => {
-  const t = tab('/vi/ca/x/')
-  t.h.pushState(null, '', '/vi/ca/x/anh/#a5') // from the fish's page, its fifth photo
+  const t = tab('/ca/x/')
+  t.h.pushState(null, '', '/ca/x/anh/#a5') // from the fish's page, its fifth photo
   const v = viewerHistory(t.h, 'gallery')
-  v.open(4, '#a5', '/vi/ca/x/anh/')
-  expect(t.urls()).toEqual(['/vi/ca/x/', '/vi/ca/x/anh/', '/vi/ca/x/anh/#a5'])
+  v.open(4, '#a5', '/ca/x/anh/')
+  expect(t.urls()).toEqual(['/ca/x/', '/ca/x/anh/', '/ca/x/anh/#a5'])
   v.close()
-  expect(t.here()).toBe('/vi/ca/x/anh/')
+  expect(t.here()).toBe('/ca/x/anh/')
 })
 
 test('reloaded with the viewer open, its entry is still its own: opening it again adds none', () => {
-  const t = tab('/vi/ca/x/anh/')
+  const t = tab('/ca/x/anh/')
   const first = viewerHistory(t.h, 'gallery')
   first.open(0, '#a1')
   const again = viewerHistory(t.h, 'gallery') // the page loaded again on the same entry
   expect(again.current()).toBe(0)
-  again.open(0, '#a1', '/vi/ca/x/anh/')
-  expect(t.urls()).toEqual(['/vi/ca/x/anh/', '/vi/ca/x/anh/#a1'])
+  again.open(0, '#a1', '/ca/x/anh/')
+  expect(t.urls()).toEqual(['/ca/x/anh/', '/ca/x/anh/#a1'])
   expect(viewerHistory(t.h, 'reader').current()).toBeNull() // another viewer's entry isn't this one's
 })

@@ -7,13 +7,48 @@
   "group": "tetras",
   "places": [
     "south-america",
-    "paraguay"
+    "paraguay",
+    "brazil",
+    "bolivia",
+    "uruguay",
+    "argentina"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 100
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 100
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
       }
     ]
   },
@@ -25,19 +60,126 @@
       "html": "<p>The genus Salminus currently comprises four species. These tetras can become very large. The most colorful of them is S. brasiliensis, also known as \"Dorado\". The species can become one meter long.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<p>The dorado, Salminus brasiliensis, is a large characid from Brazil, Bolivia, Paraguay, Uruguay and Argentina, growing to 100 cm SL. A highly prized game fish in some of its native waters, it turns up as juveniles in some aquatic stores, but it is not suited to captive life in any respect. Housing one for life is beyond the reach of virtually all hobbyists.</p><ul><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_arrived__en/",
       "html": "<p>The juveniles described here originate from Paraguay and are 7-10 cm long.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<p>Brazil, Bolivia, Paraguay, Uruguay, Argentina.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<p>Primarily a riverine species, but is also found in lakes and ponds.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<p>A truly humongous tank (or pond) would be required by an adult specimen, as it's an incredibly fast-swimming, active, predatory fish. Something in the region of 6 m x 1.2 m x 1.2 m should be considered a bare minimum. A tank like this would hold over 9000 litres of water!</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<p>Speaking hypothetically, decor would not be critical. Obviously, an enormous filtration system would be needed to cope with the massive amounts of biological waste a fish like this produces. A decent amount of flow through the tank would also be needed.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<p>Highly piscivorous in nature, juvenile captive specimens have been known to accept prawns, lancefish etc. An adult fish would need large amounts of fish such as whole trout. An expensive proposition!</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<p>Will not eat anything it can't fit into its mouth, but this doesn't leave many available species with which it could be housed in the long term. Young fish have been seen cohabiting with large tankmates such as Cichla sp., arowana and other tankbusting fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<p>Impossible in home aquaria. Should not even be considered an option.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/salminus_arrived__en/",
       "html": "<p>Old fish get a breathtakingly beautiful golden colour all over the body. This species is also known under the old, invalid name S. maxillosus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/salminus-brasiliensis",
+      "html": "<p>The common name of this species is derived from the Portuguese dourado and refers to the beautiful golden colour of the fish. It is included purely because an alarming number of juvenile fish have been showing up in some aquatic stores and, as a result, in hobbyists' tanks. This species is simply not suited to captive life in any respect. If you see one for sale, and they are undeniably an attractive fish, please don't be tempted to buy it. As responsible fishkeepers we should consider the long term well-being of any fish that we buy, and housing a dorado for life is beyond the reach of virtually all hobbyists. Sadly, owning this species and others like it seems to be fashionable at the moment, with some aquarists even viewing them as a status symbol. It is to be hoped this situation can be rectified in the future, as surely all these aquarium specimens are doomed to a premature death. It's a highly prized game fish in some of its native waters.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/3096111c283216b4.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC0",
+      "author": "Diego Carús",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salminus_brasiliensis_102879277.jpg",
+      "caption": "Golden Dorado (Salminus brasiliensis)",
+      "thumb": "https://media.aquatome.com/commons/3096111c283216b4-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8cfcc41ecef75124.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Pablo H Capovilla",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salminus_brasiliensis_167978728.jpg",
+      "caption": "Golden Dorado (Salminus brasiliensis)",
+      "thumb": "https://media.aquatome.com/commons/8cfcc41ecef75124-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b9387d5f31cdda39.webp",
+      "width": 960,
+      "height": 593,
+      "licence": "CC0",
+      "author": "Diego Carús",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salminus_brasiliensis_102879283.jpg",
+      "caption": "Golden Dorado (Salminus brasiliensis)",
+      "thumb": "https://media.aquatome.com/commons/b9387d5f31cdda39-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d7d6e40b3b086302.webp",
+      "width": 960,
+      "height": 1213,
+      "licence": "CC BY 4.0",
+      "author": "Florencia Brancolini, Priscilla Minotti, Lucila Protogino, Hugo López, and Claudio Baigún",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_fauna_from_R%C3%ADo_Pilcomayo_National_Park_(4_of_7).png",
+      "caption": "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are listed as:(37) Salminus brasiliensis;(38) Triportheus pantanensis;(39) Anadoras wedellii;(40) Auchenipterus osteomystax;(41) T",
+      "thumb": "https://media.aquatome.com/commons/d7d6e40b3b086302-480.webp"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -61,5 +203,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-04"
 }

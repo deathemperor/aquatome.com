@@ -5,7 +5,7 @@ import { guidesMentioning } from './mentions'
 import { distinctPhotos, pagePictures } from './pictures'
 
 /**
- * What a plant's page shows, put together once for the page (pages/vi/cay/[slug].astro) and for the app's copy of it
+ * What a plant's page shows, put together once for the page (pages/cay/[slug].astro) and for the app's copy of it
  * (lib/app-page.ts): its gallery strip, the photos between the sections and the guides that name it. Every picture once,
  * in page order (lib/pictures.ts): the photo, the gallery's first photos, those between the sections.
  */

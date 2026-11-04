@@ -1,11 +1,14 @@
 import id from '../i18n/id.json' with { type: 'json' }
 import th from '../i18n/th.json' with { type: 'json' }
+import { withoutVi } from '../../worker/paths.ts'
 
 /**
- * Site languages. Pages are written once, under src/pages/vi/, with Vietnamese UI text wrapped in t(); a language
- * other than Vietnamese mounts the same files at its own addresses (astro.config: i18nRoutes) and its pages get
- * their text from src/i18n/<lang>.json (key: the Vietnamese string). Internal links are written as /vi/… paths and
- * rewritten to the page's language once the page is rendered (src/middleware.ts), so a link never needs to know it.
+ * Site languages. Pages are written once, in Vietnamese, with the UI text wrapped in t(): Vietnamese pages are at the
+ * root (src/pages/ca/… → /ca/…), and a language other than Vietnamese mounts the same files at its own addresses
+ * (astro.config: i18nRoutes, /id/ikan/…) and gets its text from src/i18n/<lang>.json (key: the Vietnamese string).
+ * Internal links are written as /vi/… paths, a marker no page is served at, and rewritten to the page's language once
+ * the page is rendered (src/middleware.ts): /vi/ca/x/ is /ca/x/ on a Vietnamese page, /id/ikan/x/ on an Indonesian one.
+ * So a link never needs to know the page's language. Old /vi/… addresses 301 to the root (worker/paths.ts).
  */
 export const LANGS = ['vi', 'id', 'th'] as const
 export type Lang = (typeof LANGS)[number]
@@ -32,19 +35,20 @@ const SECTIONS: Record<Exclude<Lang, 'vi'>, Record<string, string>> = {
     'moi-cap-nhat': 'latest', 'phan-loai': 'taxonomy', 'nguon-goc': 'origin', nhom: 'groups', 'san-pham': 'products',
   },
 }
-/** Fixed segments below a section: /vi/cong-cu/the-tich-be/, /vi/cong-cu/den-chihiros/, /vi/cong-cu/be-cua-toi/, /vi/cong-cu/nuoi-chung/, /vi/cong-cu/nhan-dien-ca/, /vi/video/kenh/<slug>/, /vi/ca/<slug>/anh/, /vi/cay/<slug>/anh/, /vi/huong-dan/trang/<n>/ (and any list's numbered page, /vi/cay/trang/<n>/, /vi/nhom/<group>/trang/<n>/). */
-const SUB: Record<Exclude<Lang, 'vi'>, { 'the-tich-be': string; 'den-chihiros': string; 'be-cua-toi': string; 'nuoi-chung': string; 'nhan-dien-ca': string; kenh: string; anh: string; trang: string }> = {
-  id: { 'the-tich-be': 'volume-akuarium', 'den-chihiros': 'lampu-chihiros', 'be-cua-toi': 'akuarium-saya', 'nuoi-chung': 'kecocokan-ikan', 'nhan-dien-ca': 'kenali-ikan', kenh: 'kanal', anh: 'foto', trang: 'halaman' },
-  th: { 'the-tich-be': 'tank-volume', 'den-chihiros': 'chihiros-light', 'be-cua-toi': 'my-tanks', 'nuoi-chung': 'tank-mates', 'nhan-dien-ca': 'fish-id', kenh: 'channel', anh: 'photos', trang: 'page' },
+/** Fixed segments below a section: /vi/cong-cu/the-tich-be/, /vi/cong-cu/den-chihiros/, /vi/cong-cu/be-cua-toi/, /vi/cong-cu/nuoi-chung/, /vi/cong-cu/nhan-dien-ca/, /vi/gioi-thieu/bang-du-lieu/, /vi/video/kenh/<slug>/, /vi/ca/<slug>/anh/, /vi/cay/<slug>/anh/, /vi/huong-dan/trang/<n>/ (and any list's numbered page, /vi/cay/trang/<n>/, /vi/nhom/<group>/trang/<n>/). */
+const SUB: Record<Exclude<Lang, 'vi'>, { 'the-tich-be': string; 'den-chihiros': string; 'be-cua-toi': string; 'nuoi-chung': string; 'nhan-dien-ca': string; 'bang-du-lieu': string; kenh: string; anh: string; trang: string }> = {
+  id: { 'the-tich-be': 'volume-akuarium', 'den-chihiros': 'lampu-chihiros', 'be-cua-toi': 'akuarium-saya', 'nuoi-chung': 'kecocokan-ikan', 'nhan-dien-ca': 'kenali-ikan', 'bang-du-lieu': 'tabel-data', kenh: 'kanal', anh: 'foto', trang: 'halaman' },
+  th: { 'the-tich-be': 'tank-volume', 'den-chihiros': 'chihiros-light', 'be-cua-toi': 'my-tanks', 'nuoi-chung': 'tank-mates', 'nhan-dien-ca': 'fish-id', 'bang-du-lieu': 'data-table', kenh: 'channel', anh: 'photos', trang: 'page' },
 }
 /** A list's numbered page, ["", "vi", "huong-dan", "trang", "2", ""]: the page word, then its number (or the route's [n]), last. */
 const numbered = (seg: string[], word: string) => seg.length >= 6 && seg.at(-3) === word && /^(\d+|\[n\])$/.test(seg.at(-2)!) && seg.at(-1) === ''
 /** The tool pages under /vi/cong-cu/ with a word of their own in each language. */
 const TOOLS = ['the-tich-be', 'den-chihiros', 'be-cua-toi', 'nuoi-chung', 'nhan-dien-ca'] as const
 
-/** "/vi/ca/x/anh/" → "/id/ikan/x/foto/". Anything after the path (?query, #hash) is kept as it is. */
+/** "/vi/ca/x/anh/" → "/ca/x/anh/" (Vietnamese), "/id/ikan/x/foto/". Anything after the path (?query, #hash) is kept as it is. */
 export function localizePath(lang: Lang, path: string): string {
-  if (lang === 'vi' || !path.startsWith('/vi/')) return path
+  if (!path.startsWith('/vi/')) return path
+  if (lang === 'vi') return withoutVi(path)
   const at = path.search(/[?#]/)
   const [p, tail] = at < 0 ? [path, ''] : [path.slice(0, at), path.slice(at)]
   const seg = p.split('/') // ['', 'vi', section, ...]
@@ -53,6 +57,7 @@ export function localizePath(lang: Lang, path: string): string {
   if (section && SECTIONS[lang][section]) seg[2] = SECTIONS[lang][section]!
   const tool = TOOLS.find(x => x === seg[3])
   if (section === 'cong-cu' && tool) seg[3] = SUB[lang][tool]
+  if (section === 'gioi-thieu' && seg[3] === 'bang-du-lieu') seg[3] = SUB[lang]['bang-du-lieu']
   if (section === 'video' && seg[3] === 'kenh' && seg.length > 5) seg[3] = SUB[lang].kenh
   if ((section === 'ca' || section === 'cay') && seg[4] === 'anh' && seg.length === 6) seg[4] = SUB[lang].anh
   if (numbered(seg, 'trang')) seg[seg.length - 3] = SUB[lang].trang
@@ -60,31 +65,42 @@ export function localizePath(lang: Lang, path: string): string {
 }
 
 /**
- * Every /vi/… address in a rendered page → this language's: root-relative ones and absolute ones on this site, in
- * attributes, JSON-LD and inline scripts. Tags with hreflang (the links between languages) are left as they are, and so
- * is a /vi/ inside some other address (i.ytimg.com/vi/…): it has to start the address.
+ * The apps' addresses: what the app index, its page copies and fish ID's answers give for a page. The installed iOS app
+ * matches Vietnamese pages by their /vi/… form (its tool tabs and group shelves by the words), so they keep it until the
+ * app reads both forms. Then APP_VI_ROOT turns on, and the index, the copies and fish ID move to the root in one deploy.
  */
-export function localizeLinks(html: string, lang: Lang, origin: string): string {
+export const APP_VI_ROOT = false
+export const appPath = (lang: Lang, path: string) => (lang === 'vi' && !APP_VI_ROOT ? path : localizePath(lang, path))
+/** localizeLinks for the apps' copies of a page's text (APP_VI_ROOT). */
+export const appLinks = (html: string, lang: Lang, origin: string) => (lang === 'vi' && !APP_VI_ROOT ? html : localizeLinks(html, lang, origin))
+
+/**
+ * Every /vi/… address in a rendered page → this language's: root-relative ones and absolute ones on this site (`origin`,
+ * one or more), in attributes, JSON-LD and inline scripts. Tags with hreflang (the links between languages) are left as
+ * they are, and so is a /vi/ inside some other address (i.ytimg.com/vi/…): it has to start the address.
+ */
+export function localizeLinks(html: string, lang: Lang, origin: string | string[]): string {
   // A link to a page this language doesn't have (yet) is dropped, its text kept.
   html = html.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/g, (m, attrs: string, inner: string) => {
     const href = /\bhref="(\/vi\/[^"]*)"/.exec(attrs)?.[1]
     return href && !/\bhreflang=/.test(attrs) && !served(lang, href.replace(/&amp;/g, '&')) ? inner : m
   })
-  const site = origin.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const site = [origin].flat().filter(Boolean).map(o => o.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
   const re = new RegExp(`<[^>]*\\bhreflang=[^>]*>|(?<=["'(=,\\s])(${site})?(/vi/[^"'\\s()<>\\\\]*)`, 'g')
   return html.replace(re, (m, o: string | undefined, path: string | undefined) => (path === undefined ? m : (o ?? '') + localizePath(lang, path)))
 }
 
-/** "/id/ikan/x/foto/" → "/vi/ca/x/anh/": the Vietnamese form of any page's path (the form links are written in). */
+/** "/id/ikan/x/foto/" → "/vi/ca/x/anh/", "/ca/x/" → "/vi/ca/x/": the form links are written in, of any page's path. */
 export function toVi(path: string): string {
   const lang = langOf(path)
-  if (lang === 'vi') return path
+  if (lang === 'vi') return /^\/vi(\/|$)/.test(path) ? path : `/vi${path}`
   const seg = path.split('/')
   const back = (m: Record<string, string>, v?: string) => Object.keys(m).find(k => m[k] === v)
   seg[1] = 'vi'
   seg[2] = back(SECTIONS[lang], seg[2]) ?? seg[2]!
   const tool = TOOLS.find(x => SUB[lang][x] === seg[3])
   if (seg[2] === 'cong-cu' && tool) seg[3] = tool
+  if (seg[2] === 'gioi-thieu' && seg[3] === SUB[lang]['bang-du-lieu']) seg[3] = 'bang-du-lieu'
   if (seg[2] === 'video' && seg[3] === SUB[lang].kenh && seg.length > 5) seg[3] = 'kenh'
   if ((seg[2] === 'ca' || seg[2] === 'cay') && seg[4] === SUB[lang].anh && seg.length === 6) seg[4] = 'anh'
   if (numbered(seg, SUB[lang].trang)) seg[seg.length - 3] = 'trang'
@@ -116,8 +132,8 @@ export const i18n = (url: URL) => {
   return { lang, t: translator(lang), locale: LOCALE[lang] }
 }
 
-/** Page files (under src/pages/vi/) each other language has: a section joins once its pages are translated. */
-const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'ca/[slug]/anh.astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'cong-cu/den-chihiros.astro', 'cong-cu/be-cua-toi.astro', 'cong-cu/nuoi-chung.astro', 'cong-cu/nhan-dien-ca.astro', 'gioi-thieu/index.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'huong-dan/trang/[n].astro', 'cay/index.astro', 'cay/[slug].astro', 'cay/[slug]/anh.astro', 'cay/trang/[n].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'nhom/[group]/trang/[n].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro']
+/** Page files (under src/pages/) each other language has: a section joins once its pages are translated. */
+const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'ca/[slug]/anh.astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'cong-cu/den-chihiros.astro', 'cong-cu/be-cua-toi.astro', 'cong-cu/nuoi-chung.astro', 'cong-cu/nhan-dien-ca.astro', 'gioi-thieu/index.astro', 'gioi-thieu/bang-du-lieu.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'huong-dan/trang/[n].astro', 'cay/index.astro', 'cay/[slug].astro', 'cay/[slug]/anh.astro', 'cay/trang/[n].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'nhom/[group]/trang/[n].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro']
 export const PAGES: Record<Exclude<Lang, 'vi'>, string[]> = { id: PILOT, th: PILOT }
 const segments = (file: string) => file.replace(/\.astro$/, '').replace(/(^|\/)index$/, '').split('/').filter(Boolean)
 /** A page file's address in a language: "ca/[slug]/anh.astro" → "/id/ikan/[slug]/foto". */

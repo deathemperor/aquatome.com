@@ -1,0 +1,137 @@
+{
+  "id": "hyphessobrycon-compressus",
+  "scientificName": "Hyphessobrycon compressus",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "north-america",
+    "mexico",
+    "usumacinta",
+    "guatemala",
+    "peten",
+    "belize",
+    "sarstoon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-compressus",
+      "html": "<p>The Mayan tetra, Hyphessobrycon compressus, is a characid from southern Mexico, Guatemala and Belize. The type species of the genus Hyphessobrycon, it is not well known in the ornamental trade. Analysis has shown it to be more closely related to 'rosy tetra' species such as H. eques and H. pulchripinnis than to many other members of the genus. It has been collected from rivers, streams, temporal swamps and permanent lakes.</p><ul><li>Social: needs to be kept in a group</li><li>Compatibility: fine with others</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-compressus",
+      "html": "<p>Known from southern Mexico, Guatemala, and Belize.</p><p>Type locality is 'Río Papaloapam basin at El Hule, Oaxaca, Mexico'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-compressus",
+      "html": "<p>Has been collected from smaller rivers, streams, temporal freshwater swamps and larger permanent lakes.</p><p>Sympatric species include Astyanax aeneus and Poecilia sphenops.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-compressus",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.5–8.0</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-compressus",
+      "html": "<p>Probably an opportunistic omnivore by nature.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-compressus",
+      "html": "<p>Nuptial adult males apparently develop a much darker colour pattern than females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-compressus",
+      "html": "<p>H. compressus is the type species of the genus Hyphessobrycon but is not well-known in the ornamental trade.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-compressus",
+      "html": "<ul><li>Meek, S.E. (1904). The fresh-water fishes of Mexico north of the isthmus of Tehuantepec. Field Columbian Museum, Zoological Series v. 5, i-lxiii + 1-252</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Endruweit, M. (2013). World Wide Web electronic publication, www.aquariophil.org, accessed on 2013.09.09 Aquariophil</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Weitzman, S. H. and L. Palmer (1997). A new species of Hyphessobrycon (Teleostei: Characidae) from the Neblina region of Venezuela and Brazil, with comments on the putative `rosy tetra clade'. Ichthyological Exploration of Freshwaters 7(3), 209-242</li><li>Zarske, A. (2014). Zur Systematik einiger Blutsalmler oder \"Rosy Tetras\" (Teleostei: Ostariophysi: Characidae). Vertebrate Zoology 64(2), 139-167</li><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Malabarba, L. R., V. A. Bertaco, F. R. Carvalho &amp; T. O. Litz. (2012). Revalidation of the genus Ectrepopterus Fowler (Teleostei: Characiformes), with the redescription of its type species, E. uruguayensis. Zootaxa 3204, 47-60</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c9c6b0360aeedb33.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c9c6b0360aeedb33-480.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-compressus",
+      "caption": "Specimen from Laguna San Isidro, Pantanos de Centla, Tabasco state, southern Mexico.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nhỏ cho cá tetra"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ dạng vảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

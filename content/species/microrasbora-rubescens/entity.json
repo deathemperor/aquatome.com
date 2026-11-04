@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "myanmar",
-    "inle-lake"
+    "inle-lake",
+    "lake-inle"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +18,13 @@
         "value": {
           "min": 21,
           "max": 29
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
         }
       }
     ],
@@ -27,11 +35,22 @@
           "min": 7.1,
           "max": 8.8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 3
+      },
+      {
+        "source": "seriouslyfish",
         "value": 3
       }
     ],
@@ -39,6 +58,25 @@
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ]
   },
@@ -50,10 +88,22 @@
       "html": "<p>This dwarf rasbora only reaches a total length of 2-3 cm. Microrasbora rubescens was imported and bred for the aquarium hobby as early as 1962, but has always led a shadowy existence. In bare dealer tanks the animals appear quite colorless; in full color they look not unlike a neon fish (Paracheirodon).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<p>The red dwarf 'rasbora', Microrasbora rubescens, is a small cyprinid endemic to Lake Inle and its watershed in Shan State, eastern Myanmar. It is listed as 'Endangered' on the IUCN Red List after a significant decline in the wild, as sedimentation, eutrophication, pollution and introduced predatory Parambassis and Tilapia have degraded the lake. It may also be sold as 'red-line dwarf rasbora' or 'emerald dwarf rasbora'.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
       "html": "<p>Microrasbora rubescens is found exclusively in Inle Lake and the surrounding area in Burma. A recent study (Fuke et al., 2022) has shown an unexpectedly large genetic diversity in Microrasbora rubescens in Inle Lake and the surrounding waters, without these populations being externally distinguishable. At least two evolutionary lineages have been identified in the surrounding waters of Inle Lake, which are estimated to have diverged from the lake population 2.7 and 1.9 million years ago.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<p>Endemic to the isolated mountain lake of Inlé and surrounding watershed in Shan State, eastern Myanmar.</p><p>Type locality is 'Shan States, Lake Inle and Heca plains, Myanmar'.</p><p>The species is currently listed as 'Endangered' on the IUCN Red List due to a significant decline in the wild population. Unsustainable agricultural practices in and around the lake have caused increases in sedimentation, eutrophication, and pollution along with a reduction in surface area of more than 30% between the years 1935-2000. Non-native, predatory Parambassis and Tilapia species have been introduced for farming, while collection for the aquarium trade may also be exerting a negative effect.</p>"
     },
     {
       "key": "habitat",
@@ -62,10 +112,34 @@
       "html": "<p>The water there is hard, the pH slightly alkaline (central part of the lake: pH 7.6 – 8.8, tributary of the lake: pH 7.1 – 7.2). The water temperature during the day is in the range of 21.3 – 28.8°C, the air temperature can fluctuate between 5°C (minimum) and 38°C (maximum) (all data according to Khaung et al., 2021).</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<p>Lake Inlé lies in a karstic valley almost 900 m above sea level in the Shan Plateau region and is home to many endemic animals including nine species of fish and numerous gastropods. The water is clear, shallow (2-3 metres deep in most places) and has a very fertile, loamy substrate, although it can be muddy and turbid around the margins.</p><p>It is famed for its stilted villages and local fishermen known as Intha who row their boats using only one leg. These people, thought to have migrated from the south of Myanmar in the late 1300s, use naturally-occurring floating 'islands' consisting of tangles of various plant species as gardens.</p><p>These islands form a wide raft around the lake margins, rising and falling with the water level, and have come to form the habitats of many fishes which take shelter among the tangle of roots and plant stems at their base. Macrophytes also grow densely in places.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<p>Base dimensions of 60 × 30 cm or equivalent are recommended (about 54 litres).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
       "html": "<p>Microrasbora rubescens is easy to keep in the aquarium.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<p>Best maintained in a densely-planted tank and is an excellent choice for the carefully-aquascaped set-up.</p><p>Filtration should be relatively gentle, while the addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 3–15 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -74,10 +148,22 @@
       "html": "<p>They will eat any ornamental fish food of a suitable size; plants are not eaten.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<p>Likely to feed on small invertebrates and other zooplankton in nature.</p><p>Newly-imported specimens are often in poor condition and can be difficult to acclimatise to aquarium life. Small live foods are therefore recommended as an initial diet with dry and frozen products being introduced as the fish become settled.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
       "html": "<p>These completely peaceful fish can easily be kept with shrimps and, like them, prefer cooler rather than higher water temperatures. They should be kept in groups of 10 specimens or more in well-planted aquaria.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<p>Likely to be intimidated or outcompeted for food by larger or more boisterous tankmates, although the presence of similarly-sized, surface-dwelling species seems to help reduce its shyness.</p><p>The closely-related Microrasbora cf. rubescens is not recommended as these two may be capable of hybridisation.</p><p>It is a shoaling species by nature and a group of at least 8-10 specimens should be purchased. Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display. Males will also display their best colours and some interesting behaviour as they compete with one other for female attention.</p>"
     },
     {
       "key": "dimorphism",
@@ -86,19 +172,77 @@
       "html": "<p>The females grow larger than the males, are fuller and have less red in their coloration.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<p>Mature females are usually deeper-bodied and noticeably larger than the more compact, intensely-coloured males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
       "html": "<p>Spawning takes place in fine plants; Java moss is particularly popular as a spawning plant. Breeding is something for experienced breeders due to the small size of the young, but is generally not difficult.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<p>Like many small cyprinids this species scatters eggs randomly, typically among aquatic vegetation, and does not exhibit parental care. If the fish are in good condition they will spawn often and in a mature planted aquarium it is possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield a slightly more controlled approach is required. The adult group can still be conditioned together but one or more smaller containers should also be set up and filled with aged water. Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved plant. Neither lighting nor filtration is necessary although a small air-powered sponge filter can be installed if you prefer.</p><p>When the adults are suitably-conditioned a single pair or group comprising several males and females is then introduced to each container; the more individuals involved the greater probability of egg predation. Males may also distract one another from females if several are present.</p><p>Spawning normally presents few problems with around 30 mildly adhesive eggs deposited in a typical event. The adults are best removed post-spawning as they will eat any eggs or fry they find. Incubation is temperature-dependent to an extent but normally around 72-96 hours with the young free-swimming 1-2 days later. Initial food should be 5-50 micron grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<p>This species may be seen on sale under various trade names including 'red-line dwarf rasbora', 'emerald dwarf rasbora', or 'red dwarf rasbora'.</p><p>A similar-looking, apparently undescribed congener has been collected near the town of Hopong, also in Shan State. It differs from M. rubescens by possessing a greenish to bluish lateral stripe plus a larger adult size, and is traded as Microrasbora cf. rubescens, M. 'thuzari', M. sp. 'rose blue line', 'Asian Cardinal Rasbora', or 'flame red rasbora'.</p><p>The genus Microrasbora has undergone a number of systematic changes in recent years but currently contains only M. rubescens. A phylogenetic study by Fang et al. published in 2009 revealed that other species formerly included in the grouping are more closely allied with Devario and reclassified them as members of new genus Microdevario, further separated from Microrasbora by differences in some aspects of internal morphology.</p><p>M. rubescens was also found to be closely related to Devario and the authors conclude that 'its status as a valid genus is contentious and the molecular data suggest inclusion or close relationship with Devario'. The two were not synonymised because, unlike those species moved into Microdevario, M. rubescens does not share any derived morphological characters with Devario and in the tests performed the precise level of relatedness between the two could not be settled upon.</p>"
+    },
+    {
       "key": "references",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/microrasbora-rubescens-2/",
       "html": "<p>Fuke, Y., Y. Kano, S. Tun, L. K. C. Yun, S. S. Win &amp; K. Watanabe (2022): Cryptic genetic divergence of the red dwarf rasbora, Microrasbora rubescens, in and around Inle Lake: implications for the origin of endemicity in the ancient lake in Myanmar. Journal of Fish Biology v. 101 (no. 5): 1235-1247</p><p>Khaung, T., Iwai, C. B. &amp; T. Chuasavathi (2021): Water Quality Monitoring in Inle Lake, Myanmar from the floating Garden Activity. Malaysian Journal of Fundamental and Applied Sciences, Vol. 17: 593-608</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "html": "<ul><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176</li><li>Annandale, N. (1918). Fish and fisheries of the Inlé Lake. Records of the Indian Museum (Calcutta) 14, 33-64</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/cb9414fc0053f245.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/cb9414fc0053f245-480.webp",
+      "width": 640,
+      "height": 314,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "caption": "Adult, probably female, individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/65599e4303a8f14d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/65599e4303a8f14d-480.webp",
+      "width": 901,
+      "height": 601,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "caption": "S. resplendens is endemic to the Lake Inlé basin in Shan state, Myanmar.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a595eebf611fcd70.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a595eebf611fcd70-480.webp",
+      "width": 901,
+      "height": 633,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/microrasbora-rubescens",
+      "caption": "Aquatic plants grow densely in Lake Inle.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -123,5 +267,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-04"
 }

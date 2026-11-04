@@ -11,14 +11,20 @@
     "waterConditions:glaser": "<p>Batasio thích nước trong, lọc tốt và không quá ấm. Nhiệt độ hợp để nuôi chúng là 18-24°C.</p>",
     "diet:glaser": "<p>Batasio fasciolatus dễ ăn. Cám lá, cám viên, thức ăn đông lạnh hay thức ăn sống, loại thức ăn cá thông thường nào nó cũng ăn.</p>",
     "behaviour:glaser": "<p>Râu của loài này tương đối ngắn. Chúng hay bơi ra vùng nước thoáng chứ không bám đáy hẳn như nhiều loài cá da trơn khác. Với đồng loại và những loài cá không quá nhỏ, Batasio cực kỳ hiền, thậm chí có thể xem là loài thích sống theo đàn. Cá quá nhỏ thì có thể bị chúng ăn thịt.</p>",
-    "notes:glaser": "<p>Nuôi Batasio trong bể khá dễ. Cái khó lại nằm ở chỗ xác định cho đúng loài.</p>"
+    "notes:glaser": "<p>Nuôi Batasio trong bể khá dễ. Cái khó lại nằm ở chỗ xác định cho đúng loài.</p>",
+    "distribution:scotcat": "<p>Châu Á: lưu vực sông Tista thuộc hệ thống sông Brahmaputra, ở Ấn Độ và Bhutan. Batasio fasciolatus được mô tả từ mẫu thu ở lưu vực sông Brahmaputra, bang Tây Bengal, Ấn Độ (Ng 2006). Trong các tài liệu cũ, loài này hay bị nhầm thành B. tengana (ví dụ Hora và Law 1941).</p>",
+    "habitat:scotcat": "<p>Các loài Batasio là những con cá da trơn họ Bagridae cỡ nhỏ, thân dẹt hai bên. Chúng thường sống ở các con suối vùng đồi nước chảy xiết, trải khắp Nam Á, Myanmar, lưu vực sông Salween và Mae Khlong của Thái Lan, lên tới phía bắc bán đảo Mã Lai. Môi trường quen thuộc của chúng là sông suối có dòng chảy từ vừa đến mạnh, đáy phần lớn là đá. Đôi khi người ta cũng gặp chúng ở những con suối chảy chậm, đáy bùn, nhưng ít hơn. Ban ngày chúng nấp trong khe đá hoặc giữa đám cây thủy sinh, tối mới ra kiếm ăn.</p>",
+    "maintenance:scotcat": "<p>Batasio là loài nhát. Khi đã quen bể, chúng cũng hiếm khi bơi ra ngoài tự do. Muốn nuôi được lâu, bạn cần set một bể kiểu suối đồi cho đúng, có đá và thật nhiều chỗ trốn. Nước phải thật sạch và giàu oxy. Vì cá sống ở suối vùng đồi nên nhiệt độ bể cũng nên giữ ở mức mát (Mishra, Abhisek 2024).</p>",
+    "diet:scotcat": "<p>Lúc mới về, cá có thể khó cho ăn. Dần dần chúng sẽ chịu ăn thức ăn đông lạnh hoặc thức ăn sống, rồi có thể tập chuyển sang ăn cám viên (Mishra, Abhisek 2024).</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: Tên chi Batasio lấy từ tên gọi địa phương của loài cá này trong tiếng Bengal (batasio hoặc batashi). Tên loài fasciolatus là dạng giảm nhẹ của từ Latinh fasciatus, nghĩa là có sọc. Ở đây nó mang nghĩa có những sọc nhỏ, chỉ sáu vạch đứng màu nâu sẫm trên đầu và thân cá.</p><p>Batasio fasciolatus là loài còn ít được nghiên cứu, dù phân bố khá rộng ở vùng đông bắc Ấn Độ. Quy mô và xu hướng quần thể của nó vẫn chưa rõ. Người ta chỉ biết đến loài này qua một ít mẫu vật trong bảo tàng. Thông tin về đặc điểm sinh học của nó rất ít, về mức ảnh hưởng của các mối đe dọa cũng vậy, nhất là những mối đe dọa do con người gây ra. Hiện tại, chỉ dựa trên vùng phân bố, loài được xếp vào nhóm Ít quan tâm (Least Concern). Cần có thêm nghiên cứu để bổ sung những thông tin còn thiếu, nhờ đó sau này mới đánh giá đúng tình trạng của loài (đánh giá IUCN 2010 cần được cập nhật).</p>",
+    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2024).</p><p>Mishra, Abhisek pers comm, 2024.</p><p>Ng, H.H., 2006. The identity of Batasio tengana (Hamilton, 1822), with the descripton of two new species Batasio from north-eastern India (Teleostei: Bagridae). J. Fish Biol. 68(Suppl.A):101-118.</p><p>Ng, H.H. 2010. Batasio fasciolatus. The IUCN Red List of Threatened Species 2010.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.88,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.88
-    },
-    "reason": "thin"
+      "glaser": 0.88,
+      "scotcat": 0.8
+    }
   }
 }

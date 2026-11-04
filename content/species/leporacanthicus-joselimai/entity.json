@@ -43,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -66,10 +70,22 @@
       "html": "<p>The sultan plec, Leporacanthicus joselimai (L264), is a suckermouth catfish from the Rio Tapajós in Brazil. It lives in rapids and other fast-flowing waters among rocks and driftwood snags. Young fish have white fin tips that fade with growth and often disappear completely. Territorial with conspecifics, particularly males, it has been bred in the hobby as a cave spawner.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/leporacanthicus_from_the_rio_tapajos_l263_and_l264_en/",
+      "html": "<p>Two species of fairly carnivorous loricariids were received from Brazil. L264 has been scientifically described as Leporacanthicus joselimai, whereas L263 is still waiting for a scientist to examine it more closely. Both species reach a maximum length of about 15–20 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-joselimai",
       "html": "<p>Rio Tapajós, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/leporacanthicus_from_the_rio_tapajos_l263_and_l264_en/",
+      "html": "<p>Both forms originate from the Rio Tapajós in Brazil, where they even occur syntopically.</p>"
     },
     {
       "key": "habitat",
@@ -124,6 +140,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-joselimai",
       "html": "<p>Leporacanthicus species are commonly referred to as \"vampire plecs\". This is derived from the unique upper jaw dentition exhibited by members of this genus, unsurprisingly consisting of two large teeth or \"fangs\". The exact use for these is unknown, but they're probably utilised to grip prey items such as snails or other aquatic invertebrates in some way. Another feature shared by all Leporacanthicus is a small bony growth of unknown use on top of the head. This particular species is a very good looking fish, particularly when young when it has striking white fin tips. Unfortunately these fade as the fish grows and often disappear completely. When buying one of these (or any Loricariid), be sure to check the fish has a rounded belly and that its eyes aren't sunken, as these are classic signs of emaciation in newly imported specimens.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/leporacanthicus_from_the_rio_tapajos_l263_and_l264_en/",
+      "html": "<p>It is very unusual for two closely related species to live together in the wild, as usually one species will dominate the other. In this case it obviously works. Both L-numbers certainly represent separate species, as both have already been bred successfully in aquaria.</p>"
     }
   ],
   "photos": [
@@ -140,16 +162,41 @@
     },
     {
       "url": "https://media.aquatome.com/commons/d92d97f105270310.webp",
+      "thumb": "https://media.aquatome.com/commons/d92d97f105270310-480.webp",
       "width": 960,
       "height": 718,
       "licence": "CC BY-SA 2.0",
       "author": "Thomas Siems",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leporacanthicus_joselimai,_Wei%C3%9Fspitzen-R%C3%BCsselzahnwels,_L_264_(10227361116).jpg",
-      "caption": "Leporacanthicus joselimai, Weißspitzen-Rüsselzahnwels, L 264",
-      "thumb": "https://media.aquatome.com/commons/d92d97f105270310-480.webp"
+      "caption": "Leporacanthicus joselimai, Weißspitzen-Rüsselzahnwels, L 264"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "TGwjYJfyDHY",
+      "title": "L-264 Sultan Pleco Care Guide",
+      "durationSec": 206,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bBRfGgs86_4",
+      "title": "Carnivorous plecos, Leporacanthicus joselimai the Sultan pleco ~ L number pleco",
+      "durationSec": 911,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "1YB9b8CxNjw",
+      "title": "what is the behavior of L264 SULTAN PLECO (Leporacanthicus joselimai)  #plecofish",
+      "durationSec": 28,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "zwGVEyWjD70",
+      "title": "Ikra Leporacanthicus joselimai L264",
+      "durationSec": 10,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -179,5 +226,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-04"
 }

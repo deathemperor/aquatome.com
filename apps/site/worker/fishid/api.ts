@@ -1,9 +1,11 @@
+import { sessionOf } from '../accounts/session'
 import { isBot } from '../bots'
 import { accountDayKey, appAccount, ipDayKey, siteverify as realSiteverify } from '../comments/api'
 import { sniff } from '../photos'
 import type { Catalog, Lang } from './catalog'
 import { askClaude, costOf, DEFAULT_MODEL, readAnswer, type Answer, type ImageType } from './claude'
 import { healthyKeys, loadKeys, parseKeys, rotate, type Attempt, type HealthStore, type KeyEntry, type KeyHealth, type KeyProblem } from './keys'
+import { keepPhoto } from './kept'
 import { emptyLog, FROM, toFishIdPoint, type CallLog, type From } from './log'
 import { matchGuesses, type Result } from './match'
 import { relayFetch } from './relay'
@@ -16,7 +18,8 @@ import { readerOf, recordWanted } from '../wanted'
  * GET: whether the tool is on ({ on: false } when off), and the Turnstile site key. POST (multipart: file, token, lang;
  * or JSON: image as base64, token, lang): the identification, 503 fish_id_off when off. The app sends its session as a
  * bearer instead of Origin and Turnstile, and is counted per account instead of per address. Off without a key in the
- * ANTHROPIC_KEYS secret, Turnstile, the rate-limit key or the database. The photo is never stored or logged; the log has counts, timings, the model, token usage and keys by hash only.
+ * ANTHROPIC_KEYS secret, Turnstile, the rate-limit key or the database. The photo is never logged, and stored only when
+ * the reader ticks "keep" (`keep`): 6 months, private (kept.ts). The log has counts, timings, the model, token usage and keys by hash only.
  * Each POST also writes one data point to Analytics Engine (FISHID_LOG, log.ts) for the owner's dashboard.
  */
 export type FishIdEnv = {
@@ -36,6 +39,8 @@ export type FishIdEnv = {
   COMMENT_HMAC_KEY?: string
   /** The app's sessions (worker/accounts). */
   DB?: D1Database
+  /** The private bucket photos a reader lets us keep go to (kept.ts); without it, none is kept. */
+  UPLOADS?: R2Bucket
   /** Every POST's outcome, tokens and cost (log.ts); optional, as the readers' EVENTS is. */
   FISHID_LOG?: AnalyticsEngineDataset
 }
@@ -139,7 +144,8 @@ async function readBytes(req: Request, max: number): Promise<Uint8Array | null> 
   return all
 }
 
-type Upload = { bytes: Uint8Array | null; token: string; lang: Lang; from: From | '' }
+/** `keep`: the reader ticked "Cho phép AquaTome giữ ảnh này để cải thiện nhận diện". */
+type Upload = { bytes: Uint8Array | null; token: string; lang: Lang; from: From | ''; keep: boolean }
 async function parseUpload(req: Request, body: Uint8Array): Promise<Upload | null> {
   const type = req.headers.get('content-type') ?? ''
   const langOf = (v: unknown) => LANGS.find(l => l === v) ?? 'vi'
@@ -149,12 +155,12 @@ async function parseUpload(req: Request, body: Uint8Array): Promise<Upload | nul
     if (!form) return null
     const file = form.get('file')
     const bytes = file instanceof Blob ? new Uint8Array(await file.arrayBuffer()) : null
-    return { bytes, token: String(form.get('token') ?? ''), lang: langOf(form.get('lang')), from: fromOf(form.get('from')) }
+    return { bytes, token: String(form.get('token') ?? ''), lang: langOf(form.get('lang')), from: fromOf(form.get('from')), keep: ['1', 'true', 'on'].includes(String(form.get('keep') ?? '')) }
   }
   if (type.startsWith('application/json')) {
     const raw = (() => { try { return JSON.parse(new TextDecoder().decode(body)) as Record<string, unknown> } catch { return null } })()
     if (!raw) return null
-    return { bytes: typeof raw.image === 'string' ? fromBase64(raw.image) : null, token: typeof raw.token === 'string' ? raw.token : '', lang: langOf(raw.lang), from: fromOf(raw.from) }
+    return { bytes: typeof raw.image === 'string' ? fromBase64(raw.image) : null, token: typeof raw.token === 'string' ? raw.token : '', lang: langOf(raw.lang), from: fromOf(raw.from), keep: raw.keep === true }
   }
   return null
 }
@@ -255,9 +261,19 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
     return json({ error: 'failed' }, 502)
   }
   const usage = { in: answer.usage.input, out: answer.usage.output }
+  // Kept only when asked, with the answer: a JPEG (what the page and the app send), its own metadata cut, under the
+  // account that sent it (the app's bearer, or the page's signed-in cookie), or no one's. `kept` says whether it was.
+  const keep = async (verdict: string, guesses: Result[]) => {
+    if (!up.keep) return {}
+    const owner = account ?? (await sessionOf(req, env.DB, now))?.userId
+    const id = env.UPLOADS && type === 'image/jpeg'
+      ? await keepPhoto(env.UPLOADS, owner, up.bytes!, { verdict, guesses, model, lang: up.lang }, now).catch(e => { console.error('fish-id keep:', e); return null })
+      : null
+    return { kept: Boolean(id) }
+  }
   if (answer.refused) {
     log('refused', usage)
-    return json({ verdict: 'unclear', results: [], refused: true, model })
+    return json({ verdict: 'unclear', results: [], refused: true, model, ...await keep('unclear', []) })
   }
   const { verdict, guesses } = answer.id
   const catalog = verdict === 'other' ? null : await catalogOf(env, url.origin)
@@ -272,7 +288,7 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
   const first: Result | undefined = results[0]
   Object.assign(rec, { verdict, top: first?.scientificName ?? '', confidence: first?.confidence ?? 0, page: first?.page?.id ?? '', guesses: results.length } satisfies Partial<CallLog>)
   log('ok', { ...usage, verdict, guesses: results.length, linked: results.filter(r => 'page' in r && r.page).length, ...(catalog || verdict === 'other' ? {} : { catalog: 'missing' }) })
-  return json({ verdict, results, model })
+  return json({ verdict, results, model, ...await keep(verdict, results) })
 }
 const slim = (a: Attempt) => ({ key: a.hash, ms: a.ms, ...(a.status ? { status: a.status } : {}), ...(a.marked ? { marked: a.marked } : {}) })
 

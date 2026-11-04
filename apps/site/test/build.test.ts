@@ -1,9 +1,10 @@
 import { describe, expect, test } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { DIST, page } from './dist'
+import { VI_SECTIONS } from '../worker/paths'
 
 describe('species page', () => {
-  const { html, dom } = page('/vi/ca/ca-neon-vua/')
+  const { html, dom } = page('/ca/ca-neon-vua/')
   test('shows scientific name and Seriously Fish credit link', () => {
     expect(html).toContain('Paracheirodon axelrodi')
     expect(dom.querySelector('a[href="https://www.seriouslyfish.com/species/paracheirodon-axelrodi"]')).not.toBeNull()
@@ -14,8 +15,8 @@ describe('species page', () => {
     // Only the cell the sources disagree on is marked; one toggle per card holds every value's sources.
     expect(dom.querySelectorAll('.card [data-conflict]').map(c => c.getAttribute('data-field'))).toEqual(['tempC'])
     expect(dom.querySelectorAll('.card .mark').length).toBe(1)
-    expect(dom.querySelectorAll('.datacard details').length).toBe(1)
-    expect(dom.querySelector('.datacard summary .label')?.text).toBe('Nguồn và độ tin cậy')
+    expect(dom.querySelectorAll('.datacard details.trust').length).toBe(1) // the difficulty cell's "Vì sao?" is its own (card-guide.test.ts)
+    expect(dom.querySelector('.datacard .trust summary .label')?.text).toBe('Nguồn và độ tin cậy')
     const by = dom.querySelector('.trust [data-src-field="tempC"]')!
     expect(by.querySelector('p')?.text).toBe('Mức mọi nguồn cùng khuyên')
     expect(by.querySelectorAll('li').map(l => l.text)).toEqual(['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'])
@@ -25,8 +26,10 @@ describe('species page', () => {
   })
   test('the name and four key facts come before the photo, from the data card\'s own values', () => {
     const top = dom.querySelector('header.top')!
-    const order = top.childNodes.filter(n => n.nodeType === 1).map(n => (n as typeof top).getAttribute('class')?.split(' ')[0])
-    expect(order).toEqual(['id', 'photo', 'facts'])
+    const order = (el: typeof top) => el.childNodes.filter(n => n.nodeType === 1).map(n => (n as typeof top).getAttribute('class')?.split(' ')[0])
+    expect(order(top)).toEqual(['id', 'side', 'facts'])
+    // The photo column: the photo, then the gallery's thumbnails (after the facts on a phone).
+    expect(order(top.querySelector('.side')!)).toEqual(['photo', 'strip'])
     const facts = top.querySelectorAll('.id .keyfacts > div')
     expect(facts.map(f => f.getAttribute('data-field'))).toEqual(['tempC', 'ph', 'tankCm', 'difficulty'])
     expect(facts[0]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('24,27') // the card's resolved range, °F toggle too
@@ -45,10 +48,10 @@ describe('species page', () => {
     expect(box.querySelector('.tag')?.text).toBe('Hiền')
     expect(box.querySelector('.traits')?.text).toContain('8 con')
     const [good, avoid] = box.querySelectorAll('.row')
-    expect(good!.querySelectorAll('a').map(a => a.getAttribute('href'))).toEqual(['/vi/ca/ca-neon-xanh/', '/vi/ca/ca-boraras-do/'])
-    expect(avoid!.querySelector('a')?.getAttribute('href')).toBe('/vi/ca/ca-apisto-cacatuoides/')
+    expect(good!.querySelectorAll('a').map(a => a.getAttribute('href'))).toEqual(['/ca/ca-neon-xanh/', '/ca/ca-boraras-do/'])
+    expect(avoid!.querySelector('a')?.getAttribute('href')).toBe('/ca/ca-apisto-cacatuoides/')
     expect(avoid!.querySelector('.why')?.text).toBe('Hơi dữ, có thể rượt đuổi Cá neon vua')
-    expect(box.querySelector('a[href="/vi/cong-cu/nuoi-chung/?ca=ca-neon-vua:8"]')).not.toBeNull()
+    expect(box.querySelector('a[href="/cong-cu/nuoi-chung/?ca=ca-neon-vua:8"]')).not.toBeNull()
     expect(box.getAttribute('data-pagefind-ignore')).not.toBeNull()
   })
   // The card is the page's one copy of each figure (design critique 2026-10-31: the text said 5 cm, "Trung bình", pH 3,5–7,5
@@ -58,7 +61,7 @@ describe('species page', () => {
     const items = glaser.querySelectorAll('li')
     expect(items.length).toBe(1) // no family, no temperature
     expect(items[0]!.text).toMatch(/^Nguồn gốc: Rio Negro, Brazil\d$/) // and its source's mark
-    expect(page('/vi/ca/ca-neon-xanh/').dom.querySelector('section[data-section="quickFacts"]')).toBeNull() // nothing but the card's
+    expect(page('/ca/ca-neon-xanh/').dom.querySelector('section[data-section="quickFacts"]')).toBeNull() // nothing but the card's
   })
   test('a block stating a figure the card shows otherwise says which source it follows, with both figures', () => {
     const note = dom.querySelector('section[data-section="waterConditions"] p.off')!
@@ -111,14 +114,14 @@ describe('species page', () => {
 })
 
 test('missing sections produce no empty headings', () => {
-  const { dom } = page('/vi/ca/ca-boraras-do/')
+  const { dom } = page('/ca/ca-boraras-do/')
   expect(dom.querySelector('section[data-section="dimorphism"]')).toBeNull()
   expect(dom.querySelector('[data-field="gh"]')).toBeNull()
   expect(dom.querySelector('nav.jump')).toBeNull() // none of the main parts to jump to
 })
 
 test('"Nuôi chung" shows only what the data supports: no temperament, no "hợp với"; a clash still listed', () => {
-  const box = page('/vi/ca/ca-galaxy/').dom.querySelector('.mates')! // no behaviour traits for this one
+  const box = page('/ca/ca-galaxy/').dom.querySelector('.mates')! // no behaviour traits for this one
   expect(box.querySelector('.traits')).toBeNull()
   expect(box.querySelectorAll('.row').length).toBe(1)
   expect(box.querySelector('.row h3')?.text).toBe('Tránh')
@@ -128,14 +131,14 @@ test('"Nuôi chung" shows only what the data supports: no temperament, no "hợp
 })
 
 test('low-quality page is noindex', () => {
-  expect(page('/vi/ca/ca-boraras-do/').html).toMatch(/<meta name="robots" content="noindex/)
-  expect(page('/vi/ca/ca-neon-vua/').html).not.toMatch(/noindex/)
+  expect(page('/ca/ca-boraras-do/').html).toMatch(/<meta name="robots" content="noindex/)
+  expect(page('/ca/ca-neon-vua/').html).not.toMatch(/noindex/)
 })
 
 test('a thin page (one dealer\'s note) stays out of search; a heading over a few words is a quick fact instead', () => {
-  const { html, dom } = page('/vi/ca/ca-ong-tien/')
+  const { html, dom } = page('/ca/ca-ong-tien/')
   expect(html).toMatch(/<meta name="robots" content="noindex/)
-  expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).not.toContain('/vi/ca/ca-ong-tien/')
+  expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).not.toContain('/ca/ca-ong-tien/')
   // "Spawns on leaves." under its own heading becomes a line of the quick facts, with its source's mark; "Amazon basin."
   // is left out, the quick facts already say it.
   expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts'])
@@ -146,11 +149,11 @@ test('a thin page (one dealer\'s note) stays out of search; a heading over a few
 })
 
 test('home features well-known species and links the full list instead of every card', () => {
-  const { dom } = page('/vi/')
-  const cards = dom.querySelectorAll('article.sc a[href^="/vi/ca/"]').map(a => a.getAttribute('href'))
-  for (const slug of ['ca-neon-xanh', 'tep-red-cherry']) expect(cards, slug).toContain(`/vi/ca/${slug}/`)
+  const { dom } = page('/')
+  const cards = dom.querySelectorAll('article.sc a[href^="/ca/"]').map(a => a.getAttribute('href'))
+  for (const slug of ['ca-neon-xanh', 'tep-red-cherry']) expect(cards, slug).toContain(`/ca/${slug}/`)
   expect(cards.length).toBeLessThanOrEqual(8)
-  expect(dom.querySelector('a[href="/vi/ca/"]')).toBeTruthy()
+  expect(dom.querySelector('a[href="/ca/"]')).toBeTruthy()
   // Full data cards first: Cá ông tiên (a staple, only its size known) only fills a spot no complete species can.
   const full = dom.querySelectorAll('section[aria-labelledby="featured-h"] article.sc').map(c => c.querySelectorAll('.label dd').length >= 2)
   expect(full.length).toBeGreaterThan(0)
@@ -158,62 +161,62 @@ test('home features well-known species and links the full list instead of every 
 })
 
 test('species page has JSON-LD', () => {
-  expect(page('/vi/ca/ca-neon-vua/').html).toContain('application/ld+json')
+  expect(page('/ca/ca-neon-vua/').html).toContain('application/ld+json')
 })
 
 describe('browse pages', () => {
-  const species = (path: string) => new Set(page(path).dom.querySelectorAll('a[href^="/vi/ca/"]').map(a => a.getAttribute('href')))
+  const species = (path: string) => new Set(page(path).dom.querySelectorAll('a[href^="/ca/"]').map(a => a.getAttribute('href')))
   test('genus page lists both Paracheirodon', () => {
-    const s = species('/vi/phan-loai/characiformes/characidae/paracheirodon/')
-    expect(s.has('/vi/ca/ca-neon-vua/') && s.has('/vi/ca/ca-neon-xanh/')).toBe(true)
+    const s = species('/phan-loai/characiformes/characidae/paracheirodon/')
+    expect(s.has('/ca/ca-neon-vua/') && s.has('/ca/ca-neon-xanh/')).toBe(true)
   })
   test('order and family pages exist', () => {
-    expect(species('/vi/phan-loai/cichliformes/').has('/vi/ca/ca-dia/')).toBe(true)
-    expect(page('/vi/phan-loai/').html).toContain('Characiformes')
+    expect(species('/phan-loai/cichliformes/').has('/ca/ca-dia/')).toBe(true)
+    expect(page('/phan-loai/').html).toContain('Characiformes')
   })
   test('country page lists its species', () => {
-    expect(species('/vi/nguon-goc/south-america/brazil/').has('/vi/ca/ca-neon-vua/')).toBe(true)
-    expect(species('/vi/nguon-goc/asia/').has('/vi/ca/ca-galaxy/')).toBe(true)
+    expect(species('/nguon-goc/south-america/brazil/').has('/ca/ca-neon-vua/')).toBe(true)
+    expect(species('/nguon-goc/asia/').has('/ca/ca-galaxy/')).toBe(true)
   })
   test('every group has a page', () => {
-    for (const g of ['tetras', 'cichlids', 'danios', 'shrimp', 'rasboras']) expect(species(`/vi/nhom/${g}/`).size, g).toBeGreaterThan(0)
+    for (const g of ['tetras', 'cichlids', 'danios', 'shrimp', 'rasboras']) expect(species(`/nhom/${g}/`).size, g).toBeGreaterThan(0)
   })
   test('species list: every species in its data file (the page has none inline), unit-tagged values', () => {
-    const { dom, html } = page('/vi/ca/')
+    const { dom, html } = page('/ca/')
     const result = dom.querySelector('#species-result')!
     expect(result.getAttribute('data-src')).toBe('/data/vi/species.json')
     expect(result.getAttribute('data-total')).toBe('9')
     expect(JSON.parse(readFileSync(`${DIST}/data/vi/species.json`, 'utf8'))).toHaveLength(9)
     expect(dom.querySelector('#species-index')).toBeNull()
-    expect(page('/vi/ca/ca-neon-vua/').html).toMatch(/data-c="24,27"/)
+    expect(page('/ca/ca-neon-vua/').html).toMatch(/data-c="24,27"/)
     expect(html).toContain('data-units-toggle')
   })
   // The angelfish card ended at its Latin name, beside cards with figures, and read as unfinished (page review 2026-11-01).
   test('a species card with no temperature, pH or difficulty says so where the figures go', () => {
     const card = (path: string, slug: string) => page(path).dom.querySelector(`[data-slug="${slug}"] article`)!
-    expect(card('/vi/ca/', 'ca-ong-tien').querySelector('.label.none')?.text).toBe('Chưa có số liệu')
-    expect(card('/vi/ca/', 'ca-dia').querySelector('.label.none')).toBeNull()
+    expect(card('/ca/', 'ca-ong-tien').querySelector('.label.none')?.text).toBe('Chưa có số liệu')
+    expect(card('/ca/', 'ca-dia').querySelector('.label.none')).toBeNull()
   })
 })
 
 describe('plants, guides, glossary, equipment, discovery', () => {
   test('plant page shows growing needs and shop links', () => {
-    const { html, dom } = page('/vi/cay/ray-nana/')
+    const { html, dom } = page('/cay/ray-nana/')
     for (const t of ['Ánh sáng', 'CO₂', 'Tốc độ mọc']) expect(html).toContain(t)
     const shop = dom.querySelector('a[href^="/go/shopee/?k="]')?.getAttribute('href') ?? ''
     expect(new URLSearchParams(shop.split('?')[1]).get('c')).toBe('cay-thuy-sinh') // plants are always an affiliate item
     // a plant whose slots lack the plant category still gets one, first
-    const mc = page('/vi/cay/monte-carlo/').dom.querySelectorAll('a[href^="/go/shopee/?k="]').map(a => new URLSearchParams(a.getAttribute('href')!.split('?')[1]).get('c'))
+    const mc = page('/cay/monte-carlo/').dom.querySelectorAll('a[href^="/go/shopee/?k="]').map(a => new URLSearchParams(a.getAttribute('href')!.split('?')[1]).get('c'))
     expect(mc[0]).toBe('cay-thuy-sinh')
     expect(mc).toContain('den')
-    expect(page('/vi/cay/').dom.querySelectorAll('a[href^="/vi/cay/"]').length).toBeGreaterThanOrEqual(3)
+    expect(page('/cay/').dom.querySelectorAll('a[href^="/cay/"]').length).toBeGreaterThanOrEqual(3)
   })
   test("a plant page is found by its former scientific names (searching \"Vesicularia dubyana\" finds Java moss)", () => {
-    const aka = page('/vi/cay/ray-nana/').dom.querySelector('h1')!.getAttribute('data-aka')!.split(', ')
+    const aka = page('/cay/ray-nana/').dom.querySelector('h1')!.getAttribute('data-aka')!.split(', ')
     expect(aka.slice(0, 2)).toEqual(['Anubias barteri var. nana', 'Anubias nana'])
   })
   test('guide page credits its source and links glossary terms', () => {
-    const { html, dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+    const { html, dom } = page('/huong-dan/setup-be-thuy-sinh-dau-tien/')
     expect(html).toContain('2Hr Aquarist')
     expect(dom.querySelector('main .gl')).not.toBeNull()
     // Each term carries its name and definition for the hover/tap card.
@@ -222,65 +225,65 @@ describe('plants, guides, glossary, equipment, discovery', () => {
     expect(gl.getAttribute('data-tip')!.length).toBeGreaterThan(20)
   })
   test('guide links species, genus and equipment it names; those pages link back', () => {
-    const { dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+    const { dom } = page('/huong-dan/setup-be-thuy-sinh-dau-tien/')
     const links = dom.querySelectorAll('article .prose a.ml').map(a => [a.text, a.getAttribute('href')])
-    expect(links).toContainEqual(['cá neon xanh', '/vi/ca/ca-neon-xanh/'])
-    expect(links).toContainEqual(['Paracheirodon', expect.stringMatching(/^\/vi\/phan-loai\/[a-z]+\/characidae\/paracheirodon\/$/)])
-    expect(links.find(([, h]) => h === '/vi/thiet-bi/loc/')).toBeDefined()
-    expect(links.filter(([, h]) => h === '/vi/ca/ca-neon-xanh/')).toHaveLength(1) // first mention only
-    expect(dom.querySelectorAll('.chips a').map(a => a.getAttribute('href'))).toContain('/vi/thiet-bi/loc/')
-    const back = (p: string) => page(p).dom.querySelectorAll('a[href="/vi/huong-dan/setup-be-thuy-sinh-dau-tien/"]').length
-    expect(back('/vi/ca/ca-neon-xanh/')).toBeGreaterThan(0)
-    expect(back('/vi/thiet-bi/loc/')).toBeGreaterThan(0)
+    expect(links).toContainEqual(['cá neon xanh', '/ca/ca-neon-xanh/'])
+    expect(links).toContainEqual(['Paracheirodon', expect.stringMatching(/^\/phan-loai\/[a-z]+\/characidae\/paracheirodon\/$/)])
+    expect(links.find(([, h]) => h === '/thiet-bi/loc/')).toBeDefined()
+    expect(links.filter(([, h]) => h === '/ca/ca-neon-xanh/')).toHaveLength(1) // first mention only
+    expect(dom.querySelectorAll('.chips a').map(a => a.getAttribute('href'))).toContain('/thiet-bi/loc/')
+    const back = (p: string) => page(p).dom.querySelectorAll('a[href="/huong-dan/setup-be-thuy-sinh-dau-tien/"]').length
+    expect(back('/ca/ca-neon-xanh/')).toBeGreaterThan(0)
+    expect(back('/thiet-bi/loc/')).toBeGreaterThan(0)
   })
   test('glossary index lists every term and term pages exist', () => {
-    const { dom } = page('/vi/thuat-ngu/')
-    expect(dom.querySelectorAll('a[href^="/vi/thuat-ngu/"]').length).toBeGreaterThanOrEqual(4)
-    expect(page('/vi/thuat-ngu/chu-trinh-nito/').html).toContain('Nitrogen cycle')
+    const { dom } = page('/thuat-ngu/')
+    expect(dom.querySelectorAll('a[href^="/thuat-ngu/"]').length).toBeGreaterThanOrEqual(4)
+    expect(page('/thuat-ngu/chu-trinh-nito/').html).toContain('Nitrogen cycle')
   })
   test('species body links a glossary term', () => {
-    expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('section[data-section] .gl')).not.toBeNull()
+    expect(page('/ca/ca-neon-vua/').dom.querySelector('section[data-section] .gl')).not.toBeNull()
   })
   test('equipment index and a page per product category', () => {
-    for (const cat of ['be-ca', 'loc', 'thuc-an', 'suoi', 'cay-thuy-sinh']) expect(page(`/vi/thiet-bi/${cat}/`).html, cat).toContain(`/go/shopee/?k=`)
-    expect(page('/vi/thiet-bi/').dom.querySelectorAll('a[href^="/vi/thiet-bi/"]').length).toBeGreaterThanOrEqual(5)
+    for (const cat of ['be-ca', 'loc', 'thuc-an', 'suoi', 'cay-thuy-sinh']) expect(page(`/thiet-bi/${cat}/`).html, cat).toContain(`/go/shopee/?k=`)
+    expect(page('/thiet-bi/').dom.querySelectorAll('a[href^="/thiet-bi/"]').length).toBeGreaterThanOrEqual(5)
   })
   test('equipment guide: hero, types with the species that need them, FAQ data; shop links collapsed', () => {
-    const { html, dom } = page('/vi/thiet-bi/loc/')
+    const { html, dom } = page('/thiet-bi/loc/')
     expect(dom.querySelector('.hero img')).not.toBeNull()
     const thung = dom.querySelector('article.type#thung')!
     expect(thung.querySelector('img')).not.toBeNull()
-    expect(thung.querySelectorAll('.who a[href^="/vi/ca/"]').length).toBeGreaterThan(0) // fixture species suggest "lọc thùng …"
+    expect(thung.querySelectorAll('.who a[href^="/ca/"]').length).toBeGreaterThan(0) // fixture species suggest "lọc thùng …"
     expect(html).toContain('"@type":"FAQPage"')
     const visible = dom.querySelectorAll('a[href^="/go/"]').filter(a => !a.closest('details'))
     expect(visible.length).toBeLessThanOrEqual(dom.querySelectorAll('article.type').length * 7)
-    expect(page('/vi/thiet-bi/').dom.querySelector('a[href="/vi/thiet-bi/loc/"] img')).not.toBeNull()
-    expect(page('/vi/thiet-bi/suoi/').html).toContain('/go/shopee/?k=') // no written guide yet: still a page
+    expect(page('/thiet-bi/').dom.querySelector('a[href="/thiet-bi/loc/"] img')).not.toBeNull()
+    expect(page('/thiet-bi/suoi/').html).toContain('/go/shopee/?k=') // no written guide yet: still a page
   })
   test('renamed page: old address in /redirects.json, hidden "Chuyển hướng từ" note, aliases in structured data', () => {
     const table = JSON.parse(readFileSync(`${DIST}/redirects.json`, 'utf8'))
-    expect(table['/vi/ca/ca-neon-vua-super-red/']).toBe('/vi/ca/ca-neon-vua/?tu=ca-neon-vua-super-red')
-    const { html, dom } = page('/vi/ca/ca-neon-vua/')
+    expect(table['/ca/ca-neon-vua-super-red/']).toBe('/ca/ca-neon-vua/?tu=ca-neon-vua-super-red')
+    const { html, dom } = page('/ca/ca-neon-vua/')
     const note = dom.querySelector('p.redirected[data-from="ca-neon-vua-super-red"]')!
     expect(note.hasAttribute('hidden')).toBe(true)
     expect(note.text).toContain('Cá neon vua Super Red')
     expect(html).toContain('"alternateName":[')
   })
   test('discovery lists discovery guides', () => {
-    expect(page('/vi/kham-pha/').dom.querySelector('a[href="/vi/huong-dan/hang-moi-ve-nhung-loai-hiem-thang-nay/"]')).not.toBeNull()
+    expect(page('/kham-pha/').dom.querySelector('a[href="/huong-dan/hang-moi-ve-nhung-loai-hiem-thang-nay/"]')).not.toBeNull()
   })
   test('Vietnam hub exists', () => {
-    expect(page('/vi/nguon-goc/asia/vietnam/').html).toContain('Cá Việt Nam')
+    expect(page('/nguon-goc/asia/vietnam/').html).toContain('Cá Việt Nam')
   })
   test('every link in the header, the menu sheet and the footer resolves; the old Khám phá address still does', () => {
-    const links = page('/vi/').dom.querySelectorAll('header.nav a, #site-menu a, footer a').map(a => a.getAttribute('href')!).filter(h => /^\/vi\/.+\/$/.test(h))
+    const links = page('/').dom.querySelectorAll('header.nav a, #site-menu a, footer a').map(a => a.getAttribute('href')!).filter(h => /^\/.+\/$/.test(h))
     expect(links.length).toBeGreaterThan(10)
-    for (const p of [...links, '/vi/kham-pha/']) expect(() => page(p), p).not.toThrow()
+    for (const p of [...links, '/kham-pha/']) expect(() => page(p), p).not.toThrow()
   })
 })
 
 test("a guide's photos go under the section they name, at their own size and credited; one whose section is missing is still shown", () => {
-  const { dom, html } = page('/vi/huong-dan/phan-loai-ca-dia/')
+  const { dom, html } = page('/huong-dan/phan-loai-ca-dia/')
   const prose = dom.querySelector('.prose')!
   const kids = prose.childNodes.filter(n => n.nodeType === 1) as (typeof prose)[]
   const at = kids.findIndex(k => k.tagName === 'H3' && k.text === 'Can, chỉ và hoa văn')
@@ -296,21 +299,21 @@ test("a guide's photos go under the section they name, at their own size and cre
 })
 
 test('a breed the guide names (engine mentions) lists the guide on its page', () => {
-  expect(page('/vi/ca/ca-dia-pigeon-blood/').dom.querySelector('a[href="/vi/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
-  expect(page('/vi/ca/ca-dia/').dom.querySelector('a[href="/vi/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
+  expect(page('/ca/ca-dia-pigeon-blood/').dom.querySelector('a[href="/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
+  expect(page('/ca/ca-dia/').dom.querySelector('a[href="/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
 })
 
 describe('review fixes', () => {
   test('pages with photo cards credit every photo', () => {
-    for (const p of ['/vi/', '/vi/ca/', '/vi/nhom/tetras/']) {
+    for (const p of ['/', '/ca/', '/nhom/tetras/']) {
       const { html } = page(p)
       expect(html, p).toContain('CHUCAO')
       expect(html, p).toContain('Holger Krisp')
     }
-    expect(page('/vi/cay/').html).toContain('Abhik.Mazumdar.73')
+    expect(page('/cay/').html).toContain('Abhik.Mazumdar.73')
   })
   test('glossary pages honour quality.indexable', () => {
-    expect(page('/vi/thuat-ngu/gh/').html).toMatch(/noindex/)
+    expect(page('/thuat-ngu/gh/').html).toMatch(/noindex/)
   })
 })
 
@@ -319,9 +322,9 @@ test('a styled 404 page exists for the static host', () => {
 })
 
 test("what's new lists changelog entries that exist, with links", () => {
-  const { dom } = page('/vi/moi-cap-nhat/')
+  const { dom } = page('/moi-cap-nhat/')
   const hrefs = dom.querySelectorAll('[data-changelog] a').map(a => a.getAttribute('href'))
-  expect(hrefs).toEqual(['/vi/ca/ca-neon-vua/', '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/'])
+  expect(hrefs).toEqual(['/ca/ca-neon-vua/', '/huong-dan/setup-be-thuy-sinh-dau-tien/'])
 })
 
 test('static /go/ fallback pages exist for hosting without the Worker, and are noindex', () => {
@@ -333,9 +336,9 @@ test('static /go/ fallback pages exist for hosting without the Worker, and are n
 })
 
 test('approved summary shows above the sections; pending drafts stay hidden', () => {
-  const { dom } = page('/vi/ca/ca-neon-vua/')
+  const { dom } = page('/ca/ca-neon-vua/')
   expect(dom.querySelector('section.qs')?.text).toContain('nuôi đàn từ 8 con')
-  expect(page('/vi/ca/ca-dia/').html).not.toContain('Bản nháp chưa duyệt')
+  expect(page('/ca/ca-dia/').html).not.toContain('Bản nháp chưa duyệt')
 })
 
 test('cards use the recorded thumb, Wikimedia 500px, else the full photo', async () => {
@@ -347,17 +350,17 @@ test('cards use the recorded thumb, Wikimedia 500px, else the full photo', async
 })
 
 test('owner hide button script is on content pages but not the 404 page', () => {
-  expect(page('/vi/ca/ca-dia/').dom.querySelector('script[data-owner]')?.text).toContain('/_ab/hidden')
-  expect(page('/vi/').dom.querySelector('script[data-owner]')?.text).toContain("['Quản trị','/_ab/']") // admin link on every page, home included
-  expect(page('/vi/').dom.querySelectorAll('footer a[href^="/_ab"]')).toHaveLength(0) // no admin link for visitors; the owner bar needs the owner cookie
+  expect(page('/ca/ca-dia/').dom.querySelector('script[data-owner]')?.text).toContain('/_ab/hidden')
+  expect(page('/').dom.querySelector('script[data-owner]')?.text).toContain("['Quản trị','/_ab/']") // admin link on every page, home included
+  expect(page('/').dom.querySelectorAll('footer a[href^="/_ab"]')).toHaveLength(0) // no admin link for visitors; the owner bar needs the owner cookie
   expect(page('/404').dom.querySelector('script[data-owner]')).toBeNull()
 })
 
 test('pictures inside the text: extra species photos between sections, a mentioned species pictured in the guide', () => {
-  const { dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
-  expect(dom.querySelectorAll('article .prose figure.inl a[href="/vi/ca/ca-neon-xanh/"]').length).toBeGreaterThan(0)
+  const { dom } = page('/huong-dan/setup-be-thuy-sinh-dau-tien/')
+  expect(dom.querySelectorAll('article .prose figure.inl a[href="/ca/ca-neon-xanh/"]').length).toBeGreaterThan(0)
   for (const slug of ['ca-neon-vua', 'ca-dia', 'ca-galaxy']) {
-    const sp = page(`/vi/ca/${slug}/`).dom
+    const sp = page(`/ca/${slug}/`).dom
     const sections = sp.querySelectorAll('section[data-section]').length
     expect(sp.querySelectorAll('.body > figure.inl').length, slug).toBeLessThan(sections)
     expect(sp.querySelector('.gallery .thumbs'), slug).toBeNull()
@@ -366,14 +369,14 @@ test('pictures inside the text: extra species photos between sections, a mention
 
 test('species text never links to the page itself; glossary and genus links come from one pass', () => {
   for (const slug of ['ca-neon-vua', 'ca-neon-xanh', 'ca-dia', 'ca-galaxy', 'tep-red-cherry']) {
-    const { dom } = page(`/vi/ca/${slug}/`)
-    expect(dom.querySelectorAll(`section[data-section] a[href="/vi/ca/${slug}/"]`), slug).toHaveLength(0)
+    const { dom } = page(`/ca/${slug}/`)
+    expect(dom.querySelectorAll(`section[data-section] a[href="/ca/${slug}/"]`), slug).toHaveLength(0)
   }
-  expect(page('/vi/ca/ca-neon-vua/').dom.querySelector('section[data-section] a.gl[href^="/vi/thuat-ngu/"]')).not.toBeNull()
+  expect(page('/ca/ca-neon-vua/').dom.querySelector('section[data-section] a.gl[href^="/thuat-ngu/"]')).not.toBeNull()
 })
 
 test('species cards are specimen labels: temperature and pH bars, difficulty in words, no family line', () => {
-  const { dom } = page('/vi/')
+  const { dom } = page('/')
   const card = dom.querySelector('article.sc')!
   expect(card.querySelectorAll('.rb').length).toBeGreaterThan(0)
   expect(card.querySelector('.diff')?.text).toMatch(/^(Dễ|Vừa|Khó)$/)
@@ -383,9 +386,9 @@ test('species cards are specimen labels: temperature and pH bars, difficulty in 
 })
 
 test('home leads with the tank form (to the species filter) and three first steps', () => {
-  const { dom, html } = page('/vi/')
+  const { dom, html } = page('/')
   const form = dom.querySelector('form#tank')!
-  expect(form.getAttribute('action')).toBe('/vi/ca/')
+  expect(form.getAttribute('action')).toBe('/ca/')
   for (const n of ['tankCm', 'tempC', 'ph']) expect(form.querySelector(`input[name="${n}"]`)).toBeTruthy()
   expect(html.indexOf('id="tank"')).toBeLessThan(html.indexOf('featured-h'))
   expect(html).toContain("localStorage.setItem(k")
@@ -393,7 +396,7 @@ test('home leads with the tank form (to the species filter) and three first step
 })
 
 test('species list: a page of cards and a card template in the HTML, a "show more" pager, collapsible filters with difficulty in words', () => {
-  const { dom, html } = page('/vi/ca/')
+  const { dom, html } = page('/ca/')
   expect(dom.querySelector('#species-more')).toBeTruthy()
   // The script builds every species past the first page from this template (scripts/species-card.ts).
   expect(dom.querySelector('template#species-card .sc .diff')).toBeTruthy()
@@ -404,14 +407,14 @@ test('species list: a page of cards and a card template in the HTML, a "show mor
 })
 
 test('guide pages show reading time and suggest what to read next', () => {
-  const { dom } = page('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+  const { dom } = page('/huong-dan/setup-be-thuy-sinh-dau-tien/')
   expect(dom.querySelector('.kind')?.text).toMatch(/đọc khoảng \d+ phút/)
   const next = dom.querySelectorAll('#next-h ~ .grid a').map(a => a.getAttribute('href'))
-  expect(next).not.toContain('/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')
+  expect(next).not.toContain('/huong-dan/setup-be-thuy-sinh-dau-tien/')
 })
 
 test('species pages carry a hidden reader-photo section (gallery + upload form) for their entity', () => {
-  const { dom } = page('/vi/ca/ca-neon-vua/')
+  const { dom } = page('/ca/ca-neon-vua/')
   const s = dom.querySelector('section[data-reader-photos]')!
   expect(s.getAttribute('data-entity')).toMatch(/^species:/)
   expect(s.hasAttribute('hidden')).toBe(true)
@@ -420,7 +423,7 @@ test('species pages carry a hidden reader-photo section (gallery + upload form) 
 })
 
 describe('video guide', () => {
-  const { html, dom } = page('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+  const { html, dom } = page('/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
   test('click-to-load player with Vietnamese captions, credited to the channel', () => {
     expect(html).not.toContain('<iframe')
     expect(dom.querySelector('figure[data-vp="vl1Lx9iWDYU"] button.facade')).not.toBeNull()
@@ -439,7 +442,7 @@ describe('video guide', () => {
     expect(marks[1]?.text).toContain('Thay nước đều đặn')
     expect(dom.querySelectorAll('.takeaways li')).toHaveLength(2)
     expect(dom.querySelector('.faq summary')?.text).toBe('Nên thay nước lúc nào?')
-    expect(dom.querySelector('.crumb a[href="/vi/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
+    expect(dom.querySelector('.crumb a[href="/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
   })
   test('section pictures: licensed photo with credit, then video stills that play from their moment (captions escaped)', () => {
     const figs = dom.querySelector('h3#khoi-dong-be-moi')?.nextElementSibling?.nextElementSibling
@@ -468,52 +471,52 @@ describe('video guide', () => {
 })
 
 describe('video pages', () => {
-  test('/vi/video/ lists series with a published guide only, each as one row; the newest videos as cards', () => {
-    const { dom } = page('/vi/video/')
-    expect(dom.querySelector('.rows a[href="/vi/video/reu-hai-tu-a-den-z/"] h3')?.text).toBe('Rêu hại từ A đến Z')
-    expect(dom.querySelector('a[href="/vi/video/trong/"]')).toBeNull()
+  test('/video/ lists series with a published guide only, each as one row; the newest videos as cards', () => {
+    const { dom } = page('/video/')
+    expect(dom.querySelector('.rows a[href="/video/reu-hai-tu-a-den-z/"] h3')?.text).toBe('Rêu hại từ A đến Z')
+    expect(dom.querySelector('a[href="/video/trong/"]')).toBeNull()
     // Newest first (2024's video, then 2023's).
-    expect(dom.querySelectorAll('.new .gc').map(a => a.getAttribute('href'))).toEqual(['/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/', '/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/'])
-    const card = dom.querySelector('.new .gc[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')
+    expect(dom.querySelectorAll('.new .gc').map(a => a.getAttribute('href'))).toEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', '/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/'])
+    const card = dom.querySelector('.new .gc[href="/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')
     expect(card?.querySelector('.dur')?.text).toContain('29:15')
     expect(card?.querySelector('.cover')?.text).toBe('Bí quyết trị rêu hại')
   })
   test('series page lists parts in order with an ItemList', () => {
-    const { dom } = page('/vi/video/reu-hai-tu-a-den-z/')
+    const { dom } = page('/video/reu-hai-tu-a-den-z/')
     expect(dom.querySelectorAll('.parts li')).toHaveLength(1)
     const ld = dom.querySelectorAll('script[type="application/ld+json"]').map(s => JSON.parse(s.text))
-    expect(ld.find(j => j['@type'] === 'ItemList').itemListElement[0].url).toContain('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+    expect(ld.find(j => j['@type'] === 'ItemList').itemListElement[0].url).toContain('/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
   })
-  test('video guides: Hướng dẫn marked in the nav, kept off the text-guide index (which links to /vi/video/)', () => {
-    const { dom } = page('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
-    expect(dom.querySelector('.nav a[aria-current="page"]')?.getAttribute('href')).toBe('/vi/huong-dan/')
-    expect(dom.querySelector('#site-menu a[aria-current="page"]')?.getAttribute('href')).toBe('/vi/huong-dan/')
-    expect(page('/vi/video/').dom.querySelector('.nav a[aria-current="page"]')?.getAttribute('href')).toBe('/vi/huong-dan/')
-    const idx = page('/vi/huong-dan/').dom
-    expect(idx.querySelector('a[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).toBeNull()
-    expect(idx.querySelector('.vid a[href="/vi/video/"]')).not.toBeNull()
+  test('video guides: Hướng dẫn marked in the nav, kept off the text-guide index (which links to /video/)', () => {
+    const { dom } = page('/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+    expect(dom.querySelector('.nav a[aria-current="page"]')?.getAttribute('href')).toBe('/huong-dan/')
+    expect(dom.querySelector('#site-menu a[aria-current="page"]')?.getAttribute('href')).toBe('/huong-dan/')
+    expect(page('/video/').dom.querySelector('.nav a[aria-current="page"]')?.getAttribute('href')).toBe('/huong-dan/')
+    const idx = page('/huong-dan/').dom
+    expect(idx.querySelector('a[href="/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).toBeNull()
+    expect(idx.querySelector('.vid a[href="/video/"]')).not.toBeNull()
   })
-  test('single videos: grouped by channel on /vi/video/, a channel page, a breadcrumb to it; no caption promise when transcribed', () => {
-    const idx = page('/vi/video/').dom
-    expect(idx.querySelector('.rows a[href="/vi/video/kenh/green-aqua/"] h3')?.text).toBe('Video lẻ của Green Aqua')
-    const ch = page('/vi/video/kenh/green-aqua/').dom
-    expect(ch.querySelector('.grid a[href="/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/"]')).not.toBeNull()
-    const g = page('/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/').dom
-    expect(g.querySelector('.crumb a[href="/vi/video/kenh/green-aqua/"]')).not.toBeNull()
+  test('single videos: grouped by channel on /video/, a channel page, a breadcrumb to it; no caption promise when transcribed', () => {
+    const idx = page('/video/').dom
+    expect(idx.querySelector('.rows a[href="/video/kenh/green-aqua/"] h3')?.text).toBe('Video lẻ của Green Aqua')
+    const ch = page('/video/kenh/green-aqua/').dom
+    expect(ch.querySelector('.grid a[href="/huong-dan/bon-phan-cho-cay-thuy-sinh/"]')).not.toBeNull()
+    const g = page('/huong-dan/bon-phan-cho-cay-thuy-sinh/').dom
+    expect(g.querySelector('.crumb a[href="/video/kenh/green-aqua/"]')).not.toBeNull()
     expect(g.querySelector('.facade .cc')).toBeNull()
-    expect(page('/vi/video/kenh/mj-aquascaping/').dom.querySelector('.series a[href="/vi/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
+    expect(page('/video/kenh/mj-aquascaping/').dom.querySelector('.series a[href="/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
   })
   test('Video is inside Hướng dẫn (no nav entry of its own); sitemap has the video pages', () => {
-    expect(page('/vi/').dom.querySelector('.nav a[href="/vi/video/"], #site-menu a[href="/vi/video/"]')).toBeNull()
+    expect(page('/').dom.querySelector('.nav a[href="/video/"], #site-menu a[href="/video/"]')).toBeNull()
     const sm = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
-    expect(sm).toContain('/vi/video/</loc>')
-    expect(sm).toContain('/vi/video/reu-hai-tu-a-den-z/</loc>')
-    expect(sm).toContain('/vi/video/kenh/green-aqua/</loc>')
+    expect(sm).toContain('/video/</loc>')
+    expect(sm).toContain('/video/reu-hai-tu-a-den-z/</loc>')
+    expect(sm).toContain('/video/kenh/green-aqua/</loc>')
   })
 })
 
 describe('dark mode', () => {
-  const { html, dom } = page('/vi/')
+  const { html, dom } = page('/')
   test('the saved theme is applied in <head> before the styles; both schemes declared', () => {
     const head = html.slice(0, html.indexOf('</head>'))
     expect(head).toContain('<meta name="color-scheme" content="light dark">')
@@ -528,12 +531,14 @@ describe('dark mode', () => {
 })
 
 describe('instant navigation', () => {
-  const { html, dom } = page('/vi/')
+  const { html, dom } = page('/')
   test('hovered site links prerender; affiliate, outbound and admin links never', () => {
     const rules = JSON.parse(dom.querySelector('script[type="speculationrules"]')!.textContent!)
     const r = rules.prerender[0]
     expect(r.eagerness).toBe('moderate')
-    expect(r.where.and[0]).toEqual({ href_matches: '/vi/*' })
+    // This language's pages only: Vietnamese ones are the home page and its sections (never /go/, /_ab/ or /id/…).
+    expect(r.where.and[0]).toEqual({ href_matches: ['/', ...VI_SECTIONS.map(s => `/${s}/*`)] })
+    expect(JSON.parse(page('/id/').dom.querySelector('script[type="speculationrules"]')!.textContent!).prerender[0].where.and[0]).toEqual({ href_matches: '/id/*' })
     expect(r.where.and[1].not.selector_matches).toContain('[rel~=sponsored]')
     // The page's HTML is fetched sooner (10 ms hover; on phones, a link in view): a first visit waits ~0.5 s for it.
     expect(rules.prefetch).toEqual([{ where: r.where, eagerness: 'eager' }])
@@ -547,32 +552,32 @@ describe('instant navigation', () => {
 
 describe('what a video shows', () => {
   test('kit in the video: brand and model or the type, a seek button, exact-model shop links; species it shows are linked', () => {
-    const { dom } = page('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+    const { dom } = page('/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
     const rows = dom.querySelectorAll('.gear li')
     expect(rows.map(r => r.querySelector('.name')?.text)).toEqual(['Oase BioMaster 350', 'Seachem Flourish', 'Lọc bọt biển (lọc sủi)'])
-    expect(rows[0]!.querySelector('.cat a')?.getAttribute('href')).toBe('/vi/thiet-bi/loc/')
+    expect(rows[0]!.querySelector('.cat a')?.getAttribute('href')).toBe('/thiet-bi/loc/')
     expect(rows[1]!.querySelector('.cat')?.text).toBe('Khác')
     expect(rows[0]!.querySelector('button.seek')?.getAttribute('data-t')).toBe('95')
     expect(rows[0]!.querySelector('button.seek')?.getAttribute('data-vp-for')).toBe('vl1Lx9iWDYU')
     expect(rows[0]!.querySelector('a[href^="/go/shopee/"]')?.getAttribute('href')).toContain('k=Oase+BioMaster+350')
     expect(rows[2]!.querySelector('button.seek')).toBeNull()
-    expect(dom.querySelector('.related a[href="/vi/ca/tep-red-cherry/"]')).not.toBeNull()
+    expect(dom.querySelector('.related a[href="/ca/tep-red-cherry/"]')).not.toBeNull()
   })
   test('the species page lists the video guide that shows it, apart from text guides', () => {
-    const { dom } = page('/vi/ca/tep-red-cherry/')
-    expect(dom.querySelector('.vg a[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).not.toBeNull()
-    expect(dom.querySelector('.guides a[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).toBeNull()
+    const { dom } = page('/ca/tep-red-cherry/')
+    expect(dom.querySelector('.vg a[href="/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).not.toBeNull()
+    expect(dom.querySelector('.guides a[href="/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).toBeNull()
   })
   test('the equipment page lists what creators use, with their videos', () => {
-    const { dom } = page('/vi/thiet-bi/loc/')
+    const { dom } = page('/thiet-bi/loc/')
     const li = dom.querySelector('.creators li')!
     expect(li.querySelector('strong')?.text).toBe('Oase BioMaster 350')
-    expect(li.querySelector(':scope > a')?.getAttribute('href')).toBe('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
+    expect(li.querySelector(':scope > a')?.getAttribute('href')).toBe('/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')
   })
 })
 
 describe('product page', () => {
-  const { html, dom } = page('/vi/san-pham/oase-biomaster-350/')
+  const { html, dom } = page('/san-pham/oase-biomaster-350/')
   test('verdict, dated shop prices, specs and variants with Vietnamese labels, sources; Product + FAQ structured data', () => {
     expect(dom.querySelector('h1')?.text).toBe('Lọc thùng Oase BioMaster 350')
     expect(dom.querySelector('.verdict')?.text).toContain('Hợp với bể 150–350 lít')
@@ -588,37 +593,37 @@ describe('product page', () => {
     expect(html).toContain('"@type":"FAQPage"')
   })
   test('the video that uses it is listed; its kit row, the equipment type and the creators list link to the page', () => {
-    expect(dom.querySelector('.vg a[href="/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).not.toBeNull()
-    const guide = page('/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/').dom
-    expect(guide.querySelector('.gear .name a')?.getAttribute('href')).toBe('/vi/san-pham/oase-biomaster-350/')
-    const eq = page('/vi/thiet-bi/loc/').dom
-    expect(eq.querySelector('#thung .picks a')?.getAttribute('href')).toBe('/vi/san-pham/oase-biomaster-350/')
-    expect(eq.querySelector('.creators strong a')?.getAttribute('href')).toBe('/vi/san-pham/oase-biomaster-350/')
+    expect(dom.querySelector('.vg a[href="/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).not.toBeNull()
+    const guide = page('/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/').dom
+    expect(guide.querySelector('.gear .name a')?.getAttribute('href')).toBe('/san-pham/oase-biomaster-350/')
+    const eq = page('/thiet-bi/loc/').dom
+    expect(eq.querySelector('#thung .picks a')?.getAttribute('href')).toBe('/san-pham/oase-biomaster-350/')
+    expect(eq.querySelector('.creators strong a')?.getAttribute('href')).toBe('/san-pham/oase-biomaster-350/')
   })
   test('indexable products are in the sitemap', () => {
-    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/vi/san-pham/oase-biomaster-350/</loc>')
+    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/san-pham/oase-biomaster-350/</loc>')
   })
 })
 
 describe('photo gallery', () => {
   test('species page: a strip of thumbs linking each photo on the gallery page; open licences only', () => {
-    const { dom } = page('/vi/ca/ca-neon-vua/')
+    const { dom } = page('/ca/ca-neon-vua/')
     const strip = dom.querySelector('section.strip')!
-    expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/vi/ca/ca-neon-vua/anh/')
+    expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/ca/ca-neon-vua/anh/')
     expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 6 ảnh')
     const links = [...strip.querySelectorAll('li a')].map(a => a.getAttribute('href'))
-    expect(links[0]).toBe('/vi/ca/ca-neon-vua/anh/#a1')
+    expect(links[0]).toBe('/ca/ca-neon-vua/anh/#a1')
     expect(strip.querySelector('img')!.getAttribute('src')).toMatch(/500px-Neon1\.jpg$/)
     expect(strip.innerHTML).not.toContain('Neon3')
     const credits = dom.querySelector('#photo-credits')!.innerHTML
     for (const n of [1, 2, 4, 5, 6, 7]) expect(credits).toContain(`File:Neon${n}.jpg`)
   })
   test('a species with too few photos gets no strip and no gallery page', () => {
-    expect(page('/vi/ca/ca-neon-xanh/').dom.querySelector('section.strip')).toBeNull()
-    expect(() => readFileSync(`${DIST}/vi/ca/ca-neon-xanh/anh/index.html`)).toThrow()
+    expect(page('/ca/ca-neon-xanh/').dom.querySelector('section.strip')).toBeNull()
+    expect(() => readFileSync(`${DIST}/ca/ca-neon-xanh/anh/index.html`)).toThrow()
   })
   test('gallery page: every photo credited (author, licence, source), each tile its full photo for the viewer, ImageObject licence data, captions escaped', () => {
-    const { html, dom } = page('/vi/ca/ca-neon-vua/anh/')
+    const { html, dom } = page('/ca/ca-neon-vua/anh/')
     const items = [...dom.querySelectorAll('[data-gallery] a[data-i]')]
     expect(items).toHaveLength(6)
     expect(items[0]!.getAttribute('data-author')).toBe('Tác giả 1')
@@ -635,35 +640,35 @@ describe('photo gallery', () => {
     expect(g.image).toHaveLength(6)
     expect(g.image[0]).toMatchObject({ '@type': 'ImageObject', creditText: 'Tác giả 1', license: 'https://creativecommons.org/licenses/by/2.0/', acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' })
     expect(g.image.find((x: { license?: string }) => x.license?.includes('publicdomain'))).toBeTruthy()
-    expect(dom.querySelector('a[href="/vi/ca/ca-neon-vua/"]')).toBeTruthy()
+    expect(dom.querySelector('a[href="/ca/ca-neon-vua/"]')).toBeTruthy()
   })
   test('sitemap lists the gallery page', () => {
-    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/vi/ca/ca-neon-vua/anh/')
+    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/ca/ca-neon-vua/anh/')
   })
   test('a plant gets a gallery too: the strip on its page, a gallery page naming each photo site (Indonesian and Thai addresses: i18n.test.ts)', () => {
-    const { dom } = page('/vi/cay/cryptocoryne-wendtii/')
+    const { dom } = page('/cay/cryptocoryne-wendtii/')
     const strip = dom.querySelector('section.strip')!
-    expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/vi/cay/cryptocoryne-wendtii/anh/')
+    expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/cay/cryptocoryne-wendtii/anh/')
     expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 6 ảnh') // the CC BY-NC photo is left out
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('https://www.flickr.com/photos/1@N00/102')
-    const g = page('/vi/cay/cryptocoryne-wendtii/anh/').dom
+    const g = page('/cay/cryptocoryne-wendtii/anh/').dom
     expect(g.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(6)
     expect(g.querySelector('.lead')!.textContent).toContain('6 ảnh từ iNaturalist, Flickr, Wikimedia Commons và GBIF, giấy phép mở.')
-    expect(g.querySelector('.lead a')!.getAttribute('href')).toBe('/vi/cay/cryptocoryne-wendtii/')
+    expect(g.querySelector('.lead a')!.getAttribute('href')).toBe('/cay/cryptocoryne-wendtii/')
     expect(g.querySelector('.lead a')!.textContent).toContain('Cách trồng')
-    expect(g.querySelector('.crumb a[href="/vi/cay/"]')).toBeTruthy()
-    expect(page('/vi/cay/ray-nana/').dom.querySelector('section.strip')).toBeNull()
-    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/vi/cay/cryptocoryne-wendtii/anh/')
+    expect(g.querySelector('.crumb a[href="/cay/"]')).toBeTruthy()
+    expect(page('/cay/ray-nana/').dom.querySelector('section.strip')).toBeNull()
+    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/cay/cryptocoryne-wendtii/anh/')
   })
 })
 
 describe('man-made fish (breeds)', () => {
   test('a line of a species: kind, link to its species, care card citing its own sources, no Taxon', () => {
-    const { html, dom } = page('/vi/ca/ca-dia-pigeon-blood/')
+    const { html, dom } = page('/ca/ca-dia-pigeon-blood/')
     expect(dom.querySelector('h1')!.textContent).toBe('Cá đĩa Pigeon Blood')
     expect(dom.querySelector('.where')!.textContent).toContain('Dòng cá cảnh')
-    expect(dom.querySelector('.where a')!.getAttribute('href')).toBe('/vi/ca/ca-dia/')
-    expect(dom.querySelector('.crumb a[href="/vi/ca/ca-dia/"]')).toBeTruthy()
+    expect(dom.querySelector('.where a')!.getAttribute('href')).toBe('/ca/ca-dia/')
+    expect(dom.querySelector('.crumb a[href="/ca/ca-dia/"]')).toBeTruthy()
     // Two sources disagree on temperature: the range both accept, each source named by its title.
     expect(dom.querySelector('[data-field="tempC"] .v')!.textContent).toBe('28–30°C')
     expect(dom.querySelector('.trust [data-src-field="tempC"]')!.textContent).toContain('Trại cá đĩa A')
@@ -672,8 +677,8 @@ describe('man-made fish (breeds)', () => {
     expect(ld.some((x: { '@type': string }) => x['@type'] === 'FAQPage')).toBe(true)
     expect(html).not.toContain('"Taxon"')
     // Its text links other pages it names, never itself.
-    expect(dom.querySelector('.body a[href="/vi/ca/ca-la-han/"]')).toBeTruthy()
-    expect(dom.querySelector('.body a[href="/vi/ca/ca-dia-pigeon-blood/"]')).toBeNull()
+    expect(dom.querySelector('.body a[href="/ca/ca-la-han/"]')).toBeTruthy()
+    expect(dom.querySelector('.body a[href="/ca/ca-dia-pigeon-blood/"]')).toBeNull()
     expect(dom.querySelector('[data-comments][data-entity="breed:pigeon-blood-discus"], [data-entity="breed:pigeon-blood-discus"]')).toBeTruthy()
     // Too few photos for a gallery page: the second photo shows in the strip, opening itself, credited.
     expect(dom.querySelector('section.strip .head a')).toBeNull()
@@ -681,50 +686,50 @@ describe('man-made fish (breeds)', () => {
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('File:Breed2.jpg')
   })
   test('a hybrid: its parents, linked when we have the species, doubtful ones marked; noindex below the bar', () => {
-    const { dom } = page('/vi/ca/ca-la-han/')
+    const { dom } = page('/ca/ca-la-han/')
     const p = dom.querySelector('.parents')!
     expect(p.textContent).toContain('Amphilophus trimaculatus')
-    expect(p.querySelector('a')!.getAttribute('href')).toBe('/vi/ca/ca-dia/')
+    expect(p.querySelector('a')!.getAttribute('href')).toBe('/ca/ca-dia/')
     expect(p.querySelector('a')!.textContent).toMatch(/^Cá đĩa \(Symphysodon/)
     expect(p.textContent).toContain('chưa chắc chắn')
     expect(dom.querySelector('meta[name="robots"]')!.getAttribute('content')).toContain('noindex')
-    expect(dom.querySelector('section.strip .head a')!.getAttribute('href')).toBe('/vi/ca/ca-la-han/anh/')
+    expect(dom.querySelector('section.strip .head a')!.getAttribute('href')).toBe('/ca/ca-la-han/anh/')
   })
   test('a breed gallery page has no scientific name', () => {
-    const { dom } = page('/vi/ca/ca-la-han/anh/')
+    const { dom } = page('/ca/ca-la-han/anh/')
     expect(dom.querySelector('.lead')!.textContent).toMatch(/^7 ảnh từ Wikimedia Commons/)
     expect(dom.querySelector('.lead .sci')).toBeNull()
   })
   test('the species page lists its lines and hybrids, crediting their pictures; the species list shows them', () => {
-    const { dom } = page('/vi/ca/ca-dia/')
+    const { dom } = page('/ca/ca-dia/')
     const names = [...dom.querySelectorAll('section.breeds .n')].map(x => x.textContent)
     expect(names).toEqual(['Cá đĩa Pigeon Blood', 'Cá La Hán (Flowerhorn)'])
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('File:Breed1.jpg')
-    expect(page('/vi/ca/').dom.querySelector('section.breeds a[href="/vi/ca/ca-la-han/"]')).toBeTruthy()
+    expect(page('/ca/').dom.querySelector('section.breeds a[href="/ca/ca-la-han/"]')).toBeTruthy()
   })
   test('on the species list the breed cards lead the page: small pictures, loaded at once', () => {
-    const img = page('/vi/ca/').dom.querySelector('section.breeds img')!
+    const img = page('/ca/').dom.querySelector('section.breeds img')!
     expect(img.getAttribute('src')).toContain('/500px-')
     expect(img.getAttribute('loading')).toBe('eager')
-    expect(page('/vi/ca/ca-dia/').dom.querySelector('section.breeds img')!.getAttribute('loading')).toBe('lazy')
+    expect(page('/ca/ca-dia/').dom.querySelector('section.breeds img')!.getAttribute('loading')).toBe('lazy')
   })
   test('sitemap: indexable breed pages only', () => {
     const sm = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
-    expect(sm).toContain('/vi/ca/ca-dia-pigeon-blood/')
-    expect(sm).not.toContain('/vi/ca/ca-la-han/')
+    expect(sm).toContain('/ca/ca-dia-pigeon-blood/')
+    expect(sm).not.toContain('/ca/ca-la-han/')
   })
 })
 
 describe('header and menu sheet', () => {
   const sections = (dom: ReturnType<typeof page>['dom'], sel: string) => dom.querySelectorAll(`${sel} a`).map(a => a.getAttribute('href'))
   test('five sections in the header row; the sheet adds Thiết bị and Mới cập nhật, then units, theme and language', () => {
-    const { dom } = page('/vi/')
-    expect(sections(dom, 'header.nav .sections')).toEqual(['/vi/ca/', '/vi/cay/', '/vi/huong-dan/', '/vi/cong-cu/', '/vi/thuat-ngu/'])
-    expect(sections(dom, '#site-menu .go')).toEqual(['/vi/ca/', '/vi/cay/', '/vi/huong-dan/', '/vi/cong-cu/', '/vi/thuat-ngu/'])
-    expect(sections(dom, '#site-menu .more')).toEqual(['/vi/thiet-bi/', '/vi/moi-cap-nhat/'])
+    const { dom } = page('/')
+    expect(sections(dom, 'header.nav .sections')).toEqual(['/ca/', '/cay/', '/huong-dan/', '/cong-cu/', '/thuat-ngu/'])
+    expect(sections(dom, '#site-menu .go')).toEqual(['/ca/', '/cay/', '/huong-dan/', '/cong-cu/', '/thuat-ngu/'])
+    expect(sections(dom, '#site-menu .more')).toEqual(['/thiet-bi/', '/moi-cap-nhat/'])
     for (const sel of ['[data-units-toggle]', '[data-theme-toggle] [data-theme-mode]', '[data-lang-menu]']) expect(dom.querySelector(`#site-menu ${sel}`), sel).not.toBeNull()
     expect(dom.querySelector('header [data-menu-open]')?.getAttribute('aria-controls')).toBe('site-menu')
-    expect(dom.querySelectorAll('footer a').map(a => a.getAttribute('href'))).toEqual(expect.arrayContaining(['/vi/thiet-bi/', '/vi/moi-cap-nhat/']))
+    expect(dom.querySelectorAll('footer a').map(a => a.getAttribute('href'))).toEqual(expect.arrayContaining(['/thiet-bi/', '/moi-cap-nhat/']))
   })
   test('other languages: the sheet lists only pages they have, with translated labels', () => {
     const { dom } = page('/id/')
@@ -735,22 +740,22 @@ describe('header and menu sheet', () => {
 })
 
 test('the logo link is named by its visible text (no aria-label that differs from it)', () => {
-  const a = page('/vi/').dom.querySelector('a.logo')!
+  const a = page('/').dom.querySelector('a.logo')!
   expect(a.hasAttribute('aria-label')).toBe(false)
   expect(a.text.replace(/\s+/g, ' ').trim()).toBe('AquaTome Cẩm nang cá cảnh & thủy sinh')
 })
 
 test('every page has the language menu; a fish without other-language pages offers their fish lists', () => {
   // The header's (computers) and the menu sheet's (phones).
-  for (const path of ['/vi/', '/vi/ca/ca-neon-vua/', '/vi/video/', '/id/', '/th/']) for (const menu of ['header', '#site-menu']) {
+  for (const path of ['/', '/ca/ca-neon-vua/', '/video/', '/id/', '/th/']) for (const menu of ['header', '#site-menu']) {
     const links = page(path).dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
     expect(links.map(a => a.getAttribute('data-lang')), `${path} ${menu}`).toEqual(['vi', 'id', 'th'])
   }
   for (const menu of ['header', '#site-menu']) {
-    const fish = page('/vi/ca/ca-neon-vua/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
-    expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/vi/ca/ca-neon-vua/', 'true'], ['/id/ikan/', undefined], ['/th/fish/', undefined]])
+    const fish = page('/ca/ca-neon-vua/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
+    expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/ca/ca-neon-vua/', 'true'], ['/id/ikan/', undefined], ['/th/fish/', undefined]])
     // On an Indonesian page the Vietnamese link stays Vietnamese (localizeLinks leaves hreflang links alone).
     const id = page('/id/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
-    expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/vi/', undefined], ['/id/', 'true'], ['/th/', undefined]])
+    expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/', undefined], ['/id/', 'true'], ['/th/', undefined]])
   }
 })

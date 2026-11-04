@@ -1,0 +1,268 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://journals.flvc.org/edis/article/download/109188/104367/152407",
+      "title": "Aquarium Setup and Maintenance",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/content/post/md-2017-02-canister-filters-how-to-optimize-performance-by-using-the-right-filter-media?brs-source=mdredir",
+      "title": "Canister Filters: How to Optimize Performance by Using the Right Filter Media in the Right Order",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/8-1-review-of-filters",
+      "title": "8.1. Review of Filters",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.fishkeeper.co.uk/stories/dealing-with-a-power-cut-on-your-aquarium",
+      "title": "Dealing with a power cut on your aquarium",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/how-to-keep-your-aquarium-fish-alive-during-a-power-outage",
+      "title": "How to Keep Your Aquarium Fish Alive During A Power Outage",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cac-loai-loc-be-ca",
+      "title": "Các Loại Lọc Bể Cá Thông Dụng Hiện Nay - AquaZone - Siêu thị cá cảnh",
+      "kind": "other"
+    },
+    {
+      "url": "https://kb.rspca.org.au/knowledge-base/why-is-water-quality-important-when-setting-up-a-fish-aquarium/",
+      "title": "Why is water quality important when setting up a fish aquarium?",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/how-long-can-bacteria-survive-power-outage.257583/page-4",
+      "title": "how long can bacteria survive power outage",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.monsterfishkeepers.com/forums/threads/do-not-clean-your-filter-media-under-the-tap.18068/page-2",
+      "title": "Do not clean your filter media under the tap",
+      "kind": "forum"
+    },
+    {
+      "url": "https://mytour.vn/vi/blog/bai-viet/bi-quyet-thay-doi-nuoc-cho-be-ca.html",
+      "title": "Bí quyết thay đổi nước cho bể cá",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.siouxfalls.gov/files/assets/public/v/1/planning-and-development/utility/water/chloramines_fish.pdf",
+      "title": "Chloramines and Fish",
+      "kind": "other"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Aquarium filtration comes in three basic types: biological, mechanical and chemical.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Every aquarium needs biological and mechanical filtration. Chemical filtration is optional and depends on what the keeper needs.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Mechanical media such as floss, foam or gravel must be cleaned or replaced regularly to keep working.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "In small tanks, nitrate is removed mainly by water changes and live plants, not by the filter.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The leading cause of fish deaths, especially in new aquariums, is not having an effective biological filter.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "A new filter does not hold enough bacteria to handle toxins for about four to six weeks.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "A cycled tank shows nitrate but zero ammonia and zero nitrite.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Ammonia is more toxic at higher temperature and higher pH.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "A canister filter's efficiency depends on how much media it holds and what type, more than on its flow rate.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Newer canisters holding large volumes of foam are described as excellent filters, but they tend to leak.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Canisters and hang-on-back filters last about five years if you are lucky. Leaks and burnt-out motors are common across brands.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Hang-on-back filters with cartridges hold too little biological media for most aquariums. Small internal cartridge filters with 30 ppi foam filter poorly, both mechanically and biologically.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "For breeding tanks, a sponge filter is recommended. If it is driven by a powerhead, the sponge should be at least five inches by five inches so fry are not sucked in.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Load a canister in the direction of water flow: mechanical media first (coarse pads before fine), then chemical media, then biological media, with an optional fine polishing pad at the end.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Chemical media such as activated carbon should be used for about 30 days and then thrown away.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "In freshwater tanks, replace chemical media monthly and rinse mechanical media.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Biological media does not need monthly replacement. If it is dirty, rinse it in aquarium water.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Flow drops as a canister gets dirty, so falling flow is a sign it needs cleaning.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Letting sludge build up in a canister turns it into a nitrate trap: trapped detritus breaks down into nitrate and phosphate.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Letting biological media dry out during cleaning can harm the beneficial bacteria.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Fine polishing pads clog fast and can sharply cut flow if nobody watches them.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Keeping chemical media after it is saturated or coated in slime is a common mistake.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "One hobbyist author keeps the foam in his canister for the whole life of the filter and ignores the maker's replacement schedule. He says replacing foam can lower performance.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "The idea that gravel itself oxidizes ammonia is called a myth by aquariumscience.org, based on its own test.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "In a power cut of up to a couple of hours there is usually no need to panic. Check that all equipment restarts when power returns.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "After an hour or so without flow, beneficial bacteria in the filter start dying from lack of oxygen.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "A sealed canister filter can become oxygen-depleted in as little as 4 to 6 hours, depending on how dirty it was when the power went off.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "During an outage, take the media out of the canister as soon as possible, rinse it in aquarium water and put it in the tank. Run a battery-powered air pump with an airstone.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "During a long outage, putting the filter's biological media bag in the tank above the bubbles of a battery air pump may help keep the bacteria alive.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Heavy breathing in fish and slight cloudiness in the water are warning signs of ammonia building up after a few hours without a filter.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "After an outage: empty the old water from the filter body and rinse out the debris, put the media back, prime with new water, then plug in.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Dirty impellers often fail to restart after a power cut, and the owner may not notice. Clean the impeller and its housing.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "After power returns, test ammonia, nitrite and pH, do water changes as needed, and do not feed for 24 hours or until water quality is normal.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "After an outage, watch for ich, which can appear up to two weeks later.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "One forum keeper reports a filter sitting off for over 48 hours and restarting without trouble. Another remembers a filter off for about 24 hours that smelled badly when opened.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "Many keepers advise against rinsing biological media under chlorinated or chloraminated tap water, because it may harm the bacteria.",
+      "source": 8
+    },
+    {
+      "section": "myths",
+      "fact": "Some forum keepers say the risk of a tap-water rinse is overstated, because a cycled tank has bacteria throughout the system, not only in the filter.",
+      "source": 8
+    },
+    {
+      "section": "vietnam",
+      "fact": "Common Vietnamese names for filter types include lọc thùng (canister), lọc treo (hang-on), lọc tràn (overflow), lọc đáy (bottom/undergravel), lọc thác (waterfall) and lọc sump.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese guide suggests letting tap water stand overnight so its chlorine dissipates, or using a dechlorinator as the maker directs.",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "If the tap water uses chloramine instead of chlorine, ammonia is released as it breaks down, so it needs extra treatment. Whether Vietnamese tap water uses chlorine or chloramine was not confirmed.",
+      "source": 10
+    },
+    {
+      "section": "vietnam",
+      "fact": "Power cuts mean the first-aid steps for sealed canisters matter: move the media into aerated tank water if the power is off for more than about an hour or two.",
+      "source": 3
+    }
+  ]
+}

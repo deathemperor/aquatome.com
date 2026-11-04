@@ -4,7 +4,7 @@ import type { SpeciesIndexItem } from '../scripts/filter'
 import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
 import { smallSrc } from './img'
-import { localizePath, served, translator, type Lang } from './i18n'
+import { appPath, served, translator, type Lang } from './i18n'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
 import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES, RANKS, TAXON_INTRO } from './taxa-places'
@@ -66,7 +66,7 @@ export type AppItem = {
  * a tank with the tool's own code. Each one the content has no value for is left out; breeds have none.
  */
 export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
-const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
+export const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
 export type AppIndex = {
   version: 1; lang: Lang; items: AppItem[]; home: AppHome; labels: AppLabels
   /**
@@ -103,7 +103,7 @@ export function appPlants(lang: Lang, c: Content): Content['plants'] {
 }
 /**
  * The glossary terms the index lists in this language, and the app has pages of: every one the glossary list shows
- * (pages/vi/thuat-ngu/index.astro), a page out of search engines too.
+ * (pages/thuat-ngu/index.astro), a page out of search engines too.
  */
 export function appGlossary(lang: Lang, c: Content): Content['glossary'] {
   return served(lang, '/vi/thuat-ngu/x/') ? c.glossary : []
@@ -154,7 +154,7 @@ export type AppPlace = {
  */
 export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map(), everySpecies: Content['species'] = c.species): AppIndex {
   const t = translator(lang)
-  const at = (viPath: string) => localizePath(lang, viPath)
+  const at = (viPath: string) => appPath(lang, viPath)
   const img = (photos: Photo[]) => (photos[0] ? smallSrc(photos[0]) : undefined)
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
@@ -166,7 +166,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     origin: words({ title: ORIGINS, intro: PLACE_INTRO }),
     placeTitle: words(PLACE_TITLES), placeIntro: words(PLACE_INTROS),
   }
-  // The places with a page, as the origin pages list them (pages/vi/nguon-goc/[...path].astro): the continents, and the
+  // The places with a page, as the origin pages list them (pages/nguon-goc/[...path].astro): the continents, and the
   // countries under one. A species is on those it names itself (lib/list-data.ts speciesLists).
   const origins = served(lang, '/vi/nguon-goc/x/') ? c.places.filter(p => p.kind === 'continent' || (p.kind === 'country' && p.parent)) : []
   const paged = new Set(origins.map(p => p.id))

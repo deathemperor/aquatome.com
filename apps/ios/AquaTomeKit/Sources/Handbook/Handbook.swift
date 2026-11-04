@@ -382,21 +382,41 @@ public struct HandbookSearch: Sendable {
   /// other names, then a tool page's words. An empty query lists everything of `kind` (Item.is) in name order, all of it
   /// (`limit` is for searches).
   public func find(_ query: String, kind: HandbookIndex.Kind? = nil, limit: Int = 200) -> [HandbookIndex.Item] {
+    findAndCount(query, kind: kind, limit: limit).items
+  }
+
+  /// What `find` lists, and how many pages the query finds of each kind, as `find` narrowed to that kind takes them
+  /// (Item.is: a video guide counts as a guide and as a video), and in all under nil. Every match is counted, not only
+  /// the best 200 listed. Counted in the pass that finds them: matching is what a keystroke costs, and a second pass to
+  /// count would nearly double it.
+  public func findAndCount(_ query: String, kind: HandbookIndex.Kind? = nil, limit: Int = 200)
+    -> (items: [HandbookIndex.Item], counts: [HandbookIndex.Kind?: Int]) {
     let q = Self.fold(query).trimmingCharacters(in: .whitespaces)
-    let pool = entries.filter { kind.map($0.item.is) ?? true }
-    guard !q.isEmpty else { return pool.map(\.item) }
     let words = q.split(separator: " ")
-    let ranked: [(rank: Int, entry: Entry)] = pool.compactMap { e in
-      guard words.allSatisfy({ e.name.contains($0) || e.other.contains($0) || e.more.contains($0) }) else { return nil }
-      let rank = e.name == q ? 0
-        : e.name.hasPrefix(q) ? 1
-        : e.words.contains(where: { $0.hasPrefix(words[0]) }) && e.name.contains(q) ? 2
-        : e.name.contains(q) ? 3
-        : words.allSatisfy({ e.name.contains($0) || e.other.contains($0) }) ? 4
-        : 5
-      return (rank, e)
+    var counts: [HandbookIndex.Kind?: Int] = [:]
+    var ranked: [(rank: Int, entry: Entry)] = []
+    for e in entries where Self.matches(e, words) {
+      counts[nil, default: 0] += 1
+      for k in HandbookIndex.Kind.allCases where e.item.is(k) { counts[k, default: 0] += 1 }
+      if kind.map(e.item.is) ?? true { ranked.append((q.isEmpty ? 0 : Self.rank(e, q, words), e)) }
     }
-    return Array(ranked.sorted { ($0.rank, $0.entry.name.count, $0.entry.name) < ($1.rank, $1.entry.name.count, $1.entry.name) }
-      .prefix(limit).map(\.entry.item))
+    guard !q.isEmpty else { return (ranked.map(\.entry.item), counts) }
+    let best = ranked.sorted { ($0.rank, $0.entry.name.count, $0.entry.name) < ($1.rank, $1.entry.name.count, $1.entry.name) }
+      .prefix(limit).map(\.entry.item)
+    return (Array(best), counts)
+  }
+
+  private static func rank(_ e: Entry, _ q: String, _ words: [Substring]) -> Int {
+    e.name == q ? 0
+      : e.name.hasPrefix(q) ? 1
+      : e.words.contains(where: { $0.hasPrefix(words[0]) }) && e.name.contains(q) ? 2
+      : e.name.contains(q) ? 3
+      : words.allSatisfy({ e.name.contains($0) || e.other.contains($0) }) ? 4
+      : 5
+  }
+
+  /// Every word of a search somewhere in the page's names or a tool page's own words.
+  private static func matches(_ e: Entry, _ words: [Substring]) -> Bool {
+    words.allSatisfy { e.name.contains($0) || e.other.contains($0) || e.more.contains($0) }
   }
 }

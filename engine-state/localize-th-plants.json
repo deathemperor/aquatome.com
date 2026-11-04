@@ -1210,13 +1210,53 @@
       "Item 3: \"บ่อในสวน\" is slightly awkward; \"บ่อน้ำในสวน\" is more natural."
     ]
   },
+  "limnobium-laevigatum": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "อเมซอนฟร็อกบิท",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"ตู้ปลาแบบเปิดฝา\" for \"open aquariums\" is acceptable, but \"ตู้เปิด\" (open-top tank) is more usual for hobbyists.",
+      "Item 2: \"it will grow much slower\" is rendered as \"ต้นจะโตช้าลงมาก\". This is fine, but \"เก็บออก\" could be \"ตัดแต่งใบออก\" to make clear that leaves are being removed.",
+      "Item 3: \"รากที่เส้นเล็ก ยาว\" is slightly awkward. Use \"รากเส้นเล็กและยาว\"."
+    ]
+  },
+  "limnophila-aquatica": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "แอมบูเลียยักษ์",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 2: \"nutritious bottom\" rendered as \"วัสดุปลูกที่มีธาตุอาหารสูง\" is fine, but \"each stem up to 15 cm wide\" -> \"แต่ละต้นกว้างได้ถึง 15 ซม.\" is a literal rendering; consider \"แต่ละกอ/ก้านแผ่กว้างได้\" to read more naturally (minor).",
+      "Item 3: \"circled by ... leaves\" -> \"เรียงรอบลำต้น\" is acceptable, but \"แตกเป็นฝอยละเอียด\" is slightly awkward; \"ใบเป็นฝอยแตกแขนงละเอียด\" is more natural (minor).",
+      "Item 3: \"In open aquariums\" -> \"ตู้ปลาแบบเปิดด้านบน\" is a bit wordy; \"ตู้เปิด\" is the common hobby term (minor)."
+    ]
+  },
+  "limnophila-hippuridoides": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "ลิมโนฟิลา ฮิปปูริดอยเดส",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"CO2\" left in Latin letters is fine, but \"ไม้น้ำประเภทต้น (ไม้ข้อ)\" is slightly awkward; \"ไม้น้ำลำต้น (ไม้ข้อ)\" or \"ไม้ลำต้น\" is more natural.",
+      "Item 2: \"เติบโตแข็งแรง\" for \"vigorously growing\" is fine, but \"โตเร็ว\" or \"เติบโตเร็วแข็งแรง\" would be more natural. \"เปิดพื้นที่ให้ยอดใหม่เหล่านี้\" is slightly stiff; \"เพื่อให้มีที่ว่างสำหรับยอดใหม่\" is better.",
+      "Item 3: \"กอกว้าง\" for \"wide\" is acceptable. \"โค้งออกด้านนอก\" is slightly literal; \"โค้งงอออกด้านข้าง\" reads more naturally."
+    ]
+  },
   "limnophila-sessiliflora": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-04",
+    "from": "2026-10-30",
     "name": "แอมบูเลีย",
     "confidence": "medium",
-    "score": 0.95,
-    "notes": []
+    "score": 0.85,
+    "notes": [
+      "Taxonomy list in item 10: the rank labels \"Kingdom/Clade/Order/Family/Genus/Species\" and \"Eudicots\" are left in English, but the \"Tracheophytes\" and \"Angiosperms\" lines have Thai glosses. Make this consistent, e.g. อาณาจักร, อันดับ, วงศ์, สกุล, ชนิด.",
+      "\"A perennial erect aquatic plant\" → \"พืชน้ำหลายฤดู\" is not a standard botanical term. Use \"พืชน้ำอายุหลายปี\" or \"ไม้ล้มลุกหลายปี\".",
+      "Item 4: \"endemic to Asia\" → \"พืชถิ่นเดียวของเอเชีย\" sounds like it is found only in Asia, yet the next paragraph lists Africa and Australia. \"มีถิ่นกำเนิดในเอเชีย\" reads more naturally."
+    ]
   },
   "lysimachia-nummularia": {
     "at": "2026-10-30",
