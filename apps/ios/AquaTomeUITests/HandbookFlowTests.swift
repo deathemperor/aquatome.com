@@ -191,7 +191,7 @@ final class HandbookFlowTests: XCTestCase {
     let tabs = app.tabBars.buttons
     XCTAssertTrue(tabs["Tìm"].waitForExistence(timeout: 5))
     let all = tabs.count
-    XCTAssertGreaterThan(all, 1)
+    XCTAssertGreaterThanOrEqual(all, 3)
     app.swipeUp()
     app.swipeUp()
     XCTAssertTrue(waitFor(tabs, 1), "the tab bar didn't shrink")
