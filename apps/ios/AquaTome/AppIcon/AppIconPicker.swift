@@ -9,8 +9,9 @@ struct AppIconChoice: Identifiable {
   var id: String { alternate ?? "AppIcon" }
   /// For the flows: `app-icon-bubs-pink`, `app-icon-default`.
   var testID: String { "app-icon-" + (alternate.map { String($0.dropFirst("AppIcon-".count)) } ?? "default") }
-  /// The icon itself, from the asset catalog: the grid has no second copy of it.
-  var image: UIImage? { UIImage(named: id) }
+  /// The icon as the grid shows it: an icon set doesn't load as an image, so scripts/app-icons.py writes each at 64
+  /// points too (AppIconPreview-…), the default's as well.
+  var preview: UIImage? { UIImage(named: "AppIconPreview-" + testID.dropFirst("app-icon-".count)) }
 
   @MainActor static let groups: [(title: LocalizedStringKey, icons: [AppIconChoice])] = [
     ("Mặc định", [.init(alternate: nil, name: "AquaTome")]),
@@ -57,13 +58,13 @@ struct AppIconChoice: Identifiable {
 
   #if DEBUG
   /// For the flows: an icon listed here the app doesn't have, one it has that isn't listed (carried for nothing), or
-  /// one whose image doesn't load from its own name. Empty when all's well.
+  /// one with no preview to draw. Empty when all's well.
   @MainActor static var problems: [String] {
     let listed = Set(groups.flatMap(\.icons).compactMap(\.alternate))
     let icons = (Bundle.main.object(forInfoDictionaryKey: "CFBundleIcons") as? [String: Any])?["CFBundleAlternateIcons"] as? [String: Any]
     let inApp = Set(icons.map { Array($0.keys) } ?? [])
     return (listed.subtracting(inApp).map { "not in the app: \($0)" } + inApp.subtracting(listed).map { "not offered: \($0)" }
-      + groups.flatMap(\.icons).filter { $0.image == nil }.map { "no image: \($0.id)" }).sorted()
+      + groups.flatMap(\.icons).filter { $0.preview == nil }.map { "no image: \($0.id)" }).sorted()
   }
   #endif
 }
@@ -106,7 +107,7 @@ struct AppIconPicker: View {
     return Button { choose(icon) } label: {
       VStack(spacing: 6) {
         Group {
-          if let image = icon.image { Image(uiImage: image).resizable() } else { Rectangle().fill(.fill.secondary) }
+          if let image = icon.preview { Image(uiImage: image).resizable() } else { Rectangle().fill(.fill.secondary) }
         }
         .frame(width: 64, height: 64)
         .clipShape(.rect(cornerRadius: 14.3, style: .continuous))

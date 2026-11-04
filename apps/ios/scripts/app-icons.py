@@ -7,10 +7,12 @@ AppIcon-<id>.appiconset for each icon in ICONS: explicit home-screen sizes only 
 AppIcon (the AT), isn't drawn here. AppIconPicker.swift lists the same ids with their names; AppIconFlowTests checks that
 each is in the app.
 
-Each fish is a white character on a bright gradient: a palette (P) and a character (CHAR), some with a seasonal extra.
-The earlier designs (AT under water, book and water, leaf-fish) are the owner's first round, kept as choices.
+An icon set doesn't load as an image (UIImage(named:) gives nil), so the picker shows each icon, the default too, from
+AppIconPreviews/AppIconPreview-<id>.imageset: the icon at the picker's 64 points, @2x and @3x, stored lossy. Measured
+with actool for the 33 icons: 308 kB in all (195 kB on one iPhone), where lossless is 1,178 kB and SVG 2,233 kB (actool
+keeps three pictures of an SVG beside it, and iOS draws one without its filters).
 """
-import json, math, os, random, subprocess, sys, tempfile
+import json, math, os, random, shutil, subprocess, sys, tempfile
 P = {  # a: top-left, b: glow top-right, c: glow bottom-left, d: bottom-right, x: the fish's accent
  'pink':    ('#FF4FA3','#FF8A3D','#6E5BFF','#B44CFF','#FF4FA3'),
  'aqua':    ('#1FD1C1','#7CF0B0','#3B6BFF','#6E5BFF','#21B8E0'),
@@ -277,6 +279,21 @@ SLOTS = {120: [('iphone','60x60','2x')], 180: [('iphone','60x60','3x')],
 if __name__ == '__main__':
     here = os.path.dirname(os.path.abspath(__file__))
     cat = os.path.join(here, '..', 'AquaTome', 'Assets.xcassets')
+    previews = os.path.join(cat, 'AppIconPreviews')
+    shutil.rmtree(previews, ignore_errors=True); os.makedirs(previews)
+    json.dump({'info': {'author': 'xcode', 'version': 1}}, open(os.path.join(previews, 'Contents.json'), 'w'), indent=2)
+
+    def preview(i, render):
+        """The icon at 64 points, @2x and @3x: render(px, path) draws it."""
+        d = os.path.join(previews, f'AppIconPreview-{i}.imageset'); os.makedirs(d)
+        for scale, px in (('2x', 128), ('3x', 192)): render(px, os.path.join(d, f'{scale}.png'))
+        json.dump({'images': [{'filename': f'{s}.png', 'idiom': 'universal', 'scale': s} for s in ('2x', '3x')],
+                   'info': {'author': 'xcode', 'version': 1}, 'properties': {'compression-type': 'lossy'}},
+                  open(os.path.join(d, 'Contents.json'), 'w'), indent=2)
+
+    # The default (the AT), from its own 1024.
+    primary = os.path.join(cat, 'AppIcon.appiconset', 'AppIcon-1024.png')
+    preview('default', lambda px, out: subprocess.run(['sips', '-z', str(px), str(px), primary, '--out', out], check=True, capture_output=True))
     for i, svg in ICONS():
         d = os.path.join(cat, f'AppIcon-{i}.appiconset'); os.makedirs(d, exist_ok=True)
         for old in os.listdir(d): os.remove(os.path.join(d, old))
@@ -286,6 +303,7 @@ if __name__ == '__main__':
             f = f'{px}.png'
             subprocess.run(['rsvg-convert', '-w', str(px), '-h', str(px), '-b', 'black', t.name, '-o', os.path.join(d, f)], check=True)
             images += [{'filename': f, 'idiom': idiom, 'scale': scale, 'size': size} for idiom, size, scale in slots]
-        os.unlink(t.name)
         json.dump({'images': images, 'info': {'author': 'xcode', 'version': 1}}, open(os.path.join(d, 'Contents.json'), 'w'), indent=2)
+        preview(i, lambda px, out: subprocess.run(['rsvg-convert', '-w', str(px), '-h', str(px), t.name, '-o', out], check=True))
+        os.unlink(t.name)
         print(i)

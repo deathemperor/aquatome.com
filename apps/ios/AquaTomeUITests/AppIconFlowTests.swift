@@ -9,7 +9,7 @@ final class AppIconFlowTests: XCTestCase {
     app.launch()
     let standard = app.buttons["app-icon-default"]
     XCTAssertTrue(standard.waitForExistence(timeout: 10), "the picker didn't open")
-    // Listed but not in the app, in the app but not listed, or no image from its own name (AppIconChoice.problems).
+    // Listed but not in the app, in the app but not listed, or no preview to draw (AppIconChoice.problems).
     let problems = app.staticTexts["app-icons-problems"]
     XCTAssertFalse(problems.exists, problems.exists ? problems.label : "")
 
