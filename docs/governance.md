@@ -39,6 +39,11 @@ that would have caught it).
     guides and glossary terms are the site's lists', a page out of search engines too, each with its page's copy in a
     shard; a species' `tax` and `from` lead to the taxon and origin pages that list it, `places` are the origin pages
     with what each lists, and `labels` say what those pages say.
+  - A fish's "Vì sao?" needs (`careNeeds`, `packages/schema/src/care-needs.ts`) against
+    `protocols/care-needs-vectors.json`, which the app's own port of it will read: `careNeeds`' answer for each case,
+    given the fish's app index entry as it is (every threshold, and just past it); each fixture fish page's panel as the
+    file's lines and words; its Indonesian and Thai words as the site's translations (`UPDATE_VECTORS=1` rewrites the
+    file but its notes and entries).
   - The Worker's answers when the app posts readers' comments and photos (a bearer, no Turnstile) and reports them,
     against `protocols/talk.openapi.json`: a status the contract lists and a body of its shape, the account's daily
     limits on top of the address's, an account's posts and photo files deleted with it, every public post's `author`,
