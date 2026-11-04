@@ -33,7 +33,8 @@ const { t } = i18n(Astro.url)
   .list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--space-4) var(--space-3); }
   .list:empty { display: none; }
   .list :global(li) { font-size: 0.85rem; color: var(--c-ink-soft); }
-  .list :global(a) { display: block; padding: 4px; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: 4px; }
+  .list :global(button) { display: block; width: 100%; padding: 4px; border: 0; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: 4px; cursor: zoom-in; }
+  .list :global(button:focus-visible) { outline: 3px solid var(--c-focus); outline-offset: 2px; }
   .list :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
   .empty, .rules { color: var(--c-ink-soft); }
   .send { margin-top: var(--space-4); max-width: var(--measure); }

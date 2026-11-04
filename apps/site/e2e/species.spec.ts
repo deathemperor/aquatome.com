@@ -1,4 +1,6 @@
+import type { Page } from '@playwright/test'
 import { expect, test } from './fixtures'
+import { sourcePages } from './pages'
 
 // A species' numbers agree wherever the page shows them (resolveDataCard in @aq/schema): here the data card's temperature
 // and the "Nuôi ở Việt Nam" note's maximum. Cá neon vua's sources disagree on its range, which is when they used to differ.
@@ -75,7 +77,8 @@ test('species page: the jump row takes the reader to a part and marks where they
 test('species data card: one sources toggle, the disagreeing values marked, each source\'s figure inside', async ({ page }, info) => {
   await page.goto('/vi/ca/ca-neon-vua/')
   const card = page.locator('.facts .datacard')
-  const summary = card.locator('summary')
+  // The sources toggle; the difficulty cell's "Vì sao?" is its own (card-guide.spec.ts).
+  const summary = card.locator('.trust > summary')
   await expect(summary).toHaveCount(1)
   expect((await summary.boundingBox())!.height, 'toggle height').toBeGreaterThanOrEqual(44)
   const marked = card.locator('.card [data-conflict]')
@@ -151,4 +154,82 @@ test('species page: each "Tránh" chip says why; a size reason gives a size of t
       }
     }
   }
+})
+
+/** A species page with its photo and its gallery's thumbnails (a breed's top has no `.facts`), from the build or the sitemap. */
+async function speciesWithGallery(page: Page) {
+  for (const gallery of sourcePages().filter(p => /^\/vi\/ca\/[^/]+\/anh\/$/.test(p))) {
+    await page.goto(gallery.replace(/anh\/$/, ''))
+    if (await page.locator('header.top > .facts').count() && await page.locator('header.top .photo').count() && await page.locator('main section.strip').count()) return true
+  }
+  return false
+}
+
+// On a computer the photo column used to end under the photo while the facts beside it ran on, a screen and more (the
+// owner's screenshot of Cá neon vua), with the thumbnails below both. They now fill the column under the photo; on a phone
+// they come after the facts. One strip either way, each thumbnail once. Read from the page, so it holds on aquatome.com.
+test('species page: the gallery\'s thumbnails sit under the photo beside the facts on a computer, after the facts on a phone, once', async ({ page, errors }, info) => {
+  test.skip(!(await speciesWithGallery(page)), 'no species page with a gallery strip')
+  const strip = page.locator('main section.strip')
+  await expect(strip).toHaveCount(1)
+  await expect(strip.locator('h2')).toHaveText(`Ảnh ${(await page.locator('h1').textContent())!.trim()}`)
+  const srcs = await strip.locator('li img').evaluateAll(is => is.map(i => i.getAttribute('src')!))
+  expect(srcs.length, 'thumbnails').toBeGreaterThan(0)
+  expect(srcs.length, 'thumbnails').toBeLessThanOrEqual(8)
+  const more = await strip.locator('.head a').count() ? Number(/\d+/.exec((await strip.locator('.head a').textContent())!)![0]) : srcs.length
+  expect(more, '"Xem tất cả N ảnh"').toBeGreaterThanOrEqual(srcs.length)
+  const onPage = await page.locator('main img').evaluateAll(is => is.map(i => i.getAttribute('src')))
+  for (const src of srcs) expect(onPage.filter(s => s === src), `${src} on the page`).toHaveLength(1)
+
+  const [photo, facts, box] = [(await page.locator('header.top .photo').boundingBox())!, (await page.locator('header.top > .facts').boundingBox())!, (await strip.boundingBox())!]
+  if (info.project.name === 'phone') {
+    expect(box.y, 'below the facts').toBeGreaterThanOrEqual(facts.y + facts.height)
+  } else {
+    expect(Math.abs(box.x - photo.x), 'in the photo column').toBeLessThanOrEqual(1)
+    expect(box.x + box.width, 'left of the facts').toBeLessThanOrEqual(facts.x)
+    expect(box.y, 'under the photo').toBeGreaterThanOrEqual(photo.y + photo.height)
+  }
+  expect(errors).toEqual([])
+})
+
+// On a phone the page is one column, and the thumbnails' heading and "see all" link sit in it. Indonesian's pair ("Foto
+// Labidochromis caeruleus", "Lihat semua 15 foto →") couldn't get narrower than the column, so the column grew past the
+// screen and took the photo's credit with it (aquatome.com/id/ikan/yellow-lab/, 418 px on a 412 px phone). The link now
+// wraps under the heading, and nothing in the column can widen it.
+test('species page on a phone: a long thumbnails heading and link wrap instead of widening the page', async ({ page }, info) => {
+  test.skip(info.project.name !== 'phone', 'the phone layout')
+  test.skip(!(await speciesWithGallery(page)), 'no species page with a gallery strip')
+  await page.setViewportSize({ width: 360, height: 800 })
+  const head = page.locator('main section.strip .head')
+  await head.locator('h2').evaluate(h => { h.textContent = 'Foto Labidochromis caeruleus' })
+  if (await head.locator('a').count()) await head.locator('a').evaluate(a => { a.textContent = 'Lihat semua 15 foto →' })
+  else await head.evaluate(h => h.insertAdjacentHTML('beforeend', '<a href="#">Lihat semua 15 foto →</a>'))
+  const [column, room] = await page.locator('header.top').evaluate(t => {
+    const s = getComputedStyle(t)
+    return [parseFloat(s.gridTemplateColumns), t.clientWidth - parseFloat(s.paddingLeft) - parseFloat(s.paddingRight)]
+  })
+  expect(column, 'the column within the screen').toBeLessThanOrEqual(room + 0.5)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), 'sideways scroll').toBeLessThanOrEqual(0)
+})
+
+// Beside facts longer than the photo column, the column follows them down (sticky): scrolled until the thumbnails would
+// have left the screen, they are still on it. On a screen too short for the whole column (700 px), the thumbnails alone
+// follow. The jump row's "Ảnh", tapped from further down, brings them back into view.
+test('species page on a computer: the photo column stays in view while the facts scroll by', async ({ page }, info) => {
+  test.skip(info.project.name === 'phone', 'the computer layout')
+  test.skip(!(await speciesWithGallery(page)), 'no species page with a gallery strip')
+  const strip = page.locator('main section.strip')
+  const [box, facts] = [(await strip.boundingBox())!, (await page.locator('header.top > .facts').boundingBox())!]
+  test.skip(facts.y + facts.height - (box.y + box.height) < box.height + 16, 'the facts end with the photo column')
+  for (const height of [800, 700]) {
+    await page.setViewportSize({ width: 1280, height })
+    await page.evaluate(y => scrollTo({ top: y, behavior: 'instant' }), box.y + box.height)
+    await expect(strip, `${height} px high`).toBeInViewport({ ratio: 1 })
+  }
+
+  const chip = page.locator('nav.jump a[href="#gal-h"]')
+  test.skip(!(await chip.count()), 'no jump row')
+  await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }))
+  await chip.click()
+  await expect(page.locator('#gal-h')).toBeInViewport()
 })

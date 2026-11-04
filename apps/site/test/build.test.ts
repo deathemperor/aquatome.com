@@ -14,8 +14,8 @@ describe('species page', () => {
     // Only the cell the sources disagree on is marked; one toggle per card holds every value's sources.
     expect(dom.querySelectorAll('.card [data-conflict]').map(c => c.getAttribute('data-field'))).toEqual(['tempC'])
     expect(dom.querySelectorAll('.card .mark').length).toBe(1)
-    expect(dom.querySelectorAll('.datacard details').length).toBe(1)
-    expect(dom.querySelector('.datacard summary .label')?.text).toBe('Nguồn và độ tin cậy')
+    expect(dom.querySelectorAll('.datacard details.trust').length).toBe(1) // the difficulty cell's "Vì sao?" is its own (card-guide.test.ts)
+    expect(dom.querySelector('.datacard .trust summary .label')?.text).toBe('Nguồn và độ tin cậy')
     const by = dom.querySelector('.trust [data-src-field="tempC"]')!
     expect(by.querySelector('p')?.text).toBe('Mức mọi nguồn cùng khuyên')
     expect(by.querySelectorAll('li').map(l => l.text)).toEqual(['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'])
@@ -25,8 +25,10 @@ describe('species page', () => {
   })
   test('the name and four key facts come before the photo, from the data card\'s own values', () => {
     const top = dom.querySelector('header.top')!
-    const order = top.childNodes.filter(n => n.nodeType === 1).map(n => (n as typeof top).getAttribute('class')?.split(' ')[0])
-    expect(order).toEqual(['id', 'photo', 'facts'])
+    const order = (el: typeof top) => el.childNodes.filter(n => n.nodeType === 1).map(n => (n as typeof top).getAttribute('class')?.split(' ')[0])
+    expect(order(top)).toEqual(['id', 'side', 'facts'])
+    // The photo column: the photo, then the gallery's thumbnails (after the facts on a phone).
+    expect(order(top.querySelector('.side')!)).toEqual(['photo', 'strip'])
     const facts = top.querySelectorAll('.id .keyfacts > div')
     expect(facts.map(f => f.getAttribute('data-field'))).toEqual(['tempC', 'ph', 'tankCm', 'difficulty'])
     expect(facts[0]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('24,27') // the card's resolved range, °F toggle too
@@ -617,14 +619,16 @@ describe('photo gallery', () => {
     expect(page('/vi/ca/ca-neon-xanh/').dom.querySelector('section.strip')).toBeNull()
     expect(() => readFileSync(`${DIST}/vi/ca/ca-neon-xanh/anh/index.html`)).toThrow()
   })
-  test('gallery page: every photo credited (author, licence, source), lightbox, ImageObject licence data, captions escaped', () => {
+  test('gallery page: every photo credited (author, licence, source), each tile its full photo for the viewer, ImageObject licence data, captions escaped', () => {
     const { html, dom } = page('/vi/ca/ca-neon-vua/anh/')
     const items = [...dom.querySelectorAll('[data-gallery] a[data-i]')]
     expect(items).toHaveLength(6)
     expect(items[0]!.getAttribute('data-author')).toBe('Tác giả 1')
     expect(items[0]!.getAttribute('data-lic')).toBe('CC BY 2.0')
     expect(items[0]!.getAttribute('data-src')).toBe('https://commons.wikimedia.org/wiki/File:Neon1.jpg')
-    expect(dom.querySelector('dialog.lb')).toBeTruthy()
+    // The viewer (scripts/photo-viewer.ts, made by the page's script) shows each tile's full photo at its size; without
+    // the script the tile links to it.
+    for (const a of items) expect([a.getAttribute('href'), Number(a.getAttribute('data-w')) > 0, Number(a.getAttribute('data-h')) > 0]).toEqual([a.getAttribute('data-full'), true, true])
     expect(dom.querySelector('[data-gallery] b')).toBeNull()
     expect(html.indexOf('data-gallery')).toBeLessThan(html.indexOf('</body>'))
     expect(html.lastIndexOf('<script')).toBeLessThan(html.indexOf('</html>'))

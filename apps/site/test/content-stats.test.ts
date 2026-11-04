@@ -32,16 +32,16 @@ test('inventory: items per kind in content/, and how many have an Indonesian and
 })
 
 test('built pages: every index.html under /vi/, /id/ and /th/, by kind, each with its h1 and its item', () => {
-  // 130 pages, as markdown.ts counts them (every page under the three languages).
-  expect(stats.built!.total).toEqual([94, 18, 18])
-  expect(stats.built!.byKind).toMatchObject({ fish: [9, 0, 0], breed: [2, 0, 0], plant: [4, 0, 0], guide: [7, 0, 0], videoGuide: [2, 0, 0], glossary: [4, 0, 0], series: [1, 0, 0], gallery: [3, 0, 0], tool: [6, 6, 6], other: [3, 3, 3] })
+  // 134 pages, as markdown.ts counts them (every page under the three languages).
+  expect(stats.built!.total).toEqual([96, 19, 19])
+  expect(stats.built!.byKind).toMatchObject({ fish: [9, 0, 0], breed: [2, 0, 0], plant: [4, 0, 0], guide: [7, 0, 0], videoGuide: [2, 0, 0], glossary: [4, 0, 0], series: [1, 0, 0], gallery: [3, 0, 0], tool: [6, 6, 6], other: [5, 4, 4] })
   expect(stats.pages!.fish).toContainEqual(['/vi/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])
   expect(stats.pages!.breed).toContainEqual(['/vi/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)', 'flowerhorn-cichlid'])
   expect(stats.pages!.videoGuide).toContainEqual(['/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
   expect(stats.pages!.place).toContainEqual(['/vi/nguon-goc/asia/china/', 'Trung Quốc', 'china'])
   expect(stats.pages!.list).toContainEqual(['/th/fish/', 'ทุกสายพันธุ์'])
-  // Only the about, contact and privacy pages are "other": every other page has its kind.
-  expect(stats.pages!.other!.map(r => r[0].split('/').slice(0, 3).join('/')).sort()).toEqual(['/id/kebijakan-privasi', '/id/kontak', '/id/tentang', '/th/about', '/th/contact', '/th/privacy', '/vi/chinh-sach-bao-mat', '/vi/gioi-thieu', '/vi/lien-he'])
+  // Only the about pages (the site's and its data card's), contact, privacy and sign-in pages are "other": every other page has its kind.
+  expect(stats.pages!.other!.map(r => r[0].split('/').slice(0, 3).join('/')).sort()).toEqual(['/id/kebijakan-privasi', '/id/kontak', '/id/tentang', '/id/tentang', '/th/about', '/th/about', '/th/contact', '/th/privacy', '/vi/chinh-sach-bao-mat', '/vi/dang-nhap', '/vi/gioi-thieu', '/vi/gioi-thieu', '/vi/lien-he'])
   expect(Buffer.byteLength(JSON.stringify(stats.totals))).toBeLessThan(1024)
 })
 

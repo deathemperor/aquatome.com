@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { afterEach, expect, test, vi } from 'vitest'
 import { added, clicksByKind, joinReads, listSnapshots, loadContentStats, pageIndex, queryContentReads, recordSnapshot, talkByPage, type ContentStats, type Totals } from '../admin/content'
 import { testD1 } from './d1'
+import { bySession } from '../readers'
 
 // The fixture build's own content.json (pnpm test builds the site first): the loaders read what the script wrote.
 const BODY = readFileSync(fileURLToPath(new URL('../../dist/_ab/content.json', import.meta.url).href), 'utf8')
@@ -51,7 +52,7 @@ test('the loader reads content.json through ASSETS; a build without it gives und
   await expect(loadContentStats(assets(JSON.stringify({ v: 2 })), 'https://x.test')).rejects.toThrow('content.json v2')
   // Every built page by path, each with its kind and, for an item's page, its item.
   const index = pageIndex(STATS)
-  expect(index.size).toBe(130)
+  expect(index.size).toBe(134)
   expect(index.get('/vi/ca/ca-neon-vua/')).toEqual({ path: '/vi/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' })
 })
 
@@ -80,26 +81,42 @@ test('reads: readers per page kind, the most-read pages with their titles, the p
     ['/vi/huong-dan/thay-nuoc-dung-cach/', 'Thay nước đúng cách', 'guide', 1, 1],
     ['/vi/cay/monte-carlo/', 'Monte Carlo', 'plant', 0, 1],
   ])
-  expect(r.unread.n).toBe(128)
+  expect(r.unread.n).toBe(132)
   expect(r.unread.byKind).toMatchObject({ fish: 8, guide: 6, plant: 4 })
   expect(r.unread.pages.map(p => p.path)).not.toContain('/vi/ca/ca-neon-vua/')
   expect(r.unread.pages).toHaveLength(100)
   expect(r.elsewhere).toEqual({ views: 4, paths: 1 })
 })
 
-test('reads: the two Analytics Engine queries, over the days asked for', async () => {
+test('reads: the two Analytics Engine queries, over the days asked for; until the old dataset empties, on both datasets, a session in both counted once', async () => {
   const sent: string[] = []
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (_u, init) => {
     const q = String(init?.body)
     sent.push(q)
     return Response.json({ data: q.includes('min(timestamp)') ? sessions : views })
   })
-  const r = await queryContentReads('acc', 'tok', STATS, 7)
+  const r = await queryContentReads('acc', 'tok', STATS, 7, Date.parse('2027-02-01T00:00:00Z'))
   expect(r.days).toBe(7)
   expect(r.readers).toBe(2)
-  expect(sent).toHaveLength(2)
+  expect(sent).toHaveLength(4)
   expect(sent.every(q => q.includes("INTERVAL '7' DAY"))).toBe(true)
+  expect(sent.filter(q => q.includes('FROM aquatome_events'))).toHaveLength(2)
+  expect(sent.filter(q => q.includes('FROM thuysinh_events'))).toHaveLength(2)
   expect(sent.some(q => /GROUP BY sid, p FORMAT JSON/.test(q))).toBe(true)
+  sent.length = 0
+  expect((await queryContentReads('acc', 'tok', STATS, 7, Date.parse('2027-02-05T00:00:00Z'))).readers).toBe(2)
+  expect(sent.map(q => q.match(/FROM (\w+)/)![1])).toEqual(['aquatome_events', 'aquatome_events'])
+})
+
+test('a session the beacon wrote to both datasets is one session: its first moment, pages summed, its longest stay and scroll', () => {
+  expect(bySession([
+    { sid: 'a', first: '2026-11-04 03:10:00', pages: '2', t: '40', scroll: 20 },
+    { sid: 'b', first: '2026-11-04 05:00:00', pages: 1, t: 5, scroll: 10 },
+    { sid: 'a', first: '2026-11-04 02:50:00', pages: 3, t: 12, scroll: '80' },
+  ])).toEqual([
+    { sid: 'a', first: '2026-11-04 02:50:00', pages: 5, t: 40, scroll: 80 },
+    { sid: 'b', first: '2026-11-04 05:00:00', pages: 1, t: 5, scroll: 10 },
+  ])
 })
 
 test('comments and reader photos per page: each language\'s comments on its own page, photos on the Vietnamese one', async () => {

@@ -1,0 +1,28 @@
+---
+import Browse from '../../../layouts/Browse.astro'
+import AccountPanel from '../../../components/AccountPanel.astro'
+import { i18n } from '../../../lib/i18n'
+
+// The owner's sign-in. The dashboard (/_ab/, worker/dashboard.ts) answers with this page in its place while nobody, or
+// an account that isn't the owner's, is signed in: it sets the section's data-next to the page asked for, and shows the
+// note below to the other account. Vietnamese only (not in lib/i18n PILOT), and out of search engines, the sitemap and
+// the site's search.
+const { t } = i18n(Astro.url)
+---
+<Browse title={t('Đăng nhập')} heading={t('Quản trị AquaTome')} intro={t('Đăng nhập bằng tài khoản AquaTome của chủ trang để xem số liệu.')} noindex search={false} ads={false}>
+  <AccountPanel alone heading={t('Tài khoản')} lead="" open={t('Đăng nhập')}>
+    <p slot="signed-in" id="acc-not-owner" hidden class="not-owner">{t('Tài khoản đang đăng nhập không phải tài khoản chủ trang. Đăng xuất rồi đăng nhập bằng tài khoản chủ trang.')}</p>
+  </AccountPanel>
+</Browse>
+
+<script>
+  import { initAccount } from '../../../scripts/account-panel'
+  // Signed in here: on to the dashboard page that showed this one (data-next), or this page's ?next=.
+  const next = document.getElementById('tai-khoan')!.dataset.next ?? new URLSearchParams(location.search).get('next') ?? undefined
+  initAccount({ tanks: false, next })
+</script>
+
+<style>
+  .not-owner { padding: var(--space-3) var(--space-4); border: 1px solid var(--c-cardinal); background: var(--c-plate); }
+  .not-owner[hidden] { display: none; }
+</style>

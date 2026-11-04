@@ -39,3 +39,34 @@ test('tiers: staples, shop species, the most-kept fish, pages two sources cover,
   ])
   expect(plan.find(p => p.id === 'anubias-barteri')!.kind).toBe('plants')
 })
+
+const breed = async (r: string, id: string, urls: string[]) => {
+  await mkdir(join(r, 'content/breeds', id), { recursive: true })
+  await writeFile(join(r, 'content/breeds', id, 'entity.json'), JSON.stringify({ id, kind: 'variety', photos: [], sources: urls.map(url => ({ url, title: url, kind: 'article' })) }))
+}
+
+test('breeds: the bred fish shops keep most as what shops sell, ahead of pages two sources cover; the rest by how many sites write about them', async () => {
+  const r = await root([
+    ['species', 'zzz-covered', ['seriouslyfish', 'glaser']], ['species', 'shop-fish', ['seriouslyfish']], ['species', 'aaa-rest', ['seriouslyfish']],
+    ['plants', 'covered-plant', ['tropica', 'aquariumcoop']],
+  ])
+  await shopList(r, 'vi.json', ['Shop fish'])
+  await breed(r, 'balloon-molly', ['https://a.example/molly', 'https://www.b.example/balloon'])
+  await breed(r, 'koi', ['https://a.example/koi', 'https://b.example/koi'])
+  await breed(r, 'albino-oscar', ['https://a.example/oscar', 'https://b.example/oscar'])
+  await breed(r, 'platinum-angelfish', ['https://a.example/angel', 'https://www.a.example/angel-2']) // one site, twice
+  const plan = await galleryPlan(r)
+  expect(plan.map(p => `${p.tier}:${p.kind}:${p.id}:${p.target}`)).toEqual([
+    // POPULAR_BREEDS order (balloon molly, then koi), among the shop species by rank; the breed is written about by more.
+    'shop:breeds:balloon-molly:60', 'shop:species:shop-fish:60', 'shop:breeds:koi:60',
+    // As many sources: species, plants, then breeds.
+    'covered:species:zzz-covered:30', 'covered:plants:covered-plant:30', 'covered:breeds:albino-oscar:30',
+    'rest:species:aaa-rest:20', 'rest:breeds:platinum-angelfish:20',
+  ])
+})
+
+test('breeds: an id that is also a species page stops the plan (a gallery is one file by id)', async () => {
+  const r = await root([['species', 'koi', ['seriouslyfish']]])
+  await breed(r, 'koi', ['https://a.example/koi'])
+  await expect(galleryPlan(r)).rejects.toThrow(/"koi" is both a species page and a breeds page/)
+})

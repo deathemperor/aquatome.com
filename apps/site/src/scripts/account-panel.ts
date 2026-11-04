@@ -1,7 +1,7 @@
 import { loadTurnstile, type Turnstile } from './comments'
-import { ct } from './ct'
+import { cpath, ct } from './ct'
 import * as store from './tank-store'
-import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonce, getSession, isFail, passkeyAddOptions, passkeyLoginOptions, PENDING, pendingFlow, signInWith, signInWithPasskey, signOut, syncOnce, type Fail, type Mode, type Pending, type Providers, type User } from './sync'
+import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonce, getSession, isFail, nextPath, passkeyAddOptions, passkeyLoginOptions, PENDING, pendingFlow, signInWith, signInWithPasskey, signOut, syncOnce, type Fail, type Mode, type Pending, type Providers, type User } from './sync'
 
 /**
  * "Đồng bộ giữa các thiết bị" on "Bể của tôi": optional sign-in and sync. The section stays hidden unless the server
@@ -11,6 +11,9 @@ import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonc
  *
  * Signed in, this browser's tanks and the account's are merged both ways (sync.ts): right after signing in, when the page
  * opens, after each change here (a moment later), and when the tab comes back into view.
+ *
+ * `tanks: false` (the sign-in page, components/AccountPanel.astro): sign-in alone, no tanks merged and no tank or account
+ * controls but signing out or switching account. `next`: where a sign-in made here goes, a dashboard page only (nextPath).
  */
 type Google = { accounts: { id: { initialize(o: { client_id: string; nonce: string; callback: (r: { credential: string }) => void; ux_mode?: string; itp_support?: boolean }): void; renderButton(el: HTMLElement, o: Record<string, string | number>): void } } }
 type Apple = { auth: { init(o: { clientId: string; scope: string; redirectURI: string; nonce: string; usePopup: boolean }): void; signIn(): Promise<{ authorization: { id_token: string; code: string } }> } }
@@ -42,10 +45,13 @@ const canPasskey = () => typeof window.PublicKeyCredential === 'function'
 /** The reader closed the browser's passkey prompt, or let it time out: nothing to say. */
 const closed = (e: unknown) => ['NotAllowedError', 'AbortError'].includes((e as Error | undefined)?.name ?? '')
 
-export function initAccount(o: { onStore: () => void }) {
+export function initAccount(o: { onStore?: () => void; tanks?: boolean; next?: string }) {
   const section = $('tai-khoan')
   const lang = document.documentElement.lang.slice(0, 2)
-  const page = `${location.origin}${location.pathname}`
+  const tanks = o.tanks !== false
+  const next = nextPath(o.next, location.origin)
+  // Apple's return address: a page its Services ID lists (the tanks page in this language), also on the sign-in page.
+  const page = `${location.origin}${cpath('/vi/cong-cu/be-cua-toi/')}`
   let providers: Providers | undefined
   let sitekey = ''
   let user: User | null = null
@@ -98,21 +104,21 @@ export function initAccount(o: { onStore: () => void }) {
   function show() {
     $('acc-out').hidden = !!user
     $('acc-in').hidden = !user
-    document.querySelector<HTMLElement>('[data-where="local"]')!.hidden = !!user
-    document.querySelector<HTMLElement>('[data-where="account"]')!.hidden = !user
+    // "Dữ liệu ở đâu?" on the tanks page: where the tanks are kept.
+    for (const p of document.querySelectorAll<HTMLElement>('[data-where]')) p.hidden = (p.dataset.where === 'account') !== !!user
     if (user) {
       const ways = waysOf(user)
       const time = syncedAt ? new Intl.DateTimeFormat(document.documentElement.lang, { hour: '2-digit', minute: '2-digit' }).format(syncedAt) : ''
       $('acc-status').textContent = time ? ct('Đã đăng nhập bằng {ways}. Đồng bộ lúc {time}.', { ways, time }) : ct('Đã đăng nhập bằng {ways}.', { ways })
     }
-    $('acc-leave').hidden = !user
+    $('acc-leave').hidden = !user || !tanks
     const addKey = $('acc-passkey-add')
-    addKey.hidden = !(user && providers?.passkey && canPasskey())
+    addKey.hidden = !(tanks && user && providers?.passkey && canPasskey())
     if (!addKey.hidden) void webauthn().catch(() => {})
   }
 
   async function sync(first = false) {
-    if (!user) return
+    if (!user || !tanks) return
     const who = user
     const btn = $<HTMLButtonElement>('acc-sync')
     btn.disabled = true
@@ -131,7 +137,7 @@ export function initAccount(o: { onStore: () => void }) {
     show()
     const now = store.liveTanks(r.store).length
     say(r.refused ? ct('{n} bản ghi không hợp lệ nên chưa vào tài khoản.', { n: r.refused }) : first && now > before ? ct('Đã thêm {n} bể từ tài khoản.', { n: now - before }) : '', r.refused > 0)
-    o.onStore()
+    o.onStore?.()
   }
 
   function closeWays() {
@@ -139,7 +145,7 @@ export function initAccount(o: { onStore: () => void }) {
     $('acc-ways').hidden = true
     $('acc-code').hidden = true
     for (const id of ['acc-open', 'acc-add']) {
-      $(id).hidden = false
+      $(id).hidden = id === 'acc-add' && !tanks
       $(id).setAttribute('aria-expanded', 'false')
     }
   }
@@ -157,10 +163,13 @@ export function initAccount(o: { onStore: () => void }) {
   async function signedIn(u: User, pressed = true) {
     user = u
     if (pressed) { finished(); signedInAt = Date.now() }
+    // Signed in here, for the dashboard: back to its page (never for a session found as the page opens: the dashboard
+    // shows this page to an account that isn't the owner's).
+    if (pressed && next) { location.assign(next); return }
     show()
     say('')
     await sync(true)
-    $('acc-sync').focus()
+    $(tanks ? 'acc-sync' : 'acc-switch').focus()
   }
 
   /** What pressing a way does now (a sign-in remembers it as it is sent: the ways may turn before its answer). */
@@ -412,11 +421,22 @@ export function initAccount(o: { onStore: () => void }) {
   $('acc-open').addEventListener('click', () => void openWays(false))
   $('acc-add').addEventListener('click', () => void openWays(true))
   $('acc-sync').addEventListener('click', () => void sync())
-  $('acc-signout').addEventListener('click', async () => {
+  /** Signed out on the server (or already): false, said why, when it couldn't be. */
+  const leave = async () => {
     const r = await signOut()
-    if (isFail(r) && r.error !== 'signed_out') { say(problem(r), true); return }
-    signedOut(ct('Đã đăng xuất. Các bể vẫn còn trên trình duyệt này.'))
+    if (isFail(r) && r.error !== 'signed_out') { say(problem(r), true); return false }
+    return true
+  }
+  $('acc-signout').addEventListener('click', async () => {
+    if (!(await leave())) return
+    signedOut(tanks ? ct('Đã đăng xuất. Các bể vẫn còn trên trình duyệt này.') : ct('Đã đăng xuất.'))
     $('acc-open').focus()
+  })
+  // The sign-in page: signed out, and the ways to sign in open for another account.
+  $('acc-switch').addEventListener('click', async () => {
+    if (!(await leave())) return
+    signedOut('')
+    await openWays(false)
   })
   $('acc-passkey-add').addEventListener('click', async () => {
     const btn = $<HTMLButtonElement>('acc-passkey-add')
@@ -497,6 +517,11 @@ export function initAccount(o: { onStore: () => void }) {
     timer = setTimeout(() => void sync(), 1500)
   }
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') void sync() })
+
+  if (!tanks) {
+    for (const id of ['acc-sync', 'acc-add', 'acc-export']) $(id).hidden = true
+    $('acc-switch').hidden = false
+  }
 
   // Inside the app, the app signs in and syncs, and its bridge carries this page's tanks into it: no second sign-in
   // here, no session asked, no sign-in scripts (Google refuses embedded web views anyway).
