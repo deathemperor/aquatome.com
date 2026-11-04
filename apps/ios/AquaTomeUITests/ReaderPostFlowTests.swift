@@ -95,12 +95,12 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(link.waitForExistence(timeout: 3), "no link to take the photo back")
     XCTAssertTrue(link.label.hasPrefix("https://aquatome.com/_p/xoa/?id="), link.label)
     XCTAssertTrue(app.images["post-sent"].exists, "the photo sent not shown")
+    XCTAssertEqual(app.images["post-sent"].label, "Ảnh của Hà")
     XCTAssertEqual(link.elementType, .staticText, "the take-back link is a link to follow")
     link.tap()
-    // Still the form (its send button may have scrolled away, under the photo).
-    XCTAssertFalse(app.buttons["Đóng"].waitForNonExistence(timeout: 2), "a tap on the link closed the form")
-    XCTAssertTrue(link.isHittable, "a tap on the link left the form")
     app.buttons["Đóng"].tap()
+    // The fish's page, not the page that removes the photo, pushed behind the form.
+    XCTAssertTrue(app.buttons["post-photo"].waitForExistence(timeout: 5), "a tap on the link opened a page behind the form")
     app.buttons["post-photo"].tap()
     XCTAssertTrue(app.buttons["post-send"].waitForExistence(timeout: 5))
     XCTAssertFalse(app.descendants(matching: .any)["post-delete"].exists, "the link shown again")
