@@ -43,18 +43,19 @@ public enum PathForm: String, Sendable {
     return c.url ?? url
   }
 
-  /// The first parts of the site's paths that aren't Vietnamese pages at the root: the other languages, the app's data,
-  /// shop links, the API, the data downloads and the site search's index. Those starting with "_" (the Worker's comments
-  /// and photos) or holding a "." (robots.txt, .well-known) aren't either.
-  private static let other: Set<Substring> = ["id", "th", "app", "go", "api", "data", "pagefind", "cdn-cgi"]
+  /// The site's Vietnamese sections: a path at the root is a Vietnamese page when it's the home or under one of these
+  /// (`VI_SECTIONS`, apps/site/worker/paths.ts). Anything else at the root (the app's data, shop links, the API, files)
+  /// isn't a page to move.
+  static let sections: Set<Substring> = [
+    "ca", "cay", "chinh-sach-bao-mat", "cong-cu", "dang-nhap", "gioi-thieu", "huong-dan", "kham-pha", "lien-he", "moi-cap-nhat",
+    "nguon-goc", "nhom", "phan-loai", "san-pham", "thiet-bi", "thuat-ngu", "tim-kiem", "video",
+  ]
 
   /// A Vietnamese page's path without its "/vi" ("/ca/ca-neon/"; "/" for the home); nil for any other path.
   private static func bare(_ path: String) -> String? {
-    guard path.hasPrefix("/") else { return nil }
     if path == "/vi" { return "/" }
     if path.hasPrefix("/vi/") { return String(path.dropFirst(3)) }
-    let first = path.dropFirst().prefix { $0 != "/" }
-    if other.contains(first) || first.hasPrefix("_") || first.contains(".") { return nil }
-    return path
+    guard path.hasPrefix("/") else { return nil }
+    return path == "/" || sections.contains(path.dropFirst().prefix { $0 != "/" }) ? path : nil
   }
 }

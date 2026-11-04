@@ -1,7 +1,8 @@
 import XCTest
 
 /// The site with its Vietnamese pages at the root ("/ca/ca-neon/", "/vi/…" sent there): the fixed handbook in that form
-/// (`-vi-at-root`), every path and link in it without "/vi". The handbook's other flows read it under "/vi/".
+/// (`-vi-at-root`), every path and link in it without "/vi" but one card's. The handbook's other flows read it under
+/// "/vi/".
 final class ViAtRootFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -20,6 +21,18 @@ final class ViAtRootFlowTests: XCTestCase {
     neon.tap()
     XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "the link didn't open the fish")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "not drawn by the app")
+  }
+
+  /// A card still linking under "/vi/" (a page kept from before the change) opens the app's page for it, not the web.
+  func testALinkStillUnderViOpensThePageDrawnByTheApp() {
+    let app = launch()
+    open(app, "reu hai tu a", "Rêu hại từ A đến Z")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the series isn't drawn by the app")
+    let card = app.descendants(matching: .any).matching(identifier: "card").matching(NSPredicate(format: "label CONTAINS 'Cách hạn chế rêu hại'")).firstMatch
+    reveal(app, card)
+    card.tap()
+    XCTAssertTrue(app.navigationBars["Cách hạn chế rêu hại"].waitForExistence(timeout: 5), "the card didn't open its guide")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the web page, not the app's")
   }
 
   /// "/nhom/tetras/": the app's shelf of the group, not its web page.

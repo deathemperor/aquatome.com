@@ -21,9 +21,10 @@ those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "X
 just saved.
 
 The site's Vietnamese pages may be under "/vi/" ("/vi/ca/ca-neon/") or at the root ("/ca/ca-neon/"), Indonesian and Thai
-staying under "/id/" and "/th/" (`PathForm`). The app index's own paths say which: the app looks up every page path in
-that form, a link or a kept path in the other finding its page too, and when the index's form changes it moves what it
-keeps by path (the reading list, the pages kept for offline and their shards) to it, either way.
+staying under "/id/" and "/th/" (`PathForm`; the sections the site's `VI_SECTIONS` lists). The app index's own paths
+say which: the app looks up every page path in that form, a link or a kept path in the other finding its page too, and
+when the index's form changes it moves what it keeps by path (the reading list, the pages kept for offline and their
+shards) to it, either way (`HandbookPaths`); the form is saved once all of it has moved, so a move cut short runs again.
 
 Signing in (Sign in with Apple, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
 the site's page does: the token is in the Keychain, on this phone only. "Thêm passkey" adds one made on the phone, as on

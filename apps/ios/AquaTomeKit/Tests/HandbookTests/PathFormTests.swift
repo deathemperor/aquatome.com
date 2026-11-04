@@ -26,7 +26,8 @@ import Testing
 
 @Test func otherLanguagesAndPathsThatArentPagesStayAsTheyAre() {
   for p in ["/id/ikan/neon/", "/th/fish/neon/", "/id/", "/th", "/app/vi.json", "/app/pages/vi/guide-0.json", "/go/shopee/123",
-            "/api/fish-id", "/data/vi/species.json", "/pagefind/pagefind.js", "/_c?e=species:x", "/_p", "/robots.txt", "/.well-known/apple-app-site-association",
+            "/api/fish-id", "/data/vi/species.json", "/pagefind/pagefind.js",
+            "/media/a/neon.webp", "/sitemap/", "/sitemap.xml", "/admin/", "/404/", "/unknown/x/", "/_c?e=species:x", "/_p", "/robots.txt", "/.well-known/apple-app-site-association",
             "", "https://aquatome.com/vi/ca/ca-neon/", "ca/ca-neon/"] {
     #expect(PathForm.atRoot.path(p) == p, "\(p)")
     #expect(PathForm.underVi.path(p) == p, "\(p)")
