@@ -32,12 +32,20 @@ test.describe('in Vietnam', () => {
     const value = chart.locator('.readout b')
     await expect(when).toHaveText('30 ngày')
     await expect(value).toHaveText('10')
+    // The page's first chart says how to read a day; picking one hides that line but keeps its room, so nothing under
+    // it moves and the column stays under the pointer.
+    const hint = chart.locator('.readout .hint')
+    await expect(hint).toBeVisible()
+    const top = () => chart.locator('[data-plot]').evaluate(p => p.getBoundingClientRect().top + scrollY)
+    const before = await top()
     const yesterday = chart.locator('.cols li').nth(28)
     if (isMobile) await yesterday.tap()
     else await yesterday.hover()
     await expect(when).toHaveText('Hôm qua 03/11')
     await expect(value).toHaveText('3')
     await expect(yesterday).toHaveClass(/\bon\b/)
+    await expect(hint).toBeHidden()
+    expect(await top()).toBe(before)
     // Tapped again (or the pointer gone): the period's totals.
     if (isMobile) await yesterday.tap()
     else await page.mouse.move(0, 0)
