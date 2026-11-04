@@ -1258,6 +1258,56 @@
       "Item 4: \"endemic to Asia\" → \"พืชถิ่นเดียวของเอเชีย\" sounds like it is found only in Asia, yet the next paragraph lists Africa and Australia. \"มีถิ่นกำเนิดในเอเชีย\" reads more naturally."
     ]
   },
+  "lindernia-rotundifolia": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "ลินเดอร์เนีย โรทันดิโฟเลีย",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": []
+  },
+  "littorella-uniflora": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "ลิตโตเรลลา",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"cosmopolitan\" rendered as \"พบได้ทั่วโลก\" is acceptable, but \"ไม้น้ำที่แตกไหล\" for \"stolon\" is fine; no real issue beyond this.",
+      "Item 3: \"ด้วยรูปลักษณ์ของ Littorella uniflora ทำให้เป็นไม้น้ำ...\" is a slightly awkward sentence (no clear subject); rephrase e.g. \"Littorella uniflora มีรูปลักษณ์เฉพาะตัว จึงเป็นไม้น้ำที่จดจำได้ง่ายในตู้ปลา\".",
+      "Item 3: \"lakeshores\" -> \"ริมทะเลสาบ\" is fine, but \"garden ponds\" -> \"บ่อในสวน\" could be more natural as \"บ่อน้ำในสวน\"; \"เทอร์ราเรียม\" is OK, optionally add \"ตู้ปลูกไม้บก\"."
+    ]
+  },
+  "lobelia-cardinalis": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "โลบีเลีย คาร์ดินาลิส",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ไม้ต้น (ไม้ข้อ)\": \"Stem plant\" is usually just \"ไม้ข้อ\"; \"ไม้ต้น\" is vague, so drop it or use \"ไม้ข้อ (Stem plant)\".",
+      "\"เติบโตเป็นพุ่มเตี้ยและแน่น\": \"The growth is low and dense\" is rendered a bit loosely, but the meaning is intact.",
+      "\"เกิดขึ้นมาจากการผลิต Lobelia cardinalis ตามปกติ\": \"general production\" means commercial cultivation or propagation. \"การผลิต\" is stiff, so use \"การเพาะเลี้ยง/ขยายพันธุ์เพื่อการค้า\".",
+      "\"ถึงไม่เติมก็ยังเติบโตได้ดี\": add \"CO2\" to make clear that it grows well without CO2.",
+      "\"ปักลงในวัสดุปลูก\": \"bottom layer\" means the substrate. Use \"พื้นตู้/วัสดุปลูก\"; the current wording is acceptable but could be more precise."
+    ]
+  },
+  "ludwigia-arcuata": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "ลัดวิเจีย อาร์คัวต้า",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 2: \"a few inches off\" was rendered as \"ราว 5–8 ซม.\". The conversion is acceptable, but \"cycles the substrate\" became \"ช่วยให้วัสดุปลูกผ่านวงจรไนโตรเจน\". That adds \"nitrogen\", which the source does not say. Use \"ช่วยให้วัสดุปลูกผ่านการไซเคิล\" or similar.",
+      "Item 2: \"It can grow aerial roots; cut above the node and stick it in the substrate\" is fine. However, the Thai \"ตัดกิ่ง\" for \"take sizeable cuttings from the stems\" is acceptable. Do not change it.",
+      "Item 5: \"Discoloration\" was translated as \"สีซีดผิดปกติ\" (abnormally pale). This narrows the meaning. Use \"สีผิดปกติ\" or \"สีเปลี่ยน\".",
+      "Item 5: \"Excess iron will not make it red\" was translated as \"ธาตุเหล็กที่มากเกินไปไม่ได้ทำให้ต้นแดง\". It is slightly ambiguous. Say \"ธาตุเหล็กเกินจะไม่ช่วยให้ต้นแดงขึ้น\".",
+      "Item 5: \"pond snails, slugs\" became \"หอยเล็ก ทาก\". Use the common hobby term \"หอยฝาเดียว/หอยขม\" or \"หอยกระดิ่ง\" for pond snails.",
+      "Item 5: \"ฆ่าเชื้อหรือกักโรค\" is fine. \"Pests\" as \"ศัตรูพืช\" is fine. \"Melting\" as \"ใบละลาย\" in the problems list, but item 3 says \"ละลายได้ง่าย\" without \"ใบ\". Add \"ใบ\" for consistency.",
+      "Item 3: \"Submerged leaves formed at 23 °C were clearly narrower\" is translated acceptably. \"พึงระวัง\" is stiff for a handbook, so use \"ควรระวัง\"."
+    ]
+  },
   "lysimachia-nummularia": {
     "at": "2026-10-30",
     "from": "2026-10-29",

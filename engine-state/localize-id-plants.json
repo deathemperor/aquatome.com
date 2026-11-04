@@ -1294,6 +1294,52 @@
       "Item 10: \"bergerigi atau bergerigi tajam\" repeats the same word. Use \"bergerigi atau bergerigi kasar/berduri halus\", or \"bergerigi\" and \"bergigi\" for jagged/serrated."
     ]
   },
+  "lindernia-rotundifolia": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Lindernia rotundifolia",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"mungkin perlu dipangkas sesekali\": \"sesekali\" (occasionally) is added; the English only says \"may require some pruning\". Use \"mungkin perlu dipangkas\".",
+      "\"sungai kecil\" for \"streams\" is fine, but \"as a solitary mid-ground plant\" is slightly loose; \"soliter\" is acceptable, though \"tunggal\" is more natural."
+    ]
+  },
+  "littorella-uniflora": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Littorella uniflora",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Asal: kosmopolitan\" is slightly terse; \"Asal\" could be \"Asal daerah\" or \"Persebaran\", which reads more naturally for origin.",
+      "\"Di alam, tanaman ini tumbuh liar\" is redundant; \"tumbuh liar\" or \"tumbuh di alam\" alone would be enough."
+    ]
+  },
+  "lobelia-cardinalis": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Lobelia cardinalis",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"Pertumbuhannya pendek dan rapat\" is fine, but \"tanpa CO2 pun tetap tumbuh dengan baik\" is slightly loose; consider \"tetap tumbuh baik tanpa CO2\".",
+      "Item 3: \"makanya namanya diberi tambahan 'Mini'\" is too colloquial for a handbook; use \"sehingga diberi tambahan nama 'Mini'\".",
+      "Item 3: \"produksi umum Lobelia cardinalis\" is a literal rendering and unclear; consider \"produksi massal/budidaya umum Lobelia cardinalis\".",
+      "Item 3: \"Kadang tanaman bisa mengejutkan\" is slightly abrupt; consider \"Terkadang tanaman memberi kejutan\"."
+    ]
+  },
+  "ludwigia-arcuata": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Ludwigia arcuata",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Ludwigia daun jarum\" is not in the English \"Other names\" list. Remove it, or leave it out unless it is an established local name.",
+      "Item 2: \"sekitar 5–10 cm\" renders \"a few inches\" a little loosely. \"sekitar 5–8 cm\" is closer."
+    ]
+  },
   "lysimachia-nummularia": {
     "at": "2026-10-30",
     "from": "2026-10-29",

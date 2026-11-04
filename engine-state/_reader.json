@@ -386,6 +386,40 @@
     "findings": [],
     "ruled": "0fd0064c9a1d93fb"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-40-gallon-fish": {
+    "at": "2026-11-04",
+    "hash": "7ecef69c6d52d1b5",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể breeder thì đáy sâu hơn nhưng lại không quá cao.",
+        "problem": "'Đáy sâu hơn' reads as a taller/deeper tank, clashing with 'không quá cao'. The source means a wider front-to-back footprint.",
+        "fix": "Bể breeder thì đáy rộng hơn từ trước ra sau nhưng lại không quá cao.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây là một trong những cỡ đáy bể đầu tiên đủ chỗ để nuôi một con cá lớn đơn lẻ",
+        "problem": "'Cỡ đáy bể đầu tiên' is a literal rendering of 'first footprints' and sounds unnatural in Vietnamese.",
+        "fix": "Đây là cỡ bể nhỏ nhất đủ chỗ để nuôi một con cá lớn đơn lẻ",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "5 Best Fish Tank Ideas for a 40-Gallon Breeder Aquarium - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of a fish photo, so the image is likely a banner graphic.",
+        "rule": "a caption that equals the source article's title",
+        "field": "caption"
+      }
+    ],
+    "ruled": "7ecef69c6d52d1b5"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-5-best-fish-tank-ideas-for-a-20-gallon-aquarium": {
     "at": "2026-11-01",
     "hash": "33a0d062a8653ea1",
@@ -618,6 +652,29 @@
     "findings": [],
     "ruled": "d1280689326c79c6"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-cleaning": {
+    "at": "2026-11-04",
+    "hash": "3727c6c9d060ebb3",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C6",
+        "quote": "refill aquarium water onto hand",
+        "problem": "The caption says the photo shows water being poured onto a person's hand, so the photo shows a hand and not just the tank.",
+        "field": "caption"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có sẵn một bản hướng dẫn miễn phí để bạn tính chính xác bể của mình cần dọn thường xuyên đến mức nào.",
+        "problem": "The page mentions a free guide twice but gives no link or name, so the reader can't find it. This is a leftover from the source's 'Download the Guide' button.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3727c6c9d060ebb3"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-aquarium-filter-upgrade": {
     "at": "2026-11-03",
     "hash": "6cf8353fbf93f351",
@@ -817,6 +874,60 @@
     ],
     "ruled": "37a47dce87f311d4"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-cherry-shrimp-tankmates": {
+    "at": "2026-11-04",
+    "hash": "42d7601e06c9e1c5",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Tép ma cà rồng hay tép quạt châu Phi (Atya gabonensis)",
+        "problem": "A photo caption from the original web page is left in the body text as a standalone line.",
+        "rule": "a short body line with no verb and no final period that repeats a photo caption",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cá Otocinclus",
+        "problem": "A photo caption from the original web page is left in the body text as a standalone line.",
+        "rule": "a short body line with no verb and no final period that repeats a photo caption",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cá neon cardinal, cá bảy màu và ốc nerite sống chung với tép red cherry",
+        "problem": "A photo caption from the original web page is left in the body text as a standalone line just before a heading.",
+        "rule": "a short body line with no final period, just before a heading, that matches a photo caption",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 12 Tank Mates to Keep With Cherry Shrimp - Aquarium Co-Op",
+        "problem": "This caption is the source article's title and does not describe what the photo shows.",
+        "rule": "a caption that matches a page or article title with a site name after a dash",
+        "field": "caption"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-04",
+        "field": "body",
+        "score": 0.82,
+        "kept": true,
+        "problems": [
+          "Vietnamese hobbyists call the dwarf gourami \"cá sặc gấm\" or \"cá sặc lùn\". \"Thài lài\" is not a gourami name."
+        ]
+      }
+    ],
+    "ruled": "42d7601e06c9e1c5"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-clean-up-crew": {
     "at": "2026-11-01",
     "hash": "4152147377d9d65d",
@@ -949,6 +1060,12 @@
       }
     ],
     "ruled": "370ed489d7ee0a99"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-filter-media": {
+    "at": "2026-11-04",
+    "hash": "3f72869aaf77e7da",
+    "findings": [],
+    "ruled": "3f72869aaf77e7da"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-fin-rot": {
     "at": "2026-11-01",
@@ -1420,6 +1537,12 @@
     "hash": "b6fd6fd277d000fc",
     "findings": [],
     "ruled": "b6fd6fd277d000fc"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-paludarium-plants": {
+    "at": "2026-11-04",
+    "hash": "3470c7153d39a107",
+    "findings": [],
+    "ruled": "3470c7153d39a107"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-pest-snails": {
     "at": "2026-11-01",
@@ -2286,6 +2409,23 @@
     ],
     "ruled": "1538eb685a2ae3b5"
   },
+  "vi/guides/aquatome-ca-nuoi-chung-va-cach-tranh-ca-danh-nhau": {
+    "at": "2026-11-04",
+    "hash": "caba6204a1b68ffc",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Cá tỳ bà, cá lau kính\n| Ốc Nerita, ốc táo nhỏ",
+        "problem": "The two-column table has been flattened into one column that alternates good and bad tank mates. A reader can't tell which column each item belongs to, and the snails end up on the 'không nên' side even though the FAQ recommends them.",
+        "fix": "Hay được gợi ý nuôi chung: cá chuột (Corydoras), cá neon, cá tam giác (harlequin rasbora), cá bảy màu cái, cá tỳ bà, cá lau kính, ốc Nerita, ốc táo nhỏ. Không nên nuôi chung: một con cá xiêm trống khác, cá bảy màu đực và các loài vây dài, màu rực khác, cá tứ vân và các loài hay rỉa vây khác, cá nhỏ hoặc tép mà cá xiêm có thể ăn được.",
+        "rule": "A table whose rows each hold only one cell under a header that names two columns.",
+        "field": "body"
+      }
+    ],
+    "ruled": "caba6204a1b68ffc"
+  },
   "vi/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh": {
     "at": "2026-11-02",
     "hash": "e61d6f3928b7bce6",
@@ -2514,6 +2654,34 @@
     ],
     "ruled": "9ac13fb03a4b8f73"
   },
+  "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-new-corydoras-from-peru-en": {
+    "at": "2026-11-04",
+    "hash": "9555ab4e43db02e5",
+    "findings": [],
+    "ruled": "9555ab4e43db02e5"
+  },
+  "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-new-rare-corys-en": {
+    "at": "2026-11-04",
+    "hash": "26f87ae2dc93d92c",
+    "findings": [],
+    "ruled": "26f87ae2dc93d92c"
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-hemiloricaria-bycatches": {
+    "at": "2026-11-04",
+    "hash": "40c764ab85fa40c0",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nên cách gọi tên đơn giản là theo quan điểm phổ biến nhất ở vùng nói tiếng Đức",
+        "problem": "Clumsy, literal phrasing that a native reader would stumble over.",
+        "fix": "Nhóm cá này không phải chuyên môn của trại, nên ở đây gọi tên theo quan điểm phổ biến nhất ở vùng nói tiếng Đức.",
+        "field": "body"
+      }
+    ],
+    "ruled": "40c764ab85fa40c0"
+  },
   "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
     "at": "2026-11-03",
     "hash": "956dea628b022f60",
@@ -2529,6 +2697,12 @@
       }
     ],
     "ruled": "956dea628b022f60"
+  },
+  "vi/guides/glaser-en-general-cichla-ocellaris-x-melaniae-hybrid-2": {
+    "at": "2026-11-04",
+    "hash": "2324c015aef79969",
+    "findings": [],
+    "ruled": "2324c015aef79969"
   },
   "vi/guides/loachesonline-articles-botia-kubotai-development-of-markings-during-growth": {
     "at": "2026-11-01",
@@ -4136,6 +4310,22 @@
     "findings": [],
     "ruled": "c6242f49e81d49d6"
   },
+  "vi/guides/youtube-3rsUbzVwaUo": {
+    "at": "2026-11-04",
+    "hash": "ecd88a93367ce2b2",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Con số này chỉ đường kính trong của đầu kim.",
+        "problem": "Needle gauge refers to the needle's outer diameter, not its inner diameter, and a higher gauge number means a thinner needle.",
+        "fix": "Con số này chỉ cỡ kim: số càng lớn thì kim càng nhỏ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ecd88a93367ce2b2"
+  },
   "vi/guides/youtube-4UAMT8frW4s": {
     "at": "2026-11-02",
     "hash": "769e5615886e405f",
@@ -4201,6 +4391,12 @@
       }
     ],
     "ruled": "3c9f236d6f708820"
+  },
+  "vi/guides/youtube-6oVW1-m8Aic": {
+    "at": "2026-11-04",
+    "hash": "34615646d8a96187",
+    "findings": [],
+    "ruled": "34615646d8a96187"
   },
   "vi/guides/youtube-8B80s_qtzxA": {
     "at": "2026-11-03",
@@ -4353,6 +4549,12 @@
     ],
     "ruled": "c9acc265da8d5544"
   },
+  "vi/guides/youtube-CMyGtuekZb4": {
+    "at": "2026-11-04",
+    "hash": "f16988d9dc459975",
+    "findings": [],
+    "ruled": "f16988d9dc459975"
+  },
   "vi/guides/youtube-cnQq4fywDzE": {
     "at": "2026-11-02",
     "hash": "c6e5db577f65d8e5",
@@ -4417,6 +4619,22 @@
       }
     ],
     "ruled": "999ccb9f216c85c0"
+  },
+  "vi/guides/youtube-CUdG6dWVOEM": {
+    "at": "2026-11-04",
+    "hash": "b6d78afe00497a7a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khi có khách muốn làm hai lối đi, cách hay được khuyên là chỉ làm một.",
+        "problem": "The sentence brings in a 'customer' the reader knows nothing about, likely left over from the source video, and 'cách hay được khuyên' is an awkward passive.",
+        "fix": "Nếu bạn định làm hai lối đi, phần lớn trường hợp chỉ nên làm một.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b6d78afe00497a7a"
   },
   "vi/guides/youtube-dTkvCEn1xHA": {
     "at": "2026-11-01",
@@ -4497,6 +4715,12 @@
       }
     ],
     "ruled": "af43e762626a2eff"
+  },
+  "vi/guides/youtube-ERomxf3YVHs": {
+    "at": "2026-11-04",
+    "hash": "76c0705772660197",
+    "findings": [],
+    "ruled": "76c0705772660197"
   },
   "vi/guides/youtube-EV1ZR6CjOzc": {
     "at": "2026-11-02",
@@ -4686,6 +4910,22 @@
     "hash": "a6df129b55155430",
     "findings": [],
     "ruled": "a6df129b55155430"
+  },
+  "vi/guides/youtube-HSKIT2OLOYQ": {
+    "at": "2026-11-04",
+    "hash": "50ab3c38ec2e1583",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "tổng chi phí chỉ khoảng 10 USD",
+        "problem": "The price table adds up to about 16 USD (cutter 5 + two tubes of silicone 7 + tape 1 + acetone 3), not the 10 USD total given here.",
+        "fix": "tổng chi phí chỉ khoảng 16 USD",
+        "field": "body"
+      }
+    ],
+    "ruled": "50ab3c38ec2e1583"
   },
   "vi/guides/youtube-IB6lV6eF2MY": {
     "at": "2026-11-03",
@@ -5008,6 +5248,12 @@
     "findings": [],
     "ruled": "4b725d9b27967785"
   },
+  "vi/guides/youtube-LsQQ1yVFsBQ": {
+    "at": "2026-11-04",
+    "hash": "af6fc87e3dd5f0c8",
+    "findings": [],
+    "ruled": "af6fc87e3dd5f0c8"
+  },
   "vi/guides/youtube-m-uLNI5xx2Y": {
     "at": "2026-11-02",
     "hash": "36475e02d8dc52b5",
@@ -5283,6 +5529,12 @@
     ],
     "ruled": "30e739e9d0312d8f"
   },
+  "vi/guides/youtube-rifv8Rz3dqM": {
+    "at": "2026-11-04",
+    "hash": "c8d9c15a372d1a45",
+    "findings": [],
+    "ruled": "c8d9c15a372d1a45"
+  },
   "vi/guides/youtube-RMPl2_1u8bU": {
     "at": "2026-11-04",
     "hash": "569d711c6f995d9e",
@@ -5306,6 +5558,22 @@
       }
     ],
     "ruled": "569d711c6f995d9e"
+  },
+  "vi/guides/youtube-rXQS95MHmTk": {
+    "at": "2026-11-04",
+    "hash": "7c22ca6ce53f0e1f",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L10",
+        "quote": "Phi lê cá rô phi là lựa chọn tốt vì dễ mua, rẻ, khoảng 25% đạm và rất ít béo.",
+        "problem": "The FAQ calls tilapia fillet cheap, but the body text says it costs more per kilo than beef heart.",
+        "fix": "Phi lê cá rô phi là lựa chọn tốt vì dễ mua, khoảng 25% đạm và rất ít béo, dù giá theo ký đắt hơn tim bò.",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "7c22ca6ce53f0e1f"
   },
   "vi/guides/youtube-S-FR9u--jVs": {
     "at": "2026-11-01",
@@ -5370,6 +5638,49 @@
       }
     ],
     "ruled": "3e492530a270f49b"
+  },
+  "vi/guides/youtube-swFoi1J7YTk": {
+    "at": "2026-11-04",
+    "hash": "4b8e4439af76532a",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Hãy đặt bể nằm úp mặt trước xuống sàn. Ở tư thế này kính chỉ việc hạ xuống từ trên",
+        "problem": "If the tank lies with its front face down on the floor, the glass can't be lowered onto it from above. The tank has to lie on its back with the front opening facing up.",
+        "fix": "Hãy đặt bể nằm ngửa, mặt trước hướng lên trên. Ở tư thế này kính chỉ việc hạ xuống từ trên",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L1",
+        "quote": "Đặt bể úp mặt xuống để kính tự đè lên silicone trong lúc khô.",
+        "problem": "Says to lay the tank face down, but the glass can only press down on the silicone if the front faces up.",
+        "fix": "Đặt bể nằm ngửa, mặt trước hướng lên để kính tự đè lên silicone trong lúc khô.",
+        "field": "summary.0"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "úp bể xuống trước khi đặt kính",
+        "problem": "The getting-started list repeats the same wrong position, face down instead of front facing up.",
+        "fix": "đặt bể nằm ngửa, mặt trước hướng lên trước khi đặt kính",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "hơi nước đọng trên nắp sẽ đọng lại trên giằng",
+        "problem": "\"Đọng\" is used twice in a row, which reads awkwardly.",
+        "fix": "hơi nước bám trên nắp sẽ nhỏ xuống đọng lại trên giằng",
+        "field": "body"
+      }
+    ],
+    "ruled": "4b8e4439af76532a"
   },
   "vi/guides/youtube-t-QbuMlXLIg": {
     "at": "2026-11-02",
