@@ -6,27 +6,24 @@ name: "iOS app: build and tests"
 # it (2026-11-03: an engine cycle waited over 2 hours behind 8 iOS runs).
 on:
   pull_request:
-    # `labeled`: the label `ios-full` runs every flow (job `changes`); any other label runs nothing and cancels nothing
-    # (`concurrency` and job `changes` below). That run's jobs are all skipped, under the same names: `gh pr checks`, which
-    # lists each name once, then shows them skipped. The run before keeps its results; a push or a re-run brings them back.
+    # `labeled`: the label `ios-full` runs every flow (job `changes`). Any other label runs the pull request again as a
+    # push would, in its group: a run with every job skipped would hide the last one's results in `gh pr checks`, which
+    # lists each name once. Labels are rare here.
     types: [opened, synchronize, reopened, ready_for_review, labeled]
     paths: ['apps/ios/**', 'protocols/**', '.github/workflows/ios.yml']
   push:
     branches: [main]
     paths: ['apps/ios/**', 'protocols/**', '.github/workflows/ios.yml']
-  # Every flow each night on main, whatever changed: 02:30 in Vietnam.
+  # Every flow each night on main, whatever changed: 02:30 in Vietnam. Not `perf`: main's push measured the same code.
   schedule:
     - cron: '30 19 * * *'
   workflow_dispatch:
-# A pull request's newer push cancels its run in progress. Main's runs, nightly or by hand, each have a group of their
-# own, so none is cancelled, nor dropped while waiting (a group keeps one run waiting and cancels any before it): every
-# merge's run finishes. A label other than `ios-full` gets a group of its own too, so its run (in which every job is
-# skipped) leaves the pull request's run alone.
+# A pull request's newer run (a push, a label) cancels its run in progress. Main's runs, nightly or by hand, each have a
+# group of their own, so none is cancelled, nor dropped while waiting (a group keeps one run waiting and cancels any
+# before it): every merge's run finishes.
 concurrency:
   group: >-
-    ${{ github.event_name == 'pull_request' &&
-    (github.event.action != 'labeled' || github.event.label.name == 'ios-full') &&
-    format('ios-{0}', github.ref) || format('ios-run-{0}', github.run_id) }}
+    ${{ github.event_name == 'pull_request' && format('ios-{0}', github.ref) || format('ios-run-{0}', github.run_id) }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 permissions:
   contents: read
@@ -37,7 +34,6 @@ jobs:
   # is skipped, and doesn't hold a Mac. Jobs `kit` and `perf` run on every ready pull request.
   changes:
     name: "iOS app: which flows this change needs"
-    if: github.event.action != 'labeled' || github.event.label.name == 'ios-full'
     runs-on: ubuntu-latest
     outputs:
       ready: ${{ steps.pick.outputs.ready }}
@@ -150,7 +146,7 @@ jobs:
   perf:
     name: "iOS app: performance, size and strings"
     needs: changes
-    if: needs.changes.outputs.ready == 'true'
+    if: needs.changes.outputs.ready == 'true' && github.event_name != 'schedule'
     runs-on: macos-26
     timeout-minutes: 40
     steps:
@@ -225,12 +221,12 @@ jobs:
       - name: The own Mac's simulator shut down
         if: always()
         run: apps/ios/scripts/wait-for-simulator.sh --done
-      # The pages' screenshots (PageShotsFlowTests, in the first half), a pull request's before (its base's run) or
-      # after (its own): see docs/governance.md.
+      # The pages' screenshots (PageShotsFlowTests, in the first half), a pull request's before (main's run) or after
+      # (its own): see docs/governance.md. Only when this half ran them.
       - name: Page screenshots
-        if: always() && matrix.half == 1
+        if: always() && matrix.half == 1 && contains(needs.changes.outputs.handbook_1, '/PageShotsFlowTests')
         run: apps/ios/scripts/shots.py build/handbook.xcresult build/shots
-      - if: always() && matrix.half == 1
+      - if: always() && matrix.half == 1 && contains(needs.changes.outputs.handbook_1, '/PageShotsFlowTests')
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ios-page-shots

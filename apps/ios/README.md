@@ -60,8 +60,8 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
 
   A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
   `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant and a guide top to bottom, light and dark, and CI's
-  job `handbook (1)` uploads them as the `ios-page-shots` artifact (on a pull request, when its change can reach
-  the pages). Locally:
+  job `handbook (1)` uploads them as the `ios-page-shots` artifact whenever it runs them: every run on main, and a pull
+  request whose change can reach the pages, or labelled `ios-full`. Locally:
 
   ```sh
   xcodebuild test -project AquaTome.xcodeproj -scheme AquaTome -destination 'platform=iOS Simulator,name=iPhone 17' \
@@ -136,15 +136,16 @@ Debug builds, so they don't see it.
 - **A pull request** runs the smoke set, ten flows across the app's main journeys (the app starts and its tabs open, a
   search opens a page the app draws, a fish's facts, a tank made and a fish put on it, the tank-mates check, the fake
   light connected and a preset written, a sign-in on the stand-in server, a shelf kept for offline: about 6 minutes
-  after the build), and the flow classes its change can reach. `scripts/flows-to-run.py` maps the app's folders and
-  files to those classes, and its `--test` fails when a flow it names is renamed. A change only to what every screen
-  sits in (the app's start, the project, the flows' shared helpers, the workflow) runs the smoke set alone; a path under
-  `apps/ios/` the script has no rule for runs every flow. Jobs `kit` and `perf` (with the translations) run on every
-  ready pull request.
-- **Every flow** runs after each merge to main, every night at 02:30 Vietnam time on main, by hand (Actions → "iOS app:
-  build and tests" → Run workflow), and on a pull request labelled `ios-full`. Adding that label starts the full run;
-  any other label starts nothing and cancels nothing, though its run's skipped jobs then stand in for the last run's in
-  `gh pr checks` (a push or a re-run shows them again). Main's runs are never cancelled: each merge's run finishes.
+  after the build), and the flows its change can reach. `scripts/flows-to-run.py` maps the app's folders and files to
+  them, and its `--test` fails when a flow it names is renamed. A class it reaches whole runs in its own job; a few of a
+  class's tests run in `app`, beside the smoke set. What every screen sits in (the project, `Config/`, the flows' shared
+  helpers) runs the smoke set alone. The app's start (`AquaTomeApp.swift`), `ios.yml`, `flows-to-run.py` and the
+  scripts the flow jobs run run every flow, and so does a path under `apps/ios/` the script has no rule for. Jobs `kit`
+  and `perf` (with the translations) run on every ready pull request.
+- **Every flow** runs after each merge to main, every night at 02:30 Vietnam time on main (without `perf`: the merge's
+  run measured the same code), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull request
+  labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full` with
+  every flow, any other label as a push would. Main's runs are never cancelled: each merge's run finishes.
 
 A break that only main's run catches is fixed forward first, in a pull request of its own. If the flow could have run on
 the pull request that broke it, give `flows-to-run.py` the rule that would have run it.
