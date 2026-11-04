@@ -1,22 +1,36 @@
 {
   "slug": "ca-tetra-chalceus",
-  "name": "Cá tetra Chalceus",
+  "name": "Cá tucan",
   "altNames": [
-    "Yellow-finned Chalceus"
+    "Yellow-finned Chalceus",
+    "Cá tetra Chalceus",
+    "Cá tucanfish",
+    "Tucanfish"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Loài tetra cỡ lớn rất đẹp này giờ đã có cá sinh sản nhân tạo. Đây là loài thật, có vây bụng vàng tươi. Lứa cá hiện có dài khoảng 7-9 cm.</p><p>Khi trưởng thành, cá có thể dài tới 20-25 cm.</p>",
     "diet:glaser": "<p>Muốn hình dung các loài trong chi Chalceus thì dễ nhất là so với cá hồi trout. Giống trout, Chalceus thích ăn côn trùng và những thứ tương tự rơi xuống mặt nước.</p>",
     "aquariumSize:glaser": "<p>Muốn cá lớn tới cỡ đẹp thì bạn cần một bể thật rộng.</p>",
     "equipment:glaser": "<p>Cá rất thích dòng chảy mạnh. Chúng hay đứng yên gần mặt nước ngay trong dòng chảy để rình mồi, nhất là chỗ nằm dưới một khúc lũa hay thứ gì đó tương tự.</p><p>Chalceus nhảy rất giỏi. Vì vậy bể lúc nào cũng phải đậy kín, không chừa khe hở.</p>",
-    "behaviour:glaser": "<p>Bạn nên nuôi cá theo đàn, tốt nhất từ 10 con trở lên. Nuôi ít quá thì cá có thể hay gây gổ với đồng loại.</p><p>Với các loài khác trong bể, Chalceus hoàn toàn hiền. Chúng cũng không động gì tới cây thủy sinh.</p>"
+    "behaviour:glaser": "<p>Bạn nên nuôi cá theo đàn, tốt nhất từ 10 con trở lên. Nuôi ít quá thì cá có thể hay gây gổ với đồng loại.</p><p>Với các loài khác trong bể, Chalceus hoàn toàn hiền. Chúng cũng không động gì tới cây thủy sinh.</p>",
+    "beforeYouBuy:seriouslyfish": "<p>Bể nuôi loài này phải có nắp đậy thật khít vì chúng rất hay nhảy. Cá tucan nổi tiếng nhảy giỏi, nên bạn cần kiểm tra kỹ để nắp không chừa khe hở.</p><p>Cá tucan (Chalceus erythrurus) là một loài characin cỡ lớn, sống ở một số vùng thuộc lưu vực Amazon tại Peru và Brazil. Chúng bơi ở tầng mặt của các sông và hồ vùng ngập lũ. Vây đuôi màu đỏ hoặc vàng là điểm để phân biệt chúng với C. macrolepidotus, loài có đuôi màu hồng. Cá bơi nhanh và nhảy rất giỏi. Vì vậy chúng cần nhiều chỗ bơi và một cái nắp bể thật khít. Tốt nhất là nuôi một con riêng lẻ hoặc nuôi theo nhóm trên sáu con.</p>",
+    "distribution:seriouslyfish": "<p>Một số vùng thuộc lưu vực Amazon tại Peru và Brazil.</p>",
+    "habitat:seriouslyfish": "<p>Cá sống ở tầng mặt của các sông và hồ vùng ngập lũ.</p>",
+    "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn (SL): 200 mm. Đáy bể: 120 × 45 cm. Thể tích: khoảng 243 lít.</p><p>Bể 120 × 45 × 45 cm (khoảng 243 lít) là cỡ nhỏ nhất nên tính đến. Loài này có thể lao đi với tốc độ rất cao, nên trong bể nhỏ chúng dễ va đập và tự làm mình bị thương.</p>",
+    "maintenance:seriouslyfish": "<p>Cá cần nhiều chỗ bơi nên bố cục bể không quá quan trọng. Dù vậy, một lớp nền cát với vài cành cây dẻ gai (beech) và ít cây thủy sinh trôi nổi trông rất đẹp. Kiểu bố trí này cũng giống với nhiều biotope tự nhiên của chúng. Bạn nhớ đậy nắp bể thật khít, vì đây là loài nổi tiếng nhảy giỏi.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 22–26°C</li><li>pH: 6,0–7,0</li><li>Độ cứng: 5–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Ngoài tự nhiên, cá ăn chủ yếu côn trùng và các loài giáp xác dưới nước. Chúng thường chịu ăn thức ăn khô. Tuy vậy, một phần lớn khẩu phần vẫn nên là đồ ăn tươi giàu đạm như tôm, trai, trùng huyết, giun đất cắt nhỏ và những thứ tương tự.</p>",
+    "behaviour:seriouslyfish": "<p>Loài này sống ổn nhất khi nuôi một con riêng lẻ hoặc nuôi theo nhóm trên 6 con. Nếu nhóm nhỏ hơn, chúng hay gây gổ với nhau. Ngoài điểm này ra, chúng hợp với nhiều bể cộng đồng cỡ lớn. Cá nuôi chung có thể là các loài characin cùng cỡ như Leporinus, Metynnis, Mylossoma và Brycon sp., các loài cá họ Loricariidae cỡ lớn, cá họ Pimelodidae, và cichlid như Geophagus hoặc Satanoperca sp. Trừ khi bể thật lớn, bạn nên tránh nuôi chung với những loài khác cũng bơi ở tầng mặt.</p>",
+    "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
+    "reproduction:seriouslyfish": "<p>Đến nay chưa có ai cho loài này sinh sản thành công trong bể nuôi. Nhiều khả năng chúng đẻ theo cách tương tự C. macrolepidotus.</p>",
+    "notes:seriouslyfish": "<p>Điểm chính để phân biệt loài này với C. macrolepidotus, một loài cùng chi, là vây đuôi màu đỏ hoặc vàng chứ không phải màu hồng. Ngoài ra, vây ngực và vây bụng của chúng có màu vàng, và trên thân cũng có thể có chút sắc vàng. Loài này được bán ngoài tiệm thường xuyên như loài họ hàng của nó, dù ngoài tự nhiên chúng khá nhiều.</p>"
   },
   "quality": {
     "score": 0.82,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.82
-    },
-    "reason": "thin"
+      "glaser": 0.82,
+      "seriouslyfish": 0.93
+    }
   }
 }

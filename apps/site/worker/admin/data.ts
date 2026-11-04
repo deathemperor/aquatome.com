@@ -62,7 +62,7 @@ export async function listWanted(kv: KVNamespace): Promise<{ names: Wanted[]; mo
 const sortWanted = (xs: Wanted[]) => xs.sort((a, b) => b.readers - a.readers || b.last.localeCompare(a.last) || a.name.localeCompare(b.name))
 
 export type Waiting = { comments: number; photos: number; oldest: string | null }
-/** What the nightly moderation (moderate.yml) hasn't looked at yet: comments without a decision, photos still pending. */
+/** What the hourly moderation (moderate.yml) hasn't looked at yet: comments without a decision, photos still pending. */
 export async function moderationWaiting(db: D1Database): Promise<Waiting> {
   const [c, p] = await Promise.all([
     db.prepare("SELECT COUNT(*) AS n, MIN(created_at) AS oldest FROM comments WHERE status != 'removed' AND decided_at IS NULL").first<{ n: number; oldest: string | null }>(),

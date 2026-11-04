@@ -15,6 +15,7 @@ import { failedBox, ICON, isFailed, page, type Soft } from './shell'
 
 export type AffSummary = { byNetwork: { network: string; category: string; n: number }[]; top: { entity_ref: string; n: number }[]; status: { status: string; n: number }[]; lastCheck: string | null }
 export type RecentPhoto = { id: string; entity_ref: string; name: string; thumb: string; created_at: string }
+export type WaitingPhoto = { id: string; entity_ref: string; name: string; created_at: string }
 export type Clicks = { days: string[]; clicks: number[] }
 
 const when = (iso: string) => esc(iso.slice(0, 16).replace('T', ' '))
@@ -339,8 +340,14 @@ export function wantedPage(now: Date, w: Soft<{ names: Wanted[]; more: boolean }
 
 // ——— Ảnh bạn đọc, Ẩn trang ———
 
-export function photosPage(xs: Soft<RecentPhoto[] | undefined>): string {
+export function photosPage(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<WaitingPhoto[] | undefined>): string {
   let body = '<h1>Ảnh bạn đọc</h1><p class="lede">Ảnh đã qua kiểm duyệt tự động (khuôn mặt, đúng loài, an toàn) và đang hiện trên trang loài. Gỡ: ảnh bị xóa ngay khỏi trang và máy chủ.</p>'
+  // Sent but not yet through the moderation pass (hourly): listed so a photo just sent is seen, without its picture
+  // (it stays private until approved).
+  if (waiting && !isFailed(waiting) && waiting.length) {
+    const rows = waiting.map(p => `<tr><td class="l">${esc(p.entity_ref)}</td><td class="l">${esc(p.name)}</td><td>${when(p.created_at)}</td></tr>`).join('')
+    body += `<h2>Chờ duyệt (${waiting.length})</h2><p class="muted">Lượt duyệt tự động chạy mỗi giờ. Ảnh qua duyệt hiện trên trang loài và trong danh sách dưới; ảnh bị loại thì bị xóa.</p><div class="scroll"><table><thead><tr><th>Trang</th><th>Tên</th><th>Lúc (UTC)</th></tr></thead><tbody>${rows}</tbody></table></div><h2>Đang hiện</h2>`
+  }
   if (isFailed(xs)) body += failedBox('ảnh', xs)
   else if (!xs) body += '<p class="muted">Ảnh bạn đọc chưa bật (thiếu D1, R2 hoặc Turnstile).</p>'
   else {
