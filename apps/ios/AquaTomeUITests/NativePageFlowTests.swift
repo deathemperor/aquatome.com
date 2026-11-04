@@ -320,6 +320,19 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Paracheirodon"].waitForExistence(timeout: 5), "the genus didn't open")
     XCTAssertEqual(app.staticTexts["shelf-intro"].label, "Chi Paracheirodon: 1 loài.")
     XCTAssertFalse(app.buttons.matching(identifier: "shelf-link").firstMatch.exists, "a rank below a genus")
+    // The way up, as the site's trail: the order, then the taxonomy's first page, which lists the orders.
+    let up = app.buttons.matching(identifier: "shelf-up")
+    XCTAssertEqual(up.allElementsBoundByIndex.map { $0.label }, ["Phân loại", "Characiformes", "Characidae"], "not the way up")
+    up.element(boundBy: 1).tap()
+    XCTAssertTrue(app.navigationBars["Characiformes"].waitForExistence(timeout: 5), "the order didn't open")
+    XCTAssertEqual(app.staticTexts["shelf-intro"].label, "Bộ Characiformes: 1 loài.")
+    app.buttons.matching(identifier: "shelf-up").element(boundBy: 0).tap()
+    XCTAssertTrue(app.navigationBars["Phân loại"].waitForExistence(timeout: 5), "the taxonomy's first page didn't open")
+    XCTAssertEqual(app.staticTexts["shelf-intro"].label, "Duyệt loài theo bộ, họ và chi.")
+    let orders = app.buttons.matching(identifier: "shelf-link").allElementsBoundByIndex.map { $0.label }
+    XCTAssertEqual(orders.count, 3, "not the three orders: \(orders)")
+    XCTAssertFalse(app.descendants(matching: .any)["shelf-pages"].buttons.matching(NSPredicate(format: "label BEGINSWITH 'Cá'")).firstMatch.exists,
+                   "fish on the first page")
   }
 
   /// Where a fish is from (the country under its name) and a place named in the text (a continent) open the app's
@@ -333,6 +346,7 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Peru"].waitForExistence(timeout: 5), "not the country's shelf")
     XCTAssertEqual(app.staticTexts["shelf-intro"].label, "2 loài có nguồn gốc từ Peru.")
     XCTAssertEqual(app.staticTexts["shelf-words"].label, "Nanay · Ucayali", "not its rivers")
+    XCTAssertFalse(app.buttons["shelf-words-more"].exists, "more asked for with two rivers")
     XCTAssertTrue(shelfFish(app, "Cá neon").exists && shelfFish(app, "Cá đĩa").exists, "the fish from there not on it")
     XCTAssertFalse(app.descendants(matching: .any)["page"].exists, "the place's web page")
     app.navigationBars.buttons.element(boundBy: 0).tap()
@@ -343,9 +357,21 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertEqual(app.staticTexts["shelf-intro"].label, "2 loài có nguồn gốc từ Nam Mỹ.")
     let countries = app.buttons.matching(identifier: "shelf-link")
     XCTAssertEqual(countries.allElementsBoundByIndex.map { $0.label }, ["Brazil", "Colombia", "Peru"], "not its countries, in the site's order")
-    countries.element(boundBy: 1).tap()
-    XCTAssertTrue(app.navigationBars["Colombia"].waitForExistence(timeout: 5), "the country didn't open")
-    XCTAssertFalse(app.staticTexts["shelf-words"].exists, "rivers for a country the site names none in")
+    countries.element(boundBy: 0).tap()
+    XCTAssertTrue(app.navigationBars["Brazil"].waitForExistence(timeout: 5), "the country didn't open")
+    // Its 20 rivers and regions in three lines, all of them on asking.
+    let words = app.staticTexts["shelf-words"]
+    let folded = words.frame.height
+    app.buttons["shelf-words-more"].tap()
+    XCTAssertGreaterThan(words.frame.height, folded + 10, "the rivers not unfolded")
+    XCTAssertFalse(app.buttons["shelf-words-more"].exists)
+    // Up to the origins' first page, which lists the continents.
+    let up = app.buttons.matching(identifier: "shelf-up")
+    XCTAssertEqual(up.allElementsBoundByIndex.map { $0.label }, ["Nguồn gốc", "Nam Mỹ"], "not the way up")
+    up.element(boundBy: 0).tap()
+    XCTAssertTrue(app.navigationBars["Nguồn gốc"].waitForExistence(timeout: 5), "the origins' first page didn't open")
+    XCTAssertEqual(app.staticTexts["shelf-intro"].label, "Duyệt loài theo châu lục, quốc gia và dòng sông nơi chúng sinh ra.")
+    XCTAssertEqual(app.buttons.matching(identifier: "shelf-link").allElementsBoundByIndex.map { $0.label }, ["Châu Á", "Nam Mỹ"])
   }
 
   /// The tank-mates tool, set to this fish by the page's link: its web page in the app, fish and all (not the tool left

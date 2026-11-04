@@ -143,6 +143,8 @@ public struct HandbookShelves: Sendable {
     public let title: String
     /// A genus: in italics.
     public let italic: Bool
+    /// The pages above it, from the section's first page down, as the site's trail above the heading: the way up.
+    public let up: [Link]
     /// The site's line under the heading; nil on a section's first page (the app says what it lists).
     public let intro: String?
     public let links: [Link]
@@ -203,12 +205,16 @@ public struct HandbookShelves: Sendable {
     }
     let at = link(taxa: path)
     guard let step = own else {
-      return Page(kind: .taxon, title: title, italic: false, intro: nil, links: links, words: [], fish: [],
+      return Page(kind: .taxon, title: title, italic: false, up: [], intro: nil, links: links, words: [], fish: [],
                   item: .init(kind: .taxon, name: title, path: at))
     }
+    let above = Self.steps(fish[0]).prefix(path.count - 1).enumerated().map { i, s in
+      Page.Link(title: s.name, path: link(taxa: Array(path[...i])), count: nil, italic: s.rank == 2)
+    }
+    let up = [Page.Link(title: title, path: link(taxa: []), count: nil, italic: false)] + above
     let level = words["taxon", Self.ranks[step.rank]] ?? ""
     let intro = words["taxon", "intro"].map { fill($0, ["level": level, "name": step.name, "n": "\(fish.count)"]) }
-    return Page(kind: .taxon, title: step.name, italic: step.rank == 2, intro: intro, links: links, words: [], fish: fish,
+    return Page(kind: .taxon, title: step.name, italic: step.rank == 2, up: up, intro: intro, links: links, words: [], fish: fish,
                 item: .init(kind: .taxon, name: step.name, path: at))
   }
 
@@ -228,7 +234,7 @@ public struct HandbookShelves: Sendable {
     if path.isEmpty {
       guard !continents.isEmpty else { return nil }
       let links = continents.map { Page.Link(title: $0.name, path: link(origin: [$0.id]), count: nil, italic: false) }
-      return Page(kind: .origin, title: title, italic: false, intro: nil, links: links, words: [], fish: [],
+      return Page(kind: .origin, title: title, italic: false, up: [], intro: nil, links: links, words: [], fish: [],
                   item: .init(kind: .origin, name: title, path: link(origin: [])))
     }
     let place: HandbookIndex.Place?
@@ -244,7 +250,10 @@ public struct HandbookShelves: Sendable {
       : []
     let name = words["placeTitle", place.id] ?? place.name
     let intro = words["placeIntro", place.id] ?? words["origin", "intro"].map { fill($0, ["n": "\(fish.count)", "place": place.name]) }
-    return Page(kind: .origin, title: name, italic: false, intro: intro, links: links, words: place.kids, fish: fish,
+    let continent = place.kind == .country ? continents.first { $0.id == place.parent } : nil
+    let up = [Page.Link(title: title, path: link(origin: []), count: nil, italic: false)]
+      + (continent.map { [Page.Link(title: $0.name, path: link(origin: [$0.id]), count: nil, italic: false)] } ?? [])
+    return Page(kind: .origin, title: name, italic: false, up: up, intro: intro, links: links, words: place.kids, fish: fish,
                 item: .init(kind: .origin, name: name, path: link(origin: path)))
   }
 

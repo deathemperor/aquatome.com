@@ -7,6 +7,8 @@ import SwiftUI
 /// can filter. The section's first page lists the orders or the continents alone.
 struct TaxaShelf: View {
   let page: HandbookShelves.Page
+  /// A country's rivers and regions, all of them: three lines until the reader asks.
+  @State private var allWords = false
 
   var body: some View {
     Group {
@@ -22,6 +24,7 @@ struct TaxaShelf: View {
 
   private var header: some View {
     VStack(alignment: .leading, spacing: 16) {
+      if !page.up.isEmpty { trail }
       Group {
         if let intro = page.intro { Text(verbatim: intro) }
         else if page.kind == .taxon { Text("Duyệt loài theo bộ, họ và chi.") }
@@ -32,12 +35,32 @@ struct TaxaShelf: View {
       .accessibilityIdentifier("shelf-intro")
       links
       if !page.words.isEmpty {
-        Text(verbatim: page.words.joined(separator: " · ")).font(.footnote).foregroundStyle(.secondary)
-          .accessibilityIdentifier("shelf-words")
+        VStack(alignment: .leading, spacing: 4) {
+          Text(verbatim: page.words.joined(separator: " · ")).font(.footnote).foregroundStyle(.secondary)
+            .lineLimit(allWords ? nil : 3)
+            .accessibilityIdentifier("shelf-words")
+          if !allWords && page.words.count > 12 {
+            Button("Xem thêm") { allWords = true }.font(.footnote).accessibilityIdentifier("shelf-words-more")
+          }
+        }
       }
       if !page.fish.isEmpty {
         Text("Danh sách loài").font(.title3.bold()).padding(.top, 4).accessibilityAddTraits(.isHeader)
       }
+    }
+  }
+
+  /// The pages above it, as the site's trail: the section's first page, then each rank or the continent.
+  private var trail: some View {
+    ScrollView(.horizontal, showsIndicators: false) {
+      HStack(spacing: 6) {
+        ForEach(Array(page.up.enumerated()), id: \.offset) { i, link in
+          if i > 0 { Text(verbatim: "/").foregroundStyle(.tertiary) }
+          NavigationLink(value: item(link)) { Text(verbatim: link.title).italic(link.italic) }
+            .accessibilityIdentifier("shelf-up")
+        }
+      }
+      .font(.subheadline)
     }
   }
 

@@ -52,6 +52,10 @@ private let vi = HandbookShelves(HandbookIndex(lang: "vi", items: items, labels:
 
   let genus = try #require(vi.page(at: "/vi/phan-loai/cypriniformes/cyprinidae/danio/"))
   #expect(genus.title == "Danio" && genus.italic)
+  // The way up, as the site's trail: the section's first page, the order, the family.
+  #expect(genus.up.map(\.title) == ["Phân loại", "Cypriniformes", "Cyprinidae"])
+  #expect(genus.up.map(\.path) == ["/vi/phan-loai/", "/vi/phan-loai/cypriniformes/", "/vi/phan-loai/cypriniformes/cyprinidae/"])
+  #expect(order.up.map(\.path) == ["/vi/phan-loai/"])
   #expect(genus.intro == "Chi Danio: 2 loài.")
   #expect(genus.links.isEmpty)
   let family = try #require(vi.page(at: "/vi/phan-loai/cypriniformes/cyprinidae/"))
@@ -60,7 +64,7 @@ private let vi = HandbookShelves(HandbookIndex(lang: "vi", items: items, labels:
 
 @Test func theTaxonomysFirstPageListsTheOrdersWithoutFish() throws {
   let root = try #require(vi.page(at: "/vi/phan-loai/"))
-  #expect(root.title == "Phân loại" && root.intro == nil && root.fish.isEmpty)
+  #expect(root.title == "Phân loại" && root.intro == nil && root.fish.isEmpty && root.up.isEmpty)
   #expect(root.links.map(\.title) == ["Cypriniformes", "Anabantiformes", "Characiformes"])
   #expect(root.links.map(\.count) == [6, 1, 1])
 }
@@ -83,6 +87,7 @@ private let vi = HandbookShelves(HandbookIndex(lang: "vi", items: items, labels:
   #expect(family.links[1].path == "/vi/phan-loai/lymnaeidae/radix/")
   let genus = try #require(s.page(at: "/vi/phan-loai/lymnaeidae/radix/"))
   #expect(genus.italic && genus.intro == "Chi Radix: 1 loài." && genus.fish.map(\.contentId) == ["oc-tai"])
+  #expect(genus.up.map(\.title) == ["Phân loại", "Lymnaeidae"] && genus.up.last?.path == "/vi/phan-loai/lymnaeidae/", "no empty step up")
   // No genus: counted in its family, with no genus of its own.
   let cobitidae = try #require(s.page(at: "/vi/phan-loai/cypriniformes/cobitidae/"))
   #expect(cobitidae.fish.count == 2 && cobitidae.links.map(\.title) == ["Pangio"])
@@ -109,6 +114,8 @@ private let vi = HandbookShelves(HandbookIndex(lang: "vi", items: items, labels:
   let india = try #require(vi.page(at: "/vi/nguon-goc/asia/india/"))
   #expect(india.fish.map(\.contentId) == ["zebra", "pearl"])
   #expect(india.links.isEmpty && india.words == ["Assam", "Kerala"], "rivers and regions: words, no page")
+  #expect(india.up.map(\.title) == ["Nguồn gốc", "Châu Á"] && india.up.map(\.path) == ["/vi/nguon-goc/", "/vi/nguon-goc/asia/"])
+  #expect(asia.up.map(\.path) == ["/vi/nguon-goc/"])
   // A place's own heading and line, in place of its name and the counted one.
   let vietnam = try #require(vi.page(at: "/vi/nguon-goc/asia/vietnam/"))
   #expect(vietnam.title == "Cá Việt Nam" && vietnam.intro == "Những loài cá có nguồn gốc từ sông suối Việt Nam.")
