@@ -56,9 +56,14 @@ that would have caught it).
     comments cut, under the account that sent it or no one's, listed and deleted by that account (never the image),
     deleted with the account and 6 months on, and seen only on the owner's dashboard
     (`apps/site/worker/test/fishid.test.ts`, `handler.test.ts`).
+  - The owner's dashboard (`apps/site/worker/test/admin-*.test.ts`): each chart with no days, one day, only zeros, a
+    negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
+    the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a
+    bad zone cookie).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
-    tools).
+    tools), and the owner's dashboard: a chart's day read by a tap, the pointer or the keys, and times following a
+    device set to another zone (`dashboard-charts.spec.ts`, local only).
   - **Page checks** on one or two pages of every kind, found from the build (a new kind of page is covered from its first
     build):
     - status 200 and a title
