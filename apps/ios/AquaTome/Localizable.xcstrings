@@ -6998,7 +6998,7 @@
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diposting sebagai %@"
+            "value": "Posting sebagai %@"
           }
         },
         "th": {
@@ -7181,6 +7181,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปลี่ยน"
+          }
+        }
+      }
+    },
+    "Đổi tên": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ubah nama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปลี่ยนชื่อ"
           }
         }
       }

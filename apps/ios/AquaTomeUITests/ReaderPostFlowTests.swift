@@ -129,7 +129,24 @@ final class ReaderPostFlowTests: XCTestCase {
     sendUnderKeptName(app)
     app.buttons["post-another"].tap()
     app.buttons["post-name-change"].tap()
-    XCTAssertEqual(app.textFields["post-name"].value as? String, "Hà", "the name to change isn't the one kept")
+    let field = app.textFields["post-name"]
+    XCTAssertEqual(field.value as? String, "Hà", "the name to change isn't the one kept")
+    let typing = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hasKeyboardFocus == true"), object: field)
+    XCTAssertEqual(XCTWaiter().wait(for: [typing], timeout: 3), .completed, "the name to change isn't ready to type in")
+  }
+
+  /// A name typed and not sent isn't kept: the sheet opened again asks for it, not "Đăng với tên".
+  func testANameNotSentIsNotKept() {
+    let app = launch("-picked-photo")
+    openNeon(app)
+    signInToPost(app, "post-photo")
+    let name = app.textFields["post-name"]
+    name.tap()
+    name.typeText("Hà")
+    app.buttons["Đóng"].tap()
+    app.buttons["post-photo"].tap()
+    XCTAssertTrue(app.textFields["post-name"].waitForExistence(timeout: 5), "not asked for a name never sent")
+    XCTAssertFalse(app.staticTexts["post-name-kept"].exists, "a name never sent is shown as kept")
   }
 
   /// A photo on its way says so, at the button, with the form held still; once received, its thanks, the link that takes
@@ -149,6 +166,7 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertFalse(send.isEnabled, "the button can be pressed again while sending")
     XCTAssertFalse(app.switches["post-consent"].isEnabled, "the form can be changed while sending")
     XCTAssertFalse(app.buttons["post-pick"].isEnabled, "another photo can be picked while sending")
+    XCTAssertFalse(app.buttons["Đóng"].isEnabled, "the sheet can be closed while sending, and the photo's link with it")
     let thanks = app.staticTexts["Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày."]
     XCTAssertTrue(thanks.waitForExistence(timeout: 20), "not received")
     for e in [thanks, app.descendants(matching: .any)["post-delete"], app.buttons["post-another"], app.buttons["post-done"]] {

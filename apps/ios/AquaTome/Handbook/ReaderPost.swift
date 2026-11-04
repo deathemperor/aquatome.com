@@ -17,8 +17,10 @@ struct ReaderPost: View {
   @Environment(AccountModel.self) private var account
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dismiss) private var dismiss
-  /// The name the reader posts under, kept on this phone for the next post (the account keeps no name).
+  /// The name the reader last posted under, kept on this phone for the next post (the account keeps no name).
   @AppStorage("readers.name") private var who = ""
+  /// The name in its field: kept once a post under it goes through, not as typed (a name refused, or typed and left).
+  @State private var draft = ""
   /// The name's field shown: no name kept yet, "Đổi", or a name the site refused. A kept name is a line saying so.
   @State private var naming = false
   @State private var text = ""
@@ -67,9 +69,11 @@ struct ReaderPost: View {
       }
       .navigationTitle(kind == .comment ? "Thảo luận" : "Ảnh bạn đọc")
       .navigationBarTitleDisplayMode(.inline)
-      .toolbar { Button("Đóng") { dismiss() } }
+      .toolbar { Button("Đóng") { dismiss() }.disabled(sending) }
     }
-    .onAppear { naming = trimmed(who).isEmpty }
+    // Not closed while a photo is on its way: its link to take it back, shown once, would be lost with the sheet.
+    .interactiveDismissDisabled(sending)
+    .onAppear { draft = who; naming = trimmed(who).isEmpty }
     // What the form says, said to VoiceOver as it changes, as the site's status line is read (aria-live).
     .onChange(of: said) { _, s in if let s { AccessibilityNotification.Announcement(s.text).post() } }
     .onChange(of: sending) { _, on in if on { AccessibilityNotification.Announcement(String(localized: "Đang gửi…")).post() } }
@@ -104,13 +108,14 @@ struct ReaderPost: View {
         if case .signedIn = account.state {
           Group {
             if naming || trimmed(who).isEmpty {
-              TextField(kind == .comment ? "Tên" : "Tên hiển thị", text: $who).textContentType(.nickname)
+              TextField(kind == .comment ? "Tên" : "Tên hiển thị", text: $draft).textContentType(.nickname)
                 .focused($typing, equals: .name).accessibilityIdentifier("post-name")
             } else {
               HStack {
                 Text("Đăng với tên \(Text(trimmed(who)).bold())").accessibilityIdentifier("post-name-kept")
                 Spacer()
-                Button("Đổi") { naming = true; typing = .name }.buttonStyle(.borderless).accessibilityIdentifier("post-name-change")
+                Button("Đổi") { naming = true; typing = .name }.buttonStyle(.borderless)
+                  .accessibilityLabel(Text("Đổi tên")).accessibilityIdentifier("post-name-change")
               }
             }
             if kind == .comment {
@@ -204,9 +209,9 @@ struct ReaderPost: View {
     guard !sending else { return }
     typing = nil
     // What the Worker would refuse unread, said before sending, in the form's order.
-    if kind == .comment, let code = Readers.refusal(comment: who, body: text) { return refuse(code) }
+    if kind == .comment, let code = Readers.refusal(comment: draft, body: text) { return refuse(code) }
     if kind == .photo {
-      if let code = Readers.refusal(photoName: who) { return refuse(code) }
+      if let code = Readers.refusal(photoName: draft) { return refuse(code) }
       if !consent { return refuse("consent") }
       guard let jpeg else { return refuse("no file") }
       if jpeg.count > 8 << 20 { return refuse("too large") }
@@ -216,23 +221,23 @@ struct ReaderPost: View {
     let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0"
     let answer = await account.post { token in
       kind == .comment
-        ? Readers.post(comment: key, name: who, body: text, site: handbook.site, token: token, version: version)
-        : Readers.post(photo: key, name: who, consent: consent, jpeg: jpeg ?? Data(), site: handbook.site, token: token, version: version)
+        ? Readers.post(comment: key, name: draft, body: text, site: handbook.site, token: token, version: version)
+        : Readers.post(photo: key, name: draft, consent: consent, jpeg: jpeg ?? Data(), site: handbook.site, token: token, version: version)
     }.map { Readers.answer($0.0, status: $0.1) }
     sending = false
     switch answer {
     case let .shown(c)?:
       shown(c)
       text = ""
-      naming = false
+      keepName()
       said = .posted(String(localized: "Đã đăng bình luận."))
     case .held?:
       text = ""
-      naming = false
+      keepName()
       said = .posted(String(localized: "Bình luận đang chờ duyệt."))
     case let .received(delete)?:
       picked = nil; jpeg = nil; preview = nil; consent = false
-      naming = false
+      keepName()
       said = .received(delete: delete.flatMap { URL(string: $0, relativeTo: handbook.site)?.absoluteURL })
     case .signedOut? where !signedIn:
       // Signed out: the form gives way to the sign-in, which says so.
@@ -248,6 +253,12 @@ struct ReaderPost: View {
   private func refuse(_ code: String) {
     if code == "bad name" || code == "name must be 1–40 characters" { naming = true }
     said = .refused(Self.refusal(code, kind))
+  }
+
+  /// A post gone through: its name kept for the next.
+  private func keepName() {
+    who = trimmed(draft)
+    naming = false
   }
 
   private var signedIn: Bool { if case .signedIn = account.state { true } else { false } }
