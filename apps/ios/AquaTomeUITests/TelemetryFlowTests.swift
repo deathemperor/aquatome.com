@@ -40,7 +40,8 @@ final class TelemetryFlowTests: XCTestCase {
     expectSent(app, #""name":"light.connect","ok":true"#)
 
     let sent = received(app).label
-    XCTAssertFalse(sent.contains("DYSL30A1B2C3"), "the light's name was sent")
+    // In any form: as it is, or lowercased with marks between its parts (as a code is sent).
+    XCTAssertFalse(sent.lowercased().filter { $0.isLetter || $0.isNumber }.contains("dysl30a1b2c3"), "the light's name was sent")
     // The only ids sent are the sessions': not the account's, nor the light's.
     let uuid = try! NSRegularExpression(pattern: "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}")
     let ids = Set(uuid.matches(in: sent, range: NSRange(sent.startIndex..., in: sent)).map { String(sent[Range($0.range, in: sent)!]) })

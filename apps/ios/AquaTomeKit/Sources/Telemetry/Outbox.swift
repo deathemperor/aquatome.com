@@ -46,6 +46,7 @@ actor Outbox {
   /// Events of one session, in batches of at most `Wire.batchSize` (which keeps a batch under `Wire.maxBatch`: the
   /// largest event the contract takes is under 650 bytes); then the cap.
   func add(_ events: [Event], about: About, session: String) {
+    guard !events.isEmpty else { return }
     load()
     for part in stride(from: 0, to: events.count, by: Wire.batchSize) {
       state.batches.append(Queued(seq: state.next, batch: Batch(about, session: session, events: Array(events[part..<min(part + Wire.batchSize, events.count)]))))
@@ -62,6 +63,7 @@ actor Outbox {
   }
 
   func add(_ diagnostics: [Diagnostic]) {
+    guard !diagnostics.isEmpty else { return }
     load()
     state.diagnostics = Array((state.diagnostics + diagnostics).suffix(Self.diagnosticsCap))
     changed = true
