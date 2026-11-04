@@ -37,6 +37,7 @@ import { FB } from './facebook/config'
 import { FB_FISH_SCHEMA, FB_SPECIES_SCHEMA, identifyPhotos, type FbVerdict } from './facebook/identify'
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
+import { tidyCredits } from './wiki-author'
 import { hashPictures } from './picture-hashes'
 import { extractTraits } from './traits'
 import { topicCheck } from './topic-check'
@@ -246,6 +247,11 @@ if (cmd === 'run' || cmd === 'card-fill') {
   console.log(`thumbs: ${r.checked} photos, ${r.made} made, ${r.failed.length} failed`)
   for (const f of r.failed) console.log(`failed: ${f}`)
   if (r.failed.length) process.exitCode = 1
+} else if (cmd === 'credits') {
+  // Wikimedia photos credited before the import tidied Commons' placeholder authors ("No machine-readable author
+  // provided. X assumed…", "X~commonswiki"): tidied in place. New imports are tidied as they come (authorText).
+  const r = await tidyCredits(join(ROOT, 'content'))
+  console.log(`credits: ${r.authors} authors tidied in ${r.files} files`)
 } else if (cmd === 'picture-hashes') {
   // The image hash of every picture in content, so no page shows the same picture twice from two files.
   const r = await hashPictures(ROOT, {
