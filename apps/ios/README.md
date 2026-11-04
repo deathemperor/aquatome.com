@@ -117,7 +117,7 @@ they're sent. The App Review contact is entered on the App Store Connect website
 ## Performance budgets
 
 `AquaTomeUITests/PerformanceTests` measures launch (to the first screen answering touches) and flinging through 800 fish
-(`-large-handbook`: the app's CPU time and peak memory). Job `app` runs them on the CI simulator, archives the app
+(`-large-handbook`: the app's CPU time and peak memory). Job `perf` runs them on a GitHub-hosted Mac's simulator, archives the app
 unsigned for its size, and `scripts/check-perf.py` checks each median against `perf-budgets.json`; a budgeted measurement
 that's missing or reads 0 fails. The simulator reports no scroll hitches, so the list is budgeted by the CPU time it
 costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instructions as 0.
@@ -127,6 +127,32 @@ Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in
 Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
 the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
 Debug builds, so they don't see it.
+
+## CI's own Mac
+
+Jobs `kit`, `app` and `handbook` of `ios.yml` run on the repository's own Mac (a self-hosted runner, label `aquatome`)
+for main and for pull requests its owner opens from this repository's own branches. GitHub's Macs keep everything else:
+a fork's or a bot's pull request (the automatic fixes'), job `lights` (paced by the fake light, not the CPU) and job
+`perf` (its budgets are GitHub's Macs' readings). One runner there runs one job at a time, so `app` and the two
+`handbook` halves take turns.
+
+The runner runs as that Mac's user, with its keys. `ios.yml` only routes: a fork's pull request runs its own copy of the
+workflows, which can name the label. What keeps others' code off the Mac is the runner's job-started hook
+(`ACTIONS_RUNNER_HOOK_JOB_STARTED` in its `.env`, a script outside the repository): any job but a push to main or a pull
+request from the owner off one of this repository's branches fails before its first step. Approving an outside
+contributor's run (required for every one, by the repository's Actions setting) runs their workflows, on GitHub's Macs
+if the hook holds; read them first.
+
+- Off, when the Mac is away or asleep: `gh variable set IOS_LOCAL_RUNNER --body off`. New runs then go to GitHub's Macs;
+  runs already queued for the Mac wait for it. "Re-run failed jobs" keeps where the jobs ran: re-run all jobs instead.
+  `--body on` brings them back.
+- The runner: in `~/actions-runner/<name>`, registered with `--labels aquatome` and run as a login service
+  (`./svc.sh install && ./svc.sh start`), its hook in `~/actions-runner/hooks/`. The Mac must not sleep. It builds with
+  that Mac's own Xcode, which can be newer than GitHub's.
+- Its simulator: `xcrun simctl create aquatome-ci-1 "iPhone 17" com.apple.CoreSimulator.SimRuntime.iOS-26-5`, with its
+  id in the runner's `.env` as `AQ_CI_UDID=<id>`. The simulator jobs' `scripts/wait-for-simulator.sh` erases it first,
+  points xcodebuild at it, and shuts it down after. Nothing else on that Mac may use a simulator named `aquatome-ci-*`.
+  A second runner on the same Mac needs its own simulator and `.env`: sharing one, each would erase the other's mid-test.
 
 ## AquaTomeKit
 

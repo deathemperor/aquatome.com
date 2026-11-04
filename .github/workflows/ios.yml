@@ -44,8 +44,8 @@ env:
 jobs:
   # Whether a pull request is ready (a draft runs nothing on macOS), and which of the two long flow jobs it needs
   # (apps/ios/scripts/flows-to-run.py says how it decides): a change the lights' flows can't reach doesn't hold a macOS
-  # runner for them, which the site's engine shares. Jobs `kit` and `app` run on every ready pull request, and main
-  # runs everything after a merge.
+  # runner for them, which the site's engine shares. Jobs `kit`, `app` and `perf` run on every ready pull request, and
+  # main runs everything after a merge.
   changes:
     name: "iOS app: which flows this change needs"
     runs-on: ubuntu-latest
@@ -53,6 +53,7 @@ jobs:
       ready: ${{ steps.pick.outputs.ready }}
       handbook: ${{ steps.pick.outputs.handbook }}
       lights: ${{ steps.pick.outputs.lights }}
+      runner: ${{ steps.where.outputs.runner }}
     steps:
       # A pull request is checked out as its merge with main: its first parent is main, so the diff is its change.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -77,11 +78,24 @@ jobs:
             git -c core.quotePath=false diff --no-renames --name-only HEAD^1 HEAD |
               python3 apps/ios/scripts/flows-to-run.py | tee -a "$GITHUB_OUTPUT"
           fi
+      # Where jobs `kit`, `app` and `handbook` run: the repository's own Mac (label `aquatome`, apps/ios/README.md) for
+      # main and for pull requests its owner opened from this repository's own branches, while the repository variable
+      # IOS_LOCAL_RUNNER is "on"; GitHub's Macs otherwise. This only routes: a fork's pull request runs its own copy of
+      # this file, so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
+      - id: where
+        env:
+          LOCAL: >-
+            ${{ vars.IOS_LOCAL_RUNNER == 'on' && (github.event_name == 'push' ||
+            (github.event.pull_request.head.repo.full_name == github.repository &&
+            github.event.pull_request.user.login == github.repository_owner)) }}
+        run: |
+          if [ "$LOCAL" = true ]; then echo 'runner=["self-hosted","macOS","aquatome"]'; else echo 'runner="macos-26"'; fi |
+            tee -a "$GITHUB_OUTPUT"
   kit:
     name: "iOS kit: unit tests"
     needs: changes
     if: needs.changes.outputs.ready == 'true'
-    runs-on: macos-26
+    runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -90,22 +104,22 @@ jobs:
       - run: swift build && swift test
         working-directory: apps/ios/AquaTomeKit
   app:
-    name: "iOS app: other flows, strings, performance and size"
+    name: "iOS app: other flows and strings"
     needs: changes
     if: needs.changes.outputs.ready == 'true'
-    runs-on: macos-26
+    runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
-      # The main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights' (job `lights`), and
-      # the App Store's screenshots (app-store.yml), which read the live site.
+      # The main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights' (job `lights`), the
+      # performance tests (job `perf`), and the App Store's screenshots (app-store.yml), which read the live site.
       # A failed test runs once more, as the site's journeys do on CI: the simulator on these runners sometimes stops
       # answering for 30 s, then drops the next tap or loses the app (PRs #234, #248 on 2026-10-31, in their
       # recordings). A test that fails twice fails the job; one that passed only on its retry is flagged below.
       - run: >-
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
-          -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
+          -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
           -retry-tests-on-failure -test-iterations 2 -skip-testing:AquaTomeUITests/PerformanceTests
@@ -117,13 +131,32 @@ jobs:
         run: apps/ios/scripts/retried-tests.py build/ui.xcresult
       # Every string the app shows is translated into Indonesian and Thai.
       - run: python3 apps/ios/scripts/check-strings.py build/dd
-      # What the app costs a reader (apps/ios/perf-budgets.json): launch, the work and memory of a long list, its size.
-      # Measured apart from the flows above, so a flow's retry never touches a measurement. Budgets are checked in
-      # code, not in an Xcode .xcbaseline: a baseline belongs to one machine model, and on hosted runners it would
-      # stop applying, silently, the day the machines change.
+      - name: The own Mac's simulator shut down
+        if: always()
+        run: apps/ios/scripts/wait-for-simulator.sh --done
+      - if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ios-ui-tests
+          path: build/ui.xcresult
+          if-no-files-found: ignore
+  # What the app costs a reader (apps/ios/perf-budgets.json): launch, the work and memory of a long list, its size. On
+  # GitHub's Macs always: the budgets are CI's readings there ×1.1, and the repository's own Mac, much faster, would pass
+  # a regression unseen. Measured apart from the flows, so a flow's retry never touches a measurement. Budgets are
+  # checked in code, not in an Xcode .xcbaseline: a baseline belongs to one machine model, and on hosted runners it
+  # would stop applying, silently, the day the machines change.
+  perf:
+    name: "iOS app: performance and size"
+    needs: changes
+    if: needs.changes.outputs.ready == 'true'
+    runs-on: macos-26
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: apps/ios/scripts/wait-for-simulator.sh
       - name: Performance tests
         run: >-
-          xcodebuild test-without-building -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
           -derivedDataPath build/dd -resultBundlePath build/perf.xcresult CODE_SIGNING_ALLOWED=NO
           -only-testing:AquaTomeUITests/PerformanceTests
@@ -149,10 +182,8 @@ jobs:
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: ios-ui-tests
-          path: |
-            build/ui.xcresult
-            build/perf.xcresult
+          name: ios-perf
+          path: build/perf.xcresult
           if-no-files-found: ignore
   # The handbook's flows (HANDBOOK_FLOWS, above): on their own runners, beside jobs `app` and `lights`. On 2026-11-01
   # `app` ran out of its hour on a slow runner, in the performance tests after 52 minutes of flows (15 of them the
@@ -164,7 +195,7 @@ jobs:
     name: "iOS app: handbook and tank-life flows"
     needs: changes
     if: needs.changes.outputs.handbook == 'true'
-    runs-on: macos-26
+    runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
@@ -185,13 +216,16 @@ jobs:
             done
           fi
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome \
-            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
+            -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}" \
             -derivedDataPath build/dd -resultBundlePath build/handbook.xcresult CODE_SIGNING_ALLOWED=NO \
             -test-timeouts-enabled YES -default-test-execution-time-allowance 600 \
             -retry-tests-on-failure -test-iterations 2 $(printf -- '-only-testing:AquaTomeUITests/%s ' $flows)
       - name: Tests that passed only on a retry
         if: always()
         run: apps/ios/scripts/retried-tests.py build/handbook.xcresult
+      - name: The own Mac's simulator shut down
+        if: always()
+        run: apps/ios/scripts/wait-for-simulator.sh --done
       # The pages' screenshots (PageShotsFlowTests, in the first half), a pull request's before (its base's run) or
       # after (its own): see docs/governance.md.
       - name: Page screenshots
@@ -236,13 +270,16 @@ jobs:
             only="-only-testing:AquaTomeUITests/LightFlowTests $(printf -- '-skip-testing:AquaTomeUITests/LightFlowTests/%s ' $LIGHT_FLOWS_FIRST)"
           fi
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome \
-            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
+            -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}" \
             -derivedDataPath build/dd -resultBundlePath build/lights.xcresult CODE_SIGNING_ALLOWED=NO \
             -test-timeouts-enabled YES -default-test-execution-time-allowance 600 \
             -retry-tests-on-failure -test-iterations 2 $only
       - name: Tests that passed only on a retry
         if: always()
         run: apps/ios/scripts/retried-tests.py build/lights.xcresult
+      - name: The own Mac's simulator shut down
+        if: always()
+        run: apps/ios/scripts/wait-for-simulator.sh --done
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
