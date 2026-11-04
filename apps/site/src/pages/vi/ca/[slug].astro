@@ -123,7 +123,8 @@ const alternates = await alternatesOf('species', s.id)
     .side > :global(:last-child) { position: static; }
   }
   @media (max-width: 860px) {
-    .top, .two { grid-template-columns: 1fr; }
+    /* minmax(0, …): nothing in the column (the thumbnails' heading, a long word) can widen it past the screen. */
+    .top, .two { grid-template-columns: minmax(0, 1fr); }
     .top { grid-template-rows: none; grid-template-areas: 'id' 'photo' 'facts' 'strip'; }
     .side { display: contents; }
     .side > :global(.strip) { grid-area: strip; }
