@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
-import { sniff } from '../photos'
+import { sniff, waitingPhotos } from '../photos'
+import { photosPage } from '../admin/pages'
 import { testD1 } from './d1'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
@@ -98,4 +99,21 @@ test('without the buckets or secrets the API answers 503 and the section stays h
   const { e } = env()
   const r = await handle(new Request('https://x.test/_p?e=species:x'), { ...e, UPLOADS: undefined } as Env)
   expect(r.status).toBe(503)
+})
+
+// A photo just sent waits for the moderation pass (hourly): the owner's page lists it as waiting, its name escaped and
+// without its picture (private until approved), and drops the list once nothing waits.
+test('the dashboard lists photos waiting for moderation', async () => {
+  const { e } = env()
+  expect(photosPage([], [])).not.toContain('Chờ duyệt')
+  const r = await handle(upload(ok), e)
+  expect(r.status).toBe(201)
+  const { id } = (await r.json()) as { id: string }
+  const waiting = await waitingPhotos(e as never)
+  expect(waiting).toMatchObject([{ id, entity_ref: 'species:paracheirodon-innesi', name: 'Lộc' }])
+  const html = photosPage([], waiting)
+  expect(html).toContain('Chờ duyệt (1)')
+  expect(html).toContain('species:paracheirodon-innesi')
+  expect(html).not.toContain(id)
+  expect(photosPage([], [{ ...waiting![0]!, name: '<b>x</b>' }])).toContain('&lt;b&gt;x&lt;/b&gt;')
 })
