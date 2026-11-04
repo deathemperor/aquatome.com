@@ -217,19 +217,25 @@ final class NativePageFlowTests: XCTestCase {
   }
 
   /// A fish's page as the site writes it for the app, in the order its reader asks: where it's from and its other names
-  /// under its name, the summary as one paragraph with the mistakes keepers make, the Vietnamese climate, its tank-mates,
-  /// its gallery (each photo credited), its videos, its breeds, then the sources' terms and the sources behind its
-  /// figures, last. Each is found further down than the one before (`reveal` only scrolls down). All of it drawn: no part
-  /// left to the web.
+  /// under its name, the sources behind its figures under its facts (as the site's data card has them), the summary as
+  /// one paragraph with the mistakes keepers make, the Vietnamese climate, its tank-mates (its temperament and smallest
+  /// school first), its gallery (each photo credited), its videos, its breeds, then the sources' terms, last. Each is
+  /// found further down than the one before (`reveal` only scrolls down). All of it drawn: no part left to the web.
   func testAFishIsDrawnByTheAppWithEachOfItsParts() {
     let app = launch()
     openItem(app, "ca neon", "Cá neon")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
     XCTAssertTrue(text(app, "Characidae, Peru").exists, "no family and country")
     XCTAssertTrue(text(app, "Tên khác: Neon tetra").exists, "no other names")
+    let sources = app.descendants(matching: .any)["page-more"]
+    reveal(app, sources)
+    sources.tap()
+    XCTAssertTrue(text(app, "Seriously Fish: 20–26°C").waitForExistence(timeout: 2), "the sources behind a figure don't open")
     reveal(app, text(app, "Cá nhỏ, hiền, hợp bể cộng đồng"))
     reveal(app, text(app, "Thả vài con"))
     reveal(app, text(app, "Mùa đông miền Bắc"))
+    // Its temperament and smallest school under "Nuôi chung", as the site has them: not in the facts.
+    reveal(app, text(app, "Tính cách: Hiền · Đàn tối thiểu: 6 con"))
     reveal(app, text(app, "Lớn tới 15 cm, có thể ăn Cá neon"))
     XCTAssertTrue(card(app, "Cá ngựa vằn").exists, "no fish to keep with it")
     XCTAssertTrue(app.links["Ảnh: Tác giả 5 · CC BY 4.0"].exists, "a card's photo without its credit")
@@ -253,10 +259,6 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, text(app, "Đàn neon trong bể thủy sinh"))
     reveal(app, card(app, "Cá neon vàng"))
     reveal(app, text(app, "với sự cho phép của họ"))
-    let sources = app.descendants(matching: .any)["page-more"]
-    reveal(app, sources)
-    sources.tap()
-    XCTAssertTrue(text(app, "Seriously Fish: 20–26°C").waitForExistence(timeout: 2), "the sources behind a figure don't open")
     XCTAssertFalse(app.buttons["page-web"].exists, "a part left to the web")
   }
 

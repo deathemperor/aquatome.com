@@ -16,9 +16,10 @@ extension HandbookIndex.Facts {
     r.min == r.max ? number(r.min, locale) : "\(number(r.min, locale))–\(number(r.max, locale))"
   }
 
-  /// Whether the card has anything to show: a figure, or a temperament the site names.
+  /// Whether the card has anything to show: one of the site's data card's figures. A temperament isn't one: the site shows
+  /// it with the tank-mates.
   public var any: Bool {
-    sizeCm != nil || tempC != nil || ph != nil || gh != nil || tankCm != nil || difficulty != nil || Self.temperaments.contains(temperament ?? "")
+    sizeCm != nil || tempC != nil || ph != nil || gh != nil || tankCm != nil || difficulty != nil || lifeYears != nil
   }
 
   /// The temperaments the site names (TEMPERAMENT_LABELS); another is left out of the card.
