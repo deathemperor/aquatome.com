@@ -347,6 +347,24 @@ export function sourcePagePhrases(p: Page): { field: string; quote: string }[] {
   })))
 }
 
+/**
+ * Text written from a video talking about the video or who made it. Not "kênh" alone (a light's "kênh màu") nor a name a
+ * sentence could carry another way: "bài review" is the summary's own word for its sources.
+ */
+const VIDEO_TALK = /(?<!\p{L})(?:trong video|video này|theo video|người làm video|người review|người đánh giá|reviewer|youtuber|tác giả|kênh youtube|kênh này|anh ấy|chị ấy|cô ấy|ông ấy|bạn ấy|in this video|the reviewer|the youtuber)(?!\p{L})/iu
+/**
+ * What a text says of the video or the channel it comes from (PRODUCT.md: never on a page): the words, and each channel's
+ * name, capitals as the channel writes them: "Cá Cảnh" is a channel, "cá cảnh" the hobby.
+ */
+export function namesSource(text: string, channels: string[]): string[] {
+  const words = [...text.matchAll(new RegExp(VIDEO_TALK.source, 'giu'))].map(m => m[0].toLowerCase())
+  const names = channels.map(c => c.trim()).filter(c => c.length >= 3 && new RegExp(`(?<![\\p{L}\\p{N}])${c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'u').test(text))
+  return [...new Set([...words, ...names])]
+}
+/** Text saying AquaTome controls a product: only a product it controls (@aq/schema controlOf) may have it. */
+const CONTROL_CLAIM = /aquatome[^.!?\n]{0,60}(?:điều khiển|hỗ trợ|bật tắt|kết nối|hẹn giờ)|(?:điều khiển|bật tắt|hẹn giờ)[^.!?\n]{0,60}(?:bằng|qua|trên|với|trong)\s+(?:ứng dụng\s+|trang\s+)?aquatome/iu
+export const claimsControl = (text: string) => CONTROL_CLAIM.test(text)
+
 const VI_LETTER = /[ăâđêôơưàáạảãèéẹẻẽìíịỉĩòóọỏõùúụủũỳýỵỷỹấầẩẫậắằẳẵặếềểễệốồổỗộớờởỡợứừửữự]/i
 const VI_ONLY = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i
 /** Vietnamese that belongs on any page (as the browser checks allow it): a decree's number, the language's own name. */
@@ -533,6 +551,16 @@ export const RULES: Rule[] = [
     id: 'source-page', title: 'Text that reports what "the page" says',
     about: '"Trang lưu ý…", "Trang cũng nêu…" (and the Indonesian and Thai): the translator writing what the source page says instead of saying it. The reader\'s writer rewrites it on Vietnamese pages, kept only when its reviewer passes it; listed otherwise.',
     check: p => sourcePagePhrases(p).map(x => `"${clip(x.quote, 80)}"`),
+  },
+  {
+    id: 'names-source', title: 'Text naming a video, a channel or a reviewer',
+    about: 'A page written from videos (a video guide, a product\'s reviews) whose text names one of its channels or talks about the video or who made it ("trong video", "người review", "theo tác giả"): the page\'s source list carries that. Listed; a product\'s review summary never publishes with one (product-reviews.ts).',
+    check: p => (!p.credited ? [] : [...new Set([...prose(p).map(f => lines(f.html)), ...p.lines.map(l => l.text)].flatMap(t => namesSource(t, p.credited!)))].map(s => `"${s}"`)),
+  },
+  {
+    id: 'control-claim', title: 'A product AquaTome doesn\'t control, said to be controlled',
+    about: 'A product page saying AquaTome controls it, when the code doesn\'t (@aq/schema controlOf: the Chihiros lines the light tool drives, the plug makers the app switches). The page\'s control block comes from the code; running text doesn\'t get to promise it.',
+    check: p => (p.kind !== 'products' || p.control !== false ? [] : [...prose(p).map(f => lines(f.html)), ...p.lines.map(l => l.text)].filter(claimsControl).map(t => `"${clip(t, 80)}"`)),
   },
   {
     id: 'markup', title: 'Markdown, HTML or entities left in the text',

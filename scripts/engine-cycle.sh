@@ -93,6 +93,14 @@ if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
   pnpm engine plant-synonyms || log "plant-synonyms: failed"
+  # What YouTube reviews found, on PRODUCT_REVIEW_LIMIT product pages a cycle (candidates: product-reviews.ts): a vet, an
+  # extraction a review and a writing call, on top of a research call and a page for a product with none. So only with time
+  # left for that. Not behind SKIP_VIDEOS, which the Mac's parts set for video-cycle.sh's bursts: this is a few requests and
+  # would never run; it stops when YouTube throttles, marking nothing failed.
+  if [ -z "${ENGINE_ARGS:-}" ]; then
+    NEW_PAGES=; [ "$SECONDS" -lt $(( ${PRODUCT_PAGES_BEFORE_MINUTES:-170} * 60 )) ] || NEW_PAGES=--no-new-pages
+    YT_COOKIES_FROM="$(cat "$HOME/.config/aquatome/yt-cookies-from" 2>/dev/null || true)" pnpm engine product-reviews --limit "${PRODUCT_REVIEW_LIMIT:-1}" $NEW_PAGES || log "product-reviews: failed"
+  fi
   # SKIP_VIDEOS (GitHub Actions): the three YouTube steps run in video-cycle.sh on the owner's Mac instead.
   # Original Vietnamese guides from the YouTube playlists in engine-state/youtube-playlists.json (captions and metadata only).
   # Before discovery: a burst of searches makes YouTube throttle the caption fetches that follow.

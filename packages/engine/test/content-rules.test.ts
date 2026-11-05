@@ -3,8 +3,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
-  imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
+  blocks, cardSlips, checkPages, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
   titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
@@ -350,4 +350,32 @@ test('the fixes made on write reach the stored files of a language the site does
   await writeFile(join(root, 'guides/g/ms.json'), JSON.stringify({ name: 'Cacing &amp; Kutu', altNames: [] }))
   expect(await fixStored(root)).toEqual(['guides/g/ms.json'])
   expect(JSON.parse(await readFile(join(root, 'guides/g/ms.json'), 'utf8')).name).toBe('Cacing & Kutu')
+})
+
+test('text written from videos never names a channel, a reviewer or the video', () => {
+  const channels = ['George Farmer', 'Cá Cảnh']
+  expect(namesSource('Theo George Farmer, đèn này đủ sáng.', channels)).toEqual(['George Farmer'])
+  expect(namesSource('Trong video, đèn được treo cách mặt nước 20 cm.', channels)).toEqual(['trong video'])
+  expect(namesSource('Người review thấy quạt khá ồn.', channels)).toEqual(['người review'])
+  expect(namesSource('Anh ấy thích đèn này.', channels)).toEqual(['anh ấy'])
+  // The summary's own word for its sources, a light's colour channels, the hobby: none of them a source named.
+  expect(namesSource('Hai bài review cùng thấy đèn đủ sáng.', channels)).toEqual([])
+  expect(namesSource('Chỉnh từng kênh màu trên đèn.', channels)).toEqual([])
+  expect(namesSource('Đèn hợp với bể cá cảnh gia đình.', channels)).toEqual([])
+})
+
+test('the rule reads a product\'s review lines and only pages written from videos', () => {
+  const lines = [{ field: 'reviews.agree.0', text: 'Theo Example Scapes, trong video quạt khá êm.' }]
+  expect(found(page({ kind: 'products', credited: ['Example Scapes'], lines }), 'names-source')).toEqual(['"trong video"', '"Example Scapes"'])
+  expect(found(page({ kind: 'products', lines }), 'names-source')).toEqual([])
+})
+
+test('a page saying AquaTome controls a product it doesn\'t: Week Aqua in progress', () => {
+  expect(claimsControl('Bạn có thể điều khiển đèn này bằng AquaTome.')).toBe(true)
+  expect(claimsControl('AquaTome hỗ trợ đèn này trên iPhone.')).toBe(true)
+  expect(claimsControl('AquaTome thử trên một chiếc WRGB II Slim.')).toBe(false)
+  expect(claimsControl('Đèn điều khiển bằng app của hãng qua Bluetooth.')).toBe(false)
+  const lines = [{ field: 'summary.0', text: 'Bạn có thể điều khiển đèn này bằng AquaTome.' }]
+  expect(found(page({ kind: 'products', control: false, lines }), 'control-claim')).toHaveLength(1)
+  expect(found(page({ kind: 'products', control: true, lines }), 'control-claim')).toEqual([])
 })
