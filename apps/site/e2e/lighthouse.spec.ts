@@ -1,5 +1,6 @@
 import { chromium, expect, test } from '@playwright/test'
 import lighthouse from 'lighthouse'
+import { userAgents } from 'lighthouse/core/config/constants.js'
 import desktopConfig from 'lighthouse/core/config/desktop-config.js'
 import { indexed, LIVE, onePerKind, sourcePages, templateOf } from './pages'
 
@@ -56,6 +57,11 @@ for (const path of pages) {
         onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
         // robots.txt's Content-Signal line (lib/seo.ts) is a newer directive Lighthouse doesn't know yet: not an error.
         skipAudits: ['robots-txt'],
+        // Lighthouse's phone and computer user agents replace the browser's, so they say it's ours too
+        // (playwright.config.ts, worker/bots.ts). Without that, the Worker took a run from GitHub's runners (US,
+        // English) for a reader who reads none of our languages: it counted the visit, and at / served the language
+        // chooser (noindex, no description) instead of the home page (#570).
+        emulatedUserAgent: `${userAgents[form === 'desktop' ? 'desktop' : 'mobile']} AquaTomeCheck/1`,
         // Never the site's visit counter (a check is not a reader). Locally, nothing from other sites either (ads,
         // analytics, photos: the build is served over http, everything else is https), nor the Worker's answers the
         // pages ask for (likes, comments, products, accounts, fish ID: the files alone have none, and a 404 is a console error).
