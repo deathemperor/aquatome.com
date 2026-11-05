@@ -84,7 +84,7 @@ REACH = {
     # a change to them is otherwise untried until main.
     APP + 'AquaTomeApp.swift': ALL, '.github/workflows/ios.yml': ALL, 'apps/ios/scripts/flows-to-run.py': ALL,
     'apps/ios/scripts/wait-for-simulator.sh': ALL, 'apps/ios/scripts/retried-tests.py': ALL,
-    'apps/ios/scripts/shots.py': ALL,
+    'apps/ios/scripts/shots.py': ALL, 'apps/ios/scripts/passed-before.py': ALL,
     # What every screen sits in, or builds the app and its flows: the smoke set.
     APP + 'OwnCopy.swift': [], APP + 'Assets.xcassets/': [], 'apps/ios/AquaTome.xcodeproj/': [], 'apps/ios/Config/': [],
     KIT + 'Package.swift': [], f'apps/ios/{UI}/': [],
@@ -139,6 +139,8 @@ REACH = {
     # Run by job `perf`, which runs on every ready pull request.
     'apps/ios/scripts/check-strings.py': NONE,
     'apps/ios/scripts/asc-build-state.mjs': NONE, 'apps/ios/scripts/testflight-notes.py': NONE,
+    # Pictures the icons are drawn from (scripts/app-icons.py): not in the app.
+    'apps/ios/design/': NONE,
     # The App Store's screenshots and listing (app-store.yml).
     'apps/ios/store/': NONE, 'apps/ios/scripts/asc-listing.mjs': NONE, 'apps/ios/scripts/store-shots.py': NONE,
 }
@@ -232,7 +234,8 @@ def test():
     # The app's start, and what selects and runs the flows: every flow.
     for paths in ([APP + 'AquaTomeApp.swift'], ['.github/workflows/ios.yml'], ['apps/ios/scripts/flows-to-run.py'],
                   ['apps/ios/scripts/wait-for-simulator.sh'], ['apps/ios/scripts/retried-tests.py'],
-                  ['apps/ios/scripts/shots.py'], ['apps/ios/README.md', '.github/workflows/ios.yml']):
+                  ['apps/ios/scripts/shots.py'], ['apps/ios/scripts/passed-before.py'],
+                  ['apps/ios/README.md', '.github/workflows/ios.yml']):
         assert is_full(paths), paths
     # What every screen sits in, or builds the app and its flows: the smoke set alone, in `app` (one build).
     smoke = runs(['apps/ios/AquaTome.xcodeproj/project.pbxproj'])
@@ -247,7 +250,7 @@ def test():
                   # The App Store's screenshots and listing (app-store.yml): no flow job runs or reads them.
                   [f'apps/ios/{UI}/StoreShotsFlowTests.swift', 'apps/ios/store/listing.json',
                    'apps/ios/scripts/asc-listing.mjs', 'apps/ios/scripts/store-shots.py'],
-                  [f'apps/ios/{UI}/PerformanceTests.swift'],
+                  [f'apps/ios/{UI}/PerformanceTests.swift'], ['apps/ios/design/at-1024.png'],
                   ['docs/governance.md', 'apps/site/src/pages/vi/index.astro', '.github/workflows/ci.yml']):
         assert runs(paths) == nothing, paths
     # The catalog: the two flows that read its Indonesian, in `app` with the smoke set (no build of their own).

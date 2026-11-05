@@ -152,10 +152,11 @@ the pull request that broke it, give `flows-to-run.py` the rule that would have 
 
 ## CI's own Mac
 
-Jobs `kit`, `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (self-hosted runners, label
+Jobs `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (self-hosted runners, label
 `aquatome`) for main (each merge, the nightly run and a run by hand) and for pull requests its owner opens from this
 repository's own branches. GitHub's Macs keep everything else: a fork's or a bot's pull request (the automatic fixes'),
-and job `perf` (its budgets are GitHub's Macs' readings). The Mac has two runners, `aquatome-mac-1` and
+job `perf` (its budgets are GitHub's Macs' readings) and job `kit` (a minute of `swift test`, which waited hours behind
+the flows on the own Mac). The Mac has two runners, `aquatome-mac-1` and
 `aquatome-mac-2`, each running one job at a time, so the jobs take turns two at a time.
 
 The runners run as that Mac's user, with its keys. `ios.yml` only routes: a fork's pull request runs its own copy of
@@ -178,6 +179,27 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
   reaches it; as a net under that, the script also stops any xcodebuild still working in that runner's own checkout
   (after a job, and before the next) and clears `build/` before a job. Two runners never share one (each would erase
   the other's mid-test), and nothing else on that Mac may use a simulator named `aquatome-ci-*`.
+
+## A job that passed on the same code
+
+A job isn't run again on code it passed on (`scripts/passed-before.py`). Its key is the git trees of `apps/ios`,
+`protocols` and `ios.yml` as the run checked them out (a pull request's merge with main, so a change on main that
+reaches the app changes it), the job, its flows and its runner. A job that passes saves a marker under that key with its
+toolchain (the Xcode build and the simulator runtime's) and its run. Job `changes` looks for a marker from this pull
+request's runs or main's, on the toolchain of the newest marker that runner wrote; a job that has one runs on Linux as a
+stand-in, a check of the same name that passed and names the run it passed in. A rebase for a conflict in the docs, or
+a push that leaves the app as it was, then holds no Mac. The nightly run, a run by hand and a run started again ("Re-run
+all jobs") run every job, and a fork's pull request counts no marker (it runs its own copy of `ios.yml`, so it could
+write markers for code it never tested). When GitHub's API doesn't answer, nothing counts and every job runs. Markers
+are GitHub cache entries, never restored, so each goes within 7 days (sooner when the repository's caches near their
+10 GB); nothing on the Mac keeps them.
+
+- After the own Mac's Xcode or simulator runtime is updated, bump the repository variable `IOS_PASSED_EPOCH` (`gh
+  variable set IOS_PASSED_EPOCH --body <next number>`): it is in every key, so no marker from before counts. Without it,
+  markers from before the update still count until a job passes on the new toolchain, and a build the update broke
+  would show only in the nightly run.
+- A pull request's page screenshots (`ios-page-shots`) come from the run that ran `handbook (1)`. When that job stands
+  in, its notice names the run that holds them (the after); the before is main's last run that ran `handbook (1)`.
 
 ## AquaTomeKit
 

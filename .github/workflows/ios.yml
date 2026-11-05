@@ -35,6 +35,10 @@ jobs:
   changes:
     name: "iOS app: which flows this change needs"
     runs-on: ubuntu-latest
+    # `actions: read`: the markers of jobs that passed (step `passed`).
+    permissions:
+      contents: read
+      actions: read
     outputs:
       ready: ${{ steps.pick.outputs.ready }}
       app: ${{ steps.pick.outputs.app }}
@@ -45,6 +49,20 @@ jobs:
       lights_1: ${{ steps.pick.outputs.lights_1 }}
       lights_2: ${{ steps.pick.outputs.lights_2 }}
       runner: ${{ steps.where.outputs.runner }}
+      key_kit: ${{ steps.passed.outputs.key_kit }}
+      passed_kit: ${{ steps.passed.outputs.passed_kit }}
+      key_perf: ${{ steps.passed.outputs.key_perf }}
+      passed_perf: ${{ steps.passed.outputs.passed_perf }}
+      key_app: ${{ steps.passed.outputs.key_app }}
+      passed_app: ${{ steps.passed.outputs.passed_app }}
+      key_handbook_1: ${{ steps.passed.outputs.key_handbook_1 }}
+      passed_handbook_1: ${{ steps.passed.outputs.passed_handbook_1 }}
+      key_handbook_2: ${{ steps.passed.outputs.key_handbook_2 }}
+      passed_handbook_2: ${{ steps.passed.outputs.passed_handbook_2 }}
+      key_lights_1: ${{ steps.passed.outputs.key_lights_1 }}
+      passed_lights_1: ${{ steps.passed.outputs.passed_lights_1 }}
+      key_lights_2: ${{ steps.passed.outputs.key_lights_2 }}
+      passed_lights_2: ${{ steps.passed.outputs.passed_lights_2 }}
     steps:
       # A pull request is checked out as its merge with main: its first parent is main, so the diff is its change.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -60,6 +78,7 @@ jobs:
           FULL: ${{ contains(github.event.pull_request.labels.*.name, 'ios-full') }}
         run: |
           python3 apps/ios/scripts/flows-to-run.py --test
+          python3 apps/ios/scripts/passed-before.py --test
           if [ "$GITHUB_EVENT_NAME" = pull_request ] && [ "$DRAFT" = true ]; then
             printf 'ready=false\napp=\nhandbook=[]\nlights=[]\n' | tee -a "$GITHUB_OUTPUT"
             echo "::notice title=Draft::the iOS jobs run once this pull request is marked ready"
@@ -72,11 +91,11 @@ jobs:
               python3 apps/ios/scripts/flows-to-run.py | tee -a "$GITHUB_OUTPUT"
             echo "::notice title=Some flows::the smoke set and the flows this change can reach; ios-full runs them all"
           fi
-      # Where jobs `kit`, `app`, `handbook` and `lights` run: the repository's own Mac (label `aquatome`,
+      # Where jobs `app`, `handbook` and `lights` run: the repository's own Mac (label `aquatome`,
       # apps/ios/README.md) for main (a push, the nightly run, a run by hand) and for pull requests its owner opened from
       # this repository's own branches, while the repository variable IOS_LOCAL_RUNNER is "on"; GitHub's Macs otherwise.
       # The Mac has two runners (aquatome-mac-1 and -2, each with its own simulator), so its jobs take turns two at a
-      # time. Job `perf` stays on GitHub's Macs. This only routes: a fork's pull request runs its own copy of this file,
+      # time. Jobs `kit` and `perf` stay on GitHub's Macs. This only routes: a fork's pull request runs its own copy of this file,
       # so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
       - id: where
         env:
@@ -89,27 +108,89 @@ jobs:
         run: |
           if [ "$LOCAL" = true ]; then echo 'runner=["self-hosted","macOS","aquatome"]'; else echo 'runner="macos-26"'; fi |
             tee -a "$GITHUB_OUTPUT"
+      # The jobs that already passed on this code, with the same flows, on the same runner and toolchain
+      # (apps/ios/scripts/passed-before.py): each runs on Linux as a stand-in that says where it passed, and holds no
+      # Mac. A pull request rebased for a conflict in the docs, or pushed again with the app as it was, tests nothing
+      # again (2026-11-05: 25% of the own Mac's day went to runs a later push replaced, most of them rebases for one
+      # row of docs/governance.md).
+      - id: passed
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+          ATTEMPT: ${{ github.run_attempt }}
+          REF: ${{ github.ref }}
+          FORK: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository }}
+          # Bumped by hand after the own Mac's Xcode or simulator runtime is updated (apps/ios/README.md).
+          EPOCH: ${{ vars.IOS_PASSED_EPOCH }}
+          READY: ${{ steps.pick.outputs.ready }}
+          RUNNER: ${{ steps.where.outputs.runner }}
+          APP: ${{ steps.pick.outputs.app }}
+          HANDBOOK: ${{ steps.pick.outputs.handbook }}
+          HANDBOOK_1: ${{ steps.pick.outputs.handbook_1 }}
+          HANDBOOK_2: ${{ steps.pick.outputs.handbook_2 }}
+          LIGHTS: ${{ steps.pick.outputs.lights }}
+          LIGHTS_1: ${{ steps.pick.outputs.lights_1 }}
+          LIGHTS_2: ${{ steps.pick.outputs.lights_2 }}
+        run: python3 apps/ios/scripts/passed-before.py --find
+  # On GitHub's Macs: a minute of `swift build` and `swift test`, with no simulator. On the own Mac it waited behind the
+  # flows for that minute, a median of three hours (2026-11-04 to 05).
   kit:
     name: "iOS kit: unit tests"
     needs: changes
     if: needs.changes.outputs.ready == 'true'
-    runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
+    runs-on: ${{ needs.changes.outputs.passed_kit && 'ubuntu-latest' || 'macos-26' }}
+    env:
+      PASSED: ${{ needs.changes.outputs.passed_kit }}
+      PASS_KEY: ${{ needs.changes.outputs.key_kit }}
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # Passed before on this code (job `changes`, step `passed`): nothing to run again.
+      - name: Passed before
+        if: env.PASSED != ''
+        run: echo "Passed on this code in $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$PASSED, not run again."
+      - if: env.PASSED == ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       # Everything builds (the Bluetooth module and the light harness have no tests of their own: the harness is
       # run by hand against a real light), then the tests run.
-      - run: swift build && swift test
+      - if: env.PASSED == ''
+        run: swift build && swift test
         working-directory: apps/ios/AquaTomeKit
+      # Passed: a marker for a later run of the same code (passed-before.py). One that can't be written is a warning,
+      # and leaves the job as it passed.
+      - id: mark
+        continue-on-error: true
+        if: >-
+          success() && env.PASSED == '' && (github.event_name != 'pull_request' ||
+          github.event.pull_request.head.repo.full_name == github.repository)
+        run: |
+          if python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"; then
+            touch "$RUNNER_TEMP/passed"
+          else
+            echo "::warning title=Passed before::no marker written: a later run of this code runs this job again"
+          fi
+      - if: steps.mark.outputs.key != ''
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/passed
+          key: ${{ steps.mark.outputs.key }}
   app:
     name: "iOS app: other flows"
     needs: changes
     if: needs.changes.outputs.app != ''
-    runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
+    runs-on: ${{ needs.changes.outputs.passed_app && 'ubuntu-latest' || fromJSON(needs.changes.outputs.runner) }}
+    env:
+      PASSED: ${{ needs.changes.outputs.passed_app }}
+      PASS_KEY: ${{ needs.changes.outputs.key_app }}
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - run: apps/ios/scripts/wait-for-simulator.sh
+      # Passed before on this code (job `changes`, step `passed`): nothing to run again.
+      - name: Passed before
+        if: env.PASSED != ''
+        run: echo "Passed on this code in $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$PASSED, not run again."
+      - if: env.PASSED == ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - if: env.PASSED == ''
+        run: apps/ios/scripts/wait-for-simulator.sh
       # The full suite: the main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights'
       # (job `lights`), the performance tests (job `perf`), and the App Store's screenshots (app-store.yml), which read
       # the live site. A pull request: the smoke set, and the flows its change can reach that are none of those.
@@ -119,7 +200,8 @@ jobs:
       # `exec`: xcodebuild takes the step's place, so a cancelled job's stop signals reach it. Run under the step's
       # shell, it was left running with no parent when that shell died, still driving the simulator and writing its
       # result bundle into the next job's checkout (2026-11-04, the runner's log; wait-for-simulator.sh).
-      - env:
+      - if: env.PASSED == ''
+        env:
           TESTS: ${{ needs.changes.outputs.app }}
         run: >-
           exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
@@ -129,10 +211,10 @@ jobs:
           -retry-tests-on-failure -test-iterations 2 $TESTS
       # Flaky tests are seen, not hidden: each one that needed its retry is a warning on the run and in its summary.
       - name: Tests that passed only on a retry
-        if: always()
+        if: always() && env.PASSED == ''
         run: apps/ios/scripts/retried-tests.py build/ui.xcresult
       - name: The own Mac's simulator shut down
-        if: always()
+        if: always() && env.PASSED == ''
         run: apps/ios/scripts/wait-for-simulator.sh --done
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -140,6 +222,24 @@ jobs:
           name: ios-ui-tests
           path: build/ui.xcresult
           if-no-files-found: ignore
+      # Passed: a marker for a later run of the same code (passed-before.py). One that can't be written is a warning,
+      # and leaves the job as it passed.
+      - id: mark
+        continue-on-error: true
+        if: >-
+          success() && env.PASSED == '' && (github.event_name != 'pull_request' ||
+          github.event.pull_request.head.repo.full_name == github.repository)
+        run: |
+          if python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"; then
+            touch "$RUNNER_TEMP/passed"
+          else
+            echo "::warning title=Passed before::no marker written: a later run of this code runs this job again"
+          fi
+      - if: steps.mark.outputs.key != ''
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/passed
+          key: ${{ steps.mark.outputs.key }}
   # What the app costs a reader (apps/ios/perf-budgets.json): launch, the work and memory of a long list, its size. On
   # GitHub's Macs always: the budgets are CI's readings there ×1.1, and the repository's own Mac, much faster, would pass
   # a regression unseen. Measured apart from the flows, so a flow's retry never touches a measurement. Budgets are
@@ -150,12 +250,22 @@ jobs:
     name: "iOS app: performance, size and strings"
     needs: changes
     if: needs.changes.outputs.ready == 'true' && github.event_name != 'schedule'
-    runs-on: macos-26
+    runs-on: ${{ needs.changes.outputs.passed_perf && 'ubuntu-latest' || 'macos-26' }}
+    env:
+      PASSED: ${{ needs.changes.outputs.passed_perf }}
+      PASS_KEY: ${{ needs.changes.outputs.key_perf }}
     timeout-minutes: 40
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - run: apps/ios/scripts/wait-for-simulator.sh
+      # Passed before on this code (job `changes`, step `passed`): nothing to run again.
+      - name: Passed before
+        if: env.PASSED != ''
+        run: echo "Passed on this code in $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$PASSED, not run again."
+      - if: env.PASSED == ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - if: env.PASSED == ''
+        run: apps/ios/scripts/wait-for-simulator.sh
       - name: Performance tests
+        if: env.PASSED == ''
         run: >-
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
@@ -163,18 +273,21 @@ jobs:
           -only-testing:AquaTomeUITests/PerformanceTests
       # Every string the app shows is translated into Indonesian and Thai.
       - name: Translations
+        if: env.PASSED == ''
         run: python3 apps/ios/scripts/check-strings.py build/dd
       # The app's size as it goes to the App Store: an archive (Release, for iPhones, stripped), unsigned here.
       - name: Archive
+        if: env.PASSED == ''
         run: >-
           xcodebuild archive -project apps/ios/AquaTome.xcodeproj -scheme AquaTome -configuration Release
           -destination 'generic/platform=iOS' -archivePath build/AquaTome.xcarchive -derivedDataPath build/release
           CODE_SIGNING_ALLOWED=NO
       - name: Performance budgets
+        if: env.PASSED == ''
         run: python3 apps/ios/scripts/check-perf.py build/perf.xcresult build/AquaTome.xcarchive/Products/Applications/AquaTome.app
       # A budget only tightens: this pull request's budgets against main's.
       - name: Budgets only tighten
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && env.PASSED == ''
         run: |
           git fetch -q --depth=1 origin "$GITHUB_BASE_REF"
           if git cat-file -e FETCH_HEAD:apps/ios/perf-budgets.json 2>/dev/null; then
@@ -189,6 +302,24 @@ jobs:
           name: ios-perf
           path: build/perf.xcresult
           if-no-files-found: ignore
+      # Passed: a marker for a later run of the same code (passed-before.py). One that can't be written is a warning,
+      # and leaves the job as it passed.
+      - id: mark
+        continue-on-error: true
+        if: >-
+          success() && env.PASSED == '' && (github.event_name != 'pull_request' ||
+          github.event.pull_request.head.repo.full_name == github.repository)
+        run: |
+          if python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"; then
+            touch "$RUNNER_TEMP/passed"
+          else
+            echo "::warning title=Passed before::no marker written: a later run of this code runs this job again"
+          fi
+      - if: steps.mark.outputs.key != ''
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/passed
+          key: ${{ steps.mark.outputs.key }}
   # The handbook's flows (HANDBOOK in flows-to-run.py): on their own runners, beside jobs `app` and `lights`. On 2026-11-01
   # `app` ran out of its hour on a slow runner, in the performance tests after 52 minutes of flows (15 of them the
   # build), with only the facts card added to main; the handbook stack (#313 to #341) adds more. Then this job alone
@@ -200,17 +331,27 @@ jobs:
     name: "iOS app: handbook and tank-life flows"
     needs: changes
     if: needs.changes.outputs.handbook != '[]'
-    runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
+    runs-on: ${{ needs.changes.outputs[format('passed_handbook_{0}', matrix.half)] && 'ubuntu-latest' || fromJSON(needs.changes.outputs.runner) }}
+    env:
+      PASSED: ${{ needs.changes.outputs[format('passed_handbook_{0}', matrix.half)] }}
+      PASS_KEY: ${{ needs.changes.outputs[format('key_handbook_{0}', matrix.half)] }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
         half: ${{ fromJSON(needs.changes.outputs.handbook) }}
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - run: apps/ios/scripts/wait-for-simulator.sh
+      # Passed before on this code (job `changes`, step `passed`): nothing to run again.
+      - name: Passed before
+        if: env.PASSED != ''
+        run: echo "Passed on this code in $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$PASSED, not run again."
+      - if: env.PASSED == ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - if: env.PASSED == ''
+        run: apps/ios/scripts/wait-for-simulator.sh
       # Retried once, as in job `app`, and for the same reason.
-      - env:
+      - if: env.PASSED == ''
+        env:
           TESTS: ${{ needs.changes.outputs[format('handbook_{0}', matrix.half)] }}
         # `exec`, as in job `app`.
         run: >-
@@ -220,17 +361,17 @@ jobs:
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
           -retry-tests-on-failure -test-iterations 2 $TESTS
       - name: Tests that passed only on a retry
-        if: always()
+        if: always() && env.PASSED == ''
         run: apps/ios/scripts/retried-tests.py build/handbook.xcresult
       - name: The own Mac's simulator shut down
-        if: always()
+        if: always() && env.PASSED == ''
         run: apps/ios/scripts/wait-for-simulator.sh --done
       # The pages' screenshots (PageShotsFlowTests, in the first half), a pull request's before (main's run) or after
       # (its own): see docs/governance.md. Only when this half ran them.
       - name: Page screenshots
-        if: always() && matrix.half == 1 && contains(needs.changes.outputs.handbook_1, '/PageShotsFlowTests')
+        if: always() && matrix.half == 1 && contains(needs.changes.outputs.handbook_1, '/PageShotsFlowTests') && env.PASSED == ''
         run: apps/ios/scripts/shots.py build/handbook.xcresult build/shots
-      - if: always() && matrix.half == 1 && contains(needs.changes.outputs.handbook_1, '/PageShotsFlowTests')
+      - if: always() && matrix.half == 1 && contains(needs.changes.outputs.handbook_1, '/PageShotsFlowTests') && env.PASSED == ''
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ios-page-shots
@@ -242,6 +383,24 @@ jobs:
           name: ios-handbook-flows-${{ matrix.half }}
           path: build/handbook.xcresult
           if-no-files-found: ignore
+      # Passed: a marker for a later run of the same code (passed-before.py). One that can't be written is a warning,
+      # and leaves the job as it passed.
+      - id: mark
+        continue-on-error: true
+        if: >-
+          success() && env.PASSED == '' && (github.event_name != 'pull_request' ||
+          github.event.pull_request.head.repo.full_name == github.repository)
+        run: |
+          if python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"; then
+            touch "$RUNNER_TEMP/passed"
+          else
+            echo "::warning title=Passed before::no marker written: a later run of this code runs this job again"
+          fi
+      - if: steps.mark.outputs.key != ''
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/passed
+          key: ${{ steps.mark.outputs.key }}
   # The light flows on the simulator's fake light, which answers like the real one (with its pauses, so each flow takes
   # a minute or more): in two halves, beside jobs `app` and `handbook`. One runner outgrew its hour on 2026-11-01 (#312:
   # 58 minutes of flows, 37 of them the lights'), then the lights alone reached 51 minutes on a slow runner (#315). On
@@ -251,19 +410,29 @@ jobs:
     name: "iOS app: light flows"
     needs: changes
     if: needs.changes.outputs.lights != '[]'
-    runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
+    runs-on: ${{ needs.changes.outputs[format('passed_lights_{0}', matrix.half)] && 'ubuntu-latest' || fromJSON(needs.changes.outputs.runner) }}
+    env:
+      PASSED: ${{ needs.changes.outputs[format('passed_lights_{0}', matrix.half)] }}
+      PASS_KEY: ${{ needs.changes.outputs[format('key_lights_{0}', matrix.half)] }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
         half: ${{ fromJSON(needs.changes.outputs.lights) }}
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - run: apps/ios/scripts/wait-for-simulator.sh
+      # Passed before on this code (job `changes`, step `passed`): nothing to run again.
+      - name: Passed before
+        if: env.PASSED != ''
+        run: echo "Passed on this code in $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$PASSED, not run again."
+      - if: env.PASSED == ''
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - if: env.PASSED == ''
+        run: apps/ios/scripts/wait-for-simulator.sh
       # Retried once, as in job `app`, and for the same reason. A test that hangs (an app launch that never finished
       # held a runner for 53 minutes on #314) is stopped after ten minutes, as in the other flow jobs: the longest flow
       # takes under three on CI.
-      - env:
+      - if: env.PASSED == ''
+        env:
           TESTS: ${{ needs.changes.outputs[format('lights_{0}', matrix.half)] }}
         # `exec`, as in job `app`.
         run: >-
@@ -273,10 +442,10 @@ jobs:
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
           -retry-tests-on-failure -test-iterations 2 $TESTS
       - name: Tests that passed only on a retry
-        if: always()
+        if: always() && env.PASSED == ''
         run: apps/ios/scripts/retried-tests.py build/lights.xcresult
       - name: The own Mac's simulator shut down
-        if: always()
+        if: always() && env.PASSED == ''
         run: apps/ios/scripts/wait-for-simulator.sh --done
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -284,3 +453,21 @@ jobs:
           name: ios-light-flows-${{ matrix.half }}
           path: build/lights.xcresult
           if-no-files-found: ignore
+      # Passed: a marker for a later run of the same code (passed-before.py). One that can't be written is a warning,
+      # and leaves the job as it passed.
+      - id: mark
+        continue-on-error: true
+        if: >-
+          success() && env.PASSED == '' && (github.event_name != 'pull_request' ||
+          github.event.pull_request.head.repo.full_name == github.repository)
+        run: |
+          if python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"; then
+            touch "$RUNNER_TEMP/passed"
+          else
+            echo "::warning title=Passed before::no marker written: a later run of this code runs this job again"
+          fi
+      - if: steps.mark.outputs.key != ''
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/passed
+          key: ${{ steps.mark.outputs.key }}
