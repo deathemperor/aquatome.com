@@ -1487,6 +1487,55 @@
       "\"สายพันธุ์ปลูก\" for \"cultivars\" is slightly unnatural; \"พันธุ์ปลูกเลี้ยง\" or \"คัลทิวาร์\" would read more naturally. Meaning is intact."
     ]
   },
+  "microsorum-pteropus-trident": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "เฟิร์นไตรเดนท์",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 2: \"ผูกติดกับหินหรือขอนไม้\" adds 'tie/attach'; the English says 'planting on stones or tree roots'. Minor, but 'ปลูกบนหินหรือรากไม้/ขอนไม้' is closer.",
+      "Item 2: \"ปลายใบ\" is fine, but \"horizontal stalk\" rendered as \"เหง้าที่เลื้อยในแนวนอน\" adds 'creeping'. Minor, but 'เหง้าแนวนอน' is simpler.",
+      "Item 3: \"Microsorum\" is left in Latin for 'other Microsorum' and 'form of Microsorum'. Acceptable, but 'ไมโครซอรัม' or 'เฟิร์นสกุล Microsorum' would read more naturally.",
+      "Item 3: \"ผู้จัดตู้ไม้น้ำ\" for 'scaper' is OK, but 'นักจัดสเคป' is also common. Minor choice.",
+      "Item 3: \"เลี้ยงง่ายและปลอดภัย\" for 'easy and safe plant' is slightly odd. 'เลี้ยงง่าย ไม่ค่อยมีปัญหา' would be more natural."
+    ]
+  },
+  "microsorum-sp": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Microsorum sp.",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ไม้น้ำประเภทมีเหง้า\" is slightly wordy; \"ไม้เหง้า\" or \"ไม้น้ำเหง้า (Rhizomatous)\" is more natural.",
+      "\"ติดจุ๊บสุญญากาศ\" is OK but \"ติดตัวดูดสุญญากาศ\" or \"จุกยางดูด\" is more common. The English says \"suckers\", so the plural is fine.",
+      "\"กระจกตู้ปลา\" adds \"ปลา\". The original says only \"glass wall\", so use \"ผนังกระจก\" or \"กระจกตู้\"."
+    ]
+  },
+  "monosolenium-tenerum": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "โมโนโซเลเนียม",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 3: \"Riccia ยักษ์มากที่สุด\" is awkward/ambiguous; \"looks most like a giant Riccia\" should read e.g. \"ดูคล้าย Riccia ยักษ์มากที่สุด\" -> \"ดูคล้าย Riccia ขนาดยักษ์ที่สุด\" or \"ดูคล้าย Riccia ยักษ์\" without 'มากที่สุด' implying a superlative of size.",
+      "Item 3: \"แผ่ตัวเป็นกอคล้ายเบาะ\" adds 'กอ' beyond 'cushions'; consider \"เป็นพุ่มนุ่มคล้ายเบาะ\" or simply \"เป็นเบาะ/แผ่นนุ่ม\".",
+      "Item 2: \"ตั้งตัวได้\" is slightly colloquial for 'established'; \"เกาะยึดและเจริญได้ดีแล้ว\" is more natural.",
+      "Item 3: \"ลิเวอร์เวิร์ต\" and \"Tissue culture\" are fine, but 'closed cup' → \"ถ้วยปิด\" could be \"ถ้วยปิดสนิท/คัพ\" as hobbyists say \"คัพ\"; minor."
+    ]
+  },
+  "murdannia-keisak": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Murdannia keisak",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: \"ไม้น้ำประเภทต้นที่หน้าตาคล้ายไผ่ชนิดนี้\" is slightly clumsy; consider \"ไม้น้ำพันธุ์ไม้ข้อที่มีลักษณะคล้ายไผ่ชนิดนี้\"."
+    ]
+  },
   "nymphaea-zenkeri": {
     "at": "2026-10-30",
     "from": "2026-10-29",
