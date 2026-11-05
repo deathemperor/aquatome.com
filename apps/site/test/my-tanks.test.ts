@@ -1,15 +1,17 @@
 import { expect, test } from 'vitest'
 import { TANKS_PAGE } from '../worker/accounts/email'
+import { APPLE_RETURN } from '../worker/paths'
 import { localizePath, toVi } from '../src/lib/i18n'
 import { channelsOf, dayPicture, facts } from '../src/scripts/my-tanks'
 
 const ct = (s: string, v?: Record<string, string | number>) => (v ? s.replace(/\{(\w+)\}/g, (_, k: string) => String(v[k])) : s)
 const num = (n: number, d = 1) => new Intl.NumberFormat('vi', { maximumFractionDigits: d }).format(n)
 
-test('the email sign-in link goes to "Bể của tôi" in each language, and back', () => {
+test('the email sign-in link and Apple\'s sign-in go to "Bể của tôi" in each language, and back', () => {
   for (const lang of ['vi', 'id', 'th'] as const) {
     expect(localizePath(lang, '/vi/cong-cu/be-cua-toi/')).toBe(TANKS_PAGE[lang])
     expect(toVi(TANKS_PAGE[lang])).toBe('/vi/cong-cu/be-cua-toi/')
+    expect(APPLE_RETURN[lang]).toBe(TANKS_PAGE[lang])
   }
 })
 
