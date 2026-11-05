@@ -257,6 +257,21 @@ function decades(t: string, lang: UnitLang): string {
     (_a, d1: string, gap: string, w1: string, d2?: string, w2?: string) => span([band(d1, w1), ...(d2 ? [band(d2, w2!)] : [])], gap))
   t = t.replace(re(String.raw`${START}(\d0)\s*(ปลาย|ต้น|กลาง)\s*ๆ?\s*(?:(?:ถึง|หรือ)\s*(\d0)\s*(ปลาย|ต้น|กลาง)\s*ๆ?)?(\s*)[°º˚]\s*F`),
     (_a, d1: string, w1: string, d2: string | undefined, w2: string | undefined, gap: string) => span([band(d1, w1), ...(d2 ? [band(d2, w2!)] : [])], gap))
+  // What's left: English decades a translator kept ("low 60s °F", "high 80s sampai low 90s °F", "mid-60s °F"), "tinggi"
+  // and "rendah" after one ("80-an °F tinggi"), and a decade alone ("60-an °F", "60s °F"): all of it, 60–69.
+  const EN: Record<string, number> = { low: 2, lower: 2, early: 2, mid: 5, middle: 5, high: 8, upper: 8, late: 8 }
+  const ID: Record<string, number> = { bawah: 2, rendah: 2, tengah: 5, atas: 8, tinggi: 8 }
+  const TERM = String.raw`(?:(${Object.keys(EN).join('|')})[\s-]*)?(\d0)(?:s|-an)${END}(?:\s*(?:[°º˚]\s*F)?\s+(${Object.keys(ID).join('|')})${END})?`
+  const bare = (s: string) => s.replace(/\((?!\?)/gu, '(?:')
+  t = t.replace(re(String.raw`${START}${bare(TERM)}(?:(?:\s*[°º˚]\s*F)?${TO}${bare(TERM)})?(\s*)[°º˚]\s*F${END}(?:\s+(?:${Object.keys(ID).join('|')})${END})?`),
+    (all: string, gap: string, at: number, s: string) => {
+      const fs = [...all.matchAll(re(TERM))].flatMap(([, en, dec, id]) => {
+        const off = en ? EN[en.toLowerCase()] : id ? ID[id] : undefined
+        return off === undefined ? [Number(dec), Number(dec) + 9] : [Number(dec) + off]
+      })
+      const about = fs.length === 1 && !new RegExp(String.raw`${QUAL}\s*$`, 'u').test(s.slice(0, at)) ? `${ABOUT[lang]} ` : ''
+      return `${about}${span(fs, gap)}`
+    })
   return t
 }
 
@@ -395,7 +410,7 @@ export function toMetric(text: string, lang: UnitLang): string {
 }
 
 /** The imperial figures a text still has (pounds; not ounces, which may size a bottle): none once `toMetric` has run (quoted labels and names aside). */
-const LEFT = re(String.raw`${ANY_IMP}|${HEDGED}|${START}${N}\s*-?\s*(?:(?:lbs?|pounds?|pon)${END}|ปอนด์)|${START}\d0(?:-an|\s*(?:ปลาย|ต้น|กลาง)\s*ๆ?)\s*[°º˚]\s*F|${START}${N}\s*ตารางฟุต`)
+const LEFT = re(String.raw`${ANY_IMP}|${HEDGED}|${START}${N}\s*-?\s*(?:(?:lbs?|pounds?|pon)${END}|ปอนด์)|${START}\d0(?:-an|s|\s*(?:ปลาย|ต้น|กลาง)\s*ๆ?)\s*[°º˚]\s*F|${START}${N}\s*ตารางฟุต`)
 export const imperialLeft = (text: string): string[] => normalize(mask(text).text).match(LEFT) ?? []
 
 type Page = { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] }

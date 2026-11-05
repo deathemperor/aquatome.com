@@ -138,6 +138,15 @@ test('guides: a change of temperature, and the middle of a decade of °F', () =>
   expect(th('ปลาเขตร้อนส่วนใหญ่ทนน้ำราว 50 ปลาย ๆ ถึง 60 ต้น ๆ °F ได้หลายชั่วโมง')).toBe('ปลาเขตร้อนส่วนใหญ่ทนน้ำราว 14–17 °C ได้หลายชั่วโมง')
   expect(id('tahan suhu di kisaran 60-an °F bawah atau 50-an °F atas selama beberapa jam')).toBe('tahan suhu di kisaran 14–17 °C selama beberapa jam')
   expect(id('Betta liar tahan suhu pertengahan 80-an °F untuk sementara waktu')).toBe('Betta liar tahan suhu sekitar 29 °C untuk sementara waktu')
+  // English decades a translator kept ("low 60s °F"), Indonesian high and low after the decade ("tinggi", "rendah"), and
+  // a decade alone ("60-an °F": all of it). The summer and winter care guide in Indonesian had each, 2026-11-05.
+  expect(id('Sebagian besar ikan tropis tahan di low 60s °F, bahkan high 50s °F, selama beberapa jam.'))
+    .toBe('Sebagian besar ikan tropis tahan di sekitar 17 °C, bahkan sekitar 14 °C, selama beberapa jam.')
+  expect(id('sering tahan di kisaran high 80s sampai low 90s °F selama sehari')).toBe('sering tahan di kisaran 31–33 °C selama sehari')
+  expect(id('kisaran 80-an °F tinggi sampai 90-an °F rendah')).toBe('kisaran 31–33 °C')
+  expect(id('tahan di 60-an °F, bahkan 50-an °F')).toBe('tahan di 16–21 °C, bahkan 10–15 °C')
+  expect(id('tahan di sekitar 60-an °F rendah')).toBe('tahan di sekitar 17 °C')
+  expect(vi('chịu được nhiệt độ xuống tới mid-60s °F')).toBe('chịu được nhiệt độ xuống tới khoảng 18 °C')
   // Two sources' figures, not one figure twice: the second is converted, not dropped.
   expect(th('บางแหล่งแนะนำ 32–33 °C หรือ 86–88 °F')).toBe('บางแหล่งแนะนำ 32–33 °C หรือ 30–31 °C')
   expect(vi('Chúng thích nước mát hơn (khoảng 21°C, tức 70°F), nhưng')).toBe('Chúng thích nước mát hơn (khoảng 21°C), nhưng')
@@ -197,7 +206,7 @@ test('guides: inch and foot marks, numbers in words, sides', () => {
   // A "kaki" is a leg too: a foot only after a length word.
   expect(id('menyarankan kedalaman minimal 3–4 kaki, terutama')).toBe('menyarankan kedalaman minimal 0,9–1,2 m, terutama')
   expect(id('Udang punya 10 kaki.')).toBe('Udang punya 10 kaki.')
-  for (const s of ['84” x 27” x 28”', 'kedalaman 3 kaki', 'kisaran 60-an °F bawah', '600 GPH', '10 ตารางฟุต', 'bốn feet', '50 ปลาย ๆ ถึง 60 ต้น ๆ °F']) expect(imperialLeft(s), s).not.toEqual([])
+  for (const s of ['84” x 27” x 28”', 'kedalaman 3 kaki', 'kisaran 60-an °F bawah', '600 GPH', '10 ตารางฟุต', 'bốn feet', '50 ปลาย ๆ ถึง 60 ต้น ๆ °F', 'low 60s °F', 'high 80s sampai low 90s °F']) expect(imperialLeft(s), s).not.toEqual([])
 })
 
 test('guides: a weight in grams, kg from 1,000 g', () => {
