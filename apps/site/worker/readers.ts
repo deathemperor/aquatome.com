@@ -1,4 +1,4 @@
-import { EVENTS, eventsSql } from './admin/ae'
+import { COUNTED, EVENTS, eventsSql, READERS_FROM } from './admin/ae'
 import { localDay } from './admin/time'
 import { withoutVi } from './paths'
 
@@ -14,6 +14,8 @@ export type Readers = {
   pages: { path: string; views: number }[]
   sources: { source: string; sessions: number; readers: number }[]
   countries: { cc: string; readers: number }[]
+  /** When the count starts (ae.ts READERS_FROM): days before it weren't counted. */
+  from?: string
 }
 
 const num = (x: number | string) => Number(x) || 0
@@ -72,24 +74,15 @@ export function summariseReaders(sessions: Session[], views: View[], days: numbe
 
 export const SESSIONS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, min(timestamp) AS first,
   SUM(IF(blob2 = 'view', _sample_interval, 0)) AS pages, MAX(IF(blob2 = 'time', double1, 0.0)) AS t, MAX(IF(blob2 = 'scroll', double1, 0.0)) AS scroll
-FROM ${table} WHERE timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid FORMAT JSON`
+FROM ${table} WHERE timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid FORMAT JSON`
 const VIEWS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, blob3 AS p, blob5 AS ref, blob6 AS cc, SUM(_sample_interval) AS views
-FROM ${table} WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid, p, ref, cc FORMAT JSON`
+FROM ${table} WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid, p, ref, cc FORMAT JSON`
 
-/** One row per session: a session the beacon wrote to both datasets (across the move) is one. */
-export function bySession(rows: Session[]): Session[] {
-  const m = new Map<string, Session>()
-  for (const r of rows) {
-    const s = m.get(r.sid)
-    m.set(r.sid, s ? { sid: r.sid, first: r.first < s.first ? r.first : s.first, pages: num(s.pages) + num(r.pages), t: Math.max(num(s.t), num(r.t)), scroll: Math.max(num(s.scroll), num(r.scroll)) } : r)
-  }
-  return [...m.values()]
-}
-export const querySessions = (accountId: string, token: string, days: number, now?: number) => eventsSql<Session>(accountId, token, t => SESSIONS_SQL(days, t), now).then(bySession)
+export const querySessions = (accountId: string, token: string, days: number) => eventsSql<Session>(accountId, token, t => SESSIONS_SQL(days, t))
 
 export async function queryReaders(accountId: string, token: string, days = 14, tz = 'UTC'): Promise<Readers> {
   const [sessions, views] = await Promise.all([querySessions(accountId, token, days), eventsSql<View>(accountId, token, t => VIEWS_SQL(days, t))])
-  return summariseReaders(sessions, views, days, tz)
+  return { ...summariseReaders(sessions, views, days, tz), from: READERS_FROM }
 }
 
 /** Sessions and readers per day (in `tz`, by a session's first event), from the sessions query alone: the overview's. */

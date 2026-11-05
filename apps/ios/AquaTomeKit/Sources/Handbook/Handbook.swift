@@ -203,20 +203,26 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     public var schoolMin: Int?
     /// 1 (easy) to 8, as the site grades it.
     public var difficulty: Double?
+    /// How long it lives, in years, as its data card resolves it ("Tuổi thọ"): one figure is min = max, months a
+    /// fraction. None when no source states it.
+    public var lifeYears: Range?
 
     public init(tempC: Range? = nil, ph: Range? = nil, gh: Range? = nil, sizeCm: Double? = nil, tankCm: Double? = nil,
-                temperament: String? = nil, finNipper: Bool? = nil, schoolMin: Int? = nil, difficulty: Double? = nil) {
+                temperament: String? = nil, finNipper: Bool? = nil, schoolMin: Int? = nil, difficulty: Double? = nil,
+                lifeYears: Range? = nil) {
       self.tempC = tempC; self.ph = ph; self.gh = gh; self.sizeCm = sizeCm; self.tankCm = tankCm
       self.temperament = temperament; self.finNipper = finNipper; self.schoolMin = schoolMin; self.difficulty = difficulty
+      self.lifeYears = lifeYears
     }
 
-    enum CodingKeys: String, CodingKey { case tempC, ph, gh, sizeCm, tankCm, temperament, finNipper, schoolMin, difficulty }
+    enum CodingKeys: String, CodingKey { case tempC, ph, gh, sizeCm, tankCm, temperament, finNipper, schoolMin, difficulty, lifeYears }
 
     public init(from decoder: any Decoder) throws {
       let c = try decoder.container(keyedBy: CodingKeys.self)
       func read<T: Decodable>(_ k: CodingKeys) -> T? { (try? c.decodeIfPresent(T.self, forKey: k)) ?? nil }
       tempC = read(.tempC); ph = read(.ph); gh = read(.gh); sizeCm = read(.sizeCm); tankCm = read(.tankCm)
       temperament = read(.temperament); finNipper = read(.finNipper); schoolMin = read(.schoolMin); difficulty = read(.difficulty)
+      lifeYears = read(.lifeYears)
     }
   }
 
