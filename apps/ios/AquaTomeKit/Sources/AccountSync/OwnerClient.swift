@@ -61,6 +61,14 @@ public struct OwnerClient: Sendable {
     _ = try await call(a.method, a.path, body: a.body)
   }
 
+  /// This phone's token for the daily report's notifications given to the site (`on`), or taken back (protocols/owner-push):
+  /// `environment` is the APNs this build's token is from, `sandbox` or `production`. Done on any 2xx, with or without a
+  /// body.
+  public func pushToken(_ token: String, environment: String, on: Bool) async throws {
+    let body = Owner.text(["token": token, "environment": environment])
+    _ = try await call(on ? "POST" : "DELETE", "/api/owner/push-token", body: body, needsReply: false)
+  }
+
   /// A photo's bytes, or nil when it can't be had (gone, offline, not the owner): a private one (from "/") with the bearer,
   /// a public one (a whole address) without. Kept by no one here: the `Send` caches nothing.
   public func image(_ src: String) async -> Data? {
@@ -87,7 +95,7 @@ public struct OwnerClient: Sendable {
     Owner.isSitePath(href) ? URL(string: href, relativeTo: base)?.absoluteURL : nil
   }
 
-  private func call(_ method: String, _ path: String, query: [URLQueryItem] = [], body: String? = nil) async throws -> Dict {
+  private func call(_ method: String, _ path: String, query: [URLQueryItem] = [], body: String? = nil, needsReply: Bool = true) async throws -> Dict {
     var c = URLComponents(url: base, resolvingAgainstBaseURL: false)!
     c.path = path
     c.queryItems = query.isEmpty ? nil : query
@@ -106,7 +114,7 @@ public struct OwnerClient: Sendable {
     let reply = (try? JSONSerialization.jsonObject(with: data)) as? Dict
     switch res.statusCode {
     case 200..<300:
-      guard let reply else { throw OwnerError.badReply }
+      guard let reply else { if needsReply { throw OwnerError.badReply } else { return [:] } }
       return reply
     case 401: throw OwnerError.signedOut
     case 404 where reply?["error"] as? String == "not_found": throw OwnerError.notFound

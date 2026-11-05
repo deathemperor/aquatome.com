@@ -30,6 +30,10 @@ extension View {
   /// (when it changes, and after each sync, which also says the phone is online again).
   func ownerDashboard(_ account: AccountModel) -> some View {
     navigationDestination(for: OwnerRoute.self) { OwnerScreen(key: $0.key, anchor: $0.anchor) }
-      .task(id: "\(account.user?.id ?? "")|\(account.syncs)") { await account.owner.check() }
+      .task(id: "\(account.user?.id ?? "")|\(account.syncs)") {
+        await account.owner.check()
+        // The owner known: this phone's token for the daily report, if it's wanted and not sent this launch.
+        await account.push.send()
+      }
   }
 }

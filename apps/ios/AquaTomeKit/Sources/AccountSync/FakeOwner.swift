@@ -18,6 +18,8 @@ public final class FakeOwner {
   public var sessionEndsAtNextSection = false
   /// The next read of a section answers 503 `unavailable`, as the Worker does while its storage doesn't answer.
   public var storageDownAtNextSection = false
+  /// The phones the daily report's notifications go to: each token given, with its APNs (`sandbox` or `production`).
+  public private(set) var pushTokens: [String: String] = [:]
   private let replies: [[String: JSON]]
   private var sections: [String: JSON] = [:]
   /// The daily report's delivery, as the vectors' section shows it: email and phone notifications on, to one phone.
@@ -122,6 +124,11 @@ public final class FakeOwner {
       report = (flag(b["email"]) ?? report.email, flag(b["push"]) ?? report.push)
       reportShown()
       return try json(200, .object(["ok": .bool(true), "changed": .bool(report != before), "email": .bool(report.email), "push": .bool(report.push)]))
+    case ("POST", "push-token"), ("DELETE", "push-token"):
+      guard let b = body?.object, let token = b["token"]?.string, !token.isEmpty, let env = b["environment"]?.string,
+            env == "sandbox" || env == "production" else { return try refused() }
+      if method == "POST" { pushTokens[token] = env } else { pushTokens[token] = nil }
+      return try json(200, .object(["ok": .bool(true)]))
     default:
       return try error(404, "not_found")
     }

@@ -158,6 +158,31 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertFalse(said.exists)
   }
 
+  /// The daily report's notifications on this phone: off at first; turned on, iOS asks, and allowed, they stay on (the
+  /// token itself, which the simulator doesn't get, is the kit's to test: OwnerPushTests); turned off again.
+  func testTheReportsNotificationsAreTurnedOnHereOnceIOSAllowsThem() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    let row = app.switches["owner-push"].firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 10), "no notifications row")
+    XCTAssertEqual(row.value as? String, "0")
+    // The switch itself, at the row's end (the words are the label's).
+    let flip = row.coordinate(withNormalizedOffset: CGVector(dx: 0.92, dy: 0.5))
+    flip.tap()
+    let ask = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch
+    XCTAssertTrue(ask.waitForExistence(timeout: 5), "iOS didn't ask")
+    ask.buttons.element(boundBy: ask.buttons.count - 1).tap()
+    XCTAssertTrue(becomes(row, "1"), "not on")
+    flip.tap()
+    XCTAssertTrue(becomes(row, "0"), "not off")
+  }
+
+  /// Whether `e`'s value becomes `value` within 5 s.
+  private func becomes(_ e: XCUIElement, _ value: String) -> Bool {
+    XCTWaiter.wait(for: [expectation(for: NSPredicate(format: "value == %@", value), evaluatedWith: e)], timeout: 5) == .completed
+  }
+
   func testAnotherAccountSeesNoDashboard() {
     // The stand-in's owner is another account: this one's overview answers 404.
     let app = launch(owner: "someone-else")

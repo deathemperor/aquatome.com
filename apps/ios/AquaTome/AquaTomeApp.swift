@@ -18,6 +18,8 @@ struct AquaTomeApp: App {
   /// A link from outside the app waiting for the handbook's index, to know the pages the app has (AppLink).
   @State private var opening: AppLink?
   @Environment(\.scenePhase) private var phase
+  /// The owner's daily report notifications: APNs' token, and a tap on one.
+  @UIApplicationDelegateAdaptor(OwnerNotifications.self) private var notifications
 
   enum Tab {
     case tanks, handbook, lights
@@ -114,6 +116,11 @@ struct AquaTomeApp: App {
       .task { await telemetry.start() }
       .onChange(of: handbook.siteTelemetry, initial: true) { if let on = handbook.siteTelemetry { telemetry.siteAllows(on) } }
       .onChange(of: tab, initial: true) { telemetry.telemetry.record(.view(tab.screen)) }
+      // The owner's notifications turned on here: this launch's token, sent once the owner is known (OwnerPush).
+      .task {
+        notifications.received = { token in Task { await account.push.received(token) } }
+        await OwnerNotifications.register(account.push)
+      }
       // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).
       .onChange(of: phase) {
         if phase == .background { lights.leave(); telemetry.leave() } else if phase == .active { lights.returned() }
