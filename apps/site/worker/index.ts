@@ -23,6 +23,7 @@ import { fishId, type FishIdDeps, type FishIdEnv } from './fishid/api'
 import { appEventsRoute } from './telemetry/events'
 import { appDiagnosticsRoute } from './telemetry/diagnostics'
 import { countryOf } from './telemetry/shared'
+import { asksLang, chooserPage, langCookie, langPoint, pickedLang, pickResponse } from './lang-ask'
 import { sweepKept } from './fishid/kept'
 
 export interface Env {
@@ -126,20 +127,23 @@ async function fromVi(url: URL, env: Env): Promise<Response> {
   return new Response(null, { status: 301, headers: { location } })
 }
 
-/**
- * The site language a browser ranks highest among ours (Accept-Language, q order). When it asks for none of them (a phone
- * set to English, common in Indonesia and Thailand), the country Cloudflare places it in: Indonesia's Indonesian,
- * Thailand's Thai (`country`, empty for a crawler). Vietnamese otherwise.
- */
-export function rootLang(header: string | null, country = ''): 'vi' | 'id' | 'th' {
+/** The site language a browser ranks highest among ours (Accept-Language, q order), if it asks for any. */
+export function askedLang(header: string | null): 'vi' | 'id' | 'th' | undefined {
   const ranked = (header ?? '').split(',').map((part, i) => {
     const [tag, ...params] = part.trim().toLowerCase().split(';')
     const q = Number(params.find(p => p.trim().startsWith('q='))?.split('=')[1] ?? 1)
     return { base: tag!.split('-')[0]!.replace(/^in$/, 'id'), q: Number.isFinite(q) ? q : 0, i }
   }).filter(x => x.q > 0).sort((a, b) => b.q - a.q || a.i - b.i)
-  const hit = ranked.find(x => x.base === 'vi' || x.base === 'id' || x.base === 'th')
-  return (hit?.base as 'vi' | 'id' | 'th' | undefined) ?? (country === 'ID' ? 'id' : country === 'TH' ? 'th' : 'vi')
+  return ranked.find(x => x.base === 'vi' || x.base === 'id' || x.base === 'th')?.base as 'vi' | 'id' | 'th' | undefined
 }
+
+/**
+ * The browser's language among ours (askedLang). When it asks for none of them (a phone set to English, common in
+ * Indonesia and Thailand), the country Cloudflare places it in: Indonesia's Indonesian, Thailand's Thai (`country`, empty
+ * for a crawler). Vietnamese otherwise.
+ */
+export const rootLang = (header: string | null, country = ''): 'vi' | 'id' | 'th' =>
+  askedLang(header) ?? (country === 'ID' ? 'id' : country === 'TH' ? 'th' : 'vi')
 
 /** The language a reader picked in the language menu (cookie aq_lang, LangMenu.astro), if any. */
 export function chosenLang(cookie: string | null): 'vi' | 'id' | 'th' | undefined {
@@ -173,10 +177,26 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/.well-known/apple-app-site-association') return finish(new Response(JSON.stringify(APP_SITE_ASSOCIATION), { headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=3600' } }), env)
   // The root is the Vietnamese home page. A reader who picked Indonesian or Thai in the language menu goes to that
   // language's (302), and so does a browser that prefers one of them (Accept-Language) when its reader picked none, or
-  // one that asks for none of ours from Indonesia or Thailand; everyone else, crawlers included, gets the page (below).
+  // one that asks for none of ours from Indonesia or Thailand. A browser that asks for none of ours from elsewhere gets
+  // the language chooser (worker/lang-ask.ts; owner, 2026-11-06), whose links (?lang=) remember the pick as the menu
+  // does: Indonesian and Thai by a 302 to their home, Vietnamese by this page itself (a 302 back to / would loop to the
+  // chooser where the cookie isn't kept). Everyone else, crawlers included, gets the page (below).
+  let remember: string | undefined
   if (url.pathname === '/') {
     const al = req.headers.get('accept-language')
-    const lang = chosenLang(req.headers.get('cookie')) ?? rootLang(al, isBot(req.headers.get('user-agent'), al) ? '' : countryOf(req))
+    const country = isBot(req.headers.get('user-agent'), al) ? '' : countryOf(req)
+    // A page fetched ahead of a click (the Vietnamese pages prefetch /, Base.astro) is served but not counted.
+    const count = country && !/prefetch/i.test(req.headers.get('sec-purpose') ?? '')
+    const picked = pickedLang(url)
+    if (picked && count) env.EVENTS?.writeDataPoint(langPoint(`/?lang=${picked}`, country))
+    if (picked && picked !== 'vi') return finish(pickResponse(picked, url.searchParams), env)
+    if (picked) remember = langCookie(picked)
+    const chosen = picked ?? chosenLang(req.headers.get('cookie'))
+    if (!chosen && !askedLang(al) && asksLang(country)) {
+      if (count) env.EVENTS?.writeDataPoint(langPoint('/', country))
+      return finish(chooserPage(url.searchParams), env)
+    }
+    const lang = chosen ?? rootLang(al, country)
     if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
   }
   if (url.pathname === '/_e') return events(req, env)
@@ -220,6 +240,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (/(?:^|;\s*)skin=/.test(req.headers.get('cookie') ?? '')) extra['Set-Cookie'] = 'skin=; Path=/; Max-Age=0; SameSite=Lax; Secure'
   if (url.pathname === '/') Object.assign(extra, { Link: DISCOVERY_LINK, Vary: 'Accept, Accept-Language, Cookie' })
   const out = finish(res, env, extra)
+  if (remember) out.headers.append('Set-Cookie', remember)
   out.headers.set('Cache-Control', 'private, max-age=0, must-revalidate')
   out.headers.delete('etag')
   out.headers.delete('last-modified')
