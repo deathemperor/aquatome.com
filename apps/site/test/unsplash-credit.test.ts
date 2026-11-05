@@ -86,7 +86,8 @@ test('the gallery page: each Unsplash photo carries its photographer\'s page for
   ])
   const ld = dom.querySelectorAll('script[type="application/ld+json"]').map(s => JSON.parse(s.textContent)).flat().find((x: { '@type': string }) => x['@type'] === 'ImageGallery')
   expect(ld.image.map((i: { creator: unknown }) => i.creator)).toEqual([
-    ...[2, 3, 4, 5, 6].map(n => ({ '@type': 'Person', name: `Người chụp ${n}` })),
+    ...[2, 3, 4, 5].map(n => ({ '@type': 'Person', name: `Người chụp ${n}` })),
+    { '@type': 'Person', name: 'vnreddevil / Diễn Đàn Cá Cảnh' },
     { '@type': 'Person', name: 'Jo Park', url: `https://unsplash.com/@jopark?${UTM}` },
     { '@type': 'Person', name: 'Sam Reyes' },
   ])

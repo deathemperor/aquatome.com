@@ -323,9 +323,11 @@ The layers above still check the result.
       captions) say dead, market, preserved, museum, cooked and the like; then it finds none and calls no model. Found
       by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their page; its note
       said so and the verdict was "yes".
-  - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer
-    and the page's credits); the gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and
-    GBIF photos are copied to our media bucket with the credit kept. An Unsplash photo, wherever it shows, reads "Ảnh:
+  - **Credits.** Every photo names its author and links its own page on the source (the gallery's viewer and the
+    page's credits), with its open licence by name; a photo a source let us use names no licence, and nothing on a page
+    or in the app's copy says "with permission" (owner, 2026-11-05; `apps/site/test/photo-permission.test.ts`). The
+    gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and GBIF photos are copied to our
+    media bucket with the credit kept. An Unsplash photo, wherever it shows, reads "Ảnh:
     <name> trên Unsplash" (in view, not behind a ©), the name linking the photographer's Unsplash page and "Unsplash"
     its home, both with AquaTome's UTM, as Unsplash's API guidelines ask (`apps/site/src/lib/unsplash.ts`); in the
     credits list and the gallery's viewer each photo's own page is linked too. `pnpm engine unsplash` first fills the
@@ -450,6 +452,10 @@ The layers above still check the result.
       built-page check reads it (`@aq/schema` headingRoles). A repeated paragraph: the later copy dropped (in two texts
       of a page, as a run of copies, or 120 characters or more: a short line a list repeats under each item is the
       text's own); labels out of order ("Sai lầm 1, 9, 2…"): numbered again as they appear
+    - a sentence that only says the text is translated, adapted or used with permission, the source's note under an
+      article it reprints ("Được Loaches Online chuyển thể với sự cho phép.", "… dengan izin", "… โดยได้รับอนุญาต"):
+      dropped, its paragraph too when it is all there is (owner, 2026-11-05). A sentence that only has the words ("Chỉ
+      bắt cá với sự cho phép của cơ quan quản lý.") stays. No audit rule holds it at zero yet: the sweep alone
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
       page's ("in a batch of", "here with", "known as"), or that is a map: off its page. A map leaves every page
       (`engine-state/_photo-rejected.json`); a photo of another fish only that page, so it may still join its own fish's
