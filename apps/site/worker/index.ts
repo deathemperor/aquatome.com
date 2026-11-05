@@ -178,7 +178,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/api/v1/wanted' || url.pathname === '/api/v1/wanted/') return finish(await wantedRoute(req, env, new Date()), env)
   // Readers report a comment or photo (worker/report.ts): signed in or not, accounts on or off.
   if (url.pathname === '/api/v1/report') return finish(await reportRoute(req, env, new Date()), env)
-  if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps), env)
+  if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps, wait), env)
   // A reader's own photos, sent from the app (worker/photos.ts): listed or taken back with its account's bearer.
   if (url.pathname.startsWith('/api/v1/talk/photos/mine')) return finish(await minePhotos(req, url, env, new Date()), env)
   // The iOS app's anonymous events and crash and performance reports (worker/telemetry): no account, no cookie.
@@ -222,6 +222,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
 
 /** Durable Object classes the config binds (wrangler.jsonc). */
 export { FishIdRelay } from './fishid/relay'
+export { FishIdLedger } from './fishid/ledger'
 
 export default {
   fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, p => ctx.waitUntil(p)),

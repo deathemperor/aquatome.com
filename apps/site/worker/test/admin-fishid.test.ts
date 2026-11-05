@@ -101,3 +101,14 @@ test('days are the viewer\'s: the query buckets in its zone, and today, the week
   // The same moment in UTC is still the 1st.
   expect(summariseFishId([row('2026-11-01', 'ok', 1, 1)], [], [], late).periods.today.calls).toBe(1)
 })
+
+test('the agent\'s identifications: its calls to Claude, tool calls and photos, and why it stopped; cost per identification beside each period\'s total', () => {
+  const s = summariseFishId(ROWS, [], [{ ...CALL, turns: '3', tools: '3', refs: '2', stopped: 'answer' }, { ...CALL, outcome: 'retry', attempts: 0 }], NOW)
+  expect(s.recent.map(c => [c.turns, c.tools, c.refs, c.stopped])).toEqual([[3, 3, 2, 'answer'], [0, 0, 0, '']])
+  const html = fishIdPage({ now: NOW, stats: s, keys: undefined, pages: new Map() })
+  expect(html).toContain('<td class="l">3 · 3 · 2 <span class="muted">tự trả lời</span></td>')
+  expect(html).toContain('gửi lại, trả kết quả đã có')
+  // Today: 3 identifications reached Claude for 3 × $0.0084.
+  expect(html).toContain('<th>Mỗi lượt</th>')
+  expect(html).toMatch(/\$0[.,]0084/)
+})
