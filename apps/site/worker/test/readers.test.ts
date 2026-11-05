@@ -1,6 +1,7 @@
-import { expect, test } from 'vitest'
-import { sourceOf, summariseReaders } from '../readers'
-import { overviewPage, readersPage } from '../admin/pages'
+import { afterEach, expect, test, vi } from 'vitest'
+import { queryReaders, sourceOf, summariseReaders } from '../readers'
+import { overviewPage, readersPage, readersSection } from '../admin/pages'
+import type { ChartBlock } from '../admin/blocks'
 import { unset } from '../admin/shell'
 
 test('readers: sessions that scrolled half a page or stayed 30 s; sources, top pages and countries from readers', () => {
@@ -42,6 +43,33 @@ test('readers: sessions that scrolled half a page or stayed 30 s; sources, top p
   // Not configured, or Analytics Engine failing: said in its place.
   expect(readersPage(now, undefined)).toContain('Chưa cấu hình AE_API_TOKEN')
   expect(readersPage(now, { failed: 'analytics engine sql 422: bad' })).toContain('analytics engine sql 422: bad')
+})
+
+afterEach(() => vi.restoreAllMocks())
+
+// The owner reset the count (2026-11-05): the rows before were the site's own checks, the owner and the owner's agents.
+test('readers count from the reset: every beacon query reads from then on, and the days before it are uncounted, not 0', async () => {
+  const sent: string[] = []
+  vi.spyOn(globalThis, 'fetch').mockImplementation(async (_u, init) => {
+    sent.push(String(init?.body))
+    return Response.json({ data: String(init?.body).includes('min(timestamp)') ? [{ sid: 'a', first: '2026-11-06 02:00:00', pages: 1, t: 40, scroll: 0 }] : [] })
+  })
+  const tz = 'Asia/Ho_Chi_Minh'
+  const r = await queryReaders('acc', 'tok', 14, tz)
+  expect(sent).toHaveLength(2)
+  expect(sent.every(q => q.includes('FROM aquatome_events') && q.includes("timestamp >= toDateTime('2026-11-05 03:10:00')"))).toBe(true)
+  expect(r.from).toBe('2026-11-05T03:10:00Z')
+  const now = new Date('2026-11-06T09:00:00Z')
+  const c = readersSection(now, r, tz).blocks.find((b): b is ChartBlock => b.kind === 'chart')!
+  expect(c.days.slice(-3)).toEqual(['2026-11-04', '2026-11-05', '2026-11-06'])
+  expect(c.series[0]!.values.slice(-3)).toEqual([null, 0, 1])
+  expect(c.whole!.values.slice(-3)).toEqual([null, 0, 1])
+  expect(c.series[0]!.values.slice(0, -2).every(v => v === null)).toBe(true)
+  expect(c.missing).toBe('chưa đếm: số đếm bắt đầu lại từ 05/11')
+  expect(readersPage(now, r, tz)).toContain('đếm lại từ')
+  // Without a reset in the data (the samples), every day counts as before.
+  const { from: _, ...before } = r
+  expect(readersSection(now, before, tz).blocks.find((b): b is ChartBlock => b.kind === 'chart')!.series[0]!.values.every(v => v !== null)).toBe(true)
 })
 
 test('Analytics Engine IF() needs one type: decimal columns default to 0.0 (an integer 0 is a 422)', async () => {

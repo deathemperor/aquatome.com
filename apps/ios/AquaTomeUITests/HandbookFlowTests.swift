@@ -205,6 +205,142 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertEqual(rows(app), 8)
   }
 
+  // "c" counted 2,183 over the 200 rows a search lists, with nothing saying so. Three to a page here (`-search-page`),
+  // as 200 are on the site's index.
+  func testMoreFoundThanListedSaysSoAndListsMore() {
+    let app = launch("-search-page", "3")
+    // The keyboard put away, so the button under the rows can be tapped.
+    search(app, "ca\n")
+    let note = app.staticTexts["more-note"]
+    XCTAssertTrue(note.waitForExistence(timeout: 5), "no word under the rows listed")
+    XCTAssertEqual(note.label, "Đang hiện 3 trong 7 kết quả. Gõ thêm để thu hẹp.")
+    XCTAssertEqual(chip(app, "all").value as? String, "7")
+    app.buttons["more"].tap()
+    XCTAssertEqual(note.label, "Đang hiện 6 trong 7 kết quả. Gõ thêm để thu hẹp.")
+    app.buttons["more"].tap()
+    XCTAssertFalse(note.waitForExistence(timeout: 1), "still short, with all of it listed")
+    XCTAssertEqual(rows(app), 7)
+    chip(app, "fish").tap()
+    XCTAssertFalse(note.waitForExistence(timeout: 1), "short of a kind that has only 3")
+    XCTAssertEqual(rows(app), 3)
+    // Another kind picked lists its best 3 again, not as many as the last one had.
+    chip(app, "all").tap()
+    XCTAssertTrue(note.waitForExistence(timeout: 5), "all 7 listed again, not the best 3")
+    XCTAssertEqual(note.label, "Đang hiện 3 trong 7 kết quả. Gõ thêm để thu hẹp.")
+    XCTAssertEqual(rows(app), 3)
+  }
+
+  // The note under the rows was the footer's secondary: 3.3:1 on the light look's background.
+  func testTheNoteUnderTheRowsReadsClearly() { noteReadsClearly(launch("-search-page", "3")) }
+  func testTheNoteUnderTheRowsReadsClearlyInTheDark() { noteReadsClearly(launch("-search-page", "3", "-dark")) }
+
+  private func noteReadsClearly(_ app: XCUIApplication) {
+    search(app, "ca\n")
+    let note = app.staticTexts["more-note"]
+    XCTAssertTrue(note.waitForExistence(timeout: 5), "no word under the rows listed")
+    readsClearly(app, note, "the note")
+  }
+
+  // With "Cây" picked and "don" typed, it said there were no results, under "Loài cá 2".
+  func testAKindWithNoneSaysWhichKindsHaveSome() {
+    let app = launch()
+    search(app, "do")
+    chip(app, "plant").tap()
+    app.searchFields.firstMatch.typeText("n")
+    XCTAssertTrue(app.staticTexts["Không có kết quả trong “Cây”"].waitForExistence(timeout: 5), "not said which kind has none")
+    XCTAssertTrue(app.staticTexts["“don” có kết quả trong Loài cá (2)."].exists, "not said where the results are")
+    app.buttons["see-all"].tap()
+    XCTAssertTrue(chip(app, "all").isSelected)
+    XCTAssertEqual(rows(app), 2)
+  }
+
+  // At the largest text that message, laid over the whole list, covered the chips, and with the keyboard up its
+  // "Xem tất cả" was under the keyboard, out of reach.
+  func testAKindWithNoneLeavesTheChipsAndTheWayBackInReachAtTheLargestText() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    search(app, "do")
+    chip(app, "plant").tap()
+    app.searchFields.firstMatch.typeText("n")
+    let said = [app.staticTexts["Không có kết quả trong “Cây”"], app.staticTexts["“don” có kết quả trong Loài cá (2)."]]
+    XCTAssertTrue(said[0].waitForExistence(timeout: 5) && said[1].exists, "not said which kind has none")
+    XCTAssertTrue(app.keyboards.firstMatch.exists, "the keyboard isn't up")
+    XCTAssertTrue(chip(app, "plant").isHittable, "the kind picked can't be tapped")
+    for kind in ["all", "fish", "plant"] {
+      let c = chip(app, kind)
+      XCTAssertTrue(c.exists, "no \(kind) chip")
+      // A chip on screen (the row scrolls sideways) can be tapped, and nothing said is over it.
+      if app.frame.contains(c.frame) { XCTAssertTrue(c.isHittable, "\(kind)'s chip can't be tapped") }
+      for text in said { XCTAssertFalse(text.frame.intersects(c.frame), "“\(text.label)” is over \(kind)'s chip") }
+    }
+    // In reach with the keyboard up: on screen, or once the list is moved up under the chips.
+    let all = app.buttons["see-all"], list = app.collectionViews.firstMatch
+    var moves = 0
+    while !all.isHittable && moves < 3 {
+      drag(list, from: 0.55, to: 0.2)
+      moves += 1
+    }
+    XCTContext.runActivity(named: "“Xem tất cả” in reach after \(moves) drags") { _ in }
+    XCTAssertTrue(all.isHittable, "“Xem tất cả” out of reach")
+    all.tap()
+    // Back up to the chips, from below the search field (at this size it reaches a fifth of the way down).
+    for _ in 0..<3 where !(chip(app, "all").exists && chip(app, "all").isHittable) { drag(list, from: 0.3, to: 0.6) }
+    XCTAssertTrue(chip(app, "all").exists && chip(app, "all").isSelected, "not back to every kind")
+  }
+
+  // Typing here redrew the tanks tab's guides and fish picker, and searched again for them, letter by letter: they
+  // read the index searched through this tab's search, which each letter changes.
+  func testTypingHereLeavesWhatTheTanksTabSearchesAlone() {
+    let app = launch("-watch-tank-searches", "-search-page", "3")
+    let changes = app.staticTexts["tank-search-changes"]
+    XCTAssertTrue(changes.waitForExistence(timeout: 5), "not watched")
+    // The index coming in is a change: what the tanks tab searches is new.
+    let loaded = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label != '0'"), object: changes)
+    XCTAssertEqual(XCTWaiter().wait(for: [loaded], timeout: 5), .completed, "the index didn't come in")
+    let before = changes.label
+    search(app, "ca\n")
+    app.buttons["more"].tap()
+    chip(app, "fish").tap()
+    let field = app.searchFields.firstMatch
+    field.tap()
+    field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 2))
+    XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5), "not the home")
+    XCTAssertEqual(changes.label, before, "typing, a page more and a kind picked changed what the tanks tab searches")
+  }
+
+  // At the largest text the rows run past the screen, and counting only the rows drawn found 2 of 7.
+  func testTheCountsMatchTheRowsAtTheLargestText() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    search(app, "ca")
+    XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5))
+    XCTAssertEqual(chip(app, "all").value as? String, "7")
+    let seen = screens(app)
+    XCTAssertEqual(Self.count(seen), 7, "\(seen)")
+  }
+
+  // Counting each name once, a row listed twice counted as one.
+  func testARowListedTwiceCountsTwice() {
+    XCTAssertEqual(Self.count([["Cá neon", "Cá neon", "Cá đĩa"], ["Cá đĩa", "Cá ngựa vằn"]]), 4)
+  }
+
+  // A chip's count off the picked chip read 3.1:1 on its fill in the light look, under the 4.5:1 text needs.
+  func testTheKindsCountsReadClearly() { countsReadClearly(launch()) }
+  func testTheKindsCountsReadClearlyInTheDark() { countsReadClearly(launch("-dark")) }
+
+  private func countsReadClearly(_ app: XCUIApplication) {
+    search(app, "ca")
+    XCTAssertTrue(chip(app, "fish").waitForExistence(timeout: 5))
+    for kind in ["all", "fish"] { readsClearly(app, chip(app, kind).staticTexts.element(boundBy: 1), "\(kind)'s count") }
+  }
+
+  /// `text` reads at least 4.5:1 on what's behind it, once the screen is still: the ratio is in the test's log.
+  private func readsClearly(_ app: XCUIApplication, _ text: XCUIElement, _ what: String) {
+    let until = Date().addingTimeInterval(1)
+    while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
+    let ratio = contrast(app, text)
+    XCTContext.runActivity(named: String(format: "%@: %.2f:1", what, ratio)) { _ in }
+    XCTAssertGreaterThanOrEqual(ratio, 4.5, "\(what) reads \(ratio):1")
+  }
+
   func testTheGlossaryGoesByLetter() {
     let app = launch()
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
@@ -305,9 +441,89 @@ final class HandbookFlowTests: XCTestCase {
   /// The chip of a kind under the search field (`all` for every kind).
   private func chip(_ app: XCUIApplication, _ kind: String) -> XCUIElement { app.buttons["kind-\(kind)"] }
 
-  /// How many result rows show: the list's cells holding a page, not the chips' header (and once each: a row's button and
-  /// what it draws both carry its "item").
-  private func rows(_ app: XCUIApplication) -> Int { app.collectionViews.firstMatch.cells.containing(.any, identifier: "item").count }
+  /// How many result rows there are: the list's cells holding a page, not the chips' header, told apart by what they read
+  /// (a row's button and what it draws both carry its "item"). The list draws only the cells on screen, so it's dragged
+  /// a part of a screen at a time, the keyboard put away first, until it stops moving (a row taller than a drag can stay
+  /// on screen through one), and back. Each screen is read in one snapshot: a query per cell took seconds each.
+  private func rows(_ app: XCUIApplication) -> Int { Self.count(screens(app)) }
+
+  /// How many rows the screens hold: each name as many times as it shows on any one of them, so a row listed twice
+  /// counts twice, and a row on two screens once.
+  private static func count(_ screens: [[String]]) -> Int {
+    var most: [String: Int] = [:]
+    for screen in screens {
+      for (name, n) in Dictionary(screen.map { ($0, 1) }, uniquingKeysWith: +) { most[name] = max(most[name] ?? 0, n) }
+    }
+    return most.values.reduce(0, +)
+  }
+
+  /// The names of the rows on each screen of the list, top to bottom.
+  private func screens(_ app: XCUIApplication) -> [[String]] {
+    // A drag with the keyboard up once waited 116 s for the app's animations to end.
+    if app.keyboards.firstMatch.exists { app.searchFields.firstMatch.typeText("\n") }
+    XCTAssertTrue(app.keyboards.firstMatch.waitForNonExistence(timeout: 5), "the keyboard is still up")
+    let list = app.collectionViews.firstMatch
+    var screens: [[String]] = []
+    var last: [String] = []
+    var moves = 0
+    while moves < 30 {
+      // Tests run on the main thread, where the snapshot is read.
+      let here: [String] = MainActor.assumeIsolated {
+        var found: [String] = []
+        func walk(_ e: XCUIElementSnapshot, cell: XCUIElementSnapshot?) {
+          if e.identifier == "item", let cell { return found.append("\(e.label)\u{0}\(Int(cell.frame.minY))") }
+          for c in e.children { walk(c, cell: e.elementType == .cell ? e : cell) }
+        }
+        if let snap = try? list.snapshot() { walk(snap, cell: nil) }
+        return found
+      }
+      if here == last { break }
+      screens.append(here.map { String($0.prefix { $0 != "\u{0}" }) })
+      last = here
+      drag(list, from: 0.55, to: 0.2)
+      moves += 1
+    }
+    // Back to the top, where the chips are, from below the search field (at the largest text it reaches 0.22 down).
+    for _ in 0..<moves { drag(list, from: 0.3, to: 0.65) }
+    return screens
+  }
+
+  private func drag(_ list: XCUIElement, from: CGFloat, to: CGFloat) {
+    list.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: from))
+      .press(forDuration: 0.05, thenDragTo: list.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: to)), withVelocity: .fast,
+             thenHoldForDuration: 0.2)
+  }
+
+  /// How `text` reads on what's behind it, as WCAG measures contrast: its most contrasting pixel against the colour most
+  /// of its box is (a chip's fill, for its count).
+  private func contrast(_ app: XCUIApplication, _ text: XCUIElement) -> Double {
+    guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return 0 }
+    let scale = CGFloat(shot.width) / app.frame.width
+    let f = text.frame
+    guard let box = shot.cropping(to: CGRect(x: f.minX * scale, y: f.minY * scale, width: f.width * scale, height: f.height * scale).integral)
+    else { return 0 }
+    let w = box.width, h = box.height
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    guard let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                              bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else { return 0 }
+    ctx.draw(box, in: CGRect(x: 0, y: 0, width: w, height: h))
+    func luminance(_ i: Int) -> Double {
+      func channel(_ v: UInt8) -> Double { let c = Double(v) / 255; return c <= 0.04045 ? c / 12.92 : pow((c + 0.055) / 1.055, 2.4) }
+      return 0.2126 * channel(px[i]) + 0.7152 * channel(px[i + 1]) + 0.0722 * channel(px[i + 2])
+    }
+    var often: [Int: Int] = [:]
+    for i in stride(from: 0, to: px.count, by: 4) { often[Int(px[i]) << 16 | Int(px[i + 1]) << 8 | Int(px[i + 2]), default: 0] += 1 }
+    guard let fill = often.max(by: { $0.value < $1.value })?.key,
+      let back = stride(from: 0, to: px.count, by: 4).first(where: { Int(px[$0]) << 16 | Int(px[$0 + 1]) << 8 | Int(px[$0 + 2]) == fill })
+    else { return 0 }
+    let b = luminance(back)
+    var best = 1.0
+    for i in stride(from: 0, to: px.count, by: 4) {
+      let l = luminance(i)
+      best = max(best, (max(l, b) + 0.05) / (min(l, b) + 0.05))
+    }
+    return best
+  }
 
   /// A result row, by its name (the row reads its name, then its scientific name or kind).
   private func item(_ app: XCUIApplication, _ name: String) -> XCUIElement {

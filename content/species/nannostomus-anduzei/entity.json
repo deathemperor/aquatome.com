@@ -20,6 +20,13 @@
           "min": 27,
           "max": 27
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -27,6 +34,13 @@
         "source": "glaser",
         "value": {
           "min": 7,
+          "max": 7
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
           "max": 7
         }
       }
@@ -38,12 +52,35 @@
           "min": 10,
           "max": 10
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 1.8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 1.6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -53,6 +90,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-anduzei/",
       "html": "<ul><li>Maximum length: 1.8 cm, the smallest species of the genus Nannostomus.</li><li>Origin: Venezuela (upper Orinoco) and northern Brazil (Rio Negro area).</li><li>Described by Fernandez &amp; Weitzman, 1987.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<p>Max size: 1.6 cm SL. Aquarium size: 45 × 30 cm. Temperature: 22–28°C. pH 5.0–7.0. Hardness 1–5 dGH.</p><p>The smallest member of its genus, Nannostomus anduzei is a pencilfish from the upper Orinoco in Venezuela and the rio Negro basin in Brazil. Rarely traded in numbers, it is a relatively common contaminant among shipments of wild fishes from Manaus. Males have an intensely red caudal peduncle and anal-fin, and its size and timid nature suit a tank of its own or diminutive tankmates such as Paracheirodon simulans.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -67,10 +110,22 @@
       "html": "<p>The reference specimens come from a freshwater lagoon about 15 km north of Puerto Ayacucho, in the upper Rio Orinoco region of Venezuela. A second location is in northern Brazil, in the waters of a savanna in the Rio Negro area, belonging to the Rio Ererê, which flows from the north into the Rio Negro about 250 km northwest of the mouth of the Rio Branco, near the Rio Padauari. Imported fish probably come from the Rio Ererê region.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<p>Type locality is 'Laguna Provincial, about 20 kilometers north of Puerto Ayacucho, about 5°50'N, 67°30'W, Departamento de Atures, Amazonas, Venezuela' in the upper Orinoco river basin, and officially it's only been collected from one other location much further south in the rio Ererê drainage, Amazonas state, Brazil.</p><p>The Ererê is a minor tributary of the middle rio Negro basin and located several hundred kilometres south of the type locality, suggesting that additional populations do exist.</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-anduzei/",
       "html": "<p>The water temperature in the Venezuelan lagoon was nearly 30 °C, with pH ranging from 5.0 to 7.0. The Brazilian site is one of the so-called 'black water' regions. Fish caught there have the same colouration as the Venezuelan specimens, but the males of the Brazilian form have a much longer anal fin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<p>The type locality is a very shallow (maximum depth approximately 50 cm), perennial forest stream named Caño Provincial and containing slowly-moving transparent water with a substrate of white sand, submerged roots, and leaf litter.</p><p>The caño originates from a spring surrounded by the moriche palm, Mauritia flexuosa, and flows for approximately 2000 m before emptying into a wide, shallow lagoon occupying an area of flat savannah next to the Río Orinoco.</p><p>The lagoon has a mud substrate, turbid water, and supports both emergent and floating vegetation.</p><p>pH in the stream was 5.0 and water temperature 27 °C in December 1984, while in the lagoon pH varied between 5.0-7.0, water temperature was around 30 °C. N. anduzei was only collected from slowly-moving water among the plants in the stream and parts of the lagoon under its influence.</p><p>It was not collected from any acidic black waters which comprise most of the surrounding aquatic habitats.</p><p>The rio Ererê fish were collected from a black water biotope, however, and the males possessed longer anal fins than the Venezuelan population.</p>"
     },
     {
       "key": "aquariumSize",
@@ -79,10 +134,28 @@
       "html": "<p>Only a small aquarium with a volume of about 10 to 30 litres is needed.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<p>Standard length: 1.6 cm SL. Aquarium base: 45 × 30 cm. Volume: approximately 41 litres.</p><p>Base dimensions of at least 45 × 30 cm or equivalent are required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<p>Should ideally be kept in a heavily-planted set-up, preferably with a dark substrate.</p><p>The broken lines of sight that exist in such a display allow it to display natural behaviour as well as helping to reduce skittishness.</p><p>Floating plants are a useful addition as are driftwood branches and dried leaf litter, the latter in particular driving establishment of microbe colonies as decomposition occurs.</p><p>Such microorganisms can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves are also thought beneficial.</p><p>Use gentle filtration; an air-powered sponge-style unit should prove adequate.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-anduzei/",
       "html": "<p>At 27 °C, pH 7 or slightly below and 10 °dH hardness, the fish are absolutely unproblematic to keep.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -91,10 +164,22 @@
       "html": "<p>Due to the smallness of the fish, use very fine, sieved Cyclops, sometimes small Grindal worms or artemia nauplii. Occasionally they also enjoy fine dry food.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<p>A micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Moina, grindal worm, etc.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-anduzei/",
       "html": "<p>Keep a shoal. Under suitable conditions, the males soon show courtship: the dominant males display a blood red caudal fin base and anal fin, the golden horizontal bar shines light green, and the brown back and the brown band below the gold-green bar turn grey-brown.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<p>Very peaceful but does not make an ideal community fish due to its small size and rather timid nature.</p><p>It will do best when maintained alone or with other diminutive, non-aggressive species such as Paracheirodon simulans, with which it's sometimes exported as bycatch.</p><p>Though gregarious by nature it's a shoaling rather than schooling species with rival males sparring on a regular basis during daylight hours.</p><p>It's not uncommon to see nipped fins within a group though this behaviour does not normally extend to tankmates.</p><p>Buy as many as possible, ideally 10 or more, as when kept in larger groups any aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p>"
     },
     {
       "key": "dimorphism",
@@ -103,10 +188,34 @@
       "html": "<p>N. anduzei differs from all other Nannostomus species in lacking dark spots or bars in night colouration; at night the fish seem transparent with a golden shine, and the red in the anal fin and caudal base is hardly recognisable. Males of the Brazilian form have a much longer anal fin.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<p>Adult males are slimmer and more brightly-coloured with red pigmentation in the anal and caudal fins that is lacking in females.</p><p>In the Brazilian form males also possess an extended anal-fin, this more apparent in dominant individuals.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-anduzei/",
       "html": "<p>Courtship was often observed but the fish never spawned in the general tank. A group of four males and six females, selected from several Blue Neon imports, was placed in an 8 litre breeding tank: two thirds of the bottom was covered with Java moss and the surface with Ceratopteris. The spring water had pH 6.3 and 2 °dH hardness. The group was kept like this for ten days and fed artemia nauplii daily. Food remains accumulated in the light front part of the tank and were sucked out every two days. Afterwards the tank was filled up with fresh spring water.</p><p>Three days after the adults were removed, tiny eggs were seen stuck to the panes. They were 3 mm long, grey-white and very thin, with the head and clearly visible eye thicker than the rest of the body. Every two days two drops of Liquifry were added. At the beginning of the third week some artemia nauplii were added. After three weeks all plants were removed; only six young fish were present, now 4 mm long and considerably heavier. They were then seen eating nauplii. Some mud was sucked out, the tank was filled with spring water, and several ramshorn snails were added to eat food remains.</p><p>The first breeding was not very successful in numbers, but showed that breeding in the aquarium is possible. The species might, like many relatives, eat its own eggs; if so, breeding in pairs may be wiser.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<p>Has been achieved in aquaria, albeit rarely, and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller containers should also be set up and filled with aged water.</p><p>Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved aquatic plant.</p><p>Neither lighting nor filtration is necessary although you can install a small air-powered sponge filter if you prefer.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container, though it's worth noting that the more individuals involved the greater the risk of egg predation, plus males may distract each other from females if there's more than one in the tank.</p><p>The adults can be removed after 2-3 days and the first fry should be visible a day or two later.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<p>This is the smallest member of the genus and rarely traded in numbers, though it's a relatively common contaminant among shipments of wild fishes from Manaus.</p><p>Unlike most other Nannostomus spp. it does not exhibit a specific colour pattern of spots or bars at night-time, rather displaying an overall paleness.</p><p>It can be distinguished from congeners by the following combination of characters: pelvic-fin ray count ii-6 (vs. ii-7 in other Nannostomus spp.); 9 rays in upper caudal-fin lobe, 8 in lower lobe (vs. 10, 9, respectively); 4 premaxillary teeth in adults (vs. 5-8); small adult size up to 16.2 mm SL; males with distinct colour pattern in life with intensely red caudal peduncle and anal-fin.</p><p>The family Lebiasinidae is included in the order Characiformes and sometimes split into the nominal subfamilies Lebiasininae and Pyrrhulininae, though there has not been a major review of the grouping in recent times.</p><p>All lebiasinid genera possess a relatively long, elongate body shape with 17-33 scales in the lateral series and laterosensory canal system absent or reduced to 7 scales or less.</p><p>Some species have an adipose fin while others do not, and the anal-fin has a relatively short base of 13 scales or less.</p><p>In the majority of members males have an enlarged or otherwise well-developed anal-fin used in courtship and spawning.</p><p>The frontal/parietal fontanelle is always absent, the cheek well-covered by the orbital and opercular bones, the supraoccipital crest is absent, and the scales of the dorsal body begin over the parietal bones.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families.</p><p>This tremendous taxonomical and morphological diversity has historically impaired the ability of researchers to resolve their genetic relationships with many genera remaining incertae sedis.</p><p>A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern molecular phylogenetic techniques have allowed some headway, though, and a research paper by Calcagnotto et al. published in 2005 revealed some interesting hypotheses.</p><p>Their results suggest that Lebiasinidae forms a trans-atlantic, monophyletic clade alongside the families Ctenoluciidae and Hepsetidae, this clade further forming a sister group to Alestidae.</p><p>Others such as Oliveira et al. (2011) have concluded that the family Erythrinidae is also closely-related to this grouping with Hepsetidae and Alestidae more distant.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-anduzei",
+      "html": "<ul><li>Fernandez, J. M. and S. H. Weitzman (1987). A new species of Nannostomus (Teleostei: Lebiasinidae) from near Puerto Ayacucho, Río Orinoco drainage, Venezuela. Proceedings of the Biological Society of Washington 100(1), 164-172</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Weitzman, S. H. and J. S. Cobb (1975). A revision of the South American fishes of the genus Nannostomus Günther (family Lebiasinidae). Smithsonian Contributions to Zoology 186, i-iii + 1-36</li></ul>"
     }
   ],
   "photos": [],
@@ -134,5 +243,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-04"
 }

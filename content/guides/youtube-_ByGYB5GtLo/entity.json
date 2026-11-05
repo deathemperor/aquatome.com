@@ -1,0 +1,37 @@
+{
+  "id": "youtube-_ByGYB5GtLo",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=_ByGYB5GtLo",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "_ByGYB5GtLo",
+    "title": "HOW TO: cool and ventilate your aquarium",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 258,
+    "publishedAt": "2015-11-01",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mbN03yoMmH3ioVkQVTJ3BwK",
+      "position": 36
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/_ByGYB5GtLo/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 20
+      }
+    ]
+  }
+}

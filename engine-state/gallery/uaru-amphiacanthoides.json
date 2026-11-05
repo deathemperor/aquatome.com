@@ -1,13 +1,29 @@
 {
  "queue": [],
  "judged": [
-  "File:Uaru amphiacanthoides (Lago Maximo, Brazil).jpg"
+  "File:Uaru amphiacanthoides (Lago Maximo, Brazil).jpg",
+  "inat:179491137",
+  "inat:179491359",
+  "inat:331431544",
+  "inat:745126107",
+  "inat:304514165",
+  "inat:747617065"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/03726a431470b8ed.webp": "03038f8686436374",
   "https://media.aquatome.com/commons/ba268c24c65b0b84.webp": "6cf0f0b8acf87631",
   "https://media.aquatome.com/commons/0fc8c7de1c9dea9a.webp": "2a2ae0e0f246989a",
-  "https://media.aquatome.com/commons/1ac659a7619769ec.webp": "a2c8e0e9f070c180"
+  "https://media.aquatome.com/commons/1ac659a7619769ec.webp": "a2c8e0e9f070c180",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/304514165/large.jpg": "3c323239736e7a52",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/747617065/large.jpg": "e62e1bdfce60317d"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 567461,
+  "pass": "done",
+  "after": {
+   "research": 405646213,
+   "agree": 406880595
+  }
+ }
 }

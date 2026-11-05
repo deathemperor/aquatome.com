@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (57)
+# Tóm tắt chờ duyệt (61)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -129,6 +129,17 @@ Cá sấu hỏa tiễn nhiệt đới (Atractosteus tropicus) không hợp với
 - Cho ăn tim bò hoặc thịt gà: dùng tôm, cá đông lạnh hoặc cá nguyên con, vì thịt động vật có vú làm cá tích mỡ và thoái hóa cơ quan.
 - Thả chung với cá nhỏ: nuôi riêng, hoặc chỉ ghép cá không hung dữ, cỡ tương đương và không bị nuốt vừa.
 
+## Cá nheo Batrochoglanis raninus (Batrochoglanis raninus)
+id: `batrochoglanis-raninus`
+
+Cá nheo Batrochoglanis raninus hợp người thích cá hiền, hoạt động về đêm và hay trốn, vì cá chỉ dài khoảng 8 cm khi trưởng thành. Hồ sơ không ghi thông số nước hay bể tối thiểu, nên cần tự tìm thêm trước khi nuôi. Điểm khó nhất là cá ăn được con nào lọt vừa miệng, nên đừng nuôi chung với cá quá nhỏ.
+
+- Nuôi chung với cá nhỏ lọt vừa miệng thì dễ bị ăn; nên chọn bạn cùng bể có kích thước lớn hơn miệng cá.
+- Không bố trí chỗ trốn khiến cá bị căng thẳng vì thích trốn và hoạt động về đêm; nên thả ống nhựa vào bể làm chỗ ẩn.
+
+Kiểm tra:
+- Mistake 2: "Không bố trí chỗ trốn khiến cá bị căng thẳng" – the page never says that missing hiding places stresses the fish. It only says they hide a lot and gather in plastic pipes. The consequence is invented, and the page gives no advice on what happens without hiding places.
+
 ## Cá Batrochoglanis (Batrochoglanis villosus)
 id: `batrochoglanis-villosus`
 
@@ -197,6 +208,15 @@ Cá betta unimaculata hợp với người muốn nuôi riêng một loài betta
 
 Kiểm tra:
 - Mistake 2 "Cho ăn toàn đồ khô ... nên xen giun đen và trùn chỉ đỏ đông lạnh với cám viên": the page only says the fish is fed live, frozen and dry foods (blackworms, frozen bloodworms, pellets). It does not say an all-dry diet is a mistake or that foods should be alternated. The fix is advice the page doesn't give.
+
+## Cá trê săn mồi Apure (Cephalosilurus apurensis)
+id: `cephalosilurus-apurensis`
+
+Cá trê săn mồi Apure (Cephalosilurus apurensis) là cá da trơn săn mồi cỡ lớn, dài tối đa khoảng 30 cm. Hồ sơ không nêu thông số nước hay bể tối thiểu. Loài này hiếm, mới có vài con nhập về với số lượng rất ít, cá dài 20–25 cm và gần như đã lớn hết cỡ.
+
+
+Kiểm tra:
+- "20–25 cm" is not the card's adult size (30 cm)
 
 ## Cá chaetostoma hổ Magdalena (Chaetostoma leucomelas)
 id: `chaetostoma-leucomelas`
@@ -388,6 +408,17 @@ Kiểm tra:
 - "nên khó nhất là chọn bạn cùng bể": the page never says tank mates are the hardest part. It only lists the diet (fish, shrimp, insects), so this is an inference stated as fact.
 - "chọn bạn cùng bể là cá đủ lớn": the page gives no tank-mate advice and no size at which fish are safe from it, so this fix is invented.
 
+## Cá Labiobarbus siamensis (Labiobarbus siamensis)
+id: `labiobarbus-siamensis`
+
+Cá Labiobarbus siamensis hợp với người đã có bể lớn và muốn nuôi một đàn cá chép sông dài tới 20 cm. Độ khó 3/8, thuộc nhóm dễ. Hồ sơ không nêu nhiệt độ hay pH, nên cần tự tìm thêm trước khi nuôi. Điểm khó nhất là cá cần bể lớn và phải nuôi theo đàn.
+
+- Nuôi lẻ một con thì cá không hợp, nên nuôi theo đàn.
+- Cho vào bể nhỏ trong khi cá lớn tới 20 cm, nên chuẩn bị bể lớn ngay từ đầu.
+
+Kiểm tra:
+- "phải nuôi theo đàn": the page only says the fish "nên nuôi theo đàn" (should be kept in a group). The summary turns this recommendation into a requirement.
+
 ## Cá Laetacara dorsigera (Laetacara dorsigera)
 id: `laetacara-dorsigera`
 
@@ -507,6 +538,15 @@ Cá mini pangasius (Pachypterus atherinoides) hợp với người muốn một 
 Kiểm tra:
 - The fix "kiểm tra kỹ tên khoa học trước khi mua" is advice the page never gives. The page also uses two different scientific names (Pachypterus and Eutropius), so this check would not be a clear one.
 - The claim that the fish is "dễ nhầm" with true Pangasius, and the mistake "Nhầm cá với Pangasius thật vì cùng tên gọi", are not stated on the page. The page only says the "mini-pangasius" are not close relatives of Pangasius and that true Pangasius grow large.
+
+## Cá L56x Parancistrus (Parancistrus aurantiacus)
+id: `parancistrus-aurantiacus`
+
+Cá L56x Parancistrus (Parancistrus aurantiacus) hợp với người đã quen loricariid và thích loài lạ, màu đẹp. Cá nhập từ Brazil về với số lượng ít nên khó tìm. Hồ sơ không ghi thông số bể hay nước, nên chưa đủ cơ sở nói cần bể và nước thế nào. Màu có thể đổi nhanh giữa vàng óng, vân cẩm thạch và đen.
+
+
+Kiểm tra:
+- "hợp với người đã quen loricariid" – the page never says the fish suits experienced loricariid keepers. The card is empty and gives no difficulty. The page only calls it a very unusual loricariid imported in small numbers, so this suitability claim is unsupported.
 
 ## Cá liquorice gourami Anjungan (Parosphromenus anjunganensis)
 id: `parosphromenus-anjunganensis`

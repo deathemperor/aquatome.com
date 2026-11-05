@@ -607,6 +607,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/bagridae/mystus_gulio.htm": {
+    "entityIds": [
+      "species/mystus-gulio"
+    ],
+    "updatedAt": "2026-11-04T22:16:24.811Z",
+    "hash": "f936e19daf13fd3bba54f7caeacb4a6dc112ff9fa8cbbe9f980b093bad099c62",
+    "processedHash": "f936e19daf13fd3bba54f7caeacb4a6dc112ff9fa8cbbe9f980b093bad099c62",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm": {
     "entityIds": [
       "species/brochis-multiradiatus"
@@ -614,6 +624,16 @@
     "updatedAt": "2026-11-01T00:30:29.045Z",
     "hash": "e64348b77307142af3b570dc541818e1723f610456c1b16afc32dd54da753d95",
     "processedHash": "e64348b77307142af3b570dc541818e1723f610456c1b16afc32dd54da753d95",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm": {
+    "entityIds": [
+      "species/corydoras-fowleri"
+    ],
+    "updatedAt": "2026-11-04T22:11:17.367Z",
+    "hash": "8f7764f64facbfd24e088a4235e7eae1b0f8be2893b5a4fcd262440af59a02eb",
+    "processedHash": "8f7764f64facbfd24e088a4235e7eae1b0f8be2893b5a4fcd262440af59a02eb",
     "status": "processed",
     "attempts": 0
   },
@@ -984,6 +1004,26 @@
     "updatedAt": "2026-11-04T13:38:32.630Z",
     "hash": "ce7fcce0ad7d63f01da50038ead9161a087ffa358a8783fbddec2bceaaf7007d",
     "processedHash": "ce7fcce0ad7d63f01da50038ead9161a087ffa358a8783fbddec2bceaaf7007d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/megalancistrus_parananus.htm": {
+    "entityIds": [
+      "species/megalancistrus-parananus"
+    ],
+    "updatedAt": "2026-11-04T22:13:36.473Z",
+    "hash": "639188cfdd19f84f701362972030865d8f0e7f9c8ddb025dbaf5b504eed9d75c",
+    "processedHash": "639188cfdd19f84f701362972030865d8f0e7f9c8ddb025dbaf5b504eed9d75c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/neblinichthys_pilosus.htm": {
+    "entityIds": [
+      "species/neblinichthys-pilosus"
+    ],
+    "updatedAt": "2026-11-04T22:20:14.166Z",
+    "hash": "4275e31d99e96bf30df5dcd64ecb9f46e114cfa3712db474e17f320a6a94f788",
+    "processedHash": "4275e31d99e96bf30df5dcd64ecb9f46e114cfa3712db474e17f320a6a94f788",
     "status": "processed",
     "attempts": 0
   },

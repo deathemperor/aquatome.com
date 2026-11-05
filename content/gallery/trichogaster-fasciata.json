@@ -1,7 +1,80 @@
 {
   "id": "trichogaster-fasciata",
-  "photos": [],
-  "seen": 5,
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/470430345.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/470430345-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Guilherme Cameis Freda",
+      "sourceUrl": "https://www.inaturalist.org/photos/470430345",
+      "caption": "Cá gourami sọc đực với vằn xanh đỏ trong bể thủy sinh",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/188281877.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/188281877-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/188281877",
+      "caption": "Cá gourami sọc trong bể thủy sinh nhiều cây xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/188704167.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/188704167-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/188704167",
+      "caption": "Cá gourami sọc bơi giữa cây thủy sinh trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/443340993.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/443340993-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Noland Aull",
+      "sourceUrl": "https://www.inaturalist.org/photos/443340993",
+      "caption": "Cá gourami sọc màu xanh ánh kim bơi trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/151525248.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/151525248-480.webp",
+      "width": 1024,
+      "height": 484,
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/151525248",
+      "caption": "Cá gourami sọc trưởng thành bơi sát kính trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/186507798.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/186507798-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/186507798",
+      "caption": "Cá gourami sọc có vằn ngang trong bể trồng cây",
+      "best": false,
+      "kind": "other"
+    }
+  ],
+  "seen": 44,
   "updatedAt": "2026-11-04",
   "builtAt": "2026-11-04"
 }

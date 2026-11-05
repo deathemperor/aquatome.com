@@ -1,0 +1,20 @@
+{
+  "slug": "ca-hatchet-dom",
+  "name": "Cá hatchet đốm",
+  "altNames": [
+    "Spotted hatchetfish",
+    "Hatchetfish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá hatchet thuộc số rất ít loài cá biết bay. Khi bị đuổi, nó phóng lên khỏi mặt nước và dùng đôi vây ngực như cánh. Nhờ vậy, dù chỉ dài 5-6 cm, những con cá nhỏ này vẫn nhảy xa được vài mét. Phần bụng hình lưỡi rìu đặc trưng của chúng cũng là một kiểu thích nghi để bay. Lý do là chỗ bụng ấy phải đủ rộng để chứa khối cơ cần cho cú bay.</p><ul><li>Nguồn gốc: Colombia</li><li>Kích thước thường bán: 5-6 cm</li></ul>",
+    "distribution:glaser": "<p>Colombia.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

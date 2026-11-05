@@ -3,8 +3,8 @@ import Foundation
 import Tanks
 
 // Tuya's cloud, called by the phone with the reader's own cloud project keys (docs/smart-plugs.md): signed requests, a
-// token kept while it lasts, the devices of the Smart Life account linked to the project with their outlets, and one
-// outlet switched and read back. A Swift port of the parked server route's apps/site/worker/plugs/tuya.ts.
+// token kept while it lasts, the devices of the Smart Life account linked to the project with their outlets, one
+// outlet switched and read back, and a plug's own timers read. A Swift port of the parked server route's apps/site/worker/plugs/tuya.ts.
 // Nothing here logs: errors carry Tuya's code only, never a key, a token, a body or an id.
 
 /// Where a Tuya cloud project lives (https://developer.tuya.com/en/docs/iot/api-request).
@@ -149,6 +149,12 @@ public actor TuyaPlugs: PlugSource {
       reported = status.flatMap { Self.outlets($0).first { $0.code == code }?.on }
     } while reported != on && waited < Self.readFor && now().timeIntervalSince(start) < limit
     return Switched(on: reported, confirmed: reported == on)
+  }
+
+  /// The plug's timers in Smart Life: one read, nothing changed.
+  public func timers(provider: String, device: String) async throws -> [PlugTimer] {
+    guard provider == "tuya" else { throw PlugError.noSuchPlug }
+    return try PlugTimer.tuya(await call("GET", "/v1.0/devices/\(Self.segment(device))/timers"))
   }
 
   // MARK: Requests

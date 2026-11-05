@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules: docs/governance.md, "Photos".
-3172 verdicts. Shows it: 2389; its habitat: 47; something else: 105; not a photo of it: 68; can't tell: 549.
+Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules: docs/governance.md, "Photos".
+3362 verdicts. Shows it: 2511; its habitat: 51; something else: 109; not a photo of it: 76; can't tell: 600.
 
 ## Left with no photo (5)
 
@@ -11,7 +11,7 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 - species/cyclocheilichthys-janthochir
 - species/nemacheilus-guentheri
 
-## Can't tell: still shown (549)
+## Can't tell: still shown (600)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -237,7 +237,7 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/59838f064cc6671f.webp) | Emersed flowering turf of fine sedge with pale fluffy heads; could be E. parvula, but other small sedges (e.g. Isolepis, |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/b33bf2187b30d8ae.webp) | emersed flowering spikerush clump; could be E. acicularis |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/359434721.webp) | dense stand of fairly thick glaucous spikerush stems; looks like a larger Eleocharis, can't confirm E. parvula |
-| species/pseudomugil-furcatus | [photo](https://media.aquatome.com/commons/f53f3542abf5b499.webp) | blue-eye fish with red cheek but no yellow fin edges; may be another Pseudomugil species or a female |
+| species/pseudomugil-furcatus | [photo](https://media.aquatome.com/aquariumcoop/2e3911aecf45166b.webp) | Blue-eye with orange throat and orange-yellow fins that have no black edging; may be another Pseudomugil, e.g. P. ivants |
 | species/pseudomugil-furcatus | [photo](https://media.aquatome.com/inaturalist/309615729.webp) | pale, washed-out blue-eye in murky tank with a neon tetra; can't confirm the species |
 | species/amphilophus-labiatus | [photo](https://media.aquatome.com/commons/89d4bb7e563f046d.webp) | white-pink cichlid with nuchal hump and thin lips; may be Midas cichlid |
 | species/pethia-conchonius | [photo](https://media.aquatome.com/commons/e12da29458d9d6e7.webp) | golden/orange barb, tail spot hidden; possibly golden rosy barb variety |
@@ -385,14 +385,17 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/boraras-merah | [photo](https://media.aquatome.com/seriouslyfish/063c669da6671734.webp) | pale fish with elongated blotch and thin lateral line; could be a female merah, but B. brigittae can't be ruled out |
 | species/brachyplatystoma-vaillantii | [photo](https://media.aquatome.com/commons/fe091f77544a4b75.webp) | silvery long-snouted catfish; could be another Brachyplatystoma or a related look-alike |
 | species/brevibora-dorsiocellata | [photo](https://media.aquatome.com/seriouslyfish/af8777b43f80e5d1.webp) | slender silvery fish with a blue eye and a dark-streaked dorsal fin; it lacks the clear black, white-edged dorsal spot o |
-| species/corydoras-semiaquilus | [photo](https://media.aquatome.com/commons/04789c9defeb4cd4.webp) | same fish as photo 1, cut out on a white background; same ID doubt |
-| species/corydoras-semiaquilus | [photo](https://media.aquatome.com/commons/512d9c722b992661.webp) | long-snouted grey Corydoras in a tank; plain body, no clear dark back or saddle, so ID as semiaquilus is uncertain |
 | species/heterandria-formosa | [photo](https://media.aquatome.com/inaturalist/386790975.webp) | top-down view of a small striped fish on gravel; poor view |
+| species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/0c47e60d0f78ba34.webp) | dark spotted pleco held in hand; small dense spots, could be L201 or similar |
+| species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/93acf5519862c906.webp) | brownish pleco with dark saddles and yellow spots; L102 is usually uniform black, could be another Hypancistrus |
+| species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/a51ae50024d9ad8c.webp) | dark spotted pleco held in hand; fine spots, look-alike Hypancistrus not ruled out |
 | species/kryptopterus-geminus | [photo](https://media.aquatome.com/scotcat/5f09e9a65e1b519b.webp) | Silvery catfish with long barbels and dark side stripes, body not see-through; may be a young Pangasius or Mystus rather |
 | species/trichogaster-chuna | [photo](https://media.aquatome.com/commons/2591df3723a615d7.webp) | pinkish-silver gourami with red fins and no stripe; may be a honey gourami colour form, but the ID is uncertain |
 | species/acentronichthys-leptos | [photo](https://media.aquatome.com/scotcat/cb7df4b00a22b004.webp) | brownish slender catfish held in a hand; darker than A. leptos and can't be confirmed |
 | species/acestrorhynchus-altus | [photo](https://media.aquatome.com/seriouslyfish/18fd763749741980.webp) | small juvenile Acestrorhynchus on white background; can't confirm species |
 | species/acestrorhynchus-altus | [photo](https://media.aquatome.com/seriouslyfish/9e0ea741a2b1d392.webp) | Acestrorhynchus with shoulder and tail spots, but fins yellowish rather than red; could be another species in the genus |
+| species/acestrorhynchus-falcatus | [photo](https://media.aquatome.com/inaturalist/147078781.webp) | Acestrorhynchus-like pike characin in a clear-water stream (looks like Bonito, Brazil); could be A. pantaneiro rather th |
+| species/acestrorhynchus-falcatus | [photo](https://media.aquatome.com/inaturalist/147079721.webp) | pike characin with shoulder spot, tail spot and yellow tail over sand in a clear stream; the species can't be confirmed  |
 | species/acestrorhynchus-pantaneiro | [photo](https://media.aquatome.com/inaturalist/1565288.webp) | slender yellowish fish over gravel, hazy view; no clear markings to confirm |
 | species/acestrorhynchus-pantaneiro | [photo](https://media.aquatome.com/inaturalist/632862895.webp) | deep-bodied fish with a short blunt head, humeral and tail spots; doesn't have the long pike-like snout, possibly a Bryc |
 | species/acnodon-normani | [photo](https://media.aquatome.com/commons/aa63c5785142c6ec.webp) | Preserved museum specimen of a serrasalmid (pacu-type) next to a scale bar, shown from the side, top and bottom. Faded a |
@@ -405,12 +408,12 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/amia-calva | [photo](https://media.aquatome.com/inaturalist/401928889.webp) | blurry top-down view of a long dark fish over a sandy bottom, seen through a viewer; can't confirm the species |
 | species/amia-calva | [photo](https://media.aquatome.com/inaturalist/504091996.webp) | mottled long-bodied fish in a display tank; could be a snakehead, no tail eyespot visible |
 | species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/commons/96aa04b3f3933668.webp) | plain brown plec with pale stripe along the back, resting under a rock ledge; doesn't have the dense dark spotting, so i |
-| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/127738278.webp) | school of grey sea catfish in shallow water seen from above; probably hardhead, but too blurry to rule out look-alikes |
-| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/446544212.webp) | two catfish faint in murky water, too unclear to identify |
-| species/aspidoras-pauciradiatus | [photo](https://media.aquatome.com/commons/25ba1faea3fdfb03.webp) | darker marbled catfish with banded dorsal, no clear black dorsal blotch; possibly another Aspidoras/Corydoras |
-| species/aspidoras-pauciradiatus | [photo](https://media.aquatome.com/commons/eec740e6ef88efce.webp) | dark marbled elongate catfish, dorsal banded not blotched; may be a different species |
+| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/127738278.webp) | dense group of sea catfish in shallow water seen from above; can't confirm the species |
+| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/446544212.webp) | two blurry catfish over the bottom in murky water |
+| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/588306823.webp) | dark catfish group in murky blue water; can't rule out freshwater catfish |
+| species/aspidoras-pauciradiatus | [photo](https://media.aquatome.com/commons/25ba1faea3fdfb03.webp) | darker reticulated catfish with no black dorsal blotch; may be another Aspidoras or Corydoras species |
+| species/aspidoras-pauciradiatus | [photo](https://media.aquatome.com/commons/eec740e6ef88efce.webp) | dark mottled catfish with spotted dorsal, not the typical pattern; possibly a different Aspidoras species |
 | species/atractosteus-tristoechus | [photo](https://media.aquatome.com/commons/0653fe0db7d4a48b.webp) | plain grey gar-like fish seen from above in murky shallow water; head and snout not visible, so the species can't be con |
-| species/axelrodia-stigmatias | [photo](https://media.aquatome.com/commons/1204b2671f018d4e.webp) | all-red tetra with a black tail-base spot edged red and white fin tips; looks more like Axelrodia riesei (ruby tetra) th |
 | species/bagrichthys-hypselopterus | [photo](https://media.aquatome.com/scotcat/4ef7f583904cb584.webp) | close-up of a dark bagrid catfish's head, held in a hand; tall dorsal fin not visible, so species can't be confirmed |
 | species/bagrichthys-obscurus | [photo](https://media.aquatome.com/scotcat/662ea8c27ad2678e.webp) | pale, faded dead or preserved bagrid specimen; can't confirm the species |
 | species/baryancistrus-xanthellus | [photo](https://media.aquatome.com/commons/86187f7f93623f3e.webp) | two plecos with small spots and thin orange fin edges, dim view; could be L177 (Baryancistrus chrysolomus) |
@@ -453,7 +456,7 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/betta-uberis | [photo](https://media.aquatome.com/bwaquatics/7de3e867c1a9cce1.webp) | slender red coccina-group betta with green flank patch; could be B. coccina-type, not sure it's uberis |
 | species/botia-histrionica | [photo](https://media.aquatome.com/commons/111c942ede0a2ae7.webp) | Group with a complex net-like body pattern and striped tails; could be B. rostrata or another Botia |
 | species/botia-histrionica | [photo](https://media.aquatome.com/seriouslyfish/4fbb2a8dc8b63575.webp) | Mottled, spotted loach with pale centres in its dark marks; could be B. kubotai or B. rostrata |
-| species/boulengerella-maculata | [photo](https://media.aquatome.com/commons/1cfb0a6c8d48ed0a.webp) | stockier spotted predator in aquarium; body shape and spotted rounded tail don't match B. maculata, possibly a juvenile  |
+| species/boulengerella-maculata | [photo](https://media.aquatome.com/commons/1cfb0a6c8d48ed0a.webp) | Stockier spotted pike characin in an aquarium; could be Ctenolucius rather than Boulengerella |
 | species/brachyplatystoma-tigrinum | [photo](https://media.aquatome.com/scotcat/33a6dc83a99cf9b0.webp) | curled banded fish on gravel, maybe a young shovelnose; wavy bands and no barbels visible, can't rule out a look-alike |
 | species/brachyrhamdia-heteropleura | [photo](https://media.aquatome.com/scotcat/9e89565040d8857e.webp) | slender greenish long-whiskered catfish, no clear black side stripe; could be a Pimelodella-type look-alike |
 | species/brachyrhamdia-heteropleura | [photo](https://media.aquatome.com/scotcat/d6468868164d0851.webp) | pale tan heptapterid catfish on sand with dark shoulder blotch; no clear black side stripe for B. heteropleura |
@@ -461,7 +464,7 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/brachyrhamdia-imitator | [photo](https://media.aquatome.com/scotcat/e58ed6cde9a9d755.webp) | dark, murky catfish among Corydoras on gravel; can't tell if it's the smooth-skinned mimic or a Corydoras |
 | species/brochis-multiradiatus | [photo](https://media.aquatome.com/commons/18fbcd29fe9b7752.webp) | two Brochis on gravel; snout length not clear enough to rule out B. splendens |
 | species/cambarellus-diminutus | [photo](https://media.aquatome.com/aquariumbreeder/daff76f9a4ad677e.webp) | Mottled orange-brown dwarf crayfish (Cambarellus) on gravel among moss. It fits C. diminutus, but C. puer, C. shufeldtii |
-| species/cambarellus-diminutus | [photo](https://media.aquatome.com/commons/43ac135ac908d19e.webp) | pale tan dwarf crayfish (Cambarellus sp.) on Egeria-like plant; clear view, but no species marks to confirm C. diminutus |
+| species/cambarellus-diminutus | [photo](https://media.aquatome.com/commons/43ac135ac908d19e.webp) | Small pale beige dwarf crayfish (Cambarellus) on plant stem; clear adult view, but no species marks visible, so C. dimin |
 | species/centromochlus-heckelii | [photo](https://media.aquatome.com/scotcat/840aa3a98d672b59.webp) | dark driftwood catfish held in hand; eye and markings unclear, can't confirm species |
 | species/chaetostoma-fischeri | [photo](https://media.aquatome.com/scotcat/658d3e1382473b36.webp) | preserved Chaetostoma-type specimen, dorsal view; species can't be confirmed |
 | species/chaetostoma-fischeri | [photo](https://media.aquatome.com/scotcat/ec36bfe1f2833240.webp) | preserved specimen, ventral view showing sucker mouth; species can't be confirmed |
@@ -474,7 +477,7 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/channa-marulius | [photo](https://media.aquatome.com/commons/3bd500a873967b13.webp) | Dark, red-eyed snakehead guarding a swarm of fry underwater; murky view, can't confirm the species |
 | species/channa-marulius | [photo](https://media.aquatome.com/commons/459ccd95664ceec2.webp) | Close-up of the head of a plain dark-grey snakehead; no marks visible to confirm the species |
 | species/cichla-orinocensis | [photo](https://media.aquatome.com/commons/1f42fa7c3a0503dc.webp) | Aquarium Cichla with three solid dark bars and no ringed ocelli; could be another Cichla species (e.g. temensis or kelbe |
-| species/cichla-orinocensis | [photo](https://media.aquatome.com/commons/737bf0684108ef83.webp) | Adult peacock bass in close-up underwater; the dark side marks look like irregular bars, not the three clear round eye-s |
+| species/cichla-orinocensis | [photo](https://media.aquatome.com/commons/737bf0684108ef83.webp) | Adult peacock bass, close front-side view. Its three dark blotches look ragged and bar-like, not clearly the ringed eyes |
 | species/corydoras-atropersonatus | [photo](https://media.aquatome.com/seriouslyfish/40eb62f2783721c1.webp) | spotted cory digging in the substrate; mask not visible, so a look-alike can't be ruled out |
 | species/corydoras-eques | [photo](https://media.aquatome.com/seriouslyfish/9d65e8e6140e952d.webp) | pale, washed-out fish with metallic body and orange head; could be a C. aeneus form |
 | species/corydoras-habrosus | [photo](https://media.aquatome.com/commons/24568acefb8ea8de.webp) | two spotted dwarf corys from the front; markings too unclear to confirm |
@@ -503,8 +506,8 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/dianema-urostriatum | [photo](https://media.aquatome.com/scotcat/1d9929b87a6d1b0b.webp) | Head-on view of a Dianema-like catfish with long barbels; the striped tail isn't visible, so D. longibarbis can't be rul |
 | species/dichotomyctere-fluviatilis | [photo](https://media.aquatome.com/commons/097b3b1e256144cb.webp) | puffer with large brown blotches on grey back and orange shoulder patch; doesn't look like a typical green puffer, possi |
 | species/dichotomyctere-fluviatilis | [photo](https://media.aquatome.com/commons/5e54e7a532a4db8f.webp) | yellow-brown puffer with dense small dark spots, no green colour; could be a faded green puffer or another Tetraodontid |
-| species/dichotomyctere-fluviatilis | [photo](https://media.aquatome.com/commons/9b9338f35b62109c.webp) | Large, faded, mottled yellow-green puffer with dark saddles; could be an old D. fluviatilis but another Dichotomyctere/T |
-| species/dichotomyctere-fluviatilis | [photo](https://media.aquatome.com/inaturalist/631012652.webp) | Yellow puffer with round black spots and white belly; can't tell D. fluviatilis from green spotted puffer D. nigroviridi |
+| species/dichotomyctere-fluviatilis | [photo](https://media.aquatome.com/commons/9b9338f35b62109c.webp) | Large yellow-green puffer with dark saddles and marbling, not the usual spotted green puffer; possibly a Pao species |
+| species/dichotomyctere-fluviatilis | [photo](https://media.aquatome.com/inaturalist/631012652.webp) | Spotted puffer, yellow with round black spots; could be D. fluviatilis or D. nigroviridis, can't rule out the look-alike |
 | species/dicrossus-filamentosus | [photo](https://media.aquatome.com/commons/a0a2fbc3bea9878a.webp) | Pale juvenile or specimen dwarf cichlid on white background with one row of black side blotches. No lyre tail or checker |
 | species/diplomystes-nahuelbutaensis | [photo](https://media.aquatome.com/scotcat/06f6d37e18ba1fed.webp) | small juvenile catfish next to a ruler; looks like a young diplomystid, but the species can't be confirmed over other Di |
 | species/diplomystes-nahuelbutaensis | [photo](https://media.aquatome.com/scotcat/74f4fef54a646031.webp) | tiny juvenile catfish next to a syringe scale; looks like a diplomystid, but the species can't be confirmed |
@@ -538,8 +541,37 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/hyphessobrycon-roseus | [photo](https://media.aquatome.com/commons/62ade53268556893.webp) | Blurry school of small yellowish tetras with a black shoulder spot and bright red tails; the strong red tail doesn't fit |
 | species/hyphessobrycon-vilmae | [photo](https://media.aquatome.com/seriouslyfish/a9f392c9a89f850a.webp) | Olive-green fish with black stripe and no orange; could be a different Hyphessobrycon |
 | species/hypoptopoma-gulare | [photo](https://media.aquatome.com/scotcat/e3ae38ee88e1fdbd.webp) | reticulated loricariid on sand; could be Hypoptopoma but a look-alike can't be ruled out |
+| species/hypoptopoma-psilogaster | [photo](https://media.aquatome.com/scotcat/f945b6b10383070e.webp) | Mottled loricariid resting on wood, seen from the front at an angle; could be Hypoptopoma but the view is unclear |
+| species/hypostomus-isbrueckeri | [photo](https://media.aquatome.com/scotcat/ac6f8abed35f757a.webp) | Hand-held spotted pleco by water; dorsal fin not visible, so it could be Pterygoplichthys rather than Hypostomus |
+| species/hypostomus-isbrueckeri | [photo](https://media.aquatome.com/scotcat/d799f3a83dc624f0.webp) | Dark spotted pleco, side view, cut out on white; dorsal fin looks like a Hypostomus fin but the species can't be confirm |
+| species/hypselobarbus-jerdoni | [photo](https://media.aquatome.com/seriouslyfish/5c4ad5d8a22b0270.webp) | golden juvenile-looking barb with black-tipped dorsal and orange pelvics; could be young Hypselobarbus but look-alike ba |
+| species/imparfinis-mirini | [photo](https://media.aquatome.com/scotcat/2f6f998bc8fad98f.webp) | pale yellowish slender catfish with long barbels; can't confirm the species |
+| species/imparfinis-mirini | [photo](https://media.aquatome.com/scotcat/9d239040fe8fbe54.webp) | brownish mottled heptapterid among roots; species unclear |
+| species/imparfinis-mirini | [photo](https://media.aquatome.com/scotcat/ac3c6d2fbf97ccaa.webp) | reddish slender heptapterid on rock; colour doesn't match the blue form, could be another species |
+| species/julidochromis-marlieri | [photo](https://media.aquatome.com/commons/9994eb81082aeec8.webp) | dark, short-bodied fish with rows of pale blue/yellow dashes, blurry and side-on; body too deep for a typical julie, so  |
+| species/julidochromis-marlieri | [photo](https://media.aquatome.com/commons/ebc69f9779b8760b.webp) | pinkish-brown checkered julie; the colour form is unclear and could be transcriptus or a hybrid |
+| species/julidochromis-marlieri | [photo](https://media.aquatome.com/commons/ed6068590085248a.webp) | black julie with neat rows of light dashes; could be J. transcriptus or a regani-type form rather than marlieri |
+| species/knodus-borki | [photo](https://media.aquatome.com/commons/3b7f6ac23491a713.webp) | iridescent blue tetra, deeper body and dark caudal peduncle; could be Boehlkea fredcochui (Cochu's blue tetra) rather th |
+| species/knodus-borki (a guide photo) | [photo](https://media.aquatome.com/video/QRffuIKYrNg/p0-lfKGxpdmUpLnBuZw.webp) | same image as 1: blue iridescent body and tail on green plants as the caption says, but the species may be Boehlkea fred |
+| species/kronichthys-subteres | [photo](https://media.aquatome.com/scotcat/0d8131e7911dd795.webp) | Single reddish-brown small loricariid seen from above in a white tray; fits Kronichthys shape, but the colour is unusual |
+| species/labeo-chrysophekadion | [photo](https://media.aquatome.com/seriouslyfish/154cfcf63af0867d.webp) | grey Labeo with dark band across tail base; may be another Labeo species |
+| species/labeo-chrysophekadion | [photo](https://media.aquatome.com/seriouslyfish/2c53f8f15cd6dede.webp) | grey Labeo with tall falcate dorsal on black background; pale colour, can't confirm it's black shark |
+| species/labeo-chrysophekadion | [photo](https://media.aquatome.com/seriouslyfish/9b1dff401d2f84fb.webp) | close-up of large grey cyprinid head in a tank; species unclear |
+| species/ladigesia-roloffi | [photo](https://media.aquatome.com/commons/e94f558871529523.webp) | mixed fish under green light; small one may be this species, larger fish may be another species |
+| species/leiarius-marmoratus | [photo](https://media.aquatome.com/commons/ff572107e005b396.webp) | small brown/orange banded juvenile catfish with long white barbels; lacks the marbled pattern, possibly another pimelodi |
 | species/lepidocephalichthys-guntea | [photo](https://media.aquatome.com/seriouslyfish/1db37b113c4ebcbe.webp) | silvery loaches with a thin dark side stripe and a banded botiid loach; not the usual peppered guntea pattern, can't con |
+| species/leporinus-friderici | [photo](https://media.aquatome.com/inaturalist/563557335.webp) | blurry fish from above in a clear stream; spots hard to see, so the ID can't be confirmed |
+| species/leptobarbus-hoevenii | [photo](https://media.aquatome.com/commons/63d594abd592bc43.webp) | subadult slender barb with orange pelvic fins and dark shoulder mark; possibly juvenile mad barb |
+| species/leptobarbus-hoevenii | [photo](https://media.aquatome.com/inaturalist/103331357.webp) | group of large barbs in murky pond seen from above, too unclear |
+| species/leptobarbus-hoevenii | [photo](https://media.aquatome.com/inaturalist/103441873.webp) | top-down view of large carp-like fish in murky pond; could be grass carp or another cyprinid, no lateral stripe or fin c |
+| species/leptobarbus-hoevenii | [photo](https://media.aquatome.com/seriouslyfish/0ebb52798f72f36b.webp) | pale slender juvenile cyprinid among plants, no dark stripe visible; can't confirm |
+| species/leptodoras-linnelli | [photo](https://media.aquatome.com/scotcat/1c24e684eee55c53.webp) | Pale, freshly collected Leptodoras-type doradid next to a ruler. It has fringed barbels and lateral scutes, but the blac |
+| species/liobagrus-reinii | [photo](https://media.aquatome.com/commons/40d57b407eb8c4f7.webp) | pale yellowish catfish partly hidden under wood, likely the same tank as photo 1 |
+| species/liobagrus-reinii | [photo](https://media.aquatome.com/commons/dd95b54aeaa69232.webp) | two pale yellowish catfish under wood; eyes look large and colour pale for L. reinii, could be another species |
+| species/liobagrus-reinii | [photo](https://media.aquatome.com/scotcat/69705c8400bca4bf.webp) | old print, possibly a painting; pale spots on flank not typical of L. reinii |
 | species/macropodus-spechti | [photo](https://media.aquatome.com/seriouslyfish/ed3a843fd4d4bd68.webp) | Pale small fish, likely female or juvenile; colour too washed out to confirm |
+| species/maylandia-callainos | [photo](https://media.aquatome.com/commons/79b3bc5a3f73a720.webp) | dull purple-blue fish, possibly female or stressed; could be another mbuna |
+| species/maylandia-callainos | [photo](https://media.aquatome.com/commons/b6e1ce03a5ee28c7.webp) | whitish pearl-type mbuna, washed-out colour; ID uncertain |
 | species/misgurnus-anguillicaudatus | [photo](https://media.aquatome.com/inaturalist/695915082.webp) | distant view of greyish spotted loaches on gravel under blue light; Paramisgurnus can't be ruled out |
 | species/misgurnus-anguillicaudatus (a guide photo) | [photo](https://media.aquatome.com/seriouslyfish/7fc8e4e53af9e8a5.webp) | caption is about Cobitis sp. 1; shows several striped Cobitis loaches on sand, not the weather loach |
 | species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/commons/6f8de1ac4e713448.webp) | silvery large-eyed tetra on white; lacks the black caudal-peduncle band of M. oligolepis, so identity uncertain |
@@ -578,12 +610,13 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617710483.webp) | murky mottled elongated fish in a pond, possibly a snakehead |
 | species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617710654.webp) | blurry blotched fish seen from above in murky water; can't confirm the species, may be a snakehead |
 | species/anatolichthys-villwocki | [photo](https://media.aquatome.com/seriouslyfish/eeb0c620f8c32168.webp) | plain olive female-type small toothcarp with a dark spot on the tail base; no bars, could be a female Anatolichthys or a |
+| species/ancistrus-triradiatus | [photo](https://media.aquatome.com/commons/bfcb2df1ebf3c447.webp) | Dark Ancistrus with white spots on gravel; can't confirm species, could be another Ancistrus |
 | species/andinoacara-pulcher | [photo](https://media.aquatome.com/commons/c46df7276ec4e372.webp) | acara-like cichlid head-on under strong blue lighting; colours distorted, can't confirm the species |
 | species/andinoacara-pulcher | [photo](https://media.aquatome.com/commons/d50f3ea5630ff569.webp) | dark barred cichlid with dense blue spangles and orange dorsal edge; could be blue acara in barred mood, but Jack Dempse |
 | species/aphyocharax-nattereri | [photo](https://media.aquatome.com/seriouslyfish/76ac3d43f145df02.webp) | Pale translucent tetra with a dark tail base and white-tipped fins. It doesn't clearly show the Dawn Tetra's marks and c |
 | species/aphyosemion-bivittatum | [photo](https://media.aquatome.com/commons/5e19d31c0c91347a.webp) | Two-banded Chromaphyosemion killifish, but no lyre tail or red body spots; could be a female/young bivittatum or a relat |
 
-## Removed (173)
+## Removed (185)
 
 "Something else" names what the photo shows instead; the rest are maps, hands, tanks, packshots and the like.
 
@@ -694,6 +727,7 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | plants/murdannia-keisak | [photo](https://media.aquatome.com/commons/f31b3d9dbf2e1170.webp) | line drawing of stem with leaves and flower |
 | species/atyopsis-moluccensis | [photo](https://media.aquatome.com/commons/cb558bb39d51d86f.webp) | small mottled berried dwarf shrimp (Caridina/Neocaridina type), no fan-bearing claws |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/39f8f230c254d8dc.webp) | horned nerite (Clithon sp.): dark dotted shell with long spines, which V. waigiensis lacks |
+| species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/71c51b1f32273749.webp) | zebra nerite (Neritina natalensis): bold yellow and black radial stripes, not the variable Waigiou pattern |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/7de6919a9ff11b94.webp) | same image as 1: spiny horned nerite (Clithon sp.), not V. waigiensis |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/a2ea9bbbfa016f14.webp) | zebra nerite (Neritina natalensis): even black/yellow radial stripes, not V. waigiensis' variable pattern |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/commons/cd01af2bb1fc790f.webp) | Bloch's historical hand-coloured drawing of Silurus batrachus and S. fossilis, not a photo |
@@ -727,7 +761,6 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/ariopsis-felis | [photo](https://media.aquatome.com/scotcat/7eef1fa8ac9979f6.webp) | Liberia postage stamp painting of the fish |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/scotcat/993434fa9fc1dcf5.webp) | DR Congo postage stamp painting of the fish |
 | species/atractosteus-tristoechus | [photo](https://media.aquatome.com/commons/48a6fc9ea9b0f27e.webp) | likely spotted/Florida gar (Lepisosteus): dense dark spots over body and head, slender snout; Cuban gar is plainer with  |
-| species/axelrodia-stigmatias | [photo](https://media.aquatome.com/commons/1204b2671f018d4e.webp) | likely Axelrodia riesei (true ruby tetra): solid red body; A. stigmatias is pale/translucent with white-star spots |
 | species/barilius-bakeri | [photo](https://media.aquatome.com/commons/141274ab191e6132.webp) | Old line drawing labelled Barilius bakeri |
 | species/barilius-bakeri | [photo](https://media.aquatome.com/commons/796410a14ba59d16.webp) | Engraved drawing of Barilius with a row of spots along the flank |
 | species/barilius-bakeri | [photo](https://media.aquatome.com/commons/d79e065096919c41.webp) | Plate from Day's Fishes of India showing several species |
@@ -739,7 +772,7 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/chaetostoma-fischeri | [photo](https://media.aquatome.com/scotcat/ccf443ac953c5ac9.webp) | drawing of a loricariid catfish, not a photo |
 | species/cichla-orinocensis | [photo](https://media.aquatome.com/commons/d72307e7efa95c25.webp) | Black-and-white scientific drawing of a fish with three flank ocelli, not a photo |
 | species/ctenopoma-kingsleyae | [photo](https://media.aquatome.com/commons/7a14569b9a22acf4.webp) | historical drawing of Anabas kingsleyae type specimen |
-| species/ctenopoma-kingsleyae | [photo](https://media.aquatome.com/inaturalist/401220851.webp) | Likely climbing perch Anabas testudineus: plain silvery-grey, large scales, no tail-base spot |
+| species/ctenopoma-kingsleyae | [photo](https://media.aquatome.com/inaturalist/401220851.webp) | Probably climbing perch Anabas testudineus: silvery-grey with large plain scales and no ringed spot at the tail base |
 | species/cyclocheilichthys-janthochir | [photo](https://media.aquatome.com/commons/a5db7ed585d54b08.webp) | Same drawing as photo 1 with a cleaned-up background; an illustration, not a photo |
 | species/cyclocheilichthys-janthochir | [photo](https://media.aquatome.com/commons/ccf1cdcebfa7ed51.webp) | Old hand-coloured scientific drawing (Bleeker-style plate) of a green-backed barb with a dotted lateral line, not a phot |
 | species/danio-dangila | [photo](https://media.aquatome.com/commons/3f86e3957a3e18db.webp) | scientific line drawing, not a photo |
@@ -752,6 +785,13 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/hyphessobrycon-pyrrhonotus | [photo](https://media.aquatome.com/commons/1e0d91721aa1358f.webp) | Scientific comparison plate of preserved specimens' heads showing shoulder spots of several species |
 | species/hypoptopoma-gulare | [photo](https://media.aquatome.com/commons/233a97be869da0b6.webp) | collage of preserved specimens from many different fish species |
 | species/hypoptopoma-gulare | [photo](https://media.aquatome.com/commons/d427f7eb8fd4810f.webp) | old hand-drawn illustration of catfishes |
+| species/hypsophrys-nicaraguensis | [photo](https://media.aquatome.com/commons/e2ab5187b30af0c8.webp) | Scientific plate (panels A–D) of several different Central American cichlids, mostly held in the hand. None clearly show |
+| species/imparfinis-mirini | [photo](https://media.aquatome.com/commons/f8798c07a3755cf0.webp) | plate of many species: characins, knifefish and several small catfish, not specifically I. mirini |
+| species/labeo-boga | [photo](https://media.aquatome.com/commons/66756e48b27e8e5d.webp) | black-and-white engraving of a labeo with mouth detail |
+| species/labeo-boga | [photo](https://media.aquatome.com/commons/bc831dcd86daa531.webp) | hand-coloured historical plate of Cyprinus falcatus (Bloch) |
+| species/labeo-boga | [photo](https://media.aquatome.com/commons/d120ce15f82d82e4.webp) | black-and-white engraving of a labeo with mouth detail |
+| species/labeo-boga | [photo](https://media.aquatome.com/commons/fe437123303d3f0e.webp) | pencil sketch of Cyprinus boga (Hamilton) |
+| species/leptobarbus-hoevenii | [photo](https://media.aquatome.com/commons/e9dff2b0ab798607.webp) | deep-bodied barb with red fins (Barbonymus type), not slender Leptobarbus |
 | species/luciocephalus-pulcher | [photo](https://media.aquatome.com/commons/4e606d15ec01ac35.webp) | line drawing of pikehead and head detail |
 | species/luciocephalus-pulcher | [photo](https://media.aquatome.com/commons/f28a18fd980706eb.webp) | distribution map of Sumatra/Borneo |
 | species/macropodus-spechti | [photo](https://media.aquatome.com/commons/c1ce7ddbaafde399.webp) | range map of Southeast Asia with northern Vietnam marked |

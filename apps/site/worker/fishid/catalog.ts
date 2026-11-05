@@ -21,7 +21,8 @@ export type CatalogEntry = {
   /** One photo from the page (about 480 px wide). */
   img?: string
 }
-export type Catalog = { version: 1; entries: CatalogEntry[] }
+/** `shards`: how many facts shards the build wrote for the agent (facts.ts); the script's own catalog has none. */
+export type Catalog = { version: 1; entries: CatalogEntry[]; shards?: number }
 
 type Page<P> = { id: string; scientificName?: string; synonyms?: string[]; basedOn?: string; photos: P[]; t: { name: string; altNames: string[]; slug: string } }
 type Pages<P> = { species: Page<P>[]; breeds: Page<P>[]; plants: Page<P>[] }

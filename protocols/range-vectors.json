@@ -133,7 +133,39 @@
         "native": {
           "countries": ["CO", "PE", "BR", "EC"],
           "regions": ["Amazon", "Orinoco", "Purus", "Putumayo", "Solimões", "Napo"],
-          "sources": ["sprucepets", "seriouslyfish"]
+          "sources": ["sprucepets", "seriouslyfish"],
+          "quotes": [
+            {
+              "source": "seriouslyfish",
+              "quote": "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams.",
+              "countries": ["CO", "PE", "BR"],
+              "regions": ["Amazon"]
+            },
+            {
+              "source": "seriouslyfish",
+              "quote": "These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively).",
+              "countries": ["EC"],
+              "regions": ["Napo"]
+            },
+            {
+              "source": "sprucepets",
+              "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
+              "countries": [],
+              "regions": ["Orinoco"]
+            },
+            {
+              "source": "seriouslyfish",
+              "quote": "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.",
+              "countries": [],
+              "regions": ["Purus"]
+            },
+            {
+              "source": "seriouslyfish",
+              "quote": "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.",
+              "countries": [],
+              "regions": ["Putumayo", "Solimões"]
+            }
+          ]
         },
         "records": {
           "taxonKey": 2353909,
@@ -170,7 +202,34 @@
         "native": {
           "countries": ["BR", "CO", "GY", "SR", "GF", "PE"],
           "regions": ["Amazon", "Essequibo", "Oyapock", "Rio Negro", "Ucayali", "Solimões"],
-          "sources": ["glaser", "seriouslyfish"]
+          "sources": ["glaser", "seriouslyfish"],
+          "quotes": [
+            {"source": "glaser", "quote": "Origin: Brazil", "countries": ["BR"], "regions": []},
+            {
+              "source": "seriouslyfish",
+              "quote": "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil.",
+              "countries": ["CO", "GY", "SR", "GF", "PE"],
+              "regions": []
+            },
+            {
+              "source": "seriouslyfish",
+              "quote": "The angelfish, Pterophyllum scalare, is a cichlid from the Amazon, Essequibo, Oyapock and other rivers of northern South America.",
+              "countries": [],
+              "regions": ["Amazon", "Essequibo", "Oyapock"]
+            },
+            {
+              "source": "glaser",
+              "quote": "Wild-collected angelfish from the municipality of Santa Isabel on the Rio Negro, Brazil.",
+              "countries": [],
+              "regions": ["Rio Negro"]
+            },
+            {
+              "source": "seriouslyfish",
+              "quote": "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage.",
+              "countries": [],
+              "regions": ["Ucayali", "Solimões"]
+            }
+          ]
         },
         "records": {
           "taxonKey": 5208518,

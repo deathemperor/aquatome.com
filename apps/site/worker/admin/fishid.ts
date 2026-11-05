@@ -9,7 +9,7 @@ import { aeSql, num } from './ae'
 type N = number | string
 export type DayRow = { d: string; outcome: string; n: N; called: N; tin: N; tout: N; usd: N; guessed: N; linked: N }
 export type UnmatchedRow = { sci: string; n: N; conf: N }
-export type CallRow = { t: string; outcome: string; model: string; kh: string; verdict: string; sci: string; page: string; lang: string; src: string; cc: string; tin: N; tout: N; usd: N; ms: N; attempts: N; conf: N; guesses: N }
+export type CallRow = { t: string; outcome: string; model: string; kh: string; verdict: string; sci: string; page: string; lang: string; src: string; cc: string; tin: N; tout: N; usd: N; ms: N; attempts: N; conf: N; guesses: N; turns?: N; tools?: N; refs?: N; stopped?: string }
 
 /** Per day (in `tz`, a zone validZone passed) and outcome, 62 days back: enough for 30 days and the 30 before, and this month against the last. */
 export const DAYS_SQL = (tz: string) => `SELECT formatDateTime(timestamp, '%Y-%m-%d', '${tz}') AS d, blob1 AS outcome, SUM(_sample_interval) AS n,
@@ -20,7 +20,8 @@ FROM aquatome_fishid WHERE timestamp > NOW() - INTERVAL '62' DAY GROUP BY d, out
 export const UNMATCHED_SQL = `SELECT blob5 AS sci, SUM(_sample_interval) AS n, SUM(_sample_interval * double6) AS conf
 FROM aquatome_fishid WHERE blob1 = 'ok' AND blob5 != '' AND blob6 = '' AND timestamp > NOW() - INTERVAL '30' DAY GROUP BY sci FORMAT JSON`
 export const RECENT_SQL = `SELECT timestamp AS t, blob1 AS outcome, blob2 AS model, blob3 AS kh, blob4 AS verdict, blob5 AS sci, blob6 AS page, blob7 AS lang,
-  blob8 AS src, blob9 AS cc, double1 AS tin, double2 AS tout, double3 AS usd, double4 AS ms, double5 AS attempts, double6 AS conf, double7 AS guesses
+  blob8 AS src, blob9 AS cc, double1 AS tin, double2 AS tout, double3 AS usd, double4 AS ms, double5 AS attempts, double6 AS conf, double7 AS guesses,
+  double8 AS turns, double9 AS tools, double10 AS refs, blob10 AS stopped
 FROM aquatome_fishid WHERE timestamp > NOW() - INTERVAL '31' DAY ORDER BY t DESC LIMIT 100 FORMAT JSON`
 
 /**
@@ -29,7 +30,8 @@ FROM aquatome_fishid WHERE timestamp > NOW() - INTERVAL '31' DAY ORDER BY t DESC
  * guessed / linked: answers with a guess, and those whose top guess has a page.
  */
 export type Totals = { requests: number; calls: number; ok: number; none: number; blocked: number; tin: number; tout: number; usd: number; guessed: number; linked: number }
-export type Call = { t: string; outcome: string; model: string; key: string; verdict: string; sci: string; page: string; lang: string; from: string; country: string; tin: number; tout: number; usd: number; ms: number; attempts: number; conf: number; guesses: number }
+/** turns, tools, refs, stopped: the agent's calls to Claude, tool calls, reference photos and why it stopped (fishid/log.ts); 0 and '' before it. */
+export type Call = { t: string; outcome: string; model: string; key: string; verdict: string; sci: string; page: string; lang: string; from: string; country: string; tin: number; tout: number; usd: number; ms: number; attempts: number; conf: number; guesses: number; turns: number; tools: number; refs: number; stopped: string }
 export type FishIdStats = {
   /** The chart days: 30, ending today (today not over yet). */
   days: string[]
@@ -93,6 +95,7 @@ export function summariseFishId(rows: DayRow[], unmatched: UnmatchedRow[], recen
     recent: recent.map(r => ({
       t: r.t, outcome: r.outcome, model: r.model, key: r.kh, verdict: r.verdict, sci: r.sci, page: r.page, lang: r.lang, from: r.src, country: r.cc,
       tin: num(r.tin), tout: num(r.tout), usd: num(r.usd), ms: num(r.ms), attempts: num(r.attempts), conf: num(r.conf), guesses: num(r.guesses),
+      turns: num(r.turns ?? 0), tools: num(r.tools ?? 0), refs: num(r.refs ?? 0), stopped: r.stopped ?? '',
     })),
   }
 }

@@ -130,6 +130,10 @@ if part photos; then
   # Every photo on a species, plant or breed page and its gallery must show that subject (another fish, a map or a tank
   # gets removed; can't-tell is listed in docs/review/photo-subjects.md); a typical photo leads the page. Most-read pages
   # first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
+  # Dead fish, fish as food (a market, a catch, a preserved specimen) and a logo take a photo off every page. Photos judged
+  # before the check asked (2026-11-05) whose notes say they may show one are judged again first, once: after that it finds
+  # none and calls no model.
+  pnpm engine recheck-photos --limit "${PHOTO_RECHECK_LIMIT:-40}" || log "recheck-photos: failed"
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
   # and plants: iNaturalist, then Commons, GBIF, Openverse; bred fish by their English names on Commons and Openverse;

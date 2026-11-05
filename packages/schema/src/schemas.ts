@@ -30,13 +30,18 @@ const Records = z.number().int().positive()
  *   source writes them) its cited sources give as its natural range, in the order they name them, and those sources. A
  *   country comes only from a sentence of a source that names it (quoted in engine-state/range/<id>.json); one a source
  *   calls introduced, or its records misidentified, is not native. None when the sources say nothing about it.
+ *   `quotes`: the sentence each country and region rests on, as its source writes it (English), with the countries and
+ *   regions it names: every one in exactly one, from one of `sources`. Ranges read before 2026-11-05 have none.
  * - `records`: its wild occurrence records on GBIF (`taxonKey`; present, coordinates without issues, not living or
  *   fossil specimens, CC0 or CC BY 4.0 only), as fetched on `fetched`: the `total`, the records in each country (GBIF's
  *   country field, most first), and the cells (CELL_DEG degrees) with any, each with how many are in a native country
  *   when there are native countries (a cell on a border can hold both).
  */
 export const RangeSchema = z.object({
-  native: z.object({ countries: z.array(CountryCode), regions: z.array(z.string().min(1)), sources: z.array(SourceId).min(1) }).optional(),
+  native: z.object({
+    countries: z.array(CountryCode), regions: z.array(z.string().min(1)), sources: z.array(SourceId).min(1),
+    quotes: z.array(z.object({ source: SourceId, quote: z.string().min(1), countries: z.array(CountryCode), regions: z.array(z.string().min(1)) })).optional(),
+  }).optional(),
   records: z.object({
     taxonKey: z.number().int().positive(), total: z.number().int().nonnegative(), fetched: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     countries: z.array(z.tuple([CountryCode, Records])),
@@ -48,6 +53,14 @@ export const RangeSchema = z.object({
   if (r.native) {
     if (!r.native.countries.length && !r.native.regions.length) fail('native names no country and no region')
     if (dupes(r.native.countries)) fail('a native country twice')
+    const q = r.native.quotes
+    if (q) {
+      const named = (k: 'countries' | 'regions') => q.flatMap(x => x[k])
+      if (q.some(x => !x.countries.length && !x.regions.length)) fail('a quote that names nothing')
+      if (q.some(x => !r.native!.sources.includes(x.source))) fail('a quote from a source not in native.sources')
+      if (JSON.stringify(named('countries').sort()) !== JSON.stringify([...r.native.countries].sort())) fail('the quotes don\'t name each native country once')
+      if (JSON.stringify(named('regions').sort()) !== JSON.stringify([...r.native.regions].sort())) fail('the quotes don\'t name each region once')
+    }
   }
   if (!r.records) return
   const { total, countries, cells } = r.records

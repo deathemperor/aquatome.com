@@ -16,9 +16,10 @@ import { clock, HOME_TZ, hourMinute, localDay, sameClock, timeTag, timeText, zon
 /** Each admin page's HTML from what its loaders returned; a part that failed says so in its place. */
 
 export type AffSummary = { byNetwork: { network: string; category: string; n: number }[]; top: { entity_ref: string; n: number }[]; status: { status: string; n: number }[]; lastCheck: string | null }
-export type RecentPhoto = { id: string; entity_ref: string; name: string; thumb: string; created_at: string }
+/** `moved_from`: the page it was sent for, when moderation found another fish and moved it to `entity_ref`. */
+export type RecentPhoto = { id: string; entity_ref: string; moved_from?: string | null; name: string; thumb: string; created_at: string }
 /** `ownerOk`: the owner approved it here; the next moderation pass publishes it. */
-export type WaitingPhoto = { id: string; entity_ref: string; name: string; created_at: string; ownerOk: boolean }
+export type WaitingPhoto = { id: string; entity_ref: string; moved_from?: string | null; name: string; created_at: string; ownerOk: boolean }
 export type Clicks = { days: string[]; clicks: number[] }
 
 /** A day kept as text (2026-11-04) as the dashboard writes days: 04/11, with the year when it isn't `now`'s. */
@@ -266,8 +267,10 @@ const PERIODS = (s: FishIdStats) => [
   { label: '30 ngày', note: 'đến hết hôm qua', cur: s.periods.d30, prev: s.periods.d30prev, vs: '30 ngày trước đó' },
   { label: 'Tháng này', note: 'đến giờ', cur: s.periods.mtd, prev: s.periods.mtdPrev, vs: 'cùng kỳ tháng trước' },
 ]
-const PERIOD_HEAD = ['Kỳ', 'Lượt gọi Claude', 'Chi phí']
-const PERIOD_FULL_HEAD = ['Kỳ', 'Lượt gọi Claude', 'Có kết quả', 'Không có kết quả', 'Chặn trước khi gọi', 'Token vào', 'Token ra', 'Chi phí']
+const PERIOD_HEAD = ['Kỳ', 'Lượt gọi Claude', 'Chi phí', 'Mỗi lượt']
+const PERIOD_FULL_HEAD = ['Kỳ', 'Lượt gọi Claude', 'Có kết quả', 'Không có kết quả', 'Chặn trước khi gọi', 'Token vào', 'Token ra', 'Chi phí', 'Mỗi lượt']
+/** Cost per identification that reached Claude: the agent's several calls are one identification. */
+const each = (t: Totals) => (t.calls ? t.usd / t.calls : 0)
 const PERIOD_FOLDED = 'Bảng đầy đủ: kết quả, token'
 type Period = ReturnType<typeof PERIODS>[number]
 /** A period's figure and, under it, its change (today: yesterday's figure, as today isn't over). */
@@ -280,7 +283,7 @@ function periodTable(s: FishIdStats, full: boolean): string {
     return `<td>${esc(c.text)}<br><span class="delta">${esc(c.sub)}</span></td>`
   }
   const head = (full ? PERIOD_FULL_HEAD : PERIOD_HEAD).map(h => `<th>${h}</th>`).join('')
-  const rows = PERIODS(s).map(p => `<tr><th>${esc(p.label)}<br><span class="note">${esc(p.note)}</span></th>${cell(p, t => t.calls, n => fmt(n))}${full ? `<td>${fmt(p.cur.ok)}</td><td>${fmt(p.cur.none)}</td><td>${fmt(p.cur.blocked)}</td><td>${fmt(p.cur.tin)}</td><td>${fmt(p.cur.tout)}</td>` : ''}${cell(p, t => t.usd, usd)}</tr>`).join('')
+  const rows = PERIODS(s).map(p => `<tr><th>${esc(p.label)}<br><span class="note">${esc(p.note)}</span></th>${cell(p, t => t.calls, n => fmt(n))}${full ? `<td>${fmt(p.cur.ok)}</td><td>${fmt(p.cur.none)}</td><td>${fmt(p.cur.blocked)}</td><td>${fmt(p.cur.tin)}</td><td>${fmt(p.cur.tout)}</td>` : ''}${cell(p, t => t.usd, usd)}${cell(p, each, usd)}</tr>`).join('')
   return `<div class="scroll"><table${full ? ' class="wide"' : ''}><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`
 }
 function periodBlock(s: FishIdStats, full: boolean): Block {
@@ -289,6 +292,7 @@ function periodBlock(s: FishIdStats, full: boolean): Block {
     periodCell(p, t => t.calls, n => fmt(n)),
     ...(full ? [p.cur.ok, p.cur.none, p.cur.blocked, p.cur.tin, p.cur.tout].map(n => ({ text: fmt(n) })) : []),
     periodCell(p, t => t.usd, usd),
+    periodCell(p, each, usd),
   ])
   return table(full ? PERIOD_FULL_HEAD : PERIOD_HEAD, rows, full ? { folded: PERIOD_FOLDED } : {})
 }
@@ -302,7 +306,10 @@ const OUTCOME: Record<string, string> = {
   ok: 'có kết quả', refused: 'Claude từ chối', unreadable: 'câu trả lời đọc không được', request: 'API từ chối yêu cầu', unavailable: 'API lỗi tạm thời',
   resting: 'mọi key đang nghỉ', error: 'lỗi máy chủ', fish_id_off: 'công cụ đang tắt', 'cross-origin': 'gửi từ trang khác', 'too large': 'ảnh quá lớn',
   'bad form': 'form hỏng', 'no file': 'không có ảnh', 'not an image': 'không phải ảnh', turnstile: 'không qua kiểm tra chống spam', rate: 'bạn đọc hết lượt', busy: 'cả trang hết lượt',
+  retry: 'gửi lại, trả kết quả đã có',
 }
+/** Why the agent stopped (fishid/log.ts blob10). */
+const STOPPED: Record<string, string> = { answer: 'tự trả lời', calls: 'hết lượt gọi', tools: 'hết lượt công cụ', time: 'hết giờ', tokens: 'hết token', fallback: 'quay về một lần gọi', error: 'lỗi, không kịp gọi lại' }
 const VERDICT: Record<string, string> = { fish: 'động vật', plant: 'cây', other: 'không có', unclear: 'chưa rõ' }
 const FROM: Record<string, string> = { page: 'trang nhận diện', tank: 'Bể của tôi' }
 const KEY_STATE: Record<FishIdStatus['rows'][number]['state'], string> = { ok: 'đang dùng', credit: 'hết credit', auth: 'key bị từ chối', rate: 'bị giới hạn tốc độ' }
@@ -358,16 +365,28 @@ export function fishIdSection(f: FishPage): Section {
   else if (!f.keys) blocks.push(note(NO_KEYS, 'muted'))
   else {
     const k = keysParts(f.keys, f.now, tz)
-    blocks.push(note(textOf(k.lead)), table(k.head, k.rows, { empty: 'Chưa có key nào.' }), note(KEYS_NOTE))
+    blocks.push(note(textOf(k.lead)), table(k.head, k.rows, { empty: 'Chưa có key nào.' }), note(KEYS_NOTE), figures(runTiles(f.keys)), note(RUNS_NOTE))
   }
   if (!isFailed(f.stats)) blocks.push(heading('100 lượt gần nhất'), table(RECENT_HEAD, f.stats.recent.map(c => recentCells(c, f.pages, f.now, tz)), { empty: RECENT_NONE }))
   return { title: 'Nhận diện cá', blocks }
 }
 
+/** Today's runs that went another way than plain (the ledger's counts, fishid/ledger.ts), from the same UTC midnight as the keys. */
+function runTiles(k: FishIdStatus): Tile[] {
+  const c = k.counts
+  return [
+    { label: 'Agent quay về cách gọi một lần', value: fmt(c.fallback) },
+    { label: 'Agent dừng vì hết lần gọi', value: fmt(c.callLimit) },
+    { label: 'Lần gọi sau bị API từ chối (400)', value: fmt(c.later400) },
+    { label: 'Không đọc được dữ kiện trang', value: fmt(c.facts) },
+    { label: 'Lượt trả lại cho người đọc', value: fmt(c.refunds), ...(k.mostRefunds ? { sub: `nhiều nhất một người: ${fmt(k.mostRefunds)}` } : {}) },
+  ]
+}
+const RUNS_NOTE = 'Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính.'
 const KEYS_NOTE = 'Lần gọi API: mọi lần thử bằng key này, kể cả lần lỗi (một lượt nhận diện có thể thử vài key). Claude trả lời: những lần trong số đó Claude đã trả lời.'
 /** The keys by number and hash, never the key: the line over the table, its head and its rows. */
 function keysParts(k: FishIdStatus, now: Date, tz: string) {
-  // The tool counts each UTC day (fishid/api.ts dayKey): its "today" began at UTC midnight, said in the viewer's time.
+  // The tool counts each UTC day (the ledger, fishid/ledger.ts): its "today" began at UTC midnight, said in the viewer's time.
   const began = `${now.toISOString().slice(0, 10)}T00:00:00Z`
   const since = `${hourMinute(began, tz)} ${localDay(began, tz) === localDay(now, tz) ? 'hôm nay' : 'hôm qua'}`
   const lead = `Từ ${since} (đầu ngày công cụ đếm): ${fmt(k.today)} lượt nhận diện gọi Claude · mô hình <code>${esc(k.model)}</code>. Mỗi lượt dùng một key ngẫu nhiên trong số key đang dùng; key lỗi thì sang key khác. Hết credit hoặc bị từ chối: nghỉ 24 giờ.${k.bad ? ` <strong>${fmt(k.bad)} dòng trong ANTHROPIC_KEYS không đọc được, bị bỏ qua.</strong>` : ''}`
@@ -380,10 +399,13 @@ function keysHtml(k: FishIdStatus, now: Date, tz: string): string {
   const rows = k.rows.map(r => `<tr><th>#${r.n}</th><td class="l"><code>${esc(r.hash)}</code></td><td class="l">${r.workspace ? 'tổ chức + workspace' : 'workspace'}</td><td class="l">${esc(KEY_STATE[r.state])}${r.until ? ` đến ${timeTag(r.until, tz, now)}` : ''}</td><td>${fmt(r.calls)}</td><td>${fmt(r.answered)}</td></tr>`).join('')
   return `<p>${lead}</p>
 <div class="scroll"><table class="wide"><thead><tr><th>Key</th><th>SHA-256 (8 ký tự đầu)</th><th>Loại</th><th>Trạng thái</th><th>Lần gọi API từ ${esc(since)}</th><th>Claude trả lời</th></tr></thead><tbody>${rows || '<tr><td colspan="6" class="none">Chưa có key nào.</td></tr>'}</tbody></table></div>
-<p class="note">${KEYS_NOTE}</p>`
+<p class="note">${KEYS_NOTE}</p>
+${tiles(runTiles(k))}<p class="note">${RUNS_NOTE}</p>`
 }
 
-const RECENT_HEAD = ['Lúc', 'Kết quả', 'Loại', 'Đoán nhiều nhất', 'Chắc', 'Token vào', 'Token ra', 'Chi phí', 'ms', 'Key', 'Lần gọi', 'Từ', 'Nước']
+const RECENT_HEAD = ['Lúc', 'Kết quả', 'Loại', 'Đoán nhiều nhất', 'Chắc', 'Token vào', 'Token ra', 'Chi phí', 'ms', 'Key', 'Lần gọi', 'Agent: lượt Claude · công cụ · ảnh', 'Từ', 'Nước']
+/** The agent's calls to Claude, tool calls and reference photos (fishid/log.ts). */
+const agentText = (c: Call) => `${fmt(c.turns)} · ${fmt(c.tools)} · ${fmt(c.refs)}`
 const RECENT_NONE = 'Chưa có lượt nào được ghi.'
 /** A call's best guess: its page when the catalog has one, else the name and why there is no link. */
 function guessOf(c: Call, pages: Map<string, string>): Cell {
@@ -394,7 +416,7 @@ function guessOf(c: Call, pages: Map<string, string>): Cell {
 const recentCells = (c: Call, pages: Map<string, string>, now: Date, tz: string): Cell[] => [
   { text: timeText(c.t, tz, now) }, { text: OUTCOME[c.outcome] ?? c.outcome }, { text: VERDICT[c.verdict] ?? (c.verdict || '—') }, guessOf(c, pages),
   { text: c.guesses ? `${fmt(c.conf * 100)}%` : '—' }, { text: fmt(c.tin) }, { text: fmt(c.tout) }, { text: c.usd ? usd(c.usd) : '—' }, { text: fmt(c.ms) },
-  { text: c.key || '—' }, { text: fmt(c.attempts) }, { text: FROM[c.from] ?? (c.from || '—') }, { text: c.country || '—' },
+  { text: c.key || '—' }, { text: fmt(c.attempts) }, c.stopped ? { text: agentText(c), sub: STOPPED[c.stopped] ?? c.stopped } : { text: '—' }, { text: FROM[c.from] ?? (c.from || '—') }, { text: c.country || '—' },
 ]
 function recentHtml(xs: Call[], pages: Map<string, string>, now: Date, tz: string): string {
   const guess = (c: Call) => {
@@ -403,8 +425,8 @@ function recentHtml(xs: Call[], pages: Map<string, string>, now: Date, tz: strin
     const name = `<i class="sci">${esc(c.sci)}</i>`
     return url ? `<a href="${esc(withoutVi(url))}">${name}</a>` : c.page ? `${name} <span class="muted">(${esc(c.page)})</span>` : `${name} <span class="muted">· chưa có trang</span>`
   }
-  const rows = xs.map(c => `<tr><th>${timeTag(c.t, tz, now)}</th><td class="l">${esc(OUTCOME[c.outcome] ?? c.outcome)}</td><td class="l">${esc(VERDICT[c.verdict] ?? (c.verdict || '—'))}</td><td class="l wrap">${guess(c)}</td><td>${c.guesses ? `${fmt(c.conf * 100)}%` : '—'}</td><td>${fmt(c.tin)}</td><td>${fmt(c.tout)}</td><td>${c.usd ? usd(c.usd) : '—'}</td><td>${fmt(c.ms)}</td><td class="l">${c.key ? `<code>${esc(c.key)}</code>` : '—'}</td><td>${fmt(c.attempts)}</td><td class="l">${esc(FROM[c.from] ?? (c.from || '—'))}</td><td class="l">${esc(c.country || '—')}</td></tr>`).join('')
-  return `<div class="scroll"><table class="wide"><thead><tr>${RECENT_HEAD.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows || `<tr><td colspan="13" class="none">${RECENT_NONE}</td></tr>`}</tbody></table></div>`
+  const rows = xs.map(c => `<tr><th>${timeTag(c.t, tz, now)}</th><td class="l">${esc(OUTCOME[c.outcome] ?? c.outcome)}</td><td class="l">${esc(VERDICT[c.verdict] ?? (c.verdict || '—'))}</td><td class="l wrap">${guess(c)}</td><td>${c.guesses ? `${fmt(c.conf * 100)}%` : '—'}</td><td>${fmt(c.tin)}</td><td>${fmt(c.tout)}</td><td>${c.usd ? usd(c.usd) : '—'}</td><td>${fmt(c.ms)}</td><td class="l">${c.key ? `<code>${esc(c.key)}</code>` : '—'}</td><td>${fmt(c.attempts)}</td><td class="l">${c.stopped ? `${esc(agentText(c))} <span class="muted">${esc(STOPPED[c.stopped] ?? c.stopped)}</span>` : '—'}</td><td class="l">${esc(FROM[c.from] ?? (c.from || '—'))}</td><td class="l">${esc(c.country || '—')}</td></tr>`).join('')
+  return `<div class="scroll"><table class="wide"><thead><tr>${RECENT_HEAD.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows || `<tr><td colspan="${RECENT_HEAD.length}" class="none">${RECENT_NONE}</td></tr>`}</tbody></table></div>`
 }
 
 // ——— Người đọc ———
@@ -420,10 +442,13 @@ const COUNTRY_HEAD = ['Nước', 'Người đọc']
 function readersParts(now: Date, r: Readers, tz: string) {
   const days = lastDays(now, r.days, tz)
   const d = alignDaily(days, r.daily)
+  // Days before the count's reset weren't counted: no value, not 0.
+  const from = r.from ? localDay(r.from, tz) : ''
+  const counted = (vals: number[]) => days.map((day, i) => (day < from ? null : vals[i]!))
   return {
-    lede: `${r.days} ngày gần nhất · đếm từ trình duyệt chạy JavaScript của trang (bỏ bot đã biết, các lượt kiểm tra tự động của AquaTome và lượt của chủ trang) · <b>người đọc</b> = phiên cuộn ≥ 50% trang hoặc ở lại ≥ 30 giây. ${zoneNote(tz, now)}`,
+    lede: `${r.days} ngày gần nhất${r.from ? ` (đếm lại từ ${timeTag(r.from, tz, now)})` : ''} · đếm từ trình duyệt chạy JavaScript của trang (bỏ bot đã biết, các lượt kiểm tra tự động của AquaTome và lượt của chủ trang) · <b>người đọc</b> = phiên cuộn ≥ 50% trang hoặc ở lại ≥ 30 giây. ${zoneNote(tz, now)}`,
     tiles: [{ label: 'Phiên', value: fmt(r.sessions) }, { label: 'Người đọc', value: fmt(r.readers), meter: r.sessions ? r.readers / r.sessions : undefined, sub: `${fmt(r.sessions ? (100 * r.readers) / r.sessions : 0, 1)}% số phiên (tỉ lệ người đọc)` }] as Tile[],
-    chart: { id: 'r-daily', title: 'Phiên và người đọc mỗi ngày', days, series: [{ label: 'Người đọc', values: d.readers }], whole: { label: 'Phiên', values: d.sessions }, partialLast: true, empty: 'Chưa có phiên nào.' } as DayChart,
+    chart: { id: 'r-daily', title: 'Phiên và người đọc mỗi ngày', days, series: [{ label: 'Người đọc', values: counted(d.readers) }], whole: { label: 'Phiên', values: counted(d.sessions) }, partialLast: true, empty: 'Chưa có phiên nào.', ...(from ? { missing: `chưa đếm: số đếm bắt đầu lại từ ${dayText(from, now, tz)}` } : {}) } as DayChart,
     sources: r.sources.map(x => ({ label: esc(x.source), value: x.sessions, part: x.readers, cells: [fmt(x.readers)] })) as Ranked[],
     pages: r.pages.map(x => ({ label: pageLink(x.path), value: x.views })) as Ranked[],
     countries: r.countries.map(x => ({ label: esc(x.cc), value: x.readers })) as Ranked[],
@@ -541,12 +566,14 @@ export function wantedSection(now: Date, w: Soft<{ names: Wanted[]; more: boolea
 
 // ——— Ảnh bạn đọc, Ẩn trang ———
 
+/** A moved photo's line under its page: the page it was sent for. */
+const movedText = (from: string) => `Kiểm duyệt chuyển từ ${from}`
 /**
- * One reader photo: its picture, who sent it, to which page and when, then its buttons, Gỡ last. Two columns, so the
- * buttons stay on a phone's screen.
+ * One reader photo: its picture, who sent it, to which page (and the page it was sent for, when moderation moved it) and
+ * when, then its buttons, Gỡ last. Two columns, so the buttons stay on a phone's screen.
  */
-const photoRow = (p: { id: string; entity_ref: string; name: string; created_at: string }, picture: string, state: string, buttons: string, now: Date, tz: string) =>
-  `<tr><th style="width:1%">${picture}</th><td class="l" style="overflow-wrap:anywhere"><strong>${esc(p.name)}</strong><br>${esc(p.entity_ref)}<br><span class="muted">${timeTag(p.created_at, tz, now)}</span>${state}`
+const photoRow = (p: { id: string; entity_ref: string; moved_from?: string | null; name: string; created_at: string }, picture: string, state: string, buttons: string, now: Date, tz: string) =>
+  `<tr><th style="width:1%">${picture}</th><td class="l" style="overflow-wrap:anywhere"><strong>${esc(p.name)}</strong><br>${esc(p.entity_ref)}${p.moved_from ? `<br><span class="muted">${esc(movedText(p.moved_from))}</span>` : ''}<br><span class="muted">${timeTag(p.created_at, tz, now)}</span>${state}`
   + `<form method="post" action="/_ab/photos" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px"><input type="hidden" name="id" value="${esc(p.id)}">${buttons}<button name="action" value="remove">Gỡ</button></form></td></tr>`
 
 const PHOTOS_LEDE = 'Ảnh đã qua kiểm duyệt tự động (khuôn mặt, đúng loài, an toàn) hoặc do bạn duyệt, và đang hiện trên trang loài. Gỡ: ảnh bị xóa ngay khỏi trang và máy chủ.'
@@ -587,7 +614,7 @@ export function photosPage(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<W
 
 export function photosSection(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<WaitingPhoto[] | undefined>, now = new Date(), tz = HOME_TZ): Section {
   const blocks: Block[] = [note(PHOTOS_LEDE)]
-  const meta = (p: { entity_ref: string; created_at: string }) => [p.entity_ref, timeText(p.created_at, tz, now)]
+  const meta = (p: { entity_ref: string; moved_from?: string | null; created_at: string }) => [p.entity_ref, ...(p.moved_from ? [movedText(p.moved_from)] : []), timeText(p.created_at, tz, now)]
   if (waiting && !isFailed(waiting) && waiting.length) {
     const items: PhotoItem[] = waiting.map(p => ({ id: p.id, src: waitingSrc(p.id), caption: p.name, meta: [...meta(p), ...(p.ownerOk ? [OWNER_OK.join(' · ')] : [])], actions: photoActions(p.id, !p.ownerOk) }))
     blocks.push(heading(`Chờ duyệt (${waiting.length})`), note(WAITING_NOTE, 'muted'), { kind: 'photos', items }, heading('Đang hiện'))

@@ -7,13 +7,55 @@
   "group": "cichlids",
   "places": [
     "south-america",
-    "paraguay"
+    "paraguay",
+    "bolivia",
+    "guapore",
+    "brazil",
+    "parana",
+    "argentina"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.7
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -25,16 +67,58 @@
       "html": "<p>Males reach around 8 cm, females about 6 cm in length. The species is very pretty even in \"normal\" mood, but when breeding condition is reached they develop a lilac-coloured throat that makes them even more attractive.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-dorsigera",
+      "html": "<p>The redbreast acara, Laetacara dorsigera, is a small cichlid from the Guaporé in Bolivia and Brazil, and the Paraná system further south. Breeding males and females develop conspicuous red cheeks, opercula and belly, a feature L. curviceps lacks. A dark spot in the middle of the dorsal fin is shared only with L. curviceps and L. flamannellus. Populations vary in colour pattern, and it is a biparental substrate spawner growing to around 37 mm SL.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/laetacara-dorsigera-wild-2/",
       "html": "<p>This dwarf cichlid comes from Paraguay. The specimens offered are wild-caught.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-dorsigera",
+      "html": "<p>Currently accepted to occur in the rio Guaporé in Bolivia (where the river is known as the Río Iténez) and western Brazil plus the Paraná drainage system in southern Brazil, Paraguay and Argentina, with some populations exhibiting differences in colour pattern to one another.</p><p>Type locality is 'Villa Maria, Río Paraguay, South America'.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-dorsigera",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-dorsigera",
+      "html": "<p>Wild fish are probably foragers feeding on algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/laetacara-dorsigera-wild-2/",
       "html": "<p>Males become around 8 cm, females about 6 cm long. In breeding condition they get a lilac-coloured throat.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-dorsigera",
+      "html": "<p>Biparental substrate spawner.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-dorsigera",
+      "html": "<p>The genus Laetacara currently contains seven valid species and L. dorsigera can be told apart from all congeners except L. thayeri and L. flamannellus, by having fewer scales in the longitudinal series (21–22 in L. dorsigera vs. 24 in L. flavilabris, 22–24 in L. curviceps and 23–25 in L. fulvipinnis and L. araguaiae).</p><p>In addition it can be distinguished from congeners except L. curviceps and L. flamannellus by having a dark spot on the middle of the dorsal-fin.</p><p>Laetacara dorsigera is distinguished from L. araguaiae and L. curviceps by having higher head depth (head depth 90.2–96.3 % mm HL in L. dorsigera vs. 84.6–88.9 % mm HL in L. curviceps and 80.0–87.1 % mm HL in L. araguaiae), from L. thayeri by having cycloid scales on the sides of the head (vs. ctenoid scales) and more anal-fin rays (8–9 vs. 7–8), from L. flavilabris by possessing fewer total vertebrae (24 vs. 26) and fewer scales in the upper lateral line (14–15 vs. 15–18), from L. fulvipinnis by having fewer scales in the upper lateral line (14–15 vs. 15–17), fewer scales on the lower lateral line (6–8 vs. 8–9) and absence of a dark dot at the edge of each scale on the midlateral portion of the flank (vs. presence), from L. curviceps by having a wide ectopterygoid (vs. a narrow ectopterygoid), more dorsal-fin rays (9–10 vs. 8–9) and breeding males and females with conspicuous red cheeks, opercula and belly (vs. no such colour pattern), and from L. flamannellus by absence (vs. presence) of an orange-coloured ring around the dorsal-fin spot.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-dorsigera",
+      "html": "<ul><li>Ottoni, F. P. and W. J. E. M. Costa (2009). Description of a new species of Laetacara Kullander, 1986 from central Brazil and re-description of Laetacara dorsigera (Heckel, 1840) (Labroidei: Cichlidae: Cichlasomatinae). Vertebrate Zoology 59(1), 41-48</li><li>Ottoni, F. P., P. H. N Bragança, P. F. Amorim and C. S. Gama (2012). A new species of Laetacara from the northern Brazil coastal floodplains (Teleostei: Cichlidae). Vertebrate Zoology 62(2), 181-188</li><li>Staeck, W. and I. Schindler (2007). Description of Laetacara fulvipinnis sp. n. (Teleostei: Perciformes: Cichlidae) from the upper drainages of the rio Orinoco and rio Negro in Venezuela. Vertebrate Zoology 51(1), 63-71</li><li>Ottoni, F. P., J. L. O. Mattos and I. Schindler (2009). Re-description of Laetacara curviceps (Teleostei: Cichlidae: Cichlinae). Vertebrate Zoology 59(2), 123-129</li></ul>"
     }
   ],
   "photos": [],

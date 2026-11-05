@@ -7,7 +7,8 @@ import Tanks
 
 /// The accounts server, in process, for tests and the simulator's UI tests: the paths `AccountsClient` uses, answered
 /// as apps/site/worker/accounts does (protocols/accounts.openapi.json). Sign in with Apple's identity token is
-/// `<sub>|<nonce or its SHA-256>`, and a fresh Apple authorization code for an Apple user is `good-<sub>`. An email
+/// `<sub>|<nonce or its SHA-256>`, and a fresh Apple authorization code for an Apple user is `good-<sub>`. Google's ID
+/// token reads the same (`FakeGoogle` gives one), and that account is kept under `google:<sub>`. An email
 /// sign-in takes any Turnstile token once, and its code is always `emailCode`; that account is kept under
 /// `email:<address>`. A passkey (`addPasskey`, as one added on aquatome.com) signs in with an answer from `assertion`,
 /// checked as the server checks one, short of the signature; one made with `newPasskey` is added within 10 minutes of a
@@ -16,6 +17,8 @@ import Tanks
 public final class FakeAccounts {
   public var accountsOn = true
   public var passkeysOn = true
+  /// Google sign-in offered (the server has GOOGLE_CLIENT_IDS).
+  public var googleOn = true
   /// No network: every request fails as URLSession does.
   public var offline = false
   /// The next syncs answer 409 busy (another sync of the account in progress).
@@ -52,7 +55,7 @@ public final class FakeAccounts {
   public var fishIdAnswer: (_ photo: String) -> [String: JSON] = FakeAccounts.fishIdGuesses(photo:)
 
   struct Account { let id: String; var kind = "apple"; var store = TankStore() }
-  private var accounts: [String: Account] = [:] // by Apple sub, or `email:<address>`
+  private var accounts: [String: Account] = [:] // by Apple sub, `google:<sub>` or `email:<address>`
   private var tokens: [String: String] = [:] // token → its account's key
   private var nonces: Set<String> = []
   private var turnstiles: Set<String> = [] // used once each
@@ -297,7 +300,7 @@ public final class FakeAccounts {
     case ("GET", "/api/v1/session"):
       return try reply(200, [
         "accounts": .bool(true),
-        "providers": .object(["google": .null, "apple": .object(["clientId": .string("com.aquatome.web")]), "email": .bool(true), "passkey": .bool(passkeysOn)]),
+        "providers": .object(["google": googleOn ? .object(["clientId": .string("web.apps.googleusercontent.com")]) : .null, "apple": .object(["clientId": .string("com.aquatome.web")]), "email": .bool(true), "passkey": .bool(passkeysOn)]),
         "turnstileSitekey": .string("sk"),
         "user": sub.flatMap { accounts[$0] }.map { user($0, sub!) } ?? .null,
       ])
@@ -306,15 +309,17 @@ public final class FakeAccounts {
       let n = "nonce-\(issued)"
       nonces.insert(n)
       return try reply(200, ["nonce": .string(n)])
-    case ("POST", "/api/v1/auth/apple"):
+    case ("POST", "/api/v1/auth/apple"), ("POST", "/api/v1/auth/google"):
       // Without `client: "app"` the server would set a cookie, and only for a request from its own pages.
       guard body!["client"]?.string == "app" else { return try fail(403, "cross_site") }
+      let google = path.hasSuffix("/google")
+      if google && !googleOn { return try fail(503, "provider_off") }
       guard let idToken = body!["idToken"]?.string, let nonce = body!["nonce"]?.string else { return try fail(400, "bad_request") }
       guard nonces.remove(nonce) != nil else { return try fail(401, "bad_nonce") }
       let parts = idToken.split(separator: "|", omittingEmptySubsequences: false).map(String.init)
       guard parts.count == 2, !parts[0].isEmpty else { return try fail(401, "bad_token") }
       guard parts[1] == nonce || parts[1] == sha256Hex(nonce) else { return try fail(401, "bad_nonce") }
-      return try reply(200, signedIn(parts[0], "apple", bearer: bearer))
+      return try reply(200, google ? signedIn("google:" + parts[0], "google", bearer: bearer) : signedIn(parts[0], "apple", bearer: bearer))
     case ("POST", "/api/v1/auth/email/start"):
       let email = body!["email"]?.string?.trimmingCharacters(in: .whitespaces).lowercased() ?? ""
       guard email.contains("@"), !email.hasPrefix("@"), !email.hasSuffix("@") else { return try fail(400, "bad_email") }

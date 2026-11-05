@@ -49,7 +49,7 @@ export const FISH = {
     call('2026-11-04 08:30:00', { sci: 'Trigonostigma heteromorpha', page: 'gone-page' }),
     call('2026-11-04 08:00:00', { outcome: 'rate', verdict: '', kh: '', tin: 0, tout: 0, usd: 0, guesses: 0, conf: 0, src: 'tank' }),
   ], NOW, TZ),
-  keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok' as const, calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x' },
+  keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok' as const, calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x', counts: { fallback: 2, callLimit: 5, later400: 1, facts: 0, refunds: 3 }, mostRefunds: 2 },
   pages: new Map([['paracheirodon-axelrodi', '/vi/ca/ca-neon-vua/']]),
 }
 
@@ -79,7 +79,12 @@ export const WANTED: { names: Wanted[]; more: boolean } = {
 export const PHOTO_WAITING = 'a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d'
 export const PHOTO_APPROVED = 'b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e'
 export const PHOTO_LIVE = 'c3d4e5f6-a7b8-4c9d-8e0f-2a3b4c5d6e7f'
-export const RECENT = [{ id: PHOTO_LIVE, entity_ref: 'species:paracheirodon-axelrodi', name: 'Minh', thumb: 'https://media.aquatome.com/p/c3d4-thumb.webp', created_at: '2026-11-03T10:00:00.000Z' }]
+export const PHOTO_MOVED = 'd4e5f6a7-b8c9-4d0e-9f1a-3b4c5d6e7f8a'
+export const RECENT = [
+  { id: PHOTO_LIVE, entity_ref: 'species:paracheirodon-axelrodi', moved_from: null, name: 'Minh', thumb: 'https://media.aquatome.com/p/c3d4-thumb.webp', created_at: '2026-11-03T10:00:00.000Z' },
+  // Sent on the neon's page; moderation found a goldfish and moved it there.
+  { id: PHOTO_MOVED, entity_ref: 'species:carassius-auratus', moved_from: 'species:paracheirodon-innesi', name: 'Thảo', thumb: 'https://media.aquatome.com/p/d4e5-thumb.webp', created_at: '2026-11-03T09:00:00.000Z' },
+]
 export const WAITING = [
   { id: PHOTO_WAITING, entity_ref: 'species:betta-splendens', name: 'Lan', created_at: '2026-11-04T08:34:00.000Z', ownerOk: false },
   { id: PHOTO_APPROVED, entity_ref: 'breed:betta-halfmoon', name: 'Hùng <3', created_at: '2026-11-04T07:00:00.000Z', ownerOk: true },
