@@ -42,13 +42,19 @@ that would have caught it).
   - What's new for the app (`/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`) against the built
     `/vi/moi-cap-nhat/`: the same pages in the same order, with their dates, "Mới" or "Cập nhật" and sources, the
     first 200, each a page the app index lists; the index names the file (`latest`) only where the site has the page.
-  - The app's invitations (`apps/site/src/lib/app.ts`, off until the store launch; `apps/site/test/app-invite.test.ts`):
-    with the switch off, the build has no `apple-itunes-app` meta, App Store link, invitation, badge file, app page or
-    link to it, the sitemap and `llms.txt` included. A second fixture build with the switch on (`dist-app-on`,
-    `APP_INVITE_PREVIEW=1`, which `pnpm test` makes) has each of them, and the check is run on it to show it finds them:
-    every page's meta with its own address, each placement's campaign code and `hidden` until the check beside it, no
-    link `rel=sponsored` (the readers' beacon would count it), and every string translated, as that build fails on one
-    that isn't.
+  - The app's invitations (`apps/site/src/lib/app.ts`; the switch, `apps/site/worker/app-switch.ts`: off, the owner's,
+    on; `apps/site/test/app-invite.test.ts`), on a fixture build of each state (`pnpm test` builds `dist-app-off` and
+    `dist-app-on` beside `dist`, `APP_INVITE_STATE`):
+    - off: no `apple-itunes-app` meta, App Store link, invitation, badge file, app page or link to it, the sitemap and
+      `llms.txt` included.
+    - the owner's: the invitations hidden, each with "Mở trong ứng dụng" (the app's `aquatome://open?url=…`), shown only
+      with the owner's flag cookie on an iPhone or iPad; the footer's and About's links in a `<template>` only the owner's
+      script opens; no meta; the app page noindex, out of the sitemap, `llms.txt`, the site's search and the markdown
+      copies, and answered 404 by the Worker without the flag (`worker/test/app-page.test.ts`).
+    - on: every page's meta with its own address, each placement's campaign code and `hidden` until the check beside it,
+      no link `rel=sponsored` (the readers' beacon would count it), and every string translated, as that build fails on
+      one that isn't.
+    - The checks that unhide them, run against each device and cookie; and in the browser (`e2e/app-invite.spec.ts`).
   - A fish's "Vì sao?" needs (`careNeeds`, `packages/schema/src/care-needs.ts`) against
     `protocols/care-needs-vectors.json`, which the app's own port of it will read: `careNeeds`' answer for each case,
     given the fish's app index entry as it is (every threshold, and just past it); each fixture fish page's panel as the

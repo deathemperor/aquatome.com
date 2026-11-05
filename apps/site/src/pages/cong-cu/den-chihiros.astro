@@ -3,7 +3,7 @@ import Browse from '../../layouts/Browse.astro'
 import { getContent } from '../../lib/content'
 import { SUPPORTED } from '../../scripts/chihiros'
 import AppInvite from '../../components/AppInvite.astro'
-import { APP_ON } from '../../lib/app'
+import { APP_STATE } from '../../lib/app'
 import { i18n } from '../../lib/i18n'
 
 const { lang, t } = i18n(Astro.url)
@@ -31,7 +31,7 @@ const LOOKS = [
 ]
 const RAMPS = [0, 10, 15, 20, 30, 45, 60, 90, 120, 150]
 const faq = [
-  { q: t('Điều khiển đèn Chihiros không cần ứng dụng được không?'), a: APP_ON ? t('Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). Safari trên iPhone và iPad không hỗ trợ Bluetooth trên web: ở đó dùng ứng dụng AquaTome, hoặc trình duyệt Bluefy.') : t('Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). iPhone và iPad cần trình duyệt Bluefy, vì Safari không hỗ trợ Bluetooth trên web.') },
+  { q: t('Điều khiển đèn Chihiros không cần ứng dụng được không?'), a: APP_STATE === 'on' ? t('Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). Safari trên iPhone và iPad không hỗ trợ Bluetooth trên web: ở đó dùng ứng dụng AquaTome, hoặc trình duyệt Bluefy.') : t('Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). iPhone và iPad cần trình duyệt Bluefy, vì Safari không hỗ trợ Bluetooth trên web.') },
   { q: t('Đèn Chihiros nào dùng được?'), a: t('Các đèn Bluetooth có tên bắt đầu bằng DY: {list}. Chưa hỗ trợ X300, Z Light Tiny, Egg và Commander 1 vì các đèn này chia kênh màu khác.', { list: SUPPORTED.join(', ') }) },
   { q: t('Nên bật đèn bể thủy sinh mấy tiếng mỗi ngày?'), a: t('Khoảng 6 đến 8 tiếng, cùng một khung giờ mỗi ngày. Bể mới trồng nên bắt đầu 6 tiếng, đèn 40–50%, rồi tăng dần khi cây đã bén rễ. Bật quá 8 tiếng, hoặc đèn mạnh mà thiếu CO₂ và phân, dễ lên rêu.') },
   { q: t('Trang có nhớ lịch của đèn không?'), a: t('Có, trên máy này. Mỗi lần ghi lịch, trang nhớ đèn, tên bạn đặt và các lịch đã ghi, để lần sau mở lại, dùng lại hoặc hoàn tác. Đèn không cho đọc lại lịch đang lưu bên trong nó, nên lịch đặt bằng ứng dụng My Chihiros không hiện ở đây. Đèn cho đọc giờ của nó: trang báo khi đèn lệch giờ, chẳng hạn sau khi mất điện.') },
@@ -41,7 +41,7 @@ const faq = [
 const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
 const HOURS = [0, 3, 6, 9, 12, 15, 18, 21, 24]
 ---
-<Browse title={t('Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng')} heading={t('Đèn Chihiros')} intro={t('Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng. Trang nhớ đèn và lịch của bạn trên máy này.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.')} jsonld={jsonld}>
+<Browse title={t('Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng')} heading={t('Đèn Chihiros')} intro={APP_STATE === 'on' ? t('Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên Chrome hoặc Edge ở điện thoại Android và máy tính. Trang nhớ đèn và lịch của bạn trên máy này.') : t('Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng. Trang nhớ đèn và lịch của bạn trên máy này.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.')} jsonld={jsonld}>
   <div class="app">
     <div class="side">
       <section id="ch-light" class="card" aria-labelledby="light-h" data-state="idle">

@@ -1159,14 +1159,10 @@
   "Đang ở máy tính? Quét mã bằng iPhone hoặc iPad để mở App Store.": "อยู่ที่คอมพิวเตอร์ใช่ไหม สแกนโค้ดด้วย iPhone หรือ iPad เพื่อเปิด App Store",
   "Dùng trên": "ใช้บน",
   "Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). Safari trên iPhone và iPad không hỗ trợ Bluetooth trên web: ở đó dùng ứng dụng AquaTome, hoặc trình duyệt Bluefy.": "ได้ หน้านี้ส่งคำสั่งแบบเดียวกับแอป My Chihiros ผ่าน Bluetooth ใช้งานได้บน Chrome หรือ Edge (Android, Windows, macOS, Linux) ส่วน Safari บน iPhone และ iPad ไม่รองรับ Bluetooth บนเว็บ จึงใช้แอป AquaTome หรือเบราว์เซอร์ Bluefy แทน",
-  "Ghi lại từng bể: kích thước, số lít, nền, ghi chú, cá và cây đang nuôi. Kiểm tra nuôi chung: loài nào hợp nhau, loài nào có thể ăn loài nào, bể đã đủ chỗ chưa. Đăng nhập bằng Apple, passkey hoặc email để đồng bộ bể với aquatome.com. Không bắt buộc.": "บันทึกแต่ละตู้: ขนาด จำนวนลิตร วัสดุปูพื้น หมายเหตุ ปลาและไม้น้ำที่เลี้ยงอยู่ ตรวจการเลี้ยงรวม: ชนิดไหนเข้ากันได้ ชนิดไหนอาจกินชนิดไหน และตู้ยังมีที่พอไหม เข้าสู่ระบบด้วย Apple, passkey หรืออีเมล เพื่อซิงค์ตู้กับ aquatome.com ไม่บังคับ",
   "Giá": "ราคา",
-  "Hồ sơ cá, tép, ốc và cây thủy sinh, hướng dẫn nuôi, thuật ngữ và video hướng dẫn. Lưu trang để đọc sau. Trang đã đọc vẫn mở được khi không có mạng.": "ข้อมูลปลา กุ้ง หอย และไม้น้ำ คู่มือการเลี้ยงและคำศัพท์ บันทึกหน้าไว้อ่านทีหลัง หน้าที่อ่านแล้วยังเปิดได้แม้ไม่มีอินเทอร์เน็ต",
   "hoàng hôn": "ค่อยๆ มืดลง",
   "iOS 17 trở lên": "iOS 17 ขึ้นไป",
   "iPhone và iPad": "iPhone และ iPad",
-  "Kết nối đèn Chihiros qua Bluetooth: hẹn giờ bật tắt có bình minh và hoàng hôn, chỉnh từng kênh màu, chỉnh giờ cho đèn. Lịch chạy ngay trên đèn, không cần mở ứng dụng.": "เชื่อมต่อโคมไฟ Chihiros ผ่าน Bluetooth: ตั้งเวลาเปิดปิดโดยค่อยๆ สว่างขึ้นและค่อยๆ มืดลง ปรับแต่ละช่องสี และตั้งเวลาโคมไฟ ตารางเวลาทำงานบนโคมไฟเอง ไม่ต้องเปิดแอป",
-  "Lưu trên trình duyệt này. Đăng nhập để đồng bộ.": "เก็บไว้ในเบราว์เซอร์นี้ เข้าสู่ระบบเพื่อซิงค์",
   "Mã QR mở AquaTome trên App Store": "คิวอาร์โค้ดสำหรับเปิด AquaTome ใน App Store",
   "Miễn phí": "ฟรี",
   "Mở AquaTome trên App Store": "เปิด AquaTome ใน App Store",
@@ -1183,5 +1179,11 @@
   "ứng dụng AquaTome": "แอป AquaTome",
   "Ứng dụng AquaTome": "แอป AquaTome",
   "Ứng dụng cho iPhone và iPad": "แอปสำหรับ iPhone และ iPad",
-  "Ứng dụng iPhone, iPad": "แอปสำหรับ iPhone, iPad"
+  "Ứng dụng iPhone, iPad": "แอปสำหรับ iPhone, iPad",
+  "Chạy trên iPhone, iPad, không cần trình duyệt Bluefy. Kết nối đèn Chihiros qua Bluetooth: hẹn giờ bật tắt có bình minh và hoàng hôn, chỉnh từng kênh màu, chỉnh giờ cho đèn. Lịch chạy ngay trên đèn, không cần mở ứng dụng.": "ใช้บน iPhone, iPad ได้โดยไม่ต้องใช้เบราว์เซอร์ Bluefy เชื่อมต่อโคมไฟ Chihiros ผ่าน Bluetooth: ตั้งเวลาเปิดปิดโดยค่อยๆ สว่างขึ้นและค่อยๆ มืดลง ปรับแต่ละช่องสี และตั้งเวลาโคมไฟ ตารางเวลาทำงานบนโคมไฟเอง ไม่ต้องเปิดแอป",
+  "Cùng các bể đó trong ứng dụng, mỗi bể kèm đèn và ổ cắm của nó. Đăng nhập bằng Apple, passkey hoặc email để đồng bộ bể với aquatome.com. Không bắt buộc.": "ตู้เดียวกันในแอป แต่ละตู้พร้อมโคมไฟและปลั๊กไฟของตู้นั้น เข้าสู่ระบบด้วย Apple, passkey หรืออีเมล เพื่อซิงค์ตู้กับ aquatome.com ไม่บังคับ",
+  "Ghi lại từng bể, cá và cây, kiểm tra nuôi chung. Lưu trên trình duyệt này; đăng nhập để đồng bộ.": "บันทึกแต่ละตู้ ปลาและไม้น้ำ และตรวจการเลี้ยงรวม เก็บไว้ในเบราว์เซอร์นี้ เข้าสู่ระบบเพื่อซิงค์",
+  "Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên Chrome hoặc Edge ở điện thoại Android và máy tính. Trang nhớ đèn và lịch của bạn trên máy này.": "ตั้งเวลาเปิดปิดพร้อมค่อย ๆ สว่างขึ้น ค่อย ๆ หรี่ลง ผสมสี และตั้งเวลาให้โคมไฟ Chihiros ผ่าน Bluetooth ได้ทันทีบน Chrome หรือ Edge ในโทรศัพท์ Android และคอมพิวเตอร์ หน้านี้จะจำโคมไฟและตารางเวลาของคุณไว้บนเครื่องนี้",
+  "Mở trong ứng dụng": "เปิดในแอป",
+  "Trang đã đọc vẫn mở được khi không có mạng. Lưu trang để đọc sau. Hồ sơ cá, tép, ốc và cây thủy sinh, hướng dẫn nuôi và thuật ngữ.": "หน้าที่อ่านแล้วยังเปิดได้แม้ไม่มีอินเทอร์เน็ต บันทึกหน้าไว้อ่านทีหลัง ข้อมูลปลา กุ้ง หอย และไม้น้ำ คู่มือการเลี้ยงและคำศัพท์"
 }

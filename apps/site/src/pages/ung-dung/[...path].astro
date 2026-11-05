@@ -1,12 +1,13 @@
 ---
 import Browse from '../../layouts/Browse.astro'
 import AppStoreBadge from '../../components/AppStoreBadge.astro'
-import { APP_ON, APP_PAGE, APP_SCREENSHOTS, storeLink } from '../../lib/app'
+import { APP_PAGE, APP_SCREENSHOTS, APP_STATE, storeLink } from '../../lib/app'
 import { i18n, LANGS, localizePath } from '../../lib/i18n'
 import { qrPath } from '../../lib/qr'
 
-// A page only while the switch is on (lib/app.ts): a plain index.astro would always build.
-export const getStaticPaths = () => (APP_ON ? [{ params: { path: undefined } }] : [])
+// Not built while the switch is off (worker/app-switch.ts): a plain index.astro always would. While it's the owner's,
+// out of search engines and the site's search, and the Worker answers it 404 to anyone else.
+export const getStaticPaths = () => (APP_STATE !== 'off' ? [{ params: { path: undefined } }] : [])
 
 const { t } = i18n(Astro.url)
 const alternates = Object.fromEntries(LANGS.map(l => [l, localizePath(l, APP_PAGE)]))
@@ -16,9 +17,9 @@ const frame = qr.size + 2 * QUIET
 // A reader here already has the site, so each row says what the app adds. The app's words are the store listing's
 // (apps/ios/store/listing.json), so the site and the store agree.
 const ROWS = [
-  { name: t('Cẩm nang'), site: t('Cùng nội dung, đọc trên trình duyệt khi có mạng.'), app: t('Hồ sơ cá, tép, ốc và cây thủy sinh, hướng dẫn nuôi, thuật ngữ và video hướng dẫn. Lưu trang để đọc sau. Trang đã đọc vẫn mở được khi không có mạng.') },
-  { name: t('Bể của tôi'), site: t('Lưu trên trình duyệt này. Đăng nhập để đồng bộ.'), app: t('Ghi lại từng bể: kích thước, số lít, nền, ghi chú, cá và cây đang nuôi. Kiểm tra nuôi chung: loài nào hợp nhau, loài nào có thể ăn loài nào, bể đã đủ chỗ chưa. Đăng nhập bằng Apple, passkey hoặc email để đồng bộ bể với aquatome.com. Không bắt buộc.') },
-  { name: t('Đèn Chihiros'), day: [t('bình minh'), t('hoàng hôn')], site: t('Chrome hoặc Edge trên Android và máy tính. Trên iPhone, iPad chỉ chạy trong trình duyệt Bluefy.'), app: t('Kết nối đèn Chihiros qua Bluetooth: hẹn giờ bật tắt có bình minh và hoàng hôn, chỉnh từng kênh màu, chỉnh giờ cho đèn. Lịch chạy ngay trên đèn, không cần mở ứng dụng.') },
+  { name: t('Cẩm nang'), site: t('Cùng nội dung, đọc trên trình duyệt khi có mạng.'), app: t('Trang đã đọc vẫn mở được khi không có mạng. Lưu trang để đọc sau. Hồ sơ cá, tép, ốc và cây thủy sinh, hướng dẫn nuôi và thuật ngữ.') },
+  { name: t('Bể của tôi'), site: t('Ghi lại từng bể, cá và cây, kiểm tra nuôi chung. Lưu trên trình duyệt này; đăng nhập để đồng bộ.'), app: t('Cùng các bể đó trong ứng dụng, mỗi bể kèm đèn và ổ cắm của nó. Đăng nhập bằng Apple, passkey hoặc email để đồng bộ bể với aquatome.com. Không bắt buộc.') },
+  { name: t('Đèn Chihiros'), day: [t('bình minh'), t('hoàng hôn')], site: t('Chrome hoặc Edge trên Android và máy tính. Trên iPhone, iPad chỉ chạy trong trình duyệt Bluefy.'), app: t('Chạy trên iPhone, iPad, không cần trình duyệt Bluefy. Kết nối đèn Chihiros qua Bluetooth: hẹn giờ bật tắt có bình minh và hoàng hôn, chỉnh từng kênh màu, chỉnh giờ cho đèn. Lịch chạy ngay trên đèn, không cần mở ứng dụng.') },
   { name: t('Ổ cắm thông minh'), site: t('Chưa có.'), app: t('Bật tắt từng ổ của ổ cắm Smart Life (Tuya) cho lọc, sủi, máy sưởi hay CO₂, ngay trong bể, bằng khóa Tuya của chính bạn.') },
 ]
 ---
@@ -28,6 +29,8 @@ const ROWS = [
   intro={t('AquaTome là cẩm nang cá cảnh và thủy sinh bằng tiếng Việt, cùng nội dung với aquatome.com, kèm bể và đèn của bạn trong một ứng dụng.')}
   description={t('Cẩm nang cá cảnh và thủy sinh đọc lại được khi không có mạng, bể của bạn, đèn Chihiros qua Bluetooth và ổ cắm Smart Life, trong một ứng dụng miễn phí cho iPhone và iPad.')}
   alternates={alternates}
+  noindex={APP_STATE !== 'on'}
+  search={APP_STATE === 'on'}
   ads={false}
 >
   <div class="get">
@@ -69,8 +72,8 @@ const ROWS = [
             {r.day && (
               <div class="day" aria-hidden="true" data-pagefind-ignore>
                 <svg viewBox="0 0 280 44">
-                  <path class="sky" d="M0 40H40L92 6H204L256 40H280Z" />
-                  <path class="line" d="M0 40H40L92 6H204L256 40H280" />
+                  <path class="sky" d="M0 40H40L92 6H188L240 40H280Z" />
+                  <path class="line" d="M0 40H40L92 6H188L240 40H280" />
                 </svg>
                 <p>{r.day.map(word => <span>{word}</span>)}</p>
               </div>
@@ -107,6 +110,7 @@ const ROWS = [
   .ledger { margin-top: var(--space-7); }
   .ledger h2 { font-size: var(--step-3); margin-bottom: var(--space-5); }
   .row { padding-block: var(--space-4); border-top: 1px solid var(--c-rule); }
+  .row:last-child { border-bottom: 1px solid var(--c-rule); }
   .row h3 { font-size: var(--step-2); margin-bottom: var(--space-3); }
   .heads { display: none; }
   dl { margin: 0; }
@@ -116,7 +120,10 @@ const ROWS = [
   .in-app { background: var(--c-plate); padding: var(--space-3) var(--space-4); margin-inline: calc(-1 * var(--space-2)); }
   .day { max-width: 20rem; margin-top: var(--space-3); }
   .day svg { display: block; width: 100%; height: auto; }
-  .day p { display: flex; justify-content: space-between; margin: var(--space-1) 0 0; padding-inline: 8%; font-size: var(--step--1); color: var(--c-ink-soft); }
+  /* Each word centred under its ramp: 66 and 214 of the drawing's 280. */
+  .day p { position: relative; height: 1.6em; margin: var(--space-1) 0 0; font-size: var(--step--1); color: var(--c-ink-soft); }
+  .day span { position: absolute; left: 23.57%; transform: translateX(-50%); white-space: nowrap; }
+  .day span + span { left: 76.43%; }
   .sky { fill: var(--c-moss); opacity: 0.14; }
   .line { fill: none; stroke: var(--c-moss); stroke-width: 1.5; }
 

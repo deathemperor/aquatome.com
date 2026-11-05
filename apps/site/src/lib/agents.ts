@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { APP_ON } from './app'
+import { APP_STATE } from './app'
 
 // Agent discovery: /llms.txt, /openapi.json and an agent skill (served with its index under /.well-known/agent-skills/).
 // /.well-known/api-catalog and the homepage Link header live in the Worker (they need a content type / header).
@@ -14,7 +14,7 @@ const SECTIONS = [
   ['/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', 'tank volume for 12 tank shapes (litres, US gallons), real water volume, weight and front glass thickness; ?hinh=<shape>&l=&w=&h= in cm'],
   ['/cong-cu/den-chihiros/', 'Đèn Chihiros', 'control a Chihiros LED light from the browser over Web Bluetooth (Chrome or Edge on Android and computers): daily on/off schedule with sunrise and sunset ramp, brightness per colour channel, clock sync; planted-tank presets'],
   ['/thuat-ngu/', 'Thuật ngữ', 'glossary of aquarium terms'],
-  ...(APP_ON ? [['/ung-dung/', 'Ứng dụng AquaTome', 'the free iPhone and iPad app (iOS 17+): the handbook readable offline, saved tanks, Chihiros lights over Bluetooth, Smart Life (Tuya) power strips with the reader\'s own Tuya keys']] as const : []),
+  ...(APP_STATE === 'on' ? [['/ung-dung/', 'Ứng dụng AquaTome', 'the free iPhone and iPad app (iOS 17+): the handbook readable offline, saved tanks, Chihiros lights over Bluetooth, Smart Life (Tuya) power strips with the reader\'s own Tuya keys']] as const : []),
 ] as const
 
 export function llmsTxt(site: string): string {

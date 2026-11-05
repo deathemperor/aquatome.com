@@ -32,8 +32,9 @@ Node 24.22.1 (`nvm use` reads `.nvmrc`; not 25.x) and pnpm 10+.
 
 Build environment: `PUBLIC_BUILD=1` builds only cleared sources, `SITE_URL` sets canonical links and the sitemap,
 `STAGING=1` makes every page `noindex`, `CONTENT_ROOT` / `OUT_DIR` move content and output, and `I18N_LENIENT=1` lets an
-untranslated UI string through (the engine cycle only), and `APP_INVITE_PREVIEW=1` builds the app's invitations before their
-switch is on (`apps/site/src/lib/app.ts`; `pnpm test` builds that state into `apps/site/dist-app-on`).
+untranslated UI string through (the engine cycle only), and `APP_INVITE_STATE=off|owner|on` builds the app's invitations in
+another state than their switch's (`apps/site/worker/app-switch.ts`; `pnpm test` builds `apps/site/dist-app-off` and
+`dist-app-on`).
 
 ## Ship
 

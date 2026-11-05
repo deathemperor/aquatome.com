@@ -3,10 +3,12 @@ import { join, resolve } from 'node:path'
 import { devices, type Page } from '@playwright/test'
 import { expect, test, VIETNAMESE } from './fixtures'
 import { LIVE } from './pages'
+import { APP_SWITCH } from '../worker/app-switch'
 
-// The app's invitations with the switch on (lib/app.ts). The site is off until the store launch, so each page here comes
-// from dist-app-on, the on state's build `pnpm test` leaves: the browser's requests for this site are answered from it.
-test.skip(LIVE, 'the switch is off on the live site')
+// The app's invitations (lib/app.ts; the switch, worker/app-switch.ts), in the two states that show anything. The on
+// state's pages come from dist-app-on, the build `pnpm test` leaves beside dist: the browser's requests for this site are
+// answered from it. The owner state is dist's own while the switch is 'owner'.
+test.skip(LIVE, 'pages and products of the fixture build')
 
 const ON_BUILD = resolve('dist-app-on')
 async function fromOnBuild(page: Page, baseURL: string) {
@@ -61,6 +63,7 @@ for (const { who, userAgent, touch, sees } of READERS) {
         await page.waitForLoadState('load')
         expect(badges, 'a hidden badge isn\'t fetched').toEqual([])
       }
+      await expect(page.locator('.open-app'), 'readers get no link their phone can\'t open').toHaveCount(0)
       expect(errors).toEqual([])
     })
 
@@ -118,4 +121,76 @@ test.describe('the app page', () => {
     await expect(page).toHaveURL(/\/ung-dung\/$/)
     await expect(page.locator('h1')).toHaveText('Ứng dụng AquaTome')
   })
+})
+
+// Owner: the same invitations, hidden from everyone but the owner (the aq_owner flag cookie) on an iPhone or iPad, with a
+// button that opens this page in the app they already have. The footer's and About's links are the owner's on any device.
+test.describe('owner', () => {
+  test.skip(APP_SWITCH !== 'owner', 'the switch is not the owner\'s')
+  const OPEN = (path: string) => `aquatome://open?url=${encodeURIComponent(`https://aquatome.com${path}`)}`
+  const flag = (context: import('@playwright/test').BrowserContext, baseURL: string) => context.addCookies([{ name: 'aq_owner', value: '1', url: baseURL }])
+  const OWNER_READERS = [
+    { who: 'the owner on an iPhone', userAgent: IPHONE, touch: 5, owner: true, sees: true },
+    { who: 'the owner on an iPad', userAgent: MAC, touch: 5, owner: true, sees: true },
+    { who: 'a reader on an iPhone', userAgent: IPHONE, touch: 5, owner: false, sees: false },
+    { who: 'the owner on a Mac', userAgent: MAC, touch: 0, owner: true, sees: false },
+    { who: 'the owner on an Android phone', userAgent: devices['Pixel 7'].userAgent, touch: 5, owner: true, sees: false },
+    { who: 'the owner in the app\'s own web view', userAgent: `${IPHONE} AquaTomeApp/1.4`, touch: 5, owner: true, sees: false },
+  ]
+  for (const { who, userAgent, touch, owner, sees } of OWNER_READERS) {
+    test.describe(who, () => {
+      test.use({ userAgent })
+      test.beforeEach(async ({ page, context, baseURL }, info) => {
+        test.skip(info.project.name !== 'desktop', 'the reader here is the user agent and the cookie: one browser is enough')
+        if (owner) await flag(context, baseURL!)
+        await page.addInitScript(n => {
+          delete (Navigator.prototype as { bluetooth?: unknown }).bluetooth
+          Object.defineProperty(Navigator.prototype, 'maxTouchPoints', { get: () => n })
+        }, touch)
+      })
+      test(`the light tool and a light's page ${sees ? 'offer the app and open this page in it' : 'show nothing of the app'}`, async ({ page, errors }) => {
+        for (const path of ['/cong-cu/den-chihiros/', '/san-pham/chihiros-wrgb-ii/', '/th/tools/chihiros-light/']) {
+          await page.goto(path)
+          const invite = page.locator('.app-invite')
+          await expect(invite).toHaveCount(1)
+          if (!sees) { await expect(invite).toBeHidden(); continue }
+          await expect(invite).toBeVisible()
+          await expect(invite.locator('.app-store-badge')).toBeVisible()
+          const open = invite.locator('.open-app')
+          await expect(open).toBeVisible()
+          await expect(open).toHaveAttribute('href', OPEN(path))
+          expect((await open.boundingBox())!.height).toBeGreaterThanOrEqual(44)
+        }
+        expect(errors).toEqual([])
+        // Nothing kept beyond what the site keeps anyway: the beacon's visit id and the light tool's plan.
+        const kept = await page.evaluate(() => [...Object.keys(localStorage), ...Object.keys(sessionStorage), ...document.cookie.split('; ').filter(Boolean).map(c => c.split('=')[0])])
+        expect(kept.filter(k => !['aq.light.draft', 'ts_sid', 'aq_owner'].includes(k))).toEqual([])
+      })
+      if (sees) test('the button hands the app the page\'s whole address on aquatome.com, as of the tap, from this local copy too', async ({ page, baseURL }) => {
+        expect(new URL(baseURL!).host).not.toBe('aquatome.com')
+        await page.goto('/cong-cu/den-chihiros/?thu=1#ch-light')
+        const open = page.locator('.app-invite .open-app')
+        await expect(open).toHaveAttribute('href', OPEN('/cong-cu/den-chihiros/?thu=1#ch-light'))
+        // The page's address changes after it loaded (a tool writes its settings there): the tap takes it as it is then.
+        // The scheme isn't opened here: the click's default is stopped after the button's own listener has run.
+        await page.evaluate(() => { history.replaceState(null, '', '/cong-cu/den-chihiros/?a=b c&d=é#x'); document.addEventListener('click', e => e.preventDefault()) })
+        await open.click()
+        await expect(open).toHaveAttribute('href', `aquatome://open?url=${encodeURIComponent('https://aquatome.com/cong-cu/den-chihiros/?a=b%20c&d=%C3%A9#x')}`)
+      })
+    })
+  }
+  for (const owner of [true, false]) {
+    test(`the footer's and About's links to the app page: ${owner ? 'the owner\'s, on a computer too' : 'not a reader\'s'}`, async ({ page, context, baseURL, errors }) => {
+      if (owner) await flag(context, baseURL!)
+      await page.goto('/gioi-thieu/')
+      const links = page.locator('a[href="/ung-dung/"]')
+      await expect(links).toHaveCount(owner ? 2 : 0)
+      await expect(page.locator('template[data-owner-only]')).toHaveCount(owner ? 0 : 2)
+      if (owner) {
+        await page.locator('.foot').getByRole('link', { name: 'Ứng dụng iPhone, iPad' }).click()
+        await expect(page.locator('h1')).toHaveText('Ứng dụng AquaTome')
+      }
+      expect(errors).toEqual([])
+    })
+  }
 })
