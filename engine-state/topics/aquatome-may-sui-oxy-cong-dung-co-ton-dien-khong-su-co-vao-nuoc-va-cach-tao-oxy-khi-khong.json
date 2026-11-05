@@ -1,9 +1,12 @@
 {
   "found": true,
-  "species": [
-    "Carassius auratus"
-  ],
+  "species": [],
   "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/air-pump",
+      "title": "How to Use an Aquarium Air Pump (and Make Them Quieter)",
+      "kind": "maker"
+    },
     {
       "url": "https://www.aquariumcoop.com/blogs/aquarium/power-outage-preparation",
       "title": "How to Care for Your Aquarium Fish During a Power Outage",
@@ -15,19 +18,14 @@
       "kind": "article"
     },
     {
-      "url": "https://aquariumcoop.com/blogs/faqs/how-to-use-a-check-valve",
-      "title": "How to use a check valve for aquariums",
-      "kind": "maker"
-    },
-    {
-      "url": "https://greenaqua.hu/en/blog/post/do-you-need-a-separate-air-pump-if-you-have-a-filter",
-      "title": "Do You Need a Separate Air Pump If You Have a Filter? Using an Aquarium Air Pump",
-      "kind": "article"
-    },
-    {
-      "url": "https://cvm.ncsu.edu/news/dealing-with-aquariums-and-ponds-during-power-outages/",
-      "title": "Dealing With Aquariums and Ponds During Power Outages",
+      "url": "https://plants.ifas.ufl.edu/overview-of-florida-waters/water-quality/dissolved-oxygen/",
+      "title": "Dissolved Oxygen",
       "kind": "university"
+    },
+    {
+      "url": "https://www.vin.com/VINDBPub/SearchPB/Proceedings/PR05000/PR00334.htm",
+      "title": "Water Quality and its Impact on Diseases of Fish",
+      "kind": "vet"
     },
     {
       "url": "https://aquahouse.vn/may-sui-oxy-bi-vao-nuoc/",
@@ -38,308 +36,213 @@
       "url": "https://aquahouse.vn/may-sui-oxy-co-ton-dien-khong/",
       "title": "Máy sủi oxy có tốn điện không? Có nên bật liên tục cho hồ cá?",
       "kind": "article"
-    },
-    {
-      "url": "https://charterhouse-aquatics.com/blogs/help-guides/how-much-electricity-does-an-aquarium-use",
-      "title": "How Much Electricity Does an Aquarium Use?",
-      "kind": "article"
     }
   ],
   "facts": [
     {
       "section": "what",
-      "fact": "Oxygen enters aquarium water mainly at the surface, so the rate depends on how fast the surface layer is renewed.",
-      "source": 3
-    },
-    {
-      "section": "what",
-      "fact": "In a shallow aquarium a bubble reaches the surface within seconds and transfers little oxygen directly; its main value is the upward flow and surface disturbance it creates.",
-      "source": 3
-    },
-    {
-      "section": "what",
-      "fact": "A filter outlet that ripples the surface and circulates the water usually supplies enough oxygen for a normally stocked tank.",
-      "source": 3
-    },
-    {
-      "section": "what",
-      "fact": "Air stones and sponge filters both create surface bubbles that promote gas exchange, and both need an air pump.",
+      "fact": "An aquarium air pump sits outside the tank and pushes air through airline tubing to devices inside, such as air stones, sponge filters and decorations.",
       "source": 0
     },
     {
       "section": "what",
-      "fact": "Surface agitation helps the exchange of both oxygen and carbon dioxide.",
-      "source": 1
+      "fact": "Rising bubbles move the water and stir the surface. Surface agitation is the key to gas exchange: CO2 leaves the water and oxygen dissolves in.",
+      "source": 0
     },
     {
       "section": "what",
-      "fact": "Water's oxygen capacity falls from 9.09 mg/l at 20 °C to 7.56 mg/l at 30 °C, about 17% less.",
+      "fact": "Not every tank needs an air pump. Hang-on-back and canister filters have their own motors, but sponge and undergravel filters run on air and need a pump.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Other uses for an air pump include corner box filters, moving bed filters, breeder boxes and egg tumblers.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Oxygen enters water from the plants and algae that make it during photosynthesis, and from the air by diffusion at the surface.",
       "source": 3
     },
     {
       "section": "what",
-      "fact": "In a cited goldfish study, oxygen consumption rose about 2.5 times between 21 and 30 °C.",
+      "fact": "Wind, waves and mechanical aerators enlarge the water's surface area, which speeds up oxygen diffusion.",
       "source": 3
     },
     {
       "section": "what",
-      "fact": "Guidance cited for warmwater fish: 5.5 mg/l dissolved oxygen as a long-term average and 3 mg/l as the absolute minimum.",
+      "fact": "Tropical fish generally need 6 to 10 ppm dissolved oxygen, and most fish become stressed below 6 ppm.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Oxygen below 2 mg/L stresses fish and raises the risk of illness or death. Warm-water fish need about 5 mg/L for best health.",
       "source": 3
     },
     {
       "section": "what",
-      "fact": "Rule of thumb for sizing an air pump: about 100 l/h of air for a 100-litre tank.",
-      "source": 3
-    },
-    {
-      "section": "what",
-      "fact": "Small air pumps draw 2–5 W, medium pumps 4–8 W and large multi-outlet pumps 8–20 W.",
-      "source": 7
-    },
-    {
-      "section": "what",
-      "fact": "Air pumps run continuously but use very little power, in the same range as the smallest nano filters (3–6 W).",
-      "source": 7
-    },
-    {
-      "section": "what",
-      "fact": "Heaters (rated 25–500 W) are the largest power users in most freshwater tanks, far more than air pumps.",
-      "source": 7
+      "fact": "Aquarium Co-Op generally recommends running the air pump all the time for circulation and oxygen.",
+      "source": 0
     },
     {
       "section": "signs",
-      "fact": "Gasping at the surface is a late sign of low oxygen.",
-      "source": 3
-    },
-    {
-      "section": "signs",
-      "fact": "Gasping can also be caused by nitrite poisoning, ammonia damage or too much CO2, so test the water as well.",
-      "source": 3
-    },
-    {
-      "section": "causes",
-      "fact": "Situations that raise oxygen demand or lower supply include summer heat, heavy stocking or large fish, bacterial blooms or cloudy water, and medication treatments.",
-      "source": 3
-    },
-    {
-      "section": "causes",
-      "fact": "Filter bacteria use oxygen day and night; nitrification needs about 4.6 g of oxygen per gram of ammonia-nitrogen.",
-      "source": 3
-    },
-    {
-      "section": "causes",
-      "fact": "During blackouts plants respire but do not photosynthesise, so they add to oxygen demand.",
-      "source": 3
-    },
-    {
-      "section": "causes",
-      "fact": "When the air pump stops, for example in a power cut, water can siphon back through the airline toward the pump unless a check valve stops it.",
-      "source": 2
-    },
-    {
-      "section": "causes",
-      "fact": "Airline tubing that has dried and hardened can loosen at the connections and drip during a power outage.",
-      "source": 2
-    },
-    {
-      "section": "firstAid",
-      "fact": "During a power cut, do nothing to the tank for the first 1–2 hours.",
-      "source": 0
-    },
-    {
-      "section": "firstAid",
-      "fact": "If the power is out for 8 hours or more, run air for 1 hour, then repeat every 8 hours.",
-      "source": 0
-    },
-    {
-      "section": "firstAid",
-      "fact": "For overstocked tanks or fish that are gasping, run oxygen sooner and more often, for example every 4 hours for an overstocked African cichlid tank.",
-      "source": 0
-    },
-    {
-      "section": "firstAid",
-      "fact": "Do not feed during an outage and turn off automatic feeders.",
-      "source": 0
-    },
-    {
-      "section": "firstAid",
-      "fact": "In warm weather, feeding and digestion use up oxygen, so do not feed fish during an outage.",
+      "fact": "When water is short of oxygen (hypoxia), fish gather at the surface and gasp, which aquarists call 'piping'. Without correction, it can be fatal.",
       "source": 4
     },
     {
-      "section": "firstAid",
-      "fact": "Stirring the water with a whisk can raise oxygen when the water is too warm.",
+      "section": "causes",
+      "fact": "Warmer water holds less oxygen: about 7.4 mg/L at 90°F compared with about 11.9 mg/L at 45°F.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "In warm water, fish are more active and use oxygen faster.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Oxygen falls after sunset as photosynthesis slows, and fish kills in ponds often happen around 4 to 6 a.m., just before dawn.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Plants make oxygen by day but use it at night. Lewbart notes this rarely causes oxygen depletion in home aquariums.",
       "source": 4
     },
     {
-      "section": "firstAid",
-      "fact": "In summer, remove items floating on the surface to improve gas exchange.",
+      "section": "causes",
+      "fact": "Dissolved oxygen also falls as salinity rises and as atmospheric pressure drops.",
       "source": 4
     },
     {
-      "section": "firstAid",
-      "fact": "Keeping the tank dark during an outage helps because fish use less oxygen at night.",
+      "section": "causes",
+      "fact": "Water flowing back into an air pump is usually caused by one of these: the pump sits below the water level, there is no check valve or it is broken, the tubing is cracked or loose, or the pump is in a damp place near the tank.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "A check valve on the airline keeps water from siphoning back out of the tank if the power fails. It is needed only when the pump sits lower than the top of the tank.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Fit the check valve so its flapper faces the pump.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Make a drip loop in the pump's power cord so water cannot run along it into the outlet.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Lewbart's aeration guideline is 6 to 8 liters of air per hour for every 3.8 liters (1 gallon) of water.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "For power cuts, keep a USB air pump that can run from a power bank or laptop, or a pump with a built-in battery.",
       "source": 1
     },
     {
+      "section": "prevention",
+      "fact": "A battery air pump with an air stone can stand in for the mains pump that runs your air-driven filters or air stones during an outage.",
+      "source": 2
+    },
+    {
       "section": "firstAid",
-      "fact": "A canister filter can lose oxygen within about 4 to 6 hours; remove the media, rinse it in tank water and put it in the tank so the bacteria survive.",
+      "fact": "If water gets into an air pump, unplug it at once to avoid a short circuit or electric shock.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "To dry a wet air pump: unplug it, tip the water out (open the case if you can), and let it dry in a ventilated place for 1–2 days. A hair dryer on the cool setting also works. Then test it for a few minutes. Replace it if it does not run or smells burnt.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "In a power cut, leave the tank alone for the first 1–2 hours: do not feed, turn off auto feeders, and do not change water.",
       "source": 1
     },
     {
-      "section": "firstAid",
-      "fact": "Unplug HOB and canister filters during an outage, and clean them before plugging them back in, so decaying organics are not flushed into the tank.",
-      "source": 0
+      "section": "steps",
+      "fact": "If the power is out for more than 8 hours, run a battery air pump for about an hour every 8 hours. Run it every 4 hours if the tank is overstocked or fish are gasping.",
+      "source": 1
     },
     {
-      "section": "firstAid",
-      "fact": "If ammonia rises above 1 ppm without filtration, change 10 to 30 percent of the water.",
-      "source": 4
+      "section": "steps",
+      "fact": "A pump in battery Power Save mode (air 15 s on, 15 s off) runs longer than one running nonstop, and lower airflow stretches battery life further.",
+      "source": 1
     },
     {
-      "section": "firstAid",
-      "fact": "For transport, fill heavy-duty bags one-third with water and two-thirds with air (pure oxygen is better); lightly stocked fish should survive at least 36 hours.",
-      "source": 4
+      "section": "steps",
+      "fact": "During an outage, unplug hang-on-back and canister filters so that rotting debris is not flushed into the tank when power returns. Some keepers move the filter media into the tank.",
+      "source": 1
     },
     {
-      "section": "firstAid",
+      "section": "steps",
+      "fact": "In hot weather during an outage, move the tank somewhere cool and shaded. A battery fan blowing across the water cools it by evaporation.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "After power returns, test for ammonia and nitrite and change water if either is above 0 ppm. Clean the filter media before plugging filters back in.",
+      "source": 1
+    },
+    {
+      "section": "steps",
       "fact": "After power returns, wait 24 hours before feeding.",
-      "source": 0
-    },
-    {
-      "section": "firstAid",
-      "fact": "After power returns, test ammonia, nitrite and pH, and do water changes if needed until the filter catches up.",
       "source": 1
     },
     {
       "section": "steps",
-      "fact": "Installing a check valve: cut the airline between the air pump and the device, and fit the valve in between.",
+      "fact": "Do not feed during an outage. Afterwards, wait about 24 hours or until water quality is normal, then feed smaller portions. Most fish can go about a week without food.",
       "source": 2
     },
     {
-      "section": "steps",
-      "fact": "The end of the check valve with the flapper (a coloured or horizontal bar) faces the air pump; if no air flows, the valve is in backwards and must be flipped.",
-      "source": 2
-    },
-    {
-      "section": "steps",
-      "fact": "Mount the check valve outside the tank near the top rim, not in the water.",
-      "source": 2
-    },
-    {
-      "section": "steps",
-      "fact": "Cut airline tubing straight and cleanly, with no tears.",
-      "source": 2
-    },
-    {
-      "section": "steps",
-      "fact": "To cut noise, put the pump on a sponge or felt pad, avoid glass or thin boards, do not hang it by its tubing, and reduce airflow with a gang valve.",
-      "source": 3
-    },
-    {
-      "section": "prevention",
-      "fact": "Any air-driven device (sponge filter, ornament, brine shrimp hatchery, CO2 system) needs a check valve unless the pump or CO2 tank sits higher than the tank rim.",
-      "source": 2
-    },
-    {
-      "section": "prevention",
-      "fact": "Use a check valve whenever the air pump sits below the water line.",
-      "source": 3
-    },
-    {
-      "section": "prevention",
-      "fact": "Back-siphoning water can damage the pump, flood the floor and, in extreme cases, cause an electrical fire.",
-      "source": 2
-    },
-    {
-      "section": "prevention",
-      "fact": "A battery-powered air pump with an airstone is the easiest oxygen backup in an outage.",
+      "section": "mistakes",
+      "fact": "Floating frozen water bottles to cool a tank is a mistake: the ice melts fast and can cause sudden temperature swings.",
       "source": 1
     },
     {
-      "section": "prevention",
-      "fact": "A USB air pump can run from a USB power bank or a laptop.",
-      "source": 0
-    },
-    {
-      "section": "prevention",
-      "fact": "A battery-backup air pump can run about 20 hours continuously, or 40 hours or more when cycling 15 seconds on and 15 seconds off; lowering airflow extends runtime.",
-      "source": 0
-    },
-    {
-      "section": "prevention",
-      "fact": "For multi-day outages, a portable gasoline or propane generator is an option.",
-      "source": 0
-    },
-    {
-      "section": "prevention",
-      "fact": "An alternative power source such as a generator or an extension cord from a working outlet can run the pump/filter and heater.",
+      "section": "mistakes",
+      "fact": "Overaerating very warm water to make up for low oxygen can supersaturate it and cause gas bubble disease. The fix is to control temperature and adjust aeration.",
       "source": 4
     },
     {
-      "section": "mistakes",
-      "fact": "In CO2-injected planted tanks, daytime aeration drives off CO2; run the air pump only at night, ideally on a timer linked to the lights.",
-      "source": 3
+      "section": "other",
+      "fact": "Diaphragm air pumps vibrate and get louder with age. To quiet one, cushion it, set it on a solid surface, hang it by its cord, or clean clogged air stones.",
+      "source": 0
     },
     {
-      "section": "mistakes",
-      "fact": "An overly fine diffuser can make an air pump noisier.",
-      "source": 3
+      "section": "other",
+      "fact": "Dissolved oxygen test kits are sold at most good pet stores.",
+      "source": 4
     },
     {
-      "section": "mistakes",
-      "fact": "Most air pump noise comes from vibration passed to the furniture, not from the diaphragm itself.",
-      "source": 3
-    },
-    {
-      "section": "myths",
-      "fact": "GreenAqua says it is wrong to think the bubbles themselves add most of the oxygen in a shallow tank; surface movement does. It also admits it found no measurements at aquarium depth.",
-      "source": 3
-    },
-    {
-      "section": "myths",
-      "fact": "GreenAqua notes that in oxygen-supersaturated water aeration removes oxygen rather than adding it.",
-      "source": 3
+      "section": "other",
+      "fact": "Cooler water holds more oxygen, and surface agitation helps gas exchange.",
+      "source": 2
     },
     {
       "section": "vietnam",
-      "fact": "Vietnamese names used: máy sủi oxy (air pump), van một chiều (check valve), ống dẫn khí (air tubing), quả/đĩa sủi (air stone/diffuser).",
-      "source": 5
-    },
-    {
-      "section": "vietnam",
-      "fact": "Both mains-powered (chạy điện) and rechargeable (tích điện) air pumps are sold in Vietnam; tích điện models are the usual backup for power cuts.",
-      "source": 5
-    },
-    {
-      "section": "vietnam",
-      "fact": "Air pump brands sold in Vietnam include Resun, Atman, Sunsun and Hailea.",
+      "fact": "Vietnamese names: máy sủi oxy (air pump), van một chiều (check valve), ống dẫn khí or dây oxy (airline tubing), đá sủi (air stone), van chia khí (air valve), máy sủi oxy tích điện (rechargeable pump).",
       "source": 6
     },
     {
       "section": "vietnam",
-      "fact": "In the hot season, water near 30 °C holds about 17% less oxygen than at 20 °C, so extra aeration matters more.",
-      "source": 3
+      "fact": "Brands sold in Vietnam include Resun, Atman, Sunsun and Hailea (for example the Hailea ACO series).",
+      "source": 6
     },
     {
-      "section": "other",
-      "fact": "Tropical fish tolerate the high 80s to low 90s °F for a day or more, but prolonged heat lowers dissolved oxygen.",
-      "source": 4
+      "section": "vietnam",
+      "fact": "A Vietnamese shop says most air pumps on sale draw 2–10W, typically 3–5W. This is a seller's figure.",
+      "source": 6
     },
     {
-      "section": "other",
-      "fact": "Temperature changes of about 10 percent per hour or two should not endanger fish.",
-      "source": 4
-    },
-    {
-      "section": "other",
-      "fact": "Shrimp tanks are especially sensitive to low oxygen.",
-      "source": 3
-    },
-    {
-      "section": "other",
-      "fact": "Most fish can go about a week without food.",
-      "source": 1
+      "section": "vietnam",
+      "fact": "A Vietnamese shop advises plugging the pump into an outlet with a residual-current (earth-leakage) breaker (ổ cắm có cầu dao chống rò điện).",
+      "source": 5
     }
   ]
 }

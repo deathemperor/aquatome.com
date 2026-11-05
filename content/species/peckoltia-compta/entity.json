@@ -23,6 +23,26 @@
       "sources": [
         "glaser",
         "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "According to the IUCN Red List, Peckoltia compta is endemic to Brazil and occurs in the middle Tapajós River basin and the Jamanxim River basin in the state of Pará.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Jamanxim River"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "L134 (Peckoltia compta) comes from the Rio Tapajós.",
+          "countries": [],
+          "regions": [
+            "Rio Tapajós"
+          ]
+        }
       ]
     },
     "records": {
