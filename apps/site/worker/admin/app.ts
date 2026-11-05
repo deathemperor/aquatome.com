@@ -28,7 +28,7 @@ export function appSql(test: boolean, days = 30): Record<keyof AppRows, string> 
     errors: `SELECT blob6 AS act, blob7 AS why, SUM(_sample_interval) AS n FROM aquatome_app ${where("blob1 = 'action' AND double1 = 0")} GROUP BY act, why ORDER BY n DESC LIMIT 30 FORMAT JSON`,
     shops: `SELECT blob4 AS shop, blob2 AS p, SUM(_sample_interval) AS n FROM aquatome_app ${where("blob1 = 'aff'")} GROUP BY shop, p ORDER BY n DESC LIMIT 200 FORMAT JSON`,
     health: `SELECT blob8 AS ver, SUM(IF(blob1 = 'metric', _sample_interval, 0)) AS reports, SUM(_sample_interval * double3) AS crashes, SUM(_sample_interval * double4) AS hangs, SUM(_sample_interval * double8) AS exits FROM aquatome_app ${where("(blob1 = 'metric' OR blob1 = 'diagnostic')")} GROUP BY ver FORMAT JSON`,
-    perf: `SELECT blob8 AS ver, double5 AS launch, double7 AS mem, _sample_interval AS w FROM aquatome_app ${where("blob1 = 'metric'")} ORDER BY timestamp DESC LIMIT ${PERF_ROWS} FORMAT JSON`,
+    perf: `SELECT blob8 AS ver, double5 AS launch, double7 AS mem, _sample_interval AS w, timestamp AS t FROM aquatome_app ${where("blob1 = 'metric'")} ORDER BY t DESC LIMIT ${PERF_ROWS} FORMAT JSON`,
   }
 }
 
