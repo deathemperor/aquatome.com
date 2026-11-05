@@ -2,8 +2,8 @@ import CryptoKit
 import Foundation
 import Tanks
 
-// The app's side of accounts (protocols/accounts.openapi.json): the session, Sign in with Apple, with an emailed code or
-// with a passkey,
+// The app's side of accounts (protocols/accounts.openapi.json): the session, Sign in with Apple, with Google
+// (`GoogleOAuth`), with an emailed code or with a passkey,
 // adding a passkey, syncing "Bể của tôi" with the account, signing out and deleting the account. The app sends `client: "app"`, a bearer token, no cookie and
 // no Origin; the server answers it a token instead of a cookie.
 
@@ -218,6 +218,14 @@ public struct AccountsClient: Sendable {
   /// any, goes along: the server ends that session.
   public func signInWithApple(idToken: String, nonce: String, replacing token: String? = nil) async throws -> SignedIn {
     let o = try await call("POST", "/api/v1/auth/apple", token: token, body: ["idToken": .string(idToken), "nonce": .string(nonce), "client": .string("app")])
+    guard let token = o["token"]?.string else { throw AccountError.badReply }
+    return SignedIn(user: try AccountUser(o["user"]), token: token)
+  }
+
+  /// Signs in with Google's ID token (`GoogleOAuth`), asked for with the nonce as issued. The token this phone had, if
+  /// any, goes along: the server ends that session.
+  public func signInWithGoogle(idToken: String, nonce: String, replacing token: String? = nil) async throws -> SignedIn {
+    let o = try await call("POST", "/api/v1/auth/google", token: token, body: ["idToken": .string(idToken), "nonce": .string(nonce), "client": .string("app")])
     guard let token = o["token"]?.string else { throw AccountError.badReply }
     return SignedIn(user: try AccountUser(o["user"]), token: token)
   }

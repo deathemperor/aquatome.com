@@ -2913,6 +2913,22 @@
         }
       }
     },
+    "Google chưa xác nhận được: thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Google belum bisa mengonfirmasi: coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Google ยังยืนยันไม่ได้ โปรดลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Gói dùng thử IoT Core của dự án đã hết hạn: gia hạn trong Tuya console (Cloud → Cloud Services → IoT Core) rồi thử lại.": {
       "localizations": {
         "id": {
@@ -7965,6 +7981,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "เข้าสู่ระบบ"
+          }
+        }
+      }
+    },
+    "Đăng nhập bằng Google": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Login dengan Google"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลงชื่อเข้าใช้ด้วย Google"
+          }
+        }
+      }
+    },
+    "Đăng nhập bằng Google đang tắt: đăng nhập cách khác.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Login dengan Google sedang dinonaktifkan: masuk dengan cara lain."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การลงชื่อเข้าใช้ด้วย Google ปิดอยู่: เข้าสู่ระบบด้วยวิธีอื่น"
           }
         }
       }
