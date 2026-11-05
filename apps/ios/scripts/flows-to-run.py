@@ -372,7 +372,7 @@ def test():
         assert 'FishIdFlowTests' in reached([p]), p
     # The full suite: both halves of each, every class of `app` in one of its halves (the second skips the first's).
     assert everything['app']['halves'] == everything['handbook']['halves'] == everything['lights']['halves'] == '[1, 2]'
-    assert set(APP_FIRST) <= {c for s in source.values() for c in re.findall(r'class (\w+): XCTestCase', s)} - set(HANDBOOK)
+    assert set(APP_FIRST) <= classes - set(HANDBOOK + ELSEWHERE + ['LightFlowTests']), APP_FIRST
     assert all(f'-skip-testing:{UI}/{c}' in everything['app']['2'] for c in APP_FIRST)
 
 
