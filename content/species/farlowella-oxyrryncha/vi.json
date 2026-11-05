@@ -1,0 +1,19 @@
+{
+  "slug": "ca-farlowella-mui-nhon",
+  "name": "Cá Farlowella mũi nhọn",
+  "altNames": [
+    "Cá mèo mũi kim",
+    "Needle sucker"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Đây là một loài cá mèo mũi kim (needle sucker) có mõm cực kỳ nhọn. Lần đầu tiên loài này về từ Peru, và số lượng nhập về rất ít.</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.6
+    },
+    "reason": "thin"
+  }
+}

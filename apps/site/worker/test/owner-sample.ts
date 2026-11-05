@@ -1,0 +1,151 @@
+import { lastDays } from '../admin/chart'
+import { summariseApp, type AppRows } from '../admin/app'
+import type { ContentReads, ContentStats, KindClicks, Snapshot, Talk, Totals } from '../admin/content'
+import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
+import type { Overview } from '../admin/pages'
+import type { Wanted } from '../wanted'
+
+/**
+ * One sample of everything the dashboard's pages draw, at a fixed moment in Vietnam: every part loaded, with rows of
+ * each kind (a link and no link, a key resting, a photo approved, a source waiting on the owner…). The pages' HTML and
+ * their blocks are drawn from it side by side (owner-api.test.ts), and protocols/owner-dashboard-vectors.json is its JSON.
+ * Data only: it draws nothing itself.
+ */
+export const NOW = new Date('2026-11-04T09:00:00Z')
+export const TZ = 'Asia/Ho_Chi_Minh'
+const days30 = lastDays(NOW, 30, TZ)
+const days31 = lastDays(NOW, 31, TZ)
+const wave = (n: number, f: (i: number) => number) => Array.from({ length: n }, (_, i) => f(i))
+const iso = (day: string, hm = '02:00') => `${day}T${hm}:00.000Z`
+
+export const READERS = {
+  days: 14, sessions: 1240, readers: 610,
+  daily: lastDays(NOW, 14, TZ).map((day, i) => ({ day, sessions: 70 + i * 3, readers: 30 + i * 2 })),
+  pages: [{ path: '/ca/ca-neon-vua/', views: 320 }, { path: '/huong-dan/thay-nuoc/', views: 140 }, { path: '//other.site/x', views: 2 }],
+  sources: [{ source: 'Google', sessions: 800, readers: 420 }, { source: '(trực tiếp)', sessions: 300, readers: 120 }],
+  countries: [{ cc: 'VN', readers: 540 }, { cc: 'ID', readers: 40 }],
+}
+
+const APP_ROWS: AppRows = {
+  views: [{ p: '/ca/ca-neon-vua/', s: '', n: '40' }, { p: '', s: 'lights', n: '25' }],
+  actions: [{ act: 'light.connect', ver: '1.0 (114)', n: '20', ok: '15' }, { act: 'fishid', ver: '1.0 (115)', n: '4', ok: '4' }],
+  errors: [{ act: 'light.connect', why: 'timeout', n: '5' }],
+  shops: [{ shop: 'shopee', p: '/ca/ca-neon-vua/', n: '3' }],
+  health: [{ ver: '1.0 (114)', reports: '30', crashes: '3', hangs: '1', exits: '4' }],
+  perf: [900, 1100, 3000].map(launch => ({ ver: '1.0 (114)', launch: String(launch), mem: '150', w: '1' })),
+}
+export const APP = summariseApp(APP_ROWS, false)
+
+const fishDays: DayRow[] = lastDays(NOW, 62, TZ).flatMap((d, i) => [
+  { d, outcome: 'ok', n: 10 + (i % 5), called: 10 + (i % 5), tin: 12000, tout: 900, usd: 0.11, guessed: 9, linked: 7 },
+  { d, outcome: 'rate', n: i % 3, called: 0, tin: 0, tout: 0, usd: 0, guessed: 0, linked: 0 },
+])
+const call = (t: string, o: Partial<CallRow>): CallRow => ({ t, outcome: 'ok', model: 'claude-x', kh: 'aaaa1111', verdict: 'fish', sci: '', page: '', lang: 'vi', src: 'page', cc: 'VN', tin: 1200, tout: 90, usd: 0.0109, ms: 4200, attempts: 1, conf: 0.9, guesses: 3, ...o })
+export const FISH = {
+  now: NOW, tz: TZ,
+  stats: summariseFishId(fishDays, [{ sci: 'Betta macrostoma', n: '6', conf: '4.8' }], [
+    call('2026-11-04 08:58:01', { sci: 'Paracheirodon axelrodi', page: 'paracheirodon-axelrodi' }),
+    call('2026-11-04 08:40:00', { sci: 'Betta macrostoma' }),
+    call('2026-11-04 08:30:00', { sci: 'Trigonostigma heteromorpha', page: 'gone-page' }),
+    call('2026-11-04 08:00:00', { outcome: 'rate', verdict: '', kh: '', tin: 0, tout: 0, usd: 0, guesses: 0, conf: 0, src: 'tank' }),
+  ], NOW, TZ),
+  keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok' as const, calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x', counts: { fallback: 2, callLimit: 5, later400: 1, facts: 0, refunds: 3 }, mostRefunds: 2 },
+  pages: new Map([['paracheirodon-axelrodi', '/vi/ca/ca-neon-vua/']]),
+}
+
+export const KEPT_ID = '0b4c6a8e-1f2d-4c3b-9a8e-7d6c5b4a3f21'
+export const KEPT_ANON = '9e8d7c6b-5a4f-4e3d-8c2b-1a0f9e8d7c6b'
+export const KEPT = [
+  { id: KEPT_ID, created: '2026-11-04T08:10:00.000Z', verdict: 'fish', guesses: [{ scientificName: 'Betta splendens', commonName: 'Betta', variety: null, confidence: 0.9 }], account: 'reader-1', model: 'm', lang: 'vi' },
+  { id: KEPT_ANON, created: '2026-11-03T11:00:00.000Z', verdict: 'other', guesses: [], model: 'm', lang: 'th' },
+]
+
+export const CLICKS = { days: days30, clicks: wave(30, i => (i * 7) % 5) }
+export const AFF = {
+  byNetwork: [{ network: 'shopee', category: 'thuc-an', n: 30 }, { network: 'lazada', category: 'loc', n: 4 }],
+  top: [{ entity_ref: 'species:paracheirodon-axelrodi', n: 12 }],
+  status: [{ status: 'ok', n: 40 }, { status: 'gone', n: 2 }],
+  lastCheck: '2026-11-04T01:00:00.000Z',
+}
+
+export const WANTED: { names: Wanted[]; more: boolean } = {
+  names: [
+    { kind: 'fish', name: 'Cá sặc gấm', sci: 'Trichogaster lalius', readers: 5, sources: { tank: 3, 'fish-id': 2 }, first: days30[27]!, last: days30[29]! },
+    { kind: 'plant', name: 'Rotala macrandra', sci: 'Rotala macrandra', readers: 2, sources: { tank: 2 }, first: '2025-12-30', last: days30[20]! },
+  ],
+  more: false,
+}
+
+export const PHOTO_WAITING = 'a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d'
+export const PHOTO_APPROVED = 'b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e'
+export const PHOTO_LIVE = 'c3d4e5f6-a7b8-4c9d-8e0f-2a3b4c5d6e7f'
+export const PHOTO_MOVED = 'd4e5f6a7-b8c9-4d0e-9f1a-3b4c5d6e7f8a'
+export const RECENT = [
+  { id: PHOTO_LIVE, entity_ref: 'species:paracheirodon-axelrodi', moved_from: null, name: 'Minh', thumb: 'https://media.aquatome.com/p/c3d4-thumb.webp', created_at: '2026-11-03T10:00:00.000Z' },
+  // Sent on the neon's page; moderation found a goldfish and moved it there.
+  { id: PHOTO_MOVED, entity_ref: 'species:carassius-auratus', moved_from: 'species:paracheirodon-innesi', name: 'Thảo', thumb: 'https://media.aquatome.com/p/d4e5-thumb.webp', created_at: '2026-11-03T09:00:00.000Z' },
+]
+export const WAITING = [
+  { id: PHOTO_WAITING, entity_ref: 'species:betta-splendens', name: 'Lan', created_at: '2026-11-04T08:34:00.000Z', ownerOk: false },
+  { id: PHOTO_APPROVED, entity_ref: 'breed:betta-halfmoon', name: 'Hùng <3', created_at: '2026-11-04T07:00:00.000Z', ownerOk: true },
+]
+
+export const HIDDEN = { '/ca/ca-x/': { at: '2026-11-03T03:00:00.000Z', note: 'ảnh nhầm loài' }, '/id/ikan/y/': { at: '2026-11-04T01:00:00.000Z' } }
+
+export const ACCOUNTS = {
+  days: days30, users: 40, newUsers: wave(30, i => (i === 28 ? 3 : i % 4 === 0 ? 1 : 0)), synced: 9, openSessions: 12,
+  credentials: [{ kind: 'google', n: 30 }, { kind: 'passkey', n: 4 }], comments: [{ status: 'approved', n: 20 }, { status: 'held', n: 2 }], newComments: wave(30, i => i % 3),
+}
+
+const totals = (fish: number, plant: number, guide: number, id: number, th: number, sources: Record<string, number>): Totals =>
+  ({ kinds: { fish: { vi: fish, id, th }, plant: { vi: plant, id: 0, th: 0 }, guide: { vi: guide, id, th: 0 } } as Partial<Totals['kinds']> as Totals['kinds'], built: null, sources, photos: { pages: 0, gallery: 0 } })
+export const SNAPSHOTS: Snapshot[] = [
+  { day: days30[20]!, totals: totals(700, 90, 300, 100, 80, { seriouslyfish: 500, youtube: 120 }) },
+  { day: days30[25]!, totals: totals(720, 92, 305, 130, 90, { seriouslyfish: 515, youtube: 125 }) },
+  { day: days30[28]!, totals: totals(730, 92, 310, 150, 95, { seriouslyfish: 520, youtube: 132 }) },
+]
+const inv = (total: number, id = 0, th = 0) => ({ total, id, th })
+export const STATS = {
+  v: 1, builtAt: '2026-11-04T06:00:00.000Z', publicBuild: true,
+  inventory: { fish: inv(730, 150, 95), breed: inv(40), plant: inv(92), guide: inv(250, 20), videoGuide: inv(60), series: inv(5), glossary: inv(120), equipment: inv(0), place: inv(30), product: inv(0) },
+  built: { total: { vi: 1500, id: 300, th: 200 }, byKind: {} },
+  sources: { seriouslyfish: { name: 'Seriously Fish', fish: 520, plant: 0, guide: 0 }, youtube: { name: 'YouTube', fish: 0, plant: 0, guide: 132 } },
+  photos: { pages: 2100, byOrigin: { commons: 900, inaturalist: 700 }, byLicence: { 'CC BY': 1000, CC0: 600 }, covered: { fish: { with: 600, of: 730 }, plant: { with: 80, of: 92 } }, waitingMirror: 14, gallery: { pages: 300, photos: 2400 } },
+  engine: {
+    sources: [
+      { id: '2hraquarist', name: '2Hr Aquarist', found: 300, done: 120, skipped: 40, waiting: 130, failed: 5, blocked: 5, discovered: 340, lastAt: '2026-11-04T05:00:00.000Z' },
+      { id: 'seriouslyfish', name: 'Seriously Fish', found: 900, done: 880, skipped: 15, waiting: 5, failed: 0, blocked: 0 },
+    ],
+    needsHuman: [{ source: '2hraquarist', since: '2026-11-03T22:00:00.000Z' }],
+    videos: { listed: 400, written: 132, skipped: 60, waiting: 200, failed: 8, playlists: { queued: 3, skipped: 0 }, singles: { queued: 10, skipped: 1 }, writtenAt: days31.slice(20).map(d => iso(d)) },
+    rewrite: { done: 300, waiting: 400, failed: 3 },
+    lastRun: { startedAt: '2026-11-04T03:00:00.000Z', finishedAt: '2026-11-04T04:10:00.000Z', needsHuman: ['2hraquarist'], errors: 1, changed: 12 },
+  },
+  gaps: {
+    fish: { noPhoto: { n: 130, top: [['/ca/ca-a/', 'Cá A'], ['/ca/ca-b/', 'Cá B']] }, noKeyFacts: { n: 12, top: [], by: { tempC: 4, ph: 9 } } },
+    plant: { noViName: { n: 3, top: [['/cay/rotala/', 'Rotala']] } },
+  },
+  pages: null,
+  totals: totals(730, 92, 310, 150, 95, { seriouslyfish: 520, youtube: 132 }),
+} as unknown as ContentStats
+export const READS: ContentReads = {
+  days: 30, readers: 600,
+  byKind: [{ kind: 'fish', pages: 730, read: 300, readers: 500, views: 4000 }, { kind: 'plant', pages: 92, read: 0, readers: 0, views: 0 }],
+  top: [{ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', readers: 90, views: 320 }],
+  unread: { n: 430, byKind: { fish: 430 }, pages: [{ path: '/ca/ca-c/', title: 'Cá C', kind: 'fish' }] },
+  elsewhere: { views: 12, paths: 3 },
+}
+export const TALK: Talk = { comments: 20, photos: 6, byKind: [{ kind: 'fish', comments: 18, photos: 6 }], top: [{ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', comments: 7, photos: 2 }], elsewhere: { comments: 1, photos: 0 } } as Talk
+export const KIND_CLICKS: KindClicks = { days: 30, since: days30[0]!, clicks: 80, byKind: [{ kind: 'fish', clicks: 60 }], top: [{ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', clicks: 12 }], elsewhere: 4 }
+
+/** The overview with every part loaded. */
+export const OVERVIEW: Overview = {
+  now: NOW, tz: TZ,
+  readers: days31.map((day, i) => ({ day, sessions: 60 + i, readers: 20 + (i % 9) })),
+  clicks: { days: days31, clicks: wave(31, i => (i * 7) % 5) },
+  fish: FISH.stats, keys: FISH.keys, photos: 6,
+  waiting: { comments: 2, photos: 2, oldest: '2026-11-04T07:00:00.000Z' },
+  wanted: WANTED, accounts: ACCOUNTS, hidden: HIDDEN, content: STATS, snapshots: SNAPSHOTS,
+}
+
+export const CONTENT = { now: NOW, tz: TZ, stats: STATS, reads: READS, talk: TALK, clicks: KIND_CLICKS, snapshots: SNAPSHOTS }

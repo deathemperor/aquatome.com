@@ -105,7 +105,7 @@ final class TelemetryFlowTests: XCTestCase {
   private func launch(_ args: String..., reset: Bool = true) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args
-    app.launch()
+    app.launchForFlow()
     return app
   }
 

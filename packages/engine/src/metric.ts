@@ -1,11 +1,10 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { metricPage, type UnitLang } from '@aq/schema'
+import { LANGS, metricPage } from '@aq/schema'
 import { carryTopicChecks } from './topic-check'
 
 /** Pages written in metric only (°C, cm, litres: @aq/schema toMetric), in every language: fish, plants, breeds and guides. */
 export const METRIC_KINDS: readonly string[] = ['species', 'plants', 'breeds', 'guides']
-const LANGS: UnitLang[] = ['vi', 'id', 'th']
 
 /**
  * Every such page in content/ in metric only. Each writer (new pages, rewrites, translations, breeds, guides) already

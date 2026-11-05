@@ -1,0 +1,74 @@
+{
+  "id": "youtube-XtekO7RRRcA",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=XtekO7RRRcA",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "XtekO7RRRcA",
+    "title": "HOW TO: Automatic water changes - Bulk Reef Supply challenge (BRStv) TUTORIAL",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 353,
+    "publishedAt": "2014-07-20",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mbN03yoMmH3ioVkQVTJ3BwK",
+      "position": 12
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/XtekO7RRRcA/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Eheim",
+        "model": "Compact Pump 1000",
+        "t": 105
+      },
+      {
+        "category": "khac",
+        "brand": "Aqua Hub",
+        "model": "Do It Yourself Top Off Kit",
+        "t": 125
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cần chuẩn bị những gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/XtekO7RRRcA/p1-c19HLU1JTkUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/XtekO7RRRcA/p1-c19HLU1JTkUuanBn-480.webp",
+          "width": 960,
+          "height": 789,
+          "licence": "CC BY-SA 3.0",
+          "author": "Krystal Friel",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:GRINNELL%27s_G-MINE.jpg",
+          "caption": "Đoạn ống PVC và khớp nối dùng để tự làm ống tràn."
+        }
+      },
+      {
+        "heading": "Có cần sưởi nước trong xô không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/XtekO7RRRcA/p4-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/XtekO7RRRcA/p4-ha3dhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ewkaa",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+          "caption": "Thanh sưởi bể cá có giác hút, loại dùng để sưởi nước trong bể."
+        }
+      }
+    ]
+  }
+}

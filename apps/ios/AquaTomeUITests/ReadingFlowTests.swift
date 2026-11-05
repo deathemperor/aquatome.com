@@ -51,7 +51,7 @@ final class ReadingFlowTests: XCTestCase {
   private func launch(reset: Bool = true) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : [])
-    app.launch()
+    app.launchForFlow()
     return app
   }
 

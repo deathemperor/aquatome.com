@@ -1,0 +1,112 @@
+{
+  "id": "youtube-yE1pF9xx0Fc",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=yE1pF9xx0Fc",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "yE1pF9xx0Fc",
+    "title": "HOW TO: DIY Aquarium Filter (internal filtration)",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 281,
+    "publishedAt": "2013-07-21",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maaz5-CO-M0O7MzldTzRRhn",
+      "position": 59
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/yE1pF9xx0Fc/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "brand": "MaxiJet",
+        "t": 33
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Làm thân lọc từ chai nhựa",
+        "moments": [
+          {
+            "t": 105,
+            "url": "https://media.aquatome.com/video/yE1pF9xx0Fc/t105.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Đáy chai nhựa đã có các lỗ khoan quanh thân, đặt trên gỗ."
+          },
+          {
+            "t": 111,
+            "url": "https://media.aquatome.com/video/yE1pF9xx0Fc/t111.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khoan lỗ xuống đáy chai nhựa được kê trên miếng gỗ."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/yE1pF9xx0Fc/p1-b3NhZ2FpYWsuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/yE1pF9xx0Fc/p1-b3NhZ2FpYWsuanBn-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY 4.0",
+          "author": "Gorkaazk",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liztor_beltzak_harrapatzeko_tranpak_egiteko_behar_diren_osagaiak.jpg",
+          "caption": "Chai nhựa cùng dao và mũi khoan, đồ nghề để cắt và khoan chai."
+        }
+      },
+      {
+        "heading": "Lắp bông lọc, sứ và đầu bơm",
+        "moments": [
+          {
+            "t": 135,
+            "url": "https://media.aquatome.com/video/yE1pF9xx0Fc/t135.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Gắn cụm chai lọc vào đầu hút của đầu bơm MaxiJet."
+          },
+          {
+            "t": 150,
+            "url": "https://media.aquatome.com/video/yE1pF9xx0Fc/t150.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Úp phần đáy chứa bông lọc vào chai đã đổ đầy sứ lọc."
+          }
+        ]
+      },
+      {
+        "heading": "Nước chảy qua lọc như thế nào",
+        "moments": [
+          {
+            "t": 164,
+            "url": "https://media.aquatome.com/video/yE1pF9xx0Fc/t164.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Chai lọc tự chế chứa sứ lọc, gắn đầu bơm có chân hút."
+          },
+          {
+            "t": 170,
+            "url": "https://media.aquatome.com/video/yE1pF9xx0Fc/t170.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Cận cảnh lớp sứ lọc trong chai, phía trên là đầu bơm."
+          }
+        ]
+      }
+    ]
+  }
+}

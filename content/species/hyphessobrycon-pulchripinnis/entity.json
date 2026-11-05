@@ -10,6 +10,159 @@
     "brazil",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Tapajós",
+        "Xingu",
+        "Tocantins",
+        "Amazon"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Wild catches of H. pulchripinnis from the Rio Cuiaba in the state of Mato Grosso (Brazil) have recently been received.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Wild catches were hardly ever made and it was not until 1980 that Gery discovered that the home of the lemon tetra is in the lower Amazon basin, more precisely in the middle and lower Tapajós between Itaituba and Jacare Acanga, as well as in streams that flow into the Rio Curua do Sol.",
+          "countries": [],
+          "regions": [
+            "Tapajós"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Other authors also mention the Xingu and the Tocantins.",
+          "countries": [],
+          "regions": [
+            "Xingu",
+            "Tocantins"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species' distribution is somewhat confusing. The type locality is vague (see below), and the majority of subsequent reports pertain to the rio Tapajós basins in central Brazil, one of the primary affluents of the lower Amazon River basin.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354601,
+      "total": 53,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          52
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          -57.65625,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -4.21875,
+          13,
+          13
+        ],
+        [
+          -56.25,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

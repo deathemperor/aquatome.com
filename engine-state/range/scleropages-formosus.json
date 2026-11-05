@@ -1,0 +1,165 @@
+{
+  "id": "scleropages-formosus",
+  "native": {
+    "input": "a1269cd9f879e0c5",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mekong river system in Vietnam and Cambodia, eastern Thailand, Peninsular Malaysia, and the northern Sunda Islands (Sumatra and Borneo), although it is now extirpated across much of this range.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mekong river system in Vietnam and Cambodia, eastern Thailand, Peninsular Malaysia, and the northern Sunda Islands (Sumatra and Borneo), although it is now extirpated across much of this range.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mekong river system in Vietnam and Cambodia, eastern Thailand, Peninsular Malaysia, and the northern Sunda Islands (Sumatra and Borneo), although it is now extirpated across much of this range.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has also been introduced in Singapore but does not occur in Taiwan as sometimes stated.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It has also been introduced in Singapore but does not occur in Taiwan as sometimes stated.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The variants include the 'green' form which is widespread throughout the species' range, the 'super red' or 'chilli red' form (described as S. legendrei in 2003) which occurs only in the upper Kapuas river in Indonesian Borneo, the 'cross back golden' or 'blue Malayan' form which occurs in Pahang State and Bukit Merah Lake in Peninsular Malaysia, and the 'red tail golden' form from Pekanbaru and Jambi on Sumatra (described as S. aureus in 2003).",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mekong river system in Vietnam and Cambodia, eastern Thailand, Peninsular Malaysia, and the northern Sunda Islands (Sumatra and Borneo), although it is now extirpated across much of this range.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Lake Mahoeroenge, a small lake connected by a narrrow canal to the river Pekoempau, Borneo'.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mekong river system in Vietnam and Cambodia, eastern Thailand, Peninsular Malaysia, and the northern Sunda Islands (Sumatra and Borneo), although it is now extirpated across much of this range.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mekong river system in Vietnam and Cambodia, eastern Thailand, Peninsular Malaysia, and the northern Sunda Islands (Sumatra and Borneo), although it is now extirpated across much of this range.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "The variants include the 'green' form which is widespread throughout the species' range, the 'super red' or 'chilli red' form (described as S. legendrei in 2003) which occurs only in the upper Kapuas river in Indonesian Borneo, the 'cross back golden' or 'blue Malayan' form which occurs in Pahang State and Bukit Merah Lake in Peninsular Malaysia, and the 'red tail golden' form from Pekanbaru and Jambi on Sumatra (described as S. aureus in 2003).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Schwaner mountain range",
+        "source": "seriouslyfish",
+        "quote": "In addition, two silvery-coloured forms known as the 'grey tail silver' or 'Pinoh arowana', and 'yellow tail silver', are collected from the Schwaner mountain range between west and central Kalimantan provinces, and central and south Kalimantan provinces in Indonesian Borneo, respectively.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Scleropages formosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2402231,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "VN",
+      "KH",
+      "TH",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}

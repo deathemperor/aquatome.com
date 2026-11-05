@@ -1,6 +1,7 @@
-import { readFileSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import type { Catalog } from '../worker/fishid/catalog'
+import { factShardOf, factShards, type FactsShard } from '../worker/fishid/facts'
 import { appPage, DIST, page } from './dist'
 
 test('the fish-ID catalog: every species, breed and plant page, each address a page the build has', () => {
@@ -11,6 +12,27 @@ test('the fish-ID catalog: every species, breed and plant page, each address a p
     if (e.kind !== 'breed') expect(e.sci, e.id).toBeTruthy()
   }
   expect(c.entries.find(e => e.id === 'flowerhorn-cichlid')).toMatchObject({ kind: 'breed', alt: expect.arrayContaining(['Flowerhorn cichlid']) })
+})
+
+test('the fish-ID agent\'s facts: every catalog page in exactly one shard, as many shards as the catalog says; a fish\'s photos start with its catalog thumb', () => {
+  const c = JSON.parse(readFileSync(`${DIST}/app/fish-id.json`, 'utf8')) as Catalog
+  expect(c.shards).toBe(factShards(c))
+  expect(readdirSync(`${DIST}/app/fish-id`).sort()).toEqual(Array.from({ length: c.shards! }, (_, n) => `facts-${n}.json`).sort())
+  const seen: string[] = []
+  for (let n = 0; n < c.shards!; n++) {
+    const shard = JSON.parse(readFileSync(`${DIST}/app/fish-id/facts-${n}.json`, 'utf8')) as FactsShard
+    for (const f of shard.entries) {
+      expect(factShardOf(f.id, c.shards!), f.id).toBe(n)
+      const e = c.entries.find(x => x.id === f.id)!
+      expect(f.kind).toBe(e.kind)
+      if (e.img) expect(f.photos[0], f.id).toBe(e.img)
+      expect(f.photos.length).toBeLessThanOrEqual(2)
+      seen.push(f.id)
+    }
+  }
+  expect(seen.sort()).toEqual(c.entries.map(e => e.id).sort())
+  const neon = JSON.parse(readFileSync(`${DIST}/app/fish-id/facts-${factShardOf('paracheirodon-innesi', c.shards!)}.json`, 'utf8')) as FactsShard
+  expect(neon.entries.find(f => f.id === 'paracheirodon-innesi')).toMatchObject({ sci: 'Paracheirodon innesi', family: expect.any(String) })
 })
 
 test('the fish-ID page: camera and a photo from the phone, tips, what happens to the photo; in every language', () => {

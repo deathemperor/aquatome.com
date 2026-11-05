@@ -5,17 +5,152 @@
   "family": "Callichthyidae",
   "genus": "Corydoras",
   "group": "catfish",
-  "places": [],
-  "dataCard": {},
+  "places": [
+    "south-america",
+    "bolivia",
+    "guapore",
+    "brazil"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_haraldschulzi_en/",
       "html": "<p>Finally this beautiful cory, the long snouted counterpart to <em>C. sterbai</em>, is available again – in show size!</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<p>The mosaic cory, Brochis haraldschultzi, long known as Corydoras haraldschultzi, is an armoured catfish endemic to the rio Guaporé (Río Iténez) in northeastern Bolivia and western Brazil. It resembles Hoplisoma sterbai but has a more extended snout and grows larger, to 85 mm SL. Its head carries dark vermiculations and spots on a light background, where H. sterbai has light markings on dark. The type locality was once modified to the rio Tocantins, well over 1000 km away, but the original Guaporé locality appears to be correct.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<p>Endemic to the rio Guaporé, a tributary system within the upper rio Madeira basin in northeastern Bolivia (where it is known as the Río Iténez) and western Brazil. The Madeira itself is a major affluent of the middle Amazon basin.</p><p>The original type locality is 'Rio Guaporé, Brazil', supposedly in the vicinity of Pontes e Lacerda in Mato Grosso state. However, this was modified by Nijssen and Isbrücker (1980) to 'Brazil-Goias, Rio Tocantins, road between Pedro-Afonso (08°59'S 48°12'W) and Itacajá (08°18'S 47°45'W)'. This is confusing since the distance between these two localities is well over 1000 km, although it appears that the former is correct as per the image of specimens with locality details.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<p>The Guaporé is an acidic, tannin-stained river with warm, clear water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<p>Standard length: 85 mm SL. Minimum base dimensions of 120 × 30 cm are recommended (volume about 108 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided that it is kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 5.5–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<p>Corydoras spp. are foraging omnivores, and most will accept sinking dried foods as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc. Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably broader and deeper-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of two or more males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs may be deposited on the aquarium glass, among fine-leaved vegetation or within sunken spawning mops, with the latter particularly recommended since they facilitate easy removal of eggs.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They require excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<p>This species is superficially similar to the congener Hoplisoma sterbai, but can easily be distinguished by its more extended snout and larger adult size. In addition, the colour pattern of the head and predorsal area of Brochis haraldschultzi is comprised of dark vermiculations and spots on a light background, versus light markings on a dark background in H. sterbai.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Brochis. It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them. It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "html": "<ul><li>Knaack, J. (1962). Zwei neue Panzerwelse, Corydoras haraldschultzi und Corydoras sterbai (Pisces, Teleostei, Calichthyidae). Senckenbergiana Biologica 43(2), 129-135</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3df49c98dc4013ed.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3df49c98dc4013ed-480.webp",
+      "width": 800,
+      "height": 532,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-haraldschultzi",
+      "caption": "Specimen from the UK aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

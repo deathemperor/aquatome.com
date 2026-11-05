@@ -1,0 +1,85 @@
+{
+  "id": "melanotaenia-trifasciata",
+  "native": {
+    "input": "18996cf76b5eb4b7",
+    "at": "2026-11-05T06:42:12.410Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The banded rainbowfish, Melanotaenia trifasciata, is a rainbowfish from Australia, most commonly seen in flowing streams and tributaries.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Australia.",
+        "words": "Australia",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia trifasciata",
+    "status": "ACCEPTED",
+    "taxonKey": 2411686,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        208
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        52
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        34
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        33
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        32
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        32
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        14
+      ],
+      [
+        "19729f12-88c3-4e56-a84f-b42a5cf052ad",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "f0d00d00-aa57-4209-abaf-be2aed9a71dd",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

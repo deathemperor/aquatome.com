@@ -1,0 +1,65 @@
+{
+  "id": "youtube-UOyTpympfAA",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=UOyTpympfAA",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "heros-severus"
+  ],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "UOyTpympfAA",
+    "title": "BEST aquarium filter - DIY homemade fish tank filter - The king of diy",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 617,
+    "publishedAt": "2021-06-26",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maaz5-CO-M0O7MzldTzRRhn",
+      "position": 42
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/UOyTpympfAA/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Heros severus"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 120
+      },
+      {
+        "category": "loc",
+        "t": 170
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 170
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Nhược điểm cần biết",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/UOyTpympfAA/p7-5OTMtNDIzMi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/UOyTpympfAA/p7-5OTMtNDIzMi5qcGc-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 4.0",
+          "author": "Raimond Spekking",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eheim_type_2011,_pump_101101993-4232.jpg",
+          "caption": "Bộ lọc thùng ngoài có van và ống nối trông khá lộ liễu, khó giấu."
+        }
+      }
+    ]
+  }
+}

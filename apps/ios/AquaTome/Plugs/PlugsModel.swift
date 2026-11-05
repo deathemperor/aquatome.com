@@ -1,6 +1,7 @@
 import Foundation
 import Observation
 import Plugs
+import Tanks
 import Telemetry
 
 /// The reader's smart plugs (docs/smart-plugs.md): the Tuya project keys kept on this phone, the source they open
@@ -26,7 +27,8 @@ final class PlugsModel {
 
   @ObservationIgnored private let store: TuyaKeyStore
   @ObservationIgnored private let source: (TuyaKeys) -> TuyaPlugs
-  @ObservationIgnored private var current: TuyaPlugs?
+  /// Where the plugs come from, with the keys kept here; nil without keys. A light's card reads its outlet's timers from it.
+  @ObservationIgnored private(set) var current: TuyaPlugs?
   /// The app's anonymous telemetry: how each switch went, never which plug. The app sets it.
   @ObservationIgnored var telemetry: Telemetry?
 
@@ -85,12 +87,24 @@ final class PlugsModel {
   /// The simulator (every UI test): a stand-in Tuya cloud with made-up keys and strips, keys kept in memory, so no test
   /// reaches Tuya; `-seed-tuya-keys` starts with its keys entered. `-real-tuya` tries Tuya itself from the simulator.
   /// `-stand-in-strip <name>` names the first strip as its owner would in Smart Life (the App Store's screenshots, in
-  /// each language).
+  /// each language). `-stand-in-timer enabled` gives its first outlet ("Đèn") Smart Life timers, off at 00:00 and on at
+  /// 18:00 every day; `disabled`, the same timers turned off.
   static func forSimulator(_ args: [String]) -> PlugsModel {
     let strip = args.firstIndex(of: "-stand-in-strip").flatMap { $0 + 1 < args.count ? args[$0 + 1] : nil } ?? "Ổ cắm bể 60"
+    let timer = args.firstIndex(of: "-stand-in-timer").flatMap { $0 + 1 < args.count ? args[$0 + 1] : nil }
+    var first = FakeTuya.Device(id: "fake-strip-1", name: strip, status: [("switch_1", .bool(true)), ("switch_2", .bool(false)), ("switch_3", .bool(false)), ("switch_led", .bool(true))],
+                                names: [("switch_1", "Đèn"), ("switch_2", "CO2")])
+    if let timer, timer == "enabled" || timer == "disabled" {
+      let status = timer == "enabled" ? 1 : 0
+      first.timers = try! JSON.parse(Data(#"""
+        [{ "category": { "category": "category_switch_1", "status": 1 }, "groups": [
+          { "id": "1000000001", "timers": [{ "functions": [{ "code": "switch_1", "value": false }], "loops": "1111111", "time": "00:00", "status": \#(status), "timezone_id": "Asia/Ho_Chi_Minh", "date": "20261101" }] },
+          { "id": "1000000002", "timers": [{ "functions": [{ "code": "switch_1", "value": true }], "loops": "1111111", "time": "18:00", "status": \#(status), "timezone_id": "Asia/Ho_Chi_Minh", "date": "20261101" }] }
+        ] }]
+        """#.utf8))
+    }
     let fake = FakeTuya(accessId: standInKeys.accessId, accessSecret: standInKeys.accessSecret, devices: [
-      FakeTuya.Device(id: "fake-strip-1", name: strip, status: [("switch_1", .bool(true)), ("switch_2", .bool(false)), ("switch_3", .bool(false)), ("switch_led", .bool(true))],
-                      names: [("switch_1", "Đèn"), ("switch_2", "CO2")]),
+      first,
       // One that never confirms, one that drops off the network when switched.
       { var d = FakeTuya.Device(id: "fake-strip-2", name: "Ổ cắm kệ", status: [("switch_1", .bool(true))], names: [("switch_1", "Lọc")]); d.ignores = true; return d }(),
       { var d = FakeTuya.Device(id: "fake-strip-3", name: "Ổ cắm ban công", status: [("switch_1", .bool(true))], names: [("switch_1", "Sủi khí")]); d.dropsOff = true; return d }(),

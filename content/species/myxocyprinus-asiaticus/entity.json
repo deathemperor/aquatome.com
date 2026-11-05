@@ -10,6 +10,80 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to upper and middle sections of the Yangtze River system in China including its major tributary the Min River.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Yangtze"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359106,
+      "total": 8,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "CN",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          29.53125,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          112.5,
+          28.125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          30.9375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,0 +1,22 @@
+{
+  "slug": "cephalocassis-melanochir",
+  "name": "ปลากดทะเล",
+  "altNames": [
+    "ปลากด",
+    "Sea catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li><strong>ชื่อวิทยาศาสตร์:</strong> Cephalocassis melanochir (Bleeker, 1852)</li><li><strong>วงศ์:</strong> Ariidae</li><li><strong>แหล่งที่พบตัวอย่างต้นแบบ:</strong> ปาเล็มบัง เกาะสุมาตรา ประเทศอินโดนีเซีย</li><li><strong>ชื่อพ้อง:</strong> Arius melanochir, Tachysurus melanochir</li><li><strong>ขนาด:</strong> 300 มม. SL</li></ul>",
+    "distribution:planetcatfish": "<p>เอเชีย: อินโดนีเซีย</p>",
+    "waterConditions:planetcatfish": "<p>น้ำกร่อย น้ำทะเล</p>",
+    "reproduction:planetcatfish": "<p>การเพาะพันธุ์: ยังไม่มีรายงาน</p>",
+    "references:planetcatfish": "<p>Natuurkd. Tijdschr. Neder. Indiëv. 3 - pp590</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": true,
+    "bySource": {
+      "planetcatfish": 0.95
+    }
+  }
+}

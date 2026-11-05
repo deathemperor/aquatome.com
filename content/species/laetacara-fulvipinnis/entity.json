@@ -1,0 +1,190 @@
+{
+  "id": "laetacara-fulvipinnis",
+  "scientificName": "Laetacara fulvipinnis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Laetacara",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 9
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-fulvipinnis",
+      "html": "<p>Laetacara fulvipinnis is a cichlid from the Orinoco, the Casiquiare and the upper and middle rio Negro in Venezuela and Brazil. Known in the hobby as L. sp. 'orangeflossen' before it was described, it takes its name from the reddish-yellow anal and caudal fins. It has been collected among leaf litter and submerged vegetation in very shallow, soft, acidic blackwater, and grows to around 74 mm SL. A biparental substrate-spawner, it lays its eggs on a solid surface such as a plant leaf.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/laetacara_fulvipinnis_en/",
+      "html": "<p>The natural distribution of the species is in Venezuela, where it inhabits the upper reaches of the rivers Orinoco and Rio Negro.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-fulvipinnis",
+      "html": "<p>Native to the upper and middle río Orinoco, the rio Casiquiare (aka Casiquiare Canal) and the upper and middle rio Negro in Venezuela and Brazil, with confirmed localities lying between Puerto Ayacucho, Venezuela and Barcelos on the rio Negro in Brazil.</p><p>Given this range it would not be suprising if it also occurs in eastern Colombia.</p><p>Type locality is 'lagoon at the village of Arigua, 1°50'13\"N, 67°02'29\"W, a few kilometers south of San Carlos de río Negro, Venezuela'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-fulvipinnis",
+      "html": "<p>Has been collected from habitats containing clear, soft, acidic, tea-coloured blackwater, most typically among leaf litter or submerged vegetation in very shallow (10–50 cm depth) water along the margins of streams and other minor tributaries.</p><p>At a village called El Niñal close to the mouth of the rio Pasimoni in the Casiquiare drainage pH was 4.4, electrical conductivity 10 μS/cm and temperature 26.3 °C.</p><p>Other cichlid species at the locality included Apistogramma uaupesi, Mesonauta insignis, Heros severus and an unidentified Heros sp.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-fulvipinnis",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-fulvipinnis",
+      "html": "<p>Wild fish are probably foragers feeding on algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/laetacara_fulvipinnis_en/",
+      "html": "<p>Like all members of the genus Laetacara the fish are comparatively peaceful and do not destroy plants.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-fulvipinnis",
+      "html": "<p>Males grow larger than females and possess more-extended dorsal, anal and caudal fins, while older males tend to develop a steeper head profile.</p><p>Nuptial individuals of both sexes develop red colouration on the lower head, opercula and anterior portion of the body but this is not as extensive as in L. dorsigera.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/laetacara_fulvipinnis_en/",
+      "html": "<p>The species is an open brooder with a pair family.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-fulvipinnis",
+      "html": "<p>Biparental substrate-spawner which deposits its eggs on a solid surface such as a plant leaf.</p><p>Incubation is around three days and the fry are free-swimming approximately a week later.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/laetacara_fulvipinnis_en/",
+      "html": "<p>Only very rarely this beautiful dwarf cichlid becomes imported. Nevertheless it is known in the hobby for quite a long time. Since 1978 it was named \"Aequidens sp. Orange Fin\", later, after the splitting of Aequidens and Laetacara in separate genera, Laetacara sp. \"Orange Fin\". The scientifically valid description appeared only in 2007, when Staeck and Schindler named the species Laetacara fulvipinnis.</p><p>Recently imported fish were large, fully grown specimens. The largest males are almost 9 cm long (including the caudal fin).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-fulvipinnis",
+      "html": "<p>This species was known as L. sp. 'orangeflossen' (orange fins) in the aquarium hobby prior to publication of its official description.</p><p>The genus Laetacara currently contains seven valid species and L. fulvipinnis can be told apart from all congeners by the following combination of characters: dorsal-fin usually with 15 spines and 10 rays; 23–25 scales in the E1 row (the row of scales in the horizontal series directly above the longitudinal row and including the lower lateral line); dorsal-fin base only moderately scaly; caudal-fin without a conspicuous pattern of small pale dots; maximum size 74 mm SL.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-fulvipinnis",
+      "html": "<ul><li>Staeck, W. and I. Schindler (2007). Description of Laetacara fulvipinnis sp. n. (Teleostei: Perciformes: Cichlidae) from the upper drainages of the rio Orinoco and rio Negro in Venezuela. Vertebrate Zoology 51(1), 63-71</li><li>Ottoni, F. P., P. H. N Bragança, P. F. Amorim and C. S. Gama (2012). A new species of Laetacara from the northern Brazil coastal floodplains (Teleostei: Cichlidae). Vertebrate Zoology 62(2), 181-188</li><li>Ottoni, F. P. and W. J. E. M. Costa (2009). Description of a new species of Laetacara Kullander, 1986 from central Brazil and re-description of Laetacara dorsigera (Heckel, 1840) (Labroidei: Cichlidae: Cichlasomatinae). Vertebrate Zoology 59(1), 41-48</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "RpA5zVGCOLg",
+      "title": "The Orange Fin Dwarf Cichlid (Laetacara Fulvipinnis) | Amazing Aquatics",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hDKLRsJmY1g",
+      "title": "Laetacara fulvipinnis, Guianacara dacrya",
+      "durationSec": 64,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uFtRCb8ldH4",
+      "title": "Guianacara dacrya, Laetacara fulvipinnis",
+      "durationSec": 102,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "o44xdZ4j1kA",
+      "title": "Laetacara fulvipinnis pair with fry (WC rio Negro)",
+      "durationSec": 36,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 100 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "thức ăn viên cho cá rô phi lùn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

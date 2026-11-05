@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { speciesOrder } from '../src/localize'
-import { addShopNames, makeShopList, popularFirst, shopIds, type ShopItem } from '../src/shops'
+import { addShopNames, makeShopList, popularFirst, shopIds, type ShopItem, type ShopLang } from '../src/shops'
 
 async function site() {
   const root = await mkdtemp(join(tmpdir(), 'shop-'))
@@ -12,7 +12,7 @@ async function site() {
   return root
 }
 const item = (trade: string, scientificName: string | null, confidence: number, name: string | null = trade): ShopItem => ({ trade, name, scientificName, confidence, evidence: '' })
-async function list(root: string, lang: 'vi' | 'id' | 'th', items: ShopItem[]) {
+async function list(root: string, lang: ShopLang, items: ShopItem[]) {
   await mkdir(join(root, 'engine-state/shop-lists'), { recursive: true })
   await writeFile(join(root, 'engine-state/shop-lists', `${lang}.json`), JSON.stringify({ lang, items, sources: [], updatedAt: '2026-10-31' }))
 }
@@ -78,6 +78,9 @@ test('shop names: sure ones only, at most two a page, never a name shops give tw
     item('Pleco L134', 'Boraras brigittae', 0.9, 'Cá pleco'),
     item('Pleco L397', 'Danio margaritatus', 0.3, 'Cá pleco'), // the same name for another fish, even unsure
     item('Neon', 'Paracheirodon innesi', 0.95, 'Cá Paracheirodon'), // the genus alone
+    item('Cardinal', 'Paracheirodon axelrodi', 0.99, 'Cá Cardinal Tetra'), // its name already, written another way
+    item('Cacatuoides', 'Apistogramma cacatuoides', 0.9, 'Apistogramma Cacatuoides'), // its scientific name
+    item('Ram', 'Mikrogeophagus ramirezi', 0.9, 'Cá La Hán'), // a breed page's name ("Cá La Hán (Flowerhorn)"): the sweep would take it off
   ])
   const added = await addShopNames(root, 'vi')
   expect(added).toEqual(['paracheirodon-axelrodi: Cá neon tim, Cá neon hoàng đế'])
@@ -85,6 +88,8 @@ test('shop names: sure ones only, at most two a page, never a name shops give tw
   expect(await names(root, 'paracheirodon-innesi')).toEqual(['Neon tetra'])
   expect(await names(root, 'boraras-brigittae')).toEqual(['Chili rasbora'])
   expect(await names(root, 'symphysodon-aequifasciatus')).toEqual(['Discus'])
+  expect(await names(root, 'apistogramma-cacatuoides')).toEqual(['Cockatoo cichlid'])
+  expect(await names(root, 'mikrogeophagus-ramirezi')).toEqual(['Ram cichlid'])
   expect(await addShopNames(root, 'id')).toEqual([]) // no Indonesian list
 })
 

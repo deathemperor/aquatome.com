@@ -1,0 +1,76 @@
+{
+  "id": "corydoras-pygmaeus",
+  "native": {
+    "input": "2d8e662e88681b13",
+    "at": "2026-11-05T06:42:12.410Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Corydoras pygmaeus is native to the slow-moving tributaries and floodplain systems of the Madeira River basin in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Madeira River",
+        "source": "bwaquatics",
+        "quote": "Corydoras pygmaeus is native to the slow-moving tributaries and floodplain systems of the Madeira River basin in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras pygmaeus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342634,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

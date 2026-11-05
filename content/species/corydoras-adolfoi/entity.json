@@ -10,6 +10,62 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Small tributary of the upper Rio Negro on the equator near São Gabriel da Cachoeira, Brazil', and this species is apparently highly endemic there.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342782,
+      "total": 3,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

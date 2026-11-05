@@ -1,0 +1,201 @@
+{
+  "id": "gymnocorymbus-ternetzi",
+  "native": {
+    "input": "3f2d015a3ea90c9d",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The black widow tetra, Gymnocorymbus ternetzi, is a characid from the Rio Paraguay and Guaporé basins in Brazil, Bolivia and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The black widow tetra, Gymnocorymbus ternetzi, is a characid from the Rio Paraguay and Guaporé basins in Brazil, Bolivia and Argentina.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The black widow tetra, Gymnocorymbus ternetzi, is a characid from the Rio Paraguay and Guaporé basins in Brazil, Bolivia and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Paraguay and Guaporé basins in Brazil, Bolivia and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Paraguay and Guaporé basins in Brazil, Bolivia and Argentina.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Paraguay and Guaporé basins in Brazil, Bolivia and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Paraguay",
+        "source": "seriouslyfish",
+        "quote": "Rio Paraguay and Guaporé basins in Brazil, Bolivia and Argentina.",
+        "ok": true
+      },
+      {
+        "name": "Guaporé",
+        "source": "seriouslyfish",
+        "quote": "Rio Paraguay and Guaporé basins in Brazil, Bolivia and Argentina.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gymnocorymbus ternetzi",
+    "status": "ACCEPTED",
+    "taxonKey": 2353920,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        51
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        25
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        23
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        21
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        18
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        16
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        11
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        1
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "BO",
+      "AR"
+    ],
+    "requests": 13,
+    "at": "2026-11-04T21:41:08.860Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-05T03:39:17.391Z",
+    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
+  }
+}

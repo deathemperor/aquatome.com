@@ -4,10 +4,12 @@
   "parents": [
     {
       "name": "Common/shortfin molly (Poecilia sphenops)",
+      "species": "poecilia-sphenops",
       "certain": false
     },
     {
       "name": "Sailfin molly (white sailfin molly with the dwarf/balloon trait) (Poecilia latipinna)",
+      "species": "poecilia-latipinna",
       "certain": false
     }
   ],

@@ -1,3 +1,4 @@
+import { homeOf, LANGS, prefixedLang } from '@aq/schema/langs'
 import { OWNER_SCRIPT } from './owner'
 import { isViPage, withoutVi } from './paths'
 /**
@@ -16,7 +17,7 @@ export function pagePath(input: string): string | null {
   let p: string
   try { p = decodeURIComponent(new URL(input.trim(), 'https://x.invalid').pathname) } catch { return null }
   p = withoutVi(p.replace(/\/{2,}/g, '/').replace(/index\.(html|md)$/, '').replace(/\/?$/, '/'))
-  return /^\/([a-z0-9-]+\/)*$/.test(p) && (isViPage(p) || /^\/(id|th)\//.test(p)) ? p : null
+  return /^\/([a-z0-9-]+\/)*$/.test(p) && (isViPage(p) || !!prefixedLang(p)) ? p : null
 }
 
 /** The list with every key as pagePath has it: old /vi/… keys as root ones. */
@@ -49,16 +50,23 @@ export function isHidden(kv: KVNamespace, path: string, baked: string | undefine
   return m ? path in m.value : (baked ?? '').split(' ').map(withoutVi).includes(path)
 }
 
-/** Dashboard form: action=hide|unhide, url, optional note. Returns an error message or null. */
-export async function updateHidden(kv: KVNamespace, form: FormData, now: Date): Promise<string | null> {
-  const path = pagePath(String(form.get('url') ?? ''))
-  if (!path || /^\/((id|th)\/)?$/.test(path)) return 'Chỉ ẩn được một trang của trang web (không phải trang chủ).'
+export const NOT_ONE_PAGE = 'Chỉ ẩn được một trang của trang web (không phải trang chủ).'
+/** Hides the page at `url` (any address of it), with an optional note, or brings it back. The page's path; null when `url` isn't one page. */
+export async function setHidden(kv: KVNamespace, url: string, hide: boolean, note: string, now: Date): Promise<string | null> {
+  const path = pagePath(url)
+  if (!path || LANGS.some(l => path === homeOf(l))) return null
   const hidden = await loadHidden(kv, true)
-  if (form.get('action') === 'unhide') delete hidden[path]
-  else hidden[path] = { at: now.toISOString(), ...(String(form.get('note') ?? '').trim() ? { note: String(form.get('note')).trim().slice(0, 200) } : {}) }
+  if (!hide) delete hidden[path]
+  else hidden[path] = { at: now.toISOString(), ...(note.trim() ? { note: note.trim().slice(0, 200) } : {}) }
   await kv.put(KEY, JSON.stringify(hidden))
   memo.set(kv, { at: Date.now(), value: hidden })
-  return null
+  return path
+}
+
+/** Dashboard form: action=hide|unhide, url, optional note. Returns an error message or null. */
+export async function updateHidden(kv: KVNamespace, form: FormData, now: Date): Promise<string | null> {
+  const path = await setHidden(kv, String(form.get('url') ?? ''), form.get('action') !== 'unhide', String(form.get('note') ?? ''), now)
+  return path ? null : NOT_ONE_PAGE
 }
 
 export const gonePage = () => new Response(

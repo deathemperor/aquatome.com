@@ -3,19 +3,24 @@
   "name": "Cá trê banjo Xyliphius lepturus",
   "altNames": [
     "Cá trê banjo",
-    "Banjo Catfish"
+    "Banjo catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Xyliphius lepturus Orcés, 1962</li><li><strong>Tên thường gọi:</strong> cá trê banjo (Banjo Catfish)</li><li><strong>Nơi thu mẫu chuẩn (type locality):</strong> Desembocadura del rio Pucayacu en el Bobonaza (cửa sông Pucayacu đổ vào sông Bobonaza), hệ thống sông Río Magdalena, hệ thống sông Amazon, Colombia.</li><li><strong>Nguồn gốc tên gọi:</strong> Tên lấy từ chữ Hy Lạp xyliphion, nghĩa là một mẩu gỗ. Cái tên này ám chỉ dáng vẻ tổng thể của cá.</li><li><strong>Kích thước:</strong> 132 mm SL (chiều dài chuẩn, không tính vây đuôi).</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực thượng nguồn sông Amazon và sông Orinoco.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: Hiện chưa có ghi nhận nào.</p>",
-    "references:planetcatfish": "<p>Cienc. Nat. (Quito)v. 5 (no. 2) - pp50 - Figs. 1-2</p>"
+    "references:planetcatfish": "<p>Cienc. Nat. (Quito)v. 5 (no. 2) - pp50 - Figs. 1-2</p>",
+    "quickFacts:glaser": "<p>Đây là một loài cá trê banjo cực kỳ kỳ lạ, và đây là lần đầu tiên nó được nhập về. Mắt của chúng thoái hóa chỉ còn là những chấm đen rất nhỏ. Đặc điểm này cho thấy chúng hoặc chỉ hoạt động về đêm, hoặc sống vùi mình dưới nền. Các cá thể này đến từ Venezuela. Nhiều khả năng chúng thuộc loài X. lepturus, nhưng chưa chắc chắn hoàn toàn, vì thế tên loài có kèm ký hiệu \"cf.\".</p>",
+    "distribution:glaser": "<p>Các cá thể này được nhập về từ Venezuela.</p>",
+    "notes:glaser": "<p>Carl Eigenmann lập ra chi Xyliphius năm 1912 cho loài X. magdalenae ở Colombia. Có điều Eigenmann lại dùng cùng lúc hai cách viết cho chi mới này là Xiliphius và Xyliphius. Vì vậy các nhà nghiên cứu về sau gặp không ít nhầm lẫn. Hiện nay cách viết được chấp nhận là Xyliphius.</p><p>Chi này có 7 loài đã được mô tả. Trong các bộ sưu tập bảo tàng trên thế giới, mỗi loài chỉ có khá ít mẫu vật. Chiều dài tối đa ghi nhận ở các loài trong chi là từ 8 đến 15 cm. Như vậy 5 cá thể nhập về, con nào cũng đã dài 8-10 cm, hẳn đã trưởng thành. Đây là lần đầu tiên người ta có dịp quan sát tập tính của những loài cá khác thường này.</p>"
   },
   "quality": {
     "score": 0.7,
     "indexable": false,
     "bySource": {
-      "planetcatfish": 0.7
-    }
+      "planetcatfish": 0.7,
+      "glaser": 0.9
+    },
+    "reason": "thin"
   }
 }

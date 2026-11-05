@@ -1,0 +1,73 @@
+{
+  "id": "trigonostigma-hengeli",
+  "native": {
+    "input": "15d2cade91ea6abf",
+    "at": "2026-11-05T16:38:28.515Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Collections have occured in Jambi province, Sumatra and apparently the Indonesian province of West Kalimantan (Kalimantan Barat), Borneo though definitive information regarding the latter could not be obtained.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "glaser",
+        "quote": "From the great Sunda Islands of Sumatra and Borneo comes the glowlight harlequin barb, T. hengeli.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "From the great Sunda Islands of Sumatra and Borneo comes the glowlight harlequin barb, T. hengeli.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Collections have occured in Jambi province, Sumatra and apparently the Indonesian province of West Kalimantan (Kalimantan Barat), Borneo though definitive information regarding the latter could not be obtained.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Collections have occured in Jambi province, Sumatra and apparently the Indonesian province of West Kalimantan (Kalimantan Barat), Borneo though definitive information regarding the latter could not be obtained.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from the Tambesi river, a tributary of the Batang Hari/Jambi river in Sumatra.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trigonostigma hengeli",
+    "status": "ACCEPTED",
+    "taxonKey": 2367614,
+    "datasets": [
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T16:38:28.515Z"
+  }
+}

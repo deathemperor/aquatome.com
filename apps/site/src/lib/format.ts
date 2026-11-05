@@ -1,10 +1,10 @@
 import type { DataCardField, Range } from '@aq/schema'
-import { LOCALE, type Lang } from './i18n'
+import { LANG, type Lang } from './i18n'
 
 export const isRange = (v: Range | number): v is Range => typeof v === 'object'
 /** Numbers as the page's language writes them (vi, id: 1.234,5; th: 1,234.5). */
 export function fmt(lang: Lang) {
-  const nf = new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 1 })
+  const nf = new Intl.NumberFormat(LANG[lang].locale, { maximumFractionDigits: 1 })
   const num = (n: number) => nf.format(n)
   const range = (v: Range | number) => (isRange(v) ? (v.min === v.max ? num(v.min) : `${num(v.min)}–${num(v.max)}`) : num(v))
   return { num, range }
@@ -25,7 +25,10 @@ export const CATEGORY_LABELS: Record<string, string> = {
 export const categoryLabel = (c: string) => CATEGORY_LABELS[c] ?? c
 
 /** Tracked affiliate link; the Worker resolves it to a checked product or a marketplace search (see worker/affiliate). */
-export const goLink = (network: 'shopee' | 'lazada' | 'tiki', keyword: string, category: string, entity?: string) =>
+/** The marketplaces a shop link can search, the first the one a page's links go to until the reader picks another (ShopPicker.astro). */
+export const SHOPS = ['shopee', 'lazada', 'tiki'] as const
+export const SHOP_NAMES: Record<(typeof SHOPS)[number], string> = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
+export const goLink = (network: (typeof SHOPS)[number], keyword: string, category: string, entity?: string) =>
   `/go/${network}/?${new URLSearchParams({ k: keyword, c: category, ...(entity ? { e: entity } : {}) })}`
 
 export const GROUP_LABELS: Record<string, string> = {

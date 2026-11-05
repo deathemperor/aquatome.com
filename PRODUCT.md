@@ -50,7 +50,7 @@ Success: readers find the answer from search and act on it. Tool users come back
 
 ## Brand Commitments
 
-- **Name:** AquaTome; mark: "AT" (apps/site/public/favicon.png).
+- **Name:** AquaTome; mark: the app's round fish with leaf fins (apps/site/public/favicon.png).
 - **Voice:** an experienced hobbyist explaining to a newer one, in natural Vietnamese:
   - short concrete sentences, with opinions where the source has them
   - hobby words people actually use (set bể, thay nước, châm phân, rêu hại)

@@ -1,0 +1,52 @@
+{
+  "id": "corydoras-similis",
+  "native": {
+    "input": "89ec34f8a12eeb01",
+    "at": "2026-11-05T06:42:12.410Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found in the Rio Madeira Basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Madeira",
+        "source": "seriouslyfish",
+        "quote": "Found in the Rio Madeira Basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras similis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342642,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

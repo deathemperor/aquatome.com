@@ -1,0 +1,202 @@
+{
+  "id": "corydoras-sodalis",
+  "scientificName": "Corydoras sodalis",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "loreto",
+    "brazil",
+    "amazonas",
+    "upper-amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<p>The false network cory, Brochis sodalis, long known as Corydoras sodalis, is an armoured catfish from the upper Amazon in Loreto, Peru, and Amazonas state, Brazil. It inhabits small tributaries, creeks, pools and areas of flooded forest. Very peaceful, it is best kept in a group of at least six, and it can be spawned in a similar way to other Corydoras.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<p>Native to the upper Amazon in the department of Loreto, Peru and the state of Amazonas, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<p>Small tributaries, creeks, pools and areas of flooded forest.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<p>Standard length: 6 cm SL.</p><p>Aquarium base: 45 × 30 cm.</p><p>Volume: ~41 litres.</p><p>A tank measuring 45 × 30 × 30 cm (~41 litres) is big enough for a small group of these.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<p>Brochis sodalis will thrive in a tank set up to replicate an Amazon biotope. This would be very simple to arrange. Use a substrate of river sand and add a few driftwood branches (if you can't find driftwood of the desired shape, common beech is safe to use if thoroughly dried and stripped of bark) and twisted roots. A few handfuls of dried leaves (again beech can be used, or oak leaves are also suitable) would complete the natural feel. Aquatic plants are not a feature of this species' natural waters. Allow the wood and leaves to stain the water the colour of weak tea, removing old leaves and replacing them every few weeks so they don't rot and foul the water. A small net bag filled with aquarium-safe peat can be added to the filter to aid in the simulation of black water conditions. Use fairly dim lighting. Alternatively, it also does well in a more standard, preferably well-planted tank.</p><p>A good maintenance regime is essential with this species as it's sensitive to deteriorating water conditions. As with all corys, don't use undergravel filtration and ensure the substrate is kept scrupulously clean. These cats are sensitive to poorly-maintained or dirty substrates and can lose their barbels if kept in poor conditions.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<p>Omnivorous and easy to feed. Use a good quality sinking pellet or tablet as the staple diet. Supplement this with live and frozen foods such as Daphnia, Artemia, bloodworm and similar.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<p>Very peaceful and suitable for many community tanks. Don't keep it with anything very large or aggressive. Good tankmates include small characins, cyprinids, anabantoids, dwarf cichlids and other peaceful catfish. Always try to maintain Corydoras in groups as they're far more confident and active in the presence of conspecifics. A group of at least six is best.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<p>Like most corys, it's easily sexed when viewed from above. Females are noticeably rounder and broader-bodied than males, especially when full of eggs. They're often also slightly larger.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<p>Can be spawned in a similar fashion to other Corydoras. Set up the breeding tank (45 × 30 × 30 cm or similar is a good size), with either a bare bottom, sand or fine gravel substrate. Use air-powered sponge or box-type filtration as fry won't be sucked into these and provide some clumps of vegetation such as java moss. A temperature of around 24 °C and a pH of 6.5 should be fine. Filtering the water through peat is useful, as is the use of RO water. It's always better to have a higher ratio of males to females when breeding corys and 2 males per female is recommended. Condition the group on a varied diet of live, frozen and dried foods. When the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>It's worth observing a couple of notes on general cory breeding at this point. Many species are seasonal spawners, breeding during the wet season in their native countries. This occurs at the same time of year as the UK winter, so if summer breeding attempts are failing, it may be worth waiting until winter before trying again. Additionally, it can take several years for certain species to become sexually mature, so be patient. Finally, different tactics may sometimes be required, such as timing of water changes, oxygenation levels etc. It's also been suggested that the addition of water from a tank containing spawning or just spawned corys (this can be the same or a different species) may induce spawning behaviour in some of the more \"difficult\" species. It's likely that this can be attributed to hormones released by the spawning fish acting as a chemical trigger. Basically, if you aren't having any luck, don't be afraid of trying different approaches.</p><p>If the fish decide to spawn, they will usually lay their eggs on the tank glass, often in an area where water flow is quite high. Spawning behaviour is characterised by an initial increase in activity and excitement, before males begin to actively pursue females. A receptive female will allow a male to caress her with his barbels, before the pair take up the classic \"t-position\", in which the male grasps the females barbels between his pectoral fin and body. He then releases some sperm and it's thought that this passes through the mouth and gills of the female, being directed towards her pelvic fins. These she uses to form a 'basket', into which she deposits a single egg (although up to 4 may be released). Once this is fertilised, she swims away to find a suitable place to deposit the egg, before the cycle is repeated. If you spawn the fish in a group situation, you will often see multiple males chasing a female as she goes to deposit an egg, in an effort to be the next chosen to fertilise them.</p><p>The adults will eat the eggs given the opportunity, so once spawning is complete you have a couple of choices. Either remove the adults and raise the brood in the same tank, or move the eggs and raise the fry elsewhere. If you decide to move the eggs, you'll find they're quite robust, and can usually be gently rolled up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated. Wherever you decide to hatch the eggs, it's always best to add a few drops of methylene blue to the water to prevent fungussing. Even then, some eggs will probably fungus, and these should be removed as soon as they're spotted in order to prevent the fungus spreading. Other options include adding an alder cone to the hatching container (these release various beneficial chemicals). Some hobbyists even use certain species of freshwater shrimp to pick any fungal spores from healthy eggs. Cherry shrimp, Neocardina heteropoda work well. These will eat diseased eggs, but leave healthy ones unharmed.</p><p>The eggs hatch in 3-5 days and once the fry have used up their yolk sacs, they'll accept microworm and brine shrimp nauplii as first foods. They seem to be less susceptible to disease when kept over a thin layer of sand, rather than in a bare-bottomed setup.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
+      "html": "<p>There are currently over 180 described species of Corydoras (commonly shortened to \"cory\"), making it one of the most speciose of all South American fish genera. There are also loads of undescribed species, many of which have been assigned a \"C number\" for identification purposes. This is a very simple system of numbering and is similar to the L number scheme used to identify undescribed Loricariids. Both systems were implemented by the German aquarium magazine DATZ (Die Aquarien und Terrarienzeitschrift), but have proved to be invaluable tools and are now used widely by aquarists worldwide. It's partly this tremendous diversity (along with their undeniably cute looks) that puts corys among the most popular fish in the hobby. They're also very peaceful aquarium residents. Although they'll consume bite-sized items such as eggs or fry, aggression towards other species is virtually unheard of. Intraspecific hostility is similarly unusual, occurring in only a handful of species (mainly being confined to the \"long-nosed\" varieties). Provided space isn't an issue this rarely results in physical damage, though. In nature most species occur in large schools and as such do best when kept in a group in captivity.</p><p>Most corys are primarily benthic (bottom dwelling), although a handful of exceptions do spend the majority of their time in open water. Unfortunately this behaviour often means that they're purchased and sold as scavengers that will \"clean the bottom\" of your community tank. While they'll certainly polish off any uneaten morsels that reach the substrate, they won't keep the substrate \"clean\" as such. In fact maintenance of the substrate becomes more of a primary concern if your tank contains a few corys, as they can develop nasty infections of the barbels if kept in dirty or otherwise unfavourable conditions. It should also be said that they won't do well if expected to survive on the scraps of food that escape the fish above. Always use sinking varieties to ensure your corys receive the right amount of food.</p><p>All corys are facultative air breathers, meaning they have the ability to breathe atmospheric air to a certain extent if necessary. They possess a modified, highly vascularised intestine to aid in the uptake of atmospheric oxygen. This adaptation allows them to survive if their habitat becomes oxygen-deprived for any reason. In the aquarium you'll see them darting to the surface to take in gulps of air on occasion. This is perfectly natural and no cause for concern unless water conditions are deteriorating, in which case the frequency of visits to the surface will usually rise correspondingly.</p><p>Corys are part of the \"armoured\" catfish group, and instead of scales possess two rows of bony plates running along the flanks. The genus name is composed of the Greek words cory, meaning helmet and doras, meaning skin (here used incorrectly to denote \"armour\"). They also have very sharp pectoral fin spines, which are easily caught in the mesh of aquarium nets and can also produce a painful \"sting\" if they penetrate the skin. Care should therefore be exercised when handling or moving corys for any reason.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-sodalis-incorrect-as-agassizii/",
+      "html": "<p>There are four species of beautiful corydoras, which are practically without exception available as wild-collected specimens from Brazil, because even experienced breeders have a hard time with them. In addition, these species occur in masses and can therefore be offered in large numbers and very cheaply, so there is little incentive to breed them. Natural harvests make more ecological sense than captive breeding and provide local people with an environmentally sound, secure income.</p><p>These four species are Corydoras agassizii, C. ambiacus, C. schwartzi and C. sodalis. Unfortunately, they are repeatedly given wrong names.</p><p>For reasons that go back to a mistake in the 1960s, this hardly confusable armored catfish is traded again and again as C. agassizii. This is especially difficult to eradicate, because C. sodalis and the \"real\" agassizii often occur together and are therefore often imported mixed. C. agassizii, on the other hand, is also wrongly mostly called C. punctatus, as is C. ambiacus, which is furthermore difficult to distinguish from C. agassizii.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-sodalis-incorrect-as-agassizii/",
+      "html": "<p>Concerning care there is not much to say about C. sodalis. The fish will do practically everything if you fulfil the basic requirements of Corydoras: no sharp-edged substrate, preferably soft river sand, low-germ water and specific feeding. Corydoras are not scavengers!</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-sodalis-incorrect-as-agassizii/",
+      "html": "<p>The water temperature should be between 22 and 28°C. pH and hardness are irrelevant.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-sodalis-incorrect-as-agassizii/",
+      "html": "<p>The reason why these catfishes evade breeding lies in their natural history. The mass occurrences are most likely nothing more than spawning migrations that take the fish to small, shady tributary streams where they spawn. In the aquarium, they spawn only at night, in complete darkness. And because they are strong spawn predators, there is nothing left of the eggs the next morning.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45x30x30",
+        "bể cá mini 40 lít",
+        "bể cá 60cm",
+        "bể cá cảnh nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông nuôi cá chuột",
+        "cát mịn thủy sinh",
+        "cát nền cho cá chuột",
+        "cát thủy sinh mịn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "thức ăn cá đáy",
+        "thức ăn cá chuột chìm",
+        "viên chìm cho cá đáy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút sục khí",
+        "lọc hộp bể nhỏ",
+        "lọc thùng bể 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

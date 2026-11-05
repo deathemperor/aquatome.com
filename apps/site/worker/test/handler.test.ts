@@ -5,6 +5,7 @@ import { prefersMarkdown } from '../markdown'
 import { gonePage } from '../hidden'
 import { testD1 } from './d1'
 import { memoryR2 } from './r2'
+import { LANGS } from '@aq/schema/langs'
 
 const PAGE = '<!doctype html><html lang="vi"><head><title>t</title></head><body><p>x</p></body></html>'
 const CHROME = 'Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36'
@@ -115,7 +116,7 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
   const { ADMIN_PAGES } = await import('../dashboard')
   const { db, owner, reader, app } = await signedIn()
   const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc', ASSETS: assets } as Partial<Env>)
-  expect(ADMIN_PAGES).toHaveLength(10)
+  expect(ADMIN_PAGES).toHaveLength(11)
   // Nobody, the old token cookie, another reader's account, the owner's app session (a bearer), and the owner's cookie
   // under the dashboard token as a bearer (a bearer is read first, and opens no page).
   const visits: Record<string, string>[] = [browser, { ...browser, cookie: 'ab_token=tok' }, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }, { ...browser, authorization: 'Bearer tok', cookie: owner }]
@@ -330,9 +331,63 @@ test('agent discovery: API catalog as linkset+json; the home page and its langua
   const pickedVi = await handle(get('/', { ...browser, 'accept-language': 'th', cookie: 'aq_lang=vi' }), e)
   expect([pickedVi.status, pickedVi.headers.get('location')]).toEqual([200, null])
   expect((await handle(get('/', { ...browser, 'accept-language': 'th', cookie: 'aq_lang=fr; xaq_lang=vi' }), e)).headers.get('location')).toBe('/th/')
+  // A browser asking for none of our languages (a phone set to English, common in Indonesia and Thailand) goes by the
+  // country Cloudflare places it in (owner, 2026-11-06); a language it does ask for, or the one picked, still wins.
+  const inCountry = (country: string, headers: Record<string, string>) => Object.assign(get('/', headers), { cf: { country } })
+  const en = { ...browser, 'accept-language': 'en-US,en;q=0.9' }
+  expect((await handle(inCountry('ID', en), e)).headers.get('location')).toBe('/id/')
+  expect((await handle(inCountry('TH', en), e)).headers.get('location')).toBe('/th/')
+  expect((await handle(inCountry('VN', en), e)).status).toBe(200)
+  expect(await (await handle(inCountry('US', en), e)).text()).toContain('lang="en"') // the language chooser, below
+  expect((await handle(inCountry('TH', { ...browser, 'accept-language': 'vi-VN,en;q=0.8' }), e)).status).toBe(200)
+  expect((await handle(inCountry('ID', { ...en, cookie: 'aq_lang=vi' }), e)).status).toBe(200)
+  expect((await handle(inCountry('ID', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }), e)).status).toBe(200)
   expect(root.headers.get('link')).toContain('</.well-known/api-catalog>; rel="api-catalog"')
   expect(id.headers.get('link')).toContain('rel="api-catalog"')
   expect((await handle(get('/ca/'), e)).headers.get('link')).toBeNull()
+})
+
+test('a browser asking for none of our languages, from a country with none of them, is asked to choose; the pick is remembered and counted', async () => {
+  const { e, points } = env()
+  const at = (path: string, country: string, headers: Record<string, string>) => Object.assign(get(path, headers), { cf: { country } })
+  const en = { ...browser, 'accept-language': 'en-GB,en;q=0.9' }
+  const asked = await handle(at('/', 'GB', en), e)
+  const html = await asked.text()
+  expect(asked.status).toBe(200)
+  expect(html).toContain('<html lang="en">')
+  for (const l of LANGS) expect(html).toContain(`href="/?lang=${l}"`)
+  expect(asked.headers.get('cache-control')).toBe('private, no-store')
+  expect(asked.headers.get('vary')).toBe('Accept-Language, Cookie')
+  expect(asked.headers.get('link')).toContain('rel="api-catalog"')
+  expect(points).toEqual([{ blobs: ['', 'lang', '/', '', '', 'GB'], doubles: [1], indexes: ['GB'] }])
+  // The home page instead: a language of ours asked for or picked, a country with one of ours, no country known, a crawler.
+  const home = async (r: Request) => (await (await handle(r, e)).text()) === PAGE
+  expect(await home(at('/', 'GB', { ...en, 'accept-language': 'en-GB,vi;q=0.5' }))).toBe(true)
+  expect(await home(at('/', 'GB', { ...en, cookie: 'aq_lang=vi' }))).toBe(true)
+  expect(await home(at('/', 'VN', en))).toBe(true)
+  for (const unknown of ['XX', 'T1', '']) expect(await home(at('/', unknown, en)), unknown).toBe(true)
+  expect(await home(at('/', 'GB', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }))).toBe(true)
+  expect(await home(at('/', 'GB', { ...en, 'user-agent': `${CHROME} AquaTomeCheck/1` }))).toBe(true)
+  expect((await handle(at('/', 'GB', { ...en, cookie: 'aq_lang=th' }), e)).headers.get('location')).toBe('/th/')
+  expect(points).toHaveLength(1)
+  // A browser fetching / ahead of a click (the Vietnamese pages prefetch it) gets the chooser, uncounted.
+  for (const purpose of ['prefetch', 'prefetch;prerender']) expect(await (await handle(at('/', 'GB', { ...en, 'sec-purpose': purpose }), e)).text()).toContain('lang="en"')
+  expect(points).toHaveLength(1)
+  // Its links keep the address's query for the page they lead to.
+  expect(await (await handle(at('/?utm_source=x&a=1', 'GB', en), e)).text()).toContain('href="/?lang=th&amp;utm_source=x&amp;a=1"')
+  points.length = 1
+  // The pick: Indonesian or Thai, that language's home; Vietnamese, the home page itself (never back to the chooser,
+  // whose test a lost cookie would fail again); remembered as the language menu does, counted by country.
+  const id = await handle(at('/?lang=id&utm_source=x', 'GB', en), e)
+  expect([id.status, id.headers.get('location'), id.headers.get('set-cookie')]).toEqual([302, '/id/?utm_source=x', 'aq_lang=id; Path=/; Max-Age=31536000; SameSite=Lax; Secure'])
+  expect(points.at(-1)).toEqual({ blobs: ['', 'lang', '/?lang=id', '', '', 'GB'], doubles: [1], indexes: ['GB'] })
+  const vi = await handle(at('/?lang=vi', 'US', en), e)
+  expect([vi.status, await vi.text(), vi.headers.get('set-cookie')]).toEqual([200, PAGE, 'aq_lang=vi; Path=/; Max-Age=31536000; SameSite=Lax; Secure'])
+  expect(points.at(-1)).toEqual({ blobs: ['', 'lang', '/?lang=vi', '', '', 'US'], doubles: [1], indexes: ['US'] })
+  // A crawler's pick isn't counted; a language not ours is no pick.
+  await handle(at('/?lang=th', 'GB', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }), e)
+  expect(points).toHaveLength(3)
+  expect(await (await handle(at('/?lang=fr', 'GB', en), e)).text()).toContain('lang="en"')
 })
 
 test('hide a page from the dashboard: 410 for HTML, markdown and index.*; unhide brings it back', async () => {
@@ -446,7 +501,7 @@ test("the iOS app's association: its passkeys are this site's (webcredentials), 
   expect(await r.json()).toEqual({ webcredentials: { apps: ['Q783W6B4FA.com.aquatome.app'] } })
 })
 
-test('kept fish-ID photos: only the owner sees them, each image and its result, and deletes one; a reader or the app gets nothing', async () => {
+test('kept fish-ID photos: only the owner sees them (the page, or the app\'s session), each image and its result, and deletes one; a reader gets nothing', async () => {
   const { db, owner, reader, app } = await signedIn()
   const r2 = memoryR2()
   const id = crypto.randomUUID()
@@ -461,8 +516,9 @@ test('kept fish-ID photos: only the owner sees them, each image and its result, 
   expect(html.indexOf(anon)).toBeLessThan(html.indexOf(id)) // newest first
   const img = await handle(get(`/_ab/anh-nhan-dien/anh/reader-1/${id}`, { ...browser, cookie: owner }), e)
   expect([img.status, img.headers.get('content-type'), [...new Uint8Array(await img.arrayBuffer())]]).toEqual([200, 'image/jpeg', [0xff, 0xd8, 1]])
-  for (const h of [browser, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }]) {
-    expect((await handle(get(`/_ab/anh-nhan-dien/anh/reader-1/${id}`, h), e)).status).toBe(404)
+  for (const h of [browser, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }] as Record<string, string>[]) {
+    // The owner's app shows the image (owner-api.ts lists it); only the page's cookie posts its form.
+    expect((await handle(get(`/_ab/anh-nhan-dien/anh/reader-1/${id}`, h), e)).status).toBe(h.authorization ? 200 : 404)
     expect((await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: h, body: new URLSearchParams({ who: 'reader-1', id }) }), e)).status).toBe(404)
   }
   const del = await handle(new Request('https://x.test/_ab/anh-nhan-dien/xoa', { method: 'POST', headers: { ...browser, cookie: owner }, body: new URLSearchParams({ who: 'anon', id: anon }) }), e)

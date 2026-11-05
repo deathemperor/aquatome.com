@@ -1,0 +1,114 @@
+{
+  "id": "youtube-2beOiIgBvUM",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=2beOiIgBvUM",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-04",
+  "video": {
+    "youtubeId": "2beOiIgBvUM",
+    "title": "HOW TO: Build A Large Aquarium 1/6",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 559,
+    "publishedAt": "2012-11-04",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mZTx530PSxoM9BEE0TbU6HX",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/2beOiIgBvUM/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Bể ví dụ to cỡ nào và làm bằng gì",
+        "moments": [
+          {
+            "t": 5,
+            "url": "https://media.aquatome.com/video/2beOiIgBvUM/t5.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Bể kính vuông lớn đặt trên đáy gỗ ép, nhìn từ phía trước."
+          },
+          {
+            "t": 15,
+            "url": "https://media.aquatome.com/video/2beOiIgBvUM/t15.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Người nằm trong bể cho thấy bể rộng cỡ nào, vách kính thấp."
+          }
+        ]
+      },
+      {
+        "heading": "Đặt bể lớn ở đâu trong nhà",
+        "moments": [
+          {
+            "t": 499,
+            "url": "https://media.aquatome.com/video/2beOiIgBvUM/t499.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Hành lang tầng hầm dẫn vào căn phòng trống định đặt bể."
+          },
+          {
+            "t": 509,
+            "url": "https://media.aquatome.com/video/2beOiIgBvUM/t509.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Căn phòng trống trong tầng hầm được dành riêng để đặt bể lớn."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/2beOiIgBvUM/p1-RNLDJBLTM3LnRpZg.webp",
+          "thumb": "https://media.aquatome.com/video/2beOiIgBvUM/p1-RNLDJBLTM3LnRpZg-480.webp",
+          "width": 960,
+          "height": 1201,
+          "licence": "Public domain",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Basement,_storage_room_beneath_southeast_plinth_at_main_stairway,_view_to_south_-_Portsmouth_Naval_Hospital,_Hospital_Building,_Rixey_Place,_bounded_by_Williamson_Drive,_Holcomb_HABS_VA,65-PORTM,2A-37.tif",
+          "caption": "Một phòng trống dưới tầng hầm với tường đá, có thể dành riêng cho bể lớn."
+        }
+      },
+      {
+        "heading": "Nghĩ trước chuyện phải dời bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/2beOiIgBvUM/p2-Vy1FeHBvcnQucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/2beOiIgBvUM/p2-Vy1FeHBvcnQucG5n-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY 4.0",
+          "author": "PantheraLeo1359531",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Folterkeller_des_Rathauses_Hof_20250307_HOF5118_RAW-Export.png",
+          "caption": "Cầu thang hẹp, dốc xuống tầng hầm, khó đưa bể lớn đi qua."
+        }
+      },
+      {
+        "heading": "Những phần cần tính tiếp",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/2beOiIgBvUM/p5-FuZF9zaGltLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/2beOiIgBvUM/p5-FuZF9zaGltLmpwZw-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 3.0",
+          "author": "SuperBlobMonster",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Epoxy_and_shim.jpg",
+          "caption": "Keo epoxy hai thành phần đặt trên tấm gỗ ép, dùng để chống thấm."
+        }
+      }
+    ]
+  }
+}
