@@ -21,8 +21,7 @@ export const isViPage = (path: string) => {
 }
 
 /**
- * Apple's return address for the web's sign-in, in each language: a URL its Services ID lists (the tanks page). The
- * Vietnamese one is listed by its old address, and Apple's popup only checks that the address is listed, so it stays
- * until https://aquatome.com/cong-cu/be-cua-toi/ is added there too.
+ * Apple's return address for the web's sign-in, in each language: the tanks page, as its Services ID (com.aquatome.web)
+ * lists it. Apple refuses an address it doesn't list.
  */
-export const APPLE_RETURN = { vi: '/vi/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/' } as const
+export const APPLE_RETURN = { vi: '/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/' } as const
