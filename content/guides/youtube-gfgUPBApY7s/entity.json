@@ -25,6 +25,123 @@
       "height": 720
     },
     "taxa": [],
-    "gear": []
+    "gear": [],
+    "figures": [
+      {
+        "heading": "Vì sao dùng báo khói",
+        "moments": [
+          {
+            "t": 84,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t84.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Cận cảnh báo khói cũ, nhìn rõ thân còi tròn."
+          },
+          {
+            "t": 89,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t89.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ngón tay bấm nút test trên báo khói để còi kêu."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/gfgUPBApY7s/p0-ZXR0Xy1fMDMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/gfgUPBApY7s/p0-ZXR0Xy1fMDMuanBn-480.webp",
+          "width": 960,
+          "height": 1283,
+          "licence": "CC BY-SA 4.0",
+          "author": "Andy Mabbett",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:FireAngel_smoke_detector_system_-_2021-07-07_-_Andy_Mabbett_-_03.jpg",
+          "caption": "Báo khói có nút test ở mặt trước, loại dễ kiếm để tận dụng cái còi."
+        }
+      },
+      {
+        "heading": "Nút test hoạt động thế nào",
+        "moments": [
+          {
+            "t": 108,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t108.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bên trong báo khói: pin 9V, bộ cảm biến và còi."
+          },
+          {
+            "t": 138,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t138.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Mặt sau bo mạch với các đường mạch cần lần theo."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/gfgUPBApY7s/p1-hcmQtOTc2MS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/gfgUPBApY7s/p1-hcmQtOTc2MS5qcGc-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Raimond Spekking",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eyston_SD-191H_-_board-9761.jpg",
+          "caption": "Bên trong báo khói: mạch điện, còi và dây pin nhìn khá đơn giản."
+        }
+      },
+      {
+        "heading": "Các bước làm",
+        "moments": [
+          {
+            "t": 197,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t197.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Mạch còi báo đã tháo khỏi vỏ, có dây điện mảnh gắn vào."
+          },
+          {
+            "t": 207,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t207.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Vỏ còi được mở ra, để lộ các bộ phận bên trong."
+          }
+        ]
+      },
+      {
+        "heading": "Dùng để báo đầy khi thay nước",
+        "moments": [
+          {
+            "t": 256,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t256.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Còi báo gắn lên thành bể, hai sợi dây vắt qua mép bể."
+          },
+          {
+            "t": 261,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t261.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Mặt sau còi báo hút vào kính bể bằng núm hút."
+          }
+        ]
+      },
+      {
+        "heading": "Dùng để báo rò rỉ",
+        "moments": [
+          {
+            "t": 281,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t281.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Còi báo đặt cạnh miếng đệm nhỏ, chuẩn bị làm cảm biến rò rỉ."
+          },
+          {
+            "t": 296,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t296.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Còi báo mở nắp, thấy mạch bên trong và hai sợi dây kéo ra."
+          }
+        ]
+      }
+    ]
   }
 }

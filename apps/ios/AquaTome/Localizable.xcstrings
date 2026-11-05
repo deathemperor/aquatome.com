@@ -3073,6 +3073,22 @@
         }
       }
     },
+    "Gửi ảnh khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim foto lain"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรูปภาพอื่น"
+          }
+        }
+      }
+    },
     "Halloween": {
       "localizations": {
         "id": {
@@ -7009,6 +7025,22 @@
         }
       }
     },
+    "Đang chuẩn bị ảnh…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menyiapkan foto…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังเตรียมภาพ…"
+          }
+        }
+      }
+    },
     "Đang dùng": {
       "localizations": {
         "id": {
@@ -8193,6 +8225,22 @@
         }
       }
     },
+    "Đăng với tên %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Posting sebagai %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โพสต์ในชื่อ %@"
+          }
+        }
+      }
+    },
     "Đăng xuất": {
       "localizations": {
         "id": {
@@ -8349,6 +8397,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "นาฬิกาของโคมไฟตรงเวลา"
+          }
+        }
+      }
+    },
+    "Đổi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ubah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปลี่ยน"
+          }
+        }
+      }
+    },
+    "Đổi tên": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ubah nama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปลี่ยนชื่อ"
           }
         }
       }

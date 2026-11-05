@@ -419,7 +419,7 @@ Cá Labiobarbus siamensis hợp với người đã có bể lớn và muốn nu
 Kiểm tra:
 - "phải nuôi theo đàn": the page only says the fish "nên nuôi theo đàn" (should be kept in a group). The summary turns this recommendation into a requirement.
 
-## Cá Laetacara dorsigera (Laetacara dorsigera)
+## Cá acara ngực đỏ (Laetacara dorsigera)
 id: `laetacara-dorsigera`
 
 Cá Laetacara dorsigera là cichlid lùn gốc Paraguay, trưởng thành dài 8 cm. Hợp với người thích cichlid nhỏ, màu đẹp, nhất là lúc vào độ sinh sản khi họng chuyển tím hoa cà. Hồ sơ không nêu thông số nước hay bể tối thiểu, và cá trên thị trường là cá bắt ngoài tự nhiên nên cần cân nhắc kỹ trước khi mua.

@@ -37,6 +37,40 @@
       "sources": [
         "glaser",
         "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The wild species is very widespread in South America (the entire upper and middle basins of the Amazon and Orinoco: Bolivia, Brazil, Ecuador, Peru, Colombia and Venezuela), but is hardly ever imported from there.",
+          "countries": [
+            "BO",
+            "BR",
+            "EC",
+            "PE",
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The true P. gibbiceps, L165, is rarely imported and is from the Rio Negro (Brazil).",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "There is a wide distribution and colour variants in Brazil and Peru for this species including L083 and L313 from Brazil, Pará, Rio Xingu (south and floodplain lakes at Altamira), and L164 from the Rio Tefé, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Xingu"
+          ]
+        }
       ]
     },
     "records": {
