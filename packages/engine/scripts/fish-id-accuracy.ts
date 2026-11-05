@@ -10,6 +10,12 @@
  *   pnpm --filter @aq/engine exec tsx scripts/fish-id-accuracy.ts --dry-run --n 20          # a fake Claude, no key
  *   pnpm --filter @aq/engine exec tsx scripts/fish-id-accuracy.ts                           # 200 photos × 3 models
  *   … --models claude-haiku-5-5,claude-sonnet-5-5 --n 100 --seed 2 --concurrency 4 --keys <file> --out <file>
+ *   … --models claude-opus-5-5 --agent --max-turns 3,2   # today's call, then the agent (apps/site/worker/fishid/agent.ts)
+ *
+ * --agent: each model also runs as the agent the Worker runs with FISH_ID_AGENT on, on the same photos, its tools over
+ * content/ (the catalog and the facts the build would write), with the test photo itself left out of the reference
+ * photos it is shown. --max-turns: the turns it may use tools in before its answer is forced, one row each (3: the
+ * Worker's 4 calls; 2: one search and one look, then the answer).
  *
  * Keys: ~/.config/aquatome/anthropic-keys (or --keys), the Worker's ANTHROPIC_KEYS format: one per line, `<key>` or
  * `<key> <workspaceId>`. Never printed: the report and the log name a key by its hash only. Writes
@@ -20,9 +26,12 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import sharp from 'sharp'
-import { loadAll } from '@aq/schema'
+import { loadAll, type Photo } from '@aq/schema'
+import { smallSrc } from '../../../apps/site/src/lib/img'
+import { identifyWithAgent, type AgentOutcome } from '../../../apps/site/worker/fishid/agent'
 import { askClaude, costOf, readAnswer, type Answer } from '../../../apps/site/worker/fishid/claude'
 import { buildCatalog, type Catalog, type CatalogEntry } from '../../../apps/site/worker/fishid/catalog'
+import { buildFacts, type Facts } from '../../../apps/site/worker/fishid/facts'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
 import { matchGuesses, type Result } from '../../../apps/site/worker/fishid/match'
 import { JPEG_QUALITY, MAX_SIDE } from '../../../apps/site/worker/fishid/photo'
@@ -38,6 +47,8 @@ const { values: args } = parseArgs({
     concurrency: { type: 'string', default: '4' },
     keys: { type: 'string', default: join(homedir(), '.config/aquatome/anthropic-keys') },
     out: { type: 'string' },
+    agent: { type: 'boolean', default: false },
+    'max-turns': { type: 'string', default: '3' },
     'dry-run': { type: 'boolean', default: false },
   },
 })
@@ -46,6 +57,9 @@ const MODELS = args.models!.split(',').map(s => s.trim()).filter(Boolean)
 const N = Number(args.n)
 const SEED = Number(args.seed)
 const OUT = args.out ?? (DRY ? '/tmp/fish-id-accuracy.dry-run.md' : join(ROOT, 'docs/review/fish-id-accuracy.md'))
+/** The runs per model: today's single call, then the agent at each --max-turns. */
+type Mode = { label: string; turns?: number }
+const MODES: Mode[] = [{ label: '' }, ...(args.agent ? args['max-turns']!.split(',').map(Number).filter(n => n > 0).map(n => ({ label: `agent, ${n + 1} calls`, turns: n })) : [])]
 
 /** A small seeded generator (mulberry32): the same seed picks the same photos. */
 function rng(seed: number) {
@@ -59,7 +73,8 @@ function rng(seed: number) {
 }
 const readJson = async <T>(p: string): Promise<T | undefined> => JSON.parse(await readFile(p, 'utf8').catch(() => 'null')) ?? undefined
 
-type Sample = { id: string; kind: 'species' | 'breed'; url: string; why: 'breed' | 'popular' | 'random' }
+/** `thumb`: the photo's own small copy, which the agent must never be shown as a reference photo either. */
+type Sample = { id: string; kind: 'species' | 'breed'; url: string; thumb: string; why: 'breed' | 'popular' | 'random' }
 type Verdicts = Record<string, Record<string, { ok?: string; typical?: boolean }>>
 
 /** One typical photo per page, as described at the top. */
@@ -70,11 +85,13 @@ async function pickPhotos(catalog: Catalog): Promise<Sample[]> {
   for (const kind of ['species', 'breeds'] as const) {
     for (const id of (await readdir(join(ROOT, 'content', kind)).catch(() => [] as string[])).sort()) {
       if (!catalog.entries.some(e => e.id === id)) continue
-      const entity = await readJson<{ photos?: { url: string }[] }>(join(ROOT, 'content', kind, id, 'entity.json'))
-      const gallery = await readJson<{ photos?: { url: string }[] }>(join(ROOT, 'content/gallery', `${id}.json`))
-      const urls = [...new Set([...(entity?.photos ?? []), ...(gallery?.photos ?? [])].map(p => p.url))]
+      const entity = await readJson<{ photos?: Photo[] }>(join(ROOT, 'content', kind, id, 'entity.json'))
+      const gallery = await readJson<{ photos?: Photo[] }>(join(ROOT, 'content/gallery', `${id}.json`))
+      const all = [...(entity?.photos ?? []), ...(gallery?.photos ?? [])]
+      const urls = [...new Set(all.map(p => p.url))]
       const good = urls.filter(u => verdicts[u]?.[id]?.ok === 'yes' && verdicts[u]?.[id]?.typical === true)
-      if (good.length) pages.set(id, { id, kind: kind === 'species' ? 'species' : 'breed', url: good[Math.floor(random() * good.length)]!, why: 'random' })
+      const url = good.length ? good[Math.floor(random() * good.length)]! : undefined
+      if (url) pages.set(id, { id, kind: kind === 'species' ? 'species' : 'breed', url, thumb: smallSrc(all.find(p => p.url === url)!), why: 'random' })
     }
   }
   const out: Sample[] = []
@@ -99,24 +116,30 @@ async function prepare(url: string): Promise<string> {
 
 /**
  * The dry run's Claude: a fetch that answers like the API, from the known answer, right most of the time, sometimes
- * second, sometimes wrong, unclear or refused, so every column of the report gets numbers.
+ * second, sometimes wrong, unclear or refused, so every column of the report gets numbers. Asked as the agent (tools in
+ * the request), it searches for the right name, opens the right page, then answers with its id.
  */
 function fakeClaude(expected: CatalogEntry, base: CatalogEntry | undefined, roll: number): typeof fetch {
   const english = (expected.name.vi.match(/\(([^)]+)\)\s*$/)?.[1] ?? expected.name.vi)
   const right = { scientificName: (expected.sci ?? base?.sci) ?? 'Hybrid', commonName: expected.kind === 'breed' ? english : 'Fish', variety: null, confidence: 0.85, reason: 'Hình dáng và màu sắc khớp.' }
   const wrong = { scientificName: 'Danio rerio', commonName: 'Zebrafish', variety: null, confidence: 0.6, reason: 'Sọc ngang.' }
   const answer = roll < 0.65 ? { verdict: 'fish', guesses: [right] } : roll < 0.8 ? { verdict: 'fish', guesses: [wrong, { ...right, confidence: 0.3 }] } : roll < 0.9 ? { verdict: 'fish', guesses: [wrong] } : roll < 0.95 ? { verdict: 'unclear', guesses: [] } : null
-  return (async () => {
+  const reply = (stop: string, content: unknown[], usage: Record<string, number>) => Response.json({ id: 'msg_dry', type: 'message', role: 'assistant', model: 'dry-run', stop_sequence: null, stop_reason: stop, content, usage })
+  return (async (_: RequestInfo | URL, init?: RequestInit) => {
     await new Promise(r => setTimeout(r, 5))
-    return Response.json({
-      id: 'msg_dry', type: 'message', role: 'assistant', model: 'dry-run', stop_sequence: null,
-      stop_reason: answer ? 'end_turn' : 'refusal', content: [{ type: 'text', text: answer ? JSON.stringify(answer) : 'No.' }],
-      usage: { input_tokens: 1700, output_tokens: 160 },
-    })
+    const body = JSON.parse(String(init?.body ?? '{}')) as { tools?: unknown[]; tool_choice?: { type: string }; messages: unknown[] }
+    if (body.tools && body.tool_choice?.type !== 'none' && body.messages.length < 5) {
+      const turn = (body.messages.length - 1) / 2
+      const use = turn === 0 ? { name: 'search_handbook', input: { query: right.scientificName, genus: null } } : { name: 'get_entry', input: { id: expected.id } }
+      return reply('tool_use', [{ type: 'tool_use', id: `toolu_dry_${turn}`, ...use }], { input_tokens: 300, output_tokens: 120, cache_read_input_tokens: 1700 * turn, cache_creation_input_tokens: 1700 })
+    }
+    const agentAnswer = answer && body.tools ? { ...answer, guesses: answer.guesses.map(g => ({ ...g, id: g === right ? expected.id : null })) } : answer
+    return reply(answer ? 'end_turn' : 'refusal', [{ type: 'text', text: answer ? JSON.stringify(agentAnswer) : 'No.' }], { input_tokens: 1700, output_tokens: 160 })
   }) as typeof fetch
 }
 
-type Outcome = { sample: Sample; ms?: number; answer?: Answer; results?: Result[]; failed?: string; cost?: number }
+/** One photo's run; the agent's also has its calls, tool calls, photos shown and why it stopped. */
+type Outcome = { sample: Sample; ms?: number; answer?: Answer; results?: Result[]; failed?: string; cost?: number; agent?: Pick<AgentOutcome, 'calls' | 'tools' | 'photos' | 'stopped'> & { cacheRead: number; input: number } }
 async function pool<T, R>(items: T[], n: number, fn: (t: T, i: number) => Promise<R>): Promise<R[]> {
   const out: R[] = new Array(items.length)
   let next = 0
@@ -132,6 +155,8 @@ async function main() {
   const content = await loadAll({ root: join(ROOT, 'content'), lang: 'vi', publicBuild: true })
   const catalog = buildCatalog([{ lang: 'vi', pages: content, at: p => p }], p => p.url)
   const byId = new Map(catalog.entries.map(e => [e.id, e]))
+  // The facts the build would write (one photo more, so leaving the test photo out still leaves two).
+  const facts = new Map(buildFacts(catalog, content, smallSrc, { gallery: id => content.galleries[id] ?? [], count: 3 }).map(f => [f.id, f] as [string, Facts]))
   const samples = await pickPhotos(catalog)
   console.log(`${samples.length} photos: ${samples.filter(s => s.why === 'breed').length} breeds, ${samples.filter(s => s.why === 'popular').length} popular species, ${samples.filter(s => s.why === 'random').length} random (seed ${SEED})${DRY ? ', dry run' : ''}`)
 
@@ -145,30 +170,52 @@ async function main() {
   const photoOf = (url: string) => photos.get(url) ?? photos.set(url, prepare(url)).get(url)!
   const results = new Map<string, Outcome[]>()
   for (const model of MODELS) {
-    const roll = rng(SEED * 1000 + MODELS.indexOf(model))
-    const rolls = samples.map(() => roll())
-    const outs = await pool(samples, Number(args.concurrency), async (sample, i): Promise<Outcome> => {
-      const expected = byId.get(sample.id)!
-      let data: string
-      try { data = await photoOf(sample.url) } catch (e) { return { sample, failed: (e as Error).message } }
-      const healthy = await healthyKeys(keys, store, Date.now())
-      const fake = DRY ? fakeClaude(expected, expected.basedOn ? byId.get(expected.basedOn) : undefined, rolls[i]!) : undefined
-      const t = Date.now()
-      const r = await rotate(healthy, store, (key, timeoutMs) => askClaude(key, { data, type: 'image/jpeg' }, { model, lang: 'vi', timeoutMs: Math.min(timeoutMs, 60_000), fetch: fake }), { budgetMs: 90_000 })
-      const ms = Date.now() - t
-      for (const a of r.attempts) if (a.status || a.marked) console.log(`  ${model} key ${a.hash}: ${a.status ?? 'network'}${a.marked ? ` → set aside (${a.marked})` : ''}`)
-      if (!r.ok) return { sample, ms, failed: r.reason }
-      try {
-        const answer = readAnswer(r.value)
-        const cost = costOf(model, answer.usage)
-        return { sample, ms, answer, cost, results: answer.refused ? [] : matchGuesses(answer.id.guesses, catalog, 'vi') }
-      } catch (e) {
-        return { sample, ms, failed: (e as Error).message.slice(0, 60) }
-      }
-    })
-    results.set(model, outs)
-    const done = outs.filter(o => !o.failed)
-    console.log(`${model}: ${done.length}/${outs.length} answered, top-1 ${pct(done.filter(o => o.results?.[0]?.page?.id === o.sample.id).length, outs.length)}`)
+    for (const mode of MODES) {
+      const roll = rng(SEED * 1000 + MODELS.indexOf(model))
+      const rolls = samples.map(() => roll())
+      const outs = await pool(samples, Number(args.concurrency), async (sample, i): Promise<Outcome> => {
+        const expected = byId.get(sample.id)!
+        let data: string
+        try { data = await photoOf(sample.url) } catch (e) { return { sample, failed: (e as Error).message } }
+        const healthy = await healthyKeys(keys, store, Date.now())
+        const fake = DRY ? fakeClaude(expected, expected.basedOn ? byId.get(expected.basedOn) : undefined, rolls[i]!) : undefined
+        const t = Date.now()
+        if (mode.turns) {
+          const a = await identifyWithAgent({
+            healthy, store, photo: { data, type: 'image/jpeg' }, model, lang: 'vi', fetch: fake, limits: { calls: mode.turns + 1 },
+            tools: { catalog, facts: async id => facts.get(id), exclude: src => src === sample.thumb || src === sample.url },
+          }).catch((e: Error) => e)
+          const ms = Date.now() - t
+          if (a instanceof Error) return { sample, ms, failed: a.message.slice(0, 60) }
+          for (const x of a.attempts) if (x.status || x.marked) console.log(`  ${model} key ${x.hash}: ${x.status ?? 'network'}${x.marked ? ` → set aside (${x.marked})` : ''}`)
+          const agent = { calls: a.calls, tools: a.tools, photos: a.photos, stopped: a.stopped, cacheRead: a.spent.cacheRead, input: a.spent.input + a.spent.cacheRead + a.spent.cacheWrite }
+          const cost = costOf(model, a.spent)
+          if (!a.ok) return { sample, ms, failed: a.reason, cost, agent }
+          try {
+            const answer = readAnswer(a.message)
+            return { sample, ms, answer, cost, agent, results: answer.refused ? [] : matchGuesses(answer.id.guesses, catalog, 'vi') }
+          } catch (e) {
+            return { sample, ms, failed: (e as Error).message.slice(0, 60), cost, agent }
+          }
+        }
+        const r = await rotate(healthy, store, (key, timeoutMs) => askClaude(key, { data, type: 'image/jpeg' }, { model, lang: 'vi', timeoutMs: Math.min(timeoutMs, 60_000), fetch: fake }), { budgetMs: 90_000 })
+        const ms = Date.now() - t
+        for (const a of r.attempts) if (a.status || a.marked) console.log(`  ${model} key ${a.hash}: ${a.status ?? 'network'}${a.marked ? ` → set aside (${a.marked})` : ''}`)
+        if (!r.ok) return { sample, ms, failed: r.reason }
+        try {
+          const answer = readAnswer(r.value)
+          const cost = costOf(model, answer.usage)
+          return { sample, ms, answer, cost, results: answer.refused ? [] : matchGuesses(answer.id.guesses, catalog, 'vi') }
+        } catch (e) {
+          return { sample, ms, failed: (e as Error).message.slice(0, 60) }
+        }
+      })
+      const name = mode.label ? `${model}, ${mode.label}` : model
+      results.set(name, outs)
+      const done = outs.filter(o => !o.failed)
+      const spent = outs.reduce((a, o) => a + (o.cost ?? 0), 0)
+      console.log(`${name}: ${done.length}/${outs.length} answered, top-1 ${pct(done.filter(o => o.results?.[0]?.page?.id === o.sample.id).length, outs.length)}, median ${(median(done.map(o => o.ms!)) / 1000).toFixed(1)} s, $${spent.toFixed(2)} spent`)
+    }
   }
   await writeFile(OUT, report(results, samples, byId))
   console.log(`Written: ${OUT}`)
@@ -185,11 +232,14 @@ function report(results: Map<string, Outcome[]>, samples: Sample[], byId: Map<st
     '- **Top-1 / top-3:** the right page is the first guess\'s / one of the guesses\' (a breed\'s page for a breed).',
     '- **Breed\'s species:** for breed photos, the guess named the species the breed is a form of, or the breed.',
     '- **Not a fish / can\'t tell:** verdicts "other" and "unclear" (refusals counted as can\'t tell), on photos that all show a fish.',
-    '- **Cost:** response usage × list price (models.md, 2026-11), per 1,000 photos.',
+    '- **Cost:** response usage × list price (models.md and prompt-caching.md, 2026-11; the agent\'s cache reads and writes at theirs), every call of every photo, per 1,000 photos.',
+    '- **Latency:** from the first call to the answer, on this machine (the agent\'s tools read content/ here, the Worker\'s its assets).',
+    ...(MODES.length > 1 ? ['- **Agent:** the agent the Worker runs with `FISH_ID_AGENT` on (apps/site/worker/fishid/agent.ts), its tools over content/, the test photo itself never among its reference photos. *Calls · tools · photos*: per photo, on average. *Stopped*: how many answered when Claude chose / were forced by the calls, tool-call, time or token limit / fell back to today\'s single call.'] : []),
     '',
-    '| Model | Answered | Top-1 | Top-3 | Breed\'s species | Not a fish | Can\'t tell | Failed | Median latency | Cost / 1,000 |',
-    '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |',
+    '| Run | Answered | Top-1 | Top-3 | Breed\'s species | Not a fish | Can\'t tell | Failed | Median latency | p95 latency | Cost / 1,000 |',
+    '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |',
   ]
+  const p95 = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.ceil(0.95 * s.length) - 1)]! : NaN }
   for (const [model, outs] of results) {
     const done = outs.filter(o => !o.failed)
     const top1 = outs.filter(o => o.results?.[0]?.page?.id === o.sample.id).length
@@ -199,9 +249,25 @@ function report(results: Map<string, Outcome[]>, samples: Sample[], byId: Map<st
     const breedSpecies = breeds.filter(o => o.results?.some(r => r.page?.id === o.sample.id || (r.species ?? r.page)?.id === base(o.sample.id))).length
     const other = done.filter(o => !o.answer?.refused && o.answer?.id.verdict === 'other').length
     const unclear = done.filter(o => o.answer?.refused || o.answer?.id.verdict === 'unclear').length
-    const costs = done.map(o => o.cost).filter((c): c is number => c !== undefined)
-    const per1000 = costs.length ? `$${((costs.reduce((a, b) => a + b, 0) / costs.length) * 1000).toFixed(2)}` : '–'
-    lines.push(`| ${model} | ${done.length}/${outs.length} | ${pct(top1, outs.length)} | ${pct(top3, outs.length)} | ${breeds.length ? pct(breedSpecies, breeds.length) : '–'} | ${pct(other, done.length)} | ${pct(unclear, done.length)} | ${outs.length - done.length} | ${(median(done.map(o => o.ms!)) / 1000).toFixed(1)} s | ${per1000} |`)
+    const costs = outs.map(o => o.cost).filter((c): c is number => c !== undefined)
+    const per1000 = costs.length ? `$${((costs.reduce((a, b) => a + b, 0) / outs.length) * 1000).toFixed(2)}` : '–'
+    const timed = outs.filter(o => o.ms !== undefined).map(o => o.ms!)
+    lines.push(`| ${model} | ${done.length}/${outs.length} | ${pct(top1, outs.length)} | ${pct(top3, outs.length)} | ${breeds.length ? pct(breedSpecies, breeds.length) : '–'} | ${pct(other, done.length)} | ${pct(unclear, done.length)} | ${outs.length - done.length} | ${(median(done.map(o => o.ms!)) / 1000).toFixed(1)} s | ${(p95(timed) / 1000).toFixed(1)} s | ${per1000} |`)
+  }
+  const agents = [...results].filter(([, outs]) => outs.some(o => o.agent))
+  if (agents.length) {
+    lines.push('', '## The agent', '', '| Run | Calls · tools · photos | Stopped: answer / calls / tools / time / tokens / fallback | Input read from cache | Top-1 against today\'s call: fixed / broken |', '| --- | ---: | --- | ---: | ---: |')
+    const top1 = (o: Outcome | undefined) => o?.results?.[0]?.page?.id === o?.sample.id
+    for (const [name, outs] of agents) {
+      const a = outs.flatMap(o => (o.agent ? [o.agent] : []))
+      const mean = (f: (x: (typeof a)[number]) => number) => (a.reduce((t, x) => t + f(x), 0) / Math.max(1, a.length)).toFixed(1)
+      const stops = (['answer', 'calls', 'tools', 'time', 'tokens', 'fallback'] as const).map(k => a.filter(x => x.stopped === k).length).join(' / ')
+      const read = a.reduce((t, x) => t + x.cacheRead, 0) / Math.max(1, a.reduce((t, x) => t + x.input, 0))
+      const single = results.get(name.split(', ')[0]!)
+      const fixed = single ? outs.filter((o, i) => top1(o) && !top1(single[i])).length : 0
+      const broken = single ? outs.filter((o, i) => !top1(o) && top1(single[i])).length : 0
+      lines.push(`| ${name} | ${mean(x => x.calls)} · ${mean(x => x.tools)} · ${mean(x => x.photos)} | ${stops} | ${(100 * read).toFixed(0)}% | ${single ? `${fixed} / ${broken}` : '–'} |`)
+    }
   }
   for (const [model, outs] of results) {
     // The worst: misses Claude was surest of first, then the photos it couldn't name.

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { fishIdTools, searchCatalog } from '../fishid/agent-tools'
+import { fishIdTools, pageOf, searchCatalog } from '../fishid/agent-tools'
 import type { Catalog } from '../fishid/catalog'
 import { buildFacts, cut, shardFacts, TEXT_MAX, type Facts } from '../fishid/facts'
 
@@ -53,9 +53,22 @@ test('get_entry: a species\' facts and two photos; a breed with what it is a for
   expect(breed[0]!.text).toMatch(/^halfmoon-betta \(breed\): Cá betta Halfmoon \(Halfmoon betta\)\nA form of: betta-splendens\nAlso called: Betta HM\nSources: Đuôi xòe 180 độ\.\nReference photos: 1, below\.$/)
   const none = await entry.run({ id: 'paracheirodon-innesi' }, { photosLeft: 6 }) as Block[]
   expect(none).toEqual([{ type: 'text', text: expect.stringMatching(/Reference photos: none on this page\.$/) }])
-  await expect(entry.run({ id: 'neon' }, { photosLeft: 6 })).rejects.toThrow(/No page with id "neon"/)
+  await expect(entry.run({ id: 'neon' }, { photosLeft: 6 })).rejects.toThrow(/No page for "neon"/)
   expect(entry.step!({ id: 'neon' })).toBeUndefined()
   expect(entry.step!({ id: 'paracheirodon-innesi' })).toEqual({ kind: 'look', page: { id: 'paracheirodon-innesi', kind: 'species', name: 'Cá neon xanh', sci: 'Paracheirodon innesi', url: '/vi/ca/ca-neon-xanh/' } })
+})
+
+test('get_entry opens a page by its id, or by a species\' or plant\'s scientific name or synonym, so Claude needn\'t search first; never a breed by name, never a genus alone', async () => {
+  expect(pageOf(CATALOG, 'betta-splendens')?.id).toBe('betta-splendens')
+  expect(pageOf(CATALOG, 'Betta splendens')?.id).toBe('betta-splendens')
+  expect(pageOf(CATALOG, 'betta splendens (Regan, 1910)')?.id).toBe('betta-splendens')
+  expect(pageOf(CATALOG, 'Ammannia rotundifolia')?.id).toBe('rotala-rotundifolia')
+  expect(pageOf(CATALOG, 'Betta')).toBeUndefined()
+  expect(pageOf(CATALOG, 'Betta brownorum')).toBeUndefined()
+  expect(pageOf(CATALOG, 'halfmoon-betta')?.id).toBe('halfmoon-betta')
+  const { entry } = tools()
+  expect((await entry.run({ id: 'Betta splendens' }, { photosLeft: 6 }) as Block[])[0]!.text).toMatch(/^betta-splendens \(species\)/)
+  expect(entry.step!({ id: 'Paracheirodon innesi' })).toMatchObject({ kind: 'look', page: { id: 'paracheirodon-innesi' } })
 })
 
 test('get_entry: only the photos left in the identification, then facts only; a photo it must never show is left out', async () => {

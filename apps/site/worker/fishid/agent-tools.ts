@@ -80,8 +80,22 @@ export type ToolDeps = {
   exclude?: (src: string) => boolean
 }
 
+/**
+ * The page get_entry opens: by its id, else by a scientific name or synonym that is a species' or plant's own (the
+ * whole name, else its binomial), so Claude can open its candidates in its first turn without searching for their ids.
+ */
+export function pageOf(c: Catalog, key: string): CatalogEntry | undefined {
+  const byId = new Map(c.entries.map(e => [e.id, e]))
+  const hit = byId.get(key.trim())
+  if (hit) return hit
+  const k = sciKey(key)
+  if (!k.binomial.includes(' ')) return undefined
+  const named = c.entries.filter(e => e.kind !== 'breed' && [e.sci, ...(e.syn ?? [])].some(n => n && sciKey(n).full === k.full))
+  if (named.length) return named[0]
+  return c.entries.find(e => e.kind !== 'breed' && [e.sci, ...(e.syn ?? [])].some(n => n && sciKey(n).binomial === k.binomial && sciKey(n).full === sciKey(n).binomial))
+}
+
 export function fishIdTools(d: ToolDeps): Tool<Step>[] {
-  const byId = new Map(d.catalog.entries.map(e => [e.id, e]))
   const nullable = (description: string) => ({ type: ['string', 'null'], description })
   const search: Tool<Step> = {
     name: 'search_handbook',
@@ -104,22 +118,22 @@ export function fishIdTools(d: ToolDeps): Tool<Step>[] {
   }
   const entry: Tool<Step> = {
     name: 'get_entry',
-    description: 'Open one handbook page by its id (from search_handbook): its facts (family, adult size, where it comes from, what its sources say about its look and the sexes) and up to two reference photos of it, while the identification has photos left.',
+    description: 'Open one handbook page by its scientific name (a species or plant) or by its id (from search_handbook, needed for a breed): its facts (family, adult size, where it comes from, what its sources say about its look and the sexes) and up to two reference photos of it, while the identification has photos left.',
     input_schema: {
       type: 'object',
       additionalProperties: false,
       required: ['id'],
-      properties: { id: { type: 'string', description: 'The page id, as search_handbook gives it.' } },
+      properties: { id: { type: 'string', description: 'A scientific name ("Paracheirodon simulans") or a page id as search_handbook gives it.' } },
     },
     step: input => {
-      const e = byId.get(String(input.id))
+      const e = pageOf(d.catalog, String(input.id))
       return e ? { kind: 'look', page: link(e, d.lang) } : undefined
     },
     run: async (input, ctx) => {
-      const id = String(input.id)
-      const e = byId.get(id)
-      if (!e) throw new Error(`No page with id ${JSON.stringify(id.slice(0, 80))}: use an id search_handbook gave.`)
-      const f = await d.facts(id)
+      const key = String(input.id)
+      const e = pageOf(d.catalog, key)
+      if (!e) throw new Error(`No page for ${JSON.stringify(key.slice(0, 80))}: the handbook may not have it, or uses another name; search_handbook finds it by genus or common name.`)
+      const f = await d.facts(e.id)
       const photos = (f?.photos ?? []).filter(src => !d.exclude?.(src))
       return entryContent(e, f, photos.slice(0, Math.min(PHOTOS_PER_ENTRY, Math.max(0, ctx.photosLeft))), photos.length)
     },
