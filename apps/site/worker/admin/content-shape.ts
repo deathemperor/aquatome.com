@@ -1,10 +1,11 @@
 /**
  * The shape of dist/_ab/content.json: what the site's content is, written by scripts/content-stats.ts after each build and
- * read by the Worker (admin/content.ts) for the dashboard. Types only, no imports: the build script (astro check) and the
- * Worker (tsc -p worker) both import it.
+ * read by the Worker (admin/content.ts) for the dashboard. Types only (the language table's, as types): the build script
+ * (astro check) and the Worker (tsc -p worker) both import it.
  */
+import type { Lang, OtherLang } from '@aq/schema/langs'
 
-export type Lang = 'vi' | 'id' | 'th'
+export type { Lang }
 
 /** A kind of content item (content/<dir>). A video guide is a guide written from a YouTube video (its entity has `video`). */
 export type EntityKind = 'fish' | 'breed' | 'plant' | 'guide' | 'videoGuide' | 'series' | 'glossary' | 'equipment' | 'place' | 'product'
@@ -22,8 +23,11 @@ export type PageKind = EntityKind | 'gallery' | 'taxon' | 'group' | 'tool' | 'li
  */
 export type PageRow = [path: string, title: string] | [path: string, title: string, id: string]
 
-/** Counts in each language: [vi, id, th]. */
-export type ByLang = [vi: number, id: number, th: number]
+/**
+ * Counts in each language, by its code. Snapshots kept before 2026-11-06 hold them as [vi, id, th]: the Worker reads
+ * those as these (admin/content.ts listSnapshots).
+ */
+export type ByLang = Record<Lang, number>
 
 /** A short list to act on: how many, and up to 50 of them ([vi path, Vietnamese name]), staples and popular fish first. */
 export type Gap = { n: number; top: [path: string, name: string][]; /** Per missing part, for a gap that is any of several (noKeyFacts: tempC, ph, sizeCm). */ by?: Record<string, number> }
@@ -118,8 +122,8 @@ export type ContentStats = {
   builtAt: string
   /** Built with PUBLIC_BUILD=1 (production): sources without permission left out. */
   publicBuild: boolean
-  /** Items per kind (content/): how many, and how many have an Indonesian and a Thai page. */
-  inventory: Record<EntityKind, { total: number; id: number; th: number }>
+  /** Items per kind (content/): how many, and how many have a page in each other language. */
+  inventory: Record<EntityKind, { total: number } & Record<OtherLang, number>>
   /** Built pages per language and per page kind; null when no build output was read. */
   built: { total: ByLang; byKind: Partial<Record<PageKind, ByLang>> } | null
   /** Per content source (content/sources.json): fish, plants and guides with its text, as the build shows them. Breeds cite web pages, not these sources. */

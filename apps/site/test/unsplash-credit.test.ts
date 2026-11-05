@@ -4,6 +4,7 @@ import { groupCredits } from '../src/lib/credits'
 import { figureHtml } from '../src/lib/figures'
 import { htmlBlocks } from '../src/lib/page-blocks'
 import { page } from './dist'
+import { OTHER_LANGS } from '@aq/schema/langs'
 
 // Unsplash's API guidelines: wherever an Unsplash photo shows, "Photo by <name> on Unsplash", the name linking the
 // photographer's Unsplash page and "Unsplash" its home, both with our UTM. The fixture has one as the Pigeon Blood
@@ -26,7 +27,7 @@ test('an Unsplash photo\'s mark is its line in view: the photographer\'s page an
   expect(photoCredit('vi', MAI)).toEqual({ text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: MAI.sourceUrl, authorUrl: MAI.authorUrl, author: 'Mai Lin' })
   expect(photoCredit('vi', noPage)).toEqual({ text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: MAI.sourceUrl, author: 'Mai Lin' })
   // The name as shown, for the app to link that text (Foto: … di Unsplash, ภาพ: … บน Unsplash) without parsing the words.
-  for (const lang of ['id', 'th'] as const) { const c = photoCredit(lang, MAI); expect(c.text).toContain(c.author!) }
+  for (const lang of OTHER_LANGS) { const c = photoCredit(lang, MAI); expect(c.text).toContain(c.author!) }
 })
 
 test('in the app\'s copy, a figure of an Unsplash photo has its credit as the page does, and not in its caption', () => {

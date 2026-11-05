@@ -1,26 +1,21 @@
+import { homeOf, LANG, LANGS, langOfCountry, type Lang } from '@aq/schema/langs'
 import { COUNTED, EVENTS, eventsSql, num } from './admin/ae'
 import { DISCOVERY_LINK } from './agents'
 
 /**
  * The language chooser at aquatome.com/: for a reader whose browser asks for none of our languages, from a country that
- * has none of them (worker/index.ts). Its own words in English; each language's line in that language (its home page's
- * subtitle, src/i18n).
+ * has none of them (worker/index.ts). Its own words in English; each language's name (the language table) and line in
+ * that language (its home page's subtitle, src/i18n).
  */
-export const LANGS = [
-  { lang: 'vi', name: 'Tiếng Việt', line: 'Cẩm nang cá cảnh & thủy sinh', home: '/' },
-  { lang: 'id', name: 'Bahasa Indonesia', line: 'Panduan ikan hias & aquascape', home: '/id/' },
-  { lang: 'th', name: 'ภาษาไทย', line: 'คู่มือปลาสวยงามและตู้ไม้น้ำ', home: '/th/' },
-] as const
-export type Lang = (typeof LANGS)[number]['lang']
+export const LINE: Record<Lang, string> = { vi: 'Cẩm nang cá cảnh & thủy sinh', id: 'Panduan ikan hias & aquascape', th: 'คู่มือปลาสวยงามและตู้ไม้น้ำ' }
 
-/** Countries whose language the site has: their readers get it (rootLang), never the chooser. */
-const OURS = new Set(['VN', 'ID', 'TH'])
 /** A country Cloudflare could place: not unknown (XX) or Tor (T1). */
 const placed = (country: string) => /^[A-Z]{2}$/.test(country) && country !== 'XX' && country !== 'T1'
-export const asksLang = (country: string) => placed(country) && !OURS.has(country)
+/** Countries whose language the site has (the language table's) get it (rootLang), never the chooser. */
+export const asksLang = (country: string) => placed(country) && !langOfCountry(country)
 
 /** `?lang=` on the root, from the chooser's links: one of ours, or nothing. */
-export const pickedLang = (url: URL): Lang | undefined => LANGS.find(l => l.lang === url.searchParams.get('lang'))?.lang
+export const pickedLang = (url: URL): Lang | undefined => LANGS.find(l => l === url.searchParams.get('lang'))
 
 /** One chooser event (Analytics Engine, the readers' dataset, type `lang`): shown (path /) or picked (the link's, /?lang=id). No session. */
 export const langPoint = (path: string, country: string) => ({ blobs: ['', 'lang', path, '', '', country], doubles: [1], indexes: [country] })
@@ -46,7 +41,7 @@ export const chooserPage = (search: URLSearchParams) => {
   const rest = new URLSearchParams(search)
   rest.delete('lang')
   const q = rest.size ? `&amp;${rest.toString().replace(/&/g, '&amp;')}` : ''
-  const links = LANGS.map(l => `<li><a href="/?lang=${l.lang}${q}" lang="${l.lang}" hreflang="${l.lang}"><b>${l.name}</b><span>${l.line}</span></a></li>`).join('')
+  const links = LANGS.map(l => `<li><a href="/?lang=${l}${q}" lang="${LANG[l].html}" hreflang="${LANG[l].html}"><b>${LANG[l].name}</b><span>${LINE[l]}</span></a></li>`).join('')
   return new Response(page(links), { headers: {
     'content-type': 'text/html; charset=utf-8', 'cache-control': 'private, no-store', vary: 'Accept-Language, Cookie', link: DISCOVERY_LINK, 'x-robots-tag': 'noindex',
   } })
@@ -61,7 +56,7 @@ export const pickResponse = (lang: Lang, search: URLSearchParams) => {
   rest.delete('lang')
   const q = rest.size ? `?${rest}` : ''
   return new Response(null, { status: 302, headers: {
-    location: `${LANGS.find(l => l.lang === lang)!.home}${q}`, 'set-cookie': langCookie(lang),
+    location: `${homeOf(lang)}${q}`, 'set-cookie': langCookie(lang),
     'cache-control': 'private, no-store', link: DISCOVERY_LINK,
   } })
 }
@@ -75,8 +70,8 @@ FROM ${table} WHERE blob2 = 'lang' AND timestamp > NOW() - INTERVAL '${Math.floo
 export function summariseAsks(rows: Row[], days: number): LangAsks {
   const by = new Map<string, LangAsks['rows'][number]>()
   for (const r of rows) {
-    const x = by.get(r.cc) ?? { cc: r.cc, shown: 0, picked: { vi: 0, id: 0, th: 0 } }
-    const l = LANGS.find(l => r.p === `/?lang=${l.lang}`)?.lang
+    const x = by.get(r.cc) ?? { cc: r.cc, shown: 0, picked: Object.fromEntries(LANGS.map(l => [l, 0])) as Record<Lang, number> }
+    const l = LANGS.find(l => r.p === `/?lang=${l}`)
     if (l) x.picked[l] += num(r.n)
     else if (r.p === '/') x.shown += num(r.n)
     by.set(r.cc, x)

@@ -53,7 +53,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   }
   const ref = process.argv[2] ?? 'origin/main'
   const days = backfill(repo, ref, new Date().toISOString().slice(0, 10))
-  for (const d of days) console.error(`${d.day} ${d.sha.slice(0, 8)} ${Object.entries(d.totals.kinds).map(([k, [vi]]) => `${k} ${vi}`).join(', ')}`)
+  for (const d of days) console.error(`${d.day} ${d.sha.slice(0, 8)} ${Object.entries(d.totals.kinds).map(([k, n]) => `${k} ${n.vi}`).join(', ')}`)
   process.stdout.write(`${JSON.stringify(bulkEntries(days), null, 1)}\n`)
   console.error(`\n${days.length} days. To load them (production KV, the owner's call):\n  pnpm exec wrangler kv bulk put backfill.json --binding AB --remote`)
 }

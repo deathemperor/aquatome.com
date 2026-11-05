@@ -1,4 +1,5 @@
 import { JPEG_QUALITY, MAX_SIDE } from '../../worker/fishid/photo'
+import { prefixedLang } from '@aq/schema/langs'
 import { isViPage, withoutVi } from '../../worker/paths'
 import { escapeHtml, loadTurnstile, type Turnstile } from './comments'
 import { msg } from '../i18n/msg'
@@ -72,7 +73,7 @@ export function genusHtml(t: T, r: Result, item: (l: Linked, i: number) => strin
 // answer gives Vietnamese pages in the apps' /vi/ form (lib/i18n appPath). What is left after /vi must still be a path
 // here: "/vi//evil.test/" would leave "//evil.test/", another site.
 export const own = (u?: string) => {
-  const p = u && (/^\/(vi|id|th)\//.test(u) || isViPage(u)) ? withoutVi(u) : undefined
+  const p = u && (/^\/vi\//.test(u) || prefixedLang(u) || isViPage(u)) ? withoutVi(u) : undefined
   return p && /^\/(?![/\\])/.test(p) ? p : undefined
 }
 const photoSrc = (u?: string) => (u && /^https:\/\//.test(u) ? u : undefined)

@@ -25,6 +25,9 @@ E2E_BASE_URL=https://aquatome.com E2E_PAGES=e2e-pages.json pnpm exec playwright 
 
 ## Addresses
 
+- The languages are one table, `packages/schema/src/langs.ts`: code, address prefix, `lang`, locale, own name, browser
+  tags and countries. The engine, the site and the Worker read it, and each one's words per language are keyed by its
+  `Lang`, so the compiler names what a new row still needs.
 - Vietnamese pages are at the root (`src/pages/ca/[slug].astro` → `/ca/<slug>/`), and Indonesian and Thai ones mount
   the same files under `/id/` and `/th/`. A new section gets a folder in `src/pages/` and an entry in `VI_SECTIONS`
   (`apps/site/worker/paths.ts`): a test holds them, and wrangler's `run_worker_first`, to the folders.

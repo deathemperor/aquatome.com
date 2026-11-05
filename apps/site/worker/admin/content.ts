@@ -1,3 +1,4 @@
+import { LANGS, prefixedLang } from '@aq/schema/langs'
 import { withoutVi } from '../paths'
 import { isReader, querySessions, type Session } from '../readers'
 import { COUNTED, EVENTS, eventsSql, num } from './ae'
@@ -26,8 +27,7 @@ export async function loadContentStats(assets: Fetcher, origin: string): Promise
 }
 
 export type PageInfo = { path: string; title: string; kind: PageKind; id?: string }
-const LANGS: Lang[] = ['vi', 'id', 'th']
-export const langOfPath = (path: string): Lang => (LANGS.find(l => path.startsWith(`/${l}/`)) ?? 'vi')
+export const langOfPath = (path: string): Lang => prefixedLang(path) ?? 'vi'
 const info = (kind: PageKind, [path, title, id]: PageRow): PageInfo => (id ? { path, title, kind, id } : { path, title, kind })
 
 /** Every built page by its path. */
@@ -241,6 +241,14 @@ export async function recordSnapshot(kv: KVNamespace, assets: Fetcher, origin: s
 }
 
 export type Snapshot = { day: string; totals: Totals }
+/** The order of a count kept before 2026-11-06 as [vi, id, th]: the stored format, not the language list. */
+const KEPT_ORDER: readonly Lang[] = ['vi', 'id', 'th']
+/** A count as kept, either form, with every language (0 for one it doesn't have). */
+const byLang = (x: ByLang | number[]): ByLang =>
+  Object.fromEntries(LANGS.map(l => [l, (Array.isArray(x) ? x[KEPT_ORDER.indexOf(l)] : x[l]) ?? 0])) as ByLang
+const readTotals = (t: Totals): Totals => ({
+  ...t, kinds: Object.fromEntries(Object.entries(t.kinds).map(([k, v]) => [k, byLang(v)])) as Totals['kinds'], built: t.built && byLang(t.built),
+})
 /** Every day's totals, oldest first: from the keys' metadata (one list call per 1000 days), a key without it read on its own. */
 export async function listSnapshots(kv: KVNamespace): Promise<Snapshot[]> {
   const out: Snapshot[] = []
@@ -249,7 +257,7 @@ export async function listSnapshots(kv: KVNamespace): Promise<Snapshot[]> {
     const r = await kv.list<Totals>({ prefix: SNAPSHOT_PREFIX, ...(cursor ? { cursor } : {}) })
     for (const k of r.keys) {
       const totals = k.metadata ?? (await kv.get<Totals>(k.name, 'json'))
-      if (totals) out.push({ day: k.name.slice(SNAPSHOT_PREFIX.length), totals })
+      if (totals) out.push({ day: k.name.slice(SNAPSHOT_PREFIX.length), totals: readTotals(totals) })
     }
     if (r.list_complete) break
     cursor = r.cursor
@@ -262,8 +270,8 @@ export type Added = { kinds: Record<EntityKind, ByLang>; sources: Record<string,
 export function added(from: Totals, to: Totals): Added {
   const kinds = {} as Record<EntityKind, ByLang>
   for (const k of Object.keys(to.kinds) as EntityKind[]) {
-    const a = from.kinds[k] ?? [0, 0, 0], b = to.kinds[k]
-    kinds[k] = [b[0] - a[0], b[1] - a[1], b[2] - a[2]]
+    const a = from.kinds[k], b = to.kinds[k]
+    kinds[k] = Object.fromEntries(LANGS.map(l => [l, (b[l] ?? 0) - (a?.[l] ?? 0)])) as ByLang
   }
   const sources: Record<string, number> = {}
   for (const s of new Set([...Object.keys(from.sources), ...Object.keys(to.sources)])) sources[s] = (to.sources[s] ?? 0) - (from.sources[s] ?? 0)

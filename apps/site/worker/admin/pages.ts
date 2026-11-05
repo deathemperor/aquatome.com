@@ -1,3 +1,4 @@
+import { LANGS, OTHER_LANGS, prefixedLang } from '@aq/schema/langs'
 import type { FishIdStatus } from '../fishid/api'
 import type { KeptRow } from '../fishid/kept'
 import type { Hidden } from '../hidden'
@@ -9,7 +10,7 @@ import { chipHtml, chipOf, dayChart, esc, fmt, lastDays, rankTable, spark, tiles
 import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Action, type Block, type Cell, type PhotoItem, type RankRow, type Section, type TextTone } from './blocks'
 import type { AccountStats, Waiting } from './data'
 import type { ContentStats, Snapshot } from './content'
-import { inLang, items as itemCount, KIND as PAGE_KIND, MAIN, perDay, writtenPerDay } from './content-page'
+import { inLang, items as itemCount, KIND as PAGE_KIND, LANG_VI, MAIN, perDay, writtenPerDay } from './content-page'
 import type { Call, FishIdStats, Totals } from './fishid'
 import { failedBox, ICON, isFailed, page, type Soft } from './shell'
 import { clock, HOME_TZ, hourMinute, localDay, sameClock, timeTag, timeText, zoneName } from './time'
@@ -178,12 +179,11 @@ export function log(o: Overview, n = 3): LogDay[] {
     const kept = snaps.find(x => x.day === day)
     const before = snaps.filter(x => x.day < day).at(-1)
     if (kept && before) {
-      const added = MAIN.map(k => [k, (kept.totals.kinds[k]?.[0] ?? 0) - (before.totals.kinds[k]?.[0] ?? 0)] as const).filter(([, n]) => n > 0)
+      const added = MAIN.map(k => [k, (kept.totals.kinds[k]?.vi ?? 0) - (before.totals.kinds[k]?.vi ?? 0)] as const).filter(([, n]) => n > 0)
       const n = added.reduce((a, [, x]) => a + x, 0)
       if (n) items.push({ text: `${fmt(n)} bài mới`, small: added.map(([k, x]) => `${fmt(x)} ${PAGE_KIND[k].toLowerCase()}`).join(' · '), section: 'noi-dung' })
-      const id = inLang(kept.totals, 1) - inLang(before.totals, 1)
-      const th = inLang(kept.totals, 2) - inLang(before.totals, 2)
-      if (id > 0 || th > 0) items.push({ text: `${fmt(Math.max(id, 0))} bài tiếng Indonesia, ${fmt(Math.max(th, 0))} bài tiếng Thái mới`, section: 'noi-dung' })
+      const translated = OTHER_LANGS.map(l => [l, inLang(kept.totals, l) - inLang(before.totals, l)] as const)
+      if (translated.some(([, n]) => n > 0)) items.push({ text: `${translated.map(([l, n]) => `${fmt(Math.max(n, 0))} bài tiếng ${LANG_VI[l]}`).join(', ')} mới`, section: 'noi-dung' })
     }
     if (r && (at(r.readers, back) || at(r.sessions, back))) items.push({ text: `${fmt(at(r.readers, back))} người đọc`, small: `${fmt(at(r.sessions, back))} phiên`, section: 'doc-gia' })
     if (!isFailed(clicks) && at(clicks.clicks, back)) items.push({ text: `${fmt(at(clicks.clicks, back))} lượt bấm sang sàn`, section: 'affiliate' })
@@ -433,7 +433,7 @@ function recentHtml(xs: Call[], pages: Map<string, string>, now: Date, tz: strin
 // ——— Người đọc ———
 
 /** A path from the beacon is anything a script sent: a link only for one of the site's pages ("//other.site" stays text). */
-export const pageLink = (path: string) => (isViPage(path) || /^\/(?:id|th)\//.test(path) ? `<a href="${esc(path)}">${esc(path)}</a>` : esc(path))
+export const pageLink = (path: string) => (isViPage(path) || prefixedLang(path) ? `<a href="${esc(path)}">${esc(path)}</a>` : esc(path))
 
 const NO_AE = 'Chưa cấu hình AE_API_TOKEN và CF_ACCOUNT_ID: chưa đọc được dữ liệu (Analytics Engine).'
 const SOURCE_HEAD = ['Nguồn', 'Phiên', 'Người đọc']
@@ -457,11 +457,11 @@ function readersParts(now: Date, r: Readers, tz: string) {
 }
 
 const ASKS_TITLE = 'Trang chọn ngôn ngữ'
-const ASKS_HEAD = ['Nước', 'Lần hiện', 'Chọn tiếng Việt', 'Chọn Indonesia', 'Chọn Thái']
+const ASKS_HEAD = ['Nước', 'Lần hiện', ...LANGS.map(l => `Chọn ${LANG_VI[l]}`)]
 /** The language chooser (worker/lang-ask.ts): who saw it and what they picked, by country. */
 const asksParts = (a: LangAsks) => ({
   lede: `Trình duyệt không hỏi tiếng Việt, Indonesia hay Thái, từ nước khác Việt Nam, Indonesia, Thái Lan, mở aquatome.com/ thì được hỏi chọn ngôn ngữ. Số lần trang hiện và lựa chọn, theo nước, ${a.days} ngày gần nhất (bỏ bot và lượt trình duyệt tải trước). Người đọc đi qua trang này hiện là “(trực tiếp)” ở bảng Nguồn truy cập.`,
-  rows: a.rows.map(x => ({ label: esc(x.cc || '??'), value: x.shown, cells: [fmt(x.picked.vi), fmt(x.picked.id), fmt(x.picked.th)] })) as Ranked[],
+  rows: a.rows.map(x => ({ label: esc(x.cc || '??'), value: x.shown, cells: LANGS.map(l => fmt(x.picked[l])) })) as Ranked[],
 })
 
 export function readersPage(now: Date, r: Soft<Readers> | undefined, tz = HOME_TZ, asks?: Soft<LangAsks>): string {

@@ -1,5 +1,6 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { OTHER_LANGS } from '@aq/schema/langs'
 import { altKey, breedNames, keptOf } from './alt-names'
 import type { TargetLang } from './localize'
 
@@ -7,7 +8,7 @@ type Http = (url: string) => Promise<unknown>
 /** By scientific name: the species' Wikidata label and aliases in each language (null: no item has that taxon name). */
 type Names = Record<string, Partial<Record<TargetLang, string[]>> | null>
 const CACHE = 'engine-state/_wikidata-names.json'
-const LANGS: TargetLang[] = ['id', 'th']
+const LANGS: readonly TargetLang[] = OTHER_LANGS
 const BATCH = 100
 const MAX_ALT = 8
 

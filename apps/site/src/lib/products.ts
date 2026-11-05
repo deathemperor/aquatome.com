@@ -1,5 +1,5 @@
 import type { Content } from '@aq/schema'
-import { LOCALE, type Lang } from './i18n'
+import { LANG, type Lang } from './i18n'
 
 export type Product = Content['products'][number]
 const norm = (s = '') => s.toLowerCase().replace(/[^a-z0-9]/g, '')
@@ -21,5 +21,5 @@ export function priceRange(p: Product): { min: number; max: number; n: number; a
   const xs = p.market?.prices.map(x => x.price) ?? []
   return xs.length ? { min: Math.min(...xs), max: Math.max(...xs), n: xs.length, at: p.market!.checkedAt } : undefined
 }
-export const vnd = (lang: Lang, n: number) => `${n.toLocaleString(LOCALE[lang])} ₫`
+export const vnd = (lang: Lang, n: number) => `${n.toLocaleString(LANG[lang].locale)} ₫`
 export const dmy = (iso: string) => iso.split('-').reverse().join('/')

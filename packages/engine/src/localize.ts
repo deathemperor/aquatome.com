@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, nameKey, POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section } from '@aq/schema'
+import type { OtherLang } from '@aq/schema/langs'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { shopIds } from './shops'
@@ -13,7 +14,7 @@ const GLOSSARY = readFileSync(new URL('./prompts/localize-glossary.md', import.m
 const GLOSSARY_REVIEW = readFileSync(new URL('./prompts/localize-glossary-review.md', import.meta.url), 'utf8')
 const PLACES = readFileSync(new URL('./prompts/localize-places.md', import.meta.url), 'utf8')
 
-/** Site languages besides Vietnamese, and how each is written. */
+/** Site languages besides Vietnamese (the language table's), and how each is written. */
 export const TARGETS = {
   id: {
     lang: 'Indonesian (Bahasa Indonesia)', country: 'Indonesia', place: 'indonesia',
@@ -23,7 +24,7 @@ export const TARGETS = {
     lang: 'Thai', country: 'Thailand', place: 'thailand',
     style: `Style: natural, plain written Thai, neutral and polite without spoken particles (no ครับ/ค่ะ). Use the words Thai aquarists use: ตู้ปลา, ปลาสวยงาม, ไม้น้ำ, อุณหภูมิ, ค่า pH, ความกระด้าง (GH), เปลี่ยนน้ำ, ระบบกรอง, วงจรไนโตรเจน, กักโรค, อาหารปลา. Decimal point (1.5), ranges with an en dash (22–26 °C); units in running text the Thai way (ซม., ลิตร), the symbols °C and pH as they are. Live and frozen foods as Thai shops name them: หนอนแดง (bloodworm), ไส้เดือนน้ำ (tubifex), ไรแดง (moina, daphnia), ไรทะเล (brine shrimp, artemia), อาหารเม็ด (pellets), อาหารแผ่น (flakes). Bubble nest: หวอด.`,
   },
-} as const
+} as const satisfies Record<OtherLang, { lang: string; country: string; place: string; style: string }>
 export type TargetLang = keyof typeof TARGETS
 
 /** Species found wild in a place (content/places id): listed under it, or under a region, river or island inside it. */

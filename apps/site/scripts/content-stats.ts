@@ -9,12 +9,12 @@ import { speciesDepth } from '@aq/schema/depth'
 import { isAllowedLicence } from '@aq/schema/licence'
 import { POPULAR, STAPLE_SPECIES } from '@aq/schema/staples'
 import { setsCookies } from '@aq/schema/thumb'
+import { LANG, LANGS, OTHER_LANGS, type OtherLang } from '@aq/schema/langs'
 import { langOf, toVi } from '../src/lib/i18n.ts'
 import { VI_SECTIONS, withoutVi } from '../worker/paths.ts'
 import type { ByLang, ContentStats, EngineStats, EntityKind, Gap, GapKey, Lang, PageKind, PageRow, PhotoStats, SourceRow, Totals } from '../worker/admin/content-shape.ts'
 
 export const MAX_BYTES = 1_000_000
-const LANGS: Lang[] = ['vi', 'id', 'th']
 const GAP_LIST = 50
 /** Engine rules this mirrors, kept in step by test/content-stats.test.ts: a video's 3 tries (youtube.ts), a page's (state.ts), REWRITE_V (vi-backfill.ts). */
 export const MAX_ATTEMPTS = 3
@@ -36,10 +36,14 @@ function items(root: string, dir: string): Item[] {
     const vi = read(join(root, dir, id, 'vi.json'))
     if (!e || !vi) return []
     const t: Item['t'] = { vi }
-    for (const l of ['id', 'th'] as const) { const x = read(join(root, dir, id, `${l}.json`)); if (x) t[l] = x }
+    for (const l of OTHER_LANGS) { const x = read(join(root, dir, id, `${l}.json`)); if (x) t[l] = x }
     return [{ id, e, t }]
   })
 }
+
+/** A count in each language: every one at 0, or each other language's (`f`). */
+const zeroByLang = () => Object.fromEntries(LANGS.map(l => [l, 0])) as ByLang
+const perOther = (f: (l: OtherLang) => number) => Object.fromEntries(OTHER_LANGS.map(l => [l, f(l)])) as Record<OtherLang, number>
 
 const ENTITY_KINDS: EntityKind[] = ['fish', 'breed', 'plant', 'guide', 'videoGuide', 'series', 'glossary', 'equipment', 'place', 'product']
 const zeroKinds = <T>(f: () => T) => Object.fromEntries(ENTITY_KINDS.map(k => [k, f()])) as Record<EntityKind, T>
@@ -64,13 +68,13 @@ function builtPages(dist: string): { path: string; title: string }[] {
     }
   }
   if (existsSync(join(dist, 'index.html'))) walk(dist, '/', VI_SECTIONS)
-  for (const l of LANGS) if (l !== 'vi' && existsSync(join(dist, l))) walk(join(dist, l), `/${l}/`)
+  for (const l of OTHER_LANGS) if (existsSync(join(dist, LANG[l].prefix))) walk(join(dist, LANG[l].prefix), `${LANG[l].prefix}/`)
   return out
 }
 
 type Slugs = Record<Lang, Map<string, string>> // slug → item id, per language
 const slugMap = (xs: Item[]): Slugs => {
-  const m = { vi: new Map(), id: new Map(), th: new Map() } as Slugs
+  const m = Object.fromEntries(LANGS.map(l => [l, new Map()])) as Slugs
   for (const x of xs) for (const l of LANGS) if (x.t[l]?.slug) m[l].set(x.t[l]!.slug, x.id)
   return m
 }
@@ -149,12 +153,12 @@ export function computeContentStats(o: StatsInput): ContentStats {
   const plantPages = plants.filter(x => sectionsOf(x.e).length > 0)
   const guidePages = guides.filter(x => textOk(x.e.source))
 
-  const count = (xs: Item[]) => ({ total: xs.length, id: xs.filter(x => x.t.id).length, th: xs.filter(x => x.t.th).length })
+  const count = (xs: Item[]) => ({ total: xs.length, ...perOther(l => xs.filter(x => x.t[l]).length) })
   const equip = (l: Lang) => files(l === 'vi' ? join(root, 'equipment') : join(root, 'equipment', l)).length
   const inventory: ContentStats['inventory'] = {
     fish: count(species), breed: count(breeds), plant: count(plants),
     guide: count(guides.filter(g => !isVideo(g))), videoGuide: count(guides.filter(isVideo)),
-    series: count(series), glossary: count(glossary), equipment: { total: equip('vi'), id: equip('id'), th: equip('th') },
+    series: count(series), glossary: count(glossary), equipment: { total: equip('vi'), ...perOther(equip) },
     place: count(places), product: count(products),
   }
 
@@ -167,14 +171,14 @@ export function computeContentStats(o: StatsInput): ContentStats {
       glossary: slugMap(glossary), place: new Set(places.map(p => p.id)), series: slugMap(series), product: slugMap(products),
     }
     pages = {}
-    const total: ByLang = [0, 0, 0]
+    const total = zeroByLang()
     const byKind: Partial<Record<PageKind, ByLang>> = {}
     for (const p of builtPages(o.dist)) {
       const [kind, id] = classify(p.path, s)
       ;(pages[kind] ??= []).push(id ? [p.path, p.title, id] : [p.path, p.title])
-      const li = LANGS.indexOf(langOf(p.path))
-      total[li]++
-      ;(byKind[kind] ??= [0, 0, 0])[li]++
+      const l = langOf(p.path)
+      total[l]++
+      ;(byKind[kind] ??= zeroByLang())[l]++
     }
     built = { total, byKind }
   }
@@ -272,8 +276,8 @@ export function computeContentStats(o: StatsInput): ContentStats {
     engine = { ...engineStats(o.engineState!, sourcesInfo, now), rewrite: progress }
   }
 
-  const kinds = zeroKinds<ByLang>(() => [0, 0, 0])
-  for (const k of ENTITY_KINDS) kinds[k] = [inventory[k].total, inventory[k].id, inventory[k].th]
+  const kinds = zeroKinds<ByLang>(zeroByLang)
+  for (const k of ENTITY_KINDS) kinds[k] = { vi: inventory[k].total, ...perOther(l => inventory[k][l]) }
   const totals: Totals = {
     kinds, built: built?.total ?? null,
     sources: Object.fromEntries(Object.entries(sources).map(([k, v]) => [k, v.fish + v.plant + v.guide])),
