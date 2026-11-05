@@ -6109,6 +6109,13 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/hypancistrus-zebra": {
+    "entityIds": [],
+    "updatedAt": "2026-11-05T10:07:17.678Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 7 at 8am (Asia/Saigon)"
+  },
   "https://www.seriouslyfish.com/species/hyphessobrycon-agulha": {
     "entityIds": [
       "species/hyphessobrycon-agulha"
@@ -6818,6 +6825,13 @@
     "processedHash": "4a1044c146bea1a8b83af5803df201ad0e58be2f7da8f03bb6b635c3f709100e",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/loricaria-simillima": {
+    "entityIds": [],
+    "updatedAt": "2026-11-05T10:07:30.871Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 7 at 8am (Asia/Saigon)"
   },
   "https://www.seriouslyfish.com/species/luciocephalus-pulcher": {
     "entityIds": [
@@ -7768,6 +7782,13 @@
     "processedHash": "90e9d78ca1796e48b4cb39bfb33473a95c6014477c99f0a9bba53136ee1c981a",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/nothobranchius-foerschi": {
+    "entityIds": [],
+    "updatedAt": "2026-11-05T10:07:33.720Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 7 at 8am (Asia/Saigon)"
   },
   "https://www.seriouslyfish.com/species/oliotius-oligolepis": {
     "entityIds": [

@@ -358,14 +358,17 @@ public struct HandbookSearch: Sendable {
     let other: String
     /// A tool page's own words.
     let more: String
+    /// Its name, scientific name and other names as `nameKey` makes them.
+    let keys: [String]
   }
   private let entries: [Entry]
 
   public init(_ items: [HandbookIndex.Item]) {
     entries = items.map { i in
-      let name = Self.fold(i.name)
-      return Entry(item: i, name: name, words: name.split(separator: " "), other: Self.fold(([i.sub ?? ""] + (i.aka ?? [])).joined(separator: " | ")),
-                   more: Self.fold(i.words.joined(separator: " | ")))
+      let name = Self.fold(i.name), other = Self.fold(([i.sub ?? ""] + (i.aka ?? [])).joined(separator: " | "))
+      // Keyed from the names as folded here: folding is most of what keying costs.
+      return Entry(item: i, name: name, words: name.split(separator: " "), other: other, more: Self.fold(i.words.joined(separator: " | ")),
+                   keys: ([name[...]] + other.split(separator: "|")).map(Self.key))
     }
     .sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending } // name order, once
   }
@@ -377,10 +380,32 @@ public struct HandbookSearch: Sendable {
       .lowercased()
   }
 
+  /// A name as readers type it, as the site's search compares a page's names with what was searched for (`nameKey`,
+  /// apps/site/src/scripts/search-rank.ts): folded, nothing in brackets, only letters and digits a space apart, no leading
+  /// "cá". "Cá betta (cá xiêm)" → "betta".
+  private static func nameKey(_ s: String) -> String { key(fold(s)[...]) }
+
+  /// `nameKey` of a name `fold` has made already.
+  private static func key(_ folded: Substring) -> String {
+    var rest = folded.drop(while: { $0 == " " }), bare = "", space = false
+    while rest.last == " " { rest = rest.dropLast() }
+    // Most names, once folded, are already a–z and 0–9 words one space apart: their own key, without the costlier work below.
+    if rest.utf8.allSatisfy({ b in defer { space = b == 32 }; return b == 32 ? !space : (97...122).contains(b) || (48...57).contains(b) }) {
+      return String(rest.hasPrefix("ca ") ? rest.dropFirst(3) : rest)
+    }
+    while let open = rest.firstIndex(of: "("), let close = rest[open...].firstIndex(of: ")") {
+      bare += rest[..<open] + " "
+      rest = rest[rest.index(after: close)...]
+    }
+    let key = (bare + rest).split(whereSeparator: { !$0.isLetter && !$0.isNumber }).joined(separator: " ")
+    return key.hasPrefix("ca ") ? String(key.dropFirst(3)) : key
+  }
+
   /// Items with every word of `query` in their name, scientific name, other names or a tool page's own words, best first:
-  /// the name itself, a name that starts with it, a word of the name that starts with it, the name containing it, then
-  /// other names, then a tool page's words. An empty query lists everything of `kind` (Item.is) in name order, all of it
-  /// (`limit` is for searches).
+  /// a page named what was searched for (its name, scientific name or another name, compared as `nameKey` makes them, as
+  /// the site's search puts it first: "bảy màu" finds Cá bảy màu before Bảy màu Koi), the name itself, a name that starts
+  /// with it, a word of the name that starts with it, the name containing it, then other names, then a tool page's words.
+  /// An empty query lists everything of `kind` (Item.is) in name order, all of it (`limit` is for searches).
   public func find(_ query: String, kind: HandbookIndex.Kind? = nil, limit: Int = 200) -> [HandbookIndex.Item] {
     findAndCount(query, kind: kind, limit: limit).items
   }
@@ -393,12 +418,13 @@ public struct HandbookSearch: Sendable {
     -> (items: [HandbookIndex.Item], counts: [HandbookIndex.Kind?: Int]) {
     let q = Self.fold(query).trimmingCharacters(in: .whitespaces)
     let words = q.split(separator: " ")
+    let key = Self.nameKey(query)
     var counts: [HandbookIndex.Kind?: Int] = [:]
     var ranked: [(rank: Int, entry: Entry)] = []
     for e in entries where Self.matches(e, words) {
       counts[nil, default: 0] += 1
       for k in HandbookIndex.Kind.allCases where e.item.is(k) { counts[k, default: 0] += 1 }
-      if kind.map(e.item.is) ?? true { ranked.append((q.isEmpty ? 0 : Self.rank(e, q, words), e)) }
+      if kind.map(e.item.is) ?? true { ranked.append((q.isEmpty ? 0 : Self.rank(e, q, words, key), e)) }
     }
     guard !q.isEmpty else { return (ranked.map(\.entry.item), counts) }
     let best = ranked.sorted { ($0.rank, $0.entry.name.count, $0.entry.name) < ($1.rank, $1.entry.name.count, $1.entry.name) }
@@ -406,13 +432,14 @@ public struct HandbookSearch: Sendable {
     return (Array(best), counts)
   }
 
-  private static func rank(_ e: Entry, _ q: String, _ words: [Substring]) -> Int {
-    e.name == q ? 0
-      : e.name.hasPrefix(q) ? 1
-      : e.words.contains(where: { $0.hasPrefix(words[0]) }) && e.name.contains(q) ? 2
-      : e.name.contains(q) ? 3
-      : words.allSatisfy({ e.name.contains($0) || e.other.contains($0) }) ? 4
-      : 5
+  private static func rank(_ e: Entry, _ q: String, _ words: [Substring], _ key: String) -> Int {
+    !key.isEmpty && e.keys.contains(key) ? 0
+      : e.name == q ? 1
+      : e.name.hasPrefix(q) ? 2
+      : e.words.contains(where: { $0.hasPrefix(words[0]) }) && e.name.contains(q) ? 3
+      : e.name.contains(q) ? 4
+      : words.allSatisfy({ e.name.contains($0) || e.other.contains($0) }) ? 5
+      : 6
   }
 
   /// Every word of a search somewhere in the page's names or a tool page's own words.
