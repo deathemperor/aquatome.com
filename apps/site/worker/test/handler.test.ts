@@ -330,6 +330,17 @@ test('agent discovery: API catalog as linkset+json; the home page and its langua
   const pickedVi = await handle(get('/', { ...browser, 'accept-language': 'th', cookie: 'aq_lang=vi' }), e)
   expect([pickedVi.status, pickedVi.headers.get('location')]).toEqual([200, null])
   expect((await handle(get('/', { ...browser, 'accept-language': 'th', cookie: 'aq_lang=fr; xaq_lang=vi' }), e)).headers.get('location')).toBe('/th/')
+  // A browser asking for none of our languages (a phone set to English, common in Indonesia and Thailand) goes by the
+  // country Cloudflare places it in (owner, 2026-11-06); a language it does ask for, or the one picked, still wins.
+  const inCountry = (country: string, headers: Record<string, string>) => Object.assign(get('/', headers), { cf: { country } })
+  const en = { ...browser, 'accept-language': 'en-US,en;q=0.9' }
+  expect((await handle(inCountry('ID', en), e)).headers.get('location')).toBe('/id/')
+  expect((await handle(inCountry('TH', en), e)).headers.get('location')).toBe('/th/')
+  expect((await handle(inCountry('VN', en), e)).status).toBe(200)
+  expect((await handle(inCountry('US', en), e)).status).toBe(200)
+  expect((await handle(inCountry('TH', { ...browser, 'accept-language': 'vi-VN,en;q=0.8' }), e)).status).toBe(200)
+  expect((await handle(inCountry('ID', { ...en, cookie: 'aq_lang=vi' }), e)).status).toBe(200)
+  expect((await handle(inCountry('ID', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }), e)).status).toBe(200)
   expect(root.headers.get('link')).toContain('</.well-known/api-catalog>; rel="api-catalog"')
   expect(id.headers.get('link')).toContain('rel="api-catalog"')
   expect((await handle(get('/ca/'), e)).headers.get('link')).toBeNull()
