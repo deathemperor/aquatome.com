@@ -80,7 +80,7 @@ const alternates = await alternatesOf('species', s.id)
   {/* A page with no photo of its own has a one-column top: its thumbnails stay below it, the page's width. */}
   {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} />}
   {vn && summary && <QuickSummary summary={summary} />}
-  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} />
+  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} />
   <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến loài này')} />
   <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />

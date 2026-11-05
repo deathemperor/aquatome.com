@@ -3610,6 +3610,27 @@
                     "tone": "bad"
                   }
                 ]
+              },
+              {
+                "id": "d4e5f6a7-b8c9-4d0e-9f1a-3b4c5d6e7f8a",
+                "src": "https://media.aquatome.com/p/d4e5-thumb.webp",
+                "caption": "Thảo",
+                "meta": [
+                  "species:carassius-auratus",
+                  "Kiểm duyệt chuyển từ species:paracheirodon-innesi",
+                  "03/11 16:00"
+                ],
+                "actions": [
+                  {
+                    "label": "Gỡ",
+                    "method": "POST",
+                    "path": "/api/owner/photos/d4e5f6a7-b8c9-4d0e-9f1a-3b4c5d6e7f8a",
+                    "body": {
+                      "action": "remove"
+                    },
+                    "tone": "bad"
+                  }
+                ]
               }
             ],
             "empty": "Chưa có ảnh nào."

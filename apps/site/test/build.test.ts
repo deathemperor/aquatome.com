@@ -140,8 +140,8 @@ test('a thin page (one dealer\'s note) stays out of search; a heading over a few
   expect(html).toMatch(/<meta name="robots" content="noindex/)
   expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).not.toContain('/ca/ca-ong-tien/')
   // "Spawns on leaves." under its own heading becomes a line of the quick facts, with its source's mark; "Amazon basin."
-  // is left out, the quick facts already say it.
-  expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts'])
+  // is left out, the quick facts already say it. Its range (where it lives in the wild) is a section of its own.
+  expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts', 'range'])
   const facts = dom.querySelector('#muc-quickFacts')!
   expect(facts.querySelectorAll('li').map(li => li.text)).toEqual(['Sinh sản: Đẻ trứng trên lá.1'])
   expect(facts.querySelector('li strong')?.text).toBe('Sinh sản:')

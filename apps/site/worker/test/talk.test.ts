@@ -2,6 +2,7 @@ import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { createSession, randomToken, COOKIE } from '../accounts/session'
 import { purgeRemoved } from '../comments/api'
 import { handle, type Env } from '../index'
+import { WHY } from '../photos'
 import { contract, type Op } from './contract'
 import { testD1 } from './d1'
 
@@ -39,6 +40,7 @@ const fakeR2 = () => {
 
 const ORIGIN = 'https://x.test'
 const PAGE = 'species:paracheirodon-innesi'
+const GOLDFISH = 'species:carassius-auratus'
 type Who = { bearer?: string; auth?: string; origin?: string; ip?: string; cookie?: string }
 
 function setup(over: Record<string, string> = {}) {
@@ -557,6 +559,46 @@ test('a photo moved again keeps the page it was sent for, and forgets it when mo
   expect(await moveTo(PAGE)).toEqual({ applied: 1, ignored: 0 })
   expect(await row()).toMatchObject({ e: PAGE })
   expect(await row()).not.toHaveProperty('movedFrom')
+})
+
+test('the codes the Worker keeps for a turned-down photo are the contract\'s Why, as the engine\'s are', () => {
+  expect([...WHY]).toEqual(api.components.schemas.Why.enum)
+})
+
+// A photo already shown, reported by a reader who isn't signed in: it stays shown, and the pass judges it again. Found to
+// be another fish the handbook has, it moves as the engine decides it (packages/engine/src/reader-photos.ts).
+test('a photo already shown, reported as another fish, moves to that fish\'s page: its sender, both pages and the owner\'s dashboard (page and app) say so', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  at(0)
+  const t = setup({ OWNER_ACCOUNTS: 'owner-1' })
+  await t.db.prepare(`INSERT INTO users (id, created_at) VALUES ('owner-1', ?)`).bind(new Date().toISOString()).run()
+  const owner = { web: await createSession(t.db, 'owner-1', 'web', new Date()), app: await createSession(t.db, 'owner-1', 'app', new Date()) }
+  const a = await t.signIn()
+  const p = await sent(t, { bearer: a.token })
+  at(10); await publish(t, p.id)
+  at(20); expect((await report(t, { kind: 'photo', id: p.id, reason: 'đây là cá vàng' }, { ip: '198.51.100.20' })).status).toBe(202)
+  expect(await photoQueue(t)).toMatchObject([{ id: p.id, entity_ref: PAGE, moved_from: null, reports: ['đây là cá vàng'] }])
+  const onPage = async (e: string) => ((await (await handle(new Request(`${ORIGIN}/_p?e=${e}`), t.env)).json()) as Listed).photos!.map(x => x.id)
+  expect(await onPage(PAGE)).toEqual([p.id]) // shown until the pass looks
+
+  at(30)
+  for (const kind of ['full', 'thumb']) await asOwner(t, `/_p/admin/file/${p.id}?kind=${kind}`, { method: 'PUT', body: WEBP })
+  expect(await (await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id: p.id, action: 'approve', reason: 'a goldfish', width: 1200, height: 800, entity: GOLDFISH }]) })).json()).toEqual({ applied: 1, ignored: 0 })
+  expect(await onPage(PAGE)).toEqual([])
+  expect(await onPage(GOLDFISH)).toEqual([p.id])
+  expect(await photoQueue(t)).toEqual([]) // judged since its report
+  const [row] = (await mine(t, { bearer: a.token })).photos
+  expect(row).toMatchObject({ id: p.id, status: 'approved', e: GOLDFISH, movedFrom: PAGE, decidedAt: new Date(T0 + 30 * 60_000).toISOString() })
+  expect(row).not.toHaveProperty('why')
+
+  // The owner's dashboard: under the goldfish's page, saying where it was sent, on the page and in the app's blocks.
+  const moved = `Kiểm duyệt chuyển từ ${PAGE}`
+  const html = await (await handle(new Request(`${ORIGIN}/_ab/anh-ban-doc/`, { headers: { cookie: `${COOKIE}=${owner.web}` } }), t.env)).text()
+  const tr = html.split('<tr').find(r => r.includes(`value="${p.id}"`))!
+  expect(tr).toContain(`<br>${GOLDFISH}<br><span class="muted">${moved}</span>`)
+  const section = (await (await handle(new Request(`${ORIGIN}/api/owner/sections/anh-ban-doc`, { headers: { authorization: `Bearer ${owner.app}` } }), t.env)).json()) as { blocks: { kind: string; items?: { id: string; meta: string[] }[] }[] }
+  const item = section.blocks.flatMap(b => (b.kind === 'photos' ? b.items! : [])).find(x => x.id === p.id)!
+  expect(item.meta.slice(0, 2)).toEqual([GOLDFISH, moved])
 })
 
 test('a photo taken back while the nightly pass looks at it: the files the pass publishes are deleted, the approval ignored', async () => {

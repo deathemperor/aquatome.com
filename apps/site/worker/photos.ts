@@ -267,19 +267,19 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
   return json({ error: 'not found' }, 404)
 }
 
-/** Latest approved photos for the dashboard, with a remove button each. */
-export async function recentPhotos(env: PhotosEnv): Promise<{ id: string; entity_ref: string; name: string; thumb: string; created_at: string }[] | undefined> {
+/** Latest approved photos for the dashboard, with a remove button each; `moved_from`: the page it was sent for, when moderation moved it. */
+export async function recentPhotos(env: PhotosEnv): Promise<{ id: string; entity_ref: string; moved_from: string | null; name: string; thumb: string; created_at: string }[] | undefined> {
   if (!live(env)) return undefined
-  const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, thumb, created_at FROM photos WHERE status = 'approved' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; name: string; thumb: string; created_at: string }>()
+  const { results } = await env.DB.prepare(`SELECT id, entity_ref, moved_from, name, thumb, created_at FROM photos WHERE status = 'approved' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; moved_from: string | null; name: string; thumb: string; created_at: string }>()
   return results
 }
 /**
  * Photos waiting for the moderation pass (hourly, moderate.yml), newest first: the dashboard lists them, so a photo just
- * sent shows there, and says which ones the owner approved.
+ * sent shows there, and says which ones the owner approved (and, for a moved one reported again, where it was sent).
  */
-export async function waitingPhotos(env: PhotosEnv): Promise<{ id: string; entity_ref: string; name: string; created_at: string; ownerOk: boolean }[] | undefined> {
+export async function waitingPhotos(env: PhotosEnv): Promise<{ id: string; entity_ref: string; moved_from: string | null; name: string; created_at: string; ownerOk: boolean }[] | undefined> {
   if (!live(env)) return undefined
-  const { results } = await env.DB.prepare(`SELECT id, entity_ref, name, created_at FROM photos WHERE status = 'pending' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; name: string; created_at: string }>()
+  const { results } = await env.DB.prepare(`SELECT id, entity_ref, moved_from, name, created_at FROM photos WHERE status = 'pending' ORDER BY created_at DESC LIMIT 30`).all<{ id: string; entity_ref: string; moved_from: string | null; name: string; created_at: string }>()
   return Promise.all(results.map(async r => ({ ...r, ownerOk: await ownerOk(env.AB, r.id) })))
 }
 const isWaiting = async (db: D1Database, id: string) => Boolean(await db.prepare(`SELECT 1 FROM photos WHERE id = ? AND status = 'pending'`).bind(id).first())

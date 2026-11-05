@@ -1519,6 +1519,54 @@
       "\"Tanaman hias yang juga cocok...\": sentence fragment, better \"Tanaman hias ini juga cocok untuk akuarium kecil\"; \"rimpangnya 10–15 cm\" lacks \"panjang\" (minor)."
     ]
   },
+  "microsorum-pteropus-trident": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Java Fern Trident",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"New, small plants ... on the leaf tips\" translated as \"Tunas-tunas kecil\"; acceptable, but \"tanaman baru\" is closer. Minor.",
+      "Item 2: \"Cocok ditempel\" omits \"planting\"; \"ditempelkan\" is more precise for attaching to stone or wood. Minor.",
+      "Item 1: \"Berimpang (rhizoma)\" is odd. Use \"Berrimpang (rhizoma)\" or \"Rizoma\". Minor.",
+      "Item 3: \"gampang dirawat dan tidak rewel\" is informal for a handbook. \"mudah dirawat dan tangguh\" fits better. Minor.",
+      "Item 3: \"bercabang tiga\" for tripartite is slightly loose. \"berlekuk/terbagi tiga\" is more accurate. Minor."
+    ]
+  },
+  "microsorum-sp": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Microsorum sp.",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Berimpang (rimpang/rhizome)\": awkward; use \"Berrimpang (rhizomatous)\" or simply \"Berrimpang\" (the standard Indonesian form is \"berrimpang\", not \"berimpang\"), and avoid the slash gloss.",
+      "\"pengisap (suction cup)\": \"pengisap\" is less common for aquarium use; \"cangkir hisap\" or \"suction cup\" alone is more natural for hobbyists.",
+      "\"Tanamannya bisa berupa satu Anubias ... dan satu Microsorum\": the Latin genus names are correct, but consider italics or the \"Anubias barteri var. caladiifolia\" format to make clear they are plant names."
+    ]
+  },
+  "monosolenium-tenerum": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Monosolenium",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 1: height \"3–5+ cm\" conflicts with item 3 \"2–5 cm\" — that is in the source, so not a translation error; no change needed except keep consistent.",
+      "Item 2: \"beradaptasi dan tumbuh mapan\" adds a nuance beyond \"established itself\"; simplify to \"sudah tumbuh mapan\".",
+      "Item 3: \"hamparan seperti bantalan\" is slightly wordy; use \"membentuk bantalan\" or \"gerumbul padat\".",
+      "Item 3: \"sering keliru dikenal sebagai Pellia\" — \"mistakenly known\" is better as \"keliru disebut Pellia\" or \"salah dikenal sebagai Pellia\"; \"sering\" (often) is added.",
+      "Item 3: \"cup tertutup\" — use the Indonesian trade term \"cup tertutup\" is OK, but \"Tanaman air\" for \"Aquarium plant\" should be \"Tanaman akuarium\"."
+    ]
+  },
+  "murdannia-keisak": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Murdannia keisak",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
   "nymphaea-zenkeri": {
     "at": "2026-10-30",
     "from": "2026-10-29",

@@ -1,6 +1,6 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules: docs/governance.md, "Photos".
+Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules: docs/governance.md, "Photos".
 3362 verdicts. Shows it: 2511; its habitat: 51; something else: 109; not a photo of it: 76; can't tell: 600.
 
 ## Left with no photo (5)
@@ -386,6 +386,9 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/brachyplatystoma-vaillantii | [photo](https://media.aquatome.com/commons/fe091f77544a4b75.webp) | silvery long-snouted catfish; could be another Brachyplatystoma or a related look-alike |
 | species/brevibora-dorsiocellata | [photo](https://media.aquatome.com/seriouslyfish/af8777b43f80e5d1.webp) | slender silvery fish with a blue eye and a dark-streaked dorsal fin; it lacks the clear black, white-edged dorsal spot o |
 | species/heterandria-formosa | [photo](https://media.aquatome.com/inaturalist/386790975.webp) | top-down view of a small striped fish on gravel; poor view |
+| species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/0c47e60d0f78ba34.webp) | dark spotted pleco held in hand; small dense spots, could be L201 or similar |
+| species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/93acf5519862c906.webp) | brownish pleco with dark saddles and yellow spots; L102 is usually uniform black, could be another Hypancistrus |
+| species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/a51ae50024d9ad8c.webp) | dark spotted pleco held in hand; fine spots, look-alike Hypancistrus not ruled out |
 | species/kryptopterus-geminus | [photo](https://media.aquatome.com/scotcat/5f09e9a65e1b519b.webp) | Silvery catfish with long barbels and dark side stripes, body not see-through; may be a young Pangasius or Mystus rather |
 | species/trichogaster-chuna | [photo](https://media.aquatome.com/commons/2591df3723a615d7.webp) | pinkish-silver gourami with red fins and no stripe; may be a honey gourami colour form, but the ID is uncertain |
 | species/acentronichthys-leptos | [photo](https://media.aquatome.com/scotcat/cb7df4b00a22b004.webp) | brownish slender catfish held in a hand; darker than A. leptos and can't be confirmed |
@@ -531,9 +534,6 @@ Written by `pnpm engine check-photos` (2026-11-04), most-read pages first. Rules
 | species/hypancistrus-debilittera | [photo](https://media.aquatome.com/scotcat/42fd77e7b0295f53.webp) | several Hypancistrus with wavy maze-like lines; could be L129 var but L333/L260-type plecos can't be ruled out |
 | species/hypancistrus-debilittera | [photo](https://media.aquatome.com/scotcat/858ab9554b8c260e.webp) | dark pleco with faint lines and yellow striped fins; doesn't have L129's clear thin bands |
 | species/hypancistrus-debilittera | [photo](https://media.aquatome.com/scotcat/c93ce70250cb046b.webp) | brown pleco with broad yellow bands in a bare tank; could be L129 but the bands are wider than usual |
-| species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/0c47e60d0f78ba34.webp) | dark spotted pleco held in hand; small dense spots, could be L201 or similar |
-| species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/93acf5519862c906.webp) | brownish pleco with dark saddles and yellow spots; L102 is usually uniform black, could be another Hypancistrus |
-| species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/a51ae50024d9ad8c.webp) | dark spotted pleco held in hand; fine spots, look-alike Hypancistrus not ruled out |
 | species/hyphessobrycon-agulha | [photo](https://media.aquatome.com/commons/2db0d2cf9d39f01e.webp) | small silvery tetra with red eye over sand; stripe faint, can't confirm the species |
 | species/hyphessobrycon-bifasciatus | [photo](https://media.aquatome.com/commons/840c8a5fcdaf9864.webp) | greenish tetra with two faint shoulder bars but grey-green fins; possibly a dull bifasciatus, look-alike not ruled out |
 | species/hyphessobrycon-erythrostigma | [photo](https://media.aquatome.com/commons/ac8b6fca4aa3f6d2.webp) | long-finned tetra with silvery-blue body, no heart spot visible; could be a look-alike |

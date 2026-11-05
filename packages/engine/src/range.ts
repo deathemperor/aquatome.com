@@ -19,8 +19,8 @@ import { SOURCES, type SourceConfig } from './sources'
  */
 
 const TEMPLATE = readFileSync(new URL('./prompts/range.md', import.meta.url), 'utf8')
-/** Bumped when the prompt or the checks change what an answer gives, so every species is read again. */
-const VERSION = 2
+/** Bumped when the prompt or the checks change what an answer gives, so every species is read again (3: `quotes`). */
+const VERSION = 3
 /** The sections that say where a fish lives. */
 const KEYS: SectionKey[] = ['distribution', 'habitat', 'quickFacts', 'notes']
 const BLOCK_CHARS = 6000
@@ -95,6 +95,8 @@ export const sourceTier = (id: SourceId): SourceConfig['tier'] => SOURCES.find(s
  * - A country is native when a source that counts says so and none that counts calls it introduced or doubtful
  *   (`disputed`: any source called it native).
  * - A region the quote puts in a country left out goes with it.
+ * - `quotes`: the sentence each country and region rests on (its first claim that counts), one per sentence, with all
+ *   it names, for the page to cite.
  */
 export function checkAnswer(answer: Answer, blocks: Block[], tierOf: (id: SourceId) => SourceConfig['tier'] = sourceTier): { native?: Native; claims: Claim[]; regions: RegionClaim[]; disputed: string[]; outranked: Claim[] } {
   const texts = new Map<string, string>()
@@ -140,8 +142,17 @@ export function checkAnswer(answer: Answer, blocks: Block[], tierOf: (id: Source
   const kept = [...names.values()].slice(0, MAX_REGIONS)
   const from = new Set([...counted.filter(c => c.status === 'native' && countries.includes(c.code)).map(c => c.source), ...kept.map(r => r.source)])
   const sources = [...new Set(blocks.map(b => b.source))].filter(s => from.has(s))
+  const quotes: NonNullable<Native['quotes']> = []
+  const quoteOf = (source: string, text: string) => {
+    const quote = text.trim()
+    let q = quotes.find(x => x.source === source && x.quote === quote)
+    if (!q) quotes.push(q = { source: source as SourceId, quote, countries: [], regions: [] })
+    return q
+  }
+  for (const code of countries) { const c = counted.find(x => x.code === code && x.status === 'native')!; quoteOf(c.source, c.quote).countries.push(code) }
+  for (const r of kept) quoteOf(r.source, r.quote).regions.push(r.name)
   return {
-    native: countries.length || kept.length ? { countries, regions: kept.map(r => r.name), sources } : undefined,
+    native: countries.length || kept.length ? { countries, regions: kept.map(r => r.name), sources, quotes } : undefined,
     claims, regions, outranked,
     disputed: [...new Set(ok.filter(c => c.status === 'native').map(c => c.code))].filter(c => against.has(c)),
   }
