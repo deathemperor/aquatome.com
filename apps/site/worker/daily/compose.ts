@@ -6,6 +6,7 @@ import { added, type EntityKind, type Snapshot } from '../admin/content'
 import { inLang, items, perDay } from '../admin/content-page'
 import { alignDaily, at, MODERATION_MISSED_MS, todos, waitingEn, type Overview } from '../admin/pages'
 import { isFailed, REPORT_PATH, type Soft } from '../admin/shell'
+import { dashboardUrl } from '../paths'
 import { clock, HOME_TZ } from '../admin/time'
 import { REPO_URL, type GitHubSide, type Item, type Listed, type Runs } from './github'
 
@@ -21,14 +22,8 @@ const usd = (n: number) => `$${fmt(n, n !== 0 && Math.abs(n) < 0.01 ? 4 : 2)}`
  * Links go only to aquatome.com and github.com. No pictures.
  */
 
-/**
- * Every dashboard address the report prints, in one place: a /_ab/ path as the address to open from a mail. When the
- * dashboard moves to its own host, this line is the one to change.
- */
-export const dashLink = (path: string) => `https://aquatome.com${path}`
-
 /** A link the report may print: the dashboard's or this repository's. Anything else stays plain text. */
-const linkOf = (href: string | undefined) => (!href ? undefined : href.startsWith('/_ab/') ? dashLink(href) : href.startsWith(REPO_URL) ? href : undefined)
+const linkOf = (href: string | undefined) => (!href ? undefined : href.startsWith('/_ab/') ? dashboardUrl(href) : href.startsWith(REPO_URL) ? href : undefined)
 
 /** Waiting this long, the moderation (hourly, on a Mac that can be queued for hours) has missed several runs. */
 const QUEUE_LATE_MS = 6 * 3_600_000

@@ -1,8 +1,10 @@
+import { accessOn, type AccessEnv } from './access'
 import { sessionOf, tokenOf } from './accounts/session'
 import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
 import { deleteKept, keptImage, recentKept } from './fishid/kept'
 import { loadHidden, updateHidden } from './hidden'
-import { OWNER_COOKIE } from './owner'
+import { OWNER_COOKIE, SITE_OWNER_COOKIE } from './owner'
+import { DASHBOARD_HOST } from './paths'
 import { approveByOwner, photosLive, recentPhotos, removePhoto, waitingPhotos, waitingUpload, type PhotosEnv } from './photos'
 import { queryReaderDays, queryReaders } from './readers'
 import { queryAsks } from './lang-ask'
@@ -17,7 +19,7 @@ import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewPage,
   photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview,
 } from './admin/pages'
-import { isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { hostPath, isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
 import { HOME_TZ, localDay, viewerZone } from './admin/time'
 import { loadReports, reportPage, reportsPage, reportsSection, SETTINGS_FORM } from './daily/page'
 import type { PushEnv } from './daily/push'
@@ -29,8 +31,10 @@ import { setSettings, type ReportSettings } from './daily/settings'
  * says so in its place when it can't. The iOS app reads the same pages as JSON (owner-api.ts), each from the same load.
  * OWNER_ACCOUNTS (a Worker secret): the owner's account ids, comma-separated. AB_DASH_TOKEN, as a bearer token, is the
  * build's and the scripts' key to /_ab/hidden.json; it no longer opens the dashboard, since a token can leak or be shared.
+ * With Cloudflare Access set up (access.ts) the pages are on their own host (dashboard-host.ts), where Access says who it
+ * is, and a browser asking for one here is sent there; everything else here stays as it was.
  */
-export type AdminEnv = FishIdEnv & PhotosEnv & PushEnv & { DB?: D1Database; AB_DASH_TOKEN?: string; OWNER_ACCOUNTS?: string; AE_API_TOKEN?: string; CF_ACCOUNT_ID?: string; ASSETS?: Fetcher }
+export type AdminEnv = FishIdEnv & PhotosEnv & AccessEnv & PushEnv & { DB?: D1Database; AB_DASH_TOKEN?: string; OWNER_ACCOUNTS?: string; AE_API_TOKEN?: string; CF_ACCOUNT_ID?: string; ASSETS?: Fetcher }
 export type { AffSummary }
 
 export function safeEqual(a: string, b: string): boolean {
@@ -247,10 +251,13 @@ export async function sectionJson(key: string, env: AdminEnv, url: URL, now: Dat
   return path ? PAGES[path].json(env, url, now, tz) : undefined
 }
 
-/** Every /_ab path: the pages, the owner's actions, a waiting photo, and the hidden list the build reads. */
-export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = new Date()): Promise<Response> {
+/**
+ * Every /_ab path: the pages, the owner's actions, a waiting photo, and the hidden list the build reads. `behindAccess`:
+ * on the dashboard's own host, whose route has checked Access's token: this is the owner, with no session of the site's.
+ */
+export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = new Date(), behindAccess = false): Promise<Response> {
   const path = url.pathname
-  const owner = async () => (await visitor(req, env, now)) === 'owner'
+  const owner = async () => behindAccess || (await visitor(req, env, now)) === 'owner'
   // The two private images the app shows too: the owner's app session as a bearer, or the owner's cookie.
   const ownerOrApp = async () => (await appVisitor(req, env, now)) === 'owner' || (await owner())
   // The site's two faces for these pages (scripts/admin-fonts.ts): public, like the site's own copies.
@@ -333,12 +340,15 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
-  const who = await visitor(req, env, now)
+  // Moved to its own host once Access guards it. A bearer asked for something else, and gets what it always got. Never
+  // stored, so turning Access off again can't leave a browser stuck on the host.
+  if (!behindAccess && accessOn(env) && !req.headers.has('authorization')) return new Response(null, { status: 301, headers: { location: `https://${DASHBOARD_HOST}${hostPath(key)}${url.search}`, 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'referrer-policy': 'no-referrer' } })
+  const who = behindAccess ? 'owner' : await visitor(req, env, now)
   // Not the owner: the sign-in, on this page's address (and that this account isn't the owner's).
   if (who !== 'owner') return signInPage(env, url, key, who === 'other')
   // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts), and drops the old token cookie.
   const headers = new Headers(HTML)
-  for (const c of [OWNER_COOKIE, OLD_TOKEN_COOKIE]) headers.append('set-cookie', c)
+  for (const c of behindAccess ? [SITE_OWNER_COOKIE] : [OWNER_COOKIE, OLD_TOKEN_COOKIE]) headers.append('set-cookie', c)
   const html = req.method === 'HEAD' ? null : await render(env, url, now, viewerZone(req))
   return html === undefined ? notFound() : new Response(html, { headers })
 }

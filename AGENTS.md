@@ -37,6 +37,15 @@ E2E_BASE_URL=https://aquatome.com E2E_PAGES=e2e-pages.json pnpm exec playwright 
 - Write a link to a page as `/vi/…`. The build rewrites it to each language's address (`src/lib/i18n.ts`). Old `/vi/…`
   addresses 301 to the root. The app's files keep the `/vi/` form until `APP_VI_ROOT` turns on.
 
+- The owner's dashboard is `/_ab/<key>/` in the code, and `https://dashboard.aquatome.com/<key>/` once Cloudflare Access
+  guards it (`ACCESS_TEAM_DOMAIN` and `ACCESS_AUD` in `apps/site/wrangler.jsonc`; `worker/dashboard-host.ts`). A new page is
+  in the rail's list (`WEB_PAGES`, `worker/admin/shell.ts`; `NAV` too if the app lists it): the host maps it, the pages
+  under it and its `.json`, and its links there. Each needs its line in `run_worker_first` (`/<key>/*`, a `.json` form's
+  own; a test names it), never a negative pattern, which would win over the app page's rules. A dashboard
+  address printed anywhere else (mail, reports, JSON, docs) is `dashboardUrl` (`worker/paths.ts`),
+  `https://aquatome.com/_ab/<key>/`, which lands on the page either way. Anything a machine calls stays on aquatome.com,
+  with its bearer: Access would stop it on the host.
+
 ## Strings
 
 - UI text is Vietnamese in the code. Indonesian and Thai live in `apps/site/src/i18n/{id,th}.json`, and the build fails

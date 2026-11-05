@@ -1,5 +1,6 @@
 import { importPKCS8, SignJWT } from 'jose'
-import { dashboardUrl } from '../admin/shell'
+import { REPORT_PATH } from '../admin/shell'
+import { dashboardUrl } from '../paths'
 
 /**
  * The daily report as a notification on the owner's phones, through Apple's push service (APNs). The app registers each
@@ -86,7 +87,7 @@ export function notification(r: { subject: string; first?: string }, id: string)
   const body = [r.subject, r.first].filter(Boolean).join('\n')
   return {
     aps: { alert: { title: 'AquaTome', body: body.length > MAX_BODY ? `${body.slice(0, MAX_BODY - 1)}…` : body }, 'thread-id': 'daily-report' },
-    url: `${dashboardUrl('bao-cao')}${id}/`,
+    url: dashboardUrl(`${REPORT_PATH}${id}/`),
   }
 }
 

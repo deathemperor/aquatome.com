@@ -27,11 +27,33 @@ export const SCOREBOARD_PATH = '/_ab/thanh-cong/'
 export const REPORT_PATH = '/_ab/bao-cao/'
 export const REPORT_NAME = 'Báo cáo hằng ngày'
 export type WebPath = AdminPath | typeof SCOREBOARD_PATH
+/** The rail's pages, in its order: the overview, the scoreboard, NAV's sections (the daily report last). */
+const PAGE_NAV: readonly (readonly [WebPath, string])[] = [NAV[0], [SCOREBOARD_PATH, 'Thành công'], ...NAV.slice(1)]
+/** Every page of the web dashboard, the one the app doesn't list included. */
+export const WEB_PAGES: readonly WebPath[] = PAGE_NAV.map(([p]) => p)
 
-/** Where the dashboard lives, for anything that links to it from outside its pages: this line alone moves it to another host. */
-const DASHBOARD_BASE = 'https://aquatome.com/_ab/'
-/** A dashboard page's absolute address, by its key (thanh-cong). */
-export const dashboardUrl = (key: string) => `${DASHBOARD_BASE}${key}/`
+/** Their keys. A key's page, the pages under it (one report) and its JSON form (thanh-cong.json) are the dashboard's. */
+const KEYS = new Set(WEB_PAGES.map(p => p.slice('/_ab/'.length, -1)).filter(Boolean))
+const UNDER_KEY = /^\/([a-z0-9-]+)((?:\/[a-z0-9-]+)*\/|\.json)$/
+/**
+ * The /_ab/ path behind an address on the dashboard's own host (dashboard-host.ts): "/" → "/_ab/", "/bao-cao/1003/" →
+ * "/_ab/bao-cao/1003/", "/thanh-cong.json" → "/_ab/thanh-cong.json"; undefined for an address that isn't the dashboard's.
+ */
+export function innerPath(path: string): string | undefined {
+  if (path === '/') return '/_ab/'
+  const m = UNDER_KEY.exec(path)
+  return m && KEYS.has(m[1]!) ? `/_ab${path}` : undefined
+}
+/**
+ * The other way, for the host's links and redirects: a dashboard address as the host has it, the query and hash kept
+ * ("/_ab/doc-gia/?x=1#y" → "/doc-gia/?x=1#y"). The rest of /_ab/ (the forms, the images, the fonts) stays as it is.
+ */
+export function hostPath(path: string): string {
+  const at = path.search(/[?#]/)
+  const [p, rest] = at < 0 ? [path, ''] : [path.slice(0, at), path.slice(at)]
+  const own = p.startsWith('/_ab/') ? p.slice('/_ab'.length) : undefined
+  return own !== undefined && innerPath(own) === p ? `${own}${rest}` : path
+}
 
 const LATIN = 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD'
 const VIET = 'U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB'
@@ -62,10 +84,11 @@ a:hover{text-decoration-color:currentColor;color:var(--moss)}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
 .num,td,.v,.fig{font-variant-numeric:tabular-nums}
 .masthead{background:var(--water);color:var(--on-dark);display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px max(16px,env(safe-area-inset-left)) 12px}
-.brand{font-weight:600;color:var(--on-dark);text-decoration:none;letter-spacing:.005em}
+.brand{font-weight:600;color:var(--on-dark);text-decoration:none;letter-spacing:.005em;margin-right:auto}
 .brand span{color:var(--on-dark-soft);font-weight:500}
 .brand span:before{content:'·';margin:0 .4em}
 .masthead time{color:var(--on-dark-soft);font-size:13px;white-space:nowrap}
+.masthead .out{color:var(--on-dark-soft);font-size:13px;white-space:nowrap;padding:14px 0;margin:-14px 0}
 .masthead :focus-visible{outline-color:#6fd6be}
 .frame{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr)}
 .rail{border-bottom:1px solid var(--rule);background:var(--plate)}
@@ -302,12 +325,13 @@ export const ICON = {
 }
 
 /**
- * The page's clock (admin/time.ts): the device's time zone kept in the aq_tz cookie for the next page; times rewritten in
+ * The page's clock (admin/time.ts): the device's time zone kept in the aq_tz cookie for the next page (at /, where the
+ * dashboard's own host has its pages; the one kept at /_ab before cleared); times rewritten in
  * it when this page was put together in another; then one reload, so the days follow it as well.
  */
 const TIME_JS = `(()=>{const d=document.documentElement,z=Intl.DateTimeFormat().resolvedOptions().timeZone
 if(!z)return
-const c='aq_tz='+encodeURIComponent(z);document.cookie=c+'; Path=/_ab; Max-Age=31536000; SameSite=Lax; Secure'
+const c='aq_tz='+encodeURIComponent(z);document.cookie='aq_tz=; Path=/_ab; Max-Age=0; SameSite=Lax; Secure';document.cookie=c+'; Path=/; Max-Age=31536000; SameSite=Lax; Secure'
 if(z===d.dataset.tz)return
 const f=new Intl.DateTimeFormat('en-GB',{timeZone:z,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',weekday:'short',hourCycle:'h23'}),p=t=>Object.fromEntries(f.formatToParts(t).map(x=>[x.type,x.value])),y=p(new Date()).year,W={Sun:'Chủ nhật',Mon:'Thứ Hai',Tue:'Thứ Ba',Wed:'Thứ Tư',Thu:'Thứ Năm',Fri:'Thứ Sáu',Sat:'Thứ Bảy'}
 for(const t of document.querySelectorAll('time[datetime]')){const q=p(new Date(t.dateTime)),hm=q.hour+':'+q.minute
@@ -336,7 +360,7 @@ if(i===null)return;e.preventDefault();pick(i)})}})()`
 
 /** An admin page: the bar, the areas (a rail on a computer, chips on a phone), then the page's own content. */
 export function page(current: WebPath, title: string, body: string, now = new Date(), tz = HOME_TZ): string {
-  const nav = [NAV[0], [SCOREBOARD_PATH, 'Thành công'] as const, ...NAV.slice(1)].map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
+  const nav = PAGE_NAV.map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
   const script = body.includes('data-plot') ? `<script>${CHART_JS}</script>` : ''
   return `${HEAD(title, tz)}<body${current === '/_ab/' ? ' class="home"' : ''}><header class="masthead"><a class="brand" href="/_ab/">AquaTome<span>Quản trị</span></a>${stamp(now, tz)}</header><div class="frame"><nav class="rail" aria-label="Các mục quản trị"><ul>${nav}</ul></nav><main>${body}</main></div><script>${TIME_JS}</script>${script}</body></html>`
 }

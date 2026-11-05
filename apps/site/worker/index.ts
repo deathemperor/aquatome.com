@@ -6,13 +6,14 @@ import { applyDecisions, listComments, moderationQueue, postComment, purgeRemove
 import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
+import { dashboardHostRoute } from './dashboard-host'
 import { dailyReportRoute } from './daily/api'
 import { ownerApi } from './owner-api'
 import { isOwnerVisit } from './owner'
 import { recordSnapshot } from './admin/content'
 import { parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
-import { isViPage, withoutVi } from './paths'
+import { DASHBOARD_HOST, isViPage, withoutVi } from './paths'
 import { appPageClosed } from './app-switch'
 import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
@@ -38,8 +39,11 @@ export interface Env {
   /** The iOS app's events and MetricKit summaries (worker/telemetry); without it the app's routes answer 503. */
   APP_EVENTS?: AnalyticsEngineDataset
   STAGING?: string
-  /** Production host; any other host (www, the old staging domain) 301s here. */
+  /** Production host; any other host (www, the old staging domain) but the dashboard's own 301s here. */
   CANONICAL_HOST?: string
+  /** Cloudflare Access in front of the dashboard's own host (access.ts): while either is empty, that host refuses everything. */
+  ACCESS_TEAM_DOMAIN?: string
+  ACCESS_AUD?: string
   AB_DASH_TOKEN?: string
   /** The owner's account ids, comma-separated (a secret): the dashboard opens only to them (dashboard.ts visitor). */
   OWNER_ACCOUNTS?: string
@@ -162,6 +166,7 @@ export function chosenLang(cookie: string | null): Lang | undefined {
 
 export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p, accountDeps?: AccountDeps, fishDeps?: FishIdDeps): Promise<Response> {
   const url = new URL(req.url)
+  if (url.hostname === DASHBOARD_HOST) return dashboardHostRoute(req, url, env)
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
   }
