@@ -29,7 +29,8 @@ const control = controlOf(p.brand, p.model)
 const channelWords: Record<string, string> = { red: t('đỏ'), green: t('xanh lá'), blue: t('xanh dương'), white: t('trắng') }
 const reviewVideos = p.reviews?.videos ?? []
 const reviews = reviewVideos.length ? p.t.reviews : undefined
-const marks = (cs: { url: string; t?: number }[]) => cs.map(x => productMark(lang, p, x)).join('')
+// A claim's marks stay together: a lone number on the next line reads as nothing.
+const marks = (cs: { url: string; t?: number }[]) => `<span class="marks">${cs.map(x => productMark(lang, p, x)).join('')}</span>`
 const jsonld = [
   { '@context': 'https://schema.org', '@type': 'Product', name, brand: { '@type': 'Brand', name: p.brand }, model: p.model, description: p.t.summary?.join(' '),
     ...(range ? { offers: { '@type': 'AggregateOffer', priceCurrency: 'VND', lowPrice: range.min, highPrice: range.max, offerCount: range.n } } : {}) },
@@ -127,7 +128,7 @@ const jsonld = [
       )}
       {reviews.measured.length > 0 && (
         <>
-          <h3>{t('Số người review tự đo')}</h3>
+          <h3>{t('Số đo trong các bài review')}</h3>
           <div class="scroll"><table class="measured">
             <thead><tr><th scope="col">{t('Đo gì')}</th><th scope="col">{t('Kết quả')}</th><th scope="col">{t('Đo bằng gì')}</th></tr></thead>
             <tbody>{reviews.measured.map(m => <tr><th scope="row">{m.what}</th><td class="num">{m.value}<Fragment set:html={productMark(lang, p, m.cite)} /></td><td>{m.how || '–'}</td></tr>)}</tbody>
@@ -179,7 +180,9 @@ const jsonld = [
   .control ul, .reviews ul { padding-left: 1.2em; margin: var(--space-2) 0; }
   .control p { margin: var(--space-2) 0; }
   .tool { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
-  .reviews { max-width: var(--measure); }
+  .reviews { max-width: var(--measure); margin-bottom: var(--space-6); }
+  .reviews :global(.videos ul) { grid-template-columns: 1fr; }
+  :global(.marks) { white-space: nowrap; }
   .reviews-note { color: var(--c-ink-soft); }
   .reviews :global(.videos) { margin-block: var(--space-4); border-radius: var(--radius-media); }
   .differ dt { font-weight: 600; margin-top: var(--space-3); }
