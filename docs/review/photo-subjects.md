@@ -379,6 +379,7 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 | species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/337801605.webp) | archerfish over sand; rounded spots, could be seven-spot archerfish |
 | species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/376731428.webp) | archerfish group in a mangrove; many smaller spots look more like T. chatareus, hard to tell at this distance |
 | species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/376731436.webp) | two archerfish near surface; alternating large and small spots suggest possible T. chatareus |
+| species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/commons/96aa04b3f3933668.webp) | plain brown plec with pale stripe along the back, resting under a rock ledge; doesn't have the dense dark spotting, so i |
 | species/barbodes-semifasciolatus | [photo](https://media.aquatome.com/inaturalist/673322750.webp) | silvery barb with short bars on black background; could be wild type but other barbs can't be ruled out |
 | species/barbodes-semifasciolatus | [photo](https://media.aquatome.com/sprucepets/3213eda1134f0646.webp) | reddish checkered barb with red fins; looks more like a checker barb (Pethia oligolepis) than a golden barb |
 | species/boraras-merah | [photo](https://media.aquatome.com/commons/0100ace42ee6de22.webp) | pale fish with long dark mid-lateral band instead of the round blotch; possibly a female or another Boraras |
@@ -407,7 +408,6 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 | species/amia-calva | [photo](https://media.aquatome.com/inaturalist/128409833.webp) | murky water, fish barely visible |
 | species/amia-calva | [photo](https://media.aquatome.com/inaturalist/401928889.webp) | blurry top-down view of a long dark fish over a sandy bottom, seen through a viewer; can't confirm the species |
 | species/amia-calva | [photo](https://media.aquatome.com/inaturalist/504091996.webp) | mottled long-bodied fish in a display tank; could be a snakehead, no tail eyespot visible |
-| species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/commons/96aa04b3f3933668.webp) | plain brown plec with pale stripe along the back, resting under a rock ledge; doesn't have the dense dark spotting, so i |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/127738278.webp) | dense group of sea catfish in shallow water seen from above; can't confirm the species |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/446544212.webp) | two blurry catfish over the bottom in murky water |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/588306823.webp) | dark catfish group in murky blue water; can't rule out freshwater catfish |
