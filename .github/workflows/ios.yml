@@ -116,10 +116,13 @@ jobs:
       # A failed test runs once more, as the site's journeys do on CI: the simulator on these runners sometimes stops
       # answering for 30 s, then drops the next tap or loses the app (PRs #234, #248 on 2026-10-31, in their
       # recordings). A test that fails twice fails the job; one that passed only on its retry is flagged below.
+      # `exec`: xcodebuild takes the step's place, so a cancelled job's stop signals reach it. Run under the step's
+      # shell, it was left running with no parent when that shell died, still driving the simulator and writing its
+      # result bundle into the next job's checkout (2026-11-04, the runner's log; wait-for-simulator.sh).
       - env:
           TESTS: ${{ needs.changes.outputs.app }}
         run: >-
-          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
@@ -209,8 +212,9 @@ jobs:
       # Retried once, as in job `app`, and for the same reason.
       - env:
           TESTS: ${{ needs.changes.outputs[format('handbook_{0}', matrix.half)] }}
+        # `exec`, as in job `app`.
         run: >-
-          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/handbook.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
@@ -261,8 +265,9 @@ jobs:
       # takes under three on CI.
       - env:
           TESTS: ${{ needs.changes.outputs[format('lights_{0}', matrix.half)] }}
+        # `exec`, as in job `app`.
         run: >-
-          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/lights.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
