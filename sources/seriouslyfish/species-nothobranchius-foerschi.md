@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/nothobranchius-foerschi
 title: Nothobranchius foerschi · Seriously Fish
-fetchedAt: 2026-11-05T03:22:39.942Z
+fetchedAt: 2026-11-05T10:07:41.778Z
 hash: c29ea8808be0a28cb0189c834b223827fc2118ae90daac770c5ae0187dfcf61a
 ---
 

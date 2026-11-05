@@ -52,7 +52,8 @@
       "species/akysis-vespa",
       "species/batasio-feruminatus"
     ],
-    "mentions": 14
+    "mentions": 14,
+    "onSource": "https://www.seriouslyfish.com/species/acanthocobitis-pictilis"
   },
   "crossocheilus-oblongus": {
     "name": "Crossocheilus oblongus",
@@ -74,8 +75,7 @@
       "species/baryancistrus-demantoides",
       "species/biotodoma-wavrini"
     ],
-    "mentions": 11,
-    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
+    "mentions": 11
   },
   "channa-striata": {
     "name": "Channa striata",
@@ -957,8 +957,7 @@
       "guides/aquariumbreeder-50-underwater-red-plants-for-your-tank",
       "guides/youtube-k3xDjE_A8t0"
     ],
-    "mentions": 2,
-    "onSource": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica"
+    "mentions": 2
   },
   "ammannia-pedicellata": {
     "name": "Ammannia pedicellata",
@@ -1014,8 +1013,7 @@
       "guides/aquariumcoop-blogs-aquarium-foreground-plants",
       "guides/aquariumcoop-blogs-aquarium-high-tech-plants"
     ],
-    "mentions": 2,
-    "onSource": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-micranthemum-tweediei-monte-carlo"
+    "mentions": 2
   },
   "caridina-serrata": {
     "name": "Caridina serrata",
@@ -1055,7 +1053,8 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-iberus"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-iberus"
   },
   "aphanius-baeticus": {
     "name": "Aphanius baeticus",
@@ -1063,7 +1062,8 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-baeticus"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-baeticus"
   },
   "badis-laspiophilus": {
     "name": "Badis laspiophilus",
@@ -1079,7 +1079,8 @@
       "guides/seriouslyfish-articles-whaddaya-mean-too-hot",
       "species/paraphanius-mento"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-mento"
   },
   "micralestes-acutidens": {
     "name": "Micralestes acutidens",
@@ -1110,6 +1111,14 @@
     "mentionedIn": [
       "guides/youtube-9Ve-eoniVlw",
       "guides/youtube-rXQS95MHmTk"
+    ],
+    "mentions": 2
+  },
+  "arapaima-gigas": {
+    "name": "Arapaima gigas",
+    "mentionedIn": [
+      "guides/youtube-HRHGNurFb8Y",
+      "guides/youtube-Yv6gkqeQ0aE"
     ],
     "mentions": 2
   },
@@ -1247,7 +1256,8 @@
       "species/anatolichthys-sureyanus",
       "species/anatolichthys-transgrediens"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-anatoliae"
   },
   "akysis-clavulus": {
     "name": "Akysis clavulus",
@@ -1367,7 +1377,8 @@
       "species/barilius-ornatus",
       "species/barilius-signicaudus"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/rasbora-paucisqualis"
   },
   "barilius-barila": {
     "name": "Barilius barila",
@@ -1933,8 +1944,7 @@
     "mentionedIn": [
       "guides/aquariumbreeder-50-underwater-red-plants-for-your-tank"
     ],
-    "mentions": 1,
-    "onSource": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-ludwigia-brevipes"
+    "mentions": 1
   },
   "ludwigia-inclinata": {
     "name": "Ludwigia inclinata",
@@ -2011,7 +2021,8 @@
     "mentionedIn": [
       "guides/aquariumcoop-blogs-aquarium-midwater-schooling-fish"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hyphessobrycon-flammeus"
   },
   "neothauma-tanganyicense": {
     "name": "Neothauma tanganyicense",
@@ -2173,7 +2184,8 @@
     "mentionedIn": [
       "guides/seriouslyfish-articles-botiid-fishes-of-the-modesta-complex-an-analysis-of-natural-history-and-behaviorisms"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/yasuhikotakia-caudipunctata"
   },
   "badis-andrewraoi": {
     "name": "Badis andrewraoi",
@@ -2418,7 +2430,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-m-1378548"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/variabilichromis-moorii"
   },
   "scaphirhynchus-platorynchus": {
     "name": "Scaphirhynchus platorynchus",
@@ -2467,7 +2480,8 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/tanganicodus-irsacae"
   },
   "pseudacanthicus-spinosus": {
     "name": "Pseudacanthicus spinosus",
@@ -2700,13 +2714,6 @@
     ],
     "mentions": 1
   },
-  "arapaima-gigas": {
-    "name": "Arapaima gigas",
-    "mentionedIn": [
-      "guides/youtube-Yv6gkqeQ0aE"
-    ],
-    "mentions": 1
-  },
   "vittina-natalensis": {
     "name": "Vittina natalensis",
     "mentionedIn": [
@@ -2775,7 +2782,8 @@
     "mentionedIn": [
       "guides/youtube-sFCtqYbZQBg"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/vieja-melanurus"
   },
   "clithon-corona": {
     "name": "Clithon corona",
@@ -3076,7 +3084,8 @@
     "mentionedIn": [
       "species/anatolichthys-villwocki"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-villwocki"
   },
   "ancharius-griseus": {
     "name": "Ancharius griseus",
@@ -3251,7 +3260,8 @@
     "mentionedIn": [
       "species/barbodes-semifasciolatus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/puntius-snyderi"
   },
   "barboides-britzi": {
     "name": "Barboides britzi",
@@ -3664,7 +3674,8 @@
     "mentionedIn": [
       "species/corydoras-sodalis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/brochis-agassizii"
   },
   "corydoras-blochi": {
     "name": "Corydoras blochi",
@@ -3720,7 +3731,8 @@
     "mentionedIn": [
       "species/ctenopoma-acutirostre"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/synodontis-contractus"
   },
   "poropanchax-brichardi": {
     "name": "Poropanchax brichardi",
@@ -3867,7 +3879,8 @@
     "mentionedIn": [
       "species/garra-bicornuta"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/nemachilichthys-shimogensis"
   },
   "garra-micropulvinus": {
     "name": "Garra micropulvinus",
@@ -3895,7 +3908,8 @@
     "mentionedIn": [
       "species/gastromyzon-lepidogaster"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/hampala-bimaculata"
   },
   "gastromyzon-cranbrooki": {
     "name": "Gastromyzon cranbrooki",
@@ -4595,7 +4609,8 @@
     "mentionedIn": [
       "species/oreichthys-cosuatis"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides"
   },
   "oryzias-melastigma": {
     "name": "Oryzias melastigma",
@@ -4749,7 +4764,8 @@
     "mentionedIn": [
       "species/schistura-balteata"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/schistura-aurantiaca"
   },
   "schistura-mukambbikaensis": {
     "name": "Schistura mukambbikaensis",
@@ -4826,7 +4842,8 @@
     "mentionedIn": [
       "species/sinogastromyzon-wui"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/sinogastromyzon-puliensis"
   },
   "sturisoma-graffini": {
     "name": "Sturisoma graffini",
