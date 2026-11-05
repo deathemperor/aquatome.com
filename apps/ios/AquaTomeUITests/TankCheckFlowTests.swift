@@ -47,7 +47,7 @@ final class TankCheckFlowTests: XCTestCase {
   private func launch(_ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults"] + args
-    app.launch()
+    app.launchForFlow()
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     return app

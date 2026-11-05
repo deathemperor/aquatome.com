@@ -44,7 +44,7 @@ final class PageShotsFlowTests: XCTestCase {
   private func shootIcons(_ name: String, dark: Bool = false) {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-app-icons"] + (dark ? ["-dark"] : [])
-    app.launch()
+    app.launchForFlow()
     XCTAssertTrue(app.buttons["app-icon-default"].waitForExistence(timeout: 10), "the picker didn't open")
     for n in 1...2 {
       settle()
@@ -141,7 +141,7 @@ final class PageShotsFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
       + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? []) + more
-    app.launch()
+    app.launchForFlow()
     return app
   }
 
@@ -200,7 +200,7 @@ final class PageShotsFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
       + (large ? ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"] : [])
-    app.launch()
+    app.launchForFlow()
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()

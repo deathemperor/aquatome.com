@@ -141,7 +141,7 @@ final class AccountFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", accounts]
       + (newPhone ? ["-reset-defaults"] : []) + (resetServer ? ["-reset-fake-server"] : []) + args
-    app.launch()
+    app.launchForFlow()
     app.openTab("Bể của tôi")
     return app
   }

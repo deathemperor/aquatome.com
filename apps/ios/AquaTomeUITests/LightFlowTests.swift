@@ -702,7 +702,7 @@ final class LightFlowTests: XCTestCase {
     let app = XCUIApplication()
     let (language, locale, tab) = indonesian ? ("id", "id_ID", "Lampu") : ("vi", "vi_VN", "Đèn")
     app.launchArguments = ["-AppleLanguages", "(\(language))", "-AppleLocale", locale, "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args
-    app.launch()
+    app.launchForFlow()
     app.openTab(tab)
     return app
   }
