@@ -135,3 +135,15 @@ test('a title rewritten by the model is kept when the reviewer passes it, and th
     .toBe('<p>Cá betta cần nước ấm 26 độ, thay nước mỗi tuần một lần và bể có nắp đậy kín.</p>')
   expect(sweepTranslation({ sections: { 'references:x': `<p>${REPEAT}</p>`, 'notes:x': `<p>${REPEAT}</p>` } }).t.sections).toEqual({ 'references:x': `<p>${REPEAT}</p>`, 'notes:x': `<p>${REPEAT}</p>` })
 })
+
+test("a language the site doesn't serve yet is swept too: its text fixed, its names its own", async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const long = 'Kerana batu ini lengai, air dalam akuarium anda tidak berubah walaupun selepas beberapa bulan.'
+  await writeFile(join(c, 'guides/g/ms.json'), JSON.stringify(vi('Panduan', {}, { body: `<h3>Batu</h3><p>${long}</p><h3>4 komen mengenai “Batu”</h3><ul><li><p><strong>Marcia:</strong> Soalan.</p></li></ul><h3>Tinggalkan komen</h3>` })))
+  await writeFile(join(c, 'species/corydoras-sterbai/ms.json'), JSON.stringify({ ...vi('Cory Sterbai', { 'distribution:seriouslyfish': '<p>Brazil.</p>' }), altNames: ['Corydoras sterbai', 'Cory sterbai', 'Ikan Sterbai'] }))
+  const r = await sweep(root)
+  expect((await json(root, 'content/guides/g/ms.json')).body).toBe(`<h3>Batu</h3><p>${long}</p>`)
+  expect((await json(root, 'content/species/corydoras-sterbai/ms.json')).altNames).toEqual(['Ikan Sterbai'])
+  expect(r.files).toEqual(expect.arrayContaining(['guides/g/ms.json', 'species/corydoras-sterbai/ms.json']))
+})

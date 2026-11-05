@@ -366,6 +366,22 @@ The layers above still check the result.
     which species come first, and the names shops use) by a seeded run, `pnpm engine shop-list --lang vi --seed`. A
     shop's list seeded later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,
     use=reference`.
+- **A language ahead of the site.** The engine writes a language with `served: false` in the language table
+  (`packages/schema/src/langs.ts`; Malay now) before the site serves it, last in each rewrite cycle. Its files reach
+  `content/` and `apps/site/src/i18n/`, and nothing reads them: `apps/site/test/unserved-langs.test.ts` builds the site
+  with one of each and holds its pages, lists, app files and counts to none, and `worker/test/unserved-langs.test.ts`
+  holds the root, the cookie and the chooser.
+  - Each of its steps starts only while the cycle has run under `AHEAD_BEFORE_MINUTES` (135): it gives first, so a long
+    cycle costs the unserved language its turn, not the served ones theirs. The buying guides go two a cycle and the UI
+    text 120 strings a cycle, its first runs being the long ones. No build asks for its UI text, so the strings come from
+    a served language's dictionary (`translate-ui.ts --unserved`).
+  - Written like any page, and held like one: reviewed writing, `pnpm engine metric` and the real-content test on imperial
+    figures, `pnpm engine sweep`'s text and name fixes, the test on two pages with one name, `topic-check`, Wikidata's
+    names (a species cached before the language joined is asked once for it), a guide photo's section heading.
+  - Left until it is served, as they read pages readers can reach: `pnpm engine reader` (a model call a page), `pnpm
+    engine audit` and the real-content test on the rules (`loadPages`), and the orders that follow readers (gallery
+    targets, which new pages to fetch first). A shop list can be made for it (`pnpm engine shop-list --lang ms`), and
+    gives its pages names and its translation order; it joins the others' orders when served.
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped, and so is a minimum tank length that

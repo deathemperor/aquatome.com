@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { imperialLeft, isAllowedLicence, loadAll, resolveDataCard, slugify } from '../src/index'
-import { LANGS } from '../src/langs'
+import { WRITTEN_LANGS } from '../src/langs'
 
 const root = fileURLToPath(new URL('../../../apps/site/test/fixture-content', import.meta.url))
 const load = () => loadAll({ root, lang: 'vi', publicBuild: false })
@@ -41,7 +41,7 @@ test('every species place id exists', async () => {
   for (const s of c.species) for (const p of s.places) expect(ids.has(p), `${s.id}→${p}`).toBe(true)
 })
 
-// The real content/, not the test store: readers in Vietnam, Indonesia and Thailand use °C, cm and litres. The engine
+// The real content/, not the test store: readers in Vietnam, Indonesia, Thailand and Malaysia use °C, cm and litres. The engine
 // writes fish, plant, breed and guide pages in metric (`pnpm engine metric` runs before each engine build); a figure in
 // °F, inches, feet or gallons here is one a writer left. Reference lists, quoted labels with their metric after
 // ("elevation 650 feet' (độ cao khoảng 200 m)") and product names stay as published. 263 pages had them on 2026-11-01
@@ -49,7 +49,7 @@ test('every species place id exists', async () => {
 test('fish, plant, breed and guide pages give figures in metric only', async () => {
   const content = fileURLToPath(new URL('../../../content', import.meta.url))
   const left: string[] = []
-  for (const kind of ['species', 'plants', 'breeds', 'guides']) for (const id of await readdir(join(content, kind))) for (const lang of LANGS) {
+  for (const kind of ['species', 'plants', 'breeds', 'guides']) for (const id of await readdir(join(content, kind))) for (const lang of WRITTEN_LANGS) {
     const page = await readFile(join(content, kind, id, `${lang}.json`), 'utf8').then(s => JSON.parse(s), () => null) as
       { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] } | null
     if (!page) continue

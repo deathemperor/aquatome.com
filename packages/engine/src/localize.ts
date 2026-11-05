@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, nameKey, POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section } from '@aq/schema'
-import type { OtherLang } from '@aq/schema/langs'
+import { OTHER_LANGS, type WrittenOtherLang } from '@aq/schema/langs'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { shopIds } from './shops'
@@ -14,17 +14,37 @@ const GLOSSARY = readFileSync(new URL('./prompts/localize-glossary.md', import.m
 const GLOSSARY_REVIEW = readFileSync(new URL('./prompts/localize-glossary-review.md', import.meta.url), 'utf8')
 const PLACES = readFileSync(new URL('./prompts/localize-places.md', import.meta.url), 'utf8')
 
-/** Site languages besides Vietnamese (the language table's), and how each is written. */
+/**
+ * The languages the engine translates into (the language table's, served or not): how each is written, and its word for
+ * an address when a page's name gives none (slugWords: as its section words, or English where those are English).
+ *
+ * Malay is Malaysia's written form, which shares its spelling rules and much of its grammar with Indonesian but not its
+ * everyday words. Seen in Malaysian writing about the hobby: ikan hiasan, ikan laga, ikan pelaga, gupi and guppy, penternak,
+ * makanan ikan, makanan hidup, akuarium, pelet, artemia, klorin, kualiti air, kedai ikan hiasan, RM with no space and a
+ * decimal point (Utusan Malaysia 2021, 2024; Sinar Harian 2026); bakteria, ikan emas, "240 liter" (Wikipedia Bahasa
+ * Melayu); tangki, penapisan biologi, tumbuhan hidup (akuariyom.blogspot.com); "Akuarium 3 Kaki", pam udara (mudah.my
+ * listings' titles); penapis (Kamus Dewan). Where it parts from Indonesian: Utusan Malaysia, 19 Oct 2024 (jenama/merk,
+ * percuma/gratis, kedai ubat/apotek, pejabat/kantor, peti ais/kulkas); the number marks: CLDR's ms locale. The rest
+ * (pemanas, tukar air, kitaran nitrogen, kuarantin, kekerasan air, sarang buih, baja, cacing darah, kutu air) is standard
+ * Malay no hobby page we could read confirmed: Lowyat's forum and mudah.my's listings refuse automated readers.
+ */
 export const TARGETS = {
   id: {
     lang: 'Indonesian (Bahasa Indonesia)', country: 'Indonesia', place: 'indonesia',
     style: `Style: natural, plain Bahasa Indonesia, friendly but not slangy, addressing the reader neutrally (no "gue/lo"). Use the words Indonesian aquarists use: akuarium, ikan hias, tanaman air, aquascape, filter, suhu, pH, kesadahan (GH), ganti air, siklus nitrogen, karantina, pakan. Decimal comma (1,5), ranges with an en dash (22–26 °C). Live and frozen foods as Indonesian shops name them: cacing darah (bloodworm), cacing sutra (tubifex), kutu air (daphnia, moina), artemia (brine shrimp), pelet, pakan serpihan (flakes). Bubble nest: sarang busa. Ich / white spot: penyakit bintik putih (white spot). Hillstream loaches and stone-clinging stream fish: hillstream loach, never a made-up "loach sungai".`,
+    slugWords: { fish: 'ikan', guide: 'panduan', term: 'istilah' },
   },
   th: {
     lang: 'Thai', country: 'Thailand', place: 'thailand',
     style: `Style: natural, plain written Thai, neutral and polite without spoken particles (no ครับ/ค่ะ). Use the words Thai aquarists use: ตู้ปลา, ปลาสวยงาม, ไม้น้ำ, อุณหภูมิ, ค่า pH, ความกระด้าง (GH), เปลี่ยนน้ำ, ระบบกรอง, วงจรไนโตรเจน, กักโรค, อาหารปลา. Decimal point (1.5), ranges with an en dash (22–26 °C); units in running text the Thai way (ซม., ลิตร), the symbols °C and pH as they are. Live and frozen foods as Thai shops name them: หนอนแดง (bloodworm), ไส้เดือนน้ำ (tubifex), ไรแดง (moina, daphnia), ไรทะเล (brine shrimp, artemia), อาหารเม็ด (pellets), อาหารแผ่น (flakes). Bubble nest: หวอด.`,
+    slugWords: { fish: 'fish', guide: 'guide', term: 'term' },
   },
-} as const satisfies Record<OtherLang, { lang: string; country: string; place: string; style: string }>
+  ms: {
+    lang: 'Malay (Bahasa Melayu as written in Malaysia)', country: 'Malaysia', place: 'malaysia',
+    style: `Style: natural, plain Malaysian Malay, friendly but not slangy, addressing the reader neutrally ("anda" only where needed, in lower case; no "awak", "korang" or "kamu"). This is not Indonesian: spelling and everyday words are Malaysia's. Use the words Malaysian keepers and shops use: akuarium, tangki, ikan hiasan, tumbuhan akuatik, penapis, pam udara, pemanas, aquascape, suhu, pH, kekerasan air (GH), tukar air, kitaran nitrogen, bakteria, kuarantin, makanan ikan, baja, kedai ikan hiasan, penternak. Write wang, kerana, bahawa, boleh, cuba, sahaja, betul, haiwan, kualiti, kuantiti, aktiviti, peratus, minit, ammonia, klorin; never the Indonesian uang, karena, bahwa, bisa, coba, saja, benar (for "correct"), hewan, kualitas, kuantitas, aktivitas, persen, menit, amonia, bakteri, tanaman air, ikan hias, ganti air, siklus nitrogen, karantina, kesadahan, pakan, pupuk, saringan, toko, gratis, merek. Decimal point (1.5) and comma for thousands (1,000), ranges with an en dash (22–26 °C). Metric only, in cm and liter: Malaysian shops size a tank in kaki ("akuarium 3 kaki"), but give its size in cm. Money, where a text has any, in ringgit with no space (RM25, RM3.5 juta), never Rp. Live and frozen foods as Malaysian shops name them: cacing darah (bloodworm), cacing tubifex (tubifex), kutu air (daphnia, moina), artemia (brine shrimp), pelet (pellets), flake (flakes). Betta: ikan laga or ikan pelaga, never cupang. Guppy: guppy or ikan gupi. Bubble nest: sarang buih, never sarang busa. Ich / white spot: penyakit bintik putih (white spot). Hillstream loaches and stone-clinging stream fish: hillstream loach, never a made-up word-for-word name.`,
+    slugWords: { fish: 'ikan', guide: 'panduan', term: 'istilah' },
+  },
+} as const satisfies Record<WrittenOtherLang, { lang: string; country: string; place: string; style: string; slugWords: Record<'fish' | 'guide' | 'term', string> }>
 export type TargetLang = keyof typeof TARGETS
 
 /** Species found wild in a place (content/places id): listed under it, or under a region, river or island inside it. */
@@ -45,12 +65,12 @@ export async function nativeTo(root: string, place: string): Promise<Set<string>
 
 /**
  * The order species pages get translated in: the staples, what the country's fish shops sell (shops.ts), the most-kept
- * fish, pages another site language already has (so the sites end up with the same fish), the country's own wild fish,
- * then the rest.
+ * fish, pages a language the site serves already has (so the sites end up with the same fish), the country's own wild
+ * fish, then the rest.
  */
 export async function speciesOrder(root: string, lang: TargetLang): Promise<string[]> {
   const all = (await readdir(join(root, 'content/species'))).sort()
-  const others = (Object.keys(TARGETS) as TargetLang[]).filter(l => l !== lang)
+  const others = OTHER_LANGS.filter(l => l !== lang)
   const has = async (id: string) => (await readdir(join(root, 'content/species', id)).catch(() => [] as string[])).some(f => others.some(l => f === `${l}.json`))
   const elsewhere = (await Promise.all(all.map(async id => ((await has(id)) ? id : '')))).filter(Boolean)
   return [...new Set([...STAPLE_SPECIES, ...await shopIds(root, [lang]), ...POPULAR.map(slugify), ...elsewhere, ...await nativeTo(root, TARGETS[lang].place), ...all])].filter(id => all.includes(id))
@@ -241,7 +261,7 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
         const name = got?.name.trim() ?? ''
         const definition = got?.definition.replace(/<[^>]+>/g, '').trim() ?? ''
         if (!name || !definition) { report.failed.push(`${x.id}: left out`); continue }
-        const slug = x.slug ?? pickSlug(lang === 'th' || !slugify(name) ? x.en : name, lang === 'id' ? 'istilah' : 'term', taken)
+        const slug = x.slug ?? pickSlug(lang === 'th' || !slugify(name) ? x.en : name, TARGETS[lang].slugWords.term, taken)
         taken.add(slug)
         const t = TranslationSchema.parse({
           slug, name, altNames: [...new Set(got!.altNames.map(n => n.trim()).filter(n => n && n !== name))].slice(0, 4), sections: {}, definition,

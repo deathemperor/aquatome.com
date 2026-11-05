@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { LANGS, mayPublish, QUALITY_THRESHOLD, shownCard, type DataCardField, type Lang, type SpeciesEntity } from '@aq/schema'
+import { mayPublish, QUALITY_THRESHOLD, shownCard, WRITTEN_LANGS, type DataCardField, type SpeciesEntity, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -117,12 +117,12 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
-  const counted: { file: string; raw: string; t: Stored; kind: string; lang: Lang; id: string }[] = [] // raw: for its indentation
+  const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
 
-  // Text, in every language.
+  // Text, in every language the engine writes.
   for (const kind of SWEPT_KINDS) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
-      for (const lang of LANGS) {
+      for (const lang of WRITTEN_LANGS) {
         const file = join(content, kind, id, `${lang}.json`)
         const raw = await readFile(file, 'utf8').catch(() => null)
         if (!raw) continue
@@ -140,7 +140,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   }
 
   // A species' other names: its own, each once.
-  const breeds = Object.fromEntries(await Promise.all(LANGS.map(async l => [l, await breedNames(content, l)] as const))) as Record<Lang, BreedName[]>
+  const breeds = Object.fromEntries(await Promise.all(WRITTEN_LANGS.map(async l => [l, await breedNames(content, l)] as const))) as Record<WrittenLang, BreedName[]>
   const offFile = join(root, 'engine-state', '_names-off.json')
   const offLog = JSON.parse(await readFile(offFile, 'utf8').catch(() => '{}')) as Record<string, Record<string, string>>
   const today = new Date().toISOString().slice(0, 10)
@@ -155,7 +155,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   for (const id of (await readdir(join(content, 'species')).catch(() => [] as string[])).sort()) {
     const sci = (JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { scientificName?: string }).scientificName
     if (!sci) continue
-    for (const lang of LANGS) {
+    for (const lang of WRITTEN_LANGS) {
       const file = join(content, 'species', id, `${lang}.json`)
       const raw = await readFile(file, 'utf8').catch(() => null)
       if (!raw) continue
@@ -191,7 +191,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   for (const id of breedIds) {
     const e = JSON.parse(await readFile(join(content, 'breeds', id, 'entity.json'), 'utf8').catch(() => 'null')) as { basedOn?: string; parents: { species?: string }[] } | null
     if (!e) continue
-    for (const lang of LANGS) {
+    for (const lang of WRITTEN_LANGS) {
       const file = join(content, 'breeds', id, `${lang}.json`)
       const raw = await readFile(file, 'utf8').catch(() => null)
       if (!raw) continue

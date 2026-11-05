@@ -1,4 +1,4 @@
-import { LANGS, loadAll, SECTION_ORDER, type Content, type DataCardField, type Lang } from '@aq/schema'
+import { LANGS, loadAll, SECTION_ORDER, type Content, type DataCardField, type Lang, type WrittenLang } from '@aq/schema'
 import { LANG } from '@aq/schema/langs'
 
 /** The kinds of page that carry written text (places and taxa pages are lists). */
@@ -34,7 +34,7 @@ export type Page = {
 }
 
 /** Each language's English name, in reports and prompts. */
-export const LANG_NAME: Record<Lang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'Thai' }
+export const LANG_NAME: Record<WrittenLang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'Thai', ms: 'Malay' }
 
 /**
  * Each language's word for a site section. The site's own map is apps/site/src/lib/i18n.ts (SECTIONS); a page link in a
@@ -110,7 +110,10 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
   ]
 }
 
-/** Every published page in Vietnamese, Indonesian and Thai. */
+/**
+ * Every published page in the languages the site serves: what the reader's eye reads and the audit lists. A language the
+ * site doesn't serve yet has no pages to check against, and joins with its `served: true`.
+ */
 export async function loadPages(contentRoot: string, langs: readonly Lang[] = LANGS): Promise<Page[]> {
   const out: Page[] = []
   for (const lang of langs) out.push(...pagesOf(lang, await loadAll({ root: contentRoot, lang, publicBuild: true })))

@@ -1,4 +1,4 @@
-You check that an AquaTome guide (in Vietnamese, Indonesian or Thai) keeps to the subject its title promises. Most guides were written from a video or an article, and some videos drift into another subject near the end (a video on how many hours to run the light that ends with a talk about pre-filters for canister filters). A reader who came for the title gets a section they didn't ask for.
+You check that an AquaTome guide (in Vietnamese, Indonesian, Thai or Malay) keeps to the subject its title promises. Most guides were written from a video or an article, and some videos drift into another subject near the end (a video on how many hours to run the light that ends with a talk about pre-filters for canister filters). A reader who came for the title gets a section they didn't ask for.
 
 You get the title, then each section: its number, heading and opening text. Return the sections that are about a different subject from the title: one a reader of this title would call off-topic.
 

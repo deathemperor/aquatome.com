@@ -1,10 +1,10 @@
 import { z } from 'zod'
 import { isCountryCode } from './countries'
-import { OTHER_LANGS, type OtherLang } from './langs'
+import { WRITTEN_OTHER_LANGS, type WrittenOtherLang } from './langs'
 import { byCount, CELL_DEG } from './range'
 
 export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc'] as const
-export { LANGS } from './langs'
+export { LANGS, WRITTEN_LANGS } from './langs'
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
 
@@ -132,7 +132,7 @@ export const VideoRef = z.object({
  * A guide's photo can name the section it illustrates, by the h3 each language's text gives it (translations are written
  * on their own, so their headings differ): the page puts it under that heading.
  */
-const sectionIn = Object.fromEntries(OTHER_LANGS.map(l => [l, z.string().optional()])) as Record<OtherLang, z.ZodOptional<z.ZodString>>
+const sectionIn = Object.fromEntries(WRITTEN_OTHER_LANGS.map(l => [l, z.string().optional()])) as Record<WrittenOtherLang, z.ZodOptional<z.ZodString>>
 const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), ...sectionIn }).optional() })
 export const GuideSchema = z.object({
   id: z.string(), kind: z.enum(['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery']),
