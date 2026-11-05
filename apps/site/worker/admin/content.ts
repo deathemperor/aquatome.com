@@ -2,7 +2,7 @@ import { LANGS, prefixedLang } from '@aq/schema/langs'
 import { withoutVi } from '../paths'
 import { isReader, querySessions, type Session } from '../readers'
 import { COUNTED, EVENTS, eventsSql, num } from './ae'
-import type { ByLang, ContentStats, EntityKind, Lang, PageKind, PageRow, Totals } from './content-shape'
+import { keepTotals, readKept, type ByLang, type ContentStats, type EntityKind, type KeptTotals, type Lang, type PageKind, type PageRow, type Totals } from './content-shape'
 
 export type * from './content-shape'
 
@@ -235,29 +235,22 @@ export const METADATA_MAX = 1024
 export async function recordSnapshot(kv: KVNamespace, assets: Fetcher, origin: string, now: Date): Promise<Totals | undefined> {
   const s = await loadContentStats(assets, origin)
   if (!s) return undefined
-  const body = JSON.stringify(s.totals)
-  await kv.put(`${SNAPSHOT_PREFIX}${now.toISOString().slice(0, 10)}`, body, new TextEncoder().encode(body).length <= METADATA_MAX ? { metadata: s.totals } : {})
+  const kept = keepTotals(s.totals)
+  const body = JSON.stringify(kept)
+  await kv.put(`${SNAPSHOT_PREFIX}${now.toISOString().slice(0, 10)}`, body, new TextEncoder().encode(body).length <= METADATA_MAX ? { metadata: kept } : {})
   return s.totals
 }
 
 export type Snapshot = { day: string; totals: Totals }
-/** The order of a count kept before 2026-11-06 as [vi, id, th]: the stored format, not the language list. */
-const KEPT_ORDER: readonly Lang[] = ['vi', 'id', 'th']
-/** A count as kept, either form, with every language (0 for one it doesn't have). */
-const byLang = (x: ByLang | number[]): ByLang =>
-  Object.fromEntries(LANGS.map(l => [l, (Array.isArray(x) ? x[KEPT_ORDER.indexOf(l)] : x[l]) ?? 0])) as ByLang
-const readTotals = (t: Totals): Totals => ({
-  ...t, kinds: Object.fromEntries(Object.entries(t.kinds).map(([k, v]) => [k, byLang(v)])) as Totals['kinds'], built: t.built && byLang(t.built),
-})
 /** Every day's totals, oldest first: from the keys' metadata (one list call per 1000 days), a key without it read on its own. */
 export async function listSnapshots(kv: KVNamespace): Promise<Snapshot[]> {
   const out: Snapshot[] = []
   let cursor: string | undefined
   for (let page = 0; page < 10; page++) {
-    const r = await kv.list<Totals>({ prefix: SNAPSHOT_PREFIX, ...(cursor ? { cursor } : {}) })
+    const r = await kv.list<KeptTotals>({ prefix: SNAPSHOT_PREFIX, ...(cursor ? { cursor } : {}) })
     for (const k of r.keys) {
-      const totals = k.metadata ?? (await kv.get<Totals>(k.name, 'json'))
-      if (totals) out.push({ day: k.name.slice(SNAPSHOT_PREFIX.length), totals: readTotals(totals) })
+      const kept = k.metadata ?? (await kv.get<KeptTotals>(k.name, 'json'))
+      if (kept) out.push({ day: k.name.slice(SNAPSHOT_PREFIX.length), totals: readKept(kept) })
     }
     if (r.list_complete) break
     cursor = r.cursor

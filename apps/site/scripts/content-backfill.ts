@@ -9,13 +9,13 @@ import { mkdtempSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import type { Totals } from '../worker/admin/content-shape.ts'
+import { keepTotals, type KeptTotals, type Totals } from '../worker/admin/content-shape.ts'
 import { computeContentStats } from './content-stats.ts'
 
 const SNAPSHOT_PREFIX = 'stats:' // worker/admin/content.ts SNAPSHOT_PREFIX
 const METADATA_MAX = 1024
 
-export type BulkEntry = { key: string; value: string; metadata?: Totals }
+export type BulkEntry = { key: string; value: string; metadata?: KeptTotals }
 
 /** Each past day's totals, oldest first, from `ref` in the git repository at `repo`; `today` (UTC) and later are left to the cron. */
 export function backfill(repo: string, ref: string, today: string): { day: string; sha: string; totals: Totals }[] {
@@ -39,10 +39,11 @@ export function backfill(repo: string, ref: string, today: string): { day: strin
   return out
 }
 
-/** `wrangler kv bulk put` entries: the totals as the value, and as metadata when they fit (as recordSnapshot stores them). */
+/** `wrangler kv bulk put` entries: the kept totals as the value, and as metadata when they fit (as recordSnapshot stores them). */
 export const bulkEntries = (days: { day: string; totals: Totals }[]): BulkEntry[] => days.map(({ day, totals }) => {
-  const value = JSON.stringify(totals)
-  return { key: `${SNAPSHOT_PREFIX}${day}`, value, ...(Buffer.byteLength(value) <= METADATA_MAX ? { metadata: totals } : {}) }
+  const kept = keepTotals(totals)
+  const value = JSON.stringify(kept)
+  return { key: `${SNAPSHOT_PREFIX}${day}`, value, ...(Buffer.byteLength(value) <= METADATA_MAX ? { metadata: kept } : {}) }
 })
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

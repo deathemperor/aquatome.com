@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { backfill, bulkEntries } from '../scripts/content-backfill'
 import { classify, computeContentStats, h1Of, licenceFamily, MAX_ATTEMPTS, photoOrigin, REWRITE_V } from '../scripts/content-stats'
-import type { ContentStats } from '../worker/admin/content-shape'
+import { keepTotals, type ContentStats } from '../worker/admin/content-shape'
 import { DIST } from './dist'
 
 const CONTENT = fileURLToPath(new URL('./fixture-content', import.meta.url))
@@ -173,7 +173,8 @@ test('backfill: each past day\'s totals from the last commit of the day, as entr
     expect(days.map(d => [d.day, d.totals.kinds.fish, d.totals.sources.youtube])).toEqual([['2026-10-28', { vi: 1, id: 0, th: 0 }, 1], ['2026-10-29', { vi: 1, id: 0, th: 0 }, 1], ['2026-10-30', { vi: 2, id: 1, th: 0 }, 2]])
     expect(days.every(d => d.totals.built === null)).toBe(true)
     const entries = bulkEntries(days)
-    expect(entries[0]).toEqual({ key: 'stats:2026-10-28', value: JSON.stringify(days[0]!.totals), metadata: days[0]!.totals })
+    const kept = keepTotals(days[0]!.totals)
+    expect(entries[0]).toEqual({ key: 'stats:2026-10-28', value: JSON.stringify(kept), metadata: kept })
     // Today is the daily snapshot's.
     expect(backfill(repo, 'HEAD', '2026-10-30').map(d => d.day)).toEqual(['2026-10-28', '2026-10-29'])
   } finally {
