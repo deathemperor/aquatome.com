@@ -15,17 +15,18 @@ export const NAV = [
   ['/_ab/anh-ban-doc/', 'Ảnh bạn đọc'],
   ['/_ab/an-trang/', 'Ẩn trang'],
   ['/_ab/tai-khoan/', 'Tài khoản · Bình luận'],
+  ['/_ab/bao-cao/', 'Báo cáo hằng ngày'],
 ] as const
 export type AdminPath = (typeof NAV)[number][0]
 /**
- * The scoreboard and the daily report's log (worker/daily) are on the web dashboard only, outside NAV: NAV is also the
- * section list the iOS app draws (dashboard.ts SECTIONS, protocols/owner-dashboard*.json), which belongs to the app's
- * contract. The rail adds them.
+ * The scoreboard is on the web dashboard only, outside NAV: NAV is also the section list the iOS app draws (dashboard.ts
+ * SECTIONS, protocols/owner-dashboard*.json), which belongs to the app's contract. The rail adds it.
  */
 export const SCOREBOARD_PATH = '/_ab/thanh-cong/'
+/** The daily report's log and its delivery (worker/daily), a section of the app's too. */
 export const REPORT_PATH = '/_ab/bao-cao/'
 export const REPORT_NAME = 'Báo cáo hằng ngày'
-export type WebPath = AdminPath | typeof SCOREBOARD_PATH | typeof REPORT_PATH
+export type WebPath = AdminPath | typeof SCOREBOARD_PATH
 
 /** Where the dashboard lives, for anything that links to it from outside its pages: this line alone moves it to another host. */
 const DASHBOARD_BASE = 'https://aquatome.com/_ab/'
@@ -335,7 +336,7 @@ if(i===null)return;e.preventDefault();pick(i)})}})()`
 
 /** An admin page: the bar, the areas (a rail on a computer, chips on a phone), then the page's own content. */
 export function page(current: WebPath, title: string, body: string, now = new Date(), tz = HOME_TZ): string {
-  const nav = [NAV[0], [SCOREBOARD_PATH, 'Thành công'] as const, ...NAV.slice(1), [REPORT_PATH, REPORT_NAME] as const].map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
+  const nav = [NAV[0], [SCOREBOARD_PATH, 'Thành công'] as const, ...NAV.slice(1)].map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
   const script = body.includes('data-plot') ? `<script>${CHART_JS}</script>` : ''
   return `${HEAD(title, tz)}<body${current === '/_ab/' ? ' class="home"' : ''}><header class="masthead"><a class="brand" href="/_ab/">AquaTome<span>Quản trị</span></a>${stamp(now, tz)}</header><div class="frame"><nav class="rail" aria-label="Các mục quản trị"><ul>${nav}</ul></nav><main>${body}</main></div><script>${TIME_JS}</script>${script}</body></html>`
 }

@@ -49,7 +49,8 @@ type Built = { label: string; text: string; href?: string; lines?: Line[]; more?
 type Table = { head: string[]; rows: string[][] }
 
 export type ComposeInput = { now: Date; overview: Overview; app: Soft<AppDay>; gh: GitHubSide }
-export type Composed = { subject: string; text: string; html: string; care: number }
+/** `first`: the first thing that needs care, for the phone's notification. */
+export type Composed = { subject: string; text: string; html: string; care: number; first?: string }
 
 const plural = (n: number, one: string, many = `${one}s`) => `${fmt(n)} ${n === 1 ? one : many}`
 const runsText = (r: Runs) => `${plural(r.runs, 'run')}, ${fmt(r.failed)} failed`
@@ -286,5 +287,5 @@ export function compose(input: ComposeInput): Composed {
     footer: [{ text: 'All reports', href: REPORT_PATH }, { text: 'This run', href: gh.runUrl }],
   }
   const subject = `AquaTome daily · ${day} · ${count ? `${fmt(count)} ${count === 1 ? 'needs' : 'need'} care` : 'nothing needs care'}`
-  return { subject: cleaned(subject), text: cleaned(toText(model)), html: cleaned(toHtml(model)), care: count }
+  return { subject: cleaned(subject), text: cleaned(toText(model)), html: cleaned(toHtml(model)), care: count, ...(care[0] ? { first: cleaned(care[0].title) } : {}) }
 }

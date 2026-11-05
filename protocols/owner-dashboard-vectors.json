@@ -532,6 +532,10 @@
           {
             "key": "tai-khoan",
             "name": "Tài khoản · Bình luận"
+          },
+          {
+            "key": "bao-cao",
+            "name": "Báo cáo hằng ngày"
           }
         ]
       }
@@ -3991,6 +3995,93 @@
               ]
             ],
             "empty": "Chưa có."
+          }
+        ]
+      }
+    },
+    {
+      "name": "section bao-cao",
+      "request": {
+        "method": "GET",
+        "path": "/api/owner/sections/bao-cao",
+        "headers": {
+          "Time-Zone": "Asia/Ho_Chi_Minh"
+        }
+      },
+      "status": 200,
+      "body": {
+        "tz": "Asia/Ho_Chi_Minh",
+        "title": "Báo cáo hằng ngày",
+        "blocks": [
+          {
+            "kind": "note",
+            "text": "Mỗi sáng 7 giờ (giờ Việt Nam): việc cần xử lý, điểm nổi bật, những gì đã build và số liệu. Lưu ở đây 90 ngày.",
+            "tone": "plain"
+          },
+          {
+            "kind": "heading",
+            "text": "Nhận báo cáo",
+            "level": 2
+          },
+          {
+            "kind": "note",
+            "text": "Email: đang bật. Thông báo trên điện thoại: đang bật, gửi đến 1 điện thoại.",
+            "tone": "plain"
+          },
+          {
+            "kind": "actions",
+            "actions": [
+              {
+                "label": "Tắt email",
+                "method": "POST",
+                "path": "/api/owner/report-settings",
+                "body": {
+                  "email": false
+                }
+              },
+              {
+                "label": "Tắt thông báo",
+                "method": "POST",
+                "path": "/api/owner/report-settings",
+                "body": {
+                  "push": false
+                }
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Các báo cáo",
+            "level": 2
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Báo cáo"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "AquaTome daily · 4 Nov · 2 need care",
+                  "sub": "04/11 07:00 · Đã gửi email · Đã gửi 1 thông báo · 2 cần xử lý",
+                  "href": "/_ab/bao-cao/1003/"
+                }
+              ],
+              [
+                {
+                  "text": "AquaTome daily · 3 Nov · nothing needs care",
+                  "sub": "03/11 07:00 · Chưa gửi email: E_RATE_LIMIT_EXCEEDED · Chưa gửi thông báo: chưa có điện thoại nào đăng ký · 0 cần xử lý",
+                  "href": "/_ab/bao-cao/1002/"
+                }
+              ],
+              [
+                {
+                  "text": "AquaTome daily · 2 Nov · 1 needs care",
+                  "sub": "02/11 07:00 · Đã gửi email · 1 cần xử lý",
+                  "href": "/_ab/bao-cao/1001/"
+                }
+              ]
+            ]
           }
         ]
       }

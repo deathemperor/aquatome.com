@@ -19,7 +19,9 @@ import {
 } from './admin/pages'
 import { isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
 import { HOME_TZ, localDay, viewerZone } from './admin/time'
-import { reportPage, reportsPage } from './daily/page'
+import { loadReports, reportPage, reportsPage, reportsSection, SETTINGS_FORM } from './daily/page'
+import type { PushEnv } from './daily/push'
+import { setSettings, type ReportSettings } from './daily/settings'
 
 /**
  * The owner's dashboard, /_ab/: one page per part (admin/pages.ts), each open only to the owner signed in to the site,
@@ -28,7 +30,7 @@ import { reportPage, reportsPage } from './daily/page'
  * OWNER_ACCOUNTS (a Worker secret): the owner's account ids, comma-separated. AB_DASH_TOKEN, as a bearer token, is the
  * build's and the scripts' key to /_ab/hidden.json; it no longer opens the dashboard, since a token can leak or be shared.
  */
-export type AdminEnv = FishIdEnv & PhotosEnv & { DB?: D1Database; AB_DASH_TOKEN?: string; OWNER_ACCOUNTS?: string; AE_API_TOKEN?: string; CF_ACCOUNT_ID?: string; ASSETS?: Fetcher }
+export type AdminEnv = FishIdEnv & PhotosEnv & PushEnv & { DB?: D1Database; AB_DASH_TOKEN?: string; OWNER_ACCOUNTS?: string; AE_API_TOKEN?: string; CF_ACCOUNT_ID?: string; ASSETS?: Fetcher }
 export type { AffSummary }
 
 export function safeEqual(a: string, b: string): boolean {
@@ -179,9 +181,9 @@ export async function loadScoreboard(env: AdminEnv, url: URL, now: Date): Promis
   return summariseScoreboard({ now, owners: owners(env), beacon, app, community, clicks, content, snapshots, checks })
 }
 const scoreboardHtml: Load<string> = async (env, url, now, tz) => scoreboardPage(await loadScoreboard(env, url, now), tz)
-/** The daily report's log and one report (daily/page.ts): pages of the web dashboard alone, so not in PAGES or NAV, which the app's section list follows. */
-const REPORT_PAGE = new RegExp(`^${REPORT_PATH}(?:(\\d{1,20})/)?$`)
-const reportHtml = (id: string | undefined): Load<string | undefined> => (env, _url, now, tz) => (id ? reportPage(env.AB, id, now, tz) : reportsPage(env.AB, now, tz))
+/** One daily report as it was sent (daily/page.ts), under the log's section: a page of the web dashboard alone. */
+const REPORT_PAGE = new RegExp(`^${REPORT_PATH}(\\d{1,20})/$`)
+const reportHtml = (id: string): Load<string | undefined> => (env, _url, now, tz) => reportPage(env.AB, id, now, tz)
 /** Each section: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
 const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   '/_ab/noi-dung/': view(async (env, url, now, tz) => {
@@ -231,6 +233,7 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   '/_ab/an-trang/': view(async (env, _url, now, tz) => ({ now, tz, h: await soft('hidden', loadHidden(env.AB, true)) }), d => hiddenPage(d.h, d.now, d.tz), d => hiddenSection(d.h, d.now, d.tz)),
   '/_ab/tai-khoan/': view(async (env, _url, now, tz) => ({ now, tz, a: env.DB ? await soft('accounts', accountStats(env.DB, now, tz)) : unset('D1') }),
     d => accountsPage(d.a, d.now, d.tz), d => accountsSection(d.a, d.now, d.tz)),
+  '/_ab/bao-cao/': view((env, _url, now, tz) => loadReports(env, now, tz), reportsPage, reportsSection),
 }
 export const ADMIN_PAGES: AdminPath[] = ['/_ab/', ...(Object.keys(PAGES) as (keyof typeof PAGES)[])]
 
@@ -303,6 +306,19 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     await deleteKept(env.UPLOADS, who === 'anon' ? undefined : who, String(form.get('id') ?? ''))
     return see('/_ab/anh-nhan-dien/')
   }
+  // How the daily report goes out (daily/settings.ts): one switch a button, email=0|1 or push=0|1.
+  if (path === SETTINGS_FORM) {
+    if (req.method !== 'POST' || !(await owner())) return notFound()
+    const form = await req.formData().catch(() => null)
+    const change: Partial<ReportSettings> = {}
+    for (const k of ['email', 'push'] as const) {
+      const v = form?.get(k)
+      if (v === '0' || v === '1') change[k] = v === '1'
+    }
+    if (!Object.keys(change).length) return badForm()
+    await setSettings(env.AB, change)
+    return see(REPORT_PATH)
+  }
   if (path === '/_ab/hidden') {
     if (req.method !== 'POST' || !(await owner())) return notFound()
     const form = await req.formData().catch(() => null)
@@ -314,7 +330,7 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
 
   const key = (path.endsWith('/') ? path : `${path}/`) as WebPath
   const report = REPORT_PAGE.exec(key)
-  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]) : undefined
+  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   const who = await visitor(req, env, now)
