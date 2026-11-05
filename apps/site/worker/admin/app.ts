@@ -104,7 +104,7 @@ export const APP_SESSIONS_SQL = (days: number) => `SELECT blob13 AS sid FROM aqu
 export type AppDay = AppStats & { sessions: number }
 /** The daily report's share: the last 24 hours. */
 export async function queryAppDay(accountId: string, token: string): Promise<AppDay> {
-  const [stats, sessions] = await Promise.all([queryApp(accountId, token, false, 1), appRows<{ sid: string }>(accountId, token, APP_SESSIONS_SQL(1))])
+  const [stats, sessions] = await Promise.all([queryApp(accountId, token, false, 1), orNoTable(aeSql<{ sid: string }>(accountId, token, APP_SESSIONS_SQL(1)))])
   return { ...stats, sessions: sessions.length }
 }
 
