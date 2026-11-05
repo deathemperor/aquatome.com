@@ -24,6 +24,7 @@ import { appEventsRoute } from './telemetry/events'
 import { appDiagnosticsRoute } from './telemetry/diagnostics'
 import { countryOf } from './telemetry/shared'
 import { asksLang, chooserPage, langCookie, langPoint, pickedLang, pickResponse } from './lang-ask'
+import { homeOf, LANGS, langOfCountry, langOfTag, prefixedLang, type Lang } from '@aq/schema/langs'
 import { sweepKept } from './fishid/kept'
 
 export interface Env {
@@ -110,8 +111,8 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
   return Response.json(await applyDecisions(env.DB, body, new Date()))
 }
 
-/** A page's address in any language: Vietnamese ones at the root, the others under /id/ and /th/. */
-const isPage = (path: string) => isViPage(path) || /^\/(id|th)\//.test(path)
+/** A page's address in any language: Vietnamese ones at the root, the others under their prefix (/id/, /th/). */
+const isPage = (path: string) => isViPage(path) || !!prefixedLang(path)
 
 /**
  * An old Vietnamese address (/vi/…, before the pages moved to the root) → 301 to its page, in one hop: the path without
@@ -128,27 +129,27 @@ async function fromVi(url: URL, env: Env): Promise<Response> {
 }
 
 /** The site language a browser ranks highest among ours (Accept-Language, q order), if it asks for any. */
-export function askedLang(header: string | null): 'vi' | 'id' | 'th' | undefined {
+export function askedLang(header: string | null): Lang | undefined {
   const ranked = (header ?? '').split(',').map((part, i) => {
     const [tag, ...params] = part.trim().toLowerCase().split(';')
     const q = Number(params.find(p => p.trim().startsWith('q='))?.split('=')[1] ?? 1)
-    return { base: tag!.split('-')[0]!.replace(/^in$/, 'id'), q: Number.isFinite(q) ? q : 0, i }
+    return { lang: langOfTag(tag!.split('-')[0]!), q: Number.isFinite(q) ? q : 0, i }
   }).filter(x => x.q > 0).sort((a, b) => b.q - a.q || a.i - b.i)
-  return ranked.find(x => x.base === 'vi' || x.base === 'id' || x.base === 'th')?.base as 'vi' | 'id' | 'th' | undefined
+  return ranked.find(x => x.lang)?.lang
 }
 
 /**
  * The browser's language among ours (askedLang). When it asks for none of them (a phone set to English, common in
- * Indonesia and Thailand), the country Cloudflare places it in: Indonesia's Indonesian, Thailand's Thai (`country`, empty
- * for a crawler). Vietnamese otherwise.
+ * Indonesia and Thailand), the country Cloudflare places it in, by the language table's countries: Indonesia's
+ * Indonesian, Thailand's Thai (`country`, empty for a crawler). Vietnamese otherwise.
  */
-export const rootLang = (header: string | null, country = ''): 'vi' | 'id' | 'th' =>
-  askedLang(header) ?? (country === 'ID' ? 'id' : country === 'TH' ? 'th' : 'vi')
+export const rootLang = (header: string | null, country = ''): Lang =>
+  askedLang(header) ?? langOfCountry(country) ?? 'vi'
 
+const CHOSEN = new RegExp(`(?:^|;\\s*)aq_lang=(${LANGS.join('|')})(?:;|$)`)
 /** The language a reader picked in the language menu (cookie aq_lang, LangMenu.astro), if any. */
-export function chosenLang(cookie: string | null): 'vi' | 'id' | 'th' | undefined {
-  const v = /(?:^|;\s*)aq_lang=(vi|id|th)(?:;|$)/.exec(cookie ?? '')?.[1]
-  return v as 'vi' | 'id' | 'th' | undefined
+export function chosenLang(cookie: string | null): Lang | undefined {
+  return CHOSEN.exec(cookie ?? '')?.[1] as Lang | undefined
 }
 
 export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p, accountDeps?: AccountDeps, fishDeps?: FishIdDeps): Promise<Response> {
@@ -197,7 +198,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
       return finish(chooserPage(url.searchParams), env)
     }
     const lang = chosen ?? rootLang(al, country)
-    if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
+    if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `${homeOf(lang)}${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
   }
   if (url.pathname === '/_e') return events(req, env)
   // Names readers keep that have no page (worker/wanted.ts): open to everyone, signed in or not, accounts on or off.

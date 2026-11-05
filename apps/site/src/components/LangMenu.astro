@@ -3,7 +3,7 @@
  * The site's languages, for every reader: this page in each language that has it, else that language's nearest page
  * (lib/i18n switchTo). The choice is remembered (cookie aq_lang) so aquatome.com/ opens in it next time (worker/index.ts).
  */
-import { i18n, LANG_NAME, LANGS, switchTo, toVi } from '../lib/i18n'
+import { i18n, LANG, LANGS, switchTo, toVi } from '../lib/i18n'
 /** list: the languages as a row of links, no dropdown (the menu sheet, which has its own "Ngôn ngữ" label). */
 interface Props { list?: boolean }
 const { list = false } = Astro.props
@@ -15,7 +15,7 @@ const links = LANGS.map(l => ({ l, href: switchTo(l, viPath, here.get(l), hasPar
 ---
 {list ? (
   <div class="list" data-lang-menu>
-    {links.map(({ l, href }) => <a href={href} hreflang={l} lang={l} data-lang={l} aria-current={l === lang ? 'true' : undefined}>{LANG_NAME[l]}</a>)}
+    {links.map(({ l, href }) => <a href={href} hreflang={LANG[l].html} lang={LANG[l].html} data-lang={l} aria-current={l === lang ? 'true' : undefined}>{LANG[l].name}</a>)}
   </div>
 ) : (
   <details class="lang" data-lang-menu>
@@ -24,7 +24,7 @@ const links = LANGS.map(l => ({ l, href: switchTo(l, viPath, here.get(l), hasPar
       <span>{lang.toUpperCase()}</span>
     </summary>
     <div class="menu">
-      {links.map(({ l, href }) => <a href={href} hreflang={l} lang={l} data-lang={l} aria-current={l === lang ? 'true' : undefined}>{LANG_NAME[l]}</a>)}
+      {links.map(({ l, href }) => <a href={href} hreflang={LANG[l].html} lang={LANG[l].html} data-lang={l} aria-current={l === lang ? 'true' : undefined}>{LANG[l].name}</a>)}
     </div>
   </details>
 )}

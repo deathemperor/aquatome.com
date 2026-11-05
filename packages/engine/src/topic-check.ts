@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { LANGS } from '@aq/schema'
 import type { Llm } from './claude'
 
 /**
@@ -24,7 +25,6 @@ const SCHEMA = {
 type Verdict = { offTopic: { section: number; reason: string }[]; faq?: number[]; summary?: number[] }
 type Guide = { name: string; body: string; summary?: string[]; faq?: { q: string; a: string }[] } & Record<string, unknown>
 
-const LANGS = ['vi', 'id', 'th'] as const
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
 const bodyHash = (body: string) => createHash('sha1').update(body).digest('hex').slice(0, 16)
 const hash = (g: Guide) => bodyHash(g.body)

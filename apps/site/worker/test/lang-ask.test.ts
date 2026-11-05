@@ -1,16 +1,15 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { asksLang, LANGS, summariseAsks } from '../lang-ask'
+import { OTHER_LANGS } from '@aq/schema/langs'
+import { asksLang, LINE, summariseAsks } from '../lang-ask'
 import { SESSIONS_SQL } from '../readers'
 import { readersPage, readersSection } from '../admin/pages'
 
 const ui = (lang: string) => JSON.parse(readFileSync(new URL(`../../src/i18n/${lang}.json`, import.meta.url).pathname, 'utf8')) as Record<string, string>
 
 test("each language's line on the chooser is its home page's subtitle, as the site translates it", () => {
-  const [vi, id, th] = LANGS
-  expect(vi.line).toBe('Cẩm nang cá cảnh & thủy sinh')
-  expect(id.line).toBe(ui('id')[vi.line])
-  expect(th.line).toBe(ui('th')[vi.line])
+  expect(LINE.vi).toBe('Cẩm nang cá cảnh & thủy sinh')
+  for (const l of OTHER_LANGS) expect(LINE[l], l).toBe(ui(l)[LINE.vi])
 })
 
 test('asked to choose: a country Cloudflare placed, with none of our languages', () => {

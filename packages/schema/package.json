@@ -6,6 +6,7 @@
     ".": "./src/index.ts",
     "./slug": "./src/slug.ts",
     "./text": "./src/text.ts",
+    "./langs": "./src/langs.ts",
     "./tanks": "./src/tanks.ts",
     "./tank-rules": "./src/tank-rules.ts",
     "./unlisted": "./src/unlisted.ts",

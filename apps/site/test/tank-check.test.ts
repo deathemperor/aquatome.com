@@ -4,9 +4,10 @@ import { fileURLToPath } from 'node:url'
 import vm from 'node:vm'
 import { expect, test } from 'vitest'
 import { oneFishEach, tankCheck, type TankCheck, type TankFish, type TankSize } from '../src/scripts/tank-check'
+import type { Lang } from '@aq/schema/langs'
 
 // Shared with the iOS app's tests, which run the bundled copy of this code in JavaScriptCore on the same cases.
-type Case = { note: string; lang: 'vi' | 'id' | 'th'; fish: TankFish[]; unlisted?: string[]; size: TankSize; check: TankCheck }
+type Case = { note: string; lang: Lang; fish: TankFish[]; unlisted?: string[]; size: TankSize; check: TankCheck }
 const { cases }: { cases: Case[] } = JSON.parse(readFileSync(new URL('../../../protocols/tankmates-vectors.json', import.meta.url), 'utf8'))
 const bundle = new URL('../../ios/AquaTomeKit/Sources/TankCheck/tank-check.js', import.meta.url)
 

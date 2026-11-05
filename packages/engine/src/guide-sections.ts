@@ -1,4 +1,5 @@
 import type { GuideEntity } from '@aq/schema'
+import { OTHER_LANGS, type OtherLang } from '@aq/schema/langs'
 import { parse } from 'node-html-parser'
 import type { SourcePhoto } from './source-photos'
 
@@ -33,17 +34,17 @@ export function guideHeading(source: string, headings: string[]): string | undef
 
 /**
  * A guide's photos with the section each sat under in the source (`section`, by the heading each language's text gives
- * it: Indonesian and Thai by the same position among their headings). A photo whose source heading matches none (the
+ * it: the other languages by the same position among their headings). A photo whose source heading matches none (the
  * article's title, the introduction) keeps no section; the page spreads those through the text.
  */
-export function withSections(photos: SourcePhoto[], bodies: { vi: string; id?: string; th?: string }): GuidePhoto[] {
+export function withSections(photos: SourcePhoto[], bodies: { vi: string } & Partial<Record<OtherLang, string>>): GuidePhoto[] {
   const vi = guideHeadings(bodies.vi)
-  const other = { id: bodies.id ? guideHeadings(bodies.id) : [], th: bodies.th ? guideHeadings(bodies.th) : [] }
+  const other = OTHER_LANGS.map(l => [l, bodies[l] ? guideHeadings(bodies[l]) : []] as const)
   return photos.map(({ heading, ...p }) => {
     const h = heading && guideHeading(heading, vi)
     if (!h) return p
     const i = vi.indexOf(h)
-    const at = (l: 'id' | 'th') => (other[l].length === vi.length && other[l][i] ? { [l]: other[l][i] } : {})
-    return { ...p, section: { vi: h, ...at('id'), ...at('th') } }
+    const at = Object.fromEntries(other.filter(([, hs]) => hs.length === vi.length && hs[i]).map(([l, hs]) => [l, hs[i]!]))
+    return { ...p, section: { vi: h, ...at } }
   })
 }

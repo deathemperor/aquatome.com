@@ -5,6 +5,7 @@ import { prefersMarkdown } from '../markdown'
 import { gonePage } from '../hidden'
 import { testD1 } from './d1'
 import { memoryR2 } from './r2'
+import { LANGS } from '@aq/schema/langs'
 
 const PAGE = '<!doctype html><html lang="vi"><head><title>t</title></head><body><p>x</p></body></html>'
 const CHROME = 'Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36'
@@ -354,7 +355,7 @@ test('a browser asking for none of our languages, from a country with none of th
   const html = await asked.text()
   expect(asked.status).toBe(200)
   expect(html).toContain('<html lang="en">')
-  for (const l of ['vi', 'id', 'th']) expect(html).toContain(`href="/?lang=${l}"`)
+  for (const l of LANGS) expect(html).toContain(`href="/?lang=${l}"`)
   expect(asked.headers.get('cache-control')).toBe('private, no-store')
   expect(asked.headers.get('vary')).toBe('Accept-Language, Cookie')
   expect(asked.headers.get('link')).toContain('rel="api-catalog"')

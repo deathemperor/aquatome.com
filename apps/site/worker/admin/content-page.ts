@@ -1,3 +1,4 @@
+import { LANGS, OTHER_LANGS, type Lang } from '@aq/schema/langs'
 import type { ContentReads, ContentStats, EntityKind, GapKey, KindClicks, PageKind, Snapshot, Talk, Totals } from './content'
 import { dayChart, esc, fmt, lastDays, meter, rankTable, tiles, type DayChart, type Ranked, type Tile } from './chart'
 import { cellOf, chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Block, type Cell, type Section } from './blocks'
@@ -20,10 +21,13 @@ const GAP: Record<GapKey, string> = {
 }
 const FACT: Record<string, string> = { tempC: 'nhiệt độ', ph: 'pH', sizeCm: 'kích thước' }
 
-/** Items of the main kinds in a day's totals, in one language (0 Vietnamese, 1 Indonesian, 2 Thai). */
-export const inLang = (t: Totals, lang: 0 | 1 | 2) => MAIN.reduce((s, k) => s + (t.kinds[k]?.[lang] ?? 0), 0)
+/** Each language as the dashboard names it: "tiếng Việt", and the others bare ("Có tiếng Indonesia", "Chọn Thái"). */
+export const LANG_VI: Record<Lang, string> = { vi: 'tiếng Việt', id: 'Indonesia', th: 'Thái' }
+
+/** Items of the main kinds in a day's totals, in one language. */
+export const inLang = (t: Totals, lang: Lang) => MAIN.reduce((s, k) => s + (t.kinds[k]?.[lang] ?? 0), 0)
 /** Items (Vietnamese) of the main kinds in a day's totals. */
-export const items = (t: Totals) => inLang(t, 0)
+export const items = (t: Totals) => inLang(t, 'vi')
 const pct = (a: number, b: number) => (b ? `${fmt((100 * a) / b)}%` : '—')
 
 /**
@@ -77,20 +81,20 @@ export function contentSection(c: ContentPage): Section {
   }
 }
 
-const TOTALS_HEAD = ['Loại', 'Bài', 'Có tiếng Indonesia', 'Có tiếng Thái']
+const TOTALS_HEAD = ['Loại', 'Bài', ...OTHER_LANGS.map(l => `Có tiếng ${LANG_VI[l]}`)]
 function totalsParts(s: ContentStats) {
   const main = MAIN.reduce((n, k) => n + (s.inventory[k]?.total ?? 0), 0)
-  const built = s.built ? s.built.total.reduce((a, b) => a + b, 0) : null
+  const built = s.built ? LANGS.reduce((a, l) => a + s.built!.total[l], 0) : null
   return {
     tiles: [
       { label: 'Bài (cá, cây, giống, bài viết)', value: fmt(main) },
-      { label: 'Trang đã build', value: built === null ? '—' : fmt(built), sub: s.built ? `tiếng Việt ${fmt(s.built.total[0])} · Indonesia ${fmt(s.built.total[1])} · Thái ${fmt(s.built.total[2])}` : undefined },
+      { label: 'Trang đã build', value: built === null ? '—' : fmt(built), sub: s.built ? LANGS.map(l => `${LANG_VI[l]} ${fmt(s.built!.total[l])}`).join(' · ') : undefined },
       { label: 'Ảnh trên trang', value: fmt(s.photos.pages), sub: `${fmt(s.photos.gallery.photos)} ảnh ở ${fmt(s.photos.gallery.pages)} trang ảnh` },
       { label: 'Mục khác', value: fmt(OTHER.reduce((n, k) => n + (s.inventory[k]?.total ?? 0), 0)), sub: OTHER.filter(k => s.inventory[k]?.total).map(k => `${KIND[k].toLowerCase()} ${fmt(s.inventory[k]!.total)}`).join(' · ') },
     ] as Tile[],
     rows: ENTITY.filter(k => s.inventory[k]?.total).map(k => {
       const inv = s.inventory[k]!
-      return [esc(KIND[k]), fmt(inv.total), fmt(inv.id), fmt(inv.th)]
+      return [esc(KIND[k]), fmt(inv.total), ...OTHER_LANGS.map(l => fmt(inv[l]))]
     }),
   }
 }
@@ -115,7 +119,7 @@ const BY_SOURCE_HEAD = ['Nguồn', 'Bài thêm']
 /** What "Tăng thêm" draws once two nights are kept: two charts, what each source added, and the note on how it's kept. */
 function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) {
   const days = lastDays(now, 30, tz)
-  const v = (k: EntityKind) => (t: Totals) => t.kinds[k]?.[0] ?? 0
+  const v = (k: EntityKind) => (t: Totals) => t.kinds[k]?.vi ?? 0
   const missing = 'chưa lưu số liệu ngày này'
   // New translations come in bursts: columns per day, not lines drawn between days as if they flowed.
   const charts: DayChart[] = [{
@@ -124,7 +128,7 @@ function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) 
     empty: 'Chưa có bài mới nào trong những ngày đã lưu.',
   }, {
     id: 'n-langs', title: 'Bài tiếng Indonesia và tiếng Thái mới mỗi ngày', days, partialLast: true, missing,
-    series: [{ label: 'Indonesia', values: perDay(snaps, days, t => inLang(t, 1)) }, { label: 'Thái', values: perDay(snaps, days, t => inLang(t, 2)) }],
+    series: OTHER_LANGS.map(l => ({ label: LANG_VI[l], values: perDay(snaps, days, t => inLang(t, l)) })),
     empty: 'Chưa có bài dịch mới nào trong những ngày đã lưu.',
   }]
   // What each source added over the last 7 days kept (or since the first day kept).

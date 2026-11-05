@@ -1,7 +1,9 @@
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { afterEach, expect, test, vi } from 'vitest'
+import { LANGS } from '@aq/schema/langs'
 import { added, clicksByKind, joinReads, listSnapshots, loadContentStats, pageIndex, queryContentReads, recordSnapshot, talkByPage, type ContentStats, type Totals } from '../admin/content'
+import { keepTotals, readKept } from '../admin/content-shape'
 import { testD1 } from './d1'
 
 // The fixture build's own content.json (pnpm test builds the site first): the loaders read what the script wrote.
@@ -143,17 +145,26 @@ test('affiliate clicks per page kind; a video guide\'s gear list names the guide
 test('growth: the day\'s totals kept under stats:YYYY-MM-DD with them as metadata, and every day read back in order', async () => {
   const store = kv()
   expect(await recordSnapshot(store, assets(), 'https://aquatome.com', NOW)).toEqual(STATS.totals)
-  expect(store.m.get('stats:2026-11-02')).toEqual({ value: JSON.stringify(STATS.totals), metadata: STATS.totals })
-  // Days loaded without metadata are read one by one; a build without content.json records nothing.
-  const older: Totals = { ...STATS.totals, kinds: { ...STATS.totals.kinds, fish: [5, 0, 0] }, sources: { seriouslyfish: 4 }, built: null }
-  await store.put('stats:2026-10-30', JSON.stringify(older))
-  await store.put('stats:2026-10-31', JSON.stringify(older), { metadata: older })
+  // Kept as rows in the language table's order, with the order beside them: by name, seven languages would pass KV's 1 KB.
+  const today = keepTotals(STATS.totals)
+  expect(today.kinds.fish).toEqual(LANGS.map(l => STATS.totals.kinds.fish[l]))
+  expect(today.langs).toEqual(LANGS)
+  expect(store.m.get('stats:2026-11-02')).toEqual({ value: JSON.stringify(today), metadata: today })
+  // Days loaded without metadata are read one by one; a build without content.json records nothing. Days kept before
+  // 2026-11-06 hold each count as [vi, id, th]: they read back by language, whether from the metadata or the value.
+  const older: Totals = { ...STATS.totals, kinds: { ...STATS.totals.kinds, fish: { vi: 5, id: 0, th: 0 } }, sources: { seriouslyfish: 4 }, built: { vi: 7, id: 2, th: 1 } }
+  const kept = { ...older, kinds: Object.fromEntries(Object.entries(older.kinds).map(([k, n]) => [k, [n.vi, n.id, n.th]])), built: [7, 2, 1] }
+  await store.put('stats:2026-10-30', JSON.stringify(kept))
+  await store.put('stats:2026-10-31', JSON.stringify(kept), { metadata: kept })
   expect(await recordSnapshot(store, assets(null), 'https://aquatome.com', new Date('2026-11-03T20:17:00Z'))).toBeUndefined()
   const days = await listSnapshots(store)
   expect(days.map(d => d.day)).toEqual(['2026-10-30', '2026-10-31', '2026-11-02'])
   expect(days[0]!.totals).toEqual(older)
+  expect(days[1]!.totals).toEqual(older)
+  // Rows read by the order kept with them, 0 for a language the day had none for.
+  expect(readKept({ ...today, kinds: { ...today.kinds, fish: [1, 5] }, langs: ['th', 'vi'] }).kinds.fish).toEqual({ vi: 5, id: 0, th: 1 })
   const a = added(days[0]!.totals, days[2]!.totals)
-  expect(a.kinds.fish).toEqual([4, 0, 0])
+  expect(a.kinds.fish).toEqual({ vi: 4, id: 0, th: 0 })
   expect(a.sources).toMatchObject({ seriouslyfish: 3, youtube: 2 })
   expect(a.photos).toEqual({ pages: 0, gallery: 0 })
 })

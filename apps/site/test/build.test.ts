@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { DIST, page } from './dist'
 import { VI_SECTIONS } from '../worker/paths'
+import { LANGS } from '@aq/schema/langs'
 
 describe('species page', () => {
   const { html, dom } = page('/ca/ca-neon-vua/')
@@ -789,7 +790,7 @@ test('every page has the language menu; a fish without other-language pages offe
   // The header's (computers) and the menu sheet's (phones).
   for (const path of ['/', '/ca/ca-neon-vua/', '/video/', '/id/', '/th/']) for (const menu of ['header', '#site-menu']) {
     const links = page(path).dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
-    expect(links.map(a => a.getAttribute('data-lang')), `${path} ${menu}`).toEqual(['vi', 'id', 'th'])
+    expect(links.map(a => a.getAttribute('data-lang')), `${path} ${menu}`).toEqual([...LANGS])
   }
   for (const menu of ['header', '#site-menu']) {
     const fish = page('/ca/ca-neon-vua/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)

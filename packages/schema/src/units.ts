@@ -1,3 +1,5 @@
+import type { Lang } from './langs'
+
 const round1 = (n: number) => Math.round(n * 10) / 10
 export const cToF = (c: number): number => round1(c * 9 / 5 + 32)
 export const cmToIn = (cm: number): number => round1(cm / 2.54)
@@ -35,7 +37,7 @@ export const cmToIn = (cm: number): number => round1(cm / 2.54)
  * capital), a bottle's size in ounces ("chai 8 oz": fluid ounces, as sold), unit words with no figure ("vài inch").
  * Reference lists are not page text: `metricPage` leaves them alone.
  */
-export type UnitLang = 'vi' | 'id' | 'th'
+export type UnitLang = Lang
 type Dim = 'temp' | 'length' | 'feet' | 'flow' | 'volume' | 'mass'
 
 const FRAC: Record<string, number> = { '½': 0.5, '¼': 0.25, '¾': 0.75 }
