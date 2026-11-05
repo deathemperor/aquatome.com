@@ -4,6 +4,7 @@
  * paths kept from then (the hidden-pages list, the beacon's page views) read as the new ones through `withoutVi`.
  * A plain module: the site (src/lib/i18n.ts) and the Worker both import it.
  */
+import type { Lang } from '@aq/schema/langs'
 
 /** The first segment of every Vietnamese page's address (the folders of src/pages/). The Worker runs first on each (wrangler.jsonc). */
 export const VI_SECTIONS = [
@@ -21,8 +22,7 @@ export const isViPage = (path: string) => {
 }
 
 /**
- * Apple's return address for the web's sign-in, in each language: a URL its Services ID lists (the tanks page). The
- * Vietnamese one is listed by its old address, and Apple's popup only checks that the address is listed, so it stays
- * until https://aquatome.com/cong-cu/be-cua-toi/ is added there too.
+ * Apple's return address for the web's sign-in, in each language: the tanks page, as its Services ID (com.aquatome.web)
+ * lists it. Apple refuses an address it doesn't list.
  */
-export const APPLE_RETURN = { vi: '/vi/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/' } as const
+export const APPLE_RETURN = { vi: '/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/' } as const satisfies Record<Lang, string>

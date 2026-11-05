@@ -1,3 +1,4 @@
+import { LANG, LANGS } from '@aq/schema/langs'
 import { readCapped, siteverify as realSiteverify } from '../comments/api'
 import { deleteKept, listKept } from '../fishid/kept'
 import { appleRevoker, type RevokeApple } from './apple'
@@ -5,7 +6,6 @@ import { checkEmail, consume, emailHash, normalEmail, startEmail, TANKS_PAGE, ty
 import { verifyIdToken as realVerifyIdToken, type Provider, type VerifyIdToken } from './idtoken'
 import { cloudflareMailer, type EmailBinding } from './mailer'
 import { addPasskey, checkPasskey, loginOptions, registrationOptions, type Rp } from './passkey'
-import { APPLE_RETURN } from '../paths'
 import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
@@ -66,7 +66,6 @@ const json = (data: unknown, status = 200, headers: Record<string, string> = {})
 const fail = (error: string, status: number, headers: Record<string, string> = {}) => json({ error }, status, headers)
 const none = (headers: Record<string, string> = {}) => new Response(null, { status: 204, headers: { 'cache-control': 'no-store', ...headers } })
 const ids = (s?: string) => (s ?? '').split(',').map(x => x.trim()).filter(Boolean)
-const LANGS: Lang[] = ['vi', 'id', 'th']
 
 type Live = AccountsEnv & { DB: D1Database; ACCOUNT_HMAC_KEY: string }
 const ready = (env: AccountsEnv): env is Live => Boolean(env.DB && env.ACCOUNT_HMAC_KEY)
@@ -93,9 +92,9 @@ function providers(env: Live, deps: AccountDeps) {
  */
 function turnstilePage(sitekey: string, lang: string | null): Response {
   const nonce = randomToken(16)
-  const hl = LANGS.includes(lang as Lang) ? (lang as Lang) : 'vi'
+  const hl = LANGS.find(l => l === lang) ?? 'vi'
   const settings = JSON.stringify({ sitekey, language: hl, size: 'flexible' }).replace(/</g, '\\u003c')
-  const html = `<!doctype html><html lang="${hl}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AquaTome</title>
+  const html = `<!doctype html><html lang="${LANG[hl].html}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AquaTome</title>
 <style>html,body{margin:0;background:transparent}</style>
 <script nonce="${nonce}">
 const post = m => window.webkit?.messageHandlers?.turnstile?.postMessage(m)
@@ -168,8 +167,8 @@ async function revokeAppleFirst(env: Live, deps: AccountDeps, req: Request, url:
   if (typeof a?.code !== 'string' || typeof a.clientId !== 'string') return fail('apple_reauth', 409)
   if (!ids(env.APPLE_CLIENT_IDS).includes(a.clientId)) return fail('bad_request', 400)
   // The web's code is tied to the page it was asked from: one of Apple's return addresses (the tanks pages), exactly, or
-  // Apple refuses it. The Vietnamese page's old address is the one Apple has (worker/paths.ts APPLE_RETURN).
-  const pages = [...Object.values(TANKS_PAGE), ...Object.values(APPLE_RETURN)].map(p => `${url.origin}${p}`)
+  // Apple refuses it.
+  const pages = Object.values(TANKS_PAGE).map(p => `${url.origin}${p}`)
   if (a.redirectUri !== undefined && !(typeof a.redirectUri === 'string' && pages.includes(a.redirectUri))) return fail('bad_redirect', 400)
   // Every try costs a signed request to Apple.
   if (!(await allow(env.DB, env.ACCOUNT_HMAC_KEY, `apple-revoke|${userId}`, 10, HOUR_MS, now))) return fail('rate_limited', 429)
@@ -270,7 +269,7 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (!providers(env, deps).email) return fail('provider_off', 503)
       const email = normalEmail(body.email)
       if (!email) return fail('bad_email', 400)
-      const lang = LANGS.includes(body.lang as Lang) ? (body.lang as Lang) : 'vi'
+      const lang = LANGS.find(l => l === body.lang) ?? 'vi'
       if (typeof body.turnstile !== 'string' || !(await deps.siteverify(env.TURNSTILE_SECRET!, body.turnstile, req.headers.get('cf-connecting-ip'), url.hostname))) return fail('turnstile', 403)
       const k = env.ACCOUNT_HMAC_KEY
       const hash = await emailHash(k, email)

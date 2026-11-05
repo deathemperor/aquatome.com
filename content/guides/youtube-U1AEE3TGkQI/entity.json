@@ -1,0 +1,57 @@
+{
+  "id": "youtube-U1AEE3TGkQI",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=U1AEE3TGkQI",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "U1AEE3TGkQI",
+    "title": "HOW TO build a DIY Upside Down/inverted Aquarium",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 1505,
+    "publishedAt": "2011-12-03",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maxRP9hUzeWSR2NsoCK0prQ",
+      "position": 37
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/U1AEE3TGkQI/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "suoi",
+        "type": "mini",
+        "t": 130
+      },
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 130
+      },
+      {
+        "category": "loc",
+        "t": 130
+      },
+      {
+        "category": "den",
+        "t": 1320
+      },
+      {
+        "category": "khac",
+        "brand": "Weldon",
+        "model": "16",
+        "t": 829
+      }
+    ],
+    "figures": []
+  }
+}

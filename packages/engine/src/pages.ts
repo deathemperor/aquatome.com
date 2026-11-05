@@ -1,4 +1,5 @@
-import { loadAll, SECTION_ORDER, type Content, type DataCardField, type Lang } from '@aq/schema'
+import { LANGS, loadAll, SECTION_ORDER, type Content, type DataCardField, type Lang } from '@aq/schema'
+import { LANG } from '@aq/schema/langs'
 
 /** The kinds of page that carry written text (places and taxa pages are lists). */
 export const PAGE_KINDS = ['species', 'plants', 'guides', 'breeds', 'glossary', 'products', 'equipment'] as const
@@ -32,6 +33,9 @@ export type Page = {
   origin?: { source: string; url: string }
 }
 
+/** Each language's English name, in reports and prompts. */
+export const LANG_NAME: Record<Lang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'Thai' }
+
 /**
  * Each language's word for a site section. The site's own map is apps/site/src/lib/i18n.ts (SECTIONS); a page link in a
  * report only needs these.
@@ -44,7 +48,7 @@ const SECTION: Record<Lang, Record<'ca' | 'cay' | 'huong-dan' | 'thuat-ngu' | 's
 const SECTION_OF: Record<PageKind, keyof (typeof SECTION)['vi']> = {
   species: 'ca', breeds: 'ca', plants: 'cay', guides: 'huong-dan', glossary: 'thuat-ngu', products: 'san-pham', equipment: 'thiet-bi',
 }
-export const pagePath = (lang: Lang, kind: PageKind, slug: string) => `/${lang}/${SECTION[lang][SECTION_OF[kind]]}/${slug}/`
+export const pagePath = (lang: Lang, kind: PageKind, slug: string) => `${lang === 'vi' ? '/vi' : LANG[lang].prefix}/${SECTION[lang][SECTION_OF[kind]]}/${slug}/`
 /** A page's address on the site: Vietnamese pages are at the root ("/vi/ca/x/" → https://aquatome.com/ca/x/). */
 export const pageUrl = (p: Pick<Page, 'path'>) => `https://aquatome.com${p.path.replace(/^\/vi\//, '/')}`
 
@@ -107,7 +111,7 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
 }
 
 /** Every published page in Vietnamese, Indonesian and Thai. */
-export async function loadPages(contentRoot: string, langs: readonly Lang[] = ['vi', 'id', 'th']): Promise<Page[]> {
+export async function loadPages(contentRoot: string, langs: readonly Lang[] = LANGS): Promise<Page[]> {
   const out: Page[] = []
   for (const lang of langs) out.push(...pagesOf(lang, await loadAll({ root: contentRoot, lang, publicBuild: true })))
   return out

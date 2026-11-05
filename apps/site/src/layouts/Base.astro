@@ -13,7 +13,7 @@ import { jsonForScript } from '../lib/json'
 import { ADSENSE_CLIENT } from '../lib/site'
 import { OWNER_SCRIPT } from '../../worker/owner'
 import type { Credit } from '../lib/credits'
-import { i18n, LANGS, localizePath, OG_LOCALE, served, toVi, type Lang } from '../lib/i18n'
+import { i18n, LANG, LANGS, localizePath, served, toVi, type Lang } from '../lib/i18n'
 import { VI_SECTIONS } from '../../worker/paths'
 import CLIENT from '../i18n/client.json'
 
@@ -48,12 +48,12 @@ const xDefault = langs.find(([l]) => l === 'vi')?.[1] ?? canonical
 // For the language menu in the header (Nav renders inside the header slot, after this runs).
 Astro.locals.langs = langs
 // The pages of this page's language: Vietnamese ones are the home page and its sections, the others under /id/, /th/.
-const own = { href_matches: lang === 'vi' ? ['/', ...VI_SECTIONS.map(s => `/${s}/*`)] : `/${lang}/*` }
+const own = { href_matches: lang === 'vi' ? ['/', ...VI_SECTIONS.map(s => `/${s}/*`)] : `${LANG[lang].prefix}/*` }
 const where = { and: [own, { not: { selector_matches: '[rel~=nofollow],[rel~=sponsored],[target=_blank],[download]' } }] }
 const speculation = JSON.stringify({ prefetch: [{ where, eagerness: 'eager' }], prerender: [{ where, eagerness: 'moderate' }] })
 ---
 <!doctype html>
-<html lang={lang}>
+<html lang={LANG[lang].html}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,14 +68,14 @@ const speculation = JSON.stringify({ prefetch: [{ where, eagerness: 'eager' }], 
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
     <meta property="og:site_name" content="AquaTome" />
-    <meta property="og:locale" content={OG_LOCALE[lang]} />
+    <meta property="og:locale" content={LANG[lang].og} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:image" content={image ?? new URL('/logo.png', Astro.site).href} />
     <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-    {langs.map(([l, href]) => <link rel="alternate" hreflang={l} href={href} />)}
+    {langs.map(([l, href]) => <link rel="alternate" hreflang={LANG[l].html} href={href} />)}
     <link rel="alternate" hreflang="x-default" href={xDefault} />
     {jsonld.map(j => <script type="application/ld+json" set:html={jsonForScript(j)} />)}
     <slot name="head" />

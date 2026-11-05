@@ -2,36 +2,53 @@
 import type { ProductSlot } from '@aq/schema'
 import { categoryLabel, goLink } from '../lib/format'
 import { i18n } from '../lib/i18n'
-interface Props { slots: ProductSlot[]; heading?: string; entity?: string }
+import ShopPicker from './ShopPicker.astro'
+/**
+ * What to buy for a page, by kind of thing (tank, filter, food…): each search a large link to the marketplace the page's
+ * picker names (Shopee until the reader picks another). `tankCm`: the species' minimum tank from its data card, under the
+ * tank row, in the reader's units (scripts/units.ts) as the card shows it.
+ */
+interface Props { slots: ProductSlot[]; heading?: string; entity?: string; id?: string; tankCm?: number }
 const { t } = i18n(Astro.url)
-const { slots, heading = t('Thiết bị phù hợp'), entity } = Astro.props
+const { slots, heading = t('Thiết bị phù hợp'), entity, id = 'mua-do', tankCm } = Astro.props
+const [before, after] = t('Tối thiểu {cm}').split(/\{\w+\}/) as [string, string]
+// One row a kind, in the page's order, each search once.
+const rows = [...slots.reduce((m, s) => m.set(s.category, [...new Set([...(m.get(s.category) ?? []), ...s.keywords])]), new Map<string, string[]>())]
 ---
-{slots.length > 0 && (
-  <section class="products" aria-labelledby="products-h">
-    <h2 id="products-h">{heading}</h2>
-    <ul>
-      {slots.flatMap(s => s.keywords.map(k => (
+{rows.length > 0 && (
+  <section class="kit" aria-labelledby={id}>
+    <div class="head">
+      <h2 id={id}>{heading}</h2>
+      <ShopPicker />
+    </div>
+    <ul class="rows">
+      {rows.map(([category, keywords]) => (
         <li>
-          <span class="cat">{t(categoryLabel(s.category))}</span>
-          <span class="kw">{k}</span>
-          <span class="shops">
-            <a href={goLink('shopee', k, s.category, entity)} rel="sponsored nofollow noopener" target="_blank">Shopee</a>
-            <a href={goLink('lazada', k, s.category, entity)} rel="sponsored nofollow noopener" target="_blank">Lazada</a>
-            <a href={goLink('tiki', k, s.category, entity)} rel="sponsored nofollow noopener" target="_blank">Tiki</a>
-          </span>
+          <p class="what">{t(categoryLabel(category))}{category === 'be-ca' && tankCm !== undefined && <span class="why">{before}<span data-cm={`${tankCm},${tankCm}`}>{tankCm} cm</span>{after}</span>}</p>
+          <ul class="finds">
+            {keywords.map(k => (
+              <li><a href={goLink('shopee', k, category, entity)} rel="sponsored nofollow noopener" target="_blank" data-go>{k}<span class="visually-hidden"> ({t('trên')} <span data-shop-name>Shopee</span>)</span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a></li>
+            ))}
+          </ul>
         </li>
-      )))}
+      ))}
     </ul>
     <p class="note">{t('Liên kết tiếp thị — trang có thể nhận hoa hồng khi bạn mua qua liên kết.')}</p>
   </section>
 )}
 <style>
-  h2 { font-size: var(--step-2); padding-bottom: var(--space-2); border-bottom: 2px solid var(--c-ink); margin-bottom: var(--space-2); }
-  ul { list-style: none; margin: 0; padding: 0; }
-  li { display: grid; grid-template-columns: 6.5rem 1fr auto; gap: var(--space-3); align-items: baseline; padding-block: var(--space-3); border-bottom: 1px dotted var(--c-rule); }
-  .cat { font-size: var(--step--1); color: var(--c-ink-faint); }
-  .kw { font-weight: 500; }
-  .shops { display: flex; gap: var(--space-3); font-size: 0.9rem; }
-  .note { font-size: 0.75rem; color: var(--c-ink-faint); margin-top: var(--space-2); }
-  @media (max-width: 480px) { li { grid-template-columns: 1fr; gap: var(--space-1); } }
+  .kit { padding-block: var(--space-6) var(--space-4); }
+  .head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--space-3) var(--space-5); padding-bottom: var(--space-3); border-bottom: 2px solid var(--c-ink); }
+  h2 { font-size: var(--step-2); margin: 0; }
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .rows > li { display: grid; grid-template-columns: minmax(9rem, 13rem) minmax(0, 1fr); gap: var(--space-2) var(--space-5); align-items: start; padding-block: var(--space-4); border-bottom: 1px dotted var(--c-rule); }
+  .what { margin: 0; padding-top: 0.6rem; font: 500 var(--step-1) / 1.25 var(--f-display); }
+  .why { display: block; margin-top: var(--space-1); font: 400 var(--step--1) / 1.4 var(--f-body); color: var(--c-ink-soft); }
+  .finds { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .finds a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-4); border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); color: var(--c-ink); font-weight: 500; text-decoration: none; }
+  .finds a:hover { border-color: var(--c-ink); }
+  .finds a:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .finds svg { flex: none; color: var(--c-ink-soft); }
+  .note { font-size: 0.75rem; color: var(--c-ink-faint); margin: var(--space-3) 0 0; }
+  @media (max-width: 560px) { .rows > li { grid-template-columns: minmax(0, 1fr); } .what { padding-top: 0; } }
 </style>

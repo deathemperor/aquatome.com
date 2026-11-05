@@ -12,6 +12,68 @@
     "borneo",
     "jambi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Batang Hari"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Collections have occured in Jambi province, Sumatra and apparently the Indonesian province of West Kalimantan (Kalimantan Barat), Borneo though definitive information regarding the latter could not be obtained.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "From the great Sunda Islands of Sumatra and Borneo comes the glowlight harlequin barb, T. hengeli.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type specimens were collected from the Tambesi river, a tributary of the Batang Hari/Jambi river in Sumatra.",
+          "countries": [],
+          "regions": [
+            "Batang Hari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367614,
+      "total": 1,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          7.03125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -11,6 +11,70 @@
     "borneo",
     "kalimantan-selatan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Jelai Bila"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to southwestern Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type locality is 'Bandjarmasin', a port town in the Indonesian province of Kalimantan Selatan (South Kalimantan), and following Kottelat (1991) its range extends westwards as far as the Jelai Bila river basin, near the town of Sukamara, where it is said to occur sympatrically with the congener B. merah (but see 'Notes').",
+          "countries": [],
+          "regions": [
+            "Jelai Bila"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366587,
+      "total": 2,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          1
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

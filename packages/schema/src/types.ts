@@ -1,7 +1,7 @@
 import type { z } from 'zod'
-import type { BreedSchema, ChangelogEntrySchema, EquipmentSchema, MarketSchema, ProductSchema, GlossarySchema, RangeSchema, GuideSchema, LANGS, PlaceSchema, PlantSchema, SECTION_ORDER, SeriesSchema, SOURCE_IDS, SourceInfoSchema, SpeciesSchema, SummarySchema, TraitsSchema, TranslationSchema, schemas } from './schemas'
+import type { BreedSchema, ChangelogEntrySchema, EquipmentSchema, MarketSchema, ProductSchema, GlossarySchema, RangeSchema, GuideSchema, PlaceSchema, PlantSchema, SECTION_ORDER, SeriesSchema, SOURCE_IDS, SourceInfoSchema, SpeciesSchema, SummarySchema, TraitsSchema, TranslationSchema, schemas } from './schemas'
 
-export type Lang = (typeof LANGS)[number]
+export type { Lang } from './langs'
 export type SourceId = (typeof SOURCE_IDS)[number]
 export type SectionKey = (typeof SECTION_ORDER)[number]
 export type Range = z.infer<typeof schemas.Range>

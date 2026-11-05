@@ -6,6 +6,7 @@ import { afterAll, beforeAll, expect, test } from 'vitest'
 import { allPages } from '../e2e/pages'
 import { unreached } from './reach'
 import { isViPage } from '../worker/paths'
+import { prefixedLang } from '@aq/schema/langs'
 
 // The fish and plant lists must not grow with the catalogue: past their first page, a species or plant adds nothing to
 // their HTML (#272 left ~0.6 KB and ~2.6 elements per species, and the catalogue grows ~50 species a day). The test
@@ -238,7 +239,7 @@ test('a guide that names 50 or 90 fish has the same cards and credits', () => {
 test("the fish groups' and the plant list's numbered pages link only pages that exist, in every language", () => {
   const pages = new Set(allPages(largeDist))
   for (const path of [`nhom/${NEON.group}/trang/2`, `id/kelompok/${NEON.group}/halaman/2`, 'cay/trang/2']) {
-    const hrefs = [...large(path).matchAll(/<a\b[^>]*?\shref="(\/[^"/][^"]*)"/g)].map(m => m[1]!.replace(/[?#].*$/, '')).filter(h => isViPage(h) || /^\/(id|th)\//.test(h))
+    const hrefs = [...large(path).matchAll(/<a\b[^>]*?\shref="(\/[^"/][^"]*)"/g)].map(m => m[1]!.replace(/[?#].*$/, '')).filter(h => isViPage(h) || !!prefixedLang(h))
     expect(hrefs.length, path).toBeGreaterThan(24)
     expect([...new Set(hrefs)].filter(h => !pages.has(h)), `/${path}/: links to missing pages`).toEqual([])
   }
