@@ -13,6 +13,8 @@ struct AquaTomeApp: App {
   @State private var tab = Tab.handbook
   @State private var tanksPath = NavigationPath()
   @State private var handbookPath = NavigationPath()
+  /// A link from outside the app waiting for the handbook's index, to know the pages the app has (AppLink).
+  @State private var opening: AppLink?
   @Environment(\.scenePhase) private var phase
 
   enum Tab { case tanks, handbook, lights }
@@ -68,6 +70,13 @@ struct AquaTomeApp: App {
       .environment(plugs)
       // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
       .environment(\.openScreen) { open($0) }
+      // A link from a web page (the site's "Mở trong ứng dụng"): the site's page it names, as a link in a page opens.
+      // Opening the app, before the index is read, it waits for it.
+      .onOpenURL { url in
+        opening = AppLink.of(url, site: handbook.site)
+        if handbook.status != .loading { openLink() }
+      }
+      .onChange(of: handbook.status) { if handbook.status != .loading { openLink() } }
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
       .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
@@ -109,6 +118,26 @@ struct AquaTomeApp: App {
     case .group(let group):
       // A group named in a page's text: its shelf, pushed on the tab the page is in.
       if tab == .tanks { tanksPath.append(Browse.fish(group)) } else { tab = .handbook; handbookPath.append(Browse.fish(group)) }
+    }
+  }
+
+  /// The link from outside waiting, if any: the home's top, or the page's own screen (AppScreen), else its web page on
+  /// the Tìm tab.
+  private func openLink() {
+    guard let link = opening else { return }
+    opening = nil
+    switch link {
+    case .home:
+      tab = .handbook
+      handbookPath = NavigationPath()
+    case .page(let url):
+      if let screen = AppScreen.of(url, site: handbook.site, listed: { handbook.item(at: $0) != nil },
+                                   group: { !handbook.shelves.fish(group: $0, handbook.labels).isEmpty }) {
+        open(screen)
+      } else {
+        tab = .handbook
+        handbookPath.append(SitePage(url: url))
+      }
     }
   }
 
