@@ -411,6 +411,7 @@ private struct GuessRow: View {
   let guess: FishId.Guess
   let open: (FishId.Linked) -> Void
   @State private var picture: UIImage?
+  @Environment(\.displayScale) private var scale
 
   var body: some View {
     HStack(alignment: .top, spacing: 12) {
@@ -421,7 +422,10 @@ private struct GuessRow: View {
         .frame(width: 90, height: 68)
         .clipShape(.rect(cornerRadius: 6))
         .accessibilityHidden(true)
-        .task(id: img) { picture = await PageImages.load(img.absoluteString) }
+        // Decoded for its 90 × 68 frame, as the page's own thumbnails are (PageImages).
+        .task(id: img) {
+          picture = await PageImages.image(img.absoluteString, .filling(CGSize(width: 90 * scale, height: 68 * scale)))
+        }
       }
       VStack(alignment: .leading, spacing: 6) {
         VStack(alignment: .leading, spacing: 2) {
