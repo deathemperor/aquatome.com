@@ -88,9 +88,10 @@ export function summariseApp(r: AppRows, test: boolean): AppStats {
 
 /** A dataset nothing has written to yet may not exist: that is no data, not a failure. */
 const NO_TABLE = /unknown table|unknown dataset|does not exist|UNKNOWN_TABLE/i
+export const orNoTable = <T>(rows: Promise<T[]>) => rows.catch((e: unknown) => { if (NO_TABLE.test(String(e))) return [] as T[]; throw e })
 export async function queryApp(accountId: string, token: string, test: boolean): Promise<AppStats> {
   const sql = appSql(test)
-  const run = <T>(q: string) => aeSql<T>(accountId, token, q).catch((e: unknown) => { if (NO_TABLE.test(String(e))) return [] as T[]; throw e })
+  const run = <T>(q: string) => orNoTable(aeSql<T>(accountId, token, q))
   const [views, actions, errors, shops, health, perf] = await Promise.all([
     run<ViewRow>(sql.views), run<ActionRow>(sql.actions), run<ErrorRow>(sql.errors), run<ShopRow>(sql.shops), run<HealthRow>(sql.health), run<PerfRow>(sql.perf),
   ])

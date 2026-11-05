@@ -92,10 +92,20 @@ that would have caught it).
     stored from a browser (an Origin), past the size caps or past the address's hour, our own copies stored marked as
     tests, a report kept as received in the private bucket only, and the dashboard's page with nothing yet and with data
     (`apps/site/worker/test/telemetry.test.ts`, `admin-app.test.ts`).
+  - A shop click (`/go/`, `apps/site/worker/test/handler.test.ts`): every request goes on to the shop, and only a reader's
+    click on one of our pages is counted, as the browser's own Sec-Fetch headers say; not a client calling itself a
+    browser, not the owner. `e2e/shop-click.spec.ts` holds the rule to what a real browser sends. Found 2026-11-06: 65
+    clicks counted since 10-29, almost every one the only click on its link, and no beacon `aff` event in that time, which
+    a real click sends.
   - The owner's dashboard (`apps/site/worker/test/admin-*.test.ts`): each chart with no days, one day, only zeros, a
     negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
     the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a
     bad zone cookie).
+  - The scoreboard (`/_ab/thanh-cong/`, `docs/metrics.md`, `apps/site/worker/test/admin-scoreboard.test.ts`,
+    `e2e/dashboard-charts.spec.ts`): weeks from Monday in Vietnam's time, each metric's rule at its edge, this week against
+    last at the same point, a week before the count unmeasured and not zero, a part that fails saying so in its place, the
+    token reading its JSON and no page, and the page outside the section list the iOS app reads (web only, as that list is
+    the app's contract).
   - The owner's dashboard as JSON for the iOS app (`apps/site/worker/owner-api.ts`), against
     `protocols/owner-dashboard.openapi.json`: only the owner's app session, as a bearer, opens it (without a live app
     session, 401; another account's, 404; nothing changes for either); each section's blocks say what its page shows

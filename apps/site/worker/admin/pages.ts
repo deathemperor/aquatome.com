@@ -12,7 +12,7 @@ import type { AccountStats, Waiting } from './data'
 import type { ContentStats, Snapshot } from './content'
 import { inLang, items as itemCount, KIND as PAGE_KIND, LANG_VI, MAIN, perDay, writtenPerDay } from './content-page'
 import type { Call, FishIdStats, Totals } from './fishid'
-import { failedBox, ICON, isFailed, page, type Soft } from './shell'
+import { failedBox, ICON, isFailed, page, SCOREBOARD_PATH, type Soft } from './shell'
 import { clock, HOME_TZ, hourMinute, localDay, sameClock, timeTag, timeText, zoneName } from './time'
 
 /** Each admin page's HTML from what its loaders returned; a part that failed says so in its place. */
@@ -225,6 +225,7 @@ export function overviewPage(o: Overview): string {
   const days = log(o).map(d => `<section><h3>${esc(d.label)}${d.partial ? ` <span class="muted">· ${PARTIAL}</span>` : ''}</h3>${d.items.length ? `<ol>${d.items.map(i => `<li><p>${esc(i.text)}</p>${i.small ? `<small>${esc(i.small)}</small>` : ''}</li>`).join('')}</ol>` : `<p class="muted">${QUIET}</p>`}</section>`).join('')
   return page('/_ab/', 'Tổng quan', `<h1 class="vh">Tổng quan</h1><div class="home-grid"><div>
 <section aria-labelledby="h-todo"><h2 id="h-todo">Cần bạn${t.length ? ` <span class="badge">${fmt(t.length)}<span class="vh"> việc</span></span>` : ''}</h2>${todoHtml}</section>
+<p class="note"><a href="${SCOREBOARD_PATH}">Thành công</a>: chỉ số sản phẩm theo tuần, tuần này so với tuần trước.</p>
 <section aria-labelledby="h-areas"><h2 id="h-areas">Các mục</h2><ul class="areas">${rows}</ul><p class="note">${areasNote(o)}</p></section>
 </div><div class="side"><section aria-labelledby="h-log"><h2 id="h-log">${LOG_TITLE}</h2><div class="log">${days}</div></section></div></div>`, o.now, o.tz ?? HOME_TZ)
 }
