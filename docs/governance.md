@@ -294,6 +294,15 @@ The layers above still check the result.
   number written on the page (a rule, `checkNumbers`), and a second model call checks every claim against the text. A
   draft with problems is rewritten once with them; still failing, it stays hidden and is listed in
   `docs/review/summaries.md`.
+- **Product reviews.** A product page's "Các bài review nói gì" (`pnpm engine product-reviews`, one product a cycle, `packages/engine/src/product-reviews.ts`) summarizes a few YouTube reviews: a title check, one cheap model call on the shortlist, one extraction call a review, one writing call. Code holds the result to what the reviews said, because the writer has no second reader:
+  - each finding quotes the transcript: words not there are dropped, and a link's second comes from where the quote is, not from the model. A figure must be said near that moment
+  - a point cites findings by id, and a figure must be in the findings it cites; "agree" needs two reviews, "differ" two reviews on its sides; a point that fails is left out, after one rewrite with the reasons
+  - the writer never sees a channel, a title or an address. A channel's name, talk of the video or a reviewer (`names-source`, also listed for every page written from videos), a score or rating, or saying AquaTome controls a product it doesn't (`control-claim`) keeps a point off the page
+  - a product or brand name in a point must match a spelling from the title or description of a review it cites, or our catalog: product pages, what the app controls, brands two guides give (`packages/engine/src/review-names.ts`), because captions mangle names. A near-miss takes that spelling: the same letters without their marks, or one letter off in a name of 4 or 5 letters and two in a longer one, starting with the same letter, never in a name of 3 letters or fewer, never where a number differs, and never when two spellings are as near. A name that matches nothing gets the one rewrite, then the point is left out. Fish and plants aren't checked (by our pages' genera and the word before them), so "Anubias Nana" stays beside a "Nala" light
+  - the measured table's values are the extraction's, never the writer's
+  - research running again keeps the reviews' sources and text, cited by address and not by place
+  - "Điều khiển bằng AquaTome" comes from the code (`@aq/schema` devices: the light tool's model table, and the plug makers with a `PlugSource` in the app, a test holding the two together), never from the text, so a page stays true when support changes. AquaTome's own test notes (docs/research/aquarium-device-control.md) are curated facts naming the light tested, for lights it controls; Week Aqua's aren't used
+  - no thumbnail becomes a page photo: the top review plays from the same player as a species page's videos
 - **Photos.** No people (faces dropped), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
   good), no dead fish or fish as food (markets, plates, catches landed or held, preserved, mounted or museum specimens),
