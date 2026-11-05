@@ -49,9 +49,9 @@ LIGHT_FIRST = [
     'testWritingAScheduleEndsTheManualLevels']
 # The first half of job `app` (every other flow), run by `app (1)` with a pull request's smoke set; `app (2)` runs the
 # rest, so a class added later runs there. Split by their times on GitHub's Macs in #553's run of 2026-11-05 (the whole
-# job stopped at its hour, about a minute a test): about 2,000 s here, 2,070 in the rest. That run never reached two of
-# ReaderPostFlowTests' tests, counted at its own average, or TanksFlowTests, counted at a minute a test. To measure
-# again once the flows launch with animations off (#549).
+# job stopped at its hour, about a minute a test): about 2,000 s here, 2,070 in the rest, counting the tests that run
+# never reached at their class's average. Measured again with the flows' animations off (#549's run 42023734393, where
+# the whole job took 58 minutes): 1,488 s here and 1,591 s in the rest, each half about 33 minutes with its build.
 APP_FIRST = ['ReaderPostFlowTests', 'AccountFlowTests', 'AppIconFlowTests']
 # Run elsewhere: the performance tests by job `perf`, the App Store's screenshots by app-store.yml.
 ELSEWHERE = ['PerformanceTests', 'StoreShotsFlowTests']
