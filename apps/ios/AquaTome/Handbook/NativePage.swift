@@ -439,9 +439,12 @@ func credit(_ img: PageDoc.Image) -> AttributedString? {
 
 /// A credit's line, each piece linking where it says. `photo` false: the photo's own page linked nowhere in it.
 func credit(_ c: PageDoc.Image.Credit, photo: Bool = true) -> AttributedString {
-  var line = c.parts(photo: photo).reduce(into: AttributedString()) { s, p in
+  let parts = c.parts(photo: photo)
+  var line = parts.reduce(into: AttributedString()) { s, p in
     var a = AttributedString(p.text)
     a.link = p.link.flatMap(URL.init(string:))
+    // Some of the line linking and the rest not: its links underlined, as the site's are, so it's seen which words are.
+    if parts.count > 1, a.link != nil { a[AttributeScopes.SwiftUIAttributes.UnderlineStyleAttribute.self] = .single }
     s += a
   }
   line.font = .caption2
@@ -542,8 +545,8 @@ private struct CardsPart: View {
     }
   }
 
-  /// The cards' photos as the site's credits list has them: one row per author, licence and photographer's page (two
-  /// Unsplash photographers can share a name), first seen first, each with its line (linking the photo's page while it's
+  /// The cards' photos as the site's credits list has them: one row per line (an Unsplash photo's names its photographer),
+  /// licence and photographer's page (two Unsplash photographers can share a name), first seen first, each with its line (linking the photo's page while it's
   /// the only one and no photographer's page is linked), who took them, their page and every photo's own page, the same
   /// page once (nil: a photo without one).
   private var creditRows: [CreditRow] {

@@ -434,7 +434,8 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, number)
     XCTAssertTrue(text(app, "Ảnh: Jane Doe trên Unsplash · Unsplash License · 1 ảnh").exists, "the card's photo not credited with how many")
     XCTAssertTrue(app.links["Jane Doe"].exists, "the photographer's name not a link")
-    XCTAssertTrue(app.links["Unsplash"].firstMatch.exists, "Unsplash not a link")
+    // The lead photo's "Unsplash" and the card's.
+    XCTAssertEqual(app.links.matching(NSPredicate(format: "label == %@", "Unsplash")).count, 2, "Unsplash not a link under the card")
     XCTAssertFalse(app.links["Ảnh: Jane Doe trên Unsplash · Unsplash License"].exists, "the whole line one link")
   }
 

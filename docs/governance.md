@@ -331,7 +331,8 @@ The layers above still check the result.
     production (2026-11-05): its reviewer saw neither the photographer's name nor Unsplash. The app links the line the
     same way, from its copy of the page (`author`, the name as the line writes it, and `authorUrl`;
     `PageDoc.Image.Credit` in AquaTomeKit); in its card lists' credits, once the name links the photographer's page,
-    each photo's own page is a number, as in the site's credits list.
+    each photo's own page is a number, as in the site's credits list, and a line's links are underlined, as the
+    site's are. Its photo viewer doesn't yet link an Unsplash photo's own page once the name links the photographer's.
   - **Removal.** A reader or a photographer writes to the address on the contact page (`/lien-he/`, "Bản quyền và
     ghi nguồn" or "ảnh nhầm loài"). The owner adds the photo's address to `engine-state/_photo-rejected.json` with the
     reason: the next cycle drops it from every page and gallery, and it is never picked again. A source that withdraws

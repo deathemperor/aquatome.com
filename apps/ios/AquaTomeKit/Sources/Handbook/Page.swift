@@ -117,23 +117,36 @@ public struct PageDoc: Sendable {
         self.init(text: text, licence: licence, url: o["url"] as? String, author: o["author"] as? String, authorUrl: o["authorUrl"] as? String)
       }
 
-      /// The line and its licence ("Ảnh: Aquarium Breeder · CC BY 4.0") in pieces, each with where it links. One whose
-      /// line holds its `author`, as the site's Unsplash line: the name linking the photographer's page (the photo's own
-      /// until the site has it) and "Unsplash" Unsplash's home, the rest unlinked. Any other, the whole of it linking the
-      /// photo's own page. `photo` false: the photo's own page linked nowhere, for a list that links each photo's page
-      /// by a number.
+      /// The line and its licence ("Ảnh: Aquarium Breeder · CC BY 4.0") in pieces, each with where it links. One with an
+      /// `author`, the site's Unsplash line: the name linking the photographer's page (the photo's own until the site has
+      /// it) and "Unsplash" Unsplash's home, the rest unlinked; if the line doesn't hold the name, the line linking the
+      /// photo's own page as before and "Unsplash" still its home. Any other, the whole of it linking the photo's own page.
+      /// `photo` false: the photo's own page linked nowhere, for a list that links each photo's page by a number.
       public func parts(photo: Bool = true) -> [(text: String, link: String?)] {
         let page = photo ? url : nil
         let tail = licence.isEmpty ? "" : " · " + licence
-        guard let author, !author.isEmpty, let name = text.range(of: author) else { return [(text + tail, page)] }
-        // "Unsplash" outside the name: after it, as each language's line has it, else before it.
-        let site = text.range(of: "Unsplash", range: name.upperBound..<text.endIndex) ?? text.range(of: "Unsplash", range: text.startIndex..<name.lowerBound)
-        var links: [(at: Range<String.Index>, link: String?)] = [(name, authorUrl ?? page)]
-        if let site { links.append((site, Self.unsplashHome)) }
+        guard let author else { return [(text + tail, page)] }
+        // The name with its spaces as the line has them: the site collapses a line's spaces, not always the name's.
+        // Looked for after "Ảnh: " ("Foto: ", "ภาพ: "), so a name that is that word isn't found in it.
+        let wanted = author.split(whereSeparator: \.isWhitespace).joined(separator: " ")
+        let from = text.range(of: ": ")?.upperBound ?? text.startIndex
+        var links: [(at: Range<String.Index>, link: String?)] = []
+        if !wanted.isEmpty, let name = text.range(of: wanted, range: from..<text.endIndex) {
+          links.append((name, authorUrl ?? page))
+          // "Unsplash" outside the name: after it, as each language's line has it, else before it.
+          if let site = text.range(of: "Unsplash", range: name.upperBound..<text.endIndex)
+              ?? text.range(of: "Unsplash", range: from..<name.lowerBound) {
+            links.append((site, Self.unsplashHome))
+          }
+        } else if let site = text.range(of: "Unsplash", options: .backwards) {
+          links = [(text.startIndex..<site.lowerBound, page), (site, Self.unsplashHome)]
+        } else {
+          return [(text + tail, page)]
+        }
         links.sort { $0.at.lowerBound < $1.at.lowerBound }
         var out: [(text: String, link: String?)] = []
         var i = text.startIndex
-        for l in links {
+        for l in links where !l.at.isEmpty {
           if i < l.at.lowerBound { out.append((String(text[i..<l.at.lowerBound]), nil)) }
           out.append((String(text[l.at]), l.link))
           i = l.at.upperBound

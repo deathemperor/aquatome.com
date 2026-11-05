@@ -268,8 +268,8 @@ private func pieces(_ c: PageDoc.Image.Credit, photo: Bool = true) -> [String] {
 
 /// A credit's line as the site links it (apps/site/src/lib/unsplash.ts): an Unsplash photo's name linking the
 /// photographer's page, else the photo's own, and "Unsplash" Unsplash's home with AquaTome's UTM, the rest unlinked, in
-/// any language's line. A credit without the name, or whose line doesn't hold it, is one link to the photo's own page,
-/// licence and all, as before.
+/// any language's line; a line that doesn't hold the name links the photo's own page and "Unsplash" still. A credit
+/// without a name is one link to the photo's own page, licence and all, as before.
 @Test func anUnsplashCreditsNameAndUnsplashAreLinksAndAnyOtherIsOneLink() {
   typealias Credit = PageDoc.Image.Credit
   let home = "https://unsplash.com/?utm_source=aquatome&utm_medium=referral"
@@ -289,9 +289,17 @@ private func pieces(_ c: PageDoc.Image.Credit, photo: Bool = true) -> [String] {
   #expect(pieces(thai) == ["ภาพ: ", "Jane Doe → \(profile)", " บน ", "Unsplash → \(home)", " · Unsplash License"])
   let fan = Credit(text: "Ảnh: Unsplash Fan trên Unsplash", licence: "Unsplash License", url: photo, author: "Unsplash Fan", authorUrl: profile)
   #expect(pieces(fan) == ["Ảnh: ", "Unsplash Fan → \(profile)", " trên ", "Unsplash → \(home)", " · Unsplash License"])
-  // A name the line doesn't hold, or none: the line as before.
+  // The name with other spaces than the line's (the site collapses the line's), and a name that is the line's first word.
+  let spaced = Credit(text: "Ảnh: Jane Doe trên Unsplash", licence: "Unsplash License", url: photo, author: " Jane  Doe ", authorUrl: profile)
+  #expect(pieces(spaced) == pieces(full))
+  let word = Credit(text: "Foto: Foto di Unsplash", licence: "Unsplash License", url: photo, author: "Foto", authorUrl: profile)
+  #expect(pieces(word) == ["Foto: ", "Foto → \(profile)", " di ", "Unsplash → \(home)", " · Unsplash License"])
+  // A name the line doesn't hold, or an empty one: the line linking the photo's page as before, "Unsplash" still its home.
   let elsewhere = Credit(text: "Ảnh: Jane Doe trên Unsplash", licence: "Unsplash License", url: photo, author: "Janet Roe", authorUrl: profile)
-  #expect(pieces(elsewhere) == ["Ảnh: Jane Doe trên Unsplash · Unsplash License → \(photo)"])
+  #expect(pieces(elsewhere) == ["Ảnh: Jane Doe trên  → \(photo)", "Unsplash → \(home)", " · Unsplash License"])
+  let empty = Credit(text: "Ảnh: Jane Doe trên Unsplash", licence: "Unsplash License", url: photo, author: "")
+  #expect(pieces(empty, photo: false) == ["Ảnh: Jane Doe trên ", "Unsplash → \(home)", " · Unsplash License"])
+  // Without "Unsplash" in the line either: one link, as before.
   #expect(pieces(Credit(text: "Ảnh: Jane Doe", licence: "CC BY 4.0", url: photo, author: "")) == ["Ảnh: Jane Doe · CC BY 4.0 → \(photo)"])
   let other = Credit(text: "Ảnh: Tác giả 1", licence: "CC BY 4.0", url: "https://x/p/1")
   #expect(pieces(other) == ["Ảnh: Tác giả 1 · CC BY 4.0 → https://x/p/1"])
