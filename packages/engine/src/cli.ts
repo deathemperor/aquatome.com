@@ -63,7 +63,7 @@ import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytStoryboard } from './youtube'
 import { isMarketplace } from './marketplaces'
-import { checkPagePhotos, PHOTO_CHECK_SCHEMA } from './photo-check'
+import { checkPagePhotos, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
 import { ArchiveFetcher } from './archive'
 import { localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
@@ -276,16 +276,26 @@ if (cmd === 'run' || cmd === 'card-fill') {
   console.log(`faces: ${r.checked} checked, ${r.removed.length} removed, ${r.failed.length} failed`)
   for (const x of r.removed) console.log(`removed: ${x}`)
   for (const f of r.failed) console.log(`failed: ${f}`)
-} else if (cmd === 'check-photos') {
+} else if (cmd === 'check-photos' || cmd === 'recheck-photos') {
   // Each species, plant and breed page's photos and gallery, and guide photos captioned with a fish, judged against their subject
-  // (vision, cached per photo and page), most-read pages first: another fish or no photo of it removed, can't-tell listed.
-  const r = await checkPagePhotos(ROOT, {
+  // (vision, cached per photo and page), most-read pages first: another fish or no photo of it removed, can't-tell listed;
+  // a dead fish, fish as food or a logo off every page. recheck-photos: once, the photos judged before the check asked about
+  // dead fish and logos whose notes say they may show one (recheckCandidates); a re-run finds none and calls no model.
+  const recheck = cmd === 'recheck-photos' ? await recheckCandidates(ROOT) : undefined
+  if (recheck) {
+    console.log(`recheck-photos: ${recheck.size} photos to judge again`)
+    for (const [u, note] of recheck) console.log(`candidate: ${u}: ${note}`)
+  }
+  const r = recheck && !recheck.size ? undefined : await checkPagePhotos(ROOT, {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: (file, prompt) => claudeVision({ system: 'You identify aquarium fish and plants in photos. Reply only with JSON.', prompt, schema: PHOTO_CHECK_SCHEMA, file, model: process.env.PHOTO_CHECK_MODEL ?? 'opus' }),
-  }, { limit: values.limit ? Number(values.limit) : 40, parallel: values.parallel ? Number(values.parallel) : 1, ...(values.only ? { only: values.only } : {}) })
-  console.log(`check-photos: ${r.sheets} sheets, ${r.judged} photos judged (${r.photos} verdicts in all), ${r.removed.length} removed, ${r.rejected} newly rejected, ${r.unsure} can't tell, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-  for (const x of r.removed) console.log(`removed: ${x}`)
-  for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
+  }, { limit: values.limit ? Number(values.limit) : 40, parallel: values.parallel ? Number(values.parallel) : 1, ...(values.only ? { only: values.only } : {}), ...(recheck ? { recheck: new Set(recheck.keys()) } : {}) })
+  if (r) {
+    console.log(`${cmd}: ${r.sheets} sheets, ${r.judged} photos judged (${r.photos} verdicts in all), ${r.removed.length} removed, ${r.rejected} newly rejected, ${r.unsure} can't tell, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+    for (const x of r.blocked) console.log(`rejected: ${x}`)
+    for (const x of r.removed) console.log(`removed: ${x}`)
+    for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
+  }
 } else if (cmd === 'watermarks') {
   // No watermarked photos: each photo read once by macOS Vision, text (and logo sources) judged by the model, marked ones dropped everywhere.
   const parallel = values.parallel ? Number(values.parallel) : 1

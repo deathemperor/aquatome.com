@@ -5,27 +5,37 @@ import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan } from './gallery-plan'
 import { contactSheet } from './video-images'
-import { stripPhotos } from './watermarks'
+import { LOGO_FOLDERS, stripPhotos } from './watermarks'
 
-type Photo = { url: string; caption?: string }
+type Photo = { url: string; caption?: string; author?: string }
 /**
  * Does the photo show its page's subject: yes; another species, breed or variety (`note` says which); not a photo of the
- * subject at all (a map, chart, hands, a tank, a packshot); its wild habitat; or can't tell. `no` is the first check's
- * verdict (before 2026-11-02), which didn't tell the two apart. `guide`: judged against a guide photo's caption, which
- * lets other fish into the shot, so it doesn't stand for the page's own stricter look.
+ * subject at all (a map, chart, hands, a tank, a packshot); its wild habitat; a dead fish or fish as food (`dead`: a
+ * market, a plate, a catch landed or held, a preserved or museum specimen); or can't tell. `no` is the first check's
+ * verdict (before 2026-11-02), which didn't tell the two apart. `logo`: a stamp, logo or mark added on the photo, which
+ * the watermark step's text reader can miss; every verdict since 2026-11-05 has it, so one without it is from before the
+ * check asked about dead fish and logos. `guide`: judged against a guide photo's caption, which lets other fish into the
+ * shot, so it doesn't stand for the page's own stricter look.
  */
-export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure' | 'no'; typical: boolean; note: string; guide?: boolean }
+export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure' | 'dead' | 'no'; typical: boolean; note: string; logo?: boolean; guide?: boolean }
 export type PhotoCheckDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number } & PhotoVerdict)[] }>
 }
-const VERDICTS = ['yes', 'other', 'none', 'habitat', 'unsure'] as const
+const VERDICTS = ['yes', 'other', 'none', 'habitat', 'unsure', 'dead'] as const
 export const PHOTO_CHECK_SCHEMA = {
   type: 'object', required: ['photos'],
-  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'ok', 'typical', 'note'], properties: { n: { type: 'number' }, ok: { type: 'string', enum: VERDICTS }, typical: { type: 'boolean' }, note: { type: 'string' } } } } },
+  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'ok', 'typical', 'note', 'logo'], properties: { n: { type: 'number' }, ok: { type: 'string', enum: VERDICTS }, typical: { type: 'boolean' }, note: { type: 'string' }, logo: { type: 'boolean' } } } } },
 }
 /** Verdicts that take a photo off its page. */
-const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'no'])
+const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
+/** Why a photo leaves every page, whatever another page's verdict: it shows a dead fish or fish as food, or a logo. */
+const blockedFor = (by: Record<string, PhotoVerdict> = {}) => {
+  const vs = Object.values(by)
+  const dead = vs.find(v => v.ok === 'dead')
+  const logo = vs.find(v => v.logo)
+  return dead ? `dead: ${dead.note}` : logo ? `watermark: ${logo.note}` : undefined
+}
 
 /** A page whose photos show one subject: a species, a plant (a cultivar is named in its scientific name), or a breed. */
 export type Subject = { id: string; kind: 'species' | 'plants' | 'breeds'; sci: string; names: string[]; breed?: string }
@@ -45,14 +55,16 @@ export const subjectPrompt = (s: Subject, captions: (string | undefined)[] = [])
     : 'its colour forms, sexes and young count as it'
   return `Numbered photos from the page about ${what} in an aquarium handbook.
 For each photo n:
-- ok: "yes" if it clearly shows the page's subject as the main subject (a group of it counts; ${form}).
+- ok: "dead" if it shows a dead fish or other animal, or fish as food, whatever the species: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a catch landed or held up, a fish lying on a tray, a board or the floor; a preserved, mounted, museum or lab specimen (for a snail, an empty museum shell; for a plant, a pressed herbarium sheet). When you can't tell whether it is alive, it is "dead". Not "dead": an old drawing, painting or engraved plate, which is an illustration (a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.
+  "yes" if it clearly shows the page's subject as the main subject (a group of it counts; ${form}).
   "other" if the main subject is a different species, breed or variety. Look-alikes count: tell them apart by their marks (neon tetra from green neon or cardinal tetra, cherry barb from rosy or tiger barb).
   "none" if it is not a photo of the subject at all: a map, chart, diagram or drawing, hands or people, a tank or aquascape where it can't be picked out, equipment, a product packshot.
   "habitat" if it shows the wild place it lives (a river, stream, lake, swamp or shore), with or without it.
   "unsure" if you cannot tell (a species you do not know well, a poor or distant view, a look-alike you cannot rule out).
-- typical: true if it shows the ordinary look of the subject (adult, clear view; for a species, the wild type); false otherwise.
-- note: a few words on what it shows (for "other": what it is instead, e.g. "neon tetra: red stripe runs only half the body").${captions.some(Boolean) ? `
-Some photos are from a guide, with this caption: ${captions.flatMap((c, i) => (c ? [`${i + 1}: "${c.slice(0, 160)}"`] : [])).join('; ')}. Judge these against their caption instead: "yes" if the photo shows what the caption says about the page's subject (any form of it counts, other fish or plants may be in the shot too); "other" only if it shows a different fish or plant where the caption names the subject; "unsure" if the caption is about something else.` : ''}`
+- typical: true if it shows the ordinary look of the subject (adult, clear view; for a species, the wild type); false otherwise, and for "dead".
+- logo: true if a logo, stamp, watermark, signature or text was added on top of the photo after it was taken, even small or faint, round, in a corner, with or without readable letters; false if not. Text in the scene (a label on a tank, a specimen tag) is not added.
+- note: a few words on what it shows (for "other": what it is instead, e.g. "neon tetra: red stripe runs only half the body"; for "dead": what makes it so, e.g. "dead fish on ice at a market"; with a logo, what and where, e.g. "round logo bottom left").${captions.some(Boolean) ? `
+Some photos are from a guide, with this caption: ${captions.flatMap((c, i) => (c ? [`${i + 1}: "${c.slice(0, 160)}"`] : [])).join('; ')}. Judge these against their caption instead: "yes" if the photo shows what the caption says about the page's subject (any form of it counts, other fish or plants may be in the shot too); "other" only if it shows a different fish or plant where the caption names the subject; "unsure" if the caption is about something else. "dead" and logo hold for these as for any photo.` : ''}`
 }
 
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
@@ -130,8 +142,47 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
   await Promise.all(Array.from({ length: Math.max(1, n) }, async () => { while (next < items.length) await f(items[next++]!) }))
 }
 
+/**
+ * Words in an earlier look's note that say the photo may show a dead fish or fish as food: the subject checks' and the
+ * watermark step's notes (English) and the gallery step's captions (Vietnamese). A drawing or a painting may stay.
+ */
+const DEAD_NOTE = /\b(?:dead(?! (?:leaf|leaves|wood|plants?|twigs?|branch(?:es)?|stems?|vegetation|grass|reeds?|algae|coral|trees?|logs?))|died|carcass(?:es)?|markets?|fishmonger|preserved|museum|mounted|taxiderm\w*|fillets?|cooked|fried|grilled|on ice|on a plate|formalin|pickled|herbarium|pressed)\b|(?<!(?:lá|cành|gỗ|cây) )chết|chợ|bày bán|mẫu ngâm|mẫu vật|bảo tàng|tiêu bản|phi lê/i
+const ARTWORK = /drawing|illustrat|engrav|painting|lithograph|watercolou?r/i
+export const deadNote = (note: string) => DEAD_NOTE.test(note) && !ARTWORK.test(note)
+
+/**
+ * The photos to judge again (`checkPagePhotos`' `recheck`): shown on a species, plant or breed page or its gallery, judged
+ * only before the check asked about dead fish and logos (no verdict of it has `logo`), and a note of an earlier look says
+ * it may show a dead fish or fish as food (`deadNote`). Each is judged once: a re-run finds none. Found by the owner
+ * (2026-11-05): dead peacock bass at a market leading their page, judged "yes" with a note that said so. URL → that note.
+ */
+export async function recheckCandidates(root: string): Promise<Map<string, string>> {
+  const state = async <T>(f: string) => (await readJson<Record<string, T>>(join(root, 'engine-state', f))) ?? {}
+  const legacy = await state<PhotoVerdict>('_photo-check.json')
+  const cache = await state<Record<string, PhotoVerdict>>('_photo-subjects.json')
+  const marks = await state<{ what?: string }>('_photo-watermarks.json')
+  const rejected = await state<string>('_photo-rejected.json')
+  const content = join(root, 'content')
+  const notes = new Map<string, (string | undefined)[]>()
+  for (const s of await subjects(content)) {
+    for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
+      for (const p of (await readJson<{ photos?: Photo[] }>(file))?.photos ?? []) {
+        notes.set(p.url, [...(notes.get(p.url) ?? []), ...(file.includes('/gallery/') ? [p.caption] : [])])
+      }
+    }
+  }
+  const out = new Map<string, string>()
+  for (const [url, captions] of notes) {
+    const by = Object.values(cache[url] ?? {})
+    if (url in rejected || by.some(v => v.logo !== undefined)) continue
+    const note = [legacy[url]?.note, ...by.map(v => v.note), marks[url]?.what, ...captions].find(n => !!n && deadNote(n))
+    if (note) out.set(url, note)
+  }
+  return out
+}
+
 /** Where a photo is shown: a page's own photos or gallery (`page`), or a guide (`page`: the fish its caption names, if any). */
-type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean }
+type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string }
 
 /**
  * Every photo on a species, plant or breed page (its own photos and its gallery) must show that page's subject, judged
@@ -143,27 +194,32 @@ type Shown = { file: string; url: string; page?: string; guide?: boolean; captio
  * - "other" and "none" leave the page (in a guide, only "other": a guide may show a packshot or a tank on purpose). A
  *   photo every page that shows it rejects joins `_photo-rejected.json` (added to, never rewritten), which the photo steps
  *   respect, so a source re-read or a gallery rebuild doesn't bring it back. One some page keeps leaves only the others.
+ * - "dead" (a dead fish or fish as food) and a logo are the photo's, not the page's: one such verdict takes it off every
+ *   page, guide and gallery and onto `_photo-rejected.json` ("dead: …", "watermark: …"). A logo found, the same
+ *   photographer's photos judged before the check asked about logos are judged in the same run (they may carry it too).
  * - "unsure" stays and is listed for review with the removals (docs/review/photo-subjects.md). A page left without a
  *   photo shows none.
  * - A typical photo leads a species or plant page, its habitat goes last.
  *
  * Most-read pages first (`rank`), the photos a page shows itself before the rest of its gallery. `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait.
+ * `recheck`: photos judged again although a verdict is cached (`recheckCandidates`), where it is from before the check
+ * asked about dead fish and logos; with it, only those are judged.
  */
-export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; parallel?: number; only?: string; today?: string }) {
+export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; parallel?: number; only?: string; today?: string; recheck?: Set<string> }) {
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
   const cache = (await readJson<Record<string, Record<string, PhotoVerdict>>>(cacheFile)) ?? {}
   const legacy = (await readJson<Record<string, PhotoVerdict>>(join(root, 'engine-state/_photo-check.json'))) ?? {}
   const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
-  const report = { photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, unsure: 0, failed: [] as string[], stopped: '' }
+  const report = { photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '' }
 
   const all = await rank(root, await subjects(content))
   const byId = new Map(all.map(s => [s.id, s]))
   const shown: Shown[] = []
   for (const s of all) {
     for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
-      for (const [i, p] of ((await readJson<{ photos?: Photo[] }>(file))?.photos ?? []).entries()) shown.push({ file, url: p.url, page: s.id, ...(file.includes('/gallery/') && i >= STRIP ? { galleryOnly: true } : {}) })
+      for (const [i, p] of ((await readJson<{ photos?: Photo[] }>(file))?.photos ?? []).entries()) shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(file.includes('/gallery/') && i >= STRIP ? { galleryOnly: true } : {}) })
     }
   }
   const index = nameIndex(all)
@@ -183,20 +239,28 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     return (v && !(strict && v.guide) ? v : undefined) ?? (legacy[url] && legacy[url].ok !== 'unsure' && pagesOf.get(url)?.size === 1 ? legacy[url] : undefined)
   }
 
-  // 1. The model judges photos not judged yet, most-read pages first: what each page shows itself (its photos, its gallery
-  // strip, guide photos naming it), then the rest of each gallery.
+  // 1. The model judges photos not judged yet (or, with `recheck`, those named there whose verdict is from before the check
+  // asked about dead fish and logos), most-read pages first: what each page shows itself (its photos, its gallery strip,
+  // guide photos naming it), then the rest of each gallery.
+  const stale = (x: Shown) => verdict(x.url, x.page!, !x.guide)?.logo === undefined
+  const due = (x: Shown) => (o.recheck ? o.recheck.has(x.url) && stale(x) : !verdict(x.url, x.page!, !x.guide))
   const sheets: { s: Subject; urls: string[] }[] = []
   const queued = new Set<string>()
-  for (const later of [false, true]) for (const s of all) {
-    if (sheets.length >= o.limit) break
-    if (o.only && s.id !== o.only) continue
-    const todo = [...new Set(shown.filter(x => x.page === s.id && !!x.galleryOnly === later && !(x.url in rejected) && !verdict(x.url, s.id, !x.guide) && !queued.has(`${s.id}\n${x.url}`)).map(x => x.url))]
-    for (const u of todo) queued.add(`${s.id}\n${u}`)
-    for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
+  const queue = (want: (x: Shown) => boolean) => {
+    const from = sheets.length
+    for (const later of [false, true]) for (const s of all) {
+      if (sheets.length >= o.limit) break
+      if (o.only && s.id !== o.only) continue
+      const todo = [...new Set(shown.filter(x => x.page === s.id && !!x.galleryOnly === later && !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`)).map(x => x.url))]
+      for (const u of todo) queued.add(`${s.id}\n${u}`)
+      for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
+    }
+    return sheets.slice(from).map((x, i) => ({ ...x, i: from + i }))
   }
+  const logos = new Set<string>() // photos this run found a logo on
   const dir = await mkdtemp(join(tmpdir(), 'photo-check-'))
-  try {
-    await pool(sheets.map((x, i) => ({ ...x, i })), o.parallel ?? 1, async ({ s, urls, i }) => {
+  const judge = (batch: { s: Subject; urls: string[]; i: number }[]) =>
+    pool(batch, o.parallel ?? 1, async ({ s, urls, i }) => {
       if (report.stopped) return
       const ok: { url: string; b: Buffer }[] = []
       for (const url of urls) {
@@ -218,7 +282,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         for (const p of v.photos ?? []) {
           const x = ok[p.n - 1]
           if (!x || !(VERDICTS as readonly string[]).includes(p.ok)) continue
-          cache[x.url] = { ...cache[x.url], [s.id]: { ok: p.ok, typical: !!p.typical, note: String(p.note ?? '').slice(0, 120), ...(captions[p.n - 1] ? { guide: true } : {}) } }
+          cache[x.url] = { ...cache[x.url], [s.id]: { ok: p.ok, typical: !!p.typical && p.ok !== 'dead', note: String(p.note ?? '').slice(0, 120), logo: !!p.logo, ...(captions[p.n - 1] ? { guide: true } : {}) } }
+          if (p.logo) logos.add(x.url)
           report.judged++
         }
       } catch (err) {
@@ -226,11 +291,18 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         else report.failed.push(`${s.id}: ${(err as Error).message.slice(0, 120)}`)
       }
     })
+  try {
+    await judge(queue(due))
+    // A photographer who stamps one photo may stamp others (a round logo in a corner, which the watermark step's text
+    // reader missed: 2026-11-05). Not the sources whose every photo the watermark step's model has looked at.
+    const stamped = new Set(shown.filter(x => logos.has(x.url) && x.author).map(x => x.author!))
+    if (stamped.size && !report.stopped) await judge(queue(x => !!x.author && stamped.has(x.author) && stale(x) && !LOGO_FOLDERS.some(f => x.url.includes(`/${f}/`))))
   } finally {
     await rm(dir, { recursive: true, force: true })
   }
 
-  // 2. Rejected photos leave their pages; a photo everywhere it is shown rejects is rejected for good.
+  // 2. Rejected photos leave their pages; a photo everywhere it is shown rejects is rejected for good, and one that shows
+  // a dead fish or a logo wherever it was judged.
   const onPages = new Map<string, Shown[]>()
   const everywhere = new Map<string, Shown[]>()
   for (const x of shown) {
@@ -248,7 +320,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const label = (id: string) => { const s = byId.get(id)!; return s.kind === 'breeds' ? (s.names[0] ?? id) : s.sci }
   const added: Record<string, string> = {}
-  for (const [url, xs] of onPages) if (!(url in rejected) && everywhere.get(url)!.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!, !xs[0]!.guide)!.note}`
+  for (const url of everywhere.keys()) {
+    const why = url in rejected ? undefined : blockedFor(cache[url])
+    if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
+  }
+  for (const [url, xs] of onPages) if (!(url in rejected) && !(url in added) && everywhere.get(url)!.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!, !xs[0]!.guide)!.note}`
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   const blocked = (file: string) => (url: string) => url in rejected || url in added || offAt.has(`${file}\n${url}`)
   for (const file of [...new Set(shown.map(x => x.file))]) {
@@ -297,14 +373,15 @@ export function reviewDoc(all: Subject[], cache: Record<string, Record<string, P
   // A page verdict is about the page's own photos and gallery; a guide verdict about guide photos naming the page.
   const shown = new Set(still.filter(x => x.page).map(x => `${x.page}\n${x.url}\n${!!x.guide}`))
   const on = (r: (typeof rows)[number]) => shown.has(`${r.id}\n${r.url}\n${!!r.v.guide}`)
-  const removed = sort(rows.filter(r => (r.v.ok === 'other' || r.v.ok === 'none') && !on(r)))
+  const removed = sort(rows.filter(r => (r.v.ok === 'other' || r.v.ok === 'none' || r.v.ok === 'dead' || r.v.logo) && !on(r)))
   const unsure = sort(rows.filter(r => r.v.ok === 'unsure' && on(r)))
   const emptied = all.filter(s => left.get(s.id) === 0 && removed.some(r => r.id === s.id && !r.v.guide))
-  const table = (xs: typeof rows) => xs.map(r => `| ${page.get(r.id)}${r.v.guide ? ' (a guide photo)' : ''} | [photo](${r.url}) | ${cell(r.v.note)} |`).join('\n')
+  const why = (v: PhotoVerdict) => (v.ok === 'dead' ? 'dead: ' : v.logo ? 'logo: ' : '')
+  const table = (xs: typeof rows) => xs.map(r => `| ${page.get(r.id)}${r.v.guide ? ' (a guide photo)' : ''} | [photo](${r.url}) | ${cell(why(r.v) + r.v.note)} |`).join('\n')
   const doc = `# Photos that don't show their page's subject
 
 Written by \`pnpm engine check-photos\` (${today}), most-read pages first. Rules: docs/governance.md, "Photos".
-${rows.length} verdicts. Shows it: ${rows.filter(r => r.v.ok === 'yes').length}; its habitat: ${rows.filter(r => r.v.ok === 'habitat').length}; something else: ${removed.filter(r => r.v.ok === 'other').length}; not a photo of it: ${removed.filter(r => r.v.ok === 'none').length}; can't tell: ${unsure.length}.
+${rows.length} verdicts. Shows it: ${rows.filter(r => r.v.ok === 'yes' && !r.v.logo).length}; its habitat: ${rows.filter(r => r.v.ok === 'habitat' && !r.v.logo).length}; something else: ${removed.filter(r => r.v.ok === 'other').length}; not a photo of it: ${removed.filter(r => r.v.ok === 'none').length}; dead or as food: ${removed.filter(r => r.v.ok === 'dead').length}; a logo on it: ${removed.filter(r => r.v.logo && r.v.ok !== 'dead').length}; can't tell: ${unsure.length}.
 
 ## Left with no photo (${emptied.length})
 
@@ -318,7 +395,7 @@ ${table(unsure)}
 
 ## Removed (${removed.length})
 
-"Something else" names what the photo shows instead; the rest are maps, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), and "logo" a mark added on the photo, both off every page; the rest are maps, hands, tanks, packshots and the like.
 
 | Page | Photo | What it shows |
 | --- | --- | --- |
