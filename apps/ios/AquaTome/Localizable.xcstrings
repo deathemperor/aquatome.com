@@ -129,6 +129,22 @@
         }
       }
     },
+    "%@, ảnh %lld": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, foto %lld"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ภาพที่ %lld"
+          }
+        }
+      }
+    },
     "%lld bản ghi không hợp lệ nên chưa vào tài khoản.": {
       "localizations": {
         "id": {
@@ -221,6 +237,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟ %lld ดวง"
+          }
+        }
+      }
+    },
+    "%lld ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ภาพ"
           }
         }
       }
@@ -337,6 +369,22 @@
         }
       }
     },
+    "AT dưới nước": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AT di bawah air"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AT ใต้น้ำ"
+          }
+        }
+      }
+    },
     "Access ID": {
       "localizations": {
         "id": {
@@ -385,6 +433,22 @@
         }
       }
     },
+    "AquaTome": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome"
+          }
+        }
+      }
+    },
     "AquaTome bật tắt ổ cắm Smart Life (Tuya) bằng dự án đám mây Tuya của chính bạn: ứng dụng gọi thẳng Tuya, không qua máy chủ AquaTome và không cần tài khoản AquaTome.": {
       "localizations": {
         "id": {
@@ -429,6 +493,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "AquaTome ไม่มีส่วนเกี่ยวข้องกับบริษัท Chihiros คำสั่ง Bluetooth อ้างอิงตามบันทึกโอเพนซอร์ส [chihiros-led-control](https://github.com/TheMicDiet/chihiros-led-control) (สัญญาอนุญาต MIT)"
+          }
+        }
+      }
+    },
+    "Biểu tượng ứng dụng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikon aplikasi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไอคอนแอป"
           }
         }
       }
@@ -1745,6 +1825,342 @@
         }
       }
     },
+    "Cá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลา"
+          }
+        }
+      }
+    },
+    "Cá ba đuôi hồng đào": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mas koki persik"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาทองสีพีช"
+          }
+        }
+      }
+    },
+    "Cá ba đuôi xanh trời": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mas koki biru langit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาทองสีฟ้า"
+          }
+        }
+      }
+    },
+    "Cá betta san hô": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cupang koral"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลากัดสีปะการัง"
+          }
+        }
+      }
+    },
+    "Cá betta tím": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cupang ungu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลากัดสีม่วง"
+          }
+        }
+      }
+    },
+    "Cá betta đêm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cupang malam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลากัดยามค่ำ"
+          }
+        }
+      }
+    },
+    "Cá bảy màu hồng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guppy merah muda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาหางนกยูงสีชมพู"
+          }
+        }
+      }
+    },
+    "Cá bảy màu xanh biển": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guppy biru laut"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาหางนกยูงสีฟ้าทะเล"
+          }
+        }
+      }
+    },
+    "Cá hề xanh ngọc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan badut toska"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาการ์ตูนสีฟ้าอมเขียว"
+          }
+        }
+      }
+    },
+    "Cá hề xanh trời": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan badut biru langit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาการ์ตูนสีฟ้า"
+          }
+        }
+      }
+    },
+    "Cá koi bạc hà": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koi mint"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาคาร์ปสีมิ้นต์"
+          }
+        }
+      }
+    },
+    "Cá koi san hô": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koi koral"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาคาร์ปสีปะการัง"
+          }
+        }
+      }
+    },
+    "Cá lá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan daun"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาใบไม้"
+          }
+        }
+      }
+    },
+    "Cá neon xanh chanh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan neon hijau muda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลานีออนสีเขียวมะนาว"
+          }
+        }
+      }
+    },
+    "Cá neon đêm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan neon malam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลานีออนยามค่ำ"
+          }
+        }
+      }
+    },
+    "Cá nóc hồng đào": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan buntal persik"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาปักเป้าสีพีช"
+          }
+        }
+      }
+    },
+    "Cá nóc xanh biển": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan buntal biru laut"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาปักเป้าสีฟ้าทะเล"
+          }
+        }
+      }
+    },
+    "Cá nóc xanh chanh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan buntal hijau muda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาปักเป้าสีเขียวมะนาว"
+          }
+        }
+      }
+    },
+    "Cá tròn bình minh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan bulat fajar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลากลมยามเช้า"
+          }
+        }
+      }
+    },
+    "Cá tròn hồng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan bulat merah muda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลากลมสีชมพู"
+          }
+        }
+      }
+    },
+    "Cá tròn xanh ngọc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan bulat toska"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลากลมสีฟ้าอมเขียว"
+          }
+        }
+      }
+    },
     "Cá và tép": {
       "localizations": {
         "id": {
@@ -1757,6 +2173,70 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลาและกุ้ง"
+          }
+        }
+      }
+    },
+    "Cá ông tiên bạc hà": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manfish mint"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาเทวดาสีมิ้นต์"
+          }
+        }
+      }
+    },
+    "Cá ông tiên đêm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manfish malam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาเทวดายามค่ำ"
+          }
+        }
+      }
+    },
+    "Cá đĩa bình minh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan discus fajar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาปอมปาดัวร์ยามเช้า"
+          }
+        }
+      }
+    },
+    "Cá đĩa tím": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan discus ungu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาปอมปาดัวร์สีม่วง"
           }
         }
       }
@@ -2337,6 +2817,22 @@
         }
       }
     },
+    "Giáng sinh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Natal"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คริสต์มาส"
+          }
+        }
+      }
+    },
     "Giờ bật": {
       "localizations": {
         "id": {
@@ -2541,6 +3037,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรูป %@ ของคุณ"
+          }
+        }
+      }
+    },
+    "Halloween": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halloween"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฮาโลวีน"
           }
         }
       }
@@ -3137,6 +3649,22 @@
         }
       }
     },
+    "Không đổi được biểu tượng. Thử lại sau.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikon tidak bisa diganti. Coba lagi nanti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปลี่ยนไอคอนไม่ได้ ลองใหม่ภายหลัง"
+          }
+        }
+      }
+    },
     "Kiểm tra": {
       "localizations": {
         "id": {
@@ -3729,6 +4257,22 @@
         }
       }
     },
+    "Mùa hè": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Musim panas"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฤดูร้อน"
+          }
+        }
+      }
+    },
     "Mất kết nối": {
       "localizations": {
         "id": {
@@ -3773,6 +4317,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ขาดการเชื่อมต่อกับโคมไฟ ขยับเข้าใกล้โคมไฟแล้วแตะ “เชื่อมต่ออีกครั้ง”"
+          }
+        }
+      }
+    },
+    "Mặc định": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bawaan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ค่าเริ่มต้น"
           }
         }
       }
@@ -4193,6 +4753,22 @@
         }
       }
     },
+    "Sách và nước": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buku dan air"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หนังสือกับน้ำ"
+          }
+        }
+      }
+    },
     "Sáng dần, tối dần": {
       "localizations": {
         "id": {
@@ -4381,6 +4957,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตามตารางเวลา"
+          }
+        }
+      }
+    },
+    "Theo mùa": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Musiman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตามเทศกาล"
+          }
+        }
+      }
+    },
+    "Thiết kế khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desain lain"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดีไซน์อื่น"
           }
         }
       }
@@ -4593,6 +5201,22 @@
         }
       }
     },
+    "Thử lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coba lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Thử màu trên đèn": {
       "localizations": {
         "id": {
@@ -4653,6 +5277,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "จีน (China)"
+          }
+        }
+      }
+    },
+    "Trung Thu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Festival Kue Bulan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เทศกาลไหว้พระจันทร์"
           }
         }
       }
@@ -5345,6 +5985,22 @@
         }
       }
     },
+    "Tết": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tahun Baru Imlek"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตรุษจีน"
+          }
+        }
+      }
+    },
     "Tốc độ mọc": {
       "localizations": {
         "id": {
@@ -5373,6 +6029,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ธรรมชาติ"
+          }
+        }
+      }
+    },
+    "Valentine": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Valentine"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วาเลนไทน์"
           }
         }
       }
@@ -6237,6 +6909,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังค้นหาโคมไฟ…"
+          }
+        }
+      }
+    },
+    "Đang tải ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memuat foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังโหลดรูปภาพ"
           }
         }
       }
@@ -7485,6 +8173,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปภาพ"
+          }
+        }
+      }
+    },
+    "Ảnh %lld trên %lld": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto %lld dari %lld"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปที่ %lld จาก %lld"
           }
         }
       }

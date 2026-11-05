@@ -1,12 +1,14 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { mayPublish, QUALITY_THRESHOLD, shownCard, type DataCardField, type Lang, type SpeciesEntity } from '@aq/schema'
-import { breedNames, cleanAltNames, type BreedName } from './alt-names'
+import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, type BreedName, type NameOff } from './alt-names'
+import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { rewriteTitle } from './reader'
 import { carryTopicChecks } from './topic-check'
+import { breedsNamed } from './topics'
 
 /**
  * The content rules' safe fixes (content-rules.ts, RATCHETED) on every page, each cycle, before the build, as
@@ -25,6 +27,13 @@ import { carryTopicChecks } from './topic-check'
  * - a species' other names, in each language: its own only (alt-names.ts). A breed page's name leaves it (that page is
  *   found by it), a colour form's or bred line's goes, a name written twice is kept once. Each name taken off is kept in
  *   engine-state/_names-off.json with why, for a person to check.
+ * - a breed with no link to the species page its research names, or a parent with none (breeds.ts linkBreed): linked,
+ *   when exactly one page is that species, by its name or a synonym GBIF gives. A link it has stays. Each link made is
+ *   kept in engine-state/_breed-links.json.
+ * - a breed's other names, in each language, once it is linked: its own only (alt-names.ts cleanBreedAltNames). Its
+ *   species' names and a hybrid's parents' leave it (other pages' text names the species by them), as do another breed
+ *   page's name and a name written twice; logged in engine-state/_names-off.json as `lang/breeds/id`. Then a guide's
+ *   breeds (topics.ts breedsNamed, when it was written) that its text names by none of their names any more: off it.
  */
 export type SweepReport = {
   /** Files changed, `kind/id/file`. */
@@ -37,8 +46,14 @@ export type SweepReport = {
   /** Summaries sent back to be written again, their card having changed. */
   summaries: string[]
   titles: string[]
-  /** Other names taken off species pages: `lang/id: "name" (why)`. */
+  /** Other names taken off species pages, `lang/id: "name" (why)`, and off breed pages, `lang/breeds/id: …`. */
   names: string[]
+  /** Breeds taken off a guide's mentions, its text naming them by none of their names: `guides/id: breed`. */
+  mentions: string[]
+  /** Links made from breeds to species pages, `breeds/id: what → species ("research name")`. */
+  links: string[]
+  /** Breeds whose parents no longer match their research, left unlinked. */
+  unmatched: string[]
   stopped: string
 }
 
@@ -100,7 +115,7 @@ function hideSlips(card: Partial<Record<DataCardField, Value[]>>, shown: (card: 
 
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string } = {}): Promise<SweepReport> {
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], titles: [], names: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: Lang; id: string }[] = [] // raw: for its indentation
@@ -130,6 +145,14 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   const offFile = join(root, 'engine-state', '_names-off.json')
   const offLog = JSON.parse(await readFile(offFile, 'utf8').catch(() => '{}')) as Record<string, Record<string, string>>
   const today = new Date().toISOString().slice(0, 10)
+  const logOff = (page: string, off: NameOff[], own: { sci?: string; name: string }) => {
+    for (const o of off) {
+      const why = o.why === 'breed' ? `a breed's name: breeds/${o.of}` : o.why === 'species' ? `a species' name: species/${o.of}` : o.why === 'variety' ? 'a variety\'s name'
+        : o.of === own.sci ? 'its scientific name' : o.of === own.name ? 'its name' : `written twice: "${o.of}"`
+      report.names.push(`${page}: "${o.name}" (${why})`)
+      ;(offLog[page] ??= {})[o.name] ??= `${why}, ${today}`
+    }
+  }
   for (const id of (await readdir(join(content, 'species')).catch(() => [] as string[])).sort()) {
     const sci = (JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { scientificName?: string }).scientificName
     if (!sci) continue
@@ -142,15 +165,64 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
       if (JSON.stringify(altNames) === JSON.stringify(t.altNames)) continue
       await write(file, raw, { ...t, altNames })
       changed(`species/${id}/${lang}.json`)
-      for (const o of off) {
-        const why = o.why === 'breed' ? `a breed's name: breeds/${o.of}` : o.why === 'variety' ? 'a variety\'s name'
-          : o.of === sci ? 'its scientific name' : o.of === t.name ? 'its name' : `written twice: "${o.of}"`
-        report.names.push(`${lang}/${id}: "${o.name}" (${why})`)
-        ;(offLog[`${lang}/${id}`] ??= {})[o.name] ??= `${why}, ${today}`
-      }
+      logOff(`${lang}/${id}`, off, { sci, name: t.name })
+    }
+  }
+
+  // A breed's links to the species pages its research names: one written before its species had a page links once it has.
+  const species = await speciesResolver(root)
+  const linkFile = join(root, 'engine-state', '_breed-links.json')
+  const linkLog = JSON.parse(await readFile(linkFile, 'utf8').catch(() => '{}')) as Record<string, string[]>
+  for (const id of (await readdir(join(content, 'breeds')).catch(() => [] as string[])).sort()) {
+    const file = join(content, 'breeds', id, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    const research = JSON.parse(await readFile(join(root, 'engine-state', 'breeds', `${id}.json`), 'utf8').catch(() => 'null')) as BreedFacts | null
+    if (!raw || !research?.found) continue
+    const { entity, links, unmatched } = linkBreed(JSON.parse(raw), research, species)
+    if (unmatched) report.unmatched.push(`breeds/${id}: ${unmatched}`)
+    if (!links.length) continue
+    await write(file, raw, entity)
+    changed(`breeds/${id}/entity.json`)
+    for (const l of links) { report.links.push(`breeds/${id}: ${l}`); (linkLog[id] ??= []).push(`${l}, ${today}`) }
+  }
+  if (report.links.length) await writeFile(linkFile, `${JSON.stringify(Object.fromEntries(Object.entries(linkLog).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
+
+  // A breed's other names: its own, each once. After the links, so a breed linked this cycle is cleaned this cycle.
+  const breedIds = (await readdir(join(content, 'breeds')).catch(() => [] as string[])).sort()
+  for (const id of breedIds) {
+    const e = JSON.parse(await readFile(join(content, 'breeds', id, 'entity.json'), 'utf8').catch(() => 'null')) as { basedOn?: string; parents: { species?: string }[] } | null
+    if (!e) continue
+    for (const lang of LANGS) {
+      const file = join(content, 'breeds', id, `${lang}.json`)
+      const raw = await readFile(file, 'utf8').catch(() => null)
+      if (!raw) continue
+      const t = JSON.parse(raw) as Stored & { name: string; altNames: string[] }
+      const { altNames, off } = cleanBreedAltNames({ id, name: t.name, altNames: t.altNames }, await breedKin(content, e, lang, breeds[lang]), breeds[lang])
+      if (JSON.stringify(altNames) === JSON.stringify(t.altNames)) continue
+      await write(file, raw, { ...t, altNames })
+      changed(`breeds/${id}/${lang}.json`)
+      logOff(`${lang}/breeds/${id}`, off, { name: t.name })
     }
   }
   if (report.names.length) await writeFile(offFile, `${JSON.stringify(Object.fromEntries(Object.entries(offLog).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
+
+  // A guide's breeds, found by their names when it was written ("cá xiêm" named the halfmoon betta): one its text names by
+  // none of their names now leaves its mentions, and that breed's page no longer lists it.
+  const isBreed = new Set(breedIds)
+  for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
+    const file = join(content, 'guides', id, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    const g = raw ? JSON.parse(raw) as { mentions?: string[] } : null
+    if (!g?.mentions?.some(m => isBreed.has(m))) continue
+    const t = JSON.parse(await readFile(join(content, 'guides', id, 'vi.json'), 'utf8').catch(() => 'null')) as Stored | null
+    if (!t) continue
+    const named = await breedsNamed(content, `${(t.summary ?? []).join(' ')} ${t.body ?? ''}`)
+    const gone = g.mentions.filter(m => isBreed.has(m) && !named.includes(m))
+    if (!gone.length) continue
+    await write(file, raw!, { ...g, mentions: g.mentions.filter(m => !gone.includes(m)) })
+    changed(`guides/${id}/entity.json`)
+    for (const b of gone) report.mentions.push(`guides/${id}: ${b}`)
+  }
 
   // A title promising a count its text lacks: the model's rewrite when it passes, else the number dropped.
   let budget = o.llm ? (o.titles ?? 3) : 0

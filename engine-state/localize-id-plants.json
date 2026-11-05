@@ -1417,17 +1417,155 @@
       "Item 8: \"Endler\" alone is incomplete; use \"guppy Endler\" or \"Endler's livebearer\"."
     ]
   },
-  "microsorum-pteropus": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "Java Fern",
+  "marsilea-minuta": {
+    "at": "2026-11-04",
+    "from": "2026-10-30",
+    "name": "Marsilea minuta",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Tinggi: 3–5+ cm\" is fine, but it conflicts with the source's own inconsistency (3-5+ vs 1-3 cm). Keep as is; no fix needed unless you want to flag the source.",
+      "Item 2: \"tahan terhadap cahaya yang kurang\" is slightly awkward; \"tahan kondisi cahaya redup/minim\" is more natural for \"poor light conditions\".",
+      "Item 2: \"tanaman yang tangguh\" is acceptable, but \"mudah dirawat/tahan banting\" is more common among hobbyists for \"hardy\"."
+    ]
+  },
+  "mayaca-fluviatilis": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Mayaca fluviatilis",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"Tidak ada jaminan bahwa tanaman ini bebas dari pestisida\" drops the actor of the English \"We are unable to guarantee\"; better \"Kami tidak dapat menjamin\" rendered neutrally, e.g. \"Produsen tidak dapat menjamin...\". Meaning is slightly weakened.",
+      "\"Tanaman dijual sebagai ikatan batang...\" adds a claim (sold as) not in the English \"A bundle of stems or young plants gathered in an anchor\"; also \"anchor\" is rendered as \"pemberat\" (weight), which is acceptable but \"ikatan/pengikat (anchor)\" would be closer.",
+      "\"di nursery milik produsennya sendiri\" replaces \"Tropica's own nursery\"; fine as neutral, but \"nursery\" should be \"pembibitan/kebun produksi\" for natural Indonesian.",
+      "\"Tinggi: 15–30+ cm\" and \"Jenis\" are fine; \"udang dan ikan lain yang sensitif\" changes \"shrimps and other delicate fish\" slightly (shrimp are not fish, but it follows the source)."
+    ]
+  },
+  "micranthemum-callitrichoides": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "HC Cuba",
     "confidence": "high",
     "score": 0.85,
     "notes": [
-      "Item 2: \"Salah satu cara yang paling praktis\" changes \"favourite method\" into a claim about practicality. Use a neutral rendering such as \"Cara yang paling disukai/sering dipakai\".",
-      "Item 2: \"Pasukan pemakan alga\" is a literal rendering of \"crew of algae eaters\". \"Sekelompok/kelompok pemakan alga\" is more natural.",
-      "Item 5: \"diganggu\" is weaker than \"playing with them\". \"dimain-mainkan/diusik\" would be closer."
+      "Item 2: \"Ditemukan di Kuba\" - English says \"on Cuba\" (island); fine, but could say \"di Pulau Kuba\" for faithfulness.",
+      "Item 3: \"Sebenarnya tidak sulit\" - subject unclear and \"Sebenarnya\" adds nuance; use \"Tanaman ini tidak sulit dirawat, tetapi...\".",
+      "Item 3: \"tuntutannya lebih rendah\" is awkward; use \"perawatannya lebih mudah / kebutuhannya lebih rendah\".",
+      "Item 3: \"akarnya mati\" - fine, but \"Pangkas karpetnya\" could be \"Pangkas karpet secara rutin\"; \"latar depan\" is better as \"latar depan (foreground)\" or \"tanaman latar depan\" is OK."
     ]
+  },
+  "micranthemum-glomeratum": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Pearl Grass",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Tanaman karpet\" is acceptable, but \"tanaman latar depan\" could be written \"tanaman latar depan (foreground)\" for clarity; minor.",
+      "\"Asal\" in the spec list is slightly terse; \"Asal daerah\" or \"Asal negara/benua\" reads more naturally; minor."
+    ]
+  },
+  "micranthemum-tweediei-monte-carlo": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Monte Carlo",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"Asal:\" is slightly unnatural for the Origin label; \"Asal daerah\" or \"Asal negara/wilayah\" reads better.",
+      "\"cepat membentuk karpet\" is a little loose for \"fast-growing carpet\"; \"membentuk karpet yang tumbuh cepat\" is closer.",
+      "\"tambahan CO2\" could be \"injeksi CO2\", the usual hobby term."
+    ]
+  },
+  "micranthemum-umbrosum": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Micranthemum umbrosum",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Kebutuhan cahayanya relatif tinggi\": the English says \"Relatively demanding in terms of light\", which fits. But item 1 lists light demand as \"Sedang\", so the two entries are slightly inconsistent. This comes from the source, so keep the wording but check it.",
+      "\"pucuknya harus sering dipangkas\": \"pinched out\" means the shoots are pinched off. \"dipangkas\" (trimmed) is acceptable, but \"dipotong/dipetik\" or \"dijepit\" would be closer.",
+      "\"tanaman air cantik dari Amerika Serikat\": the English says \"US\". Item 1 gives the origin as Amerika Utara. This is a source discrepancy, so the translation is faithful. The added \"air\" is harmless."
+    ]
+  },
+  "microsorum-pteropus": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Java Fern",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 5: \"It does best with a 6700K bulb. Low to medium-high light is perfect\" is fine, but \"Cahaya rendah sampai sedang-tinggi sudah ideal\" is awkward; use \"cahaya rendah hingga sedang-terang\".",
+      "Item 3: \"tekan tanaman ke lem selama 30 detik\" is fine, but \"oleskan setitik lem\" (bead of glue) is slightly off; \"teteskan sedikit lem\" is better.",
+      "Item 3: \"jangan sembarangan memulai akuarium dengan tanaman ini\" misses the meaning. It should say not to start a new tank with this plant alone, because algae can overwhelm it. As written, the advice is ambiguous.",
+      "Item 3: \"cabut beberapa helai daun\" and \"ambil tunasnya dan mulai tanam lagi\" are acceptable, but \"cabut\" (uproot) is less apt for leaves; use \"lepaskan\" or \"patahkan\".",
+      "Item 8: \"pendiri perusahaan yang mengembangkannya\" replaces the name \"Tropica\". Tropica is a trade name hobbyists know, so the source name was dropped without need. Use \"pendiri Tropica\".",
+      "Item 4: \"Tanaman ini tidak dimakan ikan herbivora\" is an absolute claim. Keep the original's sense, but \"biasanya tidak dimakan\" would be safer.",
+      "Item 5: \"lupa menyimpannya di ember\" is fine, but \"Hampir semua jenis lampu\" (almost any light) is acceptable. \"akuaris\" is an uncommon term in Indonesia; use \"aquascaper\" or \"hobiis akuarium\"."
+    ]
+  },
+  "microsorum-pteropus-narrow": {
+    "at": "2026-11-04",
+    "from": "2026-10-31",
+    "name": "Java Fern Narrow",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"berimpang (rizoma)\": \"berimpang\" is awkward; use \"Berrimpang (rizoma)\" or simply \"Rizoma\" (e.g. \"Tipe: rizomatosa/berrizoma\").",
+      "\"dibiakkan di penangkaran\": \"penangkaran\" is used for animals; for plants use \"dibudidayakan\" or \"dalam budidaya\".",
+      "\"dari batangnya\": the source says stem, but the plant has a rhizome and leaf stalks; consider \"dari tangkai/rimpang\" (minor).",
+      "\"Tanaman hias yang juga cocok...\": sentence fragment, better \"Tanaman hias ini juga cocok untuk akuarium kecil\"; \"rimpangnya 10–15 cm\" lacks \"panjang\" (minor)."
+    ]
+  },
+  "microsorum-pteropus-trident": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Java Fern Trident",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"New, small plants ... on the leaf tips\" translated as \"Tunas-tunas kecil\"; acceptable, but \"tanaman baru\" is closer. Minor.",
+      "Item 2: \"Cocok ditempel\" omits \"planting\"; \"ditempelkan\" is more precise for attaching to stone or wood. Minor.",
+      "Item 1: \"Berimpang (rhizoma)\" is odd. Use \"Berrimpang (rhizoma)\" or \"Rizoma\". Minor.",
+      "Item 3: \"gampang dirawat dan tidak rewel\" is informal for a handbook. \"mudah dirawat dan tangguh\" fits better. Minor.",
+      "Item 3: \"bercabang tiga\" for tripartite is slightly loose. \"berlekuk/terbagi tiga\" is more accurate. Minor."
+    ]
+  },
+  "microsorum-sp": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Microsorum sp.",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Berimpang (rimpang/rhizome)\": awkward; use \"Berrimpang (rhizomatous)\" or simply \"Berrimpang\" (the standard Indonesian form is \"berrimpang\", not \"berimpang\"), and avoid the slash gloss.",
+      "\"pengisap (suction cup)\": \"pengisap\" is less common for aquarium use; \"cangkir hisap\" or \"suction cup\" alone is more natural for hobbyists.",
+      "\"Tanamannya bisa berupa satu Anubias ... dan satu Microsorum\": the Latin genus names are correct, but consider italics or the \"Anubias barteri var. caladiifolia\" format to make clear they are plant names."
+    ]
+  },
+  "monosolenium-tenerum": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Monosolenium",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 1: height \"3–5+ cm\" conflicts with item 3 \"2–5 cm\" — that is in the source, so not a translation error; no change needed except keep consistent.",
+      "Item 2: \"beradaptasi dan tumbuh mapan\" adds a nuance beyond \"established itself\"; simplify to \"sudah tumbuh mapan\".",
+      "Item 3: \"hamparan seperti bantalan\" is slightly wordy; use \"membentuk bantalan\" or \"gerumbul padat\".",
+      "Item 3: \"sering keliru dikenal sebagai Pellia\" — \"mistakenly known\" is better as \"keliru disebut Pellia\" or \"salah dikenal sebagai Pellia\"; \"sering\" (often) is added.",
+      "Item 3: \"cup tertutup\" — use the Indonesian trade term \"cup tertutup\" is OK, but \"Tanaman air\" for \"Aquarium plant\" should be \"Tanaman akuarium\"."
+    ]
+  },
+  "murdannia-keisak": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Murdannia keisak",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
   },
   "nymphaea-zenkeri": {
     "at": "2026-10-30",

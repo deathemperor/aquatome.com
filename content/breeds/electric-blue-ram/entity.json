@@ -1,6 +1,7 @@
 {
   "id": "electric-blue-ram",
   "kind": "variety",
+  "basedOn": "mikrogeophagus-ramirezi",
   "parents": [],
   "care": {
     "tempC": [

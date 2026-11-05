@@ -1,0 +1,42 @@
+{
+  "id": "youtube-eefQoi7gQ_k",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=eefQoi7gQ_k",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "eefQoi7gQ_k",
+    "title": "IT'S DONE! My largest aquarium",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 605,
+    "publishedAt": "2018-10-07",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mY7YLePay_u8zUf68Y4heeL",
+      "position": 16
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/eefQoi7gQ_k/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 105
+      },
+      {
+        "category": "khac",
+        "brand": "EcoTech Marine",
+        "t": 0
+      }
+    ]
+  }
+}

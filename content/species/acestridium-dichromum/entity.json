@@ -17,6 +17,10 @@
       {
         "source": "seriouslyfish",
         "value": 6.5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "difficulty": [
@@ -34,10 +38,28 @@
       "html": "<p>The green whiptail, Acestridium dichromum, is a small loricariid catfish from the upper rio Negro in Brazil and the upper Orinoco in Venezuela. It is known only from those two basins and the drainages between them, including the Casiquiare Canal.</p><p>This species is capable of taking on a greenish or brownish colour pattern depending on its surroundings.</p><ul><li>Max size: 65 mm SL (2.6 in SL)</li><li>Difficulty: 3 of 8 (moderate)</li><li>Social: needs to be in a group</li><li>Compatibility: choose tankmates carefully</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/acestridium_dichromum_arrived__en/",
+      "html": "<p>A very rare dwarf suckermouth catfish. The species attains a length of 5-6 cm only.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestridium-dichromum",
       "html": "<p>Known only from the upper rio Negro basin in Brazil, upper Orinoco in Venezuela and drainages between them, including the Casiquiare Canal.</p><p>Type locality is 'Pozo Lucas, tributary of Río Orinoco, 7 kilometers south of San Fernando de Atabapo, 4°02'N, 67°42'W, Orinoco Basin, Amazonas State, Venezuela'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/acestridium_dichromum_arrived__en/",
+      "html": "<p>The species originates from Venezuela.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/acestridium_dichromum_arrived__en/",
+      "html": "<p>The species could be called “chameleon dwarf sucker cat”, for it becomes bright green when sitting on plant leaves, but changes colour to brown within a few days when only roots and stones are available.</p>"
     },
     {
       "key": "references",
@@ -99,5 +121,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-04"
 }

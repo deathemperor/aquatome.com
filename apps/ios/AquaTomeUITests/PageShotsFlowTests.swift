@@ -1,11 +1,12 @@
 import XCTest
 
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
-/// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
-/// and a guide, in light and in dark, and the fish's top at a large text size; photos as stand-ins (`-fixed-pictures`).
-/// And a search's results under the kinds it finds, light and dark, at the default and the largest text size; and the
-/// lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in Tuya cloud. Each
-/// checks only that its screen opened: what it shows, the other flows check.
+/// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
+/// a guide and a video series, in light, the fish in dark too, and the fish's top at a large text size; photos as
+/// stand-ins (`-fixed-pictures`). And a search's results under the kinds it finds, light and dark, at the default and the
+/// largest text size; the app's icon picker; and the lights tab's card for the fake light, its clock lost, warning of
+/// its outlet's timer on the stand-in Tuya cloud. Each checks only that its screen opened: what it shows, the other
+/// flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -14,13 +15,32 @@ final class PageShotsFlowTests: XCTestCase {
   func testAFishInLargeText() { shoot("fish-large", "ca neon", "Cá neon", large: true, screens: 3) }
   func testAPlant() { shoot("plant-light", "rotala", "Rotala đỏ") }
   func testAGuide() { shoot("guide-light", "nuoi ca neon", "Nuôi cá neon trong bể nhỏ") }
+  func testAVideoSeries() { shoot("series-light", "reu hai tu a", "Rêu hại từ A đến Z") }
   func testASearch() { shootSearch("search-light") }
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+  func testTheAppIcons() { shootIcons("icons-light") }
+  func testTheAppIconsInTheDark() { shootIcons("icons-dark", dark: true) }
   func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
+
+  /// The app's icon picker (`-app-icons` opens it until its Tài khoản row is in): its top, and a screen further down.
+  private func shootIcons(_ name: String, dark: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-app-icons"] + (dark ? ["-dark"] : [])
+    app.launch()
+    XCTAssertTrue(app.buttons["app-icon-default"].waitForExistence(timeout: 10), "the picker didn't open")
+    for n in 1...2 {
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+      app.swipeUp(velocity: .slow)
+    }
+  }
 
   /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
   private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12) {
@@ -149,5 +169,50 @@ final class PageShotsFlowTests: XCTestCase {
   private func settle() {
     let until = Date().addingTimeInterval(0.8)
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
+  }
+
+  // The photo viewer over the fish's gallery, black whatever the phone's appearance: so its light, dark and large-text
+  // shots differ in the page they open over and in the words' size.
+  func testTheGalleryViewer() { shootViewer("viewer-light") }
+  func testTheGalleryViewerInTheDark() { shootViewer("viewer-dark", dark: true) }
+  func testTheGalleryViewerInLargeText() { shootViewer("viewer-large", large: true) }
+
+  /// The viewer on Cá neon's first photo, its full photo come: as it opens, then with its bar and words hidden by a tap.
+  private func shootViewer(_ name: String, dark: Bool = false, large: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
+      + (dark ? ["-dark"] : [])
+      + (large ? ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"] : [])
+    app.launch()
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("ca neon")
+    let item = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no Cá neon")
+    item.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "Cá neon isn't drawn by the app")
+    // The page under it in the appearance asked for.
+    let page = lightness(XCUIScreen.main.screenshot().image)
+    XCTAssertEqual(page < 0.5, dark, "\(name)'s page isn't \(dark ? "dark" : "light"): \(page)")
+    let photo = app.buttons["Đàn cá neon trong bể"].firstMatch
+    for _ in 0..<24 where !(photo.exists && photo.isHittable) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
+               thenHoldForDuration: 0.1)
+    }
+    photo.tap()
+    let shown = app.descendants(matching: .any)["picture-shown"]
+    XCTAssertTrue(shown.waitForExistence(timeout: 5), "no viewer")
+    XCTAssertTrue(XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == 'full'"), object: shown)], timeout: 5)
+      == .completed, "the full photo didn't come")
+    for (n, tap) in [(1, false), (2, true)] {
+      if tap { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45)).tap() }
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
   }
 }

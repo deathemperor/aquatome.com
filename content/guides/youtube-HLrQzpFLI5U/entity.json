@@ -1,0 +1,61 @@
+{
+  "id": "youtube-HLrQzpFLI5U",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=HLrQzpFLI5U",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "HLrQzpFLI5U",
+    "title": "BUILD THIS AQUARIUM TOOL FOR ONLY $2!!!",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 123,
+    "publishedAt": "2014-06-22",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mbN03yoMmH3ioVkQVTJ3BwK",
+      "position": 37
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/HLrQzpFLI5U/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [],
+    "figures": [
+      {
+        "heading": "Phao điện là gì và hoạt động ra sao",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HLrQzpFLI5U/p0-lbl90YW5rcy5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/HLrQzpFLI5U/p0-lbl90YW5rcy5KUEc-480.webp",
+          "width": 960,
+          "height": 609,
+          "licence": "CC BY 2.5",
+          "author": "S.J. de Waard",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Float_switch_for_open_tanks.JPG",
+          "caption": "Phao điện màu đỏ với dây điện, nhìn rõ thân phao nhựa nổi."
+        }
+      },
+      {
+        "heading": "Lắp ngửa hay lắp úp: chọn theo việc cần báo",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HLrQzpFLI5U/p1-hdGVycG9vbC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/HLrQzpFLI5U/p1-hdGVycG9vbC5qcGc-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "Hp.Baumeler",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mechanical_float_switch_waterpool.jpg",
+          "caption": "Cục phao nổi trên mặt nước khi vòi đang châm nước vào."
+        }
+      }
+    ]
+  }
+}

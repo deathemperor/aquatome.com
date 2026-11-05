@@ -2,7 +2,7 @@
 """Which simulator flows each flow job of ios.yml runs (`app`, and `handbook` and `lights` in two halves each), as
 xcodebuild's -only-testing and -skip-testing arguments.
 
-`--full`: every flow, as main runs them (after each merge, nightly and by hand) and a pull request labelled `ios-full`.
+`--full`: every flow, as main runs them (after merges, nightly and by hand) and a pull request labelled `ios-full`.
 Otherwise the changed paths of a pull request come on stdin, one a line: it runs the smoke set (SMOKE, a few flows
 across the app's main journeys, in job `app`) and the flows its change can reach (REACH): a whole class in its own job,
 a few of a class's tests in `app`, beside the smoke set, so they add no build. Prints `app=`,
@@ -73,6 +73,8 @@ HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testL
 PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
          'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages']
+# The app's icon picker: its flows, and its screenshots (the whole class, run by `handbook (1)`, which keeps them).
+ICONS = ['AppIconFlowTests', 'PageShotsFlowTests']
 # The light flows of the outlet a light is plugged into, on the stand-in Tuya cloud: its timers read, the pick taken
 # back, and a light said not to be on one.
 LIGHT_OUTLET = ['LightFlowTests/' + t for t in (
@@ -92,6 +94,8 @@ REACH = {
     'apps/ios/scripts/shots.py': ALL,
     # What every screen sits in, or builds the app and its flows: the smoke set.
     APP + 'OwnCopy.swift': [], APP + 'Assets.xcassets/': [], 'apps/ios/AquaTome.xcodeproj/': [], 'apps/ios/Config/': [],
+    # The icons a reader chooses: the picker, the icon sets and their previews (app-icons.py writes them).
+    APP + 'AppIcon/': ICONS, APP + 'Assets.xcassets/AppIcon': ICONS, 'apps/ios/scripts/app-icons.py': NONE,
     KIT + 'Package.swift': [], f'apps/ios/{UI}/': [],
     # The Bluetooth module is built into the app, but the simulator has none: FakeRadio stands in for it in every flow.
     KIT + 'Sources/ChihirosBLE/': [],

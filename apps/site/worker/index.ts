@@ -13,7 +13,7 @@ import { redirectFor } from './redirects'
 import { isViPage, withoutVi } from './paths'
 import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
-import { deleteRoute, listPhotos, photosAdmin, postPhoto } from './photos'
+import { deleteRoute, listPhotos, minePhotos, photosAdmin, postPhoto } from './photos'
 import { reportRoute } from './report'
 import { accounts, depsFor, type AccountDeps, type AccountsEnv } from './accounts/api'
 import { APP_SITE_ASSOCIATION } from './accounts/passkey'
@@ -179,6 +179,8 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   // Readers report a comment or photo (worker/report.ts): signed in or not, accounts on or off.
   if (url.pathname === '/api/v1/report') return finish(await reportRoute(req, env, new Date()), env)
   if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps), env)
+  // A reader's own photos, sent from the app (worker/photos.ts): listed or taken back with its account's bearer.
+  if (url.pathname.startsWith('/api/v1/talk/photos/mine')) return finish(await minePhotos(req, url, env, new Date()), env)
   // The iOS app's anonymous events and crash and performance reports (worker/telemetry): no account, no cookie.
   if (url.pathname === '/api/v1/app/events') return finish(await appEventsRoute(req, env, new Date()), env)
   if (url.pathname === '/api/v1/app/diagnostics') return finish(await appDiagnosticsRoute(req, env, new Date()), env)

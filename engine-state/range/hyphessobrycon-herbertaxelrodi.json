@@ -1,0 +1,126 @@
+{
+  "id": "hyphessobrycon-herbertaxelrodi",
+  "native": {
+    "input": "a8c91b00de47af9c",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The black neon tetra, Hyphessobrycon herbertaxelrodi, is a characid from the upper rio Paraguai in Mato Grosso and Mato Grosso do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species appears to be widespread throughout the upper rio Paraguai in the states of Mato Grosso and Mato Grosso do Sul, Brazil, both north and south of the the vast tropical wetland known as the Pantanal.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records of a fish identified as H. cf. herbertaxelrodi from Noel Kempff Mercado National Park in the upper Guaporé, at the border between Bolivia and Brazil, suggest that it might also share this pattern of distribution.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Paraguai",
+        "source": "seriouslyfish",
+        "quote": "This species appears to be widespread throughout the upper rio Paraguai in the states of Mato Grosso and Mato Grosso do Sul, Brazil, both north and south of the the vast tropical wetland known as the Pantanal.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Pantanal",
+        "source": "seriouslyfish",
+        "quote": "This species appears to be widespread throughout the upper rio Paraguai in the states of Mato Grosso and Mato Grosso do Sul, Brazil, both north and south of the the vast tropical wetland known as the Pantanal.",
+        "ok": true
+      },
+      {
+        "name": "Rio Taquari",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Coxim on the Rio Taquary [= Taquari], Rio Paraguay [= Paraguai] basin, Mato Grosso, Brazil'.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Sepotuba",
+        "source": "seriouslyfish",
+        "quote": "For example, it has been collected from small streams draining to the upper rio Sepotuba in Mato Grosso state, itself a tributary of the upper rio Paraguai.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon herbertaxelrodi",
+    "status": "ACCEPTED",
+    "taxonKey": 2354640,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        13
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        6
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 13,
+    "at": "2026-11-04T21:41:08.860Z"
+  }
+}
