@@ -361,7 +361,7 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
     let all = app.descendants(matching: .any)["all-latest"]
     for _ in 0..<6 where !(all.exists && all.isHittable) { app.swipeUp() }
-    XCTAssertTrue(all.label.hasSuffix("4"), all.label)
+    XCTAssertTrue(all.label.hasSuffix("28/10/2026"), all.label)
     all.tap()
     XCTAssertTrue(app.navigationBars["Mới cập nhật"].waitForExistence(timeout: 5))
     let rows = app.descendants(matching: .any).matching(identifier: "latest")

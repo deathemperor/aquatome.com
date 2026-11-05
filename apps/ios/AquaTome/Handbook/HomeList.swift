@@ -87,9 +87,15 @@ private struct Shelves: View {
     Section("Thuật ngữ") {
       AllLink(browse: .glossary, count: shelves.all(.glossary).count, title: "Tất cả", id: "all-glossary")
     }
-    // What's new on the site, as its menu and footer offer it.
-    if !handbook.latest.isEmpty {
-      Section { AllLink(browse: .latest, count: handbook.latest.count, title: "Mới cập nhật", id: "all-latest") }
+    // What's new on the site, as its menu and footer offer it, with the day of its newest: the list stops at the site's
+    // 200, so a count would say nothing.
+    if let newest = handbook.latest.first {
+      Section {
+        NavigationLink(value: Browse.latest) {
+          LabeledContent { Text(verbatim: newest.entry.shown).monospacedDigit() } label: { Text("Mới cập nhật") }
+        }
+        .accessibilityIdentifier("all-latest")
+      }
     }
     // How to reach AquaTome, signed in or not: the site's contact page, in the browser.
     Section {
