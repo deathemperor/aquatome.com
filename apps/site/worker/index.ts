@@ -22,6 +22,7 @@ import { wantedRoute } from './wanted'
 import { fishId, type FishIdDeps, type FishIdEnv } from './fishid/api'
 import { appEventsRoute } from './telemetry/events'
 import { appDiagnosticsRoute } from './telemetry/diagnostics'
+import { countryOf } from './telemetry/shared'
 import { sweepKept } from './fishid/kept'
 
 export interface Env {
@@ -125,15 +126,19 @@ async function fromVi(url: URL, env: Env): Promise<Response> {
   return new Response(null, { status: 301, headers: { location } })
 }
 
-/** The site language a browser ranks highest among ours (Accept-Language, q order); Vietnamese when none. */
-export function rootLang(header: string | null): 'vi' | 'id' | 'th' {
+/**
+ * The site language a browser ranks highest among ours (Accept-Language, q order). When it asks for none of them (a phone
+ * set to English, common in Indonesia and Thailand), the country Cloudflare places it in: Indonesia's Indonesian,
+ * Thailand's Thai (`country`, empty for a crawler). Vietnamese otherwise.
+ */
+export function rootLang(header: string | null, country = ''): 'vi' | 'id' | 'th' {
   const ranked = (header ?? '').split(',').map((part, i) => {
     const [tag, ...params] = part.trim().toLowerCase().split(';')
     const q = Number(params.find(p => p.trim().startsWith('q='))?.split('=')[1] ?? 1)
     return { base: tag!.split('-')[0]!.replace(/^in$/, 'id'), q: Number.isFinite(q) ? q : 0, i }
   }).filter(x => x.q > 0).sort((a, b) => b.q - a.q || a.i - b.i)
   const hit = ranked.find(x => x.base === 'vi' || x.base === 'id' || x.base === 'th')
-  return (hit?.base as 'vi' | 'id' | 'th' | undefined) ?? 'vi'
+  return (hit?.base as 'vi' | 'id' | 'th' | undefined) ?? (country === 'ID' ? 'id' : country === 'TH' ? 'th' : 'vi')
 }
 
 /** The language a reader picked in the language menu (cookie aq_lang, LangMenu.astro), if any. */
@@ -167,10 +172,11 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/.well-known/api-catalog') return finish(apiCatalog(url.origin), env)
   if (url.pathname === '/.well-known/apple-app-site-association') return finish(new Response(JSON.stringify(APP_SITE_ASSOCIATION), { headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=3600' } }), env)
   // The root is the Vietnamese home page. A reader who picked Indonesian or Thai in the language menu goes to that
-  // language's (302), and so does a browser that prefers one of them (Accept-Language) when its reader picked none;
-  // everyone else, crawlers included, gets the page (below).
+  // language's (302), and so does a browser that prefers one of them (Accept-Language) when its reader picked none, or
+  // one that asks for none of ours from Indonesia or Thailand; everyone else, crawlers included, gets the page (below).
   if (url.pathname === '/') {
-    const lang = chosenLang(req.headers.get('cookie')) ?? rootLang(req.headers.get('accept-language'))
+    const al = req.headers.get('accept-language')
+    const lang = chosenLang(req.headers.get('cookie')) ?? rootLang(al, isBot(req.headers.get('user-agent'), al) ? '' : countryOf(req))
     if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
   }
   if (url.pathname === '/_e') return events(req, env)
