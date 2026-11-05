@@ -1607,6 +1607,53 @@
       "\"Pilihan yang bagus untuk pemula\" is fine, but \"A good starter plant\" could be \"tanaman pemula yang bagus\" to keep \"plant\" explicit (very minor)."
     ]
   },
+  "myriophyllum-sp-guyana": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Myriophyllum sp. 'Guyana'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: \"Tanaman air\" for \"Aquarium plant\" is acceptable but \"tanaman akuarium\" would be more precise.",
+      "Item 3: \"cup tertutup\" – consider \"cup tertutup\" in italics or \"wadah tertutup (closed cup)\"; minor."
+    ]
+  },
+  "najas-guadalupensis": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Guppy Grass",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"gampang sekali\" is a bit colloquial for a handbook; consider \"sangat mudah\" (minor).",
+      "\"makhluk air\" is slightly generic; \"biota akuatik\" or \"penghuni akuarium\" reads more naturally for hobbyists (minor)."
+    ]
+  },
+  "nymphaea-lotus": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Nymphaea lotus",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"Substrat dasar\" is slightly redundant; \"substrat\" or \"dasar akuarium yang kaya nutrisi\" reads more naturally.",
+      "Item 2: \"membentuk banyak daun di bawah air\" could be \"daun bawah air\" or \"daun terendam\", the terms hobbyists usually use, but the meaning is intact."
+    ]
+  },
+  "nymphaea-stellata": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Dwarf Lily",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Lama-kelamaan tanaman ini menumbuhkan tangkai panjang\": fine, but \"daun berbentuk mata panah sepanjang sekitar 10 cm\" is OK; \"hijau kemerahmudaan\" is awkward/non-standard, use \"hijau kemerah jambuan\" or \"hijau merah muda\".",
+      "\"pupuk tablet akar (root tabs)\": more natural as \"pupuk tablet akar\" or \"tablet pupuk akar (root tabs)\".",
+      "\"sangat baik dalam menyerap senyawa limbah organik\": slightly stiff; \"sangat efektif menyerap\" reads more naturally.",
+      "\"Dwarf aquarium lily\" is left in English throughout; consider adding a local name such as \"teratai kerdil\" at first mention.",
+      "\"tanaman tengah (midground) atau latar belakang (background)\": \"tanaman tengah\" is awkward; use \"tanaman area tengah\" or \"tanaman bagian tengah\"."
+    ]
+  },
   "nymphaea-zenkeri": {
     "at": "2026-10-30",
     "from": "2026-10-29",

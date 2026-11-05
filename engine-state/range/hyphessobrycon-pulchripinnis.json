@@ -1,0 +1,123 @@
+{
+  "id": "hyphessobrycon-pulchripinnis",
+  "native": {
+    "input": "9ab27b864a53f9d4",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Wild catches of H. pulchripinnis from the Rio Cuiaba in the state of Mato Grosso (Brazil) have recently been received.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The lemon tetra, Hyphessobrycon pulchripinnis, is a characid from central Brazil, mostly recorded from the rio Tapajós basin. It is bred commercially in several countries, but the origin of the aquarium strain is questionable. Fish identical to it have been photographed in the lower Xingu, while a related 'orange red' form from the Tapajós may not be the same species.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tapajós",
+        "source": "glaser",
+        "quote": "Wild catches were hardly ever made and it was not until 1980 that Gery discovered that the home of the lemon tetra is in the lower Amazon basin, more precisely in the middle and lower Tapajós between Itaituba and Jacare Acanga, as well as in streams that flow into the Rio Curua do Sol.",
+        "ok": true
+      },
+      {
+        "name": "Xingu",
+        "source": "glaser",
+        "quote": "Other authors also mention the Xingu and the Tocantins.",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "glaser",
+        "quote": "Other authors also mention the Xingu and the Tocantins.",
+        "ok": true
+      },
+      {
+        "name": "Tapajós",
+        "source": "seriouslyfish",
+        "quote": "This species' distribution is somewhat confusing. The type locality is vague (see below), and the majority of subsequent reports pertain to the rio Tapajós basins in central Brazil, one of the primary affluents of the lower Amazon River basin.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Xingu",
+        "source": "seriouslyfish",
+        "quote": "The species is thus often assumed to be endemic to this watershed, but at least one field observation suggests that it also occurs in the rio Xingu system which borders the Tapajós to the east, and some have suggested that it may not occur in the Tapajós at all (see 'Notes').",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "This species' distribution is somewhat confusing. The type locality is vague (see below), and the majority of subsequent reports pertain to the rio Tapajós basins in central Brazil, one of the primary affluents of the lower Amazon River basin.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon pulchripinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2354601,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        19
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}

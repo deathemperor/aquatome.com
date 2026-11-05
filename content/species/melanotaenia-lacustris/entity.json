@@ -10,6 +10,56 @@
     "papua-new-guinea",
     "lake-kutubu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG"
+      ],
+      "regions": [
+        "Lake Kutubu",
+        "River Soro",
+        "Kikori Basin"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Melanotaenia lacustris is endemic to the largest lake in Papua New Guinea, Lake Kutubu, and its outflow.",
+          "countries": [
+            "PG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Lake Kutubu rainbowfish, Melanotaenia lacustris, is a rainbowfish endemic to Lake Kutubu and the River Soro in Papua New Guinea.",
+          "countries": [],
+          "regions": [
+            "Lake Kutubu",
+            "River Soro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The lake was designated a Wetland of International Importance in 1998, as both it and the Kikori Basin where it lies contain some of the earth's greatest biodiversity in terms of rare fauna and endemism.",
+          "countries": [],
+          "regions": [
+            "Kikori Basin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411703,
+      "total": 0,
+      "fetched": "2026-11-05",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
