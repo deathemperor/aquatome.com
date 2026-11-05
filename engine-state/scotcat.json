@@ -557,6 +557,13 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-05T04:15:13.139Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 7 at 8am (Asia/Saigon)"
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm": {
     "entityIds": [
       "species/ageneiosus-magoi"
@@ -867,6 +874,13 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-05T04:18:09.519Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 7 at 8am (Asia/Saigon)"
+  },
   "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm": {
     "entityIds": [
       "species/farlowella-platorynchus"
@@ -1144,6 +1158,13 @@
     "processedHash": "e386a6cdc61cc36c0bcca1db4327ff071d2e698a3a7843457ab5eda9d97c90ee",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-05T04:17:57.964Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 7 at 8am (Asia/Saigon)"
   },
   "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm": {
     "entityIds": [
