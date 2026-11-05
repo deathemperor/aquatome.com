@@ -106,6 +106,96 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertFalse(app.descendants(matching: .any)["post-delete"].exists, "the link shown again")
   }
 
+  /// The name given once is kept on the phone: shown, not asked again, after "Gửi ảnh khác", in the sheet opened again and
+  /// after a relaunch, where the next photo goes under it with nothing typed; "Đổi" opens it to change.
+  func testTheNameIsKeptForTheNextPhoto() {
+    var app = launch("-picked-photo")
+    openNeon(app)
+    signInToPost(app, "post-photo")
+    let name = app.textFields["post-name"]
+    name.tap()
+    name.typeText("Hà")
+    consent(app)
+    app.buttons["post-send"].tap()
+    XCTAssertTrue(app.buttons["post-another"].waitForExistence(timeout: 10), "not received")
+    // Another, from the thanks: a photo to pick, under the same name.
+    app.buttons["post-another"].tap()
+    keptName(app)
+    app.buttons["Đóng"].tap()
+    // The sheet opened again.
+    app.buttons["post-photo"].tap()
+    keptName(app)
+    sendUnderKeptName(app)
+    app.terminate()
+    // The app opened again, on the same phone.
+    app = launch(reset: false, "-picked-photo")
+    openNeon(app)
+    let post = app.buttons["post-photo"]
+    reveal(app, post)
+    post.tap()
+    keptName(app)
+    sendUnderKeptName(app)
+    app.buttons["post-another"].tap()
+    app.buttons["post-name-change"].tap()
+    let field = app.textFields["post-name"]
+    XCTAssertEqual(field.value as? String, "Hà", "the name to change isn't the one kept")
+    let typing = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hasKeyboardFocus == true"), object: field)
+    XCTAssertEqual(XCTWaiter().wait(for: [typing], timeout: 3), .completed, "the name to change isn't ready to type in")
+  }
+
+  /// A name typed and not sent isn't kept: the sheet opened again asks for it, not "Đăng với tên".
+  func testANameNotSentIsNotKept() {
+    let app = launch("-picked-photo")
+    openNeon(app)
+    signInToPost(app, "post-photo")
+    let name = app.textFields["post-name"]
+    name.tap()
+    name.typeText("Hà")
+    app.buttons["Đóng"].tap()
+    app.buttons["post-photo"].tap()
+    XCTAssertTrue(app.textFields["post-name"].waitForExistence(timeout: 5), "not asked for a name never sent")
+    XCTAssertFalse(app.staticTexts["post-name-kept"].exists, "a name never sent is shown as kept")
+  }
+
+  /// A photo on its way says so, at the button, with the form held still; once received, its thanks, the link that takes
+  /// it back and "Gửi ảnh khác" are on the screen, not below it.
+  func testAPhotoBeingSentSaysSoAndItsThanksAreInView() {
+    let app = launch("-picked-photo", "-slow-post")
+    openNeon(app)
+    signInToPost(app, "post-photo")
+    let name = app.textFields["post-name"]
+    name.tap()
+    name.typeText("Hà")
+    consent(app)
+    let send = app.buttons["post-send"]
+    send.tap()
+    let sending = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label CONTAINS %@", "Đang gửi…"), object: send)
+    XCTAssertEqual(XCTWaiter().wait(for: [sending], timeout: 3), .completed, "not said to be sending: \(send.label)")
+    XCTAssertFalse(send.isEnabled, "the button can be pressed again while sending")
+    XCTAssertFalse(app.switches["post-consent"].isEnabled, "the form can be changed while sending")
+    XCTAssertFalse(app.buttons["post-pick"].isEnabled, "another photo can be picked while sending")
+    XCTAssertFalse(app.buttons["Đóng"].isEnabled, "the sheet can be closed while sending, and the photo's link with it")
+    let thanks = app.staticTexts["Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày."]
+    XCTAssertTrue(thanks.waitForExistence(timeout: 20), "not received")
+    for e in [thanks, app.descendants(matching: .any)["post-delete"], app.buttons["post-another"], app.buttons["post-done"]] {
+      XCTAssertTrue(e.isHittable, "\(e) isn't on the screen")
+    }
+  }
+
+  /// A photo refused before it's sent (no consent given) says why where the reader is: on the screen, not below it.
+  func testARefusalIsInView() {
+    let app = launch("-picked-photo")
+    openNeon(app)
+    signInToPost(app, "post-photo")
+    let name = app.textFields["post-name"]
+    name.tap()
+    name.typeText("Hà")
+    app.buttons["post-send"].tap()
+    let said = app.staticTexts["Vui lòng xác nhận ảnh do bạn chụp."]
+    XCTAssertTrue(said.waitForExistence(timeout: 5), "sent without consent")
+    XCTAssertTrue(waitHittable(said), "the refusal isn't on the screen")
+  }
+
   /// With accounts off on the site, a page offers no posting.
   func testNoPostingWithAccountsOff() {
     let app = launch(accounts: "off")
@@ -236,8 +326,9 @@ final class ReaderPostFlowTests: XCTestCase {
 
   private func launch(accounts: String = "on", reset: Bool = true, _ more: String...) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN"] + (reset ? ["-reset-defaults"] : [])
-      + ["-fixed-handbook", "-fake-accounts", accounts, "-reset-fake-server"] + more
+    // Not reset: the same phone, still signed in to the stand-in server's account.
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN"] + (reset ? ["-reset-defaults", "-reset-fake-server"] : [])
+      + ["-fixed-handbook", "-fake-accounts", accounts] + more
     app.launch()
     return app
   }
@@ -290,6 +381,25 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Đăng nhập tài khoản aquatome.com để bình luận và gửi ảnh."].waitForExistence(timeout: 5), "not asked to sign in")
     app.descendants(matching: .any)["apple-sign-in"].firstMatch.tap()
     XCTAssertTrue(app.buttons["post-send"].waitForExistence(timeout: 10), "the sign-in didn't open the form")
+  }
+
+  /// The form says the name kept, and doesn't ask for it.
+  private func keptName(_ app: XCUIApplication) {
+    let kept = app.staticTexts["post-name-kept"]
+    XCTAssertTrue(kept.waitForExistence(timeout: 10), "the name wasn't kept")
+    XCTAssertEqual(kept.label, "Đăng với tên Hà")
+    XCTAssertFalse(app.textFields["post-name"].exists, "asked for the name again")
+  }
+
+  /// A photo sent under the name kept, with nothing typed: received.
+  private func sendUnderKeptName(_ app: XCUIApplication) {
+    consent(app)
+    app.buttons["post-send"].tap()
+    XCTAssertTrue(app.buttons["post-another"].waitForExistence(timeout: 10), "not received under the name kept")
+  }
+
+  private func waitHittable(_ e: XCUIElement) -> Bool {
+    XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "hittable == true"), object: e)], timeout: 3) == .completed
   }
 
   /// The consent box ticked: its switch, not its words.
