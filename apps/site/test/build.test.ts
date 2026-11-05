@@ -39,7 +39,7 @@ describe('species page', () => {
   test('jump row: the main parts this page has, in page order, each to its section', () => {
     const links = dom.querySelectorAll('nav.jump a')
     expect(links.map(a => [a.text, a.getAttribute('href')])).toEqual([
-      ['Ảnh', '#gal-h'], ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Sinh sản', '#muc-reproduction'],
+      ['Ảnh', '#gal-h'], ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Sinh sản', '#muc-reproduction'], ['Mua đồ', '#mua-do'],
     ])
     for (const a of links) expect(dom.querySelector(a.getAttribute('href')!), a.getAttribute('href')!).not.toBeNull()
   })
@@ -96,11 +96,24 @@ describe('species page', () => {
     expect(marks[0]!.getAttribute('data-term')).toBe(list[0]!.querySelector('a')!.text)
     expect(dom.querySelector('.body .credit')).toBeNull()
   })
-  test('product slots are sponsored /go/ links carrying the placement', () => {
-    const a = dom.querySelector('a[href^="/go/shopee/?k="]')
-    expect(a?.getAttribute('rel')).toContain('sponsored')
-    expect(a?.getAttribute('href')).toContain('e=species%3Aparacheirodon-axelrodi')
-    expect(dom.querySelector('a[href^="/go/tiki/?k="]')).not.toBeNull()
+  // What to buy: right after the care text (not at the foot of the page by the comments), one row a kind of thing, each
+  // search a sponsored /go/ link to Shopee that the page's picker can point at Lazada or Tiki (e2e/species.spec.ts).
+  test('what to buy: after the care text, sponsored /go/ links carrying the placement, one shop picked for all', () => {
+    const kit = dom.querySelector('section.kit')!
+    expect(kit.querySelector('h2')?.text).toBe('Chuẩn bị để nuôi Cá neon vua')
+    expect(kit.querySelector('h2')?.getAttribute('id')).toBe('mua-do')
+    const links = kit.querySelectorAll('a[data-go]')
+    expect(links.length).toBeGreaterThan(0)
+    for (const a of links) {
+      expect(a.getAttribute('href')).toMatch(/^\/go\/shopee\/\?k=/)
+      expect(a.getAttribute('rel')).toContain('sponsored')
+      expect(a.getAttribute('href')).toContain('e=species%3Aparacheirodon-axelrodi')
+    }
+    const kinds = kit.querySelectorAll('.rows > li .what').map(w => w.childNodes[0]!.text)
+    expect(new Set(kinds).size, 'one row a kind').toBe(kinds.length)
+    expect(kit.querySelectorAll('[data-shop-pick] button').map(b => b.getAttribute('data-shop'))).toEqual(['shopee', 'lazada', 'tiki'])
+    const order = [...html.matchAll(/id="(muc-reproduction|mua-do|comments-h)"/g)].map(m => m[1])
+    expect(order).toEqual(['muc-reproduction', 'mua-do', 'comments-h'])
     expect(html).not.toMatch(/href="https:\/\/(shopee\.vn|www\.lazada\.vn|tiki\.vn)/)
   })
   test('"Nuôi ở Việt Nam" box: heater for the northern winter, convertible temperatures', () => {
