@@ -249,15 +249,15 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
     return try doc(p).lead?.credit
   }
   let unsplash: [String: Any] = ["text": "Ảnh: Jane Doe trên Unsplash", "licence": "Unsplash License", "url": "https://unsplash.com/photos/abc", "author": "Jane Doe"]
-  var c = try #require(credit(unsplash.merging(["authorUrl": profile]) { a, _ in a }))
+  var c = try #require(try credit(unsplash.merging(["authorUrl": profile]) { a, _ in a }))
   #expect(c.text == "Ảnh: Jane Doe trên Unsplash" && c.licence == "Unsplash License" && c.url == "https://unsplash.com/photos/abc")
   #expect(c.author == "Jane Doe" && c.authorUrl == profile)
   // Before the engine has the photographer's page: the name alone.
-  c = try #require(credit(unsplash))
+  c = try #require(try credit(unsplash))
   #expect(c.author == "Jane Doe" && c.authorUrl == nil)
-  c = try #require(credit(["text": "Ảnh: Tác giả 1", "licence": "CC BY 4.0", "url": "https://x/p/1"]))
+  c = try #require(try credit(["text": "Ảnh: Tác giả 1", "licence": "CC BY 4.0", "url": "https://x/p/1"]))
   #expect(c.text == "Ảnh: Tác giả 1" && c.licence == "CC BY 4.0" && c.url == "https://x/p/1" && c.author == nil && c.authorUrl == nil)
-  c = try #require(credit(["text": "Ảnh: Jane Doe trên Unsplash", "licence": "Unsplash License", "author": 3, "authorUrl": ["x"]]))
+  c = try #require(try credit(["text": "Ảnh: Jane Doe trên Unsplash", "licence": "Unsplash License", "author": 3, "authorUrl": ["x"]]))
   #expect(c.text == "Ảnh: Jane Doe trên Unsplash" && c.author == nil && c.authorUrl == nil)
 }
 
