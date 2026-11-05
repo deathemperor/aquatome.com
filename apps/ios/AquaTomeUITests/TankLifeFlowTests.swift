@@ -262,7 +262,7 @@ final class TankLifeFlowTests: XCTestCase {
   private func launch(reset: Bool = true, _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args
-    app.launch()
+    app.launchForFlow()
     return app
   }
 

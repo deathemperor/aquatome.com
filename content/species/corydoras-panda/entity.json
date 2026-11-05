@@ -11,6 +11,72 @@
     "rio-ucayali",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Rio Ucayali",
+        "Amazon"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The panda cory from the Rio Ucayali in Peru belongs to the most popular species of the genus.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Rio Ucayali, Peru.",
+          "countries": [],
+          "regions": [
+            "Rio Ucayali"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to parts of the upper Amazon in Peru.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342738,
+      "total": 2,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "PE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,64 @@
+{
+  "id": "melanotaenia-lacustris",
+  "native": {
+    "input": "14251f96d0fd5623",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Melanotaenia lacustris is endemic to the largest lake in Papua New Guinea, Lake Kutubu, and its outflow.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Lake Kutubu rainbowfish, Melanotaenia lacustris, is a rainbowfish endemic to Lake Kutubu and the River Soro in Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Kutubu",
+        "source": "seriouslyfish",
+        "quote": "The Lake Kutubu rainbowfish, Melanotaenia lacustris, is a rainbowfish endemic to Lake Kutubu and the River Soro in Papua New Guinea.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "River Soro",
+        "source": "seriouslyfish",
+        "quote": "The Lake Kutubu rainbowfish, Melanotaenia lacustris, is a rainbowfish endemic to Lake Kutubu and the River Soro in Papua New Guinea.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "Kikori Basin",
+        "source": "seriouslyfish",
+        "quote": "The lake was designated a Wetland of International Importance in 1998, as both it and the Kikori Basin where it lies contain some of the earth's greatest biodiversity in terms of rare fauna and endemism.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia lacustris",
+    "status": "ACCEPTED",
+    "taxonKey": 2411703,
+    "datasets": [],
+    "native": [
+      "PG"
+    ],
+    "requests": 2,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}
