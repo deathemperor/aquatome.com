@@ -2211,7 +2211,8 @@
             "columns": [
               "Kỳ",
               "Lượt gọi Claude",
-              "Chi phí"
+              "Chi phí",
+              "Mỗi lượt"
             ],
             "rows": [
               [
@@ -2226,6 +2227,10 @@
                 {
                   "text": "$0,11",
                   "sub": "hôm qua: $0,11"
+                },
+                {
+                  "text": "$0,01",
+                  "sub": "hôm qua: $0,01"
                 }
               ],
               [
@@ -2240,6 +2245,10 @@
                 {
                   "text": "$0,77",
                   "sub": "±0%"
+                },
+                {
+                  "text": "$0,0092",
+                  "sub": "+1%"
                 }
               ],
               [
@@ -2253,6 +2262,10 @@
                 },
                 {
                   "text": "$3,30",
+                  "sub": "±0%"
+                },
+                {
+                  "text": "$0,0092",
                   "sub": "±0%"
                 }
               ],
@@ -2268,6 +2281,10 @@
                 {
                   "text": "$0,44",
                   "sub": "±0%"
+                },
+                {
+                  "text": "$0,0092",
+                  "sub": "+2%"
                 }
               ]
             ]
@@ -2282,7 +2299,8 @@
               "Chặn trước khi gọi",
               "Token vào",
               "Token ra",
-              "Chi phí"
+              "Chi phí",
+              "Mỗi lượt"
             ],
             "rows": [
               [
@@ -2312,6 +2330,10 @@
                 {
                   "text": "$0,11",
                   "sub": "hôm qua: $0,11"
+                },
+                {
+                  "text": "$0,01",
+                  "sub": "hôm qua: $0,01"
                 }
               ],
               [
@@ -2341,6 +2363,10 @@
                 {
                   "text": "$0,77",
                   "sub": "±0%"
+                },
+                {
+                  "text": "$0,0092",
+                  "sub": "+1%"
                 }
               ],
               [
@@ -2369,6 +2395,10 @@
                 },
                 {
                   "text": "$3,30",
+                  "sub": "±0%"
+                },
+                {
+                  "text": "$0,0092",
                   "sub": "±0%"
                 }
               ],
@@ -2399,6 +2429,10 @@
                 {
                   "text": "$0,44",
                   "sub": "±0%"
+                },
+                {
+                  "text": "$0,0092",
+                  "sub": "+2%"
                 }
               ]
             ],
@@ -2900,6 +2934,37 @@
             "tone": "plain"
           },
           {
+            "kind": "figures",
+            "items": [
+              {
+                "label": "Agent quay về cách gọi một lần",
+                "value": "2"
+              },
+              {
+                "label": "Agent dừng vì hết lần gọi",
+                "value": "5"
+              },
+              {
+                "label": "Lần gọi sau bị API từ chối (400)",
+                "value": "1"
+              },
+              {
+                "label": "Không đọc được dữ kiện trang",
+                "value": "0"
+              },
+              {
+                "label": "Lượt trả lại cho người đọc",
+                "value": "3",
+                "sub": "nhiều nhất một người: 2"
+              }
+            ]
+          },
+          {
+            "kind": "note",
+            "text": "Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính.",
+            "tone": "plain"
+          },
+          {
             "kind": "heading",
             "text": "100 lượt gần nhất",
             "level": 2
@@ -2918,6 +2983,7 @@
               "ms",
               "Key",
               "Lần gọi",
+              "Agent: lượt Claude · công cụ · ảnh",
               "Từ",
               "Nước"
             ],
@@ -2956,6 +3022,9 @@
                 },
                 {
                   "text": "1"
+                },
+                {
+                  "text": "—"
                 },
                 {
                   "text": "trang nhận diện"
@@ -3000,6 +3069,9 @@
                   "text": "1"
                 },
                 {
+                  "text": "—"
+                },
+                {
                   "text": "trang nhận diện"
                 },
                 {
@@ -3042,6 +3114,9 @@
                   "text": "1"
                 },
                 {
+                  "text": "—"
+                },
+                {
                   "text": "trang nhận diện"
                 },
                 {
@@ -3082,6 +3157,9 @@
                 },
                 {
                   "text": "1"
+                },
+                {
+                  "text": "—"
                 },
                 {
                   "text": "Bể của tôi"

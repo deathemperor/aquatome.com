@@ -720,12 +720,12 @@ describe('man-made fish (breeds)', () => {
     const { dom } = page('/ca/ca-dia/')
     const names = [...dom.querySelectorAll('section.breeds .n')].map(x => x.textContent)
     expect(names).toEqual(['Cá đĩa Pigeon Blood', 'Cá La Hán (Flowerhorn)'])
-    expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('File:Breed1.jpg')
+    expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('photos/a-red-discus-fish-Pb1Fixture1')
     expect(page('/ca/').dom.querySelector('section.breeds a[href="/ca/ca-la-han/"]')).toBeTruthy()
   })
   test('on the species list the breed cards lead the page: small pictures, loaded at once', () => {
     const img = page('/ca/').dom.querySelector('section.breeds img')!
-    expect(img.getAttribute('src')).toContain('/500px-')
+    expect(img.getAttribute('src')).toContain('&w=480&') // the lead's small copy: Unsplash's, at 480 px
     expect(img.getAttribute('loading')).toBe('eager')
     expect(page('/ca/ca-dia/').dom.querySelector('section.breeds img')!.getAttribute('loading')).toBe('lazy')
   })

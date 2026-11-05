@@ -28,9 +28,10 @@
   "d1_databases": [{ "binding": "DB", "database_name": "aquatome", "database_id": "ffebf861-d781-47a9-a77d-e7a3506af189", "migrations_dir": "migrations" }],
   // Reader photos: raw uploads wait in the private bucket; screened WebP copies go to the public media bucket (readers/).
   "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "aquatome-media" }],
-  // Fish ID's calls to Claude go out from the eastern US (worker/fishid/relay.ts): Anthropic refuses Cloudflare's Hong Kong location.
-  "durable_objects": { "bindings": [{ "name": "FISHID_RELAY", "class_name": "FishIdRelay" }] },
-  "migrations": [{ "tag": "v1-fishid-relay", "new_sqlite_classes": ["FishIdRelay"] }],
+  // Fish ID's calls to Claude go out from the eastern US (worker/fishid/relay.ts): Anthropic refuses Cloudflare's Hong Kong
+  // location. Its readers' and the site's counts and spend sit in one ledger (worker/fishid/ledger.ts): without it, fish ID is off.
+  "durable_objects": { "bindings": [{ "name": "FISHID_RELAY", "class_name": "FishIdRelay" }, { "name": "FISHID_LEDGER", "class_name": "FishIdLedger" }] },
+  "migrations": [{ "tag": "v1-fishid-relay", "new_sqlite_classes": ["FishIdRelay"] }, { "tag": "v2-fishid-ledger", "new_sqlite_classes": ["FishIdLedger"] }],
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
   // Readers' beacon events (worker/events.ts); every fish-ID request's outcome, tokens and cost (worker/fishid/log.ts); the
   // iOS app's anonymous events and MetricKit summaries (worker/telemetry), whose raw reports wait 30 days in the private
@@ -47,7 +48,10 @@
     "APPLE_TEAM_ID": "Q783W6B4FA",
     "APPLE_SIGNIN_KEY_ID": "YK437QPP8B",
     "ACCOUNTS": "on",
-    "PASSKEYS": "on"
+    "PASSKEYS": "on",
+    // Fish ID as an agent (worker/fishid/agent.ts): on since it passed the design's rule on the leak-checked 200 photos
+    // (docs/review/fish-id-accuracy.md): top-1 53.5% → 62.5%, median 9.1 s, $30.87 per 1,000. "0" or removed: today's call.
+    "FISH_ID_AGENT": "1"
   },
   "routes": [
     { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },

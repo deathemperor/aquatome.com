@@ -3,10 +3,11 @@ import XCTest
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
 /// a guide and a video series, in light, the fish in dark too, and the fish's top at a large text size; photos as
-/// stand-ins (`-fixed-pictures`). And a search's results under the kinds it finds, light and dark, at the default and the
-/// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the
-/// app's icon picker; and the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on
-/// the stand-in Tuya cloud. Each checks only that its screen opened: what it shows, the other flows check.
+/// stand-ins (`-fixed-pictures`). Also the ways to sign in, in light and in dark, where they first show: the tanks tab
+/// on a new phone. And a search's results under the kinds it finds, light and dark, at the default and the largest text
+/// size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's icon
+/// picker; and the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
+/// Tuya cloud. Each checks only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -23,6 +24,8 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheAppIcons() { shootIcons("icons-light") }
   func testTheAppIconsInTheDark() { shootIcons("icons-dark", dark: true) }
   func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
+  func testSigningIn() { shootSignIn("sign-in-light") }
+  func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
 
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
   func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
@@ -40,11 +43,32 @@ final class PageShotsFlowTests: XCTestCase {
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
 
+  /// "Bể của tôi" on a new phone, signed out, with each way to sign in the stand-in server offers: the screen as it
+  /// opens, then scrolled to its end, where every sign-in button is in view.
+  private func shootSignIn(_ name: String, dark: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
+                           "-reset-fake-server"] + (dark ? ["-dark"] : [])
+    app.launchForFlow()
+    app.openTab("Bể của tôi")
+    XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].waitForExistence(timeout: 5), "no sign-in")
+    for n in 1...2 {
+      if n == 2 { app.swipeUp(); app.swipeUp() }
+      settle()
+      let shot = XCUIScreen.main.screenshot()
+      XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
+      let a = XCTAttachment(screenshot: shot)
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+  }
+
   /// The app's icon picker (`-app-icons` opens it until its Tài khoản row is in): its top, and a screen further down.
   private func shootIcons(_ name: String, dark: Bool = false) {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-app-icons"] + (dark ? ["-dark"] : [])
-    app.launch()
+    app.launchForFlow()
     XCTAssertTrue(app.buttons["app-icon-default"].waitForExistence(timeout: 10), "the picker didn't open")
     for n in 1...2 {
       settle()
@@ -141,7 +165,7 @@ final class PageShotsFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
       + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? []) + more
-    app.launch()
+    app.launchForFlow()
     return app
   }
 
@@ -200,7 +224,7 @@ final class PageShotsFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
       + (large ? ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"] : [])
-    app.launch()
+    app.launchForFlow()
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()

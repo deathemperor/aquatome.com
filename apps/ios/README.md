@@ -21,16 +21,20 @@ the app's tanks, merged record by record, and each page sees them. A link to "B�
 those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "Xem trong Bể của tôi →" opens the tank
 just saved.
 
-Signing in (Sign in with Apple, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
-the site's page does: the token is in the Keychain, on this phone only. "Thêm passkey" adds one made on the phone, as on
+Signing in (Sign in with Apple, Google, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
+the site's page does: the token is in the Keychain, on this phone only. Google's sign-in has no Google SDK (the size
+budget): Google's own page opens in the system's browser sheet (`ASWebAuthenticationSession`, OAuth 2.0 for installed
+apps, a code with PKCE), the app exchanges the code at Google for the ID token (an iOS client has no secret), and the
+server checks that token as it checks Apple's (`GoogleOAuth`). "Thêm passkey" adds one made on the phone, as on
 the site: more than 10 minutes after signing in, the server asks for a sign-in first, and one to the same account
 carries on. The email sign-in's
 Turnstile check runs in a web view on the site's page for it (`/api/v1/auth/email/turnstile`), since Turnstile runs
 only in a web page on the site's host. Passkeys are aquatome.com's, shared with the app through its webcredentials
 association (`Config/AquaTome.entitlements` and the site's `/.well-known/apple-app-site-association`); only a signed
 build on an iPhone can use them, so the simulator never runs the real passkey sheet.
-A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, passkey sheet and
-Turnstile check inside the app instead (`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`;
+A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, Google page and token
+endpoint (`FakeGoogle`; `-fake-google cancel` closes the page), passkey sheet and Turnstile check inside the app instead
+(`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`;
 every emailed code is `123456`; `-seed-passkey` gives an account the stand-in's passkey; a session kept from an earlier
 launch counts as signed in long ago), so no test reaches
 aquatome.com; `-real-accounts` tries the real server from the simulator.
@@ -162,12 +166,16 @@ Debug builds, so they don't see it.
 - **A pull request** runs the smoke set, ten flows across the app's main journeys (the app starts and its tabs open, a
   search opens a page the app draws, a fish's facts, a tank made and a fish put on it, the tank-mates check, the fake
   light connected and a preset written, a sign-in on the stand-in server, a shelf kept for offline: about 6 minutes
-  after the build), and the flows its change can reach. `scripts/flows-to-run.py` maps the app's folders and files to
-  them, and its `--test` fails when a flow it names is renamed. A class it reaches whole runs in its own job; a few of a
-  class's tests run in `app`, beside the smoke set. What every screen sits in (the project, `Config/`, the flows' shared
-  helpers) runs the smoke set alone. The app's start (`AquaTomeApp.swift`), `ios.yml`, `flows-to-run.py` and the
-  scripts the flow jobs run run every flow, and so does a path under `apps/ios/` the script has no rule for. Jobs `kit`
-  and `perf` (with the translations) run on every ready pull request.
+  after the build), when its change can reach any flow. With it: the whole class of each flow file it edits, in that
+  class's job, so a check added or changed is seen to pass; and the page shots, when its change can reach the pages
+  (governance rule 6). The other flows its change can reach run on main after the merge: `scripts/flows-to-run.py`
+  maps the app's folders and files to them, and the job "which flows this change needs" names their classes in a
+  notice. Label the pull request `ios-full` to run them on it, as on a change to a model many flows share
+  (LightsModel, HandbookModel's fixture, AccountModel). `ios.yml`, `flows-to-run.py`, the scripts the flow jobs run
+  and the flows' shared code (a file in `AquaTomeUITests` that isn't a class's own) run every flow. The script's
+  `--test` fails when a flow it names is renamed. Jobs `kit` and `perf` (with the translations) run on every ready
+  pull request. Until 2026-11-05 a pull request also ran every flow its change could reach, one to two and a half
+  hours of GitHub's Macs: the owner chose this instead.
 - **Every flow** runs on main after merges, every night at 02:30 Vietnam time on main (without `perf`: each change was
   measured by its pull request's run), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull
   request labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full`
@@ -177,8 +185,10 @@ Debug builds, so they don't see it.
   still waiting is dropped when a merge lands, and a break main's run catches may come from any merge since its last
   run.
 
-A break that only main's run catches is fixed forward first, in a pull request of its own. If the flow could have run on
-the pull request that broke it, give `flows-to-run.py` the rule that would have run it.
+A failed job on main's run opens an issue labelled `ios-main-red` (job `report`), or comments on the one open; main's
+next run with every job passed closes it. A break that only main's run catches is fixed forward first, in a pull request
+of its own. If the notice on the pull request that broke it didn't name the flow, give `flows-to-run.py` the rule that
+would have.
 
 ## CI's own Mac
 
@@ -217,9 +227,9 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`), the outlet a light is plugged into (`PowerOutlet`) |
-| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a page named what was searched for first (by its name, scientific name or another name, as the site's search ranks it: "bảy màu" finds Cá bảy màu before Bảy màu Koi), a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
 | `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code |
-| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
+| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; Google's sign-in without its SDK (`GoogleOAuth`: its page, its answer, the code exchanged with PKCE); `FakeAccounts`, the server in process, and `FakeGoogle`, Google's page and token endpoint in process (tests, simulator) |
 | `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back, a strip's timers read: `PlugTimer`, once per light's card: `OutletTimers`), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
 
 ```sh
@@ -232,8 +242,9 @@ and `TUYA_ACCESS_SECRET` set, `swift test --filter liveListRead`. It reads the l
 counts only.
 
 The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json`, `protocols/tankmates-vectors.json`,
-`protocols/filter-vectors.json`, `protocols/page-vectors.json` and `protocols/unlisted-vectors.json`, the same vectors as
-the site's tests. A protocol or schema change updates the vectors and both implementations together.
+`protocols/filter-vectors.json`, `protocols/search-vectors.json`, `protocols/page-vectors.json` and
+`protocols/unlisted-vectors.json`, the same vectors as the site's tests. A protocol or schema change updates the vectors
+and both implementations together.
 
 ## Testing on a real light
 

@@ -1,0 +1,233 @@
+{
+  "id": "hyphessobrycon-eques",
+  "native": {
+    "input": "23a8e33b95ad63a4",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "As currently understood, M. eques (formerly H. eques) has an enormous distribution throughout much of the Amazon drainage in Brazil, Peru and Bolivia plus the Río Paraguay in Brazil, Paraguay and Argentina, the upper part of which is connected to the Amazon via the rio Guaporé.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "As currently understood, M. eques (formerly H. eques) has an enormous distribution throughout much of the Amazon drainage in Brazil, Peru and Bolivia plus the Río Paraguay in Brazil, Paraguay and Argentina, the upper part of which is connected to the Amazon via the rio Guaporé.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "As currently understood, M. eques (formerly H. eques) has an enormous distribution throughout much of the Amazon drainage in Brazil, Peru and Bolivia plus the Río Paraguay in Brazil, Paraguay and Argentina, the upper part of which is connected to the Amazon via the rio Guaporé.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "As currently understood, M. eques (formerly H. eques) has an enormous distribution throughout much of the Amazon drainage in Brazil, Peru and Bolivia plus the Río Paraguay in Brazil, Paraguay and Argentina, the upper part of which is connected to the Amazon via the rio Guaporé.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "As currently understood, M. eques (formerly H. eques) has an enormous distribution throughout much of the Amazon drainage in Brazil, Peru and Bolivia plus the Río Paraguay in Brazil, Paraguay and Argentina, the upper part of which is connected to the Amazon via the rio Guaporé.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced in French Guiana via the aquarium trade.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "As currently understood, M. eques (formerly H. eques) has an enormous distribution throughout much of the Amazon drainage in Brazil, Peru and Bolivia plus the Río Paraguay in Brazil, Paraguay and Argentina, the upper part of which is connected to the Amazon via the rio Guaporé.",
+        "ok": true
+      },
+      {
+        "name": "Río Paraguay",
+        "source": "seriouslyfish",
+        "quote": "As currently understood, M. eques (formerly H. eques) has an enormous distribution throughout much of the Amazon drainage in Brazil, Peru and Bolivia plus the Río Paraguay in Brazil, Paraguay and Argentina, the upper part of which is connected to the Amazon via the rio Guaporé.",
+        "ok": true
+      },
+      {
+        "name": "Guaporé",
+        "source": "seriouslyfish",
+        "quote": "As currently understood, M. eques (formerly H. eques) has an enormous distribution throughout much of the Amazon drainage in Brazil, Peru and Bolivia plus the Río Paraguay in Brazil, Paraguay and Argentina, the upper part of which is connected to the Amazon via the rio Guaporé.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon eques",
+    "status": "ACCEPTED",
+    "taxonKey": 2354612,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        272
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        204
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        86
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        65
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        63
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        52
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        47
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        43
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        30
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        30
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        23
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        21
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        16
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        13
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        9
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        9
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        8
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        2
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        2
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE",
+      "BO",
+      "PY",
+      "AR"
+    ],
+    "requests": 13,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}

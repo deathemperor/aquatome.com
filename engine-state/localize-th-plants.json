@@ -365,6 +365,17 @@
       "\"วัสดุปลูกจึงจำเป็นเพื่อความสวยงาม...เป็นหลัก\": this reads as if the substrate is required. The source means it is mostly for looks and optional. Try \"วัสดุปลูกใช้เพื่อความสวยงามและช่วยเสริมสภาพแวดล้อมให้ต้นเป็นหลัก\"."
     ]
   },
+  "bucephalandra": {
+    "at": "2026-11-05",
+    "from": "2026-11-04",
+    "name": "บูเซฟาลันดรา",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"เฟิร์นใบหอก\" for \"java fern\": Thai hobbyists usually say \"เฟิร์นชวา\" (Java fern). \"ใบหอก\" is the narrow-leaf variety, so use \"เฟิร์นชวา\".",
+      "\"Rock wool\" is translated as \"ใยหิน\" in brackets. Consider the hobby term \"ร็อกวูล\" so it matches what shops label. Also \"ปุ๋ยฝัง\" could be \"ปุ๋ยเม็ดฝัง (root tab)\"."
+    ]
+  },
   "bucephalandra-diabolica": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -1515,15 +1526,20 @@
   },
   "monosolenium-tenerum": {
     "at": "2026-11-05",
-    "from": "2026-10-31",
-    "name": "โมโนโซเลเนียม",
+    "from": "2026-11-04",
+    "name": "โมโนโซลีเนียม",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.6,
     "notes": [
-      "Item 3: \"Riccia ยักษ์มากที่สุด\" is awkward/ambiguous; \"looks most like a giant Riccia\" should read e.g. \"ดูคล้าย Riccia ยักษ์มากที่สุด\" -> \"ดูคล้าย Riccia ขนาดยักษ์ที่สุด\" or \"ดูคล้าย Riccia ยักษ์\" without 'มากที่สุด' implying a superlative of size.",
-      "Item 3: \"แผ่ตัวเป็นกอคล้ายเบาะ\" adds 'กอ' beyond 'cushions'; consider \"เป็นพุ่มนุ่มคล้ายเบาะ\" or simply \"เป็นเบาะ/แผ่นนุ่ม\".",
-      "Item 2: \"ตั้งตัวได้\" is slightly colloquial for 'established'; \"เกาะยึดและเจริญได้ดีแล้ว\" is more natural.",
-      "Item 3: \"ลิเวอร์เวิร์ต\" and \"Tissue culture\" are fine, but 'closed cup' → \"ถ้วยปิด\" could be \"ถ้วยปิดสนิท/คัพ\" as hobbyists say \"คัพ\"; minor."
+      "Section 6, CO2 and fertilisation: 'ไม้น้ำที่ต้องการแสงมากต้องได้รับ CO2...' is fine, but 'ตอบสนองดีต่อระดับฟอสเฟตสูง' omits the subject, so it reads awkwardly; add 'ต้นไม้น้ำชนิดนี้'.",
+      "Section 6, Difficulty: 'เหมาะมากกับตู้พาลูดาเรียมที่มี CO2 ส่วนเกินอยู่แล้วโดยไม่ต้องเติม' changes the meaning of 'free excess CO2'. Say that a paludarium has plenty of free CO2 in the air, without any added CO2.",
+      "Section 6, Substrate: 'หิน ก้อนหิน' repeats the same item for 'stones, rocks'. 'ขอนไม้บ็อก' for 'bogwood' is unnatural; use 'ไม้流木/ขอนไม้' or just 'ขอนไม้'.",
+      "Section 6, Common problems: 'ใบล่างร่วง/โปร่ง' for 'Leggy bottom leaves' is unclear; 'ส่วนล่างโปร่ง/ตาย' would be clearer.",
+      "Section 6, Dry start: 'ปรับสมดุลวัสดุปลูก (cycle)' leaves 'cycle' in English and is vague; use 'ช่วยให้วัสดุปลูกผ่านการ cycle'.",
+      "Section 6, Description: 'พืชหลายฤดู' for 'perennial' is unnatural; use 'พืชข้ามปี' or 'พืชอายุหลายปี'.",
+      "Section 8: 'ปลาซัคเกอร์/ปลาพลีโค' and 'ปลาโคลนโลช (ปลาหมูอินโด)' add or swap names. Use 'ปลาเทพา/ปลาพลีโก' and 'ปลาหมูอารีย์' consistently, or keep 'โคลนโลช' only. 'ปลาเรนโบว์' is too vague for 'rainbowfish'; use 'ปลาเรนโบว์ฟิช'.",
+      "Section 9: 'แต่อยู่ที่พื้นตู้' should say that it stays on the bottom instead of floating, to match 'simply stays at the bottom'. 'เบาะ' for 'cushions' is clumsy; use 'กอแน่นเป็นพรม/เป็นหย่อม'.",
+      "Section 10: 'มีทั้งคนชอบและไม่ชอบ' is acceptable but softens 'controversial'; 'เป็นที่ถกเถียง' is closer. 'ซับวาสเซอร์ทัง' is a transliteration of the German name; 'Freshwater Tang' or 'Subwassertang' is more common among hobbyists."
     ]
   },
   "murdannia-keisak": {
@@ -1535,6 +1551,74 @@
     "notes": [
       "Item 3: \"ไม้น้ำประเภทต้นที่หน้าตาคล้ายไผ่ชนิดนี้\" is slightly clumsy; consider \"ไม้น้ำพันธุ์ไม้ข้อที่มีลักษณะคล้ายไผ่ชนิดนี้\"."
     ]
+  },
+  "myriophyllum-elatinoides": {
+    "at": "2026-11-05",
+    "from": "2026-10-30",
+    "name": "ไมริโอฟิลลัม เอลาติโนอิเดส",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": []
+  },
+  "myriophyllum-mattogrossense": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "มายริโอฟิลลัม มาโตกรอสโซ",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "\"ต้นมีลำต้นสีออกแดงที่ดูสวยงามคล้ายขนนก\": slightly awkward and wordy; the 'decorative' and 'feather-like' stems could read more smoothly, e.g. 'ลำต้นสีออกแดงสวยงาม ลักษณะคล้ายขนนก'.",
+      "\"Rio Amazonas\" is left in brackets while the Thai gives 'ลุ่มแม่น้ำอเมซอน'. This is acceptable, but the English 'in the Rio Amazonas' means the river region, so check that 'ลุ่มแม่น้ำ' is intended.",
+      "\"มาตูโกรสซู\": the usual Thai spelling is 'มาตูโกรซู' or 'มาตูกรอสซู'. Check it against a standard source.",
+      "\"เป็นไม้น้ำที่... เป็นไม้น้ำที่เหมาะสำหรับมือใหม่\": 'เป็นไม้น้ำที่' is repeated in consecutive sentences. Shorten the last one to 'เหมาะสำหรับมือใหม่'."
+    ]
+  },
+  "myriophyllum-sp-guyana": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Myriophyllum 'Guyana'",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 2: \"มักต้องตัดแต่งอยู่เสมอ\" (often/always) is slightly off from \"often necessary\"; use \"มักจำเป็นต้องตัดแต่ง\". \"maintain the access\" is also loosely rendered; better \"เพื่อให้ต้นได้รับแสงและการไหลเวียนของน้ำอย่างทั่วถึง\".",
+      "Item 3: \"แตกแขนงได้ง่าย\" is fine, but \"เป็นพุ่ม\" for \"lush\" is slightly loose; \"เขียวชอุ่ม\" would be more faithful.",
+      "Item 3: \"ไม้น้ำจากการเพาะเลี้ยงเนื้อเยื่อในถ้วยปิด\" is acceptable, but the hobby term \"ไม้น้ำเนื้อเยื่อ/ถ้วย\" is more common among Thai hobbyists."
+    ]
+  },
+  "najas-guadalupensis": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "กัปปี้กราส",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ลำต้นและใบที่ละเอียดและโปร่ง\" adds 'stem and leaves'; the English only says 'fine, porous structure'. Minor, and the meaning is intact.",
+      "\"ขยายพันธุ์ได้เองโดยไม่ต้องทำอะไรมาก\" is a loose, wordy rendering of 'propagates effortlessly'. Consider \"ขยายพันธุ์ง่าย\".",
+      "\"วัสดุปลูก\" is acceptable, but hobbyists often say \"พื้นตู้\" or \"ทราย/ซับสเตรท\" for the substrate.",
+      "\"Najas guadalupensis\" in sentence 3 is a bare Latin name with no Thai common name. Fine, but \"สาหร่ายเขี้ยวกุ้ง\" is not the right plant, so keep the Latin name. It could be written more smoothly in the sentence."
+    ]
+  },
+  "nymphaea-lotus": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "บัวเสือ",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 2: \"ตู้ปลาแบบเปิดฝา\" is slightly awkward; \"ตู้เปิด\" or \"ตู้ไม้น้ำแบบเปิด\" is more natural.",
+      "Item 2: \"พื้นตู้ที่มีธาตุอาหารสมบูรณ์\" - hobbyists usually say \"วัสดุปลูกที่มีธาตุอาหารสูง\" (nutrient-rich substrate).",
+      "Item 2: \"ดอกที่สวยงามและมีกลิ่นหอมจะชื่นชมได้เต็มที่\" reads like a literal translation. Try \"สามารถเพลิดเพลินกับดอกสวยหอมได้เต็มที่\".",
+      "Item 3: \"สายพันธุ์สีแดงและสีเขียว\" - \"variety\" is better rendered as \"แบบ\" or \"วาไรตี้\", not \"สายพันธุ์\".",
+      "Item 3: \"จุดสีม่วงจำนวนมากน้อยแตกต่างกันไป\" - the English \"varying numbers\" is fine, but the wording is slightly clumsy. \"มีจุดสีม่วงมากน้อยต่างกัน\" is smoother."
+    ]
+  },
+  "nymphaea-stellata": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "บัวแคระ",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
   },
   "nymphaea-zenkeri": {
     "at": "2026-10-30",

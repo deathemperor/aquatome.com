@@ -1,4 +1,6 @@
+import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
+import { searchAliases } from '../src/lib/search'
 import { namedFirst } from '../src/scripts/search-rank'
 
 const doc = (url: string, title: string, aka = '') => ({ url, meta: { title, aka } })
@@ -23,4 +25,18 @@ test('no page with that name, or a blank query: Pagefind\'s order unchanged', ()
   const ds = [doc('a', 'Tép blue dream'), doc('b', 'Tép quạt')]
   expect(urls(namedFirst('tép', ds))).toEqual(['a', 'b'])
   expect(urls(namedFirst('  ', ds))).toEqual(['a', 'b'])
+})
+
+// Shared with the iOS app's tests, which run the app's own search on the same cases.
+type Vectors = { cases: { note: string; query: string; items: { name: string; sub?: string; aka?: string[]; kind: string }[]; first: string[] }[] }
+const v: Vectors = JSON.parse(readFileSync(new URL('../../../protocols/search-vectors.json', import.meta.url), 'utf8'))
+
+test('each shared case starts with the pages named what was searched for, as the app\'s search does', () => {
+  expect(v.cases.length).toBeGreaterThan(5)
+  for (const c of v.cases) {
+    // Each page's title and its `aka` metadata, as a species, breed or plant page sets them.
+    const docs = c.items.map(i => ({ meta: { title: i.name, aka: searchAliases({ name: i.name, altNames: i.aka ?? [] }, i.sub) } }))
+    const titles = namedFirst(c.query, docs).map(d => d.meta.title)
+    expect(new Set(titles.slice(0, c.first.length)), `${c.note}: ${titles.join(' · ')}`).toEqual(new Set(c.first))
+  }
 })
