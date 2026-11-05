@@ -3,8 +3,8 @@
 The native app: device control (Chihiros lights first) and the handbook. SwiftUI, iOS 17+.
 
 Three tabs: **Tìm** opens on a home of shelves as the site arranges its pages (fish groups, plants by where they go,
-guides by subject, the video series and video guides, tools, the glossary by letter; fish filtered to a tank, its water and difficulty, plants to its
-light and CO₂, as the site's lists filter them; what's new on the site, as its list has it), searches and browses the handbook natively, draws the guides, fish, plants, glossary terms and video series itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once, to keep rather than tap), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed in the tanks tab to let back),
+guides by subject, the video series and video guides, equipment, tools, the glossary by letter; fish filtered to a tank, its water and difficulty, plants to its
+light and CO₂, as the site's lists filter them; what's new on the site, as its list has it), searches and browses the handbook natively, draws the guides, fish, plants, glossary terms, video series and equipment itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once, to keep rather than tap), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed in the tanks tab to let back),
 kept on the phone with their pictures, so a guide read once reads offline, and a shelf of guides can be kept for offline at once, asking first on mobile data and not with too little room, stopped with nothing half-kept, the kept pages listed in one place on the Tìm home and let go of there; a group named in a page opens the app's shelf of that group; a part it can't draw opens the web page, and a page of the site it can't draw, the web page in the app),
 and opens the other pages of aquatome.com in the app (kept on the phone for reading offline, without ads; videos
 and the pages they link to become native the same way, tools stay web pages until rebuilt), a fish's facts under its name as the site's data card has them (temperature, pH, hardness, size, lifespan, the shortest tank,
@@ -50,8 +50,9 @@ aquatome.com; `-real-accounts` tries the real server from the simulator.
 Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`PlugsModel.forSimulator`;
 `-seed-tuya-keys` starts with its keys entered), so no test reaches Tuya; `-real-tuya` tries Tuya itself.
 And for the handbook: `-fixed-handbook` gives a small fixed index and guide pages (`HandbookIndex.fixture`), with
-`-whats-new` the site's what's new too (`HandbookIndex.fixtureLatest`), and each of the site's web pages opens as a
-stand-in page naming its path (`WebPage.standIn`), so no test reaches aquatome.com.
+`-whats-new` the site's what's new too (`HandbookIndex.fixtureLatest`), with `-equipment` a kind of kit and the many fish
+it's for (`HandbookIndex.fixtureKit`), and each of the site's web pages opens as a stand-in page naming its path
+(`WebPage.standIn`), so no test reaches aquatome.com.
 
 ## The app
 
@@ -78,7 +79,7 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   which it stopped on their way (with `-slow-pictures`; `PictureLog`), and the size of the picture it shows.
 
   A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
-  `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant, a guide and the fish-ID screen top to bottom, light
+  `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant, a guide, a kind of kit and the fish-ID screen top to bottom, light
   and dark, and CI's job `handbook (1)` uploads them as the `ios-page-shots` artifact whenever it runs them: every run on main, and a pull
   request whose change can reach the pages, or labelled `ios-full`. Locally:
 

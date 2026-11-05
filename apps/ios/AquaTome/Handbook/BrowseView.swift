@@ -2,7 +2,7 @@ import Handbook
 import SwiftUI
 
 /// One shelf of the handbook: a fish group, a placement, a guide subject (nil: the whole kind), the video guides, the
-/// glossary, the pages kept for reading offline, or what's new on the site.
+/// glossary, the pages kept for reading offline, what's new on the site, or the whole of a page's long list of pages.
 enum Browse: Hashable {
   case fish(String?)
   case plants(String?)
@@ -11,6 +11,7 @@ enum Browse: Hashable {
   case glossary
   case kept
   case latest
+  case pages(String, [String])
 }
 
 /// A shelf's pages: fish and plants as photo cards in the site's order, filtered as the site's lists are; guides and
@@ -57,6 +58,9 @@ struct BrowseView: View {
       }
     case .latest:
       LatestList()
+    case let .pages(title, paths):
+      List(paths.compactMap(handbook.item(at:))) { Row(item: $0) }
+        .navigationTitle(title)
     case .glossary:
       List {
         ForEach(s.glossary(), id: \.letter) { group in

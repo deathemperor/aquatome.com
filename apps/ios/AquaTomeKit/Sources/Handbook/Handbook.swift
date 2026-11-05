@@ -20,8 +20,9 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   /// nil from one without it.
   public let latest: String?
 
-  /// `video`: a series of video guides (its page lists them).
-  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video }
+  /// `video`: a series of video guides (its page lists them). `equipment`: a kind of kit (filters, lights), the site's
+  /// /vi/thiet-bi/<category>/.
+  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video, equipment }
 
   public struct Item: Codable, Sendable, Hashable, Identifiable {
     public let kind: Kind
