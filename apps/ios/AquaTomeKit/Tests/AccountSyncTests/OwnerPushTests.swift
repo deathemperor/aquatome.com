@@ -27,8 +27,11 @@ func theTokenGoesOnceALaunchToTheOwner() async throws {
   let d = store()
   let (fake, access, sent) = try await pushing("ui-apple", defaults: d)
   let push = OwnerPush(owner: access, environment: "sandbox", defaults: d)
-  await push.received(Data([0xAB, 0x01, 0x0F]))
-  #expect(push.token == "ab010f")
+  // APNs' token today: 32 bytes.
+  let token = Data([0xAB, 0x01, 0x0F] + [UInt8](repeating: 0, count: 29))
+  let hex = "ab010f" + String(repeating: "00", count: 29)
+  await push.received(token)
+  #expect(push.token == hex)
   // Not wanted yet; then wanted, before the owner is known.
   await push.send()
   await push.want(true)
@@ -36,16 +39,16 @@ func theTokenGoesOnceALaunchToTheOwner() async throws {
   await access.check()
   await push.send()
   #expect(sent.requests.map(\.method) == ["POST"])
-  #expect(sent.requests.first?.body == #"{"environment":"sandbox","token":"ab010f"}"#)
-  #expect(fake.owner?.pushTokens == ["ab010f": "sandbox"])
+  #expect(sent.requests.first?.body == #"{"environment":"sandbox","token":""# + hex + #""}"#)
+  #expect(fake.owner?.pushTokens == [hex: "sandbox"])
   // Again this launch: not sent again.
   await push.send()
-  await push.received(Data([0xAB, 0x01, 0x0F]))
+  await push.received(token)
   #expect(sent.requests.count == 1)
   // The next launch: still wanted, sent again once the owner is known.
   let next = OwnerPush(owner: access, environment: "sandbox", defaults: d)
   #expect(next.wanted)
-  await next.received(Data([0xAB, 0x01, 0x0F]))
+  await next.received(token)
   #expect(sent.requests.count == 2)
 }
 
@@ -55,7 +58,7 @@ func notTheOwnerSendsNothing() async throws {
   let (_, access, sent) = try await pushing("someone-else", defaults: d)
   let push = OwnerPush(owner: access, environment: "production", defaults: d)
   await push.want(true)
-  await push.received(Data([1, 2]))
+  await push.received(Data(repeating: 1, count: 32))
   await access.check()
   #expect(access.isOwner == false)
   await push.send()
@@ -69,10 +72,13 @@ func turnedOffOrSignedOutTakesItBack() async throws {
   await access.check()
   let push = OwnerPush(owner: access, environment: "production", defaults: d)
   await push.want(true)
-  await push.received(Data([0xFF]))
-  #expect(fake.owner?.pushTokens == ["ff": "production"])
+  await push.received(Data(repeating: 0xFF, count: 32))
+  let hex = String(repeating: "ff", count: 32)
+  #expect(fake.owner?.pushTokens == [hex: "production"])
   await push.want(false)
   #expect(sent.requests.map(\.method) == ["POST", "DELETE"])
+  // The token alone, as the site takes it back.
+  #expect(sent.requests.last?.body == #"{"token":""# + hex + #""}"#)
   #expect(fake.owner?.pushTokens == [:])
   #expect(!OwnerPush(owner: access, environment: "production", defaults: d).wanted)
   // On again, then signing out: taken back too; nothing to take back the second time.

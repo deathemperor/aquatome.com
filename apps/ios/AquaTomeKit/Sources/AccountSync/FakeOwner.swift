@@ -125,10 +125,18 @@ public final class FakeOwner {
       reportShown()
       return try json(200, .object(["ok": .bool(true), "changed": .bool(report != before), "email": .bool(report.email), "push": .bool(report.push)]))
     case ("POST", "push-token"), ("DELETE", "push-token"):
-      guard let b = body?.object, let token = b["token"]?.string, !token.isEmpty, let env = b["environment"]?.string,
-            env == "sandbox" || env == "production" else { return try refused() }
-      if method == "POST" { pushTokens[token] = env } else { pushTokens[token] = nil }
-      return try json(200, .object(["ok": .bool(true)]))
+      // As the Worker takes them (docs/contracts/owner-push.md): lowercase hex of 16 to 100 bytes; POST with the APNs,
+      // DELETE the token alone.
+      let fields: Set<String> = method == "POST" ? ["token", "environment"] : ["token"]
+      guard let b = body?.object, Set(b.keys) == fields, let token = b["token"]?.string, (32...200).contains(token.count), token.count % 2 == 0,
+            token.allSatisfy({ "0123456789abcdef".contains($0) }) else { return try refused() }
+      if method == "POST" {
+        guard let env = b["environment"]?.string, env == "sandbox" || env == "production" else { return try refused() }
+        let changed = pushTokens[token] != env
+        pushTokens[token] = env
+        return try json(200, .object(["ok": .bool(true), "changed": .bool(changed)]))
+      }
+      return try json(200, .object(["ok": .bool(true), "changed": .bool(pushTokens.removeValue(forKey: token) != nil)]))
     default:
       return try error(404, "not_found")
     }

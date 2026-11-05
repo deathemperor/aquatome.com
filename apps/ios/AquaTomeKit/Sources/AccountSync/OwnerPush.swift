@@ -49,7 +49,7 @@ public final class OwnerPush {
   public func send() async {
     guard wanted, let token, token != sentNow, owner.isOwner == true else { return }
     do {
-      try await owner.ask { try await $0.pushToken(token, environment: self.environment, on: true) }
+      try await owner.ask { try await $0.pushToken(token, environment: self.environment) }
       sentNow = token
       defaults.set(token, forKey: Self.sentKey)
     } catch {
@@ -67,7 +67,7 @@ public final class OwnerPush {
   private func takeBack() async {
     guard let sent = defaults.string(forKey: Self.sentKey) else { return }
     do {
-      try await owner.ask { try await $0.pushToken(sent, environment: self.environment, on: false) }
+      try await owner.ask { try await $0.pushToken(sent, environment: nil) }
       defaults.removeObject(forKey: Self.sentKey)
       sentNow = nil
     } catch {

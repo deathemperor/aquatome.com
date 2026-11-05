@@ -61,12 +61,11 @@ public struct OwnerClient: Sendable {
     _ = try await call(a.method, a.path, body: a.body)
   }
 
-  /// This phone's token for the daily report's notifications given to the site (`on`), or taken back (protocols/owner-push):
-  /// `environment` is the APNs this build's token is from, `sandbox` or `production`. Done on any 2xx, with or without a
-  /// body.
-  public func pushToken(_ token: String, environment: String, on: Bool) async throws {
-    let body = Owner.text(["token": token, "environment": environment])
-    _ = try await call(on ? "POST" : "DELETE", "/api/owner/push-token", body: body, needsReply: false)
+  /// This phone's token for the daily report's notifications given to the site with the APNs it's from, `sandbox` or
+  /// `production` (`environment`), or taken back (nil): the token alone. Done on any 2xx, with or without a body.
+  public func pushToken(_ token: String, environment: String?) async throws {
+    let body = Owner.text(environment.map { ["token": token, "environment": $0] } ?? ["token": token])
+    _ = try await call(environment == nil ? "DELETE" : "POST", "/api/owner/push-token", body: body, needsReply: false)
   }
 
   /// A photo's bytes, or nil when it can't be had (gone, offline, not the owner): a private one (from "/") with the bearer,
