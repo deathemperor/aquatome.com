@@ -7,6 +7,8 @@ public enum AppScreen: Equatable, Sendable {
   case tanks(String?)
   /// The Chihiros light page: the app's Lights tab.
   case lights
+  /// The fish-ID tool: the app's own screen for it, which asks as the reader's account.
+  case fishId
   /// A page the app index lists, by its path ("/vi/ca/ca-neon/"): the app's screen for it, on the tab in front.
   case page(String)
   /// A group's page ("/vi/nhom/catfish/", and its numbered pages): the app's shelf of that group's fish.
@@ -24,6 +26,8 @@ public enum AppScreen: Equatable, Sendable {
       return .tanks(id?.isEmpty == false ? id : nil)
     case "vi/cong-cu/den-chihiros", "id/alat/lampu-chihiros", "th/tools/chihiros-light":
       return .lights
+    case "vi/cong-cu/nhan-dien-ca", "id/alat/kenali-ikan", "th/tools/fish-id":
+      return .fishId
     default:
       // A link asking for more than the page (the tank-mates tool set to a fish, `?ca=ca-neon:6`) isn't the page as the
       // app shows it: the web takes it whole.
