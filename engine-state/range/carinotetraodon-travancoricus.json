@@ -1,0 +1,115 @@
+{
+  "id": "carinotetraodon-travancoricus",
+  "native": {
+    "input": "2ca94e7cbf3b99dc",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "It comes from fully freshwater environments in the southwestern tip of India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: India",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the state of Kerala, India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Carinotetraodon travancoricus is endemic to rivers of the Western Ghats in South India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "aquariumbreeder",
+        "quote": "Carinotetraodon travancoricus is endemic to rivers of the Western Ghats in South India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "aquariumbreeder",
+        "quote": "It is mainly distributed in the Chalakkudy, Pamba, Periyar, Kabani, Bharathapuzha, Vamanapuram and Muvattupuzha rivers, Lake Vembanad and the kole wetlands of Thrissur, Kallar stream and Neyyar wildlife sanctuary of south Kerala.",
+        "ok": true
+      },
+      {
+        "name": "Pamba",
+        "source": "aquariumbreeder",
+        "quote": "It is mainly distributed in the Chalakkudy, Pamba, Periyar, Kabani, Bharathapuzha, Vamanapuram and Muvattupuzha rivers, Lake Vembanad and the kole wetlands of Thrissur, Kallar stream and Neyyar wildlife sanctuary of south Kerala.",
+        "ok": true
+      },
+      {
+        "name": "Lake Vembanad",
+        "source": "aquariumbreeder",
+        "quote": "It is mainly distributed in the Chalakkudy, Pamba, Periyar, Kabani, Bharathapuzha, Vamanapuram and Muvattupuzha rivers, Lake Vembanad and the kole wetlands of Thrissur, Kallar stream and Neyyar wildlife sanctuary of south Kerala.",
+        "ok": true
+      },
+      {
+        "name": "Chalakkudy",
+        "source": "aquariumbreeder",
+        "quote": "It is mainly distributed in the Chalakkudy, Pamba, Periyar, Kabani, Bharathapuzha, Vamanapuram and Muvattupuzha rivers, Lake Vembanad and the kole wetlands of Thrissur, Kallar stream and Neyyar wildlife sanctuary of south Kerala.",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "sprucepets",
+        "quote": "Native to the Western Ghats of India, these cute little fish have been in decline since their introduction to the aquarium hobby.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Carinotetraodon travancoricus",
+    "status": "ACCEPTED",
+    "taxonKey": 2407801,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "9f2af0c5-2ff7-42fe-aad6-c0b5af96535a",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

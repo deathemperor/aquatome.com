@@ -6,6 +6,8 @@ import { VI_SECTIONS } from './paths'
  * the flag grants nothing — /_ab/ and the POST to /_ab/hidden need the owner's account signed in (dashboard.ts visitor).
  */
 export const OWNER_COOKIE = 'aq_owner=1; Path=/; Max-Age=2592000; Secure; SameSite=Strict'
+/** The owner's own visit, by that flag: not a reader, not a shop click. */
+export const isOwnerVisit = (req: Request) => /(?:^|;\s*)aq_owner=1/.test(req.headers.get('cookie') ?? '')
 
 /** A page of any language: the Vietnamese home page and its sections, and the pages under the other languages' prefixes (/id/, /th/). */
 const PAGE = `^\\/(?:(?:${SEGMENTS}|${VI_SECTIONS.join('|')})\\/|$)`

@@ -92,10 +92,20 @@ that would have caught it).
     stored from a browser (an Origin), past the size caps or past the address's hour, our own copies stored marked as
     tests, a report kept as received in the private bucket only, and the dashboard's page with nothing yet and with data
     (`apps/site/worker/test/telemetry.test.ts`, `admin-app.test.ts`).
+  - A shop click (`/go/`, `apps/site/worker/test/handler.test.ts`): every request goes on to the shop, and only a reader's
+    click on one of our pages is counted, as the browser's own Sec-Fetch headers say; not a client calling itself a
+    browser, not the owner. `e2e/shop-click.spec.ts` holds the rule to what a real browser sends. Found 2026-11-06: 65
+    clicks counted since 10-29, almost every one the only click on its link, and no beacon `aff` event in that time, which
+    a real click sends.
   - The owner's dashboard (`apps/site/worker/test/admin-*.test.ts`): each chart with no days, one day, only zeros, a
     negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
     the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a
     bad zone cookie).
+  - The scoreboard (`/_ab/thanh-cong/`, `docs/metrics.md`, `apps/site/worker/test/admin-scoreboard.test.ts`,
+    `e2e/dashboard-charts.spec.ts`): weeks from Monday in Vietnam's time, each metric's rule at its edge, this week against
+    last at the same point, a week before the count unmeasured and not zero, a part that fails saying so in its place, the
+    token reading its JSON and no page, and the page outside the section list the iOS app reads (web only, as that list is
+    the app's contract).
   - The owner's dashboard as JSON for the iOS app (`apps/site/worker/owner-api.ts`), against
     `protocols/owner-dashboard.openapi.json`: only the owner's app session, as a bearer, opens it (without a live app
     session, 401; another account's, 404; nothing changes for either); each section's blocks say what its page shows
@@ -323,9 +333,11 @@ The layers above still check the result.
       captions) say dead, market, preserved, museum, cooked and the like; then it finds none and calls no model. Found
       by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their page; its note
       said so and the verdict was "yes".
-  - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer
-    and the page's credits); the gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and
-    GBIF photos are copied to our media bucket with the credit kept. An Unsplash photo, wherever it shows, reads "Ảnh:
+  - **Credits.** Every photo names its author and links its own page on the source (the gallery's viewer and the
+    page's credits), with its open licence by name; a photo a source let us use names no licence, and nothing on a page
+    or in the app's copy says "with permission" (owner, 2026-11-05; `apps/site/test/photo-permission.test.ts`). The
+    gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and GBIF photos are copied to our
+    media bucket with the credit kept. An Unsplash photo, wherever it shows, reads "Ảnh:
     <name> trên Unsplash" (in view, not behind a ©), the name linking the photographer's Unsplash page and "Unsplash"
     its home, both with AquaTome's UTM, as Unsplash's API guidelines ask (`apps/site/src/lib/unsplash.ts`); in the
     credits list and the gallery's viewer each photo's own page is linked too. `pnpm engine unsplash` first fills the
@@ -466,6 +478,10 @@ The layers above still check the result.
       built-page check reads it (`@aq/schema` headingRoles). A repeated paragraph: the later copy dropped (in two texts
       of a page, as a run of copies, or 120 characters or more: a short line a list repeats under each item is the
       text's own); labels out of order ("Sai lầm 1, 9, 2…"): numbered again as they appear
+    - a sentence that only says the text is translated, adapted or used with permission, the source's note under an
+      article it reprints ("Được Loaches Online chuyển thể với sự cho phép.", "… dengan izin", "… โดยได้รับอนุญาต"):
+      dropped, its paragraph too when it is all there is (owner, 2026-11-05). A sentence that only has the words ("Chỉ
+      bắt cá với sự cho phép của cơ quan quản lý.") stays. No audit rule holds it at zero yet: the sweep alone
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
       page's ("in a batch of", "here with", "known as"), or that is a map: off its page. A map leaves every page
       (`engine-state/_photo-rejected.json`); a photo of another fish only that page, so it may still join its own fish's

@@ -3,8 +3,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, countMismatch, cutFurniture, dropEmptyHeadings, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
-  imperialUnits, labelSlips, leftoverMarkup, longFurniture, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
+  blocks, cardSlips, checkPages, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
   titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
@@ -199,6 +199,33 @@ test('numbered labels out of order are numbered again as they appear; counting u
   expect(labelSlips(split)).toEqual(['"sai lầm" 1, 9, 2'])
   expect(labelSlips(renumberLabels(split))).toEqual([])
   expect(renumberLabels(split)).toBe('<p><strong>Sai lầm</strong> 1: a</p><p><strong>Sai lầm</strong> 2: b</p><p>Sai lầm&nbsp;3: c</p>')
+})
+
+test('a sentence that only says the text is translated, adapted or used with permission: dropped, in each language', () => {
+  // Loaches Online's Botia guide (2026-11-05): the source's note under the article it reprints, translated.
+  const credit = 'Bài gốc của Emma Turner được đăng lần đầu trên Tropical World Magazine, số 9. www.tropicalworldmagazine.com.'
+  expect(dropPermissionNotes(`<p>Chúng chỉ đang ngủ thôi…</p><p>${credit} Được Loaches Online chuyển thể với sự cho phép.</p>`))
+    .toBe(`<p>Chúng chỉ đang ngủ thôi…</p><p>${credit}</p>`)
+  // A paragraph that is only the note goes; one in the middle leaves the sentences around it.
+  expect(dropPermissionNotes('<p>Cá cần nước mềm.</p><p>Dịch với sự cho phép của Seriously Fish.</p>')).toBe('<p>Cá cần nước mềm.</p>')
+  expect(dropPermissionNotes('<p>Nước mềm. Bài viết được dịch với sự cho phép của tác giả. Thay nước đều.</p>')).toBe('<p>Nước mềm. Thay nước đều.</p>')
+  expect(dropPermissionNotes('<p>Air lunak.</p><p>Diterjemahkan dengan izin dari Seriously Fish.</p>')).toBe('<p>Air lunak.</p>')
+  expect(dropPermissionNotes('<p>Diadaptasi oleh Loaches Online dengan izin.</p><p>Air lunak.</p>')).toBe('<p>Air lunak.</p>')
+  expect(dropPermissionNotes('<p>น้ำอ่อน</p><p>แปลโดยได้รับอนุญาตจาก Seriously Fish</p>')).toBe('<p>น้ำอ่อน</p>')
+  expect(dropPermissionNotes('<p>ดัดแปลงโดย Loaches Online โดยได้รับอนุญาต</p>')).toBe('')
+  // A sentence that only has the words stays: what is done with permission is not the text's translation or use.
+  for (const near of [
+    'Chỉ bắt cá ngoài tự nhiên với sự cho phép của cơ quan quản lý.',
+    'Hãy dùng thuốc với sự cho phép của bác sĩ thú y.',
+    'Cá được thả vào hồ với sự cho phép của ban quản lý, vì thế đàn cá phát triển nhanh.',
+    'Ikan liar hanya boleh ditangkap dengan izin dari dinas perikanan.',
+    'จับปลาจากธรรมชาติได้เฉพาะโดยได้รับอนุญาตจากหน่วยงาน',
+  ]) {
+    expect(isPermissionNote(near), near).toBe(false)
+    expect(dropPermissionNotes(`<p>${near}</p>`)).toBe(`<p>${near}</p>`)
+  }
+  // Nothing to drop: the text as it was, byte for byte.
+  expect(dropPermissionNotes('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước.</p>')).toBe('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước.</p>')
 })
 
 test('the source site\'s comments, comment form and related posts: found as headings or lines of their own, and cut', () => {

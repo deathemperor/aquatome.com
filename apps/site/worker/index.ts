@@ -1,12 +1,13 @@
 import { upsertProducts } from './affiliate/admin'
 import { runChecks } from './affiliate/check'
-import { parseGo, recordClick, resolveGo } from './affiliate/go'
+import { fromOurPage, parseGo, recordClick, resolveGo } from './affiliate/go'
 import { searchTarget, type AffEnv } from './affiliate/networks'
 import { applyDecisions, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from './comments/api'
 import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
 import { ownerApi } from './owner-api'
+import { isOwnerVisit } from './owner'
 import { recordSnapshot } from './admin/content'
 import { parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
@@ -68,14 +69,14 @@ async function events(req: Request, env: Env): Promise<Response> {
   const site = req.headers.get('sec-fetch-site')
   if ((origin && origin !== new URL(req.url).origin) || (site && site !== 'same-origin')) return new Response(null, { status: 403 })
   if (isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))) return new Response(null, { status: 204 })
-  if (/(?:^|;\s*)aq_owner=1/.test(req.headers.get('cookie') ?? '')) return new Response(null, { status: 204 }) // the owner's own visits
+  if (isOwnerVisit(req)) return new Response(null, { status: 204 })
   const e = parseEvent((await req.text()).slice(0, MAX_EVENT_BYTES + 1))
   if (!e) return new Response(null, { status: 400 })
   env.EVENTS?.writeDataPoint(toDataPoint(e, String((req as { cf?: { country?: string } }).cf?.country ?? '')))
   return new Response(null, { status: 204 })
 }
 
-/** /go/:network/?k=&c=&e= → 302 to the best affiliate target; click counted after the response. */
+/** /go/:network/?k=&c=&e= → 302 to the best affiliate target; a reader's click on one of our pages counted after the response. */
 async function goRoute(req: Request, url: URL, env: FullEnv, wait: (p: Promise<unknown>) => void): Promise<Response> {
   const p = parseGo(url)
   if (!p) return finish(new Response('Not found', { status: 404 }), env)
@@ -84,8 +85,8 @@ async function goRoute(req: Request, url: URL, env: FullEnv, wait: (p: Promise<u
   // The catalog is an upgrade, never a dependency: any D1 problem falls back to the search link.
   if (env.DB) target = await resolveGo(p, env.DB, env, now).catch(() => target)
   const { location, productId } = target
-  const human = req.method === 'GET' && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
-  if (env.DB && human) wait(recordClick(env.DB, p, productId, now).catch(() => {}))
+  const click = req.method === 'GET' && fromOurPage(req) && !isOwnerVisit(req) && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
+  if (env.DB && click) wait(recordClick(env.DB, p, productId, now).catch(() => {}))
   return finish(new Response(null, { status: 302, headers: { location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } }), env)
 }
 

@@ -1,0 +1,293 @@
+{
+  "id": "pseudoplatystoma-fasciatum",
+  "native": {
+    "input": "eda13c823a89489c",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The barred shovelnose, Pseudoplatystoma fasciatum, is a large pimelodid catfish with a very wide range in South America, from Colombia to Argentina.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The barred shovelnose, Pseudoplatystoma fasciatum, is a large pimelodid catfish with a very wide range in South America, from Colombia to Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Confirmed populations exist in Ecuador, Colombia, Venezuela, Guyana, Suriname, French Guiana, Peru, Bolivia, Brazil, and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Occurrences in Paraguay and Uruguay are apparently unconfirmed.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Occurrences in Paraguay and Uruguay are apparently unconfirmed.",
+        "words": "Uruguay",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudoplatystoma fasciatum",
+    "status": "ACCEPTED",
+    "taxonKey": 2338673,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        161
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        47
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        42
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        39
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        31
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        16
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        13
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "559d3326-742b-4d51-a2a5-3a17be2aadd1",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        5
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        4
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        2
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "AR",
+      "EC",
+      "VE",
+      "GY",
+      "SR",
+      "GF",
+      "PE",
+      "BO",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}
