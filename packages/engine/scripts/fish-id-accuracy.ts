@@ -13,9 +13,11 @@
  *   … --models claude-opus-5-5 --agent --max-turns 3,2   # today's call, then the agent (apps/site/worker/fishid/agent.ts)
  *
  * --agent: each model also runs as the agent the Worker runs with FISH_ID_AGENT on, on the same photos, its tools over
- * content/ (the catalog and the facts the build would write), with the test photo itself left out of the reference
- * photos it is shown. --max-turns: the turns it may use tools in before its answer is forced, one row each (3: the
- * Worker's 4 calls; 2: one search and one look, then the answer).
+ * content/ (the catalog and the facts the build would write), with the test photo left out of the reference photos it
+ * is shown, and so is any photo from the same source page (`sourceUrl`) or a near-copy of it (its dHash within 10 bits,
+ * content/picture-hashes.json). --max-turns: the turns it may use tools in before its answer is forced, one row each
+ * (3: the Worker's 4 calls; 2: one search and one look, then the answer). --agent-only: the agent's rows only, not
+ * today's call again (write it with --out, then put it beside the full run's).
  *
  * Keys: ~/.config/aquatome/anthropic-keys (or --keys), the Worker's ANTHROPIC_KEYS format: one per line, `<key>` or
  * `<key> <workspaceId>`. Never printed: the report and the log name a key by its hash only. Writes
@@ -48,6 +50,7 @@ const { values: args } = parseArgs({
     keys: { type: 'string', default: join(homedir(), '.config/aquatome/anthropic-keys') },
     out: { type: 'string' },
     agent: { type: 'boolean', default: false },
+    'agent-only': { type: 'boolean', default: false },
     'max-turns': { type: 'string', default: '3' },
     'dry-run': { type: 'boolean', default: false },
   },
@@ -59,7 +62,11 @@ const SEED = Number(args.seed)
 const OUT = args.out ?? (DRY ? '/tmp/fish-id-accuracy.dry-run.md' : join(ROOT, 'docs/review/fish-id-accuracy.md'))
 /** The runs per model: today's single call, then the agent at each --max-turns. */
 type Mode = { label: string; turns?: number }
-const MODES: Mode[] = [{ label: '' }, ...(args.agent ? args['max-turns']!.split(',').map(Number).filter(n => n > 0).map(n => ({ label: `agent, ${n + 1} calls`, turns: n })) : [])]
+const AGENT_MODES: Mode[] = args.agent || args['agent-only'] ? args['max-turns']!.split(',').map(Number).filter(n => n > 0).map(n => ({ label: `agent, ${n + 1} calls`, turns: n })) : []
+const MODES: Mode[] = args['agent-only'] ? AGENT_MODES : [{ label: '' }, ...AGENT_MODES]
+/** Two photos whose dHashes differ in this many bits or fewer are one picture (as the engine's own duplicate check). */
+const NEAR_BITS = 10
+const hamming = (a: string, b: string) => { let x = BigInt(`0x${a}`) ^ BigInt(`0x${b}`), n = 0; while (x) { n += Number(x & 1n); x >>= 1n } return n }
 
 /** A small seeded generator (mulberry32): the same seed picks the same photos. */
 function rng(seed: number) {
@@ -73,8 +80,8 @@ function rng(seed: number) {
 }
 const readJson = async <T>(p: string): Promise<T | undefined> => JSON.parse(await readFile(p, 'utf8').catch(() => 'null')) ?? undefined
 
-/** `thumb`: the photo's own small copy, which the agent must never be shown as a reference photo either. */
-type Sample = { id: string; kind: 'species' | 'breed'; url: string; thumb: string; why: 'breed' | 'popular' | 'random' }
+/** `thumb`: the photo's own small copy; `sourceUrl`: the page it came from. Neither, nor a near-copy, is ever a reference photo. */
+type Sample = { id: string; kind: 'species' | 'breed'; url: string; thumb: string; sourceUrl: string; why: 'breed' | 'popular' | 'random' }
 type Verdicts = Record<string, Record<string, { ok?: string; typical?: boolean }>>
 
 /** One typical photo per page, as described at the top. */
@@ -91,7 +98,8 @@ async function pickPhotos(catalog: Catalog): Promise<Sample[]> {
       const urls = [...new Set(all.map(p => p.url))]
       const good = urls.filter(u => verdicts[u]?.[id]?.ok === 'yes' && verdicts[u]?.[id]?.typical === true)
       const url = good.length ? good[Math.floor(random() * good.length)]! : undefined
-      if (url) pages.set(id, { id, kind: kind === 'species' ? 'species' : 'breed', url, thumb: smallSrc(all.find(p => p.url === url)!), why: 'random' })
+      const photo = all.find(p => p.url === url)
+      if (url && photo) pages.set(id, { id, kind: kind === 'species' ? 'species' : 'breed', url, thumb: smallSrc(photo), sourceUrl: photo.sourceUrl, why: 'random' })
     }
   }
   const out: Sample[] = []
@@ -155,9 +163,30 @@ async function main() {
   const content = await loadAll({ root: join(ROOT, 'content'), lang: 'vi', publicBuild: true })
   const catalog = buildCatalog([{ lang: 'vi', pages: content, at: p => p }], p => p.url)
   const byId = new Map(catalog.entries.map(e => [e.id, e]))
-  // The facts the build would write (one photo more, so leaving the test photo out still leaves two).
-  const facts = new Map(buildFacts(catalog, content, smallSrc, { gallery: id => content.galleries[id] ?? [], count: 3 }).map(f => [f.id, f] as [string, Facts]))
+  // The facts the build would write, with more photos a page, so leaving out the test photo's copies still leaves two.
+  const facts = new Map(buildFacts(catalog, content, smallSrc, { gallery: id => content.galleries[id] ?? [], count: 6 }).map(f => [f.id, f] as [string, Facts]))
+  // Every page photo by its own address and by the small copy the facts show; their dHashes.
+  const photoBySrc = new Map<string, Photo>()
+  for (const p of [...content.species, ...content.breeds, ...content.plants].flatMap(e => e.photos ?? []).concat(Object.values(content.galleries).flat())) { photoBySrc.set(p.url, p); photoBySrc.set(smallSrc(p), p) }
+  const hashes = (await readJson<Record<string, string>>(join(ROOT, 'content/picture-hashes.json'))) ?? {}
+  /** A reference photo the agent must not see for `sample`: the test photo, one from its source page, or a near-copy. */
+  const leaks = (sample: Sample) => {
+    const own = hashes[sample.url]
+    return (src: string) => {
+      if (src === sample.thumb || src === sample.url) return true
+      const p = photoBySrc.get(src)
+      if (!p) return false
+      const h = hashes[p.url]
+      return p.url === sample.url || (Boolean(sample.sourceUrl) && p.sourceUrl === sample.sourceUrl) || Boolean(own && h && hamming(own, h) <= NEAR_BITS)
+    }
+  }
   const samples = await pickPhotos(catalog)
+  if (AGENT_MODES.length) {
+    // How many test photos have copies in the reference photos besides their own small copy: what the leak check leaves out.
+    const refs = [...facts.values()].flatMap(f => f.photos)
+    const left = samples.map(s => { const leak = leaks(s); return refs.filter(r => r !== s.thumb && r !== s.url && leak(r)).length })
+    console.log(`Leak check: ${left.filter(n => n > 0).length} of ${samples.length} test photos have other copies (same source page, or a near-copy): ${left.reduce((a, n) => a + n, 0)} reference photos left out for them; ${samples.filter(s => hashes[s.url]).length} test photos have a dHash`)
+  }
   console.log(`${samples.length} photos: ${samples.filter(s => s.why === 'breed').length} breeds, ${samples.filter(s => s.why === 'popular').length} popular species, ${samples.filter(s => s.why === 'random').length} random (seed ${SEED})${DRY ? ', dry run' : ''}`)
 
   const { keys, bad } = DRY ? { keys: [{ key: 'dry-run-key-000', hash: 'dryrun00' }] as KeyEntry[], bad: 0 } : await loadKeys(await readFile(args.keys!, 'utf8').catch(() => ''))
@@ -183,7 +212,7 @@ async function main() {
         if (mode.turns) {
           const a = await identifyWithAgent({
             healthy, store, photo: { data, type: 'image/jpeg' }, model, lang: 'vi', fetch: fake, limits: { calls: mode.turns + 1 },
-            tools: { catalog, facts: async id => facts.get(id), exclude: src => src === sample.thumb || src === sample.url },
+            tools: { catalog, facts: async id => facts.get(id), exclude: leaks(sample) },
           }).catch((e: Error) => e)
           const ms = Date.now() - t
           if (a instanceof Error) return { sample, ms, failed: a.message.slice(0, 60) }
@@ -234,7 +263,7 @@ function report(results: Map<string, Outcome[]>, samples: Sample[], byId: Map<st
     '- **Not a fish / can\'t tell:** verdicts "other" and "unclear" (refusals counted as can\'t tell), on photos that all show a fish.',
     '- **Cost:** response usage × list price (models.md and prompt-caching.md, 2026-11; the agent\'s cache reads and writes at theirs), every call of every photo, per 1,000 photos.',
     '- **Latency:** from the first call to the answer, on this machine (the agent\'s tools read content/ here, the Worker\'s its assets).',
-    ...(MODES.length > 1 ? ['- **Agent:** the agent the Worker runs with `FISH_ID_AGENT` on (apps/site/worker/fishid/agent.ts), its tools over content/, the test photo itself never among its reference photos. *Calls · tools · photos*: per photo, on average. *Stopped*: how many answered when Claude chose / were forced by the calls, tool-call, time or token limit / fell back to today\'s single call.'] : []),
+    ...(AGENT_MODES.length ? ['- **Agent:** the agent the Worker runs with `FISH_ID_AGENT` on (apps/site/worker/fishid/agent.ts), its tools over content/, never shown the test photo as a reference photo, nor one from the same source page, nor a near-copy (dHash within 10 bits). *Calls · tools · photos*: per photo, on average. *Stopped*: how many answered when Claude chose / were forced by the calls, tool-call, time or token limit / fell back to today\'s single call.'] : []),
     '',
     '| Run | Answered | Top-1 | Top-3 | Breed\'s species | Not a fish | Can\'t tell | Failed | Median latency | p95 latency | Cost / 1,000 |',
     '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |',

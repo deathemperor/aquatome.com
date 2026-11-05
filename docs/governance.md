@@ -65,11 +65,16 @@ that would have caught it).
     (`protocols/fishid-stream-*.sse`, `fishid-rate.json`) against the same contract, and the contract naming each
     (`fishid-stream.test.ts`). Fish ID as an agent (`FISH_ID_AGENT`, off unless `1`): the loop's limits each forcing the
     last call with `tool_choice: none` (calls, tool calls, photos, input tokens, time on a fake clock), a tool that
-    throws, an unknown tool, an append-only history (`agent-loop.test.ts`); the agent off answering today's request and
-    today's bytes, the progress stream only after admission, the fallback to today's call after a failed later call,
-    the day's dollar cap, retries by `Idempotency-Key`, a run with no result giving the reader's count back
-    (`fishid-agent.test.ts`); the search and the pages it opens (`fishid-agent-tools.test.ts`); every catalog page in
-    exactly one facts shard of the build (`apps/site/test/fish-id.test.ts`).
+    throws, an unknown tool, an append-only history, the next call's size guessed with the last answer and the new
+    tool results, never more than 4 cache marks (`agent-loop.test.ts`); the agent off answering today's request and
+    today's bytes, the progress stream only after admission, the fallback to today's call after a failed later call (on
+    the same key after a 400, failed when there's no time for it), the day's dollar cap, retries by `Idempotency-Key`
+    (a reader's own, a UUID or 400), a count given back only when our side failed (503) and photos Claude refuses
+    reaching the reader's limit, parallel photos at the limit, a reader who drops mid-run (the run settles, its spend
+    recorded), an unreadable facts shard, a model with no price (`fishid-agent.test.ts`); the ledger admitting in one
+    step under parallel requests, its reservations, late spends, cut-off runs and refunds (`fishid-ledger.test.ts`);
+    the search and the pages it opens (`fishid-agent-tools.test.ts`); every catalog page in exactly one facts shard of
+    the build (`apps/site/test/fish-id.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing

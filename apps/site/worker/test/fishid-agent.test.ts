@@ -1,7 +1,9 @@
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { handle, type Env } from '../index'
 import type { Catalog } from '../fishid/catalog'
-import type { FishIdDeps } from '../fishid/api'
+import { fishIdStatus, type FishIdDeps } from '../fishid/api'
+import { costOf, PRICES, worstCost } from '../fishid/claude'
+import { LIMITS } from '../agent/loop'
 import { keyHash } from '../fishid/keys'
 import { contract } from './contract'
 import { testD1 } from './d1'
@@ -239,6 +241,7 @@ test('the agent off: no result gives the reader\'s count back too (a failed call
   const res = await run(post(), e, deps(down.fetch))
   expect([res.status, await res.json()]).toEqual([503, { error: 'unavailable' }])
   expect(readerCount(ledger)).toEqual([0])
+  expect(await fishIdStatus(e as never, new Date())).toMatchObject({ counts: { refunds: 1 }, mostRefunds: 1 })
   await run(post(), e, deps(claude([() => message(NEON)]).fetch))
   expect(readerCount(ledger)).toEqual([1])
 })
@@ -334,4 +337,115 @@ test('retries: the same Idempotency-Key gets the kept result, as JSON or one res
   expect([bad.status, await bad.json()]).toEqual([400, { error: 'bad idempotency-key' }])
   expect(c.calls).toHaveLength(3)
   expect(readerCount(ledger)).toEqual([3])
+})
+
+/** Polls until `ok` holds (the ledger's writes land a few turns after the call that made them). */
+async function until(ok: () => boolean) {
+  for (let i = 0; i < 200 && !ok(); i++) await new Promise(r => setTimeout(r, 0))
+  expect(ok()).toBe(true)
+}
+/** Today's agent turn at CACHED / usage3: 300 in, 150 out, 2,000 read and 600 written on Opus 5.5. */
+const TURN = (300 * 4 + 150 * 20 + 2000 * 0.2 + 600 * 5) / 1e6
+
+test('a reader\'s photos Claude refuses (502) still count against their day: past it, rate, though none was answered', async () => {
+  const { e, ledger } = env({ FISH_ID_PER_IP: '2' })
+  const c = claude([() => apiError(400, 'invalid_request_error', 'Could not process image')])
+  for (let i = 0; i < 2; i++) {
+    const r = await run(post(), e, deps(c.fetch))
+    expect([r.status, await r.json()]).toEqual([502, { error: 'failed' }])
+  }
+  const r = await run(post(), e, deps(c.fetch))
+  expect([r.status, await r.json()]).toEqual([429, { error: 'rate', limit: 2 }])
+  expect(c.calls).toHaveLength(2)
+  expect(readerCount(ledger)).toEqual([2])
+  expect(ledger.day()!.counts.refunds).toBe(0)
+})
+
+test('parallel photos from one reader at the limit: one admitted, the rest refused before any call', async () => {
+  const { e, ledger } = env({ FISH_ID_PER_IP: '1' })
+  const c = claude([() => message(NEON)])
+  const res = await Promise.all(Array.from({ length: 5 }, () => run(post(), e, deps(c.fetch))))
+  expect(res.map(r => r.status).sort()).toEqual([200, 429, 429, 429, 429])
+  expect(c.calls).toHaveLength(1)
+  expect(readerCount(ledger)).toEqual([1])
+})
+
+test('a reader who drops mid-run: the run goes on (waitUntil), each call\'s spend is in the ledger as it lands, the run settles with no refund, and a retry gets its result', async () => {
+  const { e, ledger } = agentEnv()
+  let release!: () => void
+  const held = new Promise<void>(r => { release = r })
+  const c = claude([() => asks([['get_entry', { id: 'paracheirodon-innesi' }]]), async () => { await held; return message(CHECKED, 'end_turn', usage3) }])
+  const key = { 'idempotency-key': '0b5e8c1a-2f3d-4e5f-8a9b-0c1d2e3f4a5b' }
+  const waits: Promise<unknown>[] = []
+  const res = await handle(streamed(key), e, p => { waits.push(p) }, undefined, deps(c.fetch))
+  const reader = res.body!.getReader()
+  expect(new TextDecoder().decode((await reader.read()).value)).toMatch(/^event: step\n/)
+  // The second call is out: the first one's cost is already in the ledger, on the open run (a cut-off here keeps it).
+  await until(() => c.calls.length === 2 && Object.values(ledger.day()!.runs).some(r => r.spent > 0))
+  expect(Object.values(ledger.day()!.runs).map(r => r.spent)).toEqual([expect.closeTo(TURN, 10)])
+  await reader.cancel()
+  release()
+  await Promise.all(waits)
+  const day = ledger.day()!
+  expect(day.runs).toEqual({})
+  expect(day.usd).toBeCloseTo(2 * TURN, 10)
+  expect(readerCount(ledger)).toEqual([1])
+  expect(day.counts.refunds).toBe(0)
+  const again = await run(post(key), e, deps(c.fetch))
+  expect((await again.json() as { results: { page?: { id: string } }[] }).results[0]!.page?.id).toBe('paracheirodon-innesi')
+  expect(c.calls).toHaveLength(2)
+})
+
+test('a retry key is its reader\'s own: another reader sending the same key gets a run of their own, never the first reader\'s result', async () => {
+  const { e } = env()
+  const c = claude([() => message(NEON), () => message({ verdict: 'other', guesses: [] })])
+  const key = { 'idempotency-key': '7d444840-9dc0-11d1-b245-5ffdce74fad2' }
+  expect(await (await run(post(key), e, deps(c.fetch))).text()).toBe(TODAY)
+  const theirs = await run(post({ ...key, 'cf-connecting-ip': '198.51.100.9' }), e, deps(c.fetch))
+  expect(await theirs.json()).toMatchObject({ verdict: 'other', results: [] })
+  expect(c.calls).toHaveLength(2)
+})
+
+test('the agent on: a later call the API refuses as our request (a reference photo it can\'t fetch) falls back to today\'s call on the same key, logged and counted; with no time for it, failed (502), not unavailable', async () => {
+  const lines: Record<string, unknown>[] = []
+  const { e, ledger } = agentEnv()
+  const refused = () => apiError(400, 'invalid_request_error', 'Unable to download the file. Please verify the URL and try again.')
+  const c = claude([() => asks([['get_entry', { id: 'paracheirodon-innesi' }]]), refused, () => message(NEON)])
+  const res = await run(post(), e, deps(c.fetch, { log: l => { lines.push(l) } }))
+  expect(res.status).toBe(200)
+  expect(c.calls.map(x => x.key)).toEqual([A, A, A])
+  expect(c.calls[2]!.body.tools).toBeUndefined()
+  expect(lines[0]).toMatchObject({ fishId: 'ok', stopped: 'fallback', later400: expect.stringMatching(/Unable to download the file/) })
+  expect(ledger.day()!.counts).toMatchObject({ later400: 1, fallback: 1, refunds: 0 })
+  const late = claude([() => asks([['get_entry', { id: 'paracheirodon-innesi' }]]), refused])
+  const r2 = await run(post(), e, deps(late.fetch, { limits: { ms: 9_000, lastCallMs: 0 } }))
+  expect([r2.status, await r2.json()]).toEqual([502, { error: 'failed' }])
+  expect(ledger.day()!.counts).toMatchObject({ later400: 2, fallback: 1, refunds: 0 })
+})
+
+test('the agent on: a facts shard that can\'t be read: get_entry says so and the run goes on; the error is logged and counted', async () => {
+  const err = vi.spyOn(console, 'error').mockImplementation(() => {})
+  try {
+    // Another origin: the shards a test before read are kept per origin.
+    const { e, ledger } = agentEnv({ ASSETS: { fetch: async (r: Request) => (new URL(r.url).pathname === '/app/fish-id.json' ? Response.json(CATALOG) : new Response('down', { status: 500 })) } })
+    const c = claude([() => asks([['get_entry', { id: 'paracheirodon-innesi' }]]), () => message(CHECKED, 'end_turn', usage3)])
+    const req = new Request('https://elsewhere.test/api/fish-id', { method: 'POST', body: await post().formData(), headers: { origin: 'https://elsewhere.test', 'cf-connecting-ip': '203.0.113.7', ...READER } })
+    expect((await run(req, e, deps(c.fetch))).status).toBe(200)
+    const opened = (c.calls[1]!.body.messages as { content: { content: { text?: string }[] }[] }[])[2]!.content[0]!.content
+    expect(opened).toEqual([{ type: 'text', text: expect.stringMatching(/^paracheirodon-innesi \(species\)[\s\S]*can't be read just now/) }])
+    expect(err).toHaveBeenCalledWith('fish-id facts: shard 0 of 1 unreadable')
+    expect(ledger.day()!.counts.facts).toBe(1)
+  } finally {
+    err.mockRestore()
+  }
+})
+
+test('a model the price list doesn\'t know is priced as the dearest there, never $0; the reservation covers the agent\'s limits', () => {
+  const dearest = Math.max(...Object.values(PRICES).map(p => p.input))
+  expect(costOf('claude-next', { input: 1e6, output: 0 })).toBe(dearest)
+  expect(costOf('claude-next', { input: 0, output: 0, cacheWrite: 1e6 })).toBe(Math.max(...Object.values(PRICES).map(p => p.cacheWrite)))
+  expect(worstCost('claude-next')).toBeGreaterThanOrEqual(worstCost('claude-opus-5-5'))
+  // Four calls of 4,096 out, 60,000 in written to cache, and the single call it may fall back to.
+  expect(worstCost('claude-opus-5-5', LIMITS)).toBeCloseTo((60_000 * 5 + 4 * 4096 * 20) / 1e6 + worstCost('claude-opus-5-5'), 10)
+  expect(worstCost('claude-opus-5-5')).toBeCloseTo((6000 * 4 + 4096 * 20) / 1e6, 10)
 })

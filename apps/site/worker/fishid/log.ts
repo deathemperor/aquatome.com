@@ -14,7 +14,7 @@
  * Layout: blob1 outcome, blob2 model, blob3 key hash (the one that answered, else the last tried; '' with no call),
  * blob4 verdict, blob5 top guess's scientific name, blob6 its page id ('' when none), blob7 reader's language, blob8
  * where the photo came from ('page': the tool's page, 'tank': the tank's editor; '' unknown), blob9 country;
- * double1 input tokens, double2 output tokens, double3 cost in USD at list price (0 for a model not in PRICES),
+ * double1 input tokens, double2 output tokens, double3 cost in USD at list price (a model not in PRICES at the dearest's, claude.ts priceOf),
  * double4 ms from the request's arrival, double5 calls made (attempts), double6 top guess's confidence, double7 guesses;
  * the agent's (FISH_ID_AGENT): double8 its calls to Claude (turns; 1 for today's single call), double9 tool calls,
  * double10 reference photos shown, blob10 why it stopped ('answer': when Claude chose; 'calls', 'tools', 'time',

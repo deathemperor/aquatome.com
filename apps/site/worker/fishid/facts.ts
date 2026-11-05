@@ -37,7 +37,7 @@ export type FactPages<P> = { species: FactPage<P>[]; breeds: FactPage<P>[]; plan
 
 /** About how much of the sources' text Claude gets per page. */
 export const TEXT_MAX = 600
-/** Reference photos per page in the built shards. */
+/** Reference photos per page: in the built shards, and the most get_entry shows of one (agent-tools.ts). */
 export const PHOTOS_PER_PAGE = 2
 
 const plainText = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim()

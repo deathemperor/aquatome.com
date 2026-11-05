@@ -1,7 +1,7 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import type { Tool, ToolOutput } from '../agent/tools'
 import type { Catalog, CatalogEntry, Lang } from './catalog'
-import type { Facts } from './facts'
+import { PHOTOS_PER_PAGE, type Facts } from './facts'
 import { compact, link, sciKey, words, type Linked } from './match'
 
 /**
@@ -13,8 +13,6 @@ export type Step = { kind: 'search'; query: string } | { kind: 'look'; page: Lin
 
 /** Entries a search returns at most. */
 export const SEARCH_MAX = 12
-/** Reference photos a page gives at most. */
-export const PHOTOS_PER_ENTRY = 2
 
 type Hit = { e: CatalogEntry; score: number }
 /** A page as a search lists it: text only, Vietnamese name (every page has one), what a breed is a form of. */
@@ -141,7 +139,7 @@ export function fishIdTools(d: ToolDeps): Tool<Step>[] {
         return [{ type: 'text', text: `${e.id} (${e.kind}): ${e.name.vi}${e.sci ? `, ${e.sci}` : ''}\nThis page's facts and reference photos can't be read just now: judge by its name.` }]
       }
       const photos = (f?.photos ?? []).filter(src => !d.exclude?.(src))
-      return entryContent(e, f, photos.slice(0, Math.min(PHOTOS_PER_ENTRY, Math.max(0, ctx.photosLeft))), photos.length)
+      return entryContent(e, f, photos.slice(0, Math.min(PHOTOS_PER_PAGE, Math.max(0, ctx.photosLeft))), photos.length)
     },
   }
   return [search, entry]

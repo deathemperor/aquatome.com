@@ -75,7 +75,7 @@ function pageFor(ix: Index, sci: string): CatalogEntry | undefined {
 }
 
 /** Whether `a` becomes `b` in at most `max` single-letter edits. */
-export function within(a: string, b: string, max: number): boolean {
+function within(a: string, b: string, max: number): boolean {
   if (Math.abs(a.length - b.length) > max) return false
   let prev = Array.from({ length: b.length + 1 }, (_, j) => j)
   for (let i = 1; i <= a.length; i++) {

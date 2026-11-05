@@ -117,6 +117,26 @@ test('40,000 input tokens: when another call the size of the last would pass the
   expect(c.calls.map(x => x.body.tool_choice!.type)).toEqual(['auto', 'none'])
 })
 
+test('the next call\'s size is guessed with the last answer (thinking and all goes back into the history) and the new tool results, a photo ~400 tokens', async () => {
+  // 20,000 read and 9,000 written: the old guess (the last call's input again) made 40,000, not past the limit.
+  const out = script([() => asks([{ name: 'echo', input: { q: 'x' } }], usage(1000, 9_000, 10_000, 9_000)), () => answers()])
+  expect(await runAgent(input(out.send))).toMatchObject({ stopped: 'tokens', calls: 2 })
+  // 15,000 in, then three photos back: 15,000 + 15,000 + 100 out + 3 × 400 passes 31,000; the last call's input alone wouldn't.
+  const photos = script([() => asks([{ name: 'pics', input: {} }], usage(1000, 100, 7000, 7000)), () => answers()])
+  expect(await runAgent(input(photos.send, { limits: { inputTokens: 31_000 } }))).toMatchObject({ stopped: 'tokens', calls: 2 })
+  const fewer = script([() => asks([{ name: 'echo', input: { q: 'x' } }], usage(1000, 100, 7000, 7000)), () => answers()])
+  expect(await runAgent(input(fewer.send, { limits: { inputTokens: 31_000 } }))).toMatchObject({ stopped: 'answer', calls: 2 })
+})
+
+test('cache marks: never more than the API\'s 4 in a call, whatever the limits (6 calls here, the first message marked as the agent marks its photo)', async () => {
+  const marked: Anthropic.MessageParam = { role: 'user', content: [{ type: 'text', text: 'Which fish is this?', cache_control: { type: 'ephemeral' } }] }
+  const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }])])
+  const r = await runAgent(input(c.send, { first: marked, limits: { calls: 6, tools: 10, inputTokens: 1e9 } }))
+  expect(r).toMatchObject({ stopped: 'calls', calls: 6 })
+  const marks = (b: Body) => b.messages.flatMap(m => (typeof m.content === 'string' ? [] : m.content)).filter(x => 'cache_control' in x && x.cache_control).length
+  expect(c.calls.map(x => marks(x.body))).toEqual([1, 2, 3, 4, 4, 4])
+})
+
 test('27 s from the first call: no call gets past it, and with under 12 s left the next call is the last', async () => {
   const clock = { now: 0, per: [10_000, 5_000] }
   const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()], clock)

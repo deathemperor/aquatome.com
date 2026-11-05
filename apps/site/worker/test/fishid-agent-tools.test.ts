@@ -80,6 +80,13 @@ test('get_entry: only the photos left in the identification, then facts only; a 
   expect((await test.run({ id: 'betta-splendens' }, { photosLeft: 6 }) as Block[]).flatMap(b => b.source ? [b.source.url] : [])).toEqual(['https://media.aquatome.com/b2-480.webp'])
 })
 
+test('get_entry: facts that can\'t be read are said so, with the page\'s name, and counted; the run goes on', async () => {
+  let missing = 0
+  const { entry } = tools({ facts: async () => { throw new Error('facts unreadable') }, onFactsMissing: () => { missing++ } })
+  expect(await entry.run({ id: 'betta-splendens' }, { photosLeft: 6 })).toEqual([{ type: 'text', text: 'betta-splendens (species): Cá betta, Betta splendens\nThis page\'s facts and reference photos can\'t be read just now: judge by its name.' }])
+  expect(missing).toBe(1)
+})
+
 test('search_handbook: its step is what it searched for; its result is JSON, text only', async () => {
   const { search } = tools()
   expect(search.step!({ query: null, genus: 'Betta' })).toEqual({ kind: 'search', query: 'Betta' })
