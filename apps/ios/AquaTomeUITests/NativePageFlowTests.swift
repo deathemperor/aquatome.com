@@ -266,7 +266,7 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, detail)
     reveal(app, text(app, "Đàn neon trong bể thủy sinh"))
     reveal(app, card(app, "Cá neon vàng"))
-    reveal(app, text(app, "với sự cho phép của họ"))
+    reveal(app, text(app, "Các phần trên dịch từ những nguồn này."))
     XCTAssertFalse(app.buttons["page-web"].exists, "a part left to the web")
   }
 
