@@ -282,6 +282,7 @@ export function computeContentStats(o: StatsInput): ContentStats {
     kinds, built: built?.total ?? null,
     sources: Object.fromEntries(Object.entries(sources).map(([k, v]) => [k, v.fish + v.plant + v.guide])),
     photos: { pages: photos.pages, gallery: photos.gallery.photos },
+    fullCards: fishPages.length - (gaps.fish?.noKeyFacts?.n ?? 0),
   }
   return { v: 1, builtAt: now.toISOString(), publicBuild: o.publicBuild, inventory, built, sources, photos, engine, gaps, pages, totals }
 }
