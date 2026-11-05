@@ -88,6 +88,7 @@ func counts(_ b: Owner.Block) -> [String: Int] {
   case .note: ["note": 1]
   case .cards(let items, _, let hidden): [hidden ? "hidden" : "photos": items.count, "actions": items.map(\.actions.count).reduce(0, +)]
   case .link: ["link": 1]
+  case .actions(let a): ["actions": a.count, "bodies": a.filter { $0.body != nil }.count]
   case .form(let f): ["form": f.fields.count, "required": f.fields.filter(\.required).count, "body": f.body == nil ? 0 : 1]
   case .toggle(_, let on, _): ["switch": on ? 1 : 0]
   }
@@ -104,6 +105,7 @@ func counts(_ raw: JSON) -> [String: Int] {
     return ["table": o["rows"]!.array!.count, "columns": o["columns"]!.array!.count, "cells": cells.count, "links": cells.filter { $0["href"] != nil }.count,
             "subs": cells.filter { $0["sub"] != nil }.count]
   case "note": return ["note": 1]
+  case "actions": let a = list("actions"); return ["actions": a.count, "bodies": a.filter { $0["body"] != nil }.count]
   case "form": let f = list("fields"); return ["form": f.count, "required": f.filter { $0["required"] == .bool(true) }.count, "body": o["body"] == nil ? 0 : 1]
   case "switch": return ["switch": o["on"] == .bool(true) ? 1 : 0]
   default: let items = list("items"); return [kind: items.count, "actions": items.map { $0["actions"]!.array!.count }.reduce(0, +)]
@@ -605,4 +607,26 @@ func aLateAnswerIsDropped() async throws {
   let c = access(who, store(), late(404, notTheOwner))
   await c.check()
   #expect(c.isOwner == nil)
+}
+
+/// A section's own buttons (`actions`, the report's settings): each read as a button's request, with its body; one whose
+/// path isn't the owner's, or with no label, is left out, and a block left with none is no block.
+@Test func aSectionsOwnButtonsAreReadAsAButtonsRequest() throws {
+  let section = Owner.Section(dict(.object(["key": .string("bao-cao"), "title": .string("Báo cáo"), "blocks": .array([
+    .object(["kind": .string("note"), "text": .string("Email: bật. Thông báo: tắt."), "tone": .string("plain")]),
+    .object(["kind": .string("actions"), "actions": .array([
+      .object(["label": .string("Tắt email"), "method": .string("POST"), "path": .string("/api/owner/report-settings"),
+               "body": .object(["email": .bool(false)])]),
+      .object(["label": .string("Bật thông báo"), "method": .string("POST"), "path": .string("/api/owner/report-settings"),
+               "body": .object(["push": .bool(true)]), "tone": .string("good")]),
+      .object(["label": .string("Ra ngoài"), "method": .string("POST"), "path": .string("/api/other")]),
+      .object(["method": .string("POST"), "path": .string("/api/owner/report-settings")]),
+    ])]),
+    .object(["kind": .string("actions"), "actions": .array([.object(["label": .string("Ra ngoài"), "method": .string("POST"), "path": .string("https://x/")])])]),
+  ])])))
+  #expect(section.blocks.count == 2)
+  guard case .actions(let a)? = section.blocks.last else { Issue.record("no buttons"); return }
+  #expect(a.map(\.label) == ["Tắt email", "Bật thông báo"])
+  #expect(a.allSatisfy { $0.method == "POST" && $0.path == "/api/owner/report-settings" })
+  #expect(a.map(\.body) == [#"{"email":false}"#, #"{"push":true}"#])
 }

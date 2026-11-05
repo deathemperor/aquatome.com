@@ -42,6 +42,8 @@ struct OwnerDraw {
                                  spacing: 12) { ForEach(views.indices, id: \.self) { views[$0] } })
       }
       return AnyView(VStack(alignment: .leading, spacing: 14) { ForEach(views.indices, id: \.self) { views[$0] } })
+    case .actions(let a):
+      return buttons(a)
     case .form(let f):
       return AnyView(OwnerForm(form: f, working: working, send: send))
     case .toggle(let label, let on, let href):
@@ -147,16 +149,23 @@ struct OwnerDraw {
     return AnyView(VStack(alignment: .leading, spacing: 6) {
       if let src = c.src { OwnerImage(src: src) }
       t
-      HStack {
-        ForEach(c.actions.indices, id: \.self) { i in
-          let a = c.actions[i]
-          Button(role: a.asks ? .destructive : nil) { run(a) } label: { Text(verbatim: a.label) }
-            .buttonStyle(.bordered)
-            .tint(a.tone == .plain ? nil : a.tone.color)
-            .disabled(working)
-            .accessibilityIdentifier("owner-action")
-        }
-      }
+      buttons(c.actions)
+    })
+  }
+
+  /// A part's buttons, in a row, or one under another when they don't fit across.
+  private func buttons(_ actions: [Owner.Action]) -> AnyView {
+    let each = ForEach(actions.indices, id: \.self) { i in
+      let a = actions[i]
+      Button(role: a.asks ? .destructive : nil) { run(a) } label: { Text(verbatim: a.label) }
+        .buttonStyle(.bordered)
+        .tint(a.tone == .plain ? nil : a.tone.color)
+        .disabled(working)
+        .accessibilityIdentifier("owner-action")
+    }
+    return AnyView(ViewThatFits(in: .horizontal) {
+      HStack { each }
+      VStack(alignment: .leading) { each }
     })
   }
 

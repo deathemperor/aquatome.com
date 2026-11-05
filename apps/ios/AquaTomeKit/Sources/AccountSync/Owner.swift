@@ -86,6 +86,8 @@ public enum Owner {
     case cards([Card], empty: String?, hidden: Bool)
     /// The overview's lines (the app's own: no reply has this kind).
     case link(Link)
+    /// Buttons of their own, each sending its request (a setting's: the report by email or not).
+    case actions([Action])
     /// Fields sent as a button's request is (hiding a page).
     case form(Form)
     /// Between two forms of the section (the app's test builds or readers'): `on` or off; flipping it reads the section
@@ -416,6 +418,9 @@ private func block(_ o: Dict) -> Owner.Block? {
       guard let path = str(h, "path") else { return nil }
       return Owner.Card(title: path, lines: [str(h, "note"), str(h, "since")].compactMap { $0 }, src: nil, actions: actions(h))
     }, empty: str(o, "empty"), hidden: true)
+  case "actions":
+    let a = actions(o)
+    return a.isEmpty ? nil : .actions(a)
   case "form":
     guard str(o, "method") == "POST", let path = ownerPath(o["path"]), let submit = str(o, "submit") else { return nil }
     var fields: [Owner.Field] = []
