@@ -29,11 +29,13 @@ const { t } = i18n(Astro.url)
   }
 </script>
 <style>
-  .shops { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); }
+  .shops { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 2px; max-width: 100%; padding: 3px; border: 1px solid var(--c-rule); border-radius: 24px; background: var(--c-plate); }
   .shops[hidden] { display: none; }
   .lbl { font-size: var(--step--1); color: var(--c-ink-soft); padding-inline: var(--space-3) var(--space-2); }
   button { font: inherit; font-size: 0.9rem; font-weight: 500; min-height: 44px; padding: 0 var(--space-4); border: 0; border-radius: 999px; background: none; color: var(--c-ink); cursor: pointer; }
   button:hover { background: var(--c-select); }
   button[aria-pressed='true'] { background: var(--c-ink); color: var(--c-paper); }
   button:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  /* A 320 px screen: the three shops alone, a little tighter, so the picker never pushes the page sideways. */
+  @media (max-width: 359px) { .lbl { display: none; } button { padding: 0 var(--space-3); } }
 </style>

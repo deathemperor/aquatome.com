@@ -5,12 +5,13 @@ import { i18n } from '../lib/i18n'
 import ShopPicker from './ShopPicker.astro'
 /**
  * What to buy for a page, by kind of thing (tank, filter, food…): each search a large link to the marketplace the page's
- * picker names (Shopee until the reader picks another). `notes`: a line under a kind, from the page's own figures (the
- * species' minimum tank), never a claim of its own.
+ * picker names (Shopee until the reader picks another). `tankCm`: the species' minimum tank from its data card, under the
+ * tank row, in the reader's units (scripts/units.ts) as the card shows it.
  */
-interface Props { slots: ProductSlot[]; heading?: string; entity?: string; id?: string; notes?: Partial<Record<string, string>> }
+interface Props { slots: ProductSlot[]; heading?: string; entity?: string; id?: string; tankCm?: number }
 const { t } = i18n(Astro.url)
-const { slots, heading = t('Thiết bị phù hợp'), entity, id = 'mua-do', notes = {} } = Astro.props
+const { slots, heading = t('Thiết bị phù hợp'), entity, id = 'mua-do', tankCm } = Astro.props
+const [before, after] = t('Tối thiểu {cm}').split(/\{\w+\}/) as [string, string]
 // One row a kind, in the page's order, each search once.
 const rows = [...slots.reduce((m, s) => m.set(s.category, [...new Set([...(m.get(s.category) ?? []), ...s.keywords])]), new Map<string, string[]>())]
 ---
@@ -23,7 +24,7 @@ const rows = [...slots.reduce((m, s) => m.set(s.category, [...new Set([...(m.get
     <ul class="rows">
       {rows.map(([category, keywords]) => (
         <li>
-          <p class="what">{t(categoryLabel(category))}{notes[category] && <span class="why">{notes[category]}</span>}</p>
+          <p class="what">{t(categoryLabel(category))}{category === 'be-ca' && tankCm !== undefined && <span class="why">{before}<span data-cm={`${tankCm},${tankCm}`}>{tankCm} cm</span>{after}</span>}</p>
           <ul class="finds">
             {keywords.map(k => (
               <li><a href={goLink('shopee', k, category, entity)} rel="sponsored nofollow noopener" target="_blank" data-go>{k}<span class="visually-hidden"> ({t('trên')} <span data-shop-name>Shopee</span>)</span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a></li>

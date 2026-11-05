@@ -340,3 +340,15 @@ test('species page: the shop picker points every search at the shop picked', asy
   // Every search is a 44 px target.
   for (const h of await links.evaluateAll(as => as.map(a => a.getBoundingClientRect().height))) expect(h).toBeGreaterThanOrEqual(44)
 })
+
+// Shop links never push a page sideways, down to a 320 px screen (the width WCAG's reflow rule tests at): the equipment
+// page's "Mua … trên Shopee" line wraps, and the picker drops its label. They made /thiet-bi/loc/ 355 px and the product
+// page 336 px wide there.
+test('shop links fit a 320 px screen', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 })
+  for (const path of ['/thiet-bi/loc/', '/san-pham/oase-biomaster-350/', '/ca/ca-neon-vua/']) {
+    await page.goto(path)
+    await expect(page.locator('[data-shop-pick]').first()).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), path).toBeLessThanOrEqual(0)
+  }
+})

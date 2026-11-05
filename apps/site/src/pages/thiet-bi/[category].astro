@@ -88,7 +88,7 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
             <p class="pick"><strong>{t('Chọn thế nào:')}</strong> {ty.pick}</p>
             {picks(ty.id).length > 0 && <p class="picks">{t('Đã tìm hiểu kỹ:')} {picks(ty.id).map(p => <a href={productHref(p)}>{p.brand} {p.model}</a>)}</p>}
             {vn && <p class="buy"><a href={goLink('shopee', ty.buy, u.category, entity)} rel="sponsored nofollow noopener" target="_blank" data-go>{t('Mua')} <em>{ty.buy}</em> <span class="on">{t('trên')} <span data-shop-name>Shopee</span></span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a></p>}
-            {vn && ty.keywords.length > 1 && <p class="more">{t('Hay tìm:')} {ty.keywords.filter(k => k !== ty.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank" data-go>{k}</a>)}</p>}
+            {vn && ty.keywords.length > 1 && <p class="more">{t('Hay tìm:')} {ty.keywords.filter(k => k !== ty.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank" data-go>{k}<span class="visually-hidden"> ({t('trên')} <span data-shop-name>Shopee</span>)</span></a>)}</p>}
             {ty.species.length > 0 && (
               <ul class="who" aria-label={t('Loài dùng {name}', { name: ty.name.toLowerCase() })}>
                 {ty.species.slice(0, 6).map((s, i) => { const p = whoPhotos[k]![i]; return <li><a href={`/vi/ca/${s.t.slug}/`}>{p && <img src={smallSrc(p)} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li> })}
@@ -161,12 +161,14 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
   .pick { color: var(--c-ink-soft); }
   .typeshead { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--space-3) var(--space-5); margin: var(--space-7) 0 var(--space-4); }
   .typeshead .h { margin: 0; }
-  .buy a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-4); border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); color: var(--c-ink); font-weight: 500; text-decoration: none; }
+  .buy a { display: inline-block; box-sizing: border-box; min-height: 44px; max-width: 100%; padding: 0.6rem var(--space-4); border: 1px solid var(--c-rule); border-radius: 22px; background: var(--c-plate); color: var(--c-ink); font-weight: 500; line-height: 1.5; text-decoration: none; }
   .buy a:hover { border-color: var(--c-ink); }
   .buy a:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
   .buy .on { font-weight: 400; color: var(--c-ink-soft); }
-  .buy svg { flex: none; color: var(--c-ink-soft); }
-  .more a { margin-left: var(--space-2); }
+  .buy svg { margin-left: var(--space-1); vertical-align: -2px; color: var(--c-ink-soft); }
+  .more { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+  .more a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-3); border: 1px solid var(--c-rule); border-radius: 999px; color: var(--c-ink-soft); text-decoration: none; }
+  .more a:hover { border-color: var(--c-ink); color: var(--c-ink); }
   .more { font-size: 0.85rem; color: var(--c-ink-faint); }
   .who { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
   .who a { display: inline-flex; align-items: center; gap: var(--space-2); padding: 0.15rem 0.7rem 0.15rem 0.15rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); text-decoration: none; font-size: 0.85rem; }
