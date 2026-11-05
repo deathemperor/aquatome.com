@@ -23,7 +23,7 @@ import { fishId, type FishIdDeps, type FishIdEnv } from './fishid/api'
 import { appEventsRoute } from './telemetry/events'
 import { appDiagnosticsRoute } from './telemetry/diagnostics'
 import { countryOf } from './telemetry/shared'
-import { asksLang, chooserPage, langPoint, pickedLang, pickResponse } from './lang-ask'
+import { asksLang, chooserPage, langCookie, langPoint, pickedLang, pickResponse } from './lang-ask'
 import { sweepKept } from './fishid/kept'
 
 export interface Env {
@@ -179,19 +179,22 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   // language's (302), and so does a browser that prefers one of them (Accept-Language) when its reader picked none, or
   // one that asks for none of ours from Indonesia or Thailand. A browser that asks for none of ours from elsewhere gets
   // the language chooser (worker/lang-ask.ts; owner, 2026-11-06), whose links (?lang=) remember the pick as the menu
-  // does. Everyone else, crawlers included, gets the page (below).
+  // does: Indonesian and Thai by a 302 to their home, Vietnamese by this page itself (a 302 back to / would loop to the
+  // chooser where the cookie isn't kept). Everyone else, crawlers included, gets the page (below).
+  let remember: string | undefined
   if (url.pathname === '/') {
     const al = req.headers.get('accept-language')
     const country = isBot(req.headers.get('user-agent'), al) ? '' : countryOf(req)
+    // A page fetched ahead of a click (the Vietnamese pages prefetch /, Base.astro) is served but not counted.
+    const count = country && !/prefetch/i.test(req.headers.get('sec-purpose') ?? '')
     const picked = pickedLang(url)
-    if (picked) {
-      if (country) env.EVENTS?.writeDataPoint(langPoint(`/?lang=${picked}`, country))
-      return finish(pickResponse(picked, url.searchParams), env)
-    }
-    const chosen = chosenLang(req.headers.get('cookie'))
+    if (picked && count) env.EVENTS?.writeDataPoint(langPoint(`/?lang=${picked}`, country))
+    if (picked && picked !== 'vi') return finish(pickResponse(picked, url.searchParams), env)
+    if (picked) remember = langCookie(picked)
+    const chosen = picked ?? chosenLang(req.headers.get('cookie'))
     if (!chosen && !askedLang(al) && asksLang(country)) {
-      env.EVENTS?.writeDataPoint(langPoint('/', country))
-      return finish(chooserPage(), env)
+      if (count) env.EVENTS?.writeDataPoint(langPoint('/', country))
+      return finish(chooserPage(url.searchParams), env)
     }
     const lang = chosen ?? rootLang(al, country)
     if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `/${lang}/${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
@@ -237,6 +240,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (/(?:^|;\s*)skin=/.test(req.headers.get('cookie') ?? '')) extra['Set-Cookie'] = 'skin=; Path=/; Max-Age=0; SameSite=Lax; Secure'
   if (url.pathname === '/') Object.assign(extra, { Link: DISCOVERY_LINK, Vary: 'Accept, Accept-Language, Cookie' })
   const out = finish(res, env, extra)
+  if (remember) out.headers.append('Set-Cookie', remember)
   out.headers.set('Cache-Control', 'private, max-age=0, must-revalidate')
   out.headers.delete('etag')
   out.headers.delete('last-modified')

@@ -369,12 +369,20 @@ test('a browser asking for none of our languages, from a country with none of th
   expect(await home(at('/', 'GB', { ...en, 'user-agent': `${CHROME} AquaTomeCheck/1` }))).toBe(true)
   expect((await handle(at('/', 'GB', { ...en, cookie: 'aq_lang=th' }), e)).headers.get('location')).toBe('/th/')
   expect(points).toHaveLength(1)
-  // The pick: that language's home, remembered as the language menu does, counted by country.
+  // A browser fetching / ahead of a click (the Vietnamese pages prefetch it) gets the chooser, uncounted.
+  for (const purpose of ['prefetch', 'prefetch;prerender']) expect(await (await handle(at('/', 'GB', { ...en, 'sec-purpose': purpose }), e)).text()).toContain('lang="en"')
+  expect(points).toHaveLength(1)
+  // Its links keep the address's query for the page they lead to.
+  expect(await (await handle(at('/?utm_source=x&a=1', 'GB', en), e)).text()).toContain('href="/?lang=th&amp;utm_source=x&amp;a=1"')
+  points.length = 1
+  // The pick: Indonesian or Thai, that language's home; Vietnamese, the home page itself (never back to the chooser,
+  // whose test a lost cookie would fail again); remembered as the language menu does, counted by country.
   const id = await handle(at('/?lang=id&utm_source=x', 'GB', en), e)
   expect([id.status, id.headers.get('location'), id.headers.get('set-cookie')]).toEqual([302, '/id/?utm_source=x', 'aq_lang=id; Path=/; Max-Age=31536000; SameSite=Lax; Secure'])
   expect(points.at(-1)).toEqual({ blobs: ['', 'lang', '/?lang=id', '', '', 'GB'], doubles: [1], indexes: ['GB'] })
   const vi = await handle(at('/?lang=vi', 'US', en), e)
-  expect([vi.status, vi.headers.get('location'), vi.headers.get('set-cookie')?.startsWith('aq_lang=vi;')]).toEqual([302, '/', true])
+  expect([vi.status, await vi.text(), vi.headers.get('set-cookie')]).toEqual([200, PAGE, 'aq_lang=vi; Path=/; Max-Age=31536000; SameSite=Lax; Secure'])
+  expect(points.at(-1)).toEqual({ blobs: ['', 'lang', '/?lang=vi', '', '', 'US'], doubles: [1], indexes: ['US'] })
   // A crawler's pick isn't counted; a language not ours is no pick.
   await handle(at('/?lang=th', 'GB', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }), e)
   expect(points).toHaveLength(3)

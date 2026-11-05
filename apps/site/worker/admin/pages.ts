@@ -460,7 +460,7 @@ const ASKS_TITLE = 'Trang chọn ngôn ngữ'
 const ASKS_HEAD = ['Nước', 'Lần hiện', 'Chọn tiếng Việt', 'Chọn Indonesia', 'Chọn Thái']
 /** The language chooser (worker/lang-ask.ts): who saw it and what they picked, by country. */
 const asksParts = (a: LangAsks) => ({
-  lede: `Trình duyệt không hỏi tiếng Việt, Indonesia hay Thái, từ nước khác Việt Nam, Indonesia, Thái Lan, mở aquatome.com/ thì được hỏi chọn ngôn ngữ. Số lần trang hiện và lựa chọn, theo nước, ${a.days} ngày gần nhất (bỏ bot).`,
+  lede: `Trình duyệt không hỏi tiếng Việt, Indonesia hay Thái, từ nước khác Việt Nam, Indonesia, Thái Lan, mở aquatome.com/ thì được hỏi chọn ngôn ngữ. Số lần trang hiện và lựa chọn, theo nước, ${a.days} ngày gần nhất (bỏ bot và lượt trình duyệt tải trước). Người đọc đi qua trang này hiện là “(trực tiếp)” ở bảng Nguồn truy cập.`,
   rows: a.rows.map(x => ({ label: esc(x.cc || '??'), value: x.shown, cells: [fmt(x.picked.vi), fmt(x.picked.id), fmt(x.picked.th)] })) as Ranked[],
 })
 

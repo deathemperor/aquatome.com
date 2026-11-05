@@ -25,7 +25,7 @@ export const pickedLang = (url: URL): Lang | undefined => LANGS.find(l => l.lang
 /** One chooser event (Analytics Engine, the readers' dataset, type `lang`): shown (path /) or picked (the link's, /?lang=id). No session. */
 export const langPoint = (path: string, country: string) => ({ blobs: ['', 'lang', path, '', '', country], doubles: [1], indexes: [country] })
 
-const PAGE = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>AquaTome: choose a language</title><style>
+const page = (links: string) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>AquaTome: choose a language</title><style>
 :root{color-scheme:light dark;--paper:#f3eee3;--ink:#1d2a22;--soft:#4d5a52;--rule:#d9d0bd;--moss:#2f6b4f;--kicker:#a0522d}
 @media (prefers-color-scheme:dark){:root{--paper:#0b1a1e;--ink:#e6efec;--soft:#b2c6c1;--rule:#2a4a4a;--moss:#6fd6be;--kicker:#ff9b7f}}
 body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.6 system-ui,-apple-system,'Segoe UI',sans-serif}
@@ -39,19 +39,29 @@ b{display:block;font:600 1.5rem/1.3 Georgia,'Noto Serif Thai',Thonburi,serif;col
 span{color:var(--soft)}
 a:hover b,a:focus-visible b{text-decoration:underline;text-underline-offset:.2em}
 a:focus-visible{outline:2px solid var(--kicker);outline-offset:4px}
-</style></head><body><main><p class="k">AquaTome</p><h1>An aquarium handbook, not in your language yet</h1><p>Fish, aquatic plants and tank care, written in three languages so far. Pick the one you read best, and aquatome.com will open in it next time.</p><ul>${LANGS.map(l => `<li><a href="/?lang=${l.lang}" lang="${l.lang}" hreflang="${l.lang}"><b>${l.name}</b><span>${l.line}</span></a></li>`).join('')}</ul></main></body></html>`
+</style></head><body><main><p class="k">AquaTome</p><h1>An aquarium handbook, not in your language yet</h1><p>Fish, aquatic plants and tank care, written in three languages so far. Pick the one you read best, and aquatome.com will open in it next time.</p><ul>${links}</ul></main></body></html>`
 
-export const chooserPage = () => new Response(PAGE, { headers: {
-  'content-type': 'text/html; charset=utf-8', 'cache-control': 'private, no-store', vary: 'Accept-Language, Cookie', link: DISCOVERY_LINK, 'x-robots-tag': 'noindex',
-} })
+/** The chooser; its links keep the address's own query (utm_*, …) for the page they lead to. */
+export const chooserPage = (search: URLSearchParams) => {
+  const rest = new URLSearchParams(search)
+  rest.delete('lang')
+  const q = rest.size ? `&amp;${rest.toString().replace(/&/g, '&amp;')}` : ''
+  const links = LANGS.map(l => `<li><a href="/?lang=${l.lang}${q}" lang="${l.lang}" hreflang="${l.lang}"><b>${l.name}</b><span>${l.line}</span></a></li>`).join('')
+  return new Response(page(links), { headers: {
+    'content-type': 'text/html; charset=utf-8', 'cache-control': 'private, no-store', vary: 'Accept-Language, Cookie', link: DISCOVERY_LINK, 'x-robots-tag': 'noindex',
+  } })
+}
 
-/** The pick: remembered as the language menu remembers one (cookie aq_lang, LangMenu.astro), then that language's home. */
+/** The pick, remembered as the language menu remembers one (LangMenu.astro). */
+export const langCookie = (lang: Lang) => `aq_lang=${lang}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`
+
+/** An Indonesian or Thai pick: remembered, then that language's home, with the rest of the query. */
 export const pickResponse = (lang: Lang, search: URLSearchParams) => {
   const rest = new URLSearchParams(search)
   rest.delete('lang')
   const q = rest.size ? `?${rest}` : ''
   return new Response(null, { status: 302, headers: {
-    location: `${LANGS.find(l => l.lang === lang)!.home}${q}`, 'set-cookie': `aq_lang=${lang}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`,
+    location: `${LANGS.find(l => l.lang === lang)!.home}${q}`, 'set-cookie': langCookie(lang),
     'cache-control': 'private, no-store', link: DISCOVERY_LINK,
   } })
 }
