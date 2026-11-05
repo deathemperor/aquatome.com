@@ -10,6 +10,61 @@
     "indonesia",
     "ajamaru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Ajamaru lakes",
+        "Vogelkop Peninsula"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ]
+    },
+    "records": {
+      "taxonKey": 2411651,
+      "total": 38,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          37
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          130.78125,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          132.1875,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          132.1875,
+          -1.40625,
+          27,
+          27
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

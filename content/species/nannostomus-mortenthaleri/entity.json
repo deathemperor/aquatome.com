@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "peru",
-    "rio-nany"
+    "rio-nany",
+    "nanay"
   ],
   "dataCard": {
     "tempC": [
@@ -18,18 +19,57 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
       }
     ]
   },
@@ -41,10 +81,28 @@
       "html": "<p>Nannostomus mortenthaleri from Peru was the most beautiful new discovery in aquatics in 2000. The close relative of the dwarf pencil, N. marginatus, remains small – approx. 4 cm – and is breathtakingly beautiful in color in the male sex. At least sometimes.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<p>The coral red pencilfish, Nannostomus mortenthaleri, is a lebiasinid that appears endemic to the Nanay basin and Río Tigre system in Loreto, Peru. Originally described as a subspecies of N. marginatus, it is traded under names including 'red arc' and 'Peruvian red' pencilfish, and males carry bright red between the upper two dark lateral stripes. More aggressive than most congeners, it needs a spacious tank with plenty of broken lines of sight.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
       "html": "<p>Peru (Rio Nany tributary in the province of Loreto).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<p>Type locality is 'Small tributary of Rio Nanay at the village of Alvarenga, Loreto, Province of Maynas (=Iquitos), 3°31'10\"S, 74°25'40\"W, Peru', and this species appears endemic to the Nanay basin in Loreto Department, Peru, plus the Río Tigre system a little further west.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<p>Inhabits sluggish tributaries, small rivers and swampy areas, particularly in areas with dense growth of aquatic vegetation or submerged woody structures and leaf litter.</p><p>It's often found in areas of flooded forest and floodplain lakes in blackwater regions.</p><p>Typical habitats contain shallow, near still water with very little detectable hardness, low conductivity, and a pH of 4.0-6.0, with other fishes comprising small characids, other lebiasinids, and dwarf cichlids of the genus Apistogramma.</p><p>In 2010 Tom Christoffersen (NOR) and Mark Breeze (GB) collected it from several jungle stream in the Río Tigre basin. These typically had thick marginal vegetation and substrates of leaf litter and fallen branches. Water paremeters were pH 4.54-5.78, conductivity 11 µS/cm, and temperature 25.3-26.8 °C.</p><p>Other fishes in the area included Nannostomus eques, Pyrrhulina spilota, Copella sp., Crenuchus spilurus, Hemigrammus sp., Apistogramma sp. 'masken', A. sp. 'Zwilling', and A. cf. bitaeniata.</p>"
     },
     {
       "key": "aquariumSize",
@@ -53,10 +111,22 @@
       "html": "<p>A group of 10-20 specimens is recommended, kept in a larger, heavily structured aquarium (with lots of roots and dense planting).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<p>Base dimensions of at least 90 × 30 cm or equivalent (about 81 litres) are necessary if you wish to keep a mixed-sex group since males can be particularly aggressive towards one another (see 'Behaviour and Compatibility').</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
       "html": "<p>N. mortenthaleri are relatively easy to care for.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<p>Should ideally be kept in a heavily-planted set-up, preferably with a dark substrate.</p><p>The broken lines of sight that exist in such a display allow it to display natural behaviour as well as helping to reduce skittishness and offering refuges for sub-dominant individuals.</p><p>Floating plants are a useful addition as are driftwood branches and dried leaf litter, the latter in particular driving establishment of microbe colonies as decomposition occurs. Such microorganisms can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves are also thought beneficial.</p><p>Use gentle filtration; an air-powered sponge-style unit should prove adequate in most cases.</p><p>This species requires stable water conditions and should never be added to an immature aquarium.</p>"
     },
     {
       "key": "waterConditions",
@@ -65,10 +135,22 @@
       "html": "<p>They adapt well to different water parameters, although soft and slightly acidic water best corresponds to their natural conditions. The water temperature can be between 22 and 28°C.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
       "html": "<p>They will eat any standard ornamental fish food of a suitable size.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<p>A micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Moina, grindal worm, etc.</p>"
     },
     {
       "key": "behaviour",
@@ -77,19 +159,94 @@
       "html": "<p>Apart from anatomical details, N. mortenthaleri exhibits behavior that clearly differs from most Nannostomus species. Among conspecifics, it forms a distinct hierarchy or pecking order.</p><p>Dominant males display an intense red color between the dark longitudinal bands. Lower-ranking males fade and take on the coloration of females. Conversely, dominant females can develop a significant amount of red. Its behavior is therefore more similar to that of a small Malawi cichlid (Mbuna) than to that of a pencil fish. It is therefore essential to keep this species in a larger group, as otherwise, just like with Mbunas, a tyrant may develop that oppresses all conspecifics so severely that it can even lead to deaths. The gender composition is irrelevant for keeping them in a community aquarium.</p><p>They are usually peaceful towards other fish species, but caution should be exercised with closely related Nannostomus species with a similar body shape and coloration.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<p>Peaceful with other species but does not make an ideal community fish due to its small size and rather timid nature.</p><p>Ideally it should be maintained alone or at most with diminutive, non-aggressive characids and smaller callichthyid or loricariid catfishes.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank, and does not actively predate fry.</p><p>Though gregarious by nature it's a shoaling rather than schooling species with territorial rival males sparring on a regular basis during daylight hours.</p><p>It's more aggressive than the majority of congeners, and in confined quarters serious injury or even death can occur. For this reason a spacious aquarium should be used and décor arranged in such a way that plenty of broken lines-of-sight are provided.</p><p>Buy as many as possible, ideally 10 or more, as when kept in larger groups any aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
       "html": "<p>In all pencil fish, the shape of the anal fin has proven to be the most reliable sexual characteristic. Unfortunately, the differences are very slight in N. mortenthaleri. The anal fin of adult males is always slightly convex at the front edge, whereas in females it is straight. In addition, females lack the light stripe at the base of the dorsal fin. However, the most reliable way to distinguish between the sexes is by their behavior.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<p>Adult males are noticeably less stocky and far more colourful than females, plus they exhibit a white marking at the anterior dorsal-fin base from quite a young age.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-mortenthaleri-2/",
       "html": "<p>The fish will certainly spawn in a larger, heavily structured aquarium (with lots of roots and dense planting); they are open spawners over fine-leaved plants. Although there is hardly any offspring in community tanks, as the adult fish are very cannibalistic, at least you know whether there are really females in the group and can catch them specifically for breeding.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<p>Has been achieved in aquaria, albeit rarely, and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller containers should also be set up and filled with aged water. Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved aquatic plant. Neither lighting nor filtration is necessary although you can install a small air-powered sponge filter if you prefer.</p><p>When the adult fish are well-conditioned one or more pairs can then be introduced to each container. If using more than a single pair arrange the plants or mops in such a way that individual territories are created, e.g., with two pairs place spawning medium at either end of the tank with a space between.</p><p>The adults can be removed after 2-3 days and the first fry should be visible a day or two later. If using mops, an alternative method is to check them on a daily basis, removing and replacing them as you find eggs and hatching the fry elsewhere.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them. Adult patterning should develop after 8 weeks or so.</p><p>In memory of late expert fish-breeder Alan P. Vaissiere who assisted extensively with this section.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<p>This species is traded under various other names including 'red arc pencilfish', 'Peruvian red pencilfish', 'ruby red pencilfish', 'red pencilfish', and Nannostomus cf. marginatus 'red'.</p><p>It was initially described as a subspecies of N. marginatus but was raised to full species status by Weitzman and Weitzman (2003), and can be told apart from similar species by the following combination of characters: pronounced sexual dimorphism with adult males exhibiting bright red pigmentation between the central and upper (primary and secondary) dark lateral stripes, extending from the tip of the snout to caudal-fin base and including the upper part of the iris; all three dark lateral stripes strong and distinctive; central (primary) lateral stripe in males extending ventrally to posterior half of anal-fin base; last ray and posterior edge of pelvic and anal fins black; anterior part of dorsal-fin in males white at base, red at tip; adipose-fin absent; all dorsal-fin rays partially black; males with modified, thickened anal-fin rays; 2 teeth on each maxillary bone.</p><p>In live fish colour pattern is perhaps the most useful way to identify N. mortenthaleri plus the closely-related N. marginatus and N. rubrocaudatus. N. marginatus is immediately distinguished from the other two by the fact it lacks red pigmentation on the body in males, but N. mortenthaleri and N. rubrocaudatus are more easily-confused.</p><p>Males of N. rubrocaudatus can be told apart from those of N. mortenthaleri by the fact that the red pigmentation in the rear half of the body is purplish and more uniform than in N. mortenthaleri which when not breeding only displays red colouration between the primary and secondary lateral stripes.</p><p>In N. rubrocaudatus the anterior portion of the dorsal-fin is red and the distal portion hyaline, and the ventral fins are reddish proximally, hyaline distally, while in N. mortenthaleri there is a white blotch at the anterior base of the dorsal-fin and the distal part of the fin is red, and the ventral and anal fins are more-or-less entirely red.</p><p>In females of N. rubrocaudatus the interspace between primary and secondary lateral stripes is silvery with a reddish stripe below the primary dark stripe in the rear of the body and a small red patch between the primary and tertiary stripes anterior to the anal-fin, while in N. mortenthaleri the entire area between primary and secondary stripes is reddish. As in males the ventral and anal fins are reddish proximally and hyaline distally in N. rubrocaudatus, more-or-less uniformly reddish in N. mortenthaleri.</p><p>Don't worry if your fish look different when you switch on the aquarium lights after dark or in the morning as like most Nannostomus species it assumes a different colour pattern at night, in this case the entire colour pattern paling considerably although unlike in N. rubrocaudatus the dark lateral stripes remain visible. This diurnal rhythm has been show to occur in blind specimens, suggesting it's an automatic response that the fish cannot control.</p><p>The family Lebiasinidae is included in the order Characiformes and sometimes split into the nominal subfamilies Lebiasininae and Pyrrhulininae, though there has not been a major review of the grouping in recent times.</p><p>All lebiasinid genera possess a relatively long, elongate body shape with 17-33 scales in the lateral series and laterosensory canal system absent or reduced to 7 scales or less. Some species have an adipose fin while others do not, and the anal-fin has a relatively short base of 13 scales or less. In the majority of members males have an enlarged or otherwise well-developed anal-fin used in courtship and spawning. The frontal/parietal fontanelle is always absent, the cheek well-covered by the orbital and opercular bones, the supraoccipital crest is absent, and the scales of the dorsal body begin over the parietal bones.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families. This tremendous taxonomical and morphological diversity has historically impaired the ability of researchers to resolve their genetic relationships with many genera remaining incertae sedis. A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern molecular phylogenetic techniques have allowed some headway, though, and a research paper by Calcagnotto et al. published in 2005 revealed some interesting hypotheses. Their results suggest that Lebiasinidae forms a trans-atlantic, monophyletic clade alongside the families Ctenoluciidae and Hepsetidae, this clade further forming a sister group to Alestidae. Others such as Oliveira et al. (2011) have concluded that the family Erythrinidae is also closely-related to this grouping with Hepsetidae and Alestidae more distant.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "html": "<ul><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Weitzman, S. H. and J. S. Cobb (1975). A revision of the South American fishes of the genus Nannostomus Günther (family Lebiasinidae). Smithsonian Contributions to Zoology 186, i-iii + 1-36</li><li>Zarske, A. (2009). Nannostomus rubrocaudatus sp. n. - ein neuer Ziersalmler aus Peru (Teleostei: Characiformes: Lebiasinidae). Vertebrate Zoology 59(1), 11-23</li><li>Paepke, H.-J. and K. Arendt (2001). Nannostomus marginatus mortenthaleri new subspec. from Peru (Teleostei: Lebiasinidae). Verhandlungen der Gesellschaft für Ichthyologie 2001, 143-154</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fd596039055b5ff3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fd596039055b5ff3-480.webp",
+      "width": 800,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/30466abb41e97123.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/30466abb41e97123-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "caption": "Adult pair, male to right.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/316084b915474068.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/316084b915474068-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "caption": "Freshly-collected eggs.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/56a85389d78bbe78.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/56a85389d78bbe78-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-mortenthaleri",
+      "caption": "Free-swimming, aquarium-bred fry.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -114,5 +271,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-04"
 }

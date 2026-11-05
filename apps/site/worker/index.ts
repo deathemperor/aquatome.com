@@ -6,19 +6,22 @@ import { applyDecisions, listComments, moderationQueue, postComment, purgeRemove
 import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
+import { ownerApi } from './owner-api'
 import { recordSnapshot } from './admin/content'
 import { parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
 import { isViPage, withoutVi } from './paths'
 import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
-import { deleteRoute, listPhotos, photosAdmin, postPhoto } from './photos'
+import { deleteRoute, listPhotos, minePhotos, photosAdmin, postPhoto } from './photos'
 import { reportRoute } from './report'
 import { accounts, depsFor, type AccountDeps, type AccountsEnv } from './accounts/api'
 import { APP_SITE_ASSOCIATION } from './accounts/passkey'
 import { purgeExpired } from './accounts/ratelimit'
 import { wantedRoute } from './wanted'
 import { fishId, type FishIdDeps, type FishIdEnv } from './fishid/api'
+import { appEventsRoute } from './telemetry/events'
+import { appDiagnosticsRoute } from './telemetry/diagnostics'
 import { sweepKept } from './fishid/kept'
 
 export interface Env {
@@ -26,6 +29,8 @@ export interface Env {
   AB: KVNamespace
   /** Optional until Analytics Engine is enabled on the account; events are accepted and dropped without it. */
   EVENTS?: AnalyticsEngineDataset
+  /** The iOS app's events and MetricKit summaries (worker/telemetry); without it the app's routes answer 503. */
+  APP_EVENTS?: AnalyticsEngineDataset
   STAGING?: string
   /** Production host; any other host (www, the old staging domain) 301s here. */
   CANONICAL_HOST?: string
@@ -173,7 +178,14 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/api/v1/wanted' || url.pathname === '/api/v1/wanted/') return finish(await wantedRoute(req, env, new Date()), env)
   // Readers report a comment or photo (worker/report.ts): signed in or not, accounts on or off.
   if (url.pathname === '/api/v1/report') return finish(await reportRoute(req, env, new Date()), env)
-  if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps), env)
+  if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps, wait), env)
+  // A reader's own photos, sent from the app (worker/photos.ts): listed or taken back with its account's bearer.
+  if (url.pathname.startsWith('/api/v1/talk/photos/mine')) return finish(await minePhotos(req, url, env, new Date()), env)
+  // The iOS app's anonymous events and crash and performance reports (worker/telemetry): no account, no cookie.
+  if (url.pathname === '/api/v1/app/events') return finish(await appEventsRoute(req, env, new Date()), env)
+  if (url.pathname === '/api/v1/app/diagnostics') return finish(await appDiagnosticsRoute(req, env, new Date()), env)
+  // The owner's dashboard as JSON, for the iOS app (worker/owner-api.ts): the owner's app session only.
+  if (url.pathname === '/api/owner' || url.pathname.startsWith('/api/owner/')) return finish(await ownerApi(req, url, env), env)
   if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps ?? depsFor(env)), env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
@@ -210,6 +222,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
 
 /** Durable Object classes the config binds (wrangler.jsonc). */
 export { FishIdRelay } from './fishid/relay'
+export { FishIdLedger } from './fishid/ledger'
 
 export default {
   fetch: (req: Request, env: FullEnv, ctx: ExecutionContext) => handle(req, env, p => ctx.waitUntil(p)),

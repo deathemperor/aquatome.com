@@ -15,12 +15,16 @@ test("Wikidata's Thai names join a page's other names unless Latin, already ther
   await page('datnioides-pulcher', 'Datnioides pulcher', { name: 'ปลาเสือตอ', altNames: [] })
   await page('datnioides-microlepis', 'Datnioides microlepis', { name: 'ปลาเสือตออินโด', altNames: [] })
   await page('betta-splendens', 'Betta splendens')
+  // A breed page's name the species would lose to the sweep: never added.
+  await mkdir(join(root, 'content/breeds/albino-bala-shark'), { recursive: true })
+  await writeFile(join(root, 'content/breeds/albino-bala-shark/th.json'), JSON.stringify({ slug: 'albino-bala-shark', name: 'ปลาหางไหม้เผือก (Albino bala shark)', altNames: [] }))
   const urls: string[] = []
   const row = (name: string, label: string) => ({ name: { value: name }, lang: { value: 'th' }, label: { value: label } })
   const http = async (url: string) => {
     urls.push(url)
     return { results: { bindings: [
       row('Balantiocheilos melanopterus', 'ปลาฉลามหางไหม้'), row('Balantiocheilos melanopterus', 'Balantiocheilos melanopterus'), row('Balantiocheilos melanopterus', 'ปลา หางไหม้'), row('Balantiocheilos melanopterus', 'สายพันธุ์ที่นิยมของตลาด'),
+      row('Balantiocheilos melanopterus', 'ปลาหางไหม้เผือก'), row('Balantiocheilos melanopterus', 'Bala Shark'),
       // One name for two species: neither gets it. A species' Wikidata name that another page uses as its own: not added.
       row('Datnioides pulcher', 'ปลาเสือตอลายใหญ่'), row('Datnioides microlepis', 'ปลาเสือตอลายใหญ่'), row('Datnioides pulcher', 'ปลาเสือตออินโด'),
     ] } }

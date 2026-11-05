@@ -11,6 +11,7 @@ import { testD1 } from './d1'
 import { deleteUser } from '../accounts/users'
 import { KEEP_DAYS, stripJpeg, sweepKept } from '../fishid/kept'
 import { memoryR2 } from './r2'
+import { memoryLedger } from './ledger'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
@@ -70,6 +71,7 @@ function kv() {
 type Point = { blobs: string[]; doubles: number[]; indexes: string[] }
 function env(extra: Record<string, unknown> = {}) {
   const store = kv()
+  const ledger = memoryLedger()
   // Every test writes the Analytics Engine log, so a branch that throws while logging fails its own test.
   const points: Point[] = []
   const e = {
@@ -79,9 +81,10 @@ function env(extra: Record<string, unknown> = {}) {
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'site-key', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: 'tok',
     ANTHROPIC_KEYS: KEYS,
     DB: testD1(),
+    FISHID_LEDGER: ledger.ns,
     ...extra,
   } as unknown as Env
-  return { e, kv: store.m, points }
+  return { e, kv: store.m, points, ledger }
 }
 /** A data point by name, as worker/fishid/log.ts lays it out. */
 const fields = (p: Point) => {
@@ -137,7 +140,7 @@ test('the keys file: one key per line, its workspace beside it; comments, blank 
 })
 
 test('happy path: the photo goes to Claude with the workspace header for an organisation\'s key; guesses come back with the handbook\'s pages', async () => {
-  const { e, kv } = env()
+  const { e, ledger } = env()
   const fake = claude({})
   const d = deps(fake.fetch)
   const r = await run(post(), e, d)
@@ -164,8 +167,12 @@ test('happy path: the photo goes to Claude with the workspace header for an orga
   const logged = JSON.stringify(d.lines)
   for (const secret of [A, 'wrkspc_orgA', '203.0.113.7', btoa(String.fromCharCode(...JPEG))]) expect(logged).not.toContain(secret)
   expect(d.lines[0]).toMatchObject({ fishId: 'ok', in: 1500, out: 120, attempts: [{ key: await keyHash(A) }] })
-  // Counted: the reader's day and the site's, with the key's call.
-  expect(JSON.parse(kv.get(`fishid:day:${new Date().toISOString().slice(0, 10)}`)!.v)).toEqual({ calls: 1, keys: { [await keyHash(A)]: 1 }, ok: { [await keyHash(A)]: 1 } })
+  // Counted in the ledger: the reader's day and the site's, with the key's call and its cost at list price (1,500 in and
+  // 120 out on Opus 5.5); the run settled, its reservation given back.
+  const day = ledger.day()!
+  expect(day).toMatchObject({ calls: 1, keys: { [await keyHash(A)]: 1 }, ok: { [await keyHash(A)]: 1 }, runs: {}, refunds: {} })
+  expect(Object.values(day.readers)).toEqual([1])
+  expect(day.usd).toBeCloseTo(0.0084, 10)
 })
 
 test('a fish Claude is fairly sure of with no page counts as a reader\'s request; a matched, unsure or owner\'s one does not', async () => {
@@ -342,7 +349,7 @@ test('rotation: overloaded tries the next key without setting the first aside; a
 })
 
 test('every key set aside: no call, the tool rests (GET says so too); keys found dead in one request rest it as well', async () => {
-  const { e, kv } = env()
+  const { e, kv, ledger } = env()
   const until = Date.now() + 3_600_000
   for (const k of [A, B, C]) kv.set(`fishid:key:${await keyHash(k)}`, { v: JSON.stringify({ until, why: 'credit' }) })
   const fake = claude({})
@@ -352,7 +359,7 @@ test('every key set aside: no call, the tool rests (GET says so too); keys found
   expect(fake.calls).toHaveLength(0)
   expect(await (await run(new Request('https://x.test/api/fish-id'), e, deps(fake.fetch))).json()).toEqual({ on: true, sitekey: 'site-key', resting: true, perIp: 10, perAccount: 10 })
   // Resting isn't a reader's use: nothing counted.
-  expect([...kv.keys()].some(k => k.startsWith('fishid:ip:'))).toBe(false)
+  expect(ledger.day()?.readers ?? {}).toEqual({})
   // A mark whose time is past is no mark.
   kv.set(`fishid:key:${await keyHash(C)}`, { v: JSON.stringify({ until: Date.now() - 1, why: 'rate' }) })
   expect((await run(post(), e, deps(fake.fetch))).status).toBe(200)
@@ -382,7 +389,7 @@ test('limits: a reader\'s 11th of the day and the site\'s day are refused before
 
 test('the app: its live session stands in for Origin and Turnstile, and its day is counted per account, not per address', async () => {
   const db = testD1()
-  const { e, kv } = env({ DB: db, FISH_ID_PER_ACCOUNT: '2' })
+  const { e, ledger } = env({ DB: db, FISH_ID_PER_ACCOUNT: '2' })
   const fake = claude({})
   let verified = 0
   const d = deps(fake.fetch, { siteverify: async () => { verified++; return true } })
@@ -392,11 +399,11 @@ test('the app: its live session stands in for Origin and Turnstile, and its day 
   expect(await r.json()).toMatchObject({ verdict: 'fish', model: 'claude-opus-5-5' })
   expect(verified).toBe(0)
   // Counted under the account (by HMAC, never its id), and not under the address.
-  const keys = () => [...kv.keys()]
-  expect(keys().filter(k => k.startsWith('fishid:acct:'))).toHaveLength(1)
-  expect(keys().filter(k => k.startsWith('fishid:ip:'))).toEqual([])
-  expect(keys().join(' ')).not.toContain(me.id)
-  expect(kv.get(keys().find(k => k.startsWith('fishid:acct:'))!)).toEqual({ v: '1', ttl: 86_400 })
+  const readers = ledger.day()!.readers
+  expect(Object.keys(readers).filter(k => k.startsWith('fishid:acct:'))).toHaveLength(1)
+  expect(Object.keys(readers).filter(k => k.startsWith('fishid:ip:'))).toEqual([])
+  expect(JSON.stringify(ledger.day())).not.toContain(me.id)
+  expect(Object.values(readers)).toEqual([1])
   // The same form the page sends works too, without its token.
   expect((await run(post(undefined, { lang: 'vi' }, { authorization: `Bearer ${me.token}`, origin: '' }), e, d)).status).toBe(200)
   const third = await run(appPost(me.token), e, d)

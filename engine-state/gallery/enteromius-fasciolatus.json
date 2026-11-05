@@ -14,11 +14,15 @@
   "inat:53277221",
   "inat:53277278",
   "inat:53277517",
-  "inat:53277605"
+  "inat:53277605",
+  "gbif:1265259207:51137b00118134f7",
+  "gbif:1265259233:a0f4bc85067e0949"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/9ebdb7cf38c8548c.webp": "0f5b133943c1c10e",
-  "https://media.aquatome.com/commons/c4698a207a076cfe.webp": "f7e7e3e2b0b0f2f0"
+  "https://media.aquatome.com/commons/c4698a207a076cfe.webp": "f7e7e3e2b0b0f2f0",
+  "https://api.gbif.org/v1/image/cache/fit-in/1200x/occurrence/1265259207/media/bb7505b8b4367a4a51137b00118134f7": "0f0f0767c3470f0f",
+  "https://api.gbif.org/v1/image/cache/fit-in/1200x/occurrence/1265259233/media/3cd2e5aa9f3be2e6a0f4bc85067e0949": "240c1c4c351bd1a3"
  },
  "commons": "2026-11-02",
  "inat": {
@@ -28,5 +32,9 @@
    "research": 33891974,
    "agree": 97772138
   }
+ },
+ "gbif": {
+  "key": 9422307,
+  "next": null
  }
 }

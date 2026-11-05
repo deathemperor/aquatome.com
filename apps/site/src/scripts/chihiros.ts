@@ -33,6 +33,12 @@ export const SUPPORTED = MODELS.map(([, m]) => m.name)
 const BY_PREFIX = MODELS.flatMap(([ps, m]) => ps.map(p => [p, m] as const)).sort((a, b) => b[0].length - a[0].length)
 /** The model a light's Bluetooth name belongs to (longest prefix: DYNA2N before DYNA2 before DYA), if supported. */
 export const modelOf = (name: string): Model | undefined => BY_PREFIX.find(([p]) => name.startsWith(p))?.[1]
+/**
+ * A saved light this page drives: a Chihiros. A tank also keeps lights of other makers (the app's Week Aqua), which
+ * this page can't connect to, so it neither lists nor forgets them. A light kept without a maker counts by its name.
+ */
+export const isChihiros = (d: { kind: string; brand?: string; bleName?: string }) =>
+  d.kind === 'light' && (d.brand ? d.brand === 'chihiros' : !!d.bleName && !!modelOf(d.bleName))
 /** Names the browser's device picker lists: every Chihiros light starts with "DY". */
 export const NAME_PREFIX = 'DY'
 

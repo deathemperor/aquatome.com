@@ -1,11 +1,14 @@
 import XCTest
 
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
-/// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant
-/// and a guide, in light and in dark, the fish's top at a large text size, and a guide's video playing in its page (the
-/// stand-in player); photos as stand-ins (`-fixed-pictures`). And a search's results under the kinds it finds, light and
-/// dark, at the default and the largest text size. Each checks only that its screen opened: what it shows, the other flows
-/// check.
+/// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
+/// a guide and a video series, in light, the fish in dark too, the fish's top at a large text size, and a guide's video
+/// playing in its page (the stand-in player); photos as stand-ins (`-fixed-pictures`). Also the ways to sign in, in
+/// light and in dark, where they first show: the tanks tab on a new phone. And a search's results under the kinds it
+/// finds, light and dark, at the default and the largest text size, with more found than listed, and with a kind picked
+/// that it finds none of, at both sizes; the app's icon picker; and the lights tab's card for the fake light, its clock
+/// lost, warning of its outlet's timer on the stand-in Tuya cloud. Each checks only that its screen opened: what it
+/// shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -14,12 +17,69 @@ final class PageShotsFlowTests: XCTestCase {
   func testAFishInLargeText() { shoot("fish-large", "ca neon", "Cá neon", large: true, screens: 3) }
   func testAPlant() { shoot("plant-light", "rotala", "Rotala đỏ") }
   func testAGuide() { shoot("guide-light", "nuoi ca neon", "Nuôi cá neon trong bể nhỏ") }
+  func testAVideoSeries() { shoot("series-light", "reu hai tu a", "Rêu hại từ A đến Z") }
   func testASearch() { shootSearch("search-light") }
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+  func testTheAppIcons() { shootIcons("icons-light") }
+  func testTheAppIconsInTheDark() { shootIcons("icons-dark", dark: true) }
+  func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
+  func testSigningIn() { shootSignIn("sign-in-light") }
+  func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
+
+  // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
+  func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
+  func testAKindASearchFindsNoneOf() { shootSearch("search-none-of-kind-light", typing: "do", then: noneOfPlants) }
+  func testAKindASearchFindsNoneOfInTheLargestText() {
+    shootSearch("search-none-of-kind-largest-light", size: largest, typing: "do", then: noneOfPlants)
+  }
+
+  /// "Cây" picked, then a letter more that finds no plant: there once it says so, with its way back to every kind.
+  private func noneOfPlants(_ app: XCUIApplication) -> XCUIElement {
+    app.buttons["kind-plant"].tap()
+    app.searchFields.firstMatch.typeText("n\n")
+    return app.buttons["see-all"]
+  }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
+
+  /// "Bể của tôi" on a new phone, signed out, with each way to sign in the stand-in server offers: the screen as it
+  /// opens, then scrolled to its end, where every sign-in button is in view.
+  private func shootSignIn(_ name: String, dark: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
+                           "-reset-fake-server"] + (dark ? ["-dark"] : [])
+    app.launch()
+    app.openTab("Bể của tôi")
+    XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].waitForExistence(timeout: 5), "no sign-in")
+    for n in 1...2 {
+      if n == 2 { app.swipeUp(); app.swipeUp() }
+      settle()
+      let shot = XCUIScreen.main.screenshot()
+      XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
+      let a = XCTAttachment(screenshot: shot)
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+  }
+
+  /// The app's icon picker (`-app-icons` opens it until its Tài khoản row is in): its top, and a screen further down.
+  private func shootIcons(_ name: String, dark: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-app-icons"] + (dark ? ["-dark"] : [])
+    app.launch()
+    XCTAssertTrue(app.buttons["app-icon-default"].waitForExistence(timeout: 10), "the picker didn't open")
+    for n in 1...2 {
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+      app.swipeUp(velocity: .slow)
+    }
+  }
 
   func testAVideoPlaying() {
     shoot("video-playing", "han che reu", "Cách hạn chế rêu hại") { app in
@@ -68,13 +128,16 @@ final class PageShotsFlowTests: XCTestCase {
   }
 
   /// The results of a search that finds most kinds, under its chips, the keyboard put away: one screen.
-  private func shootSearch(_ name: String, dark: Bool = false, size: String? = nil) {
-    let app = launch(dark: dark, size: size)
+  /// `then`, after typing, gives what shows once the screen is there: a result row unless it says otherwise.
+  private func shootSearch(_ name: String, dark: Bool = false, size: String? = nil, more: [String] = [], typing query: String = "ca\n",
+                           then: ((XCUIApplication) -> XCUIElement)? = nil) {
+    let app = launch(dark: dark, size: size, more)
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
-    field.typeText("ca\n")
-    XCTAssertTrue(app.descendants(matching: .any)["item"].firstMatch.waitForExistence(timeout: 5), "no results")
+    field.typeText(query)
+    let there = then?(app) ?? app.descendants(matching: .any)["item"].firstMatch
+    XCTAssertTrue(there.waitForExistence(timeout: 5), "\(name): not there")
     settle()
     let shot = XCUIScreen.main.screenshot()
     XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
@@ -84,12 +147,35 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
-  private func launch(dark: Bool, size: String?) -> XCUIApplication {
+  /// The fake light connected on the Đèn tab, its clock lost in a cut, on a tank with the stand-in strip whose outlet
+  /// "Đèn" Smart Life turns off every night: the outlet picked and its warning shown. One screen.
+  private func shootLightCard(_ name: String) {
+    let app = launch(dark: false, size: nil, ["-seed-tanks", "plug", "-seed-tuya-keys", "-stand-in-timer", "enabled", "-fake-clock-unset"])
+    app.openTab("Đèn")
+    app.buttons["scan"].tap()
+    let light = app.buttons["light"].firstMatch
+    XCTAssertTrue(light.waitForExistence(timeout: 5), "no light found")
+    light.tap()
+    let pick = app.descendants(matching: .any)["pick-outlet"].firstMatch
+    XCTAssertTrue(pick.waitForExistence(timeout: 10), "no outlet to pick")
+    pick.tap()
+    let item = app.buttons["Đèn · Ổ cắm bể 60 (gợi ý)"].firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "the outlet isn't offered")
+    item.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["outlet-warning"].waitForExistence(timeout: 10), "no warning")
+    settle()
+    let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    a.name = "shot-\(name)-01"
+    a.lifetime = .keepAlways
+    add(a)
+  }
+
+  private func launch(dark: Bool, size: String?, _ more: [String] = []) -> XCUIApplication {
     let app = XCUIApplication()
     // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
-      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+      + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? []) + more
     app.launch()
     return app
   }
@@ -135,5 +221,50 @@ final class PageShotsFlowTests: XCTestCase {
   private func settle() {
     let until = Date().addingTimeInterval(0.8)
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
+  }
+
+  // The photo viewer over the fish's gallery, black whatever the phone's appearance: so its light, dark and large-text
+  // shots differ in the page they open over and in the words' size.
+  func testTheGalleryViewer() { shootViewer("viewer-light") }
+  func testTheGalleryViewerInTheDark() { shootViewer("viewer-dark", dark: true) }
+  func testTheGalleryViewerInLargeText() { shootViewer("viewer-large", large: true) }
+
+  /// The viewer on Cá neon's first photo, its full photo come: as it opens, then with its bar and words hidden by a tap.
+  private func shootViewer(_ name: String, dark: Bool = false, large: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
+      + (dark ? ["-dark"] : [])
+      + (large ? ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"] : [])
+    app.launch()
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("ca neon")
+    let item = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no Cá neon")
+    item.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "Cá neon isn't drawn by the app")
+    // The page under it in the appearance asked for.
+    let page = lightness(XCUIScreen.main.screenshot().image)
+    XCTAssertEqual(page < 0.5, dark, "\(name)'s page isn't \(dark ? "dark" : "light"): \(page)")
+    let photo = app.buttons["Đàn cá neon trong bể"].firstMatch
+    for _ in 0..<24 where !(photo.exists && photo.isHittable) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
+               thenHoldForDuration: 0.1)
+    }
+    photo.tap()
+    let shown = app.descendants(matching: .any)["picture-shown"]
+    XCTAssertTrue(shown.waitForExistence(timeout: 5), "no viewer")
+    XCTAssertTrue(XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == 'full'"), object: shown)], timeout: 5)
+      == .completed, "the full photo didn't come")
+    for (n, tap) in [(1, false), (2, true)] {
+      if tap { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45)).tap() }
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
   }
 }

@@ -129,7 +129,7 @@ const act = (e: Env, cookie: string, fields: Record<string, string>) =>
 
 // The owner looks at a waiting photo before the moderation pass does: its upload, from the private bucket, to the owner
 // signed in on the web and to nobody else (the dashboard token included), never stored, and only while it waits.
-test('/_ab/anh/<id> serves a waiting photo\'s upload to the owner alone, and only while it waits', async () => {
+test('/_ab/anh/<id> serves a waiting photo\'s upload to the owner alone (the page\'s cookie or the app\'s session), and only while it waits', async () => {
   const { e, db } = env()
   const { owner, reader, app } = await signedIn(db)
   const id = await sent(e, new File([PNG], 'a.png'))
@@ -139,8 +139,10 @@ test('/_ab/anh/<id> serves a waiting photo\'s upload to the owner alone, and onl
   expect(r.status).toBe(200)
   expect([r.headers.get('content-type'), r.headers.get('cache-control')]).toEqual(['image/png', 'private, no-store'])
   expect(new Uint8Array(await r.arrayBuffer())).toEqual(PNG)
-  // Nobody signed in, a reader, the owner's app session, the dashboard token (alone and over the owner's cookie).
-  for (const h of [{}, { cookie: reader }, { authorization: `Bearer ${app}` }, { authorization: 'Bearer tok' }, { authorization: 'Bearer tok', cookie: owner }] as Record<string, string>[]) {
+  // The owner's app shows it too (owner-api.ts): its session as a bearer.
+  expect(new Uint8Array(await (await get({ authorization: `Bearer ${app}` })).arrayBuffer())).toEqual(PNG)
+  // Nobody signed in, a reader, the dashboard token (alone and over the owner's cookie).
+  for (const h of [{}, { cookie: reader }, { authorization: 'Bearer tok' }, { authorization: 'Bearer tok', cookie: owner }] as Record<string, string>[]) {
     expect((await get(h)).status, JSON.stringify(h)).toBe(404)
   }
   expect((await get({ cookie: owner }, `/_ab/anh/${id}`, 'POST')).status).toBe(404)
@@ -151,6 +153,7 @@ test('/_ab/anh/<id> serves a waiting photo\'s upload to the owner alone, and onl
   expect(await publish(e, id)).toEqual({ applied: 1, ignored: 0 })
   await e.UPLOADS!.put(`pending/${id}`, PNG)
   expect((await get({ cookie: owner })).status).toBe(404)
+  expect((await get({ authorization: `Bearer ${app}` })).status).toBe(404)
   // Removed: the same.
   const gone = await sent(e)
   expect((await act(e, owner, { id: gone })).status).toBe(303)
@@ -228,4 +231,17 @@ test('the page shows each waiting photo, tap to enlarge, with Duyệt and Gỡ; 
   expect(published).toMatch(/<button[^>]*name="action" value="remove"[^>]*>Gỡ<\/button>/)
   expect(published).not.toContain('value="approve"')
   expect(published).toContain('&lt;i&gt;y&lt;/i&gt;')
+})
+
+test('a photo moderation moved says, under the page it shows on, the page it was sent for; one that waits again too; the others say nothing', () => {
+  const [a, b, c] = [crypto.randomUUID(), crypto.randomUUID(), crypto.randomUUID()]
+  const html = photosPage([
+    { id: a, entity_ref: 'species:carassius-auratus', moved_from: 'species:<x>', name: 'Lộc', thumb: `https://media.aquatome.com/readers/${a}-480.webp`, created_at: '2026-11-04T02:40:00Z' },
+    { id: b, entity_ref: 'species:betta-splendens', moved_from: null, name: 'Lộc', thumb: `https://media.aquatome.com/readers/${b}-480.webp`, created_at: '2026-11-04T02:30:00Z' },
+  ], [{ id: c, entity_ref: 'species:carassius-auratus', moved_from: 'species:paracheirodon-innesi', name: 'Lộc', created_at: '2026-11-04T03:00:00Z', ownerOk: false }])
+  const row = (id: string) => html.split('<tr').find(r => r.includes(`value="${id}"`))!
+  expect(row(a)).toContain('species:carassius-auratus<br><span class="muted">Kiểm duyệt chuyển từ species:&lt;x&gt;</span>')
+  expect(html).not.toContain('species:<x>')
+  expect(row(b)).not.toContain('chuyển từ')
+  expect(row(c)).toContain('Kiểm duyệt chuyển từ species:paracheirodon-innesi')
 })

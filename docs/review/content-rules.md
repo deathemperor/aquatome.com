@@ -5,7 +5,7 @@ Indonesian and Thai (`packages/engine/src/content-rules.ts`, docs/governance.md)
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 3378 (Vietnamese 2327, Indonesian 529, Thai 522). Imperial units
+Pages checked: 3575 (Vietnamese 2380, Indonesian 601, Thai 594). Imperial units
 beside a metric figure: feet 2, gallon 7.
 
 ## Numbered headings broken or miscounted (1)
@@ -50,10 +50,11 @@ Labels such as "Sai lầm 1", "Mẹo 2", "Bước 3" whose numbers neither count
 
 - none
 
-## Text that reports what "the page" says (3)
+## Text that reports what "the page" says (4)
 
 "Trang lưu ý…", "Trang cũng nêu…" (and the Indonesian and Thai): the translator writing what the source page says instead of saying it. The reader's writer rewrites it on Vietnamese pages, kept only when its reviewer passes it; listed otherwise.
 
+- [th · มายาก้า](https://aquatome.com/th/plants/mayaca-fluviatilis/) — "ถิ่นกำเนิด: อเมริกาเหนือ (ข้อมูลไม้น้ำในหน้านี้ระบุว่าอเมริกาเหนือ แต่ในคำอธิบา…"
 - [vi · Cá bảy màu Full Red (Full Red Guppy)](https://aquatome.com/ca/ca-bay-mau-full-red/) — "Cũng trang này lưu ý rằng nuôi dòng albino khép kín trong một nhóm dễ gây suy t…"
 - [vi · Cá lau kiếng bristlenose](https://aquatome.com/ca/ca-lau-kieng-bristlenose/) — "Trang cũng nêu kích thước bể tối thiểu là 150 lít; bể 75 lít có thể nuôi hai co…"; "Trang lưu ý rằng chúng không thực sự làm sạch bể: chúng ăn tảo trên kính nhưng…"
 - [vi · Bể cá bị nóng mùa hè: cách hạ nhiệt an toàn và giữ bể mát](https://aquatome.com/huong-dan/be-ca-bi-nong-mua-he/) — "Trang này cũng khuyên tăng sủi hoặc tăng dòng chảy mặt nước, nhất là vào ban đê…"
@@ -94,7 +95,7 @@ A species or plant photo whose caption names another species the site has a page
 
 - none
 
-## A photo caption that may name another fish (22)
+## A photo caption that may name another fish (21)
 
 A caption naming a Latin name in a genus the site has, that no page has, or another page's species with words saying the fish may still be the page's ("in a batch of", "here with"). Listed, not removed: `pnpm engine check-photos --only <id>` looks again. Checked on the Vietnamese page.
 
@@ -111,7 +112,6 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 - [vi · Cá chạch lá guntea](https://aquatome.com/ca/ca-heo-guntea/) — Garra flavatra: "...and are peaceful with other species. Here with Garra flavatra."
 - [vi · Cá hoplias aimara](https://aquatome.com/ca/ca-hoplias-aimara/) — Hoplias macropthalmus: "Hoplias macropthalmus in a pet shop"
 - [vi · Cá killifish Bouala lyretail](https://aquatome.com/ca/ca-killifish-bouala-lyretail/) — Aphyosemion elberti: "Male Aphyosemion elberti "Red T", a West African Killifish from Cameroon. This…"
-- [vi · Cá hoàng đế mad barb](https://aquatome.com/ca/ca-ngheo/) — Barbonymus schwanenfeldii: "Barbonymus schwanenfeldii"
 - [vi · Cá nheo Synodontis frontosus](https://aquatome.com/ca/ca-nheo-synodontis-frontosus/) — Synodontis caudovittatus: "Synodontis caudovittatus"
 - [vi · Cá ăn đất đầu nhọn](https://aquatome.com/ca/ca-satanopera-acuticeps/) — Satanoperca daemon: "Threespot Eartheater (Satanoperca daemon)"
 - [vi · Cá trê nói chuyện cẩm thạch](https://aquatome.com/ca/ca-tre-noi-chuyen-cam-thach/) — Platydoras hancockii: "This species is often traded as A. hancockii, a name currently regarded synonym…"

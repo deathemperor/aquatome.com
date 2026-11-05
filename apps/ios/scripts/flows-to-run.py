@@ -2,7 +2,7 @@
 """Which simulator flows each flow job of ios.yml runs (`app`, and `handbook` and `lights` in two halves each), as
 xcodebuild's -only-testing and -skip-testing arguments.
 
-`--full`: every flow, as main runs them (after each merge, nightly and by hand) and a pull request labelled `ios-full`.
+`--full`: every flow, as main runs them (after merges, nightly and by hand) and a pull request labelled `ios-full`.
 Otherwise the changed paths of a pull request come on stdin, one a line: it runs the smoke set (SMOKE, a few flows
 across the app's main journeys, in job `app`) and the flows its change can reach (REACH): a whole class in its own job,
 a few of a class's tests in `app`, beside the smoke set, so they add no build. Prints `app=`,
@@ -73,11 +73,18 @@ HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testL
 PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
          'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'VideoFlowTests']
-# The light flows that start from a tank or keep a light on one.
+# The app's icon picker: its flows, and its screenshots (the whole class, run by `handbook (1)`, which keeps them).
+ICONS = ['AppIconFlowTests', 'PageShotsFlowTests']
+# The light flows of the outlet a light is plugged into, on the stand-in Tuya cloud: its timers read, the pick taken
+# back, and a light said not to be on one.
+LIGHT_OUTLET = ['LightFlowTests/' + t for t in (
+    'testWarnsWhenTheLightsOutletHasATimerThatCutsItsPower', 'testTakingTheOutletBackAsksAgainAndDropsTheWarning',
+    'testALightNotOnASmartPlugIsAskedNoMoreOnThisPhone')]
+# The light flows that start from a tank or keep a light on one (the outlet it's plugged into, too).
 LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testKeepsTheLightAndWhatWasWrittenOnATank', 'testALightOnATankOpensOnTheLightsTabAndConnects',
     'testALightOnATankOpensTheConnectedLightAsItIs',
-    'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten')]
+    'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten')] + LIGHT_OUTLET
 REACH = {
     # The app's start (it routes a page's links to the tabs, wires a tank's wanted names and pages, sends the lights back
     # to their schedule when the app leaves, syncs the account), and what selects and runs the flows: every flow, as
@@ -87,6 +94,8 @@ REACH = {
     'apps/ios/scripts/shots.py': ALL,
     # What every screen sits in, or builds the app and its flows: the smoke set.
     APP + 'OwnCopy.swift': [], APP + 'Assets.xcassets/': [], 'apps/ios/AquaTome.xcodeproj/': [], 'apps/ios/Config/': [],
+    # The icons a reader chooses: the picker, the icon sets and their previews (app-icons.py writes them).
+    APP + 'AppIcon/': ICONS, APP + 'Assets.xcassets/AppIcon': ICONS, 'apps/ios/scripts/app-icons.py': NONE,
     KIT + 'Package.swift': [], f'apps/ios/{UI}/': [],
     # The Bluetooth module is built into the app, but the simulator has none: FakeRadio stands in for it in every flow.
     KIT + 'Sources/ChihirosBLE/': [],
@@ -120,7 +129,10 @@ REACH = {
     APP + 'Tanks/TankForm.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     APP + 'Tanks/CappedField.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     APP + 'Lights/': ['LightFlowTests'],
-    APP + 'Plugs/': ['PlugFlowTests'],
+    # The light's card, which the page shots also take (with its outlet's warning), for a change's before and after.
+    APP + 'Lights/LightsView.swift': ['LightFlowTests', 'PageShotsFlowTests'],
+    APP + 'Lights/LightOutlet.swift': ['LightFlowTests', 'PageShotsFlowTests'],
+    APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests'],
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name).
     APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests'],
@@ -130,7 +142,7 @@ REACH = {
     KIT + 'Sources/Tanks/': ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests',
                              'PlugFlowTests', 'HandbookFlowTests/testFiltersTheFishToMyTank'] + LIGHTS_ON_TANKS,
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests'],
-    KIT + 'Sources/Plugs/': ['PlugFlowTests'],
+    KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     KIT + 'Sources/Chihiros/': ['LightFlowTests'],
     # A Mac command line, not in the app: job `kit` builds it.
     KIT + 'Sources/light-harness/': NONE,
@@ -262,11 +274,14 @@ def test():
     got = runs([f'apps/ios/{UI}/AFishIDFlowTests.swift'])  # a new class: in `app`
     assert got == {'app': ['AFishIDFlowTests'] + SMOKE}, got
     # The lights: both halves as main splits them, and the smoke set's light flow among them, not in `app`.
-    got = runs([APP + 'Lights/LightsView.swift'])
+    got = runs([APP + 'Lights/Radio.swift'])
     assert got['app'] == [t for t in SMOKE if not t.startswith('Light')], got
     assert got['lights_1'] == ['LightFlowTests/' + t for t in LIGHT_FIRST], got
-    assert pick([APP + 'Lights/LightsView.swift'])[2]['2'] == everything['lights']['2']
+    assert pick([APP + 'Lights/Radio.swift'])[2]['2'] == everything['lights']['2']
     assert runs([KIT + 'Sources/Chihiros/Frames.swift']) == got
+    # The light's card: its flows, and the page shots (which take it) in the handbook's first half.
+    for card in ('LightsView.swift', 'LightOutlet.swift'):
+        assert runs([APP + 'Lights/' + card]) == dict(got, handbook_1=['PageShotsFlowTests']), card
     # The handbook's screens: its halves as main splits them, and the flows from a page in `app`.
     got = runs([APP + 'Handbook/HomeList.swift'])
     assert got['handbook_1'] == sorted(set(HANDBOOK_FIRST) - {'TankCheckFlowTests'}), got
@@ -307,8 +322,9 @@ def test():
     for paths in ([APP + 'FishID/FishIDView.swift'], [APP + 'Telemetry.swift'], [KIT + 'Sources/FishID/Model.swift'],
                   ['apps/ios/Gemfile'], [], [APP + 'Handbook/HomeList.swift', APP + 'FishID/FishIDView.swift']):
         assert is_full(paths), paths
-    # A new file in a folder that has a rule takes that folder's flows.
-    assert runs([KIT + 'Sources/Plugs/NewSource.swift']) == {'app': ['PlugFlowTests'] + SMOKE}
+    # A new file in a folder that has a rule takes that folder's flows: the plugs', and the light's outlet's.
+    assert runs([KIT + 'Sources/Plugs/NewSource.swift']) == {'app': ['PlugFlowTests'] + sorted(LIGHT_OUTLET) + SMOKE}
+    assert runs([APP + 'Plugs/PlugsModel.swift']) == runs([KIT + 'Sources/Plugs/NewSource.swift'])
     # The full suite: both halves of each.
     assert everything['handbook']['halves'] == everything['lights']['halves'] == '[1, 2]'
 

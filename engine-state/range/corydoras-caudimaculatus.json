@@ -1,0 +1,85 @@
+{
+  "id": "corydoras-caudimaculatus",
+  "native": {
+    "input": "8a30e09f1e3b8770",
+    "at": "2026-11-05T00:41:00.281Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "From the Brazilian state of Mato Grosso, more precisely from the upper Rio Guaporé.",
+        "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Guaporé drainage in western Brazil and northeastern Bolivia, where the river is known as the Iténez.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Guaporé drainage in western Brazil and northeastern Bolivia, where the river is known as the Iténez.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Guaporé",
+        "source": "glaser",
+        "quote": "From the Brazilian state of Mato Grosso, more precisely from the upper Rio Guaporé.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Guaporé",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Guaporé drainage in western Brazil and northeastern Bolivia, where the river is known as the Iténez.",
+        "ok": true
+      },
+      {
+        "name": "Iténez",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Guaporé drainage in western Brazil and northeastern Bolivia, where the river is known as the Iténez.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras caudimaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342647,
+    "datasets": [
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

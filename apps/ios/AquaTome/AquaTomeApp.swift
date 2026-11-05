@@ -75,6 +75,7 @@ struct AquaTomeApp: App {
       .onChange(of: phase) { if phase == .background { lights.leave() } else if phase == .active { lights.returned() } }
       // The page shots' dark run (PageShotsFlowTests): the runner's own appearance setting doesn't reach the app.
       .preferredColorScheme(Self.testScheme)
+      .appIconsForTests()
     }
   }
 
@@ -108,7 +109,7 @@ struct AquaTomeApp: App {
 
   /// aquatome.com's accounts, and where readers' demand for pages goes (Wanted). A debug build on the simulator (every UI
   /// and performance test) never reaches it: it gets one stand-in server in the app for both (accounts off unless
-  /// `-fake-accounts on`), a stand-in Apple sheet and Turnstile check, as it gets a fake light; `-real-accounts` to try
+  /// `-fake-accounts on`), a stand-in Apple sheet, Google page and Turnstile check, as it gets a fake light; `-real-accounts` to try
   /// the real server from the simulator.
   @MainActor
   private static func server(_ tanks: TanksModel) -> (AccountModel, Wanted) {
@@ -117,7 +118,7 @@ struct AquaTomeApp: App {
     if !args.contains("-real-accounts") {
       let fake = FakeServer(args)
       let send: Send = { try await fake.send($0) }
-      return (AccountModel(tanks: tanks, api: AccountsClient(send: send), apple: FakeAppleSignIn(), passkey: FakePasskeySignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true),
+      return (AccountModel(tanks: tanks, api: AccountsClient(send: send), apple: FakeAppleSignIn(), google: FakeGoogleSignIn(args), passkey: FakePasskeySignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true),
               Wanted(send: send, ours: { OwnCopy.isOurs }))
     }
     #endif

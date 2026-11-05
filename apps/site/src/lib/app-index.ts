@@ -7,6 +7,7 @@ import { smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
+import { appRange, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
 import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES, RANKS, TAXON_INTRO } from './taxa-places'
 import { seriesGuides } from './video'
 
@@ -60,6 +61,8 @@ export type AppItem = {
    * when no source states it; breeds have none.
    */
   lifeYears?: Range
+  /** Where a species lives in the wild and its wild records (lib/range.ts, protocols/range-vectors.json); breeds have none. */
+  range?: AppRange
 } & Partial<Facts>
 /**
  * A species' figures and behaviour (fish), named as the tank-mates tool names them (SpeciesIndexItem), so the app checks
@@ -81,6 +84,8 @@ export type AppIndex = {
   pages?: Partial<Record<PageDoc['kind'], number>>
   /** Every kind's shard count (`n`, as `pages` gives it) and the level an app must know to draw that kind itself. */
   shards?: Partial<Record<PageDoc['kind'], KindShards>>
+  /** The countries the items' `range` names (native, and outside), by code, A to Z, named in this language. None when none does. */
+  countries?: Record<string, AppCountry>
 }
 /**
  * The guides the index lists in this language, and the app has pages of (lib/app-page.ts): every one the site lists (the
@@ -168,12 +173,13 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   }
   // The places with a page, as the origin pages list them (pages/nguon-goc/[...path].astro): the continents, and the
   // countries under one. A species is on those it names itself (lib/list-data.ts speciesLists).
-  const origins = served(lang, '/vi/nguon-goc/x/') ? c.places.filter(p => p.kind === 'continent' || (p.kind === 'country' && p.parent)) : []
+  const origins = originPages(lang, c)
   const paged = new Set(origins.map(p => p.id))
   const places: AppPlace[] = origins.map(p => {
     const kids = p.kind === 'country' ? c.places.filter(x => x.parent === p.id).map(x => x.t.name) : []
     return { id: p.id, name: p.t.name, kind: p.kind as AppPlace['kind'], ...(p.parent ? { parent: p.parent } : {}), ...(kids.length ? { kids } : {}) }
   })
+  const regionName = regionNames(c.places)
   const taxa = served(lang, '/vi/phan-loai/x/')
   if (served(lang, '/vi/ca/x/')) {
     // A group the site has no word for (a handful of fish) is "Loài khác", as the app shows it.
@@ -187,7 +193,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const lifeYears = life === undefined ? undefined : typeof life === 'number' ? { min: life, max: life } : life
       items.push(clean({
         kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), group: groupOf.get(s.id),
-        tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, ...facts,
+        tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, range: appRange(s.range, regionName), ...facts,
       }))
     }
     // Every breed, as the fish list shows them.
@@ -230,7 +236,9 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   for (const [k, n] of [['fish', 8], ['plants', 6], ['guides', 8]] as const) home[k] = home[k].filter(p => paths.has(p)).slice(0, n)
   const groups = new Set(items.map(i => i.group))
   home.groups = home.groups.filter(g => groups.has(g.id))
-  return { version: 1, lang, items, home, labels, places }
+  const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
+  const nameOf = countryNames(lang, c.places, paged)
+  return { version: 1, lang, items, home, labels, places, ...(codes.length ? { countries: Object.fromEntries(codes.map(code => [code, nameOf(code)])) } : {}) }
 }
 
 /**

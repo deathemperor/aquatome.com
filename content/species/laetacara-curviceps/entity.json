@@ -1,0 +1,149 @@
+{
+  "id": "laetacara-curviceps",
+  "scientificName": "Laetacara curviceps",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Laetacara",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
+      "html": "<p>The dwarf flag cichlid, Laetacara curviceps, is a small cichlid from the lower Amazon basin in Brazil. An established aquarium favourite, it has also been called 'flag acara', 'smiling acara', 'sheepshead acara' and 'blunt-headed cichlid'. Populations differ in the degree of red and blue on the body and fins. It favours clear, slow-flowing water over leaf litter and is a biparental substrate-spawner.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
+      "html": "<p>Native to the lower Amazon river basin in Brazil with some populations exhibiting differences in colour pattern to one another, particularly in respect of the degree of red and blue pigmentation on the body and fins.</p><p>Type locality is given simply as 'Amazon River, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
+      "html": "<p>Field observations suggest it to display a preference for habitats containing clear, transparent water with low flow rate and little suspended sediment.</p><p>In the Amazon region such environments include minor tributaries, oxbow pools and marginal lakes with substrates normally comprising a layer of leaf litter with macrophytes including Cabomba, Myriophylum and Eichhornia spp.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.5–7.5</li><li>Hardness: 1–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
+      "html": "<p>Wild fish are probably foragers feeding on algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
+      "html": "<p>Biparental substrate-spawner.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
+      "html": "<p>This species is an established aquarium favourite and has also been referred to as 'flag acara', 'smiling acara', 'sheepshead acara', and 'blunt-headed cichlid'.</p><p>The genus Laetacara currently contains seven valid species and L. curviceps can be told apart from all congeners except L. dorsigera and L. flamannellus by possessing (vs. lacking) a dark spot on the dorsal-fin base, though this is not present in all males.</p><p>In addition it differs from L. thayeri by possessing weakly ctenoid scales on the sides of the head (vs. strongly ctenoid) and a dark spot at the caudal-fin base (vs. no such spot), from L. flavilabris by having fewer total vertebrae (24 vs. 26), from L. araguaiae by having more proximal radials on the dorsal-fin base (22–23 vs. 21), from L. fulvipinnis by the lack of a dark dot at the edge of each scale on the midlateral portion of the flank (vs. presence), from L. flamannellus by lacking (vs. possessing) an orange-coloured ring around the basal dorsal-fin spot, and from L. dorsigera by having a deeper head (head depth 84.6–88.9 % of HL vs. 90.2–96.3 % of HL), a longer pelvic-fin spine (pelvic-fin spine length 15.5–19.7 % of SL vs. 11.7–15.4 % of SL), fewer teeth along the posterior margin of ceratobranchial 5 (19–20 vs. 21–24) and no prominent red belly in breeding specimens (vs. breeding males and females with conspicuous red cheeks, opercula and belly).</p><p>There is some confusion surrounding the year in which L. curviceps was described with the majority of sources stating 1923 whereas the year of publication actually appears to be 1924 (Ottoni et al., 2009).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
+      "html": "<ul><li>Ottoni, F. P. and W. J. E. M. Costa (2009). Description of a new species of Laetacara Kullander, 1986 from central Brazil and re-description of Laetacara dorsigera (Heckel, 1840) (Labroidei: Cichlidae: Cichlasomatinae). Vertebrate Zoology 59(1), 41-48</li><li>Ottoni, F. P., P. H. N Bragança, P. F. Amorim and C. S. Gama (2012). A new species of Laetacara from the northern Brazil coastal floodplains (Teleostei: Cichlidae). Vertebrate Zoology 62(2), 181-188</li><li>Staeck, W. and I. Schindler (2007). Description of Laetacara fulvipinnis sp. n. (Teleostei: Perciformes: Cichlidae) from the upper drainages of the rio Orinoco and rio Negro in Venezuela. Vertebrate Zoology 51(1), 63-71</li><li>Ottoni, F. P., J. L. O. Mattos and I. Schindler (2009). Re-description of Laetacara curviceps (Teleostei: Cichlidae: Cichlinae). Vertebrate Zoology 59(2), 123-129</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4e3933b295e7a296.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4e3933b295e7a296-480.webp",
+      "width": 800,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
+      "caption": "Mâle, european breeding",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cichlid nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc vi sinh cho bể 60cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}
