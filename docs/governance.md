@@ -39,6 +39,9 @@ that would have caught it).
     guides and glossary terms are the site's lists', a page out of search engines too, each with its page's copy in a
     shard; a species' `tax` and `from` lead to the taxon and origin pages that list it, `places` are the origin pages
     with what each lists, and `labels` say what those pages say.
+  - What's new for the app (`/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`) against the built
+    `/vi/moi-cap-nhat/`: the same pages in the same order, with their dates, "Mới" or "Cập nhật" and sources, the
+    first 200, each a page the app index lists; the index names the file (`latest`) only where the site has the page.
   - A fish's "Vì sao?" needs (`careNeeds`, `packages/schema/src/care-needs.ts`) against
     `protocols/care-needs-vectors.json`, which the app's own port of it will read: `careNeeds`' answer for each case,
     given the fish's app index entry as it is (every threshold, and just past it); each fixture fish page's panel as the
