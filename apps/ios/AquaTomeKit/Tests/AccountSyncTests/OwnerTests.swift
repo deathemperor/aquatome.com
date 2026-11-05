@@ -114,7 +114,7 @@ func counts(_ raw: JSON) -> [String: Int] {
 
 @Test("Every block of every section, and every part of the overview, is read into a kind the app draws: nothing dropped")
 func nothingDropped() throws {
-  var keys: [String] = []
+  var keys: [String] = [], listed = 0
   var anchors: [String: Set<String>] = [:]
   var headings: [String: Set<String>] = [:]
   for v in ownerReplies where v["status"]?.int == 200 && v["request"]!.object!["method"]!.string == "GET" {
@@ -130,6 +130,7 @@ func nothingDropped() throws {
       #expect(d.areas.filter { $0.delta != nil }.count == areas.filter { $0["chip"] != nil }.count)
       #expect(d.areas.filter(\.warn).count == areas.filter { $0["warn"] == .bool(true) }.count)
       #expect(d.sections.count == o["sections"]!.array!.count)
+      listed = o["sections"]!.array!.count
       #expect(d.areasNote == o["areasNote"]?.string && d.areasNote != nil)
       // The log by day, newest first, each day's lines in order; every line read, its second line and where it goes too.
       let entries = o["log"]!.object!["entries"]!.array!.map { $0.object! }
@@ -159,7 +160,8 @@ func nothingDropped() throws {
   for (k, a) in anchors { #expect(a.isSubset(of: headings[k] ?? []), "\(k): \(a)") }
   // Each section the overview lists has its vector.
   #expect(Set(keys) == Set(ownerReplies.map(path).filter { $0.hasPrefix(sectionPrefix) }.map { String($0.dropFirst(sectionPrefix.count)) }))
-  #expect(keys.count == 10)
+  // Every section listed opens by its key (#592 added the report's: 11).
+  #expect(keys.count == listed && listed >= 10)
 }
 
 /// The reply with something added everywhere this app doesn't know: a field in every object (but a button's body, which
