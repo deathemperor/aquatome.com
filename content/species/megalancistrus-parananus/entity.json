@@ -23,11 +23,25 @@
           "min": 20,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 6,
           "max": 7.5
@@ -47,6 +61,10 @@
       {
         "source": "seriouslyfish",
         "value": 58.8
+      },
+      {
+        "source": "scotcat",
+        "value": 60
       }
     ],
     "tankCm": [
@@ -128,6 +146,48 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalancistrus-parananus",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/megalancistrus_parananus.htm",
+      "html": "<ul><li>Catalogue numbers: L113, L234</li><li>Synonyms: none</li><li>Describer: Peters, 1881</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/megalancistrus_parananus.htm",
+      "html": "<p>Brazil: Paraguay, Paraná and Uruguay River basins. Type locality: Paraná River at La Paz in Entre Ríos, Argentina.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/megalancistrus_parananus.htm",
+      "html": "<p>Will need a very large aquarium as they are a territorial species and will also need hiding places such as driftwood and large caves.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/megalancistrus_parananus.htm",
+      "html": "<p>Omnivore. Frozen foods such as brine shrimp, mosquito larvae, shrimps, mussels and fish flesh, as well as good quality dried foods. They will also eat green foods in the aquarium.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/megalancistrus_parananus.htm",
+      "html": "<p>Males have a broader head, longer pectoral fins, a slender body and longer odontodes, especially around the gill cover area.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/megalancistrus_parananus.htm",
+      "html": "<p>Megalancistrus is closely related to Pseudacanthicus and, in both sexes, the body is covered in spiny odontodes, but Megalancistrus has more soft rays in the dorsal fin (between 10 and 12).</p><p>Etymology: the specific name parananus refers to the Rio Paraná, Brazil.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. It is therefore assessed as Least Concern (LC) (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/megalancistrus_parananus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Megalancistrus parananus. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
     }
   ],
   "photos": [

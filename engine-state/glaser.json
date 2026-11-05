@@ -1802,6 +1802,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gasteropelecus_maculatus_en/": {
+    "lastmod": "2017-01-04T13:31:42+00:00",
+    "entityIds": [
+      "species/gasteropelecus-maculatus"
+    ],
+    "updatedAt": "2026-11-04T23:36:38.983Z",
+    "hash": "b1ba7a28580aff7b42a64648d931dbe726b8575bc1347a8d43c4415abdeccb9c",
+    "processedHash": "b1ba7a28580aff7b42a64648d931dbe726b8575bc1347a8d43c4415abdeccb9c",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gigantic_black_piranha_arrived__en/": {
     "lastmod": "2016-11-21T15:58:44+00:00",
     "entityIds": [
@@ -2982,6 +2993,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2/": {
+    "lastmod": "2019-07-26T09:33:26+00:00",
+    "entityIds": [
+      "guides/glaser-en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2"
+    ],
+    "updatedAt": "2026-11-04T23:38:05.414Z",
+    "hash": "c6a2be981a550334e34ade9ffbada3993e508496c58d6a69188176c955ece0b0",
+    "processedHash": "c6a2be981a550334e34ade9ffbada3993e508496c58d6a69188176c955ece0b0",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/": {
     "lastmod": "2016-11-21T15:58:42+00:00",
     "entityIds": [
@@ -3060,9 +3082,9 @@
   "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/139038/": {
     "lastmod": "2016-11-22T08:50:12+00:00",
     "entityIds": [],
-    "updatedAt": "2026-11-04T08:18:03.065Z",
+    "updatedAt": "2026-11-04T23:42:55.545Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "HTTP 404"
   },
   "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/aspidoras_pauciradiatus_en/": {
@@ -3115,6 +3137,17 @@
     "updatedAt": "2026-11-04T14:57:24.999Z",
     "hash": "a9603ff3d307cfa331948021e8c6426d9c00e2809b0ac93dde8d0b4c6ba87324",
     "processedHash": "a9603ff3d307cfa331948021e8c6426d9c00e2809b0ac93dde8d0b4c6ba87324",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras-sodalis-2/": {
+    "lastmod": "2017-04-03T16:01:08+00:00",
+    "entityIds": [
+      "species/corydoras-sodalis"
+    ],
+    "updatedAt": "2026-11-04T23:37:07.611Z",
+    "hash": "86c9b52ab5459113a297e0c4e842ca1ae353ba5e4fc85707ae31aee932abd0f3",
+    "processedHash": "86c9b52ab5459113a297e0c4e842ca1ae353ba5e4fc85707ae31aee932abd0f3",
     "status": "processed",
     "attempts": 0
   },
@@ -3521,6 +3554,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-2/": {
+    "lastmod": "2016-11-22T08:51:15+00:00",
+    "entityIds": [
+      "species/baryancistrus-xanthellus"
+    ],
+    "updatedAt": "2026-11-05T00:04:26.757Z",
+    "hash": "d24cde9bfea5e480af4e2e6bb0a5fa55ad28b664ce1ba2b95a5219c4470dec1b",
+    "processedHash": "d24cde9bfea5e480af4e2e6bb0a5fa55ad28b664ce1ba2b95a5219c4470dec1b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/acestridium_dichromum_arrived__en-2/": {
     "lastmod": "2016-11-22T08:51:11+00:00",
     "entityIds": [
@@ -3543,6 +3587,44 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistomus_sabaji_l124_big_spot__en/": {
+    "lastmod": "2016-11-22T08:51:16+00:00",
+    "entityIds": [
+      "species/hemiancistrus-sabaji"
+    ],
+    "updatedAt": "2026-11-05T00:07:20.101Z",
+    "hash": "ef5bce7d5a429533398aee85ee30d7c3e134f907298ae3cd2547535907676733",
+    "processedHash": "ef5bce7d5a429533398aee85ee30d7c3e134f907298ae3cd2547535907676733",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistomus_sp_l243_lda86_en/": {
+    "lastmod": "2016-11-22T08:51:14+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:01:42.764Z",
+    "hash": "88773ce2e7795be518b2e5cab063c73ed4224ca189edcb6e47323461a753f0e0",
+    "processedHash": "88773ce2e7795be518b2e5cab063c73ed4224ca189edcb6e47323461a753f0e0",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistomus_sp_l387_beautiful_bred_ones_available__en/": {
+    "lastmod": "2016-11-22T08:51:14+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:02:20.571Z",
+    "hash": "3fc7720e111e77984348aefe4d8f6ee8558bc777ef390627aac1f558e80f54ae",
+    "processedHash": "3fc7720e111e77984348aefe4d8f6ee8558bc777ef390627aac1f558e80f54ae",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistrinae_spec_l_189_en/": {
+    "lastmod": "2016-11-22T08:52:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:15:03.086Z",
+    "hash": "20a6dc9f3be8f6cfe157a7c592e801620391ad33256b3fb12f66cdb2dc517ee2",
+    "processedHash": "20a6dc9f3be8f6cfe157a7c592e801620391ad33256b3fb12f66cdb2dc517ee2",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistrus_sp_black_rio_negro_l88__en/": {
     "lastmod": "2016-11-22T08:51:10+00:00",
     "entityIds": [],
@@ -3561,6 +3643,33 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistrus_sp_l309_en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:55:58.039Z",
+    "hash": "1f88ec6010720d28e886ff4ef5d01d1e46a4ee74277de9d36f4d1edb5bffa582",
+    "processedHash": "1f88ec6010720d28e886ff4ef5d01d1e46a4ee74277de9d36f4d1edb5bffa582",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistrus_sp_l89_wild_en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:56:49.376Z",
+    "hash": "8d4203d4904abad5702acfe38d7a41778885625c989ca876d2d18212ba465fcc",
+    "processedHash": "8d4203d4904abad5702acfe38d7a41778885625c989ca876d2d18212ba465fcc",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistrus_spec_l_111_en/": {
+    "lastmod": "2016-11-22T08:52:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:15:30.268Z",
+    "hash": "86f870963471f832dd0a1b58c22fa349aba57352084f90a97b8b119001c744ad",
+    "processedHash": "86f870963471f832dd0a1b58c22fa349aba57352084f90a97b8b119001c744ad",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistrus_white_seam_en/": {
     "lastmod": "2016-11-22T08:51:11+00:00",
     "entityIds": [
@@ -3570,6 +3679,46 @@
     "hash": "82d6e37e8761df3dab3fe42e479a3ad8fbc0aa6fd702a6f5ef1435459570b434",
     "processedHash": "82d6e37e8761df3dab3fe42e479a3ad8fbc0aa6fd702a6f5ef1435459570b434",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/aphanotorulus_frankei_bolivia_en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [
+      "species/aphanotorulus-unicolor"
+    ],
+    "updatedAt": "2026-11-04T23:59:18.770Z",
+    "hash": "fd31c7e5e97418eb7bbf9b89819fdea0059b2bf41fa0ea7e754b23fcce76d20f",
+    "processedHash": "fd31c7e5e97418eb7bbf9b89819fdea0059b2bf41fa0ea7e754b23fcce76d20f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/baryancistrus_demantoides_l_200_high_fin_en/": {
+    "lastmod": "2016-11-22T08:52:22+00:00",
+    "entityIds": [
+      "species/baryancistrus-demantoides"
+    ],
+    "updatedAt": "2026-11-05T00:15:58.107Z",
+    "hash": "d700f6a6223b9dc6dfd4cdf651da0d30634e97ad9742cd35a5067eb891d08367",
+    "processedHash": "d700f6a6223b9dc6dfd4cdf651da0d30634e97ad9742cd35a5067eb891d08367",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/baryancistrus_sp_l81n_en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:52:01.803Z",
+    "hash": "e56711072646728d7afbe03c7e67110c06ec3483337b4715bd3d41101484dc5a",
+    "processedHash": "e56711072646728d7afbe03c7e67110c06ec3483337b4715bd3d41101484dc5a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/baryancistrus_sp_l_81_highfin_en/": {
+    "lastmod": "2016-11-22T08:51:16+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:09:00.535Z",
+    "hash": "be887ec05cdb699f397098a4aa48b233403f0306ff1894fc682536a7ea266b8d",
+    "processedHash": "be887ec05cdb699f397098a4aa48b233403f0306ff1894fc682536a7ea266b8d",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/baryancistrus_xanthellus_l18_adult_en/": {
@@ -3592,6 +3741,24 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/cochliodon_sp_yellow_seam_l_360_en/": {
+    "lastmod": "2016-11-22T08:51:16+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:10:38.035Z",
+    "hash": "cfb4dc58321ad9b7ec567927c4535b0ee83e0b94a9006ed44d460e4f3861ff02",
+    "processedHash": "cfb4dc58321ad9b7ec567927c4535b0ee83e0b94a9006ed44d460e4f3861ff02",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/cochliodon_spec_var_marbled_l_360a_en/": {
+    "lastmod": "2016-11-22T08:51:16+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:06:43.775Z",
+    "hash": "7a5fb51b5bebf19c40e14c36953f741b3863391c1685adf03318bb5077cc8d93",
+    "processedHash": "7a5fb51b5bebf19c40e14c36953f741b3863391c1685adf03318bb5077cc8d93",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/extraordinary-attractive-hypancistrus-debilittera-l129-arrived/": {
     "lastmod": "2017-04-02T17:29:13+00:00",
     "entityIds": [
@@ -3600,6 +3767,17 @@
     "updatedAt": "2026-10-31T21:10:59.403Z",
     "hash": "0c564e8ebf071ddaefcaa1f761ecd552222e61c24887526d49f748a2fa3e58a3",
     "processedHash": "0c564e8ebf071ddaefcaa1f761ecd552222e61c24887526d49f748a2fa3e58a3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_oxyrrhyncha_en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [
+      "species/farlowella-oxyrryncha"
+    ],
+    "updatedAt": "2026-11-04T23:53:26.625Z",
+    "hash": "61657d0ecdc1cdf951b638d9f90d87ff37595c2a305b643cc4fac070091d71d6",
+    "processedHash": "61657d0ecdc1cdf951b638d9f90d87ff37595c2a305b643cc4fac070091d71d6",
     "status": "processed",
     "attempts": 0
   },
@@ -3698,6 +3876,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/huge_acanthicus_adonis_arrived__en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [
+      "guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en"
+    ],
+    "updatedAt": "2026-11-04T23:46:40.594Z",
+    "hash": "a1641df25797ed6164c986d47a5eb12fe4d36f17d016937dff1f16f38f3004ae",
+    "processedHash": "a1641df25797ed6164c986d47a5eb12fe4d36f17d016937dff1f16f38f3004ae",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypancistrus_sp_l66_king_tiger_pleco_en/": {
     "lastmod": "2016-11-22T08:51:10+00:00",
     "entityIds": [],
@@ -3705,6 +3894,62 @@
     "hash": "48430a611ac00cb46de71ffdccee5b97390322d2cf18326c1843f2dc9416a90c",
     "processedHash": "48430a611ac00cb46de71ffdccee5b97390322d2cf18326c1843f2dc9416a90c",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypancistrus_spec_belo_monte_l_287_l_399_l_400__en/": {
+    "lastmod": "2016-11-22T08:52:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:17:35.035Z",
+    "hash": "31c218589bc3fc38a3154dcfe3fde0316efbb813f4e560792d538e363b080bff",
+    "processedHash": "31c218589bc3fc38a3154dcfe3fde0316efbb813f4e560792d538e363b080bff",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypancistrus_spec_l_173_en/": {
+    "lastmod": "2016-11-22T08:51:16+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:11:34.515Z",
+    "hash": "0fe9fa1391cda9d6a8d0044a9959a27e68207641d6c0c9bdca30f6ec6d992ce7",
+    "processedHash": "0fe9fa1391cda9d6a8d0044a9959a27e68207641d6c0c9bdca30f6ec6d992ce7",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypancistrus_spec_l_236x_en/": {
+    "lastmod": "2016-11-22T08:52:21+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:13:01.368Z",
+    "hash": "bba324c2d1abeb35e20e4a9d90e586deadc2d1790be32dd16b423f5f48758a35",
+    "processedHash": "bba324c2d1abeb35e20e4a9d90e586deadc2d1790be32dd16b423f5f48758a35",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypancistrus_spec_l_401_en/": {
+    "lastmod": "2016-11-22T08:52:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:17:00.388Z",
+    "hash": "12f24605050b5f0c0693ffe3702e0f73f9fc0a4329d8caefba48c01c90aa7354",
+    "processedHash": "12f24605050b5f0c0693ffe3702e0f73f9fc0a4329d8caefba48c01c90aa7354",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypancistrus_spec_xingu_en/": {
+    "lastmod": "2016-11-22T08:52:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:16:27.111Z",
+    "hash": "5e02bc3e2604a91727cb5d22243e5a4af0c6877fc3118c0c777392a5801de7c0",
+    "processedHash": "5e02bc3e2604a91727cb5d22243e5a4af0c6877fc3118c0c777392a5801de7c0",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypancistrus_zebra_l_46_double_tailfin_en/": {
+    "lastmod": "2016-11-22T08:52:23+00:00",
+    "entityIds": [
+      "species/hypancistrus-zebra"
+    ],
+    "updatedAt": "2026-11-05T00:18:09.875Z",
+    "hash": "f7517ff0ac095f14683be12e5a81d181f8f26ef91f838c6bac16bfab342e14a0",
+    "processedHash": "f7517ff0ac095f14683be12e5a81d181f8f26ef91f838c6bac16bfab342e14a0",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypoptopoma_cf_psilogaster_sp_ii__en/": {
@@ -3716,6 +3961,44 @@
     "hash": "a7f39f278eb961d6d230d3bf303ea085a98bef44581e71a8788b5b568829e4d8",
     "processedHash": "a7f39f278eb961d6d230d3bf303ea085a98bef44581e71a8788b5b568829e4d8",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [
+      "species/hypostomus-ancistroides"
+    ],
+    "updatedAt": "2026-11-04T23:58:48.981Z",
+    "hash": "fcb38eab52f2c69cfc966c16d4eb61d12a50dc7291501ad9a00ffc11f0143f5a",
+    "processedHash": "fcb38eab52f2c69cfc966c16d4eb61d12a50dc7291501ad9a00ffc11f0143f5a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_bred_ones_available__en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:54:49.163Z",
+    "hash": "167ab94c0a0cbe1bd94a2730a5da699cf8e156b1eae95777063fe5d0958a7fb5",
+    "processedHash": "167ab94c0a0cbe1bd94a2730a5da699cf8e156b1eae95777063fe5d0958a7fb5",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_sp_bolivia_redfin_en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:43:01.579Z",
+    "hash": "0c4e56ec7acd156b4e01bfe504375e06ce5b4a0fe744499f93aa6bf99ef9dfe7",
+    "processedHash": "0c4e56ec7acd156b4e01bfe504375e06ce5b4a0fe744499f93aa6bf99ef9dfe7",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/just_in_bred_hypancistrus_sp_l399_en/": {
+    "lastmod": "2016-11-22T08:51:14+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:04:03.407Z",
+    "hash": "54408bf61c166448404d11796bbbaec1653c5aa99cad16e32769c1ea2e011b13",
+    "processedHash": "54408bf61c166448404d11796bbbaec1653c5aa99cad16e32769c1ea2e011b13",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l102_hypancistrus_inspector_en/": {
@@ -3737,6 +4020,28 @@
     "updatedAt": "2026-11-04T15:23:29.344Z",
     "hash": "2215519a3f1eb42701844d320531d24ad742824facf2b122cb34603c9769346d",
     "processedHash": "2215519a3f1eb42701844d320531d24ad742824facf2b122cb34603c9769346d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168_bred_specimens_en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [
+      "species/dekeyseria-pulchra"
+    ],
+    "updatedAt": "2026-11-04T23:49:48.007Z",
+    "hash": "7ee174159fe7aa961f9a28c5c5b5afea3ef9b8e49513da923e4418dc8009027b",
+    "processedHash": "7ee174159fe7aa961f9a28c5c5b5afea3ef9b8e49513da923e4418dc8009027b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l18_l81_l85_l177_and_l47_described_scientifically_en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [
+      "guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-l18-l81-l85-l177-and-l47-described-scientifically-en"
+    ],
+    "updatedAt": "2026-11-04T23:51:04.974Z",
+    "hash": "af65606b63b86b08cb7e18c2f049e3810e7a5863222601194eeade5406c3215d",
+    "processedHash": "af65606b63b86b08cb7e18c2f049e3810e7a5863222601194eeade5406c3215d",
     "status": "processed",
     "attempts": 0
   },
@@ -3762,6 +4067,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l25_pseudacanthicus_sp_scarlet_german_bred_babies__en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:48:35.552Z",
+    "hash": "94891028d52c8e4a3b05befa76b8a8a45668c1fcd9156152930d53d171aa9a27",
+    "processedHash": "94891028d52c8e4a3b05befa76b8a8a45668c1fcd9156152930d53d171aa9a27",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l273_pseudacanthicus_sp_titanic_xl_en/": {
     "lastmod": "2016-11-22T08:51:11+00:00",
     "entityIds": [],
@@ -3777,6 +4091,26 @@
     "updatedAt": "2026-11-04T15:32:03.711Z",
     "hash": "bff14dda82bf0f5d27c81656ed3272f73dcf4597687becc9221ac84222135d53",
     "processedHash": "bff14dda82bf0f5d27c81656ed3272f73dcf4597687becc9221ac84222135d53",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l34_ancistrus_ranunculus_en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [
+      "species/ancistrus-ranunculus"
+    ],
+    "updatedAt": "2026-11-04T23:46:11.984Z",
+    "hash": "7aac3775374c1ad871a1b14814f31d1aca7afae05572c1f7bcfe3db23bdddb7c",
+    "processedHash": "7aac3775374c1ad871a1b14814f31d1aca7afae05572c1f7bcfe3db23bdddb7c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l455_chaetostoma_sp_tiger_en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:48:47.081Z",
+    "hash": "fae6cbda3f932c87b370a543b6996338c8bd39a1919ed31d0febdf3b994af600",
+    "processedHash": "fae6cbda3f932c87b370a543b6996338c8bd39a1919ed31d0febdf3b994af600",
     "status": "skipped",
     "attempts": 0
   },
@@ -3811,6 +4145,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/leporacanthicus_sp_new__en/": {
+    "lastmod": "2016-11-22T08:52:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:13:33.793Z",
+    "hash": "e5a3b1b2c30b50ae41654ac6ba25af23de44828567104f45d032676d35523777",
+    "processedHash": "e5a3b1b2c30b50ae41654ac6ba25af23de44828567104f45d032676d35523777",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/liposarcus_pardalis_en/": {
     "lastmod": "2016-11-22T08:52:23+00:00",
     "entityIds": [
@@ -3820,6 +4163,46 @@
     "hash": "3dfb1e9f61bafef13aa11a60c17a1250fbdd2ae7481767f6801040fe8cab8549",
     "processedHash": "3dfb1e9f61bafef13aa11a60c17a1250fbdd2ae7481767f6801040fe8cab8549",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_simillima_bred_en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [
+      "species/loricaria-simillima"
+    ],
+    "updatedAt": "2026-11-04T23:44:38.632Z",
+    "hash": "e8a3abb9363b33e5a691f13c91cc40c6453cc71ff1757a309a7de1cecaf45e9b",
+    "processedHash": "e8a3abb9363b33e5a691f13c91cc40c6453cc71ff1757a309a7de1cecaf45e9b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_simillima_en/": {
+    "lastmod": "2016-11-22T08:52:21+00:00",
+    "entityIds": [
+      "species/loricaria-simillima"
+    ],
+    "updatedAt": "2026-11-05T00:12:22.981Z",
+    "hash": "39f67e55643714cbb4f98e3110ae69e01770a4d6caae01ab6310e8cc032d49ef",
+    "processedHash": "39f67e55643714cbb4f98e3110ae69e01770a4d6caae01ab6310e8cc032d49ef",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_simillima_from_paraguay_arrived_en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:50:32.523Z",
+    "hash": "4e0cabd4e81cea447b03e8858372153f62b3d83300e6f1888ac65aa508d66910",
+    "processedHash": "4e0cabd4e81cea447b03e8858372153f62b3d83300e6f1888ac65aa508d66910",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_sp_colombia_bred_en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:55:00.909Z",
+    "hash": "6ae53673f1ee2e8ad7ec8c42cba73eae2eebf2168f61cd736d5b29cc7e4dcd0f",
+    "processedHash": "6ae53673f1ee2e8ad7ec8c42cba73eae2eebf2168f61cd736d5b29cc7e4dcd0f",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaqolus-albivermis-l204/": {
@@ -3840,6 +4223,55 @@
     "hash": "3302e54c92d0a88c6e3b5ffd1ea39c5c958a0d476696ffbd6c0388a3c35a287a",
     "processedHash": "3302e54c92d0a88c6e3b5ffd1ea39c5c958a0d476696ffbd6c0388a3c35a287a",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_cochliodon_en/": {
+    "lastmod": "2016-11-22T08:51:16+00:00",
+    "entityIds": [
+      "species/panaque-cochliodon"
+    ],
+    "updatedAt": "2026-11-05T00:05:38.784Z",
+    "hash": "7c8463ac6b2d09b4642e69e1f03d251da64ff33e3f062147aeadc50a5e797af4",
+    "processedHash": "7c8463ac6b2d09b4642e69e1f03d251da64ff33e3f062147aeadc50a5e797af4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_l90a_ojo_chico_en/": {
+    "lastmod": "2016-11-22T08:51:14+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:03:24.828Z",
+    "hash": "b8fd82f11bf7507944640d04f353aac1b89bc5dbb74867089d20126da4e5f9a4",
+    "processedHash": "b8fd82f11bf7507944640d04f353aac1b89bc5dbb74867089d20126da4e5f9a4",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_spec__en/": {
+    "lastmod": "2016-11-22T08:52:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:14:02.994Z",
+    "hash": "6c589ce8a4beb98d3c8d3cd8732e6f4dcee046761fac8a9be16c09ee15b23134",
+    "processedHash": "6c589ce8a4beb98d3c8d3cd8732e6f4dcee046761fac8a9be16c09ee15b23134",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_spec_new_royal_golden_thunder__en/": {
+    "lastmod": "2016-11-22T08:52:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:14:12.163Z",
+    "hash": "89349e9ad7883551ce366b05c9d16476cdc536143f344b96d74bb81b418d0412",
+    "processedHash": "89349e9ad7883551ce366b05c9d16476cdc536143f344b96d74bb81b418d0412",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panque_suttoni_en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [
+      "species/panaque-suttonorum"
+    ],
+    "updatedAt": "2026-11-04T23:44:01.596Z",
+    "hash": "ed7d7124700927d2524f64b114d9599a1ab659be7f5a96374464e33cf1032f74",
+    "processedHash": "ed7d7124700927d2524f64b114d9599a1ab659be7f5a96374464e33cf1032f74",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/paraloricaria_vetula_en/": {
@@ -3875,6 +4307,42 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/peckoltia_sp_alto_nhamunda_en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:43:37.424Z",
+    "hash": "412a8b23c76afaf019767e3c1cb18a7339bd661d101dee615aab991edd4376d4",
+    "processedHash": "412a8b23c76afaf019767e3c1cb18a7339bd661d101dee615aab991edd4376d4",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/peckoltia_sp_l202_en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:47:11.464Z",
+    "hash": "94b64f68faf67dc4ce37f644cd5e7abc9d520ffbca272079da9b057280fdb6ba",
+    "processedHash": "94b64f68faf67dc4ce37f644cd5e7abc9d520ffbca272079da9b057280fdb6ba",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/peckoltia_sp_red_tiger_en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:57:45.407Z",
+    "hash": "d64955640065d2483e9fffa4825e1e4e2959cf2204e4321378cdb7b25a260308",
+    "processedHash": "d64955640065d2483e9fffa4825e1e4e2959cf2204e4321378cdb7b25a260308",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudancistrus_spec_l_259_en/": {
+    "lastmod": "2016-11-22T08:51:16+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-05T00:07:59.812Z",
+    "hash": "ee0aac742db6f96102d2cea67d8cfa7cdc7a27c7ca8d235d6f76a1c908899031",
+    "processedHash": "ee0aac742db6f96102d2cea67d8cfa7cdc7a27c7ca8d235d6f76a1c908899031",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudolithoxus_nicoi_en/": {
     "lastmod": "2016-11-22T08:51:11+00:00",
     "entityIds": [
@@ -3886,6 +4354,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudorinelepis_sp_l_95_en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:45:36.246Z",
+    "hash": "ecffd05fc6cdac3014f01f22318e6270c8b3611b4bd9247471b62eba84a9331b",
+    "processedHash": "ecffd05fc6cdac3014f01f22318e6270c8b3611b4bd9247471b62eba84a9331b",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/rineloricaria_lanceolata_en/": {
     "lastmod": "2016-11-22T08:51:10+00:00",
     "entityIds": [
@@ -3894,6 +4371,17 @@
     "updatedAt": "2026-10-30T13:09:40.409Z",
     "hash": "27514ef7ab99d995418a44c8e6e9d3347ea61e6b05c08305ad12669577eb801f",
     "processedHash": "27514ef7ab99d995418a44c8e6e9d3347ea61e6b05c08305ad12669577eb801f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/rineloricaria_melini_en/": {
+    "lastmod": "2016-11-22T08:51:16+00:00",
+    "entityIds": [
+      "species/rineloricaria-melini"
+    ],
+    "updatedAt": "2026-11-05T00:09:28.046Z",
+    "hash": "d7dd90fb1da5b0a61e6ea72ecd9669aef406e73ab5f1027ebc14fd57e7e77767",
+    "processedHash": "d7dd90fb1da5b0a61e6ea72ecd9669aef406e73ab5f1027ebc14fd57e7e77767",
     "status": "processed",
     "attempts": 0
   },
@@ -3908,6 +4396,59 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/spotted_ancistrus_l181_arrived__en/": {
+    "lastmod": "2016-11-22T08:51:12+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-04T23:43:30.288Z",
+    "hash": "4a5843be8e99d6590b68419d2d538e946126f506b0d51e72c18c3b92e53d7857",
+    "processedHash": "4a5843be8e99d6590b68419d2d538e946126f506b0d51e72c18c3b92e53d7857",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/sturisoma_arrived__en/": {
+    "lastmod": "2016-11-22T08:51:13+00:00",
+    "entityIds": [
+      "guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-sturisoma-arrived-en"
+    ],
+    "updatedAt": "2026-11-04T23:52:54.222Z",
+    "hash": "eb51c74ccdb6c2cdf935eabd365f07db464a6faee979fa5f2c1e6d494812c423",
+    "processedHash": "eb51c74ccdb6c2cdf935eabd365f07db464a6faee979fa5f2c1e6d494812c423",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/three_new_chaetostoma_from_peru__en/": {
+    "lastmod": "2016-11-22T08:51:14+00:00",
+    "entityIds": [
+      "guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-three-new-chaetostoma-from-peru-en"
+    ],
+    "updatedAt": "2026-11-05T00:00:02.468Z",
+    "hash": "809ca7688151ba4e81f1a0a3783d2d924358f9cc192c0fe72c2223ced4364428",
+    "processedHash": "809ca7688151ba4e81f1a0a3783d2d924358f9cc192c0fe72c2223ced4364428",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amaralia-hypsiura/": {
+    "lastmod": "2016-11-22T08:52:41+00:00",
+    "entityIds": [
+      "species/amaralia-hypsiura"
+    ],
+    "updatedAt": "2026-11-05T00:20:14.211Z",
+    "hash": "cd515b264ca46bb2bed7a086d3099e857342fbd3b0ce869fb19bbb07ad09678d",
+    "processedHash": "cd515b264ca46bb2bed7a086d3099e857342fbd3b0ce869fb19bbb07ad09678d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/batrochoglanis_raninus_dwarf_en/": {
+    "lastmod": "2016-11-22T08:52:41+00:00",
+    "entityIds": [
+      "species/batrochoglanis-raninus"
+    ],
+    "updatedAt": "2026-11-05T00:21:22.894Z",
+    "hash": "1eb7ae5da44c66117c8bb8e004c704d358986cbb75ffca49df43b563b7a1cd1f",
+    "processedHash": "1eb7ae5da44c66117c8bb8e004c704d358986cbb75ffca49df43b563b7a1cd1f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/centromochlus-heckelii-2/": {
     "lastmod": "2017-01-30T09:55:58+00:00",
     "entityIds": [
@@ -3916,6 +4457,28 @@
     "updatedAt": "2026-10-31T03:31:03.752Z",
     "hash": "e0494690510a8fe16e53405ee4111a3d8dca29fc93ef1e05f1ddb6293d98226f",
     "processedHash": "e0494690510a8fe16e53405ee4111a3d8dca29fc93ef1e05f1ddb6293d98226f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cephalosilurus-apurensis/": {
+    "lastmod": "2016-11-22T08:52:41+00:00",
+    "entityIds": [
+      "species/cephalosilurus-apurensis"
+    ],
+    "updatedAt": "2026-11-05T00:23:08.007Z",
+    "hash": "b7c8f88e9fa77aad76c5d3c5d4bf884a5f191fc55201e168b0ba48febfa4341e",
+    "processedHash": "b7c8f88e9fa77aad76c5d3c5d4bf884a5f191fc55201e168b0ba48febfa4341e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cephalosilurus_apurensis_en/": {
+    "lastmod": "2016-11-22T08:52:42+00:00",
+    "entityIds": [
+      "species/cephalosilurus-apurensis"
+    ],
+    "updatedAt": "2026-11-05T00:26:07.030Z",
+    "hash": "430c3d162a87a18c3d4a0d59895592820d8db88cdc661f0a8f7a1644140d4b0f",
+    "processedHash": "430c3d162a87a18c3d4a0d59895592820d8db88cdc661f0a8f7a1644140d4b0f",
     "status": "processed",
     "attempts": 0
   },
@@ -3949,6 +4512,17 @@
     "updatedAt": "2026-10-30T13:10:49.012Z",
     "hash": "c3eb438f4669d443b2ae84d0a43debc0c53afdc1d226a3e5c2a00cb2cf4ce47d",
     "processedHash": "c3eb438f4669d443b2ae84d0a43debc0c53afdc1d226a3e5c2a00cb2cf4ce47d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/xyliphius-cf-lepturus/": {
+    "lastmod": "2016-11-22T08:52:41+00:00",
+    "entityIds": [
+      "species/xyliphius-lepturus"
+    ],
+    "updatedAt": "2026-11-05T00:19:13.564Z",
+    "hash": "fd0b91bf6a59c6bf548ab033486b3c95f79bb98f5a4e798249610f0fb177140c",
+    "processedHash": "fd0b91bf6a59c6bf548ab033486b3c95f79bb98f5a4e798249610f0fb177140c",
     "status": "processed",
     "attempts": 0
   },
@@ -4262,6 +4836,28 @@
     "updatedAt": "2026-11-04T15:01:18.431Z",
     "hash": "57a0f08b89badf6a449b079906105fdd0d828f9c356d0220468058dc64efdbe9",
     "processedHash": "57a0f08b89badf6a449b079906105fdd0d828f9c356d0220468058dc64efdbe9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/corydoras-sodalis-colombia/": {
+    "lastmod": "2022-04-22T10:25:15+00:00",
+    "entityIds": [
+      "species/corydoras-sodalis"
+    ],
+    "updatedAt": "2026-11-04T23:41:12.560Z",
+    "hash": "d48a05634215b38d900321e087e975c284a84b0afaa4632ab06e9160efd6a875",
+    "processedHash": "d48a05634215b38d900321e087e975c284a84b0afaa4632ab06e9160efd6a875",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/corydoras-sodalis-incorrect-as-agassizii/": {
+    "lastmod": "2026-08-14T10:10:49+00:00",
+    "entityIds": [
+      "species/corydoras-sodalis"
+    ],
+    "updatedAt": "2026-11-04T23:41:35.227Z",
+    "hash": "21531ce1f8e2abee29e20fd57fba2b293309427251a97f7dc7fdf4ff9b4a0a90",
+    "processedHash": "21531ce1f8e2abee29e20fd57fba2b293309427251a97f7dc7fdf4ff9b4a0a90",
     "status": "processed",
     "attempts": 0
   },

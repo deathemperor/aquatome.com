@@ -10,7 +10,8 @@
     "peru",
     "loreto",
     "brazil",
-    "amazonas"
+    "amazonas",
+    "upper-amazon"
   ],
   "dataCard": {
     "tempC": [
@@ -19,6 +20,13 @@
         "value": {
           "min": 22,
           "max": 26
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
         }
       }
     ],
@@ -125,6 +133,30 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-sodalis",
       "html": "<p>There are currently over 180 described species of Corydoras (commonly shortened to \"cory\"), making it one of the most speciose of all South American fish genera. There are also loads of undescribed species, many of which have been assigned a \"C number\" for identification purposes. This is a very simple system of numbering and is similar to the L number scheme used to identify undescribed Loricariids. Both systems were implemented by the German aquarium magazine DATZ (Die Aquarien und Terrarienzeitschrift), but have proved to be invaluable tools and are now used widely by aquarists worldwide. It's partly this tremendous diversity (along with their undeniably cute looks) that puts corys among the most popular fish in the hobby. They're also very peaceful aquarium residents. Although they'll consume bite-sized items such as eggs or fry, aggression towards other species is virtually unheard of. Intraspecific hostility is similarly unusual, occurring in only a handful of species (mainly being confined to the \"long-nosed\" varieties). Provided space isn't an issue this rarely results in physical damage, though. In nature most species occur in large schools and as such do best when kept in a group in captivity.</p><p>Most corys are primarily benthic (bottom dwelling), although a handful of exceptions do spend the majority of their time in open water. Unfortunately this behaviour often means that they're purchased and sold as scavengers that will \"clean the bottom\" of your community tank. While they'll certainly polish off any uneaten morsels that reach the substrate, they won't keep the substrate \"clean\" as such. In fact maintenance of the substrate becomes more of a primary concern if your tank contains a few corys, as they can develop nasty infections of the barbels if kept in dirty or otherwise unfavourable conditions. It should also be said that they won't do well if expected to survive on the scraps of food that escape the fish above. Always use sinking varieties to ensure your corys receive the right amount of food.</p><p>All corys are facultative air breathers, meaning they have the ability to breathe atmospheric air to a certain extent if necessary. They possess a modified, highly vascularised intestine to aid in the uptake of atmospheric oxygen. This adaptation allows them to survive if their habitat becomes oxygen-deprived for any reason. In the aquarium you'll see them darting to the surface to take in gulps of air on occasion. This is perfectly natural and no cause for concern unless water conditions are deteriorating, in which case the frequency of visits to the surface will usually rise correspondingly.</p><p>Corys are part of the \"armoured\" catfish group, and instead of scales possess two rows of bony plates running along the flanks. The genus name is composed of the Greek words cory, meaning helmet and doras, meaning skin (here used incorrectly to denote \"armour\"). They also have very sharp pectoral fin spines, which are easily caught in the mesh of aquarium nets and can also produce a painful \"sting\" if they penetrate the skin. Care should therefore be exercised when handling or moving corys for any reason.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-sodalis-incorrect-as-agassizii/",
+      "html": "<p>There are four species of beautiful corydoras, which are practically without exception available as wild-collected specimens from Brazil, because even experienced breeders have a hard time with them. In addition, these species occur in masses and can therefore be offered in large numbers and very cheaply, so there is little incentive to breed them. Natural harvests make more ecological sense than captive breeding and provide local people with an environmentally sound, secure income.</p><p>These four species are Corydoras agassizii, C. ambiacus, C. schwartzi and C. sodalis. Unfortunately, they are repeatedly given wrong names.</p><p>For reasons that go back to a mistake in the 1960s, this hardly confusable armored catfish is traded again and again as C. agassizii. This is especially difficult to eradicate, because C. sodalis and the \"real\" agassizii often occur together and are therefore often imported mixed. C. agassizii, on the other hand, is also wrongly mostly called C. punctatus, as is C. ambiacus, which is furthermore difficult to distinguish from C. agassizii.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-sodalis-incorrect-as-agassizii/",
+      "html": "<p>Concerning care there is not much to say about C. sodalis. The fish will do practically everything if you fulfil the basic requirements of Corydoras: no sharp-edged substrate, preferably soft river sand, low-germ water and specific feeding. Corydoras are not scavengers!</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-sodalis-incorrect-as-agassizii/",
+      "html": "<p>The water temperature should be between 22 and 28°C. pH and hardness are irrelevant.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-sodalis-incorrect-as-agassizii/",
+      "html": "<p>The reason why these catfishes evade breeding lies in their natural history. The mass occurrences are most likely nothing more than spawning migrations that take the fish to small, shady tributary streams where they spawn. In the aquarium, they spawn only at night, in complete darkness. And because they are strong spawn predators, there is nothing left of the eggs the next morning.</p>"
     }
   ],
   "photos": [],
@@ -134,28 +166,35 @@
       "category": "be-ca",
       "keywords": [
         "bể cá 45x30x30",
-        "bể cá mini 40 lít"
+        "bể cá mini 40 lít",
+        "bể cá 60cm",
+        "bể cá cảnh nhỏ"
       ]
     },
     {
       "category": "phan-nen",
       "keywords": [
         "cát sông nuôi cá chuột",
-        "cát mịn thủy sinh"
+        "cát mịn thủy sinh",
+        "cát nền cho cá chuột",
+        "cát thủy sinh mịn"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn viên chìm cho cá chuột",
-        "thức ăn cá đáy"
+        "thức ăn cá đáy",
+        "thức ăn cá chuột chìm",
+        "viên chìm cho cá đáy"
       ]
     },
     {
       "category": "loc",
       "keywords": [
         "lọc mút sục khí",
-        "lọc hộp bể nhỏ"
+        "lọc hộp bể nhỏ",
+        "lọc thùng bể 60cm"
       ]
     }
   ],

@@ -22,6 +22,10 @@
       {
         "source": "seriouslyfish",
         "value": 7
+      },
+      {
+        "source": "scotcat",
+        "value": 7
       }
     ],
     "tempC": [
@@ -31,6 +35,13 @@
           "min": 20,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -39,6 +50,13 @@
         "value": {
           "min": 5,
           "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
         }
       }
     ],
@@ -148,6 +166,42 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
       "html": "<ul><li>Böhlke, J. E. (1950). A new catfish of the genus Corydoras from the Peruvian Amazon. The Fish Culturist 30(4), 26-27</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ortega, H. and R. P. Vari (1986). Annotated checklist of the freshwater fishes of Peru. Smithsonian Contributions to Zoology No. 437, iii + 1-25</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li><li>Weitzman, S. H. (1964). One new species and two redescriptions of catfishes of the South American callichthyid genus Corydoras. Proceedings of the United States National Museum v. 116 (no. 3498), 115-126</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "html": "<ul><li>Size: male 6.5 cm, female 7.0 cm</li><li>Synonyms: none</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "html": "<p>South America: Peru; Loreto, Caño del Chancho near Pebas (03º10'S, 71º46'W), Río Amazonus system.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "html": "<p>As this is one of the longer snouted species it will be well suited to most community tanks. A well planted tank with a soft substrate such as sand so they can bury their snouts while searching out food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "html": "<p>A good quality flake food and tablet food for adults with sporadic feedings of frozen or live food will keep your Corydoras in good health.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "html": "<p>Very closely likened to C. coriatae Burgess, 1997 which may very well prove to be a synonym of C. fowleri.</p><p>Lineage: Placed in Lineage 1 and when there is a revision they will stay as Corydoras (Lacépède, 1803) with the type species of C. geoffroy La Cépède, 1803. As of the latest update (Dias et al 2024), Corydoras fowleri has been placed in Lineage 1 and has retained the genus name of Corydoras.</p><p>Etymology: The specific name fowleri: in honour of American ichthyologist Henry Weed Fowler (1878–1965), Academy of Natural Sciences of Philadelphia, for his contributions to South American freshwater ichthyology.</p><p>IUCN Red List: Although this species has a relatively small distribution, it is common and there are no major threats currently impacting its population. Therefore, it is listed as Least Concern, but needs updating (IUCN 2016).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "html": "<p>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited.</p><p>Angelica C Dias, Luiz F C Tencatt, Fabio F Roxo, Gabriel de Souza da Costa Silva, Sérgio A Santos, Marcelo R Britto, Martin I Taylor, Claudio Oliveira, Phylogenomic analyses in the complex Neotropical subfamily Corydoradinae (Siluriformes: Callichthyidae) with a new classification based on morphological and molecular data, Zoological Journal of the Linnean Society, 2024;, zlae053.</p><p>Fuller, Ian A.M. &amp; Evers, Hans-Georg: Identifying Corydoradinae Catfish. 2005. 384 p.</p><p>Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises.</p><p>Sanchez-Duarte, P. 2016. Corydoras fowleri. The IUCN Red List of Threatened Species 2016.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
