@@ -1,0 +1,349 @@
+{
+  "id": "amatitlania-nigrofasciata",
+  "native": {
+    "input": "a0ef976d87528528",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The convict cichlid, Amatitlania nigrofasciata, is a Central American cichlid native from Guatemala to Panama.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The convict cichlid, Amatitlania nigrofasciata, is a Central American cichlid native from Guatemala to Panama.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Pink, long-finned and marbled forms exist, and it has been introduced to several countries including the USA and Australia.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Pink, long-finned and marbled forms exist, and it has been introduced to several countries including the USA and Australia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has a widespread distribution in Central America, being native to Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica and Panama.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has a widespread distribution in Central America, being native to Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica and Panama.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "SV",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has a widespread distribution in Central America, being native to Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica and Panama.",
+        "words": "El Salvador",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has a widespread distribution in Central America, being native to Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica and Panama.",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has a widespread distribution in Central America, being native to Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica and Panama.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has a widespread distribution in Central America, being native to Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica and Panama.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It also exists as an introduced species in several countries, including the USA and Australia.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It also exists as an introduced species in several countries, including the USA and Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amatitlania nigrofasciata",
+    "status": "ACCEPTED",
+    "taxonKey": 2370027,
+    "datasets": [
+      [
+        "a9576a23-3690-4c27-8d19-0db353957177",
+        218
+      ],
+      [
+        "7f962910-f762-11e1-a439-00145eb45e9a",
+        110
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        88
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        78
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        63
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        59
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        50
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        39
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        33
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        33
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        31
+      ],
+      [
+        "092c3e3f-a7d3-4e23-b343-839829f4d1b3",
+        30
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        24
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        24
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        22
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        21
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        21
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        19
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        17
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        17
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        14
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        14
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        13
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        9
+      ],
+      [
+        "37beb6ea-e591-41e3-b781-e384250dc42c",
+        7
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        7
+      ],
+      [
+        "01f5d83c-91b1-4473-a67c-c86b35705d4d",
+        5
+      ],
+      [
+        "ff98132c-b720-4304-a68c-390968b991f7",
+        5
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        4
+      ],
+      [
+        "ebab8ef5-b3b3-440e-a79f-cc4cf8a5180c",
+        3
+      ],
+      [
+        "0a56a02d-d561-4f3f-bb18-b8b1389415fc",
+        2
+      ],
+      [
+        "5b7d4716-3ee7-4abb-a770-365e33c8b82c",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "7fc7f94a-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        2
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        2
+      ],
+      [
+        "f5c13912-4f12-4fd0-b1c2-0d74564a5374",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        1
+      ],
+      [
+        "59670186-8444-4ff7-b2c0-a8e7294e3b22",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "7f6f33a0-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "80cdb1cc-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "GT",
+      "PA",
+      "HN",
+      "SV",
+      "NI",
+      "CR"
+    ],
+    "requests": 17,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

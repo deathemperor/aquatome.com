@@ -12,6 +12,216 @@
     "laos",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "MM"
+      ],
+      "regions": [
+        "Mekong",
+        "Nam Khwe River",
+        "Nam Lawe River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.",
+          "countries": [
+            "TH",
+            "LA",
+            "MM"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In images the Nam Khwe River, Myanmar contains quite shallow, turbid, moderately fast-flowing water; the substrate is composed of variably-sized boulders with some relatively little streamside vegetation.",
+          "countries": [],
+          "regions": [
+            "Nam Khwe River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Sympatric species include Danio albolineatus plus unidentified members of Barilius and Opsarius. In the larger Nam Lawe River, also Myanmar, it lives alongside Badis ruber, Colisa labiosa, Lepidocephalichthys berdmorei and an unidentified Danio species.",
+          "countries": [],
+          "regions": [
+            "Nam Lawe River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362689,
+      "total": 134,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MM",
+          107
+        ],
+        [
+          "TH",
+          15
+        ],
+        [
+          "CN",
+          7
+        ],
+        [
+          "LA",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          22.5,
+          19,
+          19
+        ],
+        [
+          94.21875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          19.6875,
+          3,
+          3
+        ],
+        [
+          94.21875,
+          21.09375,
+          6,
+          6
+        ],
+        [
+          94.21875,
+          22.5,
+          6,
+          6
+        ],
+        [
+          95.625,
+          16.875,
+          3,
+          3
+        ],
+        [
+          95.625,
+          18.28125,
+          5,
+          5
+        ],
+        [
+          95.625,
+          19.6875,
+          3,
+          3
+        ],
+        [
+          95.625,
+          21.09375,
+          13,
+          13
+        ],
+        [
+          95.625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          95.625,
+          23.90625,
+          5,
+          5
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          22.5,
+          22,
+          18
+        ],
+        [
+          97.03125,
+          23.90625,
+          3,
+          0
+        ],
+        [
+          97.03125,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          18.28125,
+          10,
+          10
+        ],
+        [
+          98.4375,
+          21.09375,
+          12,
+          12
+        ],
+        [
+          99.84375,
+          19.6875,
+          8,
+          8
+        ],
+        [
+          101.25,
+          16.875,
+          4,
+          4
+        ],
+        [
+          101.25,
+          19.6875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

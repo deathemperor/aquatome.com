@@ -1698,14 +1698,52 @@
       "\"พืชดีที่หลายคนยังไม่รู้จัก\" is a stiff rendering of \"hidden gem\". Consider \"พืชน่าสนใจที่ยังไม่ค่อยมีใครรู้จัก\"."
     ]
   },
+  "phyllanthus-fluitans": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "เรดรูทฟลอตเตอร์",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"จอก (Salvinia)\": Salvinia is usually called \"ผักตบ/จอกหูหนู\" in Thai; \"จอก\" alone is Pistia (ผักกาดน้ำ). Use \"ไม้น้ำสกุลซัลวิเนีย (Salvinia)\" or \"จอกหูหนู\" to avoid confusion.",
+      "\"ใบเป็นรูปหัวใจและไม่เปียกน้ำ ซึ่งปิดบังลำต้นไว้\": the relative clause is awkward and ambiguous. Rephrase, e.g. \"ใบรูปหัวใจที่กันน้ำ (ไม่เปียกน้ำ) ปกคลุมลำต้นไว้\".",
+      "\"ลำต้นบางครั้งอาจออกดอก\": the English says the plant (not just the stem) may flower. Use \"ต้นอาจออกดอกสีขาวกลีบดอก 6 กลีบ\".",
+      "\"ข้อ ... ใบเดี่ยวเพียงใบเดียว\" is redundant. Use \"มีใบเดี่ยวข้อละหนึ่งใบ\".",
+      "\"ยิ่งได้รับแสงจัดมากเท่าใด ... เท่านั้น\" is stiff and bookish. A more natural option is \"ยิ่งได้รับแสงมาก ใบยิ่งเป็นสีน้ำตาลเข้มขึ้น\"."
+    ]
+  },
+  "plagiomnium-sp-thyme-moss": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "ไทม์มอส (Thyme Moss)",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": []
+  },
+  "pogostemon-deccanensis": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "โพโกสเตมอน อีเรคตัส",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ใบคล้ายต้นสน\": the English says the stems are conifer-like (\"conifer-like stems\"). Rephrase as \"ต้นคล้ายต้นสน\" or \"ลำต้นคล้ายต้นสน\" so it doesn't read as only the leaves.",
+      "\"เติบโตปานกลาง\" is a bit stiff. \"อัตราการเติบโตปานกลาง\" is more natural.",
+      "\"รากแข็งแรง\": \"vigorous roots\" would be better as \"รากเจริญเร็ว/แข็งแรง\". This is minor.",
+      "\"ยอดที่ตัดออกมานำไปปักปลูกก็เริ่มเติบโตได้ง่าย\" is slightly awkward. Use \"ยอดที่ตัดแล้วนำไปปักชำจะแตกรากและโตได้ง่าย\"."
+    ]
+  },
   "pogostemon-helferi": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-05",
+    "from": "2026-10-31",
     "name": "ดาวน้อย",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.85,
     "notes": [
-      "\"ปลูกด้วยคีมปลูกไม้น้ำ\": \"aquarium tweezers\" is normally ที่คีบ/แหนบปลูกไม้น้ำ. \"คีม\" means pliers, which is a different tool."
+      "Item 5: \"การเติบโตก็อยู่ในระดับปานกลางเป็นอย่างมาก\" is confusing for \"moderate at best\". Rephrase, e.g. \"โตได้ในระดับปานกลางเท่านั้นอย่างมากที่สุด\" or \"โตเร็วสุดก็แค่ปานกลาง\".",
+      "Item 10: \"นักเลี้ยงปลา\" for \"aquarists\" is slightly off for a plant context. Use \"นักเลี้ยงสัตว์น้ำ/นักเล่นไม้น้ำ\".",
+      "Item 9: \"Clown Killifish\" and \"หอย Japanese trapdoor\" / \"หอย Black Devil\" are left in English. Use Thai names where hobbyists have them, e.g. ปลาคิลลี่โคลน, หอยแอปเปิ้ลญี่ปุ่น.",
+      "Item 9: \"ปลาออตโต้\" for Otocinclus is nonstandard. Use \"ปลาอ็อตโต\" or \"ปลาออโต้\"."
     ]
   },
   "proserpinaca-palustris": {
