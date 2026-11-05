@@ -250,7 +250,8 @@ The layers above still check the result.
   `docs/review/summaries.md`.
 - **Photos.** No people (faces dropped), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
-  good), each photo must show its species, open licences or permission only.
+  good), no dead fish or fish as food (markets, plates, catches landed or held, preserved, mounted or museum specimens),
+  each photo must show its species, open licences or permission only.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
   - **Galleries and their targets.** Every species, plant and breed has a gallery, topped up each cycle to a target set
@@ -296,6 +297,16 @@ The layers above still check the result.
     leaves a guide; a guide photo that is a page's photo goes with that page's "something else". Most-read pages first, verdicts cached per photo and page (`_photo-subjects.json`). Found by
     the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
     page; the first check (2026-10) had reached under half the page photos, in alphabetical order, and no gallery.
+    - **Dead fish and logos.** The check also answers "dead" (a dead fish or fish as food: a market, ice, a plate, a
+      catch landed or held, a fish on a tray or the floor, a preserved, mounted, museum or lab specimen, a museum shell;
+      when it can't tell, dead) and whether a logo, stamp or mark was added on the photo, which the watermark step's
+      text reader can miss. Either is about the photo: one such verdict takes it off every page, guide and gallery and
+      onto `_photo-rejected.json` ("dead: …", "watermark: …"). A logo found, the same photographer's older-judged photos
+      are asked too. `pnpm engine recheck-photos` (each photos cycle, before `check-photos`) asks again, once, the photos
+      judged before the check asked whose notes from earlier looks (the checks', the watermark step's, the gallery's
+      captions) say dead, market, preserved, museum, cooked and the like; then it finds none and calls no model. Found
+      by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their page; its note
+      said so and the verdict was "yes".
   - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer
     and the page's credits); the gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and
     GBIF photos are copied to our media bucket with the credit kept.

@@ -4,11 +4,12 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
-import { captionSubject, checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
+import { SpeciesSchema } from '@aq/schema'
+import { captionSubject, checkPagePhotos, deadNote, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#e83' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
-const photo = (n: string, caption?: string) => ({ url: url(n), thumb: url(`${n}-480`), width: 960, height: 720, licence: 'x', author: 'x', sourceUrl: 'x', ...(caption ? { caption } : {}) })
+const photo = (n: string, caption?: string, author = 'x') => ({ url: url(n), thumb: url(`${n}-480`), width: 960, height: 720, licence: 'x', author, sourceUrl: 'x', ...(caption ? { caption } : {}) })
 const name = (u: string) => u.split('/').pop()!.replace('.webp', '')
 
 type Page = { kind?: 'species' | 'plants' | 'breeds'; id: string; sci?: string; vi?: object; photos?: string[]; gallery?: string[]; extra?: object }
@@ -233,4 +234,132 @@ test('a verdict against a guide caption doesn\'t stand for the page: the same ph
   await checkPagePhotos(r, d, { limit: 10 })
   expect(d.seen.map(s => s.photos)).toEqual([['mixed'], ['mixed']])
   expect(d.seen[1]!.prompt).not.toContain('from a guide')
+})
+
+test('a dead fish at a market leaves every page, gallery and guide that shows it and joins the blocklist, though another page passed it', async () => {
+  // Found by the owner (2026-11-05): the speckled peacock bass page led with dead fish piled at a market, judged "yes".
+  const r = await root([
+    { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market', 'live'], gallery: ['market'] },
+    { id: 'cichla-ocellaris', sci: 'Cichla ocellaris', photos: ['market'] },
+  ], { peacocks: { photos: [photo('market')] } })
+  const d = model({})
+  const look = d.look
+  d.look = async (s, prompt) => {
+    const v = await look(s, prompt)
+    return prompt.includes('Cichla temensis') ? { photos: v.photos.map(p => (p.note === 'market' ? { ...p, ok: 'dead', typical: true, note: 'dead peacock bass piled at a market' } : p)) } : v
+  }
+  const out = await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen[0]!.prompt).toMatch(/"dead" if it shows a dead fish or other animal, or fish as food, whatever the species: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a catch landed or held up/)
+  expect(await urls(r, 'content/species/cichla-temensis/entity.json')).toEqual(['live'])
+  expect(await urls(r, 'content/gallery/cichla-temensis.json')).toEqual([])
+  expect(await urls(r, 'content/species/cichla-ocellaris/entity.json')).toEqual([])
+  expect(await urls(r, 'content/guides/peacocks/entity.json')).toEqual([])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('market')]: 'dead: dead peacock bass piled at a market' })
+  expect(out.blocked).toEqual([`${url('market')}: dead: dead peacock bass piled at a market`])
+  // A dead fish is never the page's typical photo, and the review lists it.
+  expect((await json(r, 'engine-state/_photo-subjects.json'))[url('market')]['cichla-temensis']).toMatchObject({ ok: 'dead', typical: false, logo: false })
+  expect(await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')).toMatch(/dead or as food: 1;[\s\S]*species\/cichla-temensis \| \[photo\]\(https:\/\/media\.example\/market\.webp\) \| dead: dead peacock bass piled at a market/)
+})
+
+test('a logo the text reader missed is a watermark: off every page, onto the blocklist; the same photographer\'s other photos are asked again', async () => {
+  const r = await root([
+    { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['stamped'], gallery: ['clean'] },
+    { id: 'phractocephalus-hemioliopterus', sci: 'Phractocephalus hemioliopterus', photos: ['redtail', 'other-author'] },
+  ])
+  for (const [f, photos] of [['content/species/cichla-temensis/entity.json', [photo('stamped', undefined, 'Diogo Luiz')]], ['content/species/phractocephalus-hemioliopterus/entity.json', [photo('redtail', undefined, 'Diogo Luiz'), photo('other-author')]]] as const) {
+    await writeFile(join(r, f), JSON.stringify({ ...(await json(r, f)), photos }))
+  }
+  // Both pages judged before the check asked about logos: only the stamped photo's page is asked again (as `recheck` does)…
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
+    [url('redtail')]: { 'phractocephalus-hemioliopterus': { ok: 'yes', typical: true, note: 'redtail catfish' } },
+    [url('other-author')]: { 'phractocephalus-hemioliopterus': { ok: 'yes', typical: true, note: 'redtail catfish' } },
+  }))
+  const d = model({ stamped: { logo: true, note: 'peacock bass; round "Repertório Animal" logo bottom left' }, redtail: { logo: true, note: 'redtail catfish; round logo bottom left' } })
+  await checkPagePhotos(r, d, { limit: 10, recheck: new Set([url('stamped')]) })
+  expect(d.seen[0]!.prompt).toContain('- logo: true if a logo, stamp, watermark, signature or text was added on top of the photo after it was taken, even small or faint, round, in a corner')
+  // …then the same photographer's: their redtail photo on another page, not the other author's photo there.
+  expect(d.seen.map(s => s.photos)).toEqual([['stamped'], ['redtail']])
+  expect(await urls(r, 'content/species/cichla-temensis/entity.json')).toEqual([])
+  expect(await urls(r, 'content/species/phractocephalus-hemioliopterus/entity.json')).toEqual(['other-author'])
+  expect(await urls(r, 'content/gallery/cichla-temensis.json')).toEqual(['clean'])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({
+    [url('stamped')]: 'watermark: peacock bass; round "Repertório Animal" logo bottom left',
+    [url('redtail')]: 'watermark: redtail catfish; round logo bottom left',
+  })
+})
+
+test('an engraved plate or an old drawing is "not a photo of it" as before, not "dead": it leaves its page with that reason', async () => {
+  const r = await root([{ id: 'bagrus-bajad', sci: 'Bagrus bajad', photos: ['plate'] }])
+  const d = model({ plate: { ok: 'none', typical: false, note: 'old engraved plate of two Bagrus catfish' } })
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen[0]!.prompt).toContain('Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.')
+  expect(d.seen[0]!.prompt).toContain('"none" if it is not a photo of the subject at all: a map, chart, diagram or drawing, hands or people')
+  expect(await urls(r, 'content/species/bagrus-bajad/entity.json')).toEqual([])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('plate')]: 'not Bagrus bajad: old engraved plate of two Bagrus catfish' })
+  // Nor is a note about one a reason to ask again.
+  expect(deadNote('Old plate showing two Bagrus catfish from a museum collection, engraved')).toBe(false)
+  expect(deadNote('Old black-and-white plate of a preserved specimen and head close-up')).toBe(true)
+})
+
+test('photos to judge again are picked from the notes of earlier looks: the checks\', the watermark step\'s and the gallery\'s captions', async () => {
+  const r = await root([
+    { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market', 'leaves', 'drawing', 'new', 'gone', 'tag', 'never', 'landed'], gallery: ['cho', 'swim'] },
+    { id: 'sulcospira-testudinaria', sci: 'Sulcospira testudinaria', photos: ['shell'] },
+  ])
+  const v = (note: string, extra: Partial<PhotoVerdict> = {}): PhotoVerdict => ({ ok: 'yes', typical: true, note, ...extra })
+  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({
+    [url('market')]: v('Several dead speckled-phase peacock bass in a market'),
+    [url('leaves')]: v('Adult among dead leaves'),
+    [url('drawing')]: v('Old book drawing of the fish, from a museum library'),
+    [url('gone')]: v('Dead fish on a tray'),
+    [url('landed')]: v('Large adult just caught, landed on a boat deck'),
+  }))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
+    [url('shell')]: { 'sulcospira-testudinaria': v('Naturalis museum shell specimens labelled Brotia testudinaria') },
+    // Judged since the check asks about dead fish and logos: not asked again.
+    [url('new')]: { 'cichla-temensis': v('dead fish on ice', { ok: 'dead', logo: false }) },
+  }))
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ [url('tag')]: { ocr: [], watermark: false, kind: 'none', what: 'preserved specimen photo, no text' } }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('gone')]: 'dead: already off' }))
+  const g = join(r, 'content/gallery/cichla-temensis.json')
+  await writeFile(g, JSON.stringify({ ...(await json(r, 'content/gallery/cichla-temensis.json')), photos: [photo('cho', 'Cá hoàng đế sao chết bày bán ở chợ'), photo('swim', 'Cá hoàng đế sao bơi trong bể')] }))
+  expect(Object.fromEntries([...await recheckCandidates(r)].map(([u, n]) => [name(u), n]))).toEqual({
+    market: 'Several dead speckled-phase peacock bass in a market',
+    tag: 'preserved specimen photo, no text',
+    cho: 'Cá hoàng đế sao chết bày bán ở chợ',
+    shell: 'Naturalis museum shell specimens labelled Brotia testudinaria',
+    landed: 'Large adult just caught, landed on a boat deck',
+  })
+})
+
+test('the repair judges each photo once: a second run finds nothing to ask and changes nothing', async () => {
+  const r = await root([{ id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market', 'aquarium'] }])
+  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({
+    [url('market')]: { ok: 'yes', typical: true, note: 'Several dead peacock bass in a market' },
+    [url('aquarium')]: { ok: 'yes', typical: true, note: 'Adult in a public aquarium' },
+  }))
+  const d = model({ market: { ok: 'dead', note: 'dead fish at a market' } })
+  const first = await checkPagePhotos(r, d, { limit: 10, recheck: new Set((await recheckCandidates(r)).keys()) })
+  expect(d.seen.map(s => s.photos)).toEqual([['market']])
+  expect(first.blocked).toHaveLength(1)
+  const files = async () => Promise.all(['content/species/cichla-temensis/entity.json', 'engine-state/_photo-rejected.json', 'engine-state/_photo-subjects.json'].map(f => readFile(join(r, f), 'utf8')))
+  const before = await files()
+  expect((await recheckCandidates(r)).size).toBe(0)
+  // Even given the first run's photos again.
+  const again = await checkPagePhotos(r, { ...d, look: async () => { throw new Error('judged twice') } }, { limit: 10, recheck: new Set([url('market')]) })
+  expect(again).toMatchObject({ sheets: 0, blocked: [], rejected: 0, removed: [] })
+  expect(await files()).toEqual(before)
+})
+
+test('a page that loses its last photo keeps a valid page file, with no photo, and is listed', async () => {
+  const r = await root([{ id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market'], gallery: ['market'] }])
+  const file = join(r, 'content/species/cichla-temensis/entity.json')
+  const real = JSON.parse(await readFile(new URL('../../../apps/site/test/fixture-content/species/paracheirodon-innesi/entity.json', import.meta.url), 'utf8'))
+  await writeFile(file, `${JSON.stringify({ ...real, id: 'cichla-temensis', scientificName: 'Cichla temensis', photos: [photo('market')] }, null, 2)}\n`)
+  await checkPagePhotos(r, model({ market: { ok: 'dead', note: 'dead fish at a market' } }), { limit: 10 })
+  const e = await json(r, 'content/species/cichla-temensis/entity.json')
+  expect(e.photos).toEqual([])
+  expect(SpeciesSchema.safeParse(e).success).toBe(true)
+  expect(await urls(r, 'content/gallery/cichla-temensis.json')).toEqual([])
+  expect(await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')).toMatch(/## Left with no photo \(1\)\n\n- species\/cichla-temensis\n/)
 })
