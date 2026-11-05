@@ -73,7 +73,9 @@ struct AquaTomeApp: App {
       // A link from a web page (the site's "Mở trong ứng dụng"): the site's page it names, as a link in a page opens.
       // Opening the app, before the index is read, it waits for it.
       .onOpenURL { url in
-        opening = AppLink.of(url, site: handbook.site)
+        // Anything else is ignored, and leaves a link waiting as it is.
+        guard let link = AppLink.of(url, site: handbook.site) else { return }
+        opening = link
         if handbook.status != .loading { openLink() }
       }
       .onChange(of: handbook.status) { if handbook.status != .loading { openLink() } }
@@ -121,8 +123,8 @@ struct AquaTomeApp: App {
     }
   }
 
-  /// The link from outside waiting, if any: the home's top, or the page's own screen (AppScreen), else its web page on
-  /// the Tìm tab.
+  /// The link from outside waiting, if any: the home's top, with no search; a shop outside, as a page's link opens it;
+  /// else the page on the Tìm tab, as its own screen (a tool's on its tab: AppScreen) or its web page.
   private func openLink() {
     guard let link = opening else { return }
     opening = nil
@@ -130,12 +132,17 @@ struct AquaTomeApp: App {
     case .home:
       tab = .handbook
       handbookPath = NavigationPath()
+      handbook.query = ""
     case .page(let url):
+      if ShopLink.is(url, site: handbook.site) {
+        Task { await OwnCopy.open(url, site: handbook.site) }
+        return
+      }
+      tab = .handbook
       if let screen = AppScreen.of(url, site: handbook.site, listed: { handbook.item(at: $0) != nil },
                                    group: { !handbook.shelves.fish(group: $0, handbook.labels).isEmpty }) {
         open(screen)
       } else {
-        tab = .handbook
         handbookPath.append(SitePage(url: url))
       }
     }
