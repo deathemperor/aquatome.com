@@ -33,6 +33,9 @@ struct ReaderPost: View {
   @State private var consent = false
   @State private var sending = false
   @State private var said: Said?
+  /// The photo just sent and the name it went under, kept in view under the line saying it was received, until another
+  /// is picked: a reader looks for it there.
+  @State private var sent: (photo: UIImage, name: String)?
   @FocusState private var typing: Field?
 
   enum Field { case name, body }
@@ -96,6 +99,7 @@ struct ReaderPost: View {
       // Another photo picked meanwhile: that one's.
       guard !Task.isCancelled else { return }
       reading = false
+      sent = nil
       jpeg = small
       preview = small.flatMap(UIImage.init(data:))
       if small == nil { said = .unreadable }
@@ -184,10 +188,15 @@ struct ReaderPost: View {
       VStack(spacing: 20) {
         Image(systemName: "checkmark.circle.fill").font(.system(size: 56)).foregroundStyle(.green).accessibilityHidden(true)
         Text(Said.received(delete: delete).text).font(.headline).multilineTextAlignment(.center).accessibilityIdentifier("post-said")
+        if let sent {
+          Image(uiImage: sent.photo).resizable().scaledToFit().frame(maxHeight: 220)
+            .accessibilityLabel(Text("Ảnh của \(sent.name)")).accessibilityIdentifier("post-sent")
+        }
         if let delete {
           VStack(alignment: .leading, spacing: 10) {
             Text("Muốn gỡ ảnh sau này? Lưu link riêng này (chỉ hiện một lần):").font(.subheadline)
-            Link(delete.absoluteString, destination: delete).font(.footnote).accessibilityIdentifier("post-delete")
+            // To keep, not to follow: a tap opened the page that removes the photo, and a reader took it for their photo.
+            Text(verbatim: delete.absoluteString).textSelection(.enabled).font(.footnote).accessibilityIdentifier("post-delete")
             ShareLink(item: delete)
           }
           .frame(maxWidth: .infinity, alignment: .leading)
@@ -218,6 +227,9 @@ struct ReaderPost: View {
     }
     sending = true
     said = nil
+    sent = nil
+    // The photo and name as sent: another can be picked, and the name changed, while it goes.
+    let photo = preview, name = trimmed(draft)
     let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0"
     let answer = await account.post { token in
       kind == .comment
@@ -236,6 +248,7 @@ struct ReaderPost: View {
       keepName()
       said = .posted(String(localized: "Bình luận đang chờ duyệt."))
     case let .received(delete)?:
+      sent = photo.map { ($0, name) }
       picked = nil; jpeg = nil; preview = nil; consent = false
       keepName()
       said = .received(delete: delete.flatMap { URL(string: $0, relativeTo: handbook.site)?.absoluteURL })

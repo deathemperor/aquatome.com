@@ -1,0 +1,275 @@
+{
+  "id": "pterophyllum-scalare",
+  "native": {
+    "input": "eb1a1301c4b6c706",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Wild-collected angelfish from the municipality of Santa Isabel on the Rio Negro, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The angelfish, Pterophyllum scalare, is a cichlid from the Amazon, Essequibo, Oyapock and other rivers of northern South America.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "The angelfish, Pterophyllum scalare, is a cichlid from the Amazon, Essequibo, Oyapock and other rivers of northern South America.",
+        "ok": true
+      },
+      {
+        "name": "Oyapock",
+        "source": "seriouslyfish",
+        "quote": "The angelfish, Pterophyllum scalare, is a cichlid from the Amazon, Essequibo, Oyapock and other rivers of northern South America.",
+        "ok": true
+      },
+      {
+        "name": "Rio Ucayali",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage.",
+        "ok": true
+      },
+      {
+        "name": "Rio Solimões",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "Wild-collected angelfish from the municipality of Santa Isabel on the Rio Negro, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pterophyllum scalare",
+    "status": "ACCEPTED",
+    "taxonKey": 5208518,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        71
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        36
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        35
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        28
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        17
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        16
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        9
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        8
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        8
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "04169fce-7d4f-41f7-9dff-245960f5b59e",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "b9baec9c-0b04-4b23-8f16-6933964e31d2",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO",
+      "GY",
+      "SR",
+      "GF",
+      "PE"
+    ],
+    "requests": 15,
+    "at": "2026-11-04T21:41:08.860Z"
+  }
+}

@@ -101,7 +101,13 @@
   "File:Hygrophila polysperma indoors.jpg",
   "File:Indischer Wasserfreund.jpg",
   "File:Hygrophila polysperma-1-veda aquarium-bengaluru-India.jpg",
-  "File:Hygrophila polysperma-2-veda aquarium-bengaluru-India.jpg"
+  "File:Hygrophila polysperma-2-veda aquarium-bengaluru-India.jpg",
+  "flickr:28816900057",
+  "flickr:41898392630",
+  "flickr:41898395040",
+  "flickr:28816893317",
+  "flickr:28816896167",
+  "flickr:28816894287"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/4c081e64cc765552.webp": "294d8f173329d9a9",
@@ -142,7 +148,11 @@
   "https://media.aquatome.com/inaturalist/603748160.webp": "b991d672b9f454ac",
   "https://media.aquatome.com/inaturalist/359440052.webp": "bb97a797b7b9adad",
   "https://media.aquatome.com/inaturalist/607921512.webp": "9eb5c58a1b298e9a",
-  "https://media.aquatome.com/inaturalist/608400654.webp": "5be325592493a978"
+  "https://media.aquatome.com/inaturalist/608400654.webp": "5be325592493a978",
+  "https://live.staticflickr.com/938/28816900057_0534e036e7_b.jpg": "0000166171768410",
+  "https://live.staticflickr.com/939/41898395040_515c8eaf1d_b.jpg": "374e4d7ed6a6abb5",
+  "https://live.staticflickr.com/858/28816893317_c9cc8087d4_b.jpg": "af371d0c222f2b63",
+  "https://live.staticflickr.com/940/28816896167_30ef02ef87_b.jpg": "885b2f0e87c74355"
  },
  "inat": {
   "taxon": 163904,
@@ -156,5 +166,9 @@
  "gbif": {
   "key": 5415355,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-04"
 }

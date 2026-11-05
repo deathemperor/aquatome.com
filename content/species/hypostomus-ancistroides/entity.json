@@ -1,0 +1,69 @@
+{
+  "id": "hypostomus-ancistroides",
+  "scientificName": "Hypostomus ancistroides",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "paraguay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en/",
+      "html": "<p>A slender, very rare Hypostomus imported from Paraguay. The subtropical species tolerates temperatures between 16 and 28°C and attains a maximum length of about 20-25 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en/",
+      "html": "<p>Imported from Paraguay.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá lau kính"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính",
+        "viên chìm cho cá dọn bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

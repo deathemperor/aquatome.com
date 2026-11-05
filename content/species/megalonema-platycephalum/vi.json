@@ -7,13 +7,22 @@
     "beforeYouBuy:planetcatfish": "<p>Cá này có thể được bày bán dưới tên Piramutana piramuta. Hiện nay tên này được xem là đồng danh muộn của B. vailliantii, một loài to hơn nhiều. Lúc còn nhỏ thì hai loài trông khá giống nhau.</p>",
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Amazon, Essequibo và Orinoco. Vùng phân bố gồm cả các thủy vực ở Guyana và các con sông ven biển vùng Guianas.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp150, Fig. 31, Pl. 10 (fig. 2).</p>"
+    "references:planetcatfish": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp150, Fig. 31, Pl. 10 (fig. 2).</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Ít quan tâm (2023)</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ, gồm các lưu vực sông Amazon, Essequibo và Orinoco. Nơi thu mẫu chuẩn là Tumatumari, thuộc Guiana thuộc Anh.</p>",
+    "habitat:scotcat": "<p>Megalonema là một giống cá da trơn thuộc họ Pimelodidae. Giống cá này phân bố rộng ở Nam Mỹ, có mặt khắp các lưu vực Paraná, Amazon, Essequibo, Orinoco, Maracaibo và Magdalena. Các loài Megalonema sống ở sông cỡ vừa đến lớn. Chúng chủ yếu ở những đoạn ven bờ có nước chảy, nơi nền đáy là bùn hoặc cát mịn.</p>",
+    "aquariumSize:scotcat": "<p>Đây là loài lớn nhất trong giống. Vì thế bạn cần bể tối thiểu 120 x 60 x 60 cm, dòng chảy ở mức vừa.</p>",
+    "maintenance:scotcat": "<p>Thay nước mỗi tuần.</p>",
+    "diet:scotcat": "<p>Người ta từng câu được loài này bằng cần câu và lưỡi câu. Khi kiểm tra dạ dày, họ thấy có ấu trùng bọ cánh cứng, vảy cá và gai của cá da trơn. Trong bể, cá chịu ăn viên chìm và hầu hết các loại giun, các loại động vật có vỏ.</p>",
+    "notes:scotcat": "<p>Mô tả: Đây là những loài cá da trơn thân thon dài, kích thước vừa phải. Tùy loài, cá trưởng thành dài khoảng 10–30 cm SL. Vây trong suốt đến trong mờ, dáng thanh mảnh và thường kéo dài thành sợi. Vây lưng và vây ngực có gai vây mềm dẻo. Vây mỡ của chúng khá rộng.</p><p>Màu sắc: Phần lớn các loài Megalonema có màu trơn, từ vàng nhạt đến nâu vàng, và thường không có hoa văn gì nổi bật. Điểm đáng chú ý duy nhất là một đốm sẫm chìm dưới da ở gốc thùy trên vây đuôi, đặc điểm này khá phổ biến. Đôi khi thùy dưới cũng có đốm này.</p><p>Từ nguyên: Tên loài platycephalum nghĩa là \"đầu dẹt\", ghép từ platýs (dẹt) và kephal (đầu). Tên này ám chỉ phần đầu dẹt ở khoảng giữa hai mắt.</p>",
+    "references:scotcat": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Grant, Steven. Pims. Pimelodidae, Heptapteridae and Pseudopimelodidae Catfishes. ATS-Aquashop.de 2021 219p.</p><p>Lundberg, G. John; Dahdul, M. Wasila; 2008. Two new cis-Andean species of the South American catfish genus Megalonema allied to trans-Andean Megalonema xanthum, with description of a new subgenus (Siluriformes: Pimelodidae). Neotrop. ichthyol. vol.6 no.3 Porto Alegre 2008.</p><p>Salvador, G.N. 2023. Megalonema platycephalum. The IUCN Red List of Threatened Species 2023.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.8
     }
   }
 }

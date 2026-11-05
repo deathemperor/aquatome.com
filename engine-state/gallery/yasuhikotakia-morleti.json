@@ -1,12 +1,21 @@
 {
  "queue": [],
  "judged": [
-  "File:Yasuhikotakia morleti.jpg"
+  "File:Yasuhikotakia morleti.jpg",
+  "inat:252058511"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/9dea70656f148f4d.webp": "0c1e2c9e34462c01",
   "https://media.aquatome.com/seriouslyfish/16e9c42cd9a5eca3.webp": "c66911254d3d5101",
   "https://media.aquatome.com/seriouslyfish/310bafabb58bdd78.webp": "02723e9e9683918d"
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "inat": {
+  "taxon": 115207,
+  "pass": "done",
+  "after": {
+   "research": 146590182,
+   "agree": 339406160
+  }
+ }
 }

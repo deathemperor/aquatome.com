@@ -1,10 +1,13 @@
 {
   "slug": "ca-chuot-britski",
-  "name": "Cá chuột Britski",
+  "name": "Cá chuột Brochis britskii",
   "altNames": [
     "Cá da trơn Britski",
     "Cá chuột ngọc lục bảo Mato Grosso (Brochis cf. splendens CW 35)",
-    "Britski's catfish"
+    "Britski's catfish",
+    "Cá chuột Britski",
+    "Cá chuột khổng lồ Britski",
+    "Giant Brochis"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Có hai đặc điểm tách các loài Brochis khỏi Corydoras. Thứ nhất là kích thước rất lớn, tới 12 cm. Thứ hai là vây lưng có nhiều tia. Corydoras chỉ có 7–8 tia ở vây lưng, còn vây lưng của Brochis có 10–18 tia. Ngoài ra, hai chi này còn khác nhau ở một số đặc điểm không nhìn thấy được từ bên ngoài.</p>",
@@ -13,14 +16,26 @@
     "maintenance:glaser": "<p>Nuôi những con Brochis đẹp này hoàn toàn không khó. Chúng lên màu đẹp nhất khi nuôi ở nhiệt độ tương đối cao, khoảng 26–28°C.</p>",
     "dimorphism:glaser": "<p>Cách phân biệt đực cái giống như ở Corydoras. Chẳng hạn, con đực có vây bụng lớn hơn.</p>",
     "reproduction:glaser": "<p>Có vẻ phải mô phỏng mùa khô và hạ nhiệt độ xuống thấp, khoảng 20°C, thì cá mới chịu sinh sản.</p>",
-    "notes:glaser": "<p>Từ nguyên: Brochis: tiếng Hy Lạp cổ, nghĩa là “thòng lọng”, chỉ một cấu trúc giải phẫu ở các sợi râu. splendens: tiếng Latin, nghĩa là “lộng lẫy”. britskii: tên đặt để vinh danh H. Britski, nhà ngư học ở Sao Paulo, Brazil.</p><p>Gợi ý tên thường gọi: Brochis britskii: cá da trơn Britski. Brochis cf. splendens CW 35: cá chuột ngọc lục bảo Mato Grosso.</p>"
+    "notes:glaser": "<p>Từ nguyên: Brochis: tiếng Hy Lạp cổ, nghĩa là “thòng lọng”, chỉ một cấu trúc giải phẫu ở các sợi râu. splendens: tiếng Latin, nghĩa là “lộng lẫy”. britskii: tên đặt để vinh danh H. Britski, nhà ngư học ở Sao Paulo, Brazil.</p><p>Gợi ý tên thường gọi: Brochis britskii: cá da trơn Britski. Brochis cf. splendens CW 35: cá chuột ngọc lục bảo Mato Grosso.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá chuột khổng lồ (Brochis britskii), từ lâu mang tên Corydoras britskii, là một loài cá da trơn có giáp. Loài này chỉ sống ở thượng nguồn sông Paraguay, thuộc bang Mato Grosso, Brazil. Cá dài khoảng 90 mm SL. B. splendens và B. multiradiata là hai loài còn lại từ lâu vẫn xếp trong Brochis. Bạn có thể phân biệt B. britskii với hai loài này nhờ vây lưng có 15 đến 18 tia. Ngoài tự nhiên, cá tụ thành đàn ở các nhánh sông nhỏ và những vùng nước tĩnh như vũng nước đọng ven sông, hồ móng ngựa và hồ ven sông.</p>",
+    "distribution:seriouslyfish": "<p>Loài này chỉ có ở thượng nguồn sông Paraguay, thuộc bang Mato Grosso, Brazil.</p><p>Nơi thu mẫu chuẩn là 'Lagoas Marginais, rodovia Transpantaneira, Poconé, 16°15'S, 56°37'W, bang Mato Grosso, Brazil'.</p>",
+    "habitat:seriouslyfish": "<p>Cá thường tụ thành đàn ở các nhánh sông nhỏ và những vùng nước tĩnh như vũng nước đọng ven sông, hồ móng ngựa và hồ ven sông.</p>",
+    "aquariumSize:seriouslyfish": "<p>Bể nên có đáy tối thiểu 120 × 45 cm hoặc tương đương (thể tích khoảng 243 lít).</p>",
+    "maintenance:seriouslyfish": "<p>Nền tốt nhất là cát mịn. Sỏi tròn cũng dùng được, miễn là bạn giữ nền thật sạch.</p><p>Phần trang trí còn lại phần lớn tùy sở thích. Dù vậy, bể nên có chỗ trú ẩn để cá thấy an toàn.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–26°C</li><li>pH: 6,0–7,0</li><li>Độ cứng: 2–12 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Corydoras là nhóm cá ăn tạp, quen bới tìm mồi. Chúng ăn hầu hết các loại thức ăn khô dạng chìm, cùng thức ăn sống và đông lạnh cỡ nhỏ như ấu trùng muỗi chironomid (trùng huyết), trùng chỉ...</p><p>Cho ăn đa dạng thì cá mới giữ được thể trạng tốt nhất.</p><p>Tuyệt đối đừng để cá sống nhờ thức ăn thừa của các loài khác trong bể, cũng đừng trông vào chúng để 'dọn' bể.</p>",
+    "behaviour:seriouslyfish": "<p>Cá hiền và sống theo bầy. Bạn nên nuôi một nhóm ít nhất 6-8 con.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá cái trưởng thành tròn mình hơn hẳn, thân cao hơn và lớn hơn cá đực một chút.</p>",
+    "reproduction:seriouslyfish": "<p>Chưa có ghi nhận.</p>",
+    "notes:seriouslyfish": "<p>Loài này trước đây nằm trong giống Brochis. Đôi khi người ta gọi nó là 'cá da trơn Britski'.</p><p>B. britskii khác các loài từng thuộc Brochis ở số tia vây lưng. Loài này có 15-18 tia, thường là 15. B. splendens chỉ có 10-12 tia, còn B. multiradiata thường có 17-18 tia. Mọi loài Corydoras còn lại, cùng hai giống họ hàng gần là Aspidoras và Scleromystax, đều chỉ có 6-8 tia vây lưng.</p><p>Britto (2003) là người đầu tiên gộp Brochis vào Corydoras. Lý do là nếu công nhận Brochis là giống hợp lệ thì Corydoras không thể xem là một nhóm đơn ngành. Các nghiên cứu phát sinh loài sau đó của Shimabukuro-Dias et al. (2004) và Alexandrou et al. (2011) đều ủng hộ quyết định này. Dù vậy, tên Brochis vẫn còn phổ biến trong sách báo cá cảnh. Alexandrou và Taylor (2011) cho rằng phân họ Corydoradinae cần được rà soát lại về phân loại. Sau đợt rà soát đó, nhiều khả năng giống Brochis sẽ được công nhận lại và mở rộng.</p><p>Giống Corydoras thuộc họ Callichthyidae. Người ta thường gọi chung các loài trong họ này là cá da trơn 'giáp', vì thân chúng phủ các tấm xương thay cho vảy. Phân loại của nhóm này khá rối, và nhiều khả năng còn nhiều loài chưa được mô tả. Vì thế, những con cá chưa xác định được loài khi về thị trường cá cảnh thường được gán một mã số 'C' hoặc 'CW' để tiện tra cứu và sắp xếp.</p><p>Chúng là loài thở khí trời tùy nghi. Ruột của chúng đã biến đổi và có rất nhiều mạch máu. Cấu tạo này tiến hóa để cá hấp thu oxy từ không khí, nhờ đó sống sót được ở những nơi thiếu oxy. Trong bể, thỉnh thoảng bạn sẽ thấy cá ngoi lên mặt nước đớp không khí.</p><p>Gai vây ngực của cá rất cứng và có thể đâm thủng da người. Bị gai 'chích' có thể rất đau, nên bạn cần cẩn thận khi bắt cá. Người ta cho rằng dịch tiết từ tuyến nách ở gốc mỗi gai thậm chí có thể hơi độc.</p>",
+    "references:seriouslyfish": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Alexandrou, M. A. and M. I. Taylor (2011). Evolution, Ecology and Taxonomy of the Corydoradinae Revisited. In: Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 101-114</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li><li>Britto, M. R. (2003). Phylogeny of the subfamily Corydoradinae Hoedeman, 1952 (Siluriformes: Callichthyidae), with a definition of its genera. Proceedings of the Academy of Natural Sciences of Philadelphia, 153, 118-154</li><li>Hoedeman, J. J. (1952). Notes on the Ichthyology of Surinam (Dutch Guiana). The Catfish genera Hoplosternum and Callichthys, with key to the genera and groups of the family Callichthyidae. Beaufortia 1(12), 1-11</li><li>Reis, R. E. (1998). Anatomy and phylogenetic analysis of the neotropical callichthyid catfishes (Ostariophysi, Siluriformes). Zoological Journal of the Linnean Society 124(2), 105-168</li><li>Shimabukuro-Dias, C. K., C. Oliveira, R. E. Reis and F. Foresti (2004). Molecular phylogeny of the armored catfish family Callichthyidae (Ostariophysi, Siluriformes). Molecular Phylogenetics and Evolution 32(1), 152-163</li><li>Nijssen, H. and I. J. H. Isbrücker (1983). Brochis britskii, a new species of plated catfish from the Upper Rio Paraguai system, Brazil (Pisces, Siluriformes, Callichthyidae). Bulletin Zoölogisch Museum, Universiteit van Amsterdam 9(20), 177-186</li></ul>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.9
-    },
-    "reason": "thin"
+      "glaser": 0.9,
+      "seriouslyfish": 0.92
+    }
   }
 }

@@ -1,5 +1,5 @@
 import type { Device } from '@aq/schema'
-import { MODE, clockDrift, hoursLit, levelAt, modelOf, setLevel, setMode, setSchedule, setTime, type Channel, type Model } from './chihiros'
+import { MODE, clockDrift, hoursLit, isChihiros, levelAt, modelOf, setLevel, setMode, setSchedule, setTime, type Channel, type Model } from './chihiros'
 import { ct } from './ct'
 import { connect, type Bluetooth, type Light } from './light-ble'
 import { css, curve, lit, mix, snap, toMin, toTime } from './light-view'
@@ -221,7 +221,7 @@ function say(text: string, o: { bad?: boolean; action?: [string, () => void] } =
 
 function paintCard() {
   if (state === 'idle') {
-    const known = store.liveDevices(db).filter(d => d.kind === 'light')
+    const known = store.liveDevices(db).filter(isChihiros)
     const list = $('ch-known')
     list.hidden = !known.length
     $('ch-howto').hidden = !!known.length && !lost
