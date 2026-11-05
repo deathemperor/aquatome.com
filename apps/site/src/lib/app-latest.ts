@@ -1,4 +1,4 @@
-import type { Content } from '@aq/schema'
+import type { ChangelogEntry, Content } from '@aq/schema'
 import { appGuides, appPlants, appSpecies } from './app-index'
 import { changelogEntries } from './changelog'
 import { appPath, type Lang } from './i18n'
@@ -15,8 +15,11 @@ export const APP_LATEST = 200
 export type AppLatest = {
   version: 1
   lang: Lang
-  /** `new`: a page added, not updated. `source`: the source's name, as the page gives it. */
-  entries: { date: string; path: string; new: boolean; source: string }[]
+  /**
+   * One per changelog entry, as the web list has them (a page updated on two days is there twice). `path`: the page's
+   * key in this language's app index. `action`: the changelog's own. `source`: the source's name, as the page gives it.
+   */
+  entries: { date: string; path: string; action: ChangelogEntry['action']; source: string }[]
   /** The whole list on the web. */
   web: string
 }
@@ -30,6 +33,6 @@ export function appLatest(lang: Lang, c: Content): AppLatest {
   const entries = changelogEntries(c)
     .filter(e => listed.has(`${e.kind}:${e.id}`))
     .slice(0, APP_LATEST)
-    .map(e => ({ date: e.date, path: appPath(lang, e.href), new: e.action === 'new', source: c.sources[e.source]?.name ?? e.source }))
+    .map(e => ({ date: e.date, path: appPath(lang, e.href), action: e.action, source: c.sources[e.source]?.name ?? e.source }))
   return { version: 1, lang, entries, web: appPath(lang, '/vi/moi-cap-nhat/') }
 }
