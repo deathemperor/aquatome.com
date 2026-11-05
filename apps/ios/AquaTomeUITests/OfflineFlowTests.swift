@@ -23,7 +23,9 @@ final class OfflineFlowTests: XCTestCase {
     app.buttons["unkeep-all"].tap()
     XCTAssertTrue(guide.waitForNonExistence(timeout: 5), "still kept")
     app.navigationBars.buttons.element(boundBy: 0).tap()
-    XCTAssertFalse(kept.waitForExistence(timeout: 2), "the home still lists kept pages")
+    // The home again, at its top, where kept pages are listed above every fish.
+    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 5), "not back on the home")
+    XCTAssertFalse(kept.exists, "the home still lists kept pages")
   }
 
   func testAStoppedKeepKeepsNothingHalfDone() {
@@ -34,7 +36,8 @@ final class OfflineFlowTests: XCTestCase {
     XCTAssertTrue(stop.waitForExistence(timeout: 5), "no way to stop")
     stop.tap()
     XCTAssertTrue(app.buttons["Tải về đọc offline"].waitForExistence(timeout: 2), "didn't stop")
-    XCTAssertFalse(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 25), "kept after all")
+    XCTAssertTrue(keepsEnded(app), "the stopped keep is still at work")
+    XCTAssertFalse(app.buttons["Đã tải về đọc offline"].exists, "kept after all")
     // Back up to the top of the Tìm home, where kept pages are listed, above every fish.
     app.navigationBars.buttons.element(boundBy: 0).tap()
     let fish = app.descendants(matching: .any)["all-fish"]
@@ -56,7 +59,8 @@ final class OfflineFlowTests: XCTestCase {
     XCTAssertTrue(stop.waitForExistence(timeout: 2), "the keep is lost: no way to stop it")
     stop.tap()
     XCTAssertTrue(app.buttons["Tải về đọc offline"].waitForExistence(timeout: 2), "didn't stop")
-    XCTAssertFalse(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 25), "kept after all")
+    XCTAssertTrue(keepsEnded(app), "the stopped keep is still at work")
+    XCTAssertFalse(app.buttons["Đã tải về đọc offline"].exists, "kept after all")
   }
 
   func testRemovingKeptPagesStopsAKeepOnItsWay() {
@@ -130,6 +134,13 @@ final class OfflineFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + more
     app.launchForFlow()
     return app
+  }
+
+  /// Every keep's work over (KeepOffline's on the shelf): a stopped keep's last picture, 20 s long with `-slow-keep`, has
+  /// stopped or come, so the page it was for is kept by now if it ever will be.
+  private func keepsEnded(_ app: XCUIApplication) -> Bool {
+    let working = app.descendants(matching: .any)["keeps-working"]
+    return XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == '0'"), object: working)], timeout: 30) == .completed
   }
 
   /// The Tìm tab's "every guide" shelf: the fixture's one written guide, drawn by the app.

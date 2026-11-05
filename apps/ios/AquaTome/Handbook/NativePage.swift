@@ -695,6 +695,10 @@ private struct ReadersPart: View {
   @State private var reporting: ReaderItem?
   @State private var blocking: ReaderItem?
   @State private var managing = false
+  #if DEBUG
+  /// This page's read has ended (answered, or failed): only then can a UI test say the page shows none (debug builds).
+  @State private var answered = false
+  #endif
 
   var body: some View {
     // Posting needs an account: where the site has none, a section with nothing in it would only be empty.
@@ -751,12 +755,20 @@ private struct ReadersPart: View {
     }
     // Its own space above, when it shows anything (or says what it hides): none for a page with no readers' part.
     .padding(.top, showsPhotos || showsComments || hidden > 0 ? 40 : 0)
+    #if DEBUG
+    .background {
+      if answered { Text(verbatim: "read").font(.system(size: 1)).fixedSize().opacity(0.01).accessibilityIdentifier("readers-read") }
+    }
+    #endif
     .task(id: talk) {
       // Read again each time the page shows; one that fails (offline, or left before it came) keeps what was shown.
       let (c, p) = await handbook.readers(talk)
       guard !Task.isCancelled else { return }
       if let c { comments = c }
       if let p { photos = p }
+      #if DEBUG
+      answered = true
+      #endif
     }
     .sheet(item: $posting) { kind in
       ReaderPost(kind: kind, key: (kind == .comment ? talk.comments : talk.photos) ?? "", name: name) { c in

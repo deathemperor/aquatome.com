@@ -55,6 +55,11 @@ final class HandbookModel {
   /// screen, so a shelf left and opened again still shows its keep and can stop it.
   private(set) var keeping: [String: (done: Int, of: Int)] = [:]
   private var runs: [String: Task<Void, Never>] = [:]
+  #if DEBUG
+  /// Keeps whose work hasn't ended, stopped or not: a stopped one is off `keeping` at once, but its last picture can
+  /// still be on its way. The UI tests read it before saying a stopped keep kept nothing (BrowseView).
+  private(set) var keepsWorking = 0
+  #endif
   /// A keep that ended with some pages not kept (kept, of how many), for its shelf to say once.
   private var short: [String: (Int, Int)] = [:]
   /// Each kind's shard count when its pages were kept: with another, the kept shards are other files.
@@ -166,7 +171,13 @@ final class HandbookModel {
   func startKeeping(_ items: [HandbookIndex.Item], shelf: String) {
     guard runs[shelf] == nil else { return }
     keeping[shelf] = (0, 0)
+    #if DEBUG
+    keepsWorking += 1
+    #endif
     runs[shelf] = Task {
+      #if DEBUG
+      defer { keepsWorking -= 1 }
+      #endif
       let n = await keep(items) { done, of in if !Task.isCancelled { keeping[shelf] = (done, of) } }
       // Stopped: already off the list, and the pages kept so far are whole.
       guard !Task.isCancelled else { return }

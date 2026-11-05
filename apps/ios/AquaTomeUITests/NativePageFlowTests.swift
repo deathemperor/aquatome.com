@@ -353,8 +353,9 @@ final class NativePageFlowTests: XCTestCase {
     openItem(app, "rotala", "Rotala đỏ")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5))
     for _ in 0..<4 { app.swipeUp() }
-    // Its readers' content is read once the page is open: given time to come, none does.
-    XCTAssertFalse(text(app, "Thảo luận").waitForExistence(timeout: 3), "comments shown for a plant that has none")
+    // Its readers' content is read once the page is open: once the site has answered, none shows.
+    XCTAssertTrue(app.descendants(matching: .any)["readers-read"].waitForExistence(timeout: 5), "the plant's readers weren't read")
+    XCTAssertFalse(text(app, "Thảo luận").exists, "comments shown for a plant that has none")
     XCTAssertFalse(text(app, "Ảnh bạn đọc").exists)
   }
 

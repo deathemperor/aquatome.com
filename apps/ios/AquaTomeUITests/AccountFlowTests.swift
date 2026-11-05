@@ -142,14 +142,16 @@ final class AccountFlowTests: XCTestCase {
     let app = launch(resetServer: true, accounts: "off")
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5))
     add(app, "Bể", first: true)
-    XCTAssertFalse(element(app, "apple-sign-in").waitForExistence(timeout: 2), "sign-in offered with accounts off")
+    XCTAssertTrue(answered(app), "the server never said whether it has accounts")
+    XCTAssertFalse(element(app, "apple-sign-in").exists, "sign-in offered with accounts off")
     XCTAssertFalse(element(app, "account-header").exists)
   }
 
   func testAStoreFromANewerAppIsNotOfferedForSync() {
     let app = launch(resetServer: true, "-seed-tanks", "newer")
     XCTAssertTrue(app.staticTexts["Các bể trên máy này được lưu bằng bản ứng dụng mới hơn. Cập nhật AquaTome để xem và sửa."].waitForExistence(timeout: 5))
-    XCTAssertFalse(element(app, "apple-sign-in").waitForExistence(timeout: 2), "sign-in offered for a store this app can't keep")
+    XCTAssertTrue(answered(app), "the server never said whether it has accounts")
+    XCTAssertFalse(element(app, "apple-sign-in").exists, "sign-in offered for a store this app can't keep")
   }
 
   // MARK: Helpers
@@ -165,6 +167,9 @@ final class AccountFlowTests: XCTestCase {
   }
 
   private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement { app.descendants(matching: .any)[id].firstMatch }
+
+  /// The stand-in server has said whether it offers accounts (TanksView): what the tab shows for signing in is settled.
+  private func answered(_ app: XCUIApplication) -> Bool { element(app, "account-answered").waitForExistence(timeout: 10) }
 
   /// Scrolls the list until the element is on screen, then taps it.
   private func tap(_ app: XCUIApplication, _ id: String) {

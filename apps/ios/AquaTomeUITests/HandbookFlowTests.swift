@@ -217,10 +217,15 @@ final class HandbookFlowTests: XCTestCase {
     app.buttons["more"].tap()
     XCTAssertEqual(note.label, "Đang hiện 6 trong 7 kết quả. Gõ thêm để thu hẹp.")
     app.buttons["more"].tap()
-    XCTAssertFalse(note.waitForExistence(timeout: 1), "still short, with all of it listed")
+    // "Xem thêm kết quả" lists the rest in the tap itself, with no search (MoreResults), as the 6 of 7 above is read
+    // straight after its tap. Checked before the rows are counted, which scrolls the list away from the note.
+    XCTAssertFalse(note.exists, "still short, with all of it listed")
     XCTAssertEqual(rows(app), 7)
     chip(app, "fish").tap()
-    XCTAssertFalse(note.waitForExistence(timeout: 1), "short of a kind that has only 3")
+    // The fish picked (what would leave a note if it had more than 3), then the note.
+    let picked = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isSelected == true"), object: chip(app, "fish"))
+    XCTAssertEqual(XCTWaiter().wait(for: [picked], timeout: 5), .completed, "the fish not picked")
+    XCTAssertFalse(note.exists, "short of a kind that has only 3")
     XCTAssertEqual(rows(app), 3)
     // Another kind picked lists its best 3 again, not as many as the last one had.
     chip(app, "all").tap()
