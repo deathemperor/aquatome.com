@@ -322,7 +322,13 @@ The layers above still check the result.
       said so and the verdict was "yes".
   - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer
     and the page's credits); the gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and
-    GBIF photos are copied to our media bucket with the credit kept.
+    GBIF photos are copied to our media bucket with the credit kept. An Unsplash photo, wherever it shows, reads "Ảnh:
+    <name> trên Unsplash" (in view, not behind a ©), the name linking the photographer's Unsplash page and "Unsplash"
+    its home, both with AquaTome's UTM, as Unsplash's API guidelines ask (`apps/site/src/lib/unsplash.ts`); in the
+    credits list and the gallery's viewer each photo's own page is linked too. `pnpm engine unsplash` first fills the
+    photographer's page (`authorUrl`) of photos stored without one, a request a photo, as many as the hour allows
+    (`unsplashCredits`); until then the name links the photo's page. Found when Unsplash refused the site's API key for
+    production (2026-11-05): its reviewer saw neither the photographer's name nor Unsplash.
   - **Removal.** A reader or a photographer writes to the address on the contact page (`/lien-he/`, "Bản quyền và
     ghi nguồn" or "ảnh nhầm loài"). The owner adds the photo's address to `engine-state/_photo-rejected.json` with the
     reason: the next cycle drops it from every page and gallery, and it is never picked again. A source that withdraws

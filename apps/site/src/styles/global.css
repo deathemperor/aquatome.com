@@ -60,3 +60,6 @@ figure.inl figcaption { font-size: 0.85rem; color: var(--c-ink-soft); margin-top
    needs (WCAG 2.5.8): in a caption it often sits right after a link, where the ::before alone doesn't count. */
 .cite.pic { min-width: 24px; height: 24px; margin-block: -0.2rem; margin-left: 0.1em; padding: 0; background: none; vertical-align: baseline; font-size: 0.85rem; font-weight: 500; color: var(--c-ink-faint); }
 .cite.pic:hover, .cite.pic:focus-visible, .cite.pic[aria-describedby] { background: none; color: var(--c-moss); }
+/* An Unsplash photo's credit, in view where the © would be (lib/cite.ts photoMark): quiet, as the ©, its links underlined. */
+.pic-by { color: var(--c-ink-faint); }
+.pic-by a { color: inherit; }
