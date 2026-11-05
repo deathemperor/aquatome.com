@@ -106,7 +106,7 @@ final class HandbookFlowTests: XCTestCase {
   func testAVideosLengthReadsAsTheSiteWritesItInIndonesianToo() {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(id)", "-AppleLocale", "id_ID", "-reset-defaults", "-fixed-handbook"]
-    app.launch()
+    app.launchForFlow()
     let all = app.descendants(matching: .any)["all-videos"]
     for _ in 0..<8 where !(all.exists && all.isHittable) { app.swipeUp() }
     all.tap()
@@ -413,7 +413,7 @@ final class HandbookFlowTests: XCTestCase {
   private func launch(_ more: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"] + more
-    app.launch()
+    app.launchForFlow()
     return app
   }
 
