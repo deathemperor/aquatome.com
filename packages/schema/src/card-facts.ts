@@ -15,9 +15,9 @@ type Figure = Range | number
 
 /**
  * A quick-facts item's English label → what it repeats. "Care" (The Spruce Pets) and "Keeping" (Aquarium Breeder) are
- * their words for difficulty; Aquarium Breeder's "Optimal …" figures are the ones it gives the card. Not a lifespan
- * yet: the app's facts card has none, and the app's copy of a page reads as the page, so the line stays on both until
- * the app shows the card's (`lifeYears` in the app index).
+ * their words for difficulty; Aquarium Breeder's "Optimal …" figures are the ones it gives the card. A lifespan goes
+ * too: the app's facts card shows the card's (`lifeYears` in the app index), and the app's copy of a page reads as the
+ * page, so the line goes from both.
  */
 const LABELS: [RegExp, DataCardField | 'family'][] = [
   [/^family$/, 'family'],
@@ -27,6 +27,7 @@ const LABELS: [RegExp, DataCardField | 'family'][] = [
   [/^(max(imum)? (size|length)|(adult|average) size|size)$/, 'sizeCm'],
   [/^(minimum )?(aquarium|tank) (size|length|base)$/, 'tankCm'],
   [/^(difficulty|care|care level|keeping)$/, 'difficulty'],
+  [/^(average )?(life ?span|life expectancy)$/, 'lifeYears'],
 ]
 /** An unlabelled item that is only water figures: "pH 6.0-8.0; hardness up to 12 dGH; temperature 4-25 °C". */
 const WATER = [[/^ph\b/, 'ph'], [/^(hardness|gh)\b/, 'gh'], [/^temperature\b/, 'tempC']] as const
@@ -34,8 +35,11 @@ const WATER = [[/^ph\b/, 'ph'], [/^(hardness|gh)\b/, 'gh'], [/^temperature\b/, '
 const FIGURE_WORDS = new Set(('c f cm mm in inch inches sl tl l litres liters gallons gal dgh gh ph to up about approx approximately around of or and '
   + 'max maximum min minimum x very easy moderate moderately intermediate medium difficult hard expert experts beginner beginners advanced simple '
   + 'challenging fairly relatively').split(' '))
+/** A lifespan's units, for its label only: "Max size: 5 cm in 2 years" says how fast it grows, more than the card. */
+const LIFE_WORDS = new Set('year years yr yrs month months ca'.split(' '))
 /** The value is the figure and nothing more: "23–29°C (73–84°F)", "Easy", "150 mm SL"; not "5 of 8; needs a very large tank". */
-const bare = (value: string) => value.toLowerCase().replace(/\([^)]*\)/g, ' ').match(/\p{L}+/gu)?.every(w => FIGURE_WORDS.has(w)) ?? true
+const bare = (value: string, life = false) =>
+  value.toLowerCase().replace(/\([^)]*\)/g, ' ').match(/\p{L}+/gu)?.every(w => FIGURE_WORDS.has(w) || (life && LIFE_WORDS.has(w))) ?? true
 
 // Block elements apart: "…size: 20 gallons</li><li>Diet…" is not "20 gallonsDiet".
 const text = (html: string) => parse(html).structuredText.replace(/\s+/g, ' ').trim()
@@ -48,7 +52,7 @@ function repeats(item: string): (DataCardField | 'family')[] {
     const hit = LABELS.find(([re]) => re.test(m[1]!.trim()))
     if (!hit) return []
     // A family is one name ("Cobitidae (loaches)"); a figure is bare.
-    const ok = hit[1] === 'family' ? (m[2]!.replace(/\([^)]*\)/g, ' ').match(/\p{L}+/gu) ?? []).length <= 1 : bare(m[2]!)
+    const ok = hit[1] === 'family' ? (m[2]!.replace(/\([^)]*\)/g, ' ').match(/\p{L}+/gu) ?? []).length <= 1 : bare(m[2]!, hit[1] === 'lifeYears')
     return ok ? [hit[1]] : []
   }
   const parts = t.split(/\s*;\s*/).filter(Boolean).map(p => ({ p, f: WATER.find(([re]) => re.test(p)) }))
