@@ -125,15 +125,18 @@ final class OwnerFlowTests: XCTestCase {
     back(app)
     back(app)
 
-    // Signed out as a sync told the same is; the row stays, saying why it can't open.
+    // Signed out as a sync told the same is; the row stays, saying why it can't open. Under the ways to sign in, out of
+    // view until scrolled to: the list makes its rows as they come into view.
     let row = app.descendants(matching: .any)["owner-dashboard"].firstMatch
+    for _ in 0..<6 where !row.exists { app.swipeUp() }
     XCTAssertTrue(row.waitForExistence(timeout: 5), "the row went")
     XCTAssertTrue(row.label.contains("đăng nhập lại"), row.label)
     let message = app.staticTexts["account-message"]
     XCTAssertTrue(message.waitForExistence(timeout: 5))
     XCTAssertEqual(message.label, "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.")
 
-    // Signed in again: the dashboard opens as before.
+    // Signed in again (its button back up the list): the dashboard opens as before.
+    for _ in 0..<6 where !app.descendants(matching: .any)["apple-sign-in"].firstMatch.exists { app.swipeDown() }
     signIn(app)
     let plain = expectation(for: NSPredicate(format: "NOT (label CONTAINS 'đăng nhập lại')"), evaluatedWith: row)
     wait(for: [plain], timeout: 10)
