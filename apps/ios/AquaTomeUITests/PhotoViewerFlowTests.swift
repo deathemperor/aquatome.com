@@ -31,8 +31,8 @@ final class PhotoViewerFlowTests: XCTestCase {
     XCTAssertTrue(wait(shown, label: "full", timeout: 15), "the full photo didn't come: \(shown.label)")
   }
 
-  /// Each photo in the row keeps to its own place. A picture wider than its place (the stand-in is, here) was drawn clipped
-  /// but reached over the next photo's for taps and for VoiceOver, 13 pt of it.
+  /// Each photo in the row keeps to its own place. A picture wider than its place (only the stand-in is, in this row) was
+  /// drawn clipped, but its frame reached 13 pt over the next photo's, for VoiceOver and where XCUITest aims.
   func testARowsPhotosKeepToTheirPlaces() {
     let app = launch()
     let first = rowPhoto(app, "Đàn cá neon trong bể")
@@ -165,9 +165,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   /// A reader's photo keeps its report and block menu in the viewer.
   func testAReadersPhotoKeepsItsMenu() {
     let app = launch("-fake-accounts", "on", "-reset-fake-server")
-    let photo = app.buttons["Ảnh của Lan"]
-    reveal(app, photo)
-    photo.tap()
+    rowPhoto(app, "Ảnh của Lan").tap()
     let menu = app.buttons["Tùy chọn cho ảnh của Lan"].firstMatch
     XCTAssertTrue(menu.waitForExistence(timeout: 10), "no options in the photo's viewer: \(app.debugDescription)")
     menu.tap()
@@ -179,8 +177,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   /// place when it doesn't come (`-fail-pictures`): never the photo before, under the new one's words.
   func testARowsPlaceNeverShowsThePhotoBefore() {
     let app = launch("-fake-accounts", "on", "-reset-fake-server", "-fail-pictures", "p2-t")
-    let lan = app.buttons["Ảnh của Lan"]
-    reveal(app, lan)
+    let lan = rowPhoto(app, "Ảnh của Lan")
     settle(1)
     XCTAssertGreaterThan(colour(lan.screenshot().image), 0.12, "Lan's photo isn't drawn")
     lan.tap()
@@ -230,17 +227,18 @@ final class PhotoViewerFlowTests: XCTestCase {
     return app
   }
 
-  /// A photo in the gallery's row on the page, whole above the tab bar, with the row's "all photos" button under it. A
+  /// A photo in a row on the page, whole above the tab bar, with room under it for the gallery's "all photos" button. A
   /// sliver of it above the bar counts as in view, and XCUITest then taps the sliver's corner, which can be the next
   /// photo's (4 pt showed in #481's run: it opened 2/3, and the flows said "no viewer").
   private func rowPhoto(_ app: XCUIApplication, _ words: String) -> XCUIElement {
     let photo = app.buttons[words].firstMatch
     reveal(app, photo)
     let bar = app.tabBars.firstMatch
-    if bar.exists, photo.frame.maxY > bar.frame.minY {
+    if bar.exists, photo.frame.maxY + 60 > bar.frame.minY {
       let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
       from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: bar.frame.minY - photo.frame.maxY - 60)), withVelocity: .slow,
                  thenHoldForDuration: 0.1)
+      XCTAssertLessThanOrEqual(photo.frame.maxY, bar.frame.minY, "\(words) is still under the tab bar")
     }
     return photo
   }

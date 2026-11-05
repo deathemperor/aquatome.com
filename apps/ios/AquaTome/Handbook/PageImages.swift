@@ -42,8 +42,8 @@ struct PageImage: View {
         }
       }
       .clipShape(.rect(cornerRadius: corner))
-      // A picture wider than its place is clipped to it, but would still count there, for taps and VoiceOver, over the next photo's.
-      .contentShape(.rect(cornerRadius: corner))
+      // A picture bigger than its place is clipped to it, but its frame would still reach over its neighbour's, for VoiceOver and XCUITest.
+      .contentShape(.rect)
       .onGeometryChange(for: CGSize.self) { $0.size } action: { pixels = CGSize(width: $0.width * scale, height: $0.height * scale) }
       .accessibilityElement()
       .accessibilityLabel(Text(verbatim: alt ?? ""))
