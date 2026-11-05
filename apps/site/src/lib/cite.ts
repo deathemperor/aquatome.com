@@ -26,9 +26,9 @@ export const partsHtml = (parts: CreditPart[]) => parts.map(x => (x.href ? `<a${
  * A photo's credit as the page shows it: "Ảnh: <author>", its licence, the photo's page (the app's copy uses it too). An
  * Unsplash photo's: "Ảnh: <author> trên Unsplash", with the photographer's page when the engine has it.
  */
-export function photoCredit(lang: Lang, p: Credited): { text: string; licence: string; url: string; authorUrl?: string } {
+export function photoCredit(lang: Lang, p: Credited): { text: string; licence: string; url: string; authorUrl?: string; author?: string } {
   const t = translator(lang)
-  if (isUnsplash(p.licence)) return { text: unsplashLine(lang, p).map(x => x.text).join(''), licence: licenceLabel(t, p.licence), url: p.sourceUrl, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}) }
+  if (isUnsplash(p.licence)) return { text: unsplashLine(lang, p).map(x => x.text).join(''), licence: licenceLabel(t, p.licence), url: p.sourceUrl, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), author: p.author }
   return { text: `${t('Ảnh:')} ${p.author}`, licence: licenceLabel(t, p.licence), url: p.sourceUrl }
 }
 
@@ -40,7 +40,7 @@ export function photoMark(lang: Lang, p: Credited): string {
   const t = translator(lang)
   // After the caption's words on the same line, as the © (a space before it, which starts a line as nothing). The photo's
   // page for the app's copy (lib/page-blocks.ts), which reads the credit from here.
-  if (isUnsplash(p.licence)) return `<span class="pic-by" data-src="${esc(p.sourceUrl)}"> ${partsHtml(unsplashLine(lang, p, p.sourceUrl))}</span>`
+  if (isUnsplash(p.licence)) return `<span class="pic-by" data-src="${esc(p.sourceUrl)}" data-author="${esc(p.author)}"> ${partsHtml(unsplashLine(lang, p, p.sourceUrl))}</span>`
   const { text: who, licence: lic } = photoCredit(lang, p)
   return `<a class="cite pic" href="${esc(p.sourceUrl)}" rel="noopener" data-term="${esc(who)}" data-tip="${esc(lic)}" data-more="${esc(t('Xem ảnh gốc ↗'))}" aria-label="${esc(`${who}, ${lic}`)}">©</a>`
 }

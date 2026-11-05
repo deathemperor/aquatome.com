@@ -262,7 +262,7 @@ test('a fish\'s copy: its blocks in page order, every one credited and sourced',
   expect(one(breeds, 'cards')).toEqual({
     t: 'cards', title: 'Các dòng và cá lai từ Cá đĩa', items: [
       // An Unsplash photo: its line, and its photographer's page for the app to link (lib/unsplash.ts).
-      { path: '/vi/ca/ca-dia-pigeon-blood/', name: 'Cá đĩa Pigeon Blood', sub: 'Dòng cá cảnh', img: { src: 'https://images.unsplash.com/photo-1000000000001-pigeonblood1?ixid=fixture&w=480&q=80&fm=jpg&fit=max', w: 1280, h: 960, credit: { text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: 'https://unsplash.com/photos/a-red-discus-fish-Pb1Fixture1?utm_source=aquatome&utm_medium=referral', authorUrl: 'https://unsplash.com/@mailin?utm_source=aquatome&utm_medium=referral' } } },
+      { path: '/vi/ca/ca-dia-pigeon-blood/', name: 'Cá đĩa Pigeon Blood', sub: 'Dòng cá cảnh', img: { src: 'https://images.unsplash.com/photo-1000000000001-pigeonblood1?ixid=fixture&w=480&q=80&fm=jpg&fit=max', w: 1280, h: 960, credit: { text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: 'https://unsplash.com/photos/a-red-discus-fish-Pb1Fixture1?utm_source=aquatome&utm_medium=referral', authorUrl: 'https://unsplash.com/@mailin?utm_source=aquatome&utm_medium=referral', author: 'Mai Lin' } } },
       // No photo of it yet: the page shows its card without one, and so does the copy.
       { path: '/vi/ca/ca-la-han/', name: 'Cá La Hán (Flowerhorn)', sub: 'Cá lai' },
     ],

@@ -161,6 +161,9 @@
                 },
                 "authorUrl": {
                   "type": "string"
+                },
+                "author": {
+                  "type": "string"
                 }
               },
               "required": [
@@ -534,6 +537,9 @@
                     },
                     "authorUrl": {
                       "type": "string"
+                    },
+                    "author": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -659,6 +665,9 @@
                             "type": "string"
                           },
                           "authorUrl": {
+                            "type": "string"
+                          },
+                          "author": {
                             "type": "string"
                           }
                         },
@@ -899,6 +908,9 @@
                       },
                       "authorUrl": {
                         "type": "string"
+                      },
+                      "author": {
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -1049,6 +1061,9 @@
                               },
                               "authorUrl": {
                                 "type": "string"
+                              },
+                              "author": {
+                                "type": "string"
                               }
                             },
                             "required": [
@@ -1128,6 +1143,9 @@
                                 "type": "string"
                               },
                               "authorUrl": {
+                                "type": "string"
+                              },
+                              "author": {
                                 "type": "string"
                               }
                             },
@@ -1283,6 +1301,9 @@
                             "type": "string"
                           },
                           "authorUrl": {
+                            "type": "string"
+                          },
+                          "author": {
                             "type": "string"
                           }
                         },

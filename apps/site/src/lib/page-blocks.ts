@@ -194,16 +194,18 @@ function image(img: HTMLElement | null, credit?: Image['credit']): Image | undef
 
 /**
  * A photo in the text (lib/figures.ts, lib/video.ts): the page it shows, its caption, its credit as the © mark gives it,
- * or an Unsplash photo's line (.pic-by, lib/cite.ts photoMark: the photo's page in data-src, the photographer's a.author).
+ * or an Unsplash photo's line (.pic-by, lib/cite.ts photoMark: the photo's page in data-src, the name in data-author, the
+ * photographer's page a.author's).
  */
 function figure(f: HTMLElement, unknown: Set<string>): Block | undefined {
   const cap = f.querySelector('figcaption')
   const mark = cap?.querySelector('a.cite.pic')
   const by = cap?.querySelector('.pic-by')
   const author = by?.querySelector('a.author')?.getAttribute('href')
+  const name = by?.getAttribute('data-author')
   const credit = mark && mark.getAttribute('data-term') && mark.getAttribute('data-tip')
     ? { text: mark.getAttribute('data-term')!, licence: mark.getAttribute('data-tip')!, ...(mark.getAttribute('href') ? { url: mark.getAttribute('href')! } : {}) }
-    : by ? { text: clean(by.textContent), licence: UNSPLASH_LICENCE, ...(by.getAttribute('data-src') ? { url: by.getAttribute('data-src')! } : {}), ...(author ? { authorUrl: author } : {}) } : undefined
+    : by ? { text: clean(by.textContent), licence: UNSPLASH_LICENCE, ...(by.getAttribute('data-src') ? { url: by.getAttribute('data-src')! } : {}), ...(author ? { authorUrl: author } : {}), ...(name ? { author: name } : {}) } : undefined
   mark?.remove()
   by?.remove()
   const img = image(f.querySelector('img'), credit)

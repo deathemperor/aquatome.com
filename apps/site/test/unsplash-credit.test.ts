@@ -15,16 +15,18 @@ const amp = (s: string) => s.replace(/&/g, '&amp;')
 const noCid = (h: string) => h.replace(/ data-astro-cid-\w+(="")?/g, '')
 
 test('an Unsplash photo\'s mark is its line in view: the photographer\'s page and Unsplash, both with the UTM', () => {
-  expect(photoMark('vi', MAI)).toBe(`<span class="pic-by" data-src="${amp(MAI.sourceUrl)}"> Ảnh: <a class="author" href="${amp(MAI.authorUrl)}" rel="noopener">Mai Lin</a> trên <a class="site" href="${amp(HOME)}" rel="noopener">Unsplash</a></span>`)
+  expect(photoMark('vi', MAI)).toBe(`<span class="pic-by" data-src="${amp(MAI.sourceUrl)}" data-author="Mai Lin"> Ảnh: <a class="author" href="${amp(MAI.authorUrl)}" rel="noopener">Mai Lin</a> trên <a class="site" href="${amp(HOME)}" rel="noopener">Unsplash</a></span>`)
   // Before the engine has the photographer's page: the name links the photo's own, and Unsplash is still named, linked.
   const { authorUrl, ...noPage } = MAI
-  expect(photoMark('vi', noPage)).toBe(`<span class="pic-by" data-src="${amp(MAI.sourceUrl)}"> Ảnh: <a href="${amp(MAI.sourceUrl)}" rel="noopener">Mai Lin</a> trên <a class="site" href="${amp(HOME)}" rel="noopener">Unsplash</a></span>`)
+  expect(photoMark('vi', noPage)).toBe(`<span class="pic-by" data-src="${amp(MAI.sourceUrl)}" data-author="Mai Lin"> Ảnh: <a href="${amp(MAI.sourceUrl)}" rel="noopener">Mai Lin</a> trên <a class="site" href="${amp(HOME)}" rel="noopener">Unsplash</a></span>`)
   expect(photoMark('id', MAI)).toContain('> Foto: <a class="author"')
   expect(photoMark('id', MAI)).toContain('</a> di <a class="site"')
   expect(photoMark('th', MAI)).toContain('</a> บน <a class="site"')
   // The app's copy: the same line, and the photographer's page.
-  expect(photoCredit('vi', MAI)).toEqual({ text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: MAI.sourceUrl, authorUrl: MAI.authorUrl })
-  expect(photoCredit('vi', noPage)).toEqual({ text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: MAI.sourceUrl })
+  expect(photoCredit('vi', MAI)).toEqual({ text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: MAI.sourceUrl, authorUrl: MAI.authorUrl, author: 'Mai Lin' })
+  expect(photoCredit('vi', noPage)).toEqual({ text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: MAI.sourceUrl, author: 'Mai Lin' })
+  // The name as shown, for the app to link that text (Foto: … di Unsplash, ภาพ: … บน Unsplash) without parsing the words.
+  for (const lang of ['id', 'th'] as const) { const c = photoCredit(lang, MAI); expect(c.text).toContain(c.author!) }
 })
 
 test('in the app\'s copy, a figure of an Unsplash photo has its credit as the page does, and not in its caption', () => {
