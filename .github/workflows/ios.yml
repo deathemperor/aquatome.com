@@ -117,7 +117,10 @@ jobs:
     needs: changes
     if: needs.changes.outputs.app != ''
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: 60
+    # A stopgap until this job is split in two halves, as `handbook` and `lights` are: on GitHub's Macs its full suite
+    # takes about a minute a test, and #553's run was stopped at 60 minutes with 42 passed and none failed. Main runs it
+    # in full after every merge and each night, so at 60 each of those runs would end red (2026-11-05).
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
