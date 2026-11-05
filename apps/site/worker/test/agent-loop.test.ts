@@ -117,21 +117,21 @@ test('40,000 input tokens: when another call the size of the last would pass the
   expect(c.calls.map(x => x.body.tool_choice!.type)).toEqual(['auto', 'none'])
 })
 
-test('45 s from the first call: no call gets past it, and with under 12 s left the next call is the last', async () => {
-  const clock = { now: 0, per: [30_000, 5_000] }
+test('27 s from the first call: no call gets past it, and with under 12 s left the next call is the last', async () => {
+  const clock = { now: 0, per: [10_000, 5_000] }
   const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()], clock)
   const r = await runAgent(input(c.send, { clock: () => clock.now }))
-  expect(c.calls.map(x => x.timeoutMs)).toEqual([20_000, 15_000])
+  expect(c.calls.map(x => x.timeoutMs)).toEqual([20_000, 17_000])
   expect(c.calls.map(x => x.body.tool_choice!.type)).toEqual(['auto', 'auto'])
   expect(r.stopped).toBe('answer')
 
-  const late = { now: 0, per: [34_000] }
+  const late = { now: 0, per: [16_000] }
   const d = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()], late)
   const s = await runAgent(input(d.send, { clock: () => late.now }))
   expect(d.calls.map(x => [x.timeoutMs, x.body.tool_choice!.type])).toEqual([[20_000, 'auto'], [11_000, 'none']])
   expect(s.stopped).toBe('time')
 
-  const gone = { now: 0, per: [44_500] }
+  const gone = { now: 0, per: [26_500] }
   const e = script([() => asks([{ name: 'echo', input: { q: 'x' } }])], gone)
   const t = await runAgent(input(e.send, { clock: () => gone.now }))
   expect(e.calls).toHaveLength(1)

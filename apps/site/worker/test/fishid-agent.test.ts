@@ -5,6 +5,8 @@ import type { FishIdDeps } from '../fishid/api'
 import { keyHash } from '../fishid/keys'
 import { contract } from './contract'
 import { testD1 } from './d1'
+import { memoryLedger } from './ledger'
+import { emptyDay } from '../fishid/ledger'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
@@ -56,6 +58,7 @@ function kv() {
 type Point = { blobs: string[]; doubles: number[]; indexes: string[] }
 function env(extra: Record<string, unknown> = {}) {
   const store = kv()
+  const ledger = memoryLedger()
   const points: Point[] = []
   const e = {
     FISHID_LOG: { writeDataPoint: (p: Point) => { points.push(p) } },
@@ -64,9 +67,10 @@ function env(extra: Record<string, unknown> = {}) {
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'site-key', COMMENT_HMAC_KEY: 'h',
     ANTHROPIC_KEYS: KEYS,
     DB: testD1(),
+    FISHID_LEDGER: ledger.ns,
     ...extra,
   } as unknown as Env
-  return { e, kv: store.m, points }
+  return { e, kv: store.m, points, ledger }
 }
 const READER = { 'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1', 'accept-language': 'vi-VN,vi;q=0.9' }
 const post = (headers: Record<string, string> = {}) => {
@@ -133,13 +137,14 @@ const CHECKED = { verdict: 'fish', guesses: [
 const apiError = (status: number, type: string, msg: string, headers: Record<string, string> = {}) => Response.json({ type: 'error', error: { type, message: msg } }, { status, headers })
 const fields = (p: Point) => ({ outcome: p.blobs[0], key: p.blobs[2], stopped: p.blobs[9], input: p.doubles[0], output: p.doubles[1], cost: p.doubles[2], attempts: p.doubles[4], turns: p.doubles[7], tools: p.doubles[8], refs: p.doubles[9] })
 const today = () => new Date().toISOString().slice(0, 10)
-const readerCount = (m: Map<string, { v: string }>) => [...m].filter(([k]) => k.startsWith('fishid:ip:') || k.startsWith('fishid:acct:')).map(([, e]) => Number(e.v))
+/** Each reader's count today, in the ledger. */
+const readerCount = (l: ReturnType<typeof memoryLedger>) => Object.values(l.day()?.readers ?? {})
 const usage3 = { input_tokens: 300, output_tokens: 150, cache_read_input_tokens: 2000, cache_creation_input_tokens: 600 }
 const neonLink = { id: 'paracheirodon-innesi', kind: 'species', name: 'Cá neon xanh', sci: 'Paracheirodon innesi', url: '/vi/ca/ca-neon-xanh/', img: 'https://media.aquatome.com/neon-480.webp' }
 const axelLink = { id: 'paracheirodon-axelrodi', kind: 'species', name: 'Cá neon vua', sci: 'Paracheirodon axelrodi', url: '/vi/ca/ca-neon-vua/' }
 
 test('the agent on: it searches the handbook, opens two pages and their photos, then answers; the answer is today\'s plus its steps, linked to the pages it checked', async () => {
-  const { e, kv, points } = agentEnv()
+  const { e, kv, points, ledger } = agentEnv()
   const c = claude([
     () => asks([['search_handbook', { query: null, genus: 'Paracheirodon' }]]),
     () => asks([['get_entry', { id: 'paracheirodon-innesi' }], ['get_entry', { id: 'paracheirodon-axelrodi' }]]),
@@ -173,8 +178,8 @@ test('the agent on: it searches the handbook, opens two pages and their photos, 
   const cost = (3 * (300 * 4 + 150 * 20 + 2000 * 0.2 + 600 * 5)) / 1e6
   expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'answer', turns: 3, tools: 3, refs: 2, attempts: 3, input: 3 * 2900, output: 450 })
   expect(fields(points[0]!).cost).toBeCloseTo(cost, 10)
-  expect(JSON.parse(kv.get(`fishid:day:${today()}`)!.v).usd).toBeCloseTo(cost, 10)
-  expect(readerCount(kv)).toEqual([1])
+  expect(ledger.day()!.usd).toBeCloseTo(cost, 10)
+  expect(readerCount(ledger)).toEqual([1])
 })
 
 test('the agent on: a page the answer names without checking still links by its name, and a guess with no page stays unlinked', async () => {
@@ -205,51 +210,53 @@ test('the agent on: a call after the first fails → its key set aside as the ro
 })
 
 test('the agent on: a failed call with under 10 s left answers unavailable, and the reader\'s count is given back', async () => {
-  const { e, kv, points } = agentEnv()
+  const { e, kv, points, ledger } = agentEnv()
   const c = claude([() => asks([['search_handbook', { query: 'neon', genus: null }]]), () => apiError(529, 'overloaded_error', 'Overloaded')])
   const res = await run(post(), e, deps(c.fetch, { limits: { ms: 9_000, lastCallMs: 0 } }))
   expect(res.status).toBe(503)
   expect(await res.json()).toEqual({ error: 'unavailable' })
   expect(c.calls).toHaveLength(2)
-  expect(readerCount(kv)).toEqual([0])
+  expect(readerCount(ledger)).toEqual([0])
   expect(fields(points[0]!)).toMatchObject({ outcome: 'unavailable', stopped: 'error', turns: 2, tools: 1 })
   expect(fields(points[0]!).cost).toBeGreaterThan(0) // the first call was paid for
 })
 
-test('the agent on: an answer that isn\'t the schema\'s is failed, with the count given back; a refusal is the calm can\'t-tell answer, with its steps', async () => {
-  const { e, kv } = agentEnv()
+test('the agent on: an answer that isn\'t the schema\'s is failed, and still counted (the reader\'s photo, not our side); a refusal is the calm can\'t-tell answer, with its steps', async () => {
+  const { e, kv, ledger } = agentEnv()
   const bad = claude([() => asks([['get_entry', { id: 'betta-splendens' }]]), () => message('not json')])
   const res = await run(post(), e, deps(bad.fetch))
   expect([res.status, await res.json()]).toEqual([502, { error: 'failed' }])
-  expect(readerCount(kv)).toEqual([0])
+  expect(readerCount(ledger)).toEqual([1])
   const refused = claude([() => asks([['get_entry', { id: 'betta-splendens' }]]), () => message('', 'refusal')])
   const r2 = await run(post(), e, deps(refused.fetch))
   expect(await r2.json()).toEqual({ verdict: 'unclear', results: [], refused: true, model: 'claude-opus-5-5', steps: [{ kind: 'look', page: { id: 'betta-splendens', kind: 'species', name: 'Cá betta', sci: 'Betta splendens', url: '/vi/ca/ca-betta/', img: 'https://media.aquatome.com/betta-480.webp' } }] })
-  expect(readerCount(kv)).toEqual([1])
+  expect(readerCount(ledger)).toEqual([2])
 })
 
 test('the agent off: no result gives the reader\'s count back too (a failed call used to count); a result keeps it', async () => {
-  const { e, kv } = env()
+  const { e, kv, ledger } = env()
   const down = claude([() => apiError(529, 'overloaded_error', 'Overloaded')])
   const res = await run(post(), e, deps(down.fetch))
   expect([res.status, await res.json()]).toEqual([503, { error: 'unavailable' }])
-  expect(readerCount(kv)).toEqual([0])
+  expect(readerCount(ledger)).toEqual([0])
   await run(post(), e, deps(claude([() => message(NEON)]).fetch))
-  expect(readerCount(kv)).toEqual([1])
+  expect(readerCount(ledger)).toEqual([1])
 })
 
 test('the site\'s spend a day: past FISH_ID_USD_PER_DAY (default $15) the next photo is busy before any call; each answer adds its cost', async () => {
-  const { e, kv } = env()
-  kv.set(`fishid:day:${today()}`, { v: JSON.stringify({ calls: 3, keys: {}, usd: 15 }) })
+  const { e, ledger } = env()
+  const spent = { ...emptyDay(), calls: 3, usd: 15 }
+  ledger.storage.m.set(`day:${today()}`, spent)
   const c = claude([() => message(NEON)])
   const res = await run(post(), e, deps(c.fetch))
   expect([res.status, await res.json()]).toEqual([429, { error: 'busy' }])
   expect(c.calls).toHaveLength(0)
-  expect(readerCount(kv)).toEqual([])
-  const { e: e2, kv: kv2 } = env({ FISH_ID_USD_PER_DAY: '20' })
-  kv2.set(`fishid:day:${today()}`, { v: JSON.stringify({ calls: 3, keys: {}, usd: 15 }) })
+  expect(readerCount(ledger)).toEqual([])
+  const { e: e2, ledger: l2 } = env({ FISH_ID_USD_PER_DAY: '20' })
+  l2.storage.m.set(`day:${today()}`, spent)
   expect((await run(post(), e2, deps(c.fetch))).status).toBe(200)
-  expect(JSON.parse(kv2.get(`fishid:day:${today()}`)!.v)).toMatchObject({ calls: 4, usd: 15.0084 })
+  expect(l2.day()).toMatchObject({ calls: 4, runs: {} })
+  expect(l2.day()!.usd).toBeCloseTo(15.0084, 10)
 })
 
 const slowly = (r: () => Response, ms = 25) => async () => { await new Promise(res => setTimeout(res, ms)); return r() }
@@ -282,29 +289,32 @@ test('progress with the agent off: no steps, then the result, the same body as t
 })
 
 test('progress: every refusal before the photo is admitted is still the JSON error with its status', async () => {
-  const { e, kv } = agentEnv()
+  const { e, kv, ledger } = agentEnv()
   for (let i = 0; i < 10; i++) await run(post(), e, deps(claude([() => message(NEON)]).fetch))
   const res = await run(streamed(), e, deps(claude([() => message(NEON)]).fetch))
   expect(res.status).toBe(429)
   expect(res.headers.get('content-type')).toBe('application/json')
   expect(await res.json()).toEqual({ error: 'rate', limit: 10 })
-  expect(readerCount(kv)).toEqual([10])
+  expect(readerCount(ledger)).toEqual([10])
   const off = await run(streamed({ origin: 'https://evil.test' }), e, deps(claude([]).fetch))
   expect([off.status, off.headers.get('content-type')]).toEqual([403, 'application/json'])
 })
 
-test('progress: an error after the stream began is an error event, and the reader\'s count is given back', async () => {
-  const { e, kv } = agentEnv()
+test('progress: an error after the stream began is an error event; the API refusing our request (502) still counts against the reader', async () => {
+  const { e, ledger } = agentEnv()
   const c = claude([() => asks([['search_handbook', { query: 'neon', genus: null }]]), () => apiError(400, 'invalid_request_error', 'Bad image'), () => apiError(400, 'invalid_request_error', 'Bad image')])
   const res = await run(streamed(), e, deps(c.fetch))
   expect(res.status).toBe(200)
   const text = await res.text()
   expect(text).toBe('event: step\ndata: {"kind":"search","query":"neon"}\n\nevent: error\ndata: {"error":"failed"}\n\n')
-  expect(readerCount(kv)).toEqual([0])
+  // The later call's 400 left the key usable: today's call on it was the fallback, and failed the same way.
+  expect(c.calls.map(x => x.key)).toEqual([A, A, A])
+  expect(readerCount(ledger)).toEqual([1])
+  expect(ledger.day()!.counts).toMatchObject({ later400: 1, refunds: 0 })
 })
 
 test('retries: the same Idempotency-Key gets the kept result, as JSON or one result event, with no new call and no new count', async () => {
-  const { e, kv, points } = env()
+  const { e, kv, points, ledger } = env()
   const c = claude([() => message(NEON)])
   const key = { 'idempotency-key': '3F2504E0-4F89-41D3-9A0C-0305E82C3301' }
   const first = await run(post(key), e, deps(c.fetch))
@@ -315,11 +325,13 @@ test('retries: the same Idempotency-Key gets the kept result, as JSON or one res
   const stream = await run(streamed(key), e, deps(c.fetch))
   expect(await stream.text()).toBe(`event: result\ndata: ${TODAY}\n\n`)
   expect(c.calls).toHaveLength(1)
-  expect(readerCount(kv)).toEqual([1])
+  expect(readerCount(ledger)).toEqual([1])
   expect(points.map(p => p.blobs[0])).toEqual(['ok', 'retry', 'retry'])
-  // Another key, or none, is a new identification.
+  // Another key, or none, is a new identification; a key that isn't a UUID is refused before any call or count.
   await run(post({ 'idempotency-key': '3f2504e0-4f89-41d3-9a0c-0305e82c3302' }), e, deps(c.fetch))
-  await run(post({ 'idempotency-key': 'not-a-uuid' }), e, deps(c.fetch))
+  await run(post(), e, deps(c.fetch))
+  const bad = await run(post({ 'idempotency-key': 'not-a-uuid' }), e, deps(c.fetch))
+  expect([bad.status, await bad.json()]).toEqual([400, { error: 'bad idempotency-key' }])
   expect(c.calls).toHaveLength(3)
-  expect(readerCount(kv)).toEqual([3])
+  expect(readerCount(ledger)).toEqual([3])
 })

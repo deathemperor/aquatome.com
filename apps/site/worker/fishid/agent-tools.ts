@@ -78,6 +78,8 @@ export type ToolDeps = {
   facts: (id: string) => Promise<Facts | undefined>
   /** A reference photo never to show (the accuracy script's: the test photo itself). */
   exclude?: (src: string) => boolean
+  /** A page's facts couldn't be read (`facts` threw): the Worker counts it. */
+  onFactsMissing?: () => void
 }
 
 /**
@@ -133,7 +135,11 @@ export function fishIdTools(d: ToolDeps): Tool<Step>[] {
       const key = String(input.id)
       const e = pageOf(d.catalog, key)
       if (!e) throw new Error(`No page for ${JSON.stringify(key.slice(0, 80))}: the handbook may not have it, or uses another name; search_handbook finds it by genus or common name.`)
-      const f = await d.facts(e.id)
+      const f = await d.facts(e.id).catch(() => null)
+      if (f === null) {
+        d.onFactsMissing?.()
+        return [{ type: 'text', text: `${e.id} (${e.kind}): ${e.name.vi}${e.sci ? `, ${e.sci}` : ''}\nThis page's facts and reference photos can't be read just now: judge by its name.` }]
+      }
       const photos = (f?.photos ?? []).filter(src => !d.exclude?.(src))
       return entryContent(e, f, photos.slice(0, Math.min(PHOTOS_PER_ENTRY, Math.max(0, ctx.photosLeft))), photos.length)
     },

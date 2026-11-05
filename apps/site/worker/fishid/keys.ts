@@ -54,7 +54,7 @@ const DAY_SEC = 86_400
 export type Verdict = { mark?: { why: KeyProblem; ttlSec: number }; next: boolean }
 
 type ApiErrorLike = { status?: number; type?: string | null; headers?: Headers; error?: unknown; message?: string }
-const isApiError = (e: unknown): e is ApiErrorLike => typeof e === 'object' && e !== null && 'status' in e
+export const isApiError = (e: unknown): e is ApiErrorLike => typeof e === 'object' && e !== null && 'status' in e
 
 /** The error's own message from the API body ({ error: { message } }), else the SDK's. */
 function messageOf(e: ApiErrorLike): string {

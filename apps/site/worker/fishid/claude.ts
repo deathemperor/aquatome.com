@@ -129,13 +129,14 @@ export async function clientFor(entry: KeyEntry, fetchImpl?: typeof fetch): Prom
 }
 
 export type Photo = { data: string; type: ImageType }
+/** Output room for a call, the single one and each of the agent's: thinking is on (adaptive) on every model compared, and counts here; then the short JSON. */
+export const MAX_TOKENS = 4096
 
 /** One call: the photo first, then the question (Claude reads images best that way). Throws the SDK's errors as they are. */
 export async function askClaude(entry: KeyEntry, photo: Photo, opts: { model: string; lang: Lang; timeoutMs: number; fetch?: typeof fetch }): Promise<Anthropic.Message> {
   return (await clientFor(entry, opts.fetch)).messages.create({
     model: opts.model,
-    // Thinking is on (adaptive) on every model compared, and counts here: room for it, then the short JSON.
-    max_tokens: 4096,
+    max_tokens: MAX_TOKENS,
     output_config: { effort: 'low', format: { type: 'json_schema', schema: SCHEMA } },
     system: SYSTEM,
     messages: [{
@@ -173,8 +174,26 @@ export function readAnswer(m: Pick<Anthropic.Message, 'content' | 'stop_reason' 
   return { refused: false, id: { verdict, guesses }, usage }
 }
 
-/** USD for a call's (or a run's) tokens at the model's list price; undefined for a model not in PRICES. */
+/** A model PRICES doesn't list is priced as the dearest there, column by column: its spend is never counted as $0. */
+const DEAREST = Object.fromEntries((['input', 'output', 'cacheRead', 'cacheWrite'] as const).map(c => [c, Math.max(...Object.values(PRICES).map(p => p[c]))])) as (typeof PRICES)[string]
+export const priceOf = (model: string) => PRICES[model] ?? DEAREST
+
+/** USD for a call's (or a run's) tokens at the model's list price (`priceOf`). */
 export const costOf = (model: string, u: Usage) => {
-  const p = PRICES[model]
-  return p ? (u.input * p.input + u.output * p.output + (u.cacheRead ?? 0) * p.cacheRead + (u.cacheWrite ?? 0) * p.cacheWrite) / 1e6 : undefined
+  const p = priceOf(model)
+  return (u.input * p.input + u.output * p.output + (u.cacheRead ?? 0) * p.cacheRead + (u.cacheWrite ?? 0) * p.cacheWrite) / 1e6
+}
+
+/** Input tokens today's call reads at most: the instructions, the question and a photo at the largest size Claude reads. */
+const SINGLE_INPUT = 6000
+/**
+ * The most an identification can cost, which the ledger reserves at admission (ledger.ts): today's single call; or the
+ * agent's run, its input past the token trigger by half again, all of it written to cache, every call's output in
+ * full, and the single call it can fall back to.
+ */
+export function worstCost(model: string, agent?: { calls: number; inputTokens: number }): number {
+  const p = priceOf(model)
+  const single = (SINGLE_INPUT * p.input + MAX_TOKENS * p.output) / 1e6
+  if (!agent) return single
+  return (agent.inputTokens * 1.5 * Math.max(p.input, p.cacheWrite) + agent.calls * MAX_TOKENS * p.output) / 1e6 + single
 }

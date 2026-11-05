@@ -364,16 +364,28 @@ export function fishIdSection(f: FishPage): Section {
   else if (!f.keys) blocks.push(note(NO_KEYS, 'muted'))
   else {
     const k = keysParts(f.keys, f.now, tz)
-    blocks.push(note(textOf(k.lead)), table(k.head, k.rows, { empty: 'Chưa có key nào.' }), note(KEYS_NOTE))
+    blocks.push(note(textOf(k.lead)), table(k.head, k.rows, { empty: 'Chưa có key nào.' }), note(KEYS_NOTE), figures(runTiles(f.keys)), note(RUNS_NOTE))
   }
   if (!isFailed(f.stats)) blocks.push(heading('100 lượt gần nhất'), table(RECENT_HEAD, f.stats.recent.map(c => recentCells(c, f.pages, f.now, tz)), { empty: RECENT_NONE }))
   return { title: 'Nhận diện cá', blocks }
 }
 
+/** Today's runs that went another way than plain (the ledger's counts, fishid/ledger.ts), from the same UTC midnight as the keys. */
+function runTiles(k: FishIdStatus): Tile[] {
+  const c = k.counts
+  return [
+    { label: 'Agent quay về cách gọi một lần', value: fmt(c.fallback) },
+    { label: 'Agent dừng vì hết lần gọi', value: fmt(c.callLimit) },
+    { label: 'Lần gọi sau bị API từ chối (400)', value: fmt(c.later400) },
+    { label: 'Không đọc được dữ kiện trang', value: fmt(c.facts) },
+    { label: 'Lượt trả lại cho người đọc', value: fmt(c.refunds), ...(k.mostRefunds ? { sub: `nhiều nhất một người: ${fmt(k.mostRefunds)}` } : {}) },
+  ]
+}
+const RUNS_NOTE = 'Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính.'
 const KEYS_NOTE = 'Lần gọi API: mọi lần thử bằng key này, kể cả lần lỗi (một lượt nhận diện có thể thử vài key). Claude trả lời: những lần trong số đó Claude đã trả lời.'
 /** The keys by number and hash, never the key: the line over the table, its head and its rows. */
 function keysParts(k: FishIdStatus, now: Date, tz: string) {
-  // The tool counts each UTC day (fishid/api.ts dayKey): its "today" began at UTC midnight, said in the viewer's time.
+  // The tool counts each UTC day (the ledger, fishid/ledger.ts): its "today" began at UTC midnight, said in the viewer's time.
   const began = `${now.toISOString().slice(0, 10)}T00:00:00Z`
   const since = `${hourMinute(began, tz)} ${localDay(began, tz) === localDay(now, tz) ? 'hôm nay' : 'hôm qua'}`
   const lead = `Từ ${since} (đầu ngày công cụ đếm): ${fmt(k.today)} lượt nhận diện gọi Claude · mô hình <code>${esc(k.model)}</code>. Mỗi lượt dùng một key ngẫu nhiên trong số key đang dùng; key lỗi thì sang key khác. Hết credit hoặc bị từ chối: nghỉ 24 giờ.${k.bad ? ` <strong>${fmt(k.bad)} dòng trong ANTHROPIC_KEYS không đọc được, bị bỏ qua.</strong>` : ''}`
@@ -386,7 +398,8 @@ function keysHtml(k: FishIdStatus, now: Date, tz: string): string {
   const rows = k.rows.map(r => `<tr><th>#${r.n}</th><td class="l"><code>${esc(r.hash)}</code></td><td class="l">${r.workspace ? 'tổ chức + workspace' : 'workspace'}</td><td class="l">${esc(KEY_STATE[r.state])}${r.until ? ` đến ${timeTag(r.until, tz, now)}` : ''}</td><td>${fmt(r.calls)}</td><td>${fmt(r.answered)}</td></tr>`).join('')
   return `<p>${lead}</p>
 <div class="scroll"><table class="wide"><thead><tr><th>Key</th><th>SHA-256 (8 ký tự đầu)</th><th>Loại</th><th>Trạng thái</th><th>Lần gọi API từ ${esc(since)}</th><th>Claude trả lời</th></tr></thead><tbody>${rows || '<tr><td colspan="6" class="none">Chưa có key nào.</td></tr>'}</tbody></table></div>
-<p class="note">${KEYS_NOTE}</p>`
+<p class="note">${KEYS_NOTE}</p>
+${tiles(runTiles(k))}<p class="note">${RUNS_NOTE}</p>`
 }
 
 const RECENT_HEAD = ['Lúc', 'Kết quả', 'Loại', 'Đoán nhiều nhất', 'Chắc', 'Token vào', 'Token ra', 'Chi phí', 'ms', 'Key', 'Lần gọi', 'Agent: lượt Claude · công cụ · ảnh', 'Từ', 'Nước']

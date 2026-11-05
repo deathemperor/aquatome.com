@@ -42,7 +42,7 @@
               }
             }
           },
-          "400": { "description": "Error: bad form | no file", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "400": { "description": "Error: bad form | no file | bad idempotency-key", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
           "401": { "description": "Error: session", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
           "403": { "description": "Error: cross-origin | turnstile", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
           "413": { "description": "Error: too large", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
