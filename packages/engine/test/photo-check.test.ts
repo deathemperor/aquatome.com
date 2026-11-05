@@ -288,11 +288,13 @@ test('a logo the text reader missed is a watermark: off every page, onto the blo
   })
 })
 
-test('an engraved plate or an old drawing is not "dead": a plate judged so stays on its page', async () => {
+test('an engraved plate or an old drawing is an illustration of the fish, not "dead" nor "not a photo of it": it stays on its page', async () => {
   const r = await root([{ id: 'bagrus-bajad', sci: 'Bagrus bajad', photos: ['plate'] }])
   const d = model({ plate: { ok: 'yes', typical: false, note: 'old engraved plate of two Bagrus catfish' } })
   await checkPagePhotos(r, d, { limit: 10 })
   expect(d.seen[0]!.prompt).toContain('Not "dead": an old drawing, painting or engraved plate, which is an illustration (a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.')
+  expect(d.seen[0]!.prompt).toContain('An old drawing, painting or engraved plate of it counts too, as an illustration.')
+  expect(d.seen[0]!.prompt).toContain('"none" if it is not a photo of the subject at all: a map, chart or diagram, hands or people')
   expect(await urls(r, 'content/species/bagrus-bajad/entity.json')).toEqual(['plate'])
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
   // Nor is a note about one a reason to ask again.
