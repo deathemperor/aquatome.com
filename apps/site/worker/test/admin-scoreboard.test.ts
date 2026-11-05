@@ -4,7 +4,8 @@ import { handle, type Env } from '../index'
 import { isSearch } from '../readers'
 import { BEACON_SQL, GROUPS, isAnswered, mondayOf, scoreboardBlock, scoreboardPage, summariseScoreboard, visitsOf, WEEKS, weeksTo, windowStart, type BeaconRow, type CheckIssue, type ScoreboardInput } from '../admin/scoreboard'
 import { COUNTED } from '../admin/ae'
-import { dashboardUrl, NAV, unset } from '../admin/shell'
+import { NAV, SCOREBOARD_PATH, unset } from '../admin/shell'
+import { dashboardUrl } from '../paths'
 import { SECTIONS } from '../dashboard'
 import { testD1 } from './d1'
 
@@ -220,13 +221,13 @@ test('the report\'s block: the north star and the key metrics, week against last
   const b = scoreboardBlock(summariseScoreboard(input({ beacon: rows })))
   expect(b.lines[0]).toBe('Người đọc tìm được câu trả lời: 1 (cùng lúc tuần trước 1, cả tuần trước 2)')
   expect(b.lines).toHaveLength(5)
-  expect(b.href).toBe(dashboardUrl('thanh-cong'))
+  expect(b.href).toBe(dashboardUrl(SCOREBOARD_PATH))
 })
 
-test('the dashboard\'s absolute address is built in one place, in shell.ts', () => {
-  expect(dashboardUrl('thanh-cong')).toBe('https://aquatome.com/_ab/thanh-cong/')
+test('the dashboard\'s absolute address is built in one place, worker/paths.ts dashboardUrl', () => {
+  expect(dashboardUrl(SCOREBOARD_PATH)).toBe('https://aquatome.com/_ab/thanh-cong/')
   const here = new URL('..', import.meta.url).pathname
-  for (const file of ['admin/scoreboard.ts', 'admin/pages.ts', 'dashboard.ts']) expect(readFileSync(`${here}${file}`, 'utf8'), file).not.toMatch(/https:\/\/[a-z.]*aquatome\.com\/_ab/)
+  for (const file of ['admin/scoreboard.ts', 'admin/pages.ts', 'admin/shell.ts', 'dashboard.ts', 'dashboard-host.ts', 'daily/compose.ts']) expect(readFileSync(`${here}${file}`, 'utf8'), file).not.toMatch(/https:\/\/[a-z.]*aquatome\.com\/_ab/)
 })
 
 test('the beacon\'s query keeps to the count and the kinds of event readers send', () => {

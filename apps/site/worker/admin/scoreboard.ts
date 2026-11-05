@@ -4,7 +4,8 @@ import { aeSql, COUNTED, EVENTS, num, READERS_FROM } from './ae'
 import { orNoTable } from './app'
 import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, rankTable, spark, tiles, type Tile } from './chart'
 import { langOfPath, pagePathOf, type ContentStats, type Snapshot } from './content'
-import { dashboardUrl, failedBox, isFailed, page, SCOREBOARD_PATH, type Failed, type Soft } from './shell'
+import { dashboardUrl } from '../paths'
+import { failedBox, isFailed, page, SCOREBOARD_PATH, type Failed, type Soft } from './shell'
 import { dayStart, HOME_TZ, localDay, msOf } from './time'
 
 /**
@@ -307,7 +308,7 @@ export function summariseScoreboard(i: ScoreboardInput): Scoreboard {
   const parts: [Part, Soft<unknown>][] = [['beacon', i.beacon], ['community', i.community], ['clicks', i.clicks], ['app', i.app], ['content', i.content], ['checks', i.checks]]
   for (const [part, x] of parts) if (isFailed(x)) failed[part] = x.failed
   return {
-    v: 1, at: now.toISOString(), tz: HOME_TZ, page: dashboardUrl('thanh-cong'), docs: DOC, weeks: mondays, countingFrom: READERS_FROM, northStar: 'answered', metrics: out,
+    v: 1, at: now.toISOString(), tz: HOME_TZ, page: dashboardUrl(SCOREBOARD_PATH), docs: DOC, weeks: mondays, countingFrom: READERS_FROM, northStar: 'answered', metrics: out,
     countries: { now: countries(inWeek(mondays.at(-1)!)), last: countries(inWeek(mondays.at(-2)!)) },
     failed, notYet: NOT_YET,
   }

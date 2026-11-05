@@ -7,7 +7,8 @@ import { LIVE } from './pages'
 // The owner signs in on the dashboard (/_ab/) itself and lands back on the page asked for. The accounts API runs in this
 // process (accounts-stand-in.ts). Locally the dashboard does too (worker/dashboard.ts, reading the build as its
 // ASSETS), so the owner gets the dashboard. On the live site the dashboard is the real one, which opens only to the
-// owner's real account: there the checks end on the address the sign-in comes back to.
+// owner's real account: there the checks end on the address the sign-in comes back to. Once Cloudflare Access guards the
+// dashboard (worker/access.ts) a browser's /_ab/ page 301s to its own host, and there's no sign-in here to check.
 const TANKS = '/cong-cu/be-cua-toi/'
 /** A dashboard page under the overview, as the dashboard lists them. */
 const PAGE = ADMIN_PAGES.find(p => p !== '/_ab/')!
@@ -40,6 +41,10 @@ async function google(page: Page, sub: string) {
 
 /** The dashboard's list of its pages (hidden on a phone's overview, where its areas list them instead). */
 const rail = (page: Page) => page.locator('nav[aria-label="Các mục quản trị"]')
+
+test.beforeEach(async ({ request }) => {
+  test.skip(LIVE && (await request.get(PAGE, { maxRedirects: 0 })).status() === 301, 'the dashboard is behind Access, on its own host')
+})
 
 test('signed out, a dashboard page is the sign-in; signing in there comes back to that page, and leaves the tanks alone', async ({ page, baseURL, errors }) => {
   const b = backend()

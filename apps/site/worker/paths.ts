@@ -26,3 +26,13 @@ export const isViPage = (path: string) => {
  * lists it. Apple refuses an address it doesn't list.
  */
 export const APPLE_RETURN = { vi: '/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/' } as const satisfies Record<Lang, string>
+
+/** The site's own host, and the owner's dashboard's (dashboard-host.ts). */
+export const SITE_HOST = 'aquatome.com'
+export const DASHBOARD_HOST = `dashboard.${SITE_HOST}`
+/**
+ * A dashboard page's address for a link from outside the dashboard (mail, reports, JSON, docs): "/_ab/doc-gia/#x" →
+ * "https://aquatome.com/_ab/doc-gia/#x". It is the page itself, or once Cloudflare Access guards the dashboard's own host,
+ * a 301 to it (dashboard.ts), so a link sent before the move still opens. Every printed dashboard address comes from here.
+ */
+export const dashboardUrl = (path = '/_ab/') => `https://${SITE_HOST}${path}`
