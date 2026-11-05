@@ -27,22 +27,22 @@ test('inventory: items per kind in content/, and how many have an Indonesian and
   expect(stats.inventory).toEqual({
     fish: { total: 9, id: 0, th: 0 }, breed: { total: 2, id: 0, th: 0 }, plant: { total: 4, id: 0, th: 0 },
     guide: { total: 7, id: 0, th: 0 }, videoGuide: { total: 2, id: 0, th: 0 }, series: { total: 2, id: 0, th: 0 },
-    glossary: { total: 4, id: 0, th: 0 }, equipment: { total: 1, id: 0, th: 0 }, place: { total: 12, id: 0, th: 0 }, product: { total: 1, id: 0, th: 0 },
+    glossary: { total: 4, id: 0, th: 0 }, equipment: { total: 1, id: 0, th: 0 }, place: { total: 12, id: 0, th: 0 }, product: { total: 6, id: 0, th: 0 },
   })
 })
 
 test('built pages: every index.html under /, /id/ and /th/, by kind, each with its h1 and its item', () => {
-  // 134 pages, as markdown.ts counts them (every page under the three languages).
-  expect(stats.built!.total).toEqual({ vi: 96, id: 19, th: 19 })
+  // 142 pages, as markdown.ts counts them (every page under the three languages).
+  expect(stats.built!.total).toEqual({ vi: 102, id: 20, th: 20 })
   const n = (vi: number, id = 0, th = 0) => ({ vi, id, th })
-  expect(stats.built!.byKind).toMatchObject({ fish: n(9), breed: n(2), plant: n(4), guide: n(7), videoGuide: n(2), glossary: n(4), series: n(1), gallery: n(3), tool: n(6, 6, 6), other: n(5, 4, 4) })
+  expect(stats.built!.byKind).toMatchObject({ fish: n(9), breed: n(2), plant: n(4), guide: n(7), videoGuide: n(2), glossary: n(4), series: n(1), gallery: n(3), tool: n(6, 6, 6), other: n(6, 5, 5) })
   expect(stats.pages!.fish).toContainEqual(['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])
   expect(stats.pages!.breed).toContainEqual(['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)', 'flowerhorn-cichlid'])
   expect(stats.pages!.videoGuide).toContainEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
   expect(stats.pages!.place).toContainEqual(['/nguon-goc/asia/china/', 'Trung Quốc', 'china'])
   expect(stats.pages!.list).toContainEqual(['/th/fish/', 'ทุกสายพันธุ์'])
-  // Only the about pages (the site's and its data card's), contact, privacy and sign-in pages are "other": every other page has its kind.
-  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/privacy/'])
+  // Only the about pages (the site's and its data card's), contact, privacy, sign-in and app pages are "other": every other page has its kind.
+  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/aplikasi/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/mobile-app/', '/th/privacy/', '/ung-dung/'])
   expect(Buffer.byteLength(JSON.stringify(stats.totals))).toBeLessThan(1024)
 })
 

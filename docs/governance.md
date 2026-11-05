@@ -42,6 +42,19 @@ that would have caught it).
   - What's new for the app (`/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`) against the built
     `/vi/moi-cap-nhat/`: the same pages in the same order, with their dates, "Mới" or "Cập nhật" and sources, the
     first 200, each a page the app index lists; the index names the file (`latest`) only where the site has the page.
+  - The app's invitations (`apps/site/src/lib/app.ts`; the switch, `apps/site/worker/app-switch.ts`: off, the owner's,
+    on; `apps/site/test/app-invite.test.ts`), on a fixture build of each state (`pnpm test` builds `dist-app-off` and
+    `dist-app-on` beside `dist`, `APP_INVITE_STATE`):
+    - off: no `apple-itunes-app` meta, App Store link, invitation, badge file, app page or link to it, the sitemap and
+      `llms.txt` included.
+    - the owner's: the invitations hidden, each with "Mở trong ứng dụng" (the app's `aquatome://open?url=…`), shown only
+      with the owner's flag cookie on an iPhone or iPad; the footer's and About's links in a `<template>` only the owner's
+      script opens; no meta; the app page noindex, out of the sitemap, `llms.txt`, the site's search and the markdown
+      copies, and answered 404 by the Worker without the flag (`worker/test/app-page.test.ts`).
+    - on: every page's meta with its own address, each placement's campaign code and `hidden` until the check beside it,
+      no link `rel=sponsored` (the readers' beacon would count it), and every string translated, as that build fails on
+      one that isn't.
+    - The checks that unhide them, run against each device and cookie; and in the browser (`e2e/app-invite.spec.ts`).
   - A fish's "Vì sao?" needs (`careNeeds`, `packages/schema/src/care-needs.ts`) against
     `protocols/care-needs-vectors.json`, which the app's own port of it will read: `careNeeds`' answer for each case,
     given the fish's app index entry as it is (every threshold, and just past it); each fixture fish page's panel as the
@@ -115,9 +128,10 @@ that would have caught it).
       owner API. They aren't on the host, where Access would stop them.
     - Each page's links reach what the host answers (a public page's goes back to the site), its forms post only from
       the page, and every answer is noindex and never stored. A page added to the dashboard's rail (`WEB_PAGES`: NAV's,
-      the scoreboard, the daily report's log and each report) is on the host with no other change (`/*/` in
-      `run_worker_first`: without it the 404 page answers and the Worker is never asked); a page's `.json` there needs its
-      line, which a test asks for. Files that skip the Worker carry noindex from `public/_headers`. A dashboard address
+      the scoreboard, the daily report's log and each report) is on the host with its line in `run_worker_first`
+      (`/<key>/*`, and a `.json` form's own): without it the 404 page answers and the Worker is never asked, and a test
+      names the line. No negative pattern there: one wins over every positive rule, and `!/id/*` would take the hidden app
+      page in Indonesian and Thai from the Worker; a test holds each app page and its files to it. Files that skip the Worker carry noindex from `public/_headers`. A dashboard address
       printed outside it is the site's (`dashboardUrl`, `worker/paths.ts`), which opens before and after the move.
   - The owner's dashboard as JSON for the iOS app (`apps/site/worker/owner-api.ts`), against
     `protocols/owner-dashboard.openapi.json`: only the owner's app session, as a bearer, opens it (without a live app
@@ -295,6 +309,15 @@ The layers above still check the result.
   number written on the page (a rule, `checkNumbers`), and a second model call checks every claim against the text. A
   draft with problems is rewritten once with them; still failing, it stays hidden and is listed in
   `docs/review/summaries.md`.
+- **Product reviews.** A product page's "Các bài review nói gì" (`pnpm engine product-reviews`, one product a cycle, `packages/engine/src/product-reviews.ts`) summarizes a few YouTube reviews: a title check, one cheap model call on the shortlist, one extraction call a review, one writing call. Code holds the result to what the reviews said, because the writer has no second reader:
+  - each finding quotes the transcript: words not there are dropped, and a link's second comes from where the quote is, not from the model. A figure must be said near that moment
+  - a point cites findings by id, and a figure must be in the findings it cites; "agree" needs two reviews, "differ" two reviews on its sides; a point that fails is left out, after one rewrite with the reasons
+  - the writer never sees a channel, a title or an address. A channel's name, talk of the video or a reviewer (`names-source`, also listed for every page written from videos), a score or rating, or saying AquaTome controls a product it doesn't (`control-claim`) keeps a point off the page
+  - a product or brand name in a point must match a spelling from the title or description of a review it cites, or our catalog: product pages, what the app controls, brands two guides give (`packages/engine/src/review-names.ts`), because captions mangle names. A near-miss takes that spelling: the same letters without their marks, or one letter off in a name of 4 or 5 letters and two in a longer one, starting with the same letter, never in a name of 3 letters or fewer, never where a number differs, and never when two spellings are as near. A name that matches nothing gets the one rewrite, then the point is left out. Fish and plants aren't checked (by our pages' genera and the word before them), so "Anubias Nana" stays beside a "Nala" light
+  - the measured table's values are the extraction's, never the writer's
+  - research running again keeps the reviews' sources and text, cited by address and not by place
+  - "Điều khiển bằng AquaTome" comes from the code (`@aq/schema` devices: the light tool's model table, and the plug makers with a `PlugSource` in the app, a test holding the two together), never from the text, so a page stays true when support changes. AquaTome's own test notes (docs/research/aquarium-device-control.md) are curated facts naming the light tested, for lights it controls; Week Aqua's aren't used
+  - no thumbnail becomes a page photo: the top review plays from the same player as a species page's videos
 - **Photos.** No people (faces dropped), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
   good), no dead fish or fish as food (markets, plates, catches landed or held, preserved, mounted or museum specimens),

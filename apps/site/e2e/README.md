@@ -17,6 +17,10 @@ E2E_SEED=3 pnpm --filter site e2e --grep @invariants   # other pages of each kin
   It reads the content the build came from: the fixture's for a local build, `../../content` for a live site,
   `CONTENT_ROOT` for another build (`E2E_DIST`).
 - `search.spec.ts`, `glossary.spec.ts`, `tools.spec.ts`: journeys, one file per feature. Add one for each new feature.
+- `app-invite.spec.ts`: the app's invitations as an iPhone, an iPad (a Mac with touch), a Mac, Android, a computer and the
+  app's own web view see them, the owner (the `aq_owner` cookie) and a reader. The on state's pages come from
+  `dist-app-on`, which `pnpm test` builds; the owner's from `dist` while the switch is the owner's. On a live site it is
+  skipped.
 - `dashboard-host.spec.ts`: the owner's dashboard on its own host, the Worker's route in this process behind a stand-in
   for Cloudflare Access. Live, only that a stranger gets nothing from the host.
 - `lighthouse.spec.ts`: Lighthouse's scores and budgets on one page of each main kind (`E2E_LIGHTHOUSE=1`, alone:

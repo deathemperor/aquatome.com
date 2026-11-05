@@ -9,10 +9,15 @@ import { isUnsplash, unsplashParts, type CreditPart } from './unsplash'
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
 const host = (url: string) => { try { return new URL(url).hostname.replace(/^www\./, '') } catch { return '' } }
 
-/** A text source's mark: its number, linking to the original page. */
-export function citeMark(lang: Lang, n: number, name: string, url: string): string {
+/**
+ * A text source's mark: its number, linking to the original page. `card`: what its card says when the source isn't a text
+ * we translated (a review we summarize, our own test notes).
+ */
+export function citeMark(lang: Lang, n: number, name: string, url: string, card?: { tip: string; more: string }): string {
   const t = translator(lang)
-  return `<a class="cite" href="${esc(url)}" rel="noopener" data-term="${esc(name)}" data-tip="${esc(`${host(url)} · ${t('dịch từ nguồn')}`)}" data-more="${esc(t('Mở bài gốc ↗'))}" aria-label="${esc(t('Nguồn {n}: {name}', { n, name }))}">${n}</a>`
+  const tip = card?.tip ?? `${host(url)} · ${t('dịch từ nguồn')}`
+  const more = card?.more ?? t('Mở bài gốc ↗')
+  return `<a class="cite" href="${esc(url)}" rel="noopener" data-term="${esc(name)}" data-tip="${esc(tip)}" data-more="${esc(more)}" aria-label="${esc(t('Nguồn {n}: {name}', { n, name }))}">${n}</a>`
 }
 
 type Credited = Pick<Photo, 'author' | 'authorUrl' | 'licence' | 'sourceUrl'>

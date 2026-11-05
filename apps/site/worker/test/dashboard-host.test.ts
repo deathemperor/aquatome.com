@@ -4,6 +4,7 @@ import { afterEach, beforeAll, beforeEach, expect, test, vi } from 'vitest'
 import { LANG, LANGS } from '@aq/schema/langs'
 import { createSession } from '../accounts/session'
 import { hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
+import { APP_PAGES } from '../app-switch'
 import { putReport } from '../daily/log'
 import { handle, type Env } from '../index'
 import { OWNER_SCRIPT } from '../owner'
@@ -526,9 +527,12 @@ test('the deploy creates the host, on the site\'s zone, and the vars are there t
   expect(typeof config.vars.ACCESS_AUD).toBe('string')
 })
 
-test('the Worker runs first on each dashboard page, any key to come, or the 404 page would answer without it', () => {
+test('the Worker runs first on each dashboard page, or the 404 page would answer without it: a page added needs its line', () => {
   expect(config.assets.not_found_handling).toBe('404-page')
-  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`]) expect(workerFirst(hostPath(p)), p).toBe(true)
+  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`]) {
+    const at = hostPath(p)
+    expect(workerFirst(at), `${at} on the dashboard's host: add "/${at.split('/')[1]}/*" to run_worker_first in wrangler.jsonc`).toBe(true)
+  }
   for (const p of ['/bao-cao/', '/thanh-cong/', '/robots.txt', '/_ab/hidden', '/_ab/anh/x', '/_ab/fonts/x.woff2', '/ca/x/', '/ca/x']) expect(workerFirst(p), p).toBe(true)
 })
 
@@ -541,8 +545,16 @@ test('a page\'s JSON form the host answers runs the Worker first there too (it e
   for (const p of served) expect(workerFirst(p), p).toBe(true)
 })
 
+test('the app page stays the Worker\'s in every language, its files too: it answers 404 to anyone but the owner (app-switch.ts)', () => {
+  for (const page of APP_PAGES) for (const p of [page, `${page}index.html`, `${page}index.md`]) expect(workerFirst(p), p).toBe(true)
+})
+
+test('no negative pattern in run_worker_first: one wins over every positive rule, and took the app page from the Worker once', () => {
+  expect(config.assets.run_worker_first.filter(r => r.startsWith('!'))).toEqual([])
+})
+
 test('assets and the Indonesian and Thai pages stay as they were: no Worker before them, on either host', () => {
-  for (const l of LANGS) if (LANG[l].prefix) expect(config.assets.run_worker_first, l).toContain(`!${LANG[l].prefix}/*`)
+  for (const l of LANGS) if (LANG[l].prefix) expect(workerFirst(`${LANG[l].prefix}/`), l).toBe(false)
   for (const p of ['/_astro/a.js', '/data/vi/species.json', '/app/vi.json', '/favicon.png', '/sitemap-index.xml', '/pagefind/pagefind.js', '/id/', '/id/ikan/x/', '/id/ikan/x/index.md', '/th/fish/x/']) expect(workerFirst(p), p).toBe(false)
 })
 
