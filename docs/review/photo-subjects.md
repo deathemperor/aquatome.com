@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules: docs/governance.md, "Photos".
-3520 verdicts. Shows it: 2555; its habitat: 52; something else: 112; not a photo of it: 80; dead or as food: 106; a logo on it: 5; can't tell: 594.
+3583 verdicts. Shows it: 2601; its habitat: 54; something else: 112; not a photo of it: 83; dead or as food: 107; a logo on it: 5; can't tell: 605.
 
 ## Left with no photo (17)
 
@@ -23,7 +23,7 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 - species/garra-mullya
 - species/parambassis-wolffii
 
-## Can't tell: still shown (594)
+## Can't tell: still shown (605)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -585,6 +585,17 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 | species/misgurnus-anguillicaudatus | [photo](https://media.aquatome.com/inaturalist/695915082.webp) | distant view of greyish spotted loaches on gravel under blue light; Paramisgurnus can't be ruled out |
 | species/misgurnus-anguillicaudatus (a guide photo) | [photo](https://media.aquatome.com/seriouslyfish/7fc8e4e53af9e8a5.webp) | caption is about Cobitis sp. 1; shows several striped Cobitis loaches on sand, not the weather loach |
 | species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/commons/6f8de1ac4e713448.webp) | silvery large-eyed tetra on white; lacks the black caudal-peduncle band of M. oligolepis, so identity uncertain |
+| species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/commons/71084a5c8fadf2f3.webp) | Single live golden tetra side-on, with netted scales and a red eye, but the expected black tail-base spot is missing |
+| species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/inaturalist/11831777.webp) | Four live Moenkhausia-like tetras by a submerged log, with large netted scales and red eyes, but no clear black tail-bas |
+| species/monocirrhus-polyacanthus | [photo](https://media.aquatome.com/commons/f3981236ca4c840b.webp) | small brown fish head-down among plants; snout hidden, can't confirm the species |
+| species/nannostomus-mortenthaleri | [photo](https://media.aquatome.com/seriouslyfish/56a85389d78bbe78.webp) | tiny pale juvenile among plants, species can't be confirmed |
+| species/nannostomus-rubrocaudatus | [photo](https://media.aquatome.com/seriouslyfish/84d0dde3b67efcfb.webp) | Adult pencilfish over sand, paler red bands, red dorsal; N. mortenthaleri or marginatus not ruled out |
+| species/nannostomus-rubrocaudatus | [photo](https://media.aquatome.com/seriouslyfish/b9de7763f095f0a2.webp) | Adult pencilfish, side view, vivid red and black bands; may be N. mortenthaleri look-alike |
+| species/nemacheilus-corica | [photo](https://media.aquatome.com/seriouslyfish/0c5190aa7487064d.webp) | live pale loach on sand, side view, row of dark blotches along flank; nemacheilid, species not confirmable |
+| species/nemacheilus-corica | [photo](https://media.aquatome.com/seriouslyfish/238919e6e394c144.webp) | live barred loach on sand and pebbles, slightly soft view; look-alike nemacheilids not ruled out |
+| species/nemacheilus-corica | [photo](https://media.aquatome.com/seriouslyfish/b1c82b587bc1cedd.webp) | live barred loach on gravel, clear view, dark bar at tail base; look-alike nemacheilids not ruled out |
+| species/neoheterandria-elegans | [photo](https://media.aquatome.com/seriouslyfish/a670f640e0ed9320.webp) | close-up of rear body and long gonopodium only, head not shown; species hard to confirm |
+| species/neolamprologus-brevis | [photo](https://media.aquatome.com/seriouslyfish/2e79536786d5dbc3.webp) | live pinkish lamprologine-like cichlid with dark gill spot under blue light; slender body and colour cast make brevis un |
 | species/parasphaerichthys-ocellatus | [photo](https://media.aquatome.com/seriouslyfish/07f246d78b788c95.webp) | close-up of a bubble nest with eggs inside a tube; no fish visible |
 | species/parasphaerichthys-ocellatus | [photo](https://media.aquatome.com/seriouslyfish/fd6ef0ee65753ae9.webp) | bubble nest with eggs under a cave; no fish visible to identify |
 | species/schistura-nicholsi | [photo](https://media.aquatome.com/seriouslyfish/4e14b2354a536d8d.webp) | Wild underwater shot of a banded Schistura loach with red spot at dorsal base; tail not red, so species can't be confirm |
@@ -622,7 +633,7 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 | species/aphyocharax-nattereri | [photo](https://media.aquatome.com/seriouslyfish/76ac3d43f145df02.webp) | Pale translucent tetra with a dark tail base and white-tipped fins. It doesn't clearly show the Dawn Tetra's marks and c |
 | species/aphyosemion-bivittatum | [photo](https://media.aquatome.com/commons/5e19d31c0c91347a.webp) | Two-banded Chromaphyosemion killifish, but no lyre tail or red body spots; could be a female/young bivittatum or a relat |
 
-## Removed (303)
+## Removed (307)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), and "logo" a mark added on the photo, both off every page; the rest are maps, hands, tanks, packshots and the like.
 
@@ -865,6 +876,10 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 | species/mesoheros-festae | [photo](https://media.aquatome.com/commons/e54573426b01c23f.webp) | logo: orange cichlid with white spots and no bars, can't confirm it's M. festae; faint watermark text mid-right near the pelvi |
 | species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/commons/af7aea8d64bdff10.webp) | dead: preserved museum specimens with tag and ruler |
 | species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/commons/b0f832d8dcd1777e.webp) | dead: preserved museum specimens with tag and ruler |
+| species/myloplus-schomburgkii | [photo](https://media.aquatome.com/commons/fae1902f42ca84fd.webp) | black-and-white scientific illustration of the fish, old plate |
+| species/mystus-gulio | [photo](https://media.aquatome.com/commons/a4d50f2984a3fff5.webp) | old pencil drawing of the catfish on a mounted sheet, handwritten notes |
+| species/nannostomus-marilynae | [photo](https://media.aquatome.com/commons/2f3577aa2b861cef.webp) | dead: fish lying on plain white surface, appears to be a dead or preserved specimen; can't confirm alive |
+| species/nannostomus-mortenthaleri | [photo](https://media.aquatome.com/seriouslyfish/316084b915474068.webp) | tiny eggs in a clear dish over a ruler, no fish visible |
 | species/neblinichthys-pilosus | [photo](https://media.aquatome.com/scotcat/14656db751b17c6f.webp) | dead: preserved museum specimen of a pleco, top view |
 | species/neblinichthys-pilosus | [photo](https://media.aquatome.com/scotcat/19b8e7e8ee570f08.webp) | dead: preserved museum specimen of a pleco, belly view |
 | species/neblinichthys-pilosus | [photo](https://media.aquatome.com/scotcat/27e692ae021f0f90.webp) | dead: preserved museum specimen of a pleco, side view on cloth |
