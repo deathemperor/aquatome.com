@@ -305,8 +305,9 @@ final class HandbookModel {
       let ix = try JSONDecoder().decode(HandbookIndex.self, from: data)
       try? data.write(to: file, options: .atomic)
       use(ix, .ready)
+      // What's new after it, the index shown without waiting; left for another tab, both are read again when it shows.
+      guard await fetchLatest(ix) else { return }
       fetched = true
-      await fetchLatest(ix)
     } catch {
       // Left for another tab or page: tried again when the tab shows next, nothing to report.
       if isInterruption(error) { return }
@@ -321,17 +322,23 @@ final class HandbookModel {
     useLatest(l)
   }
 
-  /// What's new as the site's index names it now: none when it names none, what was shown when it can't be read.
-  private func fetchLatest(_ ix: HandbookIndex) async {
+  /// What's new as the site's index names it now: none when it names none, what was shown when it can't be read. False
+  /// when left for another tab or page before it came.
+  private func fetchLatest(_ ix: HandbookIndex) async -> Bool {
     guard let path = ix.latest, let url = URL(string: path, relativeTo: site)?.absoluteURL else {
       latest = []
       latestWeb = nil
-      return
+      return true
     }
-    guard let (data, response) = try? await URLSession.shared.data(from: url), (response as? HTTPURLResponse)?.statusCode == 200,
-          let l = try? JSONDecoder().decode(Latest.self, from: data) else { return }
-    try? data.write(to: Self.cacheFile("latest-\(lang)"), options: .atomic)
-    useLatest(l)
+    do {
+      let (data, response) = try await URLSession.shared.data(from: url)
+      guard (response as? HTTPURLResponse)?.statusCode == 200, let l = try? JSONDecoder().decode(Latest.self, from: data) else { return true }
+      try? data.write(to: Self.cacheFile("latest-\(lang)"), options: .atomic)
+      useLatest(l)
+      return true
+    } catch {
+      return !isInterruption(error)
+    }
   }
 
   private func useLatest(_ l: Latest) {
