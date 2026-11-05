@@ -11,6 +11,46 @@
     "brazil",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajós",
+        "Jamanxim River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ]
+    },
+    "records": {
+      "taxonKey": 5961513,
+      "total": 3,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

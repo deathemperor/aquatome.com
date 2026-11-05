@@ -1,0 +1,52 @@
+{
+  "id": "youtube-wfG_EzUX04s",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=wfG_EzUX04s",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "scleropages-formosus"
+  ],
+  "updatedAt": "2026-11-04",
+  "video": {
+    "youtubeId": "wfG_EzUX04s",
+    "title": "NEW 3D aquarium background!",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 536,
+    "publishedAt": "2016-12-29",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mY7YLePay_u8zUf68Y4heeL",
+      "position": 14
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/wfG_EzUX04s/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [
+      "Scleropages formosus"
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Universal Rocks",
+        "model": "Crystal background",
+        "t": 264
+      },
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 396
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      }
+    ]
+  }
+}

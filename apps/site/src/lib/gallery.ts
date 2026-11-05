@@ -16,6 +16,8 @@ export function licenceUrl(licence: string): string | undefined {
 export const GALLERY_MIN = 6
 /** Photos shown in the strip on the species page. */
 export const GALLERY_STRIP = 8
+/** Thumbnails at most in a fish page's photo column on a tall computer screen: the strip's, then the gallery's next ones. */
+export const GALLERY_COLUMN = 40
 
 /** Photo sites by the address of a photo's own page. */
 const SITES: [RegExp, string][] = [[/(^|\.)inaturalist\.org$/, 'iNaturalist'], [/(^|\.)unsplash\.com$/, 'Unsplash'], [/(^|\.)flickr\.com$/, 'Flickr'], [/(^|\.)gbif\.org$/, 'GBIF'], [/(^|\.)wikimedia\.org$/, 'Wikimedia Commons']]

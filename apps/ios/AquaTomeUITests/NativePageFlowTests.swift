@@ -219,8 +219,9 @@ final class NativePageFlowTests: XCTestCase {
   /// A fish's page as the site writes it for the app, in the order its reader asks: where it's from and its other names
   /// under its name, the sources behind its figures under its facts (as the site's data card has them), the summary as
   /// one paragraph with the mistakes keepers make, the Vietnamese climate, its tank-mates (its temperament and smallest
-  /// school first), its gallery (each photo credited), its videos, its breeds, then the sources' terms, last. Each is
-  /// found further down than the one before (`reveal` only scrolls down). All of it drawn: no part left to the web.
+  /// school first), its gallery (each photo credited) before the detail, as the web page has it, its videos, its
+  /// breeds, then the sources' terms, last. Each is found further down than the one before (`reveal` only scrolls
+  /// down). All of it drawn: no part left to the web.
   func testAFishIsDrawnByTheAppWithEachOfItsParts() {
     let app = launch()
     openItem(app, "ca neon", "Cá neon")
@@ -256,6 +257,13 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["3/3 · 3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở."].waitForExistence(timeout: 3), "not on the last photo")
     XCTAssertTrue(app.links["Ảnh: Tác giả 3 · CC BY 4.0"].waitForExistence(timeout: 3), "a photo without its credit")
     app.buttons["Đóng"].tap()
+    // The photos before the detail, as the web page has them (under its climate and tank-mates), not after it: read once
+    // the viewer has gone, which would cover the heading.
+    let closed = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: app.descendants(matching: .any)["gallery"])
+    XCTAssertEqual(XCTWaiter().wait(for: [closed], timeout: 5), .completed, "the viewer stayed open")
+    let detail = text(app, "Nước cần thế nào?")
+    if detail.exists && detail.isHittable { XCTAssertGreaterThan(detail.frame.minY, all.frame.maxY, "the photos under the detail") }
+    reveal(app, detail)
     reveal(app, text(app, "Đàn neon trong bể thủy sinh"))
     reveal(app, card(app, "Cá neon vàng"))
     reveal(app, text(app, "với sự cho phép của họ"))

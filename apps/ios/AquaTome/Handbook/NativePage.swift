@@ -6,7 +6,7 @@ import UIKit
 /// offline once opened. The blocks become a few kinds of piece (styled text, photos, links to pages, the web page for a
 /// part it can't draw): one view per kind of block cost the app 90 kB. A page opens on its photo, across the screen,
 /// with its name under it; a fish's or plant's then answers its reader's questions in turn (what is it, can I keep it
-/// here, with what), before the detail, its photos and videos, its readers, where to go next and its sources.
+/// here, with what), then its photos, the detail, its videos, its readers, where to go next and its sources.
 struct NativePage: View {
   let pieces: [Piece]
   /// A fish's facts or a plant's care (FactsCard), where the page puts them (`.facts`).
@@ -281,20 +281,21 @@ struct NativePage: View {
     return out
   }
 
-  /// Where a species' block goes: the answer first (the summary), then where and with what it lives, the detail, its
-  /// photos and videos, where to go next, its sources last.
+  /// Where a species' block goes: the answer first (the summary), then where and with what it lives, its photos (where
+  /// the web page has them: after its climate and tank-mates, before the detail), the detail, its videos, where to go
+  /// next, its sources last.
   private static func rank(_ b: PageDoc.Block) -> Int {
     switch b {
     case .summary: 0
     case .climate: 1
     case .mates: 2
-    case .gallery: 4
+    case .gallery: 3
     case .videos: 5
     case .cards: 6
     case .pages: 7
     case .refs: 8
     case .trust: 9
-    default: 3
+    default: 4
     }
   }
 

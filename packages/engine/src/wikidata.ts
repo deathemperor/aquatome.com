@@ -1,5 +1,6 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { altKey, breedNames, keptOf } from './alt-names'
 import type { TargetLang } from './localize'
 
 type Http = (url: string) => Promise<unknown>
@@ -55,10 +56,11 @@ export async function wikidataAltNames(root: string, lang: TargetLang): Promise<
   }
   return (id, sci, have) => {
     const mine = new Set([`sci:${sci}`, `species:${id}`])
-    const seen = new Set(have.map(key))
+    // One name written another way is the page's already ("Pea Puffer" for "Pea puffer"), as the sweep keeps it.
+    const seen = new Set(have.flatMap(n => [key(n), altKey(n)]))
     return [...new Set(cache[sci]?.[lang] ?? [])].filter(n => {
-      if (latin(n) || phrase(n) || seen.has(key(n)) || [...(owners.get(key(n)) ?? [])].some(o => !mine.has(o))) return false
-      seen.add(key(n))
+      if (latin(n) || phrase(n) || seen.has(key(n)) || seen.has(altKey(n)) || [...(owners.get(key(n)) ?? [])].some(o => !mine.has(o))) return false
+      seen.add(key(n)).add(altKey(n))
       return true
     })
   }
@@ -72,12 +74,13 @@ export async function addWikidataNames(root: string, http: Http, lang: TargetLan
   for (const id of ids) sci.set(id, (JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { scientificName: string }).scientificName)
   await fetchWikidataNames(root, http, [...sci.values()])
   const extra = await wikidataAltNames(root, lang)
+  const breeds = await breedNames(join(root, 'content'), lang)
   const added: string[] = []
   for (const id of ids) {
     const file = join(dir, id, `${lang}.json`)
     const t = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { name: string; altNames: string[] } | null
     if (!t || t.altNames.length >= MAX_ALT) continue
-    const add = extra(id, sci.get(id)!, [t.name, ...t.altNames]).slice(0, MAX_ALT - t.altNames.length)
+    const add = keptOf({ name: t.name, sci: sci.get(id)!, altNames: t.altNames }, breeds, extra(id, sci.get(id)!, [t.name, ...t.altNames])).slice(0, MAX_ALT - t.altNames.length)
     if (!add.length) continue
     t.altNames = [...t.altNames, ...add]
     await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)

@@ -1,0 +1,112 @@
+{
+  "id": "hemigrammus-bleheri",
+  "native": {
+    "input": "c087d17b749ef126",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Meta and Rio Negro in Colombia and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Meta and Rio Negro in Colombia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Meta",
+        "source": "seriouslyfish",
+        "quote": "Rio Meta and Rio Negro in Colombia and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Rio Meta and Rio Negro in Colombia and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Purus River",
+        "source": "seriouslyfish",
+        "quote": "The striking p-distance divergence (9.1%) between the Peruvian P. georgiae and our samples from the Purus River indicates the possibility of Petitella georgiae being a species complex.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemigrammus bleheri",
+    "status": "ACCEPTED",
+    "taxonKey": 2354371,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        58
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        16
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        14
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        8
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-04T21:41:08.860Z"
+  }
+}

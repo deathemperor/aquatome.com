@@ -78,6 +78,8 @@ export function clock(t: Date | number | string, tz: string, now: Date | number 
   const p = parts(msOf(t), tz)
   return `${p.day}/${p.month}${p.year !== parts(msOf(now), tz).year ? `/${p.year}` : ''} ${p.hour}:${p.minute}`
 }
+/** A moment as text, in the viewer's zone ("04/11 15:34"); '—' for one that can't be read. */
+export const timeText = (t: Date | number | string, tz: string, now: Date | number = Date.now()) => (Number.isFinite(msOf(t)) ? clock(msOf(t), tz, now) : '—')
 /** A moment for the page: `<time>` with the instant, written in the viewer's zone (the script rewrites it if the device's differs). */
 export function timeTag(t: Date | number | string, tz: string, now: Date | number = Date.now()): string {
   const ms = msOf(t)

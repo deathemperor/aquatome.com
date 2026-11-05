@@ -20,11 +20,25 @@
           "min": 21,
           "max": 26
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      },
+      {
+        "source": "aquariumbreeder",
         "value": {
           "min": 6,
           "max": 7
@@ -38,11 +52,22 @@
           "min": 0,
           "max": 6
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 0,
+          "max": 6
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 1.8
+      },
+      {
+        "source": "aquariumbreeder",
         "value": 1.8
       }
     ],
@@ -56,6 +81,19 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 5
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1.5,
+          "max": 1.5
+        }
       }
     ]
   },
@@ -67,10 +105,28 @@
       "html": "<p>Barboides gracilis is a miniature cyprinid from coastal West and Central Africa, ranging from Benin through Nigeria and Cameroon to Equatorial Guinea. Adults measure less than 20 mm SL, and it inhabits slow-moving, shady rainforest streams and swamps with dense marginal vegetation. It has a following among enthusiasts of planted 'nano' aquaria and may be sold as 'dwarf amber/ember barb'. Very peaceful but timid, it is best kept alone or with other diminutive West African species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Other names: Dwarf Ember Barb, Ember Barb, Gracilis Barb</li><li>Water type: freshwater</li><li>Minimum tank: 40 litres</li><li>Keeping: moderate; breeding: difficult</li><li>GH: 0–6; KH: 0–4</li><li>Dwellers: middle and bottom</li><li>Nitrate: less than 40</li><li>Diet: carnivore</li><li>Temperament: peaceful</li><li>Life span: up to 1.5 years</li><li>Colour: transparent with a dark spot at the base of the tail</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Barboides gracilis, generally known as the Dwarf Ember Barb, is one of the smallest fish species in the aquarium hobby. It is still very rare because of limited supply caused by difficulty in breeding. It prefers warm water and requires fairly specific care, especially in a new tank, so it is not recommended for beginners. Virtually nothing is known about its natural life traits; much of what is known is based on aquarium observations.</p><p>The species is listed as vulnerable and threatened on the IUCN Red List.</p><p>Most of these fish are wild-caught in Africa and are often delivered to shops in poor condition. Before putting them into the tank, at least temperature-acclimate them and give them time to adjust; sudden changes can harm them.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barboides-gracilis",
       "html": "<p>Native to coastal West and Central Africa where its range extends southeastwards from Benin through Nigeria and Cameroon as far as Equatorial Guinea.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Barboides gracilis is native to Africa. It occurs in small coastal rivers and streams in Benin, southern Nigeria, Cameroon and Equatorial Guinea.</p><p>It was first mentioned in 1929 by C. Brüning in an aquarium journal. In 1971 two small barbs were described from Benin and Cameroon (as Barbus lorenzi and Barbus camerunensis), but Thys van den Audenaerde found that they were identical to Barboides gracilis. It was the sole representative of the genus until Barboides britzi was discovered in southern Benin in 2006.</p><p>The genus name comes from Latin 'Barbus' (barbel) and Greek 'oides' (similar to); 'gracilis' is Latin for 'slender'.</p>"
     },
     {
       "key": "habitat",
@@ -79,10 +135,22 @@
       "html": "<p>Inhabits typical slow-moving, shallow, shady rainforest streams and swamps with dense marginal vegetation. The water is typically quite clear but stained weakly brown as a result of the low dissolved nutrient concentration and presence of tannins and other chemicals released by decomposing vegetative matter. The latter enter either via runoff from the surrounding forest or are leached from the fallen leaves, twigs and branches which invariably litter the substrate.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These fish live in shallow streams and rivers with very slow-moving current, with submerged plants and leaf litter. They are often found in tannin-rich waters, where they thrive. Tannins are natural organic matter produced as water passes through decaying vegetation.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barboides-gracilis",
       "html": "<p>A group can be housed and will breed in a tank with base dimensions of just 30 × 20 cm although water quality may become an issue unless strictly monitored. A tank measuring around 45 × 20 cm (about 18 litres) or more is preferable for long-term care.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>A 40-litre tank is enough for at least 20–30 fish. Even for only 10 fish, at least 40 litres is better, because this demanding fish needs good, stable water quality, which is hard to maintain in smaller tanks. Long tanks are better than tall tanks of the same size, as they like shallow water.</p>"
     },
     {
       "key": "maintenance",
@@ -91,10 +159,28 @@
       "html": "<p>Best kept in a well-furnished tank and is an excellent choice for the carefully-aquascaped set-up as it will not harm plants. Filtration does not need to be particularly strong as it mostly hails from sluggish waters and may struggle if there is a fast current. To see it at its best a biotope-style set-up can also make an interesting project. A soft, sandy substrate is probably the best choice to which can be added a few driftwood roots and branches, placed in such a way that plenty of shady spots are formed. If you can't find driftwood of the desired shape common beech or oak is safe to use if thoroughly dried and stripped of bark.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and as well as offering even more cover for the fish brings with it the growth of microbe colonies as decomposition occurs. These tiny creatures can provide a valuable secondary food source for fry whilst the tannins and other chemicals released by the decaying leaves are thought to be beneficial for rainforest fish species. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>Fairly dim lighting should be used to simulate the conditions the fish would encounter in nature. You could add some aquatic plants that can survive under such conditions such as Microsorum, Taxiphyllum or Anubias spp., and a few patches of floating vegetation would be really useful to diffuse the light entering the tank too.</p><p>Note that this fish should not be added to a biologically immature tank as it can be susceptible to swings in water chemistry and a regime of regular, small (10% or less of tank volume) water changes is recommended in order to minimise stress.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These fish require clean water and do not tolerate high levels of ammonia, nitrites and nitrates, so the tank should be cycled and fully established before they are introduced.</p><p>Water changes: change 20–30% of the water weekly, depending on the filter and other factors. Added water should at least be dechlorinated. If dwarf shrimp are kept in the tank, note that they dislike big water changes, which can cause moulting problems.</p><p>Substrate: no special requirements; adapt it to the plants. It can help keep pH below 7.0: active substrates (such as ADA Amazonia, Fluval Plant and Shrimp Stratum, Akadama) lower pH. Avoid sharp or rough substrates that can damage their bodies.</p><p>Lighting: dim to medium. High light stresses them; floating plants can diffuse bright light.</p><p>Decor: replicate the natural habitat with submerged plants and leaf litter. Tannins help them show their best colour and improve immunity. They love to hide: use floating plants, artificial plants, driftwood, leaves and small rocks.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barboides-gracilis",
       "html": "<ul><li>Temperature: 21–26°C</li><li>pH: 6.0–7.0, does best in slightly acidic to neutral water</li><li>Hardness: 0–6 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature: 22–26 °C; use a heater if the water tends to get colder.</p><p>pH: 6.0–7.0.</p><p>Hardness: soft water of 0–6 GH. Hard water is not good for this species and the fish will be hard to keep alive.</p><p>Salinity: they do not tolerate even brackish water.</p><p>Water flow: still or very slow currents are required; surface agitation makes them uncomfortable and stressed.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>For small tanks, a sponge filter is probably the best option: cheap, easy to maintain and safe for fry. It causes some surface agitation, but much less than other filters. A heater may be needed to keep the right temperature.</p>"
     },
     {
       "key": "diet",
@@ -103,10 +189,22 @@
       "html": "<p>Presumably feeds on small aquatic crustaceans, worms, insect larvae and other zooplankton in nature. It can be a little picky in the aquarium and may not accept dried foods although in some cases will learn to take them over time. At any rate it should always be offered regular meals of small live or frozen fare such as Artemia nauplii, Daphnia, grindal, micro and chopped bloodworm in order to develop ideal colour and conditioning.</p><p>Newly-imported specimens are often in poor condition and can be difficult to acclimatise to aquarium life. Small live foods are therefore recommended as an initial diet, with dry and frozen products being introduced as the fish become settled.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Despite claims that they feed mainly on plants and detritus, Barboides gracilis should be classed as a micro predator or micro-carnivore, feeding mostly on small aquatic organisms such as worms, insect larvae, zooplankton and small crustaceans.</p><p>In the aquarium they accept a wide variety of foods: brine shrimp, Artemia nauplii, daphnia, moina, bloodworms, blackworms, fruit flies, mosquito larvae, grindal worms and cyclops. They also accept frozen and commercial foods such as Fluval Bug Bites, Hikari First Bites and very finely crushed flake food. Food must be small enough to fit their mouth; chop large worms into small pieces.</p><p>If they refuse dried foods, ask the seller about the feeding routine and keep 'training' them, giving them time to learn that it is food.</p><p>Feeding: adults once a day, juveniles twice a day. Feed during the day, as they are diurnal. Their mouths are very small, so cut food or grind flakes. Provide a varied, protein-based diet and remove leftovers.</p><p>They are slow, not aggressive eaters, so it can be hard to keep them fed with other fish in the tank.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barboides-gracilis",
       "html": "<p>Very peaceful but does not make an ideal community fish due to its small size and rather timid nature. Keep it alone or with other diminutive species from West Africa such as Ladigesia roloffi or Lepidarchus adonis. If geography is not an issue it will probably also thrive alongside small South American characins such as Nannostomus anduzei, N. mortenthaleri, Paracheirodon simulans, Hyphessobrycon amandae or members of Boraras, Eirmotus and Trigonostigma from Southeast Asia.</p><p>It's a schooling species by nature and ideally should be kept in a group of at least 20-30 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours and some interesting behaviour as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperament: not aggressive and completely harmless in a community tank; they are more likely to be targets of bigger fish.</p><p>Sociality: they are found in large schools in nature and prefer large groups in aquariums. Keep at least 6 (bare minimum); groups of 15 or more make them more confident. Keeping them in smaller numbers is one of the main reasons aquarists fail with this species.</p><p>Activity: they can be a little shy at first but are not very timid, provided there are no big or aggressive fish, there are many covers to dash into, and they are kept in large numbers. In a heavily planted tank they will often school in the open.</p><p>Placement: they mostly stay in the middle and bottom of the tank, occasionally cruising the top. They do not swim wildly, but are very quick when they do.</p><p>Plants: they are completely plant safe and do not eat healthy plants.</p><p>Tankmates: suitable are fish too small to eat or harass them, such as pygmy corydoras, Boraras, panda garra, clown killifish, cherry barbs, guppies, harlequin rasboras, otocinclus, Endler's livebearers and brilliant rummynose tetras. Even small fast-swimming fish may scare them, so monitor interactions. Avoid cichlids, goldfish, monos and scats, Jack Dempsey, oscars, bettas, paradise fish, Siamese algae eaters and angelfish. Avoid large, aggressive or boisterous fish, crayfish, most freshwater crabs and African dwarf frogs.</p><p>Shrimp: they will not hunt adult dwarf shrimp, but may snack on newly hatched shrimplets; shrimplets 1–2 weeks old are too big for them. For serious shrimp breeding, keeping them together is not recommended. They are compatible with any freshwater snail.</p>"
     },
     {
       "key": "dimorphism",
@@ -115,16 +213,40 @@
       "html": "<p>Mature males are slightly more intense in body colour and noticeably slimmer than females, these differences being more apparent when the fish are in spawning condition.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Sexual dimorphism is weakly expressed, so males and females are hard to tell apart externally.</p><ul><li>Females are slightly larger and fuller than males.</li><li>Males have slightly more intense body colour.</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Dwarf Ember Barbs are not normally bred in captivity and there is no breeding protocol yet.</p><p>To simulate the rainy season, a high-protein diet and a slight decrease in temperature over a few weeks are suggested, along with peat filtration to produce soft, acidic water.</p><p>They are egg scatterers. They release eggs and milt into the water column; the fertilised eggs fall into the substrate, develop for a few days and hatch. Adults may eat unprotected eggs, so remove the eggs, move the adults, or provide enough safe places with plants, gravel, etc.</p><p>Newly hatched fry look like miniature adults, about 1.5±0.5 mm long. If the adults are well fed they generally do not prey on the young, so fry can stay in the same tank.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barboides-gracilis",
       "html": "<p>This species is still very rare in the aquarium hobby although it has developed something of a following among enthusiasts of planted 'nano' aquaria and you may see it on sale under the trade names of 'dwarf amber/ember barb'. Its small adult size evolved via a process known as miniaturisation characterised by sexually mature adults with a significantly reduced size of less than 20 mm SL. Among bony fishes cyprinids are one of the few groups in which this phenomenon occurs repeatedly with all Barboides, Danionella, Microdevario, Microrasbora, Horadandia, Boraras, Paedocypris, Sawbwa and Sundadanio species representing miniaturised taxa along with a few members of Danio, Laubuca and Rasbora. All show a preference for still or slow-moving waters, often in nutrient-poor habitats such as forest peat swamps.</p><p>The anatomical structure of miniaturised cyprinids can vary greatly; there are two principle 'groupings' with some species possessing intermediate features to some degree. The first contains those fishes which though small are essentially proportionally dwarfed versions of their larger relatives e.g. Barboides, Microdevario, Microrasbora, Horadandia, Boraras, Sawbwa, Sundadanio, Danio, Laubuca and Rasbora. The other includes those in which anatomical development stops at a point where adult still resemble a larval form of their larger ancestor i.e. Danionella and Paedocypris. The latter are usually referred to as 'developmentally truncated' or 'paedomorphic' and are thought to have evolved via a process known as 'progenetic paedomorphosis' i.e. paedomorphosis brought about by accelerated maturation. They typically exhibit a simplified skeletal structure along with species-specific morphological peculiarities such as the tooth-like projections in male Danionella dracula.</p><p>Britz et al. (2009) consider that developmental truncation may have facilitated the development of such novelties \"by freeing large parts of the skeleton from developmental constraints, dissociating developmentally linked pathways and creating a greater potential for more dramatic changes\".</p>"
     },
     {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Barboides gracilis is a small cyprinid less than 1.8 cm long, reaching about 1.5 cm in 6 months. The body is narrow, elongated and almost translucent (sometimes golden), with transparent fins. A distinctive feature is a dark spot at the base of the tail with a pair of smaller yellow spots closer to the caudal fin, plus bright pink tints at the front and on the head. It has small dark dots on the upper head and lower body, and large eyes. It can be distinguished from small Barbus species by a low number (6) of dorsal fin rays and characteristically shaped nostrils.</p><p>Under good conditions it can live up to 1.5 years.</p><p>It suits intermediate aquarists because it does not tolerate poor water quality well. It is harmless, safe in planted tanks and suitable for small community tanks, but hard to breed and rare in the trade.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barboides-gracilis",
       "html": "<ul><li>Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176</li><li>Rüber, L. , M. Kottelat, H. H. Tan, P. K. L. Ng and R. Britz (2007). Evolution of miniaturization and the phylogenetic position of Paedocypris, comprising the world's smallest vertebrate. BMC Evolutionary Biology London 7(38), 1-10</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Brüning, C. 1929. Der Clou und der Pipifax. Wochenschrift für Aquarien- und Terrarienkunde 26: 758-759.</li><li>Conway, Kevin W., and Timo Moritz. “Barboides britzi, a new species of miniature cyprinid from Benin (Ostariophysi: Cyprinidae), with a neotype designation for B. gracilis.” Ichthyological Exploration of Freshwaters 17, no. 1 (2006): 73.</li><li>Eschmeyer, W.N., 1990. Catalog of the genera of recent fishes. California Academy of Sciences, San Francisco, USA.</li><li>Liao, T. Y., Kullander, S. O. and F. Fang, 2010 – Zoologica Scripta 39(2): 155-176 Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae).</li><li>Rüber, L. , M. Kottelat, H. H. Tan, P. K. L. Ng and R. Britz, 2007 – BMC Evolutionary Biology London: 7-38. Evolution of miniaturization and the phylogenetic position of Paedocypris, comprising the world’s smallest vertebrate.</li><li>Froese, Rainer; Pauly, Daniel (eds.) (2006). “Barboides gracilis” in FishBase. April 2006 version.</li><li>IUCN Red List of Threatened Species 2018-1 [182317]</li></ul>"
     }
   ],
   "photos": [
@@ -171,6 +293,16 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/barboides-gracilis",
       "caption": "Well-conditioned male - notice the difference in body shape.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/566f59857b654381.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/566f59857b654381-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [],
@@ -202,5 +334,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-04"
 }

@@ -1,0 +1,165 @@
+{
+  "id": "trigonostigma-heteromorpha",
+  "native": {
+    "input": "e0be2189f19bcc95",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "sprucepets",
+        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "The harlequin, Trigonostigma heteromorpha, is a small cyprinid from southern Thailand, Peninsular Malaysia, Singapore and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Bintan",
+        "source": "seriouslyfish",
+        "quote": "While it certainly occurs on the island of Bintan in Riau Islands province, Sumatra, definitive information regarding the mainland is lacking other than a vague reference to the city of Medan in the north (the species is said to range throughout northern Sumatra).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trigonostigma heteromorpha",
+    "status": "ACCEPTED",
+    "taxonKey": 2367610,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        18
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        17
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY",
+      "SG"
+    ],
+    "requests": 12,
+    "at": "2026-11-04T21:41:08.860Z"
+  }
+}
