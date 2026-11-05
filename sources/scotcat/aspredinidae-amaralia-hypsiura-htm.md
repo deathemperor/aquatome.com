@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm
 title: Amaralia hypsiura (Kner, 1855)
-fetchedAt: 2026-11-05T04:15:29.241Z
+fetchedAt: 2026-11-05T10:13:06.352Z
 hash: c708c603bbb6f8e047707a1dc3b44f2696ff02b9aa0a59c0ff4901f9487f10c6
 ---
 
