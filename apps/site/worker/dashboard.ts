@@ -5,6 +5,7 @@ import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
 import { approveByOwner, photosLive, recentPhotos, removePhoto, waitingPhotos, waitingUpload, type PhotosEnv } from './photos'
 import { queryReaderDays, queryReaders } from './readers'
+import { queryAsks } from './lang-ask'
 import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
 import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
 import { contentPage, contentSection } from './admin/content-page'
@@ -168,8 +169,9 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   }, contentPage, contentSection),
   '/_ab/doc-gia/': view(async (env, _url, now, tz) => {
     const a = ae(env)
-    return { now, tz, r: a ? await soft('readers', queryReaders(a.account, a.token, 14, tz)) : undefined }
-  }, d => readersPage(d.now, d.r, d.tz), d => readersSection(d.now, d.r, d.tz)),
+    const [r, asks] = a ? await Promise.all([soft('readers', queryReaders(a.account, a.token, 14, tz)), soft('language asks', queryAsks(a.account, a.token, 14))]) : []
+    return { now, tz, r, asks }
+  }, d => readersPage(d.now, d.r, d.tz, d.asks), d => readersSection(d.now, d.r, d.tz, d.asks)),
   '/_ab/ung-dung/': view(async (env, url, now, tz) => {
     const a = ae(env)
     const test = url.searchParams.get('test') === '1'

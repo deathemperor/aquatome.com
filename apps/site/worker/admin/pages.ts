@@ -3,6 +3,7 @@ import type { KeptRow } from '../fishid/kept'
 import type { Hidden } from '../hidden'
 import { isViPage, withoutVi } from '../paths'
 import type { Readers } from '../readers'
+import type { LangAsks } from '../lang-ask'
 import type { Wanted } from '../wanted'
 import { chipHtml, chipOf, dayChart, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
 import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Action, type Block, type Cell, type PhotoItem, type RankRow, type Section, type TextTone } from './blocks'
@@ -455,7 +456,15 @@ function readersParts(now: Date, r: Readers, tz: string) {
   }
 }
 
-export function readersPage(now: Date, r: Soft<Readers> | undefined, tz = HOME_TZ): string {
+const ASKS_TITLE = 'Trang chọn ngôn ngữ'
+const ASKS_HEAD = ['Nước', 'Lần hiện', 'Chọn tiếng Việt', 'Chọn Indonesia', 'Chọn Thái']
+/** The language chooser (worker/lang-ask.ts): who saw it and what they picked, by country. */
+const asksParts = (a: LangAsks) => ({
+  lede: `Trình duyệt không hỏi tiếng Việt, Indonesia hay Thái, từ nước khác Việt Nam, Indonesia, Thái Lan, mở aquatome.com/ thì được hỏi chọn ngôn ngữ. Số lần trang hiện và lựa chọn, theo nước, ${a.days} ngày gần nhất (bỏ bot).`,
+  rows: a.rows.map(x => ({ label: esc(x.cc || '??'), value: x.shown, cells: [fmt(x.picked.vi), fmt(x.picked.id), fmt(x.picked.th)] })) as Ranked[],
+})
+
+export function readersPage(now: Date, r: Soft<Readers> | undefined, tz = HOME_TZ, asks?: Soft<LangAsks>): string {
   let body = '<h1>Người đọc thật</h1>'
   if (!r) body += `<p class="muted">${NO_AE}</p>`
   else if (isFailed(r)) body += failedBox('người đọc (Analytics Engine)', r)
@@ -468,10 +477,15 @@ ${tiles(p.tiles)}
 <div class="split"><section><h2>Trang người đọc xem nhiều nhất</h2>${rankTable(p.pages, PAGE_VIEWS_HEAD)}</section>
 <section><h2>Quốc gia (người đọc)</h2>${rankTable(p.countries, COUNTRY_HEAD)}</section></div>`
   }
+  if (asks && isFailed(asks)) body += `<h2>${ASKS_TITLE}</h2>${failedBox('trang chọn ngôn ngữ (Analytics Engine)', asks)}`
+  else if (asks) {
+    const a = asksParts(asks)
+    body += `<h2>${ASKS_TITLE}</h2><p class="lede">${a.lede}</p>${rankTable(a.rows, ASKS_HEAD)}`
+  }
   return page('/_ab/doc-gia/', 'Người đọc', body, now, tz)
 }
 
-export function readersSection(now: Date, r: Soft<Readers> | undefined, tz = HOME_TZ): Section {
+export function readersSection(now: Date, r: Soft<Readers> | undefined, tz = HOME_TZ, asks?: Soft<LangAsks>): Section {
   const blocks: Block[] = []
   if (!r) blocks.push(note(NO_AE, 'muted'))
   else if (isFailed(r)) blocks.push(failedNote('người đọc (Analytics Engine)', r))
@@ -479,6 +493,11 @@ export function readersSection(now: Date, r: Soft<Readers> | undefined, tz = HOM
     const p = readersParts(now, r, tz)
     blocks.push(note(textOf(p.lede)), figures(p.tiles), heading('Theo ngày và nguồn'), chart(p.chart), heading('Nguồn truy cập', 3), rankBlock(p.sources, SOURCE_HEAD),
       heading('Trang người đọc xem nhiều nhất'), rankBlock(p.pages, PAGE_VIEWS_HEAD), heading('Quốc gia (người đọc)'), rankBlock(p.countries, COUNTRY_HEAD))
+  }
+  if (asks && isFailed(asks)) blocks.push(heading(ASKS_TITLE), failedNote('trang chọn ngôn ngữ (Analytics Engine)', asks))
+  else if (asks) {
+    const a = asksParts(asks)
+    blocks.push(heading(ASKS_TITLE), note(a.lede), rankBlock(a.rows, ASKS_HEAD))
   }
   return { title: 'Người đọc thật', blocks }
 }
