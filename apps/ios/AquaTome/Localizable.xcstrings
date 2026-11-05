@@ -81,6 +81,22 @@
         }
       }
     },
+    "%lld con": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ekor"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ตัว"
+          }
+        }
+      }
+    },
     "%lld loài phù hợp": {
       "localizations": {
         "id": {
@@ -5281,6 +5297,22 @@
         }
       }
     },
+    "Tuổi thọ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Umur hidup"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อายุขัย"
+          }
+        }
+      }
+    },
     "Tài khoản có dữ liệu từ bản ứng dụng mới hơn: cập nhật AquaTome để đồng bộ.": {
       "localizations": {
         "id": {
@@ -6465,6 +6497,22 @@
         }
       }
     },
+    "năm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tahun"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปี"
+          }
+        }
+      }
+    },
     "pH": {
       "localizations": {
         "id": {
@@ -6781,6 +6829,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังซ่อน %lld รายการที่คุณบล็อกหรือรายงานไว้"
+          }
+        }
+      }
+    },
+    "Đàn tối thiểu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kelompok minimal"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จำนวนฝูงขั้นต่ำ"
           }
         }
       }
@@ -7853,6 +7917,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ความยาก"
+          }
+        }
+      }
+    },
+    "Độ khó %@/8: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tingkat kesulitan %@/8: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความยาก %@/8: %@"
           }
         }
       }
