@@ -137,7 +137,7 @@ private struct OutletRow: View {
   var body: some View {
     let board = plugs.board
     let live = board.list?.plug(provider: key.provider, id: key.device)?.outlets.first { $0.code == outlet.code }
-    let title = outlet.label ?? outlet.role.map(OutletRole.label) ?? live?.name ?? String(localized: "Ổ \(number)")
+    let title = outlet.title(number: number, live: live?.name)
     let busy = board.switching.contains(key)
     HStack {
       VStack(alignment: .leading, spacing: 2) {
@@ -198,6 +198,13 @@ private struct OutletRow: View {
     }
     if board.list?.plug(provider: key.provider, id: key.device) != nil && board.on(key) == nil { return String(localized: "Không rõ trạng thái") }
     return nil
+  }
+}
+
+extension PlugOutlet {
+  /// What the app calls it: the reader's name, what it powers, its Smart Life name, or its place on the strip.
+  func title(number: Int, live: String?) -> String {
+    label ?? role.map(OutletRole.label) ?? live ?? String(localized: "Ổ \(number)")
   }
 }
 

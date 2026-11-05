@@ -13,7 +13,8 @@ substrate, notes, the fish and plants on it, each opening its page; put on from 
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
 schedules written to it (as the site does). A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
 named for what it powers, with its switch: the app calls Tuya's cloud itself, with the reader's own Tuya project keys
-kept in the Keychain, and no AquaTome account (docs/smart-plugs.md).
+kept in the Keychain, and no AquaTome account (docs/smart-plugs.md). A light's card warns when the outlet the reader
+picked for it has a Smart Life timer that cuts its power, which stops the light's clock.
 
 The site's pages in the app share the reader's tanks with it (`PageBridge`): the tools' "Lưu vào Bể của tôi" saves to
 the app's tanks, merged record by record, and each page sees them. A link to "Bể của tôi" or the Chihiros page, and
@@ -215,11 +216,11 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 | `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), the timeline's rules as the site's light page has them (`Plan.swift`: handles kept apart, ramps that fit, the day's curve, the day preview's pace; `Colour.swift`: the colour a mix shows, a tank lit by it, the looks), `LightSession` (the order and pace the light accepts, and going back to the schedule after levels set by hand), `FakeLight` (tests, simulator) |
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
-| `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`) |
+| `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`), the outlet a light is plugged into (`PowerOutlet`) |
 | `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
 | `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code |
 | `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
-| `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
+| `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back, a strip's timers read: `PlugTimer`, once per light's card: `OutletTimers`), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
 
 ```sh
 cd apps/ios/AquaTomeKit
