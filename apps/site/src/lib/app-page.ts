@@ -1,10 +1,12 @@
 import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
-import { appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, type AppIndex } from './app-index'
+import { appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, type AppIndex } from './app-index'
 import { BREED_KIND } from './breeds'
 import { photoCredit } from './cite'
 import { VN_WATER, vnClimate } from './climate'
 import { avoidWhy } from './companions'
+import type { CategoryUse } from './equipment'
+import { equipmentParts } from './equipment-page'
 import { figureHtml } from './figures'
 import { cardRows } from './card-rows'
 import { FIELD_LABELS, fmt, GUIDE_KIND_LABELS } from './format'
@@ -25,8 +27,8 @@ import { clock } from './video'
 
 /**
  * The app's copy of each content page (packages/schema/src/app-page.ts): the page's own pieces, as the site's template
- * puts them together, turned into blocks. Guides, fish, plants, the glossary and video series; the comments, reader
- * photos and shop links of fish and plant pages are not in the copy yet.
+ * puts them together, turned into blocks. Guides, fish, plants, the glossary, video series and equipment; the comments,
+ * reader photos and shop links of fish and plant pages are not in the copy yet.
  */
 
 type Kind = PageDoc['kind']
@@ -297,6 +299,80 @@ export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
   }
 }
 
+/**
+ * An equipment category's copy (pages/thiet-bi/[category].astro, from the same parts), in the page's order, with the
+ * page's shop links as built (Shopee; `/go/<shop>/`, which the app opens outside it). The fish that need the kit are one
+ * "pages" block, however many: the app draws its rows as they scroll into view.
+ */
+export function equipmentDoc(lang: Lang, c: Content, u: CategoryUse, listed: Set<string>): PageDoc {
+  const t = translator(lang)
+  const at = (viPath: string) => appPath(lang, viPath)
+  const p = equipmentParts(lang, c, u)
+  const lead = image(lang, p.g?.hero, p.label)
+  const prose = (html: string) => proseBlocks(lang, html).blocks
+  const card = (path: string, name: string, photo: Photo | null, sub?: string) => {
+    const img = image(lang, photo, undefined, true)
+    return { path: at(path), name, ...(sub ? { sub } : {}), ...(img ? { img } : {}) }
+  }
+  const between = (runs: Inline[], gap: string): Inline[] => runs.flatMap((r, i) => (i ? [gap, r] : [r]))
+  return {
+    v: PAGE_VERSION,
+    kind: 'equipment',
+    path: at(`/vi/thiet-bi/${u.category}/`),
+    title: p.label,
+    ...(p.chips.length ? { meta: p.chips.join(' · ') } : {}),
+    ...(lead ? { lead } : {}),
+    blocks: [
+      ...(p.g ? [{ t: 'p' as const, c: [p.g.lead] }, ...prose(p.intro)] : []),
+      ...(p.kinds.length ? [{ t: 'h' as const, text: p.kindsTitle }] : []),
+      ...p.kinds.flatMap((k): Block[] => {
+        const photo = image(lang, k.photo, k.name)
+        return [
+          { t: 'h', text: k.name, id: k.id },
+          ...(photo ? [{ t: 'figure' as const, img: photo }] : []),
+          ...prose(k.desc),
+          { t: 'p', c: [{ text: t('Chọn thế nào:'), b: true }, ` ${k.pick}`] },
+          ...(k.picks.length ? [{ t: 'p' as const, c: [`${t('Đã tìm hiểu kỹ:')} `, ...between(k.picks.map(x => linked(lang, x.name, x.href)), ', ')] }] : []),
+          ...(k.buy ? [{ t: 'p' as const, c: [{ text: `${t('Mua')} ${k.buy.text} ${t('trên')} Shopee`, href: k.buy.href }] }] : []),
+          ...(k.searches.length ? [{ t: 'p' as const, c: [`${t('Hay tìm:')} `, ...between(k.searches, ', ')] }] : []),
+          ...(k.who.length ? [{ t: 'cards' as const, title: k.whoTitle, items: k.who.map(({ s, photo: ph }) => card(`/vi/ca/${s.t.slug}/`, s.t.name, ph)) }] : []),
+          ...(k.whoMore ? [{ t: 'p' as const, c: [t('+{n} loài', { n: k.whoMore })] }] : []),
+        ]
+      }),
+      ...(p.g ? [
+        { t: 'h' as const, text: t('Cách chọn') },
+        { t: 'list' as const, items: p.choose.map(prose) },
+        { t: 'h' as const, text: t('Sai lầm thường gặp') },
+        { t: 'list' as const, items: p.mistakes.map(prose) },
+      ] : []),
+      ...(p.creators.length ? [
+        { t: 'h' as const, text: t('Dân chơi dùng gì trong video') },
+        {
+          t: 'list' as const,
+          items: p.creators.map((x): Block[] => [{
+            t: 'p',
+            c: [
+              { text: x.name, b: true as const, ...(x.product ? { href: at(x.product) } : {}) },
+              ` · ${t('{n} video', { n: x.count })} · `,
+              ...between(x.guides.map(v => ({ text: v.t.name, href: at(`/vi/huong-dan/${v.t.slug}/`) })), ' · '),
+            ],
+          }]),
+        },
+      ] : []),
+      ...(p.plants.length ? [{ t: 'cards' as const, title: p.plantsTitle, items: p.plants.map(({ p: x, photo }) => card(`/vi/cay/${x.t.slug}/`, x.t.name, photo, x.scientificName)) }] : []),
+      ...(p.plantsMore ? [{ t: 'p' as const, c: [linked(lang, p.plantsMore.text, p.plantsMore.href)] }] : []),
+      ...pagesBlock(lang, listed, p.usersTitle, p.users.map(s => `/vi/ca/${s.t.slug}/`), p.users.length),
+      ...(p.faq.length ? [{ t: 'faq' as const, title: t('Hỏi đáp'), items: p.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
+      ...pagesBlock(lang, listed, t('Bài viết liên quan'), p.guides.map(x => `/vi/huong-dan/${x.g.t.slug}/`), 6),
+      ...(p.vn && p.keywordLinks.length ? [
+        { t: 'h' as const, text: p.keywordsTitle },
+        { t: 'list' as const, items: p.keywordLinks.map((x): Block[] => [{ t: 'p', c: [x] }]) },
+        { t: 'p' as const, c: [t('Liên kết tiếp thị — trang có thể nhận hoa hồng khi bạn mua qua liên kết.')] },
+      ] : []),
+    ],
+  }
+}
+
 /** A guide's copy; `listed` is the app index's paths (listedPaths). */
 export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
@@ -358,6 +434,7 @@ export function appPages(lang: Lang, c: Content): Promise<Record<Kind, PageDoc[]
       plant: appPlants(lang, c).map(p => plantDoc(lang, c, p, listed)),
       glossary: appGlossary(lang, c).map(g => glossaryDoc(lang, g)),
       video: appSeries(lang, c).map(({ s }) => videoDoc(lang, c, s)),
+      equipment: appEquipment(lang, c).map(u => equipmentDoc(lang, c, u, listed)),
     }))())
   }
   return docs
@@ -365,10 +442,11 @@ export function appPages(lang: Lang, c: Content): Promise<Record<Kind, PageDoc[]
 
 /**
  * The level an app must know to draw each kind itself (packages/schema/src/app-page.ts, PageShard). Guides are the first
- * app's (level 1); fish, plant, glossary and video series pages use blocks it shows as "open on the web", so they are
- * level 2.
+ * app's (level 1); fish, plant, glossary, video series and equipment pages use blocks it shows as "open on the web", so
+ * they are level 2. Equipment needs no block a level-2 app lacks, and an app that predates it leaves out the index's items
+ * of that kind, so it never opens these copies.
  */
-export const PAGE_LEVELS: Record<Kind, number> = { guide: 1, fish: 2, plant: 2, glossary: 2, video: 2 }
+export const PAGE_LEVELS: Record<Kind, number> = { guide: 1, fish: 2, plant: 2, glossary: 2, video: 2, equipment: 2 }
 
 /**
  * What the app index says of the shards: every kind's count and level (`shards`), and the counts of the level-1 kinds

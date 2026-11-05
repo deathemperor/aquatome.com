@@ -19,10 +19,12 @@ that would have caught it).
   - The app's copy of each page (`/app/pages/`, `protocols/page.schema.json`) against `protocols/page-vectors.json`,
     which the app's tests read too (its fish, plant and video series pages are the fixture build's, and the test fails
     when they drift: `UPDATE_VECTORS=1` rewrites them); every text in the real `content/` converts with nothing the app
-    would have to send to the web. Each guide's, fish's, plant's, glossary term's and video series' copy is held to its
-    built page: its header, every photo's credit (the footer's "Nguồn ảnh" included), its numbered sources, for a fish
+    would have to send to the web. Each guide's, fish's, plant's, glossary term's, video series' and equipment category's
+    copy is held to its built page: its header, every photo's credit (the footer's "Nguồn ảnh" included), its numbered sources, for a fish
     the data card's sources, tank mates, climate, gallery and breeds, and for a series its whole line (counts, playlist
-    and channel) as its credit and its guides in order.
+    and channel) as its credit and its guides in order; an equipment category's every part in the page's order, its shop
+    links as built (Shopee) and Vietnamese only, with the affiliate note beside them, and the fish that need it one list,
+    however long.
   - Which app draws which kind: the app index's `shards` gives each kind's shard count and **level**
     (`PAGE_LEVELS` in `apps/site/src/lib/app-page.ts`; the rule in `packages/schema/src/app-page.ts`, cases in
     `page-vectors.json` `levels`):
@@ -33,11 +35,12 @@ that would have caught it).
       the blocks its kind's level reads, blocks inside lists too: a newer block fails the test until the kind's level
       goes up.
     - `pages` (guides only) stays as it is for the apps already installed: the first app draws every kind it lists.
-    - Guides are level 1. Fish, plant, glossary and video series pages are level 2: the iOS app that reads `shards`
-      knows level 2.
+    - Guides are level 1. Fish, plant, glossary, video series and equipment pages are level 2: the iOS app that reads
+      `shards` knows level 2. Equipment adds no block, and an app that predates it leaves out the index's items of that
+      kind, so it opens those pages on the web.
   - The app index (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) against the built pages: its fish, plants,
     guides and glossary terms are the site's lists', a page out of search engines too, each with its page's copy in a
-    shard; a species' `tax` and `from` lead to the taxon and origin pages that list it, `places` are the origin pages
+    shard, and so are its equipment categories, named as their pages name them; a species' `tax` and `from` lead to the taxon and origin pages that list it, `places` are the origin pages
     with what each lists, and `labels` say what those pages say.
   - What's new for the app (`/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`) against the built
     `/vi/moi-cap-nhat/`: the same pages in the same order, with their dates, "Mới" or "Cập nhật" and sources, the
