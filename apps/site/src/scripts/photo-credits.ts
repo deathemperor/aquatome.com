@@ -21,11 +21,11 @@ export function creditPhoto(p: CardPhoto) {
     for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v)
     return e
   }
-  // As lib/i18n licenceLabel: the permission note is stored in Vietnamese; licence names (CC BY…) stay as they are.
-  const licence = p.licence === 'dùng với sự cho phép' ? ct('dùng với sự cho phép') : p.licence
+  // As the footer writes it: the licence (none for a photo a source let us use), then the count, after its author.
+  const more = [p.licence, urls.length > 1 ? ct('{n} ảnh', { n: urls.length }) : ''].filter(Boolean).join(' · ')
   row.replaceChildren(
     urls.length === 1 ? el('a', p.author, { href: p.url, rel: 'noopener' }) : el('strong', p.author),
-    el('span', ` · ${licence}${urls.length > 1 ? ` · ${ct('{n} ảnh', { n: urls.length })}` : ''}`, { class: 'lic' }),
+    ...(more ? [el('span', ` · ${more}`, { class: 'lic' })] : []),
   )
   if (urls.length > 1) {
     const nums = row.appendChild(el('span', '', { class: 'nums' }))

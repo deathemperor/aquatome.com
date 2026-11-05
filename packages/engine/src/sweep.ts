@@ -4,7 +4,7 @@ import { mayPublish, QUALITY_THRESHOLD, shownCard, type DataCardField, type Lang
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { rewriteTitle } from './reader'
 import { carryTopicChecks } from './topic-check'
@@ -16,6 +16,8 @@ import { breedsNamed } from './topics'
  * test fails on any left. Each file keeps its own indentation, and no page's date changes.
  * - the source site's comments, comment form and related posts: cut (cutFurniture)
  * - empty headings and blocks: dropped; a repeated paragraph: the later copy dropped; labels out of order: renumbered
+ * - a sentence that only says the text is translated, adapted or used with permission (the source's note under an
+ *   article it reprints): dropped, its paragraph too when it is all there is (dropPermissionNotes)
  * - a photo whose caption names another fish the site has, or is a map: off that page (its file and its gallery). A map
  *   leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
  *   it is taken off again whenever a later run brings it back here
@@ -38,7 +40,7 @@ import { breedsNamed } from './topics'
 export type SweepReport = {
   /** Files changed, `kind/id/file`. */
   files: string[]
-  /** Pages changed by each text fix: furniture, headings, repeated, labels (and tidy: the fixes made on write). */
+  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission (and tidy: the fixes made on write). */
   text: Record<string, string[]>
   photos: string[]
   rejected: number
@@ -89,6 +91,7 @@ export function sweepTranslation<T extends Stored>(t: T): { t: T; fixed: string[
     if (repeats.some((f, i) => f.html !== out[i]!.html)) mark('repeated')
     out = step('headings', repeats, dropEmptyHeadings)
     out = step('labels', out, renumberLabels)
+    out = step('permission', out, dropPermissionNotes)
     const html = (field: string) => out.find(f => f.field === field)!.html
     const next = {
       ...tidy,

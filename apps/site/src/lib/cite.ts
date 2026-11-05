@@ -11,20 +11,23 @@ const host = (url: string) => { try { return new URL(url).hostname.replace(/^www
 /** A text source's mark: its number, linking to the original page. */
 export function citeMark(lang: Lang, n: number, name: string, url: string): string {
   const t = translator(lang)
-  return `<a class="cite" href="${esc(url)}" rel="noopener" data-term="${esc(name)}" data-tip="${esc(`${host(url)} · ${t('dịch với sự cho phép của nguồn')}`)}" data-more="${esc(t('Mở bài gốc ↗'))}" aria-label="${esc(t('Nguồn {n}: {name}', { n, name }))}">${n}</a>`
+  return `<a class="cite" href="${esc(url)}" rel="noopener" data-term="${esc(name)}" data-tip="${esc(`${host(url)} · ${t('dịch từ nguồn')}`)}" data-more="${esc(t('Mở bài gốc ↗'))}" aria-label="${esc(t('Nguồn {n}: {name}', { n, name }))}">${n}</a>`
 }
 
-/** A photo's credit as the page shows it: "Ảnh: <author>", its licence, the photo's page (the app's copy uses it too). */
+/**
+ * A photo's credit as the page shows it: "Ảnh: <author>", its licence (empty for a photo a source let us use), the photo's
+ * page (the app's copy uses it too).
+ */
 export function photoCredit(lang: Lang, p: Pick<Photo, 'author' | 'licence' | 'sourceUrl'>): { text: string; licence: string; url: string } {
   const t = translator(lang)
-  return { text: `${t('Ảnh:')} ${p.author}`, licence: licenceLabel(t, p.licence), url: p.sourceUrl }
+  return { text: `${t('Ảnh:')} ${p.author}`, licence: licenceLabel(p.licence), url: p.sourceUrl }
 }
 
-/** A photo's mark: ©, linking to the photo's page, with its author and licence. */
+/** A photo's mark: ©, linking to the photo's page, with its author and its licence (no tip when it has none). */
 export function photoMark(lang: Lang, p: Pick<Photo, 'author' | 'licence' | 'sourceUrl'>): string {
   const t = translator(lang)
   const { text: who, licence: lic } = photoCredit(lang, p)
-  return `<a class="cite pic" href="${esc(p.sourceUrl)}" rel="noopener" data-term="${esc(who)}" data-tip="${esc(lic)}" data-more="${esc(t('Xem ảnh gốc ↗'))}" aria-label="${esc(`${who}, ${lic}`)}">©</a>`
+  return `<a class="cite pic" href="${esc(p.sourceUrl)}" rel="noopener" data-term="${esc(who)}"${lic ? ` data-tip="${esc(lic)}"` : ''} data-more="${esc(t('Xem ảnh gốc ↗'))}" aria-label="${esc(lic ? `${who}, ${lic}` : who)}">©</a>`
 }
 
 /** The mark at the end of a block's last sentence: inside its last paragraph or list item, else on a line of its own. */

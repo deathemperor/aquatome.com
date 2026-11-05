@@ -195,8 +195,9 @@ function image(img: HTMLElement | null, credit?: Image['credit']): Image | undef
 function figure(f: HTMLElement, unknown: Set<string>): Block | undefined {
   const cap = f.querySelector('figcaption')
   const mark = cap?.querySelector('a.cite.pic')
-  const credit = mark && mark.getAttribute('data-term') && mark.getAttribute('data-tip')
-    ? { text: mark.getAttribute('data-term')!, licence: mark.getAttribute('data-tip')!, ...(mark.getAttribute('href') ? { url: mark.getAttribute('href')! } : {}) }
+  // A © without a tip names no licence (a photo a source let us use): its credit's licence is empty.
+  const credit = mark && mark.getAttribute('data-term')
+    ? { text: mark.getAttribute('data-term')!, licence: mark.getAttribute('data-tip') ?? '', ...(mark.getAttribute('href') ? { url: mark.getAttribute('href')! } : {}) }
     : undefined
   mark?.remove()
   const img = image(f.querySelector('img'), credit)

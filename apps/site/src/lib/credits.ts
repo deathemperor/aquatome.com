@@ -1,14 +1,15 @@
 import type { Photo } from '@aq/schema'
+import { licenceLabel } from './i18n'
 
 export type Credit = { author: string; licence: string; sourceUrl: string; what: string }
 
-/** One footer credit per distinct photo shown on a page (CC BY / BY-SA require attribution). */
+/** One footer credit per distinct photo shown on a page (CC BY / BY-SA require attribution), with its licence as shown. */
 export function creditsFor(photos: (Photo | undefined)[], what = 'Ảnh'): Credit[] {
   const seen = new Set<string>()
   return photos.flatMap(p => {
     if (!p || seen.has(p.url)) return []
     seen.add(p.url)
-    return [{ author: p.author, licence: p.licence, sourceUrl: p.sourceUrl, what }]
+    return [{ author: p.author, licence: licenceLabel(p.licence), sourceUrl: p.sourceUrl, what }]
   })
 }
 

@@ -116,11 +116,10 @@ test('numbered pages: the page word in each language, for the guide and plant li
   expect(localizePath('id', '/vi/ca/trang/anh/')).toBe('/id/ikan/trang/foto/')
 })
 
-test('licence: the stored permission note is translated, licence names are not', async () => {
-  const { licenceLabel, translator } = await import('../src/lib/i18n')
-  expect(licenceLabel(translator('id'), 'dùng với sự cho phép')).toBe('digunakan dengan izin')
-  expect(licenceLabel(translator('vi'), 'dùng với sự cho phép')).toBe('dùng với sự cho phép')
-  expect(licenceLabel(translator('th'), 'CC BY 4.0')).toBe('CC BY 4.0')
+test('licence: the stored permission note shows as none, licence names as they are', async () => {
+  const { licenceLabel } = await import('../src/lib/i18n')
+  expect(licenceLabel('dùng với sự cho phép')).toBe('')
+  expect(licenceLabel('CC BY 4.0')).toBe('CC BY 4.0')
 })
 
 test('every UI translation keeps its {placeholders} and Pagefind [PLACEHOLDERS]', async () => {

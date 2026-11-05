@@ -168,5 +168,5 @@ export function switchTo(lang: Lang, viPath: string, here: string | undefined, h
 /** Text written in Vietnamese (letters only Vietnamese uses): a cited page's title, marked as such on the other languages' pages. */
 export { isVietnamese } from '@aq/schema/text'
 
-/** A photo's licence as shown: the permission note stored in Vietnamese is translated; licence names (CC BY…) stay. */
-export const licenceLabel = (t: T, licence: string) => (licence === 'dùng với sự cho phép' ? t('dùng với sự cho phép') : licence)
+/** A photo's licence as shown: its name (CC BY…), none for a photo a source let us use (stored as its permission note). */
+export const licenceLabel = (licence: string) => (licence === 'dùng với sự cho phép' ? '' : licence)

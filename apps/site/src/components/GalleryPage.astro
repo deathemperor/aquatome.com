@@ -18,7 +18,7 @@ const jsonld = [{
   '@context': 'https://schema.org', '@type': 'ImageGallery', name: `${t('Ảnh {name}', { name })}${sci ? ` (${sci})` : ''}`,
   image: photos.slice(0, 60).map(p => ({
     '@type': 'ImageObject', contentUrl: p.url, thumbnailUrl: p.thumb ?? p.url, caption: p.caption, creditText: p.author, creator: { '@type': 'Person', name: p.author },
-    copyrightNotice: `${p.author}, ${p.licence}`, acquireLicensePage: p.sourceUrl, ...(licenceUrl(p.licence) ? { license: licenceUrl(p.licence) } : {}),
+    copyrightNotice: [p.author, licenceLabel(p.licence)].filter(Boolean).join(', '), acquireLicensePage: p.sourceUrl, ...(licenceUrl(p.licence) ? { license: licenceUrl(p.licence) } : {}),
   })),
 }]
 ---
@@ -27,7 +27,7 @@ const jsonld = [{
   <ul class="grid" data-gallery>
     {photos.map((p, i) => (
       <li id={`a${i + 1}`}>
-        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={licenceLabel(t, p.licence)} data-src={p.sourceUrl}>
+        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={licenceLabel(p.licence)} data-src={p.sourceUrl}>
           <img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading={i < 4 ? 'eager' : 'lazy'} decoding="async" />
         </a>
       </li>
@@ -48,7 +48,7 @@ const jsonld = [{
           const img = a.querySelector('img')!
           const credit = () => {
             const l = document.createElement('a'); l.href = d.src!; l.rel = 'noopener'; l.target = '_blank'; l.textContent = d.author!
-            return [`${ct('Ảnh:')} `, l, `, ${d.lic}`]
+            return [`${ct('Ảnh:')} `, l, ...(d.lic ? [`, ${d.lic}`] : [])]
           }
           return { src: d.full!, thumb: img.src, width: Number(d.w), height: Number(d.h), alt: img.alt, ...(d.cap ? { caption: d.cap } : {}), credit }
         }),

@@ -263,6 +263,46 @@ export function cutFurniture(html: string): string {
 }
 
 /**
+ * A sentence that only says a text is translated, adapted or used with permission, as a source writes it under an
+ * article it reprints ("Được Loaches Online chuyển thể với sự cho phép.", "Diterjemahkan dengan izin dari …",
+ * "แปลโดยได้รับอนุญาตจาก …"). The site never says it (owner, 2026-11-05): a page's sources' list says where its text
+ * comes from. Only a sentence whose whole point is that note: what it says is done with permission is translating,
+ * adapting, reprinting or using it, with at most who did it and whose permission; "Chỉ bắt cá với sự cho phép của cơ quan
+ * quản lý." and "Hãy dùng thuốc với sự cho phép của bác sĩ." stay.
+ */
+const PERMISSION_NOTE = [
+  /^(?:(?:bài(?: viết)?|nội dung|ảnh)(?: này)?\s+)?(?:được\s+(?:[^\s.!?]+\s+){0,5}?)?(?:chuyển thể|biên dịch|dịch|đăng lại|in lại|sử dụng|dùng)(?:\s+lại)?\s+với sự cho phép(?:\s+của\s+[^.!?,;:]{1,60})?$/i,
+  /^(?:(?:artikel|tulisan|konten|foto)(?: ini)?\s+)?(?:diterjemahkan|diadaptasi|digunakan|dipakai|dicetak ulang|diterbitkan ulang|dimuat ulang)(?:\s+oleh\s+[^.!?,;:]{1,60}?)?\s+(?:dengan|atas)\s+(?:se)?izin(?:\s+[^.!?,;:]{1,60})?$/i,
+  /^(?:(?:บทความ|เนื้อหา|ภาพ)(?:นี้)?\s*)?(?:ได้รับการ)?(?:แปล|ดัดแปลง|เรียบเรียง|นำมาใช้|ใช้|เผยแพร่ซ้ำ|ตีพิมพ์ซ้ำ)(?:โดย\s*[^.!?]{1,40}?\s*)?โดยได้รับอนุญาต(?:จาก\s*[^.!?]{1,60})?$/,
+]
+export const isPermissionNote = (sentence: string) => {
+  const s = sentence.replace(/\s+/g, ' ').trim().replace(/[.!]$/, '').trim()
+  return PERMISSION_NOTE.some(re => re.test(s))
+}
+/** The text without its permission notes (isPermissionNote): the sentence, or its paragraph when it is all there is. */
+export function dropPermissionNotes(html: string): string {
+  if (!/với sự cho phép|izin|โดยได้รับอนุญาต/i.test(html)) return html
+  const root = parse(html)
+  let changed = false
+  for (const p of root.querySelectorAll('p')) {
+    const notes = p.text.replace(/\s+/g, ' ').trim().split(/(?<=[.!?])\s+/).filter(isPermissionNote)
+    let inner = p.innerHTML
+    // A note written with markup inside it (a link, an entity) is left: only its plain words are cut.
+    for (const n of notes) {
+      const i = inner.lastIndexOf(n)
+      if (i < 0) continue
+      const before = inner.slice(0, i).trimEnd(), after = inner.slice(i + n.length).trimStart()
+      inner = before && after ? `${before} ${after}` : before || after
+    }
+    if (inner === p.innerHTML) continue
+    changed = true
+    if (parse(inner).text.trim()) p.set_content(inner)
+    else p.remove()
+  }
+  return changed ? root.toString() : html
+}
+
+/**
  * The later copies of a page's paragraphs (60 characters or more), in reading order across its texts: field index →
  * paragraph indexes. Within one text, a short line (under 120 characters) with no other copy beside it is the text's
  * own: a list that repeats it under each item ("Cây dễ chăm và nhân giống bằng cách cắt ngọn hoặc tách chồi bên." under

@@ -28,7 +28,10 @@ export const Run = z.object({
 export const Inline = z.union([z.string(), Run])
 export const Text = z.array(Inline)
 
-/** A photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page. */
+/**
+ * A photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence (empty for a photo a source let
+ * us use: the line alone), the photo's own page.
+ */
 export const Credit = z.object({ text: z.string(), licence: z.string(), url: z.string().optional() })
 export const Image = z.object({
   src: z.string(),
