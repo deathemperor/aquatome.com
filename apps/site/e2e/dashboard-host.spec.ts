@@ -66,10 +66,11 @@ test.describe('locally', () => {
     await page.locator('form.inline button').click()
     const res = await answered
     expect([res.status(), res.headers().location]).toEqual([303, '/an-trang/'])
-    // Chromium follows a redirect a route fulfilled past the route, to the real host, which this checkout can't reach:
-    // open where it leads. (The redirects themselves are in worker/test/dashboard-host.test.ts.)
+    // Chromium follows a redirect a route fulfilled past the route, to the real host, which answers for itself since it
+    // went live (403 without Access): open where it leads through the stand-in. (The redirects themselves are in
+    // worker/test/dashboard-host.test.ts.)
     await navigated
-    if (new URL(page.url()).pathname !== '/an-trang/') await page.goto(`${DASH}${res.headers().location}`)
+    await page.goto(`${DASH}${res.headers().location}`)
     await expect(page.locator('main table')).toContainText('/ca/thu-an/')
     const post = seen.find(s => s.path === '/_ab/hidden')
     expect(post?.origin).toBe('null')
