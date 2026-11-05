@@ -1,13 +1,17 @@
 import { LANGS, OTHER_LANGS } from '@aq/schema/langs'
 import { READERS_FROM } from '../admin/ae'
 import { isEmpty, type AppDay } from '../admin/app'
-import { chipOf, dayLabel, esc, fmt, lastDays, usd } from '../admin/chart'
+import { chipOf, dayLabel, esc, lastDays } from '../admin/chart'
 import { added, type EntityKind, type Snapshot } from '../admin/content'
 import { inLang, items, perDay } from '../admin/content-page'
 import { alignDaily, at, MODERATION_MISSED_MS, todos, waitingEn, type Overview } from '../admin/pages'
 import { isFailed, REPORT_PATH, type Soft } from '../admin/shell'
 import { clock, HOME_TZ } from '../admin/time'
 import { REPO_URL, type GitHubSide, type Item, type Listed, type Runs } from './github'
+
+/** Numbers as the report's English reads them, 2.1, 1,234, $0.11; the dashboard writes them the Vietnamese way (admin/chart.ts). */
+export const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: d })
+const usd = (n: number) => `$${fmt(n, n !== 0 && Math.abs(n) < 0.01 ? 4 : 2)}`
 
 /**
  * The owner's daily report, from what the dashboard's loaders returned and what daily-report.yml sent: needs care first,

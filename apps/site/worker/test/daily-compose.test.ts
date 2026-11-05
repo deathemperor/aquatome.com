@@ -128,7 +128,7 @@ test('highlights: at most five, the farthest from their baseline, numbers agains
     stat('Readers', 412, 298), stat('Comments', 12, 2), stat('Clicks', 40, 20), stat('Calls', 90, 40), stat('Accounts', 8, 1), stat('Wanted', 30, 10), stat('Pages', 6, 1),
   ])
   // A big move on a big count beats a bigger percentage on a tiny one: Pages (+500%) and Clicks (+100%) wait.
-  expect(picked).toEqual(['Calls 90: +125% vs 7-day avg 40', 'Comments 12: +10 vs 7-day avg 2,0', 'Accounts 8: +7 vs 7-day avg 1,0', 'Readers 412: +38% vs 7-day avg 298', 'Wanted 30: +200% vs 7-day avg 10'])
+  expect(picked).toEqual(['Calls 90: +125% vs 7-day avg 40', 'Comments 12: +10 vs 7-day avg 2.0', 'Accounts 8: +7 vs 7-day avg 1.0', 'Readers 412: +38% vs 7-day avg 298', 'Wanted 30: +200% vs 7-day avg 10'])
   expect(highlights([stat('Flat', 100, 100)])).toEqual([])
 })
 
@@ -232,4 +232,9 @@ test('the workflow\'s body: read strictly, every link this repository\'s', () =>
   expect(parseGitHubSide('not json')).toBeNull()
   expect(parseGitHubSide('[]')).toBeNull()
   expect(parseGitHubSide('')).toBeNull()
+})
+
+test('the report writes numbers the English way, not the dashboard\'s Vietnamese way', async () => {
+  const { fmt } = await import('../daily/compose')
+  expect([fmt(2.1, 1), fmt(1234), fmt(0.11, 2)]).toEqual(['2.1', '1,234', '0.11'])
 })
