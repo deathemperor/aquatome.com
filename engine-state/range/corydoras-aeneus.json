@@ -1,8 +1,8 @@
 {
   "id": "corydoras-aeneus",
   "native": {
-    "input": "02ddec2f1acca65e",
-    "at": "2026-11-05T00:41:00.281Z",
+    "input": "5f060c3b24ea6b91",
+    "at": "2026-11-05T06:42:12.410Z",
     "claims": [
       {
         "code": "PE",
@@ -20,14 +20,6 @@
         "words": "Trinidad",
         "ok": false,
         "why": "\"Trinidad\" is not TT"
-      },
-      {
-        "code": "CO",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Currently it's accepted to occur throughout much of South America from Colombia and Trinidad in the north as far south as the Río de la Plata drainage at the border of Uruguay and Argentina.",
-        "words": "Colombia",
-        "ok": true
       },
       {
         "code": "UY",
@@ -59,6 +51,14 @@
         "source": "seriouslyfish",
         "quote": "Records exist from Argentina, Bolivia, Brazil, Colombia, French Guiana, Guyana, Paraguay, Peru, Suriname, Trinidad and Tobago and Venezuela, but this gigantic range seems more akin to that of a complex of similar-looking, distinct taxa rather than a single species.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records exist from Argentina, Bolivia, Brazil, Colombia, French Guiana, Guyana, Paraguay, Peru, Suriname, Trinidad and Tobago and Venezuela, but this gigantic range seems more akin to that of a complex of similar-looking, distinct taxa rather than a single species.",
+        "words": "Colombia",
         "ok": true
       },
       {

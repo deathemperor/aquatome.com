@@ -6,7 +6,7 @@ final class AppIconFlowTests: XCTestCase {
   func testEveryIconIsInTheAppAndOneCanBeChosen() {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-app-icons"]
-    app.launch()
+    app.launchForFlow()
     let standard = app.buttons["app-icon-default"]
     XCTAssertTrue(standard.waitForExistence(timeout: 10), "the picker didn't open")
     // Listed but not in the app, in the app but not listed, or no preview to draw (AppIconChoice.problems).

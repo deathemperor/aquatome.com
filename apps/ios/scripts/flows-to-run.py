@@ -76,10 +76,10 @@ PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'Rea
 # The app's icon picker: its flows, and its screenshots (the whole class, run by `handbook (1)`, which keeps them).
 ICONS = ['AppIconFlowTests', 'PageShotsFlowTests']
 # The light flows of the outlet a light is plugged into, on the stand-in Tuya cloud: its timers read, the pick taken
-# back, and a light said not to be on one.
+# back, a light said not to be on one, and a timer told in the plug's zone on a phone in another.
 LIGHT_OUTLET = ['LightFlowTests/' + t for t in (
     'testWarnsWhenTheLightsOutletHasATimerThatCutsItsPower', 'testTakingTheOutletBackAsksAgainAndDropsTheWarning',
-    'testALightNotOnASmartPlugIsAskedNoMoreOnThisPhone')]
+    'testALightNotOnASmartPlugIsAskedNoMoreOnThisPhone', 'testAnOutletsTimerInAnotherZoneSaysWhose')]
 # The light flows that start from a tank or keep a light on one (the outlet it's plugged into, too).
 LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testKeepsTheLightAndWhatWasWrittenOnATank', 'testALightOnATankOpensOnTheLightsTabAndConnects',

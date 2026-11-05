@@ -329,7 +329,7 @@ final class ReaderPostFlowTests: XCTestCase {
     // Not reset: the same phone, still signed in to the stand-in server's account.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN"] + (reset ? ["-reset-defaults", "-reset-fake-server"] : [])
       + ["-fixed-handbook", "-fake-accounts", accounts] + more
-    app.launch()
+    app.launchForFlow()
     return app
   }
 

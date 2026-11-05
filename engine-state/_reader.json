@@ -123,6 +123,86 @@
     ],
     "ruled": "48e7162bd9225701"
   },
+  "vi/guides/aquariumbreeder-how-to-cycle-a-tank-the-dark-start-method": {
+    "at": "2026-11-05",
+    "hash": "f180350d54de5dbb",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "| Cycle không cá\n| Cycle bằng cây\n| Dark Start\n| Nguồn amoniac",
+        "problem": "The comparison table is broken: the column headers have no empty corner cell and every cell sits on its own pipe line, so it shows as a long list of pipes instead of a table.",
+        "rule": "Consecutive lines that each start with '|' and contain only one cell.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "1.1. Vì sao Dark Start cần nền hoạt tính?",
+        "problem": "Subheadings (1.1, 1.2, Nước máy, Nước RO/DI and the RO/DI questions) appear as plain body lines rather than headings, so the sections run together.",
+        "fix": "### 1.1. Vì sao Dark Start cần nền hoạt tính?",
+        "rule": "A body line starting with a pattern like 'N.N.' that has no heading marker.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "trồng cây xong vẫn nên đợi thêm vài tuần rồi mới thả vật nuôi cho an toàn",
+        "problem": "Step 10 says to wait at least 1-2 weeks after planting before adding animals, but the drawbacks list says several weeks.",
+        "fix": "trồng cây xong vẫn nên đợi thêm 1-2 tuần rồi mới thả vật nuôi cho an toàn",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nên bạn nên che kín mọi mặt của bể",
+        "problem": "\"nên\" appears twice in a row, which reads clumsily.",
+        "fix": "vì vậy bạn nên che kín mọi mặt của bể",
+        "rule": "The pattern 'nên bạn nên' appears in a sentence.",
+        "field": "body"
+      }
+    ],
+    "ruled": "f180350d54de5dbb"
+  },
+  "vi/guides/aquariumbreeder-how-to-remove-brown-algae-diatoms-in-freshwater-tanks": {
+    "at": "2026-11-05",
+    "hash": "82260562e434bb8a",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "lớp này có hơn 1836 loài thuộc khoảng 285 chi, trong đó chưa đến 1% sống ở nước ngọt. Dù vậy, 1% cũng đã là hơn 180 loài",
+        "problem": "1% of 1836 species is about 18, not more than 180, so the figures don't add up. The source has the same error, but the page repeats it.",
+        "fix": "Dù vậy, 1% cũng đã là khoảng 18 loài tảo nâu!",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây lớn nhanh thì dinh dưỡng còn lại trong bể cho tảo sẽ ít đi. Nhờ vậy cây ăn phân tốt hơn hẳn",
+        "problem": "The cause and effect run backwards. Plants growing faster is what makes them take up more nutrients, not a result of the algae having fewer nutrients.",
+        "fix": "Cây lớn nhanh thì ăn phân nhiều hơn, nên dinh dưỡng còn lại cho tảo sẽ ít đi. Nhờ vậy cây có thể lấn át tảo nâu.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "1.1. Tảo cát và tảo nâu có khác nhau không?",
+        "problem": "Numbered subheadings (1.1, 4.1–4.3) and 'Tảo nâu ở bể mới và bể cũ' are plain lines, while 6.1–6.5 are real headings. The page's structure is uneven and the subsections are hard to spot.",
+        "fix": "### 1.1. Tảo cát và tảo nâu có khác nhau không?",
+        "rule": "A plain body line that starts with a section number like 'N.N.' while other numbered subsections are headings.",
+        "field": "body"
+      }
+    ],
+    "ruled": "82260562e434bb8a"
+  },
   "vi/guides/aquariumbreeder-how-to-remove-green-dust-algae-in-aquariums": {
     "at": "2026-11-02",
     "hash": "3c94cdf99cd4fe84",
@@ -563,6 +643,21 @@
       }
     ],
     "ruled": "eb6d13662c03bef9"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-55-gallon-fish": {
+    "at": "2026-11-05",
+    "hash": "1e2606fb4c5bab65",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C5",
+        "quote": "angelfish and cardinal tetras in planted tank",
+        "problem": "The photo pairs angelfish with cardinal tetras, which are neon-sized fish, while the angelfish section says such small fish will likely be eaten by adult angelfish.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "1e2606fb4c5bab65"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-7-best-fish-tank-ideas-for-10-gallon-aquarium": {
     "at": "2026-11-01",
@@ -1120,6 +1215,51 @@
       }
     ],
     "ruled": "02923b061e117514"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-diy-fry-trap": {
+    "at": "2026-11-05",
+    "hash": "2406c6d66cf35a28",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- Sỏi hoặc đá\n- Xỏ len qua lỗ kim và kéo ra khoảng 15 cm cho len khỏi tuột.",
+        "problem": "The materials list runs straight into the how-to steps as one unnumbered bulleted list, so the steps look like more items to buy, and 'repeat the two steps above' has no numbered steps to point back to.",
+        "fix": "Thêm dòng 'Các bước làm:' sau danh sách vật liệu và đánh số các bước (1., 2., 3.…).",
+        "rule": "An imperative-sentence bullet that directly follows short noun-phrase bullets under a 'Bạn cần chuẩn bị:' line, with no heading or intro line between them.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- Kéo\n- Cắt đầu thanh xốp cho mép thật thẳng.",
+        "problem": "In method 2 the materials list also runs straight into the steps with no break.",
+        "fix": "Thêm dòng 'Các bước làm:' trước 'Cắt đầu thanh xốp…' và đánh số các bước.",
+        "rule": "An imperative-sentence bullet that directly follows short noun-phrase bullets under a 'Bạn cần chuẩn bị:' line, with no heading or intro line between them.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Dùng kẹp bướm giữ hai mép lại.",
+        "problem": "The page drops the source's step telling you to sew the two edges together with a running stitch, so the in-and-out stitching steps that follow come without saying what they are for.",
+        "fix": "Dùng kẹp bướm giữ hai mép lại. Sau đó khâu lược hai mép lưới vào nhau như sau:",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "- Cắt tấm lưới tròn cho vừa với đáy hình trụ.",
+        "problem": "The page drops the source's step telling you to thread the needle again and whipstitch the round base onto the cylinder, so the base-sewing steps come with no lead-in.",
+        "fix": "- Cắt tấm lưới tròn cho vừa với đáy hình trụ.\n- Xỏ len vào kim lần nữa rồi khâu vắt tấm lưới tròn vào đáy hình trụ như sau:",
+        "field": "body"
+      }
+    ],
+    "ruled": "2406c6d66cf35a28"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-diy-plant-background-wall": {
     "at": "2026-11-02",
@@ -1738,6 +1878,21 @@
     ],
     "ruled": "a250a5d0607f28e1"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-plants-for-african-cichlids": {
+    "at": "2026-11-05",
+    "hash": "663a8dd01f79c741",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C5",
+        "quote": "Redcap oranda goldfish and Amazon Sword Plants",
+        "problem": "The photo shows a goldfish, a different fish from the African cichlids this page is about.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "663a8dd01f79c741"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-pothos": {
     "at": "2026-11-02",
     "hash": "15cc566a47fef903",
@@ -2038,6 +2193,22 @@
     "hash": "2c89219c032333e5",
     "findings": [],
     "ruled": "2c89219c032333e5"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-5-killifish": {
+    "at": "2026-11-05",
+    "hash": "15008735def670a6",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 5 Colorful Killifish That Every Fish Keeper Should Try - Aquarium Co-Op",
+        "problem": "This caption is the source article's title, so the image is likely a title graphic or thumbnail rather than a photo of a fish.",
+        "rule": "A caption that matches the source article's title or contains the publisher's name.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "15008735def670a6"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-7-freshwater-snails": {
     "at": "2026-11-04",
@@ -2940,6 +3111,12 @@
     ],
     "ruled": "9ac13fb03a4b8f73"
   },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2": {
+    "at": "2026-11-05",
+    "hash": "8cc54f64e553cf61",
+    "findings": [],
+    "ruled": "8cc54f64e553cf61"
+  },
   "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en": {
     "at": "2026-11-05",
     "hash": "f9fa7efee5cc3a86",
@@ -2980,11 +3157,29 @@
     ],
     "ruled": "40c764ab85fa40c0"
   },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en": {
+    "at": "2026-11-05",
+    "hash": "6ec45c4a4c492608",
+    "findings": [],
+    "ruled": "6ec45c4a4c492608"
+  },
   "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-l167-arrived-en": {
     "at": "2026-11-04",
     "hash": "6f6c66208824474b",
     "findings": [],
     "ruled": "6f6c66208824474b"
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-sturisoma-arrived-en": {
+    "at": "2026-11-05",
+    "hash": "fa4fb95f543cce17",
+    "findings": [],
+    "ruled": "fa4fb95f543cce17"
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-three-new-chaetostoma-from-peru-en": {
+    "at": "2026-11-05",
+    "hash": "84457ff69f8a4ed8",
+    "findings": [],
+    "ruled": "84457ff69f8a4ed8"
   },
   "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
     "at": "2026-11-03",
@@ -3007,6 +3202,22 @@
     "hash": "2324c015aef79969",
     "findings": [],
     "ruled": "2324c015aef79969"
+  },
+  "vi/guides/loachesonline-articles-a-river-runs-through-it": {
+    "at": "2026-11-05",
+    "hash": "7f4f224ea8bf759c",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "ảnh hơi lệch nét vì cá đang cử động",
+        "problem": "\"Lệch nét\" is not the usual Vietnamese way to say a photo is blurred because the subject moved, so readers may stumble over it.",
+        "fix": "ảnh hơi nhòe vì cá đang cử động",
+        "field": "body"
+      }
+    ],
+    "ruled": "7f4f224ea8bf759c"
   },
   "vi/guides/loachesonline-articles-botia-kubotai-development-of-markings-during-growth": {
     "at": "2026-11-01",
@@ -3321,6 +3532,47 @@
       }
     ],
     "ruled": "bb17fed4626e61dd"
+  },
+  "vi/guides/loachesonline-articles-water-movement-in-the-loach-aquarium": {
+    "at": "2026-11-05",
+    "hash": "4f49a6a51715d31e",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cập nhật lần cuối ngày 26/07/2008, lúc 06:44.",
+        "problem": "The source web page's 'last modified' line was carried into the article body.",
+        "rule": "A body line that starts with 'Cập nhật lần cuối' followed by a date and time.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Thiết kế manifold cho bể River-Tank",
+        "problem": "Photo captions from the source page sit in the body as loose lines with no photo. Other examples are 'Bao bì của powerhead Hagen Aquaclear 70…', 'Hagen Quickfilter vừa với…', 'Tấm điều chỉnh lưu lượng đã sửa.' and 'Các đầu nối Aquaclear đã lắp…'. Readers trip over these lines because they break the flow of the text.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cánh quạt Sureflow lắp thẳng vào chỗ cánh quạt gốc. Vỏ mới đã lắp.",
+        "problem": "A series of photo captions is run together as one paragraph. Without the photos, fragments like 'Vỏ mới đã lắp.' and 'Đây là giá đỡ…' are hard to follow.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "THẤP HƠN RẤT NHIỀU so với 1540 lít/giờ hãng công bố",
+        "problem": "The page gives the AquaClear 70's rated flow as 1,500 L/h earlier and as 1,540 L/h here.",
+        "fix": "THẤP HƠN RẤT NHIỀU so với 1.500 lít/giờ hãng công bố",
+        "field": "body"
+      }
+    ],
+    "ruled": "4f49a6a51715d31e"
   },
   "vi/guides/seriouslyfish-articles-africhthy-the-interview": {
     "at": "2026-11-01",
@@ -4935,6 +5187,31 @@
       }
     ]
   },
+  "vi/guides/youtube-1tmsHa5spqc": {
+    "at": "2026-11-05",
+    "hash": "ba281f9a623983f5",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cộng đường kính với khoảng cách hai bể để ra chiều dài tổng của cầu.",
+        "problem": "The bridge has two legs, each one width wide, so the total length is the gap plus twice the width, not plus one width.",
+        "fix": "Cộng khoảng cách hai bể với hai lần đường kính (mỗi chân cầu rộng đúng một đường kính) để ra chiều dài tổng của cầu.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cuối cùng, dán hai tấm hông phía trong, tức là hai vách đứng ở phía trong của hai chân cầu.",
+        "problem": "The same term 'tấm hông' was already used for the U-shaped front and back panels, so calling the inner leg walls 'tấm hông' confuses which pieces are meant.",
+        "fix": "Cuối cùng, dán hai vách trong, tức là hai tấm kính đứng ở phía trong của hai chân cầu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ba281f9a623983f5"
+  },
   "vi/guides/youtube-2NdWisNvjL4": {
     "at": "2026-11-04",
     "hash": "85cfd57c8bbc2cf7",
@@ -5153,6 +5430,12 @@
     "findings": [],
     "ruled": "bdcd89c3775d4d7b"
   },
+  "vi/guides/youtube-a0VXTk-GF_I": {
+    "at": "2026-11-05",
+    "hash": "13d07e8a15deb8e6",
+    "findings": [],
+    "ruled": "13d07e8a15deb8e6"
+  },
   "vi/guides/youtube-A1a-GetRJxM": {
     "at": "2026-11-03",
     "hash": "9cef82546740aefa",
@@ -5242,6 +5525,12 @@
     "hash": "4717c782dad068f3",
     "findings": [],
     "ruled": "4717c782dad068f3"
+  },
+  "vi/guides/youtube-apPiQrY9GIM": {
+    "at": "2026-11-05",
+    "hash": "bf4b0f86dfa07f7a",
+    "findings": [],
+    "ruled": "bf4b0f86dfa07f7a"
   },
   "vi/guides/youtube-AsK_yxCXVrY": {
     "at": "2026-11-01",
@@ -5376,6 +5665,12 @@
     ],
     "ruled": "999ccb9f216c85c0"
   },
+  "vi/guides/youtube-CteRIdT1Ous": {
+    "at": "2026-11-05",
+    "hash": "6803a0bd77ac3435",
+    "findings": [],
+    "ruled": "6803a0bd77ac3435"
+  },
   "vi/guides/youtube-CUdG6dWVOEM": {
     "at": "2026-11-04",
     "hash": "b6d78afe00497a7a",
@@ -5485,6 +5780,12 @@
     "hash": "a4d578b940c3b5ea",
     "findings": [],
     "ruled": "a4d578b940c3b5ea"
+  },
+  "vi/guides/youtube-EaIrRD_QJuo": {
+    "at": "2026-11-05",
+    "hash": "6260f757ae3f025b",
+    "findings": [],
+    "ruled": "6260f757ae3f025b"
   },
   "vi/guides/youtube-eBSkRyVXnhU": {
     "at": "2026-11-04",
@@ -6314,6 +6615,30 @@
     "findings": [],
     "ruled": "4b725d9b27967785"
   },
+  "vi/guides/youtube-lnOoJm-b5vs": {
+    "at": "2026-11-05",
+    "hash": "24eade2353f1aa40",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ở bể đang nuôi, tập bóp ống khi hút nền và đảo nền bằng tay trước mỗi lần thay nước.",
+        "problem": "This action step comes out of nowhere: the page never talks about squeezing the siphon or stirring the substrate by hand, so the reader has no context for it.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chuyển cả quần thể cá ốc là việc tốn thời gian nhất của bể nuôi loài này.",
+        "problem": "Earlier the page says draining the water is the most time-consuming job, and here moving the shell-dweller colony is called the most time-consuming, so the two claims clash.",
+        "fix": "Chuyển cả quần thể cá ốc là một trong những việc tốn thời gian nhất khi dỡ bể nuôi loài này.",
+        "field": "body"
+      }
+    ],
+    "ruled": "24eade2353f1aa40"
+  },
   "vi/guides/youtube-LsQQ1yVFsBQ": {
     "at": "2026-11-04",
     "hash": "af6fc87e3dd5f0c8",
@@ -6675,6 +7000,22 @@
     ],
     "ruled": "119104fde2aacb1d"
   },
+  "vi/guides/youtube-PVRlXXhdD7U": {
+    "at": "2026-11-05",
+    "hash": "40b81ff30acb4782",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L10",
+        "quote": "Cây có thể xấu đi vài tuần tới vài tháng rồi mới đẹp lại.",
+        "problem": "The FAQ says plants recover in a few weeks to a few months, but the planting section says they only look good again after a few months.",
+        "fix": "Cây sẽ xấu đi một thời gian, phải vài tháng sau mới đẹp lại.",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "40b81ff30acb4782"
+  },
   "vi/guides/youtube-pY7e33xGcyQ": {
     "at": "2026-11-04",
     "hash": "fcff4c4c39ab7385",
@@ -7020,6 +7361,12 @@
     "hash": "0d25ccae740e0ad6",
     "findings": [],
     "ruled": "0d25ccae740e0ad6"
+  },
+  "vi/guides/youtube-tau-i3HxVFQ": {
+    "at": "2026-11-05",
+    "hash": "8c067b384c9ede29",
+    "findings": [],
+    "ruled": "8c067b384c9ede29"
   },
   "vi/guides/youtube-TeiNFp4uDB4": {
     "at": "2026-11-03",

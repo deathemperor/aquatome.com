@@ -26,6 +26,11 @@ struct AquaTomeApp: App {
       WKWebsiteDataStore.default().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: .distantPast) {}
     }
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
+    // The UI flows (`-no-animations`): after each tap or swipe XCUITest waits for the app to be idle, UIKit's animations
+    // ended (a push, a sheet, an alert, the tab bar), up to about 2 s a step on a busy Mac. SwiftUI's own animations
+    // turned off too shortened none of those waits, so they stay. Never in the performance tests: they measure the app
+    // as a reader sees it.
+    if ProcessInfo.processInfo.arguments.contains("-no-animations") { UIView.setAnimationsEnabled(false) }
     #endif
     // Read after the tests' reset above (the handbook keeps the pages read).
     let handbook = HandbookModel()

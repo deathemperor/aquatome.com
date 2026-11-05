@@ -1,8 +1,8 @@
 {
   "id": "glossolepis-incisus",
   "native": {
-    "input": "540b79c89c1aa9a4",
-    "at": "2026-11-05T00:41:00.281Z",
+    "input": "38b779677b82d2d0",
+    "at": "2026-11-05T06:42:12.410Z",
     "claims": [
       {
         "code": "ID",
@@ -24,13 +24,6 @@
     "regions": [
       {
         "name": "Lake Sentani",
-        "source": "glaser",
-        "quote": "The home of Glossolepis incisus lies in western Papua New Guinea, where it inhabits Lake Sentani and its surroundings.",
-        "country": "PG",
-        "ok": true
-      },
-      {
-        "name": "Lake Sentani",
         "source": "seriouslyfish",
         "quote": "The red rainbowfish, Glossolepis incisa, is a rainbowfish from the Lake Sentani region of northern New Guinea, Indonesia.",
         "country": "ID",
@@ -41,6 +34,13 @@
         "source": "seriouslyfish",
         "quote": "The red rainbowfish, Glossolepis incisa, is a rainbowfish from the Lake Sentani region of northern New Guinea, Indonesia.",
         "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Lake Sentani",
+        "source": "glaser",
+        "quote": "The home of Glossolepis incisus lies in western Papua New Guinea, where it inhabits Lake Sentani and its surroundings.",
+        "country": "PG",
         "ok": true
       }
     ],
