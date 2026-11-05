@@ -194,6 +194,13 @@ write markers for code it never tested). When GitHub's API doesn't answer, nothi
 are GitHub cache entries, never restored, so each goes within 7 days (sooner when the repository's caches near their
 10 GB); nothing on the Mac keeps them.
 
+- After the own Mac's Xcode or simulator runtime is updated, bump the repository variable `IOS_PASSED_EPOCH` (`gh
+  variable set IOS_PASSED_EPOCH --body <next number>`): it is in every key, so no marker from before counts. Without it,
+  markers from before the update still count until a job passes on the new toolchain, and a build the update broke
+  would show only in the nightly run.
+- A pull request's page screenshots (`ios-page-shots`) come from the run that ran `handbook (1)`. When that job stands
+  in, its notice names the run that holds them (the after); the before is main's last run that ran `handbook (1)`.
+
 ## AquaTomeKit
 
 `AquaTomeKit/` is a Swift package with the device code, no UI:

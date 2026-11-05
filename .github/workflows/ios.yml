@@ -120,6 +120,8 @@ jobs:
           ATTEMPT: ${{ github.run_attempt }}
           REF: ${{ github.ref }}
           FORK: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository }}
+          # Bumped by hand after the own Mac's Xcode or simulator runtime is updated (apps/ios/README.md).
+          EPOCH: ${{ vars.IOS_PASSED_EPOCH }}
           READY: ${{ steps.pick.outputs.ready }}
           RUNNER: ${{ steps.where.outputs.runner }}
           APP: ${{ steps.pick.outputs.app }}
@@ -153,16 +155,19 @@ jobs:
       - if: env.PASSED == ''
         run: swift build && swift test
         working-directory: apps/ios/AquaTomeKit
-      # Passed: a marker for a later run of the same code (passed-before.py). A marker that can't be written leaves the
-      # job as it passed.
+      # Passed: a marker for a later run of the same code (passed-before.py). One that can't be written is a warning,
+      # and leaves the job as it passed.
       - id: mark
         continue-on-error: true
         if: >-
           success() && env.PASSED == '' && (github.event_name != 'pull_request' ||
           github.event.pull_request.head.repo.full_name == github.repository)
         run: |
-          python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"
-          touch "$RUNNER_TEMP/passed"
+          if python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"; then
+            touch "$RUNNER_TEMP/passed"
+          else
+            echo "::warning title=Passed before::no marker written: a later run of this code runs this job again"
+          fi
       - if: steps.mark.outputs.key != ''
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -217,16 +222,19 @@ jobs:
           name: ios-ui-tests
           path: build/ui.xcresult
           if-no-files-found: ignore
-      # Passed: a marker for a later run of the same code (passed-before.py). A marker that can't be written leaves the
-      # job as it passed.
+      # Passed: a marker for a later run of the same code (passed-before.py). One that can't be written is a warning,
+      # and leaves the job as it passed.
       - id: mark
         continue-on-error: true
         if: >-
           success() && env.PASSED == '' && (github.event_name != 'pull_request' ||
           github.event.pull_request.head.repo.full_name == github.repository)
         run: |
-          python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"
-          touch "$RUNNER_TEMP/passed"
+          if python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"; then
+            touch "$RUNNER_TEMP/passed"
+          else
+            echo "::warning title=Passed before::no marker written: a later run of this code runs this job again"
+          fi
       - if: steps.mark.outputs.key != ''
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -294,16 +302,19 @@ jobs:
           name: ios-perf
           path: build/perf.xcresult
           if-no-files-found: ignore
-      # Passed: a marker for a later run of the same code (passed-before.py). A marker that can't be written leaves the
-      # job as it passed.
+      # Passed: a marker for a later run of the same code (passed-before.py). One that can't be written is a warning,
+      # and leaves the job as it passed.
       - id: mark
         continue-on-error: true
         if: >-
           success() && env.PASSED == '' && (github.event_name != 'pull_request' ||
           github.event.pull_request.head.repo.full_name == github.repository)
         run: |
-          python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"
-          touch "$RUNNER_TEMP/passed"
+          if python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"; then
+            touch "$RUNNER_TEMP/passed"
+          else
+            echo "::warning title=Passed before::no marker written: a later run of this code runs this job again"
+          fi
       - if: steps.mark.outputs.key != ''
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -372,16 +383,19 @@ jobs:
           name: ios-handbook-flows-${{ matrix.half }}
           path: build/handbook.xcresult
           if-no-files-found: ignore
-      # Passed: a marker for a later run of the same code (passed-before.py). A marker that can't be written leaves the
-      # job as it passed.
+      # Passed: a marker for a later run of the same code (passed-before.py). One that can't be written is a warning,
+      # and leaves the job as it passed.
       - id: mark
         continue-on-error: true
         if: >-
           success() && env.PASSED == '' && (github.event_name != 'pull_request' ||
           github.event.pull_request.head.repo.full_name == github.repository)
         run: |
-          python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"
-          touch "$RUNNER_TEMP/passed"
+          if python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"; then
+            touch "$RUNNER_TEMP/passed"
+          else
+            echo "::warning title=Passed before::no marker written: a later run of this code runs this job again"
+          fi
       - if: steps.mark.outputs.key != ''
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -439,16 +453,19 @@ jobs:
           name: ios-light-flows-${{ matrix.half }}
           path: build/lights.xcresult
           if-no-files-found: ignore
-      # Passed: a marker for a later run of the same code (passed-before.py). A marker that can't be written leaves the
-      # job as it passed.
+      # Passed: a marker for a later run of the same code (passed-before.py). One that can't be written is a warning,
+      # and leaves the job as it passed.
       - id: mark
         continue-on-error: true
         if: >-
           success() && env.PASSED == '' && (github.event_name != 'pull_request' ||
           github.event.pull_request.head.repo.full_name == github.repository)
         run: |
-          python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"
-          touch "$RUNNER_TEMP/passed"
+          if python3 apps/ios/scripts/passed-before.py --mark "$PASS_KEY" >> "$GITHUB_OUTPUT"; then
+            touch "$RUNNER_TEMP/passed"
+          else
+            echo "::warning title=Passed before::no marker written: a later run of this code runs this job again"
+          fi
       - if: steps.mark.outputs.key != ''
         uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:

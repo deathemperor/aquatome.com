@@ -2,7 +2,8 @@
 """Whether a job of ios.yml already passed on the code it tests, so a run of the same code doesn't hold a Mac for it again.
 
 A job's key: the git trees it tests (apps/ios, protocols and ios.yml) as the run checked them out, the job, the flows it
-runs and where (the own Mac or GitHub's). A pull request's run checks out its merge with main, so a change on main that
+runs, where (the own Mac or GitHub's) and the repository variable IOS_PASSED_EPOCH, bumped by hand after the own Mac's
+Xcode or simulator runtime is updated: until a job passes there on the new one, its markers can't tell. A pull request's run checks out its merge with main, so a change on main that
 reaches the app changes the key, and a rebase that only moved docs doesn't. Nothing else is read by the app's build or
 its tests: the kit's tests read protocols/, the app's flows the fixtures in apps/ios.
 
@@ -49,8 +50,8 @@ def jobs(env):
     return out
 
 
-def key(trees, name, pool, flows):
-    digest = hashlib.sha256('\n'.join(trees + [name, pool, ' '.join(flows.split())]).encode()).hexdigest()[:20]
+def key(trees, name, pool, flows, epoch=''):
+    digest = hashlib.sha256('\n'.join(trees + [name, pool, ' '.join(flows.split()), epoch]).encode()).hexdigest()[:20]
     return f'{PREFIX}/{pool}/{name}/{digest}'
 
 
@@ -85,13 +86,13 @@ def find(env, trees, listing, newest, warn=print):
             warn(f'::warning title=Passed before::markers not read, every job runs ({e})')
             skip = True
     for name, pool, flows in js:
-        k = key(trees, name, pool, flows)
+        k = key(trees, name, pool, flows, env.get('EPOCH', ''))
         out[f'key_{name}'] = k
         out[f'passed_{name}'] = '' if skip else passed(markers, toolchains, k)
     return out
 
 
-def gh_markers(params):
+def gh_markers(params, pages=10):
     out, page = [], 1
     while True:
         r = subprocess.run(['gh', 'api', f"repos/{os.environ['GITHUB_REPOSITORY']}/actions/caches?"
@@ -100,7 +101,7 @@ def gh_markers(params):
             raise RuntimeError(r.stderr.strip()[:200])
         r = json.loads(r.stdout)
         out += [(c['key'], c['created_at']) for c in r['actions_caches']]
-        if len(r['actions_caches']) < 100 or page == 10:
+        if len(r['actions_caches']) < 100 or page == pages:
             return out
         page += 1
 
@@ -138,6 +139,9 @@ def test():
     assert app != key(trees, 'app', 'own', env['APP'] + ' -only-testing:AquaTomeUITests/PlugFlowTests')
     assert app != key(trees, 'app', HOSTED, env['APP']) != key(trees, 'kit', 'own', env['APP'])
     assert app == key(trees, 'app', 'own', '  ' + env['APP'] + ' ')
+    # A new epoch (IOS_PASSED_EPOCH, bumped after an update on the own Mac): no marker from before it counts.
+    assert app != key(trees, 'app', 'own', env['APP'], '2')
+    assert find(dict(env, EPOCH='2'), trees, lambda r: [(f'{app}/T2/1', 'z')], lambda p: 'T2')['passed_app'] == ''
     t = 'T2'
     lists = {'refs/pull/7/merge': [(f'{app}/T1/100', '2026-11-04T01'), (f'{app}/{t}/101', '2026-11-05T01')],
              'refs/heads/main': [], 'refs/pull/8/merge': []}
@@ -193,8 +197,8 @@ if __name__ == '__main__':
         trees = subprocess.run(['git', 'rev-parse'] + [f'HEAD:{t}' for t in TREES], capture_output=True, text=True,
                                check=True).stdout.split()
         got = find(env, trees, lambda ref: gh_markers(f'key={PREFIX}/&ref={ref}'),
-                   lambda pool: newest_toolchain(gh_markers(f'key={PREFIX}/{pool}/&sort=created_at&direction=desc'),
-                                                 pool))
+                   lambda pool: newest_toolchain(gh_markers(f'key={PREFIX}/{pool}/&sort=created_at&direction=desc',
+                                                            pages=1), pool))
         with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
             f.writelines(f'{k}={v}\n' for k, v in got.items())
         for k, v in got.items():
