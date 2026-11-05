@@ -88,6 +88,20 @@ test('a range that breaks its rules does not parse', () => {
   expect(parses({ native, records: records({ fetched: '4 Nov 2026' }) }), 'a date').toBe(false)
 })
 
+test('a native range\'s quotes name each of its countries and regions once, from its own sources', () => {
+  const native = { countries: ['TH', 'MY'], regions: ['Chao Phraya'], sources: ['seriouslyfish', 'sprucepets'] }
+  const quote = (source: string, countries: string[], regions: string[] = []) => ({ source, quote: 'Occurs naturally throughout central Thailand.', countries, regions })
+  expect(parses({ native: { ...native, quotes: [quote('seriouslyfish', ['TH'], ['Chao Phraya']), quote('sprucepets', ['MY'])] } })).toBe(true)
+  expect(parses({ native: { ...native, quotes: [quote('seriouslyfish', ['TH', 'MY'], ['Chao Phraya'])] } }), 'one sentence for all').toBe(true)
+  expect(parses({ native: { ...native, quotes: [quote('seriouslyfish', ['TH'], ['Chao Phraya'])] } }), 'a country with none').toBe(false)
+  expect(parses({ native: { ...native, quotes: [quote('seriouslyfish', ['TH', 'MY'])] } }), 'a region with none').toBe(false)
+  expect(parses({ native: { ...native, quotes: [quote('seriouslyfish', ['TH', 'MY'], ['Chao Phraya']), quote('sprucepets', ['MY'])] } }), 'a country twice').toBe(false)
+  expect(parses({ native: { ...native, quotes: [quote('glaser', ['TH', 'MY'], ['Chao Phraya'])] } }), 'another source').toBe(false)
+  expect(parses({ native: { ...native, quotes: [quote('seriouslyfish', ['TH', 'MY', 'VN'], ['Chao Phraya'])] } }), 'a country not native').toBe(false)
+  expect(parses({ native: { ...native, quotes: [quote('seriouslyfish', ['TH', 'MY'], ['Chao Phraya']), quote('sprucepets', [])] } }), 'a quote that names nothing').toBe(false)
+  expect(parses({ native: { ...native, quotes: [{ ...quote('seriouslyfish', ['TH', 'MY'], ['Chao Phraya']), quote: '' }] } }), 'no sentence').toBe(false)
+})
+
 test('records inside and the countries outside with the most, from GBIF\'s country field', () => {
   const r = { native: { countries: ['TH', 'MY'] }, records: { countries: [['TH', 50], ['AU', 9], ['BR', 9], ['MY', 3], ['SG', 2], ['US', 2], ['CO', 1], ['IN', 1]] as [string, number][] } }
   expect(recordsInside(r)).toBe(53)
