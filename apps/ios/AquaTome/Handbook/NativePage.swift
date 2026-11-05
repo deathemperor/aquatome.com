@@ -103,7 +103,9 @@ struct NativePage: View {
   /// The space above a piece. A part that heads itself (a gallery) takes a heading's; one that may show nothing (the
   /// pages it names, its readers) puts its own above what it shows.
   private func gap(_ i: Int) -> CGFloat {
-    switch pieces[i] {
+    // The sources behind a species' facts, close under them.
+    if i > 0, case .more = pieces[i], case .facts = pieces[i - 1] { return 12 }
+    return switch pieces[i] {
     case .photo(_, _, _, _, _, _, _, true), .pages, .readers: 0
     case .text(_, _, .title): i == 0 ? 12 : 20
     case _ where i == 0: 12
@@ -224,9 +226,11 @@ struct NativePage: View {
     }
   }
 
-  /// The page as pieces: worked out once, when it's read, not on every redraw.
-  static func pieces(_ doc: PageDoc) -> [Piece] {
+  /// The page as pieces: worked out once, when it's read, not on every redraw. `traits`: a fish's temperament and
+  /// smallest school, from the index, for under its tank-mates' heading.
+  static func pieces(_ doc: PageDoc, traits: AttributedString? = nil) -> [Piece] {
     var out: [Piece] = []
+    let species = doc.kind == "fish" || doc.kind == "plant"
     // Its photo first, then its name and the lines under it: never a line above the name.
     if doc.video == nil, let lead = doc.lead { out.append(photo(lead, caption: [], href: nil, hero: true)) }
     out.append(.text(styled(doc.title, .pageTitle), look: .title))
@@ -234,7 +238,9 @@ struct NativePage: View {
     if let meta = doc.meta { out.append(.text(styled(meta, .subheadline, secondary: true), look: .line)) }
     if !doc.where.isEmpty { out.append(.text(styled(doc.where, font: .subheadline), look: .line)) }
     if let aka = doc.aka { out.append(.text(styled(aka, .subheadline, secondary: true), look: .line)) }
-    if !doc.credit.isEmpty { out.append(.text(styled(doc.credit, font: .footnote, secondary: true), look: .line)) }
+    let credit = Piece.text(styled(doc.credit, font: .footnote, secondary: true), look: .line)
+    // A species' credit goes under its facts, as on the site's page.
+    if !species, !doc.credit.isEmpty { out.append(credit) }
     if let v = doc.video {
       var cap = styled("\(v.title) · \(v.channel) · \(clock(v.durationSec))")
       if let s = v.subtitles { cap += styled("\n" + s, .caption.bold()) }
@@ -246,8 +252,12 @@ struct NativePage: View {
       out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"), caption: cap,
                         href: youtube(v.youtubeId, at: 0), play: true))
     }
-    let species = doc.kind == "fish" || doc.kind == "plant"
-    if species { out.append(.facts) }
+    if species {
+      // As the site's data card: the facts, the sources behind them, then whose text the page is.
+      out.append(.facts)
+      for b in doc.blocks { if case .trust = b { add(b, to: &out) } }
+      if !doc.credit.isEmpty { out.append(credit) }
+    }
     // A species' parts in the order its reader asks (rank), its readers before where to go next; a guide's as written.
     // A paragraph before a species' summary and sections is the tank-mates tool's link, sent alone when the page shows
     // no tank-mates: it goes where they would.
@@ -261,7 +271,11 @@ struct NativePage: View {
       // A run of parts it can't draw is one offer of the web page.
       if case .web = b { if !webBefore { out.append(.web) }; webBefore = true; continue }
       webBefore = false
+      if species, case .trust = b { continue }
+      let at = out.count
       add(b, to: &out)
+      // Under "Nuôi chung", before its fish, as the site's has them.
+      if case .mates = b, let traits { out.insert(.text(traits, look: .line), at: at + 1) }
     }
     if let readers { out.append(readers) }
     return out
