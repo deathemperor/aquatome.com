@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { parse } from 'node-html-parser'
 import TurndownService from 'turndown'
 
-const DROP = 'script, style, noscript, template, svg, form, button, nav, .comments, .products'
+const DROP = 'script, style, noscript, template, svg, form, button, nav, .comments, .kit, [data-shop-pick]'
 const td = new TurndownService({ headingStyle: 'atx', bulletListMarker: '-', codeBlockStyle: 'fenced' })
 // Card links (an <a> wrapping a heading and labels) become one list line: "- [heading](href) · label · label".
 td.addRule('card', {

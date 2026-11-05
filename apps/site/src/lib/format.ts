@@ -25,7 +25,10 @@ export const CATEGORY_LABELS: Record<string, string> = {
 export const categoryLabel = (c: string) => CATEGORY_LABELS[c] ?? c
 
 /** Tracked affiliate link; the Worker resolves it to a checked product or a marketplace search (see worker/affiliate). */
-export const goLink = (network: 'shopee' | 'lazada' | 'tiki', keyword: string, category: string, entity?: string) =>
+/** The marketplaces a shop link can search, the first the one a page's links go to until the reader picks another (ShopPicker.astro). */
+export const SHOPS = ['shopee', 'lazada', 'tiki'] as const
+export const SHOP_NAMES: Record<(typeof SHOPS)[number], string> = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
+export const goLink = (network: (typeof SHOPS)[number], keyword: string, category: string, entity?: string) =>
   `/go/${network}/?${new URLSearchParams({ k: keyword, c: category, ...(entity ? { e: entity } : {}) })}`
 
 export const GROUP_LABELS: Record<string, string> = {
