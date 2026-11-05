@@ -2,6 +2,30 @@
   "id": "acestrorhynchus-falcatus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/147078781.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/147078781-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "João D'Andretta",
+      "sourceUrl": "https://www.inaturalist.org/photos/147078781",
+      "caption": "Cá măng đuôi đỏ bơi gần đá trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/147079721.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/147079721-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "João D'Andretta",
+      "sourceUrl": "https://www.inaturalist.org/photos/147079721",
+      "caption": "Cá măng đuôi đỏ bơi trên nền cát trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/67064618.webp",
       "thumb": "https://media.aquatome.com/inaturalist/67064618-480.webp",
       "width": 1024,
@@ -32,7 +56,7 @@
       "caption": "Cá măng đuôi đỏ bơi trong nước trong ngoài tự nhiên"
     }
   ],
-  "seen": 10,
-  "updatedAt": "2026-10-30",
-  "builtAt": "2026-10-30"
+  "seen": 14,
+  "updatedAt": "2026-11-04",
+  "builtAt": "2026-11-04"
 }

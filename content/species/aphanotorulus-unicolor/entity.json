@@ -9,7 +9,10 @@
     "south-america",
     "brazil",
     "rio-purus",
-    "amazon"
+    "amazon",
+    "bolivia",
+    "madre-de-dios",
+    "peru"
   ],
   "dataCard": {
     "tempC": [
@@ -36,6 +39,10 @@
       {
         "source": "scotcat",
         "value": 14
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "ph": [
@@ -62,6 +69,12 @@
       "html": "<p>Mouth with papillae and upper lips have protrusions.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/aphanotorulus_frankei_bolivia_en/",
+      "html": "<ul><li>Common name of the genus Aphanotorulus: Leopard-Plecos</li><li>Usually reach around 15–20 cm in length</li><li>Live on sand bottom</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
@@ -72,6 +85,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm",
       "html": "<p>South America: Brazil; Upper Amazon River basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/aphanotorulus_frankei_bolivia_en/",
+      "html": "<p>Aphanotorulus frankei is known from Peru. The fish received in the shipment come from the Madre de Dios basin in Bolivia and are very similar to A. frankei.</p>"
     },
     {
       "key": "maintenance",
@@ -104,6 +123,12 @@
       "html": "<p>Similar to the Hypostomus genera but remains smaller. Males have bristles on the odontodes, mainly on the posterior of the body during spawning time.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/aphanotorulus_frankei_bolivia_en/",
+      "html": "<p>Astonishingly, the sexes can be distinguished at a very small size already, e.g. 3–5 cm total length.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1154",
@@ -120,6 +145,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm",
       "html": "<p><strong>IUCN Red List:</strong> Despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p><p><strong>Etymology:</strong> The specific name unicolor: uni-, from unus (L.), one, referring to its uniform chocolate colouration (perhaps described from a preserved or colour-faded specimen since the catfish is spotted in life).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/aphanotorulus_frankei_bolivia_en/",
+      "html": "<p>The genus Aphanotorulus contains only two species, following some scientists: A. ammophilus from the Orinoco basin and A. unicolor from the complete upper Amazon basin. However, aquarists are by far more splitting in this respect and distinguish at least four different species, among them A. frankei from Peru.</p><p>Possibly the recently imported fish stay small.</p>"
     },
     {
       "key": "references",
@@ -219,5 +250,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-05"
 }

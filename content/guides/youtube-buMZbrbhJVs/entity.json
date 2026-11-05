@@ -1,0 +1,110 @@
+{
+  "id": "youtube-buMZbrbhJVs",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=buMZbrbhJVs",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-pteropus",
+    "taxiphyllum-barbieri"
+  ],
+  "updatedAt": "2026-11-04",
+  "video": {
+    "youtubeId": "buMZbrbhJVs",
+    "title": "HOW TO: Add Sand To Your Aquarium - CHEAP, CLEAN and SAFE!",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 782,
+    "publishedAt": "2011-08-25",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mYYlBtX2gd98mXp67fKoiYb",
+      "position": 12
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/buMZbrbhJVs/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [
+      "Microsorum pteropus",
+      "Taxiphyllum barbieri"
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 31
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 550
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao chọn cát lọc hồ bơi",
+        "moments": [
+          {
+            "t": 109,
+            "url": "https://media.aquatome.com/video/buMZbrbhJVs/t109.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Bao cát lọc hồ bơi loại khoảng 18 kg."
+          },
+          {
+            "t": 133,
+            "url": "https://media.aquatome.com/video/buMZbrbhJVs/t133.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Cát lọc hồ bơi hạt nhỏ, vừa phải trên lòng bàn tay."
+          }
+        ]
+      },
+      {
+        "heading": "Chuẩn bị những gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/buMZbrbhJVs/p1-NfYnVja2V0LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/buMZbrbhJVs/p1-NfYnVja2V0LmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Santeri Viinamäki",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_plastic_bucket.jpg",
+          "caption": "Một chiếc xô nhựa trắng đặt ngoài sân, dùng để rửa cát."
+        }
+      },
+      {
+        "heading": "Cho cát vào bể đang có cá",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/buMZbrbhJVs/p3-RvbV9zYW5kLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/buMZbrbhJVs/p3-RvbV9zYW5kLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "kerinin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
+          "caption": "Lớp cát trắng mỏng rải dưới đáy bể, bên cạnh khối đá lũa."
+        }
+      },
+      {
+        "heading": "Dày bao nhiêu và dàn cát ra sao",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/buMZbrbhJVs/p4-RvbV9zYW5kLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/buMZbrbhJVs/p4-RvbV9zYW5kLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "kerinin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
+          "caption": "Lớp cát mỏng được dàn phẳng dưới đáy bể, cạnh đá lũa."
+        }
+      }
+    ]
+  }
+}

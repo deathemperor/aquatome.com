@@ -1,0 +1,247 @@
+{
+  "id": "ilyodon-furcidens",
+  "scientificName": "Ilyodon furcidens",
+  "order": "Cyprinodontiformes",
+  "family": "Goodeidae",
+  "genus": "Ilyodon",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "mexico",
+    "jalisco",
+    "colima"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 17,
+          "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>The species of the genus Ilyodon are among the larger members of the splitfins (Goodeids). In exceptional cases, individual specimens can reach a length of 15 cm. For this reason, Ilyodon are sometimes even found on the human menu.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<p>The goldbreast goodeid, Ilyodon furcidens, is a livebearer from Jalisco and Colima in Mexico, found in fast-flowing streams and small rivers. It needs strong current, with the filter turning the tank over 8–12 times an hour. Like other goodeids it nourishes its developing young through a trophotaenia, and females must be mated separately for each brood. A peaceful fish, it suits a community whose other species can cope with the lower temperatures it needs.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>Mexican states of Jalisco and Colima.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<p>The states of Jalisco and Colima, Mexico.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>This splitfin is a river dweller.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<p>Inhabits fast-flowing streams and small rivers with varying biotopes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>For the long-term care of these peaceful fish, the largest possible aquariums should be used, also due to their potential adult size.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<p>Standard length: 70 mm SL.</p><p>Aquarium base: 75 × 30 cm.</p><p>Volume: ~68 litres (75 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>Because it is a river dweller, this species has somewhat higher demands on water quality. Generous weekly water changes (up to 80%) and good oxygen levels (not below 8 mg/l) should therefore be the norm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<p>A planted aquarium with some floating cover and a scattering of smooth rocks is ideal for I. furcidens. A good flow of water is also appreciated as these fish prefer well-oxygenated water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>As with almost all Goodeids, water temperatures below 26°C in summer and around 17°C in winter are ideal.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 7.0–8.0</li><li>Hardness: 10–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>In the wild, this species feeds primarily on algae and aufwuchs. Therefore, a diet that is too high in fat and protein is not recommended.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<p>Omnivorous and unfussy, they will accept most foods offered. They consume large amounts of algae in their natural habitat so some greenstuffs should be included in the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>These fish are peaceful.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<p>A peaceful fish and can be kept in a community tank provided the other species can cope with the lower temperatures required. Males may squabble amongst themselves but physical damage is rare.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<p>Males are smaller, more colourful and possess an andropodium (a notched anal fin used for reproduction).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>Ilyodon, like all Goodeids, are livebearers. The juveniles are usually not preyed upon, so a thriving colony is usually established quickly. Temporary outdoor housing is extremely beneficial for the fish.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<p>Easy. Livebearer. Should be mated in a species aquarium and can be bred using a single pair or a group (flock spawning). The breeding tank should contain lots of plants.</p><p>Goodeids breed in a slightly different way to other livebearers. Females do not store sperm as in many other livebearing species and must be mated separately for each brood of young. They also display no gravid spot.</p><p>Gestation takes between 7–8 weeks, after which 5–50 huge fry (up to 1.5 cm) are produced. Sometimes these may have what appears to be an umbilical cord attached. This is quite normal and will disappear in 2–3 days.</p><p>The fry are large enough to accept the same foods as the adults from birth and will be bold and outgoing from the outset, competing for food with any other fish in the aquarium. The parents rarely predate on the fry.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ilyodon-furcidens-2/",
+      "html": "<p>The number of species within the genus Ilyodon has been (and, to some extent, still is) a subject of debate. For a long time, the broad-mouthed I. xanthusi was distinguished from the narrow-mouthed I. furcidens, until it was experimentally proven that both can occur in a single litter of a female (Ilyodon, like all Goodeids, are livebearers). Since I. furcidens is the older name, it is the valid one.</p><p>Ilyodon furcidens is still generally considered “not endangered,” but there are many warnings that introduced food fish (especially Micropterus) and livebearers (Poeciliopsis gracilis) are putting at least certain populations of I. furcidens in serious jeopardy. However, the species’ total range in the Mexican states of Jalisco and Colima is extensive, and there is no evidence that the various populations differ significantly from one another, either physically or genetically.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ilyodon-furcidens",
+      "html": "<p>The species name 'furcidens' is derived from the interesting fork-shaped teeth of this fish. This species may develop a cervical hump as it matures.</p><p>As with other goodeids, there is less of a size difference between the sexes than in many other livebearers. This is thought to be related to the relatively primitive structure of the andropodium, as the fish tend to choose mates that are of similar size so that the sex organs are synchronised.</p><p>Goodeids are unique among livebearers in that the developing young are nourished by a specialised structure known as the trophotaenia. This performs a similar function to the placenta in mammals and the remnants of it can often be seen attached to the young fish at birth. Male fish also possess an internal muscular structure known as a pseudophallus, which connects the sperm ducts to the genital opening, and is said to forcibly eject sperm.</p><p>Also referred to as the Goldbreast Splitfin.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/12d6cbcf23d40d29.webp",
+      "width": 960,
+      "height": 568,
+      "licence": "CC BY-SA 3.0",
+      "author": "Andrewbogott",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ilyodon_furcidens.jpg",
+      "caption": "Pair of adult Ilyodon furcidens, male above",
+      "thumb": "https://media.aquatome.com/commons/12d6cbcf23d40d29-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/bc568922a9d27a0b.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Lyons J, Piller KR, Artigas-Azas JM, Dominguez-Dominguez O, Gesundheit P, Köck M, Medina-Nava M, Mercado-Silva N, García AR, Findley KM (2019) Distribution and current conservation status of the Mexican Goodeidae (Actinopterygii, Cyprinodontiformes). ZooKeys 885: 115-158. https://doi.org/10.3897/zookeys.885.38152",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goodeid_fishes_habitats_(10.3897-zookeys.885.38152)_Figure_2.jpg",
+      "caption": "Figure 2; Photos of four representative types of goodeid habitats A Lake Chapala, near Ajijic, Jalisco, 6 January 2005. The largest natural lake in Mexico and historically the home of at least six spe",
+      "thumb": "https://media.aquatome.com/commons/bc568922a9d27a0b-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "máy lọc nước bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tảo spirulina cho cá",
+        "thức ăn ít đạm cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

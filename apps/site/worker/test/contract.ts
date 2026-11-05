@@ -6,7 +6,7 @@ import { expect } from 'vitest'
  * A contract in protocols/ the app builds against, for checking the Worker's answers: every answer's status is one the
  * contract lists, and its body has the contract's shape (talk.test.ts, fishid.test.ts).
  */
-export type Schema = { $ref?: string; type?: string | string[]; required?: string[]; properties?: Record<string, Schema>; additionalProperties?: boolean; items?: Schema; enum?: unknown[]; const?: unknown; minimum?: number; minLength?: number; maxLength?: number; pattern?: string }
+export type Schema = { $ref?: string; type?: string | string[]; required?: string[]; properties?: Record<string, Schema>; additionalProperties?: boolean; items?: Schema; minItems?: number; maxItems?: number; oneOf?: Schema[]; enum?: unknown[]; const?: unknown; minimum?: number; maximum?: number; minLength?: number; maxLength?: number; pattern?: string }
 export type Op = { responses: Record<string, { description: string; content: { 'application/json': { schema: Schema } } }> }
 
 export function contract(file: string) {
@@ -17,6 +17,11 @@ export function contract(file: string) {
   function misfits(v: unknown, schema: Schema, at = '$'): string[] {
     const s = resolve(schema)
     const out: string[] = []
+    // oneOf: exactly one of its schemas takes the value.
+    if (s.oneOf) {
+      const fits = s.oneOf.filter(x => !misfits(v, x, at).length).length
+      if (fits !== 1) out.push(`${at}: fits ${fits} of oneOf's ${s.oneOf.length} schemas, not 1`)
+    }
     const types = [s.type ?? []].flat()
     if (v === null && types.includes('null')) return out
     const type = types.find(t => t !== 'null')
@@ -30,15 +35,16 @@ export function contract(file: string) {
       if (s.additionalProperties === false) for (const k of Object.keys(o)) if (!(k in (s.properties ?? {}))) out.push(`${at}.${k}: not allowed`)
     } else if (type === 'array') {
       if (!Array.isArray(v)) return [...out, `${at}: not an array`]
+      if (v.length < (s.minItems ?? 0) || v.length > (s.maxItems ?? Infinity)) out.push(`${at}: ${v.length} items`)
       v.forEach((x, i) => out.push(...misfits(x, s.items ?? {}, `${at}[${i}]`)))
     } else if (type === 'string') {
       if (typeof v !== 'string') return [...out, `${at}: not a string`]
       if (v.length < (s.minLength ?? 0) || v.length > (s.maxLength ?? Infinity)) out.push(`${at}: length ${v.length}`)
       if (s.pattern && !new RegExp(s.pattern).test(v)) out.push(`${at}: ${JSON.stringify(v)} doesn't match ${s.pattern}`)
     } else if (type === 'integer') {
-      if (!Number.isInteger(v) || (v as number) < (s.minimum ?? -Infinity)) out.push(`${at}: not an integer ≥ ${s.minimum}`)
+      if (!Number.isInteger(v) || (v as number) < (s.minimum ?? -Infinity) || (v as number) > (s.maximum ?? Infinity)) out.push(`${at}: not an integer in ${s.minimum ?? '…'}–${s.maximum ?? '…'}`)
     } else if (type === 'number') {
-      if (typeof v !== 'number' || v < (s.minimum ?? -Infinity)) out.push(`${at}: not a number ≥ ${s.minimum}`)
+      if (typeof v !== 'number' || v < (s.minimum ?? -Infinity) || v > (s.maximum ?? Infinity)) out.push(`${at}: not a number in ${s.minimum ?? '…'}–${s.maximum ?? '…'}`)
     } else if (type === 'boolean' && typeof v !== 'boolean') out.push(`${at}: not a boolean`)
     return out
   }

@@ -10,6 +10,51 @@
     "indonesia",
     "lake-sentani"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "PG"
+      ],
+      "regions": [
+        "Lake Sentani",
+        "New Guinea"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ]
+    },
+    "records": {
+      "taxonKey": 5214486,
+      "total": 7,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          5
+        ],
+        [
+          "US",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -106.875,
+          33.75,
+          2,
+          0
+        ],
+        [
+          139.21875,
+          -2.8125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
